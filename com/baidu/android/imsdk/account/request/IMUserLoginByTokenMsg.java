@@ -15,6 +15,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import d.a.r.a;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -75,7 +76,7 @@ public class IMUserLoginByTokenMsg extends Message {
             jSONObject.put("account_type", this.mAccountType);
             jSONObject.put("token", this.mToken);
             jSONObject.put("version", 4);
-            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
             jSONObject.put("app_open_type", AccountManagerImpl.getInstance(this.mContext).getAppOpenType());
             jSONObject.put("client_identifier", AccountManagerImpl.getInstance(this.mContext).getExtraSafeParams());
@@ -148,7 +149,7 @@ public class IMUserLoginByTokenMsg extends Message {
                         }
                     }
                 }
-                if (!a.f63831e) {
+                if (!a.f64518e) {
                     ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                 }
             } catch (Exception e2) {

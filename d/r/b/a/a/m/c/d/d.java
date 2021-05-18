@@ -5,10 +5,10 @@ import android.util.Log;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f67459a;
+    public static b f68145a;
 
     public static void a(String str, String str2) {
-        b bVar = f67459a;
+        b bVar = f68145a;
         if (bVar != null) {
             bVar.b(str, str2);
         } else {
@@ -17,7 +17,7 @@ public final class d {
     }
 
     public static void b(String str, String str2, Throwable th) {
-        b bVar = f67459a;
+        b bVar = f68145a;
         if (bVar != null) {
             bVar.error(str, str2, th);
         } else {
@@ -34,7 +34,7 @@ public final class d {
     }
 
     public static void d(String str, String str2) {
-        b bVar = f67459a;
+        b bVar = f68145a;
         if (bVar != null) {
             bVar.info(str, str2);
         } else {
@@ -55,7 +55,7 @@ public final class d {
     }
 
     public static void g(String str, String str2) {
-        b bVar = f67459a;
+        b bVar = f68145a;
         if (bVar != null) {
             bVar.a(str, str2);
         } else {

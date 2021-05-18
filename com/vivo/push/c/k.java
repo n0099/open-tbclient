@@ -1,5 +1,5 @@
 package com.vivo.push.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class k extends ab {
     public k(com.vivo.push.y yVar) {
         super(yVar);

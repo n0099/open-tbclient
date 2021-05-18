@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public class DpRTCSession {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f5218a = new c(DpStatConstants.SESSION_TYPE_RTC_COMMON);
+    public c f5072a = new c(DpStatConstants.SESSION_TYPE_RTC_COMMON);
 
     private synchronized JSONObject a(JSONObject jSONObject) throws JSONException {
-        this.f5218a.a(jSONObject);
+        this.f5072a.a(jSONObject);
         return jSONObject;
     }
 
@@ -33,7 +33,7 @@ public class DpRTCSession {
 
     public synchronized void add(int i2, String str, String str2) {
         if (20488 == i2) {
-            this.f5218a.a(new e((int) DpStatConstants.SESSION_TYPE_RTC_COMMON, str, str2));
+            this.f5072a.a(new e((int) DpStatConstants.SESSION_TYPE_RTC_COMMON, str, str2));
         }
     }
 
@@ -68,6 +68,6 @@ public class DpRTCSession {
     }
 
     public synchronized void upload() {
-        DpSessionDatasUploader.getInstance().upload(toJson(), DpSessionDatasUploader.SAILOR_MONITOR);
+        DpSessionDatasUploader.getInstance().upload(toJson(), "sailor_monitor");
     }
 }

@@ -13,29 +13,29 @@ import d.o.a.d.h;
 import d.o.a.e.a.d;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class n {
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f66142b;
+    public static Context f66828b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f66144d;
+    public static f f66830d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static d.o.a.a.a.a.c f66145e;
+    public static d.o.a.a.a.a.c f66831e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static d.o.a.a.a.a.k f66146f;
+    public static d.o.a.a.a.a.k f66832f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static d.o.a.a.a.a.g f66147g;
+    public static d.o.a.a.a.a.g f66833g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static d.o.a.a.a.a.h f66148h;
+    public static d.o.a.a.a.a.h f66834h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static d.o.a.a.a.a.i f66149i;
+    public static d.o.a.a.a.a.i f66835i;
     public static d.o.a.a.a.a.b j;
     public static d.j k;
     public static d.o.a.a.a.a.d l;
@@ -47,12 +47,12 @@ public class n {
     public static d.o.a.a.a.a.l r;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JSONObject f66141a = new JSONObject();
+    public static final JSONObject f66827a = new JSONObject();
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f66143c = false;
+    public static boolean f66829c = false;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements d.o.a.a.a.a.c {
         @Override // d.o.a.a.a.a.c
         public void a(@Nullable Context context, @NonNull d.o.a.a.a.c.d dVar, @Nullable d.o.a.a.a.c.b bVar, @Nullable d.o.a.a.a.c.c cVar, String str, @NonNull String str2) {
@@ -63,18 +63,18 @@ public class n {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b implements d.j {
         @Override // d.o.a.e.a.d.j
         public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c implements d.o.a.a.a.a.i {
         @Override // d.o.a.a.a.a.i
         public JSONObject a() {
-            return n.f66141a;
+            return n.f66827a;
         }
     }
 
@@ -119,7 +119,7 @@ public class n {
     }
 
     public static Context a() {
-        Context context = f66142b;
+        Context context = f66828b;
         if (context != null) {
             return context;
         }
@@ -128,7 +128,7 @@ public class n {
 
     public static void b(Context context) {
         if (context != null && context.getApplicationContext() != null) {
-            f66142b = context.getApplicationContext();
+            f66828b = context.getApplicationContext();
             return;
         }
         throw new IllegalArgumentException("Context is null");
@@ -139,19 +139,19 @@ public class n {
     }
 
     public static void d(@NonNull f fVar) {
-        f66144d = fVar;
+        f66830d = fVar;
     }
 
     public static void e(@NonNull d.o.a.a.a.a.g gVar) {
-        f66147g = gVar;
+        f66833g = gVar;
     }
 
     public static void f(@NonNull d.o.a.a.a.a.h hVar) {
-        f66148h = hVar;
+        f66834h = hVar;
     }
 
     public static void g(@NonNull d.o.a.a.a.a.i iVar) {
-        f66149i = iVar;
+        f66835i = iVar;
         try {
             d.o.a.e.a.e.F().w(F());
         } catch (Exception e2) {
@@ -160,7 +160,7 @@ public class n {
     }
 
     public static void h(@NonNull d.o.a.a.a.a.k kVar) {
-        f66146f = kVar;
+        f66832f = kVar;
     }
 
     public static void i(@NonNull d.o.a.a.a.d.a aVar) {
@@ -171,42 +171,42 @@ public class n {
     }
 
     public static f k() {
-        return f66144d;
+        return f66830d;
     }
 
     public static void l(Context context) {
-        if (f66142b != null || context == null || context.getApplicationContext() == null) {
+        if (f66828b != null || context == null || context.getApplicationContext() == null) {
             return;
         }
-        f66142b = context.getApplicationContext();
+        f66828b = context.getApplicationContext();
     }
 
     @NonNull
     public static d.o.a.a.a.a.c m() {
-        if (f66145e == null) {
-            f66145e = new a();
+        if (f66831e == null) {
+            f66831e = new a();
         }
-        return f66145e;
+        return f66831e;
     }
 
     @NonNull
     public static d.o.a.a.a.a.k n() {
-        if (f66146f == null) {
-            f66146f = new h.d();
+        if (f66832f == null) {
+            f66832f = new h.d();
         }
-        return f66146f;
+        return f66832f;
     }
 
     public static d.o.a.a.a.a.g o() {
-        return f66147g;
+        return f66833g;
     }
 
     @NonNull
     public static d.o.a.a.a.a.h p() {
-        if (f66148h == null) {
-            f66148h = new h.e();
+        if (f66834h == null) {
+            f66834h = new h.e();
         }
-        return f66148h;
+        return f66834h;
     }
 
     public static d.j q() {
@@ -222,10 +222,10 @@ public class n {
 
     @NonNull
     public static JSONObject s() {
-        if (f66149i == null) {
-            f66149i = new c();
+        if (f66835i == null) {
+            f66835i = new c();
         }
-        return (JSONObject) d.o.a.d.n.k.k(f66149i.a(), f66141a);
+        return (JSONObject) d.o.a.d.n.k.k(f66835i.a(), f66827a);
     }
 
     public static d.o.a.a.a.a.l t() {

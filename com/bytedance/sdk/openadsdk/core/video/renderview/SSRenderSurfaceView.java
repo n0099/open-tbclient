@@ -8,20 +8,20 @@ import com.bytedance.sdk.openadsdk.core.video.renderview.b;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.Callback, b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ArrayList<c> f29329c = new ArrayList<>();
+    public static final ArrayList<c> f28574c = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<a> f29330a;
+    public WeakReference<a> f28575a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f29331b;
+    public c f28576b;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a f29332d;
+    public b.a f28577d;
 
     public SSRenderSurfaceView(Context context) {
         super(context);
@@ -30,8 +30,8 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
 
     private void a() {
         c cVar = new c(this);
-        this.f29331b = cVar;
-        f29329c.add(cVar);
+        this.f28576b = cVar;
+        f28574c.add(cVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
@@ -42,49 +42,49 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.SSSurfaceView, android.view.SurfaceView, android.view.View
     public void onWindowVisibilityChanged(int i2) {
         super.onWindowVisibilityChanged(i2);
-        b.a aVar = this.f29332d;
+        b.a aVar = this.f28577d;
         if (aVar != null) {
             aVar.a(i2);
         }
     }
 
     public void setWindowVisibilityChangedListener(b.a aVar) {
-        this.f29332d = aVar;
+        this.f28577d = aVar;
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
-        WeakReference<a> weakReference = this.f29330a;
+        WeakReference<a> weakReference = this.f28575a;
         if (weakReference == null || weakReference.get() == null) {
             return;
         }
-        this.f29330a.get().a(surfaceHolder, i2, i3, i4);
+        this.f28575a.get().a(surfaceHolder, i2, i3, i4);
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        WeakReference<a> weakReference = this.f29330a;
+        WeakReference<a> weakReference = this.f28575a;
         if (weakReference == null || weakReference.get() == null) {
             return;
         }
-        this.f29330a.get().a(surfaceHolder);
+        this.f28575a.get().a(surfaceHolder);
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        WeakReference<a> weakReference = this.f29330a;
+        WeakReference<a> weakReference = this.f28575a;
         if (weakReference == null || weakReference.get() == null) {
             return;
         }
-        this.f29330a.get().b(surfaceHolder);
+        this.f28575a.get().b(surfaceHolder);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
     public void a(a aVar) {
-        this.f29330a = new WeakReference<>(aVar);
+        this.f28575a = new WeakReference<>(aVar);
         SurfaceHolder holder = getHolder();
         holder.setFormat(-3);
-        Iterator<c> it = f29329c.iterator();
+        Iterator<c> it = f28574c.iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (next.a() == null) {
@@ -92,7 +92,7 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
                 it.remove();
             }
         }
-        holder.addCallback(this.f29331b);
+        holder.addCallback(this.f28576b);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b

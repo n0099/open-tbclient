@@ -7,17 +7,17 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
-import d.a.i0.s.i.b;
+import d.a.j0.s.i.b;
 /* loaded from: classes3.dex */
 public class InitUserNameDialogActivity extends BaseActivity {
-    public d.a.i0.s.i.b mInputUserNameDialog;
+    public d.a.j0.s.i.b mInputUserNameDialog;
 
     /* loaded from: classes3.dex */
     public class a implements b.e {
         public a() {
         }
 
-        @Override // d.a.i0.s.i.b.e
+        @Override // d.a.j0.s.i.b.e
         public void a(AccountData accountData) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921350));
             InitUserNameDialogActivity.this.finish();
@@ -29,7 +29,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
         public b() {
         }
 
-        @Override // d.a.i0.s.i.b.e
+        @Override // d.a.j0.s.i.b.e
         public void a(AccountData accountData) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921350));
             InitUserNameDialogActivity.this.finish();
@@ -54,7 +54,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
-        d.a.i0.s.i.b bVar = new d.a.i0.s.i.b(this);
+        d.a.j0.s.i.b bVar = new d.a.j0.s.i.b(this);
         this.mInputUserNameDialog = bVar;
         bVar.v(new a());
         this.mInputUserNameDialog.w(new b());

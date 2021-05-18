@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.exception;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WeiboHttpException extends WeiboException {
     public static final long serialVersionUID = 1;
     public final int mStatusCode;

@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.alibaba.fastjson.asm.Label;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 

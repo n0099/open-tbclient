@@ -15,20 +15,20 @@ import org.json.JSONObject;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40976a = "";
+    public static String f40221a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40977b = "";
+    public static String f40222b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static Pair<Integer, String[]> f40978c;
+    public static Pair<Integer, String[]> f40223c;
 
     public static String a(Context context) {
         int checkPermission;
         try {
             if (d.a.g0.b.a.g(context).d()) {
-                if (!TextUtils.isEmpty(f40976a)) {
-                    return f40976a;
+                if (!TextUtils.isEmpty(f40221a)) {
+                    return f40221a;
                 }
                 if (Build.VERSION.SDK_INT >= 23) {
                     checkPermission = context.checkSelfPermission("android.permission.READ_PHONE_STATE");
@@ -38,9 +38,9 @@ public class k {
                 if (checkPermission != -1 && c.o(context)) {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     if (telephonyManager != null) {
-                        f40976a = telephonyManager.getSubscriberId();
+                        f40221a = telephonyManager.getSubscriberId();
                     }
-                    return f40976a == null ? "" : f40976a;
+                    return f40221a == null ? "" : f40221a;
                 }
                 return "";
             }
@@ -74,8 +74,8 @@ public class k {
             if (Build.VERSION.SDK_INT < 22) {
                 return new Pair<>(-2, new String[4]);
             }
-            if (f40978c != null) {
-                return f40978c;
+            if (f40223c != null) {
+                return f40223c;
             }
             if (Build.VERSION.SDK_INT >= 23) {
                 checkPermission = context.checkSelfPermission("android.permission.READ_PHONE_STATE");
@@ -104,7 +104,7 @@ public class k {
                     }
                 }
                 Pair<Integer, String[]> pair = new Pair<>(Integer.valueOf(i2), strArr);
-                f40978c = pair;
+                f40223c = pair;
                 return pair;
             }
             return new Pair<>(-1, new String[4]);
@@ -118,8 +118,8 @@ public class k {
         int checkPermission;
         try {
             if (d.a.g0.b.a.g(context).d()) {
-                if (!TextUtils.isEmpty(f40977b)) {
-                    return f40977b;
+                if (!TextUtils.isEmpty(f40222b)) {
+                    return f40222b;
                 }
                 if (Build.VERSION.SDK_INT >= 23) {
                     checkPermission = context.checkSelfPermission("android.permission.READ_PHONE_STATE");
@@ -129,9 +129,9 @@ public class k {
                 if (checkPermission != -1 && c.o(context)) {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     if (telephonyManager != null) {
-                        f40977b = telephonyManager.getSimSerialNumber();
+                        f40222b = telephonyManager.getSimSerialNumber();
                     }
-                    return f40977b == null ? "" : f40977b;
+                    return f40222b == null ? "" : f40222b;
                 }
                 return "";
             }

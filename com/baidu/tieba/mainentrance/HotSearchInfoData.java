@@ -10,39 +10,39 @@ public class HotSearchInfoData extends OrmObject {
     public static final int TOPIC_TYPE = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18840e;
+    public String f18155e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f18841f;
+    public long f18156f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f18842g;
+    public long f18157g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18843h;
+    public String f18158h;
 
     public long getId() {
-        return this.f18842g;
+        return this.f18157g;
     }
 
     public String getName() {
-        return this.f18843h;
+        return this.f18158h;
     }
 
     public String s() {
-        return this.f18840e;
+        return this.f18155e;
     }
 
     public void setId(long j) {
-        this.f18842g = j;
+        this.f18157g = j;
     }
 
     public void setName(String str) {
-        this.f18843h = str;
+        this.f18158h = str;
     }
 
     public long t() {
-        return this.f18841f;
+        return this.f18156f;
     }
 
     public void u(HotSearch hotSearch) {
@@ -50,18 +50,18 @@ public class HotSearchInfoData extends OrmObject {
         if (hotSearch == null || (searchValue = hotSearch.search_value) == null) {
             return;
         }
-        this.f18840e = hotSearch.search_title;
-        this.f18842g = searchValue.id.longValue();
+        this.f18155e = hotSearch.search_title;
+        this.f18157g = searchValue.id.longValue();
         SearchValue searchValue2 = hotSearch.search_value;
-        this.f18843h = searchValue2.name;
-        this.f18841f = searchValue2.type.longValue();
+        this.f18158h = searchValue2.name;
+        this.f18156f = searchValue2.type.longValue();
     }
 
     public void v(String str) {
-        this.f18840e = str;
+        this.f18155e = str;
     }
 
     public void w(long j) {
-        this.f18841f = j;
+        this.f18156f = j;
     }
 }

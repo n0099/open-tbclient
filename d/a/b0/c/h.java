@@ -7,31 +7,31 @@ import java.util.HashMap;
 public class h extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, String> f39361a = new HashMap<>();
+    public static HashMap<String, String> f38606a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, e> f39362b = new HashMap<>();
+    public static HashMap<String, e> f38607b = new HashMap<>();
 
     /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final h f39363a = new h();
+        public static final h f38608a = new h();
     }
 
     public static h e() {
-        return b.f39363a;
+        return b.f38608a;
     }
 
     @Override // d.a.b0.c.e
     public boolean b(Context context, g gVar, d.a.b0.c.a aVar) {
         e eVar;
         String c2 = gVar.c();
-        if (f39361a.get(c2) != null) {
-            gVar.h(c2, f39361a.get(c2));
+        if (f38606a.get(c2) != null) {
+            gVar.h(c2, f38606a.get(c2));
         }
         String e2 = gVar.e(true);
-        if (TextUtils.isEmpty(e2) || (eVar = f39362b.get(e2)) == null) {
+        if (TextUtils.isEmpty(e2) || (eVar = f38607b.get(e2)) == null) {
             return false;
         }
         return eVar.b(context, gVar, aVar);
@@ -47,12 +47,12 @@ public class h extends e {
         if (TextUtils.isEmpty(str) || eVar == null) {
             return;
         }
-        f39362b.put(str, eVar);
+        f38607b.put(str, eVar);
     }
 
     public void g(e eVar) {
         if (eVar != null) {
-            eVar.a(f39361a);
+            eVar.a(f38606a);
         }
     }
 

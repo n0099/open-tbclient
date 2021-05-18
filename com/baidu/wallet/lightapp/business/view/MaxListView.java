@@ -9,28 +9,28 @@ import com.baidu.apollon.utils.DisplayUtils;
 public class MaxListView extends ListView {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f25601a;
+    public int f24846a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f25602b;
+    public Context f24847b;
 
     public MaxListView(Context context) {
         super(context);
-        this.f25602b = context;
+        this.f24847b = context;
         a();
     }
 
     private void a() {
-        this.f25601a = DisplayUtils.dip2px(this.f25602b, 400.0f);
+        this.f24846a = DisplayUtils.dip2px(this.f24847b, 400.0f);
     }
 
     public int getListViewHeight() {
-        return this.f25601a;
+        return this.f24846a;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     public void onMeasure(int i2, int i3) {
-        int i4 = this.f25601a;
+        int i4 = this.f24846a;
         if (i4 > -1) {
             i3 = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
         }
@@ -38,18 +38,18 @@ public class MaxListView extends ListView {
     }
 
     public void setListViewHeight(int i2) {
-        this.f25601a = i2;
+        this.f24846a = i2;
     }
 
     public MaxListView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f25602b = context;
+        this.f24847b = context;
         a();
     }
 
     public MaxListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f25602b = context;
+        this.f24847b = context;
         a();
     }
 }

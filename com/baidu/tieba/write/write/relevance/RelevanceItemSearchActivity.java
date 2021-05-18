@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import d.a.i0.t0.a;
+import d.a.j0.t0.a;
 /* loaded from: classes5.dex */
 public class RelevanceItemSearchActivity extends SuspendedActivity {
     public RelevanceItemSearchView mSearchView;

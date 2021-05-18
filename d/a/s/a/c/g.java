@@ -25,42 +25,42 @@ import javax.net.ssl.SSLSocket;
 public class g extends d {
 
     /* renamed from: c  reason: collision with root package name */
-    public Socket f63930c;
+    public Socket f64617c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f63931d;
+    public InputStream f64618d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OutputStream f63932e;
+    public OutputStream f64619e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63933f;
+    public String f64620f;
 
     public g(Context context, String str) {
         super(context);
-        this.f63933f = str;
+        this.f64620f = str;
     }
 
     @Override // d.a.s.a.c.d
     public InputStream b() throws EOFException, IOException {
-        return new DataInputStream(this.f63931d);
+        return new DataInputStream(this.f64618d);
     }
 
     @Override // d.a.s.a.c.d
     public void c(e eVar) {
-        this.f63889b = eVar;
+        this.f64576b = eVar;
         if (eVar != null) {
-            this.f63931d = eVar.f63893d;
-            this.f63932e = eVar.f63894e;
+            this.f64618d = eVar.f64580d;
+            this.f64619e = eVar.f64581e;
             return;
         }
-        this.f63931d = null;
-        this.f63932e = null;
+        this.f64618d = null;
+        this.f64619e = null;
     }
 
     @Override // d.a.s.a.c.d
     public boolean d() {
-        return k(this.f63889b);
+        return k(this.f64576b);
     }
 
     @Override // d.a.s.a.c.d
@@ -71,32 +71,32 @@ public class g extends d {
     @Override // d.a.s.a.c.d
     public void f(b bVar) throws IOException {
         OutputStream outputStream;
-        if (this.f63930c == null || (outputStream = this.f63932e) == null) {
+        if (this.f64617c == null || (outputStream = this.f64619e) == null) {
             return;
         }
-        outputStream.write(bVar.f63879a);
-        this.f63932e.flush();
+        outputStream.write(bVar.f64566a);
+        this.f64619e.flush();
     }
 
     public final e g(String str, int i2) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
         d.a.s.a.g.d.d("TcpMessageHandler", "---------------ip:" + str + "  port:" + i2 + "-----------------");
-        this.f63930c = h(str, i2);
+        this.f64617c = h(str, i2);
         e eVar = new e();
-        Socket socket = this.f63930c;
+        Socket socket = this.f64617c;
         if (socket == null) {
             return eVar;
         }
-        eVar.f63892c = socket;
-        eVar.f63893d = socket.getInputStream();
-        eVar.f63894e = this.f63930c.getOutputStream();
+        eVar.f64579c = socket;
+        eVar.f64580d = socket.getInputStream();
+        eVar.f64581e = this.f64617c.getOutputStream();
         Boolean bool = Boolean.TRUE;
-        eVar.f63890a = bool;
-        eVar.f63891b = bool;
+        eVar.f64577a = bool;
+        eVar.f64578b = bool;
         return eVar;
     }
 
     public final Socket h(String str, int i2) throws UnknownHostException, IOException, KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        if (this.f63933f.equals("tcp")) {
+        if (this.f64620f.equals("tcp")) {
             return j(str, i2);
         }
         return i(str, i2);
@@ -111,7 +111,7 @@ public class g extends d {
     */
     public final Socket i(String str, int i2) throws UnknownHostException, IOException, CertificateException, KeyStoreException, NoSuchAlgorithmException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, KeyManagementException, TimeoutException, SSLHandshakeException, AssertionError {
         SSLCertificateSocketFactory sSLCertificateSocketFactory;
-        SSLSessionCache sSLSessionCache = new SSLSessionCache(this.f63888a);
+        SSLSessionCache sSLSessionCache = new SSLSessionCache(this.f64575a);
         if (str.contains("baidu.com")) {
             d.a.s.a.g.d.a("TcpMessageHandler", "localdns begin...,domain:" + str);
             try {
@@ -155,19 +155,19 @@ public class g extends d {
     }
 
     public boolean k(e eVar) {
-        if (eVar != null && eVar.f63890a.booleanValue()) {
+        if (eVar != null && eVar.f64577a.booleanValue()) {
             try {
-                if (eVar.f63892c != null) {
-                    eVar.f63892c.close();
-                    eVar.f63892c = null;
+                if (eVar.f64579c != null) {
+                    eVar.f64579c.close();
+                    eVar.f64579c = null;
                 }
-                if (eVar.f63893d != null) {
-                    eVar.f63893d.close();
-                    eVar.f63893d = null;
+                if (eVar.f64580d != null) {
+                    eVar.f64580d.close();
+                    eVar.f64580d = null;
                 }
-                if (eVar.f63894e != null) {
-                    eVar.f63894e.close();
-                    eVar.f63894e = null;
+                if (eVar.f64581e != null) {
+                    eVar.f64581e.close();
+                    eVar.f64581e = null;
                     return true;
                 }
                 return true;

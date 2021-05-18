@@ -27,7 +27,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class QzoneShare extends BaseApi {
     public static final String SHARE_TO_QQ_APP_NAME = "appName";
     public static final String SHARE_TO_QQ_AUDIO_URL = "audio_url";
@@ -47,25 +47,25 @@ public class QzoneShare extends BaseApi {
     public static final int SHARE_TO_QZONE_TYPE_NO_TYPE = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37105c;
+    public boolean f36350c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37106d;
+    public boolean f36351d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f37107e;
+    public boolean f36352e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f37108f;
+    public boolean f36353f;
     public String mViaShareQzoneType;
 
     public QzoneShare(Context context, QQToken qQToken) {
         super(qQToken);
         this.mViaShareQzoneType = "";
-        this.f37105c = true;
-        this.f37106d = false;
-        this.f37107e = false;
-        this.f37108f = false;
+        this.f36350c = true;
+        this.f36351d = false;
+        this.f36352e = false;
+        this.f36353f = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,8 +116,8 @@ public class QzoneShare extends BaseApi {
                     } catch (Exception e2) {
                         e = e2;
                         f.b("openSDK_LOG.QzoneShare", "ShareToQzone()  --error parse extmap", e);
-                        appId = this.f37077b.getAppId();
-                        openId = this.f37077b.getOpenId();
+                        appId = this.f36322b.getAppId();
+                        openId = this.f36322b.getOpenId();
                         f.a("openSDK_LOG.QzoneShare", "openId:" + openId);
                         if (stringArrayList != null) {
                         }
@@ -142,7 +142,7 @@ public class QzoneShare extends BaseApi {
                         }
                         stringBuffer.append("&cflag=" + Base64.encodeToString(j.i(String.valueOf(i2)), 2));
                         f.a("openSDK_LOG.QzoneShare", "doshareToQzone, url: " + stringBuffer.toString());
-                        com.tencent.connect.a.a.a(e.a(), this.f37077b, "requireApi", "shareToNativeQQ");
+                        com.tencent.connect.a.a.a(e.a(), this.f36322b, "requireApi", "shareToNativeQQ");
                         intent = new Intent("android.intent.action.VIEW");
                         intent.setData(Uri.parse(stringBuffer.toString()));
                         intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
@@ -164,8 +164,8 @@ public class QzoneShare extends BaseApi {
             e = e3;
             i2 = i4;
         }
-        appId = this.f37077b.getAppId();
-        openId = this.f37077b.getOpenId();
+        appId = this.f36322b.getAppId();
+        openId = this.f36322b.getOpenId();
         f.a("openSDK_LOG.QzoneShare", "openId:" + openId);
         if (stringArrayList != null) {
             StringBuffer stringBuffer2 = new StringBuffer();
@@ -212,7 +212,7 @@ public class QzoneShare extends BaseApi {
         }
         stringBuffer.append("&cflag=" + Base64.encodeToString(j.i(String.valueOf(i2)), 2));
         f.a("openSDK_LOG.QzoneShare", "doshareToQzone, url: " + stringBuffer.toString());
-        com.tencent.connect.a.a.a(e.a(), this.f37077b, "requireApi", "shareToNativeQQ");
+        com.tencent.connect.a.a.a(e.a(), this.f36322b, "requireApi", "shareToNativeQQ");
         intent = new Intent("android.intent.action.VIEW");
         intent.setData(Uri.parse(stringBuffer.toString()));
         intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
@@ -232,11 +232,11 @@ public class QzoneShare extends BaseApi {
             }
         }
         if (!a(intent)) {
-            d.a().a(this.f37077b.getOpenId(), this.f37077b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "0", this.mViaShareQzoneType, "0", "1", "0");
-            d.a().a(0, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f37077b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
+            d.a().a(this.f36322b.getOpenId(), this.f36322b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "0", this.mViaShareQzoneType, "0", "1", "0");
+            d.a().a(0, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f36322b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
         } else {
-            d.a().a(this.f37077b.getOpenId(), this.f37077b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "1", this.mViaShareQzoneType, "0", "1", "0");
-            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f37077b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent fail");
+            d.a().a(this.f36322b.getOpenId(), this.f36322b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "1", this.mViaShareQzoneType, "0", "1", "0");
+            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f36322b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent fail");
         }
         f.c("openSDK_LOG", "doShareToQzone() --end");
     }
@@ -271,7 +271,7 @@ public class QzoneShare extends BaseApi {
         if (bundle == null) {
             iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_NULL_ERROR, null));
             f.e("openSDK_LOG.QzoneShare", "shareToQzone() params is null");
-            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f37077b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_PARAM_NULL_ERROR);
+            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f36322b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_PARAM_NULL_ERROR);
             return;
         }
         String string = bundle.getString("title");
@@ -301,63 +301,63 @@ public class QzoneShare extends BaseApi {
                     this.mViaShareQzoneType = "4";
                 }
                 if (i2 != 1) {
-                    this.f37105c = true;
-                    this.f37106d = false;
-                    this.f37107e = true;
-                    this.f37108f = false;
+                    this.f36350c = true;
+                    this.f36351d = false;
+                    this.f36352e = true;
+                    this.f36353f = false;
                 } else if (i2 == 5) {
                     iUiListener.onError(new UiError(-5, Constants.MSG_SHARE_TYPE_ERROR, null));
                     f.e("openSDK_LOG.QzoneShare", "shareToQzone() error--end请选择支持的分享类型");
-                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f37077b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone() 请选择支持的分享类型");
+                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f36322b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone() 请选择支持的分享类型");
                     return;
                 } else if (i2 != 6) {
                     if (j.e(string) && j.e(string2)) {
                         if (stringArrayList != null && stringArrayList.size() != 0) {
-                            this.f37105c = false;
+                            this.f36350c = false;
                         } else {
                             string = "来自" + a2 + "的分享";
-                            this.f37105c = true;
+                            this.f36350c = true;
                         }
                     } else {
-                        this.f37105c = true;
+                        this.f36350c = true;
                     }
-                    this.f37106d = false;
-                    this.f37107e = true;
-                    this.f37108f = false;
+                    this.f36351d = false;
+                    this.f36352e = true;
+                    this.f36353f = false;
                 } else if (j.g(activity, "5.0.0")) {
                     iUiListener.onError(new UiError(-15, Constants.MSG_PARAM_APPSHARE_TOO_LOW, null));
                     f.e("openSDK_LOG.QzoneShare", "-->shareToQzone, app share is not support below qq5.0.");
-                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f37077b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone, app share is not support below qq5.0.");
+                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f36322b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone, app share is not support below qq5.0.");
                     return;
                 } else {
-                    str3 = String.format("http://fusion.qq.com/cgi-bin/qzapps/unified_jump?appid=%1$s&from=%2$s&isOpenAppID=1", this.f37077b.getAppId(), "mqq");
+                    str3 = String.format("http://fusion.qq.com/cgi-bin/qzapps/unified_jump?appid=%1$s&from=%2$s&isOpenAppID=1", this.f36322b.getAppId(), "mqq");
                     bundle.putString("targetUrl", str3);
                     if (j.b() && j.g(activity, "4.5.0")) {
                         iUiListener.onError(new UiError(-6, Constants.MSG_SHARE_NOSD_ERROR, null));
                         f.e("openSDK_LOG.QzoneShare", "shareToQzone() sdcard is null--end");
-                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f37077b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_SHARE_NOSD_ERROR);
+                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f36322b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_SHARE_NOSD_ERROR);
                         return;
                     }
-                    if (this.f37105c) {
+                    if (this.f36350c) {
                         if (TextUtils.isEmpty(str3)) {
                             iUiListener.onError(new UiError(-5, Constants.MSG_PARAM_TARGETURL_NULL_ERROR, null));
                             f.e("openSDK_LOG.QzoneShare", "shareToQzone() targetUrl null error--end");
-                            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f37077b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_PARAM_TARGETURL_NULL_ERROR);
+                            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f36322b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_PARAM_TARGETURL_NULL_ERROR);
                             return;
                         } else if (!j.g(str3)) {
                             iUiListener.onError(new UiError(-5, Constants.MSG_PARAM_TARGETURL_ERROR, null));
                             f.e("openSDK_LOG.QzoneShare", "shareToQzone() targetUrl error--end");
-                            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f37077b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_PARAM_TARGETURL_ERROR);
+                            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f36322b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_PARAM_TARGETURL_ERROR);
                             return;
                         }
                     }
-                    if (this.f37106d) {
+                    if (this.f36351d) {
                         bundle.putString("title", "");
                         bundle.putString("summary", "");
-                    } else if (this.f37107e && j.e(string)) {
+                    } else if (this.f36352e && j.e(string)) {
                         iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_TITLE_NULL_ERROR, null));
                         f.e("openSDK_LOG.QzoneShare", "shareToQzone() title is null--end");
-                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f37077b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone() title is null");
+                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f36322b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone() title is null");
                         return;
                     } else {
                         if (j.e(string) || string.length() <= 200) {
@@ -386,14 +386,14 @@ public class QzoneShare extends BaseApi {
                         if (stringArrayList.size() == 0) {
                             iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_IMAGE_URL_FORMAT_ERROR, null));
                             f.e("openSDK_LOG.QzoneShare", "shareToQzone() MSG_PARAM_IMAGE_URL_FORMAT_ERROR--end");
-                            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f37077b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone() 非法的图片地址!");
+                            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f36322b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone() 非法的图片地址!");
                             return;
                         }
                         bundle.putStringArrayList(str2, stringArrayList);
-                    } else if (this.f37108f) {
+                    } else if (this.f36353f) {
                         iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_IMAGE_ERROR, null));
                         f.e("openSDK_LOG.QzoneShare", "shareToQzone() imageUrl is null -- end");
-                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f37077b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone() imageUrl is null");
+                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f36322b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone() imageUrl is null");
                         return;
                     }
                     if (!j.g(activity, "4.6.0")) {
@@ -414,13 +414,13 @@ public class QzoneShare extends BaseApi {
                         });
                     } else if (h.c(activity, "4.2.0") >= 0 && h.c(activity, "4.6.0") < 0) {
                         f.d("openSDK_LOG.QzoneShare", "shareToQzone() qqver between 4.2.0 and 4.6.0, will use qqshare");
-                        QQShare qQShare = new QQShare(activity, this.f37077b);
+                        QQShare qQShare = new QQShare(activity, this.f36322b);
                         if (stringArrayList != null && stringArrayList.size() > 0) {
                             String str6 = stringArrayList.get(0);
                             if (i2 == 5 && !j.h(str6)) {
                                 iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_IMAGE_URL_MUST_BE_LOCAL, null));
                                 f.e("openSDK_LOG.QzoneShare", "shareToQzone()手Q版本过低，纯图分享不支持网路图片");
-                                d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f37077b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone()手Q版本过低，纯图分享不支持网路图片");
+                                d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f36322b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone()手Q版本过低，纯图分享不支持网路图片");
                                 return;
                             }
                             bundle.putString("imageLocalUrl", str6);
@@ -431,22 +431,22 @@ public class QzoneShare extends BaseApi {
                         qQShare.shareToQQ(activity, bundle, iUiListener);
                     } else {
                         f.d("openSDK_LOG.QzoneShare", "shareToQzone() qqver below 4.2.0, will show download dialog");
-                        new TDialog(activity, "", a(""), null, this.f37077b).show();
+                        new TDialog(activity, "", a(""), null, this.f36322b).show();
                     }
                     f.c("openSDK_LOG.QzoneShare", "shareToQzone() --end");
                 }
                 str3 = str;
                 if (j.b()) {
                 }
-                if (this.f37105c) {
+                if (this.f36350c) {
                 }
-                if (this.f37106d) {
+                if (this.f36351d) {
                 }
                 if (!TextUtils.isEmpty(a2)) {
                 }
                 if (stringArrayList == null) {
                 }
-                if (this.f37108f) {
+                if (this.f36353f) {
                 }
                 if (!j.g(activity, "4.6.0")) {
                 }
@@ -462,15 +462,15 @@ public class QzoneShare extends BaseApi {
         str3 = str;
         if (j.b()) {
         }
-        if (this.f37105c) {
+        if (this.f36350c) {
         }
-        if (this.f37106d) {
+        if (this.f36351d) {
         }
         if (!TextUtils.isEmpty(a2)) {
         }
         if (stringArrayList == null) {
         }
-        if (this.f37108f) {
+        if (this.f36353f) {
         }
         if (!j.g(activity, "4.6.0")) {
         }

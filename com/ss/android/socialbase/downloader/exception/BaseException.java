@@ -2,14 +2,14 @@ package com.ss.android.socialbase.downloader.exception;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BaseException extends Exception implements Parcelable {
     public static final Parcelable.Creator<BaseException> CREATOR = new a();
     public static final String TAG = "[d-ex]:";
     public int errorCode;
     public String errorMsg;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Parcelable.Creator<BaseException> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

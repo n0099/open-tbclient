@@ -6,10 +6,10 @@ import com.kwad.sdk.R;
 public class k extends com.kwad.sdk.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f32524b;
+    public ProgressBar f31769b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f32525c = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.a.b.k.1
+    public com.kwad.sdk.contentalliance.detail.video.d f31770c = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.a.b.k.1
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void a(int i2, int i3) {
             k.this.e();
@@ -28,38 +28,38 @@ public class k extends com.kwad.sdk.a.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i2) {
-        this.f32524b.setProgress(i2);
-        if (this.f32524b.getVisibility() == 0) {
+        this.f31769b.setProgress(i2);
+        if (this.f31769b.getVisibility() == 0) {
             return;
         }
-        this.f32524b.setVisibility(0);
+        this.f31769b.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f32524b.getVisibility() != 0) {
+        if (this.f31769b.getVisibility() != 0) {
             return;
         }
-        this.f32524b.setVisibility(8);
+        this.f31769b.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f32524b.setProgress(0);
-        this.f32524b.setVisibility(8);
-        ((com.kwad.sdk.a.a.a) this).f32456a.f32462f.a(this.f32525c);
+        this.f31769b.setProgress(0);
+        this.f31769b.setVisibility(8);
+        ((com.kwad.sdk.a.a.a) this).f31701a.f31707f.a(this.f31770c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b() {
         super.b();
-        this.f32524b = (ProgressBar) a(R.id.ksad_video_progress);
+        this.f31769b = (ProgressBar) a(R.id.ksad_video_progress);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        ((com.kwad.sdk.a.a.a) this).f32456a.f32462f.b(this.f32525c);
+        ((com.kwad.sdk.a.a.a) this).f31701a.f31707f.b(this.f31770c);
     }
 }

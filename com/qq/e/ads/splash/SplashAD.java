@@ -38,31 +38,31 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     public static final int EVENT_TYPE_NO_AD = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile NSPVI f36186a;
+    public volatile NSPVI f35431a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile ViewGroup f36187b;
+    public volatile ViewGroup f35432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile SplashADListener f36188c;
+    public volatile SplashADListener f35433c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile LoadAdParams f36189d;
+    public volatile LoadAdParams f35434d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f36190e;
+    public volatile boolean f35435e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f36191f;
+    public volatile boolean f35436f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36192g;
+    public int f35437g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36193h;
+    public int f35438h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile View f36194i;
+    public volatile View f35439i;
     public DownloadConfirmListener j;
 
     /* loaded from: classes6.dex */
@@ -76,57 +76,57 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
 
         @Override // com.qq.e.comm.adevent.ADListener
         public void onADEvent(ADEvent aDEvent) {
-            if (SplashAD.this.f36188c == null) {
+            if (SplashAD.this.f35433c == null) {
                 GDTLogger.e("SplashADListener == null");
                 return;
             }
             Object[] paras = aDEvent.getParas();
             switch (aDEvent.getType()) {
                 case 1:
-                    SplashAD.this.f36188c.onADDismissed();
+                    SplashAD.this.f35433c.onADDismissed();
                     return;
                 case 2:
                     if (paras.length <= 0 || !(paras[0] instanceof Integer)) {
                         GDTLogger.e("Splash onNoAD event get params error.");
                         return;
                     } else {
-                        SplashAD.this.f36188c.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) paras[0]).intValue()));
+                        SplashAD.this.f35433c.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) paras[0]).intValue()));
                         return;
                     }
                 case 3:
-                    SplashAD.this.f36188c.onADPresent();
+                    SplashAD.this.f35433c.onADPresent();
                     return;
                 case 4:
-                    SplashAD.this.f36188c.onADClicked();
+                    SplashAD.this.f35433c.onADClicked();
                     return;
                 case 5:
                     if (paras.length == 1 && (paras[0] instanceof Long)) {
-                        SplashAD.this.f36188c.onADTick(((Long) paras[0]).longValue());
+                        SplashAD.this.f35433c.onADTick(((Long) paras[0]).longValue());
                         return;
                     } else {
                         GDTLogger.e("Splash onADTick event get param error.");
                         return;
                     }
                 case 6:
-                    SplashAD.this.f36188c.onADExposure();
+                    SplashAD.this.f35433c.onADExposure();
                     return;
                 case 7:
                     if (paras.length == 1 && (paras[0] instanceof Long)) {
-                        SplashAD.this.f36188c.onADLoaded(((Long) paras[0]).longValue());
+                        SplashAD.this.f35433c.onADLoaded(((Long) paras[0]).longValue());
                         return;
                     } else {
                         GDTLogger.e("Splash onADLoaded event get param error.");
                         return;
                     }
                 case 8:
-                    if (SplashAD.this.f36188c instanceof SplashADZoomOutListener) {
-                        ((SplashADZoomOutListener) SplashAD.this.f36188c).onZoomOut();
+                    if (SplashAD.this.f35433c instanceof SplashADZoomOutListener) {
+                        ((SplashADZoomOutListener) SplashAD.this.f35433c).onZoomOut();
                         return;
                     }
                     return;
                 case 9:
-                    if (SplashAD.this.f36188c instanceof SplashADZoomOutListener) {
-                        ((SplashADZoomOutListener) SplashAD.this.f36188c).onZoomOutPlayFinish();
+                    if (SplashAD.this.f35433c instanceof SplashADZoomOutListener) {
+                        ((SplashADZoomOutListener) SplashAD.this.f35433c).onZoomOutPlayFinish();
                         return;
                     }
                     return;
@@ -145,7 +145,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     }
 
     public SplashAD(Context context, View view, String str, SplashADListener splashADListener, int i2, Map map, View view2) {
-        this.f36190e = false;
+        this.f35435e = false;
         if (GDTADManager.getInstance().isInitialized()) {
             a(context, view, GDTADManager.getInstance().getAppStatus().getAPPID(), str, splashADListener, i2, map, view2);
             return;
@@ -166,7 +166,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
 
     @Deprecated
     public SplashAD(Context context, View view, String str, String str2, SplashADListener splashADListener, int i2, Map map, View view2) {
-        this.f36190e = false;
+        this.f35435e = false;
         GDTLogger.w("此构造方法即将废弃，请在 Application 中初始化 SDK 后，使用不带 appId 的构造方法，详细请参考Demo");
         a(context, view, str, str2, splashADListener, i2, map, view2);
     }
@@ -190,7 +190,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     }
 
     private void a(final Context context, final View view, final String str, final String str2, final SplashADListener splashADListener, final int i2, final Map map, final View view2) {
-        this.f36188c = splashADListener;
+        this.f35433c = splashADListener;
         if (StringUtil.isEmpty(str) || StringUtil.isEmpty(str2) || context == null) {
             GDTLogger.e(String.format("SplashAD Constructor params error, appid=%s,posId=%s,context=%s", str, str2, context));
             a(splashADListener, 2001);
@@ -210,35 +210,35 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
                                             SplashAD.this.a(splashADListener, (int) ErrorCode.POFACTORY_GET_INTERFACE_ERROR);
                                             return;
                                         }
-                                        SplashAD.this.f36186a = pOFactory.getNativeSplashAdView(context, str, str2);
-                                        if (SplashAD.this.f36186a == null) {
+                                        SplashAD.this.f35431a = pOFactory.getNativeSplashAdView(context, str, str2);
+                                        if (SplashAD.this.f35431a == null) {
                                             GDTLogger.e("SplashAdView created by factory return null");
                                             SplashAD.this.a(splashADListener, (int) ErrorCode.POFACTORY_GET_INTERFACE_ERROR);
                                             return;
                                         }
-                                        if (SplashAD.this.f36189d != null) {
-                                            SplashAD.this.f36186a.setLoadAdParams(SplashAD.this.f36189d);
+                                        if (SplashAD.this.f35434d != null) {
+                                            SplashAD.this.f35431a.setLoadAdParams(SplashAD.this.f35434d);
                                         }
                                         SplashAD.a(SplashAD.this, map, str2);
-                                        SplashAD.this.f36186a.setFetchDelay(i2);
-                                        SplashAD.this.f36186a.setAdListener(new ADListenerAdapter(SplashAD.this, (byte) 0));
-                                        SplashAD.this.f36186a.setSkipView(view);
-                                        SplashAD.this.f36186a.setFloatView(view2);
-                                        SplashAD.this.f36186a.setAdLogoMargin(SplashAD.this.f36192g, SplashAD.this.f36193h);
-                                        SplashAD.this.f36186a.setPreloadView(SplashAD.this.f36194i);
+                                        SplashAD.this.f35431a.setFetchDelay(i2);
+                                        SplashAD.this.f35431a.setAdListener(new ADListenerAdapter(SplashAD.this, (byte) 0));
+                                        SplashAD.this.f35431a.setSkipView(view);
+                                        SplashAD.this.f35431a.setFloatView(view2);
+                                        SplashAD.this.f35431a.setAdLogoMargin(SplashAD.this.f35437g, SplashAD.this.f35438h);
+                                        SplashAD.this.f35431a.setPreloadView(SplashAD.this.f35439i);
                                         if ((splashADListener instanceof SplashADZoomOutListener) && ((SplashADZoomOutListener) splashADListener).isSupportZoomOut()) {
-                                            SplashAD.this.f36186a.setSupportZoomOut(true);
+                                            SplashAD.this.f35431a.setSupportZoomOut(true);
                                         }
-                                        if (SplashAD.this.f36187b != null) {
-                                            SplashAD.this.fetchAndShowIn(SplashAD.this.f36187b);
+                                        if (SplashAD.this.f35432b != null) {
+                                            SplashAD.this.fetchAndShowIn(SplashAD.this.f35432b);
                                         }
-                                        if (SplashAD.this.f36190e) {
-                                            SplashAD.this.f36186a.preload();
-                                            SplashAD.this.f36190e = false;
+                                        if (SplashAD.this.f35435e) {
+                                            SplashAD.this.f35431a.preload();
+                                            SplashAD.this.f35435e = false;
                                         }
-                                        if (SplashAD.this.f36191f) {
-                                            SplashAD.this.f36186a.fetchAdOnly();
-                                            SplashAD.this.f36191f = false;
+                                        if (SplashAD.this.f35436f) {
+                                            SplashAD.this.f35431a.fetchAdOnly();
+                                            SplashAD.this.f35436f = false;
                                         }
                                     } catch (Throwable th) {
                                         GDTLogger.e("Unknown Exception", th);
@@ -288,28 +288,28 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     }
 
     public final void fetchAdOnly() {
-        if (this.f36186a == null) {
-            this.f36191f = true;
+        if (this.f35431a == null) {
+            this.f35436f = true;
             return;
         }
         GDTLogger.e("splashAD fetchAdOnly");
-        this.f36186a.fetchAdOnly();
+        this.f35431a.fetchAdOnly();
     }
 
     public final void fetchAndShowIn(ViewGroup viewGroup) {
         if (viewGroup == null) {
             GDTLogger.e("SplashAD fetchAndShowIn params null ");
-            a(this.f36188c, 2001);
-        } else if (this.f36186a != null) {
-            this.f36186a.fetchAndShowIn(viewGroup);
+            a(this.f35433c, 2001);
+        } else if (this.f35431a != null) {
+            this.f35431a.fetchAndShowIn(viewGroup);
         } else {
-            this.f36187b = viewGroup;
+            this.f35432b = viewGroup;
         }
     }
 
     public final String getAdNetWorkName() {
-        if (this.f36186a != null) {
-            return this.f36186a.getAdNetWorkName();
+        if (this.f35431a != null) {
+            return this.f35431a.getAdNetWorkName();
         }
         GDTLogger.e("The ad does not support \"getAdNetWorkName\" or you should call this method after \"onAdPresent\"");
         return null;
@@ -317,15 +317,15 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public final String getApkInfoUrl() {
-        if (this.f36186a != null) {
-            return this.f36186a.getApkInfoUrl();
+        if (this.f35431a != null) {
+            return this.f35431a.getApkInfoUrl();
         }
         return null;
     }
 
     public final String getECPMLevel() {
-        if (this.f36186a != null) {
-            return this.f36186a.getECPMLevel();
+        if (this.f35431a != null) {
+            return this.f35431a.getECPMLevel();
         }
         GDTLogger.e("The ad does not support \"getECPMLevel\" or you should call this method after \"onAdPresent\"");
         return null;
@@ -342,8 +342,8 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     }
 
     public final Bitmap getZoomOutBitmap() {
-        if (this.f36186a != null) {
-            return this.f36186a.getZoomOutBitmap();
+        if (this.f35431a != null) {
+            return this.f35431a.getZoomOutBitmap();
         }
         return null;
     }
@@ -357,56 +357,56 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     }
 
     public final void preLoad() {
-        if (this.f36186a != null) {
-            this.f36186a.preload();
+        if (this.f35431a != null) {
+            this.f35431a.preload();
         } else {
-            this.f36190e = true;
+            this.f35435e = true;
         }
     }
 
     public final void setAdLogoMargin(int i2, int i3) {
-        this.f36192g = i2;
-        this.f36193h = i3;
+        this.f35437g = i2;
+        this.f35438h = i3;
     }
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public final void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         this.j = downloadConfirmListener;
-        if (this.f36186a != null) {
-            this.f36186a.setDownloadConfirmListener(this);
+        if (this.f35431a != null) {
+            this.f35431a.setDownloadConfirmListener(this);
         }
     }
 
     public final void setLoadAdParams(LoadAdParams loadAdParams) {
-        if (this.f36186a != null) {
-            this.f36186a.setLoadAdParams(loadAdParams);
+        if (this.f35431a != null) {
+            this.f35431a.setLoadAdParams(loadAdParams);
         } else {
-            this.f36189d = loadAdParams;
+            this.f35434d = loadAdParams;
         }
     }
 
     public final void setPreloadView(View view) {
-        if (this.f36186a != null) {
-            this.f36186a.setPreloadView(view);
+        if (this.f35431a != null) {
+            this.f35431a.setPreloadView(view);
         } else {
-            this.f36194i = view;
+            this.f35439i = view;
         }
     }
 
     public final void showAd(ViewGroup viewGroup) {
         if (viewGroup == null) {
             GDTLogger.e("SplashAD showAd params null ");
-            a(this.f36188c, 2001);
-        } else if (this.f36186a != null) {
-            this.f36186a.showAd(viewGroup);
+            a(this.f35433c, 2001);
+        } else if (this.f35431a != null) {
+            this.f35431a.showAd(viewGroup);
         } else {
-            this.f36187b = viewGroup;
+            this.f35432b = viewGroup;
         }
     }
 
     public final void zoomOutAnimationFinish() {
-        if (this.f36186a != null) {
-            this.f36186a.zoomOutAnimationFinish();
+        if (this.f35431a != null) {
+            this.f35431a.zoomOutAnimationFinish();
         }
     }
 }

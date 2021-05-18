@@ -17,29 +17,29 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
-import d.a.i0.d0.g;
-import d.a.i0.d0.h;
-import d.a.i0.t.j;
-import d.a.j0.d;
+import d.a.j0.d0.g;
+import d.a.j0.d0.h;
+import d.a.j0.t.j;
+import d.a.k0.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AttentionView extends FrameLayout implements d<String> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14856e;
+    public int f14171e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f14857f;
+    public RecyclerView f14172f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SelectForumItemAdapter f14858g;
+    public SelectForumItemAdapter f14173g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayoutManager f14859h;
+    public LinearLayoutManager f14174h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f14860i;
+    public g f14175i;
     public h j;
     public List<j> k;
     public boolean l;
@@ -77,8 +77,8 @@ public class AttentionView extends FrameLayout implements d<String> {
                 AttentionView.this.l = attentionResMsg.getHasMore();
                 AttentionView.g(AttentionView.this);
                 AttentionView.this.k.addAll(selectForumDataList);
-                AttentionView.this.f14858g.g(AttentionView.this.k);
-                AttentionView.this.f14858g.notifyDataSetChanged();
+                AttentionView.this.f14173g.g(AttentionView.this.k);
+                AttentionView.this.f14173g.notifyDataSetChanged();
             }
         }
     }
@@ -90,7 +90,7 @@ public class AttentionView extends FrameLayout implements d<String> {
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
-            if (i2 == 0 && AttentionView.this.l && AttentionView.this.f14859h.findLastVisibleItemPosition() == AttentionView.this.f14858g.getItemCount() - 1) {
+            if (i2 == 0 && AttentionView.this.l && AttentionView.this.f14174h.findLastVisibleItemPosition() == AttentionView.this.f14173g.getItemCount() - 1) {
                 AttentionView.this.c(null);
             }
         }
@@ -119,14 +119,14 @@ public class AttentionView extends FrameLayout implements d<String> {
         return i2;
     }
 
-    @Override // d.a.j0.d
+    @Override // d.a.k0.d
     public void a() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f14856e) {
+        if (skinType == this.f14171e) {
             return;
         }
-        this.f14856e = skinType;
-        g gVar = this.f14860i;
+        this.f14171e = skinType;
+        g gVar = this.f14175i;
         if (gVar != null) {
             gVar.onChangeSkinType();
         }
@@ -134,23 +134,23 @@ public class AttentionView extends FrameLayout implements d<String> {
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
-        this.f14858g.notifyDataSetChanged();
+        this.f14173g.notifyDataSetChanged();
     }
 
-    @Override // d.a.j0.d
+    @Override // d.a.k0.d
     public void b(String str) {
     }
 
-    @Override // d.a.j0.d
+    @Override // d.a.k0.d
     public String getTitle() {
         return getContext().getString(R.string.activity_select_forum_tab_attention);
     }
 
     public void j() {
-        g gVar = this.f14860i;
+        g gVar = this.f14175i;
         if (gVar != null) {
             gVar.dettachView(this);
-            this.f14860i = null;
+            this.f14175i = null;
         }
     }
 
@@ -160,25 +160,25 @@ public class AttentionView extends FrameLayout implements d<String> {
             hVar.dettachView(this);
             this.j = null;
         }
-        this.f14857f.setVisibility(0);
+        this.f14172f.setVisibility(0);
     }
 
     public final void l() {
         LayoutInflater.from(getContext()).inflate(R.layout.select_forum_lately_layout, (ViewGroup) this, true);
-        this.f14857f = (RecyclerView) findViewById(R.id.select_forum_list);
+        this.f14172f = (RecyclerView) findViewById(R.id.select_forum_list);
         SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
-        this.f14858g = selectForumItemAdapter;
+        this.f14173g = selectForumItemAdapter;
         selectForumItemAdapter.h(2);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        this.f14859h = linearLayoutManager;
-        this.f14857f.setLayoutManager(linearLayoutManager);
-        this.f14857f.setAdapter(this.f14858g);
-        this.f14857f.addOnScrollListener(new b());
+        this.f14174h = linearLayoutManager;
+        this.f14172f.setLayoutManager(linearLayoutManager);
+        this.f14172f.setAdapter(this.f14173g);
+        this.f14172f.addOnScrollListener(new b());
         MessageManager.getInstance().registerListener(this.n);
     }
 
     public boolean m() {
-        g gVar = this.f14860i;
+        g gVar = this.f14175i;
         if (gVar != null) {
             return gVar.isViewAttached();
         }
@@ -194,7 +194,7 @@ public class AttentionView extends FrameLayout implements d<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.j0.d
+    @Override // d.a.k0.d
     /* renamed from: o */
     public void c(String str) {
         if (ListUtils.isEmpty(this.k)) {
@@ -214,7 +214,7 @@ public class AttentionView extends FrameLayout implements d<String> {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    @Override // d.a.j0.d
+    @Override // d.a.k0.d
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.n);
     }
@@ -223,12 +223,12 @@ public class AttentionView extends FrameLayout implements d<String> {
         if (m()) {
             return;
         }
-        if (this.f14860i == null) {
+        if (this.f14175i == null) {
             g gVar = new g(getContext());
-            this.f14860i = gVar;
+            this.f14175i = gVar;
             gVar.onChangeSkinType();
         }
-        this.f14860i.attachView(this, z);
+        this.f14175i.attachView(this, z);
     }
 
     public void q(boolean z, boolean z2) {
@@ -247,7 +247,7 @@ public class AttentionView extends FrameLayout implements d<String> {
             this.j.e();
         }
         this.j.n(getContext().getString(R.string.activity_select_forum_empty));
-        this.f14857f.setVisibility(8);
+        this.f14172f.setVisibility(8);
     }
 
     public AttentionView(Context context, AttributeSet attributeSet) {
@@ -256,7 +256,7 @@ public class AttentionView extends FrameLayout implements d<String> {
 
     public AttentionView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f14856e = 3;
+        this.f14171e = 3;
         this.k = new ArrayList();
         this.m = 1;
         this.n = new a(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION);

@@ -5,11 +5,11 @@ import rx.internal.util.atomic.LinkedQueueNode;
 public abstract class e<E> extends c<E> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f67986e = f0.a(e.class, "producerNode");
+    public static final long f68666e = f0.a(e.class, "producerNode");
     public LinkedQueueNode<E> producerNode;
 
     public final LinkedQueueNode<E> b() {
-        return (LinkedQueueNode) f0.f67992a.f(this, f67986e);
+        return (LinkedQueueNode) f0.f68672a.f(this, f68666e);
     }
 
     public final void c(LinkedQueueNode<E> linkedQueueNode) {

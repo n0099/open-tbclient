@@ -6,15 +6,15 @@ import android.view.View;
 public final class br implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23499a;
+    public final /* synthetic */ FeedbackInputActivity f22744a;
 
     public br(FeedbackInputActivity feedbackInputActivity) {
-        this.f23499a = feedbackInputActivity;
+        this.f22744a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        FeedbackInputActivity feedbackInputActivity = this.f23499a;
+        FeedbackInputActivity feedbackInputActivity = this.f22744a;
         if (feedbackInputActivity.D) {
             return;
         }
@@ -22,6 +22,6 @@ public final class br implements View.OnClickListener {
         if (Build.VERSION.SDK_INT >= 23) {
             com.baidu.ufosdk.f.c.d(" CommonUtil.getAPILevel() >= 23 ");
         }
-        FeedbackInputActivity.l(this.f23499a);
+        FeedbackInputActivity.l(this.f22744a);
     }
 }

@@ -11,36 +11,36 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.c f30532a;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.c f29777a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.e f30533b;
+    public final com.bytedance.sdk.openadsdk.preload.a.e f29778b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.d f30534c;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.d f29779c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d f30535d;
+    public final d f29780d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.b.b f30536e = com.bytedance.sdk.openadsdk.preload.a.b.b.b.a();
+    public final com.bytedance.sdk.openadsdk.preload.a.b.b.b f29781e = com.bytedance.sdk.openadsdk.preload.a.b.b.b.a();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a<T> extends v<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.bytedance.sdk.openadsdk.preload.a.b.i<T> f30544a;
+        public final com.bytedance.sdk.openadsdk.preload.a.b.i<T> f29789a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Map<String, b> f30545b;
+        public final Map<String, b> f29790b;
 
         public a(com.bytedance.sdk.openadsdk.preload.a.b.i<T> iVar, Map<String, b> map) {
-            this.f30544a = iVar;
-            this.f30545b = map;
+            this.f29789a = iVar;
+            this.f29790b = map;
         }
 
         @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -51,9 +51,9 @@ public final class i implements w {
             }
             cVar.d();
             try {
-                for (b bVar : this.f30545b.values()) {
+                for (b bVar : this.f29790b.values()) {
                     if (bVar.a(t)) {
-                        cVar.a(bVar.f30546h);
+                        cVar.a(bVar.f29791h);
                         bVar.a(cVar, t);
                     }
                 }
@@ -69,11 +69,11 @@ public final class i implements w {
                 aVar.j();
                 return null;
             }
-            T a2 = this.f30544a.a();
+            T a2 = this.f29789a.a();
             try {
                 aVar.c();
                 while (aVar.e()) {
-                    b bVar = this.f30545b.get(aVar.g());
+                    b bVar = this.f29790b.get(aVar.g());
                     if (bVar != null && bVar.j) {
                         bVar.a(aVar, a2);
                     }
@@ -89,19 +89,19 @@ public final class i implements w {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static abstract class b {
 
         /* renamed from: h  reason: collision with root package name */
-        public final String f30546h;
+        public final String f29791h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final boolean f30547i;
+        public final boolean f29792i;
         public final boolean j;
 
         public b(String str, boolean z, boolean z2) {
-            this.f30546h = str;
-            this.f30547i = z;
+            this.f29791h = str;
+            this.f29792i = z;
             this.j = z2;
         }
 
@@ -113,14 +113,14 @@ public final class i implements w {
     }
 
     public i(com.bytedance.sdk.openadsdk.preload.a.b.c cVar, com.bytedance.sdk.openadsdk.preload.a.e eVar, com.bytedance.sdk.openadsdk.preload.a.b.d dVar, d dVar2) {
-        this.f30532a = cVar;
-        this.f30533b = eVar;
-        this.f30534c = dVar;
-        this.f30535d = dVar2;
+        this.f29777a = cVar;
+        this.f29778b = eVar;
+        this.f29779c = dVar;
+        this.f29780d = dVar2;
     }
 
     public boolean a(Field field, boolean z) {
-        return a(field, z, this.f30534c);
+        return a(field, z, this.f29779c);
     }
 
     public static boolean a(Field field, boolean z, com.bytedance.sdk.openadsdk.preload.a.b.d dVar) {
@@ -130,7 +130,7 @@ public final class i implements w {
     private List<String> a(Field field) {
         com.bytedance.sdk.openadsdk.preload.a.a.c cVar = (com.bytedance.sdk.openadsdk.preload.a.a.c) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.c.class);
         if (cVar == null) {
-            return Collections.singletonList(this.f30533b.a(field));
+            return Collections.singletonList(this.f29778b.a(field));
         }
         String a2 = cVar.a();
         String[] b2 = cVar.b();
@@ -149,7 +149,7 @@ public final class i implements w {
     public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
         Class<? super T> a2 = aVar.a();
         if (Object.class.isAssignableFrom(a2)) {
-            return new a(this.f30532a.a(aVar), a(fVar, (com.bytedance.sdk.openadsdk.preload.a.c.a<?>) aVar, (Class<?>) a2));
+            return new a(this.f29777a.a(aVar), a(fVar, (com.bytedance.sdk.openadsdk.preload.a.c.a<?>) aVar, (Class<?>) a2));
         }
         return null;
     }
@@ -157,7 +157,7 @@ public final class i implements w {
     private b a(final com.bytedance.sdk.openadsdk.preload.a.f fVar, final Field field, String str, final com.bytedance.sdk.openadsdk.preload.a.c.a<?> aVar, boolean z, boolean z2) {
         final boolean a2 = com.bytedance.sdk.openadsdk.preload.a.b.k.a(aVar.a());
         com.bytedance.sdk.openadsdk.preload.a.a.b bVar = (com.bytedance.sdk.openadsdk.preload.a.a.b) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.b.class);
-        v<?> a3 = bVar != null ? this.f30535d.a(this.f30532a, fVar, aVar, bVar) : null;
+        v<?> a3 = bVar != null ? this.f29780d.a(this.f29777a, fVar, aVar, bVar) : null;
         final boolean z3 = a3 != null;
         if (a3 == null) {
             a3 = fVar.a((com.bytedance.sdk.openadsdk.preload.a.c.a) aVar);
@@ -180,7 +180,7 @@ public final class i implements w {
 
             @Override // com.bytedance.sdk.openadsdk.preload.a.b.a.i.b
             public boolean a(Object obj) throws IOException, IllegalAccessException {
-                return this.f30547i && field.get(obj) != obj;
+                return this.f29792i && field.get(obj) != obj;
             }
         };
     }
@@ -204,7 +204,7 @@ public final class i implements w {
                 boolean a2 = a(field, true);
                 boolean a3 = a(field, z);
                 if (a2 || a3) {
-                    this.f30536e.a(field);
+                    this.f29781e.a(field);
                     Type a4 = com.bytedance.sdk.openadsdk.preload.a.b.b.a(aVar2.b(), cls2, field.getGenericType());
                     List<String> a5 = a(field);
                     int size = a5.size();
@@ -226,7 +226,7 @@ public final class i implements w {
                         field = field2;
                     }
                     if (bVar2 != null) {
-                        throw new IllegalArgumentException(b2 + " declares multiple JSON fields named " + bVar.f30546h);
+                        throw new IllegalArgumentException(b2 + " declares multiple JSON fields named " + bVar.f29791h);
                     }
                 }
                 i2++;

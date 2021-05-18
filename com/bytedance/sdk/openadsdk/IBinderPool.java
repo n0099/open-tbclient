@@ -5,10 +5,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface IBinderPool extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Default implements IBinderPool {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -21,25 +21,25 @@ public interface IBinderPool extends IInterface {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements IBinderPool {
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static class a implements IBinderPool {
 
             /* renamed from: a  reason: collision with root package name */
-            public static IBinderPool f27777a;
+            public static IBinderPool f27022a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f27778b;
+            public IBinder f27023b;
 
             public a(IBinder iBinder) {
-                this.f27778b = iBinder;
+                this.f27023b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f27778b;
+                return this.f27023b;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IBinderPool
@@ -49,7 +49,7 @@ public interface IBinderPool extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IBinderPool");
                     obtain.writeInt(i2);
-                    if (!this.f27778b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27023b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         return Stub.getDefaultImpl().queryBinder(i2);
                     }
                     obtain2.readException();
@@ -77,14 +77,14 @@ public interface IBinderPool extends IInterface {
         }
 
         public static IBinderPool getDefaultImpl() {
-            return a.f27777a;
+            return a.f27022a;
         }
 
         public static boolean setDefaultImpl(IBinderPool iBinderPool) {
-            if (a.f27777a != null || iBinderPool == null) {
+            if (a.f27022a != null || iBinderPool == null) {
                 return false;
             }
-            a.f27777a = iBinderPool;
+            a.f27022a = iBinderPool;
             return true;
         }
 

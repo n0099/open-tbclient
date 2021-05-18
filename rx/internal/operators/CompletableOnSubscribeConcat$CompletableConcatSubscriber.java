@@ -10,7 +10,7 @@ import rx.internal.subscriptions.SequentialSubscription;
 public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber extends j<b> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final SequentialSubscription f68342e;
+    public final SequentialSubscription f69022e;
 
     /* loaded from: classes7.dex */
     public final class ConcatInnerSubscriber extends AtomicInteger implements c {
@@ -31,7 +31,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
 
         @Override // h.c
         public void onSubscribe(k kVar) {
-            CompletableOnSubscribeConcat$CompletableConcatSubscriber.this.f68342e.set(kVar);
+            CompletableOnSubscribeConcat$CompletableConcatSubscriber.this.f69022e.set(kVar);
         }
     }
 

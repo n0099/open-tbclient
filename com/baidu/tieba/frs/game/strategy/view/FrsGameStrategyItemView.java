@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.a.i0.r.q.a2;
-import d.a.j0.d3.n0.d;
-import d.a.j0.x.b;
+import d.a.j0.r.q.a2;
+import d.a.k0.d3.n0.d;
+import d.a.k0.x.b;
 /* loaded from: classes4.dex */
-public class FrsGameStrategyItemView extends b<d.a.j0.q0.s1.a.a.b> {
+public class FrsGameStrategyItemView extends b<d.a.k0.q0.s1.a.a.b> {
     public TbPageContext m;
     public View n;
     public TbImageView o;
@@ -28,11 +28,11 @@ public class FrsGameStrategyItemView extends b<d.a.j0.q0.s1.a.a.b> {
     public static class FrsGameStrategyItemViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public FrsGameStrategyItemView f16224a;
+        public FrsGameStrategyItemView f15539a;
 
         public FrsGameStrategyItemViewHolder(FrsGameStrategyItemView frsGameStrategyItemView) {
             super(frsGameStrategyItemView.l());
-            this.f16224a = frsGameStrategyItemView;
+            this.f15539a = frsGameStrategyItemView;
         }
     }
 
@@ -43,12 +43,12 @@ public class FrsGameStrategyItemView extends b<d.a.j0.q0.s1.a.a.b> {
         s();
     }
 
-    @Override // d.a.j0.x.b
+    @Override // d.a.k0.x.b
     public int g() {
         return R.layout.frs_game_strategy_item_layout;
     }
 
-    @Override // d.a.j0.x.b
+    @Override // d.a.k0.x.b
     public void n(TbPageContext<?> tbPageContext, int i2) {
         SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.r, R.color.CAM_X0109);
@@ -72,30 +72,30 @@ public class FrsGameStrategyItemView extends b<d.a.j0.q0.s1.a.a.b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.j0.x.b
+    @Override // d.a.k0.x.b
     /* renamed from: t */
-    public void m(d.a.j0.q0.s1.a.a.b bVar) {
+    public void m(d.a.k0.q0.s1.a.a.b bVar) {
         if (bVar == null || bVar.h() == null) {
             return;
         }
         a2 h2 = bVar.h();
-        this.q.setText(h2.x1());
+        this.q.setText(h2.y1());
         d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
         if (readThreadHistory != null && readThreadHistory.d(h2.o0())) {
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0108);
         } else {
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
         }
-        String numberUniformFormat = StringHelper.numberUniformFormat(h2.G1());
+        String numberUniformFormat = StringHelper.numberUniformFormat(h2.H1());
         String formatTimeShort = StringHelper.getFormatTimeShort(h2.S());
         if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-            this.r.setText(String.format(this.f62438g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
+            this.r.setText(String.format(this.f63162g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
         }
         String str = null;
-        if (h2.s1() == 40) {
+        if (h2.t1() == 40) {
             this.p.setVisibility(0);
-            if (h2.u1() != null) {
-                str = h2.u1().thumbnail_url;
+            if (h2.v1() != null) {
+                str = h2.v1().thumbnail_url;
             }
         } else {
             this.p.setVisibility(8);

@@ -11,26 +11,26 @@ import java.security.NoSuchAlgorithmException;
 public final class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f40990b;
+    public Context f40235b;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.sso.n.a f40989a = null;
+    public com.baidu.sso.n.a f40234a = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40991c = null;
+    public String f40236c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40992d = null;
+    public String f40237d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f40993e = new c(this);
+    public ServiceConnection f40238e = new c(this);
 
     public a(Context context, d.a.g0.m.c cVar) {
-        this.f40990b = context;
+        this.f40235b = context;
     }
 
     public final String a(String str) {
-        return this.f40989a == null ? "" : b(str);
+        return this.f40234a == null ? "" : b(str);
     }
 
     public final String b(String str) {
@@ -38,12 +38,12 @@ public final class a {
         Signature[] signatureArr;
         String str3 = null;
         try {
-            if (TextUtils.isEmpty(this.f40991c)) {
-                this.f40991c = this.f40990b.getPackageName();
+            if (TextUtils.isEmpty(this.f40236c)) {
+                this.f40236c = this.f40235b.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f40992d)) {
+            if (TextUtils.isEmpty(this.f40237d)) {
                 try {
-                    signatureArr = this.f40990b.getPackageManager().getPackageInfo(this.f40991c, 64).signatures;
+                    signatureArr = this.f40235b.getPackageManager().getPackageInfo(this.f40236c, 64).signatures;
                 } catch (PackageManager.NameNotFoundException unused) {
                     signatureArr = null;
                 }
@@ -59,9 +59,9 @@ public final class a {
                         e2.printStackTrace();
                     }
                 }
-                this.f40992d = str3;
+                this.f40237d = str3;
             }
-            str2 = this.f40989a.a(this.f40991c, this.f40992d, str);
+            str2 = this.f40234a.a(this.f40236c, this.f40237d, str);
         } catch (Throwable th) {
             th.printStackTrace();
             str2 = str3;

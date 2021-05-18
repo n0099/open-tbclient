@@ -2,10 +2,9 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.tbadkCore.data.AppData;
 import d.a.c.e.m.b;
-import d.a.j0.s2.w;
-import d.a.j0.x.e0.n;
+import d.a.k0.s2.x;
+import d.a.k0.x.e0.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,7 +32,7 @@ public class BannerListData implements Serializable {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(AdvertAppInfo advertAppInfo, AdvertAppInfo advertAppInfo2) {
-            return (advertAppInfo != null ? b.d(advertAppInfo.K3, 0) : 0) - (advertAppInfo2 != null ? b.d(advertAppInfo2.K3, 0) : 0);
+            return (advertAppInfo != null ? b.d(advertAppInfo.L3, 0) : 0) - (advertAppInfo2 != null ? b.d(advertAppInfo2.L3, 0) : 0);
         }
     }
 
@@ -53,8 +52,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i2 = 0; i2 < size; i2++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i2).E3)) {
-                sb.append(this.advertAppList.get(i2).E3);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i2).F3)) {
+                sb.append(this.advertAppList.get(i2).F3);
                 if (i2 != size - 1) {
                     sb.append(",");
                 }
@@ -76,7 +75,7 @@ public class BannerListData implements Serializable {
     }
 
     public void parserProtobuf(BannerList bannerList) {
-        List<AppData> j = w.p().j();
+        List<AdvertAppInfo> j = x.p().j();
         if (j != null) {
             j.clear();
         }
@@ -88,15 +87,15 @@ public class BannerListData implements Serializable {
             for (int i2 = 0; i2 < list.size(); i2++) {
                 if (list.get(i2) != null) {
                     AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                    advertAppInfo.H4(list.get(i2));
+                    advertAppInfo.I4(list.get(i2));
                     this.advertAppList.add(advertAppInfo);
                     if (j != null) {
-                        j.add(advertAppInfo.e4);
+                        j.add(advertAppInfo);
                     }
                 }
             }
         }
-        w.p().i();
+        x.p().i();
         Collections.sort(this.advertAppList, new a(this));
         List<FeedForumInfo> list2 = bannerList.feed_forum;
         if (list2 != null && list2.size() > 0) {

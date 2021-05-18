@@ -14,25 +14,25 @@ import javax.crypto.spec.PSource;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50308a;
+    public int f48529a;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f50310c;
+    public f f48531c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f50311d;
+    public byte[] f48532d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50312e;
+    public int f48533e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f50313f;
+    public d f48534f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50314g = "SHA-1";
+    public String f48535g = "SHA-1";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50309b = "PKCS1Padding";
+    public String f48530b = "PKCS1Padding";
 
     public void a(int i2, d dVar, SecureRandom secureRandom) {
         try {
@@ -64,50 +64,50 @@ public final class c {
             if (dVar instanceof d) {
                 throw new InvalidKeyException("only support helios key");
             }
-            this.f50308a = z ? 1 : 4;
-            this.f50313f = dVar;
+            this.f48529a = z ? 1 : 4;
+            this.f48534f = dVar;
             int a2 = b.a(dVar.a());
-            this.f50312e = 0;
-            String str = this.f50309b;
+            this.f48533e = 0;
+            String str = this.f48530b;
             if (str == "NoPadding") {
                 if (algorithmParameterSpec != null) {
                     throw new InvalidAlgorithmParameterException("Parameters not supported");
                 }
-                this.f50310c = f.b(3, a2, secureRandom);
-                this.f50311d = new byte[a2];
+                this.f48531c = f.b(3, a2, secureRandom);
+                this.f48532d = new byte[a2];
                 return;
             } else if (str == "PKCS1Padding") {
                 if (algorithmParameterSpec != null) {
                     throw new InvalidAlgorithmParameterException("Parameters not supported");
                 }
-                f b2 = f.b(this.f50308a > 2 ? 1 : 2, a2, secureRandom);
-                this.f50310c = b2;
+                f b2 = f.b(this.f48529a > 2 ? 1 : 2, a2, secureRandom);
+                this.f48531c = b2;
                 if (z) {
-                    this.f50311d = new byte[b2.a()];
+                    this.f48532d = new byte[b2.a()];
                     return;
                 } else {
-                    this.f50311d = new byte[a2];
+                    this.f48532d = new byte[a2];
                     return;
                 }
             } else {
-                int i3 = this.f50308a;
+                int i3 = this.f48529a;
                 if (i3 == 3 || i3 == 4) {
                     throw new InvalidKeyException("OAEP cannot be used to sign or verify signatures");
                 }
                 if (algorithmParameterSpec == null) {
-                    oAEPParameterSpec = new OAEPParameterSpec(this.f50314g, "MGF1", MGF1ParameterSpec.SHA1, PSource.PSpecified.DEFAULT);
+                    oAEPParameterSpec = new OAEPParameterSpec(this.f48535g, "MGF1", MGF1ParameterSpec.SHA1, PSource.PSpecified.DEFAULT);
                 } else if (!(algorithmParameterSpec instanceof OAEPParameterSpec)) {
                     throw new InvalidAlgorithmParameterException("Wrong Parameters for OAEP Padding");
                 } else {
                     oAEPParameterSpec = (OAEPParameterSpec) algorithmParameterSpec;
                 }
                 f c2 = f.c(4, a2, secureRandom, oAEPParameterSpec);
-                this.f50310c = c2;
+                this.f48531c = c2;
                 if (z) {
-                    this.f50311d = new byte[c2.a()];
+                    this.f48532d = new byte[c2.a()];
                     return;
                 } else {
-                    this.f50311d = new byte[a2];
+                    this.f48532d = new byte[a2];
                     return;
                 }
             }
@@ -118,18 +118,18 @@ public final class c {
     }
 
     public final byte[] c() {
-        int i2 = this.f50312e;
-        byte[] bArr = this.f50311d;
+        int i2 = this.f48533e;
+        byte[] bArr = this.f48532d;
         if (i2 > bArr.length) {
-            throw new IllegalBlockSizeException("Data must not be longer than " + this.f50311d.length + " bytes");
+            throw new IllegalBlockSizeException("Data must not be longer than " + this.f48532d.length + " bytes");
         }
         try {
-            int i3 = this.f50308a;
+            int i3 = this.f48529a;
             if (i3 != 1) {
                 if (i3 != 2) {
                     if (i3 != 3) {
                         if (i3 == 4) {
-                            return this.f50310c.h(b.e(b.d(bArr, 0, i2), this.f50313f));
+                            return this.f48531c.h(b.e(b.d(bArr, 0, i2), this.f48534f));
                         }
                         throw new AssertionError("Internal error");
                     }
@@ -137,9 +137,9 @@ public final class c {
                 }
                 throw new UnsupportedOperationException("only verify supported");
             }
-            return b.e(this.f50310c.g(bArr, 0, i2), this.f50313f);
+            return b.e(this.f48531c.g(bArr, 0, i2), this.f48534f);
         } finally {
-            this.f50312e = 0;
+            this.f48533e = 0;
         }
     }
 
@@ -155,18 +155,18 @@ public final class c {
             if (!str.equalsIgnoreCase("PKCS1Padding")) {
                 String lowerCase = str.toLowerCase(Locale.ENGLISH);
                 if (lowerCase.equals("oaeppadding")) {
-                    this.f50309b = "OAEP";
+                    this.f48530b = "OAEP";
                     return;
                 } else if (!lowerCase.startsWith("oaepwith") || !lowerCase.endsWith("andmgf1padding")) {
                     throw new NoSuchPaddingException("Padding " + str + " not supported");
                 } else {
-                    this.f50309b = "OAEP";
-                    this.f50314g = str.substring(8, str.length() - 14);
+                    this.f48530b = "OAEP";
+                    this.f48535g = str.substring(8, str.length() - 14);
                     throw new NoSuchPaddingException("MessageDigest not available for " + str);
                 }
             }
         }
-        this.f50309b = str2;
+        this.f48530b = str2;
     }
 
     public final void f(byte[] bArr, int i2, int i3) {
@@ -174,15 +174,15 @@ public final class c {
         if (i3 == 0 || bArr == null) {
             return;
         }
-        int i5 = this.f50312e;
+        int i5 = this.f48533e;
         int i6 = i5 + i3;
-        byte[] bArr2 = this.f50311d;
+        byte[] bArr2 = this.f48532d;
         if (i6 > bArr2.length) {
             i4 = bArr2.length + 1;
         } else {
             System.arraycopy(bArr, i2, bArr2, i5, i3);
-            i4 = this.f50312e + i3;
+            i4 = this.f48533e + i3;
         }
-        this.f50312e = i4;
+        this.f48533e = i4;
     }
 }

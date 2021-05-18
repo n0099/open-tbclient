@@ -2,9 +2,9 @@ package com.bytedance.sdk.openadsdk.core;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.wallet.base.iddetect.IdCardActivity;
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     @Nullable
     public static com.bytedance.sdk.openadsdk.core.d.a a(JSONObject jSONObject, AdSlot adSlot, com.bytedance.sdk.openadsdk.core.d.m mVar) {
@@ -78,7 +78,7 @@ public class c {
         lVar.g(jSONObject.optInt("video_adaptation", 0));
         lVar.f(jSONObject.optInt("feed_video_opentype", 0));
         lVar.b(jSONObject.optJSONObject("session_params"));
-        lVar.c(jSONObject.optInt("render_control", mVar != null ? mVar.f28739e : 1));
+        lVar.c(jSONObject.optInt("render_control", mVar != null ? mVar.f27984e : 1));
         if (optJSONObject != null) {
             com.bytedance.sdk.openadsdk.core.d.k kVar = new com.bytedance.sdk.openadsdk.core.d.k();
             kVar.a(optJSONObject.optString("url"));
@@ -126,12 +126,12 @@ public class c {
         JSONObject optJSONObject5 = jSONObject.optJSONObject("click_area");
         if (optJSONObject5 != null) {
             com.bytedance.sdk.openadsdk.core.d.e eVar = new com.bytedance.sdk.openadsdk.core.d.e();
-            eVar.f28659a = optJSONObject5.optBoolean("click_upper_content_area", true);
-            eVar.f28660b = optJSONObject5.optBoolean("click_upper_non_content_area", true);
-            eVar.f28661c = optJSONObject5.optBoolean("click_lower_content_area", true);
-            eVar.f28662d = optJSONObject5.optBoolean("click_lower_non_content_area", true);
-            eVar.f28663e = optJSONObject5.optBoolean("click_button_area", true);
-            eVar.f28664f = optJSONObject5.optBoolean("click_video_area", true);
+            eVar.f27904a = optJSONObject5.optBoolean("click_upper_content_area", true);
+            eVar.f27905b = optJSONObject5.optBoolean("click_upper_non_content_area", true);
+            eVar.f27906c = optJSONObject5.optBoolean("click_lower_content_area", true);
+            eVar.f27907d = optJSONObject5.optBoolean("click_lower_non_content_area", true);
+            eVar.f27908e = optJSONObject5.optBoolean("click_button_area", true);
+            eVar.f27909f = optJSONObject5.optBoolean("click_video_area", true);
             lVar.a(eVar);
         }
         JSONObject optJSONObject6 = jSONObject.optJSONObject("adslot");
@@ -144,7 +144,7 @@ public class c {
         lVar.h(jSONObject.optString(Oauth2AccessToken.KEY_PHONE_NUM));
         lVar.i(jSONObject.optString("title"));
         lVar.j(jSONObject.optString("description"));
-        lVar.k(jSONObject.optString("button_text"));
+        lVar.k(jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT));
         lVar.h(jSONObject.optInt("ad_logo", 1));
         lVar.m(jSONObject.optString("ext"));
         lVar.p(jSONObject.optInt("image_mode"));
@@ -163,7 +163,7 @@ public class c {
         }
         lVar.a(PersonalizationPrompt.parseFromJson(jSONObject.optJSONObject("personalization_prompts")));
         lVar.q(jSONObject.optInt("count_down"));
-        lVar.a(jSONObject.optLong("expiration_time"));
+        lVar.a(jSONObject.optLong(GameGuideConfigInfo.KEY_EXPIRATION_TIME));
         JSONObject optJSONObject9 = jSONObject.optJSONObject("video");
         if (optJSONObject9 != null) {
             lVar.a(i(optJSONObject9));
@@ -263,7 +263,7 @@ public class c {
             return null;
         }
         com.bytedance.sdk.openadsdk.core.d.b bVar = new com.bytedance.sdk.openadsdk.core.d.b();
-        bVar.c(jSONObject.optString(DpStatConstants.KEY_APP_NAME));
+        bVar.c(jSONObject.optString("app_name"));
         bVar.d(jSONObject.optString("package_name"));
         bVar.b(jSONObject.optString("download_url"));
         bVar.a(jSONObject.optInt("score", 4));
@@ -453,7 +453,7 @@ public class c {
             }
         }
         cVar.c(jSONObject.optString("privacy_policy_url"));
-        cVar.e(jSONObject.optString(DpStatConstants.KEY_APP_NAME));
+        cVar.e(jSONObject.optString("app_name"));
         cVar.d(jSONObject.optString("package_name"));
         return cVar;
     }

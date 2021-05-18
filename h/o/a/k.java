@@ -6,49 +6,49 @@ import rx.internal.producers.SingleDelayedProducer;
 public final class k<T> implements d.b<Boolean, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.n.f<? super T, Boolean> f67774e;
+    public final h.n.f<? super T, Boolean> f68454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f67775f;
+    public final boolean f68455f;
 
     /* loaded from: classes7.dex */
     public class a extends h.j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f67776e;
+        public boolean f68456e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f67777f;
+        public boolean f68457f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SingleDelayedProducer f67778g;
+        public final /* synthetic */ SingleDelayedProducer f68458g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ h.j f67779h;
+        public final /* synthetic */ h.j f68459h;
 
         public a(SingleDelayedProducer singleDelayedProducer, h.j jVar) {
-            this.f67778g = singleDelayedProducer;
-            this.f67779h = jVar;
+            this.f68458g = singleDelayedProducer;
+            this.f68459h = jVar;
         }
 
         @Override // h.e
         public void onCompleted() {
-            if (this.f67777f) {
+            if (this.f68457f) {
                 return;
             }
-            this.f67777f = true;
-            if (this.f67776e) {
-                this.f67778g.setValue(Boolean.FALSE);
+            this.f68457f = true;
+            if (this.f68456e) {
+                this.f68458g.setValue(Boolean.FALSE);
             } else {
-                this.f67778g.setValue(Boolean.valueOf(k.this.f67775f));
+                this.f68458g.setValue(Boolean.valueOf(k.this.f68455f));
             }
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            if (!this.f67777f) {
-                this.f67777f = true;
-                this.f67779h.onError(th);
+            if (!this.f68457f) {
+                this.f68457f = true;
+                this.f68459h.onError(th);
                 return;
             }
             h.r.c.j(th);
@@ -56,14 +56,14 @@ public final class k<T> implements d.b<Boolean, T> {
 
         @Override // h.e
         public void onNext(T t) {
-            if (this.f67777f) {
+            if (this.f68457f) {
                 return;
             }
-            this.f67776e = true;
+            this.f68456e = true;
             try {
-                if (k.this.f67774e.call(t).booleanValue()) {
-                    this.f67777f = true;
-                    this.f67778g.setValue(Boolean.valueOf(true ^ k.this.f67775f));
+                if (k.this.f68454e.call(t).booleanValue()) {
+                    this.f68457f = true;
+                    this.f68458g.setValue(Boolean.valueOf(true ^ k.this.f68455f));
                     unsubscribe();
                 }
             } catch (Throwable th) {
@@ -73,8 +73,8 @@ public final class k<T> implements d.b<Boolean, T> {
     }
 
     public k(h.n.f<? super T, Boolean> fVar, boolean z) {
-        this.f67774e = fVar;
-        this.f67775f = z;
+        this.f68454e = fVar;
+        this.f68455f = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

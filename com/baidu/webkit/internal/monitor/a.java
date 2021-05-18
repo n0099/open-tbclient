@@ -8,74 +8,74 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public C0284a f27430a;
+    public C0271a f26680a;
 
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0284a {
+    public class C0271a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f27431a;
+        public boolean f26681a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f27432b;
+        public boolean f26682b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f27433c;
+        public long f26683c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f27434d;
+        public long f26684d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f27435e;
+        public boolean f26685e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f27436f;
+        public boolean f26686f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Map<String, Long> f27437g;
+        public Map<String, Long> f26687g;
 
-        public C0284a() {
-            this.f27432b = true;
-            this.f27433c = -1L;
-            this.f27434d = -1L;
-            this.f27437g = new HashMap();
+        public C0271a() {
+            this.f26682b = true;
+            this.f26683c = -1L;
+            this.f26684d = -1L;
+            this.f26687g = new HashMap();
         }
 
-        public /* synthetic */ C0284a(a aVar, byte b2) {
+        public /* synthetic */ C0271a(a aVar, byte b2) {
             this();
         }
 
         public final void a() {
-            this.f27431a = false;
-            this.f27432b = true;
-            this.f27433c = -1L;
-            this.f27434d = -1L;
-            this.f27435e = false;
-            this.f27436f = false;
-            this.f27437g.clear();
+            this.f26681a = false;
+            this.f26682b = true;
+            this.f26683c = -1L;
+            this.f26684d = -1L;
+            this.f26685e = false;
+            this.f26686f = false;
+            this.f26687g.clear();
         }
     }
 
     public final JSONObject a() {
         try {
-            if (this.f27430a != null && this.f27430a.f27436f) {
+            if (this.f26680a != null && this.f26680a.f26686f) {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("coldbootfirst", this.f27430a.f27431a);
-                jSONObject.put("loadasycsearch", this.f27430a.f27432b);
-                jSONObject.put("starttosearch", this.f27430a.f27433c);
-                jSONObject.put("starttofragment", this.f27430a.f27434d);
-                jSONObject.put("state50", this.f27430a.f27435e);
-                for (String str : this.f27430a.f27437g.keySet()) {
-                    jSONObject.put(str, this.f27430a.f27437g.get(str));
+                jSONObject.put("coldbootfirst", this.f26680a.f26681a);
+                jSONObject.put("loadasycsearch", this.f26680a.f26682b);
+                jSONObject.put("starttosearch", this.f26680a.f26683c);
+                jSONObject.put("starttofragment", this.f26680a.f26684d);
+                jSONObject.put("state50", this.f26680a.f26685e);
+                for (String str : this.f26680a.f26687g.keySet()) {
+                    jSONObject.put(str, this.f26680a.f26687g.get(str));
                 }
-                this.f27430a.a();
+                this.f26680a.a();
                 return jSONObject;
             }
             return null;
         } catch (Throwable th) {
             Log.printStackTrace(th);
-            this.f27430a.a();
+            this.f26680a.a();
             return null;
         }
     }

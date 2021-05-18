@@ -5,10 +5,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ITTAppDownloadListener extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Default implements ITTAppDownloadListener {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -40,25 +40,25 @@ public interface ITTAppDownloadListener extends IInterface {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements ITTAppDownloadListener {
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static class a implements ITTAppDownloadListener {
 
             /* renamed from: a  reason: collision with root package name */
-            public static ITTAppDownloadListener f27789a;
+            public static ITTAppDownloadListener f27034a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f27790b;
+            public IBinder f27035b;
 
             public a(IBinder iBinder) {
-                this.f27790b = iBinder;
+                this.f27035b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f27790b;
+                return this.f27035b;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
@@ -75,7 +75,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     th = th;
                 }
                 try {
-                    if (!this.f27790b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27035b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDownloadActive(j, j2, str, str2);
                         obtain2.recycle();
                         obtain.recycle();
@@ -106,7 +106,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     th = th;
                 }
                 try {
-                    if (!this.f27790b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27035b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDownloadFailed(j, j2, str, str2);
                         obtain2.recycle();
                         obtain.recycle();
@@ -132,7 +132,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     obtain.writeLong(j);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f27790b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27035b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDownloadFinished(j, str, str2);
                     } else {
                         obtain2.readException();
@@ -157,7 +157,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     th = th;
                 }
                 try {
-                    if (!this.f27790b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27035b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDownloadPaused(j, j2, str, str2);
                         obtain2.recycle();
                         obtain.recycle();
@@ -180,7 +180,7 @@ public interface ITTAppDownloadListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
-                    if (!this.f27790b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27035b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onIdle();
                     } else {
                         obtain2.readException();
@@ -199,7 +199,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f27790b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27035b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onInstalled(str, str2);
                     } else {
                         obtain2.readException();
@@ -227,14 +227,14 @@ public interface ITTAppDownloadListener extends IInterface {
         }
 
         public static ITTAppDownloadListener getDefaultImpl() {
-            return a.f27789a;
+            return a.f27034a;
         }
 
         public static boolean setDefaultImpl(ITTAppDownloadListener iTTAppDownloadListener) {
-            if (a.f27789a != null || iTTAppDownloadListener == null) {
+            if (a.f27034a != null || iTTAppDownloadListener == null) {
                 return false;
             }
-            a.f27789a = iTTAppDownloadListener;
+            a.f27034a = iTTAppDownloadListener;
             return true;
         }
 

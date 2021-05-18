@@ -8,25 +8,25 @@ import com.baidu.turbonet.base.annotations.CalledByNative;
 public class ThreadUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f23046a = new Object();
+    public static final Object f22291a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f23047b = false;
+    public static boolean f22292b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f23048c;
+    public static Handler f22293c;
 
     public static Handler a() {
         Handler handler;
-        synchronized (f23046a) {
-            if (f23048c == null) {
-                if (!f23047b) {
-                    f23048c = new Handler(Looper.getMainLooper());
+        synchronized (f22291a) {
+            if (f22293c == null) {
+                if (!f22292b) {
+                    f22293c = new Handler(Looper.getMainLooper());
                 } else {
                     throw new RuntimeException("Did not yet override the UI thread");
                 }
             }
-            handler = f23048c;
+            handler = f22293c;
         }
         return handler;
     }

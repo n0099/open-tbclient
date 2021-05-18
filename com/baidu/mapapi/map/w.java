@@ -1,143 +1,54 @@
 package com.baidu.mapapi.map;
 
-import android.graphics.Bitmap;
-import android.util.SparseArray;
-import android.view.MotionEvent;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.mapapi.model.inner.GeoPoint;
-import com.baidu.mapsdkplatform.comapi.map.ab;
-import javax.microedition.khronos.opengles.GL10;
+import android.util.Log;
+import java.util.HashSet;
 /* loaded from: classes2.dex */
-public class w implements com.baidu.mapsdkplatform.comapi.map.l {
+public class w implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f7395a;
+    public final /* synthetic */ int f7209a;
 
-    public w(WearMapView wearMapView) {
-        this.f7395a = wearMapView;
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ int f7210b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ int f7211c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ String f7212d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ TileOverlay f7213e;
+
+    public w(TileOverlay tileOverlay, int i2, int i3, int i4, String str) {
+        this.f7213e = tileOverlay;
+        this.f7209a = i2;
+        this.f7210b = i3;
+        this.f7211c = i4;
+        this.f7212d = str;
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void a() {
-        com.baidu.mapsdkplatform.comapi.map.j jVar;
-        com.baidu.mapsdkplatform.comapi.map.j jVar2;
-        com.baidu.mapsdkplatform.comapi.map.j jVar3;
-        float f2;
-        SparseArray sparseArray;
-        com.baidu.mapsdkplatform.comapi.map.j jVar4;
-        ImageView imageView;
-        String format;
-        TextView textView;
-        TextView textView2;
-        jVar = this.f7395a.f7343e;
-        if (jVar != null) {
-            jVar2 = this.f7395a.f7343e;
-            if (jVar2.a() == null) {
-                return;
-            }
-            jVar3 = this.f7395a.f7343e;
-            float f3 = jVar3.a().E().f7874a;
-            f2 = this.f7395a.z;
-            if (f2 != f3) {
-                sparseArray = WearMapView.w;
-                int intValue = ((Integer) sparseArray.get((int) f3)).intValue();
-                jVar4 = this.f7395a.f7343e;
-                imageView = this.f7395a.q;
-                int i2 = ((int) (intValue / jVar4.a().E().m)) / 2;
-                imageView.setPadding(i2, 0, i2, 0);
-                Object[] objArr = new Object[1];
-                if (intValue >= 1000) {
-                    objArr[0] = Integer.valueOf(intValue / 1000);
-                    format = String.format(" %d公里 ", objArr);
-                } else {
-                    objArr[0] = Integer.valueOf(intValue);
-                    format = String.format(" %d米 ", objArr);
-                }
-                textView = this.f7395a.o;
-                textView.setText(format);
-                textView2 = this.f7395a.p;
-                textView2.setText(format);
-                this.f7395a.z = f3;
-            }
-            this.f7395a.requestLayout();
+    @Override // java.lang.Runnable
+    public void run() {
+        TileProvider tileProvider;
+        String str;
+        String str2;
+        HashSet hashSet;
+        tileProvider = this.f7213e.f7144g;
+        Tile tile = ((FileTileProvider) tileProvider).getTile(this.f7209a, this.f7210b, this.f7211c);
+        if (tile == null) {
+            str = TileOverlay.f7138b;
+            str2 = "FileTile pic is null";
+        } else if (tile.width == 256 && tile.height == 256) {
+            this.f7213e.a(this.f7209a + "_" + this.f7210b + "_" + this.f7211c, tile);
+            hashSet = this.f7213e.f7143e;
+            hashSet.remove(this.f7212d);
+        } else {
+            str = TileOverlay.f7138b;
+            str2 = "FileTile pic must be 256 * 256";
         }
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void a(Bitmap bitmap) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void a(MotionEvent motionEvent) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void a(GeoPoint geoPoint) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void a(ab abVar) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void a(String str) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void a(GL10 gl10, ab abVar) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void a(boolean z) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void b() {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void b(GeoPoint geoPoint) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void b(ab abVar) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public boolean b(String str) {
-        return false;
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void c() {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void c(GeoPoint geoPoint) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void c(ab abVar) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void d() {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void d(GeoPoint geoPoint) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void e() {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void e(GeoPoint geoPoint) {
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void f() {
+        Log.e(str, str2);
+        hashSet = this.f7213e.f7143e;
+        hashSet.remove(this.f7212d);
     }
 }

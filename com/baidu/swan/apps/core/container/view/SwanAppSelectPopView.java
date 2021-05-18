@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Keep;
-import d.a.h0.a.f;
+import d.a.i0.a.f;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanAppSelectPopView extends LinearLayout implements View.OnClickListener {

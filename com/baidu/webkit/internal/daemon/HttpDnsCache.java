@@ -82,7 +82,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         String httpDnsUrlIP = WebSettingsGlobalBlink.getHttpDnsUrlIP();
         if (httpDnsUrlIP != null) {
             str = httpDnsUrlIP + getHttpdnsLabel();
-            str2 = "urlNative!=null: " + httpDnsUrlIP;
+            str2 = "urlNative!=null: ".concat(String.valueOf(httpDnsUrlIP));
         } else {
             str = SERVER_URL + getHttpdnsLabel();
             str2 = "urlNative==null ";
@@ -91,7 +91,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         if (!TextUtils.isEmpty(mBackupIpVersion)) {
             str = (str + "&backup=") + mBackupIpVersion;
         }
-        Log.d("cronet", "http_dns cloud url " + str);
+        Log.d("cronet", "http_dns cloud url ".concat(String.valueOf(str)));
         return str;
     }
 
@@ -101,7 +101,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         String httpDnsUrlHOST = WebSettingsGlobalBlink.getHttpDnsUrlHOST();
         if (httpDnsUrlHOST != null) {
             str = httpDnsUrlHOST + getHttpdnsLabel();
-            str2 = "urlNative!=null: " + httpDnsUrlHOST;
+            str2 = "urlNative!=null: ".concat(String.valueOf(httpDnsUrlHOST));
         } else {
             str = SERVER_STATIC_URL + getHttpdnsLabel();
             str2 = "urlNative==null ";
@@ -110,7 +110,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         if (!TextUtils.isEmpty(mBackupIpVersion)) {
             str = (str + "&backup=") + mBackupIpVersion;
         }
-        Log.d("cronet", "http_dns cloud url static ip " + str);
+        Log.d("cronet", "http_dns cloud url static ip ".concat(String.valueOf(str)));
         return str;
     }
 
@@ -272,7 +272,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
             if (TextUtils.isEmpty(httpDnsCache)) {
                 return;
             }
-            Log.w(LOG_TAG, "saveLastCacheToCfg " + httpDnsCache);
+            Log.w(LOG_TAG, "saveLastCacheToCfg ".concat(String.valueOf(httpDnsCache)));
             saveLastCacheToCfg(httpDnsCache);
         } catch (Exception e2) {
             e2.printStackTrace();

@@ -4,7 +4,6 @@ import android.graphics.ImageFormat;
 import android.support.v4.media.session.MediaSessionCompat;
 import androidx.core.view.DisplayCompat;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
-import com.baidu.lbsapi.panoramaview.PanoramaView;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.sapi2.activity.IdCardOcrCameraActivity;
 import com.baidu.tbadk.TbConfig;
@@ -46,7 +45,7 @@ public class CameraEnumerationAndroid {
             }
 
             public int hashCode() {
-                return (this.min * PanoramaView.PANOTYPE_INTERIOR) + 1 + this.max;
+                return (this.min * 65537) + 1 + this.max;
             }
 
             public String toString() {

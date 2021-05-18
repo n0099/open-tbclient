@@ -1,20 +1,20 @@
 package com.bytedance.sdk.openadsdk.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f30198a;
+    public final long f29443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f30199b;
+    public final long f29444b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f30200c;
+    public final long f29445c;
 
     public long a(int i2) {
         if (i2 <= 0) {
-            return this.f30198a;
+            return this.f29443a;
         }
-        return Math.min(this.f30198a + (this.f30199b * i2), this.f30200c);
+        return Math.min(this.f29443a + (this.f29444b * i2), this.f29445c);
     }
 }

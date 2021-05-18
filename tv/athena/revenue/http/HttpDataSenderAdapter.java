@@ -15,7 +15,7 @@ import java.util.HashMap;
 import okhttp3.Request;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpDataSenderAdapter implements b {
     public int authType;
     public String hostId;
@@ -26,41 +26,41 @@ public class HttpDataSenderAdapter implements b {
     public String version = "";
     public boolean isInit = false;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends i.a.a.c.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f68869a;
+        public final /* synthetic */ int f69551a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f68870b;
+        public final /* synthetic */ String f69552b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ byte[] f68871c;
+        public final /* synthetic */ byte[] f69553c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c f68872d;
+        public final /* synthetic */ c f69554d;
 
         public a(int i2, String str, byte[] bArr, c cVar) {
-            this.f68869a = i2;
-            this.f68870b = str;
-            this.f68871c = bArr;
-            this.f68872d = cVar;
+            this.f69551a = i2;
+            this.f69552b = str;
+            this.f69553c = bArr;
+            this.f69554d = cVar;
         }
 
         @Override // i.a.a.c.b.a
         public void a(Request request, Exception exc) {
             RevenueDataParser revenueDataParser = RevenueDataParser.INSTANCE;
-            int i2 = this.f68869a;
-            String str = this.f68870b;
-            int n = this.f68872d.n();
+            int i2 = this.f69551a;
+            String str = this.f69552b;
+            int n = this.f69554d.n();
             revenueDataParser.onRequestError(i2, str, n, AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL, "onFailure = " + exc.getMessage());
             d.e("HttpDataSenderAdapter", "sendByHttpPost-----onFailure-----:" + exc.getMessage(), new Object[0]);
         }
 
         @Override // i.a.a.c.b.a
         public void b(Object obj) {
-            HttpDataSenderAdapter.this.onSuccess(this.f68869a, this.f68870b, this.f68871c, obj, this.f68872d);
+            HttpDataSenderAdapter.this.onSuccess(this.f69551a, this.f69552b, this.f69553c, obj, this.f69554d);
         }
     }
 
@@ -75,22 +75,22 @@ public class HttpDataSenderAdapter implements b {
             int i3 = jSONObject.getInt("code");
             d.b("HttpDataSenderAdapter", "sendByHttpPost----onSuccess-----:responeObject:" + jSONObject.toString());
             d.r.b.a.a.f.e.d dVar = new d.r.b.a.a.f.e.d(obj.toString().getBytes());
-            if (dVar.f67009f == 0) {
-                dVar.f67009f = i2;
+            if (dVar.f67695f == 0) {
+                dVar.f67695f = i2;
             }
-            if (dVar.f67008e == 0) {
-                dVar.f67008e = cVar.n();
-                d.e("HttpDataSenderAdapter", "response.cmd:" + dVar.f67008e, new Object[0]);
+            if (dVar.f67694e == 0) {
+                dVar.f67694e = cVar.n();
+                d.e("HttpDataSenderAdapter", "response.cmd:" + dVar.f67694e, new Object[0]);
             }
             if (i3 == 200) {
-                if (dVar.f67011h != null && !StringUtil.NULL_STRING.equals(dVar.f67011h)) {
+                if (dVar.f67697h != null && !StringUtil.NULL_STRING.equals(dVar.f67697h)) {
                     RevenueDataParser.INSTANCE.parserRevenueResponseData(i2, dVar.c());
                     return;
                 }
                 RevenueDataParser revenueDataParser = RevenueDataParser.INSTANCE;
                 int n = cVar.n();
-                int i4 = dVar.f67007d;
-                revenueDataParser.onRequestError(i2, str, n, i4, "result = " + dVar.f67007d);
+                int i4 = dVar.f67693d;
+                revenueDataParser.onRequestError(i2, str, n, i4, "result = " + dVar.f67693d);
                 return;
             }
             RevenueDataParser revenueDataParser2 = RevenueDataParser.INSTANCE;

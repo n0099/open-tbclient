@@ -1,33 +1,19 @@
 package d.a.j0.d0;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
-import d.a.c.j.e.n;
-/* loaded from: classes4.dex */
-public class f implements n {
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f51868f = BdUniqueId.gen();
-
-    /* renamed from: e  reason: collision with root package name */
-    public FeatureCardGame f51869e;
-
-    public FeatureCardGame c() {
-        return this.f51869e;
-    }
-
-    public void e(FeatureCardGame featureCardGame) {
-        if (featureCardGame == null) {
-            return;
+import android.view.View;
+import android.widget.LinearLayout;
+/* loaded from: classes3.dex */
+public class f implements d {
+    @Override // d.a.j0.d0.d
+    public void a(View view, View view2, boolean z) {
+        LinearLayout linearLayout = (LinearLayout) view;
+        if (z) {
+            linearLayout.addView(view2, 0);
+        } else {
+            linearLayout.addView(view2);
         }
-        this.f51869e = featureCardGame;
-        String str = featureCardGame.title;
-        Integer num = featureCardGame.floor;
-        Integer num2 = featureCardGame.type;
-    }
-
-    @Override // d.a.c.j.e.n
-    public BdUniqueId getType() {
-        return f51868f;
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view2.getLayoutParams();
+        layoutParams.gravity = 1;
+        view2.setLayoutParams(layoutParams);
     }
 }

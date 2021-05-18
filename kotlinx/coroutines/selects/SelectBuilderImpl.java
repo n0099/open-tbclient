@@ -326,7 +326,7 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
     public final void handleBuilderException(Throwable th) {
         if (trySelect()) {
             Result.Companion companion = Result.Companion;
-            resumeWith(Result.m636constructorimpl(ResultKt.createFailure(th)));
+            resumeWith(Result.m635constructorimpl(ResultKt.createFailure(th)));
         } else if (th instanceof CancellationException) {
         } else {
             Object result = getResult();
@@ -404,7 +404,7 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
                 if (_result$FU.compareAndSet(this, IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED(), SelectKt.access$getRESUMED$p())) {
                     Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(this.uCont);
                     Result.Companion companion = Result.Companion;
-                    intercepted.resumeWith(Result.m636constructorimpl(ResultKt.createFailure(th)));
+                    intercepted.resumeWith(Result.m635constructorimpl(ResultKt.createFailure(th)));
                     return;
                 }
             }
@@ -426,17 +426,17 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
                 throw new IllegalStateException("Already resumed");
             } else {
                 if (_result$FU.compareAndSet(this, IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED(), SelectKt.access$getRESUMED$p())) {
-                    if (Result.m642isFailureimpl(obj)) {
+                    if (Result.m641isFailureimpl(obj)) {
                         Continuation<R> continuation = this.uCont;
-                        Throwable m639exceptionOrNullimpl = Result.m639exceptionOrNullimpl(obj);
-                        if (m639exceptionOrNullimpl == null) {
+                        Throwable m638exceptionOrNullimpl = Result.m638exceptionOrNullimpl(obj);
+                        if (m638exceptionOrNullimpl == null) {
                             Intrinsics.throwNpe();
                         }
                         Result.Companion companion = Result.Companion;
                         if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
-                            m639exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m639exceptionOrNullimpl, (CoroutineStackFrame) continuation);
+                            m638exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m638exceptionOrNullimpl, (CoroutineStackFrame) continuation);
                         }
-                        continuation.resumeWith(Result.m636constructorimpl(ResultKt.createFailure(m639exceptionOrNullimpl)));
+                        continuation.resumeWith(Result.m635constructorimpl(ResultKt.createFailure(m638exceptionOrNullimpl)));
                         return;
                     }
                     this.uCont.resumeWith(obj);

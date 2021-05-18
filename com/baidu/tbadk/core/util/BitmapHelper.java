@@ -163,7 +163,7 @@ public class BitmapHelper {
                         options.inJustDecodeBounds = true;
                         BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
                         if (!options.mCancel && options.outWidth != -1 && options.outHeight != -1) {
-                            options.inSampleSize = Math.min(options.outWidth / i2, options.outHeight / i3);
+                            options.inSampleSize = ImageUtil.calculateInSampleSize(options, i2, i3);
                             options.inJustDecodeBounds = false;
                             return BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
                         }
@@ -1100,7 +1100,7 @@ public class BitmapHelper {
         ParcelFileDescriptor parcelFileDescriptor;
         Bitmap decodeFileDescriptor;
         try {
-            parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7975a);
+            parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7772a);
         } catch (Throwable unused) {
             parcelFileDescriptor = null;
         }

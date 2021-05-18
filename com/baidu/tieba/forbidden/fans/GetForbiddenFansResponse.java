@@ -1,8 +1,8 @@
 package com.baidu.tieba.forbidden.fans;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.i0.r.q.z0;
-import d.a.j0.n0.a.a;
+import d.a.j0.r.q.z0;
+import d.a.k0.n0.a.a;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,7 +28,7 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < length; i3++) {
                     a aVar = new a();
                     aVar.a(optJSONArray.getJSONObject(i3));
-                    if (aVar.f56880a != 0) {
+                    if (aVar.f57587a != 0) {
                         this.fansList.add(aVar);
                     }
                 }

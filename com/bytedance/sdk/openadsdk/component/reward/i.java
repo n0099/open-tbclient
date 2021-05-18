@@ -7,32 +7,32 @@ import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.ag;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28335a;
+    public String f27580a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f28336b;
+    public Context f27581b;
 
     public i(Context context, String str) {
-        this.f28336b = context;
-        this.f28335a = TextUtils.isEmpty(str) ? "" : str;
+        this.f27581b = context;
+        this.f27580a = TextUtils.isEmpty(str) ? "" : str;
     }
 
     @Nullable
     private Context b() {
-        Context context = this.f28336b;
+        Context context = this.f27581b;
         return context == null ? p.a() : context;
     }
 
     private String c() {
-        return this.f28335a + "_adslot";
+        return this.f27580a + "_adslot";
     }
 
     private String d() {
-        return this.f28335a + "_adslot_preload";
+        return this.f27580a + "_adslot_preload";
     }
 
     @Nullable
@@ -51,7 +51,7 @@ public class i {
         if (TextUtils.isEmpty(str)) {
             str = "0";
         }
-        return this.f28335a + "_cache_" + str;
+        return this.f27580a + "_cache_" + str;
     }
 
     public String a(String str) {

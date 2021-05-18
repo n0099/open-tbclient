@@ -38,7 +38,7 @@ public abstract class JsReleaser {
         }
     }
 
-    public void finalize() throws Throwable {
+    public void finalize() {
         try {
             long andSet = this.mNativeObject.getAndSet(0L);
             if (andSet != 0) {

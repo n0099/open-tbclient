@@ -5,17 +5,17 @@ import com.xiaomi.push.al;
 public class go {
 
     /* renamed from: a  reason: collision with root package name */
-    public static al f38510a = new al(true, 20);
+    public static al f37755a = new al(true, 20);
 
     public static void a(al.b bVar) {
-        f38510a.a(bVar);
+        f37755a.a(bVar);
     }
 
     public static void a(al.b bVar, long j) {
-        f38510a.a(bVar, j);
+        f37755a.a(bVar, j);
     }
 
     public static void a(Runnable runnable) {
-        f38510a.a(new gp(runnable));
+        f37755a.a(new gp(runnable));
     }
 }

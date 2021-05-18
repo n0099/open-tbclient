@@ -4,11 +4,11 @@ import android.content.Context;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Vibrator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SensorManager f30144a;
+    public static SensorManager f29389a;
 
     public static int a(int i2) {
         if (i2 == 0 || i2 == 1 || i2 == 2 || i2 == 3) {
@@ -30,14 +30,14 @@ public class g {
     }
 
     public static SensorManager b(Context context) {
-        if (f30144a == null) {
+        if (f29389a == null) {
             synchronized (g.class) {
-                if (f30144a == null) {
-                    f30144a = (SensorManager) context.getSystemService("sensor");
+                if (f29389a == null) {
+                    f29389a = (SensorManager) context.getSystemService("sensor");
                 }
             }
         }
-        return f30144a;
+        return f29389a;
     }
 
     public static void a(Context context, SensorEventListener sensorEventListener) {

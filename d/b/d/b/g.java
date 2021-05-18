@@ -2,7 +2,7 @@ package d.b.d.b;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface g {
     Map<String, Object> a();
 

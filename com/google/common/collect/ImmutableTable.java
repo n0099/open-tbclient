@@ -63,21 +63,21 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
     public static final class a<R, C, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<y0.a<R, C, V>> f31899a = Lists.i();
+        public final List<y0.a<R, C, V>> f31144a = Lists.i();
 
         /* renamed from: b  reason: collision with root package name */
-        public Comparator<? super R> f31900b;
+        public Comparator<? super R> f31145b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Comparator<? super C> f31901c;
+        public Comparator<? super C> f31146c;
 
         public ImmutableTable<R, C, V> a() {
-            int size = this.f31899a.size();
+            int size = this.f31144a.size();
             if (size != 0) {
                 if (size != 1) {
-                    return RegularImmutableTable.forCells(this.f31899a, this.f31900b, this.f31901c);
+                    return RegularImmutableTable.forCells(this.f31144a, this.f31145b, this.f31146c);
                 }
-                return new SingletonImmutableTable((y0.a) f0.h(this.f31899a));
+                return new SingletonImmutableTable((y0.a) f0.h(this.f31144a));
             }
             return ImmutableTable.of();
         }
@@ -87,7 +87,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
                 n.q(aVar.getRowKey(), "row");
                 n.q(aVar.getColumnKey(), "column");
                 n.q(aVar.getValue(), "value");
-                this.f31899a.add(aVar);
+                this.f31144a.add(aVar);
             } else {
                 c(aVar.getRowKey(), aVar.getColumnKey(), aVar.getValue());
             }
@@ -95,7 +95,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
         }
 
         public a<R, C, V> c(R r, C c2, V v) {
-            this.f31899a.add(ImmutableTable.cellOf(r, c2, v));
+            this.f31144a.add(ImmutableTable.cellOf(r, c2, v));
             return this;
         }
     }

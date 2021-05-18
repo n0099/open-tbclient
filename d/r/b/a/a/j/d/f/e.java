@@ -14,10 +14,10 @@ public final class e extends d.r.b.a.a.j.d.a implements d.r.b.a.a.j.d.f.a {
     public static final a q = new a(null);
 
     /* renamed from: h  reason: collision with root package name */
-    public d.r.b.a.a.f.e.a f67402h;
+    public d.r.b.a.a.f.e.a f68088h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f67403i;
+    public boolean f68089i;
     public Object j;
     public String k;
     public final int l;
@@ -104,7 +104,7 @@ public final class e extends d.r.b.a.a.j.d.a implements d.r.b.a.a.j.d.f.a {
             Intrinsics.throwNpe();
         }
         String str = this.k;
-        d.r.b.a.a.f.e.a aVar = this.f67402h;
+        d.r.b.a.a.f.e.a aVar = this.f68088h;
         if (aVar == null) {
             Intrinsics.throwNpe();
         }
@@ -146,17 +146,17 @@ public final class e extends d.r.b.a.a.j.d.a implements d.r.b.a.a.j.d.f.a {
         if (this.p == null || this.o == null) {
             return false;
         }
-        if (this.f67403i) {
+        if (this.f68089i) {
             return true;
         }
         this.n.setSeq(this.k);
         d.r.b.a.a.f.e.a a2 = this.o.a(this.l, this.m, this.n);
-        this.f67402h = a2;
+        this.f68088h = a2;
         if (a2 == null) {
             return false;
         }
-        this.f67403i = true;
+        this.f68089i = true;
         g();
-        return this.f67403i;
+        return this.f68089i;
     }
 }

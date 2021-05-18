@@ -18,15 +18,15 @@ public class RouteShareURLOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7631a;
+        public int f7448a;
 
         RouteShareMode(int i2) {
-            this.f7631a = -1;
-            this.f7631a = i2;
+            this.f7448a = -1;
+            this.f7448a = i2;
         }
 
         public int getRouteShareMode() {
-            return this.f7631a;
+            return this.f7448a;
         }
     }
 

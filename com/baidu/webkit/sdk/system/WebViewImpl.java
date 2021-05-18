@@ -21,6 +21,7 @@ import com.baidu.webkit.sdk.WebAppShortcutDataListener;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebMessage;
+import com.baidu.webkit.sdk.WebMessageListener;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebView;
 import com.baidu.webkit.sdk.WebViewClient;
@@ -120,6 +121,10 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void addWebMessageListener(WebMessageListener webMessageListener, String str, String[] strArr) {
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void addZeusPluginFactory(ZeusPluginFactory zeusPluginFactory) {
     }
 
@@ -158,6 +163,11 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final Picture capturePicture(int i2, int i3, boolean z) {
         return super.capturePicture();
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final boolean clearDiskJsCodeCache(String str) {
+        return false;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -483,7 +493,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void notifyPageLeave() {
+    public final void notifyUkmPageLeave() {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider

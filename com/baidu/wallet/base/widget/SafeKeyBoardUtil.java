@@ -16,31 +16,31 @@ import java.lang.reflect.Method;
 public final class SafeKeyBoardUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24371a;
+    public String f23616a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f24372b;
+    public Context f23617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SafeKeyBoardEditText f24373c;
+    public SafeKeyBoardEditText f23618c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f24374d;
+    public ViewGroup f23619d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SafeScrollView f24375e;
+    public SafeScrollView f23620e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f24376f;
+    public View f23621f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f24377g;
+    public int f23622g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f24378h;
+    public int f23623h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f24379i;
+    public int f23624i;
     public int j;
     public SafeKeyBoardState k;
     public SafeKeyBoardPopupWindow mPopupWindow;
@@ -52,7 +52,7 @@ public final class SafeKeyBoardUtil {
     }
 
     public void hideSoftInputMethod(EditText editText) {
-        ((InputMethodManager) this.f24372b.getSystemService("input_method")).hideSoftInputFromWindow(this.f24373c.getWindowToken(), 0);
+        ((InputMethodManager) this.f23617b.getSystemService("input_method")).hideSoftInputFromWindow(this.f23618c.getWindowToken(), 0);
         if (Build.VERSION.SDK_INT < 11) {
             editText.setInputType(0);
             return;
@@ -95,9 +95,9 @@ public final class SafeKeyBoardUtil {
     }
 
     public void init(Context context, ViewGroup viewGroup, SafeScrollView safeScrollView) {
-        this.f24372b = context;
-        this.f24374d = viewGroup;
-        this.f24375e = safeScrollView;
+        this.f23617b = context;
+        this.f23619d = viewGroup;
+        this.f23620e = safeScrollView;
         if (this.mPopupWindow == null) {
             if (this.k == SafeKeyBoardState.CONFRIM_STATE) {
                 this.mPopupWindow = new SafeKeyBoardPopUpWindowNew(context);
@@ -107,9 +107,9 @@ public final class SafeKeyBoardUtil {
         }
         SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.mPopupWindow;
         if (safeKeyBoardPopupWindow == null || !safeKeyBoardPopupWindow.isShowing()) {
-            SafeScrollView safeScrollView2 = this.f24375e;
+            SafeScrollView safeScrollView2 = this.f23620e;
             if (safeScrollView2 != null) {
-                this.f24378h = safeScrollView2.getLayoutParams().height;
+                this.f23623h = safeScrollView2.getLayoutParams().height;
             } else {
                 LogUtil.errord("gaolou", "SafeKeyBoardUtil.init ++ mScrollView == null");
             }
@@ -121,18 +121,18 @@ public final class SafeKeyBoardUtil {
     }
 
     public void showSoftKeyBoard(SafeKeyBoardEditText safeKeyBoardEditText, View view) {
-        this.f24373c = safeKeyBoardEditText;
-        this.f24376f = view;
+        this.f23618c = safeKeyBoardEditText;
+        this.f23621f = view;
         SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.mPopupWindow;
-        if (safeKeyBoardPopupWindow != null && safeKeyBoardEditText != null && view != null && this.f24375e != null && this.f24374d != null) {
+        if (safeKeyBoardPopupWindow != null && safeKeyBoardEditText != null && view != null && this.f23620e != null && this.f23619d != null) {
             safeKeyBoardPopupWindow.setSafeEditTet(safeKeyBoardEditText);
-            this.mPopupWindow.setScrollView(this.f24375e);
-            hideSoftInputMethod(this.f24373c);
-            if (this.f24375e.hasWindowFocus() && this.f24373c.isEnabled()) {
-                if (this.mPopupWindow != null && this.f24375e.hasWindowFocus()) {
+            this.mPopupWindow.setScrollView(this.f23620e);
+            hideSoftInputMethod(this.f23618c);
+            if (this.f23620e.hasWindowFocus() && this.f23618c.isEnabled()) {
+                if (this.mPopupWindow != null && this.f23620e.hasWindowFocus()) {
                     this.mPopupWindow.initKeyNum(safeKeyBoardEditText.getUseRandKey());
                     try {
-                        this.mPopupWindow.showAtLocation(this.f24374d, 80, 0, 0);
+                        this.mPopupWindow.showAtLocation(this.f23619d, 80, 0, 0);
                         if (Build.VERSION.SDK_INT <= 23) {
                             this.mPopupWindow.update();
                         }
@@ -145,14 +145,14 @@ public final class SafeKeyBoardUtil {
                     @Override // java.lang.Runnable
                     public void run() {
                         SafeKeyBoardPopupWindow safeKeyBoardPopupWindow2 = SafeKeyBoardUtil.this.mPopupWindow;
-                        if (safeKeyBoardPopupWindow2 != null && safeKeyBoardPopupWindow2.isShowing() && SafeKeyBoardUtil.this.f24375e.hasWindowFocus()) {
+                        if (safeKeyBoardPopupWindow2 != null && safeKeyBoardPopupWindow2.isShowing() && SafeKeyBoardUtil.this.f23620e.hasWindowFocus()) {
                             SafeKeyBoardUtil.this.a();
                         } else {
                             new Handler().postDelayed(new Runnable() { // from class: com.baidu.wallet.base.widget.SafeKeyBoardUtil.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     SafeKeyBoardPopupWindow safeKeyBoardPopupWindow3 = SafeKeyBoardUtil.this.mPopupWindow;
-                                    if (safeKeyBoardPopupWindow3 != null && safeKeyBoardPopupWindow3.isShowing() && SafeKeyBoardUtil.this.f24375e.hasWindowFocus()) {
+                                    if (safeKeyBoardPopupWindow3 != null && safeKeyBoardPopupWindow3.isShowing() && SafeKeyBoardUtil.this.f23620e.hasWindowFocus()) {
                                         SafeKeyBoardUtil.this.a();
                                     }
                                 }
@@ -168,9 +168,9 @@ public final class SafeKeyBoardUtil {
     }
 
     private void b() {
-        ViewGroup.LayoutParams layoutParams = this.f24375e.getLayoutParams();
-        layoutParams.height = this.f24378h;
-        this.f24375e.setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams = this.f23620e.getLayoutParams();
+        layoutParams.height = this.f23623h;
+        this.f23620e.setLayoutParams(layoutParams);
     }
 
     private View a(View view) {
@@ -185,39 +185,39 @@ public final class SafeKeyBoardUtil {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.mPopupWindow == null || this.f24375e == null || this.f24376f == null) {
+        if (this.mPopupWindow == null || this.f23620e == null || this.f23621f == null) {
             return;
         }
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) this.f24372b.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-        this.f24377g = displayMetrics.heightPixels;
+        ((WindowManager) this.f23617b.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        this.f23622g = displayMetrics.heightPixels;
         this.j = this.mPopupWindow.getPopupWindowHeight();
         int[] iArr = new int[2];
-        this.f24375e.getLocationOnScreen(iArr);
+        this.f23620e.getLocationOnScreen(iArr);
         int i2 = iArr[1];
         final int i3 = 0;
-        View a2 = a(this.f24375e);
+        View a2 = a(this.f23620e);
         if (a2 != null) {
-            i3 = this.f24377g - a2.getHeight();
+            i3 = this.f23622g - a2.getHeight();
         }
-        int i4 = ((this.f24377g - this.j) - i2) - i3;
+        int i4 = ((this.f23622g - this.j) - i2) - i3;
         if (i4 <= 0) {
             return;
         }
-        ViewGroup.LayoutParams layoutParams = this.f24375e.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f23620e.getLayoutParams();
         layoutParams.height = i4;
-        this.f24375e.setLayoutParams(layoutParams);
-        this.f24375e.post(new Runnable() { // from class: com.baidu.wallet.base.widget.SafeKeyBoardUtil.2
+        this.f23620e.setLayoutParams(layoutParams);
+        this.f23620e.post(new Runnable() { // from class: com.baidu.wallet.base.widget.SafeKeyBoardUtil.2
             @Override // java.lang.Runnable
             public void run() {
                 int[] iArr2 = new int[2];
-                SafeKeyBoardUtil.this.f24376f.getLocationOnScreen(iArr2);
+                SafeKeyBoardUtil.this.f23621f.getLocationOnScreen(iArr2);
                 SafeKeyBoardUtil safeKeyBoardUtil = SafeKeyBoardUtil.this;
-                safeKeyBoardUtil.f24379i = ((iArr2[1] + safeKeyBoardUtil.f24376f.getHeight()) - (SafeKeyBoardUtil.this.f24377g - SafeKeyBoardUtil.this.j)) + SafeKeyBoardUtil.this.f24373c.getGap() + i3;
-                if (SafeKeyBoardUtil.this.f24379i > 0) {
-                    SafeKeyBoardUtil.this.f24375e.smoothScrollBy(0, SafeKeyBoardUtil.this.f24379i);
+                safeKeyBoardUtil.f23624i = ((iArr2[1] + safeKeyBoardUtil.f23621f.getHeight()) - (SafeKeyBoardUtil.this.f23622g - SafeKeyBoardUtil.this.j)) + SafeKeyBoardUtil.this.f23618c.getGap() + i3;
+                if (SafeKeyBoardUtil.this.f23624i > 0) {
+                    SafeKeyBoardUtil.this.f23620e.smoothScrollBy(0, SafeKeyBoardUtil.this.f23624i);
                 }
-                SafeKeyBoardUtil.this.f24375e.notifyShowKeyBoard(SafeKeyBoardUtil.this.j);
+                SafeKeyBoardUtil.this.f23620e.notifyShowKeyBoard(SafeKeyBoardUtil.this.j);
             }
         });
     }

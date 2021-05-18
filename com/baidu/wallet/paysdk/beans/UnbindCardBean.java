@@ -15,25 +15,25 @@ import java.util.List;
 public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25932a;
+    public String f25177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25933b;
+    public String f25178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25934c;
+    public String f25179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f25935d;
+    public boolean f25180d;
 
     public <T> UnbindCardBean(Context context) {
         super(context);
-        this.f25935d = true;
+        this.f25180d = true;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
-        if (!TextUtils.isEmpty(this.f25934c)) {
+        if (!TextUtils.isEmpty(this.f25179c)) {
             super.execBean(null);
         } else {
             this.mRspCallback.onBeanExecFailure(getBeanId(), -10, "");
@@ -43,19 +43,19 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        if (TextUtils.isEmpty(this.f25934c)) {
+        if (TextUtils.isEmpty(this.f25179c)) {
             return arrayList;
         }
-        arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25932a)));
-        if (this.f25935d) {
+        arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25177a)));
+        if (this.f25180d) {
             String seed = PasswordController.getSeed();
-            String handlePwd = PasswordController.handlePwd(this.f25934c, seed);
+            String handlePwd = PasswordController.handlePwd(this.f25179c, seed);
             String encryptProxy = SafePay.getInstance().encryptProxy(seed);
             arrayList.add(new RestNameValuePair("mobile_pass", handlePwd));
             arrayList.add(new RestNameValuePair("seed", encryptProxy));
         } else {
-            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25933b)));
-            arrayList.add(new RestNameValuePair("vcode", this.f25934c));
+            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25178b)));
+            arrayList.add(new RestNameValuePair("vcode", this.f25179c));
         }
         return arrayList;
     }
@@ -71,18 +71,18 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
     }
 
     public void setCardNo(String str) {
-        this.f25932a = str;
+        this.f25177a = str;
     }
 
     public void setPhoneNo(String str) {
-        this.f25933b = str;
+        this.f25178b = str;
     }
 
     public void setUsePass(boolean z) {
-        this.f25935d = z;
+        this.f25180d = z;
     }
 
     public void setValue(String str) {
-        this.f25934c = str;
+        this.f25179c = str;
     }
 }

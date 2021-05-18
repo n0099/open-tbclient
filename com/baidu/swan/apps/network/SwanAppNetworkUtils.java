@@ -6,14 +6,13 @@ import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import d.a.h0.a.i2.k0;
-import d.a.h0.a.k;
-import d.a.h0.g.w.d;
+import d.a.i0.a.h0.u.g;
+import d.a.i0.a.k;
+import d.a.i0.a.n1.m;
+import d.a.i0.a.v2.q0;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
@@ -22,7 +21,7 @@ import org.json.JSONObject;
 public class SwanAppNetworkUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11899a = k.f43101a;
+    public static final boolean f11072a = k.f43025a;
 
     /* loaded from: classes3.dex */
     public enum NetType {
@@ -42,20 +41,20 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends d.a.h0.a.n1.a.b.c.b {
+    public static class a extends d.a.i0.a.v1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f11900c;
+        public final /* synthetic */ b f11073c;
 
         public a(b bVar) {
-            this.f11900c = bVar;
+            this.f11073c = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.h0.a.n1.a.b.c.b, d.a.h0.a.n1.a.b.c.c, d.a.h0.a.n1.a.b.c.a
-        public void onEvent(@NonNull d.a.h0.a.n1.a.b.a.b bVar) {
+        @Override // d.a.i0.a.v1.a.b.c.b, d.a.i0.a.v1.a.b.c.c, d.a.i0.a.v1.a.b.c.a
+        public void onEvent(@NonNull d.a.i0.a.v1.a.b.a.b bVar) {
             int i2 = bVar.a() != null ? bVar.a().getInt("net_quality") : -1;
-            b bVar2 = this.f11900c;
+            b bVar2 = this.f11073c;
             if (bVar2 != null) {
                 bVar2.onResult(i2);
             }
@@ -87,7 +86,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static void b(@NonNull b bVar) {
-        d.a.h0.a.n1.c.e.a.C().J(null, d.class, new a(bVar));
+        d.a.i0.a.v1.c.e.a.E().L(null, m.class, new a(bVar));
     }
 
     public static NetworkInfo c(Context context) {
@@ -99,9 +98,8 @@ public class SwanAppNetworkUtils {
         return connectivityManager.getActiveNetworkInfo();
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static String d(int i2, String str) {
-        if (f11899a) {
+        if (f11072a) {
             Log.d("NetWorkUtils", "——> getNetworkType: netType " + i2 + " subTypeName " + str);
         }
         switch (i2) {
@@ -126,14 +124,12 @@ public class SwanAppNetworkUtils {
             case 13:
             case 18:
             case 19:
-                break;
+                return "4g";
+            case 20:
+                return "5g";
             default:
-                if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
-                    return "unknown";
-                }
-                break;
+                return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "4g";
         }
-        return "4g";
     }
 
     public static String e() {
@@ -147,7 +143,7 @@ public class SwanAppNetworkUtils {
         int hashCode = e2.hashCode();
         if (hashCode == -840472412) {
             if (e2.equals("unknow")) {
-                c2 = 5;
+                c2 = 6;
             }
             c2 = 65535;
         } else if (hashCode == 1653) {
@@ -165,14 +161,19 @@ public class SwanAppNetworkUtils {
                 c2 = 2;
             }
             c2 = 65535;
+        } else if (hashCode == 1746) {
+            if (e2.equals("5g")) {
+                c2 = 3;
+            }
+            c2 = 65535;
         } else if (hashCode != 3521) {
             if (hashCode == 3649301 && e2.equals("wifi")) {
-                c2 = 3;
+                c2 = 4;
             }
             c2 = 65535;
         } else {
             if (e2.equals("no")) {
-                c2 = 4;
+                c2 = 5;
             }
             c2 = 65535;
         }
@@ -181,11 +182,14 @@ public class SwanAppNetworkUtils {
                 if (c2 != 2) {
                     if (c2 != 3) {
                         if (c2 != 4) {
-                            return NetType.UNKOWN;
+                            if (c2 != 5) {
+                                return NetType.UNKOWN;
+                            }
+                            return NetType.NONE;
                         }
-                        return NetType.NONE;
+                        return NetType.WIFI;
                     }
-                    return NetType.WIFI;
+                    return NetType._5G;
                 }
                 return NetType._4G;
             }
@@ -195,54 +199,48 @@ public class SwanAppNetworkUtils {
     }
 
     public static String g() {
-        String g2 = k0.g(d.a.h0.a.e0.w.d.L().W());
-        return TextUtils.isEmpty(g2) ? "" : g2;
+        String f2 = q0.f(g.N().Y());
+        return TextUtils.isEmpty(f2) ? "" : f2;
     }
 
-    public static boolean h(Context context) {
+    public static boolean h() {
         NetworkInfo c2 = c(AppRuntime.getAppContext());
         return c2 != null && c2.isConnectedOrConnecting();
     }
 
     public static boolean i(Context context) {
+        return h();
+    }
+
+    public static boolean j(Context context) {
         NetworkInfo c2 = c(AppRuntime.getAppContext());
         return c2 != null && c2.isAvailable() && c2.getType() == 1;
     }
 
-    public static void j(Context context, CallbackHandler callbackHandler, String str) {
+    public static void k(Context context, CallbackHandler callbackHandler, String str) {
         if (context == null || TextUtils.isEmpty(str) || callbackHandler == null) {
             return;
         }
-        boolean h2 = h(context);
+        boolean i2 = i(context);
         String e2 = e();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("isConnected", h2);
+            jSONObject.put("isConnected", i2);
             if (TextUtils.equals(e2, "no")) {
                 e2 = "none";
             }
             jSONObject.put("networkType", e2);
-            if (f11899a) {
+            if (f11072a) {
                 Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
             }
         } catch (JSONException e3) {
-            if (f11899a) {
+            if (f11072a) {
                 e3.printStackTrace();
             }
         }
         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-        if (f11899a) {
+        if (f11072a) {
             Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: post success ");
         }
-    }
-
-    public static <T> void k(String str, String str2, ResponseCallback<T> responseCallback) {
-        if (f11899a) {
-            Log.d("postJsonRequest", HttpRetryStatistic.RETRY_URL + str + "\nbody:" + str2);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        d.a.h0.k.e.a.f().postStringRequest().url(str).cookieManager(d.a.h0.a.w0.a.m().a()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
     }
 }

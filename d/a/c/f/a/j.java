@@ -6,7 +6,7 @@ import android.widget.ImageView;
 public class j extends c {
     @Override // d.a.c.f.a.c, d.a.c.f.a.a
     public void h(Canvas canvas, d dVar, ImageView imageView) {
-        this.f40098b.setColorFilter(null);
+        this.f39343b.setColorFilter(null);
         super.h(canvas, dVar, imageView);
     }
 }

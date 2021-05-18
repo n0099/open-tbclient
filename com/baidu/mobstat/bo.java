@@ -22,10 +22,10 @@ import java.net.URL;
 public final class bo {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Proxy f9008a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+    public static final Proxy f8820a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Proxy f9009b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+    public static final Proxy f8821b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
 
     public static String a() {
         try {
@@ -205,10 +205,10 @@ public final class bo {
                 String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                 if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                     if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(f9009b);
+                        httpURLConnection = (HttpURLConnection) url.openConnection(f8821b);
                     }
                 } else {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(f9008a);
+                    httpURLConnection = (HttpURLConnection) url.openConnection(f8820a);
                 }
             }
             httpURLConnection = null;

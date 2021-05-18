@@ -15,13 +15,13 @@ import org.json.JSONObject;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65723a;
+    public final String f66409a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<g> f65724b;
+    public final List<g> f66410b;
 
     public f(JSONObject jSONObject) {
-        this.f65723a = jSONObject.optString("imageKey");
+        this.f66409a = jSONObject.optString("imageKey");
         ArrayList arrayList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("frames");
         if (optJSONArray != null) {
@@ -37,20 +37,20 @@ public final class f {
                 }
             }
         }
-        this.f65724b = CollectionsKt___CollectionsKt.toList(arrayList);
+        this.f66410b = CollectionsKt___CollectionsKt.toList(arrayList);
     }
 
     public final List<g> a() {
-        return this.f65724b;
+        return this.f66410b;
     }
 
     public final String b() {
-        return this.f65723a;
+        return this.f66409a;
     }
 
     public f(SpriteEntity spriteEntity) {
         List<g> emptyList;
-        this.f65723a = spriteEntity.imageKey;
+        this.f66409a = spriteEntity.imageKey;
         List<FrameEntity> list = spriteEntity.frames;
         if (list != null) {
             emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
@@ -67,6 +67,6 @@ public final class f {
         } else {
             emptyList = CollectionsKt__CollectionsKt.emptyList();
         }
-        this.f65724b = emptyList;
+        this.f66410b = emptyList;
     }
 }

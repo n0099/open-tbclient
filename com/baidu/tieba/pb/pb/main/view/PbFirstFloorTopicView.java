@@ -10,38 +10,38 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20006e;
+    public Context f19294e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20007f;
+    public int f19295f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20008g;
+    public int f19296g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20009h;
+    public int f19297h;
 
     public PbFirstFloorTopicView(Context context) {
         super(context);
-        this.f20006e = null;
+        this.f19294e = null;
         c(context);
     }
 
     public final LinearLayout a() {
-        LinearLayout linearLayout = new LinearLayout(this.f20006e);
+        LinearLayout linearLayout = new LinearLayout(this.f19294e);
         SkinManager.setBackgroundColor(linearLayout, R.color.transparent);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.f20009h, -2));
+        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.f19297h, -2));
         linearLayout.setGravity(17);
         addView(linearLayout);
         return linearLayout;
     }
 
     public final void b(LinearLayout linearLayout, String str) {
-        TextView textView = new TextView(this.f20006e);
+        TextView textView = new TextView(this.f19294e);
         textView.setText(str);
         textView.setGravity(17);
         SkinManager.setBackgroundColor(textView, R.color.CAM_X0204);
@@ -50,21 +50,21 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         textView.setTypeface(null, 1);
         textView.setMinLines(1);
         textView.setMaxLines(1);
-        textView.setWidth(this.f20007f);
+        textView.setWidth(this.f19295f);
         textView.setOnClickListener(this);
         linearLayout.addView(textView);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        int i2 = this.f20008g;
+        int i2 = this.f19296g;
         layoutParams.leftMargin = i2;
         layoutParams.rightMargin = i2;
     }
 
     public final void c(Context context) {
         setOrientation(1);
-        this.f20006e = context;
-        this.f20008g = l.g(context, R.dimen.ds8);
-        this.f20009h = l.k(this.f20006e);
-        this.f20007f = l.k(this.f20006e) / 2;
+        this.f19294e = context;
+        this.f19296g = l.g(context, R.dimen.ds8);
+        this.f19297h = l.k(this.f19294e);
+        this.f19295f = l.k(this.f19294e) / 2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -103,19 +103,19 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         if (linearLayout == null || linearLayout.getChildCount() != 0) {
             return;
         }
-        this.f20007f = this.f20009h;
+        this.f19295f = this.f19297h;
         b(linearLayout, (String) ListUtils.getItem(arrayList, count - 1));
     }
 
     public PbFirstFloorTopicView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20006e = null;
+        this.f19294e = null;
         c(context);
     }
 
     public PbFirstFloorTopicView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f20006e = null;
+        this.f19294e = null;
         c(context);
     }
 }

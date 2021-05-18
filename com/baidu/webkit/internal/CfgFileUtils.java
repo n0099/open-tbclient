@@ -1,6 +1,7 @@
 package com.baidu.webkit.internal;
 
 import android.content.SharedPreferences;
+import com.baidu.webkit.internal.utils.b;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.ByteArrayOutputStream;
@@ -29,6 +30,7 @@ public class CfgFileUtils implements INoProGuard {
     public static final String KEY_HTTP_DNS_IPV6_ENV = "http_dns_ipv6_env";
     public static final String KEY_HTTP_DNS_NATIVE_CACHE = "http_dns_native_cache";
     public static final String KEY_HTTP_DNS_PERSISTENCE_CACHE = "http_dns_persistence_cache";
+    public static final String KEY_HTTP_DNS_PREFETCH_LIST = "dns_prefetch_list";
     public static final String KEY_HTTP_WORMHOLE_IPLIST = "wormholeIpList";
     public static final String KEY_KEEP_ALIVE_TIME = "keep_alive_time";
     public static final String KEY_ML_MODEL = "MLModel";
@@ -48,7 +50,7 @@ public class CfgFileUtils implements INoProGuard {
     public static SharedPreferences gerPrefs() {
         synchronized (CfgFileUtils.class) {
             if (mPref == null) {
-                com.baidu.webkit.internal.utils.b.b();
+                b.b();
                 mPref = WebViewFactory.getContext().getSharedPreferences(GlobalConstants.SDK_CFG_RELATIVE_PATH_V2, 0);
             }
         }
@@ -68,7 +70,7 @@ public class CfgFileUtils implements INoProGuard {
         if (!z) {
             return get(str, str2);
         }
-        com.baidu.webkit.internal.utils.b.b();
+        b.b();
         try {
             fileInputStream = new FileInputStream(getFilePath(str));
             try {
@@ -132,7 +134,7 @@ public class CfgFileUtils implements INoProGuard {
     }
 
     public static boolean isExist(String str) {
-        com.baidu.webkit.internal.utils.b.b();
+        b.b();
         File file = new File(getFilePath(str));
         if (file.isFile() && file.exists()) {
             Log.d(TAG, getFilePath(str) + " is Exist");

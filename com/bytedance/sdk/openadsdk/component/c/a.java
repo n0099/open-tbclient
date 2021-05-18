@@ -8,18 +8,18 @@ import com.bytedance.sdk.openadsdk.core.d.m;
 import com.bytedance.sdk.openadsdk.core.h;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.core.q;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final q f28226a = p.f();
+    public final q f27471a = p.f();
 
     public static a a() {
         return new a();
     }
 
     public void a(final Context context, AdSlot adSlot, final TTAdNative.InteractionAdListener interactionAdListener) {
-        this.f28226a.a(adSlot, new m(), 2, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.c.a.1
+        this.f27471a.a(adSlot, new m(), 2, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.c.a.1
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i2, String str) {
                 interactionAdListener.onError(i2, str);

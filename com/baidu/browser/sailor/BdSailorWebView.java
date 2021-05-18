@@ -32,6 +32,7 @@ import android.widget.ZoomButtonsController;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.sailor.BdSailorWebSettings;
+import com.baidu.browser.sailor.BdSailorWebViewClientExt;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
@@ -55,6 +56,7 @@ import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebBackForwardListClient;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebHistoryItem;
+import com.baidu.webkit.sdk.WebMessageListener;
 import com.baidu.webkit.sdk.WebResourceError;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import com.baidu.webkit.sdk.WebResourceResponse;
@@ -97,7 +99,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public View mStatusBar;
     public int mStatusBarHeight;
     public VideoPlayerFactory mVideoFactory;
-    public g mViewDelegate;
+    public h mViewDelegate;
     public BdSailorWebChromeClient mWebChromeClient;
     public BdSailorWebSettings mWebSettings;
     public BdSailorWebViewClient mWebViewClient;
@@ -117,7 +119,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public BdSailorWebViewExt() {
         }
 
-        public /* synthetic */ BdSailorWebViewExt(BdSailorWebView bdSailorWebView, d.a.h.b.a aVar) {
+        public /* synthetic */ BdSailorWebViewExt(BdSailorWebView bdSailorWebView, a aVar) {
             this();
         }
 
@@ -366,7 +368,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
         public boolean isForegroundExt() {
-            return d.a.h.b.e.b.e(BdSailorWebView.this);
+            return d.a.h.b.c.b.e(BdSailorWebView.this);
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
@@ -657,13 +659,50 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* loaded from: classes.dex */
-    public class a extends WebBackForwardListClient {
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            FrameLayout frameLayout;
+            try {
+                Context context = BdSailorWebView.this.getContext();
+                Activity activity = context instanceof Activity ? (Activity) context : null;
+                if (activity != null) {
+                    if (BdSailorWebView.this.getCurrentWebView() != null) {
+                        BdSailorWebView.this.getCurrentWebView().setVisibility(0);
+                    }
+                    BdSailorWebView.this.setFullscreen(activity, false);
+                    Window window = activity.getWindow();
+                    if (window == null || (frameLayout = (FrameLayout) window.getDecorView()) == null) {
+                        return;
+                    }
+                    if (BdSailorWebView.this.mFullscreenContainer != null) {
+                        frameLayout.removeView(BdSailorWebView.this.mFullscreenContainer);
+                        BdSailorWebView.this.mFullscreenContainer = null;
+                    }
+                    BdSailorWebView.this.mCustomView = null;
+                    if (BdSailorWebView.this.mCustomViewCallback != null) {
+                        BdSailorWebView.this.mCustomViewCallback.onCustomViewHidden();
+                    }
+                    activity.setRequestedOrientation(BdSailorWebView.this.mOriginalOrientation);
+                }
+            } catch (Exception e2) {
+                Log.e(BdSailorWebView.LOG_TAG, "Exception happened when hide custom view");
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b extends WebBackForwardListClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public WebView f4426a;
+        public WebView f4271a;
 
-        public a(WebView webView) {
-            this.f4426a = webView;
+        public b(WebView webView) {
+            this.f4271a = webView;
         }
 
         @Override // com.baidu.webkit.sdk.WebBackForwardListClient
@@ -680,11 +719,11 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* loaded from: classes.dex */
-    public class b implements WebView.PictureListener {
-        public b() {
+    public class c implements WebView.PictureListener {
+        public c() {
         }
 
-        public /* synthetic */ b(BdSailorWebView bdSailorWebView, byte b2) {
+        public /* synthetic */ c(BdSailorWebView bdSailorWebView, byte b2) {
             this();
         }
 
@@ -698,13 +737,13 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* loaded from: classes.dex */
-    public class c implements DownloadListener {
+    public class d implements DownloadListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public WebView f4429a;
+        public WebView f4274a;
 
-        public c(WebView webView) {
-            this.f4429a = webView;
+        public d(WebView webView) {
+            this.f4274a = webView;
         }
 
         @Override // android.webkit.DownloadListener
@@ -717,12 +756,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* loaded from: classes.dex */
-    public class d extends WebChromeClient {
+    public class e extends WebChromeClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f4431a = {"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
+        public String[] f4276a = {"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
 
-        public d() {
+        public e() {
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
@@ -887,7 +926,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             if (!TextUtils.isEmpty(str)) {
                 String host = Uri.parse(str).getHost();
                 if (!TextUtils.isEmpty(host)) {
-                    for (String str3 : this.f4431a) {
+                    for (String str3 : this.f4276a) {
                         if (host.contains(str3)) {
                             jsResult.confirm();
                             return true;
@@ -1144,16 +1183,16 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* loaded from: classes.dex */
-    public class e extends WebViewClient {
+    public class f extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f4433a;
+        public String[] f4278a;
 
-        public e() {
-            this.f4433a = new String[]{"wtai://", "tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "mailto", "smsto:"};
+        public f() {
+            this.f4278a = new String[]{"wtai://", "tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "mailto", "smsto:"};
         }
 
-        public /* synthetic */ e(BdSailorWebView bdSailorWebView, byte b2) {
+        public /* synthetic */ f(BdSailorWebView bdSailorWebView, byte b2) {
             this();
         }
 
@@ -1168,7 +1207,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                 BdSailorWebViewClientExt webViewClientExt = BdSailorWebView.this.mWebViewExt.getWebViewClientExt();
                 BdSailorWebView bdSailorWebView = BdSailorWebView.this;
                 z = webViewClientExt.shouldHandleImageExt(bdSailorWebView, str, str2, str3, bdSailorWebView.mCurrentWebView == webView);
-                Log.i("WebViewClient", "canHandleImage ret=" + z);
+                Log.i("WebViewClient", "canHandleImage ret=".concat(String.valueOf(z)));
             }
             if (z) {
                 BdSailorWebView.this.stopLoading();
@@ -1179,7 +1218,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final int computeHookH5NavigationStep(int i2) {
-            Log.i("WebViewClient", "BeeFrame computeHookH5NavigationStep: offset=" + i2);
+            Log.i("WebViewClient", "BeeFrame computeHookH5NavigationStep: offset=".concat(String.valueOf(i2)));
             return BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null ? BdSailorWebView.this.mWebViewExt.getWebViewClientExt().computeHookH5NavigationStep(i2) : super.computeHookH5NavigationStep(i2);
         }
 
@@ -1238,7 +1277,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
-            Log.i("WebViewClient", "FCPCallback onFirstContentfulPaintExt, aUrl : " + str);
+            Log.i("WebViewClient", "FCPCallback onFirstContentfulPaintExt, aUrl : ".concat(String.valueOf(str)));
             BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstContentfulPaintExt(BdSailorWebView.this, str);
         }
 
@@ -1247,7 +1286,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
-            Log.i("WebViewClient", "FIPCallback onFirstImagePaintExt, aUrl : " + str);
+            Log.i("WebViewClient", "FIPCallback onFirstImagePaintExt, aUrl : ".concat(String.valueOf(str)));
             BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstImagePaintExt(BdSailorWebView.this, str);
         }
 
@@ -1276,15 +1315,40 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
-        public final void onFirstScreenPaintFinished(WebView webView, String str, int i2, int i3, int i4, int i5, int i6) {
+        public final void onFirstScreenImagePaint(WebView webView, WebViewClient.FirstScreenImageInfo firstScreenImageInfo) {
+            BdSailorWebView.this.perfLog(webView, "BdWebViewClientProxy.onFirstScreenImagePaint");
+            super.onFirstScreenImagePaint(webView, firstScreenImageInfo);
+            if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
+                return;
+            }
+            BdSailorWebView.this.perfLog(webView, "BdWebViewClientProxy.onFirstScreenImagePaint 22");
+            BdSailorWebViewClientExt.FirstScreenImageInfo firstScreenImageInfo2 = new BdSailorWebViewClientExt.FirstScreenImageInfo();
+            firstScreenImageInfo2.setHaveImageInScreen(firstScreenImageInfo.getHaveImageInScreen());
+            firstScreenImageInfo2.setUrl(firstScreenImageInfo.getUrl());
+            firstScreenImageInfo2.setImageCount(firstScreenImageInfo.getImageCount());
+            firstScreenImageInfo2.setErrorOccurredCount(firstScreenImageInfo.getErrorOccurredCount());
+            firstScreenImageInfo2.setPosXForMaxImage(firstScreenImageInfo.getPosXForMaxImage());
+            firstScreenImageInfo2.setPosYForMaxImage(firstScreenImageInfo.getPosYForMaxImage());
+            firstScreenImageInfo2.setPaintWidthForMaxImage(firstScreenImageInfo.getPaintWidthForMaxImage());
+            firstScreenImageInfo2.setPaintHeightForMaxImage(firstScreenImageInfo.getPaintHeightForMaxImage());
+            firstScreenImageInfo2.setTimeStampForMaxImage(firstScreenImageInfo.getTimeStampForMaxImage());
+            firstScreenImageInfo2.setMaxTimeStamp(firstScreenImageInfo.getMaxTimeStamp());
+            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstScreenImagePaint(BdSailorWebView.this, firstScreenImageInfo2);
+        }
+
+        @Override // com.baidu.webkit.sdk.WebViewClient
+        public final void onFirstScreenPaintFinished(WebView webView, String str, int i2, int i3, int i4, int i5, int i6, int i7) {
             System.currentTimeMillis();
             BdSailorWebView.this.perfLog(webView, "onFirstScreenPaintFinished");
-            super.onFirstScreenPaintFinished(webView, str, i2, i3, i4, i5, i6);
+            super.onFirstScreenPaintFinished(webView, str, i2, i3, i4, i5, i6, i7);
+            BdSailorWebViewClientExt.FirstScreenInfo firstScreenInfo = new BdSailorWebViewClientExt.FirstScreenInfo();
+            firstScreenInfo.setDiffDomcompleteAndFspTime(i7);
             if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
             BdSailorWebView.this.perfLog(webView, "onFirstScreenPaintFinished 22");
             BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstScreenPaintFinishedExt(BdSailorWebView.this, str);
+            BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstScreenPaintFinishedExt(BdSailorWebView.this, str, firstScreenInfo);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
@@ -1292,7 +1356,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             if (BdSailorWebView.this.mWebViewExt == null || BdSailorWebView.this.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
-            Log.i("WebViewClient", "FTPCallback onFirstTextPaintExt, aUrl : " + str);
+            Log.i("WebViewClient", "FTPCallback onFirstTextPaintExt, aUrl : ".concat(String.valueOf(str)));
             BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onFirstTextPaintExt(BdSailorWebView.this, str);
         }
 
@@ -1383,7 +1447,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onHandleBackForwardBeyondHistory(int i2) {
-            Log.i("WebViewClient", "BeeFrame onHandleBackForwardBeyondHistory: offset=" + i2);
+            Log.i("WebViewClient", "BeeFrame onHandleBackForwardBeyondHistory: offset=".concat(String.valueOf(i2)));
             if (BdSailorWebView.this.mWebViewExt.getWebViewClientExt() != null) {
                 BdSailorWebView.this.mWebViewExt.getWebViewClientExt().onHandleBackForwardBeyondHistory(i2);
             } else {
@@ -1750,17 +1814,20 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
-        public final WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
+        public final WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
             long currentTimeMillis = System.currentTimeMillis();
-            WebResourceResponse shouldInterceptRequest = super.shouldInterceptRequest(webView, str);
-            if (shouldInterceptRequest != null) {
-                return shouldInterceptRequest;
+            WebResourceResponse shouldInterceptRequest = BdSailorWebView.this.mWebViewClient != null ? BdSailorWebView.this.mWebViewClient.shouldInterceptRequest(BdSailorWebView.this, webResourceRequest) : null;
+            if (shouldInterceptRequest == null) {
+                shouldInterceptRequest = shouldInterceptRequest(webView, webResourceRequest.getUrl().toString());
             }
-            if (BdSailorWebView.this.mWebViewClient != null) {
-                return BdSailorWebView.this.mWebViewClient.shouldInterceptRequest(BdSailorWebView.this, str);
-            }
-            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.SHOULD_INTERCEPT_REQUEST.ordinal(), System.currentTimeMillis() - currentTimeMillis);
+            SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, webResourceRequest.getUrl().toString(), MonitorConstant.KeySectionType.SHOULD_INTERCEPT_REQUEST.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             return shouldInterceptRequest;
+        }
+
+        @Override // com.baidu.webkit.sdk.WebViewClient
+        public final WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
+            WebResourceResponse shouldInterceptRequest = super.shouldInterceptRequest(webView, str);
+            return (shouldInterceptRequest == null && BdSailorWebView.this.mWebViewClient != null) ? BdSailorWebView.this.mWebViewClient.shouldInterceptRequest(BdSailorWebView.this, str) : shouldInterceptRequest;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
@@ -1804,13 +1871,13 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                 shouldOverrideUrlLoading = shouldOverrideUrlLoading(webView, uri);
             }
             if (shouldOverrideUrlLoading && !TextUtils.isEmpty(uri)) {
-                String[] strArr = this.f4433a;
+                String[] strArr = this.f4278a;
                 int length = strArr.length;
                 while (true) {
                     if (i2 >= length) {
                         break;
                     } else if (uri.startsWith(strArr[i2])) {
-                        Log.d("// BdSailorMonitorEngine", "BdWebViewClientProxy.shouldoverridetel handled by external-->onTelRequest ,url=" + uri);
+                        Log.d("// BdSailorMonitorEngine", "BdWebViewClientProxy.shouldoverridetel handled by external-->onTelRequest ,url=".concat(String.valueOf(uri)));
                         break;
                     } else {
                         i2++;
@@ -1833,8 +1900,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* loaded from: classes.dex */
-    public static class f extends FrameLayout {
-        public f(Context context) {
+    public static class g extends FrameLayout {
+        public g(Context context) {
             super(context);
             setBackgroundColor(context.getResources().getColor(context.getResources().getIdentifier("sailor_common_black", "color", context.getPackageName())));
         }
@@ -1846,8 +1913,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* loaded from: classes.dex */
-    public class g extends WebViewDelegate {
-        public g(WebView webView) {
+    public class h extends WebViewDelegate {
+        public h(WebView webView) {
             super(webView);
         }
 
@@ -1963,10 +2030,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         if (webView.getParent() != null) {
             return;
         }
-        g gVar = new g(webView);
-        this.mViewDelegate = gVar;
-        webView.setViewDelegate(gVar);
-        if (d.a.h.b.e.b.c() && BdZeusUtil.isWebkitLoaded()) {
+        h hVar = new h(webView);
+        this.mViewDelegate = hVar;
+        webView.setViewDelegate(hVar);
+        if (d.a.h.b.c.b.c() && BdZeusUtil.isWebkitLoaded()) {
             return;
         }
         getWebViewContainer().addView(webView, i2, new FrameLayout.LayoutParams(-1, -1));
@@ -1974,7 +2041,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     private void bringStatusBarToFront() {
         View view;
-        if (!d.a.h.b.e.b.c() || (view = this.mStatusBar) == null || indexOfChild(view) < 0) {
+        if (!d.a.h.b.c.b.c() || (view = this.mStatusBar) == null || indexOfChild(view) < 0) {
             return;
         }
         bringChildToFront(this.mStatusBar);
@@ -1989,7 +2056,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         this.mWebViewExt = new BdSailorWebViewExt(this, null);
         this.mWebViewLayer = new FrameLayout(this.mCurrentWebView.getContext());
         this.mWebViewLayerLp = new FrameLayout.LayoutParams(-1, -1);
-        if (!d.a.h.b.e.b.c() || !BdZeusUtil.isWebkitLoaded()) {
+        if (!d.a.h.b.c.b.c() || !BdZeusUtil.isWebkitLoaded()) {
             addView(this.mWebViewLayer, this.mWebViewLayerLp);
         }
         initWebView(this.mCurrentWebView);
@@ -2008,11 +2075,11 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     private void initWebView(WebView webView) {
-        webView.setWebChromeClient(new d());
-        webView.setWebViewClient(new e(this, (byte) 0));
-        webView.setPictureListener(new b(this, (byte) 0));
-        webView.setDownloadListener(new c(webView));
-        webView.setWebBackForwardListClient(new a(webView));
+        webView.setWebChromeClient(new e());
+        webView.setWebViewClient(new f(this, (byte) 0));
+        webView.setPictureListener(new c(this, (byte) 0));
+        webView.setDownloadListener(new d(webView));
+        webView.setWebBackForwardListClient(new b(webView));
         webView.setVideoPlayerFactory(this.mVideoFactory);
     }
 
@@ -2031,7 +2098,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     private void removeWebView(WebView webView) {
         try {
-            if (d.a.h.b.e.b.c() && BdZeusUtil.isWebkitLoaded()) {
+            if (d.a.h.b.c.b.c() && BdZeusUtil.isWebkitLoaded()) {
                 webView.getWebViewPager().removeView(webView);
             } else {
                 getWebViewContainer().removeView(webView);
@@ -2041,7 +2108,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     private void setSearchBarTopMargin() {
-        if (d.a.h.b.e.b.c()) {
+        if (d.a.h.b.c.b.c()) {
             setViewTopMargin(this.mSearchResultTitleBar, this.mStatusBarHeight);
             setViewTopMargin(this.mLandingPageTitleBar, this.mStatusBarHeight);
         }
@@ -2099,6 +2166,13 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         WebView webView = this.mCurrentWebView;
         if (webView != null) {
             webView.addJavascriptInterfaceExt(iJsAbility, str);
+        }
+    }
+
+    public void addWebMessageListener(WebMessageListener webMessageListener, String str, String[] strArr) {
+        WebView webView = this.mCurrentWebView;
+        if (webView != null) {
+            webView.addWebMessageListener(webMessageListener, str, strArr);
         }
     }
 
@@ -2502,7 +2576,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             return;
         }
         try {
-            getCurrentWebView().getHandler().post(new d.a.h.b.a(this));
+            getCurrentWebView().getHandler().post(new a());
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -2535,7 +2609,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     @Override // android.view.View
     public boolean isFocused() {
-        return this.mCurrentWebView.isFocused();
+        WebView webView = this.mCurrentWebView;
+        return webView != null ? webView.isFocused() : super.isFocused();
     }
 
     public boolean isPageLoading() {
@@ -2572,14 +2647,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     public void loadImageInPage(String str) {
-        WebView webView = this.mCurrentWebView;
-        webView.loadUrl(SHOW_IMAGE_PREFIX + str);
+        this.mCurrentWebView.loadUrl(SHOW_IMAGE_PREFIX.concat(String.valueOf(str)));
     }
 
     public void loadUrl(String str) {
         if (str == null || !str.startsWith("javascript:")) {
-            WebView webView = this.mCurrentWebView;
-            perfLog(webView, "sailor-loadUrl", "url = " + str);
+            perfLog(this.mCurrentWebView, "sailor-loadUrl", "url = ".concat(String.valueOf(str)));
             perfLog("load", str);
         }
         this.mCurrentWebView.loadUrl(str);
@@ -2590,8 +2663,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             this.mCurrentWebView.loadUrl(str);
             return;
         }
-        WebView webView = this.mCurrentWebView;
-        perfLog(webView, "sailor-loadUrl", "url = " + str);
+        perfLog(this.mCurrentWebView, "sailor-loadUrl", "url = ".concat(String.valueOf(str)));
         perfLog("load", str);
         this.mCurrentWebView.loadUrl(str, map);
     }
@@ -2606,6 +2678,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void notifyPageActive(String str, WebView webView, boolean z) {
         Log.i("huqin-multiwebview", "BdSailorWebView notifyPageActive, webView = " + webView + ", url = " + str + ", isOpen = " + z);
+        if (!z) {
+            webView.setCurrentSourceIdByIdentifier();
+        }
         SessionMonitorEngine.getInstance().notifyPageActive(str, webView, z);
         this.mCurrentWebView.onPageSwapFromWebview(webView, str, true);
     }
@@ -2619,7 +2694,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (d.a.h.b.e.b.e(this)) {
+        if (d.a.h.b.c.b.e(this)) {
             BdSailor.getInstance().setCurrentSailorWebView(this);
         }
     }
@@ -2857,9 +2932,13 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setDualTitleBars(View view, View view2, int i2, int i3, boolean z, boolean z2) {
         this.mSearchResultTitleBar = view;
-        view.setContentDescription("searchbar");
+        if (view != null) {
+            view.setContentDescription("searchbar");
+        }
         this.mLandingPageTitleBar = view2;
-        view2.setContentDescription("landingbar");
+        if (view2 != null) {
+            view2.setContentDescription("landingbar");
+        }
         View view3 = i3 == 0 ? this.mSearchResultTitleBar : this.mLandingPageTitleBar;
         this.mCurrentTitleBar = view3;
         setNewTitlebar(view3, i2, z, z2);
@@ -2873,7 +2952,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     public void setEmbeddedTitleBar(View view, int i2) {
-        if (!d.a.h.b.e.b.c()) {
+        if (!d.a.h.b.c.b.c()) {
             setNewTitlebar(view, i2, true, true);
         } else if (view == null) {
             setNewTitlebar(view, i2, true, true);
@@ -2971,7 +3050,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                 ((ViewGroup) this.mEmbeddedTitlebar.getParent()).removeView(this.mEmbeddedTitlebar);
             }
             addView(this.mEmbeddedTitlebar);
-            if (d.a.h.b.e.b.c()) {
+            if (d.a.h.b.c.b.c()) {
                 View view4 = this.mEmbeddedTitlebar;
                 View view5 = this.mLandingPageTitleBar;
                 if (view4 == view5) {
@@ -3002,7 +3081,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     public void setOuterTitlebarHeight(int i2) {
-        if (!BdZeusUtil.isWebkitLoaded() || d.a.h.b.e.b.c()) {
+        if (!BdZeusUtil.isWebkitLoaded() || d.a.h.b.c.b.c()) {
             return;
         }
         this.mOuterTitlebarHeightPix = i2;
@@ -3046,7 +3125,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     public void setStatusBar(View view, int i2) {
-        if (d.a.h.b.e.b.c()) {
+        if (d.a.h.b.c.b.c()) {
             if (view == null) {
                 View view2 = this.mStatusBar;
                 if (view2 != null) {
@@ -3135,9 +3214,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             this.mOriginalOrientation = activity.getRequestedOrientation();
             if (activity.getWindow() != null) {
                 FrameLayout frameLayout = (FrameLayout) activity.getWindow().getDecorView();
-                f fVar = new f(activity);
-                this.mFullscreenContainer = fVar;
-                fVar.addView(view, COVER_SCREEN_PARAMS);
+                g gVar = new g(activity);
+                this.mFullscreenContainer = gVar;
+                gVar.addView(view, COVER_SCREEN_PARAMS);
                 if (frameLayout != null) {
                     frameLayout.addView(this.mFullscreenContainer, COVER_SCREEN_PARAMS);
                 }
@@ -3206,12 +3285,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void updateTopControlsState(boolean z, boolean z2, boolean z3) {
         if (this.mEmbeddedTitlebar != null) {
-            Log.d("new-titlebar", "updateTopControlsState :" + z);
+            Log.d("new-titlebar", "updateTopControlsState :".concat(String.valueOf(z)));
             this.mCurrentWebView.updateTopControlsState(z, z2, z3);
             if (z3) {
                 return;
             }
-            if (d.a.h.b.e.b.c()) {
+            if (d.a.h.b.c.b.c()) {
                 if (!z) {
                     setTopControlsHeight(this.mEmbeddedTitlebarHeightPix, true);
                     return;

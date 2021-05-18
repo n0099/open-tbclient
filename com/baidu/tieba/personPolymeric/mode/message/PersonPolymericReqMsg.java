@@ -4,12 +4,12 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.a.c.e.p.l;
-import d.a.i0.r.k;
-import d.a.i0.z0.w;
-import d.a.j0.f2.b;
+import d.a.j0.r.k;
+import d.a.j0.z0.w;
+import d.a.k0.f2.b;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonPolymericReqMsg extends NetMessage {
     public int pn;
     public long uid;

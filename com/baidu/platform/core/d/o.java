@@ -64,7 +64,7 @@ public class o extends k {
                 walkingStep.setEntrance(RouteNode.location(CoordUtil.decodeLocation(optJSONObject.optString("start_location"))));
                 walkingStep.setExit(RouteNode.location(CoordUtil.decodeLocation(optJSONObject.optString("end_location"))));
                 String optString = optJSONObject.optString("instructions");
-                if (optString != null || optString.length() >= 4) {
+                if (optString != null && optString.length() >= 4) {
                     optString = optString.replaceAll("</?[a-z]>", "");
                 }
                 walkingStep.setInstructions(optString);

@@ -4,7 +4,7 @@ import android.util.SparseArray;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.e.b.f.t;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static void a(int i2, SparseArray<d.o.a.e.b.f.b> sparseArray, boolean z, DownloadInfo downloadInfo, BaseException baseException) {
         SparseArray<d.o.a.e.b.f.b> clone;

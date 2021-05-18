@@ -3,17 +3,17 @@ package com.kwad.sdk.core.g.a;
 public class c extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f33054a;
+    public int f32299a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33055b;
+    public int f32300b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33056c;
+    public int f32301c;
 
     public c(int i2, int i3, int i4) {
-        this.f33054a = i2;
-        this.f33055b = i3;
-        this.f33056c = i4;
+        this.f32299a = i2;
+        this.f32300b = i3;
+        this.f32301c = i4;
     }
 }

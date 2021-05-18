@@ -43,13 +43,13 @@ public class NPSPackageManager {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9172e;
+        public final /* synthetic */ String f8984e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ IInstallCallback f9173f;
+        public final /* synthetic */ IInstallCallback f8985f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f9174g;
+        public final /* synthetic */ int f8986g;
 
         /* renamed from: com.baidu.nps.pm.manager.NPSPackageManager$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
@@ -61,31 +61,31 @@ public class NPSPackageManager {
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 d.a.x.i.g a2 = j.a(uri);
-                if (a2.f64213b > 0 || a2.f64212a > 0) {
-                    a.this.f9173f.onProgress(a2.f64212a, a2.f64213b);
+                if (a2.f64900b > 0 || a2.f64899a > 0) {
+                    a.this.f8985f.onProgress(a2.f64899a, a2.f64900b);
                 }
             }
         }
 
         public a(String str, IInstallCallback iInstallCallback, int i2) {
-            this.f9172e = str;
-            this.f9173f = iInstallCallback;
-            this.f9174g = i2;
+            this.f8984e = str;
+            this.f8985f = iInstallCallback;
+            this.f8986g = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Uri e2 = j.e(this.f9172e);
+            Uri e2 = j.e(this.f8984e);
             C0112a c0112a = new C0112a(null);
             ContextHolder.getApplicationContext().getContentResolver().registerContentObserver(e2, false, c0112a);
-            int installBundle = NPSPackageManager.this.installBundle(this.f9172e, this.f9174g);
-            NPSPackageManager.this.mInstallingSet.remove(this.f9172e);
+            int installBundle = NPSPackageManager.this.installBundle(this.f8984e, this.f8986g);
+            NPSPackageManager.this.mInstallingSet.remove(this.f8984e);
             ContextHolder.getApplicationContext().getContentResolver().unregisterContentObserver(c0112a);
-            if (this.f9173f != null) {
+            if (this.f8985f != null) {
                 if (d.a.x.i.b.a()) {
                     Log.i(NPSPackageManager.TAG, "installBundle, retCode=" + installBundle);
                 }
-                this.f9173f.onResult(installBundle, "");
+                this.f8985f.onResult(installBundle, "");
             }
         }
     }
@@ -94,10 +94,10 @@ public class NPSPackageManager {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.x.d.a.a f9177e;
+        public final /* synthetic */ d.a.x.d.a.a f8989e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9178f;
+        public final /* synthetic */ String f8990f;
 
         /* loaded from: classes2.dex */
         public class a extends ContentObserver {
@@ -108,33 +108,33 @@ public class NPSPackageManager {
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 d.a.x.i.g a2 = j.a(uri);
-                if (b.this.f9177e != null) {
-                    if (a2.f64213b > 0 || a2.f64212a > 0) {
-                        b.this.f9177e.onProgress(a2.f64212a, a2.f64213b);
+                if (b.this.f8989e != null) {
+                    if (a2.f64900b > 0 || a2.f64899a > 0) {
+                        b.this.f8989e.onProgress(a2.f64899a, a2.f64900b);
                     }
                 }
             }
         }
 
         public b(d.a.x.d.a.a aVar, String str) {
-            this.f9177e = aVar;
-            this.f9178f = str;
+            this.f8989e = aVar;
+            this.f8990f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             a aVar = null;
-            if (this.f9177e != null) {
-                Uri d2 = j.d(this.f9178f);
+            if (this.f8989e != null) {
+                Uri d2 = j.d(this.f8990f);
                 a aVar2 = new a(null);
                 ContextHolder.getApplicationContext().getContentResolver().registerContentObserver(d2, false, aVar2);
                 aVar = aVar2;
             }
-            int downloadBundle = NPSPackageManager.this.downloadBundle(this.f9178f);
+            int downloadBundle = NPSPackageManager.this.downloadBundle(this.f8990f);
             if (aVar != null) {
                 ContextHolder.getApplicationContext().getContentResolver().unregisterContentObserver(aVar);
             }
-            d.a.x.d.a.a aVar3 = this.f9177e;
+            d.a.x.d.a.a aVar3 = this.f8989e;
             if (aVar3 != null) {
                 aVar3.onResult(downloadBundle, "");
             }
@@ -145,29 +145,29 @@ public class NPSPackageManager {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9181e;
+        public final /* synthetic */ String f8993e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f9182f;
+        public final /* synthetic */ int f8994f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.x.d.a.a f9183g;
+        public final /* synthetic */ d.a.x.d.a.a f8995g;
 
         public c(String str, int i2, d.a.x.d.a.a aVar) {
-            this.f9181e = str;
-            this.f9182f = i2;
-            this.f9183g = aVar;
+            this.f8993e = str;
+            this.f8994f = i2;
+            this.f8995g = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (NPSPackageManager.this.getBundleStatus(this.f9181e) == 44) {
-                if (this.f9182f == 0) {
-                    d.a.x.g.a.b.i().c(NPSPackageManager.this.getUpdateBundle(this.f9181e));
+            if (NPSPackageManager.this.getBundleStatus(this.f8993e) == 44) {
+                if (this.f8994f == 0) {
+                    d.a.x.g.a.b.i().c(NPSPackageManager.this.getUpdateBundle(this.f8993e));
                     return;
                 } else if (!d.a.x.i.d.b(ContextHolder.getApplicationContext())) {
-                    d.a.x.g.a.b.i().c(NPSPackageManager.this.getUpdateBundle(this.f9181e));
-                    d.a.x.d.a.a aVar = this.f9183g;
+                    d.a.x.g.a.b.i().c(NPSPackageManager.this.getUpdateBundle(this.f8993e));
+                    d.a.x.d.a.a aVar = this.f8995g;
                     if (aVar != null) {
                         aVar.onResult(51, NPSPackageManager.this.getDownloadMessage(d.a.x.a.predownload_net_error_msg));
                     }
@@ -177,11 +177,11 @@ public class NPSPackageManager {
                     }
                     return;
                 } else {
-                    NPSPackageManager.this.downloadBundle(this.f9181e, this.f9183g, 48);
+                    NPSPackageManager.this.downloadBundle(this.f8993e, this.f8995g, 48);
                     return;
                 }
             }
-            d.a.x.d.a.a aVar2 = this.f9183g;
+            d.a.x.d.a.a aVar2 = this.f8995g;
             if (aVar2 != null) {
                 aVar2.onResult(3, NPSPackageManager.this.getDownloadMessage(d.a.x.a.predownload_no_available_msg));
             }
@@ -195,37 +195,37 @@ public class NPSPackageManager {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9185e;
+        public final /* synthetic */ String f8997e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.x.d.a.a f9186f;
+        public final /* synthetic */ d.a.x.d.a.a f8998f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f9187g;
+        public final /* synthetic */ int f8999g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.a.x.f.a f9188h;
+        public final /* synthetic */ d.a.x.f.a f9000h;
 
         /* loaded from: classes2.dex */
         public class a implements d.a.x.f.b {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BundleInfo f9190a;
+            public final /* synthetic */ BundleInfo f9002a;
 
             public a(BundleInfo bundleInfo) {
-                this.f9190a = bundleInfo;
+                this.f9002a = bundleInfo;
             }
 
             @Override // d.a.x.f.b
             public void onResult(int i2) {
                 if (i2 == 1) {
                     d dVar = d.this;
-                    NPSPackageManager.this.downloadBundle(dVar.f9185e, dVar.f9186f, 48);
+                    NPSPackageManager.this.downloadBundle(dVar.f8997e, dVar.f8998f, 48);
                     return;
                 }
-                d.a.x.g.a.b.i().c(this.f9190a);
+                d.a.x.g.a.b.i().c(this.f9002a);
                 d dVar2 = d.this;
-                d.a.x.d.a.a aVar = dVar2.f9186f;
+                d.a.x.d.a.a aVar = dVar2.f8998f;
                 if (aVar != null) {
                     aVar.onResult(51, NPSPackageManager.this.getDownloadMessage(d.a.x.a.predownload_net_error_msg));
                 }
@@ -236,32 +236,32 @@ public class NPSPackageManager {
         }
 
         public d(String str, d.a.x.d.a.a aVar, int i2, d.a.x.f.a aVar2) {
-            this.f9185e = str;
-            this.f9186f = aVar;
-            this.f9187g = i2;
-            this.f9188h = aVar2;
+            this.f8997e = str;
+            this.f8998f = aVar;
+            this.f8999g = i2;
+            this.f9000h = aVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            BundleInfo updateBundle = NPSPackageManager.this.getUpdateBundle(this.f9185e);
+            BundleInfo updateBundle = NPSPackageManager.this.getUpdateBundle(this.f8997e);
             if (updateBundle == null) {
-                d.a.x.d.a.a aVar = this.f9186f;
+                d.a.x.d.a.a aVar = this.f8998f;
                 if (aVar != null) {
                     aVar.onResult(3, NPSPackageManager.this.getDownloadMessage(d.a.x.a.predownload_no_available_msg));
                 }
                 if (d.a.x.i.b.a()) {
                     Log.i(NPSPackageManager.TAG, "update, retCode=3,message = " + NPSPackageManager.this.getDownloadMessage(d.a.x.a.predownload_no_available_msg));
                 }
-            } else if (this.f9187g == 1) {
+            } else if (this.f8999g == 1) {
                 if (d.a.x.i.d.b(ContextHolder.getApplicationContext())) {
-                    NPSPackageManager.this.downloadBundle(this.f9185e);
+                    NPSPackageManager.this.downloadBundle(this.f8997e);
                 } else {
-                    this.f9188h.checkAuthorization(updateBundle, 1, new a(updateBundle));
+                    this.f9000h.checkAuthorization(updateBundle, 1, new a(updateBundle));
                 }
             } else {
                 d.a.x.g.a.b.i().c(updateBundle);
-                d.a.x.d.a.a aVar2 = this.f9186f;
+                d.a.x.d.a.a aVar2 = this.f8998f;
                 if (aVar2 != null) {
                     aVar2.onResult(51, NPSPackageManager.this.getDownloadMessage(d.a.x.a.predownload_net_error_msg));
                 }
@@ -290,15 +290,15 @@ public class NPSPackageManager {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Uri f9193e;
+            public final /* synthetic */ Uri f9005e;
 
             public a(Uri uri) {
-                this.f9193e = uri;
+                this.f9005e = uri;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                NPSPackageManager.this.updateBundleInfos(this.f9193e);
+                NPSPackageManager.this.updateBundleInfos(this.f9005e);
             }
         }
 
@@ -337,15 +337,15 @@ public class NPSPackageManager {
     public class h implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f9196e;
+        public final /* synthetic */ CountDownLatch f9008e;
 
         public h(NPSPackageManager nPSPackageManager, CountDownLatch countDownLatch) {
-            this.f9196e = countDownLatch;
+            this.f9008e = countDownLatch;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f9196e.countDown();
+            this.f9008e.countDown();
         }
     }
 
@@ -353,16 +353,16 @@ public class NPSPackageManager {
     public class i implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f9197e;
+        public final /* synthetic */ CountDownLatch f9009e;
 
         public i(CountDownLatch countDownLatch) {
-            this.f9197e = countDownLatch;
+            this.f9009e = countDownLatch;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             NPSPackageManager.this.killProcessesWithPluginsRunning();
-            this.f9197e.countDown();
+            this.f9009e.countDown();
         }
     }
 
@@ -544,7 +544,7 @@ public class NPSPackageManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void killProcessesWithPluginsRunning() {
-        Intent intent = new Intent(d.a.x.i.a.f64210a);
+        Intent intent = new Intent(d.a.x.i.a.f64897a);
         intent.setPackage(ContextHolder.getApplicationContext().getPackageName());
         ContextHolder.getApplicationContext().sendBroadcast(intent);
     }

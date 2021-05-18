@@ -10,45 +10,45 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39168a;
+    public String f38413a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f39169b = System.currentTimeMillis();
+    public long f38414b = System.currentTimeMillis();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39170c = f.d();
+    public String f38415c = f.d();
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39171d;
+    public String f38416d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f39172e;
+    public JSONObject f38417e;
 
     public b(String str) {
-        this.f39168a = str;
+        this.f38413a = str;
     }
 
     public JSONObject a() {
-        if (TextUtils.isEmpty(this.f39168a)) {
+        if (TextUtils.isEmpty(this.f38413a)) {
             d.a.a0.n.d.b("statistics action can not null");
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("a", this.f39168a);
-            jSONObject.put("t", this.f39169b);
-            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.f39170c);
-            if (this.f39172e != null) {
-                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.f39172e);
-            } else if (!TextUtils.isEmpty(this.f39171d)) {
+            jSONObject.put("a", this.f38413a);
+            jSONObject.put("t", this.f38414b);
+            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.f38415c);
+            if (this.f38417e != null) {
+                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.f38417e);
+            } else if (!TextUtils.isEmpty(this.f38416d)) {
                 try {
-                    jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, new JSONObject(this.f39171d));
+                    jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, new JSONObject(this.f38416d));
                 } catch (JSONException unused) {
-                    jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.f39171d);
+                    jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.f38416d);
                 }
             }
         } catch (JSONException e2) {
-            if (d.a.a0.n.d.f39231d) {
+            if (d.a.a0.n.d.f38476d) {
                 e2.printStackTrace();
             }
         }
@@ -56,12 +56,12 @@ public class b {
     }
 
     public b b(JSONObject jSONObject) {
-        this.f39172e = jSONObject;
+        this.f38417e = jSONObject;
         return this;
     }
 
     public b c(String str) {
-        this.f39171d = str;
+        this.f38416d = str;
         return this;
     }
 }

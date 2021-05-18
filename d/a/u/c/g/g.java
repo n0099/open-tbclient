@@ -10,12 +10,12 @@ public class g extends b {
 
     @Override // d.a.u.c.g.b
     public void j() {
-        if (this.f64088h == 0) {
-            this.f64088h = this.f64085e.presentationTimeUs;
+        if (this.f64775h == 0) {
+            this.f64775h = this.f64772e.presentationTimeUs;
             b.j = 0L;
         }
-        MediaCodec.BufferInfo bufferInfo = this.f64085e;
-        long j = bufferInfo.presentationTimeUs - this.f64088h;
+        MediaCodec.BufferInfo bufferInfo = this.f64772e;
+        long j = bufferInfo.presentationTimeUs - this.f64775h;
         bufferInfo.presentationTimeUs = j;
         b.j = j;
         d.a.u.c.d.x().V(b.j / 1000);
@@ -34,7 +34,7 @@ public class g extends b {
         c cVar;
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.f64083c = eVar;
+            this.f64770c = eVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.j(), dVar.n(), dVar.l());
             createVideoFormat.setInteger("color-format", 2130708361);
             createVideoFormat.setInteger("bitrate", dVar.i());
@@ -42,14 +42,14 @@ public class g extends b {
             createVideoFormat.setInteger("i-frame-interval", dVar.m());
             try {
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(dVar.j());
-                this.f64084d = createEncoderByType;
+                this.f64771d = createEncoderByType;
                 createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.l = this.f64084d.createInputSurface();
-                this.f64087g = true;
+                this.l = this.f64771d.createInputSurface();
+                this.f64774g = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            cVar = this.f64086f;
+            cVar = this.f64773f;
             if (cVar == null) {
                 cVar.b(z);
                 return;
@@ -57,7 +57,7 @@ public class g extends b {
             return;
         }
         z = false;
-        cVar = this.f64086f;
+        cVar = this.f64773f;
         if (cVar == null) {
         }
     }

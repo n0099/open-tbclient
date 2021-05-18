@@ -3,7 +3,7 @@ package com.baidu.tieba.im.recommend.detail;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import d.a.c.e.d.l;
-import d.a.i0.r.r.a;
+import d.a.j0.r.r.a;
 import tbclient.Bigvip.BigvipResIdl;
 import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes4.dex */

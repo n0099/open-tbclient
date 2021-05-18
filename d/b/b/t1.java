@@ -6,18 +6,18 @@ import org.json.JSONObject;
 public class t1 extends v1 {
 
     /* renamed from: d  reason: collision with root package name */
-    public long f64376d;
+    public long f65062d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i f64377e;
+    public final i f65063e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final j f64378f;
+    public final j f65064f;
 
     public t1(Application application, j jVar, i iVar) {
         super(application);
-        this.f64378f = jVar;
-        this.f64377e = iVar;
+        this.f65064f = jVar;
+        this.f65063e = iVar;
     }
 
     @Override // d.b.b.v1
@@ -27,37 +27,37 @@ public class t1 extends v1 {
 
     @Override // d.b.b.v1
     public long b() {
-        long O = this.f64377e.O();
+        long O = this.f65063e.O();
         if (O < 600000) {
             O = 600000;
         }
-        return this.f64376d + O;
+        return this.f65062d + O;
     }
 
     @Override // d.b.b.v1
     public long[] c() {
-        return b2.f64251g;
+        return b2.f64937g;
     }
 
     @Override // d.b.b.v1
     public boolean d() {
-        JSONObject c2 = this.f64378f.c();
-        if (this.f64378f.v() == 0 || c2 == null) {
+        JSONObject c2 = this.f65064f.c();
+        if (this.f65064f.v() == 0 || c2 == null) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("header", this.f64378f.c());
+        jSONObject.put("header", this.f65064f.c());
         jSONObject.put("magic_tag", "ss_app_log");
         jSONObject.put("_gen_time", currentTimeMillis);
-        JSONObject k = x.k(x.e(y.a(this.f64388a, this.f64378f.c(), x.b().e(), true, a.k()), x.f64399e), jSONObject);
+        JSONObject k = x.k(x.e(y.a(this.f65074a, this.f65064f.c(), x.b().e(), true, a.k()), x.f65085e), jSONObject);
         if (k != null) {
             a.f().a(!s0.f(a.b(), k), k);
-            if (r0.f64363b) {
+            if (r0.f65049b) {
                 r0.a("getAbConfig " + k, null);
             }
-            this.f64378f.e(k);
-            this.f64376d = currentTimeMillis;
+            this.f65064f.e(k);
+            this.f65062d = currentTimeMillis;
             return true;
         }
         return false;

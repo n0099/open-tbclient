@@ -55,36 +55,36 @@ public final class Predicates {
         public static final long serialVersionUID = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public final g<A, ? extends B> f31625f;
+        public final g<A, ? extends B> f30870f;
         public final o<B> p;
 
         @Override // d.g.c.a.o
         public boolean apply(A a2) {
-            return this.p.apply(this.f31625f.apply(a2));
+            return this.p.apply(this.f30870f.apply(a2));
         }
 
         @Override // d.g.c.a.o
         public boolean equals(Object obj) {
             if (obj instanceof CompositionPredicate) {
                 CompositionPredicate compositionPredicate = (CompositionPredicate) obj;
-                return this.f31625f.equals(compositionPredicate.f31625f) && this.p.equals(compositionPredicate.p);
+                return this.f30870f.equals(compositionPredicate.f30870f) && this.p.equals(compositionPredicate.p);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f31625f.hashCode() ^ this.p.hashCode();
+            return this.f30870f.hashCode() ^ this.p.hashCode();
         }
 
         public String toString() {
-            return this.p + "(" + this.f31625f + SmallTailInfo.EMOTION_SUFFIX;
+            return this.p + "(" + this.f30870f + SmallTailInfo.EMOTION_SUFFIX;
         }
 
         public CompositionPredicate(o<B> oVar, g<A, ? extends B> gVar) {
             n.p(oVar);
             this.p = oVar;
             n.p(gVar);
-            this.f31625f = gVar;
+            this.f30870f = gVar;
         }
     }
 

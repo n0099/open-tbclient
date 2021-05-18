@@ -1,35 +1,35 @@
 package d.b.c.b.c;
 
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f64986a = false;
+    public boolean f65672a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f64987b = true;
+    public boolean f65673b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f64988c = null;
+    public Map<String, Integer> f65674c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f64989d = null;
+    public Map<String, String> f65675d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64990e = 10;
+    public int f65676e = 10;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64991f = 1;
+    public int f65677f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64992g = 1;
+    public int f65678g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f64993h = 10;
+    public int f65679h = 10;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f64994i = 1;
+    public int f65680i = 1;
     public int j = 1;
     public int k = 900;
     public int l = 120;
@@ -38,25 +38,25 @@ public class d {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(" localEnable: ");
-        sb.append(this.f64986a);
+        sb.append(this.f65672a);
         sb.append(" probeEnable: ");
-        sb.append(this.f64987b);
+        sb.append(this.f65673b);
         sb.append(" hostFilter: ");
-        Map<String, Integer> map = this.f64988c;
+        Map<String, Integer> map = this.f65674c;
         sb.append(map != null ? map.size() : 0);
         sb.append(" hostMap: ");
-        Map<String, String> map2 = this.f64989d;
+        Map<String, String> map2 = this.f65675d;
         sb.append(map2 != null ? map2.size() : 0);
         sb.append(" reqTo: ");
-        sb.append(this.f64990e);
+        sb.append(this.f65676e);
         sb.append("#");
-        sb.append(this.f64991f);
+        sb.append(this.f65677f);
         sb.append("#");
-        sb.append(this.f64992g);
+        sb.append(this.f65678g);
         sb.append(" reqErr: ");
-        sb.append(this.f64993h);
+        sb.append(this.f65679h);
         sb.append("#");
-        sb.append(this.f64994i);
+        sb.append(this.f65680i);
         sb.append("#");
         sb.append(this.j);
         sb.append(" updateInterval: ");

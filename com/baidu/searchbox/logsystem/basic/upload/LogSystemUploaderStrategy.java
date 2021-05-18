@@ -248,7 +248,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                 RandomAccessFile randomAccessFile2 = null;
                 try {
                     try {
-                        randomAccessFile = new RandomAccessFile(file, r.f7975a);
+                        randomAccessFile = new RandomAccessFile(file, r.f7772a);
                     } catch (IOException e2) {
                         e = e2;
                     }

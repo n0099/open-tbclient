@@ -6,16 +6,16 @@ import android.os.HandlerThread;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f63301a;
+    public Handler f63840a;
 
     public g(String str) {
-        this.f63301a = null;
+        this.f63840a = null;
         HandlerThread handlerThread = new HandlerThread("BlockCanaryThread_" + str);
         handlerThread.start();
-        this.f63301a = new Handler(handlerThread.getLooper());
+        this.f63840a = new Handler(handlerThread.getLooper());
     }
 
     public final Handler a() {
-        return this.f63301a;
+        return this.f63840a;
     }
 }

@@ -1,7 +1,7 @@
 package com.sdk.base.framework.bean;
 
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class OauthResultMode implements Serializable {
     public int code;
     public String msg;

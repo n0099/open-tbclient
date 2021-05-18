@@ -36,24 +36,24 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
     public class a extends AbstractSequentialList<V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Object f31932e;
+        public final /* synthetic */ Object f31177e;
 
         public a(Object obj) {
-            this.f31932e = obj;
+            this.f31177e = obj;
         }
 
         @Override // java.util.AbstractSequentialList, java.util.AbstractList, java.util.List
         public ListIterator<V> listIterator(int i2) {
-            return new i(this.f31932e, i2);
+            return new i(this.f31177e, i2);
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
         public int size() {
-            f fVar = (f) LinkedListMultimap.this.keyToKeyList.get(this.f31932e);
+            f fVar = (f) LinkedListMultimap.this.keyToKeyList.get(this.f31177e);
             if (fVar == null) {
                 return 0;
             }
-            return fVar.f31945c;
+            return fVar.f31190c;
         }
     }
 
@@ -106,12 +106,12 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
         public class a extends b1<Map.Entry<K, V>, V> {
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h f31937f;
+            public final /* synthetic */ h f31182f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(d dVar, ListIterator listIterator, h hVar) {
                 super(listIterator);
-                this.f31937f = hVar;
+                this.f31182f = hVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -123,7 +123,7 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
 
             @Override // d.g.c.c.b1, java.util.ListIterator
             public void set(V v) {
-                this.f31937f.f(v);
+                this.f31182f.f(v);
             }
         }
 
@@ -146,20 +146,20 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
     public static class f<K, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public g<K, V> f31943a;
+        public g<K, V> f31188a;
 
         /* renamed from: b  reason: collision with root package name */
-        public g<K, V> f31944b;
+        public g<K, V> f31189b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31945c;
+        public int f31190c;
 
         public f(g<K, V> gVar) {
-            this.f31943a = gVar;
-            this.f31944b = gVar;
+            this.f31188a = gVar;
+            this.f31189b = gVar;
             gVar.j = null;
-            gVar.f31950i = null;
-            this.f31945c = 1;
+            gVar.f31195i = null;
+            this.f31190c = 1;
         }
     }
 
@@ -167,40 +167,40 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
     public static final class g<K, V> extends d.g.c.c.b<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f31946e;
+        public final K f31191e;
 
         /* renamed from: f  reason: collision with root package name */
-        public V f31947f;
+        public V f31192f;
 
         /* renamed from: g  reason: collision with root package name */
-        public g<K, V> f31948g;
+        public g<K, V> f31193g;
 
         /* renamed from: h  reason: collision with root package name */
-        public g<K, V> f31949h;
+        public g<K, V> f31194h;
 
         /* renamed from: i  reason: collision with root package name */
-        public g<K, V> f31950i;
+        public g<K, V> f31195i;
         public g<K, V> j;
 
         public g(K k, V v) {
-            this.f31946e = k;
-            this.f31947f = v;
+            this.f31191e = k;
+            this.f31192f = v;
         }
 
         @Override // d.g.c.c.b, java.util.Map.Entry
         public K getKey() {
-            return this.f31946e;
+            return this.f31191e;
         }
 
         @Override // d.g.c.c.b, java.util.Map.Entry
         public V getValue() {
-            return this.f31947f;
+            return this.f31192f;
         }
 
         @Override // d.g.c.c.b, java.util.Map.Entry
         public V setValue(V v) {
-            V v2 = this.f31947f;
-            this.f31947f = v;
+            V v2 = this.f31192f;
+            this.f31192f = v;
             return v2;
         }
     }
@@ -209,27 +209,27 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
     public class h implements ListIterator<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31951e;
+        public int f31196e;
 
         /* renamed from: f  reason: collision with root package name */
-        public g<K, V> f31952f;
+        public g<K, V> f31197f;
 
         /* renamed from: g  reason: collision with root package name */
-        public g<K, V> f31953g;
+        public g<K, V> f31198g;
 
         /* renamed from: h  reason: collision with root package name */
-        public g<K, V> f31954h;
+        public g<K, V> f31199h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f31955i;
+        public int f31200i;
 
         public h(int i2) {
-            this.f31955i = LinkedListMultimap.this.modCount;
+            this.f31200i = LinkedListMultimap.this.modCount;
             int size = LinkedListMultimap.this.size();
             n.t(i2, size);
             if (i2 >= size / 2) {
-                this.f31954h = LinkedListMultimap.this.tail;
-                this.f31951e = size;
+                this.f31199h = LinkedListMultimap.this.tail;
+                this.f31196e = size;
                 while (true) {
                     int i3 = i2 + 1;
                     if (i2 >= size) {
@@ -239,7 +239,7 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
                     i2 = i3;
                 }
             } else {
-                this.f31952f = LinkedListMultimap.this.head;
+                this.f31197f = LinkedListMultimap.this.head;
                 while (true) {
                     int i4 = i2 - 1;
                     if (i2 <= 0) {
@@ -249,7 +249,7 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
                     i2 = i4;
                 }
             }
-            this.f31953g = null;
+            this.f31198g = null;
         }
 
         public void a(Map.Entry<K, V> entry) {
@@ -263,7 +263,7 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
         }
 
         public final void b() {
-            if (LinkedListMultimap.this.modCount != this.f31955i) {
+            if (LinkedListMultimap.this.modCount != this.f31200i) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -273,12 +273,12 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
         /* renamed from: c */
         public g<K, V> next() {
             b();
-            LinkedListMultimap.checkElement(this.f31952f);
-            g<K, V> gVar = this.f31952f;
-            this.f31953g = gVar;
-            this.f31954h = gVar;
-            this.f31952f = gVar.f31948g;
-            this.f31951e++;
+            LinkedListMultimap.checkElement(this.f31197f);
+            g<K, V> gVar = this.f31197f;
+            this.f31198g = gVar;
+            this.f31199h = gVar;
+            this.f31197f = gVar.f31193g;
+            this.f31196e++;
             return gVar;
         }
 
@@ -287,12 +287,12 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
         /* renamed from: d */
         public g<K, V> previous() {
             b();
-            LinkedListMultimap.checkElement(this.f31954h);
-            g<K, V> gVar = this.f31954h;
-            this.f31953g = gVar;
-            this.f31952f = gVar;
-            this.f31954h = gVar.f31949h;
-            this.f31951e--;
+            LinkedListMultimap.checkElement(this.f31199h);
+            g<K, V> gVar = this.f31199h;
+            this.f31198g = gVar;
+            this.f31197f = gVar;
+            this.f31199h = gVar.f31194h;
+            this.f31196e--;
             return gVar;
         }
 
@@ -301,46 +301,46 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
         }
 
         public void f(V v) {
-            n.w(this.f31953g != null);
-            this.f31953g.f31947f = v;
+            n.w(this.f31198g != null);
+            this.f31198g.f31192f = v;
         }
 
         @Override // java.util.ListIterator, java.util.Iterator
         public boolean hasNext() {
             b();
-            return this.f31952f != null;
+            return this.f31197f != null;
         }
 
         @Override // java.util.ListIterator
         public boolean hasPrevious() {
             b();
-            return this.f31954h != null;
+            return this.f31199h != null;
         }
 
         @Override // java.util.ListIterator
         public int nextIndex() {
-            return this.f31951e;
+            return this.f31196e;
         }
 
         @Override // java.util.ListIterator
         public int previousIndex() {
-            return this.f31951e - 1;
+            return this.f31196e - 1;
         }
 
         @Override // java.util.ListIterator, java.util.Iterator
         public void remove() {
             b();
-            m.e(this.f31953g != null);
-            g<K, V> gVar = this.f31953g;
-            if (gVar != this.f31952f) {
-                this.f31954h = gVar.f31949h;
-                this.f31951e--;
+            m.e(this.f31198g != null);
+            g<K, V> gVar = this.f31198g;
+            if (gVar != this.f31197f) {
+                this.f31199h = gVar.f31194h;
+                this.f31196e--;
             } else {
-                this.f31952f = gVar.f31948g;
+                this.f31197f = gVar.f31193g;
             }
-            LinkedListMultimap.this.removeNode(this.f31953g);
-            this.f31953g = null;
-            this.f31955i = LinkedListMultimap.this.modCount;
+            LinkedListMultimap.this.removeNode(this.f31198g);
+            this.f31198g = null;
+            this.f31200i = LinkedListMultimap.this.modCount;
         }
 
         @Override // java.util.ListIterator
@@ -364,39 +364,39 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
             this.modCount++;
         } else if (gVar == null) {
             g<K, V> gVar3 = this.tail;
-            gVar3.f31948g = gVar2;
-            gVar2.f31949h = gVar3;
+            gVar3.f31193g = gVar2;
+            gVar2.f31194h = gVar3;
             this.tail = gVar2;
             f<K, V> fVar = this.keyToKeyList.get(k);
             if (fVar == null) {
                 this.keyToKeyList.put(k, new f<>(gVar2));
                 this.modCount++;
             } else {
-                fVar.f31945c++;
-                g<K, V> gVar4 = fVar.f31944b;
-                gVar4.f31950i = gVar2;
+                fVar.f31190c++;
+                g<K, V> gVar4 = fVar.f31189b;
+                gVar4.f31195i = gVar2;
                 gVar2.j = gVar4;
-                fVar.f31944b = gVar2;
+                fVar.f31189b = gVar2;
             }
         } else {
-            this.keyToKeyList.get(k).f31945c++;
-            gVar2.f31949h = gVar.f31949h;
+            this.keyToKeyList.get(k).f31190c++;
+            gVar2.f31194h = gVar.f31194h;
             gVar2.j = gVar.j;
-            gVar2.f31948g = gVar;
-            gVar2.f31950i = gVar;
+            gVar2.f31193g = gVar;
+            gVar2.f31195i = gVar;
             g<K, V> gVar5 = gVar.j;
             if (gVar5 == null) {
-                this.keyToKeyList.get(k).f31943a = gVar2;
+                this.keyToKeyList.get(k).f31188a = gVar2;
             } else {
-                gVar5.f31950i = gVar2;
+                gVar5.f31195i = gVar2;
             }
-            g<K, V> gVar6 = gVar.f31949h;
+            g<K, V> gVar6 = gVar.f31194h;
             if (gVar6 == null) {
                 this.head = gVar2;
             } else {
-                gVar6.f31948g = gVar2;
+                gVar6.f31193g = gVar2;
             }
-            gVar.f31949h = gVar2;
+            gVar.f31194h = gVar2;
             gVar.j = gVar2;
         }
         this.size++;
@@ -435,33 +435,33 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
 
     /* JADX INFO: Access modifiers changed from: private */
     public void removeNode(g<K, V> gVar) {
-        g<K, V> gVar2 = gVar.f31949h;
+        g<K, V> gVar2 = gVar.f31194h;
         if (gVar2 != null) {
-            gVar2.f31948g = gVar.f31948g;
+            gVar2.f31193g = gVar.f31193g;
         } else {
-            this.head = gVar.f31948g;
+            this.head = gVar.f31193g;
         }
-        g<K, V> gVar3 = gVar.f31948g;
+        g<K, V> gVar3 = gVar.f31193g;
         if (gVar3 != null) {
-            gVar3.f31949h = gVar.f31949h;
+            gVar3.f31194h = gVar.f31194h;
         } else {
-            this.tail = gVar.f31949h;
+            this.tail = gVar.f31194h;
         }
-        if (gVar.j == null && gVar.f31950i == null) {
-            this.keyToKeyList.remove(gVar.f31946e).f31945c = 0;
+        if (gVar.j == null && gVar.f31195i == null) {
+            this.keyToKeyList.remove(gVar.f31191e).f31190c = 0;
             this.modCount++;
         } else {
-            f<K, V> fVar = this.keyToKeyList.get(gVar.f31946e);
-            fVar.f31945c--;
+            f<K, V> fVar = this.keyToKeyList.get(gVar.f31191e);
+            fVar.f31190c--;
             g<K, V> gVar4 = gVar.j;
             if (gVar4 == null) {
-                fVar.f31943a = gVar.f31950i;
+                fVar.f31188a = gVar.f31195i;
             } else {
-                gVar4.f31950i = gVar.f31950i;
+                gVar4.f31195i = gVar.f31195i;
             }
-            g<K, V> gVar5 = gVar.f31950i;
+            g<K, V> gVar5 = gVar.f31195i;
             if (gVar5 == null) {
-                fVar.f31944b = gVar.j;
+                fVar.f31189b = gVar.j;
             } else {
                 gVar5.j = gVar.j;
             }
@@ -671,25 +671,25 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
     public class e implements Iterator<K> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Set<K> f31938e;
+        public final Set<K> f31183e;
 
         /* renamed from: f  reason: collision with root package name */
-        public g<K, V> f31939f;
+        public g<K, V> f31184f;
 
         /* renamed from: g  reason: collision with root package name */
-        public g<K, V> f31940g;
+        public g<K, V> f31185g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f31941h;
+        public int f31186h;
 
         public e() {
-            this.f31938e = Sets.d(LinkedListMultimap.this.keySet().size());
-            this.f31939f = LinkedListMultimap.this.head;
-            this.f31941h = LinkedListMultimap.this.modCount;
+            this.f31183e = Sets.d(LinkedListMultimap.this.keySet().size());
+            this.f31184f = LinkedListMultimap.this.head;
+            this.f31186h = LinkedListMultimap.this.modCount;
         }
 
         public final void a() {
-            if (LinkedListMultimap.this.modCount != this.f31941h) {
+            if (LinkedListMultimap.this.modCount != this.f31186h) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -697,34 +697,34 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
         @Override // java.util.Iterator
         public boolean hasNext() {
             a();
-            return this.f31939f != null;
+            return this.f31184f != null;
         }
 
         @Override // java.util.Iterator
         public K next() {
             g<K, V> gVar;
             a();
-            LinkedListMultimap.checkElement(this.f31939f);
-            g<K, V> gVar2 = this.f31939f;
-            this.f31940g = gVar2;
-            this.f31938e.add(gVar2.f31946e);
+            LinkedListMultimap.checkElement(this.f31184f);
+            g<K, V> gVar2 = this.f31184f;
+            this.f31185g = gVar2;
+            this.f31183e.add(gVar2.f31191e);
             do {
-                gVar = this.f31939f.f31948g;
-                this.f31939f = gVar;
+                gVar = this.f31184f.f31193g;
+                this.f31184f = gVar;
                 if (gVar == null) {
                     break;
                 }
-            } while (!this.f31938e.add(gVar.f31946e));
-            return this.f31940g.f31946e;
+            } while (!this.f31183e.add(gVar.f31191e));
+            return this.f31185g.f31191e;
         }
 
         @Override // java.util.Iterator
         public void remove() {
             a();
-            m.e(this.f31940g != null);
-            LinkedListMultimap.this.removeAllNodes(this.f31940g.f31946e);
-            this.f31940g = null;
-            this.f31941h = LinkedListMultimap.this.modCount;
+            m.e(this.f31185g != null);
+            LinkedListMultimap.this.removeAllNodes(this.f31185g.f31191e);
+            this.f31185g = null;
+            this.f31186h = LinkedListMultimap.this.modCount;
         }
 
         public /* synthetic */ e(LinkedListMultimap linkedListMultimap, a aVar) {
@@ -736,102 +736,102 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
     public class i implements ListIterator<V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Object f31956e;
+        public final Object f31201e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31957f;
+        public int f31202f;
 
         /* renamed from: g  reason: collision with root package name */
-        public g<K, V> f31958g;
+        public g<K, V> f31203g;
 
         /* renamed from: h  reason: collision with root package name */
-        public g<K, V> f31959h;
+        public g<K, V> f31204h;
 
         /* renamed from: i  reason: collision with root package name */
-        public g<K, V> f31960i;
+        public g<K, V> f31205i;
 
         public i(Object obj) {
-            this.f31956e = obj;
+            this.f31201e = obj;
             f fVar = (f) LinkedListMultimap.this.keyToKeyList.get(obj);
-            this.f31958g = fVar == null ? null : fVar.f31943a;
+            this.f31203g = fVar == null ? null : fVar.f31188a;
         }
 
         @Override // java.util.ListIterator
         public void add(V v) {
-            this.f31960i = LinkedListMultimap.this.addNode(this.f31956e, v, this.f31958g);
-            this.f31957f++;
-            this.f31959h = null;
+            this.f31205i = LinkedListMultimap.this.addNode(this.f31201e, v, this.f31203g);
+            this.f31202f++;
+            this.f31204h = null;
         }
 
         @Override // java.util.ListIterator, java.util.Iterator
         public boolean hasNext() {
-            return this.f31958g != null;
+            return this.f31203g != null;
         }
 
         @Override // java.util.ListIterator
         public boolean hasPrevious() {
-            return this.f31960i != null;
+            return this.f31205i != null;
         }
 
         @Override // java.util.ListIterator, java.util.Iterator
         public V next() {
-            LinkedListMultimap.checkElement(this.f31958g);
-            g<K, V> gVar = this.f31958g;
-            this.f31959h = gVar;
-            this.f31960i = gVar;
-            this.f31958g = gVar.f31950i;
-            this.f31957f++;
-            return gVar.f31947f;
+            LinkedListMultimap.checkElement(this.f31203g);
+            g<K, V> gVar = this.f31203g;
+            this.f31204h = gVar;
+            this.f31205i = gVar;
+            this.f31203g = gVar.f31195i;
+            this.f31202f++;
+            return gVar.f31192f;
         }
 
         @Override // java.util.ListIterator
         public int nextIndex() {
-            return this.f31957f;
+            return this.f31202f;
         }
 
         @Override // java.util.ListIterator
         public V previous() {
-            LinkedListMultimap.checkElement(this.f31960i);
-            g<K, V> gVar = this.f31960i;
-            this.f31959h = gVar;
-            this.f31958g = gVar;
-            this.f31960i = gVar.j;
-            this.f31957f--;
-            return gVar.f31947f;
+            LinkedListMultimap.checkElement(this.f31205i);
+            g<K, V> gVar = this.f31205i;
+            this.f31204h = gVar;
+            this.f31203g = gVar;
+            this.f31205i = gVar.j;
+            this.f31202f--;
+            return gVar.f31192f;
         }
 
         @Override // java.util.ListIterator
         public int previousIndex() {
-            return this.f31957f - 1;
+            return this.f31202f - 1;
         }
 
         @Override // java.util.ListIterator, java.util.Iterator
         public void remove() {
-            m.e(this.f31959h != null);
-            g<K, V> gVar = this.f31959h;
-            if (gVar != this.f31958g) {
-                this.f31960i = gVar.j;
-                this.f31957f--;
+            m.e(this.f31204h != null);
+            g<K, V> gVar = this.f31204h;
+            if (gVar != this.f31203g) {
+                this.f31205i = gVar.j;
+                this.f31202f--;
             } else {
-                this.f31958g = gVar.f31950i;
+                this.f31203g = gVar.f31195i;
             }
-            LinkedListMultimap.this.removeNode(this.f31959h);
-            this.f31959h = null;
+            LinkedListMultimap.this.removeNode(this.f31204h);
+            this.f31204h = null;
         }
 
         @Override // java.util.ListIterator
         public void set(V v) {
-            n.w(this.f31959h != null);
-            this.f31959h.f31947f = v;
+            n.w(this.f31204h != null);
+            this.f31204h.f31192f = v;
         }
 
         public i(Object obj, int i2) {
             f fVar = (f) LinkedListMultimap.this.keyToKeyList.get(obj);
-            int i3 = fVar == null ? 0 : fVar.f31945c;
+            int i3 = fVar == null ? 0 : fVar.f31190c;
             n.t(i2, i3);
             if (i2 >= i3 / 2) {
-                this.f31960i = fVar == null ? null : fVar.f31944b;
-                this.f31957f = i3;
+                this.f31205i = fVar == null ? null : fVar.f31189b;
+                this.f31202f = i3;
                 while (true) {
                     int i4 = i2 + 1;
                     if (i2 >= i3) {
@@ -841,7 +841,7 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
                     i2 = i4;
                 }
             } else {
-                this.f31958g = fVar == null ? null : fVar.f31943a;
+                this.f31203g = fVar == null ? null : fVar.f31188a;
                 while (true) {
                     int i5 = i2 - 1;
                     if (i2 <= 0) {
@@ -851,8 +851,8 @@ public class LinkedListMultimap<K, V> extends d.g.c.c.c<K, V> implements g0<K, V
                     i2 = i5;
                 }
             }
-            this.f31956e = obj;
-            this.f31959h = null;
+            this.f31201e = obj;
+            this.f31204h = null;
         }
     }
 

@@ -13,11 +13,11 @@ import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
 public class HkWebView extends HkMWebView {
 
-    /* renamed from: f  reason: collision with root package name */
-    public HkWebView f18941f;
+    /* renamed from: h  reason: collision with root package name */
+    public HkWebView f18228h;
 
-    /* renamed from: g  reason: collision with root package name */
-    public Context f18942g;
+    /* renamed from: i  reason: collision with root package name */
+    public Context f18229i;
 
     /* loaded from: classes3.dex */
     public class a extends HkMWebView.c {
@@ -53,8 +53,8 @@ public class HkWebView extends HkMWebView {
 
     public HkWebView(Context context) {
         super(context);
-        this.f18941f = this;
-        this.f18942g = context;
+        this.f18228h = this;
+        this.f18229i = context;
         init();
     }
 
@@ -83,24 +83,24 @@ public class HkWebView extends HkMWebView {
     public final void init() {
         try {
             if (Build.VERSION.SDK_INT >= 11) {
-                this.f18941f.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f18941f.removeJavascriptInterface("accessibility");
-                this.f18941f.removeJavascriptInterface("accessibilityTraversal");
+                this.f18228h.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f18228h.removeJavascriptInterface("accessibility");
+                this.f18228h.removeJavascriptInterface("accessibilityTraversal");
             }
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        b(this.f18942g);
+        b(this.f18229i);
         getSettings().setCacheMode(-1);
         getSettings().setUserAgentString(getUserAgent());
-        setDownloadListener(new HkMWebView.b(this.f18941f, (Activity) this.f18942g));
-        setWebViewClient(new a(this.f18941f, (Activity) this.f18942g));
+        setDownloadListener(new HkMWebView.b(this.f18228h, (Activity) this.f18229i));
+        setWebViewClient(new a(this.f18228h, (Activity) this.f18229i));
     }
 
     public HkWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18941f = this;
-        this.f18942g = context;
+        this.f18228h = this;
+        this.f18229i = context;
         init();
     }
 }

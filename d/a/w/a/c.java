@@ -22,16 +22,16 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f64122a;
+    public static volatile int f64809a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f64123b;
+    public static String f64810b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f64124c;
+    public static String f64811c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f64125d;
+    public static boolean f64812d;
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
@@ -44,11 +44,11 @@ public class c {
     public static void a(int i2, Map<String, String> map) {
         int i3;
         int h2 = e.b().h(i2);
-        if ((f64122a & h2) == h2) {
+        if ((f64809a & h2) == h2) {
             return;
         }
         do {
-            i3 = (f64122a ^ h2) & h2;
+            i3 = (f64809a ^ h2) & h2;
             if (i3 <= 0) {
                 break;
             }
@@ -57,8 +57,8 @@ public class c {
     }
 
     public static void b(Context context, String str) {
-        f64124c = str;
-        f64125d = Utils.p(context);
+        f64811c = str;
+        f64812d = Utils.p(context);
         e.b().e(context, str);
     }
 
@@ -71,11 +71,11 @@ public class c {
         String str3 = map != null ? map.get("cache-path") : null;
         CyberTaskExcutor.getInstance().execute(new a());
         if (str3 == null) {
-            str = Utils.b(context) + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + Utils.f8282c + File.separator + context.getPackageName() + File.separator;
+            str = Utils.b(context) + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + Utils.f8094c + File.separator + context.getPackageName() + File.separator;
         } else {
-            str = str3 + File.separator + Utils.f8282c + File.separator;
+            str = str3 + File.separator + Utils.f8094c + File.separator;
         }
-        if (f64125d) {
+        if (f64812d) {
             str = str + "remote" + File.separator;
         }
         Utils.e(str);
@@ -93,15 +93,15 @@ public class c {
 
     public static boolean d(int i2) {
         int h2 = e.b().h(i2);
-        return (f64122a & h2) == h2;
+        return (f64809a & h2) == h2;
     }
 
     public static boolean e(int i2, String str) {
-        if (f64125d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_SR, true)) {
+        if (f64812d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_SR, true)) {
             if (i2 != 512) {
                 System.load(str);
             } else {
-                String str2 = f64124c + File.separator + "model_video-sr_1.2";
+                String str2 = f64811c + File.separator + "model_video-sr_1.2";
                 String str3 = str2 + File.separator + "params.mlm";
                 if (!new File(str2 + File.separator + "model.mlm").exists() || !new File(str3).exists()) {
                     throw new FileNotFoundException("model_video-sr_1.2.zip");
@@ -119,7 +119,7 @@ public class c {
     }
 
     public static String g() {
-        return f64123b;
+        return f64810b;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x0045  */
@@ -157,7 +157,7 @@ public class c {
                 str = null;
                 i3 = 3;
             }
-            if (f64125d) {
+            if (f64812d) {
                 if ((i3 & 2) != 2) {
                     return false;
                 }
@@ -178,7 +178,7 @@ public class c {
                             str3 = CyberPlayerManager.getApplicationContext().getExternalFilesDir("").getAbsolutePath();
                         } catch (Exception unused2) {
                         }
-                        if (f64125d) {
+                        if (f64812d) {
                             str4 = "4";
                         }
                         if (!file2.canExecute()) {
@@ -213,7 +213,7 @@ public class c {
     }
 
     public static String i() {
-        return f64124c;
+        return f64811c;
     }
 
     public static boolean j(int i2, Map<String, String> map) {
@@ -252,7 +252,7 @@ public class c {
                 } else if (e.b().r(i2)) {
                     IjkMediaPlayer.nativeSetEnableFFmpegExtend(d2);
                 } else if (e.b().t(i2)) {
-                    f64123b = d2;
+                    f64810b = d2;
                 } else if (e.b().x(i2)) {
                     e2 = h(i2, map);
                 } else if (e.b().v(i2)) {
@@ -261,9 +261,9 @@ public class c {
             }
             e2 = true;
         }
-        f64122a = i2 | f64122a;
+        f64809a = i2 | f64809a;
         if (e2) {
-            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + f64125d + " abi:" + e.b().m() + " lib:" + a3 + " ver:" + c2 + " load success");
+            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + f64812d + " abi:" + e.b().m() + " lib:" + a3 + " ver:" + c2 + " load success");
         }
         return true;
     }
@@ -279,20 +279,20 @@ public class c {
             return;
         }
         try {
-            String str = f64124c + File.separator + "config";
+            String str = f64811c + File.separator + "config";
             String str2 = str + File.separator + LibsInfoDef.CYBER_CODEC_MONITOR_NAME + "_" + LibsInfoDef.CYBER_CODEC_MONITOR_VERSION + ".json";
             File file = new File(str);
             if (file.exists()) {
-                if (!new File(str2).exists() && !f64125d) {
+                if (!new File(str2).exists() && !f64812d) {
                     z = false;
                 }
                 if (z) {
                 }
             } else {
-                if (f64125d) {
+                if (f64812d) {
                     file.mkdirs();
                     if (z) {
-                        Utils.g(str2, f64125d);
+                        Utils.g(str2, f64812d);
                         DuplayerQualityMonitorManager.getInstance().init();
                         return;
                     }

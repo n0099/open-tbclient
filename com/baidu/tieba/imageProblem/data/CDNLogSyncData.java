@@ -12,25 +12,25 @@ import org.json.JSONObject;
 public class CDNLogSyncData {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f18459a;
+    public boolean f17774a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f18460b;
+    public int f17775b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f18461c;
+    public int f17776c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18462d;
+    public int f17777d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18463e = 25;
+    public int f17778e = 25;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18464f = 25;
+    public int f17779f = 25;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18465g = 10;
+    public int f17780g = 10;
 
     public final void a(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -38,60 +38,60 @@ public class CDNLogSyncData {
         }
         try {
             if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH) == 1) {
-                this.f18459a = true;
+                this.f17774a = true;
             } else {
-                this.f18459a = false;
+                this.f17774a = false;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
             if (optJSONObject != null) {
-                this.f18462d = optJSONObject.optInt("num");
+                this.f17777d = optJSONObject.optInt("num");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
             if (optJSONObject2 != null) {
-                this.f18461c = optJSONObject2.optInt("time");
-                this.f18460b = optJSONObject2.optInt("num");
+                this.f17776c = optJSONObject2.optInt("time");
+                this.f17775b = optJSONObject2.optInt("num");
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
             if (optJSONObject3 != null) {
-                this.f18463e = optJSONObject3.optInt("succ");
-                this.f18464f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                this.f18465g = optJSONObject3.optInt("slow");
+                this.f17778e = optJSONObject3.optInt("succ");
+                this.f17779f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                this.f17780g = optJSONObject3.optInt("slow");
             }
-            if (this.f18461c <= 0 || this.f18460b <= 0 || this.f18462d <= 0) {
-                this.f18459a = false;
+            if (this.f17776c <= 0 || this.f17775b <= 0 || this.f17777d <= 0) {
+                this.f17774a = false;
             }
         } catch (Exception e2) {
-            this.f18459a = false;
+            this.f17774a = false;
             BdLog.e(e2.getMessage());
         }
     }
 
     public int getErrNumber() {
-        return this.f18462d;
+        return this.f17777d;
     }
 
     public int getErrRank() {
-        return this.f18464f;
+        return this.f17779f;
     }
 
     public int getSlowNumber() {
-        return this.f18460b;
+        return this.f17775b;
     }
 
     public int getSlowRank() {
-        return this.f18465g;
+        return this.f17780g;
     }
 
     public int getSuccRank() {
-        return this.f18463e;
+        return this.f17778e;
     }
 
     public int getTime() {
-        return this.f18461c;
+        return this.f17776c;
     }
 
     public boolean ismSwitch() {
-        return this.f18459a;
+        return this.f17774a;
     }
 
     public void parseJson(String str) {
@@ -101,43 +101,43 @@ public class CDNLogSyncData {
             }
             a(new JSONObject(str));
         } catch (Exception e2) {
-            this.f18459a = false;
+            this.f17774a = false;
             BdLog.e(e2.getMessage());
         }
     }
 
     public void setErrNumber(int i2) {
-        this.f18462d = i2;
+        this.f17777d = i2;
     }
 
     public void setErrRank(int i2) {
-        this.f18464f = i2;
+        this.f17779f = i2;
     }
 
     public void setSlowNumber(int i2) {
-        this.f18460b = i2;
+        this.f17775b = i2;
     }
 
     public void setSlowRank(int i2) {
-        this.f18465g = i2;
+        this.f17780g = i2;
     }
 
     public void setSuccRank(int i2) {
-        this.f18463e = i2;
+        this.f17778e = i2;
     }
 
     public void setTime(int i2) {
-        this.f18461c = i2;
+        this.f17776c = i2;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.f18459a != z) {
+        if (this.f17774a != z) {
             a logItem = ImageLogger.getLogItem();
             logItem.b("act", "fallback");
             logItem.b("result", z ? "1" : "0");
             logItem.b("type", SetImageWatermarkTypeReqMsg.SWITCH);
             BdStatisticsManager.getInstance().debug("img", logItem);
         }
-        this.f18459a = z;
+        this.f17774a = z;
     }
 }

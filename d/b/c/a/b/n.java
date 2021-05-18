@@ -10,34 +10,34 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f64844a;
+    public final int f65530a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f64845b;
+    public final long f65531b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Runnable f64846c;
+    public final Runnable f65532c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Deque<d.b.c.a.b.a.c.c> f64847d;
+    public final Deque<d.b.c.a.b.a.c.c> f65533d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.b.c.a.b.a.c.d f64848e;
+    public final d.b.c.a.b.a.c.d f65534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f64849f;
+    public boolean f65535f;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ boolean f64843h = !n.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f65529h = !n.class.desiredAssertionStatus();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Executor f64842g = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new SynchronousQueue(), d.b.c.a.b.a.e.o("OkHttp ConnectionPool", true));
+    public static final Executor f65528g = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new SynchronousQueue(), d.b.c.a.b.a.e.o("OkHttp ConnectionPool", true));
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -75,11 +75,11 @@ public final class n {
             if (reference.get() != null) {
                 i2++;
             } else {
-                d.b.c.a.b.a.i.e.j().g("A connection to " + cVar.a().a().a() + " was leaked. Did you forget to close a response body?", ((f.a) reference).f64523a);
+                d.b.c.a.b.a.i.e.j().g("A connection to " + cVar.a().a().a() + " was leaked. Did you forget to close a response body?", ((f.a) reference).f65209a);
                 list.remove(i2);
                 cVar.k = true;
                 if (list.isEmpty()) {
-                    cVar.o = j - this.f64845b;
+                    cVar.o = j - this.f65531b;
                     return 0;
                 }
             }
@@ -93,7 +93,7 @@ public final class n {
             long j2 = Long.MIN_VALUE;
             int i2 = 0;
             int i3 = 0;
-            for (d.b.c.a.b.a.c.c cVar2 : this.f64847d) {
+            for (d.b.c.a.b.a.c.c cVar2 : this.f65533d) {
                 if (a(cVar2, j) > 0) {
                     i3++;
                 } else {
@@ -105,25 +105,25 @@ public final class n {
                     }
                 }
             }
-            if (j2 < this.f64845b && i2 <= this.f64844a) {
+            if (j2 < this.f65531b && i2 <= this.f65530a) {
                 if (i2 > 0) {
-                    return this.f64845b - j2;
+                    return this.f65531b - j2;
                 } else if (i3 > 0) {
-                    return this.f64845b;
+                    return this.f65531b;
                 } else {
-                    this.f64849f = false;
+                    this.f65535f = false;
                     return -1L;
                 }
             }
-            this.f64847d.remove(cVar);
+            this.f65533d.remove(cVar);
             d.b.c.a.b.a.e.r(cVar.m());
             return 0L;
         }
     }
 
     public d.b.c.a.b.a.c.c c(b bVar, d.b.c.a.b.a.c.f fVar, e eVar) {
-        if (f64843h || Thread.holdsLock(this)) {
-            for (d.b.c.a.b.a.c.c cVar : this.f64847d) {
+        if (f65529h || Thread.holdsLock(this)) {
+            for (d.b.c.a.b.a.c.c cVar : this.f65533d) {
                 if (cVar.j(bVar, eVar)) {
                     fVar.g(cVar, true);
                     return cVar;
@@ -135,8 +135,8 @@ public final class n {
     }
 
     public Socket d(b bVar, d.b.c.a.b.a.c.f fVar) {
-        if (f64843h || Thread.holdsLock(this)) {
-            for (d.b.c.a.b.a.c.c cVar : this.f64847d) {
+        if (f65529h || Thread.holdsLock(this)) {
+            for (d.b.c.a.b.a.c.c cVar : this.f65533d) {
                 if (cVar.j(bVar, null) && cVar.o() && cVar != fVar.j()) {
                     return fVar.e(cVar);
                 }
@@ -147,34 +147,34 @@ public final class n {
     }
 
     public void e(d.b.c.a.b.a.c.c cVar) {
-        if (!f64843h && !Thread.holdsLock(this)) {
+        if (!f65529h && !Thread.holdsLock(this)) {
             throw new AssertionError();
         }
-        if (!this.f64849f) {
-            this.f64849f = true;
-            f64842g.execute(this.f64846c);
+        if (!this.f65535f) {
+            this.f65535f = true;
+            f65528g.execute(this.f65532c);
         }
-        this.f64847d.add(cVar);
+        this.f65533d.add(cVar);
     }
 
     public boolean f(d.b.c.a.b.a.c.c cVar) {
-        if (f64843h || Thread.holdsLock(this)) {
-            if (!cVar.k && this.f64844a != 0) {
+        if (f65529h || Thread.holdsLock(this)) {
+            if (!cVar.k && this.f65530a != 0) {
                 notifyAll();
                 return false;
             }
-            this.f64847d.remove(cVar);
+            this.f65533d.remove(cVar);
             return true;
         }
         throw new AssertionError();
     }
 
     public n(int i2, long j, TimeUnit timeUnit) {
-        this.f64846c = new a();
-        this.f64847d = new ArrayDeque();
-        this.f64848e = new d.b.c.a.b.a.c.d();
-        this.f64844a = i2;
-        this.f64845b = timeUnit.toNanos(j);
+        this.f65532c = new a();
+        this.f65533d = new ArrayDeque();
+        this.f65534e = new d.b.c.a.b.a.c.d();
+        this.f65530a = i2;
+        this.f65531b = timeUnit.toNanos(j);
         if (j > 0) {
             return;
         }

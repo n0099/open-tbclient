@@ -18,24 +18,24 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.a.j;
-import d.a.j0.j3.h.e;
+import d.a.k0.j3.h.e;
 /* loaded from: classes5.dex */
 public class MemberRecommendView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21862e;
+    public Context f21107e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21863f;
+    public View f21108f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f21864g;
+    public TbImageView f21109g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21865h;
+    public TextView f21110h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f21866i;
+    public TextView f21111i;
     public e j;
     public int k;
 
@@ -97,7 +97,7 @@ public class MemberRecommendView extends FrameLayout {
                     str = "";
                     break;
             }
-            if (MemberRecommendView.this.j == null || (tbPageContext = (TbPageContext) j.a(MemberRecommendView.this.f21862e)) == null) {
+            if (MemberRecommendView.this.j == null || (tbPageContext = (TbPageContext) j.a(MemberRecommendView.this.f21107e)) == null) {
                 return;
             }
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i2);
@@ -108,13 +108,13 @@ public class MemberRecommendView extends FrameLayout {
 
     public MemberRecommendView(Context context) {
         super(context);
-        this.f21862e = context;
+        this.f21107e = context;
         f();
     }
 
     public void d() {
-        SkinManager.setBackgroundColor(this.f21863f, R.color.CAM_X0207);
-        SkinManager.setViewTextColor(this.f21865h, R.color.CAM_X0108);
+        SkinManager.setBackgroundColor(this.f21108f, R.color.CAM_X0207);
+        SkinManager.setViewTextColor(this.f21110h, R.color.CAM_X0108);
     }
 
     public void e(e eVar) {
@@ -122,32 +122,32 @@ public class MemberRecommendView extends FrameLayout {
             return;
         }
         this.j = eVar;
-        this.f21864g.V(eVar.b(), 10, false);
-        this.f21865h.setText(this.j.c());
+        this.f21109g.V(eVar.b(), 10, false);
+        this.f21110h.setText(this.j.c());
         if (StringUtils.isNull(this.j.a())) {
-            this.f21866i.setVisibility(8);
+            this.f21111i.setVisibility(8);
             return;
         }
-        this.f21866i.setVisibility(0);
-        this.f21866i.setText(this.j.a());
+        this.f21111i.setVisibility(0);
+        this.f21111i.setText(this.j.a());
     }
 
     public final void f() {
-        View inflate = LayoutInflater.from(this.f21862e).inflate(R.layout.member_extend_view, this);
-        this.f21863f = inflate;
+        View inflate = LayoutInflater.from(this.f21107e).inflate(R.layout.member_extend_view, this);
+        this.f21108f = inflate;
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.vip_icon);
-        this.f21864g = tbImageView;
+        this.f21109g = tbImageView;
         tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-        this.f21864g.setDefaultBgResource(R.drawable.transparent_bg);
-        this.f21864g.setAutoChangeStyle(true);
-        this.f21865h = (TextView) this.f21863f.findViewById(R.id.title_view);
-        TextView textView = (TextView) this.f21863f.findViewById(R.id.jump_button);
-        this.f21866i = textView;
+        this.f21109g.setDefaultBgResource(R.drawable.transparent_bg);
+        this.f21109g.setAutoChangeStyle(true);
+        this.f21110h = (TextView) this.f21108f.findViewById(R.id.title_view);
+        TextView textView = (TextView) this.f21108f.findViewById(R.id.jump_button);
+        this.f21111i = textView;
         textView.setOnClickListener(new a());
     }
 
     public View getButton() {
-        return this.f21866i;
+        return this.f21111i;
     }
 
     public int getFromType() {
@@ -160,13 +160,13 @@ public class MemberRecommendView extends FrameLayout {
 
     public MemberRecommendView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21862e = context;
+        this.f21107e = context;
         f();
     }
 
     public MemberRecommendView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
-        this.f21862e = context;
+        this.f21107e = context;
         f();
     }
 }

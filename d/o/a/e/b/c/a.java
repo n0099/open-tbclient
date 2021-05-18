@@ -2,18 +2,18 @@ package d.o.a.e.b.c;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f66441a = 4;
+    public static int f67127a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AbstractC1820a f66442b;
+    public static AbstractC1884a f67128b;
 
     /* renamed from: d.o.a.e.b.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static abstract class AbstractC1820a {
+    /* loaded from: classes7.dex */
+    public static abstract class AbstractC1884a {
         public abstract void a(String str, String str2);
 
         public abstract void b(String str, String str2, Throwable th);
@@ -28,7 +28,7 @@ public class a {
     }
 
     public static void a(int i2) {
-        f66441a = i2;
+        f67127a = i2;
     }
 
     public static void b(String str) {
@@ -39,12 +39,12 @@ public class a {
         if (str2 == null) {
             return;
         }
-        if (f66441a <= 2) {
+        if (f67127a <= 2) {
             Log.v(str, str2);
         }
-        AbstractC1820a abstractC1820a = f66442b;
-        if (abstractC1820a != null) {
-            abstractC1820a.a(f(str), str2);
+        AbstractC1884a abstractC1884a = f67128b;
+        if (abstractC1884a != null) {
+            abstractC1884a.a(f(str), str2);
         }
     }
 
@@ -52,17 +52,17 @@ public class a {
         if (str2 == null && th == null) {
             return;
         }
-        if (f66441a <= 6) {
+        if (f67127a <= 6) {
             Log.e(f(str), str2, th);
         }
-        AbstractC1820a abstractC1820a = f66442b;
-        if (abstractC1820a != null) {
-            abstractC1820a.b(f(str), str2, th);
+        AbstractC1884a abstractC1884a = f67128b;
+        if (abstractC1884a != null) {
+            abstractC1884a.b(f(str), str2, th);
         }
     }
 
     public static boolean e() {
-        return f66441a <= 3;
+        return f67127a <= 3;
     }
 
     public static String f(String str) {
@@ -76,12 +76,12 @@ public class a {
         if (str2 == null) {
             return;
         }
-        if (f66441a <= 3) {
+        if (f67127a <= 3) {
             Log.d(f(str), str2);
         }
-        AbstractC1820a abstractC1820a = f66442b;
-        if (abstractC1820a != null) {
-            abstractC1820a.c(f(str), str2);
+        AbstractC1884a abstractC1884a = f67128b;
+        if (abstractC1884a != null) {
+            abstractC1884a.c(f(str), str2);
         }
     }
 
@@ -89,12 +89,12 @@ public class a {
         if (str2 == null) {
             return;
         }
-        if (f66441a <= 4) {
+        if (f67127a <= 4) {
             Log.i(f(str), str2);
         }
-        AbstractC1820a abstractC1820a = f66442b;
-        if (abstractC1820a != null) {
-            abstractC1820a.d(f(str), str2);
+        AbstractC1884a abstractC1884a = f67128b;
+        if (abstractC1884a != null) {
+            abstractC1884a.d(f(str), str2);
         }
     }
 
@@ -102,12 +102,12 @@ public class a {
         if (str2 == null) {
             return;
         }
-        if (f66441a <= 5) {
+        if (f67127a <= 5) {
             Log.w(f(str), str2);
         }
-        AbstractC1820a abstractC1820a = f66442b;
-        if (abstractC1820a != null) {
-            abstractC1820a.f(f(str), str2);
+        AbstractC1884a abstractC1884a = f67128b;
+        if (abstractC1884a != null) {
+            abstractC1884a.f(f(str), str2);
         }
     }
 
@@ -115,12 +115,12 @@ public class a {
         if (str2 == null) {
             return;
         }
-        if (f66441a <= 6) {
+        if (f67127a <= 6) {
             Log.e(f(str), str2);
         }
-        AbstractC1820a abstractC1820a = f66442b;
-        if (abstractC1820a != null) {
-            abstractC1820a.e(f(str), str2);
+        AbstractC1884a abstractC1884a = f67128b;
+        if (abstractC1884a != null) {
+            abstractC1884a.e(f(str), str2);
         }
     }
 }

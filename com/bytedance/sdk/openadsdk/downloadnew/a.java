@@ -13,7 +13,7 @@ import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.u;
 import d.o.a.d.f.a.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static com.bytedance.sdk.openadsdk.downloadnew.core.a a(Context context, l lVar, String str) {
         if (ak.c(context)) {

@@ -4,12 +4,12 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.a.c.e.p.l;
-import d.a.i0.r.k;
-import d.a.i0.z0.w;
-import d.a.j0.f2.b;
+import d.a.j0.r.k;
+import d.a.j0.z0.w;
+import d.a.k0.f2.b;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ProfileRequestMessage extends NetMessage {
     public boolean error_hint;
     public Long friend_uid;

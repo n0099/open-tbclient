@@ -5,13 +5,14 @@ import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.vivo.push.PushClientConstants;
 import d.a.c.e.p.k;
-import d.a.j0.d3.l0.d.a;
-import d.a.j0.d3.l0.d.b;
-import d.a.j0.d3.l0.d.c;
-import d.a.j0.d3.l0.d.e;
+import d.a.k0.d3.l0.d.a;
+import d.a.k0.d3.l0.d.b;
+import d.a.k0.d3.l0.d.c;
+import d.a.k0.d3.l0.d.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -37,7 +38,7 @@ public class CommonTbJsBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.CLICK_GO_BACK_TO_H5);
     }
 
-    @Override // d.a.j0.d3.l0.d.a
+    @Override // d.a.k0.d3.l0.d.a
     public c dispatch(e eVar, c cVar) {
         c cVar2 = cVar == null ? new c() : cVar;
         String b2 = eVar.b();
@@ -67,6 +68,24 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar2.t(showLowerHairHint.e());
                 cVar2.q(showLowerHairHint.b());
                 cVar2.l(showLowerHairHint.a());
+            }
+            cVar2.u(0);
+        } else if (b2.equals("subscription/gamePush")) {
+            cVar2.o(true);
+            c gamePush = this.mJsBridge.gamePush(e2.optString("gameId"), e2.optString("gameName"), e2.optString("gameTime"), e2.optString("gameType"));
+            if (gamePush != null) {
+                cVar2.t(gamePush.e());
+                cVar2.q(gamePush.b());
+                cVar2.l(gamePush.a());
+            }
+            cVar2.u(0);
+        } else if (b2.equals("subscription/gamePushStatus")) {
+            cVar2.o(true);
+            c handleGamePushStatus = this.mJsBridge.handleGamePushStatus();
+            if (handleGamePushStatus != null) {
+                cVar2.t(handleGamePushStatus.e());
+                cVar2.q(handleGamePushStatus.b());
+                cVar2.l(handleGamePushStatus.a());
             }
             cVar2.u(0);
         } else if (b2.equals("router/goToBarDetail")) {
@@ -182,6 +201,15 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar2.l(goToEditPost.a());
             }
             cVar2.u(0);
+        } else if (b2.equals("system/closeNativeMask")) {
+            cVar2.o(true);
+            c closeNativeMask = this.mJsBridge.closeNativeMask(e2.optInt("result"));
+            if (closeNativeMask != null) {
+                cVar2.t(closeNativeMask.e());
+                cVar2.q(closeNativeMask.b());
+                cVar2.l(closeNativeMask.a());
+            }
+            cVar2.u(0);
         } else if (b2.equals("system/checkAppInstall")) {
             cVar2.o(true);
             c checkAppInstall = this.mJsBridge.checkAppInstall(e2.optString(PushClientConstants.TAG_PKG_NAME));
@@ -281,6 +309,15 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar2.l(showTipToast.a());
             }
             cVar2.u(0);
+        } else if (b2.equals("toast/getModalData")) {
+            cVar2.o(true);
+            c getModalData = this.mJsBridge.getGetModalData();
+            if (getModalData != null) {
+                cVar2.t(getModalData.e());
+                cVar2.q(getModalData.b());
+                cVar2.l(getModalData.a());
+            }
+            cVar2.u(0);
         } else if (b2.equals("router/jumpToHTMLPage")) {
             cVar2.o(true);
             c jumpToHtmlPage = this.mJsBridge.jumpToHtmlPage(e2.optString("url"), e2.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
@@ -290,29 +327,76 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar2.l(jumpToHtmlPage.a());
             }
             cVar2.u(0);
-        } else if (b2.equals("router/goToHotTrend")) {
+        } else if (b2.equals("hybridDebug/getOfflineUserInfo")) {
             cVar2.o(true);
-            c jumpToHotTrendPage = this.mJsBridge.jumpToHotTrendPage();
-            if (jumpToHotTrendPage != null) {
-                cVar2.t(jumpToHotTrendPage.e());
-                cVar2.q(jumpToHotTrendPage.b());
-                cVar2.l(jumpToHotTrendPage.a());
+            c offlineUserInfo = this.mJsBridge.getOfflineUserInfo();
+            if (offlineUserInfo != null) {
+                cVar2.t(offlineUserInfo.e());
+                cVar2.q(offlineUserInfo.b());
+                cVar2.l(offlineUserInfo.a());
             }
             cVar2.u(0);
-        } else if (b2.equals("toast/showAlertView")) {
+        } else if (b2.equals("hybridDebug/deleteOfflineBundle")) {
             cVar2.o(true);
-            c showAlertView = this.mJsBridge.showAlertView(e2.optString("title"), e2.optString("sub_title"), e2.optInt("btn_corner"), e2.optInt("btn_borderWidth"), e2.optString("cancel_btn_text"), e2.optString("cancel_btn_color"), e2.optString("cancel_btn_borderColor"), e2.optString("confirm_btn_text"), e2.optString("confirm_btn_color"), e2.optString("confirm_btn_borderColor"), e2.optString("confirm_btn_url"));
-            if (showAlertView != null) {
-                cVar2.t(showAlertView.e());
-                cVar2.q(showAlertView.b());
-                cVar2.l(showAlertView.a());
+            c deleteOfflineBundle = this.mJsBridge.deleteOfflineBundle();
+            if (deleteOfflineBundle != null) {
+                cVar2.t(deleteOfflineBundle.e());
+                cVar2.q(deleteOfflineBundle.b());
+                cVar2.l(deleteOfflineBundle.a());
+            }
+            cVar2.u(0);
+        } else if (b2.equals("hybridDebug/updateOfflineBundle")) {
+            cVar2.o(true);
+            c updateOfflineBundle = this.mJsBridge.updateOfflineBundle();
+            if (updateOfflineBundle != null) {
+                cVar2.t(updateOfflineBundle.e());
+                cVar2.q(updateOfflineBundle.b());
+                cVar2.l(updateOfflineBundle.a());
+            }
+            cVar2.u(0);
+        } else if (b2.equals("hybridDebug/switchOfflineInterface")) {
+            cVar2.o(true);
+            c switchOfflineInterface = this.mJsBridge.switchOfflineInterface(e2.optString("host"));
+            if (switchOfflineInterface != null) {
+                cVar2.t(switchOfflineInterface.e());
+                cVar2.q(switchOfflineInterface.b());
+                cVar2.l(switchOfflineInterface.a());
+            }
+            cVar2.u(0);
+        } else if (b2.equals("hybridDebug/switchOfflineBundleStatus")) {
+            cVar2.o(true);
+            c switchOfflineBundleStatus = this.mJsBridge.switchOfflineBundleStatus(e2.optInt("isOn"));
+            if (switchOfflineBundleStatus != null) {
+                cVar2.t(switchOfflineBundleStatus.e());
+                cVar2.q(switchOfflineBundleStatus.b());
+                cVar2.l(switchOfflineBundleStatus.a());
+            }
+            cVar2.u(0);
+        } else if (b2.equals("activity/finishTestAnswer")) {
+            cVar2.o(true);
+            c finishTestAnswer = this.mJsBridge.finishTestAnswer(e2.optLong("testId"));
+            if (finishTestAnswer != null) {
+                cVar2.t(finishTestAnswer.e());
+                cVar2.q(finishTestAnswer.b());
+                cVar2.l(finishTestAnswer.a());
+            }
+            cVar2.u(0);
+        } else if (b2.equals("hybridDebug/switchUrlHost")) {
+            cVar2.o(true);
+            ArrayList<JSONObject> arrayList = new ArrayList<>();
+            ListUtils.convertJSONArrayToList(arrayList, e2.optJSONArray("hostArr"));
+            c switchUrlHost = this.mJsBridge.switchUrlHost(arrayList);
+            if (switchUrlHost != null) {
+                cVar2.t(switchUrlHost.e());
+                cVar2.q(switchUrlHost.b());
+                cVar2.l(switchUrlHost.a());
             }
             cVar2.u(0);
         }
         return cVar2;
     }
 
-    @Override // d.a.j0.d3.l0.d.a
+    @Override // d.a.k0.d3.l0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         c cVar = null;
         if (k.isEmpty(str) || !this.mNotificationNameList.contains(str)) {

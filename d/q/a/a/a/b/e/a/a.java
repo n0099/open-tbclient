@@ -13,46 +13,46 @@ import android.os.SystemClock;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f66826c;
+    public static volatile a f67512c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Object f66827d = new Object();
+    public static Object f67513d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f66828e;
+    public static HandlerThread f67514e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f66829f;
+    public static Handler f67515f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f66830g;
+    public static String f67516g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f66831h;
+    public static String f67517h;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f66832a;
+    public Context f67518a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f66833b = false;
+    public boolean f67519b = false;
 
     public a(Context context) {
-        this.f66832a = context;
+        this.f67518a = context;
         HandlerThread handlerThread = new HandlerThread("meizu_work");
-        f66828e = handlerThread;
+        f67514e = handlerThread;
         handlerThread.start();
-        f66829f = new b(this, f66828e.getLooper(), context);
+        f67515f = new b(this, f67514e.getLooper(), context);
     }
 
     public static a a(Context context) {
-        if (f66826c == null) {
+        if (f67512c == null) {
             synchronized (a.class) {
-                if (f66826c == null) {
-                    f66826c = new a(context);
+                if (f67512c == null) {
+                    f67512c = new a(context);
                 }
             }
         }
-        return f66826c;
+        return f67512c;
     }
 
     public static String f(Context context, String str) {
@@ -101,33 +101,33 @@ public class a {
 
     public final String e() {
         if (h()) {
-            String str = f66831h;
+            String str = f67517h;
             if (str != null) {
                 return str;
             }
             try {
-                synchronized (f66827d) {
-                    Message obtainMessage = f66829f.obtainMessage();
+                synchronized (f67513d) {
+                    Message obtainMessage = f67515f.obtainMessage();
                     obtainMessage.what = 666;
                     Bundle bundle = new Bundle();
                     bundle.putInt("type", 0);
                     bundle.putString("appid", "oaid");
                     obtainMessage.setData(bundle);
-                    f66829f.sendMessage(obtainMessage);
+                    f67515f.sendMessage(obtainMessage);
                     long uptimeMillis = SystemClock.uptimeMillis();
                     try {
-                        f66827d.wait(2000L);
+                        f67513d.wait(2000L);
                     } catch (InterruptedException unused) {
                     }
                     if (SystemClock.uptimeMillis() - uptimeMillis < 2000) {
-                        f66831h = f66830g;
-                        f66830g = null;
+                        f67517h = f67516g;
+                        f67516g = null;
                     }
                 }
             } catch (Throwable th) {
                 d.q.a.a.c.b.b.c(th);
             }
-            return f66831h;
+            return f67517h;
         }
         return null;
     }
@@ -136,7 +136,7 @@ public class a {
         if (r0 != null) goto L22;
      */
     /* JADX WARN: Code restructure failed: missing block: B:26:0x0076, code lost:
-        return r10.f66833b;
+        return r10.f67519b;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -144,28 +144,28 @@ public class a {
     public final boolean h() {
         Cursor cursor = null;
         try {
-            if (this.f66833b) {
-                return this.f66833b;
+            if (this.f67519b) {
+                return this.f67519b;
             }
-            PackageManager packageManager = this.f66832a.getPackageManager();
+            PackageManager packageManager = this.f67518a.getPackageManager();
             if (packageManager == null) {
-                this.f66833b = false;
+                this.f67519b = false;
             }
             if (packageManager.resolveContentProvider("com.meizu.flyme.openidsdk", 0) != null) {
                 d.q.a.a.c.b.b.e("resolveContentProvider meizu");
-                cursor = this.f66832a.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"supported"}, null);
+                cursor = this.f67518a.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"supported"}, null);
                 if (cursor == null) {
-                    this.f66833b = false;
+                    this.f67519b = false;
                 }
                 cursor.moveToFirst();
                 int columnIndex = cursor.getColumnIndex("value");
                 if (columnIndex >= 0) {
                     String string = cursor.getString(columnIndex);
                     d.q.a.a.c.b.b.e("resolveContentProvider meizu " + string);
-                    this.f66833b = "0".equals(string);
+                    this.f67519b = "0".equals(string);
                 }
             } else {
-                this.f66833b = false;
+                this.f67519b = false;
             }
         } catch (Throwable th) {
             try {

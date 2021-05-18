@@ -30,99 +30,99 @@ public class LightappJsClient implements NoProguard {
     public static final String LIGHTAPP_JS_NAME = "BLightApp";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f25282a = false;
+    public static boolean f24527a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Pattern f25283b = Pattern.compile("(\\w|\\.|\\$){1,20}");
+    public static Pattern f24528b = Pattern.compile("(\\w|\\.|\\$){1,20}");
 
     /* renamed from: d  reason: collision with root package name */
-    public LightappBusinessClient f25285d;
+    public LightappBusinessClient f24530d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LightappJsNativeClient f25286e;
+    public LightappJsNativeClient f24531e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25287f;
+    public String f24532f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LightappWebView f25288g;
+    public LightappWebView f24533g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.wallet.lightapp.multipage.a f25289h;
+    public com.baidu.wallet.lightapp.multipage.a f24534h;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<String, b> f25284c = new HashMap<>();
+    public final HashMap<String, b> f24529c = new HashMap<>();
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f25290i = false;
+    public boolean f24535i = false;
 
     /* loaded from: classes5.dex */
     public static class a implements ILightappInvokerCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f25291a;
+        public final String f24536a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final ArrayList<String> f25292b;
+        public final ArrayList<String> f24537b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Map<String, b> f25293c;
+        public final Map<String, b> f24538c;
 
         public a(Map<String, b> map, String str, ArrayList<String> arrayList) {
-            this.f25291a = str;
-            this.f25292b = arrayList;
-            this.f25293c = map;
+            this.f24536a = str;
+            this.f24537b = arrayList;
+            this.f24538c = map;
         }
 
         @Override // com.baidu.wallet.api.ILightappInvokerCallback
         public void onResult(int i2, String str) {
-            b bVar = this.f25293c.get(this.f25291a);
+            b bVar = this.f24538c.get(this.f24536a);
             if (bVar != null) {
                 String str2 = "\"" + LightappUtils.formatJSONForWebViewCallback(str) + "\"";
                 if (i2 == 0) {
-                    DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.METHOD_INVOKE_BD_WALLET_NATIVE_SUCCESS, this.f25292b);
+                    DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.METHOD_INVOKE_BD_WALLET_NATIVE_SUCCESS, this.f24537b);
                     bVar.a(str2);
-                    if ("invokeBdWalletNative:callNativeVoice".equals(this.f25291a)) {
-                        PayStatisticsUtil.onEventWithValues(LightAppStatEvent.CALL_NATIVE_VOICE_SUCCESS, this.f25292b);
+                    if ("invokeBdWalletNative:callNativeVoice".equals(this.f24536a)) {
+                        PayStatisticsUtil.onEventWithValues(LightAppStatEvent.CALL_NATIVE_VOICE_SUCCESS, this.f24537b);
                     }
                 } else if (i2 == 1) {
                     String str3 = "";
                     if (TextUtils.isEmpty(str)) {
                         str = "";
                     }
-                    if (this.f25292b.size() >= 2) {
-                        this.f25292b.add(1, str);
+                    if (this.f24537b.size() >= 2) {
+                        this.f24537b.add(1, str);
                     } else {
-                        this.f25292b.add(str);
+                        this.f24537b.add(str);
                     }
                     try {
                         str3 = ((LightAppCommonModel) JsonUtils.fromJson(str, LightAppCommonModel.class)).cnt.errCode;
                     } catch (Exception unused) {
                     }
-                    this.f25292b.add(str3);
-                    DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.METHOD_INVOKE_BD_WALLET_NATIVE_FAIL, this.f25292b);
-                    PayStatisticsUtil.onEventWithValues(LightAppStatEvent.METHOD_INVOKE_BD_WALLET_NATIVE_FAIL, this.f25292b);
+                    this.f24537b.add(str3);
+                    DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.METHOD_INVOKE_BD_WALLET_NATIVE_FAIL, this.f24537b);
+                    PayStatisticsUtil.onEventWithValues(LightAppStatEvent.METHOD_INVOKE_BD_WALLET_NATIVE_FAIL, this.f24537b);
                     bVar.b(str2);
                 }
             }
-            this.f25293c.remove(this.f25291a);
+            this.f24538c.remove(this.f24536a);
         }
     }
 
     public LightappJsClient(com.baidu.wallet.lightapp.multipage.a aVar, LightappWebView lightappWebView) {
-        this.f25289h = aVar;
-        this.f25288g = lightappWebView;
-        this.f25285d = new LightappBusinessClient(aVar);
-        this.f25286e = new LightappJsNativeClient(aVar);
+        this.f24534h = aVar;
+        this.f24533g = lightappWebView;
+        this.f24530d = new LightappBusinessClient(aVar);
+        this.f24531e = new LightappJsNativeClient(aVar);
     }
 
     private Context a() {
-        com.baidu.wallet.lightapp.multipage.a aVar = this.f25289h;
+        com.baidu.wallet.lightapp.multipage.a aVar = this.f24534h;
         if (aVar != null) {
             if (aVar.getActivity() != null) {
-                return this.f25289h.getActivity();
+                return this.f24534h.getActivity();
             }
-            return this.f25289h.getContext();
+            return this.f24534h.getContext();
         }
         return null;
     }
@@ -130,7 +130,7 @@ public class LightappJsClient implements NoProguard {
     private boolean b(String str, String str2) {
         LightappJsNativeClient lightappJsNativeClient;
         Set<String> methodList;
-        if (TextUtils.isEmpty(str) || (lightappJsNativeClient = this.f25286e) == null || (methodList = lightappJsNativeClient.getMethodList()) == null || methodList.size() < 1) {
+        if (TextUtils.isEmpty(str) || (lightappJsNativeClient = this.f24531e) == null || (methodList = lightappJsNativeClient.getMethodList()) == null || methodList.size() < 1) {
             return false;
         }
         return methodList.contains(str);
@@ -145,19 +145,19 @@ public class LightappJsClient implements NoProguard {
     }
 
     public static void enableJsNameVerify(boolean z) {
-        f25282a = z;
+        f24527a = z;
     }
 
     public static final boolean isJsFunNameValid(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
-        return f25283b.matcher(str).matches();
+        return f24528b.matcher(str).matches();
     }
 
     @JavascriptInterface
     public void accessWalletService(String str, String str2) {
-        if (this.f25285d != null) {
+        if (this.f24530d != null) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(LightappConstants.ACCESS_WALLET_SERVICE_PARAM_SERVICE, str);
@@ -203,11 +203,11 @@ public class LightappJsClient implements NoProguard {
     }
 
     public void destroy() {
-        this.f25284c.clear();
-        this.f25285d = null;
-        this.f25286e = null;
-        this.f25289h = null;
-        this.f25290i = true;
+        this.f24529c.clear();
+        this.f24530d = null;
+        this.f24531e = null;
+        this.f24534h = null;
+        this.f24535i = true;
     }
 
     @JavascriptInterface
@@ -285,7 +285,7 @@ public class LightappJsClient implements NoProguard {
 
     @JavascriptInterface
     public void getBattery(String str, String str2) {
-        LightappJsNativeClient lightappJsNativeClient = this.f25286e;
+        LightappJsNativeClient lightappJsNativeClient = this.f24531e;
         if (lightappJsNativeClient != null) {
             lightappJsNativeClient.getBattery(str, str2);
         }
@@ -307,7 +307,7 @@ public class LightappJsClient implements NoProguard {
     }
 
     public ILightappInvoker getLightappBusiness() {
-        return this.f25285d;
+        return this.f24530d;
     }
 
     @JavascriptInterface
@@ -331,18 +331,18 @@ public class LightappJsClient implements NoProguard {
         String optString;
         Set<String> allowCalledOnBackgroundMethodlist;
         if (TextUtils.isEmpty(str)) {
-            PayStatisticsUtil.onEventWithValue(LightAppStatEvent.LIGHT_INVOKE_BDWALLET_NATIVE_FAIL_OPTIONS_NULL, this.f25287f);
+            PayStatisticsUtil.onEventWithValue(LightAppStatEvent.LIGHT_INVOKE_BDWALLET_NATIVE_FAIL_OPTIONS_NULL, this.f24532f);
             return;
         }
         if (!isJsFunNameValid(str2) || !isJsFunNameValid(str3)) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f25287f);
+            arrayList.add(this.f24532f);
             arrayList.add(str);
             arrayList.add(str2);
             arrayList.add(str3);
             DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_INVOKE_BDWALLET_NATIVE_INVALID_JS_FUNS, arrayList);
             PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_INVOKE_BDWALLET_NATIVE_INVALID_JS_FUNS, arrayList);
-            if (f25282a) {
+            if (f24527a) {
                 return;
             }
         }
@@ -350,7 +350,7 @@ public class LightappJsClient implements NoProguard {
             JSONObject jSONObject = new JSONObject(str);
             String str4 = "";
             if (!TextUtils.isEmpty(jSONObject.optString("agentcuid"))) {
-                new b(this.f25288g, "window.onBDWalletCallbackProxy && window.onBDWalletCallbackProxy", "").a("\"" + LightappUtils.formatJSONForWebViewCallback(optString) + "\"");
+                new b(this.f24533g, "window.onBDWalletCallbackProxy && window.onBDWalletCallbackProxy", "").a("\"" + LightappUtils.formatJSONForWebViewCallback(optString) + "\"");
             }
             String str5 = (String) jSONObject.get("method_name");
             if (TextUtils.isEmpty(str5)) {
@@ -359,10 +359,10 @@ public class LightappJsClient implements NoProguard {
             }
             String optString2 = jSONObject.optString(LightappConstants.LIGHT_APP_NATIVE_INVOKER_FROM_URL);
             if (!TextUtils.isEmpty(optString2)) {
-                this.f25287f = optString2;
+                this.f24532f = optString2;
             }
-            jSONObject.put(LightappConstants.LIGHT_APP_NATIVE_INVOKER_FROM_URL, this.f25287f);
-            if (this.f25290i) {
+            jSONObject.put(LightappConstants.LIGHT_APP_NATIVE_INVOKER_FROM_URL, this.f24532f);
+            if (this.f24535i) {
                 return;
             }
             JSONObject jSONObject2 = new JSONObject(str);
@@ -374,26 +374,26 @@ public class LightappJsClient implements NoProguard {
             } catch (Exception unused) {
             }
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(CheckUtils.stripUrlParams(this.f25287f));
+            arrayList2.add(CheckUtils.stripUrlParams(this.f24532f));
             arrayList2.add(str5);
             arrayList2.add(str4);
             DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_INVOKE_BDWALLET_NATIVE, arrayList2);
             PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_INVOKE_BDWALLET_NATIVE, arrayList2);
             String str6 = "invokeBdWalletNative:" + str5;
-            this.f25284c.put(str6, new b(this.f25288g, str2, str3));
-            a aVar = new a(this.f25284c, str6, arrayList2);
-            if (!this.f25289h.isActiveCell() && ((allowCalledOnBackgroundMethodlist = getAllowCalledOnBackgroundMethodlist()) == null || allowCalledOnBackgroundMethodlist.isEmpty() || !allowCalledOnBackgroundMethodlist.contains(str5))) {
+            this.f24529c.put(str6, new b(this.f24533g, str2, str3));
+            a aVar = new a(this.f24529c, str6, arrayList2);
+            if (!this.f24534h.isActiveCell() && ((allowCalledOnBackgroundMethodlist = getAllowCalledOnBackgroundMethodlist()) == null || allowCalledOnBackgroundMethodlist.isEmpty() || !allowCalledOnBackgroundMethodlist.contains(str5))) {
                 LightAppErrorModel lightAppErrorModel = new LightAppErrorModel(1);
                 lightAppErrorModel.cnt.errCode = LightappConstants.ERRCODE_NOT_ALLOWED_BACKGROUND;
                 lightAppErrorModel.cnt.des = "多webview框架下该端能力不允许后台调用";
                 aVar.onResult(1, lightAppErrorModel.toJson());
             } else if (a(str5, str)) {
-                if (this.f25285d != null) {
-                    this.f25285d.lightappInvoke(a(), jSONObject.toString(), aVar);
+                if (this.f24530d != null) {
+                    this.f24530d.lightappInvoke(a(), jSONObject.toString(), aVar);
                 }
             } else if (b(str5, str)) {
-                if (this.f25286e != null) {
-                    this.f25286e.lightappInvoke(a(), jSONObject.toString(), aVar);
+                if (this.f24531e != null) {
+                    this.f24531e.lightappInvoke(a(), jSONObject.toString(), aVar);
                 }
             } else if (c(str5, str)) {
                 DXMSdkSAUtils.onEventWithValues(LightAppWrapper.LIGHT_APP_METHOD_IMPL_BY_APP, Arrays.asList("#" + str5));
@@ -412,30 +412,30 @@ public class LightappJsClient implements NoProguard {
     }
 
     public void onCallCameraPicCallbackLocal() {
-        LightappJsNativeClient lightappJsNativeClient = this.f25286e;
+        LightappJsNativeClient lightappJsNativeClient = this.f24531e;
         if (lightappJsNativeClient != null) {
             lightappJsNativeClient.onCallCameraPicCallback();
         }
     }
 
     public void onContactsSelectedLocal(int i2, String[] strArr, String str) {
-        LightappJsNativeClient lightappJsNativeClient = this.f25286e;
+        LightappJsNativeClient lightappJsNativeClient = this.f24531e;
         if (lightappJsNativeClient != null) {
-            lightappJsNativeClient.onContactsSelected(this.f25287f, i2, strArr, str);
+            lightappJsNativeClient.onContactsSelected(this.f24532f, i2, strArr, str);
         }
     }
 
     public void onInsertCalendarEventDone(boolean z) {
-        LightappJsNativeClient lightappJsNativeClient = this.f25286e;
+        LightappJsNativeClient lightappJsNativeClient = this.f24531e;
         if (lightappJsNativeClient != null) {
             lightappJsNativeClient.handleInsertEventDone(z);
         }
     }
 
     public void onRequestPermissionsResultLocal(int i2, String[] strArr, int[] iArr) {
-        LightappJsNativeClient lightappJsNativeClient = this.f25286e;
+        LightappJsNativeClient lightappJsNativeClient = this.f24531e;
         if (lightappJsNativeClient != null) {
-            lightappJsNativeClient.onRequestPermissionsResult(this.f25287f, i2, strArr, iArr);
+            lightappJsNativeClient.onRequestPermissionsResult(this.f24532f, i2, strArr, iArr);
         }
     }
 
@@ -446,12 +446,12 @@ public class LightappJsClient implements NoProguard {
 
     @JavascriptInterface
     public String sessionCommand(String str, String str2, String str3) {
-        com.baidu.wallet.lightapp.multipage.a aVar = this.f25289h;
+        com.baidu.wallet.lightapp.multipage.a aVar = this.f24534h;
         return aVar == null ? "" : aVar.exeSSCommand(str, str2, str3);
     }
 
     public void setUrlLocal(String str) {
-        this.f25287f = str;
+        this.f24532f = str;
     }
 
     @JavascriptInterface
@@ -462,14 +462,14 @@ public class LightappJsClient implements NoProguard {
     private boolean a(String str, String str2) {
         LightappBusinessClient lightappBusinessClient;
         Set<String> methodList;
-        if (TextUtils.isEmpty(str) || (lightappBusinessClient = this.f25285d) == null || (methodList = lightappBusinessClient.getMethodList()) == null || methodList.size() < 1) {
+        if (TextUtils.isEmpty(str) || (lightappBusinessClient = this.f24530d) == null || (methodList = lightappBusinessClient.getMethodList()) == null || methodList.size() < 1) {
             return false;
         }
         return methodList.contains(str);
     }
 
     private void a(String str, String str2, String str3, String str4) {
-        if (this.f25285d != null) {
+        if (this.f24530d != null) {
             JSONObject jSONObject = null;
             try {
                 if (!TextUtils.isEmpty(str2)) {

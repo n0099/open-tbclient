@@ -24,19 +24,19 @@ import java.util.List;
 public class PluginErrorTipView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f13659e;
+    public TextView f12995e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f13660f;
+    public Context f12996f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<PluginStatus> f13661g;
+    public LinkedList<PluginStatus> f12997g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashSet<Integer> f13662h;
+    public HashSet<Integer> f12998h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MessageListener<?> f13663i;
+    public MessageListener<?> f12999i;
     public MessageListener<?> j;
 
     /* loaded from: classes3.dex */
@@ -51,7 +51,7 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
             if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PluginStatus)) {
                 return;
             }
-            PluginErrorTipView.this.f13661g.add((PluginStatus) customResponsedMessage.getData());
+            PluginErrorTipView.this.f12997g.add((PluginStatus) customResponsedMessage.getData());
             PluginErrorTipView.this.f();
         }
     }
@@ -69,12 +69,12 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
                 return;
             }
             PluginStatus pluginStatus = (PluginStatus) customResponsedMessage.getData();
-            synchronized (PluginErrorTipView.this.f13661g) {
-                Iterator it = PluginErrorTipView.this.f13661g.iterator();
+            synchronized (PluginErrorTipView.this.f12997g) {
+                Iterator it = PluginErrorTipView.this.f12997g.iterator();
                 while (it.hasNext()) {
                     PluginStatus pluginStatus2 = (PluginStatus) it.next();
                     if (StringHelper.equals(pluginStatus.getPkgName(), pluginStatus2.getPkgName())) {
-                        PluginErrorTipView.this.f13661g.remove(pluginStatus2);
+                        PluginErrorTipView.this.f12997g.remove(pluginStatus2);
                     }
                 }
             }
@@ -89,8 +89,8 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (PluginErrorTipView.this.f13661g.size() > 0) {
-                PluginErrorTipView.this.f13662h.add(Integer.valueOf(((PluginStatus) PluginErrorTipView.this.f13661g.getLast()).getErrorCode()));
+            if (PluginErrorTipView.this.f12997g.size() > 0) {
+                PluginErrorTipView.this.f12998h.add(Integer.valueOf(((PluginStatus) PluginErrorTipView.this.f12997g.getLast()).getErrorCode()));
             }
             PluginErrorTipView.this.setVisibility(8);
         }
@@ -101,14 +101,14 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
     }
 
     public final void d(Context context, AttributeSet attributeSet) {
-        this.f13660f = context;
+        this.f12996f = context;
         LayoutInflater.from(context).inflate(R.layout.plugin_error_tip_view, this);
-        this.f13659e = (TextView) findViewById(R.id.plugin_error_guide);
+        this.f12995e = (TextView) findViewById(R.id.plugin_error_guide);
         findViewById(R.id.plugin_error_close).setOnClickListener(new c());
         setOnClickListener(this);
         List<PluginStatus> a2 = d.a.c.h.j.h.a.b().a();
         if (a2 != null && a2.size() > 0) {
-            this.f13661g.addAll(a2);
+            this.f12997g.addAll(a2);
             f();
             return;
         }
@@ -125,9 +125,9 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
     }
 
     public final void f() {
-        if (this.f13661g.size() > 0) {
-            PluginStatus last = this.f13661g.getLast();
-            if (this.f13662h.contains(Integer.valueOf(last.getErrorCode()))) {
+        if (this.f12997g.size() > 0) {
+            PluginStatus last = this.f12997g.getLast();
+            if (this.f12998h.contains(Integer.valueOf(last.getErrorCode()))) {
                 return;
             }
             if (last.getErrorCode() >= 100) {
@@ -135,7 +135,7 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
             } else {
                 d.a.c.h.h.a.b().i("plugin_install_tip", last.getPkgName());
             }
-            TextView textView = this.f13659e;
+            TextView textView = this.f12995e;
             textView.setText(last.getErrorMsg() + getResources().getString(R.string.pluginstatus_click_detail));
             setVisibility(0);
             return;
@@ -146,20 +146,20 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(2000991, this.f13663i);
+        MessageManager.getInstance().registerListener(2000991, this.f12999i);
         MessageManager.getInstance().registerListener(2000992, this.j);
-        MessageManager.getInstance().registerListener(2000990, this.f13663i);
+        MessageManager.getInstance().registerListener(2000990, this.f12999i);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        LinkedList<PluginStatus> linkedList = this.f13661g;
+        LinkedList<PluginStatus> linkedList = this.f12997g;
         if (linkedList == null || linkedList.isEmpty()) {
             return;
         }
-        PluginStatus last = this.f13661g.getLast();
-        PluginErrorTipActivity.startByPlugiStatus(this.f13660f, last);
-        this.f13661g.clear();
+        PluginStatus last = this.f12997g.getLast();
+        PluginErrorTipActivity.startByPlugiStatus(this.f12996f, last);
+        this.f12997g.clear();
         f();
         if (last.getErrorCode() >= 100) {
             d.a.c.h.h.a.b().i("plugin_load_tipclick", last.getPkgName());
@@ -171,7 +171,7 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.f13663i);
+        MessageManager.getInstance().unRegisterListener(this.f12999i);
         MessageManager.getInstance().unRegisterListener(this.j);
     }
 
@@ -181,9 +181,9 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
 
     public PluginErrorTipView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13661g = new LinkedList<>();
-        this.f13662h = new HashSet<>(10);
-        this.f13663i = new a(0);
+        this.f12997g = new LinkedList<>();
+        this.f12998h = new HashSet<>(10);
+        this.f12999i = new a(0);
         this.j = new b(0);
         d(context, attributeSet);
     }

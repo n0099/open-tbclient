@@ -41,7 +41,7 @@ public class NetProbeThreadPoolUtil implements INoProGuard {
             if (mExecutor == null || runnable == null) {
                 return;
             }
-            Log.d(LOG_TAG, "execute task:" + runnable);
+            Log.d(LOG_TAG, "execute task:".concat(String.valueOf(runnable)));
             mExecutor.execute(runnable);
         } catch (Throwable th) {
             Log.printStackTrace(th);

@@ -2,36 +2,36 @@ package com.bytedance.sdk.openadsdk.video.d;
 
 import android.util.Log;
 import com.baidu.android.common.others.lang.StringUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f31098a = false;
+    public static boolean f30343a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f31099b = 4;
+    public static int f30344b = 4;
 
     public static void a(int i2) {
-        f31099b = i2;
+        f30344b = i2;
     }
 
     public static boolean b() {
-        return f31098a;
+        return f30343a;
     }
 
     public static void a() {
-        f31098a = true;
+        f30343a = true;
         a(3);
     }
 
     public static void b(String str, Object... objArr) {
-        if (f31098a && objArr != null && f31099b <= 4) {
+        if (f30343a && objArr != null && f30344b <= 4) {
             Log.v(str, a(objArr));
         }
     }
 
     public static void a(String str, Object... objArr) {
-        if (f31098a && objArr != null && f31099b <= 3) {
+        if (f30343a && objArr != null && f30344b <= 3) {
             Log.v(str, a(objArr));
         }
     }

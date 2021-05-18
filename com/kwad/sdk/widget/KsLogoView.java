@@ -18,13 +18,13 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class KsLogoView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f34944a;
+    public TextView f34189a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f34945b;
+    public ImageView f34190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34946c;
+    public boolean f34191c;
 
     public KsLogoView(Context context) {
         super(context);
@@ -53,17 +53,17 @@ public class KsLogoView extends LinearLayout {
         TextView textView;
         int i2;
         LinearLayout.inflate(context, R.layout.ksad_logo_layout, this);
-        this.f34944a = (TextView) findViewById(R.id.ksad_logo_text);
-        this.f34945b = (ImageView) findViewById(R.id.ksad_logo_icon);
+        this.f34189a = (TextView) findViewById(R.id.ksad_logo_text);
+        this.f34190b = (ImageView) findViewById(R.id.ksad_logo_icon);
         boolean z = getBackground() == null;
-        this.f34946c = z;
+        this.f34191c = z;
         if (z) {
-            this.f34945b.setImageDrawable(context.getResources().getDrawable(R.drawable.ksad_logo_gray));
-            textView = this.f34944a;
+            this.f34190b.setImageDrawable(context.getResources().getDrawable(R.drawable.ksad_logo_gray));
+            textView = this.f34189a;
             i2 = -6513508;
         } else {
-            this.f34945b.setImageDrawable(context.getResources().getDrawable(R.drawable.ksad_logo_white));
-            textView = this.f34944a;
+            this.f34190b.setImageDrawable(context.getResources().getDrawable(R.drawable.ksad_logo_white));
+            textView = this.f34189a;
             i2 = -1711276033;
         }
         textView.setTextColor(i2);
@@ -73,34 +73,34 @@ public class KsLogoView extends LinearLayout {
         View findViewById = findViewById(R.id.ksad_logo_container);
         AdInfo g2 = c.g(adTemplate);
         if (TextUtils.isEmpty(g2.adBaseInfo.adSourceDescription)) {
-            this.f34944a.setVisibility(8);
-            this.f34944a.setText("");
+            this.f34189a.setVisibility(8);
+            this.f34189a.setText("");
         } else {
-            this.f34944a.setText(a.t(g2));
-            this.f34944a.setVisibility(0);
+            this.f34189a.setText(a.t(g2));
+            this.f34189a.setVisibility(0);
         }
-        String str = this.f34946c ? g2.adBaseInfo.adGrayMarkIcon : g2.adBaseInfo.adMarkIcon;
+        String str = this.f34191c ? g2.adBaseInfo.adGrayMarkIcon : g2.adBaseInfo.adMarkIcon;
         if (TextUtils.isEmpty(str)) {
-            this.f34945b.setVisibility(8);
-            this.f34945b.setImageDrawable(null);
+            this.f34190b.setVisibility(8);
+            this.f34190b.setImageDrawable(null);
         } else {
-            KSImageLoader.loadFeeImage(this.f34945b, str, adTemplate);
-            this.f34945b.setVisibility(0);
+            KSImageLoader.loadFeeImage(this.f34190b, str, adTemplate);
+            this.f34190b.setVisibility(0);
         }
         findViewById.setVisibility(0);
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(g2.adBaseInfo.adSourceDescription)) {
-            this.f34944a.setVisibility(0);
-            this.f34944a.setText(a.t(g2));
-            this.f34945b.setVisibility(0);
-            this.f34945b.setImageDrawable(getContext().getResources().getDrawable(this.f34946c ? R.drawable.ksad_logo_gray : R.drawable.ksad_logo_white));
+            this.f34189a.setVisibility(0);
+            this.f34189a.setText(a.t(g2));
+            this.f34190b.setVisibility(0);
+            this.f34190b.setImageDrawable(getContext().getResources().getDrawable(this.f34191c ? R.drawable.ksad_logo_gray : R.drawable.ksad_logo_white));
         }
     }
 
     public ImageView getIcon() {
-        return this.f34945b;
+        return this.f34190b;
     }
 
     public TextView getTextView() {
-        return this.f34944a;
+        return this.f34189a;
     }
 }

@@ -10,7 +10,7 @@ import java.util.Set;
 public class fz implements gd {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38442a;
+    public String f37687a;
 
     /* renamed from: a  reason: collision with other field name */
     public List<fz> f415a;
@@ -19,20 +19,20 @@ public class fz implements gd {
     public String[] f416a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38443b;
+    public String f37688b;
 
     /* renamed from: b  reason: collision with other field name */
     public String[] f417b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38444c;
+    public String f37689c;
 
     public fz(String str, String str2, String[] strArr, String[] strArr2) {
         this.f416a = null;
         this.f417b = null;
         this.f415a = null;
-        this.f38442a = str;
-        this.f38443b = str2;
+        this.f37687a = str;
+        this.f37688b = str2;
         this.f416a = strArr;
         this.f417b = strArr2;
     }
@@ -41,11 +41,11 @@ public class fz implements gd {
         this.f416a = null;
         this.f417b = null;
         this.f415a = null;
-        this.f38442a = str;
-        this.f38443b = str2;
+        this.f37687a = str;
+        this.f37688b = str2;
         this.f416a = strArr;
         this.f417b = strArr2;
-        this.f38444c = str3;
+        this.f37689c = str3;
         this.f415a = list;
     }
 
@@ -87,16 +87,16 @@ public class fz implements gd {
         }
         Parcelable[] parcelableArr = new Parcelable[fzVarArr.length];
         for (int i2 = 0; i2 < fzVarArr.length; i2++) {
-            parcelableArr[i2] = fzVarArr[i2].m321a();
+            parcelableArr[i2] = fzVarArr[i2].m320a();
         }
         return parcelableArr;
     }
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putString("ext_ele_name", this.f38442a);
-        bundle.putString("ext_ns", this.f38443b);
-        bundle.putString("ext_text", this.f38444c);
+        bundle.putString("ext_ele_name", this.f37687a);
+        bundle.putString("ext_ns", this.f37688b);
+        bundle.putString("ext_text", this.f37689c);
         Bundle bundle2 = new Bundle();
         String[] strArr = this.f416a;
         if (strArr != null && strArr.length > 0) {
@@ -119,13 +119,13 @@ public class fz implements gd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m321a() {
+    public Parcelable m320a() {
         return a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m322a() {
-        return this.f38442a;
+    public String m321a() {
+        return this.f37687a;
     }
 
     public String a(String str) {
@@ -159,31 +159,31 @@ public class fz implements gd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m323a(String str) {
+    public void m322a(String str) {
         if (!TextUtils.isEmpty(str)) {
             str = gn.a(str);
         }
-        this.f38444c = str;
+        this.f37689c = str;
     }
 
     public String b() {
-        return this.f38443b;
+        return this.f37688b;
     }
 
     public String c() {
-        return !TextUtils.isEmpty(this.f38444c) ? gn.b(this.f38444c) : this.f38444c;
+        return !TextUtils.isEmpty(this.f37689c) ? gn.b(this.f37689c) : this.f37689c;
     }
 
     @Override // com.xiaomi.push.gd
     public String d() {
         StringBuilder sb = new StringBuilder();
         sb.append("<");
-        sb.append(this.f38442a);
-        if (!TextUtils.isEmpty(this.f38443b)) {
+        sb.append(this.f37687a);
+        if (!TextUtils.isEmpty(this.f37688b)) {
             sb.append(" ");
             sb.append("xmlns=");
             sb.append("\"");
-            sb.append(this.f38443b);
+            sb.append(this.f37688b);
             sb.append("\"");
         }
         String[] strArr = this.f416a;
@@ -198,7 +198,7 @@ public class fz implements gd {
                 }
             }
         }
-        if (TextUtils.isEmpty(this.f38444c)) {
+        if (TextUtils.isEmpty(this.f37689c)) {
             List<fz> list = this.f415a;
             if (list == null || list.size() <= 0) {
                 sb.append("/>");
@@ -210,10 +210,10 @@ public class fz implements gd {
             }
         } else {
             sb.append(">");
-            sb.append(this.f38444c);
+            sb.append(this.f37689c);
         }
         sb.append("</");
-        sb.append(this.f38442a);
+        sb.append(this.f37687a);
         sb.append(">");
         return sb.toString();
     }

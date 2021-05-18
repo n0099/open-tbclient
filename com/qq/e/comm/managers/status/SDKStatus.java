@@ -1,7 +1,7 @@
 package com.qq.e.comm.managers.status;
 
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SDKStatus {
     public static final int STUB_IDENTITY = 1;
     public static final boolean isNoPlugin = false;

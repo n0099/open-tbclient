@@ -11,10 +11,10 @@ import rx.internal.producers.SingleProducer;
 public final class ScalarSynchronousObservable<T> extends h.d<T> {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f68457g = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
+    public static final boolean f69137g = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
 
     /* renamed from: f  reason: collision with root package name */
-    public final T f68458f;
+    public final T f69138f;
 
     /* loaded from: classes7.dex */
     public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements h.f, h.n.a {
@@ -70,17 +70,17 @@ public final class ScalarSynchronousObservable<T> extends h.d<T> {
     public class a implements h.n.f<h.n.a, k> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.o.c.b f68459e;
+        public final /* synthetic */ h.o.c.b f69139e;
 
         public a(ScalarSynchronousObservable scalarSynchronousObservable, h.o.c.b bVar) {
-            this.f68459e = bVar;
+            this.f69139e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.f
         /* renamed from: a */
         public k call(h.n.a aVar) {
-            return this.f68459e.a(aVar);
+            return this.f69139e.a(aVar);
         }
     }
 
@@ -88,41 +88,41 @@ public final class ScalarSynchronousObservable<T> extends h.d<T> {
     public class b implements h.n.f<h.n.a, k> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f68460e;
+        public final /* synthetic */ g f69140e;
 
         /* loaded from: classes7.dex */
         public class a implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h.n.a f68461e;
+            public final /* synthetic */ h.n.a f69141e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ g.a f68462f;
+            public final /* synthetic */ g.a f69142f;
 
             public a(b bVar, h.n.a aVar, g.a aVar2) {
-                this.f68461e = aVar;
-                this.f68462f = aVar2;
+                this.f69141e = aVar;
+                this.f69142f = aVar2;
             }
 
             @Override // h.n.a
             public void call() {
                 try {
-                    this.f68461e.call();
+                    this.f69141e.call();
                 } finally {
-                    this.f68462f.unsubscribe();
+                    this.f69142f.unsubscribe();
                 }
             }
         }
 
         public b(ScalarSynchronousObservable scalarSynchronousObservable, g gVar) {
-            this.f68460e = gVar;
+            this.f69140e = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.f
         /* renamed from: a */
         public k call(h.n.a aVar) {
-            g.a createWorker = this.f68460e.createWorker();
+            g.a createWorker = this.f69140e.createWorker();
             createWorker.b(new a(this, aVar, createWorker));
             return createWorker;
         }
@@ -132,19 +132,19 @@ public final class ScalarSynchronousObservable<T> extends h.d<T> {
     public class c implements d.a<R> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.n.f f68463e;
+        public final /* synthetic */ h.n.f f69143e;
 
         public c(h.n.f fVar) {
-            this.f68463e = fVar;
+            this.f69143e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(j<? super R> jVar) {
-            h.d dVar = (h.d) this.f68463e.call(ScalarSynchronousObservable.this.f68458f);
+            h.d dVar = (h.d) this.f69143e.call(ScalarSynchronousObservable.this.f69138f);
             if (dVar instanceof ScalarSynchronousObservable) {
-                jVar.setProducer(ScalarSynchronousObservable.K(jVar, ((ScalarSynchronousObservable) dVar).f68458f));
+                jVar.setProducer(ScalarSynchronousObservable.K(jVar, ((ScalarSynchronousObservable) dVar).f69138f));
             } else {
                 dVar.I(h.q.f.c(jVar));
             }
@@ -155,17 +155,17 @@ public final class ScalarSynchronousObservable<T> extends h.d<T> {
     public static final class d<T> implements d.a<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final T f68465e;
+        public final T f69145e;
 
         public d(T t) {
-            this.f68465e = t;
+            this.f69145e = t;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(j<? super T> jVar) {
-            jVar.setProducer(ScalarSynchronousObservable.K(jVar, this.f68465e));
+            jVar.setProducer(ScalarSynchronousObservable.K(jVar, this.f69145e));
         }
     }
 
@@ -173,21 +173,21 @@ public final class ScalarSynchronousObservable<T> extends h.d<T> {
     public static final class e<T> implements d.a<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final T f68466e;
+        public final T f69146e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.n.f<h.n.a, k> f68467f;
+        public final h.n.f<h.n.a, k> f69147f;
 
         public e(T t, h.n.f<h.n.a, k> fVar) {
-            this.f68466e = t;
-            this.f68467f = fVar;
+            this.f69146e = t;
+            this.f69147f = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(j<? super T> jVar) {
-            jVar.setProducer(new ScalarAsyncProducer(jVar, this.f68466e, this.f68467f));
+            jVar.setProducer(new ScalarAsyncProducer(jVar, this.f69146e, this.f69147f));
         }
     }
 
@@ -195,22 +195,22 @@ public final class ScalarSynchronousObservable<T> extends h.d<T> {
     public static final class f<T> implements h.f {
 
         /* renamed from: e  reason: collision with root package name */
-        public final j<? super T> f68468e;
+        public final j<? super T> f69148e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final T f68469f;
+        public final T f69149f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f68470g;
+        public boolean f69150g;
 
         public f(j<? super T> jVar, T t) {
-            this.f68468e = jVar;
-            this.f68469f = t;
+            this.f69148e = jVar;
+            this.f69149f = t;
         }
 
         @Override // h.f
         public void request(long j) {
-            if (this.f68470g) {
+            if (this.f69150g) {
                 return;
             }
             int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
@@ -218,12 +218,12 @@ public final class ScalarSynchronousObservable<T> extends h.d<T> {
                 throw new IllegalStateException("n >= required but it was " + j);
             } else if (i2 == 0) {
             } else {
-                this.f68470g = true;
-                j<? super T> jVar = this.f68468e;
+                this.f69150g = true;
+                j<? super T> jVar = this.f69148e;
                 if (jVar.isUnsubscribed()) {
                     return;
                 }
-                Object obj = (T) this.f68469f;
+                Object obj = (T) this.f69149f;
                 try {
                     jVar.onNext(obj);
                     if (jVar.isUnsubscribed()) {
@@ -239,7 +239,7 @@ public final class ScalarSynchronousObservable<T> extends h.d<T> {
 
     public ScalarSynchronousObservable(T t) {
         super(h.r.c.h(new d(t)));
-        this.f68458f = t;
+        this.f69138f = t;
     }
 
     public static <T> ScalarSynchronousObservable<T> J(T t) {
@@ -247,14 +247,14 @@ public final class ScalarSynchronousObservable<T> extends h.d<T> {
     }
 
     public static <T> h.f K(j<? super T> jVar, T t) {
-        if (f68457g) {
+        if (f69137g) {
             return new SingleProducer(jVar, t);
         }
         return new f(jVar, t);
     }
 
     public T L() {
-        return this.f68458f;
+        return this.f69138f;
     }
 
     public <R> h.d<R> M(h.n.f<? super T, ? extends h.d<? extends R>> fVar) {
@@ -268,6 +268,6 @@ public final class ScalarSynchronousObservable<T> extends h.d<T> {
         } else {
             bVar = new b(this, gVar);
         }
-        return h.d.b(new e(this.f68458f, bVar));
+        return h.d.b(new e(this.f69138f, bVar));
     }
 }

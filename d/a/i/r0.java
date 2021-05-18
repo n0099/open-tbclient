@@ -1,197 +1,96 @@
 package d.a.i;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.card.view.VideoImageNoPlayerLayout;
+import android.widget.RelativeLayout;
+import com.baidu.card.Align;
+import com.baidu.card.view.UnfollowedDecorView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.a.i.a;
-import tbclient.VideoInfo;
+import d.a.j0.r.q.a2;
 /* loaded from: classes.dex */
-public class r0 extends h {
-    public static final int v = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2;
-    public static int w = d.a.c.e.p.l.k(TbadkCoreApplication.getInst());
-    public int l;
-    public int m;
-    public int n;
-    public Context o;
-    public d.a.i0.r.q.a p;
-    public VideoImageNoPlayerLayout q;
-    public int r;
-    public String s;
-    public int t;
-    public d.a.i.v0.a u;
+public class r0 extends c implements p<a2>, q {
+    public static final int k = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
 
-    /* loaded from: classes.dex */
-    public class a implements View.OnClickListener {
-        public a() {
+    /* renamed from: i  reason: collision with root package name */
+    public UnfollowedDecorView f40376i;
+    public Align j;
+
+    public r0(TbPageContext tbPageContext, Align align) {
+        h(-1);
+        UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(tbPageContext.getPageActivity());
+        this.f40376i = unfollowedDecorView;
+        unfollowedDecorView.setId(R.id.decor_item_right_id);
+        g(this.f40376i);
+        k(align);
+    }
+
+    public void k(Align align) {
+        if (align == this.j) {
+            return;
         }
+        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
+        if (align == Align.ALIGN_RIGHT_TOP) {
+            int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds60);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
+            layoutParams.addRule(11);
+            layoutParams.addRule(10);
+            layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+            layoutParams.topMargin = dimenPixelSize2;
+            i(layoutParams);
+            this.f40376i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f40376i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f40376i.setLayoutParams(layoutParams);
+        } else if (align == Align.ALIGN_RIGHT_CENTER) {
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
+            layoutParams2.addRule(11);
+            layoutParams2.addRule(15);
+            layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+            layoutParams2.bottomMargin = 0;
+            i(layoutParams2);
+            this.f40376i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f40376i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f40376i.setLayoutParams(layoutParams2);
+        } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
+            int i2 = k;
+            int g2 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+            int g3 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int g4 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i2, i2);
+            layoutParams3.addRule(11);
+            layoutParams3.addRule(12);
+            layoutParams3.rightMargin = g3;
+            layoutParams3.bottomMargin = g4;
+            i(layoutParams3);
+            this.f40376i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
+            this.f40376i.setPadding(g2, g2, g2, g2);
+            this.f40376i.setLayoutParams(layoutParams3);
+        }
+        this.j = align;
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            r0 r0Var = r0.this;
-            a.InterfaceC1009a interfaceC1009a = r0Var.f47693i;
-            if (interfaceC1009a != null) {
-                interfaceC1009a.a(r0Var.p);
+    public void l(d.a.j0.r.q.a aVar) {
+        if (aVar.isSupportTop()) {
+            k(Align.ALIGN_RIGHT_TOP);
+        } else if (aVar.isSupportBottom()) {
+            l0 l0Var = this.f40326h;
+            if (l0Var != null) {
+                l0Var.n(this);
             }
+        } else {
+            k(Align.ALIGN_RIGHT_TOP);
         }
     }
 
-    /* loaded from: classes.dex */
-    public class b implements d.a.i.v0.a {
-        public b() {
-        }
-
-        @Override // d.a.i.v0.a
-        public void a(d.a.i0.r.q.a aVar) {
-            if (r0.this.u != null) {
-                r0.this.u.a(r0.this.p);
-            }
-        }
-    }
-
-    public r0(Context context) {
-        super(context);
-        int i2 = w;
-        this.l = i2;
-        this.m = i2 / 2;
-        this.n = i2 / 3;
-        this.r = 0;
-        this.t = 3;
-        this.o = context;
-        this.q = new VideoImageNoPlayerLayout(context);
-        n(Boolean.TRUE);
-    }
-
-    @Override // d.a.i.a
-    public View g() {
-        return this.q;
-    }
-
-    @Override // d.a.i.a
-    public void l(d.a.j0.x.b0<d.a.i0.r.q.a> b0Var) {
-        super.l(b0Var);
-        this.q.setOnCardSubClickListener(b0Var);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.i.p
+    /* renamed from: m */
+    public void a(a2 a2Var) {
+        this.f40376i.a(a2Var);
     }
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        if (this.t != i2) {
-            this.q.h(tbPageContext, i2);
-        }
-        this.t = i2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00d8, code lost:
-        if (r3 != r11.height) goto L33;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00e1, code lost:
-        if (r3 != r11.height) goto L33;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e4, code lost:
-        r5 = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00e5, code lost:
-        r1 = d.a.i0.b.g.b.l(r11, r0, r2, r3, r5);
-     */
-    @Override // d.a.i.p
-    /* renamed from: u */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(d.a.i0.r.q.a aVar) {
-        int k = d.a.c.e.p.l.k(TbadkCoreApplication.getInst());
-        if (k != this.r) {
-            w = d.a.c.e.p.l.k(TbadkCoreApplication.getInst());
-            if (!"pb".equals(this.s)) {
-                this.l = w - v;
-            } else {
-                this.l = w;
-            }
-            int i2 = this.l;
-            this.m = i2 / 2;
-            this.n = i2 / 3;
-            this.r = k;
-        }
-        this.p = aVar;
-        if (aVar != null && aVar.m() != null && this.p.m().r1 != null && !this.p.m().r1.m) {
-            this.q.setVisibility(0);
-            this.q.a(aVar);
-            ViewGroup.LayoutParams layoutParams = this.q.getLayoutParams();
-            ViewGroup.LayoutParams layoutParams2 = this.q.n.getLayoutParams();
-            int i3 = layoutParams.width;
-            int i4 = layoutParams.height;
-            boolean z = true;
-            if (this.p.m().r1.r.is_vertical.intValue() == 1) {
-                VideoInfo videoInfo = this.p.m().r1.r;
-                if (videoInfo == null) {
-                    return;
-                }
-                int i5 = (this.m / 9) * 16;
-                int i6 = this.n;
-                int intValue = videoInfo.video_width.intValue();
-                int intValue2 = videoInfo.video_height.intValue();
-                layoutParams.width = this.l;
-                layoutParams2.width = this.m;
-                r1 = i3 != layoutParams.width;
-                if (intValue != 0 && intValue2 != 0) {
-                    int i7 = (int) (((intValue2 * 1.0f) / intValue) * this.m);
-                    if (i7 < i6) {
-                        i5 = i6;
-                    } else if (i7 <= i5) {
-                        i5 = i7;
-                    }
-                    layoutParams.height = i5;
-                    layoutParams2.height = i5;
-                } else {
-                    layoutParams.height = i5;
-                    layoutParams2.height = i5;
-                }
-            } else {
-                int i8 = this.l;
-                layoutParams.width = i8;
-                layoutParams2.width = i8;
-                layoutParams.height = ((i8 / 16) * 9) - d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-                layoutParams2.height = ((this.l / 16) * 9) - d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-                if (i4 != layoutParams.height || i3 != layoutParams.width) {
-                    r1 = true;
-                }
-            }
-            if (r1) {
-                this.q.setLayoutParams(layoutParams);
-                this.q.n.setLayoutParams(layoutParams2);
-            }
-            this.q.setJumpToPbListener(new a());
-            this.q.setData(this.p);
-            d();
-            return;
-        }
-        this.q.setVisibility(8);
-    }
-
-    public void v(String str) {
-        this.s = str;
-    }
-
-    public void w(a.InterfaceC1009a interfaceC1009a) {
-        this.f47693i = interfaceC1009a;
-    }
-
-    public void x(d.a.i.v0.a aVar) {
-        this.u = aVar;
-        if (aVar != null) {
-            y();
-        }
-    }
-
-    public final void y() {
-        VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.q;
-        if (videoImageNoPlayerLayout != null) {
-            videoImageNoPlayerLayout.setVideoAreaClickListener(new b());
-        }
+        this.f40376i.i();
     }
 }

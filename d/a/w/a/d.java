@@ -17,64 +17,64 @@ import java.util.TreeMap;
 public class d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static MediaCodecInfo[] f64127d;
+    public static MediaCodecInfo[] f64814d;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaCodecInfo f64129a;
+    public MediaCodecInfo f64816a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64130b = 0;
+    public int f64817b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, Integer> f64126c = new TreeMap(String.CASE_INSENSITIVE_ORDER);
+    public static Map<String, Integer> f64813c = new TreeMap(String.CASE_INSENSITIVE_ORDER);
 
     /* renamed from: e  reason: collision with root package name */
-    public static Map<String, MediaCodecInfo> f64128e = new HashMap();
+    public static Map<String, MediaCodecInfo> f64815e = new HashMap();
 
     static {
-        f64126c.put("OMX.Nvidia.h264.decode", 800);
-        f64126c.put("OMX.Nvidia.h264.decode.secure", 300);
-        f64126c.put("OMX.Intel.hw_vd.h264", 801);
-        f64126c.put("OMX.Intel.VideoDecoder.AVC", 800);
-        f64126c.put("OMX.qcom.video.decoder.avc", 800);
-        f64126c.put("OMX.ittiam.video.decoder.avc", 0);
-        f64126c.put("OMX.SEC.avc.dec", 800);
-        f64126c.put("OMX.SEC.AVC.Decoder", 799);
-        f64126c.put("OMX.SEC.avcdec", 798);
-        f64126c.put("OMX.SEC.avc.sw.dec", 200);
-        f64126c.put("OMX.Exynos.avc.dec", 800);
-        f64126c.put("OMX.Exynos.AVC.Decoder", 799);
-        f64126c.put("OMX.k3.video.decoder.avc", 800);
-        f64126c.put("OMX.IMG.MSVDX.Decoder.AVC", 800);
-        f64126c.put("OMX.TI.DUCATI1.VIDEO.DECODER", 800);
-        f64126c.put("OMX.rk.video_decoder.avc", 800);
-        f64126c.put("OMX.amlogic.avc.decoder.awesome", 800);
-        f64126c.put("OMX.MARVELL.VIDEO.HW.CODA7542DECODER", 800);
-        f64126c.put("OMX.MARVELL.VIDEO.H264DECODER", 200);
-        f64126c.remove("OMX.Action.Video.Decoder");
-        f64126c.remove("OMX.allwinner.video.decoder.avc");
-        f64126c.remove("OMX.BRCM.vc4.decoder.avc");
-        f64126c.remove("OMX.brcm.video.h264.hw.decoder");
-        f64126c.remove("OMX.brcm.video.h264.decoder");
-        f64126c.remove("OMX.cosmo.video.decoder.avc");
-        f64126c.remove("OMX.duos.h264.decoder");
-        f64126c.remove("OMX.hantro.81x0.video.decoder");
-        f64126c.remove("OMX.hantro.G1.video.decoder");
-        f64126c.remove("OMX.hisi.video.decoder");
-        f64126c.remove("OMX.LG.decoder.video.avc");
-        f64126c.remove("OMX.MS.AVC.Decoder");
-        f64126c.remove("OMX.RENESAS.VIDEO.DECODER.H264");
-        f64126c.remove("OMX.RTK.video.decoder");
-        f64126c.remove("OMX.sprd.h264.decoder");
-        f64126c.remove("OMX.ST.VFM.H264Dec");
-        f64126c.remove("OMX.vpu.video_decoder.avc");
-        f64126c.remove("OMX.WMT.decoder.avc");
-        f64126c.remove("OMX.bluestacks.hw.decoder");
-        f64126c.put("OMX.google.h264.decoder", 200);
-        f64126c.put("OMX.google.h264.lc.decoder", 200);
-        f64126c.put("OMX.k3.ffmpeg.decoder", 200);
-        f64126c.put("OMX.ffmpeg.video.decoder", 200);
-        f64126c.put("OMX.sprd.soft.h264.decoder", 200);
+        f64813c.put("OMX.Nvidia.h264.decode", 800);
+        f64813c.put("OMX.Nvidia.h264.decode.secure", 300);
+        f64813c.put("OMX.Intel.hw_vd.h264", 801);
+        f64813c.put("OMX.Intel.VideoDecoder.AVC", 800);
+        f64813c.put("OMX.qcom.video.decoder.avc", 800);
+        f64813c.put("OMX.ittiam.video.decoder.avc", 0);
+        f64813c.put("OMX.SEC.avc.dec", 800);
+        f64813c.put("OMX.SEC.AVC.Decoder", 799);
+        f64813c.put("OMX.SEC.avcdec", 798);
+        f64813c.put("OMX.SEC.avc.sw.dec", 200);
+        f64813c.put("OMX.Exynos.avc.dec", 800);
+        f64813c.put("OMX.Exynos.AVC.Decoder", 799);
+        f64813c.put("OMX.k3.video.decoder.avc", 800);
+        f64813c.put("OMX.IMG.MSVDX.Decoder.AVC", 800);
+        f64813c.put("OMX.TI.DUCATI1.VIDEO.DECODER", 800);
+        f64813c.put("OMX.rk.video_decoder.avc", 800);
+        f64813c.put("OMX.amlogic.avc.decoder.awesome", 800);
+        f64813c.put("OMX.MARVELL.VIDEO.HW.CODA7542DECODER", 800);
+        f64813c.put("OMX.MARVELL.VIDEO.H264DECODER", 200);
+        f64813c.remove("OMX.Action.Video.Decoder");
+        f64813c.remove("OMX.allwinner.video.decoder.avc");
+        f64813c.remove("OMX.BRCM.vc4.decoder.avc");
+        f64813c.remove("OMX.brcm.video.h264.hw.decoder");
+        f64813c.remove("OMX.brcm.video.h264.decoder");
+        f64813c.remove("OMX.cosmo.video.decoder.avc");
+        f64813c.remove("OMX.duos.h264.decoder");
+        f64813c.remove("OMX.hantro.81x0.video.decoder");
+        f64813c.remove("OMX.hantro.G1.video.decoder");
+        f64813c.remove("OMX.hisi.video.decoder");
+        f64813c.remove("OMX.LG.decoder.video.avc");
+        f64813c.remove("OMX.MS.AVC.Decoder");
+        f64813c.remove("OMX.RENESAS.VIDEO.DECODER.H264");
+        f64813c.remove("OMX.RTK.video.decoder");
+        f64813c.remove("OMX.sprd.h264.decoder");
+        f64813c.remove("OMX.ST.VFM.H264Dec");
+        f64813c.remove("OMX.vpu.video_decoder.avc");
+        f64813c.remove("OMX.WMT.decoder.avc");
+        f64813c.remove("OMX.bluestacks.hw.decoder");
+        f64813c.put("OMX.google.h264.decoder", 200);
+        f64813c.put("OMX.google.h264.lc.decoder", 200);
+        f64813c.put("OMX.k3.ffmpeg.decoder", 200);
+        f64813c.put("OMX.ffmpeg.video.decoder", 200);
+        f64813c.put("OMX.sprd.soft.h264.decoder", 200);
     }
 
     @TargetApi(16)
@@ -95,7 +95,7 @@ public class d {
         } else {
             if (!lowerCase.startsWith("omx.ittiam.")) {
                 if (!lowerCase.startsWith("omx.mtk.")) {
-                    Integer num = f64126c.get(lowerCase);
+                    Integer num = f64813c.get(lowerCase);
                     if (num != null) {
                         i2 = num.intValue();
                     } else {
@@ -113,8 +113,8 @@ public class d {
             i2 = 0;
         }
         d dVar = new d();
-        dVar.f64129a = mediaCodecInfo;
-        dVar.f64130b = i2;
+        dVar.f64816a = mediaCodecInfo;
+        dVar.f64817b = i2;
         return dVar;
     }
 
@@ -148,7 +148,7 @@ public class d {
 
     public static synchronized void d() {
         synchronized (d.class) {
-            if (f64127d != null) {
+            if (f64814d != null) {
                 return;
             }
             if (Build.VERSION.SDK_INT < 16) {
@@ -160,15 +160,15 @@ public class d {
                 for (int i2 = 0; i2 < codecCount; i2++) {
                     arrayList.add(MediaCodecList.getCodecInfoAt(i2));
                 }
-                f64127d = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
+                f64814d = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
             } else {
-                f64127d = new MediaCodecList(0).getCodecInfos();
+                f64814d = new MediaCodecList(0).getCodecInfos();
             }
             if (CyberCfgManager.getInstance().getCfgBoolValue("enable_mc_google_hevc_decoder", true)) {
-                f64126c.put("OMX.google.hevc.decoder", 601);
+                f64813c.put("OMX.google.hevc.decoder", 601);
                 CyberLog.i("CyberMediaCodecInfo", "enable_mc_google_hevc_decoder add");
             } else {
-                f64126c.put("OMX.google.hevc.decoder", 200);
+                f64813c.put("OMX.google.hevc.decoder", 200);
             }
             e("video/avc");
             e("video/hevc");
@@ -178,14 +178,14 @@ public class d {
     public static MediaCodecInfo e(String str) {
         String[] supportedTypes;
         d a2;
-        MediaCodecInfo mediaCodecInfo = f64128e.get(str);
+        MediaCodecInfo mediaCodecInfo = f64815e.get(str);
         if (mediaCodecInfo != null) {
             return mediaCodecInfo;
         }
         ArrayList arrayList = new ArrayList();
         int i2 = 0;
         while (true) {
-            MediaCodecInfo[] mediaCodecInfoArr = f64127d;
+            MediaCodecInfo[] mediaCodecInfoArr = f64814d;
             if (i2 >= mediaCodecInfoArr.length) {
                 break;
             }
@@ -206,14 +206,14 @@ public class d {
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             d dVar2 = (d) it.next();
-            if (dVar2.f64130b > dVar.f64130b) {
+            if (dVar2.f64817b > dVar.f64817b) {
                 dVar = dVar2;
             }
         }
-        if (dVar.f64130b < 600) {
+        if (dVar.f64817b < 600) {
             return null;
         }
-        f64128e.put(str, dVar.f64129a);
-        return dVar.f64129a;
+        f64815e.put(str, dVar.f64816a);
+        return dVar.f64816a;
     }
 }

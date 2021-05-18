@@ -10,20 +10,20 @@ import com.baidu.android.util.devices.RomUtils;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static TelephonyManager f23307a;
+    public static TelephonyManager f22552a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ConnectivityManager f23308b;
+    public static ConnectivityManager f22553b;
 
     public static String a(Context context) {
         NetworkInfo activeNetworkInfo;
         String str = "\n";
         StringBuilder sb = new StringBuilder();
         try {
-            if (f23308b == null) {
-                f23308b = (ConnectivityManager) context.getSystemService("connectivity");
+            if (f22553b == null) {
+                f22553b = (ConnectivityManager) context.getSystemService("connectivity");
             }
-            activeNetworkInfo = f23308b.getActiveNetworkInfo();
+            activeNetworkInfo = f22553b.getActiveNetworkInfo();
         } catch (Exception e2) {
             com.baidu.ufosdk.f.c.a("NetworkCollector: Couldn't get NetworkInfo : " + context.getPackageName(), e2);
         }
@@ -39,11 +39,11 @@ public final class d {
                 sb.append(" subType: ");
                 sb.append(activeNetworkInfo.getSubtypeName());
                 sb.append("\n");
-                if (f23307a == null) {
-                    f23307a = (TelephonyManager) context.getSystemService("phone");
+                if (f22552a == null) {
+                    f22552a = (TelephonyManager) context.getSystemService("phone");
                 }
                 sb.append(" isRoaming: ");
-                sb.append(f23307a.isNetworkRoaming() ? "yes" : "no");
+                sb.append(f22552a.isNetworkRoaming() ? "yes" : "no");
             }
             return sb.toString();
         }
@@ -55,10 +55,10 @@ public final class d {
     @SuppressLint({"DefaultLocale"})
     public static String b(Context context) {
         try {
-            if (f23308b == null) {
-                f23308b = (ConnectivityManager) context.getSystemService("connectivity");
+            if (f22553b == null) {
+                f22553b = (ConnectivityManager) context.getSystemService("connectivity");
             }
-            NetworkInfo activeNetworkInfo = f23308b.getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = f22553b.getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
                 return !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
             }

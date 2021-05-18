@@ -48,7 +48,7 @@ public class i {
             if (jSONArray.length() > 0) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                    if (TextUtils.equals(optJSONObject.optString(Config.APP_KEY), gVar.f39346c)) {
+                    if (TextUtils.equals(optJSONObject.optString(Config.APP_KEY), gVar.f38591c)) {
                         optJSONObject.put("t", TextUtils.concat(valueOf, "_", optJSONObject.optString("t")).toString());
                         jSONArray.put(i2, optJSONObject);
                         break;
@@ -58,7 +58,7 @@ public class i {
             z = true;
             if (z) {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(Config.APP_KEY, gVar.f39346c);
+                jSONObject.put(Config.APP_KEY, gVar.f38591c);
                 jSONObject.put("t", valueOf);
                 jSONArray.put(jSONObject);
             }

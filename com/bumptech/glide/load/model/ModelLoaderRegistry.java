@@ -8,16 +8,16 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ModelLoaderRegistry {
     public final ModelLoaderCache cache;
     public final MultiModelLoaderFactory multiModelLoaderFactory;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ModelLoaderCache {
         public final Map<Class<?>, Entry<?>> cachedModelLoaders = new HashMap();
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class Entry<Model> {
             public final List<ModelLoader<Model, ?>> loaders;
 

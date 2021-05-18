@@ -7,10 +7,10 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.AppLogHelper;
 import com.bytedance.sdk.openadsdk.TTCustomController;
@@ -27,26 +27,26 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f29014a = false;
+    public static volatile boolean f28259a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile TTCustomController f29015b = null;
+    public static volatile TTCustomController f28260b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f29016c = false;
+    public static volatile boolean f28261c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f29017d = -1;
+    public static int f28262d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f29018e;
+    public static HandlerThread f28263e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f29019f;
+    public static Handler f28264f;
 
     public static void a() {
         Context a2;
@@ -83,13 +83,13 @@ public class m {
 
     public static Handler b() {
         HandlerThread handlerThread;
-        if (f29019f == null || ((handlerThread = f29018e) != null && !handlerThread.isAlive())) {
+        if (f28264f == null || ((handlerThread = f28263e) != null && !handlerThread.isAlive())) {
             HandlerThread handlerThread2 = new HandlerThread("tt_pangle_thread_init", 10);
-            f29018e = handlerThread2;
+            f28263e = handlerThread2;
             handlerThread2.start();
-            f29019f = new Handler(f29018e.getLooper());
+            f28264f = new Handler(f28263e.getLooper());
         }
-        return f29019f;
+        return f28264f;
     }
 
     public static void a(Context context) {
@@ -120,7 +120,7 @@ public class m {
                 }
                 hashMap.put("ac", com.bytedance.sdk.openadsdk.utils.x.f(context));
                 hashMap.put("aid", 164362);
-                hashMap.put(DpStatConstants.KEY_APP_NAME, "unionser_slardar_applog");
+                hashMap.put("app_name", "unionser_slardar_applog");
                 String g2 = ak.g();
                 if (!TextUtils.isEmpty(g2)) {
                     hashMap.put("app_version", g2);
@@ -187,7 +187,7 @@ public class m {
                     g2 = String.valueOf(164362);
                 }
                 hashMap.put("host_appid", g2);
-                hashMap.put("sdk_version", "3.4.5.5");
+                hashMap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "3.4.5.5");
                 return hashMap;
             }
         }, true, false);

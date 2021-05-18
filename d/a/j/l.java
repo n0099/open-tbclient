@@ -26,52 +26,52 @@ import org.json.JSONObject;
 public class l {
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f50349g = false;
+    public static boolean f48570g = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f50350a;
+    public Context f48571a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.C1093a f50351b;
+    public a.C1087a f48572b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile FileLock f50352c;
+    public volatile FileLock f48573c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile RandomAccessFile f50353d;
+    public volatile RandomAccessFile f48574d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f50354e;
+    public b f48575e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f50355f;
+    public f f48576f;
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String[] f50356g = {"V", "O", "0"};
+        public static final String[] f48577g = {"V", "O", "0"};
 
         /* renamed from: a  reason: collision with root package name */
-        public String f50357a;
+        public String f48578a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f50358b;
+        public String f48579b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f50359c;
+        public String f48580c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f50360d;
+        public long f48581d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f50361e;
+        public String f48582e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f50362f = 1;
+        public int f48583f = 1;
 
         public String e() {
-            return this.f50357a;
+            return this.f48578a;
         }
 
         public boolean equals(Object obj) {
@@ -82,9 +82,9 @@ public class l {
                 return false;
             }
             a aVar = (a) obj;
-            if (this.f50362f == aVar.f50362f && this.f50357a.equals(aVar.f50357a) && this.f50358b.equals(aVar.f50358b) && this.f50359c.equals(aVar.f50359c)) {
-                String str = this.f50361e;
-                String str2 = aVar.f50361e;
+            if (this.f48583f == aVar.f48583f && this.f48578a.equals(aVar.f48578a) && this.f48579b.equals(aVar.f48579b) && this.f48580c.equals(aVar.f48580c)) {
+                String str = this.f48582e;
+                String str2 = aVar.f48582e;
                 if (str == str2) {
                     return true;
                 }
@@ -96,41 +96,41 @@ public class l {
         }
 
         public String h() {
-            return this.f50361e;
+            return this.f48582e;
         }
 
         public int hashCode() {
-            return Arrays.hashCode(new Object[]{this.f50357a, this.f50358b, this.f50359c, this.f50361e, Integer.valueOf(this.f50362f)});
+            return Arrays.hashCode(new Object[]{this.f48578a, this.f48579b, this.f48580c, this.f48582e, Integer.valueOf(this.f48583f)});
         }
 
         public String j() {
-            return this.f50358b;
+            return this.f48579b;
         }
 
         public j l() {
             j jVar = new j();
-            jVar.f50343a = this.f50357a;
+            jVar.f48564a = this.f48578a;
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f50358b);
-            if ("V".equals(this.f50358b)) {
-                sb.append(this.f50359c);
+            sb.append(this.f48579b);
+            if ("V".equals(this.f48579b)) {
+                sb.append(this.f48580c);
             }
-            if (!TextUtils.isEmpty(this.f50361e)) {
-                sb.append(this.f50361e);
+            if (!TextUtils.isEmpty(this.f48582e)) {
+                sb.append(this.f48582e);
             }
-            jVar.f50344b = sb.toString().trim();
+            jVar.f48565b = sb.toString().trim();
             return jVar;
         }
 
         public String m() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("dik", this.f50357a);
-                jSONObject.put("v270fk", this.f50358b);
-                jSONObject.put("cck", this.f50359c);
-                jSONObject.put("vsk", this.f50362f);
-                jSONObject.put("ctk", this.f50360d);
-                jSONObject.put("ek", this.f50361e);
+                jSONObject.put("dik", this.f48578a);
+                jSONObject.put("v270fk", this.f48579b);
+                jSONObject.put("cck", this.f48580c);
+                jSONObject.put("vsk", this.f48583f);
+                jSONObject.put("ctk", this.f48581d);
+                jSONObject.put("ek", this.f48582e);
                 return jSONObject.toString();
             } catch (JSONException e2) {
                 d.a.j.i.c.c(e2);
@@ -139,19 +139,19 @@ public class l {
         }
 
         public String n() {
-            String str = this.f50358b;
+            String str = this.f48579b;
             if (TextUtils.isEmpty(str)) {
                 str = "0";
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f50357a);
+            sb.append(this.f48578a);
             sb.append(FieldBuilder.SE);
             sb.append(str);
             if ("V".equals(str)) {
-                sb.append(this.f50359c);
+                sb.append(this.f48580c);
             }
-            if (!TextUtils.isEmpty(this.f50361e)) {
-                sb.append(this.f50361e);
+            if (!TextUtils.isEmpty(this.f48582e)) {
+                sb.append(this.f48582e);
             }
             return sb.toString().trim();
         }
@@ -161,11 +161,11 @@ public class l {
         if (context == null) {
             throw new NullPointerException("context should not be null!!!");
         }
-        this.f50350a = context.getApplicationContext();
-        a.C1093a b2 = aVar.e().b("bohrium");
-        this.f50351b = b2;
+        this.f48571a = context.getApplicationContext();
+        a.C1087a b2 = aVar.e().b("bohrium");
+        this.f48572b = b2;
         b2.d();
-        this.f50355f = fVar;
+        this.f48576f = fVar;
         h(aVar);
     }
 
@@ -183,12 +183,12 @@ public class l {
             String optString4 = jSONObject.optString("v270fk", "V");
             if (!TextUtils.isEmpty(optString)) {
                 a aVar = new a();
-                aVar.f50357a = optString;
-                aVar.f50359c = optString2;
-                aVar.f50360d = optLong;
-                aVar.f50362f = optInt;
-                aVar.f50361e = optString3;
-                aVar.f50358b = optString4;
+                aVar.f48578a = optString;
+                aVar.f48580c = optString2;
+                aVar.f48581d = optLong;
+                aVar.f48583f = optInt;
+                aVar.f48582e = optString3;
+                aVar.f48579b = optString4;
                 return aVar;
             }
         } catch (Exception e2) {
@@ -203,12 +203,12 @@ public class l {
                 String m = m(str);
                 long currentTimeMillis = System.currentTimeMillis();
                 a aVar = new a();
-                aVar.f50357a = str;
-                aVar.f50359c = m;
-                aVar.f50360d = currentTimeMillis;
-                aVar.f50362f = 1;
-                aVar.f50361e = str3;
-                aVar.f50358b = str2;
+                aVar.f48578a = str;
+                aVar.f48580c = m;
+                aVar.f48581d = currentTimeMillis;
+                aVar.f48583f = 1;
+                aVar.f48582e = str3;
+                aVar.f48579b = str2;
                 return aVar;
             } catch (Exception e2) {
                 d.a.j.i.c.c(e2);
@@ -227,7 +227,7 @@ public class l {
     }
 
     public a a() {
-        if (new File(this.f50351b.f(), "libbh.so").exists()) {
+        if (new File(this.f48572b.f(), "libbh.so").exists()) {
             return c(g(true));
         }
         return null;
@@ -237,28 +237,28 @@ public class l {
         String str;
         if (jVar != null) {
             a aVar = new a();
-            aVar.f50360d = System.currentTimeMillis();
-            aVar.f50362f = 1;
+            aVar.f48581d = System.currentTimeMillis();
+            aVar.f48583f = 1;
             try {
                 boolean z = false;
-                aVar.f50358b = jVar.f50344b.substring(0, 1);
-                aVar.f50357a = jVar.f50343a;
-                aVar.f50359c = m(jVar.f50343a);
-                String[] strArr = a.f50356g;
+                aVar.f48579b = jVar.f48565b.substring(0, 1);
+                aVar.f48578a = jVar.f48564a;
+                aVar.f48580c = m(jVar.f48564a);
+                String[] strArr = a.f48577g;
                 int length = strArr.length;
                 int i2 = 0;
                 while (true) {
                     if (i2 >= length) {
                         z = true;
                         break;
-                    } else if (strArr[i2].equals(aVar.f50358b)) {
+                    } else if (strArr[i2].equals(aVar.f48579b)) {
                         break;
                     } else {
                         i2++;
                     }
                 }
-                if (z && (str = jVar.f50344b) != null && str.length() >= 2) {
-                    aVar.f50361e = jVar.f50344b.substring(1);
+                if (z && (str = jVar.f48565b) != null && str.length() >= 2) {
+                    aVar.f48582e = jVar.f48565b.substring(1);
                 }
                 return aVar;
             } catch (Exception unused) {
@@ -269,14 +269,14 @@ public class l {
     }
 
     public a d(String str, String str2) {
-        d.a.j.b.a a2 = this.f50354e.a(str2);
+        d.a.j.b.a a2 = this.f48575e.a(str2);
         a.g gVar = new a.g();
-        gVar.f50230a = true;
+        gVar.f48451a = true;
         a.h b2 = a2.b(str, gVar);
         if (b2 == null || !b2.c()) {
             return null;
         }
-        return b2.f50231a;
+        return b2.f48452a;
     }
 
     public final String f(Context context) {
@@ -285,37 +285,37 @@ public class l {
     }
 
     public final String g(boolean z) {
-        return this.f50351b.c("libbh.so", z);
+        return this.f48572b.c("libbh.so", z);
     }
 
     public final void h(d.a.j.g.a aVar) {
         b bVar = new b(new c());
         a.b bVar2 = new a.b();
-        bVar2.f50225a = this.f50350a;
-        bVar2.f50226b = aVar;
+        bVar2.f48446a = this.f48571a;
+        bVar2.f48447b = aVar;
         a.d dVar = new a.d();
         for (d.a.j.b.a aVar2 : bVar.b()) {
             aVar2.d(bVar2);
             aVar2.e(dVar);
         }
-        this.f50354e = bVar;
+        this.f48575e = bVar;
     }
 
     public void i(a aVar) {
         a.e eVar = new a.e();
-        for (d.a.j.b.a aVar2 : this.f50354e.b()) {
+        for (d.a.j.b.a aVar2 : this.f48575e.b()) {
             aVar2.a(eVar, aVar);
         }
     }
 
     public boolean j(a aVar, boolean z, boolean z2) {
         a c2;
-        if (aVar == null || TextUtils.isEmpty(aVar.f50357a)) {
+        if (aVar == null || TextUtils.isEmpty(aVar.f48578a)) {
             throw new NullPointerException("content should not be null");
         }
         if (!z2) {
             try {
-                if (new File(this.f50351b.f(), "libbh.so").exists() && (c2 = c(g(true))) != null) {
+                if (new File(this.f48572b.f(), "libbh.so").exists() && (c2 = c(g(true))) != null) {
                     String n = c2.n();
                     if (!TextUtils.isEmpty(n) && n.equals(aVar.n())) {
                         return true;
@@ -326,15 +326,15 @@ public class l {
                 return false;
             }
         }
-        return this.f50351b.e("libbh.so", aVar.m(), z);
+        return this.f48572b.e("libbh.so", aVar.m(), z);
     }
 
     public a k(String str) {
         String str2;
-        String f2 = f(this.f50350a);
+        String f2 = f(this.f48571a);
         if (Build.VERSION.SDK_INT < 23) {
             String uuid = UUID.randomUUID().toString();
-            if (f50349g) {
+            if (f48570g) {
                 Log.d("CuidV270Manager", "uuid: " + uuid);
             }
             str2 = str + f2 + uuid;
@@ -343,17 +343,17 @@ public class l {
         }
         String b2 = f.c.b(str2.getBytes(), true);
         a aVar = new a();
-        aVar.f50360d = System.currentTimeMillis();
-        aVar.f50362f = 1;
-        aVar.f50357a = b2;
-        aVar.f50358b = "V";
-        aVar.f50359c = m(b2);
-        aVar.f50361e = null;
+        aVar.f48581d = System.currentTimeMillis();
+        aVar.f48583f = 1;
+        aVar.f48578a = b2;
+        aVar.f48579b = "V";
+        aVar.f48580c = m(b2);
+        aVar.f48582e = null;
         return aVar;
     }
 
     public synchronized boolean l() {
-        File g2 = this.f50351b.g(".lock");
+        File g2 = this.f48572b.g(".lock");
         if (!g2.exists()) {
             try {
                 g2.createNewFile();
@@ -367,8 +367,8 @@ public class l {
             for (int i2 = 0; i2 < 100; i2++) {
                 try {
                     try {
-                        this.f50352c = randomAccessFile2.getChannel().lock();
-                        this.f50353d = randomAccessFile2;
+                        this.f48573c = randomAccessFile2.getChannel().lock();
+                        this.f48574d = randomAccessFile2;
                         return true;
                     } catch (OverlappingFileLockException unused) {
                         Thread.sleep(100L);
@@ -377,7 +377,7 @@ public class l {
                     e = e3;
                     randomAccessFile = randomAccessFile2;
                     d.a.j.i.c.c(e);
-                    if (this.f50352c == null) {
+                    if (this.f48573c == null) {
                         d.a.j.i.c.b(randomAccessFile);
                     }
                     return false;
@@ -390,31 +390,31 @@ public class l {
     }
 
     public synchronized void n() {
-        if (this.f50352c != null) {
+        if (this.f48573c != null) {
             try {
-                this.f50352c.release();
+                this.f48573c.release();
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            this.f50352c = null;
+            this.f48573c = null;
         }
-        d.a.j.i.c.b(this.f50353d);
-        this.f50353d = null;
+        d.a.j.i.c.b(this.f48574d);
+        this.f48574d = null;
     }
 
     public a o() {
         a aVar;
         a.g gVar = new a.g();
-        gVar.f50230a = true;
-        List<d.a.j.b.a> b2 = this.f50354e.b();
-        Collections.sort(b2, d.a.j.b.a.f50220e);
-        List<e> h2 = this.f50355f.h(this.f50350a);
+        gVar.f48451a = true;
+        List<d.a.j.b.a> b2 = this.f48575e.b();
+        Collections.sort(b2, d.a.j.b.a.f48441e);
+        List<e> h2 = this.f48576f.h(this.f48571a);
         if (h2 != null) {
             for (e eVar : h2) {
-                if (!eVar.f50328d && eVar.f50327c) {
+                if (!eVar.f48549d && eVar.f48548c) {
                     for (d.a.j.b.a aVar2 : b2) {
-                        a.h b3 = aVar2.b(eVar.f50325a.packageName, gVar);
-                        if (b3 != null && b3.c() && (aVar = b3.f50231a) != null) {
+                        a.h b3 = aVar2.b(eVar.f48546a.packageName, gVar);
+                        if (b3 != null && b3.c() && (aVar = b3.f48452a) != null) {
                             return aVar;
                         }
                     }

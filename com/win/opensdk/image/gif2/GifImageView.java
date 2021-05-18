@@ -14,106 +14,106 @@ import com.win.opensdk.X;
 import com.win.opensdk.Y;
 import com.win.opensdk.Z;
 import com.win.opensdk.a0;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class GifImageView extends ImageView implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public S f37889a;
+    public S f37134a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f37890b;
+    public Bitmap f37135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f37891c;
+    public final Handler f37136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37892d;
+    public boolean f37137d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f37893e;
+    public boolean f37138e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f37894f;
+    public boolean f37139f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Thread f37895g;
+    public Thread f37140g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f37896h;
+    public long f37141h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Runnable f37897i;
+    public final Runnable f37142i;
     public final Runnable j;
 
     public GifImageView(Context context) {
         super(context);
-        this.f37891c = new Handler(Looper.getMainLooper());
-        this.f37896h = -1L;
-        this.f37897i = new W(this);
+        this.f37136c = new Handler(Looper.getMainLooper());
+        this.f37141h = -1L;
+        this.f37142i = new W(this);
         this.j = new X(this);
     }
 
     public GifImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f37891c = new Handler(Looper.getMainLooper());
-        this.f37896h = -1L;
-        this.f37897i = new W(this);
+        this.f37136c = new Handler(Looper.getMainLooper());
+        this.f37141h = -1L;
+        this.f37142i = new W(this);
         this.j = new X(this);
     }
 
     public void a() {
-        this.f37892d = false;
-        this.f37893e = false;
-        this.f37894f = true;
+        this.f37137d = false;
+        this.f37138e = false;
+        this.f37139f = true;
         d();
-        this.f37891c.post(this.j);
+        this.f37136c.post(this.j);
     }
 
     public void a(int i2) {
-        S s = this.f37889a;
-        if (s.n == i2 || !s.a(i2 - 1) || this.f37892d) {
+        S s = this.f37134a;
+        if (s.n == i2 || !s.a(i2 - 1) || this.f37137d) {
             return;
         }
-        this.f37893e = true;
+        this.f37138e = true;
         c();
     }
 
     public void b() {
-        this.f37892d = true;
+        this.f37137d = true;
         c();
     }
 
     public final void c() {
-        if ((this.f37892d || this.f37893e) && this.f37889a != null && this.f37895g == null) {
+        if ((this.f37137d || this.f37138e) && this.f37134a != null && this.f37140g == null) {
             Thread thread = new Thread(this);
-            this.f37895g = thread;
+            this.f37140g = thread;
             thread.start();
         }
     }
 
     public void d() {
-        this.f37892d = false;
-        Thread thread = this.f37895g;
+        this.f37137d = false;
+        Thread thread = this.f37140g;
         if (thread != null) {
             thread.interrupt();
-            this.f37895g = null;
+            this.f37140g = null;
         }
     }
 
     public int getFrameCount() {
-        return this.f37889a.p.f37781c;
+        return this.f37134a.p.f37026c;
     }
 
     public long getFramesDisplayDuration() {
-        return this.f37896h;
+        return this.f37141h;
     }
 
     public int getGifHeight() {
-        return this.f37889a.p.f37785g;
+        return this.f37134a.p.f37030g;
     }
 
     public int getGifWidth() {
-        return this.f37889a.p.f37784f;
+        return this.f37134a.p.f37029f;
     }
 
     public Z getOnAnimationStop() {
@@ -146,11 +146,11 @@ public class GifImageView extends ImageView implements Runnable {
         int i3;
         int i4;
         do {
-            if (!this.f37892d && !this.f37893e) {
+            if (!this.f37137d && !this.f37138e) {
                 break;
             }
-            S s2 = this.f37889a;
-            int i5 = s2.p.f37781c;
+            S s2 = this.f37134a;
+            int i5 = s2.p.f37026c;
             int i6 = -1;
             boolean z = true;
             if (i5 > 0) {
@@ -159,29 +159,29 @@ public class GifImageView extends ImageView implements Runnable {
                 }
                 int i7 = s2.p.m;
                 if (i7 == -1 || s2.o <= i7) {
-                    s2.n = (s2.n + 1) % s2.p.f37781c;
+                    s2.n = (s2.n + 1) % s2.p.f37026c;
                     long nanoTime = System.nanoTime();
-                    this.f37890b = this.f37889a.b();
+                    this.f37135b = this.f37134a.b();
                     long j = (System.nanoTime() - nanoTime) / 1000000;
-                    this.f37891c.post(this.f37897i);
-                    this.f37893e = false;
-                    if (this.f37892d || !z) {
-                        this.f37892d = false;
+                    this.f37136c.post(this.f37142i);
+                    this.f37138e = false;
+                    if (this.f37137d || !z) {
+                        this.f37137d = false;
                         break;
                     }
                     try {
-                        s = this.f37889a;
+                        s = this.f37134a;
                         u = s.p;
-                        i2 = u.f37781c;
+                        i2 = u.f37026c;
                     } catch (InterruptedException unused) {
                     }
                     if (i2 > 0 && (i4 = s.n) >= 0) {
                         if (i4 >= 0 && i4 < i2) {
-                            i6 = ((T) u.f37783e.get(i4)).f37777i;
+                            i6 = ((T) u.f37028e.get(i4)).f37022i;
                         }
                         i3 = (int) (i6 - j);
                         if (i3 > 0) {
-                            Thread.sleep(this.f37896h > 0 ? this.f37896h : i3);
+                            Thread.sleep(this.f37141h > 0 ? this.f37141h : i3);
                         }
                     }
                     i6 = 0;
@@ -192,38 +192,38 @@ public class GifImageView extends ImageView implements Runnable {
             }
             z = false;
             long nanoTime2 = System.nanoTime();
-            this.f37890b = this.f37889a.b();
+            this.f37135b = this.f37134a.b();
             long j2 = (System.nanoTime() - nanoTime2) / 1000000;
-            this.f37891c.post(this.f37897i);
-            this.f37893e = false;
-            if (this.f37892d) {
+            this.f37136c.post(this.f37142i);
+            this.f37138e = false;
+            if (this.f37137d) {
             }
-            this.f37892d = false;
+            this.f37137d = false;
             break;
-        } while (this.f37892d);
-        if (this.f37894f) {
-            this.f37891c.post(this.j);
+        } while (this.f37137d);
+        if (this.f37139f) {
+            this.f37136c.post(this.j);
         }
-        this.f37895g = null;
+        this.f37140g = null;
     }
 
     public void setBytes(byte[] bArr) {
         S s = new S();
-        this.f37889a = s;
+        this.f37134a = s;
         try {
             s.a(bArr);
-            if (this.f37892d) {
+            if (this.f37137d) {
                 c();
             } else {
                 a(0);
             }
         } catch (Exception unused) {
-            this.f37889a = null;
+            this.f37134a = null;
         }
     }
 
     public void setFramesDisplayDuration(long j) {
-        this.f37896h = j;
+        this.f37141h = j;
     }
 
     public void setOnAnimationStart(Y y) {

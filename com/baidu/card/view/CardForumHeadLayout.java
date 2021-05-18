@@ -24,26 +24,26 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.i0.b.g.b;
-import d.a.i0.r.q.a2;
-import d.a.i0.r.q.w1;
+import d.a.j0.b.g.b;
+import d.a.j0.r.q.a2;
+import d.a.j0.r.q.w1;
 /* loaded from: classes.dex */
 public class CardForumHeadLayout extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public BarImageView f4502e;
+    public BarImageView f4353e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SingleLineEllipsizeTextView f4503f;
+    public SingleLineEllipsizeTextView f4354f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f4504g;
+    public TextView f4355g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f4505h;
+    public TextView f4356h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f4506i;
+    public TextView f4357i;
     public TextView j;
     public TextView k;
     public String l;
@@ -59,25 +59,25 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_forum_head_layout, (ViewGroup) this, true);
-        this.f4502e = (BarImageView) findViewById(R.id.forum_head_image);
-        this.f4503f = (SingleLineEllipsizeTextView) findViewById(R.id.forum_head_barname);
-        this.f4504g = (TextView) findViewById(R.id.forum_head_info_attention);
-        this.f4505h = (TextView) findViewById(R.id.forum_head_info_thread);
-        this.f4506i = (TextView) findViewById(R.id.hot_rank_index);
+        this.f4353e = (BarImageView) findViewById(R.id.forum_head_image);
+        this.f4354f = (SingleLineEllipsizeTextView) findViewById(R.id.forum_head_barname);
+        this.f4355g = (TextView) findViewById(R.id.forum_head_info_attention);
+        this.f4356h = (TextView) findViewById(R.id.forum_head_info_thread);
+        this.f4357i = (TextView) findViewById(R.id.hot_rank_index);
         this.j = (TextView) findViewById(R.id.hot_rank_num);
         this.k = (TextView) findViewById(R.id.thread_extend_info);
-        this.f4502e.setShowOval(true);
-        this.f4502e.setAutoChangeStyle(true);
-        this.f4502e.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-        this.f4502e.setStrokeColorResId(R.color.CAM_X0401);
-        this.f4502e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f4502e.setOnClickListener(this);
-        this.f4503f.setOnClickListener(this);
-        this.f4504g.setOnClickListener(this);
-        this.f4505h.setOnClickListener(this);
-        this.f4503f.setEllipsisSuffix(getResources().getString(R.string.ellipsis_suffix_bar));
+        this.f4353e.setShowOval(true);
+        this.f4353e.setAutoChangeStyle(true);
+        this.f4353e.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        this.f4353e.setStrokeColorResId(R.color.CAM_X0401);
+        this.f4353e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f4353e.setOnClickListener(this);
+        this.f4354f.setOnClickListener(this);
+        this.f4355g.setOnClickListener(this);
+        this.f4356h.setOnClickListener(this);
+        this.f4354f.setEllipsisSuffix(getResources().getString(R.string.ellipsis_suffix_bar));
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
-        this.f4503f.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - dimenPixelSize, 0, 0);
+        this.f4354f.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - dimenPixelSize, 0, 0);
         b();
     }
 
@@ -90,18 +90,18 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), null);
         int g2 = l.g(getContext(), R.dimen.tbds42);
         pureDrawable.setBounds(0, 0, g2, g2);
-        this.f4503f.setCompoundDrawables(null, null, pureDrawable, null);
-        this.f4503f.setCompoundDrawablePadding(l.g(getContext(), R.dimen.M_W_X002));
-        SkinManager.setViewTextColor(this.f4503f, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f4504g, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f4505h, R.color.CAM_X0109);
+        this.f4354f.setCompoundDrawables(null, null, pureDrawable, null);
+        this.f4354f.setCompoundDrawablePadding(l.g(getContext(), R.dimen.M_W_X002));
+        SkinManager.setViewTextColor(this.f4354f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f4355g, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f4356h, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0109);
         c();
         d();
     }
 
     public final void c() {
-        b.e(this.f4503f);
+        b.e(this.f4354f);
     }
 
     public final void d() {
@@ -109,7 +109,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         a2 a2Var = this.o;
         if (a2Var != null) {
             int indexTextColorRes = TagTextHelper.getIndexTextColorRes(a2Var.position + 1);
-            this.f4506i.setCompoundDrawablePadding(l.g(getContext(), R.dimen.M_W_X002));
+            this.f4357i.setCompoundDrawablePadding(l.g(getContext(), R.dimen.M_W_X002));
             int color = SkinManager.getColor(indexTextColorRes);
             a2 a2Var2 = this.o;
             if (a2Var2.Z1) {
@@ -129,18 +129,18 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             }
             mutate.setBounds(0, 0, g2, g2);
             DrawableCompat.setTint(mutate, color);
-            this.f4506i.setCompoundDrawables(mutate, null, null, null);
-            this.f4506i.setBackgroundDrawable(null);
-            SkinManager.setViewTextColor(this.f4506i, indexTextColorRes);
+            this.f4357i.setCompoundDrawables(mutate, null, null, null);
+            this.f4357i.setBackgroundDrawable(null);
+            SkinManager.setViewTextColor(this.f4357i, indexTextColorRes);
             SkinManager.setViewTextColor(this.j, indexTextColorRes);
         }
     }
 
     public final void e() {
-        this.f4502e.setVisibility(8);
-        this.f4503f.setVisibility(8);
-        this.f4505h.setVisibility(8);
-        this.f4504g.setVisibility(8);
+        this.f4353e.setVisibility(8);
+        this.f4354f.setVisibility(8);
+        this.f4356h.setVisibility(8);
+        this.f4355g.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
@@ -166,15 +166,15 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             e();
             return;
         }
-        this.f4502e.setPlaceHolder(1);
-        this.f4502e.setVisibility(0);
-        this.f4503f.setVisibility(0);
+        this.f4353e.setPlaceHolder(1);
+        this.f4353e.setVisibility(0);
+        this.f4354f.setVisibility(0);
         this.l = str;
-        this.f4503f.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.l));
-        this.f4502e.V(str2, 10, false);
-        this.f4505h.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i2)));
-        this.f4504g.setText(String.format(getContext().getString(R.string.concern), StringHelper.numberUniformFormatExtra(i3)));
-        b.d(this.f4503f);
+        this.f4354f.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.l));
+        this.f4353e.V(str2, 10, false);
+        this.f4356h.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i2)));
+        this.f4355g.setText(String.format(getContext().getString(R.string.concern), StringHelper.numberUniformFormatExtra(i3)));
+        b.d(this.f4354f);
     }
 
     public CardForumHeadLayout(Context context, AttributeSet attributeSet) {
@@ -195,9 +195,9 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         this.o = a2Var;
         if (a2Var != null && a2Var.h0() != null) {
             if (a2Var.Y1) {
-                this.f4505h.setVisibility(8);
-                this.f4504g.setVisibility(8);
-                this.f4506i.setVisibility(0);
+                this.f4356h.setVisibility(8);
+                this.f4355g.setVisibility(8);
+                this.f4357i.setVisibility(0);
                 this.j.setVisibility(0);
                 this.k.setVisibility(0);
                 this.k.setText(a2Var.r1());
@@ -210,7 +210,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                 TextView textView = this.j;
                 textView.setText(textView.getContext().getResources().getString(R.string.thread_rank_tag, numberUniformFormatExtraWithRoundInt));
                 int i3 = a2Var.position + 1;
-                TextView textView2 = this.f4506i;
+                TextView textView2 = this.f4357i;
                 if (i3 >= 10) {
                     str2 = String.valueOf(i3);
                 } else {
@@ -219,21 +219,21 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                 textView2.setText(str2);
                 d();
                 w1 h0 = a2Var.h0();
-                this.f4502e.setPlaceHolder(1);
-                this.f4502e.setVisibility(0);
-                this.f4502e.V(h0.a(), 10, false);
-                this.f4503f.setVisibility(0);
-                this.l = h0.f49295b;
-                this.f4503f.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.l));
-                b.d(this.f4503f);
+                this.f4353e.setPlaceHolder(1);
+                this.f4353e.setVisibility(0);
+                this.f4353e.V(h0.a(), 10, false);
+                this.f4354f.setVisibility(0);
+                this.l = h0.f50114b;
+                this.f4354f.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.l));
+                b.d(this.f4354f);
                 return;
             } else if (a2Var.Z1) {
                 this.k.setVisibility(8);
                 if (!"agree_num".equals(a2Var.a2) && !"comment_num".equals(a2Var.a2) && !"share_num".equals(a2Var.a2)) {
-                    this.f4506i.setVisibility(8);
+                    this.f4357i.setVisibility(8);
                     this.j.setVisibility(8);
                 } else {
-                    this.f4506i.setVisibility(0);
+                    this.f4357i.setVisibility(0);
                     this.j.setVisibility(0);
                     if ("agree_num".equals(a2Var.a2)) {
                         String numberUniformFormatExtraWithRoundInt2 = StringHelper.numberUniformFormatExtraWithRoundInt(a2Var.L() != null ? a2Var.L().agreeNum : 0L);
@@ -249,7 +249,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                         textView5.setText(textView5.getContext().getResources().getString(R.string.thread_spread_rank_tag, numberUniformFormatExtraWithRoundInt4));
                     }
                     int i4 = a2Var.position + 1;
-                    TextView textView6 = this.f4506i;
+                    TextView textView6 = this.f4357i;
                     if (i4 >= 10) {
                         str = String.valueOf(i4);
                     } else {
@@ -258,31 +258,31 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                     textView6.setText(str);
                     d();
                 }
-                setData(a2Var.h0().f49295b, a2Var.h0().a(), a2Var.h0().f49301h, a2Var.h0().f49302i);
+                setData(a2Var.h0().f50114b, a2Var.h0().a(), a2Var.h0().f50120h, a2Var.h0().f50121i);
                 return;
             } else {
-                if (a2Var.Y1()) {
-                    this.f4505h.setVisibility(8);
-                    this.f4504g.setVisibility(8);
-                    this.f4506i.setVisibility(8);
+                if (a2Var.Z1()) {
+                    this.f4356h.setVisibility(8);
+                    this.f4355g.setVisibility(8);
+                    this.f4357i.setVisibility(8);
                     this.j.setVisibility(8);
                     this.k.setVisibility(0);
                     this.k.setText(a2Var.r1());
                 } else {
                     this.k.setVisibility(8);
-                    this.f4506i.setVisibility(8);
+                    this.f4357i.setVisibility(8);
                     this.j.setVisibility(8);
-                    this.f4505h.setVisibility(0);
-                    this.f4504g.setVisibility(0);
+                    this.f4356h.setVisibility(0);
+                    this.f4355g.setVisibility(0);
                 }
-                setData(a2Var.h0().f49295b, a2Var.h0().a(), a2Var.h0().f49301h, a2Var.h0().f49302i);
+                setData(a2Var.h0().f50114b, a2Var.h0().a(), a2Var.h0().f50120h, a2Var.h0().f50121i);
                 if (a2Var.y()) {
                     if (a2Var.T() != null && !StringUtils.isNull(a2Var.T().getName_show())) {
-                        this.f4504g.setText(a2Var.T().getName_show());
+                        this.f4355g.setText(a2Var.T().getName_show());
                     } else {
-                        this.f4504g.setText(R.string.user_name_default_txt);
+                        this.f4355g.setText(R.string.user_name_default_txt);
                     }
-                    this.f4505h.setText(a2Var.r1());
+                    this.f4356h.setText(a2Var.r1());
                     return;
                 }
                 return;

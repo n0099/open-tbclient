@@ -2,12 +2,12 @@ package com.sdk.base.module.config;
 
 import com.sdk.base.framework.c.e;
 import com.sdk.base.framework.f.c.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BaseConfig implements e {
     public static String apk = "com.cucc.sdk.api_key";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f36545c = 36;
+    public static int f35790c = 36;
     public static String cm = "CUCC";
     public static String n = "SDKFactory";
     public static String v = "安卓3.9.1.3开放版K200113";

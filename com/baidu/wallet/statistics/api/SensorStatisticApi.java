@@ -10,11 +10,11 @@ public class SensorStatisticApi extends StatisticDecorate {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static SensorStatisticApi f27306a = new SensorStatisticApi();
+        public static SensorStatisticApi f26551a = new SensorStatisticApi();
     }
 
     public static SensorStatisticApi getInstance() {
-        return a.f27306a;
+        return a.f26551a;
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic

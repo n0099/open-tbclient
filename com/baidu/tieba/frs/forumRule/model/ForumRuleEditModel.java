@@ -18,16 +18,16 @@ import org.json.JSONArray;
 public class ForumRuleEditModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a.j0.q0.q1.b.b f16151e;
+    public final d.a.k0.q0.q1.b.b f15466e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16152f;
+    public int f15467f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f16153g;
+    public HttpMessageListener f15468g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f16154h;
+    public HttpMessageListener f15469h;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -39,12 +39,12 @@ public class ForumRuleEditModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleDraftMessage)) {
-                ForumRuleEditModel.this.f16151e.draftCallback(0, null, "");
+                ForumRuleEditModel.this.f15466e.draftCallback(0, null, "");
                 return;
             }
             ResponseHttpRorumRuleDraftMessage responseHttpRorumRuleDraftMessage = (ResponseHttpRorumRuleDraftMessage) httpResponsedMessage;
             if (responseHttpRorumRuleDraftMessage != null) {
-                ForumRuleEditModel.this.f16151e.draftCallback(responseHttpRorumRuleDraftMessage.getError(), responseHttpRorumRuleDraftMessage.getData(), responseHttpRorumRuleDraftMessage.getErrorString());
+                ForumRuleEditModel.this.f15466e.draftCallback(responseHttpRorumRuleDraftMessage.getError(), responseHttpRorumRuleDraftMessage.getData(), responseHttpRorumRuleDraftMessage.getErrorString());
             }
         }
     }
@@ -59,20 +59,20 @@ public class ForumRuleEditModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             ResponseHttpRorumRuleCommitMessage responseHttpRorumRuleCommitMessage;
-            if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleCommitMessage) || (responseHttpRorumRuleCommitMessage = (ResponseHttpRorumRuleCommitMessage) httpResponsedMessage) == null || ForumRuleEditModel.this.f16152f == -1) {
+            if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleCommitMessage) || (responseHttpRorumRuleCommitMessage = (ResponseHttpRorumRuleCommitMessage) httpResponsedMessage) == null || ForumRuleEditModel.this.f15467f == -1) {
                 return;
             }
-            ForumRuleEditModel.this.f16151e.commitCallback(responseHttpRorumRuleCommitMessage.getError(), responseHttpRorumRuleCommitMessage.getErrorString(), ForumRuleEditModel.this.f16152f == 1);
-            ForumRuleEditModel.this.f16152f = -1;
+            ForumRuleEditModel.this.f15466e.commitCallback(responseHttpRorumRuleCommitMessage.getError(), responseHttpRorumRuleCommitMessage.getErrorString(), ForumRuleEditModel.this.f15467f == 1);
+            ForumRuleEditModel.this.f15467f = -1;
         }
     }
 
-    public ForumRuleEditModel(TbPageContext tbPageContext, d.a.j0.q0.q1.b.b bVar, String str) {
+    public ForumRuleEditModel(TbPageContext tbPageContext, d.a.k0.q0.q1.b.b bVar, String str) {
         super(tbPageContext);
-        this.f16152f = -1;
-        this.f16153g = new a(CmdConfigHttp.CMD_FORUM_RULES_DRAFT);
-        this.f16154h = new b(CmdConfigHttp.CMD_FORUM_RULES_COMMIT);
-        this.f16151e = bVar;
+        this.f15467f = -1;
+        this.f15468g = new a(CmdConfigHttp.CMD_FORUM_RULES_DRAFT);
+        this.f15469h = new b(CmdConfigHttp.CMD_FORUM_RULES_COMMIT);
+        this.f15466e = bVar;
         x();
     }
 
@@ -93,7 +93,7 @@ public class ForumRuleEditModel extends BdBaseModel {
         httpMessage.addParam("preface", forumRuleBaseData.getPreface());
         httpMessage.addParam("rules", y(forumRuleBaseData.getList()));
         httpMessage.addParam("is_draft", z ? 1 : 0);
-        this.f16152f = z ? 1 : 0;
+        this.f15467f = z ? 1 : 0;
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -104,10 +104,10 @@ public class ForumRuleEditModel extends BdBaseModel {
     }
 
     public final void x() {
-        d.a.j0.d3.d0.a.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
-        d.a.j0.d3.d0.a.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
-        registerListener(this.f16153g);
-        registerListener(this.f16154h);
+        d.a.k0.d3.d0.a.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
+        d.a.k0.d3.d0.a.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
+        registerListener(this.f15468g);
+        registerListener(this.f15469h);
     }
 
     public final String y(List<ForumRuleBaseData.ForumRuleItemData> list) {

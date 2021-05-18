@@ -55,10 +55,7 @@ public class WebAddress implements INoProGuard {
         }
         String group5 = matcher.group(5);
         if (group5 != null && group5.length() > 0) {
-            if (group5.charAt(0) != '/') {
-                group5 = "/" + group5;
-            }
-            this.mPath = group5;
+            this.mPath = group5.charAt(0) != '/' ? "/".concat(String.valueOf(group5)) : group5;
         }
         if (this.mPort == 443 && this.mScheme.equals("")) {
             this.mScheme = "https";

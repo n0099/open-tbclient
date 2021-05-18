@@ -16,30 +16,30 @@ import java.util.HashSet;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WebView f25338a;
+    public final WebView f24583a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f25339b;
+    public final String f24584b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f25340c;
+    public final String f24585c;
 
     /* renamed from: d  reason: collision with root package name */
-    public URL f25341d;
+    public URL f24586d;
 
     public b(WebView webView, String str, String str2) {
-        this.f25338a = webView;
-        this.f25339b = str;
-        this.f25340c = str2;
+        this.f24583a = webView;
+        this.f24584b = str;
+        this.f24585c = str2;
         if (webView != null) {
             a(new Runnable() { // from class: com.baidu.wallet.lightapp.base.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        if (b.this.f25338a == null) {
+                        if (b.this.f24583a == null) {
                             return;
                         }
-                        b.this.f25341d = new URL(b.this.f25338a.getUrl());
+                        b.this.f24586d = new URL(b.this.f24583a.getUrl());
                     } catch (MalformedURLException unused) {
                     }
                 }
@@ -48,24 +48,24 @@ public class b {
     }
 
     public void b(final String str) {
-        if (TextUtils.isEmpty(this.f25340c) || this.f25338a == null) {
+        if (TextUtils.isEmpty(this.f24585c) || this.f24583a == null) {
             return;
         }
         a(new Runnable() { // from class: com.baidu.wallet.lightapp.base.b.3
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    URL url = new URL(b.this.f25338a.getUrl());
-                    if (b.this.f25341d != null && !url.sameFile(b.this.f25341d)) {
+                    URL url = new URL(b.this.f24583a.getUrl());
+                    if (b.this.f24586d != null && !url.sameFile(b.this.f24586d)) {
                         HashSet hashSet = new HashSet();
                         hashSet.add(url.toString());
-                        hashSet.add(b.this.f25341d.toString());
+                        hashSet.add(b.this.f24586d.toString());
                         PayStatisticsUtil.onEventWithValues(StatServiceEvent.CALL_JS_NOT_SAME_FILE, hashSet);
                         return;
                     }
                 } catch (MalformedURLException unused) {
                 }
-                String str2 = b.this.f25340c;
+                String str2 = b.this.f24585c;
                 if (!TextUtils.isEmpty(str)) {
                     str2 = str2 + "(" + str + SmallTailInfo.EMOTION_SUFFIX;
                 }
@@ -73,14 +73,14 @@ public class b {
                     LogUtil.logd("loadUrl=" + str2);
                 }
                 try {
-                    if (b.this.f25338a == null) {
+                    if (b.this.f24583a == null) {
                         return;
                     }
                     if (Build.VERSION.SDK_INT >= 19) {
-                        b.this.f25338a.evaluateJavascript(str2, null);
+                        b.this.f24583a.evaluateJavascript(str2, null);
                         return;
                     }
-                    b.this.f25338a.loadUrl("javascript:" + str2);
+                    b.this.f24583a.loadUrl("javascript:" + str2);
                 } catch (Throwable unused2) {
                 }
             }
@@ -89,26 +89,26 @@ public class b {
 
     public void a(final String str) {
         if (LogUtil.DEBUG) {
-            LogUtil.logd("sucessJsCallback=" + str + "#" + this.f25339b);
+            LogUtil.logd("sucessJsCallback=" + str + "#" + this.f24584b);
         }
-        if (TextUtils.isEmpty(this.f25339b) || this.f25338a == null) {
+        if (TextUtils.isEmpty(this.f24584b) || this.f24583a == null) {
             return;
         }
         a(new Runnable() { // from class: com.baidu.wallet.lightapp.base.b.2
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    URL url = new URL(b.this.f25338a.getUrl());
-                    if (b.this.f25341d != null && !url.sameFile(b.this.f25341d)) {
+                    URL url = new URL(b.this.f24583a.getUrl());
+                    if (b.this.f24586d != null && !url.sameFile(b.this.f24586d)) {
                         HashSet hashSet = new HashSet();
                         hashSet.add(url.toString());
-                        hashSet.add(b.this.f25341d.toString());
+                        hashSet.add(b.this.f24586d.toString());
                         PayStatisticsUtil.onEventWithValues(StatServiceEvent.CALL_JS_NOT_SAME_FILE, hashSet);
                         return;
                     }
                 } catch (MalformedURLException unused) {
                 }
-                String str2 = b.this.f25339b;
+                String str2 = b.this.f24584b;
                 if (!TextUtils.isEmpty(str)) {
                     str2 = str2 + "(" + str + SmallTailInfo.EMOTION_SUFFIX;
                 }
@@ -116,14 +116,14 @@ public class b {
                     LogUtil.logd("loadUrl=" + str2);
                 }
                 try {
-                    if (b.this.f25338a == null) {
+                    if (b.this.f24583a == null) {
                         return;
                     }
                     if (Build.VERSION.SDK_INT >= 19) {
-                        b.this.f25338a.evaluateJavascript(str2, null);
+                        b.this.f24583a.evaluateJavascript(str2, null);
                         return;
                     }
-                    b.this.f25338a.loadUrl("javascript:" + str2);
+                    b.this.f24583a.loadUrl("javascript:" + str2);
                 } catch (Throwable unused2) {
                 }
             }

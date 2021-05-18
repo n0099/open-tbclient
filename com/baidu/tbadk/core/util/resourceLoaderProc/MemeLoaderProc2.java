@@ -18,7 +18,7 @@ import d.a.c.e.l.e;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.j.d.a;
-import d.a.i0.r.k;
+import d.a.j0.r.k;
 /* loaded from: classes3.dex */
 public class MemeLoaderProc2 implements e<a> {
     public boolean isFromCDN = true;
@@ -34,15 +34,15 @@ public class MemeLoaderProc2 implements e<a> {
         }
         cVar.formatData(cVar.getData());
         Bitmap checkBitmapSize = BitmapHelper.checkBitmapSize(cVar.getBitmap(), i2, i3);
-        if (checkBitmapSize == null && cVar.a() == null) {
+        if (checkBitmapSize == null && cVar.c() == null) {
             return null;
         }
-        return new a(checkBitmapSize, cVar.isGif(), str, cVar.a());
+        return new a(checkBitmapSize, cVar.isGif(), str, cVar.c());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public a m24decodeToResource(byte[] bArr, Object... objArr) {
+    public a m23decodeToResource(byte[] bArr, Object... objArr) {
         return null;
     }
 
@@ -81,7 +81,7 @@ public class MemeLoaderProc2 implements e<a> {
                 if (bVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                     diskCancelWorker.setOperate(cVar);
-                    bVar.f39786a = diskCancelWorker;
+                    bVar.f39031a = diskCancelWorker;
                 }
             }
         }
@@ -100,7 +100,7 @@ public class MemeLoaderProc2 implements e<a> {
         if (aVar.u()) {
             aVar.A(i2);
             aVar.z(i3);
-            d.a.i0.a0.c.k().d(str, aVar);
+            d.a.j0.a0.c.k().d(str, aVar);
         }
     }
 
@@ -119,7 +119,7 @@ public class MemeLoaderProc2 implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f39786a = diskCancelWorker;
+            bVar.f39031a = diskCancelWorker;
         }
         if (d.g().a(cVar)) {
             int i4 = j.H() ? 300 : 2000;
@@ -141,7 +141,7 @@ public class MemeLoaderProc2 implements e<a> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // d.a.c.e.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
-        a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, d.a.i0.a0.c.k().m(str), i2, i3);
+        a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, d.a.j0.a0.c.k().m(str), i2, i3);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
             return null;
         }
@@ -174,12 +174,12 @@ public class MemeLoaderProc2 implements e<a> {
         String str4 = str3;
         WebClient webClient = new WebClient();
         if (bVar != null) {
-            bVar.f39786a = webClient;
+            bVar.f39031a = webClient;
         }
         byte[] downloadImageBytes = webClient.downloadImageBytes(str4, !this.isFromCDN);
         boolean needCache = webClient.needCache();
-        if (downloadImageBytes != null || webClient.getResponse().f39732a) {
-            d.a.i0.a0.c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
+        if (downloadImageBytes != null || webClient.getResponse().f38977a) {
+            d.a.j0.a0.c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
             return storeBitmap(str4, str2, bVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), e2, e3), (webClient.isGif || l.B(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
         }
         return null;

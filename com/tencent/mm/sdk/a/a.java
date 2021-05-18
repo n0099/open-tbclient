@@ -7,47 +7,47 @@ import com.alibaba.fastjson.asm.Label;
 import com.tencent.mm.opensdk.channel.MMessageActV2;
 import com.tencent.mm.sdk.a.a.b;
 import com.tencent.mm.sdk.b.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a {
 
     /* renamed from: com.tencent.mm.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0473a {
+    /* loaded from: classes7.dex */
+    public static class C0460a {
         public int flags = -1;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f37136h;
+        public String f36381h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f37137i;
+        public String f36382i;
         public String j;
         public Bundle k;
     }
 
-    public static boolean a(Context context, C0473a c0473a) {
-        if (context == null || c0473a == null) {
+    public static boolean a(Context context, C0460a c0460a) {
+        if (context == null || c0460a == null) {
             com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid argument");
             return false;
-        } else if (c.a(c0473a.f37136h)) {
-            com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c0473a.f37136h);
+        } else if (c.a(c0460a.f36381h)) {
+            com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c0460a.f36381h);
             return false;
         } else {
-            if (c.a(c0473a.f37137i)) {
-                c0473a.f37137i = c0473a.f37136h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
+            if (c.a(c0460a.f36382i)) {
+                c0460a.f36382i = c0460a.f36381h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
             }
-            com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c0473a.f37136h + ", targetClassName = " + c0473a.f37137i);
+            com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c0460a.f36381h + ", targetClassName = " + c0460a.f36382i);
             Intent intent = new Intent();
-            intent.setClassName(c0473a.f37136h, c0473a.f37137i);
-            Bundle bundle = c0473a.k;
+            intent.setClassName(c0460a.f36381h, c0460a.f36382i);
+            Bundle bundle = c0460a.k;
             if (bundle != null) {
                 intent.putExtras(bundle);
             }
             String packageName = context.getPackageName();
             intent.putExtra("_mmessage_sdkVersion", 570490883);
             intent.putExtra("_mmessage_appPackage", packageName);
-            intent.putExtra("_mmessage_content", c0473a.j);
-            intent.putExtra("_mmessage_checksum", b.a(c0473a.j, 570490883, packageName));
-            int i2 = c0473a.flags;
+            intent.putExtra("_mmessage_content", c0460a.j);
+            intent.putExtra("_mmessage_checksum", b.a(c0460a.j, 570490883, packageName));
+            int i2 = c0460a.flags;
             if (i2 == -1) {
                 intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT).addFlags(134217728);
             } else {

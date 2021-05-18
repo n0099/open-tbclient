@@ -15,19 +15,19 @@ public class ItemTableView extends LinearLayout {
     public static final int k = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
 
     /* renamed from: e  reason: collision with root package name */
-    public ItemTableRowView f16688e;
+    public ItemTableRowView f16003e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ItemTableRowView f16689f;
+    public ItemTableRowView f16004f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ItemTableRowView f16690g;
+    public ItemTableRowView f16005g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ItemTableRowView f16691h;
+    public ItemTableRowView f16006h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ItemTableRowView f16692i;
+    public ItemTableRowView f16007i;
     public SparseArray<ItemTableRowView> j;
 
     public ItemTableView(Context context) {
@@ -35,27 +35,27 @@ public class ItemTableView extends LinearLayout {
     }
 
     public void a() {
-        this.f16688e.a();
-        this.f16689f.a();
-        this.f16690g.a();
-        this.f16691h.a();
-        this.f16692i.a();
+        this.f16003e.a();
+        this.f16004f.a();
+        this.f16005g.a();
+        this.f16006h.a();
+        this.f16007i.a();
     }
 
     public final void b(Context context) {
         setOrientation(1);
-        this.f16692i = c(context, 0, 0);
-        this.f16691h = c(context, 1, k);
-        this.f16690g = c(context, 2, k);
-        this.f16689f = c(context, 3, k);
-        this.f16688e = c(context, 4, k);
+        this.f16007i = c(context, 0, 0);
+        this.f16006h = c(context, 1, k);
+        this.f16005g = c(context, 2, k);
+        this.f16004f = c(context, 3, k);
+        this.f16003e = c(context, 4, k);
         SparseArray<ItemTableRowView> sparseArray = new SparseArray<>();
         this.j = sparseArray;
-        sparseArray.put(5, this.f16692i);
-        this.j.put(4, this.f16691h);
-        this.j.put(3, this.f16690g);
-        this.j.put(2, this.f16689f);
-        this.j.put(1, this.f16688e);
+        sparseArray.put(5, this.f16007i);
+        this.j.put(4, this.f16006h);
+        this.j.put(3, this.f16005g);
+        this.j.put(2, this.f16004f);
+        this.j.put(1, this.f16003e);
     }
 
     public final ItemTableRowView c(Context context, int i2, int i3) {
@@ -68,11 +68,11 @@ public class ItemTableView extends LinearLayout {
     }
 
     public void d() {
-        this.f16688e.c();
-        this.f16689f.c();
-        this.f16690g.c();
-        this.f16691h.c();
-        this.f16692i.c();
+        this.f16003e.c();
+        this.f16004f.c();
+        this.f16005g.c();
+        this.f16006h.c();
+        this.f16007i.c();
     }
 
     public void setData(List<ItemPlot> list, int i2) {

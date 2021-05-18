@@ -17,22 +17,22 @@ import org.w3c.dom.NodeList;
 public class h implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Element f39567a;
+    public Element f38812a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f39568b = new HashSet();
+    public Set<String> f38813b = new HashSet();
 
     public h(Element element) {
         String nodeName;
         String nodeName2;
-        this.f39567a = element;
+        this.f38812a = element;
         if (element != null) {
             NamedNodeMap attributes = element.getAttributes();
             int length = attributes.getLength();
             for (int i2 = 0; i2 < length; i2++) {
                 Node item = attributes.item(i2);
                 if (item != null && (nodeName2 = item.getNodeName()) != null) {
-                    this.f39568b.add(nodeName2);
+                    this.f38813b.add(nodeName2);
                 }
             }
             NodeList childNodes = element.getChildNodes();
@@ -40,7 +40,7 @@ public class h implements c {
             for (int i3 = 0; i3 < length2; i3++) {
                 Node item2 = childNodes.item(i3);
                 if (item2 != null && (nodeName = item2.getNodeName()) != null) {
-                    this.f39568b.add(nodeName);
+                    this.f38813b.add(nodeName);
                 }
             }
         }
@@ -48,7 +48,7 @@ public class h implements c {
 
     @Override // d.a.c.e.b.b.a.c.c
     public Set<String> a() {
-        return this.f39568b;
+        return this.f38813b;
     }
 
     @Override // d.a.c.e.b.b.a.c.c
@@ -57,23 +57,23 @@ public class h implements c {
             return;
         }
         if (obj instanceof Boolean) {
-            this.f39567a.setAttribute(str, String.valueOf(obj));
+            this.f38812a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Byte) {
-            this.f39567a.setAttribute(str, String.valueOf(obj));
+            this.f38812a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Character) {
-            this.f39567a.setAttribute(str, String.valueOf(obj));
+            this.f38812a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Short) {
-            this.f39567a.setAttribute(str, String.valueOf(obj));
+            this.f38812a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Integer) {
-            this.f39567a.setAttribute(str, String.valueOf(obj));
+            this.f38812a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Long) {
-            this.f39567a.setAttribute(str, String.valueOf(obj));
+            this.f38812a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Float) {
-            this.f39567a.setAttribute(str, String.valueOf(obj));
+            this.f38812a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Double) {
-            this.f39567a.setAttribute(str, String.valueOf(obj));
+            this.f38812a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof String) {
-            this.f39567a.setAttribute(str, String.valueOf(obj));
+            this.f38812a.setAttribute(str, String.valueOf(obj));
         } else if (obj.getClass().isArray() || d.a.c.e.b.a.a.g(obj.getClass(), List.class) || d.a.c.e.b.a.a.g(obj.getClass(), Queue.class) || d.a.c.e.b.a.a.g(obj.getClass(), Set.class) || d.a.c.e.b.a.a.g(obj.getClass(), Map.class)) {
         } else {
             d.a.c.e.b.a.a.g(obj.getClass(), SparseArray.class);
@@ -93,9 +93,9 @@ public class h implements c {
 
     public Object d(String str) {
         String nodeName;
-        String attribute = this.f39567a.getAttribute(str);
+        String attribute = this.f38812a.getAttribute(str);
         if (TextUtils.isEmpty(attribute)) {
-            NodeList childNodes = this.f39567a.getChildNodes();
+            NodeList childNodes = this.f38812a.getChildNodes();
             int length = childNodes.getLength();
             ArrayList arrayList = new ArrayList(length);
             for (int i2 = 0; i2 < length; i2++) {

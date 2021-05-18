@@ -35,8 +35,8 @@ public final class TimeoutKt {
 
     @ExperimentalTime
     /* renamed from: withTimeout-lwyi7ZQ  reason: not valid java name */
-    public static final <T> Object m1958withTimeoutlwyi7ZQ(double d2, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        return withTimeout(DelayKt.m1951toDelayMillisLRDsOJo(d2), function2, continuation);
+    public static final <T> Object m1957withTimeoutlwyi7ZQ(double d2, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        return withTimeout(DelayKt.m1950toDelayMillisLRDsOJo(d2), function2, continuation);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
@@ -113,7 +113,7 @@ public final class TimeoutKt {
 
     @ExperimentalTime
     /* renamed from: withTimeoutOrNull-lwyi7ZQ  reason: not valid java name */
-    public static final <T> Object m1959withTimeoutOrNulllwyi7ZQ(double d2, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        return withTimeoutOrNull(DelayKt.m1951toDelayMillisLRDsOJo(d2), function2, continuation);
+    public static final <T> Object m1958withTimeoutOrNulllwyi7ZQ(double d2, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        return withTimeoutOrNull(DelayKt.m1950toDelayMillisLRDsOJo(d2), function2, continuation);
     }
 }

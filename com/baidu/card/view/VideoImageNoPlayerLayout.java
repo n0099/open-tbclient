@@ -16,26 +16,26 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.i.p;
-import d.a.i0.r.u.c;
-import d.a.j0.x.b0;
+import d.a.j0.r.u.c;
+import d.a.k0.x.b0;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.i0.r.q.a> {
+public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.j0.r.q.a> {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f4672e;
+    public Context f4526e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4673f;
+    public int f4527f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f4674g;
+    public TbImageView f4528g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f4675h;
+    public View f4529h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f4676i;
+    public ImageView f4530i;
     public ImageView j;
     public TextView k;
     public TextView l;
@@ -43,10 +43,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.i0
     public RelativeLayout n;
     public RelativeLayout o;
     public boolean p;
-    public b0<d.a.i0.r.q.a> q;
-    public d.a.i0.r.q.a r;
+    public b0<d.a.j0.r.q.a> q;
+    public d.a.j0.r.q.a r;
     public View.OnClickListener s;
-    public d.a.i.v0.a t;
+    public d.a.i.w0.a t;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -58,10 +58,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.i0
             if (VideoImageNoPlayerLayout.this.q != null) {
                 b0 b0Var = VideoImageNoPlayerLayout.this.q;
                 VideoImageNoPlayerLayout videoImageNoPlayerLayout = VideoImageNoPlayerLayout.this;
-                b0Var.a(videoImageNoPlayerLayout.f4674g, videoImageNoPlayerLayout.r);
+                b0Var.a(videoImageNoPlayerLayout.f4528g, videoImageNoPlayerLayout.r);
             }
             if (VideoImageNoPlayerLayout.this.s != null) {
-                VideoImageNoPlayerLayout.this.s.onClick(VideoImageNoPlayerLayout.this.f4674g);
+                VideoImageNoPlayerLayout.this.s.onClick(VideoImageNoPlayerLayout.this.f4528g);
             }
         }
     }
@@ -79,9 +79,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.i0
 
     public VideoImageNoPlayerLayout(Context context) {
         super(context);
-        this.f4673f = 3;
+        this.f4527f = 3;
         this.p = false;
-        this.f4672e = context;
+        this.f4526e = context;
         f();
     }
 
@@ -91,17 +91,17 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.i0
         this.n = (RelativeLayout) findViewById(R.id.operable_video_container);
         this.o = (RelativeLayout) findViewById(R.id.video_container);
         new WeakReference(TbadkCoreApplication.getInst());
-        this.f4674g = (TbImageView) findViewById(R.id.video_thumbnail);
-        this.f4675h = findViewById(R.id.video_thumbnail_mask);
-        this.f4676i = (ImageView) findViewById(R.id.video_play);
+        this.f4528g = (TbImageView) findViewById(R.id.video_thumbnail);
+        this.f4529h = findViewById(R.id.video_thumbnail_mask);
+        this.f4530i = (ImageView) findViewById(R.id.video_play);
         this.j = (ImageView) findViewById(R.id.video_pause);
         this.k = (TextView) findViewById(R.id.video_play_count);
         this.l = (TextView) findViewById(R.id.video_play_flag);
         this.m = (TextView) findViewById(R.id.video_duration);
-        this.f4674g.setConrers(15);
-        this.f4674g.setRadiusById(R.string.J_X05);
-        this.f4674g.setDrawCorner(true);
-        this.f4674g.setPlaceHolder(3);
+        this.f4528g.setConrers(15);
+        this.f4528g.setRadiusById(R.string.J_X05);
+        this.f4528g.setDrawCorner(true);
+        this.f4528g.setPlaceHolder(3);
         setOnClickListener(new a());
         SkinManager.setBackgroundResource(this, R.color.CAM_X0206);
     }
@@ -109,20 +109,20 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.i0
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: g */
-    public void a(d.a.i0.r.q.a aVar) {
+    public void a(d.a.j0.r.q.a aVar) {
         if (aVar == null || aVar.m() == null || aVar.m().r1 == null) {
             return;
         }
         OriginalThreadInfo originalThreadInfo = aVar.m().r1;
         originalThreadInfo.r.is_vertical.intValue();
-        String str = originalThreadInfo.f12801f;
+        String str = originalThreadInfo.f12137f;
         originalThreadInfo.r.video_length.intValue();
         originalThreadInfo.r.video_duration.intValue();
-        long j = originalThreadInfo.f12800e;
+        long j = originalThreadInfo.f12136e;
         this.m.setText(StringHelper.stringForVideoTime(originalThreadInfo.r.video_duration.intValue() * 1000));
-        this.k.setText(String.format(this.f4672e.getResources().getString(R.string.play_count_new), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
+        this.k.setText(String.format(this.f4526e.getResources().getString(R.string.play_count_new), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
         this.l.setVisibility(8);
-        this.f4674g.V(originalThreadInfo.r.thumbnail_url, 10, false);
+        this.f4528g.V(originalThreadInfo.r.thumbnail_url, 10, false);
     }
 
     @Override // android.view.View
@@ -131,16 +131,16 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.i0
     }
 
     public void h(TbPageContext tbPageContext, int i2) {
-        if (this.f4673f != i2) {
-            c.d(this.f4675h).o(R.array.Mask_X001);
-            c.d(this.f4675h).k(R.string.J_X05);
+        if (this.f4527f != i2) {
+            c.d(this.f4529h).o(R.array.Mask_X001);
+            c.d(this.f4529h).k(R.string.J_X05);
             SkinManager.setBackgroundColor(this.n, R.color.CAM_X0206);
             SkinManager.setBackgroundColor(this.o, R.color.CAM_X0206);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-            this.f4676i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+            this.f4530i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             this.j.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_pause44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
         }
-        this.f4673f = i2;
+        this.f4527f = i2;
     }
 
     public final void i() {
@@ -154,7 +154,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.i0
         this.p = z;
     }
 
-    public void setData(d.a.i0.r.q.a aVar) {
+    public void setData(d.a.j0.r.q.a aVar) {
         this.r = aVar;
     }
 
@@ -162,11 +162,11 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.i0
         this.s = onClickListener;
     }
 
-    public void setOnCardSubClickListener(b0<d.a.i0.r.q.a> b0Var) {
+    public void setOnCardSubClickListener(b0<d.a.j0.r.q.a> b0Var) {
         this.q = b0Var;
     }
 
-    public void setVideoAreaClickListener(d.a.i.v0.a aVar) {
+    public void setVideoAreaClickListener(d.a.i.w0.a aVar) {
         this.t = aVar;
         if (aVar != null) {
             i();

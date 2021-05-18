@@ -5,31 +5,31 @@ import android.text.TextUtils;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.a.d;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f37197a = null;
+    public static f f36442a = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f37198c = new b(c(), c.m, c.f37190g, c.f37191h, c.f37186c, c.f37192i, 10, c.f37188e, c.n);
+    public static final b f36443c = new b(c(), c.m, c.f36435g, c.f36436h, c.f36431c, c.f36437i, 10, c.f36433e, c.n);
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f37199d = false;
+    public static boolean f36444d = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f37200b = new a(f37198c);
+    public a f36445b = new a(f36443c);
 
     public static f a() {
-        if (f37197a == null) {
+        if (f36442a == null) {
             synchronized (f.class) {
-                if (f37197a == null) {
-                    f37197a = new f();
-                    f37199d = true;
+                if (f36442a == null) {
+                    f36442a = new f();
+                    f36444d = true;
                 }
             }
         }
-        return f37197a;
+        return f36442a;
     }
 
     public static final void b(String str, String str2) {
@@ -53,12 +53,12 @@ public class f {
     }
 
     public static File c() {
-        String str = c.f37187d;
+        String str = c.f36432d;
         boolean z = false;
         try {
             d.c b2 = d.b.b();
             if (b2 != null) {
-                if (b2.c() > c.f37189f) {
+                if (b2.c() > c.f36434f) {
                     z = true;
                 }
             }
@@ -72,39 +72,39 @@ public class f {
     }
 
     public void d() {
-        a aVar = this.f37200b;
+        a aVar = this.f36445b;
         if (aVar != null) {
             aVar.a();
-            this.f37200b.b();
-            this.f37200b = null;
+            this.f36445b.b();
+            this.f36445b = null;
         }
     }
 
     public static void b() {
         synchronized (f.class) {
             a().d();
-            if (f37197a != null) {
-                f37197a = null;
+            if (f36442a != null) {
+                f36442a = null;
             }
         }
     }
 
     public void a(int i2, String str, String str2, Throwable th) {
         a aVar;
-        if (f37199d) {
+        if (f36444d) {
             String b2 = com.tencent.open.utils.e.b();
             if (!TextUtils.isEmpty(b2)) {
                 String str3 = b2 + " SDK_VERSION:" + Constants.SDK_VERSION;
-                if (this.f37200b == null) {
+                if (this.f36445b == null) {
                     return;
                 }
-                e.f37196a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
-                this.f37200b.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
-                f37199d = false;
+                e.f36441a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
+                this.f36445b.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
+                f36444d = false;
             }
         }
-        e.f37196a.b(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
-        if (!d.a.a(c.f37185b, i2) || (aVar = this.f37200b) == null) {
+        e.f36441a.b(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+        if (!d.a.a(c.f36430b, i2) || (aVar = this.f36445b) == null) {
             return;
         }
         aVar.b(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);

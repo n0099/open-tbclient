@@ -15,15 +15,15 @@ import java.util.Map;
 public class b extends ExtractorProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaExtractor f5089a = new MediaExtractor();
+    public MediaExtractor f4943a = new MediaExtractor();
 
     private Integer a(String str) {
         Integer num;
-        MediaExtractor mediaExtractor = this.f5089a;
+        MediaExtractor mediaExtractor = this.f4943a;
         if (mediaExtractor != null && Build.VERSION.SDK_INT >= 16) {
             int trackCount = mediaExtractor.getTrackCount();
             for (int i2 = 0; i2 < trackCount; i2++) {
-                if (this.f5089a.getTrackFormat(i2).getString("mime").startsWith(str)) {
+                if (this.f4943a.getTrackFormat(i2).getString("mime").startsWith(str)) {
                     num = Integer.valueOf(i2);
                     break;
                 }
@@ -37,13 +37,13 @@ public class b extends ExtractorProvider {
     public Bundle getMediaMeta() {
         MediaFormat trackFormat;
         Bundle bundle = new Bundle();
-        if (this.f5089a != null) {
+        if (this.f4943a != null) {
             int intValue = a(FileUtils.VIDEO_FILE_START).intValue();
             int intValue2 = a("audio/").intValue();
             if (intValue != -1) {
                 intValue2 = intValue;
             }
-            if (intValue2 != -1 && (trackFormat = this.f5089a.getTrackFormat(intValue2)) != null) {
+            if (intValue2 != -1 && (trackFormat = this.f4943a.getTrackFormat(intValue2)) != null) {
                 try {
                     bundle.putLong("duration", trackFormat.getLong("durationUs") / 1000);
                     if (intValue != -1) {
@@ -62,16 +62,16 @@ public class b extends ExtractorProvider {
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void release() {
         CyberLog.i("MediaExtractorImpl", "release");
-        MediaExtractor mediaExtractor = this.f5089a;
+        MediaExtractor mediaExtractor = this.f4943a;
         if (mediaExtractor != null) {
             mediaExtractor.release();
-            this.f5089a = null;
+            this.f4943a = null;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(Context context, Uri uri) {
-        MediaExtractor mediaExtractor = this.f5089a;
+        MediaExtractor mediaExtractor = this.f4943a;
         if (mediaExtractor != null) {
             try {
                 mediaExtractor.setDataSource(context, uri, (Map<String, String>) null);
@@ -83,7 +83,7 @@ public class b extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        MediaExtractor mediaExtractor = this.f5089a;
+        MediaExtractor mediaExtractor = this.f4943a;
         if (mediaExtractor != null) {
             try {
                 mediaExtractor.setDataSource(context, uri, map);
@@ -95,7 +95,7 @@ public class b extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(FileDescriptor fileDescriptor) {
-        MediaExtractor mediaExtractor = this.f5089a;
+        MediaExtractor mediaExtractor = this.f4943a;
         if (mediaExtractor != null) {
             try {
                 mediaExtractor.setDataSource(fileDescriptor);
@@ -107,7 +107,7 @@ public class b extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(String str) {
-        MediaExtractor mediaExtractor = this.f5089a;
+        MediaExtractor mediaExtractor = this.f4943a;
         if (mediaExtractor != null) {
             try {
                 mediaExtractor.setDataSource(str);

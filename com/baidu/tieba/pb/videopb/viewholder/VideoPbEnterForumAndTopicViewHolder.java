@@ -11,36 +11,36 @@ import com.baidu.tbadk.core.view.TopicEnterButton;
 import com.baidu.tbadk.widget.layout.FlowLabelLayout;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import d.a.c.e.p.k;
-import d.a.i0.r.q.a2;
+import d.a.j0.r.q.a2;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f20295a;
+    public Context f19583a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FlowLabelLayout f20296b;
+    public FlowLabelLayout f19584b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadForumEnterButton f20297c;
+    public ThreadForumEnterButton f19585c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<TopicEnterButton> f20298d;
+    public List<TopicEnterButton> f19586d;
 
     public VideoPbEnterForumAndTopicViewHolder(Context context, View view) {
         super(view);
-        this.f20295a = context;
-        this.f20296b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
+        this.f19583a = context;
+        this.f19584b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
     }
 
     public void b() {
-        ThreadForumEnterButton threadForumEnterButton = this.f20297c;
+        ThreadForumEnterButton threadForumEnterButton = this.f19585c;
         if (threadForumEnterButton != null) {
             threadForumEnterButton.d();
         }
-        List<TopicEnterButton> list = this.f20298d;
+        List<TopicEnterButton> list = this.f19586d;
         if (list != null) {
             for (TopicEnterButton topicEnterButton : list) {
                 topicEnterButton.a();
@@ -52,29 +52,29 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
         if (a2Var == null) {
             return;
         }
-        this.f20296b.removeAllViews();
-        List<TopicEnterButton> list = this.f20298d;
+        this.f19584b.removeAllViews();
+        List<TopicEnterButton> list = this.f19586d;
         if (list != null) {
             list.clear();
         }
         if (!k.isEmpty(a2Var.i0())) {
-            ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.f20295a);
-            this.f20297c = threadForumEnterButton;
+            ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.f19583a);
+            this.f19585c = threadForumEnterButton;
             threadForumEnterButton.a(a2Var);
-            this.f20296b.addView(this.f20297c, new ViewGroup.LayoutParams(-2, -2));
+            this.f19584b.addView(this.f19585c, new ViewGroup.LayoutParams(-2, -2));
         }
         WorksInfoData worksInfoData = a2Var.E2;
         if (worksInfoData == null || ListUtils.isEmpty(worksInfoData.topicListData)) {
             return;
         }
-        if (this.f20298d == null) {
-            this.f20298d = new LinkedList();
+        if (this.f19586d == null) {
+            this.f19586d = new LinkedList();
         }
         for (RecommendTopicData.RecommendTopicListData recommendTopicListData : a2Var.E2.topicListData) {
-            TopicEnterButton topicEnterButton = new TopicEnterButton(this.f20295a);
+            TopicEnterButton topicEnterButton = new TopicEnterButton(this.f19583a);
             topicEnterButton.f(recommendTopicListData);
-            this.f20296b.addView(topicEnterButton, new ViewGroup.LayoutParams(-2, -2));
-            this.f20298d.add(topicEnterButton);
+            this.f19584b.addView(topicEnterButton, new ViewGroup.LayoutParams(-2, -2));
+            this.f19586d.add(topicEnterButton);
         }
     }
 }

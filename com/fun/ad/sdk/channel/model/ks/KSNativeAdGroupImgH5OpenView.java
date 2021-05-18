@@ -21,28 +21,28 @@ import java.util.List;
 public class KSNativeAdGroupImgH5OpenView extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f31498a;
+    public TextView f30743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f31499b;
+    public LinearLayout f30744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f31500c;
+    public ImageView f30745c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f31501d;
+    public ImageView f30746d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f31502e;
+    public ImageView f30747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f31503f;
+    public ImageView f30748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f31504g;
+    public TextView f30749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f31505h;
+    public Button f30750h;
 
     public KSNativeAdGroupImgH5OpenView(Context context) {
         this(context, null);
@@ -67,7 +67,7 @@ public class KSNativeAdGroupImgH5OpenView extends c {
             if (ksImage != null && ksImage.isValid()) {
                 Context context = getContext();
                 String imageUrl = ksImage.getImageUrl();
-                ImageView imageView = this.f31500c;
+                ImageView imageView = this.f30745c;
                 if (context == null) {
                     d.b("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
                 } else if (context instanceof Activity) {
@@ -85,7 +85,7 @@ public class KSNativeAdGroupImgH5OpenView extends c {
             if (ksImage2 != null && ksImage2.isValid()) {
                 Context context2 = getContext();
                 String imageUrl2 = ksImage2.getImageUrl();
-                ImageView imageView2 = this.f31501d;
+                ImageView imageView2 = this.f30746d;
                 if (context2 == null) {
                     d.b("GlideHelper: context is null when load: " + imageUrl2, new Object[0]);
                 } else if (context2 instanceof Activity) {
@@ -103,7 +103,7 @@ public class KSNativeAdGroupImgH5OpenView extends c {
             if (ksImage3 != null && ksImage3.isValid()) {
                 Context context3 = getContext();
                 String imageUrl3 = ksImage3.getImageUrl();
-                ImageView imageView3 = this.f31502e;
+                ImageView imageView3 = this.f30747e;
                 if (context3 == null) {
                     d.b("GlideHelper: context is null when load: " + imageUrl3, new Object[0]);
                 } else if (context3 instanceof Activity) {
@@ -118,35 +118,35 @@ public class KSNativeAdGroupImgH5OpenView extends c {
                 }
             }
         }
-        this.f31503f.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f31498a.setText(ksNativeAd.getAdDescription());
-        this.f31504g.setText(ksNativeAd.getAdSource());
-        this.f31505h.setText(ksNativeAd.getActionDescription());
+        this.f30748f.setImageBitmap(ksNativeAd.getSdkLogo());
+        this.f30743a.setText(ksNativeAd.getAdDescription());
+        this.f30749g.setText(ksNativeAd.getAdSource());
+        this.f30750h.setText(ksNativeAd.getActionDescription());
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f31498a = (TextView) findViewById(R.id.ad_description);
-        this.f31499b = (LinearLayout) findViewById(R.id.ad_img_container);
-        this.f31500c = (ImageView) findViewById(R.id.ad_img_1);
-        this.f31501d = (ImageView) findViewById(R.id.ad_img_2);
-        this.f31502e = (ImageView) findViewById(R.id.ad_img_3);
-        this.f31503f = (ImageView) findViewById(R.id.ad_logo);
-        this.f31504g = (TextView) findViewById(R.id.ad_h5_description);
-        this.f31505h = (Button) findViewById(R.id.ad_h5_open);
+        this.f30743a = (TextView) findViewById(R.id.ad_description);
+        this.f30744b = (LinearLayout) findViewById(R.id.ad_img_container);
+        this.f30745c = (ImageView) findViewById(R.id.ad_img_1);
+        this.f30746d = (ImageView) findViewById(R.id.ad_img_2);
+        this.f30747e = (ImageView) findViewById(R.id.ad_img_3);
+        this.f30748f = (ImageView) findViewById(R.id.ad_logo);
+        this.f30749g = (TextView) findViewById(R.id.ad_h5_description);
+        this.f30750h = (Button) findViewById(R.id.ad_h5_open);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f31499b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30744b.getLayoutParams();
         int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f31500c.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f31501d.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f31502e.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f30745c.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f30746d.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f30747e.getLayoutParams();
         layoutParams.width = i6;
         layoutParams.height = (int) (((((((i6 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.5f);
-        this.f31499b.setLayoutParams(layoutParams);
+        this.f30744b.setLayoutParams(layoutParams);
     }
 }

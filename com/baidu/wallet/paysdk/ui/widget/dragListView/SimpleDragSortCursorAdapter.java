@@ -10,16 +10,16 @@ import android.widget.TextView;
 public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public String[] f27014a;
+    public String[] f26259a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27015b;
+    public int f26260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f27016c;
+    public a f26261c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f27017d;
+    public b f26262d;
     public int[] mFrom;
     public int[] mTo;
 
@@ -36,9 +36,9 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
     @Deprecated
     public SimpleDragSortCursorAdapter(Context context, int i2, Cursor cursor, String[] strArr, int[] iArr) {
         super(context, i2, cursor);
-        this.f27015b = -1;
+        this.f26260b = -1;
         this.mTo = iArr;
-        this.f27014a = strArr;
+        this.f26259a = strArr;
         a(cursor, strArr);
     }
 
@@ -59,7 +59,7 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
 
     @Override // androidx.cursoradapter.widget.CursorAdapter
     public void bindView(View view, Context context, Cursor cursor) {
-        b bVar = this.f27017d;
+        b bVar = this.f26262d;
         int[] iArr = this.mTo;
         int length = iArr.length;
         int[] iArr2 = this.mFrom;
@@ -86,7 +86,7 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
     }
 
     public void changeCursorAndColumns(Cursor cursor, String[] strArr, int[] iArr) {
-        this.f27014a = strArr;
+        this.f26259a = strArr;
         this.mTo = iArr;
         a(cursor, strArr);
         super.changeCursor(cursor);
@@ -94,11 +94,11 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
 
     @Override // androidx.cursoradapter.widget.CursorAdapter, androidx.cursoradapter.widget.CursorFilter.CursorFilterClient
     public CharSequence convertToString(Cursor cursor) {
-        a aVar = this.f27016c;
+        a aVar = this.f26261c;
         if (aVar != null) {
             return aVar.a(cursor);
         }
-        int i2 = this.f27015b;
+        int i2 = this.f26260b;
         if (i2 > -1) {
             return cursor.getString(i2);
         }
@@ -106,27 +106,27 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
     }
 
     public a getCursorToStringConverter() {
-        return this.f27016c;
+        return this.f26261c;
     }
 
     public int getStringConversionColumn() {
-        return this.f27015b;
+        return this.f26260b;
     }
 
     public b getViewBinder() {
-        return this.f27017d;
+        return this.f26262d;
     }
 
     public void setCursorToStringConverter(a aVar) {
-        this.f27016c = aVar;
+        this.f26261c = aVar;
     }
 
     public void setStringConversionColumn(int i2) {
-        this.f27015b = i2;
+        this.f26260b = i2;
     }
 
     public void setViewBinder(b bVar) {
-        this.f27017d = bVar;
+        this.f26262d = bVar;
     }
 
     public void setViewImage(ImageView imageView, String str) {
@@ -143,15 +143,15 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
 
     @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortCursorAdapter, androidx.cursoradapter.widget.CursorAdapter
     public Cursor swapCursor(Cursor cursor) {
-        a(cursor, this.f27014a);
+        a(cursor, this.f26259a);
         return super.swapCursor(cursor);
     }
 
     public SimpleDragSortCursorAdapter(Context context, int i2, Cursor cursor, String[] strArr, int[] iArr, int i3) {
         super(context, i2, cursor, i3);
-        this.f27015b = -1;
+        this.f26260b = -1;
         this.mTo = iArr;
-        this.f27014a = strArr;
+        this.f26259a = strArr;
         a(cursor, strArr);
     }
 }

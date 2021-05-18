@@ -4,24 +4,24 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 import com.win.opensdk.activitys.H5OpenActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class v extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ H5OpenActivity f37957a;
+    public final /* synthetic */ H5OpenActivity f37202a;
 
     public v(H5OpenActivity h5OpenActivity) {
-        this.f37957a = h5OpenActivity;
+        this.f37202a = h5OpenActivity;
     }
 
     @Override // android.webkit.WebChromeClient
     public void onProgressChanged(WebView webView, int i2) {
-        ProgressBar progressBar = this.f37957a.f37830b;
+        ProgressBar progressBar = this.f37202a.f37075b;
         if (progressBar != null) {
             progressBar.setVisibility(0);
-            this.f37957a.f37830b.setProgress(i2);
+            this.f37202a.f37075b.setProgress(i2);
             if (i2 == 100) {
-                this.f37957a.f37830b.setVisibility(8);
+                this.f37202a.f37075b.setVisibility(8);
             }
         }
         super.onProgressChanged(webView, i2);

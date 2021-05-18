@@ -13,24 +13,24 @@ import d.o.a.d.f.n;
 import d.o.a.d.n.k;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static e a(@NonNull JSONObject jSONObject, String str) {
         String c2 = d.o.a.e.a.h.b.c(jSONObject, "ar", str);
         String c3 = d.o.a.e.a.h.b.c(jSONObject, "as", str);
         if (k.I(n.a(), c2)) {
             e eVar = new e();
-            eVar.f36584b = c2;
-            eVar.f36585c = c2;
-            eVar.f36586d = 100300000;
-            eVar.f36583a = 2;
+            eVar.f35829b = c2;
+            eVar.f35830c = c2;
+            eVar.f35831d = 100300000;
+            eVar.f35828a = 2;
             return eVar;
         } else if (k.I(n.a(), c3)) {
             e eVar2 = new e();
-            eVar2.f36584b = c3;
-            eVar2.f36585c = c3;
-            eVar2.f36586d = 100300000;
-            eVar2.f36583a = 2;
+            eVar2.f35829b = c3;
+            eVar2.f35830c = c3;
+            eVar2.f35831d = 100300000;
+            eVar2.f35828a = 2;
             return eVar2;
         } else {
             return null;
@@ -43,20 +43,20 @@ public class b {
         if (k.I(n.a(), c2)) {
             String c4 = d.o.a.e.a.h.b.c(jSONObject, "at", str2);
             f fVar = new f();
-            fVar.f36587a = str;
-            fVar.f36588b = c4;
-            fVar.f36590d = 0;
-            fVar.f36591e = 2;
-            fVar.f36589c = c4;
+            fVar.f35832a = str;
+            fVar.f35833b = c4;
+            fVar.f35835d = 0;
+            fVar.f35836e = 2;
+            fVar.f35834c = c4;
             return fVar;
         } else if (k.I(n.a(), c3)) {
             String c5 = d.o.a.e.a.h.b.c(jSONObject, ActVideoSetting.ACT_URL, str2);
             f fVar2 = new f();
-            fVar2.f36587a = str;
-            fVar2.f36588b = c5;
-            fVar2.f36590d = 0;
-            fVar2.f36591e = 0;
-            fVar2.f36589c = c5;
+            fVar2.f35832a = str;
+            fVar2.f35833b = c5;
+            fVar2.f35835d = 0;
+            fVar2.f35836e = 0;
+            fVar2.f35834c = c5;
             return fVar2;
         } else {
             return null;
@@ -76,9 +76,9 @@ public class b {
             e a2 = a(jSONObject, str3);
             f b2 = b(str, jSONObject, str3);
             if (a2 != null && b2 != null) {
-                gVar.f36593b = a2;
-                gVar.f36592a = d.o.a.e.a.h.b.c(jSONObject, "aq", str3);
-                gVar.f36594c = b2;
+                gVar.f35838b = a2;
+                gVar.f35837a = d.o.a.e.a.h.b.c(jSONObject, "aq", str3);
+                gVar.f35839c = b2;
                 arrayList.add(gVar);
                 dVar.putParcelableArrayListExtra(d.o.a.e.a.h.b.c(jSONObject, com.alipay.sdk.sys.a.k, str3), arrayList);
                 dVar.addFlags(268468224);

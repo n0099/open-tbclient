@@ -15,70 +15,70 @@ import d.a.c.e.p.k;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.SmartApp;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRecordViewHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f20600a;
+    public Context f19888a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SmartApp> f20601b;
+    public List<SmartApp> f19889b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f20602c;
+    public View.OnClickListener f19890c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnLongClickListener f20603d;
+    public View.OnLongClickListener f19891d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class HistoryRecordViewHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f20604a;
+        public View f19892a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f20605b;
+        public HeadImageView f19893b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f20606c;
+        public TextView f19894c;
 
         public HistoryRecordViewHolder(View view) {
             super(view);
-            this.f20604a = view;
+            this.f19892a = view;
             HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.f20605b = headImageView;
+            this.f19893b = headImageView;
             headImageView.setIsRound(true);
-            this.f20605b.setPlaceHolder(1);
-            this.f20606c = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
+            this.f19893b.setPlaceHolder(1);
+            this.f19894c = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void a(SmartApp smartApp) {
-            this.f20604a.setTag(smartApp);
+            this.f19892a.setTag(smartApp);
             if (!k.isEmpty(smartApp.avatar)) {
-                this.f20605b.setPlaceHolder(1);
-                this.f20605b.W(smartApp.avatar, 10, false, false);
+                this.f19893b.setPlaceHolder(1);
+                this.f19893b.W(smartApp.avatar, 10, false, false);
             }
             if (!k.isEmpty(smartApp.name)) {
-                this.f20606c.setText(smartApp.name);
+                this.f19894c.setText(smartApp.name);
             } else {
-                this.f20606c.setText(R.string.intelligent_smart_app);
+                this.f19894c.setText(R.string.intelligent_smart_app);
             }
         }
 
         public void b() {
-            SkinManager.setBackgroundResource(this.f20604a, R.drawable.person_center_action_item_selector);
-            SkinManager.setViewTextColor(this.f20606c, R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f19892a, R.drawable.person_center_action_item_selector);
+            SkinManager.setViewTextColor(this.f19894c, R.color.CAM_X0105);
         }
 
         public void c(View.OnClickListener onClickListener) {
-            View view = this.f20604a;
+            View view = this.f19892a;
             if (view != null) {
                 view.setOnClickListener(onClickListener);
             }
         }
 
         public void d(View.OnLongClickListener onLongClickListener) {
-            View view = this.f20604a;
+            View view = this.f19892a;
             if (view != null) {
                 view.setOnLongClickListener(onLongClickListener);
             }
@@ -86,17 +86,17 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
     }
 
     public SmartAppBrowseHistoryAdapter(Context context) {
-        this.f20600a = context;
+        this.f19888a = context;
     }
 
     public final SmartApp c(int i2) {
-        return (SmartApp) ListUtils.getItem(this.f20601b, i2);
+        return (SmartApp) ListUtils.getItem(this.f19889b, i2);
     }
 
     public void d(SmartApp smartApp) {
         List<SmartApp> list;
         SmartApp g2 = g(smartApp.id);
-        if (g2 == null || (list = this.f20601b) == null) {
+        if (g2 == null || (list = this.f19889b) == null) {
             return;
         }
         ListUtils.add(list, 0, g2);
@@ -111,8 +111,8 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
             return;
         }
         historyRecordViewHolder.a(c2);
-        historyRecordViewHolder.c(this.f20602c);
-        historyRecordViewHolder.d(this.f20603d);
+        historyRecordViewHolder.c(this.f19890c);
+        historyRecordViewHolder.d(this.f19891d);
         historyRecordViewHolder.b();
     }
 
@@ -120,14 +120,14 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: f */
     public HistoryRecordViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
-        return new HistoryRecordViewHolder(LayoutInflater.from(this.f20600a).inflate(R.layout.smart_app_history_record_item, viewGroup, false));
+        return new HistoryRecordViewHolder(LayoutInflater.from(this.f19888a).inflate(R.layout.smart_app_history_record_item, viewGroup, false));
     }
 
     public SmartApp g(String str) {
-        if (ListUtils.isEmpty(this.f20601b)) {
+        if (ListUtils.isEmpty(this.f19889b)) {
             return null;
         }
-        Iterator<SmartApp> it = this.f20601b.iterator();
+        Iterator<SmartApp> it = this.f19889b.iterator();
         while (it.hasNext()) {
             SmartApp next = it.next();
             if (next != null && StringHelper.equals(next.id, str)) {
@@ -140,18 +140,18 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return ListUtils.getCount(this.f20601b);
+        return ListUtils.getCount(this.f19889b);
     }
 
     public void h(List<SmartApp> list) {
-        this.f20601b = list;
+        this.f19889b = list;
     }
 
     public void i(View.OnClickListener onClickListener) {
-        this.f20602c = onClickListener;
+        this.f19890c = onClickListener;
     }
 
     public void j(View.OnLongClickListener onLongClickListener) {
-        this.f20603d = onLongClickListener;
+        this.f19891d = onLongClickListener;
     }
 }

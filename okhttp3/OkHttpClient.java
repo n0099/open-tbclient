@@ -20,7 +20,6 @@ import javax.net.ssl.X509TrustManager;
 import okhttp3.Call;
 import okhttp3.EventListener;
 import okhttp3.Headers;
-import okhttp3.HttpUrl;
 import okhttp3.Response;
 import okhttp3.WebSocket;
 import okhttp3.internal.Internal;
@@ -109,7 +108,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
 
             @Override // okhttp3.internal.Internal
             public boolean isInvalidHttpUrlHost(IllegalArgumentException illegalArgumentException) {
-                return illegalArgumentException.getMessage().startsWith(HttpUrl.Builder.INVALID_HOST);
+                return illegalArgumentException.getMessage().startsWith("Invalid URL host");
             }
 
             @Override // okhttp3.internal.Internal

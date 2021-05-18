@@ -7,31 +7,31 @@ import org.json.JSONObject;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67313a = 2026;
+    public int f67999a = 2026;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67314b;
+    public String f68000b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67315c;
+    public int f68001c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67316d;
+    public String f68002d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f67317e;
+    public int f68003e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f67318f;
+    public String f68004f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f67319g;
+    public String f68005g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f67320h;
+    public boolean f68006h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f67321i;
+    public String f68007i;
     public int j;
 
     public o(String str) {
@@ -43,20 +43,20 @@ public class o {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt("cmd");
-                if (this.f67313a == optInt) {
+                if (this.f67999a == optInt) {
                     jSONObject.optLong("uid");
-                    this.f67314b = jSONObject.optString(IAdRequestParam.SEQ);
-                    this.f67315c = jSONObject.optInt("result");
-                    this.f67316d = jSONObject.optString("message");
-                    this.f67317e = jSONObject.optInt("activityId");
-                    this.f67318f = jSONObject.optString("startTime");
-                    this.f67319g = jSONObject.optString("endTime");
-                    this.f67320h = jSONObject.optBoolean("hasCharge");
-                    this.f67321i = jSONObject.optString("tip");
+                    this.f68000b = jSONObject.optString(IAdRequestParam.SEQ);
+                    this.f68001c = jSONObject.optInt("result");
+                    this.f68002d = jSONObject.optString("message");
+                    this.f68003e = jSONObject.optInt("activityId");
+                    this.f68004f = jSONObject.optString("startTime");
+                    this.f68005g = jSONObject.optString("endTime");
+                    this.f68006h = jSONObject.optBoolean("hasCharge");
+                    this.f68007i = jSONObject.optString("tip");
                     this.j = jSONObject.optInt("chargeCount");
                     return;
                 }
-                throw new Exception(this.f67313a + " != " + optInt);
+                throw new Exception(this.f67999a + " != " + optInt);
             } catch (JSONException e2) {
                 d.r.b.a.a.f.d.d.d("GetHasChargeInActivityResponse", "parserResponse error.", e2);
                 return;

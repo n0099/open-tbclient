@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import d.a.c.j.e.n;
-import d.a.j0.a1.f.e.a;
-import d.a.j0.a1.f.h.c;
+import d.a.k0.a1.f.e.a;
+import d.a.k0.a1.f.h.c;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
@@ -17,7 +17,7 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
         super(CmdConfigHttp.CMD_LOW_FLOWS_PAGE);
     }
 
-    @Override // d.a.j0.a1.f.e.a
+    @Override // d.a.k0.a1.f.e.a
     public List<n> getDataList() {
         return this.mMoreTreasureTroveDataList;
     }

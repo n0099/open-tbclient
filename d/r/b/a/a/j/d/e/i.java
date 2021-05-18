@@ -11,22 +11,22 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67271b;
+    public long f67957b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67272c;
+    public String f67958c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67273d;
+    public String f67959d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f67274e;
+    public int f67960e;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67270a = 2060;
+    public int f67956a = 2060;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d.r.b.a.a.i.c.j> f67275f = new ArrayList();
+    public List<d.r.b.a.a.i.c.j> f67961f = new ArrayList();
 
     public i(String str) {
         d(str);
@@ -42,9 +42,9 @@ public class i {
             JSONObject optJSONObject = jSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 d.r.b.a.a.i.c.e eVar = new d.r.b.a.a.i.c.e();
-                eVar.f67075a = optJSONObject.optInt("offers_currency_type");
-                eVar.f67076b = optJSONObject.optLong("offers_currency_amount");
-                eVar.f67077c = optJSONObject.optString("offers_currency_name");
+                eVar.f67761a = optJSONObject.optInt("offers_currency_type");
+                eVar.f67762b = optJSONObject.optLong("offers_currency_amount");
+                eVar.f67763c = optJSONObject.optString("offers_currency_name");
                 arrayList.add(eVar);
             }
         }
@@ -61,15 +61,15 @@ public class i {
             JSONObject optJSONObject = jSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 d.r.b.a.a.i.c.j jVar = new d.r.b.a.a.i.c.j();
-                jVar.f67103a = optJSONObject.optInt(IAdRequestParam.CELL_ID);
-                jVar.f67104b = optJSONObject.optString("offersTips");
-                jVar.f67105c = optJSONObject.optString("name");
-                jVar.f67106d = optJSONObject.optInt("level");
-                jVar.f67107e = Double.valueOf(optJSONObject.optDouble("srcAmount"));
-                jVar.f67108f = optJSONObject.optString("srcCurrencySymbol");
-                jVar.f67109g = optJSONObject.optLong("destAmount");
-                jVar.f67110h = optJSONObject.optInt("offersType");
-                jVar.f67111i = optJSONObject.optInt("offersRate");
+                jVar.f67789a = optJSONObject.optInt(IAdRequestParam.CELL_ID);
+                jVar.f67790b = optJSONObject.optString("offersTips");
+                jVar.f67791c = optJSONObject.optString("name");
+                jVar.f67792d = optJSONObject.optInt("level");
+                jVar.f67793e = Double.valueOf(optJSONObject.optDouble("srcAmount"));
+                jVar.f67794f = optJSONObject.optString("srcCurrencySymbol");
+                jVar.f67795g = optJSONObject.optLong("destAmount");
+                jVar.f67796h = optJSONObject.optInt("offersType");
+                jVar.f67797i = optJSONObject.optInt("offersRate");
                 jVar.j = optJSONObject.optBoolean("offers_currency_same");
                 jVar.l = optJSONObject.optString("offers_currency_name");
                 jVar.k = optJSONObject.optInt("offers_currency_type");
@@ -112,9 +112,9 @@ public class i {
             JSONObject optJSONObject = jSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 d.r.b.a.a.i.c.k kVar = new d.r.b.a.a.i.c.k();
-                kVar.f67112a = optJSONObject.optInt(PersonalBackgroundPreviewActivityConfig.PROPID);
-                kVar.f67113b = optJSONObject.optInt("count");
-                kVar.f67114c = optJSONObject.optInt("type");
+                kVar.f67798a = optJSONObject.optInt(PersonalBackgroundPreviewActivityConfig.PROPID);
+                kVar.f67799b = optJSONObject.optInt("count");
+                kVar.f67800c = optJSONObject.optInt("type");
                 arrayList.add(kVar);
             }
         }
@@ -126,15 +126,15 @@ public class i {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt("cmd");
-                if (this.f67270a == optInt) {
-                    this.f67271b = jSONObject.optLong("uid");
-                    this.f67272c = jSONObject.optString(IAdRequestParam.SEQ);
-                    this.f67273d = jSONObject.optString("expand");
-                    this.f67274e = jSONObject.optInt("currencyType");
-                    this.f67275f.addAll(b(jSONObject.optJSONArray("confList")));
+                if (this.f67956a == optInt) {
+                    this.f67957b = jSONObject.optLong("uid");
+                    this.f67958c = jSONObject.optString(IAdRequestParam.SEQ);
+                    this.f67959d = jSONObject.optString("expand");
+                    this.f67960e = jSONObject.optInt("currencyType");
+                    this.f67961f.addAll(b(jSONObject.optJSONArray("confList")));
                     return;
                 }
-                throw new Exception(this.f67270a + " != " + optInt);
+                throw new Exception(this.f67956a + " != " + optInt);
             } catch (JSONException e2) {
                 d.r.b.a.a.f.d.d.d("GetChargeCurrencyConfigChannelsResponse", "parserResponse error.", e2);
                 return;
@@ -147,6 +147,6 @@ public class i {
     }
 
     public String toString() {
-        return "GetChargeCurrencyConfigChannelsResponse{cmd=" + this.f67270a + ", uid=" + this.f67271b + ", seq='" + this.f67272c + "', expand='" + this.f67273d + "', currencyType=" + this.f67274e + ", confList=" + this.f67275f + '}';
+        return "GetChargeCurrencyConfigChannelsResponse{cmd=" + this.f67956a + ", uid=" + this.f67957b + ", seq='" + this.f67958c + "', expand='" + this.f67959d + "', currencyType=" + this.f67960e + ", confList=" + this.f67961f + '}';
     }
 }

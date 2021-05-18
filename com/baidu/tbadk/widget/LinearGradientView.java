@@ -11,26 +11,26 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.a.j0.j1.o.k.b;
+import d.a.k0.j1.o.k.b;
 import java.util.ArrayList;
 import tbclient.ThemeElement;
 /* loaded from: classes3.dex */
 public class LinearGradientView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13743e;
+    public int f13079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13744f;
+    public int f13080f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13745g;
+    public int f13081g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13746h;
+    public int f13082h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13747i;
+    public int f13083i;
     public int j;
     public int k;
     public LinearGradient l;
@@ -44,7 +44,7 @@ public class LinearGradientView extends View {
 
     public LinearGradientView(Context context) {
         super(context);
-        this.f13743e = 3;
+        this.f13079e = 3;
         this.m = new Paint();
         this.o = 0;
         this.s = 0;
@@ -52,11 +52,11 @@ public class LinearGradientView extends View {
     }
 
     public void a(int i2) {
-        if (this.f13743e != i2) {
+        if (this.f13079e != i2) {
             this.l = c();
             invalidate();
         }
-        this.f13743e = i2;
+        this.f13079e = i2;
     }
 
     public final void b() {
@@ -99,19 +99,19 @@ public class LinearGradientView extends View {
 
     public final LinearGradient c() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        int i2 = this.f13744f;
-        int i3 = this.f13745g;
+        int i2 = this.f13080f;
+        int i3 = this.f13081g;
         if (skinType == 4) {
             i2 = this.j;
             i3 = this.k;
         } else if (skinType == 1) {
-            i2 = this.f13746h;
-            i3 = this.f13747i;
+            i2 = this.f13082h;
+            i3 = this.f13083i;
         }
         LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, getHeight(), getHeight(), new int[]{i2, i3}, (float[]) null, Shader.TileMode.CLAMP);
         this.l = linearGradient;
         this.m.setShader(linearGradient);
-        this.f13743e = skinType;
+        this.f13079e = skinType;
         return this.l;
     }
 
@@ -121,10 +121,10 @@ public class LinearGradientView extends View {
     }
 
     public final void e() {
-        this.f13744f = b.b("#2BB8FF");
-        this.f13745g = b.b("#2BB8FF");
-        this.f13746h = b.b("#249BD6");
-        this.f13747i = b.b("#246CD6");
+        this.f13080f = b.b("#2BB8FF");
+        this.f13081g = b.b("#2BB8FF");
+        this.f13082h = b.b("#249BD6");
+        this.f13083i = b.b("#246CD6");
         this.j = b.b("#249BD6");
         this.k = b.b("#246CD6");
         this.l = c();
@@ -132,10 +132,10 @@ public class LinearGradientView extends View {
 
     public ArrayList<Integer> getGradientColor() {
         ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(Integer.valueOf(this.f13744f));
-        arrayList.add(Integer.valueOf(this.f13745g));
-        arrayList.add(Integer.valueOf(this.f13746h));
-        arrayList.add(Integer.valueOf(this.f13747i));
+        arrayList.add(Integer.valueOf(this.f13080f));
+        arrayList.add(Integer.valueOf(this.f13081g));
+        arrayList.add(Integer.valueOf(this.f13082h));
+        arrayList.add(Integer.valueOf(this.f13083i));
         arrayList.add(Integer.valueOf(this.j));
         arrayList.add(Integer.valueOf(this.k));
         return arrayList;
@@ -173,10 +173,10 @@ public class LinearGradientView extends View {
     }
 
     public void setGradientColor(int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.f13744f = i2;
-        this.f13745g = i3;
-        this.f13746h = i4;
-        this.f13747i = i5;
+        this.f13080f = i2;
+        this.f13081g = i3;
+        this.f13082h = i4;
+        this.f13083i = i5;
         this.j = i6;
         this.k = i7;
         this.l = c();
@@ -189,7 +189,7 @@ public class LinearGradientView extends View {
 
     public LinearGradientView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13743e = 3;
+        this.f13079e = 3;
         this.m = new Paint();
         this.o = 0;
         this.s = 0;
@@ -198,13 +198,13 @@ public class LinearGradientView extends View {
 
     public void setGradientColor(String str, String str2, String str3, String str4, String str5, String str6) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
-            if (this.f13744f == b.b(str) && this.f13745g == b.b(str2) && this.f13746h == b.b(str3) && this.f13747i == b.b(str4) && this.j == b.b(str5) && this.k == b.b(str6)) {
+            if (this.f13080f == b.b(str) && this.f13081g == b.b(str2) && this.f13082h == b.b(str3) && this.f13083i == b.b(str4) && this.j == b.b(str5) && this.k == b.b(str6)) {
                 return;
             }
-            this.f13744f = b.b(str);
-            this.f13745g = b.b(str2);
-            this.f13746h = b.b(str3);
-            this.f13747i = b.b(str4);
+            this.f13080f = b.b(str);
+            this.f13081g = b.b(str2);
+            this.f13082h = b.b(str3);
+            this.f13083i = b.b(str4);
             this.j = b.b(str5);
             this.k = b.b(str6);
             this.l = c();
@@ -216,7 +216,7 @@ public class LinearGradientView extends View {
 
     public LinearGradientView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13743e = 3;
+        this.f13079e = 3;
         this.m = new Paint();
         this.o = 0;
         this.s = 0;
@@ -253,10 +253,10 @@ public class LinearGradientView extends View {
             b5 = b.b(themeElement3.common_color);
             i3 = b7;
         }
-        this.f13744f = b2;
-        this.f13745g = b3;
-        this.f13746h = i2;
-        this.f13747i = b4;
+        this.f13080f = b2;
+        this.f13081g = b3;
+        this.f13082h = i2;
+        this.f13083i = b4;
         this.j = i3;
         this.k = b5;
         this.l = c();

@@ -7,30 +7,30 @@ import java.util.logging.Logger;
 public final class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Logger f65619c = Logger.getLogger(d.class.getName());
+    public static final Logger f66305c = Logger.getLogger(d.class.getName());
 
     /* renamed from: a  reason: collision with root package name */
-    public a f65620a;
+    public a f66306a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f65621b;
+    public boolean f66307b;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Runnable f65622a;
+        public final Runnable f66308a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Executor f65623b;
+        public final Executor f66309b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f65624c;
+        public a f66310c;
 
         public a(Runnable runnable, Executor executor, a aVar) {
-            this.f65622a = runnable;
-            this.f65623b = executor;
-            this.f65624c = aVar;
+            this.f66308a = runnable;
+            this.f66309b = executor;
+            this.f66310c = aVar;
         }
     }
 
@@ -38,7 +38,7 @@ public final class d {
         try {
             executor.execute(runnable);
         } catch (RuntimeException e2) {
-            Logger logger = f65619c;
+            Logger logger = f66305c;
             Level level = Level.SEVERE;
             logger.log(level, "RuntimeException while executing runnable " + runnable + " with executor " + executor, (Throwable) e2);
         }
@@ -48,8 +48,8 @@ public final class d {
         d.g.c.a.n.q(runnable, "Runnable was null.");
         d.g.c.a.n.q(executor, "Executor was null.");
         synchronized (this) {
-            if (!this.f65621b) {
-                this.f65620a = new a(runnable, executor, this.f65620a);
+            if (!this.f66307b) {
+                this.f66306a = new a(runnable, executor, this.f66306a);
             } else {
                 c(runnable, executor);
             }
@@ -58,22 +58,22 @@ public final class d {
 
     public void b() {
         synchronized (this) {
-            if (this.f65621b) {
+            if (this.f66307b) {
                 return;
             }
-            this.f65621b = true;
-            a aVar = this.f65620a;
+            this.f66307b = true;
+            a aVar = this.f66306a;
             a aVar2 = null;
-            this.f65620a = null;
+            this.f66306a = null;
             while (aVar != null) {
-                a aVar3 = aVar.f65624c;
-                aVar.f65624c = aVar2;
+                a aVar3 = aVar.f66310c;
+                aVar.f66310c = aVar2;
                 aVar2 = aVar;
                 aVar = aVar3;
             }
             while (aVar2 != null) {
-                c(aVar2.f65622a, aVar2.f65623b);
-                aVar2 = aVar2.f65624c;
+                c(aVar2.f66308a, aVar2.f66309b);
+                aVar2 = aVar2.f66310c;
             }
         }
     }

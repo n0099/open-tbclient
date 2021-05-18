@@ -4,7 +4,7 @@ import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.bytedance.sdk.openadsdk.preload.b.j;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends j<UpdatePackage, UpdatePackage> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.b.j

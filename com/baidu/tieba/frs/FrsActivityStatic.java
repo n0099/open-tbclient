@@ -44,13 +44,13 @@ import com.baidu.tieba.frs.movearea.FrsMoveAreaResMsg;
 import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
-import d.a.i0.z0.n0;
-import d.a.i0.z0.o0;
-import d.a.j0.q0.n2.m;
-import d.a.j0.q0.s;
-import d.a.j0.q0.t;
-import d.a.j0.q0.w0;
-import d.a.j0.s2.w;
+import d.a.j0.z0.n0;
+import d.a.j0.z0.o0;
+import d.a.k0.q0.n2.m;
+import d.a.k0.q0.s;
+import d.a.k0.q0.t;
+import d.a.k0.q0.w0;
+import d.a.k0.s2.x;
 import java.net.URLDecoder;
 import java.util.Map;
 import tbclient.FrsPage.FrsPageResIdl;
@@ -59,28 +59,28 @@ import tbclient.StarTrends.StarTrendsResIdl;
 public class FrsActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f15797a = true;
+    public static boolean f15112a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f15798b = true;
+    public static boolean f15113b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f15799c = "";
+    public static String f15114c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final CustomMessageListener f15800d = new g(2012111);
+    public static final CustomMessageListener f15115d = new g(2012111);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CustomMessageListener f15801e = new h(2012112);
+    public static final CustomMessageListener f15116e = new h(2012112);
 
     /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<TbPageContext> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.j0.q0.k> run(CustomMessage<TbPageContext> customMessage) {
+        public CustomResponsedMessage<d.a.k0.q0.k> run(CustomMessage<TbPageContext> customMessage) {
             if (customMessage == null || !(customMessage.getData() instanceof TbPageContext)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2921336, new s(customMessage.getData(), t.f58775f));
+            return new CustomResponsedMessage<>(2921336, new s(customMessage.getData(), t.f59517f));
         }
     }
 
@@ -89,7 +89,7 @@ public class FrsActivityStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            o0.a(d.a.j0.q0.m1.a.f58010i, StarTrendsResIdl.class);
+            o0.a(d.a.k0.q0.m1.a.f58752i, StarTrendsResIdl.class);
             return null;
         }
     }
@@ -237,7 +237,7 @@ public class FrsActivityStatic {
                         return 1;
                     } else if (z2 && !TextUtils.isEmpty(r4)) {
                         d.a.c.e.m.f.c(TbadkCoreApplication.getInst(), m.c(TbadkCoreApplication.getInst(), r4));
-                        d.a.j0.q0.n2.l.e(2, 2);
+                        d.a.k0.q0.n2.l.e(lowerCase, 2, 2);
                         return 1;
                     } else if (z) {
                         tbPageContext.showToast(R.string.page_not_found);
@@ -261,12 +261,12 @@ public class FrsActivityStatic {
             if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
                 int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
                 if (intValue != 1 && intValue != 4 && intValue != 3 && intValue != 2) {
-                    FrsActivityStatic.f15798b = false;
-                    FrsActivityStatic.f15797a = false;
+                    FrsActivityStatic.f15113b = false;
+                    FrsActivityStatic.f15112a = false;
                     return;
                 }
-                FrsActivityStatic.f15798b = true;
-                FrsActivityStatic.f15797a = true;
+                FrsActivityStatic.f15113b = true;
+                FrsActivityStatic.f15112a = true;
             }
         }
     }
@@ -285,8 +285,8 @@ public class FrsActivityStatic {
             }
             int d2 = d.a.c.e.m.b.d(customResponsedMessage.getData().toString(), 1);
             if (d2 == 1 || d2 == 0) {
-                FrsActivityStatic.f15798b = false;
-                FrsActivityStatic.f15797a = false;
+                FrsActivityStatic.f15113b = false;
+                FrsActivityStatic.f15112a = false;
             }
         }
     }
@@ -301,11 +301,11 @@ public class FrsActivityStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
-                if (w.p().b() != null) {
-                    w.p().b().f();
+                if (x.p().b() != null) {
+                    x.p().b().f();
                 }
-                if (w.p().o() != null) {
-                    w.p().o().c();
+                if (x.p().o() != null) {
+                    x.p().o().c();
                 }
             }
         }
@@ -321,16 +321,16 @@ public class FrsActivityStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getCmd() == 2016501 && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                d.a.j0.q0.n2.k.a();
+                d.a.k0.q0.n2.k.a();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class k implements d.a.i0.d.e {
-        @Override // d.a.i0.d.e
+    public static class k implements d.a.j0.d.e {
+        @Override // d.a.j0.d.e
         public View a(Context context) {
-            TextView a2 = d.a.i0.d.d.a(context);
+            TextView a2 = d.a.j0.d.d.a(context);
             if (a2 != null) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
@@ -347,7 +347,7 @@ public class FrsActivityStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            o0.a(d.a.j0.d3.m.WIRE, FrsPageResIdl.class);
+            o0.a(d.a.k0.d3.m.WIRE, FrsPageResIdl.class);
             return null;
         }
     }
@@ -366,8 +366,8 @@ public class FrsActivityStatic {
         i();
         f();
         o();
-        MessageManager.getInstance().registerListener(f15800d);
-        MessageManager.getInstance().registerListener(f15801e);
+        MessageManager.getInstance().registerListener(f15115d);
+        MessageManager.getInstance().registerListener(f15116e);
         h();
         m();
         n();
@@ -378,7 +378,7 @@ public class FrsActivityStatic {
     }
 
     public static void a() {
-        d.a.i0.d.c.b().c(1, new k());
+        d.a.j0.d.c.b().c(1, new k());
     }
 
     public static void b() {
@@ -403,8 +403,8 @@ public class FrsActivityStatic {
     }
 
     public static void f() {
-        d.a.j0.d3.d0.a.h(309602, FrsDynamicSocketResponsedMessage.class, false, false).setPriority(4);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_DYNAMIC, d.a.j0.d3.d0.a.a(TbConfig.FRS_DYNAMIC_ADDRESS, 309602));
+        d.a.k0.d3.d0.a.h(309602, FrsDynamicSocketResponsedMessage.class, false, false).setPriority(4);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_DYNAMIC, d.a.k0.d3.d0.a.a(TbConfig.FRS_DYNAMIC_ADDRESS, 309602));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -424,8 +424,8 @@ public class FrsActivityStatic {
     }
 
     public static void h() {
-        d.a.j0.d3.d0.a.f(301002, LoadMoreResponseSocketMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LOAD_MORE_CMD, d.a.j0.d3.d0.a.a(FrsLoadMoreModel.LOAD_MORE_URL, 301002));
+        d.a.k0.d3.d0.a.f(301002, LoadMoreResponseSocketMessage.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LOAD_MORE_CMD, d.a.k0.d3.d0.a.a(FrsLoadMoreModel.LOAD_MORE_URL, 301002));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -435,8 +435,8 @@ public class FrsActivityStatic {
     }
 
     public static void i() {
-        d.a.j0.d3.d0.a.h(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, d.a.j0.d3.d0.a.a(TbConfig.FRS_ADDRESS, 301001));
+        d.a.k0.d3.d0.a.h(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, d.a.k0.d3.d0.a.a(TbConfig.FRS_ADDRESS, 301001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -458,8 +458,8 @@ public class FrsActivityStatic {
     }
 
     public static void k() {
-        d.a.j0.d3.d0.a.h(309667, GetLiveHorseRaceSocketResponseMessage.class, false, false);
-        d.a.j0.d3.d0.a.c(309667, CmdConfigHttp.CMD_FRS_LIVE_HORSE_RACE_LIST, TbConfig.URL_FRS_LIVE_HORSERACE_LIST, GetLiveHorseRaceHttpResponseMessage.class, true, false, true, false);
+        d.a.k0.d3.d0.a.h(309667, GetLiveHorseRaceSocketResponseMessage.class, false, false);
+        d.a.k0.d3.d0.a.c(309667, CmdConfigHttp.CMD_FRS_LIVE_HORSE_RACE_LIST, TbConfig.URL_FRS_LIVE_HORSERACE_LIST, GetLiveHorseRaceHttpResponseMessage.class, true, false, true, false);
     }
 
     public static void l() {

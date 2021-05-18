@@ -24,30 +24,30 @@ import d.r.b.a.a.f.h.f;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.r.b.a.a.i.f.a f67158a;
+    public d.r.b.a.a.i.f.a f67844a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.r.b.a.a.j.b.a f67159b;
+    public d.r.b.a.a.j.b.a f67845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67160c;
+    public String f67846c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67161d;
+    public String f67847d;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.r.b.a.a.i.c.c f67162e;
+        public final /* synthetic */ d.r.b.a.a.i.c.c f67848e;
 
         public a(d.r.b.a.a.i.c.c cVar) {
-            this.f67162e = cVar;
+            this.f67848e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.f67159b.b(this.f67162e);
+            c.this.f67845b.b(this.f67848e);
         }
     }
 
@@ -55,32 +55,32 @@ public class c {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CurrencyChargeMessage f67164e;
+        public final /* synthetic */ CurrencyChargeMessage f67850e;
 
         public b(CurrencyChargeMessage currencyChargeMessage) {
-            this.f67164e = currencyChargeMessage;
+            this.f67850e = currencyChargeMessage;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.f67159b.a(this.f67164e);
+            c.this.f67845b.a(this.f67850e);
         }
     }
 
     /* renamed from: d.r.b.a.a.j.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class RunnableC1837c implements Runnable {
+    public class RunnableC1901c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.r.b.a.a.i.c.a f67166e;
+        public final /* synthetic */ d.r.b.a.a.i.c.a f67852e;
 
-        public RunnableC1837c(d.r.b.a.a.i.c.a aVar) {
-            this.f67166e = aVar;
+        public RunnableC1901c(d.r.b.a.a.i.c.a aVar) {
+            this.f67852e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.f67159b.c(this.f67166e);
+            c.this.f67845b.c(this.f67852e);
         }
     }
 
@@ -88,23 +88,23 @@ public class c {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IResult f67168e;
+        public final /* synthetic */ IResult f67854e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f67169f;
+        public final /* synthetic */ Object f67855f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.r.b.a.a.f.b f67170g;
+        public final /* synthetic */ d.r.b.a.a.f.b f67856g;
 
         public d(c cVar, IResult iResult, Object obj, d.r.b.a.a.f.b bVar) {
-            this.f67168e = iResult;
-            this.f67169f = obj;
-            this.f67170g = bVar;
+            this.f67854e = iResult;
+            this.f67855f = obj;
+            this.f67856g = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f67168e.onSuccess(this.f67169f, this.f67170g);
+            this.f67854e.onSuccess(this.f67855f, this.f67856g);
         }
     }
 
@@ -112,37 +112,37 @@ public class c {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IResult f67171e;
+        public final /* synthetic */ IResult f67857e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f67172f;
+        public final /* synthetic */ int f67858f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f67173g;
+        public final /* synthetic */ String f67859g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.r.b.a.a.f.b f67174h;
+        public final /* synthetic */ d.r.b.a.a.f.b f67860h;
 
         public e(c cVar, IResult iResult, int i2, String str, d.r.b.a.a.f.b bVar) {
-            this.f67171e = iResult;
-            this.f67172f = i2;
-            this.f67173g = str;
-            this.f67174h = bVar;
+            this.f67857e = iResult;
+            this.f67858f = i2;
+            this.f67859g = str;
+            this.f67860h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f67171e.onFail(this.f67172f, this.f67173g, this.f67174h);
+            this.f67857e.onFail(this.f67858f, this.f67859g, this.f67860h);
         }
     }
 
     public c(d.r.b.a.a.i.f.a aVar, d.r.b.a.a.j.b.a aVar2, String str, String str2) {
-        this.f67160c = "";
-        this.f67161d = "";
-        this.f67158a = aVar;
-        this.f67159b = aVar2;
-        this.f67160c = str;
-        this.f67161d = str2;
+        this.f67846c = "";
+        this.f67847d = "";
+        this.f67844a = aVar;
+        this.f67845b = aVar2;
+        this.f67846c = str;
+        this.f67847d = str2;
     }
 
     public final <T> T b(Class<T> cls, d.r.b.a.a.j.d.g.a aVar) {
@@ -159,9 +159,9 @@ public class c {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.f67159b.c(aVar2);
+            this.f67845b.c(aVar2);
         } else {
-            f.a().b().execute(new RunnableC1837c(aVar2));
+            f.a().b().execute(new RunnableC1901c(aVar2));
         }
     }
 
@@ -171,7 +171,7 @@ public class c {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.f67159b.b(cVar);
+            this.f67845b.b(cVar);
         } else {
             f.a().b().execute(new a(cVar));
         }
@@ -183,7 +183,7 @@ public class c {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.f67159b.a(currencyChargeMessage);
+            this.f67845b.a(currencyChargeMessage);
         } else {
             f.a().b().execute(new b(currencyChargeMessage));
         }
@@ -248,24 +248,24 @@ public class c {
             if (aVar.a() && getChargeOrderStatusResult != null) {
                 u(requestParams, getChargeOrderStatusResult, null);
                 d.r.b.a.a.f.d.d.f("AppPayServiceImpl-RespM", "onGetChargeOrderStatus success");
-                if (this.f67158a != null) {
-                    cVar.f67025a = "-11";
-                    cVar.f67030f = "查询充值订单状态成功";
-                    cVar.f67026b = aVar.getResponseCode() + "";
-                    cVar.f67027c = "onQueryChargeOrderStatus success!" + aVar.getMessage();
-                    this.f67158a.e(cVar);
+                if (this.f67844a != null) {
+                    cVar.f67711a = "-11";
+                    cVar.f67716f = "查询充值订单状态成功";
+                    cVar.f67712b = aVar.getResponseCode() + "";
+                    cVar.f67713c = "onQueryChargeOrderStatus success!" + aVar.getMessage();
+                    this.f67844a.e(cVar);
                     return;
                 }
                 return;
             }
             d.r.b.a.a.f.d.d.e("AppPayServiceImpl-RespM", "onGetChargeOrderStatus fail code = %d, errMsg = %s", Integer.valueOf(aVar.getResponseCode()), aVar.getMessage());
             h("", aVar.getResponseCode(), aVar.getMessage(), requestParams.getCallback(), null);
-            if (this.f67158a != null) {
-                cVar.f67025a = "-12";
-                cVar.f67030f = "查询充值订单状态失败";
-                cVar.f67026b = aVar.getResponseCode() + "";
-                cVar.f67027c = "onQueryChargeOrderStatus fail!" + aVar.getMessage();
-                this.f67158a.c(cVar);
+            if (this.f67844a != null) {
+                cVar.f67711a = "-12";
+                cVar.f67716f = "查询充值订单状态失败";
+                cVar.f67712b = aVar.getResponseCode() + "";
+                cVar.f67713c = "onQueryChargeOrderStatus fail!" + aVar.getMessage();
+                this.f67844a.c(cVar);
             }
         }
     }
@@ -309,24 +309,24 @@ public class c {
             if (aVar.a() && getUserYbDetailsResult != null) {
                 u(requestParams, getUserYbDetailsResult, null);
                 d.r.b.a.a.f.d.d.f("AppPayServiceImpl-RespM", "onGetUserYbDetails success");
-                if (this.f67158a != null) {
-                    cVar.f67025a = "-13";
-                    cVar.f67030f = "查询Y币明细成功";
-                    cVar.f67026b = aVar.getResponseCode() + "";
-                    cVar.f67027c = "onQueryUserYbDetails success!" + aVar.getMessage();
-                    this.f67158a.c(cVar);
+                if (this.f67844a != null) {
+                    cVar.f67711a = "-13";
+                    cVar.f67716f = "查询Y币明细成功";
+                    cVar.f67712b = aVar.getResponseCode() + "";
+                    cVar.f67713c = "onQueryUserYbDetails success!" + aVar.getMessage();
+                    this.f67844a.c(cVar);
                     return;
                 }
                 return;
             }
             d.r.b.a.a.f.d.d.e("AppPayServiceImpl-RespM", "onGetChargeOrderStatus fail code = %d, errMsg = %s", Integer.valueOf(aVar.getResponseCode()), aVar.getMessage());
             h("", aVar.getResponseCode(), aVar.getMessage(), requestParams.getCallback(), null);
-            if (this.f67158a != null) {
-                cVar.f67025a = "-14";
-                cVar.f67030f = "查询Y币明细失败";
-                cVar.f67026b = aVar.getResponseCode() + "";
-                cVar.f67027c = "onQueryUserYbDetails fail!" + aVar.getMessage();
-                this.f67158a.c(cVar);
+            if (this.f67844a != null) {
+                cVar.f67711a = "-14";
+                cVar.f67716f = "查询Y币明细失败";
+                cVar.f67712b = aVar.getResponseCode() + "";
+                cVar.f67713c = "onQueryUserYbDetails fail!" + aVar.getMessage();
+                this.f67844a.c(cVar);
             }
         }
     }
@@ -339,10 +339,10 @@ public class c {
             a.c cVar = new a.c();
             long j = 0;
             if (chargeCurrencyReqParams != null) {
-                cVar.f67029e = chargeCurrencyReqParams.getFrom();
-                cVar.f67028d = chargeCurrencyReqParams.getUid();
+                cVar.f67715e = chargeCurrencyReqParams.getFrom();
+                cVar.f67714d = chargeCurrencyReqParams.getUid();
                 j = System.currentTimeMillis() - chargeCurrencyReqParams.getRequestTime();
-                cVar.f67031g = j + "";
+                cVar.f67717g = j + "";
                 RouterInfo routerInfo = null;
                 Activity context = chargeCurrencyReqParams.getContext();
                 if (context != null) {
@@ -356,30 +356,30 @@ public class c {
                     d.r.b.a.a.f.d.d.e("AppPayServiceImpl", "onOrderProduct---context = null:", new Object[0]);
                 }
                 if (routerInfo == null) {
-                    cVar.k = this.f67160c;
-                    cVar.l = this.f67161d;
+                    cVar.k = this.f67846c;
+                    cVar.l = this.f67847d;
                 } else {
                     cVar.k = routerInfo.serviceName;
                     cVar.l = routerInfo.functionName;
                 }
             }
             long j2 = j;
-            d.r.b.a.a.f.d.d.f("AppPayServiceImpl", "onOrderProduct---mDefalutServiceName:" + this.f67160c + "---mDefalutFunctionName:" + this.f67161d + "---mRealFunctionName:" + cVar.k + "---mRealFunctionName:" + cVar.l);
+            d.r.b.a.a.f.d.d.f("AppPayServiceImpl", "onOrderProduct---mDefalutServiceName:" + this.f67846c + "---mDefalutFunctionName:" + this.f67847d + "---mRealFunctionName:" + cVar.k + "---mRealFunctionName:" + cVar.l);
             if (payOrderResult != null) {
-                cVar.f67032h = payOrderResult.getOrderId();
+                cVar.f67718h = payOrderResult.getOrderId();
             }
             if (chargeCurrencyReqParams != null) {
                 if (payOrderResult != null) {
                     String b3 = d.r.b.a.a.j.e.a.b(payOrderResult.getExpand());
                     if (b3 != null && !b3.equals("")) {
-                        this.f67159b.f(b3, chargeCurrencyReqParams, aVar, request);
+                        this.f67845b.f(b3, chargeCurrencyReqParams, aVar, request);
                         return;
                     } else {
-                        this.f67159b.l(aVar, chargeCurrencyReqParams, payOrderResult, request, cVar, j2);
+                        this.f67845b.l(aVar, chargeCurrencyReqParams, payOrderResult, request, cVar, j2);
                         return;
                     }
                 }
-                this.f67159b.l(aVar, chargeCurrencyReqParams, null, request, cVar, j2);
+                this.f67845b.l(aVar, chargeCurrencyReqParams, null, request, cVar, j2);
             }
         }
     }
@@ -393,24 +393,24 @@ public class c {
             if (aVar.a() && productListResult != null) {
                 d.r.b.a.a.f.d.d.f("AppPayServiceImpl-RespM", "onQueryProductList success");
                 u(requestParams, productListResult, null);
-                if (this.f67158a != null) {
-                    cVar.f67025a = "-5";
-                    cVar.f67030f = "获取配置列表成功";
-                    cVar.f67026b = aVar.getResponseCode() + "";
-                    cVar.f67027c = "queryProductList success!" + aVar.getMessage();
-                    this.f67158a.b(cVar);
+                if (this.f67844a != null) {
+                    cVar.f67711a = "-5";
+                    cVar.f67716f = "获取配置列表成功";
+                    cVar.f67712b = aVar.getResponseCode() + "";
+                    cVar.f67713c = "queryProductList success!" + aVar.getMessage();
+                    this.f67844a.b(cVar);
                     return;
                 }
                 return;
             }
             d.r.b.a.a.f.d.d.e("AppPayServiceImpl-RespM", "onQueryProductList fail code = %d, errMsg = %s", Integer.valueOf(aVar.getResponseCode()), aVar.getMessage());
             h(request.e(), aVar.getResponseCode(), aVar.getMessage(), requestParams.getCallback(), null);
-            if (this.f67158a != null) {
-                cVar.f67025a = "-4";
-                cVar.f67030f = "获取配置列表失败";
-                cVar.f67026b = aVar.getResponseCode() + "";
-                cVar.f67027c = "queryProductList fail!" + aVar.getMessage();
-                this.f67158a.b(cVar);
+            if (this.f67844a != null) {
+                cVar.f67711a = "-4";
+                cVar.f67716f = "获取配置列表失败";
+                cVar.f67712b = aVar.getResponseCode() + "";
+                cVar.f67713c = "queryProductList fail!" + aVar.getMessage();
+                this.f67844a.b(cVar);
             }
         }
     }
@@ -424,24 +424,24 @@ public class c {
             if (aVar.a() && productListResult != null) {
                 d.r.b.a.a.f.d.d.f("AppPayServiceImpl-RespM", "onQueryProductChannelsList success");
                 u(requestParams, productListResult, null);
-                if (this.f67158a != null) {
-                    cVar.f67025a = "-5";
-                    cVar.f67030f = "获取配置列表成功";
-                    cVar.f67026b = aVar.getResponseCode() + "";
-                    cVar.f67027c = "onQueryProductListChannels success!" + aVar.getMessage();
-                    this.f67158a.b(cVar);
+                if (this.f67844a != null) {
+                    cVar.f67711a = "-5";
+                    cVar.f67716f = "获取配置列表成功";
+                    cVar.f67712b = aVar.getResponseCode() + "";
+                    cVar.f67713c = "onQueryProductListChannels success!" + aVar.getMessage();
+                    this.f67844a.b(cVar);
                     return;
                 }
                 return;
             }
             d.r.b.a.a.f.d.d.e("AppPayServiceImpl-RespM", "onQueryProductChannelsList fail code = %d, errMsg = %s", Integer.valueOf(aVar.getResponseCode()), aVar.getMessage());
             h(request.e(), aVar.getResponseCode(), aVar.getMessage(), requestParams.getCallback(), null);
-            if (this.f67158a != null) {
-                cVar.f67025a = "-4";
-                cVar.f67030f = "获取配置列表失败";
-                cVar.f67026b = aVar.getResponseCode() + "";
-                cVar.f67027c = "onQueryProductListChannels fail!" + aVar.getMessage();
-                this.f67158a.b(cVar);
+            if (this.f67844a != null) {
+                cVar.f67711a = "-4";
+                cVar.f67716f = "获取配置列表失败";
+                cVar.f67712b = aVar.getResponseCode() + "";
+                cVar.f67713c = "onQueryProductListChannels fail!" + aVar.getMessage();
+                this.f67844a.b(cVar);
             }
         }
     }

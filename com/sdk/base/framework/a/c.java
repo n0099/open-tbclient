@@ -1,19 +1,19 @@
 package com.sdk.base.framework.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f36380a;
+    public long f35625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f36381b = System.currentTimeMillis();
+    public long f35626b = System.currentTimeMillis();
 
     public c(a aVar, long j) {
-        this.f36380a = 1500L;
-        this.f36380a = 2000L;
+        this.f35625a = 1500L;
+        this.f35625a = 2000L;
     }
 
     public final boolean a() {
-        return System.currentTimeMillis() - this.f36381b > this.f36380a;
+        return System.currentTimeMillis() - this.f35626b > this.f35625a;
     }
 }

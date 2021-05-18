@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import com.sdk.base.framework.f.c.a;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ApkItemInfo {
     public String apkfile;
     public Drawable icon;

@@ -6,7 +6,7 @@ import android.location.LocationManager;
 import android.os.Looper;
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class n1 {
     public static void a(Context context) {
         l1 l1Var = new l1(null);

@@ -1,11 +1,11 @@
 package com.sdk.base.framework.f.i;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f36532a = false;
+    public static boolean f35777a = false;
 
     public static boolean a(Context context) {
         Long c2 = com.sdk.base.framework.f.b.a.c(context, "access_limit_time");

@@ -4,6 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import d.d.a.a.a;
 import d.d.a.a.b.l;
@@ -17,7 +18,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f31435a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
+    public static final List<String> f30680a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
         {
             add("HUAWEI");
             add("OPPO");
@@ -30,7 +31,7 @@ public class f {
         String trim = str == null ? RomUtils.UNKNOWN : str.trim();
         try {
             if (!TextUtils.isEmpty(trim)) {
-                for (String str2 : f31435a) {
+                for (String str2 : f30680a) {
                     if (str2.equalsIgnoreCase(trim)) {
                         return str2;
                     }
@@ -67,7 +68,7 @@ public class f {
                 }
             }
             jSONObject3.put("product", str5);
-            jSONObject3.put("sdk_version", str6);
+            jSONObject3.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, str6);
             jSONObject3.put("channel_id", str7);
             jSONObject3.put("$os", "Android");
             jSONObject3.put("$os_version", Build.VERSION.RELEASE == null ? RomUtils.UNKNOWN : Build.VERSION.RELEASE);

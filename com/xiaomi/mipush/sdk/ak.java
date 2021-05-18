@@ -6,18 +6,18 @@ import android.content.Intent;
 public final class ak implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f38060a;
+    public final /* synthetic */ Context f37305a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Intent f59a;
 
     public ak(Context context, Intent intent) {
-        this.f38060a = context;
+        this.f37305a = context;
         this.f59a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        PushMessageHandler.b(this.f38060a, this.f59a);
+        PushMessageHandler.b(this.f37305a, this.f59a);
     }
 }

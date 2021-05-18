@@ -6,26 +6,26 @@ import java.util.List;
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f32680a;
+    public boolean f31925a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f32681b;
+    public List<b> f31926b;
 
     public a() {
-        this.f32680a = true;
+        this.f31925a = true;
     }
 
     public a(boolean z) {
-        this.f32680a = z;
+        this.f31925a = z;
     }
 
     public List<b> a() {
-        return this.f32681b;
+        return this.f31926b;
     }
 
     @Override // com.kwad.sdk.collector.a.b
     public boolean a(Context context) {
-        if (this.f32680a) {
+        if (this.f31925a) {
             List<b> a2 = a();
             if (a2 == null || a2.size() <= 0) {
                 try {

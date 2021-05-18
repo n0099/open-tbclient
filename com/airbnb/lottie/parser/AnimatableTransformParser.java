@@ -18,7 +18,7 @@ import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class AnimatableTransformParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of("a", "p", "s", "rz", r.f7975a, Config.OS, "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
+    public static JsonReader.Options NAMES = JsonReader.Options.of("a", "p", "s", "rz", r.f7772a, Config.OS, "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
     public static JsonReader.Options ANIMATABLE_NAMES = JsonReader.Options.of(Config.APP_KEY);
 
     public static boolean isAnchorPointIdentity(AnimatablePathValue animatablePathValue) {

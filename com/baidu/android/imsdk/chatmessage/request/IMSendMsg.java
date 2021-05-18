@@ -8,13 +8,13 @@ import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.DuzhanUpMsgCreator;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.List;
 import java.util.Map;
@@ -107,7 +107,7 @@ public class IMSendMsg extends Message {
                 jSONObject.put("type", this.mType);
                 jSONObject.put("content", this.mContent);
                 jSONObject.put("msg_key", this.mMsgKey);
-                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 this.mBody = jSONObject.toString();
             }
             jSONObject.put("method", 55);
@@ -131,7 +131,7 @@ public class IMSendMsg extends Message {
             jSONObject.put("type", this.mType);
             jSONObject.put("content", this.mContent);
             jSONObject.put("msg_key", this.mMsgKey);
-            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             this.mBody = jSONObject.toString();
         } catch (JSONException e2) {
             LogUtils.e(TAG, "Exception ", e2);
@@ -156,7 +156,7 @@ public class IMSendMsg extends Message {
             }
             j = jSONObject.optLong("time", -1L);
             if (jSONObject.optBoolean("display_tips")) {
-                str2 = jSONObject.optString(TableDefine.MessageColumns.COLUME_TIPS);
+                str2 = jSONObject.optString("tips");
             }
         } catch (Exception e2) {
             LogUtils.e(TAG, "handle IMSendMsg exception :", e2);

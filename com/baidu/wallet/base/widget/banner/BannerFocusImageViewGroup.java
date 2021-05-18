@@ -34,31 +34,31 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
     public static final int TOKEN_IS_EXPIRED = 112;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f24414a = 1;
+    public static final int f23659a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f24415b = 0;
+    public static final int f23660b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f24416c = 1;
+    public static final int f23661c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f24417d = 200;
+    public static final int f23662d = 200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f24418e = -1;
+    public static final int f23663e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f24419f = -999;
+    public static final int f23664f = -999;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f24420g = 3000;
+    public static final int f23665g = 3000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f24421h = 100;
+    public static final int f23666h = 100;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f24422i = 5;
+    public static final int f23667i = 5;
     public static final float j = 0.23f;
     public static final float k = 1.0E9f;
     public static final float l = 0.75f;
@@ -105,28 +105,28 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f24430a = 1;
+        public static final int f23675a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f24431b = 2;
+        public static final int f23676b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public WeakReference<BannerFocusImageViewGroup> f24432c;
+        public WeakReference<BannerFocusImageViewGroup> f23677c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f24433d = 0;
+        public int f23678d = 0;
 
         public a(BannerFocusImageViewGroup bannerFocusImageViewGroup) {
-            this.f24432c = new WeakReference<>(bannerFocusImageViewGroup);
+            this.f23677c = new WeakReference<>(bannerFocusImageViewGroup);
         }
 
         public void a(int i2) {
-            this.f24433d = i2;
+            this.f23678d = i2;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            BannerFocusImageViewGroup bannerFocusImageViewGroup = this.f24432c.get();
+            BannerFocusImageViewGroup bannerFocusImageViewGroup = this.f23677c.get();
             if (message == null || bannerFocusImageViewGroup == null) {
                 return;
             }
@@ -134,7 +134,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
             if (i2 == 1) {
                 Rect rect = new Rect();
                 bannerFocusImageViewGroup.getGlobalVisibleRect(rect);
-                if (this.f24433d == rect.left) {
+                if (this.f23678d == rect.left) {
                     bannerFocusImageViewGroup.moveToNext();
                 }
                 sendMessageDelayed(obtainMessage(1), 3000L);
@@ -148,7 +148,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
                         if (!it.hasNext()) {
                             z = z2;
                             break;
-                        } else if (TextUtils.isEmpty(((FoucsImageItem) it.next()).f24429c)) {
+                        } else if (TextUtils.isEmpty(((FoucsImageItem) it.next()).f23674c)) {
                             break;
                         }
                     }
@@ -239,7 +239,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
             } else {
                 this.s = Math.max(0, Math.min(this.r, getChildCount() - 1));
             }
-            this.r = -999;
+            this.r = f23664f;
         } else if (this.t != 1 || this.M <= 1) {
         } else {
             super.scrollTo(getScrollX() + ((int) ((this.z - getScrollX()) * ((float) Math.exp(((((float) System.nanoTime()) / 1.0E9f) - this.A) / n)))), getScrollY());
@@ -594,7 +594,7 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
     public BannerFocusImageViewGroup(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         this.p = -1;
-        this.r = -999;
+        this.r = f23664f;
         this.t = 0;
         this.u = 0;
         this.v = 0;
@@ -617,54 +617,54 @@ public class BannerFocusImageViewGroup extends ViewGroup implements FocusImageCe
     public static class FoucsImageItem {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f24427a;
+        public int f23672a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24428b;
+        public String f23673b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f24429c;
+        public String f23674c;
 
         public FoucsImageItem() {
-            this.f24427a = 0;
-            this.f24428b = "";
-            this.f24429c = "";
-            this.f24427a = 0;
-            this.f24428b = "";
-            this.f24429c = "";
+            this.f23672a = 0;
+            this.f23673b = "";
+            this.f23674c = "";
+            this.f23672a = 0;
+            this.f23673b = "";
+            this.f23674c = "";
         }
 
         public String getImageUrl() {
-            return this.f24429c;
+            return this.f23674c;
         }
 
         public String getPageID() {
-            return this.f24428b;
+            return this.f23673b;
         }
 
         public int getPageType() {
-            return this.f24427a;
+            return this.f23672a;
         }
 
         public void setImageUrl(String str) {
-            this.f24429c = str;
+            this.f23674c = str;
         }
 
         public void setPageID(String str) {
-            this.f24428b = str;
+            this.f23673b = str;
         }
 
         public void setPageTpye(int i2) {
-            this.f24427a = i2;
+            this.f23672a = i2;
         }
 
         public FoucsImageItem(String str, int i2, String str2) {
-            this.f24427a = 0;
-            this.f24428b = "";
-            this.f24429c = "";
-            this.f24428b = str;
-            this.f24427a = i2;
-            this.f24429c = str2;
+            this.f23672a = 0;
+            this.f23673b = "";
+            this.f23674c = "";
+            this.f23673b = str;
+            this.f23672a = i2;
+            this.f23674c = str2;
         }
     }
 

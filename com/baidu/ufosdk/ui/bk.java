@@ -5,10 +5,10 @@ import android.content.SharedPreferences;
 public final class bk implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23490a;
+    public final /* synthetic */ FeedbackInputActivity f22735a;
 
     public bk(FeedbackInputActivity feedbackInputActivity) {
-        this.f23490a = feedbackInputActivity;
+        this.f22735a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
@@ -17,21 +17,21 @@ public final class bk implements Runnable {
         String str2;
         String str3;
         String str4;
-        SharedPreferences.Editor edit = this.f23490a.getSharedPreferences("UfoSharePreference", 0).edit();
-        str = this.f23490a.aA;
+        SharedPreferences.Editor edit = this.f22735a.getSharedPreferences("UfoSharePreference", 0).edit();
+        str = this.f22735a.aA;
         if (str != null) {
-            str3 = this.f23490a.aA;
+            str3 = this.f22735a.aA;
             if (str3.trim().length() > 0) {
-                str4 = this.f23490a.aA;
+                str4 = this.f22735a.aA;
                 str2 = com.baidu.ufosdk.f.k.a(str4);
                 edit.putString("cryptContactData", str2);
                 edit.commit();
-                FeedbackInputActivity.j(this.f23490a);
+                FeedbackInputActivity.j(this.f22735a);
             }
         }
         str2 = "";
         edit.putString("cryptContactData", str2);
         edit.commit();
-        FeedbackInputActivity.j(this.f23490a);
+        FeedbackInputActivity.j(this.f22735a);
     }
 }

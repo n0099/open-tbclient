@@ -38,7 +38,7 @@ public class WebGLImage {
         this.mBasePath = str;
     }
 
-    public static byte[] compressCanvas(Bitmap bitmap, int i2, int i3, String str, float f2) throws Throwable {
+    public static byte[] compressCanvas(Bitmap bitmap, int i2, int i3, String str, float f2) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         Bitmap.CompressFormat compressFormat = toCompressFormat(str);
         if (i2 != bitmap.getWidth() || i3 != bitmap.getHeight()) {
@@ -148,7 +148,7 @@ public class WebGLImage {
         }
     }
 
-    public static String saveTempFilePath(long j, byte[] bArr, String str) throws Throwable {
+    public static String saveTempFilePath(long j, byte[] bArr, String str) {
         FileOutputStream fileOutputStream = null;
         try {
             File file = new File(V8Engine.getInstance(j).getBdFileRealPath(), "tmp");

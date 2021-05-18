@@ -1,45 +1,45 @@
 package d.b.d.b.j;
 
 import android.os.Handler;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class a implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f65218e;
+    public Handler f65904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f65219f;
+    public final long f65905f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f65220g;
+    public final long f65906g;
 
     public a(Handler handler, long j, long j2) {
-        this.f65218e = handler;
-        this.f65219f = j;
-        this.f65220g = j2;
+        this.f65904e = handler;
+        this.f65905f = j;
+        this.f65906g = j2;
     }
 
     public void a() {
         if (c() > 0) {
-            this.f65218e.postDelayed(this, c());
+            this.f65904e.postDelayed(this, c());
         } else {
-            this.f65218e.post(this);
+            this.f65904e.post(this);
         }
     }
 
     public void b(long j) {
         if (j > 0) {
-            this.f65218e.postDelayed(this, j);
+            this.f65904e.postDelayed(this, j);
         } else {
-            this.f65218e.post(this);
+            this.f65904e.post(this);
         }
     }
 
     public long c() {
-        return this.f65219f;
+        return this.f65905f;
     }
 
     public long d() {
-        return this.f65220g;
+        return this.f65906g;
     }
 }

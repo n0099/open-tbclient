@@ -464,6 +464,18 @@ public class StringHelper extends k {
         }
     }
 
+    public static String getBaAgeAutoYearAndMonth(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_less_one_year), 1);
+        }
+        float c2 = b.c(str, 0.0f);
+        if (c2 > 1.0f) {
+            return String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_more_one_year), Integer.valueOf(Math.round(c2)));
+        }
+        int round = Math.round(c2 * 12.0f);
+        return round >= 12 ? String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_more_one_year), 1) : round < 1 ? String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_less_one_year), 1) : String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_less_one_year), Integer.valueOf(round));
+    }
+
     public static String getChatTimeString(Date date2) {
         return getChatTimeString(new Date(), date2);
     }

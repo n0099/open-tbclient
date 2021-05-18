@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.j1.o.k.b;
+import d.a.k0.j1.o.k.b;
 /* loaded from: classes4.dex */
 public class BazhuHeadView extends HeadPendantView {
     public TbImageView q;

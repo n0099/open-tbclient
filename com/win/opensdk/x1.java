@@ -14,11 +14,11 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class x1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f38002a;
+    public static String f37247a;
 
     public static boolean a(Context context, Uri uri) {
         try {

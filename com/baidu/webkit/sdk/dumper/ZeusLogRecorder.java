@@ -133,6 +133,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         this.mPid = Process.myPid();
         this.mUploader = new ZeusLogUploader(this.recordPrefName, null, true);
         this.mClient = new ZeusCrashHandler.ZeusCrashHandlerClient(this);
+        this.isFilterLogRecord = this.isFilterLogRecord;
     }
 
     private void dumpExtraLogcatInfo(Writer writer) throws IOException {

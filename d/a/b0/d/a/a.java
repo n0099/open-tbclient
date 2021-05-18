@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.util.concurrent.AsyncTaskAssistant;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
@@ -15,26 +16,26 @@ import java.util.concurrent.TimeUnit;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f39367a = d.a.b0.a.a.a.f39286a;
+    public static final boolean f38612a = d.a.b0.a.a.a.f38531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39368b;
+    public static final int f38613b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f39369c;
+    public static final int f38614c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f39370d;
+    public static final int f38615d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ThreadFactory f39371e;
+    public static final ThreadFactory f38616e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BlockingQueue<Runnable> f39372f;
+    public static final BlockingQueue<Runnable> f38617f;
 
     /* renamed from: d.a.b0.d.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class ThreadFactoryC0506a implements ThreadFactory {
+    public static class ThreadFactoryC0493a implements ThreadFactory {
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
             return new Thread(runnable);
@@ -45,15 +46,15 @@ public final class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Runnable f39373a;
+        public Runnable f38618a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39374b;
+        public String f38619b;
 
         public b() {
         }
 
-        public /* synthetic */ b(ThreadFactoryC0506a threadFactoryC0506a) {
+        public /* synthetic */ b(ThreadFactoryC0493a threadFactoryC0493a) {
             this();
         }
     }
@@ -69,15 +70,15 @@ public final class a {
         public Object doInBackground(b... bVarArr) {
             Process.setThreadPriority(10);
             try {
-                if (bVarArr[0] == null || bVarArr[0].f39373a == null) {
+                if (bVarArr[0] == null || bVarArr[0].f38618a == null) {
                     return null;
                 }
-                String str = !TextUtils.isEmpty(bVarArr[0].f39374b) ? bVarArr[0].f39374b : "noname";
+                String str = !TextUtils.isEmpty(bVarArr[0].f38619b) ? bVarArr[0].f38619b : "noname";
                 Thread.currentThread().setName(str);
-                if (a.f39367a) {
-                    Log.d("AsyncTaskAssistant", "start to run task " + str);
+                if (a.f38612a) {
+                    Log.d(AsyncTaskAssistant.TAG, "start to run task " + str);
                 }
-                bVarArr[0].f39373a.run();
+                bVarArr[0].f38618a.run();
                 return null;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -85,7 +86,7 @@ public final class a {
             }
         }
 
-        public /* synthetic */ c(ThreadFactoryC0506a threadFactoryC0506a) {
+        public /* synthetic */ c(ThreadFactoryC0493a threadFactoryC0493a) {
             this();
         }
     }
@@ -93,22 +94,22 @@ public final class a {
     static {
         new Handler(Looper.getMainLooper());
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f39368b = availableProcessors;
-        f39369c = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f39370d = Math.max(2, f39368b - 1);
-        f39371e = new ThreadFactoryC0506a();
-        f39372f = new LinkedBlockingQueue();
-        if (f39367a) {
-            Log.d("AsyncTaskAssistant", "core pool size: " + f39369c + " max size: " + f39370d);
+        f38613b = availableProcessors;
+        f38614c = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f38615d = Math.max(2, f38613b - 1);
+        f38616e = new ThreadFactoryC0493a();
+        f38617f = new LinkedBlockingQueue();
+        if (f38612a) {
+            Log.d(AsyncTaskAssistant.TAG, "core pool size: " + f38614c + " max size: " + f38615d);
         }
-        int i2 = f39370d;
-        new ThreadPoolExecutor(i2, i2, 30L, TimeUnit.SECONDS, f39372f, f39371e).allowCoreThreadTimeOut(true);
+        int i2 = f38615d;
+        new ThreadPoolExecutor(i2, i2, 30L, TimeUnit.SECONDS, f38617f, f38616e).allowCoreThreadTimeOut(true);
     }
 
     public static void b(Runnable runnable, String str) {
         b bVar = new b(null);
-        bVar.f39373a = runnable;
-        bVar.f39374b = str;
+        bVar.f38618a = runnable;
+        bVar.f38619b = str;
         new c(null).execute(bVar);
     }
 }

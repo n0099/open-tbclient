@@ -19,31 +19,31 @@ import java.util.Map;
 public final class Request {
 
     /* renamed from: a  reason: collision with root package name */
-    public final URL f10430a;
+    public final URL f9467a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f10431b;
+    public final String f9468b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f10432c;
+    public final Map<String, String> f9469c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, String> f10433d;
+    public final Map<String, String> f9470d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f10434e;
+    public final Object f9471e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Context f10435f;
+    public final Context f9472f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final e f10436g;
+    public final e f9473g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f10437h;
+    public final Handler f9474h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final RequestError f10438i;
+    public final RequestError f9475i;
     public boolean j;
 
     /* loaded from: classes2.dex */
@@ -65,15 +65,15 @@ public final class Request {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f10439e;
+        public final /* synthetic */ l f9476e;
 
         public a(l lVar) {
-            this.f10439e = lVar;
+            this.f9476e = lVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f10439e.a(Request.this.f10438i);
+            this.f9476e.a(Request.this.f9475i);
         }
     }
 
@@ -81,48 +81,48 @@ public final class Request {
     public class b implements k {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f10441a;
+        public final /* synthetic */ l f9478a;
 
         /* loaded from: classes2.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f10443e;
+            public final /* synthetic */ String f9480e;
 
             public a(String str) {
-                this.f10443e = str;
+                this.f9480e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f10441a.b(this.f10443e);
+                b.this.f9478a.b(this.f9480e);
             }
         }
 
         /* renamed from: com.baidu.prologue.service.network.Request$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0134b implements Runnable {
+        public class RunnableC0119b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Throwable f10445e;
+            public final /* synthetic */ Throwable f9482e;
 
-            public RunnableC0134b(Throwable th) {
-                this.f10445e = th;
+            public RunnableC0119b(Throwable th) {
+                this.f9482e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f10441a.a(this.f10445e);
+                b.this.f9478a.a(this.f9482e);
             }
         }
 
         public b(l lVar) {
-            this.f10441a = lVar;
+            this.f9478a = lVar;
         }
 
         @Override // d.a.b0.d.a.k
         public void a(Throwable th) {
-            Request.this.g(new RunnableC0134b(th));
+            Request.this.g(new RunnableC0119b(th));
         }
 
         @Override // d.a.b0.d.a.k
@@ -135,61 +135,61 @@ public final class Request {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f10447a;
+        public final Context f9484a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f10448b;
+        public final String f9485b;
 
         /* renamed from: c  reason: collision with root package name */
-        public URL f10449c;
+        public URL f9486c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f10450d;
+        public String f9487d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Map<String, String> f10451e;
+        public Map<String, String> f9488e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Map<String, String> f10452f;
+        public Map<String, String> f9489f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f10453g;
+        public boolean f9490g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Object f10454h;
+        public Object f9491h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f10455i;
+        public boolean f9492i;
         public RequestError j;
 
         public c(Context context, String str) {
-            this.f10447a = context.getApplicationContext();
-            this.f10448b = str;
+            this.f9484a = context.getApplicationContext();
+            this.f9485b = str;
         }
 
         public c j(String str, String str2) {
-            if (this.f10452f == null) {
-                this.f10452f = new HashMap();
+            if (this.f9489f == null) {
+                this.f9489f = new HashMap();
             }
-            this.f10452f.put(str, str2);
+            this.f9489f.put(str, str2);
             return this;
         }
 
         public c k(String str, String str2) {
-            if (this.f10451e == null) {
-                this.f10451e = new HashMap();
+            if (this.f9488e == null) {
+                this.f9488e = new HashMap();
             }
-            this.f10451e.put(str, str2.trim());
+            this.f9488e.put(str, str2.trim());
             return this;
         }
 
         public Request l() {
-            if (this.f10450d == null) {
+            if (this.f9487d == null) {
                 m();
             }
-            if ("GET".equals(this.f10450d)) {
+            if ("GET".equals(this.f9487d)) {
                 try {
-                    this.f10449c = new URL(d.a.b0.d.a.b.b(this.f10449c.toString(), this.f10452f));
+                    this.f9486c = new URL(d.a.b0.d.a.b.b(this.f9486c.toString(), this.f9489f));
                 } catch (MalformedURLException e2) {
                     this.j = new RequestError("Failed to create url", e2);
                 } catch (URISyntaxException e3) {
@@ -200,33 +200,33 @@ public final class Request {
         }
 
         public c m() {
-            if (this.f10449c != null) {
+            if (this.f9486c != null) {
                 this.j = new RequestError("Method called twice");
             }
             try {
-                this.f10449c = new URL(this.f10448b);
+                this.f9486c = new URL(this.f9485b);
             } catch (MalformedURLException e2) {
                 this.j = new RequestError(e2);
             }
-            this.f10450d = "GET";
+            this.f9487d = "GET";
             return this;
         }
 
         public c n() {
-            if (this.f10449c != null) {
+            if (this.f9486c != null) {
                 this.j = new RequestError("Method called twice");
             }
             try {
-                this.f10449c = new URL(this.f10448b);
+                this.f9486c = new URL(this.f9485b);
             } catch (MalformedURLException e2) {
                 this.j = new RequestError(e2);
             }
-            this.f10450d = "POST";
+            this.f9487d = "POST";
             return this;
         }
 
         public c o(boolean z) {
-            this.f10455i = z;
+            this.f9492i = z;
             return this;
         }
     }
@@ -250,7 +250,7 @@ public final class Request {
                     }
                     byteArrayOutputStream.write(bArr, 0, read);
                 } catch (IOException e2) {
-                    g.f39302a.e(SingleRequest.TAG, "failed to read is", e2);
+                    g.f38547a.e(SingleRequest.TAG, "failed to read is", e2);
                 }
             }
             return byteArrayOutputStream.toByteArray();
@@ -260,37 +260,37 @@ public final class Request {
     }
 
     public void d(k kVar) {
-        this.f10436g.a(this, kVar);
+        this.f9473g.a(this, kVar);
     }
 
     public void e(l lVar) {
-        if (this.f10438i != null) {
+        if (this.f9475i != null) {
             g(new a(lVar));
         } else {
-            this.f10436g.a(this, new b(lVar));
+            this.f9473g.a(this, new b(lVar));
         }
     }
 
     public boolean f() {
-        Map<String, String> map = this.f10433d;
+        Map<String, String> map = this.f9470d;
         return map != null && map.size() > 0;
     }
 
     public final void g(Runnable runnable) {
-        this.f10437h.post(runnable);
+        this.f9474h.post(runnable);
     }
 
     public Request(c cVar) {
-        this.f10438i = cVar.j;
-        this.f10435f = cVar.f10447a;
-        this.f10437h = new Handler(this.f10435f.getMainLooper());
-        this.f10430a = cVar.f10449c;
-        this.f10431b = cVar.f10450d;
-        this.f10432c = cVar.f10451e;
-        this.f10433d = cVar.f10452f;
-        boolean unused = cVar.f10453g;
-        this.f10434e = cVar.f10454h != null ? cVar.f10454h : this;
-        this.f10436g = d.a.b0.d.a.c.c(this.f10435f);
-        this.j = cVar.f10455i;
+        this.f9475i = cVar.j;
+        this.f9472f = cVar.f9484a;
+        this.f9474h = new Handler(this.f9472f.getMainLooper());
+        this.f9467a = cVar.f9486c;
+        this.f9468b = cVar.f9487d;
+        this.f9469c = cVar.f9488e;
+        this.f9470d = cVar.f9489f;
+        boolean unused = cVar.f9490g;
+        this.f9471e = cVar.f9491h != null ? cVar.f9491h : this;
+        this.f9473g = d.a.b0.d.a.c.c(this.f9472f);
+        this.j = cVar.f9492i;
     }
 }

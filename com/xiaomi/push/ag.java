@@ -32,7 +32,7 @@ public class ag {
         try {
             try {
                 File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp.lock");
-                y.m631a(file);
+                y.m630a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -164,7 +164,7 @@ public class ag {
                 y.a(bufferedReader);
                 throw th;
             }
-        } else if (!y.m631a(file)) {
+        } else if (!y.m630a(file)) {
             return true;
         }
         arrayList.add(str2);

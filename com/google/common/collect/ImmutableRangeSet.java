@@ -28,33 +28,33 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
         public final DiscreteDomain<C> domain;
 
         /* renamed from: e  reason: collision with root package name */
-        public transient Integer f31877e;
+        public transient Integer f31122e;
 
         /* loaded from: classes6.dex */
         public class a extends AbstractIterator<C> {
 
             /* renamed from: g  reason: collision with root package name */
-            public final Iterator<Range<C>> f31878g;
+            public final Iterator<Range<C>> f31123g;
 
             /* renamed from: h  reason: collision with root package name */
-            public Iterator<C> f31879h = Iterators.h();
+            public Iterator<C> f31124h = Iterators.h();
 
             public a() {
-                this.f31878g = ImmutableRangeSet.this.ranges.iterator();
+                this.f31123g = ImmutableRangeSet.this.ranges.iterator();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.AbstractIterator
             /* renamed from: d */
             public C a() {
-                while (!this.f31879h.hasNext()) {
-                    if (this.f31878g.hasNext()) {
-                        this.f31879h = ContiguousSet.create(this.f31878g.next(), AsSet.this.domain).iterator();
+                while (!this.f31124h.hasNext()) {
+                    if (this.f31123g.hasNext()) {
+                        this.f31124h = ContiguousSet.create(this.f31123g.next(), AsSet.this.domain).iterator();
                     } else {
                         return (C) b();
                     }
                 }
-                return this.f31879h.next();
+                return this.f31124h.next();
             }
         }
 
@@ -62,27 +62,27 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
         public class b extends AbstractIterator<C> {
 
             /* renamed from: g  reason: collision with root package name */
-            public final Iterator<Range<C>> f31881g;
+            public final Iterator<Range<C>> f31126g;
 
             /* renamed from: h  reason: collision with root package name */
-            public Iterator<C> f31882h = Iterators.h();
+            public Iterator<C> f31127h = Iterators.h();
 
             public b() {
-                this.f31881g = ImmutableRangeSet.this.ranges.reverse().iterator();
+                this.f31126g = ImmutableRangeSet.this.ranges.reverse().iterator();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.AbstractIterator
             /* renamed from: d */
             public C a() {
-                while (!this.f31882h.hasNext()) {
-                    if (this.f31881g.hasNext()) {
-                        this.f31882h = ContiguousSet.create(this.f31881g.next(), AsSet.this.domain).descendingIterator();
+                while (!this.f31127h.hasNext()) {
+                    if (this.f31126g.hasNext()) {
+                        this.f31127h = ContiguousSet.create(this.f31126g.next(), AsSet.this.domain).descendingIterator();
                     } else {
                         return (C) b();
                     }
                 }
-                return this.f31882h.next();
+                return this.f31127h.next();
             }
         }
 
@@ -142,7 +142,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            Integer num = this.f31877e;
+            Integer num = this.f31122e;
             if (num == null) {
                 long j = 0;
                 c1 it = ImmutableRangeSet.this.ranges.iterator();
@@ -153,13 +153,13 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
                     }
                 }
                 num = Integer.valueOf(Ints.j(j));
-                this.f31877e = num;
+                this.f31122e = num;
             }
             return num.intValue();
         }
 
         public ImmutableSortedSet<C> subSet(Range<C> range) {
-            return ImmutableRangeSet.this.m39subRangeSet((Range) range).asSet(this.domain);
+            return ImmutableRangeSet.this.m38subRangeSet((Range) range).asSet(this.domain);
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.ImmutableRangeSet$AsSet */
@@ -296,11 +296,11 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
     public static class a<C extends Comparable<?>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<Range<C>> f31884a = Lists.i();
+        public final List<Range<C>> f31129a = Lists.i();
 
         public a<C> a(Range<C> range) {
             n.k(!range.isEmpty(), "range must not be empty, but was %s", range);
-            this.f31884a.add(range);
+            this.f31129a.add(range);
             return this;
         }
 
@@ -312,9 +312,9 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
         }
 
         public ImmutableRangeSet<C> c() {
-            ImmutableList.a aVar = new ImmutableList.a(this.f31884a.size());
-            Collections.sort(this.f31884a, Range.rangeLexOrdering());
-            m0 p = Iterators.p(this.f31884a.iterator());
+            ImmutableList.a aVar = new ImmutableList.a(this.f31129a.size());
+            Collections.sort(this.f31129a, Range.rangeLexOrdering());
+            m0 p = Iterators.p(this.f31129a.iterator());
             while (p.hasNext()) {
                 Range range = (Range) p.next();
                 while (p.hasNext()) {
@@ -568,7 +568,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: asDescendingSetOfRanges */
-    public ImmutableSet<Range<C>> m38asDescendingSetOfRanges() {
+    public ImmutableSet<Range<C>> m37asDescendingSetOfRanges() {
         if (this.ranges.isEmpty()) {
             return ImmutableSet.of();
         }
@@ -619,7 +619,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: subRangeSet */
-    public ImmutableRangeSet<C> m39subRangeSet(Range<C> range) {
+    public ImmutableRangeSet<C> m38subRangeSet(Range<C> range) {
         if (!isEmpty()) {
             Range<C> span = span();
             if (range.encloses(span)) {

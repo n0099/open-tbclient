@@ -15,12 +15,12 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class SegmentTypeBox extends AbstractBox {
     public static final String TYPE = "styp";
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_5 = null;
     public List<String> compatibleBrands;
     public String majorBrand;
     public long minorVersion;

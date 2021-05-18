@@ -7,7 +7,7 @@ import android.preference.PreferenceManager;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SharedPreferences f39304a;
+    public static SharedPreferences f38549a;
 
     public static Context a() {
         return d.a.b0.a.b.b.a();
@@ -18,10 +18,10 @@ public final class j {
     }
 
     public static SharedPreferences c() {
-        if (f39304a == null) {
-            f39304a = PreferenceManager.getDefaultSharedPreferences(a());
+        if (f38549a == null) {
+            f38549a = PreferenceManager.getDefaultSharedPreferences(a());
         }
-        return f39304a;
+        return f38549a;
     }
 
     public static String d(String str, String str2) {

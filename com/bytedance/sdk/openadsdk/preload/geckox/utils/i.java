@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i {
     public static String a(Context context) {
         NetworkInfo activeNetworkInfo;
@@ -32,7 +32,7 @@ public class i {
                         case 12:
                         case 14:
                         case 15:
-                            return com.baidu.apollon.statistics.g.f3962b;
+                            return com.baidu.apollon.statistics.g.f3963b;
                         case 13:
                             return "4G";
                     }

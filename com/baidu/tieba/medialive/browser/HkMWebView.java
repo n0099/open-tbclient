@@ -19,7 +19,13 @@ import java.util.Map;
 public class HkMWebView extends BaseWebView {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18935e;
+    public String f18220e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f18221f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f18222g;
 
     /* loaded from: classes3.dex */
     public class a extends c {
@@ -42,23 +48,23 @@ public class HkMWebView extends BaseWebView {
     public static class b implements DownloadListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public HkMWebView f18937a;
+        public HkMWebView f18224a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Activity f18938b;
+        public Activity f18225b;
 
         public b(HkMWebView hkMWebView, Activity activity) {
-            this.f18937a = hkMWebView;
-            this.f18938b = activity;
+            this.f18224a = hkMWebView;
+            this.f18225b = activity;
         }
 
         @Override // android.webkit.DownloadListener
         public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-            if (this.f18938b.getPackageManager().resolveActivity(intent, 0) == null) {
-                l.N(this.f18938b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
+            if (this.f18225b.getPackageManager().resolveActivity(intent, 0) == null) {
+                l.N(this.f18225b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
             } else {
-                this.f18938b.startActivity(intent);
+                this.f18225b.startActivity(intent);
             }
         }
     }
@@ -67,40 +73,40 @@ public class HkMWebView extends BaseWebView {
     public static class c extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public HkMWebView f18939a;
+        public HkMWebView f18226a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Activity f18940b;
+        public Activity f18227b;
 
         public c(HkMWebView hkMWebView, Activity activity) {
-            this.f18939a = hkMWebView;
-            this.f18940b = activity;
+            this.f18226a = hkMWebView;
+            this.f18227b = activity;
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
-            this.f18939a.setLightTouchEnabled();
+            this.f18226a.setLightTouchEnabled();
             super.onPageFinished(webView, str);
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            this.f18939a.f18935e = str;
+            this.f18226a.f18220e = str;
             super.onPageStarted(webView, str, bitmap);
         }
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             try {
-                if (this.f18940b != null) {
+                if (this.f18227b != null) {
                     if (str.startsWith("tel:")) {
-                        this.f18940b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                        this.f18227b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         return true;
                     } else if (str.startsWith(OpenAppUtils.SCHEME_WTAI_MC)) {
-                        this.f18940b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
+                        this.f18227b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
                         return true;
                     } else if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO)) {
-                        this.f18940b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
+                        this.f18227b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
                         return true;
                     }
                 }
@@ -113,6 +119,8 @@ public class HkMWebView extends BaseWebView {
 
     public HkMWebView(Context context) {
         super(context);
+        this.f18221f = 16777216;
+        this.f18222g = 16777216;
         a();
     }
 
@@ -132,7 +140,7 @@ public class HkMWebView extends BaseWebView {
         getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         getSettings().setAllowContentAccess(true);
         if (getContext() instanceof Activity) {
-            ((Activity) getContext()).getWindow().setFlags(16777216, 16777216);
+            ((Activity) getContext()).getWindow().setFlags(this.f18221f, this.f18222g);
         }
         getSettings().setDomStorageEnabled(true);
         if (Build.VERSION.SDK_INT >= 21) {
@@ -154,7 +162,7 @@ public class HkMWebView extends BaseWebView {
 
     @Override // android.webkit.WebView
     public String getUrl() {
-        return this.f18935e;
+        return this.f18220e;
     }
 
     @Override // android.webkit.WebView
@@ -184,6 +192,8 @@ public class HkMWebView extends BaseWebView {
 
     public HkMWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        this.f18221f = 16777216;
+        this.f18222g = 16777216;
         a();
     }
 }

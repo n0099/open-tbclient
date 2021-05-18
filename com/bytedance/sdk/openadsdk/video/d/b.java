@@ -5,14 +5,14 @@ import com.baidu.searchbox.pms.db.PackageTable;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final MessageDigest f31100a = a();
+    public static final MessageDigest f30345a = a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f31101b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static final char[] f30346b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static MessageDigest a() {
         try {
@@ -24,7 +24,7 @@ public class b {
 
     public static String a(String str) {
         byte[] digest;
-        MessageDigest messageDigest = f31100a;
+        MessageDigest messageDigest = f30345a;
         if (messageDigest == null || TextUtils.isEmpty(str)) {
             return "";
         }
@@ -43,7 +43,7 @@ public class b {
         int i2 = 0;
         for (byte b2 : bArr) {
             int i3 = i2 + 1;
-            char[] cArr2 = f31101b;
+            char[] cArr2 = f30346b;
             cArr[i2] = cArr2[(b2 & 240) >> 4];
             i2 = i3 + 1;
             cArr[i3] = cArr2[b2 & 15];

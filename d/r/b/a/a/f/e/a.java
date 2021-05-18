@@ -3,14 +3,14 @@ package d.r.b.a.a.f.e;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f66994a;
+    public c f67680a;
 
     public void a() {
-        this.f66994a = new c(0, 0, 0, "", "", "");
+        this.f67680a = new c(0, 0, 0, "", "", "");
     }
 
     public byte[] b() {
         a();
-        return this.f66994a.c();
+        return this.f67680a.c();
     }
 }

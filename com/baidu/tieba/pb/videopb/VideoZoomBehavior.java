@@ -12,14 +12,14 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProviders;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.google.android.material.appbar.AppBarLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class VideoZoomBehavior extends AppBarLayout.Behavior {
 
     /* renamed from: a  reason: collision with root package name */
-    public VideoContainerLayout f20248a;
+    public VideoContainerLayout f19536a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPbViewModel f20249b;
+    public VideoPbViewModel f19537b;
 
     public VideoZoomBehavior() {
     }
@@ -69,26 +69,26 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
         VideoContainerLayout videoContainerLayout;
         ViewGroup.LayoutParams layoutParams;
         boolean topAndBottomOffset = super.setTopAndBottomOffset(i2);
-        if (topAndBottomOffset && (videoContainerLayout = this.f20248a) != null && (layoutParams = videoContainerLayout.getLayoutParams()) != null) {
-            int maxHeight = this.f20248a.getMaxHeight() + i2;
+        if (topAndBottomOffset && (videoContainerLayout = this.f19536a) != null && (layoutParams = videoContainerLayout.getLayoutParams()) != null) {
+            int maxHeight = this.f19536a.getMaxHeight() + i2;
             if (layoutParams.height != maxHeight) {
                 layoutParams.height = maxHeight;
-                this.f20248a.setLayoutParams(layoutParams);
+                this.f19536a.setLayoutParams(layoutParams);
             }
-            if (this.f20249b == null && (this.f20248a.getContext() instanceof PbActivity)) {
-                this.f20249b = (VideoPbViewModel) ViewModelProviders.of((PbActivity) this.f20248a.getContext()).get(VideoPbViewModel.class);
+            if (this.f19537b == null && (this.f19536a.getContext() instanceof PbActivity)) {
+                this.f19537b = (VideoPbViewModel) ViewModelProviders.of((PbActivity) this.f19536a.getContext()).get(VideoPbViewModel.class);
             }
-            VideoPbViewModel videoPbViewModel = this.f20249b;
+            VideoPbViewModel videoPbViewModel = this.f19537b;
             if (videoPbViewModel != null) {
                 if (i2 > -5) {
                     MutableLiveData<Boolean> e2 = videoPbViewModel.e();
                     if (e2 == null || e2.getValue() == null || !e2.getValue().booleanValue()) {
-                        this.f20249b.t(true);
+                        this.f19537b.t(true);
                     }
                 } else {
                     MutableLiveData<Boolean> e3 = videoPbViewModel.e();
                     if (e3 == null || e3.getValue() == null || e3.getValue().booleanValue()) {
-                        this.f20249b.t(false);
+                        this.f19537b.t(false);
                     }
                 }
             }
@@ -103,7 +103,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, com.google.android.material.appbar.ViewOffsetBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i2) {
-        this.f20248a = a(appBarLayout);
+        this.f19536a = a(appBarLayout);
         return super.onLayoutChild(coordinatorLayout, appBarLayout, i2);
     }
 
@@ -118,7 +118,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, @NonNull View view2, int i2, int i3) {
         VideoContainerLayout a2 = a(appBarLayout);
-        this.f20248a = a2;
+        this.f19536a = a2;
         return (a2 == null || (i2 & 2) == 0) ? false : true;
     }
 }

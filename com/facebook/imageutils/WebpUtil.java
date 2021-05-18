@@ -65,7 +65,7 @@ public class WebpUtil {
             } catch (IOException e3) {
                 e3.printStackTrace();
             }
-            if (compare(bArr, b.f23938e)) {
+            if (compare(bArr, b.f23183e)) {
                 getInt(inputStream);
                 inputStream.read(bArr);
                 if (!compare(bArr, "WEBP")) {

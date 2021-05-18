@@ -7,50 +7,50 @@ import android.widget.ImageView;
 public class a implements c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f39123b;
+    public static a f38368b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f39124c;
+    public static e f38369c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static d.a.a0.k.e.b f39125d;
+    public static d.a.a0.k.e.b f38370d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static d.a.a0.k.e.a f39126e;
+    public static d.a.a0.k.e.a f38371e;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39127a;
+    public Context f38372a;
 
     public a(Context context) {
-        this.f39127a = context.getApplicationContext();
-        f39125d = new d.a.a0.k.e.b();
-        f39126e = new d.a.a0.k.e.a(context);
-        f39124c = new e();
+        this.f38372a = context.getApplicationContext();
+        f38370d = new d.a.a0.k.e.b();
+        f38371e = new d.a.a0.k.e.a(context);
+        f38369c = new e();
     }
 
     public static d.a.a0.k.e.b b() {
-        if (f39125d == null) {
-            f39125d = new d.a.a0.k.e.b();
+        if (f38370d == null) {
+            f38370d = new d.a.a0.k.e.b();
         }
-        return f39125d;
+        return f38370d;
     }
 
     public static d.a.a0.k.e.a c(Context context) {
-        if (f39126e == null) {
-            f39126e = new d.a.a0.k.e.a(context);
+        if (f38371e == null) {
+            f38371e = new d.a.a0.k.e.a(context);
         }
-        return f39126e;
+        return f38371e;
     }
 
     public static a e(Context context) {
-        if (f39123b == null) {
+        if (f38368b == null) {
             synchronized (a.class) {
-                if (f39123b == null) {
-                    f39123b = new a(context);
+                if (f38368b == null) {
+                    f38368b = new a(context);
                 }
             }
         }
-        return f39123b;
+        return f38368b;
     }
 
     @Override // d.a.a0.k.d.c
@@ -60,11 +60,11 @@ public class a implements c {
 
     public void d(ImageView imageView, String str, int i2, int i3) {
         imageView.setTag(str);
-        Bitmap b2 = f39125d.b(str);
+        Bitmap b2 = f38370d.b(str);
         if (b2 != null) {
             imageView.setImageBitmap(b2);
         } else {
-            d.a.a0.m.a.a(new g(this.f39127a, f39124c, str, imageView, i2, i3));
+            d.a.a0.m.a.a(new g(this.f38372a, f38369c, str, imageView, i2, i3));
         }
     }
 }

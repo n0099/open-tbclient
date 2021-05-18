@@ -17,53 +17,53 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0330a {
+    /* loaded from: classes6.dex */
+    public static class C0317a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30798a;
+        public String f30043a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30799b;
+        public String f30044b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f30800c;
+        public int f30045c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f30801d;
+        public long f30046d;
 
         /* renamed from: e  reason: collision with root package name */
-        public File f30802e;
+        public File f30047e;
 
-        public C0330a(String str, String str2, int i2, long j, File file) {
-            this.f30798a = str;
-            this.f30799b = str2;
-            this.f30800c = i2;
-            this.f30801d = j;
-            this.f30802e = file;
+        public C0317a(String str, String str2, int i2, long j, File file) {
+            this.f30043a = str;
+            this.f30044b = str2;
+            this.f30045c = i2;
+            this.f30046d = j;
+            this.f30047e = file;
         }
     }
 
-    public static void b(Context context, List<C0330a> list, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+    public static void b(Context context, List<C0317a> list, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        for (C0330a c0330a : list) {
-            File file = c0330a.f30802e;
+        for (C0317a c0317a : list) {
+            File file = c0317a.f30047e;
             long uptimeMillis = SystemClock.uptimeMillis();
             boolean a2 = d.a(file);
             long uptimeMillis2 = SystemClock.uptimeMillis();
             if (a2) {
                 if (aVar != null) {
-                    aVar.b(c0330a.f30799b);
+                    aVar.b(c0317a.f30044b);
                 }
-                b.a(context).a(c0330a.f30798a, c0330a.f30799b, c0330a.f30800c, 200, c0330a.f30801d, 0, null, uptimeMillis2 - uptimeMillis, 1);
+                b.a(context).a(c0317a.f30043a, c0317a.f30044b, c0317a.f30045c, 200, c0317a.f30046d, 0, null, uptimeMillis2 - uptimeMillis, 1);
             } else {
-                b.a(context).a(c0330a.f30798a, c0330a.f30799b, c0330a.f30800c, 201, c0330a.f30801d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
+                b.a(context).a(c0317a.f30043a, c0317a.f30044b, c0317a.f30045c, 201, c0317a.f30046d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
             }
         }
     }
@@ -72,7 +72,7 @@ public class a {
         if (map == null || map.isEmpty()) {
             return;
         }
-        final List<C0330a> list = null;
+        final List<C0317a> list = null;
         try {
             list = a(map, file);
         } catch (Exception e2) {
@@ -93,7 +93,7 @@ public class a {
         });
     }
 
-    public static List<C0330a> a(Map<String, ComponentModel.b> map, File file) {
+    public static List<C0317a> a(Map<String, ComponentModel.b> map, File file) {
         ComponentModel.b value;
         List<ComponentModel.a> list;
         Iterator<Map.Entry<String, ComponentModel.b>> it;
@@ -116,17 +116,17 @@ public class a {
             Map.Entry<String, ComponentModel.b> next = it6.next();
             String key = next.getKey();
             File file6 = new File(file, key);
-            if (file6.isDirectory() && (value = next.getValue()) != null && (list = value.f30925a) != null && !list.isEmpty()) {
-                List<ComponentModel.a> list3 = value.f30925a;
+            if (file6.isDirectory() && (value = next.getValue()) != null && (list = value.f30170a) != null && !list.isEmpty()) {
+                List<ComponentModel.a> list3 = value.f30170a;
                 HashSet hashSet = new HashSet();
                 Iterator<ComponentModel.a> it7 = list3.iterator();
                 while (it7.hasNext()) {
                     ComponentModel.a next2 = it7.next();
-                    String str3 = next2.f30922a;
+                    String str3 = next2.f30167a;
                     if (!hashSet.contains(str3)) {
                         hashSet.add(str3);
-                        int i2 = next2.f30923b;
-                        List<Long> list4 = next2.f30924c;
+                        int i2 = next2.f30168b;
+                        List<Long> list4 = next2.f30169c;
                         File file7 = new File(file6, str3);
                         String str4 = "";
                         String str5 = "--pending-delete";
@@ -136,7 +136,7 @@ public class a {
                                     File file8 = new File(file6, str3);
                                     File file9 = new File(file6, str3 + "--pending-delete");
                                     file8.renameTo(file9);
-                                    arrayList.add(new C0330a(key, str3, i2, 0L, file9));
+                                    arrayList.add(new C0317a(key, str3, i2, 0L, file9));
                                 }
                             } else if (list4 != null && (b3 = k.b(file7)) != null && !b3.isEmpty()) {
                                 for (Long l : b3) {
@@ -150,7 +150,7 @@ public class a {
                                         file5 = file6;
                                         str2 = str4;
                                         list2 = list4;
-                                        arrayList.add(new C0330a(key, str3, i2, l.longValue(), file10));
+                                        arrayList.add(new C0317a(key, str3, i2, l.longValue(), file10));
                                     } else {
                                         it4 = it6;
                                         it5 = it7;
@@ -187,7 +187,7 @@ public class a {
                                         new File(file12, next3 + "").renameTo(file13);
                                         it3 = it8;
                                         file3 = file12;
-                                        arrayList.add(new C0330a(key, str3, i2, next3.longValue(), file13));
+                                        arrayList.add(new C0317a(key, str3, i2, next3.longValue(), file13));
                                     } else {
                                         it3 = it8;
                                         file3 = file11;
@@ -215,7 +215,7 @@ public class a {
         if (bVar.c()) {
             Common common2 = new Common(bVar.j(), bVar.n(), bVar.q(), com.bytedance.sdk.openadsdk.preload.geckox.utils.a.b(bVar.a()), i.a(bVar.a()), bVar.k(), bVar.l());
             StatisticModel statisticModel = new StatisticModel();
-            statisticModel.f30934common = common2;
+            statisticModel.f30179common = common2;
             statisticModel.packages.addAll(a(bVar.a()));
             if (statisticModel.packages.isEmpty()) {
                 return;
@@ -236,12 +236,12 @@ public class a {
 
     public static void a(com.bytedance.sdk.openadsdk.preload.geckox.b bVar, String str, String str2) throws Exception {
         com.bytedance.sdk.openadsdk.preload.geckox.i.c a2 = bVar.h().a(str, str2);
-        if (a2.f30910c == 200) {
-            if (new JSONObject(a2.f30909b).getInt("status") != 0) {
+        if (a2.f30155c == 200) {
+            if (new JSONObject(a2.f30154b).getInt("status") != 0) {
                 throw new RuntimeException("upload failed");
             }
             return;
         }
-        throw new NetworkErrorException("net work get failed, code: " + a2.f30910c + ", url:" + str);
+        throw new NetworkErrorException("net work get failed, code: " + a2.f30155c + ", url:" + str);
     }
 }

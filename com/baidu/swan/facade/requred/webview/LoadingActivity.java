@@ -1,34 +1,48 @@
 package com.baidu.swan.facade.requred.webview;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-import d.a.h0.a.i2.k0;
-import d.a.h0.a.j0.i.d;
-import d.a.h0.a.j0.i.e;
-import d.a.h0.a.r1.d;
-import d.a.h0.a.r1.i;
+import com.airbnb.lottie.LottieAnimationView;
+import com.baidu.swan.apps.view.SwanAppActionBar;
+import d.a.i0.a.a2.i;
+import d.a.i0.a.n0.k.d;
+import d.a.i0.a.n0.k.e;
+import d.a.i0.a.v2.n0;
+import d.a.i0.a.v2.q0;
 /* loaded from: classes3.dex */
-public class LoadingActivity extends Activity implements d.a.h0.a.i2.u0.b<i.a> {
+public class LoadingActivity extends Activity implements d.a.i0.a.v2.e1.b<i.a> {
     public static final String EVENT_ID_HIDE = "loading_hide";
     public static final String EXT_SO_LIB_NAME = "so_lib_name";
-    public TextView mHideButton;
-    public LoadingProgressBar mLoadingProgressBar;
+    public static final String LOTTIE_ANIM_FIRST_NAME = "aiapps_so_download_anim_first.json";
+    public static final String LOTTIE_ANIM_SECOND_NAME = "aiapps_so_download_anim_second.json";
+    public static final String LOTTIE_ASSETS_PATH = "images/";
+    public static final int PROGRESS_MAX = 100;
+    public static final int PROGRESS_MIN = 0;
+    public LottieAnimationView mFirstLottieAnimationView;
+    public ImageView mLogoView;
     public TextView mProgressView;
+    public LottieAnimationView mSecondLottieAnimationView;
+    public SwanAppActionBar mSwanAppActionBar;
     public e mUpdating = null;
-    public final d.a.h0.a.i2.u0.b<e> mProgressCallback = new a();
-    public final d.a.h0.a.i2.u0.b<e> mFinishCallback = new b();
+    public boolean mFirstAnimIsLoaded = false;
+    public final d.a.i0.a.v2.e1.b<e> mProgressCallback = new a();
+    public final d.a.i0.a.v2.e1.b<e> mFinishCallback = new b();
 
     /* loaded from: classes3.dex */
-    public class a implements d.a.h0.a.i2.u0.b<e> {
+    public class a implements d.a.i0.a.v2.e1.b<e> {
 
         /* renamed from: com.baidu.swan.facade.requred.webview.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0172a implements Runnable {
-            public RunnableC0172a() {
+        public class RunnableC0159a implements Runnable {
+            public RunnableC0159a() {
             }
 
             @Override // java.lang.Runnable
@@ -41,20 +55,20 @@ public class LoadingActivity extends Activity implements d.a.h0.a.i2.u0.b<i.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.h0.a.i2.u0.b
+        @Override // d.a.i0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(e eVar) {
-            k0.X(new RunnableC0172a());
+            q0.b0(new RunnableC0159a());
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements d.a.h0.a.i2.u0.b<e> {
+    public class b implements d.a.i0.a.v2.e1.b<e> {
         public b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.h0.a.i2.u0.b
+        @Override // d.a.i0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(e eVar) {
             LoadingActivity.this.finish();
@@ -62,8 +76,20 @@ public class LoadingActivity extends Activity implements d.a.h0.a.i2.u0.b<i.a> {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
+    public class c extends AnimatorListenerAdapter {
         public c() {
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            super.onAnimationEnd(animator);
+            LoadingActivity.this.startSecondAnim();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements View.OnClickListener {
+        public d() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -73,47 +99,88 @@ public class LoadingActivity extends Activity implements d.a.h0.a.i2.u0.b<i.a> {
     }
 
     private void init() {
+        this.mProgressView.setText(getString(d.a.i0.e.e.aiapps_loading_text, new Object[]{0}));
         Intent intent = getIntent();
+        Bitmap d2 = d.a.i0.e.o.b.b.b().d();
+        if (d2 == null) {
+            this.mLogoView.setImageResource(d.a.i0.e.b.aiapps_so_download_logo);
+        } else {
+            this.mLogoView.setImageBitmap(d2);
+        }
         String stringExtra = intent == null ? "" : intent.getStringExtra(EXT_SO_LIB_NAME);
-        e i2 = d.a.h0.a.j0.i.c.f42874d.i(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
-        this.mUpdating = i2;
-        if (i2 != null && !i2.n()) {
+        e j = d.a.i0.a.n0.k.c.f43471d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
+        this.mUpdating = j;
+        if (j != null && !j.n()) {
             this.mUpdating.v(this.mProgressCallback);
             this.mUpdating.u(this.mFinishCallback);
+            updateUiProgress();
             return;
         }
         finish();
     }
 
+    private void initActionBar() {
+        SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(d.a.i0.e.c.ai_apps_title_bar);
+        this.mSwanAppActionBar = swanAppActionBar;
+        swanAppActionBar.f(-16777216, false);
+        this.mSwanAppActionBar.setRightExitOnClickListener(new d());
+    }
+
     private void initViews() {
-        this.mLoadingProgressBar = (LoadingProgressBar) findViewById(d.a.h0.d.c.pb_loading_progressbar);
-        this.mProgressView = (TextView) findViewById(d.a.h0.d.c.tv_progress);
-        TextView textView = (TextView) findViewById(d.a.h0.d.c.tv_hide);
-        this.mHideButton = textView;
-        textView.setOnClickListener(new c());
+        this.mProgressView = (TextView) findViewById(d.a.i0.e.c.aiapps_so_download_progress);
+        this.mLogoView = (ImageView) findViewById(d.a.i0.e.c.aiapps_so_download_logo);
+        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(d.a.i0.e.c.aiapps_so_download_lottie);
+        this.mFirstLottieAnimationView = lottieAnimationView;
+        lottieAnimationView.setImageAssetsFolder(LOTTIE_ASSETS_PATH);
+        this.mFirstLottieAnimationView.setAnimation(LOTTIE_ANIM_FIRST_NAME);
+        LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(d.a.i0.e.c.aiapps_so_download_lottie2);
+        this.mSecondLottieAnimationView = lottieAnimationView2;
+        lottieAnimationView2.setImageAssetsFolder(LOTTIE_ASSETS_PATH);
+        this.mSecondLottieAnimationView.setAnimation(LOTTIE_ANIM_SECOND_NAME);
+        this.mSecondLottieAnimationView.setRepeatCount(-1);
+        this.mSecondLottieAnimationView.setVisibility(4);
+        this.mFirstLottieAnimationView.addAnimatorListener(new c());
+        this.mFirstLottieAnimationView.playAnimation();
     }
 
     private void registerListener() {
-        d.e().t(this);
+        d.a.i0.a.a2.d.g().v(this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void startSecondAnim() {
+        if (this.mFirstAnimIsLoaded) {
+            return;
+        }
+        this.mFirstLottieAnimationView.cancelAnimation();
+        this.mFirstLottieAnimationView.setVisibility(4);
+        this.mSecondLottieAnimationView.setVisibility(0);
+        this.mSecondLottieAnimationView.playAnimation();
+        this.mFirstAnimIsLoaded = true;
     }
 
     private void unregisterListener() {
-        d.e().n(this);
+        d.a.i0.a.a2.d.g().p(this);
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        int V = k0.V(this);
+        int Z = q0.Z(this);
         super.onCreate(bundle);
-        k0.h(this, V);
-        setContentView(d.a.h0.d.d.activity_loading);
+        q0.g(this, Z);
+        setContentView(d.a.i0.e.d.activity_loading);
         initViews();
+        initActionBar();
+        n0.a(this);
         registerListener();
         init();
     }
 
     @Override // android.app.Activity
     public void onDestroy() {
+        this.mFirstLottieAnimationView.removeAllAnimatorListeners();
+        this.mFirstLottieAnimationView.cancelAnimation();
+        this.mSecondLottieAnimationView.cancelAnimation();
         e eVar = this.mUpdating;
         if (eVar != null) {
             eVar.g(this.mFinishCallback);
@@ -129,19 +196,18 @@ public class LoadingActivity extends Activity implements d.a.h0.a.i2.u0.b<i.a> {
         if (m == null || !m.a()) {
             return;
         }
-        int min = (int) ((Math.min(Math.max(m.f42884a, 0L), m.f42885b) / m.f42885b) * 100.0d);
-        LoadingProgressBar loadingProgressBar = this.mLoadingProgressBar;
-        if (loadingProgressBar == null || this.mProgressView == null || min <= 0) {
+        int min = (int) ((Math.min(Math.max(m.f43481a, 0L), m.f43482b) / m.f43482b) * 100.0d);
+        TextView textView = this.mProgressView;
+        if (textView == null || min <= 0) {
             return;
         }
-        loadingProgressBar.setProgress(min);
-        this.mProgressView.setText(String.valueOf(min));
+        textView.setText(getString(d.a.i0.e.e.aiapps_loading_text, new Object[]{Integer.valueOf(min)}));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.h0.a.i2.u0.b
+    @Override // d.a.i0.a.v2.e1.b
     public void onCallback(i.a aVar) {
-        if (TextUtils.equals(aVar.f43829g, EVENT_ID_HIDE)) {
+        if (TextUtils.equals(aVar.f40581f, EVENT_ID_HIDE)) {
             finish();
         }
     }

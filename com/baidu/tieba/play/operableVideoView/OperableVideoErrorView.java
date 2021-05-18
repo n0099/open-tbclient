@@ -7,12 +7,12 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import d.a.i0.r.f0.m.a;
-/* loaded from: classes4.dex */
+import d.a.j0.r.f0.m.a;
+/* loaded from: classes5.dex */
 public class OperableVideoErrorView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f20752e;
+    public TBSpecificationBtn f20040e;
 
     public OperableVideoErrorView(Context context) {
         super(context);
@@ -22,14 +22,14 @@ public class OperableVideoErrorView extends LinearLayout {
     public final void a(Context context) {
         LinearLayout.inflate(context, R.layout.operable_video_error, this);
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.retry);
-        this.f20752e = tBSpecificationBtn;
+        this.f20040e = tBSpecificationBtn;
         tBSpecificationBtn.setTextSize(R.dimen.tbds36);
-        this.f20752e.setText(getResources().getString(R.string.click_retry));
-        this.f20752e.setConfig(new a());
+        this.f20040e.setText(getResources().getString(R.string.click_retry));
+        this.f20040e.setConfig(new a());
     }
 
     public void setOutOnClickListener(View.OnClickListener onClickListener) {
-        this.f20752e.setOnClickListener(onClickListener);
+        this.f20040e.setOnClickListener(onClickListener);
     }
 
     public OperableVideoErrorView(Context context, @Nullable AttributeSet attributeSet) {

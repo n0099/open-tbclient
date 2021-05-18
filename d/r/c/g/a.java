@@ -5,20 +5,20 @@ import android.util.Log;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f67482b;
+    public static a f68168b;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.r.c.a f67483a = null;
+    public d.r.c.a f68169a = null;
 
     public static a b() {
-        if (f67482b == null) {
-            f67482b = new a();
+        if (f68168b == null) {
+            f68168b = new a();
         }
-        return f67482b;
+        return f68168b;
     }
 
     public void a(String str) {
-        d.r.c.a aVar = this.f67483a;
+        d.r.c.a aVar = this.f68169a;
         if (aVar != null) {
             aVar.info("authsdk", str);
         } else {

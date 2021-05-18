@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import d.a.i0.r.q.o;
+import d.a.j0.r.q.o;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.BazhuSign;
@@ -18,7 +18,7 @@ public class BazhuGradeData extends o implements Serializable {
         return this.mLevel;
     }
 
-    @Override // d.a.i0.r.q.o
+    @Override // d.a.j0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;

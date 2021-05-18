@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import d.a.c.e.p.l;
-import d.a.i0.r.q.a2;
-import d.a.i0.r.q.e;
-import d.a.i0.r.u.c;
+import d.a.j0.r.q.a2;
+import d.a.j0.r.q.e;
+import d.a.j0.r.u.c;
 /* loaded from: classes3.dex */
 public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
     public View.OnClickListener k0;
@@ -51,7 +51,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void L(a2 a2Var) {
         super.L(a2Var);
-        if (a2Var == null || this.k == null || !a2Var.A2()) {
+        if (a2Var == null || this.k == null || !a2Var.C2()) {
             return;
         }
         if (a2Var.Z0() == 0) {
@@ -163,14 +163,14 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     }
 
     public void Q(String str) {
-        if (this.E == null || TextUtils.isEmpty(str) || !str.equals(this.E.w1())) {
+        if (this.E == null || TextUtils.isEmpty(str) || !str.equals(this.E.x1())) {
             return;
         }
         e eVar = new e();
-        eVar.f49131b = 4;
-        eVar.f49133d = 2;
-        this.f13106h.setStatisticData(eVar);
-        this.f13106h.s();
+        eVar.f49950b = 4;
+        eVar.f49952d = 2;
+        this.f12442h.setStatisticData(eVar);
+        this.f12442h.s();
     }
 
     public void R() {
@@ -189,7 +189,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
 
     public boolean S() {
         a2 a2Var = this.E;
-        return (a2Var == null || !a2Var.z2() || this.E.u1() == null) ? false : true;
+        return (a2Var == null || !a2Var.B2() || this.E.v1() == null) ? false : true;
     }
 
     public boolean T() {
@@ -232,21 +232,21 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void setAgreeViewType(a2 a2Var) {
         if (a2Var != null) {
-            this.f13106h.setDisagreeShow(a2Var.y2());
+            this.f12442h.setDisagreeShow(a2Var.A2());
         }
-        if (a2Var != null && a2Var.A2()) {
-            this.f13106h.setDisagreeShow(true);
+        if (a2Var != null && a2Var.C2()) {
+            this.f12442h.setDisagreeShow(true);
         }
         if (a2Var != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13106h.getLayoutParams();
-            if (a2Var.A2()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12442h.getLayoutParams();
+            if (a2Var.C2()) {
                 layoutParams.weight = 0.2f;
-            } else if (a2Var.y2()) {
+            } else if (a2Var.A2()) {
                 layoutParams.weight = 0.25f;
             } else {
                 layoutParams.weight = 0.5f;
             }
-            this.f13106h.setLayoutParams(layoutParams);
+            this.f12442h.setLayoutParams(layoutParams);
         }
     }
 

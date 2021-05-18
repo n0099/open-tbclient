@@ -1,14 +1,14 @@
 package com.baidu.swan.game.ad.downloader.model;
 
 import android.text.TextUtils;
-import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
+import androidx.annotation.NonNull;
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
-import d.a.h0.e.a.l.i.b;
+import d.a.i0.f.i.k.f.c;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class DownloadInfo implements Serializable {
     public long mCreateAt;
-    public transient b mDownloadListener;
+    public transient c mDownloadListener;
     public DownloadException mException;
     public String mId;
     public String mPackageName;
@@ -22,36 +22,36 @@ public class DownloadInfo implements Serializable {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12346a;
+        public String f11628a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f12347b = -1;
+        public long f11629b = -1;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12348c;
+        public String f11630c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12349d;
+        public String f11631d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f12350e;
+        public String f11632e;
 
         public DownloadInfo a() {
             DownloadInfo downloadInfo = new DownloadInfo();
-            if (!TextUtils.isEmpty(this.f12348c)) {
-                downloadInfo.setUri(this.f12348c);
-                if (!TextUtils.isEmpty(this.f12350e)) {
-                    downloadInfo.setPath(this.f12350e);
-                    if (TextUtils.isEmpty(this.f12349d)) {
-                        downloadInfo.setPackageName(this.f12349d);
+            if (!TextUtils.isEmpty(this.f11630c)) {
+                downloadInfo.setUri(this.f11630c);
+                if (!TextUtils.isEmpty(this.f11632e)) {
+                    downloadInfo.setPath(this.f11632e);
+                    if (TextUtils.isEmpty(this.f11631d)) {
+                        downloadInfo.setPackageName(this.f11631d);
                     }
-                    if (this.f12347b == -1) {
+                    if (this.f11629b == -1) {
                         b(System.currentTimeMillis());
                     }
-                    if (TextUtils.isEmpty(this.f12346a)) {
-                        downloadInfo.setId(this.f12348c);
+                    if (TextUtils.isEmpty(this.f11628a)) {
+                        downloadInfo.setId(this.f11630c);
                     } else {
-                        downloadInfo.setId(this.f12346a);
+                        downloadInfo.setId(this.f11628a);
                     }
                     return downloadInfo;
                 }
@@ -61,22 +61,22 @@ public class DownloadInfo implements Serializable {
         }
 
         public a b(long j) {
-            this.f12347b = j;
+            this.f11629b = j;
             return this;
         }
 
         public a c(String str) {
-            this.f12349d = str;
+            this.f11631d = str;
             return this;
         }
 
         public a d(String str) {
-            this.f12350e = str;
+            this.f11632e = str;
             return this;
         }
 
         public a e(String str) {
-            this.f12348c = str;
+            this.f11630c = str;
             return this;
         }
     }
@@ -95,7 +95,7 @@ public class DownloadInfo implements Serializable {
         return this.mCreateAt;
     }
 
-    public b getDownloadListener() {
+    public c getDownloadListener() {
         return this.mDownloadListener;
     }
 
@@ -136,15 +136,15 @@ public class DownloadInfo implements Serializable {
     }
 
     public boolean isPause() {
-        return this.mStatus == SwanAdDownloadState.DOWNLOAD_PAUSED.value() || this.mStatus == SwanAdDownloadState.DOWNLOAD_FAILED.value() || this.mStatus == SwanAdDownloadState.DELETED.value();
+        return this.mStatus == DownloadState.DOWNLOAD_PAUSED.value() || this.mStatus == DownloadState.DOWNLOAD_FAILED.value() || this.mStatus == DownloadState.DELETED.value();
     }
 
     public void setCreateAt(long j) {
         this.mCreateAt = j;
     }
 
-    public void setDownloadListener(b bVar) {
-        this.mDownloadListener = bVar;
+    public void setDownloadListener(c cVar) {
+        this.mDownloadListener = cVar;
     }
 
     public void setException(DownloadException downloadException) {
@@ -180,6 +180,7 @@ public class DownloadInfo implements Serializable {
         this.mUri = str;
     }
 
+    @NonNull
     public String toString() {
         return "DownloadInfo{mDownloadListener=" + this.mDownloadListener + ", mException=" + this.mException + ", mId='" + this.mId + "', mCreateAt=" + this.mCreateAt + ", mUri='" + this.mUri + "', mPackageName='" + this.mPackageName + "', mPath='" + this.mPath + "', mSize=" + this.mSize + ", mProgress=" + this.mProgress + ", mStatus=" + this.mStatus + '}';
     }

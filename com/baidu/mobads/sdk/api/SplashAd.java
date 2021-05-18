@@ -88,7 +88,7 @@ public class SplashAd implements d {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("place_id", this.mAdPlaceId);
-            jSONObject.put("source", TextUtils.equals(this.mAdPlaceId, a.f39288a.get().A()) ? "bes_cpc" : "gd");
+            jSONObject.put("source", TextUtils.equals(this.mAdPlaceId, a.f38533a.get().A()) ? "bes_cpc" : "gd");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

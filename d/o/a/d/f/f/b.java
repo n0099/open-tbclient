@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.tieba.service.AsInstallService;
 import com.baidu.wallet.base.iddetect.IdCardActivity;
 import com.ss.android.downloadlib.activity.TTDelegateActivity;
 import com.ss.android.downloadlib.addownload.compliance.d;
@@ -19,78 +19,78 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public SoftReference<Activity> f66070a;
+    public SoftReference<Activity> f66756a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements c.a<Boolean, Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f66071a;
+        public final /* synthetic */ long f66757a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f66072b;
+        public final /* synthetic */ long f66758b;
 
         public a(long j, long j2) {
-            this.f66071a = j;
-            this.f66072b = j2;
+            this.f66757a = j;
+            this.f66758b = j2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.o.a.d.n.c.a
         public Object a(Boolean bool) {
             if (bool.booleanValue()) {
-                b.this.b(c.C1798c.b(this.f66071a, this.f66072b));
-                d.o.a.d.f.f.c.f("lp_app_dialog_try_show", this.f66072b);
+                b.this.b(c.C1862c.b(this.f66757a, this.f66758b));
+                d.o.a.d.f.f.c.f("lp_app_dialog_try_show", this.f66758b);
                 return null;
             }
-            b.this.i(this.f66072b);
+            b.this.i(this.f66758b);
             return null;
         }
     }
 
     /* renamed from: d.o.a.d.f.f.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C1801b implements c.a<String, Boolean> {
+    /* loaded from: classes7.dex */
+    public class C1865b implements c.a<String, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f66074a;
+        public final /* synthetic */ long f66760a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f66075b;
+        public final /* synthetic */ long f66761b;
 
         /* renamed from: d.o.a.d.f.f.b$b$a */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a implements p {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ boolean[] f66077a;
+            public final /* synthetic */ boolean[] f66763a;
 
             public a(boolean[] zArr) {
-                this.f66077a = zArr;
+                this.f66763a = zArr;
             }
 
             @Override // d.o.a.a.a.a.p
             public void a(String str) {
-                boolean[] zArr = this.f66077a;
-                C1801b c1801b = C1801b.this;
-                zArr[0] = b.this.d(c1801b.f66074a, c1801b.f66075b, str);
+                boolean[] zArr = this.f66763a;
+                C1865b c1865b = C1865b.this;
+                zArr[0] = b.this.d(c1865b.f66760a, c1865b.f66761b, str);
             }
 
             @Override // d.o.a.a.a.a.p
             public void a(Throwable th) {
                 k.f.c(th);
-                d.o.a.d.f.f.c.a(2, C1801b.this.f66075b);
-                this.f66077a[0] = false;
+                d.o.a.d.f.f.c.a(2, C1865b.this.f66761b);
+                this.f66763a[0] = false;
             }
         }
 
-        public C1801b(long j, long j2) {
-            this.f66074a = j;
-            this.f66075b = j2;
+        public C1865b(long j, long j2) {
+            this.f66760a = j;
+            this.f66761b = j2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,11 +102,11 @@ public class b {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f66079a = new b(null);
+        public static b f66765a = new b(null);
     }
 
     public /* synthetic */ b(a aVar) {
@@ -114,7 +114,7 @@ public class b {
     }
 
     public static b a() {
-        return c.f66079a;
+        return c.f66765a;
     }
 
     public void b(long j) {
@@ -122,31 +122,31 @@ public class b {
     }
 
     public void c(Activity activity) {
-        this.f66070a = new SoftReference<>(activity);
+        this.f66756a = new SoftReference<>(activity);
     }
 
     public final boolean d(long j, long j2, String str) {
         try {
-            JSONObject optJSONObject = new JSONObject(str).optJSONObject("package");
+            JSONObject optJSONObject = new JSONObject(str).optJSONObject(AsInstallService.SCHEME_PACKAGE_ADDED);
             if (optJSONObject != null && optJSONObject.length() != 0) {
-                c.C1798c c1798c = new c.C1798c();
-                c1798c.f66007a = j;
-                c1798c.f66008b = j2;
-                c1798c.f66009c = optJSONObject.optString("icon_url");
-                c1798c.f66010d = optJSONObject.optString(DpStatConstants.KEY_APP_NAME);
+                c.C1862c c1862c = new c.C1862c();
+                c1862c.f66693a = j;
+                c1862c.f66694b = j2;
+                c1862c.f66695c = optJSONObject.optString("icon_url");
+                c1862c.f66696d = optJSONObject.optString("app_name");
                 optJSONObject.optString("package_name");
-                c1798c.f66011e = optJSONObject.optString("version_name");
-                c1798c.f66012f = optJSONObject.optString("developer_name");
-                c1798c.f66014h = optJSONObject.optString("policy_url");
+                c1862c.f66697e = optJSONObject.optString("version_name");
+                c1862c.f66698f = optJSONObject.optString("developer_name");
+                c1862c.f66700h = optJSONObject.optString("policy_url");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("permissions");
                 if (optJSONArray != null) {
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject jSONObject = (JSONObject) optJSONArray.get(i2);
-                        c1798c.f66013g.add(new Pair<>(jSONObject.optString(IdCardActivity.RESULT_PERMISSION_KEY), jSONObject.optString("permission_desc")));
+                        c1862c.f66699g.add(new Pair<>(jSONObject.optString(IdCardActivity.RESULT_PERMISSION_KEY), jSONObject.optString("permission_desc")));
                     }
                 }
-                com.ss.android.downloadlib.addownload.compliance.c.a().a(c1798c);
-                d.a().a(c1798c.a(), j2, c1798c.f66009c);
+                com.ss.android.downloadlib.addownload.compliance.c.a().a(c1862c);
+                d.a().a(c1862c.a(), j2, c1862c.f66695c);
                 return true;
             }
             d.o.a.d.f.f.c.a(7, j2);
@@ -169,9 +169,9 @@ public class b {
     public boolean f(@NonNull c.f fVar) {
         long j;
         long j2;
-        if (!TextUtils.isEmpty(fVar.f66030b.u())) {
+        if (!TextUtils.isEmpty(fVar.f66716b.u())) {
             try {
-                j = d.o.a.d.n.k.g(new JSONObject(fVar.f66030b.u()), "convert_id");
+                j = d.o.a.d.n.k.g(new JSONObject(fVar.f66716b.u()), "convert_id");
             } catch (Exception e2) {
                 e2.printStackTrace();
                 j = 0;
@@ -185,10 +185,10 @@ public class b {
             k.f.a();
             j2 = 0;
         }
-        long j3 = fVar.f66029a;
-        c.C1798c a2 = com.ss.android.downloadlib.addownload.compliance.c.a().a(j2, j3);
+        long j3 = fVar.f66715a;
+        c.C1862c a2 = com.ss.android.downloadlib.addownload.compliance.c.a().a(j2, j3);
         if (a2 != null) {
-            d.a().a(a2.a(), j3, a2.f66009c);
+            d.a().a(a2.a(), j3, a2.f66695c);
             b(a2.a());
             d.o.a.d.f.f.c.d("lp_app_dialog_try_show", fVar);
             return true;
@@ -202,31 +202,31 @@ public class b {
                 sb.append("convert_id=");
                 sb.append(j2);
             }
-            if (!TextUtils.isEmpty(fVar.f66030b.v())) {
+            if (!TextUtils.isEmpty(fVar.f66716b.v())) {
                 if (sb.length() > 0) {
                     sb.append("&");
                 }
                 sb.append("package_name=");
-                sb.append(fVar.f66030b.v());
+                sb.append(fVar.f66716b.v());
             }
             if (sb.length() <= 0) {
                 d.o.a.d.f.f.c.b(6, fVar);
                 return false;
             }
             long j4 = j2;
-            d.o.a.d.n.c.c(new C1801b(j4, j3), "https://apps.oceanengine.com/customer/api/app/pkg_info?" + sb.toString()).b(new a(j4, j3)).d();
+            d.o.a.d.n.c.c(new C1865b(j4, j3), "https://apps.oceanengine.com/customer/api/app/pkg_info?" + sb.toString()).b(new a(j4, j3)).d();
             return true;
         }
     }
 
     public Activity h() {
-        Activity activity = this.f66070a.get();
-        this.f66070a = null;
+        Activity activity = this.f66756a.get();
+        this.f66756a = null;
         return activity;
     }
 
     public void i(long j) {
-        i a2 = k.b().a(c.g.e().v(j).f66030b.a());
+        i a2 = k.b().a(c.g.e().v(j).f66716b.a());
         if (a2 != null) {
             a2.p(false);
             return;

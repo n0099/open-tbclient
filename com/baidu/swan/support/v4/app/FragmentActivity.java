@@ -23,16 +23,16 @@ import androidx.annotation.Nullable;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.bumptech.glide.load.engine.GlideException;
-import d.a.h0.m.a.a.a;
-import d.a.h0.m.a.a.c;
-import d.a.h0.m.a.a.d;
-import d.a.h0.m.a.a.g;
-import d.a.h0.m.a.a.i;
-import d.a.h0.m.a.a.j;
-import d.a.h0.m.a.a.k;
-import d.a.h0.m.a.a.o;
-import d.a.h0.m.a.a.r;
-import d.a.h0.m.a.c.f;
+import d.a.i0.o.a.a.a;
+import d.a.i0.o.a.a.c;
+import d.a.i0.o.a.a.d;
+import d.a.i0.o.a.a.g;
+import d.a.i0.o.a.a.j;
+import d.a.i0.o.a.a.k;
+import d.a.i0.o.a.a.l;
+import d.a.i0.o.a.a.p;
+import d.a.i0.o.a.a.s;
+import d.a.i0.o.a.c.f;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ public class FragmentActivity extends g implements a.b, c.a {
     public boolean mRetaining;
     public boolean mStopped;
     public final Handler mHandler = new a();
-    public final i mFragments = i.b(new b());
+    public final j mFragments = j.b(new b());
 
     /* loaded from: classes3.dex */
     public class a extends Handler {
@@ -77,39 +77,39 @@ public class FragmentActivity extends g implements a.b, c.a {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends j<FragmentActivity> {
+    public class b extends k<FragmentActivity> {
         public b() {
             super(FragmentActivity.this);
         }
 
-        @Override // d.a.h0.m.a.a.h
+        @Override // d.a.i0.o.a.a.i
         @Nullable
         public View a(int i2) {
             return FragmentActivity.this.findViewById(i2);
         }
 
-        @Override // d.a.h0.m.a.a.h
+        @Override // d.a.i0.o.a.a.i
         public boolean b() {
             Window window = FragmentActivity.this.getWindow();
             return (window == null || window.peekDecorView() == null) ? false : true;
         }
 
-        @Override // d.a.h0.m.a.a.j
+        @Override // d.a.i0.o.a.a.k
         public void n(Fragment fragment) {
             FragmentActivity.this.onAttachFragment(fragment);
         }
 
-        @Override // d.a.h0.m.a.a.j
+        @Override // d.a.i0.o.a.a.k
         public void o(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
             FragmentActivity.this.dump(str, fileDescriptor, printWriter, strArr);
         }
 
-        @Override // d.a.h0.m.a.a.j
+        @Override // d.a.i0.o.a.a.k
         public LayoutInflater p() {
             return FragmentActivity.this.getLayoutInflater().cloneInContext(FragmentActivity.this);
         }
 
-        @Override // d.a.h0.m.a.a.j
+        @Override // d.a.i0.o.a.a.k
         public int q() {
             Window window = FragmentActivity.this.getWindow();
             if (window == null) {
@@ -118,22 +118,22 @@ public class FragmentActivity extends g implements a.b, c.a {
             return window.getAttributes().windowAnimations;
         }
 
-        @Override // d.a.h0.m.a.a.j
+        @Override // d.a.i0.o.a.a.k
         public boolean r() {
             return FragmentActivity.this.getWindow() != null;
         }
 
-        @Override // d.a.h0.m.a.a.j
+        @Override // d.a.i0.o.a.a.k
         public void s(@NonNull Fragment fragment, @NonNull String[] strArr, int i2) {
             FragmentActivity.this.requestPermissionsFromFragment(fragment, strArr, i2);
         }
 
-        @Override // d.a.h0.m.a.a.j
+        @Override // d.a.i0.o.a.a.k
         public boolean t(Fragment fragment) {
             return !FragmentActivity.this.isFinishing();
         }
 
-        @Override // d.a.h0.m.a.a.j
+        @Override // d.a.i0.o.a.a.k
         public void u() {
             FragmentActivity.this.supportInvalidateOptionsMenu();
         }
@@ -143,13 +143,13 @@ public class FragmentActivity extends g implements a.b, c.a {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f12615a;
+        public Object f11957a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<Fragment> f12616b;
+        public List<Fragment> f11958b;
 
         /* renamed from: c  reason: collision with root package name */
-        public f<String, o> f12617c;
+        public f<String, p> f11959c;
     }
 
     private void dumpViewHierarchy(String str, PrintWriter printWriter, View view) {
@@ -172,10 +172,10 @@ public class FragmentActivity extends g implements a.b, c.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void requestPermissionsFromFragment(Fragment fragment, String[] strArr, int i2) {
         if (i2 == -1) {
-            d.a.h0.m.a.a.a.h(this, strArr, i2);
+            d.a.i0.o.a.a.a.h(this, strArr, i2);
         } else if ((i2 & (-256)) == 0) {
             this.mRequestedPermissionsFromFragment = true;
-            d.a.h0.m.a.a.a.h(this, strArr, ((fragment.j + 1) << 8) + (i2 & 255));
+            d.a.i0.o.a.a.a.h(this, strArr, ((fragment.j + 1) << 8) + (i2 & 255));
         } else {
             throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
         }
@@ -252,7 +252,7 @@ public class FragmentActivity extends g implements a.b, c.a {
         return sb.toString();
     }
 
-    @Override // d.a.h0.m.a.a.f
+    @Override // d.a.i0.o.a.a.f
     public final View dispatchFragmentsOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
         return this.mFragments.B(view, str, context, attributeSet);
     }
@@ -293,16 +293,16 @@ public class FragmentActivity extends g implements a.b, c.a {
     public Object getLastCustomNonConfigurationInstance() {
         c cVar = (c) getLastNonConfigurationInstance();
         if (cVar != null) {
-            return cVar.f12615a;
+            return cVar.f11957a;
         }
         return null;
     }
 
-    public k getSupportFragmentManager() {
+    public l getSupportFragmentManager() {
         return this.mFragments.y();
     }
 
-    public o getSupportLoaderManager() {
+    public p getSupportLoaderManager() {
         return this.mFragments.z();
     }
 
@@ -319,7 +319,7 @@ public class FragmentActivity extends g implements a.b, c.a {
                     Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i2));
                     return;
                 }
-                fragment.m0(i2 & 65535, i3, intent);
+                fragment.v0(i2 & 65535, i3, intent);
                 return;
             }
             Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i2));
@@ -333,7 +333,7 @@ public class FragmentActivity extends g implements a.b, c.a {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (this.mFragments.y().e()) {
+        if (this.mFragments.y().f()) {
             return;
         }
         supportFinishAfterTransition();
@@ -345,16 +345,16 @@ public class FragmentActivity extends g implements a.b, c.a {
         this.mFragments.d(configuration);
     }
 
-    @Override // d.a.h0.m.a.a.f, android.app.Activity
+    @Override // d.a.i0.o.a.a.f, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         this.mFragments.a(null);
         super.onCreate(bundle);
         c cVar = (c) getLastNonConfigurationInstance();
         if (cVar != null) {
-            this.mFragments.E(cVar.f12617c);
+            this.mFragments.E(cVar.f11959c);
         }
         if (bundle != null) {
-            this.mFragments.D(bundle.getParcelable("android:support:fragments"), cVar != null ? cVar.f12616b : null);
+            this.mFragments.D(bundle.getParcelable("android:support:fragments"), cVar != null ? cVar.f11958b : null);
         }
         this.mFragments.f();
     }
@@ -371,7 +371,7 @@ public class FragmentActivity extends g implements a.b, c.a {
         return super.onCreatePanelMenu(i2, menu);
     }
 
-    @Override // d.a.h0.m.a.a.g, android.app.Activity, android.view.LayoutInflater.Factory2
+    @Override // d.a.i0.o.a.a.g, android.app.Activity, android.view.LayoutInflater.Factory2
     public /* bridge */ /* synthetic */ View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
         return super.onCreateView(view, str, context, attributeSet);
     }
@@ -468,7 +468,7 @@ public class FragmentActivity extends g implements a.b, c.a {
         this.mFragments.n();
     }
 
-    @Override // android.app.Activity, d.a.h0.m.a.a.a.b
+    @Override // android.app.Activity, d.a.i0.o.a.a.a.b
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         int i3 = (i2 >> 8) & 255;
         if (i3 != 0) {
@@ -480,7 +480,7 @@ public class FragmentActivity extends g implements a.b, c.a {
                     Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i2));
                     return;
                 }
-                fragment.E0(i2 & 255, strArr, iArr);
+                fragment.L0(i2 & 255, strArr, iArr);
                 return;
             }
             Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i2));
@@ -510,14 +510,14 @@ public class FragmentActivity extends g implements a.b, c.a {
         }
         Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
         List<Fragment> G = this.mFragments.G();
-        f<String, o> F = this.mFragments.F();
+        f<String, p> F = this.mFragments.F();
         if (G == null && F == null && onRetainCustomNonConfigurationInstance == null) {
             return null;
         }
         c cVar = new c();
-        cVar.f12615a = onRetainCustomNonConfigurationInstance;
-        cVar.f12616b = G;
-        cVar.f12617c = F;
+        cVar.f11957a = onRetainCustomNonConfigurationInstance;
+        cVar.f11958b = G;
+        cVar.f11959c = F;
         return cVar;
     }
 
@@ -560,12 +560,12 @@ public class FragmentActivity extends g implements a.b, c.a {
         this.mFragments.q();
     }
 
-    public void setEnterSharedElementCallback(r rVar) {
-        d.a.h0.m.a.a.a.i(this, rVar);
+    public void setEnterSharedElementCallback(s sVar) {
+        d.a.i0.o.a.a.a.i(this, sVar);
     }
 
-    public void setExitSharedElementCallback(r rVar) {
-        d.a.h0.m.a.a.a.j(this, rVar);
+    public void setExitSharedElementCallback(s sVar) {
+        d.a.i0.o.a.a.a.j(this, sVar);
     }
 
     @Override // android.app.Activity
@@ -587,7 +587,7 @@ public class FragmentActivity extends g implements a.b, c.a {
     }
 
     public void supportFinishAfterTransition() {
-        d.a.h0.m.a.a.a.f(this);
+        d.a.i0.o.a.a.a.f(this);
     }
 
     public void supportInvalidateOptionsMenu() {
@@ -599,14 +599,14 @@ public class FragmentActivity extends g implements a.b, c.a {
     }
 
     public void supportPostponeEnterTransition() {
-        d.a.h0.m.a.a.a.g(this);
+        d.a.i0.o.a.a.a.g(this);
     }
 
     public void supportStartPostponedEnterTransition() {
-        d.a.h0.m.a.a.a.k(this);
+        d.a.i0.o.a.a.a.l(this);
     }
 
-    @Override // d.a.h0.m.a.a.c.a
+    @Override // d.a.i0.o.a.a.c.a
     public final void validateRequestPermissionsRequestCode(int i2) {
         if (this.mRequestedPermissionsFromFragment) {
             this.mRequestedPermissionsFromFragment = false;
@@ -615,7 +615,7 @@ public class FragmentActivity extends g implements a.b, c.a {
         }
     }
 
-    @Override // d.a.h0.m.a.a.f, android.app.Activity, android.view.LayoutInflater.Factory
+    @Override // d.a.i0.o.a.a.f, android.app.Activity, android.view.LayoutInflater.Factory
     public /* bridge */ /* synthetic */ View onCreateView(String str, Context context, AttributeSet attributeSet) {
         return super.onCreateView(str, context, attributeSet);
     }

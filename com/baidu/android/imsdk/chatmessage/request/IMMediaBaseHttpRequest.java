@@ -6,6 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -69,7 +70,7 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
         jSONObject.put("appid", AccountManager.getAppid(this.mContext));
         jSONObject.put("timestamp", System.currentTimeMillis() / 1000);
         jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
-        jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+        jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
         jSONObject.put("device_type", 2);
         jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
         jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));

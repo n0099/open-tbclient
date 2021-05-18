@@ -50,21 +50,21 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
     public abstract class c<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31746e;
+        public int f30991e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31747f = -1;
+        public int f30992f = -1;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f31748g;
+        public int f30993g;
 
         public c() {
-            this.f31746e = AbstractMapBasedMultiset.this.backingMap.e();
-            this.f31748g = AbstractMapBasedMultiset.this.backingMap.f65554d;
+            this.f30991e = AbstractMapBasedMultiset.this.backingMap.e();
+            this.f30993g = AbstractMapBasedMultiset.this.backingMap.f66240d;
         }
 
         public final void a() {
-            if (AbstractMapBasedMultiset.this.backingMap.f65554d != this.f31748g) {
+            if (AbstractMapBasedMultiset.this.backingMap.f66240d != this.f30993g) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -74,16 +74,16 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
         @Override // java.util.Iterator
         public boolean hasNext() {
             a();
-            return this.f31746e >= 0;
+            return this.f30991e >= 0;
         }
 
         @Override // java.util.Iterator
         public T next() {
             if (hasNext()) {
-                T b2 = b(this.f31746e);
-                int i2 = this.f31746e;
-                this.f31747f = i2;
-                this.f31746e = AbstractMapBasedMultiset.this.backingMap.s(i2);
+                T b2 = b(this.f30991e);
+                int i2 = this.f30991e;
+                this.f30992f = i2;
+                this.f30991e = AbstractMapBasedMultiset.this.backingMap.s(i2);
                 return b2;
             }
             throw new NoSuchElementException();
@@ -93,11 +93,11 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
         public void remove() {
             AbstractMapBasedMultiset abstractMapBasedMultiset;
             a();
-            m.e(this.f31747f != -1);
-            AbstractMapBasedMultiset.this.size -= abstractMapBasedMultiset.backingMap.x(this.f31747f);
-            this.f31746e = AbstractMapBasedMultiset.this.backingMap.t(this.f31746e, this.f31747f);
-            this.f31747f = -1;
-            this.f31748g = AbstractMapBasedMultiset.this.backingMap.f65554d;
+            m.e(this.f30992f != -1);
+            AbstractMapBasedMultiset.this.size -= abstractMapBasedMultiset.backingMap.x(this.f30992f);
+            this.f30991e = AbstractMapBasedMultiset.this.backingMap.t(this.f30991e, this.f30992f);
+            this.f30992f = -1;
+            this.f30993g = AbstractMapBasedMultiset.this.backingMap.f66240d;
         }
     }
 

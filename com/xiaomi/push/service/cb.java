@@ -6,18 +6,18 @@ import com.xiaomi.push.service.m;
 public class cb implements m.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService.i f38953a;
+    public final /* synthetic */ XMPushService.i f38198a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ XMPushService f943a;
 
     public cb(XMPushService xMPushService, XMPushService.i iVar) {
         this.f943a = xMPushService;
-        this.f38953a = iVar;
+        this.f38198a = iVar;
     }
 
     @Override // com.xiaomi.push.service.m.a
     public void a() {
-        this.f943a.a(this.f38953a);
+        this.f943a.a(this.f38198a);
     }
 }

@@ -15,14 +15,14 @@ public class EntelechyBannerView extends BannerView {
     }
 
     public final void l() {
-        Button button = this.f13381g;
+        Button button = this.f12717g;
         if (button == null || !(button.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
             return;
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f13381g.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12717g.getLayoutParams();
         layoutParams.topMargin = (l.g(getContext(), R.dimen.ds100) - l.e(getContext(), 20.0f)) / 2;
         layoutParams.addRule(10);
-        this.f13381g.requestLayout();
+        this.f12717g.requestLayout();
     }
 
     public EntelechyBannerView(Context context, AttributeSet attributeSet) {

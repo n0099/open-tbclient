@@ -6,28 +6,28 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import d.a.j0.t.d.h.a.b;
+import d.a.k0.t.d.h.a.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerViewHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<T> f14696a;
+    public List<T> f14011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f14697b;
+    public Context f14012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.j0.t.d.h.a.a f14698c;
+    public d.a.k0.t.d.h.a.a f14013c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f14699d;
+    public b f14014d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14700e;
+    public boolean f14015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f14701f = new a();
+    public View.OnClickListener f14016f = new a();
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -36,24 +36,24 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (AlaBannerRecyclerAdapter.this.f14699d != null) {
-                AlaBannerRecyclerAdapter.this.f14699d.a(view.getTag());
+            if (AlaBannerRecyclerAdapter.this.f14014d != null) {
+                AlaBannerRecyclerAdapter.this.f14014d.a(view.getTag());
             }
         }
     }
 
-    public AlaBannerRecyclerAdapter(Context context, d.a.j0.t.d.h.a.a aVar, boolean z) {
-        this.f14697b = context;
-        this.f14698c = aVar;
-        this.f14700e = z;
+    public AlaBannerRecyclerAdapter(Context context, d.a.k0.t.d.h.a.a aVar, boolean z) {
+        this.f14012b = context;
+        this.f14013c = aVar;
+        this.f14015e = z;
     }
 
     public int d() {
-        return ListUtils.getCount(this.f14696a);
+        return ListUtils.getCount(this.f14011a);
     }
 
     public final int e(int i2) {
-        return ListUtils.getCount(this.f14696a) != 0 ? i2 % ListUtils.getCount(this.f14696a) : i2;
+        return ListUtils.getCount(this.f14011a) != 0 ? i2 % ListUtils.getCount(this.f14011a) : i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,12 +65,12 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         if (getItemCount() == 0 || alaBannerViewHolder == 0) {
             return;
         }
-        Object item = ListUtils.getItem(this.f14696a, e(i2));
+        Object item = ListUtils.getItem(this.f14011a, e(i2));
         if (item != null) {
             alaBannerViewHolder.a(i2, item);
             alaBannerViewHolder.itemView.setTag(item);
             alaBannerViewHolder.c(TbadkCoreApplication.getInst().getSkinType());
-            alaBannerViewHolder.itemView.setOnClickListener(this.f14701f);
+            alaBannerViewHolder.itemView.setOnClickListener(this.f14016f);
         }
     }
 
@@ -78,7 +78,7 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: g */
     public AlaBannerViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
-        d.a.j0.t.d.h.a.a aVar = this.f14698c;
+        d.a.k0.t.d.h.a.a aVar = this.f14013c;
         if (aVar != null) {
             return aVar.a(viewGroup, i2);
         }
@@ -87,20 +87,20 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (ListUtils.isEmpty(this.f14696a) || ListUtils.getCount(this.f14696a) == 1) {
-            return ListUtils.getCount(this.f14696a);
+        if (ListUtils.isEmpty(this.f14011a) || ListUtils.getCount(this.f14011a) == 1) {
+            return ListUtils.getCount(this.f14011a);
         }
-        return this.f14700e ? ListUtils.getCount(this.f14696a) * 3 : ListUtils.getCount(this.f14696a);
+        return this.f14015e ? ListUtils.getCount(this.f14011a) * 3 : ListUtils.getCount(this.f14011a);
     }
 
     public void h(b bVar) {
-        this.f14699d = bVar;
+        this.f14014d = bVar;
     }
 
-    public void i(d.a.j0.t.d.h.a.a aVar) {
+    public void i(d.a.k0.t.d.h.a.a aVar) {
     }
 
     public void setData(List<T> list) {
-        this.f14696a = list;
+        this.f14011a = list;
     }
 }

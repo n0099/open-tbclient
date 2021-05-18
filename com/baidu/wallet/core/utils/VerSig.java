@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 public final class VerSig {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f24754a = 0;
+    public static final int f23999a = 0;
 
     public static int a(String str) {
         if ("MD5".equalsIgnoreCase(str)) {

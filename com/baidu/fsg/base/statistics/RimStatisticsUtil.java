@@ -20,7 +20,7 @@ public final class RimStatisticsUtil {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static RimStatisticsUtil f5432a = new RimStatisticsUtil();
+        public static RimStatisticsUtil f5286a = new RimStatisticsUtil();
     }
 
     public static boolean cacheAppContext(Context context) {
@@ -35,11 +35,11 @@ public final class RimStatisticsUtil {
     }
 
     public static RimStatisticsUtil getInstance() {
-        return a.f5432a;
+        return a.f5286a;
     }
 
     private String getSignKey1() {
-        return com.baidu.fsg.base.a.f5276h;
+        return com.baidu.fsg.base.a.f5130h;
     }
 
     private String getSignKey2() {

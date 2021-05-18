@@ -13,6 +13,8 @@ import com.baidu.android.imrtc.notify.BIMInviteSyncRtcInfo;
 import com.baidu.android.imrtc.notify.BIMKickReqSyncRtcInfo;
 import com.baidu.android.imrtc.notify.BIMKickResSyncRtcInfo;
 import com.baidu.android.imrtc.notify.BIMSyncRtcInfo;
+import com.baidu.android.imrtc.request.BIMRtcAnswerAbilityListener;
+import com.baidu.android.imrtc.request.BIMRtcAnswerAbilityRequest;
 import com.baidu.android.imrtc.request.BIMRtcCreateRoomRequest;
 import com.baidu.android.imrtc.request.BIMRtcGetTokenRequest;
 import com.baidu.android.imrtc.request.BIMRtcTokenListener;
@@ -111,6 +113,7 @@ public class BIMRtcManager {
         bIMAckRtcInfo.setAckSeqId(bIMRtcInfo.getSeq());
         bIMAckRtcInfo.setSyncAction(bIMRtcInfo.getAction());
         bIMAckRtcInfo.setImUK(Utility.getUK(mContext));
+        bIMAckRtcInfo.setmAppState(RtcUtility.getAppState(mContext));
         rtcSendEvent(bIMAckRtcInfo, 102, null);
     }
 
@@ -161,7 +164,7 @@ public class BIMRtcManager {
                 this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
             } else if (((BIMAnswerRtcInfo) bIMRtcInfo).getAnswerType() != 1) {
                 RtcConstants.IM_RTC_SDK_SEQ_ID.set(-1L);
-                RtcConstants.RTC_TRACK_UPLOAD_DURATION = 0L;
+                BIMRtcTrackManager.uploadRtcActionData(mContext);
             } else {
                 this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
                 this.mRtcHandler.postDelayed(this.heartBeatRunnable, RtcConstants.RTC_HEART_BEAT_TIME);
@@ -433,6 +436,11 @@ public class BIMRtcManager {
         rtcSendEvent(bIMCancelRtcInfo, 94, iStatusListener);
     }
 
+    public void checkAnswerAbility(String str, String str2, @NonNull BIMRtcAnswerAbilityListener bIMRtcAnswerAbilityListener) {
+        BIMRtcAnswerAbilityRequest bIMRtcAnswerAbilityRequest = new BIMRtcAnswerAbilityRequest(mContext, str, str2, bIMRtcAnswerAbilityListener);
+        HttpExecutor.getInstance().execute(bIMRtcAnswerAbilityRequest, bIMRtcAnswerAbilityRequest);
+    }
+
     public void closeRoom(@NonNull BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
         rtcSendEvent(bIMCloseRoomRtcInfo, 88, iStatusListener);
     }
@@ -555,8 +563,16 @@ public class BIMRtcManager {
         rtcSendEvent(bIMRtcInfo, 86, iStatusListener);
     }
 
+    public void createRoom(String str, String str2, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
+        trackRequest("room/create", "c_client_request", -1, "");
+        mBIMRtcEvent.requestAction = -10;
+        mBIMRtcEvent.requestRoomId = "room/create";
+        BIMRtcCreateRoomRequest bIMRtcCreateRoomRequest = new BIMRtcCreateRoomRequest(mContext, str, str2, bIMRtcTokenListener);
+        HttpExecutor.getInstance().execute(bIMRtcCreateRoomRequest, bIMRtcCreateRoomRequest);
+    }
+
     public static void trackRequest(String str, String str2, int i2, String str3) {
-        new BIMRtcTrack.RequestBuilder(mContext).method(str).requestId("-1").requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i2).ext(trackExt(null, str2, str3)).build();
+        new BIMRtcTrack.RequestBuilder(mContext).method(str).requestId(str).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i2).ext(trackExt(null, str2, str3)).build();
     }
 
     public static void trackRequest(BIMRtcInfo bIMRtcInfo, int i2, int i3, String str, int i4) {

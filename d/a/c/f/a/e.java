@@ -5,35 +5,35 @@ import android.graphics.Matrix;
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40113b;
+    public boolean f39358b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40114c;
+    public boolean f39359c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f40115d;
+    public int f39360d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40116e;
+    public int f39361e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f40117f;
+    public boolean f39362f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f40118g;
+    public boolean f39363g;
     public Matrix l;
     public int m;
     public boolean n;
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f40112a = new float[8];
+    public float[] f39357a = new float[8];
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f40119h = false;
+    public boolean f39364h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f40120i = true;
-    public int j = b.f40106a;
+    public boolean f39365i = true;
+    public int j = b.f39351a;
     public float k = 1.0f;
     public boolean o = false;
 }

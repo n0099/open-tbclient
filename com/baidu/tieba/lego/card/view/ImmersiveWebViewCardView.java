@@ -20,14 +20,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
 import d.a.c.e.p.l;
-import d.a.j0.s2.w;
+import d.a.k0.s2.x;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard> {
     public LinearLayout r;
     public BaseWebView s;
-    public d.a.j0.d3.l0.a t;
+    public d.a.k0.d3.l0.a t;
     public XiubaTbJsBridge u;
 
     /* loaded from: classes4.dex */
@@ -37,7 +37,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-            return ImmersiveWebViewCardView.this.N(str2, jsPromptResult);
+            return ImmersiveWebViewCardView.this.M(str2, jsPromptResult);
         }
     }
 
@@ -56,7 +56,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     public ImmersiveWebViewCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.m = tbPageContext;
-        d.a.j0.d3.l0.a aVar = new d.a.j0.d3.l0.a();
+        d.a.k0.d3.l0.a aVar = new d.a.k0.d3.l0.a();
         this.t = aVar;
         aVar.a(new XiubaTbJsBridge(this.m));
         this.t.a(new CommonTbJsBridge(this.m.getPageActivity()));
@@ -72,7 +72,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         this.s.setLayoutParams(layoutParams);
     }
 
-    public View K() {
+    public View J() {
         if (this.s == null) {
             BridgeWebView bridgeWebView = new BridgeWebView(this.m.getPageActivity());
             this.s = bridgeWebView;
@@ -86,8 +86,8 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
-    public final void L() {
-        K();
+    public final void K() {
+        J();
         if (this.u == null) {
             this.u = new XiubaTbJsBridge(this.m);
         }
@@ -100,13 +100,13 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: M */
-    public void x(ImmersiveWebViewCard immersiveWebViewCard, int i2) {
+    /* renamed from: L */
+    public void w(ImmersiveWebViewCard immersiveWebViewCard, int i2) {
         if (TextUtils.isEmpty(immersiveWebViewCard.getPageUrl()) || this.s == null) {
         }
     }
 
-    public final boolean N(String str, JsPromptResult jsPromptResult) {
+    public final boolean M(String str, JsPromptResult jsPromptResult) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("interfaceName");
@@ -124,8 +124,8 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: O */
-    public void y(ImmersiveWebViewCard immersiveWebViewCard) {
+    /* renamed from: N */
+    public void x(ImmersiveWebViewCard immersiveWebViewCard) {
         if (this.s == null) {
             return;
         }
@@ -140,14 +140,14 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
             CompatibleUtile.getInstance().loadUrl(this.s, immersiveWebViewCard.getPageUrl());
         }
-        w.p().m().d(immersiveWebViewCard.getShowExtra(), this.f18681e);
+        x.p().m().d(immersiveWebViewCard.getShowExtra(), this.f17996e);
         immersiveWebViewCard.mHasShown = true;
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View u() {
+    public View t() {
         this.r = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_webview, (ViewGroup) null);
-        L();
+        K();
         return this.r;
     }
 }

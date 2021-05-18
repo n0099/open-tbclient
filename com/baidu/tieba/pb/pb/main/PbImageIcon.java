@@ -4,15 +4,15 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbImageIcon extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f19856e;
+    public Context f19144e;
 
     public PbImageIcon(Context context) {
         super(context);
-        this.f19856e = context;
+        this.f19144e = context;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -29,6 +29,6 @@ public class PbImageIcon extends ImageView {
 
     public PbImageIcon(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19856e = context;
+        this.f19144e = context;
     }
 }

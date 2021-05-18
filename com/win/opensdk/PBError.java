@@ -1,12 +1,12 @@
 package com.win.opensdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PBError {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37721a;
+    public int f36966a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37722b;
+    public String f36967b;
     public static final PBError NO_FILL = new PBError(2001, "NO FILL");
     public static final PBError TIMEOUT = new PBError(2002, "TIME OUT");
     public static final PBError LOAD_TOO_FREQUENTLY = new PBError(2003, "LOAD TOO FREQUENTLY");
@@ -21,27 +21,27 @@ public class PBError {
     public static final PBError LOAD_TYPE_ERROR = new PBError(2031, "Load Type error");
 
     public PBError(int i2, String str) {
-        this.f37721a = i2;
-        this.f37722b = str;
+        this.f36966a = i2;
+        this.f36967b = str;
     }
 
     public int getCode() {
-        return this.f37721a;
+        return this.f36966a;
     }
 
     public String getMsg() {
-        return this.f37722b;
+        return this.f36967b;
     }
 
     public void setCode(int i2) {
-        this.f37721a = i2;
+        this.f36966a = i2;
     }
 
     public void setMsg(String str) {
-        this.f37722b = str;
+        this.f36967b = str;
     }
 
     public String toString() {
-        return "PBError{code=" + this.f37721a + ", msg='" + this.f37722b + "'}";
+        return "PBError{code=" + this.f36966a + ", msg='" + this.f36967b + "'}";
     }
 }

@@ -8,11 +8,11 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<JSONObject> f66990a;
+    public List<JSONObject> f67676a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f66991b;
+    public JSONArray f67677b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicInteger f66992c = new AtomicInteger(0);
+    public AtomicInteger f67678c = new AtomicInteger(0);
 }

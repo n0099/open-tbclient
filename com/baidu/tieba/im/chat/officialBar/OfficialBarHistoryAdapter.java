@@ -10,23 +10,23 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.OfficialHistoryImageActivityConfig;
 import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.a.j0.e1.f.h;
-import d.a.j0.e1.w.c;
+import d.a.k0.e1.f.h;
+import d.a.k0.e1.w.c;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class OfficialBarHistoryAdapter extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17846e;
+    public Context f17161e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaseActivity f17847f;
+    public BaseActivity f17162f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f17848g = new a();
+    public View.OnClickListener f17163g = new a();
 
     /* renamed from: h  reason: collision with root package name */
-    public List<ResponseHistoryMessage.a> f17849h;
+    public List<ResponseHistoryMessage.a> f17164h;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -36,69 +36,69 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue = ((Integer) view.getTag()).intValue();
-            if (intValue < 0 || intValue >= OfficialBarHistoryAdapter.this.f17849h.size()) {
+            if (intValue < 0 || intValue >= OfficialBarHistoryAdapter.this.f17164h.size()) {
                 return;
             }
-            ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) OfficialBarHistoryAdapter.this.f17849h.get(intValue);
-            String f2 = c.f("[" + aVar.f17887c + "]", true);
+            ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) OfficialBarHistoryAdapter.this.f17164h.get(intValue);
+            String f2 = c.f("[" + aVar.f17202c + "]", true);
             if (f2 == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialHistoryImageActivityConfig(OfficialBarHistoryAdapter.this.f17846e, f2, String.valueOf(aVar.f17888d))));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialHistoryImageActivityConfig(OfficialBarHistoryAdapter.this.f17161e, f2, String.valueOf(aVar.f17203d))));
         }
     }
 
     public OfficialBarHistoryAdapter(BaseActivity baseActivity, Context context) {
-        this.f17846e = context;
-        this.f17847f = baseActivity;
+        this.f17161e = context;
+        this.f17162f = baseActivity;
     }
 
     public final View b(int i2, View view, ViewGroup viewGroup) {
         ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) getItem(i2);
-        if (aVar != null && aVar.f17887c != null) {
+        if (aVar != null && aVar.f17202c != null) {
             int itemViewType = getItemViewType(i2);
             if (itemViewType == 0) {
                 if (view == null) {
-                    view = new HistoryItemView(this.f17846e);
+                    view = new HistoryItemView(this.f17161e);
                 }
                 HistoryItemView historyItemView = (HistoryItemView) view;
                 historyItemView.setClickable(false);
-                historyItemView.setTime(aVar.f17885a);
+                historyItemView.setTime(aVar.f17200a);
                 ChatMessage chatMessage = new ChatMessage(501126) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter.2
                     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
                     public Object encode() {
                         return null;
                     }
                 };
-                chatMessage.setContent(aVar.f17887c);
-                chatMessage.setMsgType(aVar.f17886b);
-                h.e(this.f17846e, historyItemView.getRichTextView(), chatMessage, "official_history_adapter", 0);
+                chatMessage.setContent(aVar.f17202c);
+                chatMessage.setMsgType(aVar.f17201b);
+                h.e(this.f17161e, historyItemView.getRichTextView(), chatMessage, "official_history_adapter", 0);
             } else if (itemViewType == 1) {
                 if (view == null) {
-                    view = new HistoryItemView(this.f17846e);
+                    view = new HistoryItemView(this.f17161e);
                 }
                 HistoryItemView historyItemView2 = (HistoryItemView) view;
                 historyItemView2.setClickable(false);
-                historyItemView2.setTime(aVar.f17885a);
+                historyItemView2.setTime(aVar.f17200a);
                 ChatMessage chatMessage2 = new ChatMessage(501126) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter.3
                     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
                     public Object encode() {
                         return null;
                     }
                 };
-                chatMessage2.setContent("[" + aVar.f17887c + "]");
-                chatMessage2.setMsgType(aVar.f17886b);
-                h.d(this.f17846e, view, historyItemView2.getImageView(), chatMessage2, 0L, "official_history_adapter");
+                chatMessage2.setContent("[" + aVar.f17202c + "]");
+                chatMessage2.setMsgType(aVar.f17201b);
+                h.d(this.f17161e, view, historyItemView2.getImageView(), chatMessage2, 0L, "official_history_adapter");
                 historyItemView2.getImageView().setTag(Integer.valueOf(i2));
-                historyItemView2.getImageView().setOnClickListener(this.f17848g);
+                historyItemView2.getImageView().setOnClickListener(this.f17163g);
             } else if (itemViewType == 2) {
                 if (view == null) {
-                    view = new HistoryItemView(this.f17846e);
+                    view = new HistoryItemView(this.f17161e);
                 }
-                MultiContentView multiContentView = new MultiContentView(this.f17846e);
+                MultiContentView multiContentView = new MultiContentView(this.f17161e);
                 multiContentView.setNeedNightMode(true);
-                multiContentView.setTime(aVar.f17885a);
-                multiContentView.setData(this.f17847f.getPageContext(), d.a.j0.e1.l.c.a.a(aVar.f17887c, "", 0L, 0L), viewGroup);
+                multiContentView.setTime(aVar.f17200a);
+                multiContentView.setData(this.f17162f.getPageContext(), d.a.k0.e1.l.c.a.a(aVar.f17202c, "", 0L, 0L), viewGroup);
                 ((HistoryItemView) view).a(multiContentView);
             }
         }
@@ -106,13 +106,13 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
     }
 
     public void c(List<ResponseHistoryMessage.a> list) {
-        this.f17849h = list;
+        this.f17164h = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<ResponseHistoryMessage.a> list = this.f17849h;
+        List<ResponseHistoryMessage.a> list = this.f17164h;
         if (list == null) {
             return 0;
         }
@@ -121,15 +121,15 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        if (this.f17849h == null || i2 >= getCount()) {
+        if (this.f17164h == null || i2 >= getCount()) {
             return null;
         }
-        return this.f17849h.get(i2);
+        return this.f17164h.get(i2);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i2) {
-        List<ResponseHistoryMessage.a> list = this.f17849h;
+        List<ResponseHistoryMessage.a> list = this.f17164h;
         if (list == null || i2 >= list.size()) {
             return 0L;
         }
@@ -138,11 +138,11 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i2) {
-        List<ResponseHistoryMessage.a> list = this.f17849h;
+        List<ResponseHistoryMessage.a> list = this.f17164h;
         if (list == null || i2 >= list.size()) {
             return 0;
         }
-        int i3 = this.f17849h.get(i2).f17886b;
+        int i3 = this.f17164h.get(i2).f17201b;
         if (i3 != 2) {
             return i3 != 7 ? 0 : 2;
         }

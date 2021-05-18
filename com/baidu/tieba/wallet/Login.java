@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.IWalletListener;
-import d.a.i0.l.a;
+import d.a.j0.l.a;
 /* loaded from: classes5.dex */
 public class Login extends LightAppListenerImpl implements IWalletListener {
     public CustomMessageListener mAccountChangedListener = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.wallet.Login.1

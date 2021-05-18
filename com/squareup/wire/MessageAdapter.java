@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class MessageAdapter<M extends Message> {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType;
@@ -764,7 +764,7 @@ public final class MessageAdapter<M extends Message> {
         m.writeUnknownFieldMap(wireOutput);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Storage {
         public final Map<Integer, List<Object>> map;
 
@@ -802,7 +802,7 @@ public final class MessageAdapter<M extends Message> {
         return extensionRegistry.getExtension(this.messageType, str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class FieldInfo {
         public final Field builderMethod;
         public final Message.Datatype datatype;

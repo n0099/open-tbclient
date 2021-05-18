@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class l implements Runnable {
     public int A;
     public long B;
@@ -31,19 +31,19 @@ public class l implements Runnable {
     public String N;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f66570e;
+    public final f f67256e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f66571f;
+    public final c f67257f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final DownloadInfo f66572g;
+    public final DownloadInfo f67258g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.o.a.e.b.j.a f66573h;
+    public final d.o.a.e.b.j.a f67259h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.o.a.e.b.o.k f66574i;
+    public d.o.a.e.b.o.k f67260i;
     public d.o.a.e.b.n.b j;
     public o l;
     public long m;
@@ -63,10 +63,10 @@ public class l implements Runnable {
     public volatile long p = -1;
 
     public l(DownloadInfo downloadInfo, j jVar, c cVar, o oVar, int i2) {
-        this.f66572g = downloadInfo;
-        this.f66570e = jVar;
-        this.f66571f = cVar;
-        this.f66573h = d.o.a.e.b.j.a.d(downloadInfo.c0());
+        this.f67258g = downloadInfo;
+        this.f67256e = jVar;
+        this.f67257f = cVar;
+        this.f67259h = d.o.a.e.b.j.a.d(downloadInfo.c0());
         this.l = oVar;
         this.w = i2;
     }
@@ -77,7 +77,7 @@ public class l implements Runnable {
     }
 
     public final void B() {
-        this.z = this.l.f66580d ? this.f66572g.B0() : this.f66572g.v();
+        this.z = this.l.f67266d ? this.f67258g.B0() : this.f67258g.v();
         this.A = 0;
     }
 
@@ -102,14 +102,14 @@ public class l implements Runnable {
         int i2;
         a b2 = cVar.b();
         try {
-            i2 = inputStream.read(b2.f66524a, 0, Math.min(b2.f66524a.length, 1024));
+            i2 = inputStream.read(b2.f67210a, 0, Math.min(b2.f67210a.length, 1024));
         } catch (Throwable th) {
             th = th;
             i2 = -1;
         }
         try {
             if (i2 != -1) {
-                b2.f66526c = i2;
+                b2.f67212c = i2;
                 if (i2 == -1) {
                     cVar.a(b2);
                 }
@@ -128,7 +128,7 @@ public class l implements Runnable {
     public void c() {
         o oVar = this.l;
         try {
-            synchronized (this.f66570e) {
+            synchronized (this.f67256e) {
                 long p = p();
                 if (p > 0) {
                     this.q += p;
@@ -149,11 +149,11 @@ public class l implements Runnable {
             if (bVar.a()) {
                 return;
             }
-            int i2 = bVar.f66717c;
-            throw new com.ss.android.socialbase.downloader.exception.b(1004, i2, "2: response code error : " + bVar.f66717c + " segment=" + iVar);
+            int i2 = bVar.f67403c;
+            throw new com.ss.android.socialbase.downloader.exception.b(1004, i2, "2: response code error : " + bVar.f67403c + " segment=" + iVar);
         }
-        int i3 = bVar.f66717c;
-        throw new com.ss.android.socialbase.downloader.exception.b(1004, i3, "1: response code error : " + bVar.f66717c + " segment=" + iVar);
+        int i3 = bVar.f67403c;
+        throw new com.ss.android.socialbase.downloader.exception.b(1004, i3, "1: response code error : " + bVar.f67403c + " segment=" + iVar);
     }
 
     public void e(Future future) {
@@ -193,8 +193,8 @@ public class l implements Runnable {
 
     public final boolean h(BaseException baseException) {
         if (d.o.a.e.b.l.e.q0(baseException)) {
-            String str = this.l.f66577a;
-            if (TextUtils.isEmpty(str) || !str.startsWith("https") || !this.f66572g.B1() || this.D) {
+            String str = this.l.f67263a;
+            if (TextUtils.isEmpty(str) || !str.startsWith("https") || !this.f67258g.B1() || this.D) {
                 return false;
             }
             this.D = true;
@@ -261,7 +261,7 @@ public class l implements Runnable {
         d.o.a.e.b.c.a.j("SegmentReader", "handleDownloadFailed:  e = " + baseException + ", curRetryCount = " + this.A + ", retryCount = " + this.z);
         this.E = baseException;
         this.l.e();
-        this.f66570e.a(this, this.l, iVar, baseException, this.A, this.z);
+        this.f67256e.a(this, this.l, iVar, baseException, this.A, this.z);
         int i2 = this.A;
         if (i2 < this.z) {
             this.A = i2 + 1;
@@ -269,7 +269,7 @@ public class l implements Runnable {
         } else if (h(baseException)) {
             return true;
         } else {
-            this.f66570e.g(this, this.l, iVar, baseException);
+            this.f67256e.g(this, this.l, iVar, baseException);
             return false;
         }
     }
@@ -292,7 +292,7 @@ public class l implements Runnable {
 
     public long l() {
         long p;
-        synchronized (this.f66570e) {
+        synchronized (this.f67256e) {
             p = this.q + p();
         }
         return p;
@@ -311,7 +311,7 @@ public class l implements Runnable {
     public final void n(i iVar) throws BaseException, com.ss.android.socialbase.downloader.exception.h {
         q(iVar);
         d(iVar, this.j);
-        this.f66570e.b(this, iVar, this.l, this.j);
+        this.f67256e.b(this, iVar, this.l, this.j);
         this.l.g();
     }
 
@@ -320,7 +320,7 @@ public class l implements Runnable {
     }
 
     public long p() {
-        synchronized (this.f66570e) {
+        synchronized (this.f67256e) {
             long j = this.p;
             long j2 = this.m;
             if (j2 < 0 || j <= j2) {
@@ -340,21 +340,21 @@ public class l implements Runnable {
                 this.o = iVar.l();
                 this.p = this.m;
                 this.G = new d.o.a.e.b.l.d();
-                List<com.ss.android.socialbase.downloader.model.c> q = d.o.a.e.b.l.e.q(this.f66572g.S(), this.f66572g.U0(), this.m, this.o);
+                List<com.ss.android.socialbase.downloader.model.c> q = d.o.a.e.b.l.e.q(this.f67258g.S(), this.f67258g.U0(), this.m, this.o);
                 q.add(new com.ss.android.socialbase.downloader.model.c("Segment-Index", String.valueOf(iVar.m())));
                 q.add(new com.ss.android.socialbase.downloader.model.c("Thread-Index", String.valueOf(this.w)));
-                d.o.a.e.b.l.e.B(q, this.f66572g);
-                String str = this.l.f66577a;
+                d.o.a.e.b.l.e.B(q, this.f67258g);
+                String str = this.l.f67263a;
                 if (this.D && !TextUtils.isEmpty(str) && str.startsWith("https")) {
                     str = str.replaceFirst("https", "http");
                 }
-                String str2 = this.l.f66578b;
+                String str2 = this.l.f67264b;
                 d.o.a.e.b.c.a.h("SegmentReader", "createConnectionBegin: url = " + str + ", ip = " + str2 + ", segment = " + iVar + ", threadIndex = " + this.w);
                 this.L = str;
                 this.M = str2;
-                d.o.a.e.b.o.k w = d.o.a.e.b.g.d.w(this.f66572g.A1(), this.f66572g.j0(), str, str2, q, 0, currentTimeMillis - this.B > 3000 && this.f66573h.m("monitor_download_connect") > 0, this.f66572g);
+                d.o.a.e.b.o.k w = d.o.a.e.b.g.d.w(this.f67258g.A1(), this.f67258g.j0(), str, str2, q, 0, currentTimeMillis - this.B > 3000 && this.f67259h.m("monitor_download_connect") > 0, this.f67258g);
                 if (w != null) {
-                    this.f66574i = w;
+                    this.f67260i = w;
                     this.j = new d.o.a.e.b.n.b(str, w);
                     if (!this.s) {
                         if (w instanceof d.o.a.e.b.o.c) {
@@ -385,10 +385,10 @@ public class l implements Runnable {
         Process.setThreadPriority(10);
         try {
             this.v = Thread.currentThread();
-            this.f66570e.i(this);
+            this.f67256e.i(this);
             this.l.d(this);
             while (true) {
-                c2 = this.f66570e.c(this, this.l);
+                c2 = this.f67256e.c(this, this.l);
                 if (c2 == null) {
                     d.o.a.e.b.c.a.h("SegmentReader", "no more segment, thread_index = " + this.w);
                     break;
@@ -396,21 +396,21 @@ public class l implements Runnable {
                 try {
                     try {
                     } catch (Throwable th) {
-                        this.f66570e.e(this, c2);
+                        this.f67256e.e(this, c2);
                         throw th;
                     }
                 } catch (com.ss.android.socialbase.downloader.f.j unused) {
                     if (this.y >= 50) {
                         d.o.a.e.b.c.a.j("SegmentReader", "segment apply failed " + this.y + "times, thread_index = " + this.w);
-                        fVar = this.f66570e;
+                        fVar = this.f67256e;
                         break;
                     }
                     this.y++;
-                    fVar2 = this.f66570e;
+                    fVar2 = this.f67256e;
                 }
                 if (i(c2)) {
                     this.k.add(c2);
-                    fVar2 = this.f66570e;
+                    fVar2 = this.f67256e;
                     fVar2.e(this, c2);
                 } else if (!this.s) {
                     d.o.a.e.b.c.a.j("SegmentReader", "download segment failed, segment = " + c2 + ", thread_index = " + this.w + ", failedException = " + this.E);
@@ -419,10 +419,10 @@ public class l implements Runnable {
                     break;
                 }
             }
-            fVar = this.f66570e;
+            fVar = this.f67256e;
             fVar.e(this, c2);
             this.l.f(this);
-            this.f66570e.j(this);
+            this.f67256e.j(this);
         } catch (Throwable unused2) {
         }
         this.v = null;
@@ -444,7 +444,7 @@ public class l implements Runnable {
         r29 = r11;
         r6.append(r13 - r4);
         r6.append(", url = ");
-        r6.append(r31.l.f66577a);
+        r6.append(r31.l.f67263a);
         d.o.a.e.b.c.a.h("SegmentReader", r6.toString());
      */
     /* JADX WARN: Code restructure failed: missing block: B:102:0x0188, code lost:
@@ -521,7 +521,7 @@ public class l implements Runnable {
         if (r13 <= r21) goto L102;
      */
     /* JADX WARN: Code restructure failed: missing block: B:99:0x0159, code lost:
-        r15.f66526c = (int) (r6 - (r13 - r21));
+        r15.f67212c = (int) (r6 - (r13 - r21));
         r13 = r21;
      */
     /* JADX WARN: Multi-variable type inference failed */
@@ -560,7 +560,7 @@ public class l implements Runnable {
         e eVar4;
         long j3;
         long j4;
-        c cVar = this.f66571f;
+        c cVar = this.f67257f;
         this.J = System.currentTimeMillis();
         long i2 = iVar.i();
         boolean z = false;
@@ -568,7 +568,7 @@ public class l implements Runnable {
             try {
                 try {
                     try {
-                        inputStream = this.f66574i.a();
+                        inputStream = this.f67260i.a();
                         try {
                             if (inputStream != null) {
                                 long h2 = this.j.h();
@@ -578,8 +578,8 @@ public class l implements Runnable {
                                     aVar = b(cVar, inputStream);
                                     try {
                                         if (!this.t && !this.s) {
-                                            this.f66570e.d(this, iVar);
-                                            eVar = this.f66570e.h(this, iVar);
+                                            this.f67256e.d(this, iVar);
+                                            eVar = this.f67256e.h(this, iVar);
                                             try {
                                                 if (iVar.l() > 0) {
                                                     try {
@@ -606,7 +606,7 @@ public class l implements Runnable {
                                                         } catch (Throwable th2) {
                                                             th = th2;
                                                             r6 = 0;
-                                                            this.f66570e.f(this, iVar);
+                                                            this.f67256e.f(this, iVar);
                                                             d.o.a.e.b.l.e.C(inputStream);
                                                             if (eVar != null) {
                                                                 if (aVar == null) {
@@ -619,12 +619,12 @@ public class l implements Runnable {
                                                                         }
                                                                         this.K = System.currentTimeMillis();
                                                                         if (j > i2) {
-                                                                            d.o.a.e.b.e.a.g(this.f66573h, this.f66572g, this.L, this.M, this.N, this.s || this.t, this.f66574i, this.E, j - i2, TimeUnit.MILLISECONDS.toNanos(this.K - this.J));
+                                                                            d.o.a.e.b.e.a.g(this.f67259h, this.f67258g, this.L, this.M, this.N, this.s || this.t, this.f67260i, this.E, j - i2, TimeUnit.MILLISECONDS.toNanos(this.K - this.J));
                                                                         }
                                                                         throw th;
                                                                     }
                                                                 }
-                                                                aVar.f66526c = -1;
+                                                                aVar.f67212c = -1;
                                                                 eVar.b(aVar);
                                                                 aVar2 = r6;
                                                                 if (aVar2 != null) {
@@ -646,14 +646,14 @@ public class l implements Runnable {
                                                 } else {
                                                     l = i3 > 0 ? (h2 + i2) - 1 : Long.MAX_VALUE;
                                                 }
-                                                long j6 = aVar.f66526c;
+                                                long j6 = aVar.f67212c;
                                                 j = i2 + j6;
                                                 try {
                                                     if (j > l) {
                                                         long j7 = l + 1;
                                                         if (j > j7) {
                                                             try {
-                                                                aVar.f66526c = (int) (j6 - (j - j7));
+                                                                aVar.f67212c = (int) (j6 - (j - j7));
                                                                 j2 = j7;
                                                                 this.p = j2;
                                                                 eVar.b(aVar);
@@ -680,8 +680,8 @@ public class l implements Runnable {
                                                                                                             eVar2 = eVar;
                                                                                                             l = C;
                                                                                                             aVar = cVar.b();
-                                                                                                            read = inputStream.read(aVar.f66524a);
-                                                                                                            aVar.f66526c = read;
+                                                                                                            read = inputStream.read(aVar.f67210a);
+                                                                                                            aVar.f67212c = read;
                                                                                                             if (read == -1) {
                                                                                                                 break;
                                                                                                             }
@@ -744,8 +744,8 @@ public class l implements Runnable {
                                                                                         throw null;
                                                                                     }
                                                                                 }
-                                                                                read = inputStream.read(aVar.f66524a);
-                                                                                aVar.f66526c = read;
+                                                                                read = inputStream.read(aVar.f67210a);
+                                                                                aVar.f67212c = read;
                                                                                 if (read == -1) {
                                                                                 }
                                                                             } catch (BaseException e7) {
@@ -787,13 +787,13 @@ public class l implements Runnable {
                                                                         throw null;
                                                                     }
                                                                 }
-                                                                this.f66570e.f(this, iVar);
+                                                                this.f67256e.f(this, iVar);
                                                                 d.o.a.e.b.l.e.C(inputStream);
                                                                 if (eVar != null) {
                                                                     try {
                                                                         a b2 = cVar.b();
                                                                         try {
-                                                                            b2.f66526c = -1;
+                                                                            b2.f67212c = -1;
                                                                             eVar.b(b2);
                                                                         } catch (Throwable unused2) {
                                                                             aVar3 = b2;
@@ -807,7 +807,7 @@ public class l implements Runnable {
                                                                 }
                                                                 this.K = System.currentTimeMillis();
                                                                 if (j <= i2) {
-                                                                    d.o.a.e.b.e.a.g(this.f66573h, this.f66572g, this.L, this.M, this.N, this.s || this.t, this.f66574i, this.E, j - i2, TimeUnit.MILLISECONDS.toNanos(this.K - this.J));
+                                                                    d.o.a.e.b.e.a.g(this.f67259h, this.f67258g, this.L, this.M, this.N, this.s || this.t, this.f67260i, this.E, j - i2, TimeUnit.MILLISECONDS.toNanos(this.K - this.J));
                                                                     return;
                                                                 }
                                                                 return;
@@ -834,8 +834,8 @@ public class l implements Runnable {
                                                         }
                                                         eVar2 = eVar;
                                                         aVar = cVar.b();
-                                                        read = inputStream.read(aVar.f66524a);
-                                                        aVar.f66526c = read;
+                                                        read = inputStream.read(aVar.f67210a);
+                                                        aVar.f67212c = read;
                                                         if (read == -1) {
                                                         }
                                                         eVar = eVar4;
@@ -846,7 +846,7 @@ public class l implements Runnable {
                                                     }
                                                     if (C <= 0) {
                                                     }
-                                                    this.f66570e.f(this, iVar);
+                                                    this.f67256e.f(this, iVar);
                                                     d.o.a.e.b.l.e.C(inputStream);
                                                     if (eVar != null) {
                                                     }
@@ -905,7 +905,7 @@ public class l implements Runnable {
             }
         } catch (Throwable th18) {
             th = th18;
-            this.f66570e.f(this, iVar);
+            this.f67256e.f(this, iVar);
             d.o.a.e.b.l.e.C(inputStream);
             if (eVar != null) {
             }
@@ -959,7 +959,7 @@ public class l implements Runnable {
     }
 
     public final void z() {
-        d.o.a.e.b.o.k kVar = this.f66574i;
+        d.o.a.e.b.o.k kVar = this.f67260i;
         if (kVar != null) {
             try {
                 d.o.a.e.b.c.a.h("SegmentReader", "closeConnection: thread = " + this.w);

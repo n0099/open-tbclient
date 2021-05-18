@@ -1,76 +1,18 @@
 package d.a.i0.i;
-
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public abstract class b {
+public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static WeakReference<TbPageContext<?>> f48551a = null;
+    public static volatile a f47650a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f48552b = false;
-
-    /* loaded from: classes3.dex */
-    public interface a {
-    }
-
-    public b() {
-        new ArrayList(5);
-    }
-
-    public static b a(BaseFragmentActivity baseFragmentActivity) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004505, b.class, baseFragmentActivity);
-        if (runTask == null || runTask.getData() == null) {
-            return null;
+    public static synchronized a a() {
+        a aVar;
+        synchronized (b.class) {
+            if (f47650a == null) {
+                f47650a = new a();
+            }
+            aVar = f47650a;
         }
-        return (b) runTask.getData();
+        return aVar;
     }
-
-    public boolean b() {
-        return f48552b;
-    }
-
-    public abstract void c();
-
-    public abstract void d();
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract void g(int i2);
-
-    public void h() {
-        WeakReference<TbPageContext<?>> weakReference = f48551a;
-        if (weakReference != null) {
-            weakReference.get();
-            f48551a.clear();
-            f48551a = null;
-        }
-    }
-
-    public abstract void i();
-
-    public void j(TbPageContext<?> tbPageContext) {
-        WeakReference<TbPageContext<?>> weakReference = f48551a;
-        if (weakReference == null) {
-            f48551a = new WeakReference<>(tbPageContext);
-            return;
-        }
-        weakReference.clear();
-        f48551a = null;
-        f48551a = new WeakReference<>(tbPageContext);
-    }
-
-    public abstract void k(a aVar);
-
-    public void l(boolean z) {
-    }
-
-    public abstract void m();
 }

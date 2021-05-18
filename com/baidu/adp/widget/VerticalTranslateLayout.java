@@ -15,7 +15,6 @@ import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import com.baidu.adp.R;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.kwad.sdk.core.config.item.TipsConfigItem;
 import java.util.ArrayList;
 import java.util.List;
@@ -178,8 +177,8 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.f2408d = VerticalTranslateLayout.this.k;
             BdLog.d("Animator@animateBottomOpen " + this.f2407c);
             BdLog.d("Animator@animateBottomOpen " + f2);
-            VerticalTranslateLayout.this.v.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL);
-            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, this.f2410f);
+            VerticalTranslateLayout.this.v.removeMessages(-105);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-105, this.f2410f);
         }
 
         public void c(float f2) {
@@ -215,10 +214,10 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.f2405a = 0.0f;
             this.f2407c = 0 - VerticalTranslateLayout.this.k;
             this.f2408d = VerticalTranslateLayout.this.k;
-            VerticalTranslateLayout.this.v.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
+            VerticalTranslateLayout.this.v.removeMessages(-104);
             BdLog.d("Animator@animateTopOpen " + this.f2407c);
             BdLog.d("Animator@animateTopOpen " + f2);
-            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, this.f2410f);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-104, this.f2410f);
         }
 
         public final void e() {
@@ -264,7 +263,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             }
             VerticalTranslateLayout.this.k = (int) (d.a.c.j.a.a(f3, f2, false) + this.f2408d);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, this.f2410f);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-105, this.f2410f);
         }
 
         public void h() {
@@ -303,7 +302,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             }
             VerticalTranslateLayout.this.k = (int) (d.a.c.j.a.a(f3, f2, false) + this.f2408d);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, this.f2410f);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-104, this.f2410f);
         }
     }
 
@@ -526,9 +525,9 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.r = x;
             this.s = y;
             this.v.removeMessages(-100);
-            this.v.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
+            this.v.removeMessages(-104);
             this.v.removeMessages(-101);
-            this.v.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL);
+            this.v.removeMessages(-105);
         } else if (action == 2) {
             BdLog.d("VerticalTranslateLayout@interceptInterceptTouchEvent");
             motionEvent.offsetLocation(0.0f, -this.k);

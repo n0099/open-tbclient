@@ -98,7 +98,7 @@ public class c extends k {
                         drivingStep.setDistance(optJSONObject.optInt("distance"));
                         drivingStep.setDirection(optJSONObject.optInt("direction") * 30);
                         String optString = optJSONObject.optString("instructions");
-                        if (optString != null || optString.length() >= 4) {
+                        if (optString != null && optString.length() >= 4) {
                             optString = optString.replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
                         }
                         drivingStep.setInstructions(optString);
@@ -250,7 +250,7 @@ public class c extends k {
                 DrivingRouteLine drivingRouteLine = new DrivingRouteLine();
                 JSONObject optJSONObject5 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject5 == null) {
-                    jSONObject = optJSONObject2;
+                    jSONObject = optJSONObject4;
                     jSONArray = optJSONArray;
                 } else {
                     JSONArray optJSONArray2 = optJSONObject5.optJSONArray("legs");
@@ -259,7 +259,7 @@ public class c extends k {
                     }
                     int length = optJSONArray2.length();
                     ArrayList arrayList3 = new ArrayList();
-                    jSONObject = optJSONObject2;
+                    jSONObject = optJSONObject4;
                     jSONArray = optJSONArray;
                     int i3 = 0;
                     int i4 = 0;
@@ -300,11 +300,11 @@ public class c extends k {
                 }
                 i2++;
                 optJSONArray = jSONArray;
-                optJSONObject2 = jSONObject;
+                optJSONObject4 = jSONObject;
                 z = false;
             }
             drivingRouteResult.setRouteLines(arrayList2);
-            drivingRouteResult.setTaxiInfos(b(optJSONObject2.optString("taxis")));
+            drivingRouteResult.setTaxiInfos(b(optJSONObject4.optString("taxis")));
             return true;
         } catch (JSONException e2) {
             e2.printStackTrace();

@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class ChunkOffset64BitBox extends ChunkOffsetBox {
     public static final String TYPE = "co64";
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
     public long[] chunkOffsets;
 
     static {

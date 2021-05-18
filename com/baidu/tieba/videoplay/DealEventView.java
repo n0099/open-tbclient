@@ -10,19 +10,19 @@ import android.widget.FrameLayout;
 public class DealEventView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public long f22259e;
+    public long f21504e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f22260f;
+    public boolean f21505f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f22261g;
+    public b f21506g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f22262h;
+    public float f21507h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f22263i;
+    public float f21508i;
     public boolean j;
 
     /* loaded from: classes5.dex */
@@ -32,10 +32,10 @@ public class DealEventView extends FrameLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (DealEventView.this.f22260f || !DealEventView.this.j || DealEventView.this.f22261g == null) {
+            if (DealEventView.this.f21505f || !DealEventView.this.j || DealEventView.this.f21506g == null) {
                 return;
             }
-            DealEventView.this.f22261g.l();
+            DealEventView.this.f21506g.l();
         }
     }
 
@@ -60,25 +60,25 @@ public class DealEventView extends FrameLayout {
         b bVar;
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f22262h = motionEvent.getX();
-            this.f22263i = motionEvent.getY();
+            this.f21507h = motionEvent.getX();
+            this.f21508i = motionEvent.getY();
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f22259e < 300) {
-                this.f22260f = true;
-                b bVar2 = this.f22261g;
+            if (currentTimeMillis - this.f21504e < 300) {
+                this.f21505f = true;
+                b bVar2 = this.f21506g;
                 if (bVar2 != null) {
                     bVar2.a();
                 }
             } else {
-                this.f22260f = false;
+                this.f21505f = false;
             }
-            this.f22259e = currentTimeMillis;
+            this.f21504e = currentTimeMillis;
         } else if (action != 1) {
-            if (action == 2 && this.f22262h - motionEvent.getX() > 60.0f && (this.f22262h - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.f22263i) && !this.f22260f && (bVar = this.f22261g) != null) {
+            if (action == 2 && this.f21507h - motionEvent.getX() > 60.0f && (this.f21507h - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.f21508i) && !this.f21505f && (bVar = this.f21506g) != null) {
                 bVar.j();
             }
         } else {
-            if (this.f22262h - motionEvent.getX() < 10.0f && this.f22263i - motionEvent.getY() < 10.0f) {
+            if (this.f21507h - motionEvent.getX() < 10.0f && this.f21508i - motionEvent.getY() < 10.0f) {
                 this.j = true;
             } else {
                 this.j = false;
@@ -100,7 +100,7 @@ public class DealEventView extends FrameLayout {
     }
 
     public void setOnViewClickListener(b bVar) {
-        this.f22261g = bVar;
+        this.f21506g = bVar;
     }
 
     public DealEventView(Context context, AttributeSet attributeSet) {

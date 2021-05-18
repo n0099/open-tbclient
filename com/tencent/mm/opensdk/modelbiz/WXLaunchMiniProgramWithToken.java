@@ -5,10 +5,10 @@ import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WXLaunchMiniProgramWithToken {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Req extends BaseReq {
         public static final String TAG = "MicroMsg.SDK.WXLaunchMiniProgramWithToken.Req";
         public String token;
@@ -34,7 +34,7 @@ public class WXLaunchMiniProgramWithToken {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Resp extends BaseResp {
         public static final int ERR_INVALID_TOKEN = -1000;
         public String extMsg;

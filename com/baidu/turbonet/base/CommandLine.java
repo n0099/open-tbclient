@@ -6,15 +6,15 @@ import java.util.concurrent.atomic.AtomicReference;
 public abstract class CommandLine {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<CommandLine> f23027a;
+    public static final AtomicReference<CommandLine> f22272a;
 
     static {
         new ArrayList();
-        f23027a = new AtomicReference<>();
+        f22272a = new AtomicReference<>();
     }
 
     public static CommandLine a() {
-        return f23027a.get();
+        return f22272a.get();
     }
 
     public static native void nativeAppendSwitch(String str);

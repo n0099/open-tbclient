@@ -10,10 +10,10 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbPatternsCompat;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
 import d.a.c.e.p.j;
@@ -53,12 +53,12 @@ public class AfdSyncRequestMessage extends HttpMessage {
     }
 
     private void addCommonParams() {
-        addParam("mod", Build.MODEL);
+        addParam(SearchJsBridge.COOKIE_MOD, Build.MODEL);
         addParam("ver", TbConfig.getVersion());
         addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-        addParam(TiebaStatic.Params.CUID_GALAXY2, TbadkCoreApplication.getInst().getCuidGalaxy2());
+        addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
-        addParam("ov", Build.VERSION.RELEASE);
+        addParam(SearchJsBridge.COOKIE_OV, Build.VERSION.RELEASE);
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("imei", TbadkCoreApplication.getInst().getImei());
         addParam("fmt", "json");

@@ -23,11 +23,11 @@ import com.tencent.connect.common.Constants;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f29994a;
+    public static volatile a f29239a;
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean o(c cVar) {
@@ -163,14 +163,14 @@ public class a {
     }
 
     public static a a() {
-        if (f29994a == null) {
+        if (f29239a == null) {
             synchronized (a.class) {
-                if (f29994a == null) {
-                    f29994a = new a();
+                if (f29239a == null) {
+                    f29239a = new a();
                 }
             }
         }
-        return f29994a;
+        return f29239a;
     }
 
     public void b() {
@@ -250,8 +250,8 @@ public class a {
             com.bytedance.sdk.openadsdk.utils.c a2 = com.bytedance.sdk.openadsdk.utils.d.a(p.a());
             JSONObject jSONObject4 = new JSONObject();
             if (a2 != null) {
-                jSONObject4.put("longitude", a2.f31008b);
-                jSONObject4.put("latitude", a2.f31007a);
+                jSONObject4.put("longitude", a2.f30253b);
+                jSONObject4.put("latitude", a2.f30252a);
             }
             jSONObject3.put("location", jSONObject4);
             JSONArray jSONArray = new JSONArray();

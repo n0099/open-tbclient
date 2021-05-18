@@ -13,39 +13,39 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.utils.ad;
 import com.bytedance.sdk.openadsdk.utils.al;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f29483a;
+    public TextView f28728a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f29484b;
+    public TextView f28729b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f29485c;
+    public Button f28730c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f29486d;
+    public Button f28731d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f29487e;
+    public Context f28732e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29488f;
+    public String f28733f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f29489g;
+    public String f28734g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f29490h;
+    public String f28735h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f29491i;
+    public String f28736i;
     public Drawable j;
     public a k;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(Dialog dialog);
 
@@ -54,18 +54,18 @@ public class e extends AlertDialog {
 
     public e(Context context) {
         super(context, ad.g(context, "tt_custom_dialog"));
-        this.f29487e = context;
+        this.f28732e = context;
     }
 
     private void b() {
-        TextView textView = this.f29483a;
+        TextView textView = this.f28728a;
         if (textView != null) {
-            textView.setText(this.f29488f);
+            textView.setText(this.f28733f);
             Drawable drawable = this.j;
             if (drawable != null) {
                 int intrinsicWidth = drawable.getIntrinsicWidth();
                 int intrinsicHeight = this.j.getIntrinsicHeight();
-                int c2 = al.c(this.f29487e, 45.0f);
+                int c2 = al.c(this.f28732e, 45.0f);
                 if (intrinsicWidth > c2 || intrinsicWidth < c2) {
                     intrinsicWidth = c2;
                 }
@@ -73,38 +73,38 @@ public class e extends AlertDialog {
                     intrinsicHeight = c2;
                 }
                 this.j.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
-                this.f29483a.setCompoundDrawables(this.j, null, null, null);
-                this.f29483a.setCompoundDrawablePadding(al.c(this.f29487e, 10.0f));
+                this.f28728a.setCompoundDrawables(this.j, null, null, null);
+                this.f28728a.setCompoundDrawablePadding(al.c(this.f28732e, 10.0f));
             }
         }
-        TextView textView2 = this.f29484b;
+        TextView textView2 = this.f28729b;
         if (textView2 != null) {
-            textView2.setText(this.f29489g);
+            textView2.setText(this.f28734g);
         }
-        Button button = this.f29485c;
+        Button button = this.f28730c;
         if (button != null) {
-            button.setText(this.f29490h);
+            button.setText(this.f28735h);
         }
-        Button button2 = this.f29486d;
+        Button button2 = this.f28731d;
         if (button2 != null) {
-            button2.setText(this.f29491i);
+            button2.setText(this.f28736i);
         }
     }
 
     public e c(@NonNull String str) {
-        this.f29490h = str;
+        this.f28735h = str;
         return this;
     }
 
     public e d(@NonNull String str) {
-        this.f29491i = str;
+        this.f28736i = str;
         return this;
     }
 
     @Override // android.app.AlertDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(ad.f(this.f29487e, "tt_install_dialog_layout"));
+        setContentView(ad.f(this.f28732e, "tt_install_dialog_layout"));
         setCanceledOnTouchOutside(true);
         a();
     }
@@ -116,11 +116,11 @@ public class e extends AlertDialog {
     }
 
     private void a() {
-        this.f29483a = (TextView) findViewById(ad.e(this.f29487e, "tt_install_title"));
-        this.f29484b = (TextView) findViewById(ad.e(this.f29487e, "tt_install_content"));
-        this.f29485c = (Button) findViewById(ad.e(this.f29487e, "tt_install_btn_yes"));
-        this.f29486d = (Button) findViewById(ad.e(this.f29487e, "tt_install_btn_no"));
-        this.f29485c.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.e.1
+        this.f28728a = (TextView) findViewById(ad.e(this.f28732e, "tt_install_title"));
+        this.f28729b = (TextView) findViewById(ad.e(this.f28732e, "tt_install_content"));
+        this.f28730c = (Button) findViewById(ad.e(this.f28732e, "tt_install_btn_yes"));
+        this.f28731d = (Button) findViewById(ad.e(this.f28732e, "tt_install_btn_no"));
+        this.f28730c.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
@@ -129,7 +129,7 @@ public class e extends AlertDialog {
                 }
             }
         });
-        this.f29486d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.e.2
+        this.f28731d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
@@ -141,7 +141,7 @@ public class e extends AlertDialog {
     }
 
     public e a(@NonNull String str) {
-        this.f29488f = str;
+        this.f28733f = str;
         return this;
     }
 
@@ -161,7 +161,7 @@ public class e extends AlertDialog {
     }
 
     public e b(@NonNull String str) {
-        this.f29489g = str;
+        this.f28734g = str;
         return this;
     }
 }

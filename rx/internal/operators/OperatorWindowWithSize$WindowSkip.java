@@ -8,10 +8,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements a {
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f68419e;
+    public final int f69099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f68420f;
+    public final int f69100f;
 
     /* loaded from: classes7.dex */
     public final class WindowSkipProducer extends AtomicBoolean implements f {
@@ -28,9 +28,9 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
             } else if (i2 != 0) {
                 OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = OperatorWindowWithSize$WindowSkip.this;
                 if (get() || !compareAndSet(false, true)) {
-                    operatorWindowWithSize$WindowSkip.request(h.o.a.a.c(j, operatorWindowWithSize$WindowSkip.f68420f));
+                    operatorWindowWithSize$WindowSkip.request(h.o.a.a.c(j, operatorWindowWithSize$WindowSkip.f69100f));
                 } else {
-                    operatorWindowWithSize$WindowSkip.request(h.o.a.a.a(h.o.a.a.c(j, operatorWindowWithSize$WindowSkip.f68419e), h.o.a.a.c(operatorWindowWithSize$WindowSkip.f68420f - operatorWindowWithSize$WindowSkip.f68419e, j - 1)));
+                    operatorWindowWithSize$WindowSkip.request(h.o.a.a.a(h.o.a.a.c(j, operatorWindowWithSize$WindowSkip.f69099e), h.o.a.a.c(operatorWindowWithSize$WindowSkip.f69100f - operatorWindowWithSize$WindowSkip.f69099e, j - 1)));
                 }
             }
         }

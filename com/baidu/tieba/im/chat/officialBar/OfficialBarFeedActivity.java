@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tieba.im.model.OfficialBarFeedMsglistModel;
-import d.a.j0.e1.h.o.a;
-import d.a.j0.e1.l.c.b;
+import d.a.k0.e1.h.o.a;
+import d.a.k0.e1.l.c.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivity> implements OfficialBarFeedMsglistModel.IFeedHeadLoadCallback {
@@ -80,7 +80,7 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onReadCountLoad(LongSparseArray<d.a.j0.e1.i.a.b.b> longSparseArray) {
+    public void onReadCountLoad(LongSparseArray<d.a.k0.e1.i.a.b.b> longSparseArray) {
         this.mCurrentMsgListView.m(longSparseArray);
     }
 

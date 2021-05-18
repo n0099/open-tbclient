@@ -11,7 +11,7 @@ import java.util.TimeZone;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static double f65763a = -1.0d;
+    public static double f66449a = -1.0d;
 
     public static String a() {
         String str;
@@ -103,7 +103,7 @@ public class c {
 
     public static String g(Context context) {
         int i2;
-        double d2 = f65763a;
+        double d2 = f66449a;
         double d3 = 0.0d;
         if (d2 >= 0.0d) {
             i2 = (int) d2;
@@ -116,7 +116,7 @@ public class c {
                 d3 = ((Double) declaredMethod.invoke(newInstance, "battery.capacity")).doubleValue();
             } catch (Throwable unused) {
             }
-            f65763a = d3;
+            f66449a = d3;
             i2 = (int) d3;
         }
         return Integer.toString(i2);

@@ -13,7 +13,7 @@ import com.baidu.wallet.home.ui.widget.b;
 public class NHCreditPicItem extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f25194a;
+    public NetImageView f24439a;
 
     public NHCreditPicItem(Context context) {
         super(context);
@@ -26,17 +26,17 @@ public class NHCreditPicItem extends BaseItemView {
 
     public void initView() {
         NetImageView netImageView = new NetImageView(getContext());
-        this.f25194a = netImageView;
+        this.f24439a = netImageView;
         netImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f25194a.setImageResource(ResUtils.drawable(getContext(), "wallet_home_nh_shape_credit_background"));
-        addView(this.f25194a, new GridLayout.LayoutParams(-1, -1));
+        this.f24439a.setImageResource(ResUtils.drawable(getContext(), "wallet_home_nh_shape_credit_background"));
+        addView(this.f24439a, new GridLayout.LayoutParams(-1, -1));
     }
 
     public void refresh() {
         if (getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f25194a, getData().logo);
+        setNetImageViewUrl(this.f24439a, getData().logo);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView

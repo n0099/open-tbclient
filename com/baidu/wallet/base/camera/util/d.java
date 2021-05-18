@@ -5,10 +5,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 public final class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedBlockingQueue<Runnable> f23996a;
+    public final LinkedBlockingQueue<Runnable> f23241a;
 
     public d(LinkedBlockingQueue<Runnable> linkedBlockingQueue) {
-        this.f23996a = linkedBlockingQueue;
+        this.f23241a = linkedBlockingQueue;
     }
 
     @Override // java.lang.Runnable
@@ -16,7 +16,7 @@ public final class d implements Runnable {
         Thread currentThread = Thread.currentThread();
         while (!currentThread.isInterrupted()) {
             try {
-                this.f23996a.take().run();
+                this.f23241a.take().run();
             } catch (InterruptedException unused) {
                 return;
             }

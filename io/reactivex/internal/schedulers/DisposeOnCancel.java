@@ -9,15 +9,15 @@ import java.util.concurrent.TimeoutException;
 public final class DisposeOnCancel implements Future<Object> {
 
     /* renamed from: d  reason: collision with root package name */
-    public final Disposable f68305d;
+    public final Disposable f68985d;
 
     public DisposeOnCancel(Disposable disposable) {
-        this.f68305d = disposable;
+        this.f68985d = disposable;
     }
 
     @Override // java.util.concurrent.Future
     public boolean cancel(boolean z) {
-        this.f68305d.dispose();
+        this.f68985d.dispose();
         return false;
     }
 

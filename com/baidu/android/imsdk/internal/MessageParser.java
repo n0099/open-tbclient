@@ -273,7 +273,7 @@ public class MessageParser {
     /* JADX WARN: Type inference failed for: r0v9, types: [T, java.lang.Long] */
     /* JADX WARN: Type inference failed for: r1v10 */
     /* JADX WARN: Type inference failed for: r1v6 */
-    /* JADX WARN: Type inference failed for: r1v7, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r1v7, types: [boolean, int] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -537,12 +537,12 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 final NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                 newAckMessage.addTriples(list2);
-                if (a.f63831e) {
+                if (a.f64518e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
-                    bLCPRequest.f6598a = 2L;
-                    bLCPRequest.f6599b = 95L;
-                    bLCPRequest.f6600c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f6601d = System.nanoTime();
+                    bLCPRequest.f6422a = 2L;
+                    bLCPRequest.f6423b = 95L;
+                    bLCPRequest.f6424c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f6425d = System.nanoTime();
                     d.a.s.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                         @Override // d.a.s.a.b.d.b
                         public void onResponse(int i2, String str, long j2, long j3, long j4, byte[] bArr) {

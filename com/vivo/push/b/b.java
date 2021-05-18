@@ -1,18 +1,20 @@
 package com.vivo.push.b;
-/* loaded from: classes6.dex */
+
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
+/* loaded from: classes7.dex */
 public final class b extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37355a;
+    public String f36600a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37356b;
+    public String f36601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37357c;
+    public String f36602c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37358d;
+    public String f36603d;
 
     public b(boolean z, String str) {
         super(z ? 2006 : 2007, null, str);
@@ -21,19 +23,19 @@ public final class b extends c {
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("sdk_clients", this.f37355a);
-        aVar.a("sdk_version", 293L);
-        aVar.a("BaseAppCommand.EXTRA_APPID", this.f37357c);
-        aVar.a("BaseAppCommand.EXTRA_APPKEY", this.f37356b);
-        aVar.a("PUSH_REGID", this.f37358d);
+        aVar.a("sdk_clients", this.f36600a);
+        aVar.a(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 293L);
+        aVar.a("BaseAppCommand.EXTRA_APPID", this.f36602c);
+        aVar.a("BaseAppCommand.EXTRA_APPKEY", this.f36601b);
+        aVar.a("PUSH_REGID", this.f36603d);
     }
 
     public final void d() {
-        this.f37357c = null;
+        this.f36602c = null;
     }
 
     public final void e() {
-        this.f37356b = null;
+        this.f36601b = null;
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y
@@ -44,9 +46,9 @@ public final class b extends c {
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f37355a = aVar.a("sdk_clients");
-        this.f37357c = aVar.a("BaseAppCommand.EXTRA_APPID");
-        this.f37356b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
-        this.f37358d = aVar.a("PUSH_REGID");
+        this.f36600a = aVar.a("sdk_clients");
+        this.f36602c = aVar.a("BaseAppCommand.EXTRA_APPID");
+        this.f36601b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
+        this.f36603d = aVar.a("PUSH_REGID");
     }
 }

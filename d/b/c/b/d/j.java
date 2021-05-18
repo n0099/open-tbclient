@@ -9,33 +9,33 @@ import androidx.annotation.VisibleForTesting;
 import com.bytedance.sdk.adnet.core.Request;
 import com.bytedance.sdk.adnet.err.VAdError;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j extends Thread {
 
     /* renamed from: e  reason: collision with root package name */
-    public final BlockingQueue<Request<?>> f65058e;
+    public final BlockingQueue<Request<?>> f65744e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.b.c.b.f.c f65059f;
+    public final d.b.c.b.f.c f65745f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.b.c.b.f.b f65060g;
+    public final d.b.c.b.f.b f65746g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.b.c.b.f.d f65061h;
+    public final d.b.c.b.f.d f65747h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f65062i = false;
+    public volatile boolean f65748i = false;
 
     public j(BlockingQueue<Request<?>> blockingQueue, d.b.c.b.f.c cVar, d.b.c.b.f.b bVar, d.b.c.b.f.d dVar) {
-        this.f65058e = blockingQueue;
-        this.f65059f = cVar;
-        this.f65060g = bVar;
-        this.f65061h = dVar;
+        this.f65744e = blockingQueue;
+        this.f65745f = cVar;
+        this.f65746g = bVar;
+        this.f65747h = dVar;
     }
 
     public void a() {
-        this.f65062i = true;
+        this.f65748i = true;
         interrupt();
     }
 
@@ -58,13 +58,13 @@ public class j extends Thread {
             q.b(e3, "Unhandled exception %s", e3.toString());
             VAdError vAdError = new VAdError(e3, (int) VAdError.NETWORK_DISPATCH_FAIL_CODE);
             vAdError.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
-            this.f65061h.c(request, vAdError);
+            this.f65747h.c(request, vAdError);
             request.e();
         } catch (Throwable th) {
             q.b(th, "NetworkDispatcher Unhandled throwable %s", th.toString());
             VAdError vAdError2 = new VAdError(th, (int) VAdError.NETWORK_DISPATCH_FAIL_CODE);
             vAdError2.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
-            this.f65061h.c(request, vAdError2);
+            this.f65747h.c(request, vAdError2);
             request.e();
         }
         if (request.isCanceled()) {
@@ -73,32 +73,32 @@ public class j extends Thread {
             return;
         }
         e(request);
-        k a2 = this.f65059f.a(request);
-        request.setNetDuration(a2.f65068f);
+        k a2 = this.f65745f.a(request);
+        request.setNetDuration(a2.f65754f);
         request.addMarker("network-http-complete");
-        if (a2.f65067e && request.hasHadResponseDelivered()) {
+        if (a2.f65753e && request.hasHadResponseDelivered()) {
             request.a("not-modified");
             request.e();
             return;
         }
         o<?> a3 = request.a(a2);
-        request.setNetDuration(a2.f65068f);
+        request.setNetDuration(a2.f65754f);
         request.addMarker("network-parse-complete");
-        if (request.shouldCache() && a3.f65081b != null) {
-            this.f65060g.a(request.getCacheKey(), a3.f65081b);
+        if (request.shouldCache() && a3.f65767b != null) {
+            this.f65746g.a(request.getCacheKey(), a3.f65767b);
             request.addMarker("network-cache-written");
         }
         request.markDelivered();
-        this.f65061h.b(request, a3);
+        this.f65747h.b(request, a3);
         request.b(a3);
     }
 
     public final void c(Request<?> request, VAdError vAdError) {
-        this.f65061h.c(request, request.a(vAdError));
+        this.f65747h.c(request, request.a(vAdError));
     }
 
     public final void d() throws InterruptedException {
-        b(this.f65058e.take());
+        b(this.f65744e.take());
     }
 
     @TargetApi(14)
@@ -115,7 +115,7 @@ public class j extends Thread {
             try {
                 d();
             } catch (InterruptedException unused) {
-                if (this.f65062i) {
+                if (this.f65748i) {
                     Thread.currentThread().interrupt();
                     return;
                 }

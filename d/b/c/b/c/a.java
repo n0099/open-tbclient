@@ -1,5 +1,5 @@
 package d.b.c.b.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface a {
     String a(String str);
 }

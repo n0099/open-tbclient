@@ -5,27 +5,27 @@ import android.os.HandlerThread;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f65323a;
+    public HandlerThread f66009a;
 
     /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static g f65324a = new g();
+        public static g f66010a = new g();
     }
 
     public static g a() {
-        return b.f65324a;
+        return b.f66010a;
     }
 
     public HandlerThread b() {
-        return this.f65323a;
+        return this.f66009a;
     }
 
     public g() {
         HandlerThread handlerThread = new HandlerThread("SensorCacheThread");
-        this.f65323a = handlerThread;
+        this.f66009a = handlerThread;
         handlerThread.start();
-        this.f65323a.setPriority(10);
+        this.f66009a.setPriority(10);
     }
 }

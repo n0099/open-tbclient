@@ -18,13 +18,13 @@ import com.bytedance.sdk.openadsdk.utils.u;
 import d.o.a.a.a.a.k;
 import d.o.a.a.a.d.c;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e implements k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f29776a;
+    public final WeakReference<Context> f29021a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements DialogInterface {
         public a() {
         }
@@ -39,39 +39,39 @@ public class e implements k {
     }
 
     public e(Context context) {
-        this.f29776a = new WeakReference<>(context);
+        this.f29021a = new WeakReference<>(context);
     }
 
     private void c(final d.o.a.a.a.d.c cVar) {
         g.a aVar = new g.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.6
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void a() {
-                c.InterfaceC1792c interfaceC1792c = cVar.f65833h;
-                if (interfaceC1792c != null) {
-                    interfaceC1792c.a(new a());
+                c.InterfaceC1856c interfaceC1856c = cVar.f66519h;
+                if (interfaceC1856c != null) {
+                    interfaceC1856c.a(new a());
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void b() {
-                c.InterfaceC1792c interfaceC1792c = cVar.f65833h;
-                if (interfaceC1792c != null) {
-                    interfaceC1792c.b(new a());
+                c.InterfaceC1856c interfaceC1856c = cVar.f66519h;
+                if (interfaceC1856c != null) {
+                    interfaceC1856c.b(new a());
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void c() {
-                c.InterfaceC1792c interfaceC1792c = cVar.f65833h;
-                if (interfaceC1792c != null) {
-                    interfaceC1792c.c(new a());
+                c.InterfaceC1856c interfaceC1856c = cVar.f66519h;
+                if (interfaceC1856c != null) {
+                    interfaceC1856c.c(new a());
                 }
             }
         };
         if (cVar.j == 1) {
-            g.a(this.f29776a.get(), String.valueOf(cVar.hashCode()), cVar.f65827b, cVar.f65828c, cVar.f65829d, cVar.f65830e, aVar);
+            g.a(this.f29021a.get(), String.valueOf(cVar.hashCode()), cVar.f66513b, cVar.f66514c, cVar.f66515d, cVar.f66516e, aVar);
         } else {
-            g.a(this.f29776a.get(), String.valueOf(cVar.hashCode()), cVar.f65827b, cVar.f65828c, aVar);
+            g.a(this.f29021a.get(), String.valueOf(cVar.hashCode()), cVar.f66513b, cVar.f66514c, aVar);
         }
     }
 
@@ -88,28 +88,28 @@ public class e implements k {
     }
 
     private AlertDialog b(Activity activity, final d.o.a.a.a.d.c cVar) {
-        return new com.bytedance.sdk.openadsdk.core.widget.e(activity).a(cVar.f65827b).b(cVar.f65828c).c(cVar.f65829d).d(cVar.f65830e).a(cVar.f65832g).a(new e.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.5
+        return new com.bytedance.sdk.openadsdk.core.widget.e(activity).a(cVar.f66513b).b(cVar.f66514c).c(cVar.f66515d).d(cVar.f66516e).a(cVar.f66518g).a(new e.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.5
             @Override // com.bytedance.sdk.openadsdk.core.widget.e.a
             public void a(Dialog dialog) {
-                c.InterfaceC1792c interfaceC1792c = cVar.f65833h;
-                if (interfaceC1792c != null) {
-                    interfaceC1792c.a(dialog);
+                c.InterfaceC1856c interfaceC1856c = cVar.f66519h;
+                if (interfaceC1856c != null) {
+                    interfaceC1856c.a(dialog);
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.widget.e.a
             public void b(Dialog dialog) {
-                c.InterfaceC1792c interfaceC1792c = cVar.f65833h;
-                if (interfaceC1792c != null) {
-                    interfaceC1792c.b(dialog);
+                c.InterfaceC1856c interfaceC1856c = cVar.f66519h;
+                if (interfaceC1856c != null) {
+                    interfaceC1856c.b(dialog);
                 }
             }
         }).a(new DialogInterface.OnCancelListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.4
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                c.InterfaceC1792c interfaceC1792c = cVar.f65833h;
-                if (interfaceC1792c != null) {
-                    interfaceC1792c.c(dialogInterface);
+                c.InterfaceC1856c interfaceC1856c = cVar.f66519h;
+                if (interfaceC1856c != null) {
+                    interfaceC1856c.c(dialogInterface);
                 }
             }
         });
@@ -122,7 +122,7 @@ public class e implements k {
         if (cVar == null) {
             return null;
         }
-        Context context = cVar.f65826a;
+        Context context = cVar.f66512a;
         if (context != null && (context instanceof Activity)) {
             return a((Activity) context, cVar);
         }
@@ -136,32 +136,32 @@ public class e implements k {
             b2.show();
             return b2;
         }
-        AlertDialog.Builder onCancelListener = new AlertDialog.Builder(activity, ad.g(activity, Build.VERSION.SDK_INT >= 21 ? "Theme.Dialog.TTDownload" : "Theme.Dialog.TTDownloadOld")).setTitle(cVar.f65827b).setMessage(cVar.f65828c).setPositiveButton(cVar.f65829d, new DialogInterface.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.3
+        AlertDialog.Builder onCancelListener = new AlertDialog.Builder(activity, ad.g(activity, Build.VERSION.SDK_INT >= 21 ? "Theme.Dialog.TTDownload" : "Theme.Dialog.TTDownloadOld")).setTitle(cVar.f66513b).setMessage(cVar.f66514c).setPositiveButton(cVar.f66515d, new DialogInterface.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
-                c.InterfaceC1792c interfaceC1792c = cVar.f65833h;
-                if (interfaceC1792c != null) {
-                    interfaceC1792c.a(dialogInterface);
+                c.InterfaceC1856c interfaceC1856c = cVar.f66519h;
+                if (interfaceC1856c != null) {
+                    interfaceC1856c.a(dialogInterface);
                 }
             }
-        }).setNegativeButton(cVar.f65830e, new DialogInterface.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.2
+        }).setNegativeButton(cVar.f66516e, new DialogInterface.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
-                c.InterfaceC1792c interfaceC1792c = cVar.f65833h;
-                if (interfaceC1792c != null) {
-                    interfaceC1792c.b(dialogInterface);
+                c.InterfaceC1856c interfaceC1856c = cVar.f66519h;
+                if (interfaceC1856c != null) {
+                    interfaceC1856c.b(dialogInterface);
                 }
             }
         }).setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.1
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                c.InterfaceC1792c interfaceC1792c = cVar.f65833h;
-                if (interfaceC1792c != null) {
-                    interfaceC1792c.c(dialogInterface);
+                c.InterfaceC1856c interfaceC1856c = cVar.f66519h;
+                if (interfaceC1856c != null) {
+                    interfaceC1856c.c(dialogInterface);
                 }
             }
         });
-        Drawable drawable = cVar.f65832g;
+        Drawable drawable = cVar.f66518g;
         if (drawable != null) {
             onCancelListener.setIcon(drawable);
         }

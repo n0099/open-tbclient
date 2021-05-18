@@ -603,7 +603,7 @@ public class ChatMsgManagerImpl {
         }
         String addListener = ListenerManager.getInstance().addListener(iSendMessageListener);
         if (AccountManager.isLogin(mContext)) {
-            if (a.f63831e && chatMsg.getCategory() == 4) {
+            if (a.f64518e && chatMsg.getCategory() == 4) {
                 creatMethodIntent = Utility.createMcastMethodIntent(mContext, 55);
             } else {
                 creatMethodIntent = Utility.creatMethodIntent(mContext, 55);
@@ -1018,7 +1018,7 @@ public class ChatMsgManagerImpl {
         LogUtils.i(str, " category: " + i2 + " contacter: " + j + " beginMsgid: " + j2 + " endMsgid: " + j3 + " count: " + i3 + " triggerReason: " + i4 + " jumpToRecentMsg: " + i5 + " key: " + addListener);
         if (j2 >= 0 && j3 >= 0) {
             if (AccountManager.isLogin(context)) {
-                if (a.f63831e && i2 == 4) {
+                if (a.f64518e && i2 == 4) {
                     creatMethodIntent = Utility.createMcastMethodIntent(context, 93);
                 } else {
                     creatMethodIntent = Utility.creatMethodIntent(context, 93);

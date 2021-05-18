@@ -6,21 +6,21 @@ import com.baidu.pass.view.CommonDialog;
 public class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CommonDialog f9706a;
+    public final /* synthetic */ CommonDialog f9327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ CommonDialog.Builder f9707b;
+    public final /* synthetic */ CommonDialog.Builder f9328b;
 
     public b(CommonDialog.Builder builder, CommonDialog commonDialog) {
-        this.f9707b = builder;
-        this.f9706a = commonDialog;
+        this.f9328b = builder;
+        this.f9327a = commonDialog;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         View.OnClickListener onClickListener;
-        onClickListener = this.f9707b.f9701g;
+        onClickListener = this.f9328b.f9322g;
         onClickListener.onClick(view);
-        this.f9706a.dismiss();
+        this.f9327a.dismiss();
     }
 }

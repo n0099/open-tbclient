@@ -3,18 +3,23 @@ package com.baidu.swan.apps.favordata;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.searchbox.NoProGuard;
-import d.a.h0.a.y0.e.c;
+import d.a.i0.a.f1.e.c;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public class SwanFavorItemData implements Serializable, NoProGuard {
+    public static final int IS_NEW_FAVOR = 1;
+    public static final int IS_NOT_NEW_FAVOR = 0;
     public static final String SCHEME_AUTHORITY_SWAN_APP = "swan";
     public static final String SCHEME_AUTHORITY_SWAN_GAME = "swangame";
+    public long mCreateTime;
     public int mIndex;
     public String mAppKey = "";
     public String mAppName = "";
     public String mIconUrl = "";
     public int mAppType = 0;
     public int mAppFrameType = -1;
+    public int mAppPayProtected = 0;
+    public int mIsNewFavor = 0;
 
     public int getAppFrameType() {
         return this.mAppFrameType;
@@ -30,6 +35,10 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
 
     public int getAppType() {
         return this.mAppType;
+    }
+
+    public long getCreateTime() {
+        return this.mCreateTime;
     }
 
     public int getFrameTypeFromScheme(String str) {
@@ -64,8 +73,16 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
         return this.mIndex;
     }
 
+    public int getIsNewFavor() {
+        return this.mIsNewFavor;
+    }
+
+    public int getPayProtected() {
+        return this.mAppPayProtected;
+    }
+
     public String getSchema(String str) {
-        return TextUtils.isEmpty(str) ? "" : c.X0(getAppKey(), str, getAppFrameType());
+        return TextUtils.isEmpty(str) ? "" : c.e1(getAppKey(), str, getAppFrameType());
     }
 
     public void setAppFrameType(int i2) {
@@ -84,11 +101,23 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
         this.mAppType = i2;
     }
 
+    public void setCreateTime(long j) {
+        this.mCreateTime = j;
+    }
+
     public void setIconUrl(String str) {
         this.mIconUrl = str;
     }
 
     public void setIndex(int i2) {
         this.mIndex = i2;
+    }
+
+    public void setIsNewFavor(int i2) {
+        this.mIsNewFavor = i2;
+    }
+
+    public void setPayProtected(int i2) {
+        this.mAppPayProtected = i2;
     }
 }

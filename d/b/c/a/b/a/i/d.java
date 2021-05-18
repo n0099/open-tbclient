@@ -2,22 +2,22 @@ package d.b.c.a.b.a.i;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<?> f64739a;
+    public final Class<?> f65425a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f64740b;
+    public final String f65426b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Class[] f64741c;
+    public final Class[] f65427c;
 
     public d(Class<?> cls, String str, Class... clsArr) {
-        this.f64739a = cls;
-        this.f64740b = str;
-        this.f64741c = clsArr;
+        this.f65425a = cls;
+        this.f65426b = str;
+        this.f65427c = clsArr;
     }
 
     public static Method c(Class<?> cls, String str, Class[] clsArr) {
@@ -49,10 +49,10 @@ public class d<T> {
 
     public final Method b(Class<?> cls) {
         Class<?> cls2;
-        String str = this.f64740b;
+        String str = this.f65426b;
         if (str != null) {
-            Method c2 = c(cls, str, this.f64741c);
-            if (c2 == null || (cls2 = this.f64739a) == null || cls2.isAssignableFrom(c2.getReturnType())) {
+            Method c2 = c(cls, str, this.f65427c);
+            if (c2 == null || (cls2 = this.f65425a) == null || cls2.isAssignableFrom(c2.getReturnType())) {
                 return c2;
             }
             return null;
@@ -89,7 +89,7 @@ public class d<T> {
                 throw assertionError;
             }
         }
-        throw new AssertionError("Method " + this.f64740b + " not supported for object " + t);
+        throw new AssertionError("Method " + this.f65426b + " not supported for object " + t);
     }
 
     public Object g(T t, Object... objArr) {

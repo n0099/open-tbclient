@@ -7,25 +7,24 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import d.a.h0.a.f;
-import d.a.h0.a.g;
-import d.a.h0.a.i2.h0;
-import d.a.h0.a.i2.u;
-import d.a.h0.a.k;
-import d.a.h0.a.p.d.c;
-import d.a.h0.a.p.d.e;
-/* loaded from: classes.dex */
+import d.a.i0.a.f;
+import d.a.i0.a.g;
+import d.a.i0.a.k;
+import d.a.i0.a.p.e.c;
+import d.a.i0.a.p.e.e;
+import d.a.i0.a.v2.n0;
+import d.a.i0.a.v2.v;
+/* loaded from: classes2.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
-    public static final boolean DEBUG = k.f43101a;
+    public static final boolean DEBUG = k.f43025a;
     public static final int INVALID_ANIM = 0;
     public static final String TAG = "ScopeDetailActivity";
-    public c mNgWebView;
-    public String mUrl;
-    public boolean mIsReceivedTitle = true;
     public int mEnterAnimWhenFinishing = 0;
     public int mExitAnimWhenFinishing = 0;
+    public c mNgWebView;
+    public String mUrl;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -36,17 +35,18 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    /* loaded from: classes.dex */
-    public class b extends d.a.h0.a.e0.n.a {
+    /* loaded from: classes2.dex */
+    public class b extends d.a.i0.a.h0.j.a {
         public b() {
         }
 
-        @Override // d.a.h0.a.e0.n.a, d.a.h0.a.e0.n.d
+        @Override // d.a.i0.a.h0.j.a, d.a.i0.a.h0.j.d
         public void a(String str) {
             super.a(str);
-            if (SwanAppScopeDetailActivity.this.mIsReceivedTitle) {
-                SwanAppScopeDetailActivity.this.setTitle(str);
+            if (TextUtils.isEmpty(str)) {
+                return;
             }
+            ((TextView) SwanAppScopeDetailActivity.this.findViewById(f.title)).setText(str);
         }
     }
 
@@ -54,16 +54,16 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         findViewById(f.back).setOnClickListener(new a());
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [d.a.h0.a.p.d.c] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [d.a.i0.a.p.e.c] */
     private void initWebView() {
         if (TextUtils.isEmpty(this.mUrl)) {
             return;
         }
-        e i2 = new d.a.h0.a.p.d.j.b().i(this);
-        i2.X(new b());
-        this.mNgWebView = i2.s();
-        i2.loadUrl(this.mUrl);
-        i2.k((FrameLayout) findViewById(f.webview_container), this.mNgWebView.covertToView());
+        e h2 = new d.a.i0.a.p.e.j.b().h(this);
+        h2.Z(new b());
+        this.mNgWebView = h2.u();
+        h2.loadUrl(this.mUrl);
+        h2.l((FrameLayout) findViewById(f.webview_container), this.mNgWebView.covertToView());
     }
 
     private void startExitActivityAnim() {
@@ -81,12 +81,12 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         startExitActivityAnim();
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, d.a.h0.m.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, d.a.i0.o.a.a.f, android.app.Activity
     public void onCreate(Bundle bundle) {
-        setPendingTransition(d.a.h0.a.a.aiapps_hold, d.a.h0.a.a.aiapps_slide_out_to_right);
+        setPendingTransition(d.a.i0.a.a.aiapps_hold, d.a.i0.a.a.aiapps_slide_out_to_right);
         super.onCreate(bundle);
         setContentView(g.swanapp_scope_detail_activity);
-        h0.a(this);
+        n0.a(this);
         parseIntent(getIntent());
         initView();
         initWebView();
@@ -113,25 +113,14 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         if (intent == null) {
             return;
         }
-        this.mUrl = u.h(intent, "url");
+        this.mUrl = v.h(intent, "url");
         if (DEBUG) {
             Log.d(TAG, "mUrl=" + this.mUrl);
         }
     }
 
-    public void setIsReceivedTitle(boolean z) {
-        this.mIsReceivedTitle = z;
-    }
-
     public void setPendingTransition(int i2, int i3) {
         this.mEnterAnimWhenFinishing = i2;
         this.mExitAnimWhenFinishing = i3;
-    }
-
-    public void setTitle(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        ((TextView) findViewById(f.title)).setText(str);
     }
 }

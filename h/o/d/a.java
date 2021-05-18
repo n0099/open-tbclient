@@ -3,32 +3,32 @@ package h.o.d;
 public final class a<T> implements h.e<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.n.b<? super T> f67937e;
+    public final h.n.b<? super T> f68617e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.n.b<? super Throwable> f67938f;
+    public final h.n.b<? super Throwable> f68618f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final h.n.a f67939g;
+    public final h.n.a f68619g;
 
     public a(h.n.b<? super T> bVar, h.n.b<? super Throwable> bVar2, h.n.a aVar) {
-        this.f67937e = bVar;
-        this.f67938f = bVar2;
-        this.f67939g = aVar;
+        this.f68617e = bVar;
+        this.f68618f = bVar2;
+        this.f68619g = aVar;
     }
 
     @Override // h.e
     public void onCompleted() {
-        this.f67939g.call();
+        this.f68619g.call();
     }
 
     @Override // h.e
     public void onError(Throwable th) {
-        this.f67938f.call(th);
+        this.f68618f.call(th);
     }
 
     @Override // h.e
     public void onNext(T t) {
-        this.f67937e.call(t);
+        this.f68617e.call(t);
     }
 }

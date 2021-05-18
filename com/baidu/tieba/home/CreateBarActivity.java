@@ -30,7 +30,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.i0.s.c.h0;
+import d.a.j0.s.c.h0;
 /* loaded from: classes4.dex */
 public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     public RelativeLayout mCreatebar;
@@ -126,25 +126,25 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     public class d extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f16880a;
+        public String f16195a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f16881b;
+        public String f16196b;
 
         /* renamed from: c  reason: collision with root package name */
-        public NetWork f16882c = null;
+        public NetWork f16197c = null;
 
         public d(String str, String str2) {
-            this.f16880a = null;
-            this.f16881b = null;
-            this.f16880a = str;
-            this.f16881b = str2;
+            this.f16195a = null;
+            this.f16196b = null;
+            this.f16195a = str;
+            this.f16196b = str2;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            NetWork netWork = this.f16882c;
+            NetWork netWork = this.f16197c;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -163,13 +163,13 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public String doInBackground(String... strArr) {
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/c/forum/create");
-                this.f16882c = netWork;
+                this.f16197c = netWork;
                 netWork.getNetContext().getRequest().mIsNeedTbs = true;
-                this.f16882c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f16880a);
-                this.f16882c.addPostData("vcode", this.f16881b);
-                this.f16882c.addPostData("vcode_md5", CreateBarActivity.this.mVcode_md5);
-                this.f16882c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
-                this.f16882c.postNetData();
+                this.f16197c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f16195a);
+                this.f16197c.addPostData("vcode", this.f16196b);
+                this.f16197c.addPostData("vcode_md5", CreateBarActivity.this.mVcode_md5);
+                this.f16197c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                this.f16197c.postNetData();
                 return null;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -183,13 +183,13 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             super.onPostExecute((d) str);
             CreateBarActivity.this.mProgress.setVisibility(8);
             CreateBarActivity.this.mCreateTask = null;
-            if (this.f16882c.getNetContext().getResponse().isRequestSuccess()) {
-                CreateBarSuccessActivity.startActivity(CreateBarActivity.this.getPageContext().getPageActivity(), this.f16880a);
+            if (this.f16197c.getNetContext().getResponse().isRequestSuccess()) {
+                CreateBarSuccessActivity.startActivity(CreateBarActivity.this.getPageContext().getPageActivity(), this.f16195a);
                 CreateBarActivity.this.finish();
                 return;
             }
-            CreateBarActivity.this.showToast(this.f16882c.getErrorString());
-            if (this.f16882c.isNetSuccess()) {
+            CreateBarActivity.this.showToast(this.f16197c.getErrorString());
+            if (this.f16197c.isNetSuccess()) {
                 CreateBarActivity.this.startImageTask();
             }
         }
@@ -199,14 +199,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     public class e extends BdAsyncTask<String, Integer, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f16884a;
+        public NetWork f16199a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f16885b;
+        public volatile boolean f16200b;
 
         public e() {
-            this.f16884a = null;
-            this.f16885b = false;
+            this.f16199a = null;
+            this.f16200b = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -215,22 +215,22 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public Bitmap doInBackground(String... strArr) {
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/anti/vcode");
-                this.f16884a = netWork;
+                this.f16199a = netWork;
                 netWork.addPostData("fid", "0");
-                this.f16884a.addPostData("pub_type", "0");
-                this.f16884a.addPostData("fname", "");
-                this.f16884a.addPostData("tid", "0");
-                String postNetData = this.f16884a.postNetData();
-                if (this.f16884a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f16199a.addPostData("pub_type", "0");
+                this.f16199a.addPostData("fname", "");
+                this.f16199a.addPostData("tid", "0");
+                String postNetData = this.f16199a.postNetData();
+                if (this.f16199a.getNetContext().getResponse().isRequestSuccess()) {
                     h0 h0Var = new h0();
                     h0Var.e(postNetData);
                     if (h0Var.c() != null && h0Var.c().length() > 0) {
                         CreateBarActivity.this.mVcode_md5 = h0Var.b();
-                        if (this.f16885b) {
+                        if (this.f16200b) {
                             return null;
                         }
                         NetWork netWork2 = new NetWork(h0Var.c());
-                        this.f16884a = netWork2;
+                        this.f16199a = netWork2;
                         return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                     }
                 }
@@ -243,8 +243,8 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            this.f16885b = true;
-            NetWork netWork = this.f16884a;
+            this.f16200b = true;
+            NetWork netWork = this.f16199a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }

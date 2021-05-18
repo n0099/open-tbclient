@@ -17,56 +17,56 @@ public class LoadingDialog extends Dialog implements NoProguard {
     public static class Builder implements NoProguard {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f10920a;
+        public Context f9957a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f10921b;
+        public String f9958b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f10922c = true;
+        public boolean f9959c = true;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f10923d = false;
+        public boolean f9960d = false;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f10924e = false;
+        public boolean f9961e = false;
 
         public Builder(Context context) {
-            this.f10920a = context;
+            this.f9957a = context;
         }
 
         public LoadingDialog createDialog() {
-            View inflate = LayoutInflater.from(this.f10920a).inflate(f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
-            LoadingDialog loadingDialog = new LoadingDialog(this.f10920a, h.sapi_sdk_loading_dialog);
+            View inflate = LayoutInflater.from(this.f9957a).inflate(f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
+            LoadingDialog loadingDialog = new LoadingDialog(this.f9957a, h.sapi_sdk_loading_dialog);
             TextView textView = (TextView) inflate.findViewById(e.tipTextView);
-            if (this.f10922c) {
-                textView.setText(this.f10921b);
+            if (this.f9959c) {
+                textView.setText(this.f9958b);
             } else {
                 textView.setVisibility(8);
             }
             loadingDialog.setContentView(inflate);
-            loadingDialog.setCancelable(this.f10923d);
-            loadingDialog.setCanceledOnTouchOutside(this.f10924e);
+            loadingDialog.setCancelable(this.f9960d);
+            loadingDialog.setCanceledOnTouchOutside(this.f9961e);
             return loadingDialog;
         }
 
         public Builder setCancelOutside(boolean z) {
-            this.f10924e = z;
+            this.f9961e = z;
             return this;
         }
 
         public Builder setCancelable(boolean z) {
-            this.f10923d = z;
+            this.f9960d = z;
             return this;
         }
 
         public Builder setMessage(String str) {
-            this.f10921b = str;
+            this.f9958b = str;
             return this;
         }
 
         public Builder setShowMessage(boolean z) {
-            this.f10922c = z;
+            this.f9959c = z;
             return this;
         }
     }

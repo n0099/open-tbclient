@@ -12,50 +12,50 @@ import android.widget.TextView;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
 import com.bytedance.sdk.openadsdk.utils.ad;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public SSWebView f29451a;
+    public SSWebView f28696a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f29452b;
+    public Context f28697b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f29453c;
+    public TextView f28698c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29454d;
+    public String f28699d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f29455e;
+    public a f28700e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29456f;
+    public String f28701f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(Dialog dialog);
     }
 
     public b(Context context, String str) {
         super(context, ad.g(context, "tt_dialog_full"));
-        this.f29452b = context;
-        this.f29456f = str;
+        this.f28697b = context;
+        this.f28701f = str;
     }
 
     private void b() {
-        if (TextUtils.isEmpty(this.f29456f)) {
-            this.f29454d = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
+        if (TextUtils.isEmpty(this.f28701f)) {
+            this.f28699d = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
             return;
         }
         try {
-            com.bytedance.sdk.openadsdk.core.d.c b2 = com.bytedance.sdk.openadsdk.core.c.b(new JSONObject(this.f29456f));
+            com.bytedance.sdk.openadsdk.core.d.c b2 = com.bytedance.sdk.openadsdk.core.c.b(new JSONObject(this.f28701f));
             if (b2 != null) {
                 String d2 = b2.d();
-                this.f29454d = d2;
+                this.f28699d = d2;
                 if (TextUtils.isEmpty(d2)) {
-                    this.f29454d = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
+                    this.f28699d = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
                 }
             }
         } catch (Throwable th) {
@@ -65,7 +65,7 @@ public class b extends AlertDialog {
 
     @Override // android.app.Dialog
     public void onBackPressed() {
-        a aVar = this.f29455e;
+        a aVar = this.f28700e;
         if (aVar != null) {
             aVar.a(this);
         }
@@ -74,24 +74,24 @@ public class b extends AlertDialog {
     @Override // android.app.AlertDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(ad.f(this.f29452b, "tt_app_privacy_dialog"));
+        setContentView(ad.f(this.f28697b, "tt_app_privacy_dialog"));
         b();
         a();
     }
 
     public void a() {
-        this.f29451a = (SSWebView) findViewById(ad.e(this.f29452b, "tt_privacy_webview"));
-        TextView textView = (TextView) findViewById(ad.e(this.f29452b, "tt_app_privacy_back_tv"));
-        this.f29453c = textView;
+        this.f28696a = (SSWebView) findViewById(ad.e(this.f28697b, "tt_privacy_webview"));
+        TextView textView = (TextView) findViewById(ad.e(this.f28697b, "tt_app_privacy_back_tv"));
+        this.f28698c = textView;
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.f29455e != null) {
-                    b.this.f29455e.a(b.this);
+                if (b.this.f28700e != null) {
+                    b.this.f28700e.a(b.this);
                 }
             }
         });
-        this.f29451a.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this.f29452b, null, null) { // from class: com.bytedance.sdk.openadsdk.core.widget.b.2
+        this.f28696a.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this.f28697b, null, null) { // from class: com.bytedance.sdk.openadsdk.core.widget.b.2
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 if (webView != null) {
@@ -116,14 +116,14 @@ public class b extends AlertDialog {
                 return true;
             }
         });
-        this.f29451a.getSettings().setJavaScriptEnabled(true);
-        this.f29451a.getSettings().setDisplayZoomControls(false);
-        this.f29451a.getSettings().setCacheMode(2);
-        this.f29451a.loadUrl(this.f29454d);
+        this.f28696a.getSettings().setJavaScriptEnabled(true);
+        this.f28696a.getSettings().setDisplayZoomControls(false);
+        this.f28696a.getSettings().setCacheMode(2);
+        this.f28696a.loadUrl(this.f28699d);
     }
 
     public b a(a aVar) {
-        this.f29455e = aVar;
+        this.f28700e = aVar;
         return this;
     }
 }

@@ -38,7 +38,7 @@ public class s extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: t */
-    public void a(d.a.i0.r.q.a aVar) {
+    public void a(d.a.j0.r.q.a aVar) {
         if (aVar != null && aVar.m() != null && aVar.m().y0() != null) {
             this.l.setVisibility(0);
             this.l.setData(aVar.m().y0(), 13);

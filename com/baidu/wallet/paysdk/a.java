@@ -8,82 +8,82 @@ import java.util.regex.Pattern;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<InterfaceC0258a> f25835a;
+    public final List<InterfaceC0245a> f25080a;
 
     /* renamed from: com.baidu.wallet.paysdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0258a {
+    public interface InterfaceC0245a {
         boolean a(CharSequence charSequence);
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements InterfaceC0258a {
+    public static class b implements InterfaceC0245a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f25837a = Pattern.compile("^[A-z0-9*]{1,50}$");
+        public static final Pattern f25082a = Pattern.compile("^[A-z0-9*]{1,50}$");
 
         public b() {
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC0258a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC0245a
         public boolean a(CharSequence charSequence) {
-            return f25837a.matcher(charSequence).matches();
+            return f25082a.matcher(charSequence).matches();
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c implements InterfaceC0258a {
+    public static class c implements InterfaceC0245a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f25838a = Pattern.compile("^[HM]\\d{8,10}$");
+        public static final Pattern f25083a = Pattern.compile("^[HM]\\d{8,10}$");
 
         public c() {
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC0258a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC0245a
         public boolean a(CharSequence charSequence) {
-            return f25838a.matcher(charSequence).matches();
+            return f25083a.matcher(charSequence).matches();
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class d implements InterfaceC0258a {
+    public static class d implements InterfaceC0245a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f25839a = Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$");
+        public static final Pattern f25084a = Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$");
 
         public d() {
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC0258a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC0245a
         public boolean a(CharSequence charSequence) {
-            return f25839a.matcher(charSequence).matches();
+            return f25084a.matcher(charSequence).matches();
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class e implements InterfaceC0258a {
+    public static class e implements InterfaceC0245a {
         public e() {
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC0258a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC0245a
         public boolean a(CharSequence charSequence) {
             return true;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class f implements InterfaceC0258a {
+    public static class f implements InterfaceC0245a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f25840a = Pattern.compile("^[A-Za-z0-9]{1,18}$");
+        public static final Pattern f25085a = Pattern.compile("^[A-Za-z0-9]{1,18}$");
 
         public f() {
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC0258a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC0245a
         public boolean a(CharSequence charSequence) {
-            return f25840a.matcher(charSequence).matches();
+            return f25085a.matcher(charSequence).matches();
         }
     }
 
@@ -99,8 +99,8 @@ public class a {
         if (TextUtils.isEmpty(charSequence)) {
             return false;
         }
-        for (InterfaceC0258a interfaceC0258a : this.f25835a) {
-            if (interfaceC0258a.a(charSequence)) {
+        for (InterfaceC0245a interfaceC0245a : this.f25080a) {
+            if (interfaceC0245a.a(charSequence)) {
                 return true;
             }
         }
@@ -108,21 +108,21 @@ public class a {
     }
 
     public a(long j) {
-        this.f25835a = new ArrayList();
+        this.f25080a = new ArrayList();
         if (a(j, 2L)) {
-            this.f25835a.add(new d());
+            this.f25080a.add(new d());
         }
         if (a(j, 4L)) {
-            this.f25835a.add(new f());
+            this.f25080a.add(new f());
         }
         if (a(j, 8L)) {
-            this.f25835a.add(new c());
+            this.f25080a.add(new c());
         }
         if (a(j, 16L)) {
-            this.f25835a.add(new e());
+            this.f25080a.add(new e());
         }
         if (a(j, 1L)) {
-            this.f25835a.add(new b());
+            this.f25080a.add(new b());
         }
     }
 }

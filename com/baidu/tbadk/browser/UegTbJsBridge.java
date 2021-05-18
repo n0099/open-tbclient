@@ -7,10 +7,10 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
 import d.a.e.a.a;
-import d.a.i0.s.c.l;
-import d.a.j0.d3.l0.b;
-import d.a.j0.d3.l0.d.c;
-import d.a.j0.l3.d;
+import d.a.j0.s.c.l;
+import d.a.k0.d3.l0.b;
+import d.a.k0.d3.l0.d.c;
+import d.a.k0.l3.d;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
@@ -29,14 +29,6 @@ public class UegTbJsBridge implements b {
         this.mTbPageContext = tbPageContext;
     }
 
-    private void bindingMobileNumber(String str) {
-        try {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, l.b()));
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
-
     private void copyToClipboard(String str) {
         try {
             d.a.c.e.p.a.a(new JSONObject(str).optString("content"));
@@ -45,13 +37,23 @@ public class UegTbJsBridge implements b {
         }
     }
 
+    public c bindingMobileNumber() {
+        c cVar = new c();
+        try {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, l.b()));
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        return cVar;
+    }
+
     public c callNativeSMS(String str, String str2) {
         c cVar = new c();
         UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), str, str2);
         return cVar;
     }
 
-    @Override // d.a.j0.d3.l0.b
+    @Override // d.a.k0.d3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if (METHOD_CALL_NATIVE_SMS.equals(str2)) {
@@ -77,8 +79,7 @@ public class UegTbJsBridge implements b {
                 }
                 return true;
             } else if ("bindMobileNumber".equals(str2)) {
-                bindingMobileNumber(str3);
-                jsPromptResult.confirm("1");
+                jsPromptResult.confirm(bindingMobileNumber().a());
                 return true;
             } else {
                 return false;

@@ -12,10 +12,10 @@ public class e extends a implements g.a.a.c.a {
     public String a(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(hVar.e(i()));
-        if (hVar.f67578b) {
+        if (hVar.f68264b) {
             stringBuffer.append(hVar.g(n()));
         }
-        if (hVar.f67578b) {
+        if (hVar.f68264b) {
             stringBuffer.append(" ");
         }
         stringBuffer.append(hVar.f(f(), g()));

@@ -21,42 +21,42 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public static final String KEY_VERSION = "key_version";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f10763h = "ShareResultProxyActivity";
+    public static final String f9800h = "ShareResultProxyActivity";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f10764i = "key_launch_share_activity_status";
+    public static final String f9801i = "key_launch_share_activity_status";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10765a;
+    public String f9802a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10766b;
+    public String f9803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10767c;
+    public String f9804c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10768d;
+    public String f9805d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<PassNameValuePair> f10769e;
+    public ArrayList<PassNameValuePair> f9806e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10770f;
+    public String f9807f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10771g;
+    public boolean f9808g;
 
     private void a() {
-        this.f10771g = true;
+        this.f9808g = true;
         Intent intent = getIntent();
-        this.f10765a = intent.getStringExtra(KEY_PKG);
-        this.f10766b = intent.getStringExtra("key_url");
-        this.f10767c = intent.getStringExtra(KEY_TRACE_ID);
-        this.f10768d = intent.getStringExtra("key_session_id");
-        this.f10769e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
-        this.f10770f = intent.getStringExtra("key_version");
-        new ShareCallPacking().startLoginShareActivityForResult(this, this.f10765a, this.f10766b, this.f10767c, this.f10768d, this.f10769e, this.f10770f, "product");
+        this.f9802a = intent.getStringExtra(KEY_PKG);
+        this.f9803b = intent.getStringExtra("key_url");
+        this.f9804c = intent.getStringExtra(KEY_TRACE_ID);
+        this.f9805d = intent.getStringExtra("key_session_id");
+        this.f9806e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
+        this.f9807f = intent.getStringExtra("key_version");
+        new ShareCallPacking().startLoginShareActivityForResult(this, this.f9802a, this.f9803b, this.f9804c, this.f9805d, this.f9806e, this.f9807f, "product");
     }
 
     @Override // android.app.Activity
@@ -82,9 +82,9 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
         attributes.flags = 32;
         window.setAttributes(attributes);
         if (bundle != null) {
-            this.f10771g = bundle.getBoolean(f10764i, false);
+            this.f9808g = bundle.getBoolean(f9801i, false);
         }
-        if (this.f10771g) {
+        if (this.f9808g) {
             return;
         }
         a();
@@ -92,7 +92,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putBoolean(f10764i, this.f10771g);
+        bundle.putBoolean(f9801i, this.f9808g);
         super.onSaveInstanceState(bundle);
     }
 }

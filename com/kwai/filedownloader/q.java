@@ -10,30 +10,30 @@ import java.util.List;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f35198a = new Object();
+    public static final Object f34443a = new Object();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f35199c = new Object();
+    public static final Object f34444c = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public v f35200b;
+    public v f34445b;
 
     /* renamed from: d  reason: collision with root package name */
-    public u f35201d;
+    public u f34446d;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final q f35202a = new q();
+        public static final q f34447a = new q();
     }
 
     public static q a() {
-        return a.f35202a;
+        return a.f34447a;
     }
 
     public static void a(Context context, c.a aVar) {
-        if (com.kwai.filedownloader.f.d.f35118a) {
+        if (com.kwai.filedownloader.f.d.f34363a) {
             com.kwai.filedownloader.f.d.c(q.class, "init Downloader with params: %s %s", context, aVar);
         }
         if (context == null) {
@@ -94,26 +94,26 @@ public class q {
     }
 
     public v d() {
-        if (this.f35200b == null) {
-            synchronized (f35198a) {
-                if (this.f35200b == null) {
-                    this.f35200b = new aa();
+        if (this.f34445b == null) {
+            synchronized (f34443a) {
+                if (this.f34445b == null) {
+                    this.f34445b = new aa();
                 }
             }
         }
-        return this.f35200b;
+        return this.f34445b;
     }
 
     public u e() {
-        if (this.f35201d == null) {
-            synchronized (f35199c) {
-                if (this.f35201d == null) {
+        if (this.f34446d == null) {
+            synchronized (f34444c) {
+                if (this.f34446d == null) {
                     y yVar = new y();
-                    this.f35201d = yVar;
+                    this.f34446d = yVar;
                     a(yVar);
                 }
             }
         }
-        return this.f35201d;
+        return this.f34446d;
     }
 }

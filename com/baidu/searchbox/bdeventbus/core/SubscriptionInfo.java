@@ -1,0 +1,68 @@
+package com.baidu.searchbox.bdeventbus.core;
+
+import com.baidu.searchbox.bdeventbus.Action;
+import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0014\b\u0000\u0018\u0000B1\u0012\u0006\u0010\u0017\u001a\u00020\u0001\u0012\n\u0010\u0011\u001a\u0006\u0012\u0002\b\u00030\u0010\u0012\u0006\u0010\u001b\u001a\u00020\u0006\u0012\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\u00010\t¢\u0006\u0004\b\"\u0010#J\u001a\u0010\u0004\u001a\u00020\u00032\b\u0010\u0002\u001a\u0004\u0018\u00010\u0001H\u0096\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u000f\u0010\u0007\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0007\u0010\bR(\u0010\n\u001a\b\u0012\u0004\u0012\u00020\u00010\t8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\n\u0010\u000b\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR&\u0010\u0011\u001a\u0006\u0012\u0002\b\u00030\u00108\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0011\u0010\u0012\u001a\u0004\b\u0013\u0010\u0014\"\u0004\b\u0015\u0010\u0016R\u0019\u0010\u0017\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0017\u0010\u0018\u001a\u0004\b\u0019\u0010\u001aR(\u0010\u001b\u001a\u00020\u00068\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0004\b\u001b\u0010\u001c\u0012\u0004\b \u0010!\u001a\u0004\b\u001d\u0010\b\"\u0004\b\u001e\u0010\u001f¨\u0006$"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/core/SubscriptionInfo;", "", "other", "", "equals", "(Ljava/lang/Object;)Z", "", "hashCode", "()I", "Lcom/baidu/searchbox/bdeventbus/Action;", "action", "Lcom/baidu/searchbox/bdeventbus/Action;", "getAction", "()Lcom/baidu/searchbox/bdeventbus/Action;", "setAction", "(Lcom/baidu/searchbox/bdeventbus/Action;)V", "Ljava/lang/Class;", "eventType", "Ljava/lang/Class;", "getEventType", "()Ljava/lang/Class;", "setEventType", "(Ljava/lang/Class;)V", "subscriber", "Ljava/lang/Object;", "getSubscriber", "()Ljava/lang/Object;", "threadMode", "I", "getThreadMode", "setThreadMode", "(I)V", "getThreadMode$annotations", "()V", "<init>", "(Ljava/lang/Object;Ljava/lang/Class;ILcom/baidu/searchbox/bdeventbus/Action;)V", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes2.dex */
+public final class SubscriptionInfo {
+    public Action<Object> action;
+    public Class<?> eventType;
+    public final Object subscriber;
+    public int threadMode;
+
+    public SubscriptionInfo(Object subscriber, Class<?> eventType, int i2, Action<Object> action) {
+        Intrinsics.checkNotNullParameter(subscriber, "subscriber");
+        Intrinsics.checkNotNullParameter(eventType, "eventType");
+        Intrinsics.checkNotNullParameter(action, "action");
+        this.subscriber = subscriber;
+        this.eventType = eventType;
+        this.threadMode = i2;
+        this.action = action;
+    }
+
+    public static /* synthetic */ void getThreadMode$annotations() {
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof SubscriptionInfo) {
+            SubscriptionInfo subscriptionInfo = (SubscriptionInfo) obj;
+            return Intrinsics.areEqual(this.subscriber, subscriptionInfo.subscriber) && Intrinsics.areEqual(this.eventType.getClass(), subscriptionInfo.eventType.getClass());
+        }
+        return false;
+    }
+
+    public final Action<Object> getAction() {
+        return this.action;
+    }
+
+    public final Class<?> getEventType() {
+        return this.eventType;
+    }
+
+    public final Object getSubscriber() {
+        return this.subscriber;
+    }
+
+    public final int getThreadMode() {
+        return this.threadMode;
+    }
+
+    public int hashCode() {
+        return this.subscriber.hashCode() + this.eventType.getClass().hashCode();
+    }
+
+    public final void setAction(Action<Object> action) {
+        Intrinsics.checkNotNullParameter(action, "<set-?>");
+        this.action = action;
+    }
+
+    public final void setEventType(Class<?> cls) {
+        Intrinsics.checkNotNullParameter(cls, "<set-?>");
+        this.eventType = cls;
+    }
+
+    public final void setThreadMode(int i2) {
+        this.threadMode = i2;
+    }
+}

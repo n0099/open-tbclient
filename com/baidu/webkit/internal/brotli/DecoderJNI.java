@@ -28,10 +28,10 @@ public class DecoderJNI implements INoProGuard {
             this.lastStatus = j == 1 ? a.DONE : j == 2 ? a.NEEDS_MORE_INPUT : j == 3 ? a.NEEDS_MORE_OUTPUT : j == 4 ? a.OK : a.ERROR;
         }
 
-        public void destroy() {
+        public void destroy() throws IOException {
             long[] jArr = this.context;
             if (jArr[0] == 0) {
-                throw new IllegalStateException("brotli decoder is already destroyed");
+                throw new IOException("brotli decoder is already destroyed");
             }
             WebSettingsGlobalBlink.kernelBrotliDestroy(jArr);
             this.context[0] = 0;
@@ -56,7 +56,7 @@ public class DecoderJNI implements INoProGuard {
             return this.context[2] != 0;
         }
 
-        public ByteBuffer pull() {
+        public ByteBuffer pull() throws IOException {
             if (this.context[0] != 0) {
                 if (this.lastStatus == a.NEEDS_MORE_OUTPUT || hasOutput()) {
                     this.fresh = false;
@@ -64,23 +64,23 @@ public class DecoderJNI implements INoProGuard {
                     parseStatus();
                     return kernelBrotliPull;
                 }
-                throw new IllegalStateException("pulling output from decoder in " + this.lastStatus + " state");
+                throw new IOException("pulling output from decoder in " + this.lastStatus + " state");
             }
-            throw new IllegalStateException("brotli decoder is already destroyed");
+            throw new IOException("brotli decoder is already destroyed");
         }
 
-        public void push(int i2) {
+        public void push(int i2) throws IOException {
             if (i2 < 0) {
-                throw new IllegalArgumentException("negative block length");
+                throw new IOException("negative block length");
             }
             if (this.context[0] == 0) {
-                throw new IllegalStateException("brotli decoder is already destroyed");
+                throw new IOException("brotli decoder is already destroyed");
             }
             a aVar = this.lastStatus;
             if (aVar != a.NEEDS_MORE_INPUT && aVar != a.OK) {
-                throw new IllegalStateException("pushing input to decoder in " + this.lastStatus + " state");
+                throw new IOException("pushing input to decoder in " + this.lastStatus + " state");
             } else if (this.lastStatus == a.OK && i2 != 0) {
-                throw new IllegalStateException("pushing input to decoder in OK state");
+                throw new IOException("pushing input to decoder in OK state");
             } else {
                 this.fresh = false;
                 WebSettingsGlobalBlink.kernelBrotliPush(this.context, i2);

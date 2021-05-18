@@ -165,8 +165,13 @@ public class AsyncHttpRequest implements Runnable {
                 this.redirectUrls.clear();
             }
             if (this.mICommonRequestHandler.getHttpStatus() == 301 || this.mICommonRequestHandler.getHttpStatus() == 303 || this.mICommonRequestHandler.getHttpStatus() == 302) {
+                String url = this.mICommonRequestHandler.getUrl();
                 try {
                     this.mICommonRequestHandler.onHandleFollowRedirect(this.redirectUrls);
+                    String url2 = this.mICommonRequestHandler.getUrl();
+                    if (url2 != null && !url2.equals(url)) {
+                        this.responseHandler.sendRedirectMessage(url2);
+                    }
                 } catch (RedirectException e2) {
                     throw e2;
                 }

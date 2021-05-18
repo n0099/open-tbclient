@@ -63,7 +63,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public EmotionShare m19decodeToResource(byte[] bArr, Object... objArr) {
+    public EmotionShare m18decodeToResource(byte[] bArr, Object... objArr) {
         return null;
     }
 

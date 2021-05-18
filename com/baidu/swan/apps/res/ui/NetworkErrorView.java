@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.android.app.event.EventBusWrapper;
-import d.a.h0.a.h;
+import com.baidu.searchbox.bdeventbus.BdEventBus;
+import d.a.i0.a.h;
 /* loaded from: classes3.dex */
 public class NetworkErrorView extends CommonEmptyView {
 
@@ -15,7 +15,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f11988a;
+        public Object f11205a;
 
         public a(int i2) {
         }
@@ -28,13 +28,13 @@ public class NetworkErrorView extends CommonEmptyView {
 
     public static void c(View view) {
         a aVar = new a(1);
-        aVar.f11988a = view;
-        EventBusWrapper.post(aVar);
+        aVar.f11205a = view;
+        BdEventBus.Companion.getDefault().post(aVar);
     }
 
     public final void b() {
-        this.f11960i.setVisibility(0);
-        setTitle(getContext().getString(h.aiapps_common_emptyview_detail_text));
+        this.f11177i.setVisibility(0);
+        setTitle(getContext().getString(h.swanapp_tip_net_unavailable));
     }
 
     public void setBottomLayout(View.OnClickListener onClickListener, View view, RelativeLayout.LayoutParams layoutParams) {
@@ -51,15 +51,15 @@ public class NetworkErrorView extends CommonEmptyView {
     }
 
     public void setEmptyButtonVisiblity(int i2) {
-        this.f11960i.setVisibility(i2);
+        this.f11177i.setVisibility(i2);
     }
 
     public void setEmptyViewVisiblity(int i2) {
-        this.f11956e.setVisibility(i2);
+        this.f11173e.setVisibility(i2);
     }
 
     public void setNetworkButtonShow(boolean z) {
-        TextView textView = this.f11959h;
+        TextView textView = this.f11176h;
         if (textView != null) {
             textView.setVisibility(z ? 0 : 4);
         }

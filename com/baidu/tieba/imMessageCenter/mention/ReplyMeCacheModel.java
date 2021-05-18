@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-import d.a.j0.f1.b.m;
+import d.a.k0.f1.b.m;
 /* loaded from: classes4.dex */
 public class ReplyMeCacheModel extends CacheModel<m, ReplyMessageFragment> {
     public ReplyMeCacheModel(TbPageContext tbPageContext) {

@@ -60,10 +60,10 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         public static final class b extends GeneratedMessageLite.Builder<AuthInfo, b> implements Object {
 
             /* renamed from: e  reason: collision with root package name */
-            public int f12290e;
+            public int f11609e;
 
             /* renamed from: f  reason: collision with root package name */
-            public Object f12291f = "";
+            public Object f11610f = "";
 
             public b() {
                 maybeForceBuilderInitialization();
@@ -109,16 +109,16 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             /* renamed from: n */
             public AuthInfo buildPartial() {
                 AuthInfo authInfo = new AuthInfo(this);
-                int i2 = (this.f12290e & 1) != 1 ? 0 : 1;
-                authInfo.token_ = this.f12291f;
+                int i2 = (this.f11609e & 1) != 1 ? 0 : 1;
+                authInfo.token_ = this.f11610f;
                 authInfo.bitField0_ = i2;
                 return authInfo;
             }
 
             public b o() {
                 super.clear();
-                this.f12291f = "";
-                this.f12290e &= -2;
+                this.f11610f = "";
+                this.f11609e &= -2;
                 return this;
             }
 
@@ -140,8 +140,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
 
             public b s(AuthInfo authInfo) {
                 if (authInfo != AuthInfo.getDefaultInstance() && authInfo.hasToken()) {
-                    this.f12290e |= 1;
-                    this.f12291f = authInfo.token_;
+                    this.f11609e |= 1;
+                    this.f11610f = authInfo.token_;
                 }
                 return this;
             }
@@ -182,8 +182,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
 
             public b u(String str) {
                 if (str != null) {
-                    this.f12290e |= 1;
-                    this.f12291f = str;
+                    this.f11609e |= 1;
+                    this.f11610f = str;
                     return this;
                 }
                 throw null;
@@ -414,19 +414,19 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
     public static final class b extends GeneratedMessageLite.Builder<Bimlog$LogRequest, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12292e;
+        public int f11611e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f12293f;
+        public long f11612f;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f12296i;
+        public long f11615i;
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f12294g = "";
+        public Object f11613g = "";
 
         /* renamed from: h  reason: collision with root package name */
-        public AuthInfo f12295h = AuthInfo.getDefaultInstance();
+        public AuthInfo f11614h = AuthInfo.getDefaultInstance();
         public Object j = "";
         public ByteString k = ByteString.EMPTY;
 
@@ -439,8 +439,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         }
 
         public b A(long j) {
-            this.f12292e |= 1;
-            this.f12293f = j;
+            this.f11611e |= 1;
+            this.f11612f = j;
             return this;
         }
 
@@ -480,21 +480,21 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         /* renamed from: n */
         public Bimlog$LogRequest buildPartial() {
             Bimlog$LogRequest bimlog$LogRequest = new Bimlog$LogRequest(this);
-            int i2 = this.f12292e;
+            int i2 = this.f11611e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            bimlog$LogRequest.version_ = this.f12293f;
+            bimlog$LogRequest.version_ = this.f11612f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            bimlog$LogRequest.serviceName_ = this.f12294g;
+            bimlog$LogRequest.serviceName_ = this.f11613g;
             if ((i2 & 4) == 4) {
                 i3 |= 4;
             }
-            bimlog$LogRequest.authInfo_ = this.f12295h;
+            bimlog$LogRequest.authInfo_ = this.f11614h;
             if ((i2 & 8) == 8) {
                 i3 |= 8;
             }
-            bimlog$LogRequest.requestTimestampMs_ = this.f12296i;
+            bimlog$LogRequest.requestTimestampMs_ = this.f11615i;
             if ((i2 & 16) == 16) {
                 i3 |= 16;
             }
@@ -509,22 +509,22 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
 
         public b o() {
             super.clear();
-            this.f12293f = 0L;
-            int i2 = this.f12292e & (-2);
-            this.f12292e = i2;
-            this.f12294g = "";
-            this.f12292e = i2 & (-3);
-            this.f12295h = AuthInfo.getDefaultInstance();
-            int i3 = this.f12292e & (-5);
-            this.f12292e = i3;
-            this.f12296i = 0L;
+            this.f11612f = 0L;
+            int i2 = this.f11611e & (-2);
+            this.f11611e = i2;
+            this.f11613g = "";
+            this.f11611e = i2 & (-3);
+            this.f11614h = AuthInfo.getDefaultInstance();
+            int i3 = this.f11611e & (-5);
+            this.f11611e = i3;
+            this.f11615i = 0L;
             int i4 = i3 & (-9);
-            this.f12292e = i4;
+            this.f11611e = i4;
             this.j = "";
             int i5 = i4 & (-17);
-            this.f12292e = i5;
+            this.f11611e = i5;
             this.k = ByteString.EMPTY;
-            this.f12292e = i5 & (-33);
+            this.f11611e = i5 & (-33);
             return this;
         }
 
@@ -545,14 +545,14 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         }
 
         public b s(AuthInfo authInfo) {
-            if ((this.f12292e & 4) == 4 && this.f12295h != AuthInfo.getDefaultInstance()) {
-                AuthInfo.b newBuilder = AuthInfo.newBuilder(this.f12295h);
+            if ((this.f11611e & 4) == 4 && this.f11614h != AuthInfo.getDefaultInstance()) {
+                AuthInfo.b newBuilder = AuthInfo.newBuilder(this.f11614h);
                 newBuilder.s(authInfo);
-                this.f12295h = newBuilder.buildPartial();
+                this.f11614h = newBuilder.buildPartial();
             } else {
-                this.f12295h = authInfo;
+                this.f11614h = authInfo;
             }
-            this.f12292e |= 4;
+            this.f11611e |= 4;
             return this;
         }
 
@@ -564,8 +564,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
                 A(bimlog$LogRequest.getVersion());
             }
             if (bimlog$LogRequest.hasServiceName()) {
-                this.f12292e |= 2;
-                this.f12294g = bimlog$LogRequest.serviceName_;
+                this.f11611e |= 2;
+                this.f11613g = bimlog$LogRequest.serviceName_;
             }
             if (bimlog$LogRequest.hasAuthInfo()) {
                 s(bimlog$LogRequest.getAuthInfo());
@@ -574,7 +574,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
                 x(bimlog$LogRequest.getRequestTimestampMs());
             }
             if (bimlog$LogRequest.hasSign()) {
-                this.f12292e |= 16;
+                this.f11611e |= 16;
                 this.j = bimlog$LogRequest.sign_;
             }
             if (bimlog$LogRequest.hasPayload()) {
@@ -619,8 +619,8 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
 
         public b v(AuthInfo authInfo) {
             if (authInfo != null) {
-                this.f12295h = authInfo;
-                this.f12292e |= 4;
+                this.f11614h = authInfo;
+                this.f11611e |= 4;
                 return this;
             }
             throw null;
@@ -628,7 +628,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
 
         public b w(ByteString byteString) {
             if (byteString != null) {
-                this.f12292e |= 32;
+                this.f11611e |= 32;
                 this.k = byteString;
                 return this;
             }
@@ -636,15 +636,15 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         }
 
         public b x(long j) {
-            this.f12292e |= 8;
-            this.f12296i = j;
+            this.f11611e |= 8;
+            this.f11615i = j;
             return this;
         }
 
         public b y(String str) {
             if (str != null) {
-                this.f12292e |= 2;
-                this.f12294g = str;
+                this.f11611e |= 2;
+                this.f11613g = str;
                 return this;
             }
             throw null;
@@ -652,7 +652,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
 
         public b z(String str) {
             if (str != null) {
-                this.f12292e |= 16;
+                this.f11611e |= 16;
                 this.j = str;
                 return this;
             }

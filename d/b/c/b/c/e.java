@@ -8,30 +8,30 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f64995d = new Object();
+    public static final Object f65681d = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64996a;
+    public Context f65682a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f64997b = new d();
+    public d f65683b = new d();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f64998c;
+    public boolean f65684c;
 
     public e(Context context, boolean z) {
-        this.f64998c = true;
-        this.f64996a = context;
-        this.f64998c = z;
+        this.f65684c = true;
+        this.f65682a = context;
+        this.f65684c = z;
     }
 
     public void a() {
-        if (this.f64998c) {
-            String string = this.f64996a.getSharedPreferences("ttnet_tnc_config", 0).getString("tnc_config_str", null);
+        if (this.f65684c) {
+            String string = this.f65682a.getSharedPreferences("ttnet_tnc_config", 0).getString("tnc_config_str", null);
             if (TextUtils.isEmpty(string)) {
                 com.bytedance.sdk.adnet.d.d.c("TNCConfigHandler", "loadLocalConfig: no existed");
                 return;
@@ -39,7 +39,7 @@ public class e {
             try {
                 d c2 = c(new JSONObject(string));
                 if (c2 != null) {
-                    this.f64997b = c2;
+                    this.f65683b = c2;
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append("loadLocalConfig: ");
@@ -55,7 +55,7 @@ public class e {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
     public void b(JSONObject jSONObject) {
-        if (!this.f64998c) {
+        if (!this.f65684c) {
             com.bytedance.sdk.adnet.d.d.c("TNCConfigHandler", "handleConfigChanged: no mainProc");
             return;
         }
@@ -100,30 +100,30 @@ public class e {
             sb.append(c2 == null ? StringUtil.NULL_STRING : c2.toString());
             com.bytedance.sdk.adnet.d.d.c("TNCConfigHandler", sb.toString());
             if (c2 == null) {
-                synchronized (f64995d) {
-                    this.f64996a.getSharedPreferences("ttnet_tnc_config", 0).edit().putString("tnc_config_str", "").apply();
-                    d.b.c.b.e.d.b(this.f64996a, 1, "");
+                synchronized (f65681d) {
+                    this.f65682a.getSharedPreferences("ttnet_tnc_config", 0).edit().putString("tnc_config_str", "").apply();
+                    d.b.c.b.e.d.b(this.f65682a, 1, "");
                 }
                 return;
             }
-            this.f64997b = c2;
+            this.f65683b = c2;
             String jSONObject5 = optJSONObject.toString();
-            synchronized (f64995d) {
-                this.f64996a.getSharedPreferences("ttnet_tnc_config", 0).edit().putString("tnc_config_str", jSONObject5).apply();
-                d.b.c.b.e.d.b(this.f64996a, 1, jSONObject5);
+            synchronized (f65681d) {
+                this.f65682a.getSharedPreferences("ttnet_tnc_config", 0).edit().putString("tnc_config_str", jSONObject5).apply();
+                d.b.c.b.e.d.b(this.f65682a, 1, jSONObject5);
             }
         } catch (Throwable th) {
             try {
                 th.printStackTrace();
-                this.f64997b = new d();
-                synchronized (f64995d) {
-                    this.f64996a.getSharedPreferences("ttnet_tnc_config", 0).edit().putString("tnc_config_str", "").apply();
-                    d.b.c.b.e.d.b(this.f64996a, 1, "");
+                this.f65683b = new d();
+                synchronized (f65681d) {
+                    this.f65682a.getSharedPreferences("ttnet_tnc_config", 0).edit().putString("tnc_config_str", "").apply();
+                    d.b.c.b.e.d.b(this.f65682a, 1, "");
                 }
             } catch (Throwable th2) {
-                synchronized (f64995d) {
-                    this.f64996a.getSharedPreferences("ttnet_tnc_config", 0).edit().putString("tnc_config_str", "").apply();
-                    d.b.c.b.e.d.b(this.f64996a, 1, "");
+                synchronized (f65681d) {
+                    this.f65682a.getSharedPreferences("ttnet_tnc_config", 0).edit().putString("tnc_config_str", "").apply();
+                    d.b.c.b.e.d.b(this.f65682a, 1, "");
                     throw th2;
                 }
             }
@@ -134,10 +134,10 @@ public class e {
         try {
             d dVar = new d();
             if (jSONObject.has("local_enable")) {
-                dVar.f64986a = jSONObject.getInt("local_enable") != 0;
+                dVar.f65672a = jSONObject.getInt("local_enable") != 0;
             }
             if (jSONObject.has("probe_enable")) {
-                dVar.f64987b = jSONObject.getInt("probe_enable") != 0;
+                dVar.f65673b = jSONObject.getInt("probe_enable") != 0;
             }
             if (jSONObject.has("local_host_filter")) {
                 JSONArray jSONArray = jSONObject.getJSONArray("local_host_filter");
@@ -150,9 +150,9 @@ public class e {
                         }
                     }
                 }
-                dVar.f64988c = hashMap;
+                dVar.f65674c = hashMap;
             } else {
-                dVar.f64988c = null;
+                dVar.f65674c = null;
             }
             if (jSONObject.has("host_replace_map")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("host_replace_map");
@@ -167,15 +167,15 @@ public class e {
                         }
                     }
                 }
-                dVar.f64989d = hashMap2;
+                dVar.f65675d = hashMap2;
             } else {
-                dVar.f64989d = null;
+                dVar.f65675d = null;
             }
-            dVar.f64990e = jSONObject.optInt("req_to_cnt", dVar.f64990e);
-            dVar.f64991f = jSONObject.optInt("req_to_api_cnt", dVar.f64991f);
-            dVar.f64992g = jSONObject.optInt("req_to_ip_cnt", dVar.f64992g);
-            dVar.f64993h = jSONObject.optInt("req_err_cnt", dVar.f64993h);
-            dVar.f64994i = jSONObject.optInt("req_err_api_cnt", dVar.f64994i);
+            dVar.f65676e = jSONObject.optInt("req_to_cnt", dVar.f65676e);
+            dVar.f65677f = jSONObject.optInt("req_to_api_cnt", dVar.f65677f);
+            dVar.f65678g = jSONObject.optInt("req_to_ip_cnt", dVar.f65678g);
+            dVar.f65679h = jSONObject.optInt("req_err_cnt", dVar.f65679h);
+            dVar.f65680i = jSONObject.optInt("req_err_api_cnt", dVar.f65680i);
             dVar.j = jSONObject.optInt("req_err_ip_cnt", dVar.j);
             dVar.k = jSONObject.optInt("update_interval", dVar.k);
             dVar.l = jSONObject.optInt("update_random_range", dVar.l);
@@ -189,7 +189,7 @@ public class e {
 
     public void d() {
         try {
-            String a2 = d.b.c.b.e.d.a(this.f64996a, 1);
+            String a2 = d.b.c.b.e.d.a(this.f65682a, 1);
             if (TextUtils.isEmpty(a2)) {
                 com.bytedance.sdk.adnet.d.d.c("TNCConfigHandler", "loadLocalConfigForOtherProcess, data empty");
                 return;
@@ -200,7 +200,7 @@ public class e {
             sb.append(c2 == null ? StringUtil.NULL_STRING : c2.toString());
             com.bytedance.sdk.adnet.d.d.c("TNCConfigHandler", sb.toString());
             if (c2 != null) {
-                this.f64997b = c2;
+                this.f65683b = c2;
             }
         } catch (Throwable th) {
             com.bytedance.sdk.adnet.d.d.c("TNCConfigHandler", "loadLocalConfigForOtherProcess, except: " + th.getMessage());
@@ -208,6 +208,6 @@ public class e {
     }
 
     public d e() {
-        return this.f64997b;
+        return this.f65683b;
     }
 }

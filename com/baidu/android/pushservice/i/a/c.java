@@ -9,7 +9,7 @@ import com.baidu.android.pushservice.j.g;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3393a;
+    public static int f3394a;
 
     public static void a(final Context context) {
         if (context != null && d.g(context) && g.a(context) && PushSettings.m(context)) {
@@ -23,15 +23,15 @@ public class c {
     }
 
     public static /* synthetic */ int b() {
-        int i2 = f3393a;
-        f3393a = i2 + 1;
+        int i2 = f3394a;
+        f3394a = i2 + 1;
         return i2;
     }
 
     public static void b(Context context, a aVar) {
         aVar.a();
         e.a(context).f();
-        f3393a = 0;
+        f3394a = 0;
     }
 
     public static void b(final Context context, final boolean z) {
@@ -49,16 +49,16 @@ public class c {
                     PushSettings.l(context);
                     if (i2 == 0) {
                         c.b(context, aVar);
-                        int unused = c.f3393a = 0;
+                        int unused = c.f3394a = 0;
                         return;
                     }
                     int i3 = 1;
-                    if (c.f3393a < 1) {
+                    if (c.f3394a < 1) {
                         c.b(context, false);
                         c.b();
                         return;
                     }
-                    int unused2 = c.f3393a = 0;
+                    int unused2 = c.f3394a = 0;
                     int n = PushSettings.n(context);
                     if (n >= 3) {
                         c.b(context, aVar);

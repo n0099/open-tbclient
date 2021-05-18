@@ -26,11 +26,11 @@ public final class MaybeOnErrorNext<T> extends AbstractMaybeWithUpstream<T, T> {
             public final MaybeObserver<? super T> actual;
 
             /* renamed from: d  reason: collision with root package name */
-            public final AtomicReference<Disposable> f68265d;
+            public final AtomicReference<Disposable> f68945d;
 
             public NextMaybeObserver(MaybeObserver<? super T> maybeObserver, AtomicReference<Disposable> atomicReference) {
                 this.actual = maybeObserver;
-                this.f68265d = atomicReference;
+                this.f68945d = atomicReference;
             }
 
             @Override // io.reactivex.MaybeObserver
@@ -45,7 +45,7 @@ public final class MaybeOnErrorNext<T> extends AbstractMaybeWithUpstream<T, T> {
 
             @Override // io.reactivex.MaybeObserver
             public void onSubscribe(Disposable disposable) {
-                DisposableHelper.setOnce(this.f68265d, disposable);
+                DisposableHelper.setOnce(this.f68945d, disposable);
             }
 
             @Override // io.reactivex.MaybeObserver

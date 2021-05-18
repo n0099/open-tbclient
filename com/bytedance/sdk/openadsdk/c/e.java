@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.c;
 
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface e<T> {
     List<T> a(int i2, String str);
 

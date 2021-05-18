@@ -39,7 +39,7 @@ import d.a.c.e.p.f;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class EmotionEditActivity extends BaseActivity implements EmotionEditModel.e {
     public static final int STEP_COMPOSITION = 2;
     public static final int STEP_IDLE = 0;
@@ -63,14 +63,14 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     public String mLastSendText;
     public EmotionEditModel mModel;
     public PermissionJudgePolicy mPermissionJudgement;
-    public d.a.i0.r.f0.a mProgressDialog;
+    public d.a.j0.r.f0.a mProgressDialog;
     public View mRootView;
     public View mSend;
     public int mSendInStep = 0;
     public Bitmap mTextBitmap;
     public long startSendTime;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements DialogInterface.OnCancelListener {
         public a() {
         }
@@ -83,7 +83,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b implements ChooseColorLayout.b {
         public b() {
         }
@@ -94,7 +94,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnFocusChangeListener {
         public c() {
         }
@@ -111,7 +111,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class d extends d.a.c.e.l.c<d.a.c.j.d.a> {
         public d() {
         }
@@ -264,7 +264,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                 }
                 Bitmap addTextToImage = addTextToImage(bdImage.p());
                 if (addTextToImage != null) {
-                    this.mModel.E(addTextToImage, f.f39949b + "/" + TbConfig.getTempDirName() + "/emotion.png");
+                    this.mModel.E(addTextToImage, f.f39194b + "/" + TbConfig.getTempDirName() + "/emotion.png");
                     return;
                 }
                 showToast(R.string.upload_error);
@@ -466,7 +466,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         addGlobalLayoutListener();
         adjustResizeForSoftInput(R.color.black_alpha40, false);
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
-        d.a.i0.r.f0.a aVar = new d.a.i0.r.f0.a(getPageContext());
+        d.a.j0.r.f0.a aVar = new d.a.j0.r.f0.a(getPageContext());
         this.mProgressDialog = aVar;
         aVar.i(R.string.emotion_composition);
         this.mProgressDialog.e(new a());

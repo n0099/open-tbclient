@@ -16,14 +16,14 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.URL;
 import java.util.Enumeration;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36513a = "com.sdk.base.framework.f.d.a";
+    public static final String f35758a = "com.sdk.base.framework.f.d.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f36514b = Boolean.valueOf(f.f36488b);
+    public static final Boolean f35759b = Boolean.valueOf(f.f35733b);
 
     public static String a() {
         try {
@@ -132,7 +132,7 @@ public class a {
                     }
                 }
             } catch (Throwable th) {
-                c.b(f36513a, th.getMessage(), f36514b);
+                c.b(f35758a, th.getMessage(), f35759b);
             }
         }
         return null;

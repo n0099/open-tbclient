@@ -40,8 +40,8 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             if (adapterDataObserver != null) {
                 adapterDataObserver.onChanged();
             }
-            if (BdRecyclerAdapter.this.f2337f.f40332c != null) {
-                BdRecyclerAdapter.this.f2337f.f40332c.onPreLoad();
+            if (BdRecyclerAdapter.this.f2337f.f39577c != null) {
+                BdRecyclerAdapter.this.f2337f.f39577c.onPreLoad();
             }
         }
 
@@ -158,7 +158,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
         int n = n();
         if (i2 < n) {
-            return this.f2337f.f40330a.get(i2).f40336d;
+            return this.f2337f.f39575a.get(i2).f39581d;
         }
         int i3 = i2 - n;
         int i4 = 0;
@@ -174,7 +174,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         if (i5 < 0 || i5 >= m) {
             return null;
         }
-        return this.f2337f.f40331b.get(i5).f40336d;
+        return this.f2337f.f39576b.get(i5).f39581d;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -198,7 +198,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
         int n = n();
         if (i2 < n) {
-            return this.f2337f.f40330a.get(i2).f40333a;
+            return this.f2337f.f39575a.get(i2).f39578a;
         }
         int i3 = 0;
         RecyclerView.Adapter adapter = this.f2338g;
@@ -214,7 +214,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         if (i5 <= -1 || i5 >= m()) {
             return -1L;
         }
-        return this.f2337f.f40331b.get(i5).f40333a;
+        return this.f2337f.f39576b.get(i5).f39578a;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -224,7 +224,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
         int n = n();
         if (i2 < n) {
-            return this.f2337f.f40330a.get(i2).f40334b;
+            return this.f2337f.f39575a.get(i2).f39579b;
         }
         int i3 = i2 - n;
         int i4 = 0;
@@ -237,7 +237,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         if (i5 < 0 || i5 >= m) {
             return -1;
         }
-        return this.f2337f.f40331b.get(i5).f40334b;
+        return this.f2337f.f39576b.get(i5).f39579b;
     }
 
     public void h(View view, int i2) {
@@ -312,16 +312,16 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         d.c l = l(i2);
         boolean z2 = true;
         if (l != null) {
-            viewHolder = l.f40335c;
-            z = l.f40337e;
+            viewHolder = l.f39580c;
+            z = l.f39582e;
         } else {
             viewHolder = null;
             z = true;
         }
         if (viewHolder == null) {
             d.c k = k(i2);
-            TypeAdapter.ViewHolder viewHolder2 = k != null ? k.f40335c : null;
-            if (k != null && !k.f40337e) {
+            TypeAdapter.ViewHolder viewHolder2 = k != null ? k.f39580c : null;
+            if (k != null && !k.f39582e) {
                 z2 = false;
             }
             z = z2;

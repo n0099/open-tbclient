@@ -1,7 +1,7 @@
 package com.sina.weibo.sdk.auth;
 
 import com.sina.weibo.sdk.utils.WbAuthConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WbConnectErrorMessage {
     public String errorCode;
     public String errorMessage;

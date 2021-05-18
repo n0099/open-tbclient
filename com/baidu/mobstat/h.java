@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.os.Build;
-import com.baidu.swan.games.utils.so.SoUtils;
+import com.baidu.swan.apps.so.SoUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,7 +17,7 @@ public class h {
             jSONObject.put(Config.CUID_SEC, bw.a(2, context));
             jSONObject.put("w", bw.c(context));
             jSONObject.put("h", bw.d(context));
-            jSONObject.put("ly", ab.f8753c);
+            jSONObject.put("ly", ab.f8565c);
             jSONObject.put("pv", SoUtils.SO_EVENT_ID_DEFAULT);
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);

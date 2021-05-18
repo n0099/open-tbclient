@@ -16,19 +16,19 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
     public static final int PAGE_MAX_NUM = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public FaceShopData f15513e;
+    public FaceShopData f14828e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f15514f;
+    public b f14829f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15515g;
+    public int f14830g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15516h;
+    public String f14831h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f15517i;
+    public boolean f14832i;
     public int j;
     public int k;
     public float l;
@@ -37,40 +37,40 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
     public class b extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f15518a;
+        public int f14833a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetWork f15519b;
+        public NetWork f14834b;
 
         /* renamed from: c  reason: collision with root package name */
-        public volatile boolean f15520c;
+        public volatile boolean f14835c;
 
         public b() {
-            this.f15520c = false;
+            this.f14835c = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public FaceShopData doInBackground(Object... objArr) {
-            this.f15518a = ((Integer) objArr[0]).intValue();
+            this.f14833a = ((Integer) objArr[0]).intValue();
             try {
-                if (this.f15520c) {
+                if (this.f14835c) {
                     return null;
                 }
-                this.f15519b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_LIST);
-                if (this.f15518a == 1) {
-                    FaceShopModel.this.f15515g = 0;
-                } else if (this.f15518a == 2) {
+                this.f14834b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_LIST);
+                if (this.f14833a == 1) {
+                    FaceShopModel.this.f14830g = 0;
+                } else if (this.f14833a == 2) {
                     FaceShopModel.u(FaceShopModel.this);
                 }
-                this.f15519b.addPostData("scr_w", String.valueOf(FaceShopModel.this.j));
-                this.f15519b.addPostData("scr_h", String.valueOf(FaceShopModel.this.k));
-                this.f15519b.addPostData("scr_dip", String.valueOf(FaceShopModel.this.l));
-                this.f15519b.addPostData("offset", String.valueOf(FaceShopModel.this.f15515g));
-                this.f15519b.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(10));
-                this.f15519b.addPostData("st_type", FaceShopModel.this.f15516h);
-                return (FaceShopData) OrmObject.objectWithJsonStr(this.f15519b.postNetData(), FaceShopData.class);
+                this.f14834b.addPostData("scr_w", String.valueOf(FaceShopModel.this.j));
+                this.f14834b.addPostData("scr_h", String.valueOf(FaceShopModel.this.k));
+                this.f14834b.addPostData("scr_dip", String.valueOf(FaceShopModel.this.l));
+                this.f14834b.addPostData("offset", String.valueOf(FaceShopModel.this.f14830g));
+                this.f14834b.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(10));
+                this.f14834b.addPostData("st_type", FaceShopModel.this.f14831h);
+                return (FaceShopData) OrmObject.objectWithJsonStr(this.f14834b.postNetData(), FaceShopData.class);
             } catch (Exception e2) {
                 BdLog.detailException(e2);
                 return null;
@@ -82,40 +82,40 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
         /* renamed from: c */
         public void onPostExecute(FaceShopData faceShopData) {
             super.onPostExecute(faceShopData);
-            FaceShopModel.this.f15514f = null;
+            FaceShopModel.this.f14829f = null;
             if (faceShopData != null) {
-                FaceShopModel.this.f15517i = faceShopData.has_more == 1;
-                int i2 = this.f15518a;
+                FaceShopModel.this.f14832i = faceShopData.has_more == 1;
+                int i2 = this.f14833a;
                 if (i2 == 1) {
-                    FaceShopModel.this.f15513e = faceShopData;
+                    FaceShopModel.this.f14828e = faceShopData;
                 } else if (i2 == 2) {
-                    FaceShopModel.this.f15513e.add(faceShopData);
+                    FaceShopModel.this.f14828e.add(faceShopData);
                 }
             }
-            FaceShopModel.this.mLoadDataCallBack.c(FaceShopModel.this.f15513e);
+            FaceShopModel.this.mLoadDataCallBack.c(FaceShopModel.this.f14828e);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            this.f15520c = true;
-            NetWork netWork = this.f15519b;
+            this.f14835c = true;
+            NetWork netWork = this.f14834b;
             if (netWork != null) {
                 netWork.cancelNetConnect();
-                this.f15519b = null;
+                this.f14834b = null;
             }
-            FaceShopModel.this.f15514f = null;
+            FaceShopModel.this.f14829f = null;
         }
     }
 
     public FaceShopModel(FaceShopActivity faceShopActivity) {
         super(faceShopActivity.getPageContext());
-        this.f15514f = null;
+        this.f14829f = null;
         this.j = 0;
         this.k = 0;
-        this.f15513e = null;
-        this.f15517i = false;
-        this.f15515g = 0;
+        this.f14828e = null;
+        this.f14832i = false;
+        this.f14830g = 0;
         TbadkApplication inst = TbadkApplication.getInst();
         this.j = l.k(inst);
         this.k = l.i(inst);
@@ -123,30 +123,30 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
     }
 
     public static /* synthetic */ int u(FaceShopModel faceShopModel) {
-        int i2 = faceShopModel.f15515g;
-        faceShopModel.f15515g = i2 + 1;
+        int i2 = faceShopModel.f14830g;
+        faceShopModel.f14830g = i2 + 1;
         return i2;
     }
 
     public FaceShopData E() {
-        return this.f15513e;
+        return this.f14828e;
     }
 
     public boolean F() {
-        return this.f15517i;
+        return this.f14832i;
     }
 
     public void G(int i2) {
-        if (this.f15514f == null) {
+        if (this.f14829f == null) {
             b bVar = new b();
-            this.f15514f = bVar;
+            this.f14829f = bVar;
             bVar.setPriority(3);
-            this.f15514f.execute(Integer.valueOf(i2));
+            this.f14829f.execute(Integer.valueOf(i2));
         }
     }
 
     public void H(String str) {
-        this.f15516h = str;
+        this.f14831h = str;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -156,7 +156,7 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        b bVar = this.f15514f;
+        b bVar = this.f14829f;
         if (bVar != null) {
             bVar.cancel();
             return true;

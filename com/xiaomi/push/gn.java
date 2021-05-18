@@ -8,22 +8,22 @@ public class gn {
     public static final char[] f436a = "&quot;".toCharArray();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f38505b = "&apos;".toCharArray();
+    public static final char[] f37750b = "&apos;".toCharArray();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f38506c = "&amp;".toCharArray();
+    public static final char[] f37751c = "&amp;".toCharArray();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f38507d = "&lt;".toCharArray();
+    public static final char[] f37752d = "&lt;".toCharArray();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f38508e = "&gt;".toCharArray();
+    public static final char[] f37753e = "&gt;".toCharArray();
 
     /* renamed from: a  reason: collision with root package name */
-    public static Random f38504a = new Random();
+    public static Random f37749a = new Random();
 
     /* renamed from: f  reason: collision with root package name */
-    public static char[] f38509f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    public static char[] f37754f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
     public static String a(int i2) {
         if (i2 < 1) {
@@ -31,7 +31,7 @@ public class gn {
         }
         char[] cArr = new char[i2];
         for (int i3 = 0; i3 < i2; i3++) {
-            cArr[i3] = f38509f[f38504a.nextInt(71)];
+            cArr[i3] = f37754f[f37749a.nextInt(71)];
         }
         return new String(cArr);
     }
@@ -53,13 +53,13 @@ public class gn {
                         sb.append(charArray, i3, i2 - i3);
                     }
                     i3 = i2 + 1;
-                    sb.append(f38507d);
+                    sb.append(f37752d);
                 } else if (c2 == '>') {
                     if (i2 > i3) {
                         sb.append(charArray, i3, i2 - i3);
                     }
                     i3 = i2 + 1;
-                    sb.append(f38508e);
+                    sb.append(f37753e);
                 } else if (c2 == '&') {
                     if (i2 > i3) {
                         sb.append(charArray, i3, i2 - i3);
@@ -67,7 +67,7 @@ public class gn {
                     int i4 = i2 + 5;
                     if (length <= i4 || charArray[i2 + 1] != '#' || !Character.isDigit(charArray[i2 + 2]) || !Character.isDigit(charArray[i2 + 3]) || !Character.isDigit(charArray[i2 + 4]) || charArray[i4] != ';') {
                         i3 = i2 + 1;
-                        sb.append(f38506c);
+                        sb.append(f37751c);
                     }
                 } else if (c2 == '\"') {
                     if (i2 > i3) {
@@ -80,7 +80,7 @@ public class gn {
                         sb.append(charArray, i3, i2 - i3);
                     }
                     i3 = i2 + 1;
-                    sb.append(f38505b);
+                    sb.append(f37750b);
                 }
             }
             i2++;

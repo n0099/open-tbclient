@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64113a;
+    public Context f64800a;
 
     /* renamed from: b  reason: collision with root package name */
-    public McnVideoAdView f64114b;
+    public McnVideoAdView f64801b;
 
     /* renamed from: c  reason: collision with root package name */
-    public McnVideoAdView.c f64115c = new a(this);
+    public McnVideoAdView.c f64802c = new a(this);
 
     /* loaded from: classes2.dex */
     public class a implements McnVideoAdView.c {
@@ -26,10 +26,10 @@ public class c {
 
         @Override // com.baidu.mcn.McnVideoAdView.c
         public void a(d.a.v.a aVar) {
-            if (aVar == null || StringUtils.isNull(aVar.f64105d)) {
+            if (aVar == null || StringUtils.isNull(aVar.f64792d)) {
                 return;
             }
-            b.b().c(aVar.f64105d);
+            b.b().c(aVar.f64792d);
         }
 
         @Override // com.baidu.mcn.McnVideoAdView.c
@@ -38,10 +38,10 @@ public class c {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c13405");
-            statisticItem.param("tid", aVar.f64106e);
-            statisticItem.param("fid", aVar.f64107f);
+            statisticItem.param("tid", aVar.f64793e);
+            statisticItem.param("fid", aVar.f64794f);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_locate", aVar.f64108g);
+            statisticItem.param("obj_locate", aVar.f64795g);
             TiebaStatic.log(statisticItem);
         }
 
@@ -51,37 +51,37 @@ public class c {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c13404");
-            statisticItem.param("tid", aVar.f64106e);
-            statisticItem.param("fid", aVar.f64107f);
+            statisticItem.param("tid", aVar.f64793e);
+            statisticItem.param("fid", aVar.f64794f);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_locate", aVar.f64108g);
+            statisticItem.param("obj_locate", aVar.f64795g);
             TiebaStatic.log(statisticItem);
         }
     }
 
     public c(Context context) {
-        this.f64113a = context;
+        this.f64800a = context;
         McnVideoAdView mcnVideoAdView = new McnVideoAdView(context);
-        this.f64114b = mcnVideoAdView;
-        mcnVideoAdView.setIMcnStatListener(this.f64115c);
+        this.f64801b = mcnVideoAdView;
+        mcnVideoAdView.setIMcnStatListener(this.f64802c);
     }
 
     public void a() {
-        McnVideoAdView mcnVideoAdView = this.f64114b;
+        McnVideoAdView mcnVideoAdView = this.f64801b;
         if (mcnVideoAdView != null) {
             mcnVideoAdView.f();
         }
     }
 
     public void b() {
-        McnVideoAdView mcnVideoAdView = this.f64114b;
+        McnVideoAdView mcnVideoAdView = this.f64801b;
         if (mcnVideoAdView != null) {
             mcnVideoAdView.g();
         }
     }
 
     public boolean c() {
-        McnVideoAdView mcnVideoAdView = this.f64114b;
+        McnVideoAdView mcnVideoAdView = this.f64801b;
         if (mcnVideoAdView != null) {
             return mcnVideoAdView.i();
         }
@@ -89,21 +89,21 @@ public class c {
     }
 
     public void d() {
-        McnVideoAdView mcnVideoAdView = this.f64114b;
+        McnVideoAdView mcnVideoAdView = this.f64801b;
         if (mcnVideoAdView != null) {
             mcnVideoAdView.k();
         }
     }
 
     public void e(d.a.v.a aVar, ViewGroup viewGroup) {
-        McnVideoAdView mcnVideoAdView = this.f64114b;
+        McnVideoAdView mcnVideoAdView = this.f64801b;
         if (mcnVideoAdView != null) {
             mcnVideoAdView.l(aVar, viewGroup);
         }
     }
 
     public void f(d.a.v.a aVar, ViewGroup viewGroup) {
-        McnVideoAdView mcnVideoAdView = this.f64114b;
+        McnVideoAdView mcnVideoAdView = this.f64801b;
         if (mcnVideoAdView != null) {
             mcnVideoAdView.m(aVar, viewGroup);
         }

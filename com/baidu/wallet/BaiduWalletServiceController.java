@@ -28,40 +28,40 @@ public class BaiduWalletServiceController {
     public static final String H5CHECKPWDCB = "H5CheckPwd";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23738b = "BaiduWalletServiceController";
+    public static final String f22983b = "BaiduWalletServiceController";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f23739c = new Object();
+    public static final Object f22984c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public static LoginBackListenerProxy f23740d;
+    public static LoginBackListenerProxy f22985d;
 
     /* renamed from: a  reason: collision with root package name */
-    public ILightappInvokerCallback f23741a;
+    public ILightappInvokerCallback f22986a;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f23742e;
+    public long f22987e;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduWalletServiceController f23760a = new BaiduWalletServiceController();
+        public static BaiduWalletServiceController f23005a = new BaiduWalletServiceController();
     }
 
     private boolean b() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - this.f23742e;
+        long j = currentTimeMillis - this.f22987e;
         LogUtil.logd("timeD=" + j);
         if (0 >= j || j >= 800) {
-            this.f23742e = currentTimeMillis;
+            this.f22987e = currentTimeMillis;
             return false;
         }
         return true;
     }
 
     public static BaiduWalletServiceController getInstance() {
-        return a.f23760a;
+        return a.f23005a;
     }
 
     public static void getOpenBdussFirst(final Context context, final Intent intent, final boolean z, boolean z2) {
@@ -96,15 +96,15 @@ public class BaiduWalletServiceController {
 
     public static void loginFirst(final Context context, final Intent intent, final boolean z) {
         if (context instanceof Activity) {
-            com.baidu.wallet.core.utils.LogUtil.d(f23738b, "context is activity!");
+            com.baidu.wallet.core.utils.LogUtil.d(f22983b, "context is activity!");
         } else {
             intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
-        f23740d = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduWalletServiceController.1
+        f22985d = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduWalletServiceController.1
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onFail(int i2, String str) {
                 if (i2 == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduWalletServiceController.f23740d);
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduWalletServiceController.f22985d);
                 }
             }
 
@@ -122,7 +122,7 @@ public class BaiduWalletServiceController {
                 }
             }
         });
-        WalletLoginHelper.getInstance().login(f23740d);
+        WalletLoginHelper.getInstance().login(f22985d);
     }
 
     public void accessBusCardChargeNFC(Context context, Parcelable parcelable) {
@@ -184,7 +184,7 @@ public class BaiduWalletServiceController {
     }
 
     public BaiduWalletServiceController() {
-        this.f23741a = null;
+        this.f22986a = null;
     }
 
     private void a(Context context, boolean z) {
@@ -208,7 +208,7 @@ public class BaiduWalletServiceController {
 
     public void gotoWalletService(Context context, String str, String str2, ILightappInvokerCallback iLightappInvokerCallback) {
         if (iLightappInvokerCallback != null) {
-            this.f23741a = iLightappInvokerCallback;
+            this.f22986a = iLightappInvokerCallback;
             gotoWalletService(context, str, str2, true);
         }
     }

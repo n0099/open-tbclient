@@ -9,7 +9,6 @@ import com.baidu.android.lbspay.channelpay.IChannelPay;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.fsg.base.activity.BaseActivity;
-import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.baidu.tieba.write.write.WriteActivity;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
@@ -28,9 +27,8 @@ public class ExtensionDescriptor extends BaseDescriptor {
     public static int[] allTags() {
         int[] iArr = new int[Opcodes.LCMP];
         for (int i2 = 106; i2 < 254; i2++) {
-            int i3 = i2 + OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL;
-            Logger logger = log;
-            logger.finest("pos:" + i3);
+            int i3 = i2 - 106;
+            log.finest("pos:" + i3);
             iArr[i3] = i2;
         }
         return iArr;

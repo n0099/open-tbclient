@@ -17,7 +17,7 @@ import d.o.a.e.a.d;
 import d.o.a.e.a.g;
 import d.o.a.e.a.l;
 import d.o.a.e.b.g.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends d.o.a.e.b.p.a {
     public final Context j;
     public final Resources k;
@@ -38,7 +38,7 @@ public class a extends d.o.a.e.b.p.a {
         }
         try {
             Notification w = w(baseException, z);
-            this.f66789i = w;
+            this.f67475i = w;
             f(w);
         } catch (Exception e2) {
             e2.printStackTrace();

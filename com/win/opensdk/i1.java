@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class i1 {
     public static h1 a(Context context) {
         if (!RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER) || Build.VERSION.SDK_INT < 23) {

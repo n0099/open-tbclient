@@ -1,35 +1,35 @@
 package d.o.a.b.a.a;
 
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b implements d.o.a.a.a.c.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f65885a;
+    public String f66571a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f65886b;
+    public String f66572b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f65887c;
+    public String f66573c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f65888d;
+    public String f66574d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f65889e;
+    public String f66575e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f65890f;
+    public String f66576f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f65891g;
+    public String f66577g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f65892h;
+    public String f66578h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f65893i;
+    public int f66579i;
     public boolean j;
     public boolean k;
     public String l;
@@ -38,35 +38,35 @@ public class b implements d.o.a.a.a.c.c {
     public JSONObject o;
 
     /* renamed from: d.o.a.b.a.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static final class C1794b {
+    /* loaded from: classes7.dex */
+    public static final class C1858b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f65894a;
+        public String f66580a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f65895b;
+        public String f66581b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f65896c;
+        public String f66582c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f65897d;
+        public String f66583d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f65898e;
+        public String f66584e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f65899f;
+        public String f66585f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f65900g;
+        public String f66586g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f65901h;
+        public String f66587h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Object f65902i;
+        public Object f66588i;
         public int j;
         public boolean k = true;
         public boolean l = false;
@@ -74,17 +74,17 @@ public class b implements d.o.a.a.a.c.c {
         public JSONObject n;
         public JSONObject o;
 
-        public C1794b a(int i2) {
+        public C1858b a(int i2) {
             this.j = i2;
             return this;
         }
 
-        public C1794b b(String str) {
-            this.f65894a = str;
+        public C1858b b(String str) {
+            this.f66580a = str;
             return this;
         }
 
-        public C1794b c(boolean z) {
+        public C1858b c(boolean z) {
             this.k = z;
             return this;
         }
@@ -93,52 +93,52 @@ public class b implements d.o.a.a.a.c.c {
             return new b(this);
         }
 
-        public C1794b f(String str) {
-            this.f65895b = str;
+        public C1858b f(String str) {
+            this.f66581b = str;
             return this;
         }
 
         @Deprecated
-        public C1794b g(boolean z) {
+        public C1858b g(boolean z) {
             return this;
         }
 
-        public C1794b i(String str) {
-            this.f65897d = str;
+        public C1858b i(String str) {
+            this.f66583d = str;
             return this;
         }
 
-        public C1794b j(boolean z) {
+        public C1858b j(boolean z) {
             this.l = z;
             return this;
         }
 
-        public C1794b l(String str) {
-            this.f65898e = str;
+        public C1858b l(String str) {
+            this.f66584e = str;
             return this;
         }
 
-        public C1794b n(String str) {
-            this.f65899f = str;
+        public C1858b n(String str) {
+            this.f66585f = str;
             return this;
         }
 
-        public C1794b p(String str) {
-            this.f65900g = str;
+        public C1858b p(String str) {
+            this.f66586g = str;
             return this;
         }
 
         @Deprecated
-        public C1794b r(String str) {
+        public C1858b r(String str) {
             return this;
         }
 
-        public C1794b t(String str) {
-            this.f65901h = str;
+        public C1858b t(String str) {
+            this.f66587h = str;
             return this;
         }
 
-        public C1794b v(String str) {
+        public C1858b v(String str) {
             this.m = str;
             return this;
         }
@@ -151,42 +151,42 @@ public class b implements d.o.a.a.a.c.c {
 
     @Override // d.o.a.a.a.c.c
     public String b() {
-        return this.f65885a;
+        return this.f66571a;
     }
 
     @Override // d.o.a.a.a.c.c
     public String c() {
-        return this.f65886b;
+        return this.f66572b;
     }
 
     @Override // d.o.a.a.a.c.c
     public String d() {
-        return this.f65887c;
+        return this.f66573c;
     }
 
     @Override // d.o.a.a.a.c.c
     public String e() {
-        return this.f65888d;
+        return this.f66574d;
     }
 
     @Override // d.o.a.a.a.c.c
     public String f() {
-        return this.f65889e;
+        return this.f66575e;
     }
 
     @Override // d.o.a.a.a.c.c
     public String g() {
-        return this.f65890f;
+        return this.f66576f;
     }
 
     @Override // d.o.a.a.a.c.c
     public String h() {
-        return this.f65891g;
+        return this.f66577g;
     }
 
     @Override // d.o.a.a.a.c.c
     public String i() {
-        return this.f65892h;
+        return this.f66578h;
     }
 
     @Override // d.o.a.a.a.c.c
@@ -196,7 +196,7 @@ public class b implements d.o.a.a.a.c.c {
 
     @Override // d.o.a.a.a.c.c
     public int k() {
-        return this.f65893i;
+        return this.f66579i;
     }
 
     @Override // d.o.a.a.a.c.c
@@ -219,27 +219,27 @@ public class b implements d.o.a.a.a.c.c {
         return this.o;
     }
 
-    public b(C1794b c1794b) {
-        this.f65885a = c1794b.f65894a;
-        this.f65886b = c1794b.f65895b;
-        this.f65887c = c1794b.f65896c;
-        this.f65888d = c1794b.f65897d;
-        this.f65889e = c1794b.f65898e;
-        this.f65890f = c1794b.f65899f;
-        this.f65891g = c1794b.f65900g;
-        this.f65892h = c1794b.f65901h;
-        this.m = c1794b.f65902i;
-        this.f65893i = c1794b.j;
-        this.j = c1794b.k;
-        this.k = c1794b.l;
-        this.l = c1794b.m;
-        this.n = c1794b.n;
-        this.o = c1794b.o;
+    public b(C1858b c1858b) {
+        this.f66571a = c1858b.f66580a;
+        this.f66572b = c1858b.f66581b;
+        this.f66573c = c1858b.f66582c;
+        this.f66574d = c1858b.f66583d;
+        this.f66575e = c1858b.f66584e;
+        this.f66576f = c1858b.f66585f;
+        this.f66577g = c1858b.f66586g;
+        this.f66578h = c1858b.f66587h;
+        this.m = c1858b.f66588i;
+        this.f66579i = c1858b.j;
+        this.j = c1858b.k;
+        this.k = c1858b.l;
+        this.l = c1858b.m;
+        this.n = c1858b.n;
+        this.o = c1858b.o;
     }
 
     @Override // d.o.a.a.a.c.c
     public void a(int i2) {
-        this.f65893i = i2;
+        this.f66579i = i2;
     }
 
     @Override // d.o.a.a.a.c.c

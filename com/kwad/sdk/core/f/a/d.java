@@ -8,10 +8,10 @@ import com.kwad.sdk.utils.u;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f33023a;
+    public Context f32268a;
 
     public d(Context context) {
-        this.f33023a = context;
+        this.f32268a = context;
     }
 
     private String a(Cursor cursor) {
@@ -36,7 +36,7 @@ public class d {
     public String a() {
         String str = "";
         try {
-            Cursor query = this.f33023a.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
+            Cursor query = this.f32268a.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
             str = a(query);
             com.kwad.sdk.core.d.a.c("MeizuDeviceIDHelper", "getOAID oaid:" + str);
             u.a(query);

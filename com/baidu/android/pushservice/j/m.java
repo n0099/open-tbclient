@@ -74,19 +74,19 @@ import java.util.regex.Pattern;
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3466a = -1;
+    public static int f3467a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f3467b = {"android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION};
+    public static final String[] f3468b = {"android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION};
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f3468c = -1;
+    public static int f3469c = -1;
 
     public static boolean A(Context context) {
-        if (f3468c == -1) {
-            f3468c = !k(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION) ? 1 : 0;
+        if (f3469c == -1) {
+            f3469c = !k(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION) ? 1 : 0;
         }
-        return f3468c == 0;
+        return f3469c == 0;
     }
 
     public static boolean B(Context context) {
@@ -259,7 +259,7 @@ public final class m {
     public static synchronized void a(Context context, boolean z) {
         synchronized (m.class) {
             try {
-                f3466a = z ? 1 : 0;
+                f3467a = z ? 1 : 0;
                 SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
                 edit.putBoolean("bind_status", z);
                 edit.commit();
@@ -1056,13 +1056,13 @@ public final class m {
     public static synchronized boolean i(Context context) {
         boolean z;
         synchronized (m.class) {
-            if (f3466a == -1) {
+            if (f3467a == -1) {
                 try {
-                    f3466a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
+                    f3467a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
                 } catch (Exception unused) {
                 }
             }
-            z = f3466a == 1;
+            z = f3467a == 1;
         }
         return z;
     }
@@ -1418,7 +1418,7 @@ public final class m {
                 Log.e("BDPushSDK-Utility", "permission Push-SDK for oppo proxy need is not exist !");
                 return "permission Push-SDK for oppo proxy need is not exist !";
             } else {
-                for (String str : f3467b) {
+                for (String str : f3468b) {
                     if (!a(str, strArr2)) {
                         String str2 = str + " permission Push-SDK need is not exist !";
                         Log.e("BDPushSDK-Utility", str2);

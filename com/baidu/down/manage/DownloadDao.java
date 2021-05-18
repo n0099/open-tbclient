@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class DownloadDao {
-    public static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS downloads (_id  INTEGER PRIMARY KEY AUTOINCREMENT ,URI  TEXT,_DATA  TEXT,SAVED_PATH_FOR_USER  TEXT,MIMETYPE  TEXT,ETAG  TEXT,STATUS  INTEGER,TOTAL_BYTES  INTEGER,CURRENT_BYTES  INTEGER,NOTIFICATIONNEEDED  INTEGER,FAILEDREASON  TEXT,PROGRESSMAP  TEXT,URI_HOST  TEXT,CONTROL_FLAG  INTEGER,FAILED_TYPE  INTEGER,DOWNLOAD_PRIORITY INTEGER, SAVED_SOURCE_KEY_USER TEXT,DOWN_DIR TEXT,FROM_PARAM TEXT); ";
+    public static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS downloads (_id  INTEGER PRIMARY KEY AUTOINCREMENT ,URI  TEXT,_DATA  TEXT,SAVED_PATH_FOR_USER  TEXT,MIMETYPE  TEXT,ETAG  TEXT,STATUS  INTEGER,TOTAL_BYTES  INTEGER,CURRENT_BYTES  INTEGER,NOTIFICATIONNEEDED  INTEGER,FAILEDREASON  TEXT,PROGRESSMAP  TEXT,URI_HOST  TEXT,CONTROL_FLAG  INTEGER,FAILED_TYPE  INTEGER,DOWNLOAD_PRIORITY INTEGER, SAVED_SOURCE_KEY_USER TEXT,DOWN_DIR TEXT,FROM_PARAM TEXT,REAL_URI TEXT); ";
     public static final boolean DEBUG = DownloadConstants.mDebug;
+    public static final String DROP_TABLE_SQL = "DROP TABLE downloads;";
     public static final String TABLENAME = "downloads";
     public static DownloadDao mInstance;
     public DownloadDBHelper db;
@@ -44,8 +45,9 @@ public final class DownloadDao {
         contentValues.put(DownloadConstants.DownloadColumns.FAILED_TYPE.toUpperCase(), download.getFailedType());
         contentValues.put(DownloadConstants.DownloadColumns.COLUMN_DOWNLOAD_PRIORITY.toUpperCase(), Integer.valueOf(download.getPriority()));
         contentValues.put(DownloadConstants.DownloadColumns.COLUMN_SOURCE_KEY.toUpperCase(), download.getKeyByUser());
-        contentValues.put(DownloadConstants.DownloadColumns.COLUMN_FROM_PARAM.toUpperCase(), download.getFromParam());
         contentValues.put(DownloadConstants.DownloadColumns.COLUMN_DOWN_DIR.toUpperCase(), download.getRealDownloadDir());
+        contentValues.put(DownloadConstants.DownloadColumns.COLUMN_FROM_PARAM.toUpperCase(), download.getFromParam());
+        contentValues.put(DownloadConstants.DownloadColumns.COLUMN_REAL_URI.toUpperCase(), download.getRealUrl());
         return contentValues;
     }
 
@@ -196,6 +198,7 @@ public final class DownloadDao {
         download.setKeyByUser(cursor.isNull(16) ? "" : cursor.getString(16));
         download.setDownDir(cursor.isNull(17) ? "" : cursor.getString(17));
         download.setFromParam(cursor.isNull(18) ? "" : cursor.getString(18));
+        download.setRealUrl(cursor.isNull(19) ? "" : cursor.getString(19));
         return download;
     }
 

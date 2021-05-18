@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import d.a.i0.r.f0.q.b;
-/* loaded from: classes3.dex */
+import d.a.j0.r.f0.q.b;
+/* loaded from: classes5.dex */
 public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements b {
     public PbImageAlaUserLikeButton(Context context) {
         this(context, null);
@@ -18,13 +18,13 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements b
     @Override // com.baidu.tieba.view.DynamicUserLikeButton
     public void s(boolean z) {
         if (z) {
-            d.a.i0.r.f0.m.b bVar = new d.a.i0.r.f0.m.b();
+            d.a.j0.r.f0.m.b bVar = new d.a.j0.r.f0.m.b();
             bVar.r(R.color.CAM_X0109);
             setConfig(bVar);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
         } else {
-            d.a.i0.r.f0.m.b bVar2 = new d.a.i0.r.f0.m.b();
+            d.a.j0.r.f0.m.b bVar2 = new d.a.j0.r.f0.m.b();
             bVar2.q(R.color.CAM_X0302);
             bVar2.i(R.drawable.icon_pure_add10_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
             bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));

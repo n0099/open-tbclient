@@ -32,34 +32,34 @@ public class PaySortSettingActivity extends PayBaseBeanActivity {
     public static final int STATE_FINISH_SAVE_SUC = 100;
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f26593f;
+    public static a f25838f;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f26594a;
+    public b f25839a;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdActionBar f26596c;
+    public BdActionBar f25841c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DragSortListView f26597d;
+    public DragSortListView f25842d;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f26595b = PaySortSettingActivity.class.getSimpleName();
+    public final String f25840b = PaySortSettingActivity.class.getSimpleName();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26598e = false;
+    public boolean f25843e = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public DragSortListView.h f26599g = new DragSortListView.h() { // from class: com.baidu.wallet.paysdk.ui.PaySortSettingActivity.1
+    public DragSortListView.h f25844g = new DragSortListView.h() { // from class: com.baidu.wallet.paysdk.ui.PaySortSettingActivity.1
         @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.h
         public void drop(int i2, int i3) {
             if (i2 != i3) {
-                PaySortSettingActivity.this.f26598e = true;
-                PaySetResponse.PayInfoBean item = PaySortSettingActivity.this.f26594a.getItem(i2);
+                PaySortSettingActivity.this.f25843e = true;
+                PaySetResponse.PayInfoBean item = PaySortSettingActivity.this.f25839a.getItem(i2);
                 if (item != null) {
-                    PaySortSettingActivity.this.f26594a.getList().remove(item);
-                    PaySortSettingActivity.this.f26594a.getList().add(i3, item);
-                    PaySortSettingActivity.this.f26594a.notifyDataSetChanged();
+                    PaySortSettingActivity.this.f25839a.getList().remove(item);
+                    PaySortSettingActivity.this.f25839a.getList().add(i3, item);
+                    PaySortSettingActivity.this.f25839a.notifyDataSetChanged();
                 }
             }
         }
@@ -87,23 +87,23 @@ public class PaySortSettingActivity extends PayBaseBeanActivity {
     }
 
     private void c() {
-        com.baidu.wallet.paysdk.ui.widget.dragListView.a buildController = buildController(this.f26597d);
-        this.f26597d.setFloatViewManager(buildController);
-        this.f26597d.setOnTouchListener(buildController);
-        this.f26597d.setDragEnabled(true);
-        this.f26597d.setDropListener(this.f26599g);
+        com.baidu.wallet.paysdk.ui.widget.dragListView.a buildController = buildController(this.f25842d);
+        this.f25842d.setFloatViewManager(buildController);
+        this.f25842d.setOnTouchListener(buildController);
+        this.f25842d.setDragEnabled(true);
+        this.f25842d.setDropListener(this.f25844g);
         ArrayList<PaySetResponse.PayInfoBean> d2 = d();
         if (d2 == null || d2.size() == 0) {
             return;
         }
         b bVar = new b(getActivity());
-        this.f26594a = bVar;
-        this.f26597d.setAdapter((ListAdapter) bVar);
-        this.f26594a.initList(d2);
+        this.f25839a = bVar;
+        this.f25842d.setAdapter((ListAdapter) bVar);
+        this.f25839a.initList(d2);
     }
 
     public static void clearOnModifyPaySortListener(a aVar) {
-        f26593f = null;
+        f25838f = null;
     }
 
     private ArrayList<PaySetResponse.PayInfoBean> d() {
@@ -111,8 +111,8 @@ public class PaySortSettingActivity extends PayBaseBeanActivity {
     }
 
     private void e() {
-        ad adVar = (ad) PayBeanFactory.getInstance().getBean((Context) this, PayBeanFactory.BEAN_ID_PAY_SORT_SAVE, this.f26595b);
-        List<PaySetResponse.PayInfoBean> list = this.f26594a.getList();
+        ad adVar = (ad) PayBeanFactory.getInstance().getBean((Context) this, PayBeanFactory.BEAN_ID_PAY_SORT_SAVE, this.f25840b);
+        List<PaySetResponse.PayInfoBean> list = this.f25839a.getList();
         adVar.a((list == null || list.size() <= 0) ? null : JsonUtils.toJson(list));
         adVar.setResponseCallback(this);
         adVar.execBean();
@@ -128,7 +128,7 @@ public class PaySortSettingActivity extends PayBaseBeanActivity {
     }
 
     public static void setOnModifyPaySortListener(a aVar) {
-        f26593f = aVar;
+        f25838f = aVar;
     }
 
     public com.baidu.wallet.paysdk.ui.widget.dragListView.a buildController(DragSortListView dragSortListView) {
@@ -150,10 +150,10 @@ public class PaySortSettingActivity extends PayBaseBeanActivity {
                 PaySettingActivity.toast(getActivity(), "ebpay_setting_fail", false);
             }
             setResult(101);
-            a aVar = f26593f;
+            a aVar = f25838f;
             if (aVar != null) {
                 aVar.a(false);
-                f26593f = null;
+                f25838f = null;
             }
             super.onBackPressed();
         }
@@ -164,10 +164,10 @@ public class PaySortSettingActivity extends PayBaseBeanActivity {
         if (i2 == 560) {
             PaySettingActivity.toast(getActivity(), "ebpay_setting_suc", true);
             setResult(100);
-            a aVar = f26593f;
+            a aVar = f25838f;
             if (aVar != null) {
                 aVar.a(true);
-                f26593f = null;
+                f25838f = null;
             }
             finish();
         }
@@ -176,12 +176,12 @@ public class PaySortSettingActivity extends PayBaseBeanActivity {
     public void initListFoot() {
         TextView textView = (TextView) LayoutInflater.from(this).inflate(ResUtils.layout(this, "wallet_cashdesk_paysort_tip_layout"), (ViewGroup) null);
         textView.setText(ResUtils.getString(getActivity(), "ebpay_paysetting_person_checked_tips"));
-        this.f26597d.addFooterView(textView);
+        this.f25842d.addFooterView(textView);
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        if (this.f26598e) {
+        if (this.f25843e) {
             e();
         } else {
             super.onBackPressed();
@@ -199,25 +199,25 @@ public class PaySortSettingActivity extends PayBaseBeanActivity {
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        BeanManager.getInstance().removeAllBeans(this.f26595b);
-        f26593f = null;
+        BeanManager.getInstance().removeAllBeans(this.f25840b);
+        f25838f = null;
     }
 
     private void a() {
         BdActionBar bdActionBar = (BdActionBar) findViewById(ResUtils.id(this, "bdactionbar"));
-        this.f26596c = bdActionBar;
+        this.f25841c = bdActionBar;
         bdActionBar.setTitle("扣款顺序");
-        this.f26596c.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PaySortSettingActivity.2
+        this.f25841c.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PaySortSettingActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 GlobalUtils.hideKeyboard(PaySortSettingActivity.this.getActivity());
                 PaySortSettingActivity.this.onBackPressed();
             }
         });
-        this.f26597d = (DragSortListView) findViewById(ResUtils.id(this, "listview_sort"));
+        this.f25842d = (DragSortListView) findViewById(ResUtils.id(this, "listview_sort"));
         ((TextView) findViewById(ResUtils.id(this, "sort_title"))).setText("扣款方式");
         ((TextView) findViewById(ResUtils.id(this, "sort_desc"))).setText("按住右侧拖动以调整顺序");
-        this.f26597d.setOverScrollMode(2);
+        this.f25842d.setOverScrollMode(2);
         initListFoot();
     }
 
@@ -227,11 +227,11 @@ public class PaySortSettingActivity extends PayBaseBeanActivity {
         @bind("bd_wallet_paysort_item_img")
 
         /* renamed from: a  reason: collision with root package name */
-        public NetImageView f26602a;
+        public NetImageView f25847a;
         @bind("ebpay_sort_tv")
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f26603b;
+        public TextView f25848b;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
@@ -249,16 +249,16 @@ public class PaySortSettingActivity extends PayBaseBeanActivity {
             String substring = str.substring(str.length() - 4);
             String str2 = payInfoBean.type_name;
             if (TextUtils.isEmpty(str2)) {
-                str2 = ResUtils.getString(this.f26602a.getContext(), payInfoBean.card_type == 1 ? "wallet_base_mode_credit" : "wallet_base_mode_debit");
+                str2 = ResUtils.getString(this.f25847a.getContext(), payInfoBean.card_type == 1 ? "wallet_base_mode_credit" : "wallet_base_mode_debit");
             }
-            this.f26603b.setText(CardData.BondCard.getCardDesc(payInfoBean.name, substring, str2, true));
-            this.f26602a.setImageUrl(payInfoBean.bank_url);
+            this.f25848b.setText(CardData.BondCard.getCardDesc(payInfoBean.name, substring, str2, true));
+            this.f25847a.setImageUrl(payInfoBean.bank_url);
         }
 
         public void a(PaySetResponse.PayInfoBean payInfoBean, Context context) {
-            this.f26602a.setImageResource(ResUtils.drawable(context, "wallet_base_paytype_balance"));
-            this.f26602a.setImageUrl("no");
-            this.f26603b.setText("余额");
+            this.f25847a.setImageResource(ResUtils.drawable(context, "wallet_base_paytype_balance"));
+            this.f25847a.setImageUrl("no");
+            this.f25848b.setText("余额");
         }
     }
 }

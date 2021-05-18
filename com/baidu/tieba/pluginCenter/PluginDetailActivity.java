@@ -25,10 +25,10 @@ import com.baidu.tbadk.plugin.ShadowLayout;
 import com.baidu.tieba.R;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
-import d.a.i0.r.s.a;
+import d.a.j0.r.s.a;
 import java.io.File;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public static final float M_BYTE = 1048576.0f;
     public static final int STATUS_FORBIDDEN = 2;
@@ -52,7 +52,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public d.a.c.h.j.d mDownLoadAndInstallCallback = new d();
     public final CustomMessageListener mNetworkChangedMessageListener = new e(2000994);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -63,13 +63,13 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements a.e {
         public b() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             SkinManager.setViewTextColor(PluginDetailActivity.this.mEnableText, R.color.CAM_X0109, 1);
             PluginDetailActivity.this.mEnableText.setEnabled(false);
             PluginPackageManager.O().x0(PluginDetailActivity.this.mPluginConfig, PluginDetailActivity.this.mDownLoadAndInstallCallback);
@@ -77,18 +77,18 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements a.e {
         public c() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements d.a.c.h.j.d {
         public d() {
         }
@@ -141,7 +141,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e extends CustomMessageListener {
         public e(int i2) {
             super(i2);
@@ -239,7 +239,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         if (pluginConfig == null || pluginConfig.newest == null) {
             return;
         }
-        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getPageContext().getPageActivity());
+        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(getPageContext().getPageActivity());
         boolean z = this.mStatus == 1;
         float f2 = this.mPluginConfig.newest.size / 1048576.0f;
         if (z) {

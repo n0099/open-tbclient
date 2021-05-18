@@ -3,17 +3,17 @@ package com.bytedance.sdk.openadsdk.preload.geckox.model;
 import android.os.Build;
 import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Common {
     @c(a = "ac")
     public String ac;
     @c(a = "aid")
     public long aid;
-    @c(a = DpStatConstants.KEY_APP_NAME)
+    @c(a = "app_name")
     public String appName;
     @c(a = "app_version")
     public String appVersion;
@@ -31,7 +31,7 @@ public class Common {
     public String deviceModel = Build.MODEL;
     @c(a = "device_platform")
     public String devicePlatform = "android";
-    @c(a = "sdk_version")
+    @c(a = ZeusInitConfigUtils.PREF_KEY_SDK_VERSION)
     public String sdkVersion = "2.0.3-rc.9-pangle";
 
     public Common(long j, String str, String str2, String str3, String str4) {

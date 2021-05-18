@@ -45,19 +45,19 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcRequestMeta, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6637e;
+        public int f6461e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6638f;
+        public long f6462f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f6639g;
+        public long f6463g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f6640h;
+        public long f6464h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f6641i;
+        public int f6465i;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -103,38 +103,38 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
         /* renamed from: n */
         public RpcMetaPb$RpcRequestMeta buildPartial() {
             RpcMetaPb$RpcRequestMeta rpcMetaPb$RpcRequestMeta = new RpcMetaPb$RpcRequestMeta(this);
-            int i2 = this.f6637e;
+            int i2 = this.f6461e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            rpcMetaPb$RpcRequestMeta.serviceId = this.f6638f;
+            rpcMetaPb$RpcRequestMeta.serviceId = this.f6462f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            rpcMetaPb$RpcRequestMeta.methodId = this.f6639g;
+            rpcMetaPb$RpcRequestMeta.methodId = this.f6463g;
             if ((i2 & 4) == 4) {
                 i3 |= 4;
             }
-            rpcMetaPb$RpcRequestMeta.logId = this.f6640h;
+            rpcMetaPb$RpcRequestMeta.logId = this.f6464h;
             if ((i2 & 8) == 8) {
                 i3 |= 8;
             }
-            rpcMetaPb$RpcRequestMeta.needCommon = this.f6641i;
+            rpcMetaPb$RpcRequestMeta.needCommon = this.f6465i;
             rpcMetaPb$RpcRequestMeta.bitField0 = i3;
             return rpcMetaPb$RpcRequestMeta;
         }
 
         public b o() {
             super.clear();
-            this.f6638f = 0L;
-            int i2 = this.f6637e & (-2);
-            this.f6637e = i2;
-            this.f6639g = 0L;
+            this.f6462f = 0L;
+            int i2 = this.f6461e & (-2);
+            this.f6461e = i2;
+            this.f6463g = 0L;
             int i3 = i2 & (-3);
-            this.f6637e = i3;
-            this.f6640h = 0L;
+            this.f6461e = i3;
+            this.f6464h = 0L;
             int i4 = i3 & (-5);
-            this.f6637e = i4;
-            this.f6641i = 0;
-            this.f6637e = i4 & (-9);
+            this.f6461e = i4;
+            this.f6465i = 0;
+            this.f6461e = i4 & (-9);
             return this;
         }
 
@@ -208,26 +208,26 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
         }
 
         public b u(long j) {
-            this.f6637e |= 4;
-            this.f6640h = j;
+            this.f6461e |= 4;
+            this.f6464h = j;
             return this;
         }
 
         public b v(long j) {
-            this.f6637e |= 2;
-            this.f6639g = j;
+            this.f6461e |= 2;
+            this.f6463g = j;
             return this;
         }
 
         public b w(int i2) {
-            this.f6637e |= 8;
-            this.f6641i = i2;
+            this.f6461e |= 8;
+            this.f6465i = i2;
             return this;
         }
 
         public b x(long j) {
-            this.f6637e |= 1;
-            this.f6638f = j;
+            this.f6461e |= 1;
+            this.f6462f = j;
             return this;
         }
 

@@ -104,7 +104,7 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BubbleListData m27clone() {
+    public BubbleListData m26clone() {
         try {
             Object clone = super.clone();
             return clone instanceof BubbleListData ? (BubbleListData) clone : this;

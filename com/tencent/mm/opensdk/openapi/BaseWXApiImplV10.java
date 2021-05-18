@@ -50,7 +50,7 @@ import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BaseWXApiImplV10 implements IWXAPI {
     public static final String TAG = "MicroMsg.SDK.WXApiImplV10";
     public static String wxappPayEntryClassname;
@@ -631,12 +631,12 @@ public class BaseWXApiImplV10 implements IWXAPI {
             this.appId = str;
         }
         Log.d("MicroMsg.SDK.WXApiImplV10", "register app " + this.context.getPackageName());
-        a.C0471a c0471a = new a.C0471a();
-        c0471a.f37119a = "com.tencent.mm";
-        c0471a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-        c0471a.content = "weixin://registerapp?appid=" + this.appId;
-        c0471a.f37120b = j;
-        return a.a(this.context, c0471a);
+        a.C0458a c0458a = new a.C0458a();
+        c0458a.f36364a = "com.tencent.mm";
+        c0458a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+        c0458a.content = "weixin://registerapp?appid=" + this.appId;
+        c0458a.f36365b = j;
+        return a.a(this.context, c0458a);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:115:0x020a  */
@@ -822,10 +822,10 @@ public class BaseWXApiImplV10 implements IWXAPI {
             return;
         }
         Log.d("MicroMsg.SDK.WXApiImplV10", "unregister app " + this.context.getPackageName());
-        a.C0471a c0471a = new a.C0471a();
-        c0471a.f37119a = "com.tencent.mm";
-        c0471a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-        c0471a.content = "weixin://unregisterapp?appid=" + this.appId;
-        a.a(this.context, c0471a);
+        a.C0458a c0458a = new a.C0458a();
+        c0458a.f36364a = "com.tencent.mm";
+        c0458a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+        c0458a.content = "weixin://unregisterapp?appid=" + this.appId;
+        a.a(this.context, c0458a);
     }
 }

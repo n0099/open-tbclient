@@ -20,33 +20,33 @@ import d.a.c.e.p.l;
 public class TbSettingTextTipView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f13427e;
+    public Context f12763e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13428f;
+    public boolean f12764f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13429g;
+    public View f12765g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f13430h;
+    public LinearLayout f12766h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f13431i;
+    public TextView f12767i;
     public TextView j;
     public int k;
     public ImageView l;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13428f = true;
-        this.f13427e = context;
+        this.f12764f = true;
+        this.f12763e = context;
         d();
         e(attributeSet);
     }
 
     private void setMainTextSize(float f2) {
-        this.f13431i.setTextSize(0, f2);
+        this.f12767i.setTextSize(0, f2);
     }
 
     private void setTipTextSize(float f2) {
@@ -54,14 +54,14 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void a() {
-        int g2 = l.g(this.f13427e, R.dimen.tbds42);
-        int g3 = l.g(this.f13427e, R.dimen.tbds33);
+        int g2 = l.g(this.f12763e, R.dimen.tbds42);
+        int g3 = l.g(this.f12763e, R.dimen.tbds33);
         setMainTextSize(g2);
         setTipTextSize(g3);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13431i.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12767i.getLayoutParams();
         layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-        ((LinearLayout.LayoutParams) this.j.getLayoutParams()).setMargins(0, 0, l.g(this.f13427e, R.dimen.tbds18), 0);
-        this.f13430h.getLayoutParams().height = -1;
+        ((LinearLayout.LayoutParams) this.j.getLayoutParams()).setMargins(0, 0, l.g(this.f12763e, R.dimen.tbds18), 0);
+        this.f12766h.getLayoutParams().height = -1;
         requestLayout();
     }
 
@@ -77,39 +77,39 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void d() {
-        LayoutInflater.from(this.f13427e).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.f13430h = (LinearLayout) findViewById(R.id.container);
-        this.f13431i = (TextView) findViewById(R.id.text);
+        LayoutInflater.from(this.f12763e).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
+        this.f12766h = (LinearLayout) findViewById(R.id.container);
+        this.f12767i = (TextView) findViewById(R.id.text);
         this.j = (TextView) findViewById(R.id.tip);
         this.l = (ImageView) findViewById(R.id.arrow2);
-        this.f13429g = findViewById(R.id.top_line_ll);
+        this.f12765g = findViewById(R.id.top_line_ll);
     }
 
     public void e(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.f13427e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
+        TypedArray obtainStyledAttributes = this.f12763e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
         if (obtainStyledAttributes != null) {
             String string = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingText);
             String string2 = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingTip);
             if (string != null) {
-                this.f13431i.setText(string);
+                this.f12767i.setText(string);
             }
             if (string2 != null) {
                 this.j.setText(string2);
             }
-            this.f13428f = obtainStyledAttributes.getBoolean(R$styleable.TbSettingView_settingShowArraw, true);
+            this.f12764f = obtainStyledAttributes.getBoolean(R$styleable.TbSettingView_settingShowArraw, true);
             obtainStyledAttributes.recycle();
         }
-        this.f13430h.setClickable(false);
-        this.f13430h.setFocusable(false);
-        if (this.f13428f) {
+        this.f12766h.setClickable(false);
+        this.f12766h.setFocusable(false);
+        if (this.f12764f) {
             return;
         }
         this.l.setVisibility(4);
     }
 
     public void f(int i2) {
-        SkinManager.setBackgroundColor(this.f13429g, R.color.CAM_X0205);
-        SkinManager.setViewTextColor(this.f13431i, R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.f12765g, R.color.CAM_X0205);
+        SkinManager.setViewTextColor(this.f12767i, R.color.CAM_X0105);
         TextView textView = this.j;
         int i3 = this.k;
         if (i3 == 0) {
@@ -117,7 +117,7 @@ public class TbSettingTextTipView extends FrameLayout {
         }
         SkinManager.setViewTextColor(textView, i3);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        LinearLayout linearLayout = this.f13430h;
+        LinearLayout linearLayout = this.f12766h;
         if (linearLayout != null) {
             linearLayout.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
         }
@@ -143,7 +143,7 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void setText(String str) {
-        this.f13431i.setText(str);
+        this.f12767i.setText(str);
     }
 
     public void setTip(String str) {
@@ -171,17 +171,17 @@ public class TbSettingTextTipView extends FrameLayout {
 
     @Deprecated
     public void setTopLineVisibility(boolean z) {
-        this.f13429g.setVisibility(8);
+        this.f12765g.setVisibility(8);
     }
 
     public void setText(int i2) {
-        this.f13431i.setText(i2);
+        this.f12767i.setText(i2);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.f13428f = true;
-        this.f13427e = context;
+        this.f12764f = true;
+        this.f12763e = context;
         d();
     }
 }

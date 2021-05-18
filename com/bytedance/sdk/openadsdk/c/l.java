@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.c;
 import android.content.Context;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class l extends n {
     public l(Context context) {
         super(context);
@@ -15,12 +15,12 @@ public class l extends n {
 
     @Override // com.bytedance.sdk.openadsdk.c.n, com.bytedance.sdk.openadsdk.c.e
     public void a(int i2) {
-        this.f28109a.a("stats_serverbusy_retrycount", i2);
+        this.f27354a.a("stats_serverbusy_retrycount", i2);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.n, com.bytedance.sdk.openadsdk.c.e
     public int b() {
-        return this.f28109a.b("stats_serverbusy_retrycount", 0);
+        return this.f27354a.b("stats_serverbusy_retrycount", 0);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.n

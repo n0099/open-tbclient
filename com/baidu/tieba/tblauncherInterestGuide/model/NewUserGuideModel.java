@@ -18,37 +18,37 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int OFFSET = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f21848h = TbConfig.SERVER_ADDRESS + "c/s/gettaglist";
+    public static final String f21093h = TbConfig.SERVER_ADDRESS + "c/s/gettaglist";
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f21849e;
+    public boolean f21094e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterestFrsData f21850f;
+    public InterestFrsData f21095f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f21851g;
+    public a f21096g;
 
     /* loaded from: classes5.dex */
     public static class a extends BdAsyncTask<Void, Void, InterestFrsData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f21852a;
+        public int f21097a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f21853b;
+        public int f21098b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f21854c;
+        public int f21099c;
 
         /* renamed from: d  reason: collision with root package name */
-        public WeakReference<b> f21855d;
+        public WeakReference<b> f21100d;
 
         public a(int i2, int i3, int i4, b bVar) {
-            this.f21852a = i2;
-            this.f21853b = i3;
-            this.f21854c = i4;
-            this.f21855d = new WeakReference<>(bVar);
+            this.f21097a = i2;
+            this.f21098b = i3;
+            this.f21099c = i4;
+            this.f21100d = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -56,10 +56,10 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public InterestFrsData doInBackground(Void... voidArr) {
-            NetWork netWork = new NetWork(NewUserGuideModel.f21848h);
-            netWork.addPostData("user_type", String.valueOf(this.f21852a));
-            netWork.addPostData("offset", String.valueOf(this.f21853b));
-            netWork.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.f21854c));
+            NetWork netWork = new NetWork(NewUserGuideModel.f21093h);
+            netWork.addPostData("user_type", String.valueOf(this.f21097a));
+            netWork.addPostData("offset", String.valueOf(this.f21098b));
+            netWork.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.f21099c));
             String postNetData = netWork.postNetData();
             if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                 try {
@@ -83,7 +83,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         /* renamed from: c */
         public void onPostExecute(InterestFrsData interestFrsData) {
             super.onPostExecute(interestFrsData);
-            b bVar = this.f21855d.get();
+            b bVar = this.f21100d.get();
             if (bVar != null) {
                 if (interestFrsData.getErrno() == 0) {
                     bVar.a(interestFrsData);
@@ -116,31 +116,31 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void t() {
-        a aVar = this.f21851g;
+        a aVar = this.f21096g;
         if (aVar != null) {
             aVar.cancel();
         }
     }
 
     public InterestFrsData u() {
-        return this.f21850f;
+        return this.f21095f;
     }
 
     public boolean v() {
-        return this.f21849e;
+        return this.f21094e;
     }
 
     public void w(int i2, int i3, int i4, b bVar) {
         a aVar = new a(i2, i3, i4, bVar);
-        this.f21851g = aVar;
+        this.f21096g = aVar;
         aVar.execute(new Void[0]);
     }
 
     public void x(InterestFrsData interestFrsData) {
-        this.f21850f = interestFrsData;
+        this.f21095f = interestFrsData;
     }
 
     public void y(boolean z) {
-        this.f21849e = z;
+        this.f21094e = z;
     }
 }

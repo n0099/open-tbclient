@@ -5,24 +5,25 @@ import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JsObject;
-import d.a.h0.a.t.b.d;
-import d.a.h0.a.t.c.h.b;
+import d.a.i0.a.u.c.b;
+import d.a.i0.a.u.c.d;
+import d.a.i0.a.u.e.j.g;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanApiNetworkV8Module {
     public static final String MODULE_NAME = "_naV8Network";
-    public b requestApi;
+    public g requestApi;
 
-    public SwanApiNetworkV8Module(@NonNull d.a.h0.a.t.b.b bVar) {
-        this.requestApi = new b(bVar);
+    public SwanApiNetworkV8Module(@NonNull b bVar) {
+        this.requestApi = new g(bVar);
     }
 
     @JavascriptInterface
     public String request(JsObject jsObject) {
-        if (d.f44021c) {
+        if (d.f44636c) {
             Log.d("Api-Request", "request: jsObject");
         }
-        d.a.h0.a.t.e.b J = this.requestApi.J(jsObject);
-        return J == null ? "" : J.b();
+        d.a.i0.a.u.h.b L = this.requestApi.L(jsObject);
+        return L == null ? "" : L.b();
     }
 }

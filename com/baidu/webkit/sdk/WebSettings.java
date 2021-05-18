@@ -26,11 +26,6 @@ public abstract class WebSettings implements Observer {
     public static final int MIXED_CONTENT_ALWAYS_ALLOW = 0;
     public static final int MIXED_CONTENT_COMPATIBILITY_MODE = 2;
     public static final int MIXED_CONTENT_NEVER_ALLOW = 1;
-    public static final int MSG_setADblockEnabled = 100;
-    public static final int MSG_setEnableSpdy = 102;
-    public static final int MSG_setUrlSecurityCheckEnable = 101;
-    public static final int MSG_setUseGifLoadProxy = 105;
-    public static final int MSG_setUseImageLoadProxy = 104;
     public boolean mAdblockEnable;
     public String mWebviewFrameName;
     public final Object lockObject = new Object();
@@ -43,6 +38,7 @@ public abstract class WebSettings implements Observer {
 
     /* loaded from: classes5.dex */
     public static class CodeCacheSetting {
+        public long diskCodeCacheSizeThreshold = 31457280;
         public String id;
         public int maxCount;
         public ArrayList<String> pathList;
@@ -267,6 +263,14 @@ public abstract class WebSettings implements Observer {
     public abstract int getDisabledActionModeMenuItems();
 
     public abstract boolean getDisplayZoomControls();
+
+    public boolean getDitingEnabled() {
+        return false;
+    }
+
+    public boolean getDitingForceCheck() {
+        return false;
+    }
 
     public abstract boolean getDomStorageEnabled();
 
@@ -503,6 +507,7 @@ public abstract class WebSettings implements Observer {
 
     public abstract void setCacheMode(int i2);
 
+    @Deprecated
     public void setCodeCacheSetting(CodeCacheSetting codeCacheSetting) {
     }
 
@@ -531,6 +536,12 @@ public abstract class WebSettings implements Observer {
     public abstract void setDisabledActionModeMenuItems(int i2);
 
     public abstract void setDisplayZoomControls(boolean z);
+
+    public void setDitingEnabled(boolean z) {
+    }
+
+    public void setDitingForceCheck(boolean z) {
+    }
 
     public void setDomParserOptType(int i2) {
     }
@@ -779,12 +790,19 @@ public abstract class WebSettings implements Observer {
     public void setZeusMutedEnable(boolean z) {
     }
 
+    public void setZeusNoImageMode(boolean z) {
+    }
+
     public abstract boolean supportMultipleWindows();
 
     public abstract boolean supportZoom();
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
+    }
+
+    public boolean useCodeCacheSetting(CodeCacheSetting codeCacheSetting) {
+        return false;
     }
 
     public boolean usesPageCache() {

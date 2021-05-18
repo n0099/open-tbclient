@@ -4,20 +4,20 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.mapapi.NetworkUtil;
-import com.baidu.mapsdkplatform.comapi.util.f;
+import com.baidu.mapsdkplatform.comapi.util.i;
 /* loaded from: classes2.dex */
 public class e extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7836a = e.class.getSimpleName();
+    public static final String f7633a = e.class.getSimpleName();
 
     public void a(Context context) {
         String currentNetMode = NetworkUtil.getCurrentNetMode(context);
-        String e2 = f.e();
+        String e2 = i.e();
         if (e2 == null || e2.equals(currentNetMode)) {
             return;
         }
-        f.a(currentNetMode);
+        i.a(currentNetMode);
     }
 
     @Override // android.content.BroadcastReceiver

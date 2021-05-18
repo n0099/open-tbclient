@@ -7,30 +7,30 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentLinkedQueue<com.bytedance.sdk.openadsdk.l.a.a> f30364a = new ConcurrentLinkedQueue<>();
+    public static final ConcurrentLinkedQueue<com.bytedance.sdk.openadsdk.l.a.a> f29609a = new ConcurrentLinkedQueue<>();
 
     public static void a(a aVar, long j, long j2) {
         if (aVar == null) {
             return;
         }
-        f30364a.offer(new com.bytedance.sdk.openadsdk.l.a.a(aVar.a(), aVar.getCorePoolSize(), aVar.getMaximumPoolSize(), j, j2));
+        f29609a.offer(new com.bytedance.sdk.openadsdk.l.a.a(aVar.a(), aVar.getCorePoolSize(), aVar.getMaximumPoolSize(), j, j2));
         a(false);
     }
 
     public static void a(boolean z) {
         int valueOf;
         c g2 = e.g();
-        if ((z || f30364a.size() >= 60) && g2 != null) {
-            synchronized (f30364a) {
-                if (f30364a.isEmpty()) {
+        if ((z || f29609a.size() >= 60) && g2 != null) {
+            synchronized (f29609a) {
+                if (f29609a.isEmpty()) {
                     return;
                 }
-                com.bytedance.sdk.openadsdk.l.a.a[] aVarArr = (com.bytedance.sdk.openadsdk.l.a.a[]) f30364a.toArray(new com.bytedance.sdk.openadsdk.l.a.a[f30364a.size()]);
-                f30364a.clear();
+                com.bytedance.sdk.openadsdk.l.a.a[] aVarArr = (com.bytedance.sdk.openadsdk.l.a.a[]) f29609a.toArray(new com.bytedance.sdk.openadsdk.l.a.a[f29609a.size()]);
+                f29609a.clear();
                 int i2 = 0;
                 if (aVarArr.length != 0) {
                     HashMap hashMap = new HashMap();

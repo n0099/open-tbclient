@@ -118,24 +118,24 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
             mainPictureUrl = this.mAdInstanceInfo.getVideoUrl();
             this.mSplashLogType = 4;
         }
-        b.C0532b c0532b = new b.C0532b(this.mAdContainerType, mainPictureUrl);
-        c0532b.t("rsplash");
-        c0532b.l(this.mIsFullScreenAd);
-        c0532b.h(this.mBottomLogoHeight);
-        c0532b.m(this.mBottomLogoResId);
-        c0532b.j(this.mLimitRegionClick);
-        c0532b.r(getMantleActionText());
-        c0532b.s(this.mIsFullScreenAd ? 47 : this.mBottomLogoHeight + 39);
-        c0532b.k(this.mBitmapDisplayMode);
-        c0532b.i(this.mAdInstanceInfo.getCloseType());
-        c0532b.v(z);
-        c0532b.f(optString);
-        c0532b.g(optString2);
-        c0532b.u(true);
-        c0532b.k(i2);
-        c0532b.z(this.mSkipType);
-        tryAddExtStyle(c0532b, originJsonObject);
-        return c0532b.a();
+        b.C0519b c0519b = new b.C0519b(this.mAdContainerType, mainPictureUrl);
+        c0519b.t("rsplash");
+        c0519b.l(this.mIsFullScreenAd);
+        c0519b.h(this.mBottomLogoHeight);
+        c0519b.m(this.mBottomLogoResId);
+        c0519b.j(this.mLimitRegionClick);
+        c0519b.r(getMantleActionText());
+        c0519b.s(this.mIsFullScreenAd ? 47 : this.mBottomLogoHeight + 39);
+        c0519b.k(this.mBitmapDisplayMode);
+        c0519b.i(this.mAdInstanceInfo.getCloseType());
+        c0519b.v(z);
+        c0519b.f(optString);
+        c0519b.g(optString2);
+        c0519b.u(true);
+        c0519b.k(i2);
+        c0519b.z(this.mSkipType);
+        tryAddExtStyle(c0519b, originJsonObject);
+        return c0519b.a();
     }
 
     private String getMantleActionText() {
@@ -187,27 +187,27 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         LpCloseController.getInstance(context).addEventListener("AdLpClosed", this.lpCloseListener);
     }
 
-    private void tryAddExtStyle(b.C0532b c0532b, JSONObject jSONObject) {
+    private void tryAddExtStyle(b.C0519b c0519b, JSONObject jSONObject) {
         try {
             if (this.mSkipType == 1) {
-                c0532b.z(1);
-                c0532b.i(5);
-                c0532b.A(72);
-                c0532b.y(30);
+                c0519b.z(1);
+                c0519b.i(5);
+                c0519b.A(72);
+                c0519b.y(30);
             }
             if (this.mLabelType == 1) {
-                c0532b.c("广告");
-                c0532b.e(25);
-                c0532b.d(13);
-                c0532b.u(false);
+                c0519b.c("广告");
+                c0519b.e(25);
+                c0519b.d(13);
+                c0519b.u(false);
             }
             boolean z = this.mIsFullScreenAd;
             if (jSONObject.has("pattern")) {
                 z = jSONObject.optInt("pattern") == 1;
-                c0532b.l(z);
-                c0532b.h(e.b());
-                c0532b.m(e.c());
-                c0532b.s(z ? 47 : this.mBottomLogoHeight + 39);
+                c0519b.l(z);
+                c0519b.h(e.b());
+                c0519b.m(e.c());
+                c0519b.s(z ? 47 : this.mBottomLogoHeight + 39);
             }
             String optString = jSONObject.optString("custom_ext_data");
             if (TextUtils.isEmpty(optString)) {
@@ -215,26 +215,26 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
             }
             JSONObject jSONObject2 = new JSONObject(optString);
             if (jSONObject2.has("duration")) {
-                c0532b.B(jSONObject2.optInt("duration") * 1000);
-                c0532b.z(1);
-                c0532b.i(5);
-                c0532b.A(72);
-                c0532b.y(30);
+                c0519b.B(jSONObject2.optInt("duration") * 1000);
+                c0519b.z(1);
+                c0519b.i(5);
+                c0519b.A(72);
+                c0519b.y(30);
             }
             if (jSONObject2.has("label_name")) {
-                c0532b.c(jSONObject2.optString("label_name"));
-                c0532b.e(25);
-                c0532b.d(13);
-                c0532b.u(false);
+                c0519b.c(jSONObject2.optString("label_name"));
+                c0519b.e(25);
+                c0519b.d(13);
+                c0519b.u(false);
             }
             if (jSONObject2.has("logo_type")) {
-                c0532b.n(e.d(jSONObject2.optInt("logo_type")));
-                c0532b.D(68);
-                c0532b.C(30);
-                c0532b.o(z);
+                c0519b.n(e.d(jSONObject2.optInt("logo_type")));
+                c0519b.D(68);
+                c0519b.C(30);
+                c0519b.o(z);
             }
             if (jSONObject2.has("style")) {
-                c0532b.E(jSONObject2.optJSONObject("style"));
+                c0519b.E(jSONObject2.optJSONObject("style"));
             }
         } catch (JSONException e2) {
             this.mAdLogger.e(TAG, e2);

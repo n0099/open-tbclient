@@ -10,6 +10,7 @@ import com.baidu.android.imsdk.request.NewAckMessage;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -111,7 +112,7 @@ public class IMAckRequest extends BaseHttpRequest {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appid", Utility.readAppId(this.mContext));
-            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
             jSONObject.put("uk", this.mUk);
             jSONObject.put(Constants.KEY_TRIGGER_ID, this.mTriggerId);

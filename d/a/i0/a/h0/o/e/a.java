@@ -1,0 +1,169 @@
+package d.a.i0.a.h0.o.e;
+
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import d.a.i0.a.a2.e;
+import d.a.i0.a.h0.l.g.h;
+import d.a.i0.a.k;
+import d.a.i0.a.v1.b.d;
+import d.a.i0.a.v1.b.f;
+import d.a.i0.a.v2.l0;
+/* loaded from: classes2.dex */
+public final class a {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final boolean f42268a = k.f43025a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final boolean f42269b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final boolean f42270c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final boolean f42271d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final boolean f42272e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final boolean f42273f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final int f42274g;
+
+    /* renamed from: d.a.i0.a.h0.o.e.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public static class C0676a extends ProviderDelegation {
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putBoolean("result", a.f());
+            return bundle2;
+        }
+    }
+
+    static {
+        f42269b = ProcessUtils.isMainProcess() ? h("swan_prefetch_app_data") : e();
+        f42270c = h("swan_prefetch_slave_data");
+        f42271d = h("swan_prefetch_click");
+        f42272e = h("swan_prefetch_event_on");
+        f42273f = h("swan_prefetch_sub_pkg");
+        f42274g = d("swan_prefetch_app_data_multi", 0);
+        if (f42268a) {
+            Log.i("PrefetchABSwitcher", "prefetch switch - " + f42269b);
+            Log.i("PrefetchABSwitcher", "master prefetch switch -  " + f42272e);
+            Log.i("PrefetchABSwitcher", "sub pkg prefetch switch -  " + f42273f);
+            Log.i("PrefetchABSwitcher", "master multi preload switch -  " + f42274g);
+        }
+    }
+
+    public static boolean a() {
+        return f42271d;
+    }
+
+    public static int b(String str) {
+        return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt(str, -1);
+    }
+
+    public static int c() {
+        return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("swan_prefetch_event", -1);
+    }
+
+    public static int d(String str, int i2) {
+        int b2;
+        if (!f42268a || (b2 = b(str)) == -1) {
+            d.a.i0.a.c1.a.Z().getSwitch(str, i2);
+            Log.d("PrefetchABSwitcher", str + " value from AB : " + i2);
+            return i2;
+        }
+        return b2;
+    }
+
+    public static boolean e() {
+        long currentTimeMillis = f42268a ? System.currentTimeMillis() : 0L;
+        f b2 = d.b(C0676a.class, null);
+        boolean z = false;
+        if (b2.a() && b2.f45121a.getBoolean("result", false)) {
+            z = true;
+        }
+        if (f42268a) {
+            long currentTimeMillis2 = System.currentTimeMillis();
+            Log.i("PrefetchABSwitcher", "get prefetch switch cross precess cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+        }
+        return z;
+    }
+
+    public static boolean f() {
+        return f42269b;
+    }
+
+    public static boolean g() {
+        boolean z = !l0.f("3.290.0");
+        if (!f42268a || b("swan_prefetch_app_data_multi") <= 0) {
+            return z;
+        }
+        return true;
+    }
+
+    public static boolean h(String str) {
+        int b2;
+        if (f42268a) {
+            if (d.a.i0.a.u1.a.a.W() || (b2 = b(str)) == 1) {
+                return true;
+            }
+            if (b2 == 0) {
+                return false;
+            }
+        }
+        return d(str, 0) == 1;
+    }
+
+    public static void i() {
+        d.a.i0.a.e0.d.h("PrefetchABSwitcher", "preload master is on = " + f42269b);
+        d.a.i0.a.e0.d.h("PrefetchABSwitcher", "preload slave is on = " + f42270c);
+        e Q = e.Q();
+        boolean z = Q != null && k(Q.L().f0());
+        d.a.i0.a.e0.d.h("PrefetchABSwitcher", "prefetch master show is on = " + z);
+        d.a.i0.a.e0.d.h("PrefetchABSwitcher", "prefetch master click is on = " + f42271d);
+        d.a.i0.a.e0.d.h("PrefetchABSwitcher", "sub pkg prefetch switch -  " + f42273f);
+        d.a.i0.a.h0.l.g.a a2 = h.b().a();
+        if (a2 != null) {
+            d.a.i0.a.e0.d.h("PrefetchABSwitcher", "current running master id = " + a2.i().b());
+        }
+        d.a.i0.a.e0.d.h("PrefetchABSwitcher", "master multi preload switch -  " + f42274g);
+    }
+
+    public static int j() {
+        return f42274g;
+    }
+
+    public static boolean k(PMSAppInfo pMSAppInfo) {
+        if (f()) {
+            if (k.f43025a) {
+                int c2 = c();
+                if (c2 == 1) {
+                    return true;
+                }
+                if (c2 == 0) {
+                    return false;
+                }
+            }
+            return f42272e && d.a.i0.a.l1.d.d.f().h(pMSAppInfo);
+        }
+        return false;
+    }
+
+    public static boolean l() {
+        return f42270c;
+    }
+
+    public static boolean m() {
+        return f42273f;
+    }
+}

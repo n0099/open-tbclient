@@ -15,13 +15,13 @@ import java.util.ArrayList;
 public class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f8974a;
+    public static volatile boolean f8786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f8975b;
+    public static volatile boolean f8787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f8976c;
+    public static volatile boolean f8788c;
 
     public static String a() {
         return "https://dxp.baidu.com/vizParser";
@@ -33,11 +33,11 @@ public class bg {
                 if (i2 != 2) {
                     return false;
                 }
-                return f8976c;
+                return f8788c;
             }
-            return f8975b;
+            return f8787b;
         }
-        return f8974a;
+        return f8786a;
     }
 
     public static String b(int i2) {
@@ -46,12 +46,12 @@ public class bg {
 
     public static void a(int i2, boolean z) {
         if (i2 == 0) {
-            f8974a = z;
+            f8786a = z;
         } else if (i2 == 1) {
-            f8975b = z;
+            f8787b = z;
         } else if (i2 != 2) {
         } else {
-            f8976c = z;
+            f8788c = z;
         }
     }
 

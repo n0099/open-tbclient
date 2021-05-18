@@ -16,52 +16,52 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a.C0501a> f39245e;
+    public List<a.C0488a> f38490e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f39246f;
+    public Context f38491f;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f39247a;
+        public TextView f38492a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f39248b;
+        public TextView f38493b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f39249c;
+        public ImageView f38494c;
 
         public a(View view) {
-            this.f39247a = (TextView) view.findViewById(f.coupon_title);
-            this.f39248b = (TextView) view.findViewById(f.coupon_subtitle);
-            this.f39249c = (ImageView) view.findViewById(f.select_icon);
+            this.f38492a = (TextView) view.findViewById(f.coupon_title);
+            this.f38493b = (TextView) view.findViewById(f.coupon_subtitle);
+            this.f38494c = (ImageView) view.findViewById(f.select_icon);
         }
     }
 
     public b(Context context) {
-        this.f39246f = context;
+        this.f38491f = context;
     }
 
-    public void a(List<a.C0501a> list) {
-        this.f39245e = list;
+    public void a(List<a.C0488a> list) {
+        this.f38490e = list;
         notifyDataSetChanged();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: b */
-    public a.C0501a getItem(int i2) {
-        if (i2 < this.f39245e.size()) {
-            return this.f39245e.get(i2);
+    public a.C0488a getItem(int i2) {
+        if (i2 < this.f38490e.size()) {
+            return this.f38490e.get(i2);
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<a.C0501a> list = this.f39245e;
+        List<a.C0488a> list = this.f38490e;
         if (list == null) {
             return 0;
         }
@@ -75,24 +75,24 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
-        a.C0501a item = getItem(i2);
+        a.C0488a item = getItem(i2);
         if (item == null) {
             return view;
         }
         if (view == null) {
-            view = LayoutInflater.from(this.f39246f).inflate(g.coupon_list_item, (ViewGroup) null, false);
+            view = LayoutInflater.from(this.f38491f).inflate(g.coupon_list_item, (ViewGroup) null, false);
             view.setTag(new a(view));
         }
         if (view.getTag() != null && (view.getTag() instanceof a)) {
             a aVar = (a) view.getTag();
-            aVar.f39247a.setText(item.f39239c);
-            if (TextUtils.isEmpty(item.f39240d)) {
-                aVar.f39248b.setVisibility(8);
+            aVar.f38492a.setText(item.f38484c);
+            if (TextUtils.isEmpty(item.f38485d)) {
+                aVar.f38493b.setVisibility(8);
             } else {
-                aVar.f39248b.setVisibility(0);
-                aVar.f39248b.setText(item.f39240d);
+                aVar.f38493b.setVisibility(0);
+                aVar.f38493b.setText(item.f38485d);
             }
-            aVar.f39249c.setSelected(item.f39243g == 1);
+            aVar.f38494c.setSelected(item.f38488g == 1);
         }
         return view;
     }

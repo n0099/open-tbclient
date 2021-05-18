@@ -15,7 +15,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (t == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f34316a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f33561a) {
             aVar.a();
         }
     }
@@ -25,7 +25,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (t == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f34316a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f33561a) {
             aVar.d();
         }
     }
@@ -35,7 +35,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (t == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f34316a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f33561a) {
             aVar.c();
         }
     }
@@ -45,7 +45,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (t == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f34316a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f33561a) {
             aVar.b();
         }
     }

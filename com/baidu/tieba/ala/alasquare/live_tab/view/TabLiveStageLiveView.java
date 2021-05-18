@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.ala.utils.AlaUtilHelper;
 import com.baidu.ala.view.AlaRoundRelativeLayout;
+import com.baidu.swan.facade.requred.webview.LoadingActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,27 +23,27 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.a.j;
 import d.a.c.e.p.l;
-import d.a.i0.z0.i0;
-import d.a.j0.t.d.c.c;
+import d.a.j0.z0.i0;
+import d.a.k0.t.d.c.c;
 /* loaded from: classes4.dex */
 public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
     public static final float p;
     public static final float[] q;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f14553e;
+    public TbImageView f13868e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f14554f;
+    public HeadImageView f13869f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f14555g;
+    public View f13870g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f14556h;
+    public TextView f13871h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f14557i;
+    public TextView f13872i;
     public TextView j;
     public View k;
     public TabLiveStageLiveZanLottieView l;
@@ -113,8 +114,8 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
     }
 
     public void c() {
-        SkinManager.setViewTextColor(this.f14556h, R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.f14557i, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.f13871h, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.f13872i, R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0101);
         Drawable drawable = SkinManager.getDrawable(getContext().getResources(), R.drawable.tab_icon_living_seeding);
         drawable.setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18), getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18));
@@ -125,7 +126,7 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
     public final void d() {
         try {
             this.l.setAnimation("zan_lottie_anim.json");
-            this.l.setImageAssetsFolder("images/");
+            this.l.setImageAssetsFolder(LoadingActivity.LOTTIE_ASSETS_PATH);
             this.l.loop(true);
             this.l.playAnimation();
         } catch (Exception e2) {
@@ -141,19 +142,19 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
         this.l = tabLiveStageLiveZanLottieView;
         tabLiveStageLiveZanLottieView.setForbidAutoUpdateState(true);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.cover);
-        this.f14553e = tbImageView;
+        this.f13868e = tbImageView;
         tbImageView.setBackgroundColor(0);
-        this.f14553e.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
-        this.f14553e.setConrers(15);
+        this.f13868e.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
+        this.f13868e.setConrers(15);
         HeadImageView headImageView = (HeadImageView) findViewById(R.id.head_img);
-        this.f14554f = headImageView;
+        this.f13869f = headImageView;
         headImageView.setAutoChangeStyle(false);
-        this.f14554f.setClickable(true);
-        this.f14554f.setIsRound(true);
-        this.f14554f.setBorderWidth(l.g(getContext(), R.dimen.tbds1));
-        this.f14555g = findViewById(R.id.head_mask_view);
-        this.f14556h = (TextView) findViewById(R.id.title);
-        this.f14557i = (TextView) findViewById(R.id.user_name);
+        this.f13869f.setClickable(true);
+        this.f13869f.setIsRound(true);
+        this.f13869f.setBorderWidth(l.g(getContext(), R.dimen.tbds1));
+        this.f13870g = findViewById(R.id.head_mask_view);
+        this.f13871h = (TextView) findViewById(R.id.title);
+        this.f13872i = (TextView) findViewById(R.id.user_name);
         this.j = (TextView) findViewById(R.id.audience_count);
         this.k = findViewById(R.id.bottom_gradient_bg);
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.o);
@@ -186,23 +187,23 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
         if (sdkLiveInfoData != null && sdkLiveInfoData.liveInfo != null) {
             this.n = sdkLiveInfoData;
             this.m = i2;
-            this.f14553e.setPlaceHolder(3);
-            this.f14553e.V(sdkLiveInfoData.liveInfo.cover, 10, false);
+            this.f13868e.setPlaceHolder(3);
+            this.f13868e.V(sdkLiveInfoData.liveInfo.cover, 10, false);
             SdkLiveInfoData.LiveAuthor liveAuthor = sdkLiveInfoData.liveAuthor;
             if (liveAuthor != null) {
                 String name_show = liveAuthor.getName_show();
                 if (i0.d(name_show) > 16) {
                     name_show = i0.m(name_show, 16) + StringHelper.STRING_MORE;
                 }
-                this.f14557i.setText(name_show);
-                AlaUtilHelper.startLoadPortrait(this.f14554f, sdkLiveInfoData.liveAuthor.portrait, false);
+                this.f13872i.setText(name_show);
+                AlaUtilHelper.startLoadPortrait(this.f13869f, sdkLiveInfoData.liveAuthor.portrait, false);
                 if (1 == TbadkCoreApplication.getInst().getSkinType()) {
-                    this.f14555g.setVisibility(0);
+                    this.f13870g.setVisibility(0);
                 } else {
-                    this.f14555g.setVisibility(8);
+                    this.f13870g.setVisibility(8);
                 }
             }
-            this.f14556h.setText(sdkLiveInfoData.title);
+            this.f13871h.setText(sdkLiveInfoData.title);
             this.j.setText(getContext().getResources().getString(R.string.square_sub_live_audience_label, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
             return;
         }

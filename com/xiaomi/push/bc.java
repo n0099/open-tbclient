@@ -8,22 +8,22 @@ import android.net.Uri;
 public class bc implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f38169a = "content://com.vivo.vms.IdProvider/IdentifierId/";
+    public static String f37414a = "content://com.vivo.vms.IdProvider/IdentifierId/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f38170b = f38169a + "OAID";
+    public static String f37415b = f37414a + "OAID";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f38171c = f38169a + "VAID_";
+    public static String f37416c = f37414a + "VAID_";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f38172d = f38169a + "AAID_";
+    public static String f37417d = f37414a + "AAID_";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f38173e = f38169a + "OAIDSTATUS";
+    public static String f37418e = f37414a + "OAIDSTATUS";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f38174f = "persist.sys.identifierid.supported";
+    public static String f37419f = "persist.sys.identifierid.supported";
 
     /* renamed from: a  reason: collision with other field name */
     public Context f145a;
@@ -77,7 +77,7 @@ public class bc implements ar {
 
     public static boolean a(Context context) {
         try {
-            ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(Uri.parse(f38169a).getAuthority(), 128);
+            ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(Uri.parse(f37414a).getAuthority(), 128);
             if (resolveContentProvider != null) {
                 if ((resolveContentProvider.applicationInfo.flags & 1) != 0) {
                     return true;
@@ -95,13 +95,13 @@ public class bc implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return "1".equals(s.a(f38174f, "0"));
+        return "1".equals(s.a(f37419f, "0"));
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo137b() {
-        return a(f38170b);
+    public String mo136b() {
+        return a(f37415b);
     }
 
     @Override // com.xiaomi.push.ar

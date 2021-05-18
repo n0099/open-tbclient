@@ -7,40 +7,40 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class v0 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ boolean f37958a;
+    public final /* synthetic */ boolean f37203a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f37959b;
+    public final /* synthetic */ String f37204b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ w0 f37960c;
+    public final /* synthetic */ w0 f37205c;
 
     public v0(w0 w0Var, boolean z, String str) {
-        this.f37960c = w0Var;
-        this.f37958a = z;
-        this.f37959b = str;
+        this.f37205c = w0Var;
+        this.f37203a = z;
+        this.f37204b = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String b2;
-        String str = this.f37958a ? Q0.f37744b : Q0.f37745c;
-        HashMap a2 = M0.a(this.f37960c.f37983a);
+        String str = this.f37203a ? Q0.f36989b : Q0.f36990c;
+        HashMap a2 = M0.a(this.f37205c.f37228a);
         try {
             str = str + M0.a(a2);
         } catch (UnsupportedEncodingException unused) {
         }
-        String str2 = this.f37959b;
+        String str2 = this.f37204b;
         try {
             s0 s0Var = new s0(str, "POST", z.a((Map) null));
-            s0Var.f37939b = z.h(str2);
+            s0Var.f37184b = z.h(str2);
             t0 a3 = s0Var.a();
-            byte[] bArr = a3.f37949b;
-            if (a3.f37948a == 200) {
+            byte[] bArr = a3.f37194b;
+            if (a3.f37193a == 200) {
                 JSONObject jSONObject = new JSONObject(new String(bArr, "UTF-8"));
                 jSONObject.optInt(Constants.KEYS.RET);
                 jSONObject.optString("msg");

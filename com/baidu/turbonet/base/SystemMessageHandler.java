@@ -11,56 +11,56 @@ import java.lang.reflect.Method;
 public class SystemMessageHandler extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f23042a;
+    public long f22287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f23043b = 0;
+    public long f22288b = 0;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f23044a;
+        public static final c f22289a;
 
         /* renamed from: com.baidu.turbonet.base.SystemMessageHandler$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0232a implements c {
+        public static class C0219a implements c {
 
             /* renamed from: a  reason: collision with root package name */
-            public Method f23045a;
+            public Method f22290a;
 
-            public C0232a() {
+            public C0219a() {
                 try {
-                    this.f23045a = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
+                    this.f22290a = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
                 } catch (ClassNotFoundException e2) {
-                    d.a.k0.a.a.c("cr.SysMessageHandler", "Failed to find android.os.Message class", e2);
+                    d.a.l0.a.a.c("cr.SysMessageHandler", "Failed to find android.os.Message class", e2);
                 } catch (NoSuchMethodException e3) {
-                    d.a.k0.a.a.c("cr.SysMessageHandler", "Failed to load Message.setAsynchronous method", e3);
+                    d.a.l0.a.a.c("cr.SysMessageHandler", "Failed to load Message.setAsynchronous method", e3);
                 } catch (RuntimeException e4) {
-                    d.a.k0.a.a.c("cr.SysMessageHandler", "Exception while loading Message.setAsynchronous method", e4);
+                    d.a.l0.a.a.c("cr.SysMessageHandler", "Exception while loading Message.setAsynchronous method", e4);
                 }
             }
 
             @Override // com.baidu.turbonet.base.SystemMessageHandler.a.c
             public void a(Message message, boolean z) {
-                Method method = this.f23045a;
+                Method method = this.f22290a;
                 if (method == null) {
                     return;
                 }
                 try {
                     method.invoke(message, Boolean.valueOf(z));
                 } catch (IllegalAccessException unused) {
-                    d.a.k0.a.a.c("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
-                    this.f23045a = null;
+                    d.a.l0.a.a.c("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
+                    this.f22290a = null;
                 } catch (IllegalArgumentException unused2) {
-                    d.a.k0.a.a.c("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
-                    this.f23045a = null;
+                    d.a.l0.a.a.c("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
+                    this.f22290a = null;
                 } catch (RuntimeException unused3) {
-                    d.a.k0.a.a.c("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
-                    this.f23045a = null;
+                    d.a.l0.a.a.c("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
+                    this.f22290a = null;
                 } catch (InvocationTargetException unused4) {
-                    d.a.k0.a.a.c("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
-                    this.f23045a = null;
+                    d.a.l0.a.a.c("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
+                    this.f22290a = null;
                 }
             }
         }
@@ -81,20 +81,20 @@ public class SystemMessageHandler extends Handler {
 
         static {
             if (Build.VERSION.SDK_INT >= 22) {
-                f23044a = new b();
+                f22289a = new b();
             } else {
-                f23044a = new C0232a();
+                f22289a = new C0219a();
             }
         }
 
         public static void a(Message message, boolean z) {
-            f23044a.a(message, z);
+            f22289a.a(message, z);
         }
     }
 
     public SystemMessageHandler(long j) {
-        this.f23042a = 0L;
-        this.f23042a = j;
+        this.f22287a = 0L;
+        this.f22287a = j;
     }
 
     @CalledByNative
@@ -112,10 +112,10 @@ public class SystemMessageHandler extends Handler {
 
     @CalledByNative
     private void scheduleDelayedWork(long j, long j2) {
-        if (this.f23043b != 0) {
+        if (this.f22288b != 0) {
             removeMessages(2);
         }
-        this.f23043b = j;
+        this.f22288b = j;
         sendMessageDelayed(a(2), j2);
     }
 
@@ -134,8 +134,8 @@ public class SystemMessageHandler extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (message.what == 2) {
-            this.f23043b = 0L;
+            this.f22288b = 0L;
         }
-        nativeDoRunLoopOnce(this.f23042a, this.f23043b);
+        nativeDoRunLoopOnce(this.f22287a, this.f22288b);
     }
 }

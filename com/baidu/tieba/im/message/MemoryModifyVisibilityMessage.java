@@ -8,18 +8,18 @@ public class MemoryModifyVisibilityMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18065a;
+        public String f17380a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f18066b;
+        public int f17381b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f18067c;
+        public boolean f17382c;
 
         public a(String str, int i2, boolean z) {
-            this.f18065a = str;
-            this.f18066b = i2;
-            this.f18067c = z;
+            this.f17380a = str;
+            this.f17381b = i2;
+            this.f17382c = z;
         }
     }
 

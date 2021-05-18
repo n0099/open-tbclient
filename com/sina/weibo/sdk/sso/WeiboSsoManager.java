@@ -7,12 +7,12 @@ import com.weibo.ssosdk.WeiboSsoSdk;
 import d.p.a.a;
 import d.p.a.b;
 import d.p.a.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WeiboSsoManager {
     public static final String TAG = "WeiboSsoManager";
     public String aid;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Instance {
         public static final WeiboSsoManager instance = new WeiboSsoManager();
     }

@@ -2,18 +2,17 @@ package com.baidu.down.request.taskmanager;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.common.security.Base64;
 import com.baidu.down.common.BasicNameValuePair;
 import com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable;
 import com.baidu.down.statistic.ConfigSpeedStat;
 import com.baidu.down.statistic.SpeedStatData;
 import com.baidu.down.statistic.TaskSpeedStat;
+import com.baidu.down.utils.Base64Utils;
 import com.baidu.down.utils.Constants;
 import com.baidu.down.utils.DeviceInfoUtils;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.IdentityManager;
 import com.baidu.down.utils.Utils;
-import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -162,14 +161,9 @@ public final class TaskNetRequestMng {
         if (TextUtils.isEmpty(buildSpeedStat)) {
             return;
         }
-        String str = null;
-        try {
-            str = Base64.encode(Utils.getEncodedValue(buildSpeedStat.toString()).getBytes(), "utf-8");
-        } catch (UnsupportedEncodingException e2) {
-            e2.printStackTrace();
-        }
-        if (str != null) {
-            arrayList.add(new BasicNameValuePair("data", new String(str)));
+        String encode = Base64Utils.encode(Utils.getEncodedValue(buildSpeedStat.toString()).getBytes());
+        if (encode != null) {
+            arrayList.add(new BasicNameValuePair("data", new String(encode)));
         }
         HttpURLExecutorRunnable httpURLExecutorRunnable = new HttpURLExecutorRunnable(context, TextUtils.equals(DownPrefUtils.getString(context, DownPrefUtils.PREF_CONFI_HOST_TYPE, DownPrefUtils.HOST_TYPE_NAME), DownPrefUtils.HOST_TYPE_IP), Constants.SPEED_STAT_URL_DEFAULT, arrayList, new HttpURLExecutorRunnable.OnWebRequestListener() { // from class: com.baidu.down.request.taskmanager.TaskNetRequestMng.1
             @Override // com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable.OnWebRequestListener
@@ -177,21 +171,21 @@ public final class TaskNetRequestMng {
             }
 
             @Override // com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable.OnWebRequestListener
-            public void onSuccess(String str2) {
+            public void onSuccess(String str) {
                 ConfigSpeedStat parseSpeedConfig;
-                if (TextUtils.isEmpty(str2)) {
+                if (TextUtils.isEmpty(str)) {
                     return;
                 }
                 try {
-                    JSONObject jSONObject = new JSONObject(str2);
+                    JSONObject jSONObject = new JSONObject(str);
                     if (jSONObject.optInt("error_code") == 0) {
                         if (!TextUtils.isEmpty(jSONObject.optString("data", "")) && (parseSpeedConfig = SpeedStatData.parseSpeedConfig(context, jSONObject.optString("data", ""))) != null) {
                             TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mConfigSpeedStat = parseSpeedConfig;
                         }
                         DownPrefUtils.setLong(context, DownPrefUtils.PREF_SPEED_CONFIG_ACQUIRE_TIME_KEY, System.currentTimeMillis());
                     }
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
             }
         }, 1);
@@ -202,8 +196,7 @@ public final class TaskNetRequestMng {
 
     public static void requestRemoteConfig(Context context, String str, String str2, String str3, String str4, boolean z, String str5, String str6, HttpURLExecutorRunnable.OnWebRequestListener onWebRequestListener) {
         String str7;
-        String str8;
-        String str9 = "";
+        String encode;
         ArrayList arrayList = new ArrayList();
         JSONObject jSONObject = new JSONObject();
         try {
@@ -243,16 +236,8 @@ public final class TaskNetRequestMng {
         } catch (JSONException e3) {
             e3.printStackTrace();
         }
-        if (!TextUtils.isEmpty(jSONObject.toString())) {
-            try {
-                str7 = Base64.encode(Utils.getEncodedValue(jSONObject.toString()).getBytes(), "utf-8");
-            } catch (UnsupportedEncodingException e4) {
-                e4.printStackTrace();
-                str7 = null;
-            }
-            if (str7 != null) {
-                arrayList.add(new BasicNameValuePair("data", str7));
-            }
+        if (!TextUtils.isEmpty(jSONObject.toString()) && (encode = Base64Utils.encode(Utils.getEncodedValue(jSONObject.toString()).getBytes())) != null) {
+            arrayList.add(new BasicNameValuePair("data", encode));
         }
         String processCommonParams = IdentityManager.getInstance(context).processCommonParams(DownPrefUtils.getString(context, DownPrefUtils.PREF_DOWNLOAD_INFO_HOST, Constants.PREF_DOWNLOAD_INFO_HOST_DEFAULT));
         if (!TextUtils.isEmpty(str5)) {
@@ -260,22 +245,17 @@ public final class TaskNetRequestMng {
         }
         String encodedValue = Utils.getEncodedValue(Utils.getCurrentNetWorkApn(context));
         if (!TextUtils.isEmpty(encodedValue)) {
-            try {
-                str9 = Base64.encode(encodedValue.getBytes(), "utf-8");
-            } catch (UnsupportedEncodingException e5) {
-                e5.printStackTrace();
-            }
-            processCommonParams = processCommonParams + "&apn=" + str9;
+            processCommonParams = processCommonParams + "&apn=" + Base64Utils.encode(encodedValue.getBytes());
         }
         if (Utils.getWifiOr2gOr3G(context).equals("WF")) {
             processCommonParams = processCommonParams + "&wfl=" + Utils.getWifiLevel(context);
         }
         if (TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
-            str8 = processCommonParams + "&wap=1";
+            str7 = processCommonParams + "&wap=1";
         } else {
-            str8 = processCommonParams + "&wap=0";
+            str7 = processCommonParams + "&wap=0";
         }
-        HttpURLExecutorRunnable httpURLExecutorRunnable = new HttpURLExecutorRunnable(context, TextUtils.equals(DownPrefUtils.getString(context, DownPrefUtils.PREF_CONFI_HOST_TYPE, DownPrefUtils.HOST_TYPE_NAME), DownPrefUtils.HOST_TYPE_IP), str8, arrayList, onWebRequestListener);
+        HttpURLExecutorRunnable httpURLExecutorRunnable = new HttpURLExecutorRunnable(context, TextUtils.equals(DownPrefUtils.getString(context, DownPrefUtils.PREF_CONFI_HOST_TYPE, DownPrefUtils.HOST_TYPE_NAME), DownPrefUtils.HOST_TYPE_IP), str7, arrayList, onWebRequestListener);
         mHttpURLExecutorRunnable = httpURLExecutorRunnable;
         httpURLExecutorRunnable.setRequestType("POST");
         mHttpURLExecutorRunnable.execute();

@@ -9,12 +9,12 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<Long, c> f3449a;
+    public static Map<Long, c> f3450a;
 
     public static synchronized void a(long j) {
         synchronized (b.class) {
-            if (f3449a.containsKey(Long.valueOf(j))) {
-                f3449a.remove(f3449a.get(Long.valueOf(j)));
+            if (f3450a.containsKey(Long.valueOf(j))) {
+                f3450a.remove(f3450a.get(Long.valueOf(j)));
             }
         }
     }
@@ -23,24 +23,24 @@ public class b {
         Map<Long, c> map;
         if (intent.hasExtra("bd.cross.request.COMMAND_TYPE") && TextUtils.equals(intent.getStringExtra("bd.cross.request.COMMAND_TYPE"), "bd.cross.command.MESSAGE_ACK")) {
             long longExtra = intent.getLongExtra("bd.cross.request.ID", 0L);
-            if (longExtra == 0 || (map = f3449a) == null || !map.containsKey(Long.valueOf(longExtra))) {
+            if (longExtra == 0 || (map = f3450a) == null || !map.containsKey(Long.valueOf(longExtra))) {
                 return;
             }
-            f3449a.get(Long.valueOf(longExtra)).a(intent);
-            Map<Long, c> map2 = f3449a;
+            f3450a.get(Long.valueOf(longExtra)).a(intent);
+            Map<Long, c> map2 = f3450a;
             map2.remove(map2.get(Long.valueOf(longExtra)));
         }
     }
 
     public static synchronized void a(c cVar) {
         synchronized (b.class) {
-            if (f3449a == null) {
-                f3449a = Collections.synchronizedMap(new HashMap());
+            if (f3450a == null) {
+                f3450a = Collections.synchronizedMap(new HashMap());
             }
-            if (f3449a.containsKey(Long.valueOf(cVar.a()))) {
-                f3449a.remove(cVar).a();
+            if (f3450a.containsKey(Long.valueOf(cVar.a()))) {
+                f3450a.remove(cVar).a();
             }
-            f3449a.put(Long.valueOf(cVar.a()), cVar);
+            f3450a.put(Long.valueOf(cVar.a()), cVar);
         }
     }
 }

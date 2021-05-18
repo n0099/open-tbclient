@@ -22,20 +22,20 @@ public class AdvertSDKStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                d.a.j0.r.a.e.h();
+                d.a.k0.r.a.e.h();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<d.a.i0.k.c> {
+    public static class b implements CustomMessageTask.CustomRunnable<d.a.j0.k.c> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<d.a.i0.k.c> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<d.a.j0.k.c> customMessage) {
             if (customMessage == null) {
                 return null;
             }
-            d.a.j0.r.a.h.a.c().f(customMessage.getData());
-            if (d.a.j0.r.a.h.a.c().e()) {
+            d.a.k0.r.a.h.a.c().f(customMessage.getData());
+            if (d.a.k0.r.a.h.a.c().e()) {
                 return new CustomResponsedMessage<>(2016555, 1400L);
             }
             return new CustomResponsedMessage<>(2016555, 1000L);
@@ -49,37 +49,37 @@ public class AdvertSDKStatic {
             if (customMessage == null) {
                 return null;
             }
-            d.a.j0.r.a.h.a.c().j(customMessage.getData());
+            d.a.k0.r.a.h.a.c().j(customMessage.getData());
             return null;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class d implements CustomMessageTask.CustomRunnable<d.a.i0.k.c> {
+    public static class d implements CustomMessageTask.CustomRunnable<d.a.j0.k.c> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<d.a.i0.k.c> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<d.a.j0.k.c> customMessage) {
             if (customMessage != null && customMessage.getData() != null) {
-                d.a.j0.r.a.h.a.c().h(customMessage.getData().a(), false);
+                d.a.k0.r.a.h.a.c().h(customMessage.getData().a(), false);
             }
             return null;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class e implements CustomMessageTask.CustomRunnable<d.a.i0.k.c> {
+    public static class e implements CustomMessageTask.CustomRunnable<d.a.j0.k.c> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<d.a.i0.k.c> customMessage) {
-            d.a.j0.r.a.h.a.c().a();
+        public CustomResponsedMessage<?> run(CustomMessage<d.a.j0.k.c> customMessage) {
+            d.a.k0.r.a.h.a.c().a();
             return null;
         }
     }
 
     static {
-        new d.a.j0.r.a.a().g();
+        new d.a.k0.r.a.a().g();
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
         MobadsPermissionSettings.setPermissionAppList(true);
         if (PermissionUtil.isAgreePrivacyPolicy() && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            d.a.j0.r.a.e.h();
+            d.a.k0.r.a.e.h();
         }
         MessageManager.getInstance().registerListener(new a(2921554));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016555, new b());

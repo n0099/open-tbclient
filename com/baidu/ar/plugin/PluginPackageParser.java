@@ -50,7 +50,7 @@ public class PluginPackageParser {
     public Map<ComponentName, PermissionGroupInfo> mPermissionGroupInfoCache = new TreeMap(new ComponentNameComparator());
     public Map<ComponentName, PermissionInfo> mPermissionsInfoCache = new TreeMap(new ComponentNameComparator());
 
-    public PluginPackageParser(Context context, File file) throws Exception {
+    public PluginPackageParser(Context context, File file) {
         this.mHostContext = context;
         this.mPluginFile = file;
         PackageParser newPluginParser = PackageParser.newPluginParser(context);
@@ -224,15 +224,15 @@ public class PluginPackageParser {
         return packageInfo;
     }
 
-    public void collectCertificates(int i2) throws Exception {
+    public void collectCertificates(int i2) {
         this.mParser.collectCertificates(i2);
     }
 
-    public List<ActivityInfo> getActivities() throws Exception {
+    public List<ActivityInfo> getActivities() {
         return new ArrayList(this.mActivityInfoCache.values());
     }
 
-    public ActivityInfo getActivityInfo(ComponentName componentName, int i2) throws Exception {
+    public ActivityInfo getActivityInfo(ComponentName componentName, int i2) {
         Object obj;
         synchronized (this.mActivityObjCache) {
             obj = this.mActivityObjCache.get(componentName);
@@ -256,7 +256,7 @@ public class PluginPackageParser {
         return list;
     }
 
-    public ApplicationInfo getApplicationInfo(int i2) throws Exception {
+    public ApplicationInfo getApplicationInfo(int i2) {
         ApplicationInfo generateApplicationInfo = this.mParser.generateApplicationInfo(i2);
         fixApplicationInfo(generateApplicationInfo);
         if (TextUtils.isEmpty(generateApplicationInfo.processName)) {
@@ -265,7 +265,7 @@ public class PluginPackageParser {
         return generateApplicationInfo;
     }
 
-    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i2) throws Exception {
+    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i2) {
         Object obj;
         synchronized (this.mInstrumentationObjCache) {
             obj = this.mInstrumentationObjCache.get(componentName);
@@ -280,17 +280,17 @@ public class PluginPackageParser {
         return new ArrayList(this.mInstrumentationInfoCache.values());
     }
 
-    public PackageInfo getPackageInfo(int i2) throws Exception {
+    public PackageInfo getPackageInfo(int i2) {
         PackageInfo generatePackageInfo = this.mParser.generatePackageInfo(this.mHostPackageInfo.gids, i2, this.mPluginFile.lastModified(), this.mPluginFile.lastModified(), new HashSet<>(getRequestedPermissions()));
         fixPackageInfo(generatePackageInfo);
         return generatePackageInfo;
     }
 
-    public String getPackageName() throws Exception {
+    public String getPackageName() {
         return this.mPackageName;
     }
 
-    public PermissionGroupInfo getPermissionGroupInfo(ComponentName componentName, int i2) throws Exception {
+    public PermissionGroupInfo getPermissionGroupInfo(ComponentName componentName, int i2) {
         Object obj;
         synchronized (this.mPermissionGroupObjCache) {
             obj = this.mPermissionGroupObjCache.get(componentName);
@@ -301,11 +301,11 @@ public class PluginPackageParser {
         return null;
     }
 
-    public List<PermissionGroupInfo> getPermissionGroups() throws Exception {
+    public List<PermissionGroupInfo> getPermissionGroups() {
         return new ArrayList(this.mPermissionGroupInfoCache.values());
     }
 
-    public PermissionInfo getPermissionInfo(ComponentName componentName, int i2) throws Exception {
+    public PermissionInfo getPermissionInfo(ComponentName componentName, int i2) {
         Object obj;
         synchronized (this.mPermissionsObjCache) {
             obj = this.mPermissionsObjCache.get(componentName);
@@ -316,7 +316,7 @@ public class PluginPackageParser {
         return null;
     }
 
-    public List<PermissionInfo> getPermissions() throws Exception {
+    public List<PermissionInfo> getPermissions() {
         return new ArrayList(this.mPermissionsInfoCache.values());
     }
 
@@ -324,7 +324,7 @@ public class PluginPackageParser {
         return this.mPluginFile;
     }
 
-    public ProviderInfo getProviderInfo(ComponentName componentName, int i2) throws Exception {
+    public ProviderInfo getProviderInfo(ComponentName componentName, int i2) {
         Object obj;
         synchronized (this.mProviderObjCache) {
             obj = this.mProviderObjCache.get(componentName);
@@ -348,11 +348,11 @@ public class PluginPackageParser {
         return list;
     }
 
-    public List<ProviderInfo> getProviders() throws Exception {
+    public List<ProviderInfo> getProviders() {
         return new ArrayList(this.mProviderInfoCache.values());
     }
 
-    public ActivityInfo getReceiverInfo(ComponentName componentName, int i2) throws Exception {
+    public ActivityInfo getReceiverInfo(ComponentName componentName, int i2) {
         Object obj;
         synchronized (this.mReceiversObjCache) {
             obj = this.mReceiversObjCache.get(componentName);
@@ -379,11 +379,11 @@ public class PluginPackageParser {
         return hashMap;
     }
 
-    public List<ActivityInfo> getReceivers() throws Exception {
+    public List<ActivityInfo> getReceivers() {
         return new ArrayList(this.mReceiversInfoCache.values());
     }
 
-    public List<String> getRequestedPermissions() throws Exception {
+    public List<String> getRequestedPermissions() {
         ArrayList arrayList;
         synchronized (this.mRequestedPermissionsCache) {
             arrayList = new ArrayList(this.mRequestedPermissionsCache);
@@ -391,7 +391,7 @@ public class PluginPackageParser {
         return arrayList;
     }
 
-    public ServiceInfo getServiceInfo(ComponentName componentName, int i2) throws Exception {
+    public ServiceInfo getServiceInfo(ComponentName componentName, int i2) {
         Object obj;
         synchronized (this.mServiceObjCache) {
             obj = this.mServiceObjCache.get(componentName);
@@ -415,11 +415,11 @@ public class PluginPackageParser {
         return list;
     }
 
-    public List<ServiceInfo> getServices() throws Exception {
+    public List<ServiceInfo> getServices() {
         return new ArrayList(this.mServiceInfoCache.values());
     }
 
-    public void writeSignature(Signature[] signatureArr) throws Exception {
+    public void writeSignature(Signature[] signatureArr) {
         if (signatureArr != null) {
             this.mParser.writeSignature(signatureArr);
         }

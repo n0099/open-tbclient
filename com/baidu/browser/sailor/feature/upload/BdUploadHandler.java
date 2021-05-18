@@ -13,14 +13,13 @@ import android.webkit.ValueCallback;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.core.permission.BdPermissionActivity;
 import com.baidu.browser.sailor.BdSailor;
+import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.a.h.a.g;
-import d.a.h.a.j.a;
-import d.a.h.a.j.b;
 import java.io.File;
 /* loaded from: classes.dex */
 public class BdUploadHandler implements INoProGuard {
@@ -41,19 +40,66 @@ public class BdUploadHandler implements INoProGuard {
     public ValueCallback<Uri> mUploadMessage;
     public ValueCallback<Uri[]> mUploadMessage1;
 
+    /* loaded from: classes.dex */
+    public class a implements ActivityCompat.OnRequestPermissionsResultCallback {
+        public a() {
+        }
+
+        @Override // com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
+        public final void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+            if (i2 == 4099) {
+                boolean z = iArr.length != 0;
+                for (int i3 : iArr) {
+                    if (i3 == -1) {
+                        z = false;
+                    }
+                }
+                if (z) {
+                    Intent createCameraIntentAfterCheckPermission = BdUploadHandler.this.createCameraIntentAfterCheckPermission();
+                    BdUploadHandler.this.mCanHandleResult = true;
+                    BdUploadHandler.this.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
+                }
+                d.a.h.a.j.a.b().d(4099);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b implements ActivityCompat.OnRequestPermissionsResultCallback {
+        public b() {
+        }
+
+        @Override // com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
+        public final void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+            if (i2 == 4099) {
+                boolean z = iArr.length != 0;
+                for (int i3 : iArr) {
+                    if (i3 == -1) {
+                        z = false;
+                    }
+                }
+                if (z) {
+                    BdUploadHandler.this.mCanHandleResult = true;
+                    BdUploadHandler.this.mActivity.startActivityForResult(BdUploadHandler.this.createCamcorderIntent(), 11);
+                }
+                d.a.h.a.j.a.b().d(4099);
+            }
+        }
+    }
+
     public BdUploadHandler(Activity activity) {
         this.mActivity = activity;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Intent createCamcorderIntent() {
-        if (b.a(this.mActivity)) {
+        if (d.a.h.a.j.b.a(this.mActivity)) {
             return new Intent("android.media.action.VIDEO_CAPTURE");
         }
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-        a.b().a(4099, new d.a.h.b.c.b.b(this));
+        d.a.h.a.j.a.b().a(4099, new b());
         return intent;
     }
 
@@ -105,13 +151,13 @@ public class BdUploadHandler implements INoProGuard {
     }
 
     public Intent createCameraIntent() {
-        if (b.a(this.mActivity) && b.b(this.mActivity)) {
+        if (d.a.h.a.j.b.a(this.mActivity) && d.a.h.a.j.b.b(this.mActivity)) {
             return createCameraIntentAfterCheckPermission();
         }
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, StorageUtils.EXTERNAL_STORAGE_PERMISSION});
-        a.b().a(4099, new d.a.h.b.c.b.a(this));
+        d.a.h.a.j.a.b().a(4099, new a());
         return intent;
     }
 

@@ -1,0 +1,37 @@
+package d.a.k0.d3;
+
+import android.graphics.Color;
+import androidx.core.view.ViewCompat;
+/* loaded from: classes5.dex */
+public class c {
+    public static int a(int i2, float f2) {
+        return (i2 & ViewCompat.MEASURED_SIZE_MASK) | (((int) ((i2 >>> 24) * f2)) << 24);
+    }
+
+    public static int b(int i2) {
+        float[] fArr = new float[3];
+        Color.colorToHSV(i2, fArr);
+        if ((fArr[0] < 0.0f || fArr[0] >= 60.0f) && ((fArr[0] < 120.0f || fArr[0] >= 180.0f) && fArr[0] < 240.0f && fArr[0] >= 300.0f)) {
+            fArr[0] = fArr[0] + 15.0f;
+        } else {
+            fArr[0] = fArr[0] - 15.0f;
+        }
+        return Color.HSVToColor(fArr);
+    }
+
+    public static int c(String str) {
+        if (str != null) {
+            if (str.length() != 0) {
+                try {
+                    if (!str.startsWith("#")) {
+                        str = "#" + str;
+                    }
+                } catch (Exception unused) {
+                    return Integer.MAX_VALUE;
+                }
+            }
+            return Color.parseColor(str);
+        }
+        return Integer.MAX_VALUE;
+    }
+}

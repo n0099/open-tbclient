@@ -15,6 +15,7 @@ import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -123,7 +124,7 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
             jSONObject.put("uk_from", uk);
             jSONObject.put("uk_to", this.touk);
             jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
             jSONObject.put("device_type", 2);
             jSONObject.put("timestamp", currentTimeMillis);

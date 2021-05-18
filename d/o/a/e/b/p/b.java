@@ -12,32 +12,32 @@ import d.o.a.e.b.g.j;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f66790c;
+    public static volatile b f67476c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Integer, Long> f66791a = new HashMap();
+    public final Map<Integer, Long> f67477a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<a> f66792b;
+    public final SparseArray<a> f67478b;
 
     public b() {
         new HashSet();
-        this.f66792b = new SparseArray<>();
+        this.f67478b = new SparseArray<>();
     }
 
     public static b a() {
-        if (f66790c == null) {
+        if (f67476c == null) {
             synchronized (b.class) {
-                if (f66790c == null) {
-                    f66790c = new b();
+                if (f67476c == null) {
+                    f67476c = new b();
                 }
             }
         }
-        return f66790c;
+        return f67476c;
     }
 
     public static boolean h(int i2) {
@@ -63,13 +63,13 @@ public class b {
             return;
         }
         if (i3 == 4) {
-            synchronized (this.f66791a) {
-                Long l2 = this.f66791a.get(Integer.valueOf(i2));
+            synchronized (this.f67477a) {
+                Long l2 = this.f67477a.get(Integer.valueOf(i2));
                 long currentTimeMillis = System.currentTimeMillis();
                 if (l2 != null && Math.abs(currentTimeMillis - l2.longValue()) < 1000) {
                     return;
                 }
-                this.f66791a.put(Integer.valueOf(i2), Long.valueOf(currentTimeMillis));
+                this.f67477a.put(Integer.valueOf(i2), Long.valueOf(currentTimeMillis));
             }
         }
         try {
@@ -100,15 +100,15 @@ public class b {
         if (aVar == null) {
             return;
         }
-        synchronized (this.f66792b) {
-            this.f66792b.put(aVar.a(), aVar);
+        synchronized (this.f67478b) {
+            this.f67478b.put(aVar.a(), aVar);
         }
     }
 
     public SparseArray<a> f() {
         SparseArray<a> sparseArray;
-        synchronized (this.f66792b) {
-            sparseArray = this.f66792b;
+        synchronized (this.f67478b) {
+            sparseArray = this.f67478b;
         }
         return sparseArray;
     }
@@ -139,10 +139,10 @@ public class b {
         if (i2 == 0) {
             return null;
         }
-        synchronized (this.f66792b) {
-            aVar = this.f66792b.get(i2);
+        synchronized (this.f67478b) {
+            aVar = this.f67478b.get(i2);
             if (aVar != null) {
-                this.f66792b.remove(i2);
+                this.f67478b.remove(i2);
                 d.o.a.e.b.c.a.b("removeNotificationId " + i2);
             }
         }
@@ -154,8 +154,8 @@ public class b {
         if (i2 == 0) {
             return null;
         }
-        synchronized (this.f66792b) {
-            aVar = this.f66792b.get(i2);
+        synchronized (this.f67478b) {
+            aVar = this.f67478b.get(i2);
         }
         return aVar;
     }

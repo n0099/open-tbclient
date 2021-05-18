@@ -2,18 +2,18 @@ package com.baidu.tbadk.BdToken;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.i0.a.y;
+import d.a.j0.a.a0;
 import tbclient.Error;
 import tbclient.GetToken.GetTokenResIdl;
 /* loaded from: classes3.dex */
 public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
-    public y mData;
+    public a0 mData;
 
     public GetTokenSocketResponsedMessage() {
         super(309608);
     }
 
-    public y getData() {
+    public a0 getData() {
         return this.mData;
     }
 
@@ -30,9 +30,9 @@ public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
             setErrorString(getTokenResIdl.error.usermsg);
         }
         if (getTokenResIdl.data != null) {
-            y yVar = new y();
-            this.mData = yVar;
-            yVar.d(getTokenResIdl.data);
+            a0 a0Var = new a0();
+            this.mData = a0Var;
+            a0Var.d(getTokenResIdl.data);
         }
     }
 }

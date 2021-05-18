@@ -1,5 +1,6 @@
 package com.baidu.webkit.internal;
 
+import android.webkit.ValueCallback;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
@@ -12,10 +13,35 @@ public abstract class ApisInteractWithMario implements INoProGuard {
     public static final ArrayList<Runnable> mPenddingOps = new ArrayList<>();
     public static ApisInteractWithMario sInstance;
 
-    public static void clearCrashKey(String str) {
+    public static void addOnCronetThreadInitializedListener(final ValueCallback<Long> valueCallback) {
         if (!WebViewFactory.hasProvider()) {
             synchronized (mPenddingOps) {
-                mPenddingOps.add(new c(str));
+                mPenddingOps.add(new Runnable() { // from class: com.baidu.webkit.internal.ApisInteractWithMario.4
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        ApisInteractWithMario.addOnCronetThreadInitializedListener(valueCallback);
+                    }
+                });
+            }
+            return;
+        }
+        ApisInteractWithMario impl = getImpl();
+        if (impl != null) {
+            impl.addOnCronetThreadInitializedListenerImpl(valueCallback);
+        } else {
+            Log.e(TAG, "Not implemented!");
+        }
+    }
+
+    public static void clearCrashKey(final String str) {
+        if (!WebViewFactory.hasProvider()) {
+            synchronized (mPenddingOps) {
+                mPenddingOps.add(new Runnable() { // from class: com.baidu.webkit.internal.ApisInteractWithMario.3
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        ApisInteractWithMario.clearCrashKey(str);
+                    }
+                });
             }
             return;
         }
@@ -48,10 +74,15 @@ public abstract class ApisInteractWithMario implements INoProGuard {
         }
     }
 
-    public static void setCrashKeyValue(String str, String str2) {
+    public static void setCrashKeyValue(final String str, final String str2) {
         if (!WebViewFactory.hasProvider()) {
             synchronized (mPenddingOps) {
-                mPenddingOps.add(new b(str, str2));
+                mPenddingOps.add(new Runnable() { // from class: com.baidu.webkit.internal.ApisInteractWithMario.2
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        ApisInteractWithMario.setCrashKeyValue(str, str2);
+                    }
+                });
             }
             return;
         }
@@ -63,10 +94,15 @@ public abstract class ApisInteractWithMario implements INoProGuard {
         }
     }
 
-    public static void setMessageChannalFunctoinTable(long j) {
+    public static void setMessageChannalFunctoinTable(final long j) {
         if (!WebViewFactory.hasProvider()) {
             synchronized (mPenddingOps) {
-                mPenddingOps.add(new a(j));
+                mPenddingOps.add(new Runnable() { // from class: com.baidu.webkit.internal.ApisInteractWithMario.1
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        ApisInteractWithMario.setMessageChannalFunctoinTable(j);
+                    }
+                });
             }
             return;
         }
@@ -77,6 +113,8 @@ public abstract class ApisInteractWithMario implements INoProGuard {
             Log.e(TAG, "Not implemented!");
         }
     }
+
+    public abstract void addOnCronetThreadInitializedListenerImpl(ValueCallback<Long> valueCallback);
 
     public abstract void clearCrashKeyImpl(String str);
 

@@ -12,31 +12,31 @@ public class e2 {
     public static b o;
 
     /* renamed from: a  reason: collision with root package name */
-    public final i f64271a;
+    public final i f64957a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final j f64272b;
+    public final j f64958b;
 
     /* renamed from: c  reason: collision with root package name */
-    public h0 f64273c;
+    public h0 f64959c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h0 f64274d;
+    public h0 f64960d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f64275e;
+    public String f64961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f64276f;
+    public long f64962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64277g;
+    public int f64963g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f64278h = -1;
+    public long f64964h = -1;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f64279i;
+    public volatile boolean f64965i;
     public long j;
     public int k;
     public String l;
@@ -49,8 +49,8 @@ public class e2 {
     }
 
     public e2(j jVar, i iVar) {
-        this.f64272b = jVar;
-        this.f64271a = iVar;
+        this.f64958b = jVar;
+        this.f64957a = iVar;
     }
 
     public static long a(i iVar) {
@@ -73,22 +73,22 @@ public class e2 {
         if (o == null) {
             o = new b();
         }
-        o.f64413e = System.currentTimeMillis();
+        o.f65099e = System.currentTimeMillis();
         return o;
     }
 
     public synchronized Bundle b(long j, long j2) {
         Bundle bundle;
         bundle = null;
-        if (this.f64271a.B() && i() && j - this.f64276f > j2) {
+        if (this.f64957a.B() && i() && j - this.f64962f > j2) {
             bundle = new Bundle();
             bundle.putInt("session_no", this.k);
-            int i2 = this.f64277g + 1;
-            this.f64277g = i2;
+            int i2 = this.f64963g + 1;
+            this.f64963g = i2;
             bundle.putInt("send_times", i2);
-            bundle.putLong("current_duration", (j - this.f64276f) / 1000);
-            bundle.putString("session_start_time", z.c(this.f64278h));
-            this.f64276f = j;
+            bundle.putLong("current_duration", (j - this.f64962f) / 1000);
+            bundle.putString("session_start_time", z.c(this.f64964h));
+            this.f64962f = j;
         }
         return bundle;
     }
@@ -98,21 +98,21 @@ public class e2 {
     }
 
     public final synchronized void d(z zVar, ArrayList<z> arrayList, boolean z) {
-        long j = zVar instanceof b ? -1L : zVar.f64413e;
-        this.f64275e = UUID.randomUUID().toString();
-        n = this.f64271a.b();
-        this.f64278h = j;
-        this.f64279i = z;
+        long j = zVar instanceof b ? -1L : zVar.f65099e;
+        this.f64961e = UUID.randomUUID().toString();
+        n = this.f64957a.b();
+        this.f64964h = j;
+        this.f64965i = z;
         this.j = 0L;
-        if (r0.f64363b) {
-            r0.a("startSession, " + this.f64275e + ", hadUi:" + z + " data:" + zVar, null);
+        if (r0.f65049b) {
+            r0.a("startSession, " + this.f64961e + ", hadUi:" + z + " data:" + zVar, null);
         }
         if (z) {
             Calendar calendar = Calendar.getInstance();
             String str = "" + calendar.get(1) + calendar.get(2) + calendar.get(5);
             if (TextUtils.isEmpty(this.l)) {
-                this.l = this.f64271a.w();
-                this.k = this.f64271a.y();
+                this.l = this.f64957a.w();
+                this.k = this.f64957a.y();
             }
             if (!str.equals(this.l)) {
                 this.l = str;
@@ -120,24 +120,24 @@ public class e2 {
             } else {
                 this.k++;
             }
-            this.f64271a.s(str, this.k);
-            this.f64277g = 0;
+            this.f64957a.s(str, this.k);
+            this.f64963g = 0;
         }
         if (j != -1) {
             f0 f0Var = new f0();
-            f0Var.f64415g = this.f64275e;
-            f0Var.f64414f = a(this.f64271a);
-            f0Var.f64413e = this.f64278h;
-            f0Var.n = this.f64272b.m();
-            f0Var.m = this.f64272b.l();
-            if (this.f64271a.R()) {
-                f0Var.f64417i = d.b.b.a.c();
+            f0Var.f65101g = this.f64961e;
+            f0Var.f65100f = a(this.f64957a);
+            f0Var.f65099e = this.f64964h;
+            f0Var.n = this.f64958b.m();
+            f0Var.m = this.f64958b.l();
+            if (this.f64957a.R()) {
+                f0Var.f65103i = d.b.b.a.c();
                 f0Var.j = d.b.b.a.d();
             }
             arrayList.add(f0Var);
             this.m = f0Var;
-            if (r0.f64363b) {
-                r0.a("gen launch, " + f0Var.f64415g + ", hadUi:" + z, null);
+            if (r0.f65049b) {
+                r0.a("gen launch, " + f0Var.f65101g + ", hadUi:" + z, null);
             }
         }
     }
@@ -146,15 +146,15 @@ public class e2 {
         boolean z = zVar instanceof h0;
         boolean e2 = e(zVar);
         boolean z2 = true;
-        if (this.f64278h == -1) {
+        if (this.f64964h == -1) {
             d(zVar, arrayList, e(zVar));
-        } else if (!this.f64279i && e2) {
+        } else if (!this.f64965i && e2) {
             d(zVar, arrayList, true);
         } else {
             long j = this.j;
-            if (j != 0 && zVar.f64413e > j + this.f64271a.T()) {
+            if (j != 0 && zVar.f65099e > j + this.f64957a.T()) {
                 d(zVar, arrayList, e2);
-            } else if (this.f64278h > zVar.f64413e + MainTabActivity.SERVICE_BETWEEN_TIME) {
+            } else if (this.f64964h > zVar.f65099e + MainTabActivity.SERVICE_BETWEEN_TIME) {
                 d(zVar, arrayList, e2);
             } else {
                 z2 = false;
@@ -163,33 +163,33 @@ public class e2 {
         if (z) {
             h0 h0Var = (h0) zVar;
             if (h0Var.p()) {
-                this.f64276f = zVar.f64413e;
+                this.f64962f = zVar.f65099e;
                 this.j = 0L;
                 arrayList.add(zVar);
                 if (TextUtils.isEmpty(h0Var.n)) {
-                    h0 h0Var2 = this.f64274d;
-                    if (h0Var2 != null && (h0Var.f64413e - h0Var2.f64413e) - h0Var2.m < 500) {
+                    h0 h0Var2 = this.f64960d;
+                    if (h0Var2 != null && (h0Var.f65099e - h0Var2.f65099e) - h0Var2.m < 500) {
                         h0Var.n = h0Var2.o;
                     } else {
-                        h0 h0Var3 = this.f64273c;
-                        if (h0Var3 != null && (h0Var.f64413e - h0Var3.f64413e) - h0Var3.m < 500) {
+                        h0 h0Var3 = this.f64959c;
+                        if (h0Var3 != null && (h0Var.f65099e - h0Var3.f65099e) - h0Var3.m < 500) {
                             h0Var.n = h0Var3.o;
                         }
                     }
                 }
             } else {
-                Bundle b2 = b(zVar.f64413e, 0L);
+                Bundle b2 = b(zVar.f65099e, 0L);
                 if (b2 != null) {
                     d.b.b.a.q("play_session", b2);
                 }
-                this.f64276f = 0L;
-                this.j = h0Var.f64413e;
+                this.f64962f = 0L;
+                this.j = h0Var.f65099e;
                 arrayList.add(zVar);
                 if (h0Var.q()) {
-                    this.f64273c = h0Var;
+                    this.f64959c = h0Var;
                 } else {
-                    this.f64274d = h0Var;
-                    this.f64273c = null;
+                    this.f64960d = h0Var;
+                    this.f64959c = null;
                 }
             }
         } else if (!(zVar instanceof b)) {
@@ -201,18 +201,18 @@ public class e2 {
 
     public void g(z zVar) {
         if (zVar != null) {
-            zVar.f64416h = this.f64272b.q();
-            zVar.f64415g = this.f64275e;
-            zVar.f64414f = a(this.f64271a);
-            if (this.f64271a.R()) {
-                zVar.f64417i = d.b.b.a.c();
+            zVar.f65102h = this.f64958b.q();
+            zVar.f65101g = this.f64961e;
+            zVar.f65100f = a(this.f64957a);
+            if (this.f64957a.R()) {
+                zVar.f65103i = d.b.b.a.c();
                 zVar.j = d.b.b.a.d();
             }
         }
     }
 
     public boolean h() {
-        return this.f64279i;
+        return this.f64965i;
     }
 
     public boolean i() {

@@ -2,23 +2,23 @@ package com.ss.android.socialbase.downloader.i;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g<K, T> extends LinkedHashMap<K, T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f36890a;
+    public int f36135a;
 
     public g() {
         this(4, 4);
     }
 
     public void a(int i2) {
-        this.f36890a = i2;
+        this.f36135a = i2;
     }
 
     @Override // java.util.LinkedHashMap
     public boolean removeEldestEntry(Map.Entry<K, T> entry) {
-        return size() > this.f36890a;
+        return size() > this.f36135a;
     }
 
     public g(int i2, int i3) {

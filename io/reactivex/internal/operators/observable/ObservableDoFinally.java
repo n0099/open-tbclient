@@ -22,7 +22,7 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68276d;
+        public Disposable f68956d;
         public final Action onFinally;
         public QueueDisposable<T> qd;
         public boolean syncFused;
@@ -39,13 +39,13 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68276d.dispose();
+            this.f68956d.dispose();
             runFinally();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68276d.isDisposed();
+            return this.f68956d.isDisposed();
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -72,8 +72,8 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68276d, disposable)) {
-                this.f68276d = disposable;
+            if (DisposableHelper.validate(this.f68956d, disposable)) {
+                this.f68956d = disposable;
                 if (disposable instanceof QueueDisposable) {
                     this.qd = (QueueDisposable) disposable;
                 }

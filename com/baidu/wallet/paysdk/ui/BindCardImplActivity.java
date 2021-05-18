@@ -106,19 +106,19 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
     public GetCardInfoResponse.CertificateTypeInfo G;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f26390b;
+    public LinearLayout f25635b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EditText f26391c;
+    public EditText f25636c;
 
     /* renamed from: e  reason: collision with root package name */
-    public GetCardInfoResponse f26392e;
+    public GetCardInfoResponse f25637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f26393f;
+    public boolean f25638f;
 
     /* renamed from: i  reason: collision with root package name */
-    public BankCardInfoView f26396i;
+    public BankCardInfoView f25641i;
     public OrderConfirmation j;
     public AuthorizeInfoView k;
     public BankMsgInfoView l;
@@ -140,10 +140,10 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
     public a z;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f26394g = StatusCode.SERVICE_CODE_CARD_NUMBER_MAYBE_ERROR;
+    public int f25639g = StatusCode.SERVICE_CODE_CARD_NUMBER_MAYBE_ERROR;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26395h = false;
+    public boolean f25640h = false;
     public StringBuilder x = new StringBuilder();
     public boolean D = true;
     public String E = "";
@@ -154,17 +154,17 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<c> f26459a;
+        public WeakReference<c> f25704a;
 
         public a(c cVar) {
-            this.f26459a = new WeakReference<>(cVar);
+            this.f25704a = new WeakReference<>(cVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             WeakReference<c> weakReference;
             super.handleMessage(message);
-            if (message.what == 0 && (weakReference = this.f26459a) != null) {
+            if (message.what == 0 && (weakReference = this.f25704a) != null) {
                 weakReference.get().showBindCardDialog();
             }
         }
@@ -174,19 +174,19 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public CharSequence f26460a;
+        public CharSequence f25705a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CharSequence f26461b;
+        public CharSequence f25706b;
 
         /* renamed from: c  reason: collision with root package name */
-        public CharSequence f26462c;
+        public CharSequence f25707c;
 
         /* renamed from: d  reason: collision with root package name */
-        public CharSequence f26463d;
+        public CharSequence f25708d;
 
         /* renamed from: e  reason: collision with root package name */
-        public CharSequence f26464e;
+        public CharSequence f25709e;
 
         public b() {
         }
@@ -208,7 +208,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public EditText B() {
-        return this.f26391c;
+        return this.f25636c;
     }
 
     private boolean n() {
@@ -257,17 +257,17 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
     }
 
     private void s() {
-        DivisionEditText cardNoView = this.f26396i.getCardNoView();
+        DivisionEditText cardNoView = this.f25641i.getCardNoView();
         cardNoView.addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.9
 
             /* renamed from: a  reason: collision with root package name */
-            public boolean f26457a = false;
+            public boolean f25702a = false;
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (!this.f26457a) {
+                if (!this.f25702a) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.CLICK_INPUT_CARD_NO);
-                    this.f26457a = true;
+                    this.f25702a = true;
                 }
                 BindCardImplActivity.this.y();
             }
@@ -280,7 +280,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
             public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             }
         });
-        this.f26396i.setTipClick(this);
+        this.f25641i.setTipClick(this);
         cardNoView.setOnMyFocusChangeListener(this);
     }
 
@@ -288,31 +288,31 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         CardData.BondCard bondCard;
         int currentStep = getCurrentStep();
         if (currentStep == 0) {
-            this.mScrollView.dismissKeyBoard(this.f26396i.getCardNoView());
+            this.mScrollView.dismissKeyBoard(this.f25641i.getCardNoView());
             a("");
             return;
         }
         if (currentStep != 1) {
             return;
         }
-        if (!this.f26396i.getCardNoView().isEnabled()) {
+        if (!this.f25641i.getCardNoView().isEnabled()) {
             BindFastRequest bindFastRequest = this.mBindReq;
             if (bindFastRequest != null && (bondCard = bindFastRequest.mBondCard) != null) {
                 this.E = bondCard.account_no;
             }
         } else {
-            this.E = this.f26396i.getCardNoView().getRealText();
+            this.E = this.f25641i.getCardNoView().getRealText();
         }
         if (TextUtils.isEmpty(this.E)) {
             StringBuilder sb = new StringBuilder();
             sb.append("view.isEnable:");
-            sb.append(this.f26396i.getCardNoView().isEnabled());
+            sb.append(this.f25641i.getCardNoView().isEnabled());
             if (this.mBindReq != null) {
                 sb.append(";mBindReq.mBondCard(isNull):");
                 sb.append(this.mBindReq.mBondCard == null);
             }
             sb.append("; realText:");
-            sb.append(this.f26396i.getCardNoView().getRealText());
+            sb.append(this.f25641i.getCardNoView().getRealText());
             PayStatisticsUtil.onEventEndWithValue("bindcard.cardNo", -1, sb.toString());
         }
         BindFastRequest bindFastRequest2 = this.mBindReq;
@@ -356,13 +356,13 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
             }
             return k() && l();
         }
-        if (!this.f26396i.getCardNoView().isEnabled()) {
+        if (!this.f25641i.getCardNoView().isEnabled()) {
             CardData.BondCard bondCard = this.mBindReq.mBondCard;
             if (bondCard != null) {
                 this.E = bondCard.account_no;
             }
         } else {
-            this.E = this.f26396i.getCardNoView().getRealText();
+            this.E = this.f25641i.getCardNoView().getRealText();
         }
         return j();
     }
@@ -401,33 +401,33 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
     */
     public boolean y() {
         boolean z;
-        this.f26396i.getClearView().setVisibility(8);
+        this.f25641i.getClearView().setVisibility(8);
         View currentFocus = getWindow().getCurrentFocus();
-        String realText = this.f26396i.getCardNoView().getRealText();
-        if (this.f26396i.getCardNoView().isEnabled() && getCurrentStep() != 0 && !realText.equals(this.E)) {
+        String realText = this.f25641i.getCardNoView().getRealText();
+        if (this.f25641i.getCardNoView().isEnabled() && getCurrentStep() != 0 && !realText.equals(this.E)) {
             resetCardInfoState();
             this.F = "";
         }
         boolean z2 = false;
         if (currentFocus != null) {
-            if (currentFocus.getId() == this.f26396i.getCardNoView().getId() && this.f26396i.getCardNoView().isEnabled()) {
+            if (currentFocus.getId() == this.f25641i.getCardNoView().getId() && this.f25641i.getCardNoView().isEnabled()) {
                 if (!TextUtils.isEmpty(realText)) {
-                    this.f26396i.getClearView().setVisibility(0);
-                    this.f26396i.setTipDel();
+                    this.f25641i.getClearView().setVisibility(0);
+                    this.f25641i.setTipDel();
                 } else {
                     if (this.mBindCardController.y()) {
-                        this.f26396i.getClearView().setVisibility(0);
+                        this.f25641i.getClearView().setVisibility(0);
                     } else {
-                        this.f26396i.getClearView().setVisibility(8);
+                        this.f25641i.getClearView().setVisibility(8);
                     }
-                    this.f26396i.setTipScan();
+                    this.f25641i.setTipScan();
                 }
             } else {
-                this.f26396i.getClearView().setVisibility(8);
+                this.f25641i.getClearView().setVisibility(8);
             }
         }
         boolean z3 = true;
-        if (this.f26396i.getCardNoView().getVisibility() == 0) {
+        if (this.f25641i.getCardNoView().getVisibility() == 0) {
             if (!TextUtils.isEmpty(realText) && realText.length() >= 10) {
                 String substring = realText.substring(0, 10);
                 GetCardInfoResponse.CardInfo cardInfo = this.w;
@@ -481,7 +481,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
     }
 
     public void handleBindOtherCard() {
-        BankCardInfoView bankCardInfoView = this.f26396i;
+        BankCardInfoView bankCardInfoView = this.f25641i;
         if (bankCardInfoView != null) {
             bankCardInfoView.getCardNoView().getText().clear();
         }
@@ -495,7 +495,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
             PayRequestCache.getInstance().clearPaySdkRequestCache();
             PayBaseBeanActivity.exitEbpay();
         } else if (i2 == 4) {
-            GetCardInfoResponse getCardInfoResponse = this.f26392e;
+            GetCardInfoResponse getCardInfoResponse = this.f25637e;
             PayStatisticsUtil.onEventEndWithValue(StatServiceEvent.GET_CARD_INFO, i3, (getCardInfoResponse == null || (channelInfo = getCardInfoResponse.channel_info) == null) ? "0" : channelInfo.channel_no);
             WalletGlobalUtils.safeDismissDialog(this, -2);
             this.mDialogMsg = str;
@@ -504,8 +504,8 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
             } else if (i3 == 100040 || i3 == 100026) {
                 WalletGlobalUtils.safeShowDialog(this, 3, "");
             } else if (i3 == 100028) {
-                this.f26394g = i3;
-                this.f26395h = false;
+                this.f25639g = i3;
+                this.f25640h = false;
                 WalletGlobalUtils.safeShowDialog(this, 33, "");
             } else {
                 WalletGlobalUtils.safeShowDialog(this, 12, "");
@@ -543,8 +543,8 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
             if (cardInfo != null) {
                 String str2 = cardInfo.bank_name;
                 this.w = cardInfo;
-                if (this.f26396i.getCardNoView() != null && !TextUtils.isEmpty(this.f26396i.getCardNoView().getText())) {
-                    this.w.bank_no = this.f26396i.getCardNoView().getText().toString();
+                if (this.f25641i.getCardNoView() != null && !TextUtils.isEmpty(this.f25641i.getCardNoView().getText())) {
+                    this.w.bank_no = this.f25641i.getCardNoView().getText().toString();
                 }
             }
             PayStatisticsUtil.onEventEnd(StatServiceEvent.CARD_BIN, 0);
@@ -552,35 +552,35 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         } else if (i2 == 4) {
             WalletGlobalUtils.safeDismissDialog(this, -2);
             GetCardInfoResponse getCardInfoResponse = (GetCardInfoResponse) obj;
-            this.f26392e = getCardInfoResponse;
+            this.f25637e = getCardInfoResponse;
             if (getCardInfoResponse == null) {
                 return;
             }
             GetCardInfoResponse.ChannelInfo channelInfo = getCardInfoResponse.channel_info;
             PayStatisticsUtil.onEventEndWithValue(StatServiceEvent.GET_CARD_INFO, 0, channelInfo != null ? channelInfo.channel_no : "0");
-            this.f26394g = -1;
+            this.f25639g = -1;
             this.mDialogMsg = "";
-            Map<String, String> map = this.f26392e.cashdesk;
+            Map<String, String> map = this.f25637e.cashdesk;
             if (map != null && map.size() > 0) {
-                PayDataCache.getInstance().setSessionData(this.f26392e.cashdesk);
+                PayDataCache.getInstance().setSessionData(this.f25637e.cashdesk);
             }
-            GetCardInfoResponse.Algorithm algorithm = this.f26392e.algorithm_check_info;
+            GetCardInfoResponse.Algorithm algorithm = this.f25637e.algorithm_check_info;
             if (algorithm != null && (i3 = algorithm.code) == 100027) {
-                this.f26394g = i3;
+                this.f25639g = i3;
                 this.mDialogMsg = algorithm.msg;
-                this.f26395h = false;
+                this.f25640h = false;
                 WalletGlobalUtils.safeShowDialog(this, 33, "");
                 return;
             }
-            GetCardInfoResponse.BindCardInfo bindCardInfo = this.f26392e.bind_card_info;
+            GetCardInfoResponse.BindCardInfo bindCardInfo = this.f25637e.bind_card_info;
             if (bindCardInfo != null && !TextUtils.isEmpty(bindCardInfo.bind_card_desc)) {
-                this.f26394g = StatusCode.SERVICE_CODE_CARD_NUMBER_MAYBE_ERROR;
-                this.mDialogMsg = this.f26392e.bind_card_info.bind_card_desc;
-                this.f26395h = true;
+                this.f25639g = StatusCode.SERVICE_CODE_CARD_NUMBER_MAYBE_ERROR;
+                this.mDialogMsg = this.f25637e.bind_card_info.bind_card_desc;
+                this.f25640h = true;
                 WalletGlobalUtils.safeShowDialog(this, 33, "");
                 return;
             }
-            a(this.f26392e);
+            a(this.f25637e);
         } else if (i2 != 5 && i2 != 17) {
             if (i2 == 13) {
                 WalletGlobalUtils.safeDismissDialog(this.mAct, 0);
@@ -617,7 +617,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
                 }
                 extras.putString(BeanConstants.UPDATE_MOBILE_DESC, checkCardInfoResponse.update_mobile_desc);
                 extras.putInt(BeanConstants.SMS_ACTIVITY_FROM_KEY, this.mBindReq.getmBindFrom() == 1 ? 7 : 0);
-                PayRequestCache.BindCategory bindCategory = ((BindCardBaseActivity) this).f26374a;
+                PayRequestCache.BindCategory bindCategory = ((BindCardBaseActivity) this).f25619a;
                 if (bindCategory == null) {
                     bindCategory = PayRequestCache.BindCategory.Other;
                 }
@@ -636,7 +636,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
                 intent.putExtra(BeanConstants.SMS_ACTIVITY_FOR_COMPLETION_PAY, false);
                 intent.putExtra(BeanConstants.SMS_ACTIVITY_FROM_KEY, 0);
                 intent.putExtra(BeanConstants.KEY_SEND_SMS_AUTO, false);
-                PayRequestCache.BindCategory bindCategory2 = ((BindCardBaseActivity) this).f26374a;
+                PayRequestCache.BindCategory bindCategory2 = ((BindCardBaseActivity) this).f25619a;
                 if (bindCategory2 == null) {
                     bindCategory2 = PayRequestCache.BindCategory.Other;
                 }
@@ -649,15 +649,15 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
     @Override // com.baidu.wallet.paysdk.ui.BindCardBaseActivity
     public void initSafeKeyBoard() {
         if (isShowWithHalfScreeen()) {
-            SafeKeyBoardEditText[] safeKeyBoardEditTextArr = {this.f26396i.getCardNoView(), this.mBankCvv2InfoView.getDateInputView(), this.mBankCvv2InfoView.getCvv2InputView(), this.mBankUserInfoView.getTrueNameText(), this.mBankUserInfoView.getIdEditText(), this.mBankUserInfoView.getMobileEditText()};
+            SafeKeyBoardEditText[] safeKeyBoardEditTextArr = {this.f25641i.getCardNoView(), this.mBankCvv2InfoView.getDateInputView(), this.mBankCvv2InfoView.getCvv2InputView(), this.mBankUserInfoView.getTrueNameText(), this.mBankUserInfoView.getIdEditText(), this.mBankUserInfoView.getMobileEditText()};
             for (int i2 = 0; i2 < 6; i2++) {
                 SafeKeyBoardEditText safeKeyBoardEditText = safeKeyBoardEditTextArr[i2];
                 safeKeyBoardEditText.setOnMyFocusChangeListener(this);
                 safeKeyBoardEditText.initSafeKeyBoardParams(this.mRootView, this.mScrollView, (View) safeKeyBoardEditText.getTag(), false);
             }
-        } else if (this.f26396i.getCardNoView().isEnabled()) {
-            this.f26396i.getCardNoView().setOnMyFocusChangeListener(this);
-            this.f26396i.getCardNoView().initSafeKeyBoardParams(this.mRootView, this.mScrollView, this.m.getVisibility() == 0 ? this.m : this.s.getVisibility() == 0 ? this.s : this.n, false);
+        } else if (this.f25641i.getCardNoView().isEnabled()) {
+            this.f25641i.getCardNoView().setOnMyFocusChangeListener(this);
+            this.f25641i.getCardNoView().initSafeKeyBoardParams(this.mRootView, this.mScrollView, this.m.getVisibility() == 0 ? this.m : this.s.getVisibility() == 0 ? this.s : this.n, false);
         }
         super.initSafeKeyBoard();
     }
@@ -680,7 +680,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         if (payRequest != null) {
             payRequest.clearMktSolution();
         }
-        if (!this.f26393f) {
+        if (!this.f25638f) {
             A();
         }
         if (this.mBindReq.getmBindFrom() == 1) {
@@ -690,7 +690,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         } else if (this.mBindReq.getmBindFrom() == 5) {
             PayController.getInstance().bindFail(this, "");
             finish();
-        } else if (this.f26393f) {
+        } else if (this.f25638f) {
             x();
         } else if (this.mBindReq.getmBindFrom() != 2 && (this.mBindReq.getmBindFrom() != 0 || !PayDataCache.getInstance().isFromPreCashier())) {
             super.onBackPressed();
@@ -708,13 +708,13 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
                 PayController.getInstance().gotoDiscountPage(this);
             }
         } else if (v()) {
-            BankCardInfoView bankCardInfoView = this.f26396i;
+            BankCardInfoView bankCardInfoView = this.f25641i;
             if (bankCardInfoView != null) {
                 String scanCardNum = bankCardInfoView.getScanCardNum();
-                if (!TextUtils.isEmpty(scanCardNum) && !scanCardNum.equals(this.f26396i.getCardNoView().getRealText())) {
+                if (!TextUtils.isEmpty(scanCardNum) && !scanCardNum.equals(this.f25641i.getCardNoView().getRealText())) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.STAT_CHANGENUMAFTSCAN);
                 }
-                this.f26396i.resetScanCardNum();
+                this.f25641i.resetScanCardNum();
             }
             t();
         }
@@ -733,18 +733,18 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
             this.D = false;
         }
         if (bundle == null) {
-            this.f26393f = getIntent().getBooleanExtra(BindFastRequest.BIND_IS_FIRST, false);
+            this.f25638f = getIntent().getBooleanExtra(BindFastRequest.BIND_IS_FIRST, false);
             Serializable serializableExtra = getIntent().getSerializableExtra("cardinforesponse");
             if (serializableExtra != null && (serializableExtra instanceof GetCardInfoResponse)) {
                 this.v = (GetCardInfoResponse) serializableExtra;
             }
         } else {
-            this.f26393f = bundle.getBoolean("isFrist", false);
-            this.f26395h = bundle.getBoolean("bindTipFromActivity", false);
-            if (this.f26392e == null) {
+            this.f25638f = bundle.getBoolean("isFrist", false);
+            this.f25640h = bundle.getBoolean("bindTipFromActivity", false);
+            if (this.f25637e == null) {
                 Serializable serializable = bundle.getSerializable("cacheResult");
                 if (serializable != null && (serializable instanceof GetCardInfoResponse)) {
-                    this.f26392e = (GetCardInfoResponse) serializable;
+                    this.f25637e = (GetCardInfoResponse) serializable;
                 }
                 Serializable serializable2 = bundle.getSerializable("cardinforesponse");
                 if (serializable2 != null && (serializable2 instanceof GetCardInfoResponse)) {
@@ -799,7 +799,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         a(view, z);
         if (z) {
             if (view instanceof EditText) {
-                this.f26391c = (EditText) view;
+                this.f25636c = (EditText) view;
             }
             z();
         } else {
@@ -842,25 +842,25 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
                 findViewById.setLayoutParams(layoutParams);
             }
         }
-        if (view == this.f26396i.getCardNoView()) {
+        if (view == this.f25641i.getCardNoView()) {
             if (z) {
                 y();
-            } else if (this.f26396i.getCardNoView().isEnabled()) {
+            } else if (this.f25641i.getCardNoView().isEnabled()) {
                 if (this.mBindCardController.y()) {
-                    this.f26396i.getClearView().setVisibility(0);
+                    this.f25641i.getClearView().setVisibility(0);
                 } else {
-                    this.f26396i.getClearView().setVisibility(8);
+                    this.f25641i.getClearView().setVisibility(8);
                 }
-                this.f26396i.setTipScan();
+                this.f25641i.setTipScan();
             } else {
-                this.f26396i.getClearView().setVisibility(8);
+                this.f25641i.getClearView().setVisibility(8);
             }
             com.baidu.wallet.paysdk.ui.widget.a.a(view, false, z);
         } else {
             a(view, z);
             if (z) {
                 if (view instanceof EditText) {
-                    this.f26391c = (EditText) view;
+                    this.f25636c = (EditText) view;
                 }
                 z();
                 this.mBankCvv2InfoView.getCvv2InputView();
@@ -942,34 +942,34 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         } else if (i2 == 33) {
             PromptDialog promptDialog3 = (PromptDialog) dialog;
             promptDialog3.setMessage(this.mDialogMsg);
-            if (!this.f26395h && !TextUtils.isEmpty(this.E)) {
-                if (this.f26395h) {
+            if (!this.f25640h && !TextUtils.isEmpty(this.E)) {
+                if (this.f25640h) {
                     promptDialog3.setTitleText(ResUtils.string(getActivity(), "ebpay_tip"));
                 } else {
                     promptDialog3.setTitleText(formatCardNo(this.E));
                 }
             }
             promptDialog3.setCanceledOnTouchOutside(false);
-            promptDialog3.setNegativeBtn(ResUtils.string(getActivity(), this.f26395h ? "ebpay_choose_bind_sure" : "ebpay_choose_modify_card"), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.13
+            promptDialog3.setNegativeBtn(ResUtils.string(getActivity(), this.f25640h ? "ebpay_choose_bind_sure" : "ebpay_choose_modify_card"), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.13
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     WalletGlobalUtils.safeDismissDialog(BindCardImplActivity.this, 33);
                 }
             });
-            promptDialog3.setPositiveBtn(ResUtils.string(getActivity(), this.f26395h ? "ebpay_choose_bind_continue" : "ebpay_choose_confirm"), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.14
+            promptDialog3.setPositiveBtn(ResUtils.string(getActivity(), this.f25640h ? "ebpay_choose_bind_continue" : "ebpay_choose_confirm"), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.14
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.CLICK_CONFIRM_CARDNO);
                     WalletGlobalUtils.safeDismissDialog(BindCardImplActivity.this, 33);
-                    if (BindCardImplActivity.this.f26394g != 100027) {
-                        if (BindCardImplActivity.this.f26394g == 100028) {
+                    if (BindCardImplActivity.this.f25639g != 100027) {
+                        if (BindCardImplActivity.this.f25639g == 100028) {
                             BindCardImplActivity.this.a(true);
                             return;
                         }
                         return;
                     }
                     BindCardImplActivity bindCardImplActivity = BindCardImplActivity.this;
-                    bindCardImplActivity.a(bindCardImplActivity.f26392e);
+                    bindCardImplActivity.a(bindCardImplActivity.f25637e);
                 }
             });
         } else if (i2 == 629128) {
@@ -1019,7 +1019,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
 
     @Override // com.baidu.wallet.paysdk.ui.BindCardBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        GetCardInfoResponse getCardInfoResponse = this.f26392e;
+        GetCardInfoResponse getCardInfoResponse = this.f25637e;
         if (getCardInfoResponse != null) {
             bundle.putSerializable("cacheResult", getCardInfoResponse);
         }
@@ -1027,8 +1027,8 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         if (getCardInfoResponse2 != null) {
             bundle.putSerializable("cardinforesponse", getCardInfoResponse2);
         }
-        bundle.putBoolean("bindTipFromActivity", this.f26395h);
-        bundle.putBoolean("is_first", this.f26393f);
+        bundle.putBoolean("bindTipFromActivity", this.f25640h);
+        bundle.putBoolean("is_first", this.f25638f);
         super.onSaveInstanceState(bundle);
     }
 
@@ -1041,7 +1041,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
             this.mBindReq.setmBankCard("");
             this.G = null;
             this.F = "";
-            this.f26391c = null;
+            this.f25636c = null;
             this.mBindCardController.b(null);
             this.m.setVisibility(8);
             this.l.setVisibility(8);
@@ -1105,7 +1105,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         intent.putExtra(BeanConstants.EXTRA_VERIFY_VOICE_DATA, verify);
         intent.putExtra(BeanConstants.KEY_SMS_HINT, str);
         intent.putExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, i2);
-        PayRequestCache.BindCategory bindCategory = ((BindCardBaseActivity) this).f26374a;
+        PayRequestCache.BindCategory bindCategory = ((BindCardBaseActivity) this).f25619a;
         if (bindCategory == null) {
             bindCategory = PayRequestCache.BindCategory.Other;
         }
@@ -1246,8 +1246,8 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
 
     @Override // com.baidu.wallet.paysdk.ui.BindCardBaseActivity
     public void updateChangeCard() {
-        if (this.f26396i.getCardNoView().isEnabled()) {
-            this.f26396i.getCardNoView().requestFocus();
+        if (this.f25641i.getCardNoView().isEnabled()) {
+            this.f25641i.getCardNoView().requestFocus();
         }
     }
 
@@ -1405,14 +1405,14 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         b bVar = new b();
         BankCvv2InfoView bankCvv2InfoView = this.mBankCvv2InfoView;
         if (bankCvv2InfoView != null) {
-            bVar.f26461b = bankCvv2InfoView.getCvv2InputView().getEditableText().toString();
-            bVar.f26462c = this.mBankCvv2InfoView.getDateInputView().getEditableText().toString();
+            bVar.f25706b = bankCvv2InfoView.getCvv2InputView().getEditableText().toString();
+            bVar.f25707c = this.mBankCvv2InfoView.getDateInputView().getEditableText().toString();
         }
         BankUserInfoView bankUserInfoView = this.mBankUserInfoView;
         if (bankUserInfoView != null) {
-            bVar.f26460a = bankUserInfoView.getTrueNameText().getEditableText().toString();
-            bVar.f26463d = this.mBankUserInfoView.getIdEditText().getEditableText().toString();
-            bVar.f26464e = this.mBankUserInfoView.getMobileEditText().getEditableText().toString();
+            bVar.f25705a = bankUserInfoView.getTrueNameText().getEditableText().toString();
+            bVar.f25708d = this.mBankUserInfoView.getIdEditText().getEditableText().toString();
+            bVar.f25709e = this.mBankUserInfoView.getMobileEditText().getEditableText().toString();
         }
         return bVar;
     }
@@ -1421,11 +1421,11 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         CardData.BondCard bondCard;
         a aVar;
         if (this.mBindCardController.g()) {
-            this.f26396i.setTrueName(this.mBindCardController.h());
+            this.f25641i.setTrueName(this.mBindCardController.h());
         } else {
-            this.f26396i.setTrueName("");
+            this.f25641i.setTrueName("");
         }
-        this.f26396i.setBindcardTip(this.mBindCardController.D());
+        this.f25641i.setBindcardTip(this.mBindCardController.D());
         this.j.setDiscountInfoVisiable(this.mBindCardController.e());
         this.q.setVisibility(this.mBindCardController.b() ? 0 : 8);
         ArrayList<CharSequence> z = this.mBindCardController.z();
@@ -1470,19 +1470,19 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         }
         boolean q = this.mBindCardController.q();
         if (q) {
-            this.f26396i.getCardNoView().setEnabled(true);
-            this.f26396i.getCardNoView().setFormatEnable(true);
-            this.f26396i.getCardNoView().requestFocus();
+            this.f25641i.getCardNoView().setEnabled(true);
+            this.f25641i.getCardNoView().setFormatEnable(true);
+            this.f25641i.getCardNoView().requestFocus();
         } else {
-            this.f26396i.getCardNoView().setEnabled(false);
-            this.f26396i.getCardNoView().setFormatEnable(false);
-            this.f26396i.getClearView().setVisibility(8);
+            this.f25641i.getCardNoView().setEnabled(false);
+            this.f25641i.getCardNoView().setFormatEnable(false);
+            this.f25641i.getClearView().setVisibility(8);
         }
         if (q) {
-            this.f26396i.getCardNoView().setMyHint(this.mBindCardController.p(), "ebpay_bind_card_edittext_hint_txt_size");
+            this.f25641i.getCardNoView().setMyHint(this.mBindCardController.p(), "ebpay_bind_card_edittext_hint_txt_size");
         } else {
-            this.f26396i.getCardNoView().setMyHint(this.mBindCardController.p(), "wallet_base_level18Font");
-            this.f26396i.getCardNoView().setHintTextColor(ResUtils.getColor(this.mAct, "wallet_base_font_text3Color"));
+            this.f25641i.getCardNoView().setMyHint(this.mBindCardController.p(), "wallet_base_level18Font");
+            this.f25641i.getCardNoView().setHintTextColor(ResUtils.getColor(this.mAct, "wallet_base_font_text3Color"));
         }
         BindFastRequest bindFastRequest = this.mBindReq;
         if (bindFastRequest != null && bindFastRequest.getmBondCard() != null && !TextUtils.isEmpty(this.mBindReq.getmBondCard().card_required_msg)) {
@@ -1520,7 +1520,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         this.t = (LinearLayout) findViewById(ResUtils.id(getActivity(), "bindcard_root_view"));
         this.r = (TextView) findViewById(ResUtils.id(getActivity(), "bindcard_onecentsdecs"));
         BankCardInfoView bankCardInfoView = (BankCardInfoView) findViewById(ResUtils.id(getActivity(), "bindcard_cardinfo"));
-        this.f26396i = bankCardInfoView;
+        this.f25641i = bankCardInfoView;
         bankCardInfoView.configDetectCardNum(this.D);
         this.j = (OrderConfirmation) findViewById(ResUtils.id(getActivity(), "bindcard_amount"));
         this.k = (AuthorizeInfoView) findViewById(ResUtils.id(getActivity(), "auth_info_view"));
@@ -1619,16 +1619,16 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         this.mBankUserInfoView.getTrueNameText().addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.30
 
             /* renamed from: b  reason: collision with root package name */
-            public boolean f26445b = false;
+            public boolean f25690b = false;
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 BindCardImplActivity.this.mBankUserInfoView.setTrueNameRedColor(false);
                 BankUserInfoView bankUserInfoView = BindCardImplActivity.this.mBankUserInfoView;
-                bankUserInfoView.hideErrorLayoutWithTag(bankUserInfoView.getTrueNameText(), BindCardImplActivity.this.mBankUserInfoView.getTrueNameText() == BindCardImplActivity.this.f26391c);
-                if (!this.f26445b) {
+                bankUserInfoView.hideErrorLayoutWithTag(bankUserInfoView.getTrueNameText(), BindCardImplActivity.this.mBankUserInfoView.getTrueNameText() == BindCardImplActivity.this.f25636c);
+                if (!this.f25690b) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.CLICK_INPUT_TRUE_NAME);
-                    this.f26445b = true;
+                    this.f25690b = true;
                 }
                 BindCardImplActivity.this.z();
                 BindCardImplActivity bindCardImplActivity = BindCardImplActivity.this;
@@ -1647,7 +1647,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         this.mBankUserInfoView.getIdEditText().addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.31
 
             /* renamed from: b  reason: collision with root package name */
-            public boolean f26447b = false;
+            public boolean f25692b = false;
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
@@ -1657,10 +1657,10 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
                 }
                 BindCardImplActivity.this.mBankUserInfoView.setIdTipRedColor(false);
                 BankUserInfoView bankUserInfoView = BindCardImplActivity.this.mBankUserInfoView;
-                bankUserInfoView.hideErrorLayoutWithTag(bankUserInfoView.getIdEditText(), BindCardImplActivity.this.mBankUserInfoView.getIdEditText() == BindCardImplActivity.this.f26391c);
-                if (!this.f26447b) {
+                bankUserInfoView.hideErrorLayoutWithTag(bankUserInfoView.getIdEditText(), BindCardImplActivity.this.mBankUserInfoView.getIdEditText() == BindCardImplActivity.this.f25636c);
+                if (!this.f25692b) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.CLICK_INPUT_ID_CARD);
-                    this.f26447b = true;
+                    this.f25692b = true;
                 }
                 BindCardImplActivity.this.z();
                 BindCardImplActivity bindCardImplActivity = BindCardImplActivity.this;
@@ -1679,7 +1679,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         this.mBankUserInfoView.getMobileEditText().addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.32
 
             /* renamed from: b  reason: collision with root package name */
-            public boolean f26449b = false;
+            public boolean f25694b = false;
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
@@ -1689,10 +1689,10 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
                 }
                 BindCardImplActivity.this.mBankUserInfoView.setMobileRedColor(false);
                 BankUserInfoView bankUserInfoView = BindCardImplActivity.this.mBankUserInfoView;
-                bankUserInfoView.hideErrorLayoutWithTag(bankUserInfoView.getMobileEditText(), BindCardImplActivity.this.mBankUserInfoView.getMobileEditText() == BindCardImplActivity.this.f26391c);
-                if (!this.f26449b) {
+                bankUserInfoView.hideErrorLayoutWithTag(bankUserInfoView.getMobileEditText(), BindCardImplActivity.this.mBankUserInfoView.getMobileEditText() == BindCardImplActivity.this.f25636c);
+                if (!this.f25694b) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.CLICK_INPUT_MOBILE_NO);
-                    this.f26449b = true;
+                    this.f25694b = true;
                 }
                 BindCardImplActivity.this.z();
                 BindCardImplActivity bindCardImplActivity = BindCardImplActivity.this;
@@ -1717,16 +1717,16 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         this.mBankCvv2InfoView.getDateInputView().addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.33
 
             /* renamed from: a  reason: collision with root package name */
-            public boolean f26450a = false;
+            public boolean f25695a = false;
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 BindCardImplActivity.this.mBankCvv2InfoView.setValidDateRedColor(false);
                 BankCvv2InfoView bankCvv2InfoView = BindCardImplActivity.this.mBankCvv2InfoView;
-                bankCvv2InfoView.hideErrorLayoutWithTag(bankCvv2InfoView.getDateInputView(), BindCardImplActivity.this.mBankCvv2InfoView.getDateInputView() == BindCardImplActivity.this.f26391c);
-                if (!this.f26450a) {
+                bankCvv2InfoView.hideErrorLayoutWithTag(bankCvv2InfoView.getDateInputView(), BindCardImplActivity.this.mBankCvv2InfoView.getDateInputView() == BindCardImplActivity.this.f25636c);
+                if (!this.f25695a) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.CLICK_INPUT_DATA);
-                    this.f26450a = true;
+                    this.f25695a = true;
                 }
                 String obj = BindCardImplActivity.this.mBankCvv2InfoView.getDateInputView().getText().toString();
                 if (BindCardImplActivity.this.x.toString().equals(obj)) {
@@ -1762,16 +1762,16 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         this.mBankCvv2InfoView.getCvv2InputView().addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.2
 
             /* renamed from: a  reason: collision with root package name */
-            public boolean f26417a = false;
+            public boolean f25662a = false;
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 BindCardImplActivity.this.mBankCvv2InfoView.setCNN2RedColor(false);
                 BankCvv2InfoView bankCvv2InfoView = BindCardImplActivity.this.mBankCvv2InfoView;
-                bankCvv2InfoView.hideErrorLayoutWithTag(bankCvv2InfoView.getCvv2InputView(), BindCardImplActivity.this.mBankCvv2InfoView.getCvv2InputView() == BindCardImplActivity.this.f26391c);
-                if (!this.f26417a) {
+                bankCvv2InfoView.hideErrorLayoutWithTag(bankCvv2InfoView.getCvv2InputView(), BindCardImplActivity.this.mBankCvv2InfoView.getCvv2InputView() == BindCardImplActivity.this.f25636c);
+                if (!this.f25662a) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.CLICK_INPUT_CVV2);
-                    this.f26417a = true;
+                    this.f25662a = true;
                 }
                 BindCardImplActivity.this.z();
                 BindCardImplActivity bindCardImplActivity = BindCardImplActivity.this;
@@ -1796,7 +1796,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
     }
 
     private boolean j() {
-        return (this.f26396i.getCardNoView().getVisibility() == 0 && this.f26396i.getCardNoView().isEnabled() && this.f26396i.getCardNoView().getRealText().length() < 10) ? false : true;
+        return (this.f25641i.getCardNoView().getVisibility() == 0 && this.f25641i.getCardNoView().isEnabled() && this.f25641i.getCardNoView().getRealText().length() < 10) ? false : true;
     }
 
     private boolean k() {
@@ -1821,8 +1821,8 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         imageView.setImageBitmap(drawingCache);
         final ImageView imageView2 = new ImageView(this);
         imageView2.setImageBitmap(drawingCache2);
-        this.f26390b.addView(imageView, new LinearLayout.LayoutParams(-1, -2));
-        this.f26390b.addView(imageView2, new LinearLayout.LayoutParams(-1, -2));
+        this.f25635b.addView(imageView, new LinearLayout.LayoutParams(-1, -2));
+        this.f25635b.addView(imageView2, new LinearLayout.LayoutParams(-1, -2));
         this.z.post(new Runnable() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.12
             @Override // java.lang.Runnable
             public void run() {
@@ -1842,9 +1842,9 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
                         ViewHelper.setTranslationY(imageView2, height * floatValue);
                         if (floatValue <= 0.0f) {
                             BindCardImplActivity.this.initSafeKeyBoard();
-                            BindCardImplActivity.this.f26390b.setVisibility(8);
-                            BindCardImplActivity.this.f26396i.getCardNoView().clearFocus();
-                            BindCardImplActivity.this.f26396i.getCardNoView().requestFocus();
+                            BindCardImplActivity.this.f25635b.setVisibility(8);
+                            BindCardImplActivity.this.f25641i.getCardNoView().clearFocus();
+                            BindCardImplActivity.this.f25641i.getCardNoView().requestFocus();
                         }
                     }
                 });
@@ -1858,7 +1858,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         if (!this.y) {
             initSafeKeyBoard();
         }
-        if ((this.mBindCardController instanceof g) && !this.f26396i.getCardNoView().isEnabled() && getCurrentStep() == 0) {
+        if ((this.mBindCardController instanceof g) && !this.f25641i.getCardNoView().isEnabled() && getCurrentStep() == 0) {
             this.mScrollView.setBackgroundColor(ResUtils.getColor(this.mAct, "wallet_base_whiteColor"));
             b();
         }
@@ -1877,10 +1877,10 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         this.y = true;
         this.z = new a(this);
         LinearLayout linearLayout = new LinearLayout(this);
-        this.f26390b = linearLayout;
+        this.f25635b = linearLayout;
         linearLayout.setOrientation(1);
-        this.f26390b.setBackgroundResource(ResUtils.color(this, "wallet_base_window_bg"));
-        ((ViewGroup) findViewById(16908290)).addView(this.f26390b, new FrameLayout.LayoutParams(-1, -1));
+        this.f25635b.setBackgroundResource(ResUtils.color(this, "wallet_base_window_bg"));
+        ((ViewGroup) findViewById(16908290)).addView(this.f25635b, new FrameLayout.LayoutParams(-1, -1));
         this.z.post(new Runnable() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.1
             @Override // java.lang.Runnable
             public void run() {
@@ -1893,14 +1893,14 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
         if (bVar != null) {
             BankCvv2InfoView bankCvv2InfoView = this.mBankCvv2InfoView;
             if (bankCvv2InfoView != null) {
-                bankCvv2InfoView.getCvv2InputView().setText(bVar.f26461b);
-                this.mBankCvv2InfoView.getDateInputView().setText(bVar.f26462c);
+                bankCvv2InfoView.getCvv2InputView().setText(bVar.f25706b);
+                this.mBankCvv2InfoView.getDateInputView().setText(bVar.f25707c);
             }
             BankUserInfoView bankUserInfoView = this.mBankUserInfoView;
             if (bankUserInfoView != null) {
-                bankUserInfoView.getTrueNameText().setText(bVar.f26460a);
-                this.mBankUserInfoView.getIdEditText().setText(bVar.f26463d);
-                this.mBankUserInfoView.getMobileEditText().setText(bVar.f26464e);
+                bankUserInfoView.getTrueNameText().setText(bVar.f25705a);
+                this.mBankUserInfoView.getIdEditText().setText(bVar.f25708d);
+                this.mBankUserInfoView.getMobileEditText().setText(bVar.f25709e);
             }
         }
     }
@@ -2239,7 +2239,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
     public void a(boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
         CardData.BondCard bondCard;
         if (isShowWithHalfScreeen()) {
-            SafeKeyBoardEditText[] safeKeyBoardEditTextArr = {this.f26396i.getCardNoView(), this.mBankCvv2InfoView.getDateInputView(), this.mBankCvv2InfoView.getCvv2InputView(), this.mBankUserInfoView.getIdEditText(), this.mBankUserInfoView.getMobileEditText()};
+            SafeKeyBoardEditText[] safeKeyBoardEditTextArr = {this.f25641i.getCardNoView(), this.mBankCvv2InfoView.getDateInputView(), this.mBankCvv2InfoView.getCvv2InputView(), this.mBankUserInfoView.getIdEditText(), this.mBankUserInfoView.getMobileEditText()};
             SafeKeyBoardEditText.CheckFunc checkFunc = new SafeKeyBoardEditText.CheckFunc() { // from class: com.baidu.wallet.paysdk.ui.BindCardImplActivity.24
                 @Override // com.baidu.wallet.base.widget.SafeKeyBoardEditText.CheckFunc
                 public boolean check(String str) {
@@ -2269,7 +2269,7 @@ public class BindCardImplActivity extends BindCardBaseActivity implements c {
                 com.baidu.wallet.paysdk.ui.widget.a.a(this.C, ResUtils.getString(this.mAct, "ebpay_title_complete_fixmsg"), null, null);
             }
         }
-        this.f26396i.getCardNoView().initSafeKeyBoardParams(this.mRootView, this.mScrollView, this.f26396i.getCardNoView(), false);
+        this.f25641i.getCardNoView().initSafeKeyBoardParams(this.mRootView, this.mScrollView, this.f25641i.getCardNoView(), false);
         if (z2 && this.mBankCvv2InfoView.getDateInputView().isEnabled()) {
             this.mBankCvv2InfoView.getDateInputView().setOnMyFocusChangeListener(this);
             this.mBankCvv2InfoView.getDateInputView().initSafeKeyBoardParams(this.mRootView, this.mScrollView, (View) this.mBankCvv2InfoView.getDateInputView().getTag(), false);

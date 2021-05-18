@@ -21,7 +21,7 @@ import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class YYPayUIKit {
     public static final String TAG = "YYPayUiKit";
     public static Map<String, YYPayUIKit> mPayUIKitMap = new HashMap();
@@ -33,7 +33,7 @@ public class YYPayUIKit {
     public int mUserChannel;
     public List<b> mYYPayListenerList = new ArrayList();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends d.r.b.a.a.i.a {
         public a() {
         }

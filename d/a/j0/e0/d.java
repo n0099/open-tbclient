@@ -1,54 +1,40 @@
 package d.a.j0.e0;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-/* loaded from: classes4.dex */
+import android.content.Context;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f53372a;
+    public ArrayList<b> f49299a = new ArrayList<>();
 
-    public static final d c() {
-        if (f53372a == null) {
-            synchronized (d.class) {
-                if (f53372a == null) {
-                    f53372a = new d();
-                }
+    /* renamed from: b  reason: collision with root package name */
+    public Context f49300b;
+
+    public d(Context context) {
+        this.f49300b = context;
+    }
+
+    public void a(b bVar) {
+        if (bVar == null || bVar.getFragmentTabStructure() == null) {
+            return;
+        }
+        Iterator<b> it = this.f49299a.iterator();
+        while (it.hasNext()) {
+            b next = it.next();
+            if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().f49294e == bVar.getFragmentTabStructure().f49294e) {
+                return;
             }
         }
-        return f53372a;
+        this.f49299a.add(bVar);
     }
 
-    public void a(String str, String str2) {
-        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-            return;
-        }
-        d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-        statsItem.b("workflow", "dnsproxy_error");
-        if (!TextUtils.isEmpty(str)) {
-            statsItem.b("reason", str);
-        }
-        if (!TextUtils.isEmpty(str2)) {
-            statsItem.b("comment", str2);
-        }
-        BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
+    public Context b() {
+        return this.f49300b;
     }
 
-    public void b(String str, String str2, String str3) {
-        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2) && TextUtils.isEmpty(str3)) {
-            return;
-        }
-        d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-        statsItem.b("workflow", "dnsproxy_event");
-        if (!TextUtils.isEmpty(str)) {
-            statsItem.b("key", str);
-        }
-        if (!TextUtils.isEmpty(str2)) {
-            statsItem.b("reason", str2);
-        }
-        if (!TextUtils.isEmpty(str3)) {
-            statsItem.b("comment", str3);
-        }
-        BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
+    public ArrayList<b> c() {
+        return this.f49299a;
     }
 }

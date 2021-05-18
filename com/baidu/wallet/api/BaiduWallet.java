@@ -22,7 +22,7 @@ public final class BaiduWallet implements IWalletFacade {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final IWalletFacade f23855a = (IWalletFacade) Proxy.newProxyInstance(BaiduWallet.class.getClassLoader(), new Class[]{IWalletFacade.class}, new WalletFacadeAOP(new BaiduWallet()));
+        public static final IWalletFacade f23100a = (IWalletFacade) Proxy.newProxyInstance(BaiduWallet.class.getClassLoader(), new Class[]{IWalletFacade.class}, new WalletFacadeAOP(new BaiduWallet()));
     }
 
     private void a(Application application) {
@@ -51,7 +51,7 @@ public final class BaiduWallet implements IWalletFacade {
     }
 
     public static IWalletFacade getInstance() {
-        return a.f23855a;
+        return a.f23100a;
     }
 
     @Override // com.baidu.wallet.api.IWalletPayFacade

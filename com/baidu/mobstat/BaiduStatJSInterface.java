@@ -50,30 +50,30 @@ public class BaiduStatJSInterface {
     public static class CustomWebChromeViewClient extends WebChromeClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Context> f8634a;
+        public WeakReference<Context> f8446a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WebChromeClient f8635b;
+        public WebChromeClient f8447b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<IWebviewPageLoadCallback> f8636c;
+        public ArrayList<IWebviewPageLoadCallback> f8448c;
 
         /* renamed from: d  reason: collision with root package name */
-        public bl f8637d;
+        public bl f8449d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f8638e = 0;
+        public int f8450e = 0;
 
         public CustomWebChromeViewClient(Context context, WebChromeClient webChromeClient, ArrayList<IWebviewPageLoadCallback> arrayList, bl blVar) {
-            this.f8634a = new WeakReference<>(context);
-            this.f8635b = webChromeClient;
-            this.f8636c = arrayList;
-            this.f8637d = blVar;
+            this.f8446a = new WeakReference<>(context);
+            this.f8447b = webChromeClient;
+            this.f8448c = arrayList;
+            this.f8449d = blVar;
         }
 
         @Override // android.webkit.WebChromeClient
         public void onCloseWindow(WebView webView) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onCloseWindow(webView);
             }
@@ -81,7 +81,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 return webChromeClient.onConsoleMessage(consoleMessage);
             }
@@ -90,7 +90,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public boolean onCreateWindow(WebView webView, boolean z, boolean z2, Message message) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 return webChromeClient.onCreateWindow(webView, z, z2, message);
             }
@@ -100,7 +100,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebChromeClient
         @Deprecated
         public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
             }
@@ -108,7 +108,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public void onGeolocationPermissionsHidePrompt() {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onGeolocationPermissionsHidePrompt();
             }
@@ -116,7 +116,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public void onGeolocationPermissionsShowPrompt(String str, GeolocationPermissions.Callback callback) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onGeolocationPermissionsShowPrompt(str, callback);
             }
@@ -124,7 +124,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public void onHideCustomView() {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onHideCustomView();
             }
@@ -132,7 +132,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 return webChromeClient.onJsAlert(webView, str, str2, jsResult);
             }
@@ -141,7 +141,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 return webChromeClient.onJsBeforeUnload(webView, str, str2, jsResult);
             }
@@ -150,7 +150,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 return webChromeClient.onJsConfirm(webView, str, str2, jsResult);
             }
@@ -159,7 +159,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 return webChromeClient.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
@@ -169,7 +169,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebChromeClient
         @Deprecated
         public boolean onJsTimeout() {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 return webChromeClient.onJsTimeout();
             }
@@ -179,7 +179,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebChromeClient
         @SuppressLint({"NewApi"})
         public void onPermissionRequest(PermissionRequest permissionRequest) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onPermissionRequest(permissionRequest);
             }
@@ -188,7 +188,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebChromeClient
         @SuppressLint({"NewApi"})
         public void onPermissionRequestCanceled(PermissionRequest permissionRequest) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onPermissionRequestCanceled(permissionRequest);
             }
@@ -196,29 +196,29 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public void onProgressChanged(WebView webView, int i2) {
-            ArrayList<IWebviewPageLoadCallback> arrayList = this.f8636c;
+            ArrayList<IWebviewPageLoadCallback> arrayList = this.f8448c;
             if (arrayList != null) {
-                if (this.f8638e == 0) {
+                if (this.f8450e == 0) {
                     Iterator<IWebviewPageLoadCallback> it = arrayList.iterator();
                     while (it.hasNext()) {
                         IWebviewPageLoadCallback next = it.next();
                         if (next != null) {
-                            next.onPageStarted(webView, webView.getUrl(), this.f8637d);
+                            next.onPageStarted(webView, webView.getUrl(), this.f8449d);
                         }
                     }
                 }
-                this.f8638e = i2;
+                this.f8450e = i2;
                 if (i2 == 100) {
-                    Iterator<IWebviewPageLoadCallback> it2 = this.f8636c.iterator();
+                    Iterator<IWebviewPageLoadCallback> it2 = this.f8448c.iterator();
                     while (it2.hasNext()) {
                         IWebviewPageLoadCallback next2 = it2.next();
                         if (next2 != null) {
-                            next2.onPageFinished(webView, webView.getUrl(), this.f8637d);
+                            next2.onPageFinished(webView, webView.getUrl(), this.f8449d);
                         }
                     }
                 }
             }
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onProgressChanged(webView, i2);
             }
@@ -227,7 +227,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebChromeClient
         @Deprecated
         public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
             }
@@ -235,7 +235,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public void onReceivedIcon(WebView webView, Bitmap bitmap) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onReceivedIcon(webView, bitmap);
             }
@@ -243,7 +243,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onReceivedTitle(webView, str);
             }
@@ -251,7 +251,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public void onReceivedTouchIconUrl(WebView webView, String str, boolean z) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onReceivedTouchIconUrl(webView, str, z);
             }
@@ -259,7 +259,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public void onRequestFocus(WebView webView) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onRequestFocus(webView);
             }
@@ -267,7 +267,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         public void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onShowCustomView(view, customViewCallback);
             }
@@ -276,7 +276,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebChromeClient
         @SuppressLint({"NewApi"})
         public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 return webChromeClient.onShowFileChooser(webView, valueCallback, fileChooserParams);
             }
@@ -287,7 +287,7 @@ public class BaiduStatJSInterface {
         @SuppressLint({"NewApi"})
         @Deprecated
         public void onShowCustomView(View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onShowCustomView(view, i2, customViewCallback);
             }
@@ -296,7 +296,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebChromeClient
         @Deprecated
         public void onConsoleMessage(String str, int i2, String str2) {
-            WebChromeClient webChromeClient = this.f8635b;
+            WebChromeClient webChromeClient = this.f8447b;
             if (webChromeClient != null) {
                 webChromeClient.onConsoleMessage(str, i2, str2);
             }
@@ -307,29 +307,29 @@ public class BaiduStatJSInterface {
     public static class CustomWebViewClient extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Context> f8639a;
+        public WeakReference<Context> f8451a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WebViewClient f8640b;
+        public WebViewClient f8452b;
 
         /* renamed from: c  reason: collision with root package name */
-        public IWebviewPageLoadCallback f8641c;
+        public IWebviewPageLoadCallback f8453c;
 
         /* renamed from: d  reason: collision with root package name */
-        public bl f8642d;
+        public bl f8454d;
 
         public CustomWebViewClient(Context context, WebViewClient webViewClient, IWebviewPageLoadCallback iWebviewPageLoadCallback, bl blVar) {
-            this.f8639a = new WeakReference<>(context);
-            this.f8640b = webViewClient;
-            this.f8641c = iWebviewPageLoadCallback;
-            this.f8642d = blVar;
+            this.f8451a = new WeakReference<>(context);
+            this.f8452b = webViewClient;
+            this.f8453c = iWebviewPageLoadCallback;
+            this.f8454d = blVar;
         }
 
         private void a(String str) throws JSONException {
             JSONObject jSONObject = new JSONObject(str);
             String string = jSONObject.getString("action");
             JSONObject jSONObject2 = jSONObject.getJSONObject("obj");
-            Context context = this.f8639a.get();
+            Context context = this.f8451a.get();
             if (context == null) {
                 return;
             }
@@ -395,7 +395,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebViewClient
         public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.doUpdateVisitedHistory(webView, str, z);
             }
@@ -403,7 +403,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebViewClient
         public void onFormResubmission(WebView webView, Message message, Message message2) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onFormResubmission(webView, message, message2);
             }
@@ -411,7 +411,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebViewClient
         public void onLoadResource(WebView webView, String str) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onLoadResource(webView, str);
             }
@@ -420,7 +420,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public void onPageCommitVisible(WebView webView, String str) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onPageCommitVisible(webView, str);
             }
@@ -428,7 +428,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onPageFinished(webView, str);
             }
@@ -436,7 +436,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onPageStarted(webView, str, bitmap);
             }
@@ -445,7 +445,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public void onReceivedClientCertRequest(WebView webView, ClientCertRequest clientCertRequest) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onReceivedClientCertRequest(webView, clientCertRequest);
             }
@@ -453,7 +453,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i2, String str, String str2) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onReceivedError(webView, i2, str, str2);
             }
@@ -461,7 +461,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebViewClient
         public void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str, String str2) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
             }
@@ -470,7 +470,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
             }
@@ -479,7 +479,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public void onReceivedLoginRequest(WebView webView, String str, String str2, String str3) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onReceivedLoginRequest(webView, str, str2, str3);
             }
@@ -487,7 +487,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebViewClient
         public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onReceivedSslError(webView, sslErrorHandler, sslError);
             }
@@ -496,7 +496,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 return webViewClient.onRenderProcessGone(webView, renderProcessGoneDetail);
             }
@@ -505,7 +505,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebViewClient
         public void onScaleChanged(WebView webView, float f2, float f3) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onScaleChanged(webView, f2, f3);
             }
@@ -514,7 +514,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebViewClient
         @Deprecated
         public void onTooManyRedirects(WebView webView, Message message, Message message2) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onTooManyRedirects(webView, message, message2);
             }
@@ -522,7 +522,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebViewClient
         public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onUnhandledKeyEvent(webView, keyEvent);
             }
@@ -531,7 +531,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 return webViewClient.shouldInterceptRequest(webView, str);
             }
@@ -540,7 +540,7 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideKeyEvent(WebView webView, KeyEvent keyEvent) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 return webViewClient.shouldOverrideKeyEvent(webView, keyEvent);
             }
@@ -557,7 +557,7 @@ public class BaiduStatJSInterface {
                 }
             } catch (UnsupportedEncodingException | JSONException unused) {
             }
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 return webViewClient.shouldOverrideUrlLoading(webView, str);
             }
@@ -567,7 +567,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 webViewClient.onReceivedError(webView, webResourceRequest, webResourceError);
             }
@@ -576,7 +576,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 return webViewClient.shouldInterceptRequest(webView, webResourceRequest);
             }
@@ -586,7 +586,7 @@ public class BaiduStatJSInterface {
         @Override // android.webkit.WebViewClient
         @SuppressLint({"NewApi"})
         public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
-            WebViewClient webViewClient = this.f8640b;
+            WebViewClient webViewClient = this.f8452b;
             if (webViewClient != null) {
                 return webViewClient.shouldOverrideUrlLoading(webView, webResourceRequest);
             }

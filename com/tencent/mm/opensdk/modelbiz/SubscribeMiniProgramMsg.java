@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class SubscribeMiniProgramMsg {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
         public static final int LENGTH_LIMIT = 1024;
         public static final String TAG = "MicroMsg.SDK.SubscribeMessage.Req";
@@ -48,7 +48,7 @@ public final class SubscribeMiniProgramMsg {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
         public static final String TAG = "MicroMsg.SDK.SubscribeMessage.Resp";
         public String nickname;

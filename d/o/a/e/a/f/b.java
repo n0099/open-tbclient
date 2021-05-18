@@ -5,41 +5,41 @@ import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.e.b.f.n;
 import d.o.a.e.b.g.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b extends n {
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f66348b;
+    public Context f67034b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66349c;
+    public int f67035c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f66350d;
+    public String f67036d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f66351e;
+    public String f67037e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f66352f;
+    public String f67038f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66353g;
+    public String f67039g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.o.a.e.b.p.a f66354h;
+    public d.o.a.e.b.p.a f67040h;
 
     public b(Context context, int i2, String str, String str2, String str3, String str4) {
         if (context != null) {
-            this.f66348b = context.getApplicationContext();
+            this.f67034b = context.getApplicationContext();
         } else {
-            this.f66348b = d.l();
+            this.f67034b = d.l();
         }
-        this.f66349c = i2;
-        this.f66350d = str;
-        this.f66351e = str2;
-        this.f66352f = str3;
-        this.f66353g = str4;
+        this.f67035c = i2;
+        this.f67036d = str;
+        this.f67037e = str2;
+        this.f67038f = str3;
+        this.f67039g = str4;
     }
 
     @Override // d.o.a.e.b.f.n, d.o.a.e.b.f.a, d.o.a.e.b.f.b
@@ -60,7 +60,7 @@ public class b extends n {
 
     @Override // d.o.a.e.b.f.n, d.o.a.e.b.f.a, d.o.a.e.b.f.b
     public void f(DownloadInfo downloadInfo) {
-        if (downloadInfo == null || this.f66348b == null) {
+        if (downloadInfo == null || this.f67034b == null) {
             return;
         }
         if (downloadInfo.e() && !downloadInfo.c1()) {
@@ -79,7 +79,7 @@ public class b extends n {
 
     @Override // d.o.a.e.b.f.n, d.o.a.e.b.f.a, d.o.a.e.b.f.b
     public void h(DownloadInfo downloadInfo, BaseException baseException) {
-        if (downloadInfo == null || this.f66348b == null || !downloadInfo.e() || downloadInfo.c1()) {
+        if (downloadInfo == null || this.f67034b == null || !downloadInfo.e() || downloadInfo.c1()) {
             return;
         }
         super.h(downloadInfo, baseException);
@@ -96,14 +96,14 @@ public class b extends n {
     @Override // d.o.a.e.b.f.n
     public d.o.a.e.b.p.a n() {
         Context context;
-        if (this.f66354h == null && (context = this.f66348b) != null) {
-            return new a(context, this.f66349c, this.f66350d, this.f66351e, this.f66352f, this.f66353g);
+        if (this.f67040h == null && (context = this.f67034b) != null) {
+            return new a(context, this.f67035c, this.f67036d, this.f67037e, this.f67038f, this.f67039g);
         }
-        return this.f66354h;
+        return this.f67040h;
     }
 
     public b(d.o.a.e.b.p.a aVar) {
-        this.f66348b = d.l();
-        this.f66354h = aVar;
+        this.f67034b = d.l();
+        this.f67040h = aVar;
     }
 }

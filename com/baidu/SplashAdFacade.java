@@ -44,7 +44,7 @@ public class SplashAdFacade {
             Log.e("SplashAdFacade", "appContext is null ,init failed");
             return;
         }
-        d.a.b0.a.b.a.f39288a.set(aVar);
+        d.a.b0.a.b.a.f38533a.set(aVar);
         new BDAdConfig.Builder().setAppName(aVar.u()).setAppsid(aVar.r()).build(aVar.o()).init();
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
         MobadsPermissionSettings.setPermissionLocation(true);

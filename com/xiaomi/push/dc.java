@@ -7,7 +7,7 @@ import java.util.Date;
 public class dc extends db.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f38255a;
+    public final /* synthetic */ int f37500a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ db f221a;
@@ -25,7 +25,7 @@ public class dc extends db.b {
     public final /* synthetic */ boolean f225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f38256b;
+    public final /* synthetic */ String f37501b;
 
     /* renamed from: b  reason: collision with other field name */
     public final /* synthetic */ Date f226b;
@@ -34,11 +34,11 @@ public class dc extends db.b {
     public dc(db dbVar, int i2, Date date, Date date2, String str, String str2, boolean z) {
         super();
         this.f221a = dbVar;
-        this.f38255a = i2;
+        this.f37500a = i2;
         this.f224a = date;
         this.f226b = date2;
         this.f223a = str;
-        this.f38256b = str2;
+        this.f37501b = str2;
         this.f225a = z;
     }
 
@@ -50,7 +50,7 @@ public class dc extends db.b {
                 file.mkdirs();
                 if (file.isDirectory()) {
                     da daVar = new da();
-                    daVar.a(this.f38255a);
+                    daVar.a(this.f37500a);
                     this.f222a = daVar.a(this.f221a.f214a, this.f224a, this.f226b, file);
                 }
             } catch (NullPointerException unused) {
@@ -60,10 +60,10 @@ public class dc extends db.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo230c() {
+    public void mo229c() {
         File file = this.f222a;
         if (file != null && file.exists()) {
-            this.f221a.f215a.add(new db.c(this.f223a, this.f38256b, this.f222a, this.f225a));
+            this.f221a.f215a.add(new db.c(this.f223a, this.f37501b, this.f222a, this.f225a));
         }
         this.f221a.a(0L);
     }

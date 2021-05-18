@@ -16,7 +16,7 @@ public final class CompletableDisposeOn extends Completable {
     public static final class CompletableObserverImplementation implements CompletableObserver, Disposable, Runnable {
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68237d;
+        public Disposable f68917d;
         public volatile boolean disposed;
         public final CompletableObserver s;
         public final Scheduler scheduler;
@@ -56,16 +56,16 @@ public final class CompletableDisposeOn extends Completable {
 
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68237d, disposable)) {
-                this.f68237d = disposable;
+            if (DisposableHelper.validate(this.f68917d, disposable)) {
+                this.f68917d = disposable;
                 this.s.onSubscribe(this);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f68237d.dispose();
-            this.f68237d = DisposableHelper.DISPOSED;
+            this.f68917d.dispose();
+            this.f68917d = DisposableHelper.DISPOSED;
         }
     }
 

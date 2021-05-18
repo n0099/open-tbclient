@@ -8,7 +8,7 @@ public class h {
     }
 
     public static boolean a(int i2) {
-        d.a.b0.d.a.f fVar = new d.a.b0.d.a.f(d.a.b0.a.b.a.f39288a.get().o());
+        d.a.b0.d.a.f fVar = new d.a.b0.d.a.f(d.a.b0.a.b.a.f38533a.get().o());
         if (fVar.b()) {
             return true;
         }

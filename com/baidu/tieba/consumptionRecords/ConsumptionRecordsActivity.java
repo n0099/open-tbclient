@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import d.a.i0.e0.c;
+import d.a.j0.e0.c;
 /* loaded from: classes4.dex */
 public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public SigleRecordsFragment expenditureFragment;
@@ -25,14 +25,14 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        bVar.f12907c = cVar.f48462a;
-        fragmentTabIndicator.setText(cVar.f48463b);
+        bVar.f12243c = cVar.f49290a;
+        fragmentTabIndicator.setText(cVar.f49291b);
         if (!TextUtils.isEmpty(str)) {
             fragmentTabIndicator.setText(str);
         }
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.ds32));
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
-        bVar.f12906b = fragmentTabIndicator;
+        bVar.f12242b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -57,24 +57,24 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.ds80));
         SigleRecordsFragment sigleRecordsFragment = new SigleRecordsFragment();
         this.expenditureFragment = sigleRecordsFragment;
-        sigleRecordsFragment.V0(1);
+        sigleRecordsFragment.U0(1);
         c cVar = new c();
-        cVar.f48462a = this.expenditureFragment;
-        cVar.f48463b = R.string.expenditure_records;
+        cVar.f49290a = this.expenditureFragment;
+        cVar.f49291b = R.string.expenditure_records;
         createAndAddTabSpec(cVar, getTabIndicator(getPageContext().getPageActivity()), null);
         SigleRecordsFragment sigleRecordsFragment2 = new SigleRecordsFragment();
         this.incomeFragment = sigleRecordsFragment2;
-        sigleRecordsFragment2.V0(2);
+        sigleRecordsFragment2.U0(2);
         c cVar2 = new c();
-        cVar2.f48462a = this.incomeFragment;
-        cVar2.f48463b = R.string.income_records;
+        cVar2.f49290a = this.incomeFragment;
+        cVar2.f49291b = R.string.income_records;
         createAndAddTabSpec(cVar2, getTabIndicator(getPageContext().getPageActivity()), null);
         SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
         this.rechargeFragment = sigleRecordsFragment3;
-        sigleRecordsFragment3.V0(3);
+        sigleRecordsFragment3.U0(3);
         c cVar3 = new c();
-        cVar3.f48462a = this.rechargeFragment;
-        cVar3.f48463b = R.string.recharge_records;
+        cVar3.f49290a = this.rechargeFragment;
+        cVar3.f49291b = R.string.recharge_records;
         createAndAddTabSpec(cVar3, getTabIndicator(getPageContext().getPageActivity()), null);
         this.mTabHost.k(3);
         this.mTabHost.setCurrentTab(getIndexByType(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));

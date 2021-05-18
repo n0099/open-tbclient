@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 import com.bytedance.sdk.openadsdk.utils.ad;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DynamicDislike extends DynamicBaseWidgetImp {
     public DynamicDislike(Context context, @NonNull DynamicRootView dynamicRootView, @NonNull f fVar) {
         super(context, dynamicRootView, fVar);

@@ -24,7 +24,7 @@ public class ChannelWXPay extends AbstractChannelPay {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelWXPay f2644a = new ChannelWXPay();
+        public static ChannelWXPay f2645a = new ChannelWXPay();
     }
 
     private PayReq genPayReq(PayDataBean payDataBean) {
@@ -40,7 +40,7 @@ public class ChannelWXPay extends AbstractChannelPay {
     }
 
     public static ChannelWXPay getInstance() {
-        return a.f2644a;
+        return a.f2645a;
     }
 
     @Override // com.baidu.android.lbspay.channelpay.IChannelPay

@@ -3,29 +3,29 @@ package com.sdk.mobile.b;
 import android.os.Handler;
 import android.os.Looper;
 import com.sdk.base.framework.a.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f36571a = new Handler(Looper.getMainLooper());
+    public Handler f35816a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public long f36572b;
+    public long f35817b;
 
     /* renamed from: c  reason: collision with root package name */
-    public /* synthetic */ a f36573c;
+    public /* synthetic */ a f35818c;
 
     public e(a aVar, long j) {
-        this.f36573c = aVar;
-        this.f36572b = j;
+        this.f35818c = aVar;
+        this.f35817b = j;
     }
 
     public final void a() {
-        this.f36571a.postDelayed(this, this.f36572b);
+        this.f35816a.postDelayed(this, this.f35817b);
     }
 
     public final void b() {
-        this.f36571a.removeCallbacks(this);
+        this.f35816a.removeCallbacks(this);
     }
 
     @Override // java.lang.Runnable
@@ -34,14 +34,14 @@ public final class e implements Runnable {
         String str;
         Boolean bool;
         f fVar2;
-        fVar = this.f36573c.f36551f;
+        fVar = this.f35818c.f35796f;
         if (fVar != null) {
-            str = a.f36546a;
-            bool = a.f36547b;
+            str = a.f35791a;
+            bool = a.f35792b;
             com.sdk.base.framework.a.a.c.c(str, "超时，已取消请求", bool);
-            fVar2 = this.f36573c.f36551f;
+            fVar2 = this.f35818c.f35796f;
             fVar2.a();
         }
-        this.f36573c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
+        this.f35818c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
     }
 }

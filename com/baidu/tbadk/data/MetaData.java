@@ -17,9 +17,9 @@ import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.coreExtra.data.PrivSetsData;
 import d.a.c.e.m.b;
 import d.a.c.e.p.k;
-import d.a.i0.r.f0.q.a;
-import d.a.i0.t.d;
-import d.a.i0.t.n;
+import d.a.j0.r.f0.q.a;
+import d.a.j0.t.d;
+import d.a.j0.t.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -97,6 +97,8 @@ public class MetaData extends OrmObject implements Serializable, a {
     public int left_call_num = 0;
     public BaijiahaoInfo baijiahaoInfo = null;
     public List<ForumToolPerm> forumToolAuth = new ArrayList();
+    public String tiebaUid = null;
+    public List<BazhuGradeData> managerForum = new ArrayList();
 
     private void testBaijiahaoInfo() {
         BaijiahaoInfo.Builder builder = new BaijiahaoInfo.Builder();
@@ -172,7 +174,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.fansNickName;
     }
 
-    @Override // d.a.i0.r.f0.q.a
+    @Override // d.a.j0.r.f0.q.a
     public int getFansNum() {
         return this.fansNum;
     }
@@ -217,7 +219,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.imBjhAvatar;
     }
 
-    @Override // d.a.i0.r.f0.q.a
+    @Override // d.a.j0.r.f0.q.a
     public boolean getIsLike() {
         return isGod() ? this.godUserData.getIsLike() || this.mHadConcerned : this.is_like == 1 || this.mHadConcerned;
     }
@@ -254,13 +256,17 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.likeNum;
     }
 
-    @Override // d.a.i0.r.f0.q.a
+    @Override // d.a.j0.r.f0.q.a
     public int getLikeStatus() {
         return this.likeStatus;
     }
 
     public LiveRoomInfo getLiveRoomInfo() {
         return this.liveRoomInfo;
+    }
+
+    public List<BazhuGradeData> getManagerForum() {
+        return this.managerForum;
     }
 
     public String getName_show() {
@@ -278,7 +284,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.pendantData;
     }
 
-    @Override // d.a.i0.r.f0.q.a
+    @Override // d.a.j0.r.f0.q.a
     public String getPortrait() {
         return this.portrait;
     }
@@ -311,6 +317,10 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.threadNum;
     }
 
+    public String getTiebaUid() {
+        return this.tiebaUid;
+    }
+
     public int getType() {
         return this.type;
     }
@@ -319,7 +329,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.uk;
     }
 
-    @Override // d.a.i0.r.f0.q.a
+    @Override // d.a.j0.r.f0.q.a
     public String getUserId() {
         return this.userId;
     }
@@ -356,10 +366,10 @@ public class MetaData extends OrmObject implements Serializable, a {
 
     public boolean isForumBusinessAccount() {
         d dVar = this.businessAccountData;
-        return dVar != null && dVar.f49882b;
+        return dVar != null && dVar.f50701b;
     }
 
-    @Override // d.a.i0.r.f0.q.a
+    @Override // d.a.j0.r.f0.q.a
     public boolean isGod() {
         return this.isGod;
     }
@@ -375,7 +385,7 @@ public class MetaData extends OrmObject implements Serializable, a {
 
     public boolean isOfficial() {
         d dVar = this.businessAccountData;
-        return dVar != null && dVar.f49881a;
+        return dVar != null && dVar.f50700a;
     }
 
     public boolean isVideoGod() {
@@ -534,10 +544,22 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
         List<ForumToolPerm> list4 = user.forum_tool_auth;
         this.forumToolAuth.clear();
-        if (list4 == null || list4.size() <= 0) {
-            return;
+        if (list4 != null && list4.size() > 0) {
+            this.forumToolAuth.addAll(list4);
         }
-        this.forumToolAuth.addAll(list4);
+        String str2 = user.tieba_uid;
+        if (str2 != null) {
+            this.tiebaUid = str2;
+        }
+        this.managerForum.clear();
+        List<BazhuSign> list5 = user.manager_forum;
+        if (list5 != null) {
+            for (BazhuSign bazhuSign2 : list5) {
+                BazhuGradeData bazhuGradeData = new BazhuGradeData();
+                bazhuGradeData.parserProtobuf(bazhuSign2);
+                this.managerForum.add(bazhuGradeData);
+            }
+        }
     }
 
     public void setBaijiahaoInfo(BaijiahaoInfo baijiahaoInfo) {
@@ -560,7 +582,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.fansNickName = str;
     }
 
-    @Override // d.a.i0.r.f0.q.a
+    @Override // d.a.j0.r.f0.q.a
     public void setFansNum(int i2) {
         this.fansNum = i2;
     }
@@ -607,7 +629,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.isBigV = z;
     }
 
-    @Override // d.a.i0.r.f0.q.a
+    @Override // d.a.j0.r.f0.q.a
     public void setIsFromNetWork(boolean z) {
         this.isLikeStatusFromNet = z;
         GodUserData godUserData = this.godUserData;
@@ -644,7 +666,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.likeNum = i2;
     }
 
-    @Override // d.a.i0.r.f0.q.a
+    @Override // d.a.j0.r.f0.q.a
     public void setLikeStatus(int i2) {
         this.likeStatus = i2;
     }
@@ -725,18 +747,20 @@ public class MetaData extends OrmObject implements Serializable, a {
     /* JADX WARN: Removed duplicated region for block: B:19:0x00e0  */
     /* JADX WARN: Removed duplicated region for block: B:24:0x00fd  */
     /* JADX WARN: Removed duplicated region for block: B:29:0x011a  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0137 A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x014e A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x015b A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x018a A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x01b0 A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x01f5 A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0202 A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0137 A[Catch: Exception -> 0x0296, TryCatch #0 {Exception -> 0x0296, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244, B:69:0x0267, B:71:0x027c, B:73:0x0282), top: B:78:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x014e A[Catch: Exception -> 0x0296, TryCatch #0 {Exception -> 0x0296, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244, B:69:0x0267, B:71:0x027c, B:73:0x0282), top: B:78:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x015b A[Catch: Exception -> 0x0296, TryCatch #0 {Exception -> 0x0296, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244, B:69:0x0267, B:71:0x027c, B:73:0x0282), top: B:78:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x018a A[Catch: Exception -> 0x0296, TryCatch #0 {Exception -> 0x0296, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244, B:69:0x0267, B:71:0x027c, B:73:0x0282), top: B:78:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x01b0 A[Catch: Exception -> 0x0296, TryCatch #0 {Exception -> 0x0296, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244, B:69:0x0267, B:71:0x027c, B:73:0x0282), top: B:78:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x01f5 A[Catch: Exception -> 0x0296, TryCatch #0 {Exception -> 0x0296, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244, B:69:0x0267, B:71:0x027c, B:73:0x0282), top: B:78:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0202 A[Catch: Exception -> 0x0296, TryCatch #0 {Exception -> 0x0296, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244, B:69:0x0267, B:71:0x027c, B:73:0x0282), top: B:78:0x0005 }] */
     /* JADX WARN: Removed duplicated region for block: B:58:0x020f  */
     /* JADX WARN: Removed duplicated region for block: B:59:0x0210  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0223 A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0223 A[Catch: Exception -> 0x0296, TryCatch #0 {Exception -> 0x0296, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244, B:69:0x0267, B:71:0x027c, B:73:0x0282), top: B:78:0x0005 }] */
     /* JADX WARN: Removed duplicated region for block: B:65:0x023d  */
-    /* JADX WARN: Removed duplicated region for block: B:79:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x027c A[Catch: Exception -> 0x0296, LOOP:4: B:71:0x027c->B:74:0x0293, LOOP_START, PHI: r2 
+      PHI: (r2v1 int) = (r2v0 int), (r2v2 int) binds: [B:70:0x027a, B:74:0x0293] A[DONT_GENERATE, DONT_INLINE], TryCatch #0 {Exception -> 0x0296, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244, B:69:0x0267, B:71:0x027c, B:73:0x0282), top: B:78:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:85:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -754,6 +778,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         JSONObject optJSONObject7;
         JSONObject optJSONObject8;
         JSONArray optJSONArray4;
+        JSONArray optJSONArray5;
         if (jSONObject == null) {
             return;
         }
@@ -871,11 +896,22 @@ public class MetaData extends OrmObject implements Serializable, a {
                 this.appealThreadPopover = jSONObject.optString("appeal_thread_popover");
                 this.forumToolAuth.clear();
                 optJSONArray4 = jSONObject.optJSONArray("forum_tool_auth");
-                if (optJSONArray4 == null) {
+                if (optJSONArray4 != null) {
                     for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
                         ForumToolPerm.Builder builder2 = new ForumToolPerm.Builder();
                         builder2.perm = Long.valueOf(((JSONObject) optJSONArray4.get(i5)).optLong("perm"));
                         this.forumToolAuth.add(builder2.build(false));
+                    }
+                }
+                this.tiebaUid = jSONObject.optString("tieba_uid");
+                this.managerForum.clear();
+                optJSONArray5 = jSONObject.optJSONArray("manager_forum");
+                if (optJSONArray5 == null) {
+                    for (int i6 = 0; i6 < optJSONArray5.length(); i6++) {
+                        JSONObject optJSONObject9 = optJSONArray5.optJSONObject(i6);
+                        BazhuGradeData bazhuGradeData = new BazhuGradeData();
+                        bazhuGradeData.parserJson(optJSONObject9);
+                        this.managerForum.add(bazhuGradeData);
                     }
                     return;
                 }
@@ -932,7 +968,12 @@ public class MetaData extends OrmObject implements Serializable, a {
             this.appealThreadPopover = jSONObject.optString("appeal_thread_popover");
             this.forumToolAuth.clear();
             optJSONArray4 = jSONObject.optJSONArray("forum_tool_auth");
-            if (optJSONArray4 == null) {
+            if (optJSONArray4 != null) {
+            }
+            this.tiebaUid = jSONObject.optString("tieba_uid");
+            this.managerForum.clear();
+            optJSONArray5 = jSONObject.optJSONArray("manager_forum");
+            if (optJSONArray5 == null) {
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());

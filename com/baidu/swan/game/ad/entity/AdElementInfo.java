@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.util.FieldBuilder;
@@ -434,7 +433,7 @@ public class AdElementInfo implements Parcelable {
             this.mIconUrl = jSONObject.optString("icon_url", "");
             this.mTitle = jSONObject.optString("title", "");
             this.mDescription = jSONObject.optString("description", "");
-            this.mAppName = jSONObject.optString(DpStatConstants.KEY_APP_NAME, "");
+            this.mAppName = jSONObject.optString("app_name", "");
             this.mPackageName = jSONObject.optString("app_bundle", "");
             this.mActionType = jSONObject.optInt("interact_type") + 1;
             this.mClickUrl = jSONObject.optString("target_url");

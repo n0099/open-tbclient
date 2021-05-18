@@ -3,14 +3,14 @@ package com.vivo.push;
 import android.os.Handler;
 import android.os.Message;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class c implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f37393a;
+    public final /* synthetic */ b f36638a;
 
     public c(b bVar) {
-        this.f37393a = bVar;
+        this.f36638a = bVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -24,16 +24,16 @@ public final class c implements Handler.Callback {
         int i2 = message.what;
         if (i2 == 1) {
             com.vivo.push.util.p.a("AidlManager", "In connect, bind core service time out");
-            atomicInteger = this.f37393a.f37346f;
+            atomicInteger = this.f36638a.f36591f;
             if (atomicInteger.get() == 2) {
-                this.f37393a.a(1);
+                this.f36638a.a(1);
             }
         } else if (i2 == 2) {
-            atomicInteger2 = this.f37393a.f37346f;
+            atomicInteger2 = this.f36638a.f36591f;
             if (atomicInteger2.get() == 4) {
-                this.f37393a.e();
+                this.f36638a.e();
             }
-            this.f37393a.a(1);
+            this.f36638a.a(1);
         } else {
             com.vivo.push.util.p.b("AidlManager", "unknow msg what [" + message.what + "]");
         }

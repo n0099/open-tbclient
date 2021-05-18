@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.utils;
 
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class k {
     public static void a(String str) {
         a("any_door_id", str);

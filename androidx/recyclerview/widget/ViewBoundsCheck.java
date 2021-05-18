@@ -1,6 +1,7 @@
 package androidx.recyclerview.widget;
 
 import android.view.View;
+import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes.dex */
@@ -48,7 +49,7 @@ public class ViewBoundsCheck {
                     int i4 = this.mBoundFlags;
                     if ((i4 & 1792) == 0 || (i4 & (compare(this.mChildEnd, this.mRvStart) << 8)) != 0) {
                         int i5 = this.mBoundFlags;
-                        return (i5 & 28672) == 0 || (i5 & (compare(this.mChildEnd, this.mRvEnd) << 12)) != 0;
+                        return (i5 & ZeusMonitorType.MONITOR_TYPE_NOVEL_SITE) == 0 || (i5 & (compare(this.mChildEnd, this.mRvEnd) << 12)) != 0;
                     }
                     return false;
                 }

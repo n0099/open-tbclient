@@ -38,12 +38,12 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ boolean contains(ULong uLong) {
-        return m1826containsVKZWuLQ(uLong.m835unboximpl());
+        return m1825containsVKZWuLQ(uLong.m834unboximpl());
     }
 
     /* renamed from: contains-VKZWuLQ  reason: not valid java name */
-    public boolean m1826containsVKZWuLQ(long j) {
-        return UnsignedKt.ulongCompare(m1823getFirstsVKNKU(), j) <= 0 && UnsignedKt.ulongCompare(j, m1824getLastsVKNKU()) <= 0;
+    public boolean m1825containsVKZWuLQ(long j) {
+        return UnsignedKt.ulongCompare(m1822getFirstsVKNKU(), j) <= 0 && UnsignedKt.ulongCompare(j, m1823getLastsVKNKU()) <= 0;
     }
 
     @Override // kotlin.ranges.ULongProgression
@@ -51,7 +51,7 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         if (obj instanceof ULongRange) {
             if (!isEmpty() || !((ULongRange) obj).isEmpty()) {
                 ULongRange uLongRange = (ULongRange) obj;
-                if (m1823getFirstsVKNKU() != uLongRange.m1823getFirstsVKNKU() || m1824getLastsVKNKU() != uLongRange.m1824getLastsVKNKU()) {
+                if (m1822getFirstsVKNKU() != uLongRange.m1822getFirstsVKNKU() || m1823getLastsVKNKU() != uLongRange.m1823getLastsVKNKU()) {
                 }
             }
             return true;
@@ -62,23 +62,23 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
     /* JADX DEBUG: Return type fixed from 'java.lang.Comparable' to match base method */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ ULong getEndInclusive() {
-        return ULong.m786boximpl(m1827getEndInclusivesVKNKU());
+        return ULong.m785boximpl(m1826getEndInclusivesVKNKU());
     }
 
     /* renamed from: getEndInclusive-s-VKNKU  reason: not valid java name */
-    public long m1827getEndInclusivesVKNKU() {
-        return m1824getLastsVKNKU();
+    public long m1826getEndInclusivesVKNKU() {
+        return m1823getLastsVKNKU();
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Comparable' to match base method */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ ULong getStart() {
-        return ULong.m786boximpl(m1828getStartsVKNKU());
+        return ULong.m785boximpl(m1827getStartsVKNKU());
     }
 
     /* renamed from: getStart-s-VKNKU  reason: not valid java name */
-    public long m1828getStartsVKNKU() {
-        return m1823getFirstsVKNKU();
+    public long m1827getStartsVKNKU() {
+        return m1822getFirstsVKNKU();
     }
 
     @Override // kotlin.ranges.ULongProgression
@@ -86,17 +86,17 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         if (isEmpty()) {
             return -1;
         }
-        return ((int) ULong.m792constructorimpl(m1824getLastsVKNKU() ^ ULong.m792constructorimpl(m1824getLastsVKNKU() >>> 32))) + (((int) ULong.m792constructorimpl(m1823getFirstsVKNKU() ^ ULong.m792constructorimpl(m1823getFirstsVKNKU() >>> 32))) * 31);
+        return ((int) ULong.m791constructorimpl(m1823getLastsVKNKU() ^ ULong.m791constructorimpl(m1823getLastsVKNKU() >>> 32))) + (((int) ULong.m791constructorimpl(m1822getFirstsVKNKU() ^ ULong.m791constructorimpl(m1822getFirstsVKNKU() >>> 32))) * 31);
     }
 
     @Override // kotlin.ranges.ULongProgression, kotlin.ranges.ClosedRange
     public boolean isEmpty() {
-        return UnsignedKt.ulongCompare(m1823getFirstsVKNKU(), m1824getLastsVKNKU()) > 0;
+        return UnsignedKt.ulongCompare(m1822getFirstsVKNKU(), m1823getLastsVKNKU()) > 0;
     }
 
     @Override // kotlin.ranges.ULongProgression
     public String toString() {
-        return ULong.m829toStringimpl(m1823getFirstsVKNKU()) + IStringUtil.TOP_PATH + ULong.m829toStringimpl(m1824getLastsVKNKU());
+        return ULong.m828toStringimpl(m1822getFirstsVKNKU()) + IStringUtil.TOP_PATH + ULong.m828toStringimpl(m1823getLastsVKNKU());
     }
 
     public /* synthetic */ ULongRange(long j, long j2, DefaultConstructorMarker defaultConstructorMarker) {

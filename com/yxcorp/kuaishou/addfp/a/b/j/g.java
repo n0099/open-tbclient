@@ -7,19 +7,19 @@ import android.os.IInterface;
 public final class g implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39039a;
+    public Context f38284a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.q.a.a.a.a.a f39040b;
+    public d.q.a.a.a.a.a f38285b;
 
     public g(Context context, d.q.a.a.a.a.a aVar) {
-        this.f39039a = context;
-        this.f39040b = aVar;
+        this.f38284a = context;
+        this.f38285b = aVar;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(IInterface iInterface) {
-        d.q.a.a.a.a.a aVar = this.f39040b;
+        d.q.a.a.a.a.a aVar = this.f38285b;
         if (aVar != null) {
             aVar.a(d.q.a.a.a.b.k.a.f().h(), this);
         }
@@ -27,7 +27,7 @@ public final class g implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     @Override // d.q.a.a.a.b.b
     public final void a(d.q.a.a.a.a.a aVar) {
-        d.q.a.a.a.b.k.a.f().d(this.f39039a, this);
+        d.q.a.a.a.b.k.a.f().d(this.f38284a, this);
     }
 
     @Override // d.q.a.a.a.b.b
@@ -53,14 +53,14 @@ public final class g implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     @Override // d.q.a.a.a.b.b
     public final void d() {
-        d.q.a.a.a.b.k.a.f().c(this.f39039a);
+        d.q.a.a.a.b.k.a.f().c(this.f38284a);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        if (this.f39040b != null) {
+        if (this.f38285b != null) {
             d.q.a.a.c.b.b.e("failed here");
-            this.f39040b.a(false, this);
+            this.f38285b.a(false, this);
         }
     }
 }

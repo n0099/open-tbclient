@@ -19,10 +19,11 @@ public class GlobalConstants implements INoProGuard {
     public static final String SDK_CFG_RELATIVE_PATH = "sdkcfg";
     public static final String SDK_CFG_RELATIVE_PATH_V2 = "sdkcfgv2";
     public static final String SEARCHBOX_PACKAGE_NAME = "com.baidu.searchbox";
+    public static final boolean TEST_HOOKS_ENABLED = false;
     public static final boolean USE_ZEUS_MANAGER = false;
     public static final boolean ZEUS_DEBUG_MODE = false;
     public static final String ZEUS_LIB_LOCAL_RELATIVE_PATH = "/zeus/libs/";
-    public static final String ZEUS_VERSION_NAME = "10.10.2.16";
+    public static final String ZEUS_VERSION_NAME = "10.23.2.4";
     public static final String LIB_PLAT_SUPPORT = "libzeusplat_support.so";
     public static final String LIB_ZEUS_V8 = "libzeusv8.so";
     public static final String[] LIB_ZEUS_SO = {"libcom.baidu.zeus.so", LIB_PLAT_SUPPORT, "libzeuswebviewchromium.so", LIB_ZEUS_V8};

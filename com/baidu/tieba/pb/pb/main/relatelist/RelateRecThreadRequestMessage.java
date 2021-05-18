@@ -2,10 +2,10 @@ package com.baidu.tieba.pb.pb.main.relatelist;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.i0.z0.w;
+import d.a.j0.z0.w;
 import tbclient.RelateRecThread.DataReq;
 import tbclient.RelateRecThread.RelateRecThreadReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class RelateRecThreadRequestMessage extends NetMessage {
     public long forumId;
     public int sourceFrom;

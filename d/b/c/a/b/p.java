@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import okhttp3.internal.http.HttpDate;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class p {
     public static final Pattern j = Pattern.compile("(\\d{2,4})[^\\d]*");
     public static final Pattern k = Pattern.compile("(?i)(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec).*");
@@ -20,42 +20,42 @@ public final class p {
     public static final Pattern m = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f64862a;
+    public final String f65548a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f64863b;
+    public final String f65549b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f64864c;
+    public final long f65550c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f64865d;
+    public final String f65551d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f64866e;
+    public final String f65552e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f64867f;
+    public final boolean f65553f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f64868g;
+    public final boolean f65554g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f64869h;
+    public final boolean f65555h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f64870i;
+    public final boolean f65556i;
 
     public p(String str, String str2, long j2, String str3, String str4, boolean z, boolean z2, boolean z3, boolean z4) {
-        this.f64862a = str;
-        this.f64863b = str2;
-        this.f64864c = j2;
-        this.f64865d = str3;
-        this.f64866e = str4;
-        this.f64867f = z;
-        this.f64868g = z2;
-        this.f64870i = z3;
-        this.f64869h = z4;
+        this.f65548a = str;
+        this.f65549b = str2;
+        this.f65550c = j2;
+        this.f65551d = str3;
+        this.f65552e = str4;
+        this.f65553f = z;
+        this.f65554g = z2;
+        this.f65556i = z3;
+        this.f65555h = z4;
     }
 
     public static int a(String str, int i2, int i3, boolean z) {
@@ -307,53 +307,53 @@ public final class p {
     public boolean equals(Object obj) {
         if (obj instanceof p) {
             p pVar = (p) obj;
-            return pVar.f64862a.equals(this.f64862a) && pVar.f64863b.equals(this.f64863b) && pVar.f64865d.equals(this.f64865d) && pVar.f64866e.equals(this.f64866e) && pVar.f64864c == this.f64864c && pVar.f64867f == this.f64867f && pVar.f64868g == this.f64868g && pVar.f64869h == this.f64869h && pVar.f64870i == this.f64870i;
+            return pVar.f65548a.equals(this.f65548a) && pVar.f65549b.equals(this.f65549b) && pVar.f65551d.equals(this.f65551d) && pVar.f65552e.equals(this.f65552e) && pVar.f65550c == this.f65550c && pVar.f65553f == this.f65553f && pVar.f65554g == this.f65554g && pVar.f65555h == this.f65555h && pVar.f65556i == this.f65556i;
         }
         return false;
     }
 
     public String f() {
-        return this.f64862a;
+        return this.f65548a;
     }
 
     public String g(boolean z) {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f64862a);
+        sb.append(this.f65548a);
         sb.append(a.f1873h);
-        sb.append(this.f64863b);
-        if (this.f64869h) {
-            if (this.f64864c == Long.MIN_VALUE) {
+        sb.append(this.f65549b);
+        if (this.f65555h) {
+            if (this.f65550c == Long.MIN_VALUE) {
                 sb.append("; max-age=0");
             } else {
                 sb.append("; expires=");
-                sb.append(e.f.a(new Date(this.f64864c)));
+                sb.append(e.f.a(new Date(this.f65550c)));
             }
         }
-        if (!this.f64870i) {
+        if (!this.f65556i) {
             sb.append("; domain=");
             if (z) {
                 sb.append(".");
             }
-            sb.append(this.f64865d);
+            sb.append(this.f65551d);
         }
         sb.append("; path=");
-        sb.append(this.f64866e);
-        if (this.f64867f) {
+        sb.append(this.f65552e);
+        if (this.f65553f) {
             sb.append("; secure");
         }
-        if (this.f64868g) {
+        if (this.f65554g) {
             sb.append("; httponly");
         }
         return sb.toString();
     }
 
     public int hashCode() {
-        long j2 = this.f64864c;
-        return ((((((((((((((((527 + this.f64862a.hashCode()) * 31) + this.f64863b.hashCode()) * 31) + this.f64865d.hashCode()) * 31) + this.f64866e.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f64867f ? 1 : 0)) * 31) + (!this.f64868g ? 1 : 0)) * 31) + (!this.f64869h ? 1 : 0)) * 31) + (!this.f64870i ? 1 : 0);
+        long j2 = this.f65550c;
+        return ((((((((((((((((527 + this.f65548a.hashCode()) * 31) + this.f65549b.hashCode()) * 31) + this.f65551d.hashCode()) * 31) + this.f65552e.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f65553f ? 1 : 0)) * 31) + (!this.f65554g ? 1 : 0)) * 31) + (!this.f65555h ? 1 : 0)) * 31) + (!this.f65556i ? 1 : 0);
     }
 
     public String j() {
-        return this.f64863b;
+        return this.f65549b;
     }
 
     public String toString() {

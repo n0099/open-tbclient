@@ -100,7 +100,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static KsAdSDKImpl f32432a = new KsAdSDKImpl();
+        public static KsAdSDKImpl f31677a = new KsAdSDKImpl();
     }
 
     static {
@@ -139,7 +139,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     @KsAdSdkDynamicImpl(IKsAdSDK.class)
     @Keep
     public static KsAdSDKImpl get() {
-        return a.f32432a;
+        return a.f31677a;
     }
 
     public static Class<?> getProxyRealClass(Class cls) {
@@ -288,7 +288,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
     public int getSDKType() {
-        return d.f33864a;
+        return d.f33109a;
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
@@ -338,15 +338,15 @@ public class KsAdSDKImpl implements IKsAdSDK {
         com.kwad.sdk.core.g.c.a(this.mAppContext, new c.a() { // from class: com.kwad.sdk.KsAdSDKImpl.1
 
             /* renamed from: c  reason: collision with root package name */
-            public AtomicBoolean f32431c = new AtomicBoolean(false);
+            public AtomicBoolean f31676c = new AtomicBoolean(false);
 
             @Override // com.kwad.sdk.core.g.c.a
             public void a() {
                 com.kwad.sdk.core.d.a.a("cf read");
                 com.kwad.sdk.core.d.a.c(KsAdSDKImpl.TAG, "onCacheLoaded()");
-                if (com.kwad.sdk.core.config.c.g() && !this.f32431c.get()) {
+                if (com.kwad.sdk.core.config.c.g() && !this.f31676c.get()) {
                     com.kwad.sdk.core.video.a.e.a(KsAdSDKImpl.this.mAppContext);
-                    this.f32431c.set(true);
+                    this.f31676c.set(true);
                 }
                 com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) f.a(com.kwad.sdk.plugin.b.class);
                 if (bVar != null) {
@@ -354,7 +354,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
                 }
                 com.kwad.sdk.core.a.a.a(KsAdSDKImpl.this.mAppContext, sdkConfig);
                 try {
-                    if (com.kwad.sdk.core.config.c.n() || b.f32645b.booleanValue()) {
+                    if (com.kwad.sdk.core.config.c.n() || b.f31890b.booleanValue()) {
                         DynamicInstallReceiver.registerToApp(KsAdSDKImpl.this.mAppContext);
                     }
                 } catch (Throwable unused) {
@@ -367,9 +367,9 @@ public class KsAdSDKImpl implements IKsAdSDK {
             public void a(@NonNull SdkConfigData sdkConfigData) {
                 com.kwad.sdk.core.d.a.a("cf load");
                 com.kwad.sdk.core.d.a.c(KsAdSDKImpl.TAG, "onConfigRefresh()");
-                if (com.kwad.sdk.core.config.c.g() && !this.f32431c.get()) {
+                if (com.kwad.sdk.core.config.c.g() && !this.f31676c.get()) {
                     com.kwad.sdk.core.video.a.e.a(KsAdSDKImpl.this.mAppContext);
-                    this.f32431c.set(true);
+                    this.f31676c.set(true);
                 }
                 com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) f.a(com.kwad.sdk.plugin.b.class);
                 if (bVar != null) {

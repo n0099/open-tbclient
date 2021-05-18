@@ -5,33 +5,33 @@ import com.baidu.searchbox.http.response.ResponseException;
 import d.b.c.a.b.a.e;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class z implements i {
 
     /* renamed from: e  reason: collision with root package name */
-    public final y f64906e;
+    public final y f65592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e.l f64907f;
+    public final e.l f65593f;
 
     /* renamed from: g  reason: collision with root package name */
-    public t f64908g;
+    public t f65594g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final a0 f64909h;
+    public final a0 f65595h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f64910i;
+    public final boolean f65596i;
     public boolean j;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public final class a extends d.b.c.a.b.a.d {
 
         /* renamed from: f  reason: collision with root package name */
-        public final j f64911f;
+        public final j f65597f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ z f64912g;
+        public final /* synthetic */ z f65598g;
 
         @Override // d.b.c.a.b.a.d
         public void i() {
@@ -40,47 +40,47 @@ public final class z implements i {
             boolean z = true;
             try {
                 try {
-                    h2 = this.f64912g.h();
+                    h2 = this.f65598g.h();
                 } catch (IOException e3) {
                     e2 = e3;
                     z = false;
                 }
                 try {
-                    if (this.f64912g.f64907f.e()) {
-                        this.f64911f.b(this.f64912g, new IOException(ResponseException.CANCELED));
+                    if (this.f65598g.f65593f.e()) {
+                        this.f65597f.b(this.f65598g, new IOException(ResponseException.CANCELED));
                     } else {
-                        this.f64911f.a(this.f64912g, h2);
+                        this.f65597f.a(this.f65598g, h2);
                     }
                 } catch (IOException e4) {
                     e2 = e4;
                     if (!z) {
-                        this.f64912g.f64908g.h(this.f64912g, e2);
-                        this.f64911f.b(this.f64912g, e2);
+                        this.f65598g.f65594g.h(this.f65598g, e2);
+                        this.f65597f.b(this.f65598g, e2);
                     } else {
                         d.b.c.a.b.a.i.e j = d.b.c.a.b.a.i.e.j();
-                        j.f(4, "Callback failure for " + this.f64912g.f(), e2);
+                        j.f(4, "Callback failure for " + this.f65598g.f(), e2);
                     }
                 }
             } finally {
-                this.f64912g.f64906e.v().b(this);
+                this.f65598g.f65592e.v().b(this);
             }
         }
 
         public String j() {
-            return this.f64912g.f64909h.a().v();
+            return this.f65598g.f65595h.a().v();
         }
     }
 
     public z(y yVar, a0 a0Var, boolean z) {
-        this.f64906e = yVar;
-        this.f64909h = a0Var;
-        this.f64910i = z;
-        this.f64907f = new e.l(yVar, z);
+        this.f65592e = yVar;
+        this.f65595h = a0Var;
+        this.f65596i = z;
+        this.f65593f = new e.l(yVar, z);
     }
 
     public static z c(y yVar, a0 a0Var, boolean z) {
         z zVar = new z(yVar, a0Var, z);
-        zVar.f64908g = yVar.A().a(zVar);
+        zVar.f65594g = yVar.A().a(zVar);
         return zVar;
     }
 
@@ -94,61 +94,61 @@ public final class z implements i {
             }
         }
         i();
-        this.f64908g.b(this);
+        this.f65594g.b(this);
         try {
             try {
-                this.f64906e.v().c(this);
+                this.f65592e.v().c(this);
                 c h2 = h();
                 if (h2 != null) {
                     return h2;
                 }
                 throw new IOException(ResponseException.CANCELED);
             } catch (IOException e2) {
-                this.f64908g.h(this, e2);
+                this.f65594g.h(this, e2);
                 throw e2;
             }
         } finally {
-            this.f64906e.v().g(this);
+            this.f65592e.v().g(this);
         }
     }
 
     public boolean d() {
-        return this.f64907f.e();
+        return this.f65593f.e();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: e */
     public z clone() {
-        return c(this.f64906e, this.f64909h, this.f64910i);
+        return c(this.f65592e, this.f65595h, this.f65596i);
     }
 
     public String f() {
         StringBuilder sb = new StringBuilder();
         sb.append(d() ? "canceled " : "");
-        sb.append(this.f64910i ? "web socket" : NotificationCompat.CATEGORY_CALL);
+        sb.append(this.f65596i ? "web socket" : NotificationCompat.CATEGORY_CALL);
         sb.append(" to ");
         sb.append(g());
         return sb.toString();
     }
 
     public String g() {
-        return this.f64909h.a().C();
+        return this.f65595h.a().C();
     }
 
     public c h() throws IOException {
-        ArrayList arrayList = new ArrayList(this.f64906e.y());
-        arrayList.add(this.f64907f);
-        arrayList.add(new e.c(this.f64906e.i()));
-        arrayList.add(new d.b.c.a.b.a.a.a(this.f64906e.j()));
-        arrayList.add(new d.b.c.a.b.a.c.a(this.f64906e));
-        if (!this.f64910i) {
-            arrayList.addAll(this.f64906e.z());
+        ArrayList arrayList = new ArrayList(this.f65592e.y());
+        arrayList.add(this.f65593f);
+        arrayList.add(new e.c(this.f65592e.i()));
+        arrayList.add(new d.b.c.a.b.a.a.a(this.f65592e.j()));
+        arrayList.add(new d.b.c.a.b.a.c.a(this.f65592e));
+        if (!this.f65596i) {
+            arrayList.addAll(this.f65592e.z());
         }
-        arrayList.add(new e.d(this.f64910i));
-        return new e.i(arrayList, null, null, null, 0, this.f64909h, this, this.f64908g, this.f64906e.b(), this.f64906e.e(), this.f64906e.f()).a(this.f64909h);
+        arrayList.add(new e.d(this.f65596i));
+        return new e.i(arrayList, null, null, null, 0, this.f65595h, this, this.f65594g, this.f65592e.b(), this.f65592e.e(), this.f65592e.f()).a(this.f65595h);
     }
 
     public final void i() {
-        this.f64907f.d(d.b.c.a.b.a.i.e.j().c("response.body().close()"));
+        this.f65593f.d(d.b.c.a.b.a.i.e.j().c("response.body().close()"));
     }
 }

@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tieba.service.AsInstallService;
 import com.ss.android.socialbase.appdownloader.DownloadReceiver;
 import com.ss.android.socialbase.appdownloader.RetryJobSchedulerService;
 import com.ss.android.socialbase.downloader.exception.BaseException;
@@ -23,7 +24,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static final String l = "e";
     public static volatile e m = null;
@@ -31,35 +32,35 @@ public class e {
     public static boolean o = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.e f66322a;
+    public d.e f67008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.f f66323b;
+    public d.f f67009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.j f66324c;
+    public d.j f67010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.i f66325d;
+    public d.i f67011d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.o f66326e;
+    public d.o f67012e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f66327f;
+    public String f67013f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66328g;
+    public String f67014g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DownloadReceiver f66329h;
+    public DownloadReceiver f67015h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.h f66330i;
+    public d.h f67016i;
     public d.l j;
     public h k;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements q.e {
         public a(e eVar) {
         }
@@ -70,114 +71,114 @@ public class e {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements d.o.a.e.b.f.q {
         public b() {
         }
 
         @Override // d.o.a.e.b.f.q
         public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) {
-            if (e.this.f66324c != null) {
-                e.this.f66324c.a(downloadInfo, baseException, i2);
+            if (e.this.f67010c != null) {
+                e.this.f67010c.a(downloadInfo, baseException, i2);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements d.p {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f66332a;
+        public final /* synthetic */ String f67018a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.e.b.n.a f66333b;
+        public final /* synthetic */ d.o.a.e.b.n.a f67019b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f66334c;
+        public final /* synthetic */ int f67020c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f66335d;
+        public final /* synthetic */ boolean f67021d;
 
         public c(String str, d.o.a.e.b.n.a aVar, int i2, boolean z) {
-            this.f66332a = str;
-            this.f66333b = aVar;
-            this.f66334c = i2;
-            this.f66335d = z;
+            this.f67018a = str;
+            this.f67019b = aVar;
+            this.f67020c = i2;
+            this.f67021d = z;
         }
 
         @Override // d.o.a.e.a.d.p
         public void a() {
             String str = e.l;
-            d.o.a.e.b.c.a.g(str, "notification permission granted, start download :" + this.f66332a);
-            e.this.q(this.f66333b, this.f66334c, this.f66335d);
+            d.o.a.e.b.c.a.g(str, "notification permission granted, start download :" + this.f67018a);
+            e.this.q(this.f67019b, this.f67020c, this.f67021d);
         }
 
         @Override // d.o.a.e.a.d.p
         public void b() {
             String str = e.l;
-            d.o.a.e.b.c.a.g(str, "notification permission denied, start download :" + this.f66332a);
-            e.this.q(this.f66333b, this.f66334c, this.f66335d);
+            d.o.a.e.b.c.a.g(str, "notification permission denied, start download :" + this.f67018a);
+            e.this.q(this.f67019b, this.f67020c, this.f67021d);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f implements d.o.a.e.b.g.l {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<Integer> f66340a;
+        public List<Integer> f67026a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BroadcastReceiver f66341b;
+        public BroadcastReceiver f67027b;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ List f66342e;
+            public final /* synthetic */ List f67028e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f66343f;
+            public final /* synthetic */ int f67029f;
 
             public a(List list, int i2) {
-                this.f66342e = list;
-                this.f66343f = i2;
+                this.f67028e = list;
+                this.f67029f = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    f.this.i(this.f66342e, this.f66343f);
+                    f.this.i(this.f67028e, this.f67029f);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class b extends BroadcastReceiver {
 
-            /* loaded from: classes6.dex */
+            /* loaded from: classes7.dex */
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Context f66346e;
+                public final /* synthetic */ Context f67032e;
 
                 public a(Context context) {
-                    this.f66346e = context;
+                    this.f67032e = context;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        if (f.this.f66340a != null && !f.this.f66340a.isEmpty()) {
-                            int size = f.this.f66340a.size();
+                        if (f.this.f67026a != null && !f.this.f67026a.isEmpty()) {
+                            int size = f.this.f67026a.size();
                             Integer[] numArr = new Integer[size];
-                            f.this.f66340a.toArray(numArr);
-                            f.this.f66340a.clear();
+                            f.this.f67026a.toArray(numArr);
+                            f.this.f67026a.clear();
                             for (int i2 = 0; i2 < size; i2++) {
-                                DownloadInfo f2 = d.o.a.e.b.g.a.l(this.f66346e).f(numArr[i2].intValue());
+                                DownloadInfo f2 = d.o.a.e.b.g.a.l(this.f67032e).f(numArr[i2].intValue());
                                 if (f2 != null && (f2.z0() == -5 || (f2.z0() == -2 && f2.L1()))) {
-                                    f.this.c(this.f66346e, f2, true, 2);
+                                    f.this.c(this.f67032e, f2, true, 2);
                                 }
                             }
                         }
@@ -197,11 +198,11 @@ public class e {
                     d.o.a.e.b.c.a.g("LaunchResume", "onReceive : wifi connected !!!");
                     d.o.a.e.b.g.d.w0().execute(new a(applicationContext));
                     try {
-                        applicationContext.unregisterReceiver(f.this.f66341b);
+                        applicationContext.unregisterReceiver(f.this.f67027b);
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
-                    f.this.f66341b = null;
+                    f.this.f67027b = null;
                 }
             }
         }
@@ -245,12 +246,12 @@ public class e {
                             boolean z5 = d2.b("failed_resume_need_wifi", 1) == 1;
                             boolean z6 = d2.b("failed_resume_need_wait_wifi", 0) == 1;
                             if (!z && z5 && z6) {
-                                if (this.f66340a == null) {
-                                    this.f66340a = new ArrayList();
+                                if (this.f67026a == null) {
+                                    this.f67026a = new ArrayList();
                                 }
                                 int c0 = downloadInfo.c0();
-                                if (!this.f66340a.contains(Integer.valueOf(c0))) {
-                                    this.f66340a.add(Integer.valueOf(c0));
+                                if (!this.f67026a.contains(Integer.valueOf(c0))) {
+                                    this.f67026a.add(Integer.valueOf(c0));
                                 }
                                 downloadInfo.Q2(true);
                                 q.d().k(downloadInfo);
@@ -314,12 +315,12 @@ public class e {
                             I2.a(downloadInfo, 5, i2);
                         }
                     } else {
-                        if (this.f66340a == null) {
-                            this.f66340a = new ArrayList();
+                        if (this.f67026a == null) {
+                            this.f67026a = new ArrayList();
                         }
                         int c02 = downloadInfo.c0();
-                        if (!this.f66340a.contains(Integer.valueOf(c02))) {
-                            this.f66340a.add(Integer.valueOf(c02));
+                        if (!this.f67026a.contains(Integer.valueOf(c02))) {
+                            this.f67026a.add(Integer.valueOf(c02));
                         }
                         q.d().k(downloadInfo);
                         f(downloadInfo, context);
@@ -414,18 +415,18 @@ public class e {
             for (DownloadInfo downloadInfo : list) {
                 c(l, downloadInfo, d0, i2);
             }
-            List<Integer> list2 = this.f66340a;
-            if (list2 == null || list2.isEmpty() || this.f66341b != null) {
+            List<Integer> list2 = this.f67026a;
+            if (list2 == null || list2.isEmpty() || this.f67027b != null) {
                 return;
             }
-            this.f66341b = new b();
+            this.f67027b = new b();
             try {
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                l.registerReceiver(this.f66341b, intentFilter);
+                l.registerReceiver(this.f67027b, intentFilter);
             } catch (Throwable th) {
                 th.printStackTrace();
-                this.f66341b = null;
+                this.f67027b = null;
             }
         }
 
@@ -460,7 +461,7 @@ public class e {
     }
 
     public d.h A() {
-        return this.f66330i;
+        return this.f67016i;
     }
 
     public boolean B() {
@@ -476,15 +477,15 @@ public class e {
     }
 
     public String E() {
-        return this.f66327f;
+        return this.f67013f;
     }
 
     public d.o G() {
-        return this.f66326e;
+        return this.f67012e;
     }
 
     public d.i H() {
-        return this.f66325d;
+        return this.f67011d;
     }
 
     public d.o.a.e.b.g.q I() {
@@ -499,8 +500,8 @@ public class e {
         if (o) {
             return;
         }
-        if (this.f66329h == null) {
-            this.f66329h = new DownloadReceiver();
+        if (this.f67015h == null) {
+            this.f67015h = new DownloadReceiver();
         }
         try {
             IntentFilter intentFilter = new IntentFilter();
@@ -510,13 +511,13 @@ public class e {
             IntentFilter intentFilter2 = new IntentFilter();
             intentFilter2.addAction(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter2.addAction("android.intent.action.PACKAGE_REPLACED");
-            intentFilter2.addDataScheme("package");
+            intentFilter2.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
             IntentFilter intentFilter3 = new IntentFilter();
             intentFilter3.addAction("android.intent.action.MEDIA_MOUNTED");
             intentFilter3.addDataScheme("file");
-            d.o.a.e.b.g.d.l().registerReceiver(this.f66329h, intentFilter);
-            d.o.a.e.b.g.d.l().registerReceiver(this.f66329h, intentFilter2);
-            d.o.a.e.b.g.d.l().registerReceiver(this.f66329h, intentFilter3);
+            d.o.a.e.b.g.d.l().registerReceiver(this.f67015h, intentFilter);
+            d.o.a.e.b.g.d.l().registerReceiver(this.f67015h, intentFilter2);
+            d.o.a.e.b.g.d.l().registerReceiver(this.f67015h, intentFilter3);
             o = true;
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -900,7 +901,7 @@ public class e {
     }
 
     public d.e b() {
-        return this.f66322a;
+        return this.f67008a;
     }
 
     public final d.o.a.e.b.f.d d(d.g gVar) {
@@ -960,7 +961,7 @@ public class e {
             }
         }
         if (!z) {
-            arrayList.add(new com.ss.android.socialbase.downloader.model.c("User-Agent", c.h.f66311a));
+            arrayList.add(new com.ss.android.socialbase.downloader.model.c("User-Agent", c.h.f66997a));
         }
         return arrayList;
     }
@@ -1000,19 +1001,19 @@ public class e {
     @Deprecated
     public void k(Context context, String str, d.e eVar, d.f fVar, d.j jVar) {
         if (eVar != null) {
-            this.f66322a = eVar;
+            this.f67008a = eVar;
         }
         if (fVar != null) {
-            this.f66323b = fVar;
+            this.f67009b = fVar;
         }
         if (jVar != null) {
-            this.f66324c = jVar;
+            this.f67010c = jVar;
         }
         y(context);
     }
 
     public void l(d.i iVar) {
-        this.f66325d = iVar;
+        this.f67011d = iVar;
     }
 
     public void m(d.l lVar) {
@@ -1046,11 +1047,11 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f66328g = str;
+        this.f67014g = str;
     }
 
     public d.f t() {
-        return this.f66323b;
+        return this.f67009b;
     }
 
     public final DownloadInfo u(Context context, String str) {
@@ -1075,7 +1076,7 @@ public class e {
     }
 
     public d.j x() {
-        return this.f66324c;
+        return this.f67010c;
     }
 
     public final void y(Context context) {
@@ -1094,32 +1095,32 @@ public class e {
     }
 
     public String z() {
-        return this.f66328g;
+        return this.f67014g;
     }
 
     /* renamed from: d.o.a.e.a.e$e  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C1815e extends d.AbstractC1814d {
+    /* loaded from: classes7.dex */
+    public class C1879e extends d.AbstractC1878d {
 
         /* renamed from: a  reason: collision with root package name */
-        public AlertDialog.Builder f66338a;
+        public AlertDialog.Builder f67024a;
 
         /* renamed from: d.o.a.e.a.e$e$a */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class a implements d.m {
 
             /* renamed from: a  reason: collision with root package name */
-            public AlertDialog f66339a;
+            public AlertDialog f67025a;
 
             public a(AlertDialog.Builder builder) {
                 if (builder != null) {
-                    this.f66339a = builder.show();
+                    this.f67025a = builder.show();
                 }
             }
 
             @Override // d.o.a.e.a.d.m
             public void a() {
-                AlertDialog alertDialog = this.f66339a;
+                AlertDialog alertDialog = this.f67025a;
                 if (alertDialog != null) {
                     alertDialog.show();
                 }
@@ -1127,7 +1128,7 @@ public class e {
 
             @Override // d.o.a.e.a.d.m
             public boolean b() {
-                AlertDialog alertDialog = this.f66339a;
+                AlertDialog alertDialog = this.f67025a;
                 if (alertDialog != null) {
                     return alertDialog.isShowing();
                 }
@@ -1135,13 +1136,13 @@ public class e {
             }
         }
 
-        public C1815e(Context context) {
-            this.f66338a = new AlertDialog.Builder(context);
+        public C1879e(Context context) {
+            this.f67024a = new AlertDialog.Builder(context);
         }
 
         @Override // d.o.a.e.a.d.n
         public d.n a(int i2) {
-            AlertDialog.Builder builder = this.f66338a;
+            AlertDialog.Builder builder = this.f67024a;
             if (builder != null) {
                 builder.setTitle(i2);
             }
@@ -1150,7 +1151,7 @@ public class e {
 
         @Override // d.o.a.e.a.d.n
         public d.n b(int i2, DialogInterface.OnClickListener onClickListener) {
-            AlertDialog.Builder builder = this.f66338a;
+            AlertDialog.Builder builder = this.f67024a;
             if (builder != null) {
                 builder.setPositiveButton(i2, onClickListener);
             }
@@ -1159,7 +1160,7 @@ public class e {
 
         @Override // d.o.a.e.a.d.n
         public d.n c(DialogInterface.OnCancelListener onCancelListener) {
-            AlertDialog.Builder builder = this.f66338a;
+            AlertDialog.Builder builder = this.f67024a;
             if (builder != null) {
                 builder.setOnCancelListener(onCancelListener);
             }
@@ -1168,7 +1169,7 @@ public class e {
 
         @Override // d.o.a.e.a.d.n
         public d.n a(String str) {
-            AlertDialog.Builder builder = this.f66338a;
+            AlertDialog.Builder builder = this.f67024a;
             if (builder != null) {
                 builder.setMessage(str);
             }
@@ -1177,7 +1178,7 @@ public class e {
 
         @Override // d.o.a.e.a.d.n
         public d.n a(int i2, DialogInterface.OnClickListener onClickListener) {
-            AlertDialog.Builder builder = this.f66338a;
+            AlertDialog.Builder builder = this.f67024a;
             if (builder != null) {
                 builder.setNegativeButton(i2, onClickListener);
             }
@@ -1186,18 +1187,18 @@ public class e {
 
         @Override // d.o.a.e.a.d.n
         public d.m a() {
-            return new a(this.f66338a);
+            return new a(this.f67024a);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements d.o.a.e.b.f.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.g f66337a;
+        public final /* synthetic */ d.g f67023a;
 
         public d(e eVar, d.g gVar) {
-            this.f66337a = gVar;
+            this.f67023a = gVar;
         }
 
         @Override // d.o.a.e.b.f.d
@@ -1209,29 +1210,29 @@ public class e {
                     case 7:
                         break;
                     case 8:
-                        this.f66337a.b(i2, downloadInfo.v0(), str, str2);
+                        this.f67023a.b(i2, downloadInfo.v0(), str, str2);
                         return;
                     case 9:
-                        this.f66337a.a(d.o.a.e.b.g.d.l(), str);
+                        this.f67023a.a(d.o.a.e.b.g.d.l(), str);
                         return;
                     case 10:
-                        this.f66337a.a(downloadInfo);
+                        this.f67023a.a(downloadInfo);
                         return;
                     default:
                         return;
                 }
             }
-            this.f66337a.a(i2, str, downloadInfo.H0(), downloadInfo.M());
+            this.f67023a.a(i2, str, downloadInfo.H0(), downloadInfo.M());
         }
 
         @Override // d.o.a.e.b.f.d
         public boolean a(boolean z) {
-            return this.f66337a.a(z);
+            return this.f67023a.a(z);
         }
 
         @Override // d.o.a.e.b.f.d
         public String a() {
-            return this.f66337a.a();
+            return this.f67023a.a();
         }
     }
 }

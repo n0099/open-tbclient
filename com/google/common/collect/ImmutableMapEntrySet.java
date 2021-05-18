@@ -24,10 +24,10 @@ public abstract class ImmutableMapEntrySet<K, V> extends ImmutableSet<Map.Entry<
     public static final class RegularEntrySet<K, V> extends ImmutableMapEntrySet<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableMap<K, V> f31853e;
+        public final transient ImmutableMap<K, V> f31098e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final transient ImmutableList<Map.Entry<K, V>> f31854f;
+        public final transient ImmutableList<Map.Entry<K, V>> f31099f;
 
         public RegularEntrySet(ImmutableMap<K, V> immutableMap, Map.Entry<K, V>[] entryArr) {
             this(immutableMap, ImmutableList.asImmutableList(entryArr));
@@ -35,28 +35,28 @@ public abstract class ImmutableMapEntrySet<K, V> extends ImmutableSet<Map.Entry<
 
         @Override // com.google.common.collect.ImmutableCollection
         public int copyIntoArray(Object[] objArr, int i2) {
-            return this.f31854f.copyIntoArray(objArr, i2);
+            return this.f31099f.copyIntoArray(objArr, i2);
         }
 
         @Override // com.google.common.collect.ImmutableSet
         public ImmutableList<Map.Entry<K, V>> createAsList() {
-            return this.f31854f;
+            return this.f31099f;
         }
 
         @Override // com.google.common.collect.ImmutableMapEntrySet
         public ImmutableMap<K, V> map() {
-            return this.f31853e;
+            return this.f31098e;
         }
 
         public RegularEntrySet(ImmutableMap<K, V> immutableMap, ImmutableList<Map.Entry<K, V>> immutableList) {
-            this.f31853e = immutableMap;
-            this.f31854f = immutableList;
+            this.f31098e = immutableMap;
+            this.f31099f = immutableList;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.ImmutableSet, com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet
         public c1<Map.Entry<K, V>> iterator() {
-            return this.f31854f.iterator();
+            return this.f31099f.iterator();
         }
     }
 

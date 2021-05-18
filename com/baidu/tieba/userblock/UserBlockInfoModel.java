@@ -18,13 +18,13 @@ import tbclient.GetUserBlackInfo.DataRes;
 public class UserBlockInfoModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public long f21993e;
+    public long f21238e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.i0.m.a f21994f;
+    public d.a.j0.m.a f21239f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f21995g;
+    public d.a.c.c.g.a f21240g;
 
     /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.a {
@@ -35,7 +35,7 @@ public class UserBlockInfoModel extends BdBaseModel {
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             UserBlockInfoRequestMessage userBlockInfoRequestMessage;
-            if (UserBlockInfoModel.this.f21994f == null || responsedMessage == null || (userBlockInfoRequestMessage = (UserBlockInfoRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockInfoRequestMessage.getBlockUserId() != UserBlockInfoModel.this.f21993e) {
+            if (UserBlockInfoModel.this.f21239f == null || responsedMessage == null || (userBlockInfoRequestMessage = (UserBlockInfoRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockInfoRequestMessage.getBlockUserId() != UserBlockInfoModel.this.f21238e) {
                 return;
             }
             int error = responsedMessage.getError();
@@ -45,20 +45,20 @@ public class UserBlockInfoModel extends BdBaseModel {
                 if (responsedMessage instanceof UserBlockInfoHttpResponseMessage) {
                     data = ((UserBlockInfoHttpResponseMessage) responsedMessage).getData();
                 }
-                UserBlockInfoModel.this.f21994f.onSuccess(data);
-                UserBlockInfoModel.this.f21993e = -1L;
+                UserBlockInfoModel.this.f21239f.onSuccess(data);
+                UserBlockInfoModel.this.f21238e = -1L;
                 return;
             }
             if (StringUtils.isNull(errorString)) {
                 errorString = UserBlockInfoModel.this.w(R.string.error_unkown_try_again);
             }
-            UserBlockInfoModel.this.f21994f.onError(error, errorString);
+            UserBlockInfoModel.this.f21239f.onError(error, errorString);
         }
     }
 
     public UserBlockInfoModel(f fVar, BdUniqueId bdUniqueId) {
         super(fVar);
-        this.f21995g = new a(CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, 309698);
+        this.f21240g = new a(CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, 309698);
         setUniqueId(bdUniqueId);
         x();
     }
@@ -74,8 +74,8 @@ public class UserBlockInfoModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        this.f21993e = -1L;
-        MessageManager.getInstance().unRegisterListener(this.f21995g);
+        this.f21238e = -1L;
+        MessageManager.getInstance().unRegisterListener(this.f21240g);
     }
 
     public final String w(int i2) {
@@ -83,21 +83,21 @@ public class UserBlockInfoModel extends BdBaseModel {
     }
 
     public void x() {
-        d.a.j0.d3.d0.a.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
-        d.a.j0.d3.d0.a.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
-        this.f21995g.getHttpMessageListener().setSelfListener(true);
-        this.f21995g.getSocketMessageListener().setSelfListener(true);
-        registerListener(this.f21995g);
+        d.a.k0.d3.d0.a.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
+        d.a.k0.d3.d0.a.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
+        this.f21240g.getHttpMessageListener().setSelfListener(true);
+        this.f21240g.getSocketMessageListener().setSelfListener(true);
+        registerListener(this.f21240g);
     }
 
     public void y(long j) {
-        this.f21993e = j;
+        this.f21238e = j;
         UserBlockInfoRequestMessage userBlockInfoRequestMessage = new UserBlockInfoRequestMessage();
         userBlockInfoRequestMessage.setBlockUserId(j);
         sendMessage(userBlockInfoRequestMessage);
     }
 
-    public void z(d.a.i0.m.a aVar) {
-        this.f21994f = aVar;
+    public void z(d.a.j0.m.a aVar) {
+        this.f21239f = aVar;
     }
 }

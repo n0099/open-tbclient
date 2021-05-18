@@ -7,30 +7,30 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f5234a;
+    public int f5088a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<e> f5235b = new ArrayList<>();
+    public ArrayList<e> f5089b = new ArrayList<>();
 
     public c(int i2) {
-        this.f5234a = i2;
+        this.f5088a = i2;
     }
 
     public int a() {
-        return this.f5234a;
+        return this.f5088a;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
         if (jSONObject == null) {
             return jSONObject;
         }
-        int i2 = this.f5234a;
+        int i2 = this.f5088a;
         if (i2 != 24321 && i2 != 24323 && i2 != 24322 && i2 != 20488) {
             jSONObject.put("type", i2);
         }
-        int size = this.f5235b.size();
+        int size = this.f5089b.size();
         for (int i3 = 0; i3 < size; i3++) {
-            e eVar = this.f5235b.get(i3);
+            e eVar = this.f5089b.get(i3);
             if (eVar != null) {
                 jSONObject.put(eVar.a(), eVar.b());
             }
@@ -39,11 +39,11 @@ public class c {
     }
 
     public void a(e eVar) {
-        this.f5235b.add(eVar);
+        this.f5089b.add(eVar);
     }
 
     public void b() {
-        ArrayList<e> arrayList = this.f5235b;
+        ArrayList<e> arrayList = this.f5089b;
         if (arrayList != null) {
             arrayList.clear();
         }

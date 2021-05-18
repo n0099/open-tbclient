@@ -5,28 +5,28 @@ import androidx.annotation.NonNull;
 public class q1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64351a;
+    public String f65037a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64352b;
+    public String f65038b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64353c;
+    public String f65039c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f64354d;
+    public String f65040d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f64355e;
+    public String f65041e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f64356f;
+    public String f65042f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e1 f64357g;
+    public e1 f65043g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f64358h;
+    public boolean f65044h;
     public String j;
     public String k;
     public String l;
@@ -44,12 +44,12 @@ public class q1 {
     public p1 y;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f64359i = 0;
+    public int f65045i = 0;
     public boolean w = true;
 
     public q1(@NonNull String str, @NonNull String str2) {
-        this.f64351a = str;
-        this.f64352b = str2;
+        this.f65037a = str;
+        this.f65038b = str2;
     }
 
     public String A() {
@@ -79,7 +79,7 @@ public class q1 {
 
     @NonNull
     public q1 b(boolean z) {
-        this.f64359i = z ? 1 : 2;
+        this.f65045i = z ? 1 : 2;
         return this;
     }
 
@@ -99,11 +99,11 @@ public class q1 {
     }
 
     public boolean g() {
-        return this.f64358h;
+        return this.f65044h;
     }
 
     public String h() {
-        return this.f64351a;
+        return this.f65037a;
     }
 
     public void i(boolean z) {
@@ -111,31 +111,31 @@ public class q1 {
     }
 
     public String j() {
-        return this.f64352b;
+        return this.f65038b;
     }
 
     public String k() {
-        return this.f64353c;
+        return this.f65039c;
     }
 
     public String l() {
-        return this.f64354d;
+        return this.f65040d;
     }
 
     public String m() {
-        return this.f64355e;
+        return this.f65041e;
     }
 
     public String n() {
-        return this.f64356f;
+        return this.f65042f;
     }
 
     public int o() {
-        return this.f64359i;
+        return this.f65045i;
     }
 
     public e1 p() {
-        return this.f64357g;
+        return this.f65043g;
     }
 
     public String q() {

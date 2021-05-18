@@ -11,10 +11,10 @@ import java.security.NoSuchAlgorithmException;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4832a;
+    public static String f4686a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f4833b;
+    public static Context f4687b;
 
     public static String a(String str) {
         byte b2;
@@ -55,22 +55,22 @@ public final class h {
     }
 
     public static void b(Context context) {
-        if (f4833b == null) {
-            f4833b = context;
+        if (f4687b == null) {
+            f4687b = context;
         }
     }
 
     public static String c() {
-        String str = f4832a;
+        String str = f4686a;
         if (str != null) {
             return str;
         }
         try {
-            f4832a = a(Settings.Secure.getString(f4833b.getContentResolver(), IAdRequestParam.ANDROID_ID));
+            f4686a = a(Settings.Secure.getString(f4687b.getContentResolver(), IAdRequestParam.ANDROID_ID));
         } catch (Exception e2) {
             com.baidu.crabsdk.c.a.a("getCUID failed!", e2);
-            f4832a = "N/A";
+            f4686a = "N/A";
         }
-        return f4832a;
+        return f4686a;
     }
 }

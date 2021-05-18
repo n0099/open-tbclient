@@ -3,25 +3,25 @@ package com.baidu.android.pushservice.d;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3000a;
+    public String f3001a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3001b;
+    public String f3002b;
 
     public f(String str, String str2) {
-        this.f3000a = str;
-        this.f3001b = str2;
+        this.f3001a = str;
+        this.f3002b = str2;
     }
 
     public String a() {
-        return this.f3000a;
+        return this.f3001a;
     }
 
     public String b() {
-        return this.f3001b;
+        return this.f3002b;
     }
 
     public String toString() {
-        return "BindCache [mApiKey=" + this.f3000a + ", mContent=" + this.f3001b + "]";
+        return "BindCache [mApiKey=" + this.f3001a + ", mContent=" + this.f3002b + "]";
     }
 }

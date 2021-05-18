@@ -13,6 +13,7 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel;
@@ -21,7 +22,8 @@ import d.a.c.e.m.b;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
 import d.a.c.j.e.n;
-import d.a.i0.a.f;
+import d.a.j0.a.f;
+import d.a.j0.a.w;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -31,7 +33,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.a.j0.a1.j.a.a {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.a.k0.a1.j.a.a {
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
     public long mCurPageNum = 1;
@@ -46,7 +48,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         public a() {
         }
 
-        @Override // d.a.i0.a.f.b
+        @Override // d.a.j0.a.f.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(f.u) instanceof String)) {
                 String str = (String) hashMap.get(f.u);
@@ -64,7 +66,8 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
         Map<String, String> paramPair = UrlManager.getParamPair(str);
         if (paramPair != null) {
-            StatisticItem statisticItem = new StatisticItem("c10320");
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
+            w.b(statisticItem, paramPair);
             statisticItem.param("obj_locate", paramPair.get("obj_locate"));
             statisticItem.param("obj_type", 1);
             statisticItem.param("tid", paramPair.get("tid"));
@@ -107,12 +110,12 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         super.finish();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "a024";
     }
 
-    @Override // d.a.j0.a1.j.a.a
+    @Override // d.a.k0.a1.j.a.a
     public void loadData() {
         int i2;
         String substring;
@@ -166,10 +169,10 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // d.a.j0.a1.j.a.a
-    public void netCallback(int i2, d.a.j0.a1.j.a.c.a aVar) {
+    @Override // d.a.k0.a1.j.a.a
+    public void netCallback(int i2, d.a.k0.a1.j.a.c.a aVar) {
         this.mTopicDetailView.r();
-        if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f51070f)) {
+        if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f51769f)) {
             this.mTopicDetailView.s();
             this.mTopicDetailView.setData(aVar);
             return;
@@ -177,7 +180,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         this.mTopicDetailView.B(true);
     }
 
-    @Override // d.a.j0.a1.j.a.a
+    @Override // d.a.k0.a1.j.a.a
     public void netThreadCallback(int i2, boolean z, List<n> list) {
         this.mTopicDetailView.setNextData(i2, z, list);
     }

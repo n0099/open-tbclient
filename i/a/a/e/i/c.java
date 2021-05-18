@@ -8,7 +8,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.view.IYYPayResultView;
 import tv.athena.revenue.payui.view.IYYPayWayView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface c {
     IYYPayWayView a(Activity activity, IYYPayWayView.b bVar);
 

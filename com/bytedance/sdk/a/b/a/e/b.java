@@ -1,5 +1,5 @@
 package com.bytedance.sdk.a.b.a.e;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum b {
     NO_ERROR(0),
     PROTOCOL_ERROR(1),
@@ -10,16 +10,16 @@ public enum b {
     
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f27684g;
+    public final int f26929g;
 
     b(int i2) {
-        this.f27684g = i2;
+        this.f26929g = i2;
     }
 
     public static b a(int i2) {
         b[] values;
         for (b bVar : values()) {
-            if (bVar.f27684g == i2) {
+            if (bVar.f26929g == i2) {
                 return bVar;
             }
         }

@@ -15,19 +15,19 @@ import org.json.JSONObject;
 public class DbAdapter {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f67484d = "CREATE TABLE " + Table.EVENTS.getName() + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, data STRING NOT NULL, created_at INTEGER NOT NULL);";
+    public static final String f68170d = "CREATE TABLE " + Table.EVENTS.getName() + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, data STRING NOT NULL, created_at INTEGER NOT NULL);";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f67485e;
+    public static final String f68171e;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f67486a;
+    public final Context f68172a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f67487b;
+    public final String f68173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f67488c = null;
+    public a f68174c = null;
 
     /* loaded from: classes7.dex */
     public enum Table {
@@ -48,20 +48,20 @@ public class DbAdapter {
     public static class a extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        public final File f67489a;
+        public final File f68175a;
 
         public a(Context context, String str) {
             super(context, str, (SQLiteDatabase.CursorFactory) null, 4);
-            this.f67489a = context.getDatabasePath(str);
+            this.f68175a = context.getDatabasePath(str);
         }
 
         public boolean a() {
-            return !this.f67489a.exists() || Math.max(this.f67489a.getUsableSpace(), 33554432L) >= this.f67489a.length();
+            return !this.f68175a.exists() || Math.max(this.f68175a.getUsableSpace(), 33554432L) >= this.f68175a.length();
         }
 
         public void b() {
             close();
-            this.f67489a.delete();
+            this.f68175a.delete();
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
@@ -69,8 +69,8 @@ public class DbAdapter {
             if (DxmSdkSensorsDataAPI.r.booleanValue()) {
                 Log.i("SA.DbAdapter", "Creating a new Sensors Analytics DB");
             }
-            sQLiteDatabase.execSQL(DbAdapter.f67484d);
-            sQLiteDatabase.execSQL(DbAdapter.f67485e);
+            sQLiteDatabase.execSQL(DbAdapter.f68170d);
+            sQLiteDatabase.execSQL(DbAdapter.f68171e);
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
@@ -79,8 +79,8 @@ public class DbAdapter {
                 Log.i("SA.DbAdapter", "Upgrading app, replacing Sensors Analytics DB");
             }
             sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Table.EVENTS.getName());
-            sQLiteDatabase.execSQL(DbAdapter.f67484d);
-            sQLiteDatabase.execSQL(DbAdapter.f67485e);
+            sQLiteDatabase.execSQL(DbAdapter.f68170d);
+            sQLiteDatabase.execSQL(DbAdapter.f68171e);
         }
     }
 
@@ -91,12 +91,12 @@ public class DbAdapter {
         sb.append(" (");
         sb.append("created_at");
         sb.append(");");
-        f67485e = sb.toString();
+        f68171e = sb.toString();
     }
 
     public DbAdapter(Context context, String str) {
-        this.f67486a = context;
-        this.f67487b = str;
+        this.f68172a = context;
+        this.f68173b = str;
         f();
     }
 
@@ -112,7 +112,7 @@ public class DbAdapter {
     public int c(JSONObject jSONObject, Table table) {
         Cursor cursor;
         a aVar;
-        if (!this.f67488c.a()) {
+        if (!this.f68174c.a()) {
             Log.e("SA.DbAdapter", "There is not enough space left on the device to store events, so will delete some old events");
             String[] e2 = e(Table.EVENTS, 100);
             if (e2 == null || d(e2[0], Table.EVENTS) <= 0) {
@@ -121,7 +121,7 @@ public class DbAdapter {
         }
         String name = table.getName();
         int i2 = -1;
-        synchronized (this.f67488c) {
+        synchronized (this.f68174c) {
             Cursor cursor2 = 0;
             cursor2 = 0;
             Cursor cursor3 = null;
@@ -129,7 +129,7 @@ public class DbAdapter {
             try {
                 try {
                     try {
-                        SQLiteDatabase writableDatabase = this.f67488c.getWritableDatabase();
+                        SQLiteDatabase writableDatabase = this.f68174c.getWritableDatabase();
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("data", jSONObject.toString());
                         contentValues.put("created_at", Long.valueOf(System.currentTimeMillis()));
@@ -140,7 +140,7 @@ public class DbAdapter {
                         if (cursor2 != 0) {
                             cursor2.close();
                         }
-                        this.f67488c.close();
+                        this.f68174c.close();
                         throw th;
                     }
                 } catch (SQLiteException e3) {
@@ -156,7 +156,7 @@ public class DbAdapter {
                     if (cursor != null) {
                         cursor.close();
                     }
-                    aVar = this.f67488c;
+                    aVar = this.f68174c;
                 } catch (SQLiteException e5) {
                     e = e5;
                     Log.e("SA.DbAdapter", "Could not add data to table " + name + ". Re-initializing database.", e);
@@ -169,7 +169,7 @@ public class DbAdapter {
                     if (cursor3 != null) {
                         cursor3.close();
                     }
-                    aVar = this.f67488c;
+                    aVar = this.f68174c;
                     cursor2 = cursor3;
                     aVar.close();
                     return i2;
@@ -185,7 +185,7 @@ public class DbAdapter {
                     if (cursor4 != null) {
                         cursor4.close();
                     }
-                    aVar = this.f67488c;
+                    aVar = this.f68174c;
                     cursor2 = cursor4;
                     aVar.close();
                     return i2;
@@ -203,10 +203,10 @@ public class DbAdapter {
         a aVar;
         int i2;
         String name = table.getName();
-        synchronized (this.f67488c) {
+        synchronized (this.f68174c) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase writableDatabase = this.f67488c.getWritableDatabase();
+                SQLiteDatabase writableDatabase = this.f68174c.getWritableDatabase();
                 writableDatabase.delete(name, "_id <= " + str, null);
                 cursor = writableDatabase.rawQuery("SELECT COUNT(*) FROM " + name, null);
                 cursor.moveToFirst();
@@ -214,14 +214,14 @@ public class DbAdapter {
                 if (cursor != null) {
                     cursor.close();
                 }
-                this.f67488c.close();
+                this.f68174c.close();
             } catch (SQLiteException e2) {
                 Log.e("SA.DbAdapter", "Could not clean sent records from " + name + ". Re-initializing database.", e2);
                 f();
                 if (cursor != null) {
                     cursor.close();
                 }
-                aVar = this.f67488c;
+                aVar = this.f68174c;
                 aVar.close();
                 i2 = -1;
                 return i2;
@@ -231,7 +231,7 @@ public class DbAdapter {
                 if (cursor != null) {
                     cursor.close();
                 }
-                aVar = this.f67488c;
+                aVar = this.f68174c;
                 aVar.close();
                 i2 = -1;
                 return i2;
@@ -252,7 +252,7 @@ public class DbAdapter {
         String str;
         String str2;
         String name = table.getName();
-        synchronized (this.f67488c) {
+        synchronized (this.f68174c) {
             Cursor cursor2 = null;
             try {
             } catch (Throwable th) {
@@ -260,7 +260,7 @@ public class DbAdapter {
                 cursor2 = i2;
             }
             try {
-                cursor = this.f67488c.getReadableDatabase().rawQuery("SELECT * FROM " + name + " ORDER BY created_at ASC LIMIT " + String.valueOf(i2), null);
+                cursor = this.f68174c.getReadableDatabase().rawQuery("SELECT * FROM " + name + " ORDER BY created_at ASC LIMIT " + String.valueOf(i2), null);
                 try {
                     JSONArray jSONArray = new JSONArray();
                     str2 = null;
@@ -277,14 +277,14 @@ public class DbAdapter {
                     if (cursor != null) {
                         cursor.close();
                     }
-                    this.f67488c.close();
+                    this.f68174c.close();
                 } catch (SQLiteException e2) {
                     e = e2;
                     Log.e("SA.DbAdapter", "Could not pull records for SensorsData out of database " + name + ". Waiting to send.", e);
                     if (cursor != null) {
                         cursor.close();
                     }
-                    aVar = this.f67488c;
+                    aVar = this.f68174c;
                     aVar.close();
                     str = null;
                     str2 = null;
@@ -297,7 +297,7 @@ public class DbAdapter {
                     if (cursor != null) {
                         cursor.close();
                     }
-                    aVar = this.f67488c;
+                    aVar = this.f68174c;
                     aVar.close();
                     str = null;
                     str2 = null;
@@ -316,7 +316,7 @@ public class DbAdapter {
                 if (cursor2 != null) {
                     cursor2.close();
                 }
-                this.f67488c.close();
+                this.f68174c.close();
                 throw th;
             }
         }
@@ -327,10 +327,10 @@ public class DbAdapter {
     }
 
     public void f() {
-        a aVar = this.f67488c;
+        a aVar = this.f68174c;
         if (aVar != null) {
             aVar.b();
         }
-        this.f67488c = new a(this.f67486a, this.f67487b);
+        this.f68174c = new a(this.f68172a, this.f68173b);
     }
 }

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
@@ -18,10 +19,10 @@ import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
 /* loaded from: classes5.dex */
-public final class b extends j {
+public final class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f27371a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
+    public final String[] f26628a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
 
     private boolean a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -29,7 +30,7 @@ public final class b extends j {
         }
         int i2 = 0;
         while (true) {
-            String[] strArr = this.f27371a;
+            String[] strArr = this.f26628a;
             if (i2 >= strArr.length) {
                 return false;
             }
@@ -40,7 +41,7 @@ public final class b extends j {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0154  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x014e  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -52,9 +53,9 @@ public final class b extends j {
                 if (context.getPackageManager().resolveActivity(parseUri, 0) == null) {
                     String str2 = parseUri.getPackage();
                     if (str2 != null) {
-                        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://search?q=pname:" + str2));
+                        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://search?q=pname:".concat(String.valueOf(str2))));
                         intent.addCategory("android.intent.category.BROWSABLE");
-                        j.a(context, intent);
+                        g.a(context, intent);
                         return true;
                     }
                     String substring = str.substring(0, str.indexOf(":"));
@@ -63,9 +64,26 @@ public final class b extends j {
                     String str3 = context.getResources().getString(context.getResources().getIdentifier("zeus_popup_not_support_protocol_start", "string", context.getPackageName())) + substring;
                     int identifier = context.getResources().getIdentifier("zeus_popup_not_support_protocol_end", "string", context.getPackageName());
                     ((TextView) inflate.findViewById(context.getResources().getIdentifier("sailor_noapp_support_warnings_text", "id", context.getPackageName()))).setText(str3 + context.getResources().getString(identifier));
-                    AlertDialog show = new AlertDialog.Builder(context).setView(inflate).setPositiveButton(context.getResources().getIdentifier("sailor_common_ok", "string", context.getPackageName()), new d(this)).setOnCancelListener(new c(this)).show();
+                    final AlertDialog show = new AlertDialog.Builder(context).setView(inflate).setPositiveButton(context.getResources().getIdentifier("sailor_common_ok", "string", context.getPackageName()), new DialogInterface.OnClickListener() { // from class: com.baidu.webkit.internal.b.b.2
+                        @Override // android.content.DialogInterface.OnClickListener
+                        public final void onClick(DialogInterface dialogInterface, int i2) {
+                        }
+                    }).setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.webkit.internal.b.b.1
+                        @Override // android.content.DialogInterface.OnCancelListener
+                        public final void onCancel(DialogInterface dialogInterface) {
+                        }
+                    }).show();
                     show.setCanceledOnTouchOutside(true);
-                    new Handler(Looper.getMainLooper()).postDelayed(new e(this, show), PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
+                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.baidu.webkit.internal.b.b.3
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            try {
+                                show.dismiss();
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                    }, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
                     return true;
                 }
                 parseUri.addCategory("android.intent.category.BROWSABLE");
@@ -95,7 +113,7 @@ public final class b extends j {
         return false;
     }
 
-    @Override // com.baidu.webkit.internal.b.j
+    @Override // com.baidu.webkit.internal.b.g
     public final boolean a(Context context, String str) {
         if (str == null) {
             return false;
@@ -106,7 +124,7 @@ public final class b extends j {
         if (a(str)) {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
             intent.addCategory("android.intent.category.BROWSABLE");
-            return j.a(context, intent);
+            return g.a(context, intent);
         }
         return false;
     }

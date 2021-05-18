@@ -7,29 +7,29 @@ import d.o.a.e.b.g.d;
 import d.o.a.e.b.l.e;
 import java.io.InputStream;
 import java.util.concurrent.Future;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final InputStream f66512a;
+    public final InputStream f67198a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f66513b;
+    public final int f67199b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f66514c;
+    public final int f67200c;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.o.a.e.b.i.a f66517f;
+    public d.o.a.e.b.i.a f67203f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.o.a.e.b.i.a f66518g;
+    public d.o.a.e.b.i.a f67204g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.o.a.e.b.i.a f66519h;
+    public d.o.a.e.b.i.a f67205h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.o.a.e.b.i.a f66520i;
+    public d.o.a.e.b.i.a f67206i;
     public d.o.a.e.b.i.a j;
     public d.o.a.e.b.i.a k;
     public volatile boolean l;
@@ -39,16 +39,16 @@ public class a implements b {
     public int p;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f66515d = new Object();
+    public final Object f67201d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f66516e = new Object();
-    public final Runnable q = new RunnableC1821a();
+    public final Object f67202e = new Object();
+    public final Runnable q = new RunnableC1885a();
 
     /* renamed from: d.o.a.e.b.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class RunnableC1821a implements Runnable {
-        public RunnableC1821a() {
+    /* loaded from: classes7.dex */
+    public class RunnableC1885a implements Runnable {
+        public RunnableC1885a() {
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -60,45 +60,45 @@ public class a implements b {
             do {
                 try {
                     k = a.this.k();
-                    k.f66526c = a.this.f66512a.read(k.f66524a);
+                    k.f67212c = a.this.f67198a.read(k.f67210a);
                     a.this.j(k);
                 } catch (Throwable th) {
                     try {
                         a.this.n = th;
                         th.printStackTrace();
-                        synchronized (a.this.f66516e) {
+                        synchronized (a.this.f67202e) {
                             a.this.m = true;
-                            a.this.f66516e.notify();
-                            e.C(a.this.f66512a);
+                            a.this.f67202e.notify();
+                            e.C(a.this.f67198a);
                             return;
                         }
                     } catch (Throwable th2) {
-                        synchronized (a.this.f66516e) {
+                        synchronized (a.this.f67202e) {
                             a.this.m = true;
-                            a.this.f66516e.notify();
-                            e.C(a.this.f66512a);
+                            a.this.f67202e.notify();
+                            e.C(a.this.f67198a);
                             throw th2;
                         }
                     }
                 }
-            } while (k.f66526c != -1);
-            synchronized (a.this.f66516e) {
+            } while (k.f67212c != -1);
+            synchronized (a.this.f67202e) {
                 a.this.m = true;
-                a.this.f66516e.notify();
+                a.this.f67202e.notify();
             }
-            e.C(a.this.f66512a);
+            e.C(a.this.f67198a);
         }
     }
 
     public a(InputStream inputStream, int i2, int i3) throws Throwable {
-        this.f66512a = inputStream;
-        this.f66513b = i2;
+        this.f67198a = inputStream;
+        this.f67199b = i2;
         if (i3 < 1) {
             i3 = 1;
         } else if (i3 > 64) {
             i3 = 64;
         }
-        this.f66514c = i3;
+        this.f67200c = i3;
         i();
     }
 
@@ -108,15 +108,15 @@ public class a implements b {
     }
 
     public final void g(d.o.a.e.b.i.a aVar) {
-        synchronized (this.f66515d) {
-            d.o.a.e.b.i.a aVar2 = this.f66518g;
+        synchronized (this.f67201d) {
+            d.o.a.e.b.i.a aVar2 = this.f67204g;
             if (aVar2 == null) {
-                this.f66518g = aVar;
-                this.f66517f = aVar;
-                this.f66515d.notify();
+                this.f67204g = aVar;
+                this.f67203f = aVar;
+                this.f67201d.notify();
             } else {
-                aVar2.f66527d = aVar;
-                this.f66518g = aVar;
+                aVar2.f67213d = aVar;
+                this.f67204g = aVar;
             }
         }
     }
@@ -126,48 +126,48 @@ public class a implements b {
     }
 
     public final void j(d.o.a.e.b.i.a aVar) {
-        synchronized (this.f66516e) {
+        synchronized (this.f67202e) {
             d.o.a.e.b.i.a aVar2 = this.j;
             if (aVar2 == null) {
                 this.j = aVar;
-                this.f66520i = aVar;
-                this.f66516e.notify();
+                this.f67206i = aVar;
+                this.f67202e.notify();
             } else {
-                aVar2.f66527d = aVar;
+                aVar2.f67213d = aVar;
                 this.j = aVar;
             }
         }
     }
 
     public final d.o.a.e.b.i.a k() throws p, InterruptedException {
-        d.o.a.e.b.i.a aVar = this.f66519h;
+        d.o.a.e.b.i.a aVar = this.f67205h;
         if (aVar != null) {
             if (!this.l) {
-                this.f66519h = aVar.f66527d;
-                aVar.f66527d = null;
+                this.f67205h = aVar.f67213d;
+                aVar.f67213d = null;
                 return aVar;
             }
             throw new p("");
         }
-        synchronized (this.f66515d) {
+        synchronized (this.f67201d) {
             if (!this.l) {
-                d.o.a.e.b.i.a aVar2 = this.f66517f;
-                if (aVar2 == null && this.p < this.f66514c) {
+                d.o.a.e.b.i.a aVar2 = this.f67203f;
+                if (aVar2 == null && this.p < this.f67200c) {
                     this.p++;
-                    return new d.o.a.e.b.i.a(this.f66513b);
+                    return new d.o.a.e.b.i.a(this.f67199b);
                 }
                 while (aVar2 == null) {
-                    this.f66515d.wait();
+                    this.f67201d.wait();
                     if (!this.l) {
-                        aVar2 = this.f66517f;
+                        aVar2 = this.f67203f;
                     } else {
                         throw new p("");
                     }
                 }
-                this.f66519h = aVar2.f66527d;
-                this.f66518g = null;
-                this.f66517f = null;
-                aVar2.f66527d = null;
+                this.f67205h = aVar2.f67213d;
+                this.f67204g = null;
+                this.f67203f = null;
+                aVar2.f67213d = null;
                 return aVar2;
             }
             throw new p("");
@@ -178,26 +178,26 @@ public class a implements b {
         d.o.a.e.b.i.a aVar;
         d.o.a.e.b.i.a aVar2 = this.k;
         if (aVar2 != null) {
-            this.k = aVar2.f66527d;
-            aVar2.f66527d = null;
+            this.k = aVar2.f67213d;
+            aVar2.f67213d = null;
             return aVar2;
         }
-        synchronized (this.f66516e) {
-            aVar = this.f66520i;
+        synchronized (this.f67202e) {
+            aVar = this.f67206i;
             if (aVar == null) {
                 while (!this.m) {
-                    this.f66516e.wait();
-                    aVar = this.f66520i;
+                    this.f67202e.wait();
+                    aVar = this.f67206i;
                     if (aVar != null) {
                     }
                 }
                 m();
                 throw null;
             }
-            this.k = aVar.f66527d;
+            this.k = aVar.f67213d;
             this.j = null;
-            this.f66520i = null;
-            aVar.f66527d = null;
+            this.f67206i = null;
+            aVar.f67213d = null;
         }
         return aVar;
     }
@@ -221,9 +221,9 @@ public class a implements b {
 
     @Override // d.o.a.e.b.h.b
     public void b() {
-        synchronized (this.f66515d) {
+        synchronized (this.f67201d) {
             this.l = true;
-            this.f66515d.notify();
+            this.f67201d.notify();
         }
         Future future = this.o;
         if (future != null) {

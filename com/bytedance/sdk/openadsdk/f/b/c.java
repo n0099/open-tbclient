@@ -7,14 +7,14 @@ import com.bytedance.sdk.openadsdk.f.a.d;
 import com.bytedance.sdk.openadsdk.f.a.q;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<x> f29977a;
+    public WeakReference<x> f29222a;
 
     public c(x xVar) {
-        this.f29977a = new WeakReference<>(xVar);
+        this.f29222a = new WeakReference<>(xVar);
     }
 
     public static void a(q qVar, final x xVar) {
@@ -35,7 +35,7 @@ public class c extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject>
             sb.append(jSONObject != null ? jSONObject.toString() : "");
             Log.d("DoNewClickEventMethod", sb.toString());
         }
-        x xVar = this.f29977a.get();
+        x xVar = this.f29222a.get();
         if (xVar == null) {
             Log.e("DoNewClickEventMethod", "invoke error");
             c();

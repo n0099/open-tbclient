@@ -30,30 +30,30 @@ import com.baidu.tieba.R;
 import d.a.c.e.l.d;
 import d.a.c.e.p.l;
 import d.a.i.p;
-import d.a.i0.a0.c;
-import d.a.i0.r.k;
-import d.a.i0.r.q.a2;
-import d.a.i0.r.q.y1;
-import d.a.j0.x.b0;
+import d.a.j0.a0.c;
+import d.a.j0.r.k;
+import d.a.j0.r.q.a2;
+import d.a.j0.r.q.y1;
+import d.a.k0.x.b0;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-public class InterviewLiveLayout extends FrameLayout implements p<d.a.i0.r.q.a> {
+public class InterviewLiveLayout extends FrameLayout implements p<d.a.j0.r.q.a> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4541e;
+    public int f4392e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f4542f;
+    public boolean f4393f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b0<d.a.i0.r.q.a> f4543g;
+    public b0<d.a.j0.r.q.a> f4394g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.i0.r.q.a f4544h;
+    public d.a.j0.r.q.a f4395h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f4545i;
+    public TbImageView f4396i;
     public LinearLayout j;
     public ImageView k;
     public TextView l;
@@ -76,7 +76,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<d.a.i0.r.q.a> 
                     String str = (String) InterviewLiveLayout.this.m.get(0);
                     ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
                     ImageUrlData imageUrlData = new ImageUrlData();
-                    imageUrlData.urlType = InterviewLiveLayout.this.f4542f ? 13 : 14;
+                    imageUrlData.urlType = InterviewLiveLayout.this.f4393f ? 13 : 14;
                     imageUrlData.imageUrl = str;
                     imageUrlData.originalUrl = str;
                     imageUrlData.originalSize = 0L;
@@ -87,13 +87,13 @@ public class InterviewLiveLayout extends FrameLayout implements p<d.a.i0.r.q.a> 
                     concurrentHashMap.put(str, imageUrlData);
                     ImageViewerConfig.b bVar = new ImageViewerConfig.b();
                     bVar.x(InterviewLiveLayout.this.m);
-                    bVar.C(InterviewLiveLayout.this.f4542f);
-                    bVar.K(str);
-                    bVar.G(false);
+                    bVar.C(InterviewLiveLayout.this.f4393f);
+                    bVar.J(str);
+                    bVar.F(false);
                     bVar.w(concurrentHashMap);
+                    bVar.H(false);
+                    bVar.N(InterviewLiveLayout.this.n);
                     bVar.I(false);
-                    bVar.O(InterviewLiveLayout.this.n);
-                    bVar.J(false);
                     ImageViewerConfig v = bVar.v(InterviewLiveLayout.this.getContext());
                     v.getIntent().putExtra("from", "frs");
                     Rect rect = new Rect();
@@ -104,8 +104,8 @@ public class InterviewLiveLayout extends FrameLayout implements p<d.a.i0.r.q.a> 
                     statisticItem.param("fid", InterviewLiveLayout.this.o);
                     statisticItem.param("obj_id", InterviewLiveLayout.this.p);
                     TiebaStatic.log(statisticItem);
-                    if (InterviewLiveLayout.this.f4543g != null) {
-                        InterviewLiveLayout.this.f4543g.a(InterviewLiveLayout.this.f4545i, InterviewLiveLayout.this.f4544h);
+                    if (InterviewLiveLayout.this.f4394g != null) {
+                        InterviewLiveLayout.this.f4394g.a(InterviewLiveLayout.this.f4396i, InterviewLiveLayout.this.f4395h);
                         return;
                     }
                     return;
@@ -135,7 +135,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<d.a.i0.r.q.a> 
             if (tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            d.a.c.j.d.a m = c.k().m(d.h().g(tbImageView.getUrl(), InterviewLiveLayout.this.f4542f ? 13 : 14));
+            d.a.c.j.d.a m = c.k().m(d.h().g(tbImageView.getUrl(), InterviewLiveLayout.this.f4393f ? 13 : 14));
             int i3 = 0;
             if (m != null) {
                 i3 = m.r();
@@ -188,9 +188,9 @@ public class InterviewLiveLayout extends FrameLayout implements p<d.a.i0.r.q.a> 
         LayoutInflater.from(getContext()).inflate(R.layout.interview_live_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         TbImageView tbImageView = (TbImageView) findViewById(R.id.img_interview_live);
-        this.f4545i = tbImageView;
+        this.f4396i = tbImageView;
         tbImageView.z(15);
-        this.f4545i.setPlaceHolder(3);
+        this.f4396i.setPlaceHolder(3);
         this.j = (LinearLayout) findViewById(R.id.interview_live_tip_bg);
         this.k = (ImageView) findViewById(R.id.interview_live_tip_img);
         this.l = (TextView) findViewById(R.id.interview_live_tip);
@@ -200,9 +200,9 @@ public class InterviewLiveLayout extends FrameLayout implements p<d.a.i0.r.q.a> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: k */
-    public void a(d.a.i0.r.q.a aVar) {
-        this.f4544h = aVar;
-        if (aVar != null && this.f4545i != null) {
+    public void a(d.a.j0.r.q.a aVar) {
+        this.f4395h = aVar;
+        if (aVar != null && this.f4396i != null) {
             a2 m = aVar.m();
             y1 o1 = m.o1();
             if (o1 == null) {
@@ -216,10 +216,10 @@ public class InterviewLiveLayout extends FrameLayout implements p<d.a.i0.r.q.a> 
                 this.m.clear();
                 this.m.add(o1.i());
                 setVisibility(0);
-                this.f4545i.setSupportNoImage(true);
-                this.f4545i.setScaleType(ImageView.ScaleType.MATRIX);
-                this.f4545i.setOnDrawListener(this.r);
-                this.f4545i.V(o1.i(), this.f4542f ? 13 : 14, false);
+                this.f4396i.setSupportNoImage(true);
+                this.f4396i.setScaleType(ImageView.ScaleType.MATRIX);
+                this.f4396i.setOnDrawListener(this.r);
+                this.f4396i.V(o1.i(), this.f4393f ? 13 : 14, false);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
                 int k = l.k(getContext()) - l.g(getContext(), R.dimen.tbds88);
                 layoutParams.width = k;
@@ -228,14 +228,14 @@ public class InterviewLiveLayout extends FrameLayout implements p<d.a.i0.r.q.a> 
             } else {
                 setVisibility(8);
             }
-            this.f4545i.setOnClickListener(this.q);
+            this.f4396i.setOnClickListener(this.q);
             return;
         }
         setVisibility(8);
     }
 
     public void l(int i2) {
-        if (i2 != this.f4541e) {
+        if (i2 != this.f4392e) {
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0101);
             SkinManager.setImageResource(this.k, R.drawable.interview_live_circle_share);
             SkinManager.setBackgroundResource(this.j, R.drawable.interview_live_circle_bg_shape);
@@ -243,25 +243,25 @@ public class InterviewLiveLayout extends FrameLayout implements p<d.a.i0.r.q.a> 
     }
 
     public void setFromCDN(boolean z) {
-        this.f4542f = z;
+        this.f4393f = z;
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        TbImageView tbImageView = this.f4545i;
+        TbImageView tbImageView = this.f4396i;
         if (tbImageView != null) {
             tbImageView.setPageId(bdUniqueId);
         }
     }
 
-    public void setSubClickListener(b0<d.a.i0.r.q.a> b0Var) {
-        this.f4543g = b0Var;
+    public void setSubClickListener(b0<d.a.j0.r.q.a> b0Var) {
+        this.f4394g = b0Var;
     }
 
     public InterviewLiveLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4541e = 3;
-        this.f4542f = true;
-        this.f4544h = null;
+        this.f4392e = 3;
+        this.f4393f = true;
+        this.f4395h = null;
         this.m = new ArrayList<>();
         this.q = new a();
         this.r = new b();

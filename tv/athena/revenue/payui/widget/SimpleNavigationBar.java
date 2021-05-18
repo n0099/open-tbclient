@@ -9,48 +9,48 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import i.a.a.e.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SimpleNavigationBar extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f68913e;
+    public TextView f69595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f68914f;
+    public TextView f69596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f68915g;
+    public ImageView f69597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f68916h;
+    public c f69598h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (SimpleNavigationBar.this.f68916h != null) {
-                SimpleNavigationBar.this.f68916h.D();
+            if (SimpleNavigationBar.this.f69598h != null) {
+                SimpleNavigationBar.this.f69598h.D();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (SimpleNavigationBar.this.f68916h != null) {
-                SimpleNavigationBar.this.f68916h.onRightClick();
+            if (SimpleNavigationBar.this.f69598h != null) {
+                SimpleNavigationBar.this.f69598h.onRightClick();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void D();
 
@@ -63,30 +63,30 @@ public class SimpleNavigationBar extends FrameLayout {
 
     public final void b(Context context, AttributeSet attributeSet) {
         LayoutInflater.from(context).inflate(d.yy_layout_navigation, (ViewGroup) this, true);
-        this.f68915g = (ImageView) findViewById(i.a.a.e.c.iv_back);
-        this.f68913e = (TextView) findViewById(i.a.a.e.c.tv_title);
-        this.f68914f = (TextView) findViewById(i.a.a.e.c.tv_right);
-        this.f68915g.setOnClickListener(new a());
-        this.f68914f.setOnClickListener(new b());
+        this.f69597g = (ImageView) findViewById(i.a.a.e.c.iv_back);
+        this.f69595e = (TextView) findViewById(i.a.a.e.c.tv_title);
+        this.f69596f = (TextView) findViewById(i.a.a.e.c.tv_right);
+        this.f69597g.setOnClickListener(new a());
+        this.f69596f.setOnClickListener(new b());
     }
 
     public void setCallback(c cVar) {
-        this.f68916h = cVar;
+        this.f69598h = cVar;
     }
 
     public void setRight(String str) {
         if (str == null || str.isEmpty()) {
             return;
         }
-        this.f68914f.setText(str);
-        this.f68914f.setVisibility(0);
+        this.f69596f.setText(str);
+        this.f69596f.setVisibility(0);
     }
 
     public void setTitle(String str) {
         if (str != null && !str.isEmpty()) {
-            this.f68913e.setText(str);
+            this.f69595e.setText(str);
         }
-        this.f68913e.setVisibility(0);
+        this.f69595e.setVisibility(0);
     }
 
     public SimpleNavigationBar(Context context, AttributeSet attributeSet) {

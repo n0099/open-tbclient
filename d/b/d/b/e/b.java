@@ -14,6 +14,7 @@ import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import d.b.d.b.l;
 import d.b.d.b.m;
 import io.reactivex.annotations.SchedulerSupport;
@@ -22,20 +23,20 @@ import java.util.Map;
 import java.util.TimeZone;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f65159c = {"version_code", "manifest_version_code", "aid", "update_version_code"};
+    public static final String[] f65845c = {"version_code", "manifest_version_code", "aid", "update_version_code"};
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f65160a;
+    public Context f65846a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f65161b = new JSONObject();
+    public JSONObject f65847b = new JSONObject();
 
     public b(Context context) {
-        this.f65160a = context;
+        this.f65846a = context;
     }
 
     public static b a(Context context) {
@@ -52,56 +53,56 @@ public final class b {
     }
 
     public JSONObject b() {
-        return this.f65161b;
+        return this.f65847b;
     }
 
     public JSONObject c(String str) {
         try {
-            this.f65161b.put(Constants.KEY_DEVICE_ID, str);
+            this.f65847b.put(Constants.KEY_DEVICE_ID, str);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        return this.f65161b;
+        return this.f65847b;
     }
 
     public JSONObject d(@Nullable Map<String, Object> map) {
         String[] strArr;
         if (map == null) {
-            return this.f65161b;
+            return this.f65847b;
         }
         for (Map.Entry<String, Object> entry : map.entrySet()) {
-            if (!this.f65161b.has(entry.getKey())) {
-                this.f65161b.put(entry.getKey(), entry.getValue());
+            if (!this.f65847b.has(entry.getKey())) {
+                this.f65847b.put(entry.getKey(), entry.getValue());
             }
         }
-        for (String str : f65159c) {
+        for (String str : f65845c) {
             if (map.containsKey(str)) {
                 try {
-                    this.f65161b.put(str, Integer.parseInt((String) map.get(str)));
+                    this.f65847b.put(str, Integer.parseInt((String) map.get(str)));
                 } catch (Exception unused) {
-                    this.f65161b.put(str, map.get(str));
+                    this.f65847b.put(str, map.get(str));
                 }
             }
         }
         if (map.containsKey("version_code") && !map.containsKey("manifest_version_code")) {
-            this.f65161b.put("manifest_version_code", Integer.parseInt((String) map.get("version_code")));
+            this.f65847b.put("manifest_version_code", Integer.parseInt((String) map.get("version_code")));
         }
         if (map.containsKey(CommonUrlParamManager.PARAM_IID)) {
-            this.f65161b.put("udid", map.get(CommonUrlParamManager.PARAM_IID));
-            this.f65161b.remove(CommonUrlParamManager.PARAM_IID);
+            this.f65847b.put("udid", map.get(CommonUrlParamManager.PARAM_IID));
+            this.f65847b.remove(CommonUrlParamManager.PARAM_IID);
         }
-        return this.f65161b;
+        return this.f65847b;
     }
 
     @SuppressLint({"MissingPermission"})
     public final void e(JSONObject jSONObject) {
         int i2;
         try {
-            PackageInfo packageInfo = this.f65160a.getPackageManager().getPackageInfo(this.f65160a.getPackageName(), 0);
+            PackageInfo packageInfo = this.f65846a.getPackageManager().getPackageInfo(this.f65846a.getPackageName(), 0);
             if (packageInfo.applicationInfo != null && (i2 = packageInfo.applicationInfo.labelRes) > 0) {
-                jSONObject.put("display_name", this.f65160a.getString(i2));
+                jSONObject.put("display_name", this.f65846a.getString(i2));
             }
-            jSONObject.put("sdk_version", 22130);
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 22130);
             jSONObject.put("sdk_version_name", "2.2.1-alpha.30");
             jSONObject.put(IAdRequestParam.OS, "Android");
             jSONObject.put("os_version", i());
@@ -137,12 +138,12 @@ public final class b {
     public JSONObject g(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                this.f65161b.put("user_id", str);
+                this.f65847b.put("user_id", str);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        return this.f65161b;
+        return this.f65847b;
     }
 
     public final void h(JSONObject jSONObject) {
@@ -175,7 +176,7 @@ public final class b {
 
     public final void j(JSONObject jSONObject) {
         try {
-            DisplayMetrics displayMetrics = this.f65160a.getResources().getDisplayMetrics();
+            DisplayMetrics displayMetrics = this.f65846a.getResources().getDisplayMetrics();
             int i2 = displayMetrics.densityDpi;
             String str = i2 != 120 ? i2 != 240 ? i2 != 320 ? "mdpi" : "xhdpi" : "hdpi" : "ldpi";
             jSONObject.put("density_dpi", i2);
@@ -187,7 +188,7 @@ public final class b {
 
     public final void k(JSONObject jSONObject) {
         try {
-            String language = this.f65160a.getResources().getConfiguration().locale.getLanguage();
+            String language = this.f65846a.getResources().getConfiguration().locale.getLanguage();
             if (!TextUtils.isEmpty(language)) {
                 jSONObject.put("language", language);
             }
@@ -235,7 +236,7 @@ public final class b {
 
     public final void m(JSONObject jSONObject) {
         try {
-            jSONObject.put("access", l.j.a(this.f65160a));
+            jSONObject.put("access", l.j.a(this.f65846a));
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -243,7 +244,7 @@ public final class b {
 
     public final void n(JSONObject jSONObject) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) this.f65160a.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) this.f65846a.getSystemService("phone");
             if (telephonyManager != null) {
                 String networkOperatorName = telephonyManager.getNetworkOperatorName();
                 if (!TextUtils.isEmpty(networkOperatorName)) {

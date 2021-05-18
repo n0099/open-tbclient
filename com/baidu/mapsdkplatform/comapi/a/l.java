@@ -13,25 +13,25 @@ import com.baidu.mapapi.model.LatLng;
 public class l extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Animator f7818a = null;
+    public Animator f7605a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f7819b = 0;
+    public long f7606b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public Interpolator f7820c = null;
+    public Interpolator f7607c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation.AnimationListener f7821d = null;
+    public Animation.AnimationListener f7608d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7822e = 1;
+    public int f7609e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7823f = 0;
+    public int f7610f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public Object[] f7824g;
+    public Object[] f7611g;
 
     @TargetApi(11)
     /* loaded from: classes2.dex */
@@ -69,31 +69,31 @@ public class l extends c {
     }
 
     public l(Point... pointArr) {
-        this.f7824g = pointArr;
+        this.f7611g = pointArr;
     }
 
     public l(LatLng... latLngArr) {
-        this.f7824g = latLngArr;
+        this.f7611g = latLngArr;
     }
 
     @TargetApi(11)
     public ObjectAnimator a(Marker marker) {
         ObjectAnimator ofObject;
         if (marker.isFixed()) {
-            if (!(this.f7824g[0] instanceof Point)) {
-                throw new ClassCastException("if the marker is fixed on screen, the parameters of Transformation must be android.graphics.Point");
+            if (!(this.f7611g[0] instanceof Point)) {
+                throw new ClassCastException("BDMapSDKException: if the marker is fixed on screen, the parameters of Transformation must be android.graphics.Point");
             }
-            ofObject = ObjectAnimator.ofObject(marker, "fixedScreenPosition", new b(), this.f7824g);
-        } else if (!(this.f7824g[0] instanceof LatLng)) {
-            throw new ClassCastException("if the marker isn't fixed on screen, the parameters of Transformation must be Latlng");
+            ofObject = ObjectAnimator.ofObject(marker, "fixedScreenPosition", new b(), this.f7611g);
+        } else if (!(this.f7611g[0] instanceof LatLng)) {
+            throw new ClassCastException("BDMapSDKException: if the marker isn't fixed on screen, the parameters of Transformation must be Latlng");
         } else {
-            ofObject = ObjectAnimator.ofObject(marker, "position", new a(), this.f7824g);
+            ofObject = ObjectAnimator.ofObject(marker, "position", new a(), this.f7611g);
         }
         if (ofObject != null) {
-            ofObject.setRepeatCount(this.f7823f);
+            ofObject.setRepeatCount(this.f7610f);
             ofObject.setRepeatMode(c());
-            ofObject.setDuration(this.f7819b);
-            Interpolator interpolator = this.f7820c;
+            ofObject.setDuration(this.f7606b);
+            Interpolator interpolator = this.f7607c;
             if (interpolator != null) {
                 ofObject.setInterpolator(interpolator);
             }
@@ -104,7 +104,7 @@ public class l extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        Animator animator = this.f7818a;
+        Animator animator = this.f7605a;
         if (animator == null) {
             return;
         }
@@ -113,7 +113,7 @@ public class l extends c {
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void a(int i2) {
-        this.f7822e = i2;
+        this.f7609e = i2;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -121,7 +121,7 @@ public class l extends c {
         if (j < 0) {
             j = 0;
         }
-        this.f7819b = j;
+        this.f7606b = j;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -135,41 +135,41 @@ public class l extends c {
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void a(Interpolator interpolator) {
-        this.f7820c = interpolator;
+        this.f7607c = interpolator;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void a(Animation.AnimationListener animationListener) {
-        this.f7821d = animationListener;
+        this.f7608d = animationListener;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
         ObjectAnimator a2 = a(marker);
-        this.f7818a = a2;
+        this.f7605a = a2;
         a(a2);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        Animator animator = this.f7818a;
+        Animator animator = this.f7605a;
         if (animator != null) {
             animator.cancel();
-            this.f7818a = null;
+            this.f7605a = null;
         }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void b(int i2) {
-        if (i2 > 0) {
-            this.f7823f = i2;
+        if (i2 > 0 || i2 == -1) {
+            this.f7610f = i2;
         }
     }
 
     public int c() {
-        return this.f7822e;
+        return this.f7609e;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c

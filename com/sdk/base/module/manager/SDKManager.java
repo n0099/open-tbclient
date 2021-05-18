@@ -4,7 +4,7 @@ import android.content.Context;
 import com.sdk.base.api.CallBack;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.module.a.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class SDKManager {
     public static boolean closePermission = false;
     public static boolean isStrong = true;
@@ -62,11 +62,11 @@ public abstract class SDKManager {
     }
 
     public static void setDebug(boolean z) {
-        f.f36488b = z;
+        f.f35733b = z;
     }
 
     public static void setDebugHead(boolean z) {
-        f.f36490d = z;
+        f.f35735d = z;
     }
 
     public static void setIsStrong(boolean z) {

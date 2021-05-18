@@ -20,11 +20,11 @@ public class h extends d {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3512a;
+        public static final /* synthetic */ int[] f3513a;
 
         static {
             int[] iArr = new int[com.baidu.android.pushservice.a.c.values().length];
-            f3512a = iArr;
+            f3513a = iArr;
             try {
                 iArr[com.baidu.android.pushservice.a.c.PUSH_CLIENT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
@@ -72,15 +72,15 @@ public class h extends d {
         byte[] i3 = kVar.i();
         String d2 = kVar.d();
         int a2 = kVar.a();
-        com.baidu.android.pushservice.a.d a3 = com.baidu.android.pushservice.a.d.a(this.f3503a, c2);
-        if (TextUtils.isEmpty(d2) || !m.b(this.f3503a, d2)) {
-            d2 = a3.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT ? a3.f2722a.b() : null;
+        com.baidu.android.pushservice.a.d a3 = com.baidu.android.pushservice.a.d.a(this.f3504a, c2);
+        if (TextUtils.isEmpty(d2) || !m.b(this.f3504a, d2)) {
+            d2 = a3.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT ? a3.f2723a.b() : null;
         }
-        if (AnonymousClass1.f3512a[a3.a().ordinal()] == 1) {
+        if (AnonymousClass1.f3513a[a3.a().ordinal()] == 1) {
             String a4 = a(d2);
             try {
-                this.f3503a.getPackageManager().getPackageInfo(a4, 128);
-                PublicMsg a5 = j.a(this.f3503a, f2, c2, bArr);
+                this.f3504a.getPackageManager().getPackageInfo(a4, 128);
+                PublicMsg a5 = j.a(this.f3504a, f2, c2, bArr);
                 boolean a6 = a(bArr);
                 if (a5 != null) {
                     Intent intent = new Intent();
@@ -107,11 +107,11 @@ public class h extends d {
                             }
                             intent.putExtra("extra_extra_custom_content", a5.mCustomContent);
                         } catch (JSONException e2) {
-                            new b.c(this.f3503a).a(Log.getStackTraceString(e2)).a();
+                            new b.c(this.f3504a).a(Log.getStackTraceString(e2)).a();
                         }
                     }
-                    i2 = m.a(this.f3503a, intent, str, a4);
-                    m.a(">>> Deliver message to client: " + a4 + " msg: " + a5.mDescription + " result: " + i2, this.f3503a);
+                    i2 = m.a(this.f3504a, intent, str, a4);
+                    m.a(">>> Deliver message to client: " + a4 + " msg: " + a5.mDescription + " result: " + i2, this.f3504a);
                 } else {
                     i2 = 0;
                 }
@@ -119,7 +119,7 @@ public class h extends d {
                 i2 = 8;
                 sb = new StringBuilder();
                 sb.append(">>> NOT deliver to app: ");
-                c2 = a3.f2722a.b();
+                c2 = a3.f2723a.b();
             }
             com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
             gVar.a(i2);
@@ -129,7 +129,7 @@ public class h extends d {
         sb = new StringBuilder();
         sb.append(">>> NOT found client for privateMessageHandler appid ");
         sb.append(c2);
-        m.a(sb.toString(), this.f3503a);
+        m.a(sb.toString(), this.f3504a);
         com.baidu.android.pushservice.message.g gVar2 = new com.baidu.android.pushservice.message.g();
         gVar2.a(i2);
         return gVar2;

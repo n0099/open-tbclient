@@ -2,9 +2,9 @@ package com.baidu.tieba.h5power;
 
 import com.baidu.tbadk.browser.UegTbJsBridge;
 import d.a.c.e.p.k;
-import d.a.j0.d3.l0.d.a;
-import d.a.j0.d3.l0.d.c;
-import d.a.j0.d3.l0.d.e;
+import d.a.k0.d3.l0.d.a;
+import d.a.k0.d3.l0.d.c;
+import d.a.k0.d3.l0.d.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,7 +21,7 @@ public class UegTbJsBridge_Proxy extends a {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // d.a.j0.d3.l0.d.a
+    @Override // d.a.k0.d3.l0.d.a
     public c dispatch(e eVar, c cVar) {
         if (cVar == null) {
             cVar = new c();
@@ -46,11 +46,20 @@ public class UegTbJsBridge_Proxy extends a {
                 cVar.l(blockPopInfo.a());
             }
             cVar.u(0);
+        } else if (b2.equals("account/bindMobileNumber")) {
+            cVar.o(true);
+            c bindingMobileNumber = this.mJsBridge.bindingMobileNumber();
+            if (bindingMobileNumber != null) {
+                cVar.t(bindingMobileNumber.e());
+                cVar.q(bindingMobileNumber.b());
+                cVar.l(bindingMobileNumber.a());
+            }
+            cVar.u(0);
         }
         return cVar;
     }
 
-    @Override // d.a.j0.d3.l0.d.a
+    @Override // d.a.k0.d3.l0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         if (k.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
             return null;

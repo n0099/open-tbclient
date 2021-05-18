@@ -23,7 +23,7 @@ import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.AuthWebViewRequestParam;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BaseSsoHandler {
     public static final String OAUTH2_BASE_URL = "https://open.weibo.cn/oauth2/authorize?";
     public static final String TAG = "BaseSsoHandler";
@@ -33,7 +33,7 @@ public class BaseSsoHandler {
     public int ssoRequestCode = -1;
     public int ssoRequestType = 3;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public enum AuthType {
         ALL,
         SsoOnly,

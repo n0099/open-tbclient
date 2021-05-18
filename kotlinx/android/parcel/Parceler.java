@@ -8,7 +8,7 @@ import kotlin.NotImplementedError;
 /* loaded from: classes7.dex */
 public interface Parceler<T> {
 
-    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
     /* loaded from: classes7.dex */
     public static final class DefaultImpls {
         public static <T> T[] newArray(Parceler<T> parceler, int i2) {

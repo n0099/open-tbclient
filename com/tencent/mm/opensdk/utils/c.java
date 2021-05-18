@@ -2,10 +2,10 @@ package com.tencent.mm.opensdk.utils;
 
 import android.net.Uri;
 import android.provider.BaseColumns;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class c {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static Object a(int i2, String str) {
             try {
@@ -33,7 +33,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class b implements BaseColumns {
         public static final Uri CONTENT_URI = Uri.parse("content://com.tencent.mm.sdk.plugin.provider/sharedpref");
     }

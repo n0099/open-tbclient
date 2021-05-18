@@ -98,7 +98,7 @@ public abstract class e {
             a4.put(com.alipay.sdk.cons.b.f1828e, n.b(a2.b(), i.f1787a));
             a4.put(com.alipay.sdk.cons.b.f1829f, n.a(a2.b()));
             a4.put(com.alipay.sdk.cons.b.f1827d, str);
-            a4.put(com.alipay.sdk.cons.b.f1831h, com.alipay.sdk.cons.a.f1818d);
+            a4.put("app_key", com.alipay.sdk.cons.a.f1818d);
             a4.put(com.alipay.sdk.cons.b.f1830g, a2.e());
             a4.put(com.alipay.sdk.cons.b.j, a3.b());
             a4.put(com.alipay.sdk.cons.b.k, a2.c().a(a2.b()));

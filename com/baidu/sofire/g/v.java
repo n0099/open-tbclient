@@ -6,17 +6,17 @@ import android.text.TextUtils;
 public final class v {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f11298a = "";
+    public static String f10365a = "";
 
     public static String a(Context context) {
-        if (!TextUtils.isEmpty(f11298a)) {
-            return f11298a;
+        if (!TextUtils.isEmpty(f10365a)) {
+            return f10365a;
         }
         try {
-            f11298a = context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
+            f10365a = context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
         } catch (Throwable unused) {
             d.a();
         }
-        return f11298a;
+        return f10365a;
     }
 }

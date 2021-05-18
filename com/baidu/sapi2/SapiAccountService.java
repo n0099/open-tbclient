@@ -287,7 +287,7 @@ public final class SapiAccountService implements ISAccountService {
         if (oneKeyLoginCallback == null) {
             Log.e(TAG, "When check oneKeyLogin's ability, oneKeyLoginCallback can't be null!");
         } else if (Build.VERSION.SDK_INT < 19) {
-            OneKeyLoginSdkCall.getInstance().preGetPhoneFail(oneKeyLoginCallback, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_ANDROID_VERSION_BELOW_KITKAT, null);
+            OneKeyLoginSdkCall.getInstance().preGetPhoneFail(oneKeyLoginCallback, -109, null);
         } else {
             OneKeyLoginOptResult preLoginOptResult = OneKeyLoginSdkCall.getInstance().getPreLoginOptResult();
             if (preLoginOptResult != null && !TextUtils.isEmpty(preLoginOptResult.getSecurityPhone())) {

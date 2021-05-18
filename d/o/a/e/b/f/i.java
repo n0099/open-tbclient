@@ -1,7 +1,7 @@
 package d.o.a.e.b.f;
 
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface i {
     boolean a(DownloadInfo downloadInfo);
 

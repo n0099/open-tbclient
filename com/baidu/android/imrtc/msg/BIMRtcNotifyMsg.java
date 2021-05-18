@@ -27,23 +27,24 @@ public class BIMRtcNotifyMsg {
             int optInt2 = jSONObject.optInt("action");
             String optString = jSONObject.optString("rtc_room_id");
             RtcUtility.setRtcRoomId(context, optString);
+            String optString2 = jSONObject.optString("source");
             if (optInt == 231) {
                 JSONObject jSONObject2 = new JSONObject(jSONObject.optString(RtcConstants.EXTRA_RTC_INFO, ""));
                 long optLong = jSONObject2.optLong("seqid");
                 long optLong2 = jSONObject2.optLong("uk");
-                String optString2 = jSONObject2.optString("rtc_device_id");
+                String optString3 = jSONObject2.optString("rtc_device_id");
                 int optInt3 = jSONObject2.optInt("invite_id");
-                String optString3 = jSONObject2.optString("ext");
+                String optString4 = jSONObject2.optString("ext");
                 try {
                     if (optInt2 == 81) {
-                        String optString4 = jSONObject2.optString("rtc_appid");
-                        RtcUtility.setRtcAppId(context, optString4);
-                        String optString5 = jSONObject2.optString(RtcUtility.KEY_RTC_ROOM_NAME);
-                        RtcUtility.setRtcRoomName(context, optString5);
-                        String optString6 = jSONObject2.optString(RtcUtility.KEY_RTC_ROOM_TOKEN);
-                        RtcUtility.setRtcRoomToken(context, optString6);
-                        String optString7 = jSONObject2.optString("rtc_room_desc");
-                        RtcUtility.setRtcRoomDes(context, optString7);
+                        String optString5 = jSONObject2.optString("rtc_appid");
+                        RtcUtility.setRtcAppId(context, optString5);
+                        String optString6 = jSONObject2.optString(RtcUtility.KEY_RTC_ROOM_NAME);
+                        RtcUtility.setRtcRoomName(context, optString6);
+                        String optString7 = jSONObject2.optString(RtcUtility.KEY_RTC_ROOM_TOKEN);
+                        RtcUtility.setRtcRoomToken(context, optString7);
+                        String optString8 = jSONObject2.optString("rtc_room_desc");
+                        RtcUtility.setRtcRoomDes(context, optString8);
                         int optInt4 = jSONObject2.optInt("rtc_room_type");
                         int optInt5 = jSONObject2.optInt("media_type");
                         long optLong3 = jSONObject2.optLong("rtc_userid");
@@ -52,17 +53,18 @@ public class BIMRtcNotifyMsg {
                         bIMInviteSyncRtcInfo.setAction(optInt2);
                         bIMInviteSyncRtcInfo.setSeq(optLong);
                         bIMInviteSyncRtcInfo.setRtcRoomId(optString);
-                        bIMInviteSyncRtcInfo.setRtcRoomName(optString5);
-                        bIMInviteSyncRtcInfo.setRtcRoomDes(optString7);
-                        bIMInviteSyncRtcInfo.setRtcRoomToken(optString6);
-                        bIMInviteSyncRtcInfo.setRtcAppId(optString4);
+                        bIMInviteSyncRtcInfo.setRtcRoomName(optString6);
+                        bIMInviteSyncRtcInfo.setRtcRoomDes(optString8);
+                        bIMInviteSyncRtcInfo.setRtcRoomToken(optString7);
+                        bIMInviteSyncRtcInfo.setRtcAppId(optString5);
                         bIMInviteSyncRtcInfo.setRtcRoomType(optInt4);
                         bIMInviteSyncRtcInfo.setMediaType(optInt5);
                         bIMInviteSyncRtcInfo.setInitiatorUk(optLong2);
                         bIMInviteSyncRtcInfo.setInviteId(optInt3);
-                        bIMInviteSyncRtcInfo.setRtcDeviceId(optString2);
+                        bIMInviteSyncRtcInfo.setRtcDeviceId(optString3);
                         bIMInviteSyncRtcInfo.setRtcUserId(optLong3);
-                        bIMInviteSyncRtcInfo.setRtcExt(optString3);
+                        bIMInviteSyncRtcInfo.setSource(optString2);
+                        bIMInviteSyncRtcInfo.setRtcExt(optString4);
                         return bIMInviteSyncRtcInfo;
                     }
                     if (optInt2 != 105 && optInt2 != 107) {
@@ -72,8 +74,9 @@ public class BIMRtcNotifyMsg {
                         bIMSyncRtcInfo.setRtcRoomId(optString);
                         bIMSyncRtcInfo.setInitiatorUk(optLong2);
                         bIMSyncRtcInfo.setInviteId(optInt3);
-                        bIMSyncRtcInfo.setRtcDeviceId(optString2);
-                        bIMSyncRtcInfo.setRtcExt(optString3);
+                        bIMSyncRtcInfo.setRtcDeviceId(optString3);
+                        bIMSyncRtcInfo.setSource(optString2);
+                        bIMSyncRtcInfo.setRtcExt(optString4);
                         if (optInt2 == 85) {
                             bIMSyncRtcInfo.setAnswerType(jSONObject2.optInt("answer_type", -1));
                         }
@@ -88,8 +91,9 @@ public class BIMRtcNotifyMsg {
                     bIMKickResSyncRtcInfo.setAction(optInt2);
                     bIMKickResSyncRtcInfo.setSeq(optLong);
                     bIMKickResSyncRtcInfo.setRtcRoomId(optString);
-                    bIMKickResSyncRtcInfo.setRtcDeviceId(optString2);
-                    bIMKickResSyncRtcInfo.setRtcExt(optString3);
+                    bIMKickResSyncRtcInfo.setRtcDeviceId(optString3);
+                    bIMKickResSyncRtcInfo.setSource(optString2);
+                    bIMKickResSyncRtcInfo.setRtcExt(optString4);
                     JSONObject optJSONObject = jSONObject2.optJSONObject("kick_user");
                     if (optJSONObject != null) {
                         BIMUser bIMUser = new BIMUser();

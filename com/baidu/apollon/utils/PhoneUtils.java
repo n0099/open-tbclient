@@ -32,6 +32,7 @@ import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.permission.PermissionManager;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
+import com.baidu.tieba.service.AsInstallService;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -55,19 +56,19 @@ import org.json.JSONObject;
 public final class PhoneUtils {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f4063e = "PhoneUtils";
+    public static final String f4064e = "PhoneUtils";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f4064f = "_pay.preferences";
+    public static final String f4065f = "_pay.preferences";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f4065g = "cuid_1";
+    public static final String f4066g = "cuid_1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f4066h = "cuid_2";
+    public static final String f4067h = "cuid_2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f4067i = "wime";
+    public static final String f4068i = "wime";
     public static final String j = "identity_code";
     public static final String k = "phone_number";
     public static final String l = "card_no";
@@ -82,16 +83,16 @@ public final class PhoneUtils {
     public static ArrayList<String> q = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f4059a = Pattern.compile("((\\d|[A-F]){32}).*");
+    public static final Pattern f4060a = Pattern.compile("((\\d|[A-F]){32}).*");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f4060b = Pattern.compile("((\\d|[a-f]){32}).*");
+    public static final Pattern f4061b = Pattern.compile("((\\d|[a-f]){32}).*");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f4061c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+    public static final Pattern f4062c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f4062d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+    public static final Pattern f4063d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
 
     /* loaded from: classes.dex */
     public static class CPUInfo {
@@ -104,10 +105,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f4068a = "processor";
+        public static final String f4069a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f4069b = "features";
+        public static final String f4070b = "features";
         public String processor = "";
         public String features = "";
 
@@ -223,11 +224,11 @@ public final class PhoneUtils {
         if (cuid == null) {
             return null;
         }
-        if (f4061c.matcher(cuid).matches()) {
+        if (f4062c.matcher(cuid).matches()) {
             str2 = matcher.group(1) + matcher.group(3);
         }
         if (str2 == null) {
-            if (f4062d.matcher(cuid).matches()) {
+            if (f4063d.matcher(cuid).matches()) {
                 str = matcher2.group(1) + matcher2.group(3);
             } else {
                 str = "";
@@ -584,7 +585,7 @@ public final class PhoneUtils {
         if (i2 >= 9) {
             if (!TextUtils.isEmpty(str)) {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                intent.setData(Uri.fromParts("package", str, null));
+                intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, str, null));
             } else {
                 intent.setAction("android.settings.MANAGE_APPLICATIONS_SETTINGS");
             }
@@ -608,10 +609,10 @@ public final class PhoneUtils {
         if (deviceID == null) {
             return null;
         }
-        Matcher matcher = f4059a.matcher(deviceID);
+        Matcher matcher = f4060a.matcher(deviceID);
         String group = matcher.matches() ? matcher.group(1) : null;
         if (group == null) {
-            Matcher matcher2 = f4060b.matcher(deviceID);
+            Matcher matcher2 = f4061b.matcher(deviceID);
             return matcher2.matches() ? matcher2.group(1) : "";
         }
         return group;

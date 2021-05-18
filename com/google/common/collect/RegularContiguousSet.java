@@ -34,18 +34,18 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
     public class a extends g<C> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final C f32041f;
+        public final C f31286f;
 
         public a(Comparable comparable) {
             super(comparable);
-            this.f32041f = (C) RegularContiguousSet.this.last();
+            this.f31286f = (C) RegularContiguousSet.this.last();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.g.c.c.g
         /* renamed from: b */
         public C a(C c2) {
-            if (RegularContiguousSet.a(c2, this.f32041f)) {
+            if (RegularContiguousSet.a(c2, this.f31286f)) {
                 return null;
             }
             return RegularContiguousSet.this.domain.next(c2);
@@ -56,18 +56,18 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
     public class b extends g<C> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final C f32043f;
+        public final C f31288f;
 
         public b(Comparable comparable) {
             super(comparable);
-            this.f32043f = (C) RegularContiguousSet.this.first();
+            this.f31288f = (C) RegularContiguousSet.this.first();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.g.c.c.g
         /* renamed from: b */
         public C a(C c2) {
-            if (RegularContiguousSet.a(c2, this.f32043f)) {
+            if (RegularContiguousSet.a(c2, this.f31288f)) {
                 return null;
             }
             return RegularContiguousSet.this.domain.previous(c2);

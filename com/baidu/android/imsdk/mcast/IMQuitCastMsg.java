@@ -10,6 +10,7 @@ import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -46,7 +47,7 @@ public class IMQuitCastMsg extends Message {
             jSONObject.put("uk", this.mUk);
             jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
             jSONObject.put("msg_key", this.mMsgKey);
-            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             this.mBody = jSONObject.toString();
         } catch (JSONException e2) {
             LogUtils.e(IMQuitCastMsg.class.getSimpleName(), "Exception ", e2);

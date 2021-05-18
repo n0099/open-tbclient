@@ -11,59 +11,59 @@ import com.baidu.tieba.pb.videopb.fragment.DetailInfoFragment;
 import com.baidu.tieba.pb.videopb.fragment.ReplyFragment;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f20243a;
+    public List<String> f19531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<BaseFragment> f20244b;
+    public ArrayList<BaseFragment> f19532b;
 
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbFragment videoPbFragment) {
         super(fragmentManager);
-        if (this.f20243a == null) {
-            this.f20243a = new ArrayList();
+        if (this.f19531a == null) {
+            this.f19531a = new ArrayList();
         }
-        this.f20243a.clear();
-        if (videoPbFragment.B3()) {
-            this.f20243a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
-            this.f20243a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+        this.f19531a.clear();
+        if (videoPbFragment.A3()) {
+            this.f19531a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
+            this.f19531a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         } else {
-            this.f20243a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+            this.f19531a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         }
-        if (this.f20244b == null) {
-            this.f20244b = new ArrayList<>();
+        if (this.f19532b == null) {
+            this.f19532b = new ArrayList<>();
         }
-        this.f20244b.clear();
-        if (videoPbFragment.B3()) {
-            this.f20244b.add(DetailInfoFragment.Q0(videoPbFragment));
-            this.f20244b.add(ReplyFragment.f1(videoPbFragment));
+        this.f19532b.clear();
+        if (videoPbFragment.A3()) {
+            this.f19532b.add(DetailInfoFragment.P0(videoPbFragment));
+            this.f19532b.add(ReplyFragment.e1(videoPbFragment));
             return;
         }
-        this.f20244b.add(DetailInfoAndReplyFragment.i1(videoPbFragment));
+        this.f19532b.add(DetailInfoAndReplyFragment.h1(videoPbFragment));
     }
 
     public BaseFragment b(int i2) {
-        ArrayList<BaseFragment> arrayList = this.f20244b;
+        ArrayList<BaseFragment> arrayList = this.f19532b;
         if (arrayList == null || i2 >= arrayList.size()) {
             return null;
         }
-        return this.f20244b.get(i2);
+        return this.f19532b.get(i2);
     }
 
     public ArrayList<BaseFragment> c() {
-        return this.f20244b;
+        return this.f19532b;
     }
 
     public void d(int i2) {
-        if (this.f20244b == null) {
+        if (this.f19532b == null) {
             return;
         }
         int i3 = 0;
-        while (i3 < this.f20244b.size()) {
-            if (this.f20244b.get(i3) != null) {
-                this.f20244b.get(i3).setPrimary(i3 == i2);
+        while (i3 < this.f19532b.size()) {
+            if (this.f19532b.get(i3) != null) {
+                this.f19532b.get(i3).setPrimary(i3 == i2);
             }
             i3++;
         }
@@ -71,7 +71,7 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        ArrayList<BaseFragment> arrayList = this.f20244b;
+        ArrayList<BaseFragment> arrayList = this.f19532b;
         if (arrayList == null) {
             return 0;
         }
@@ -85,10 +85,10 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i2) {
-        List<String> list = this.f20243a;
+        List<String> list = this.f19531a;
         if (list == null || i2 < 0 || i2 >= list.size()) {
             return null;
         }
-        return this.f20243a.get(i2);
+        return this.f19531a.get(i2);
     }
 }

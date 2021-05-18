@@ -8,16 +8,16 @@ import android.os.Message;
 public class VMsg {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f8233a = "VMsg";
+    public static final String f8045a = "VMsg";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f8234b;
+    public static Handler f8046b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HandlerThread f8235c;
+    public static HandlerThread f8047c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static VMsg f8236d = new VMsg();
+    public static VMsg f8048d = new VMsg();
 
     /* loaded from: classes2.dex */
     public static class a extends Handler {
@@ -37,25 +37,25 @@ public class VMsg {
     public static native void OnUserCommand1(int i2, int i3, int i4, long j);
 
     public static void destroy() {
-        f8235c.quit();
-        f8235c = null;
-        f8234b.removeCallbacksAndMessages(null);
-        f8234b = null;
+        f8047c.quit();
+        f8047c = null;
+        f8046b.removeCallbacksAndMessages(null);
+        f8046b = null;
     }
 
     public static VMsg getInstance() {
-        return f8236d;
+        return f8048d;
     }
 
     public static void init() {
         HandlerThread handlerThread = new HandlerThread("VIMsgThread");
-        f8235c = handlerThread;
+        f8047c = handlerThread;
         handlerThread.start();
-        f8234b = new a(f8235c.getLooper());
+        f8046b = new a(f8047c.getLooper());
     }
 
     public static void postMessage(int i2, int i3, int i4, long j) {
-        Handler handler = f8234b;
+        Handler handler = f8046b;
         if (handler == null) {
             return;
         }

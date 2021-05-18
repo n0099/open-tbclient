@@ -11,21 +11,21 @@ import java.util.List;
 public class i extends ProxySelector {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<Proxy> f33581a = Arrays.asList(Proxy.NO_PROXY);
+    public static final List<Proxy> f32826a = Arrays.asList(Proxy.NO_PROXY);
 
     /* renamed from: b  reason: collision with root package name */
-    public final ProxySelector f33582b;
+    public final ProxySelector f32827b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f33583c;
+    public final String f32828c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f33584d;
+    public final int f32829d;
 
     public i(ProxySelector proxySelector, String str, int i2) {
-        this.f33582b = (ProxySelector) j.a(proxySelector);
-        this.f33583c = (String) j.a(str);
-        this.f33584d = i2;
+        this.f32827b = (ProxySelector) j.a(proxySelector);
+        this.f32828c = (String) j.a(str);
+        this.f32829d = i2;
     }
 
     public static void a(String str, int i2) {
@@ -34,11 +34,11 @@ public class i extends ProxySelector {
 
     @Override // java.net.ProxySelector
     public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
-        this.f33582b.connectFailed(uri, socketAddress, iOException);
+        this.f32827b.connectFailed(uri, socketAddress, iOException);
     }
 
     @Override // java.net.ProxySelector
     public List<Proxy> select(URI uri) {
-        return this.f33583c.equals(uri.getHost()) && this.f33584d == uri.getPort() ? f33581a : this.f33582b.select(uri);
+        return this.f32828c.equals(uri.getHost()) && this.f32829d == uri.getPort() ? f32826a : this.f32827b.select(uri);
     }
 }

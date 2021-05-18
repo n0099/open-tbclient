@@ -10,100 +10,100 @@ import org.json.JSONObject;
 public class Session {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile long f8718a = 0;
+    public volatile long f8530a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile long f8719b = 0;
+    public volatile long f8531b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile long f8720c = 0;
+    public volatile long f8532c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile long f8721d = 0;
+    public volatile long f8533d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile long f8722e = 0;
+    public volatile long f8534e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile int f8723f = 0;
+    public volatile int f8535f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<a> f8724g = new ArrayList();
+    public List<a> f8536g = new ArrayList();
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile JSONObject f8725h = null;
+    public volatile JSONObject f8537h = null;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8726a;
+        public String f8538a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8727b;
+        public String f8539b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8728c;
+        public String f8540c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f8729d;
+        public long f8541d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f8730e;
+        public long f8542e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f8731f;
+        public boolean f8543f;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f8732g;
+        public JSONObject f8544g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f8733h;
+        public boolean f8545h;
 
         public a(String str, String str2, String str3, long j, long j2, boolean z, ExtraInfo extraInfo, boolean z2) {
-            this.f8727b = str;
-            this.f8728c = str2;
-            this.f8726a = str3;
-            this.f8729d = j;
-            this.f8730e = j2;
-            this.f8731f = z;
-            this.f8732g = extraInfo != null ? extraInfo.dumpToJson() : new JSONObject();
-            this.f8733h = z2;
+            this.f8539b = str;
+            this.f8540c = str2;
+            this.f8538a = str3;
+            this.f8541d = j;
+            this.f8542e = j2;
+            this.f8543f = z;
+            this.f8544g = extraInfo != null ? extraInfo.dumpToJson() : new JSONObject();
+            this.f8545h = z2;
         }
 
         public String a() {
-            return this.f8727b;
+            return this.f8539b;
         }
 
         public JSONObject e() {
-            return this.f8732g;
+            return this.f8544g;
         }
 
         public boolean f() {
-            return this.f8731f;
+            return this.f8543f;
         }
 
         public void a(a aVar) {
-            this.f8726a = aVar.f8726a;
-            this.f8727b = aVar.f8727b;
-            this.f8728c = aVar.f8728c;
-            this.f8729d = aVar.f8729d;
-            this.f8730e = aVar.f8730e;
-            this.f8731f = aVar.f8731f;
-            this.f8732g = aVar.f8732g;
-            this.f8733h = aVar.f8733h;
+            this.f8538a = aVar.f8538a;
+            this.f8539b = aVar.f8539b;
+            this.f8540c = aVar.f8540c;
+            this.f8541d = aVar.f8541d;
+            this.f8542e = aVar.f8542e;
+            this.f8543f = aVar.f8543f;
+            this.f8544g = aVar.f8544g;
+            this.f8545h = aVar.f8545h;
         }
 
         public String b() {
-            return this.f8728c;
+            return this.f8540c;
         }
 
         public long c() {
-            return this.f8729d;
+            return this.f8541d;
         }
 
         public long d() {
-            return this.f8730e;
+            return this.f8542e;
         }
     }
 
@@ -117,9 +117,9 @@ public class Session {
             return;
         }
         a aVar2 = list.get(size - 1);
-        if (!TextUtils.isEmpty(aVar2.f8726a) && !TextUtils.isEmpty(aVar.f8726a)) {
-            if (aVar2.f8726a.equals(aVar.f8726a) && aVar2.f8731f != aVar.f8731f) {
-                if (aVar2.f8731f) {
+        if (!TextUtils.isEmpty(aVar2.f8538a) && !TextUtils.isEmpty(aVar.f8538a)) {
+            if (aVar2.f8538a.equals(aVar.f8538a) && aVar2.f8543f != aVar.f8543f) {
+                if (aVar2.f8543f) {
                     aVar2.a(aVar);
                     return;
                 }
@@ -148,7 +148,7 @@ public class Session {
             if (e2 != null && e2.length() != 0) {
                 jSONObject.put("ext", e2);
             }
-            if (!aVar.f8733h) {
+            if (!aVar.f8545h) {
                 i2 = 0;
             }
             jSONObject.put("h5", i2);
@@ -158,25 +158,25 @@ public class Session {
     }
 
     public void addPageView(String str, String str2, String str3, long j, long j2, boolean z, ExtraInfo extraInfo, boolean z2) {
-        a(this.f8724g, new a(str, str2, str3, j, j2, z, extraInfo, z2));
+        a(this.f8536g, new a(str, str2, str3, j, j2, z, extraInfo, z2));
     }
 
     public JSONObject constructJSONObject() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("s", this.f8718a);
-            jSONObject.put("e", this.f8719b);
-            jSONObject.put("i", this.f8722e);
+            jSONObject.put("s", this.f8530a);
+            jSONObject.put("e", this.f8531b);
+            jSONObject.put("i", this.f8534e);
             jSONObject.put("c", 1);
-            jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.f8720c == 0 ? this.f8718a : this.f8720c);
-            jSONObject.put(Config.SESSTION_TRACK_END_TIME, this.f8721d == 0 ? this.f8719b : this.f8721d);
-            jSONObject.put("pc", this.f8723f);
-            if (this.f8725h != null && this.f8725h.length() != 0) {
-                jSONObject.put("launch", this.f8725h);
+            jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.f8532c == 0 ? this.f8530a : this.f8532c);
+            jSONObject.put(Config.SESSTION_TRACK_END_TIME, this.f8533d == 0 ? this.f8531b : this.f8533d);
+            jSONObject.put("pc", this.f8535f);
+            if (this.f8537h != null && this.f8537h.length() != 0) {
+                jSONObject.put("launch", this.f8537h);
             }
             JSONArray jSONArray = new JSONArray();
-            for (int i2 = 0; i2 < this.f8724g.size(); i2++) {
-                jSONArray.put(getPVJson(this.f8724g.get(i2), this.f8718a));
+            for (int i2 = 0; i2 < this.f8536g.size(); i2++) {
+                jSONArray.put(getPVJson(this.f8536g.get(i2), this.f8530a));
             }
             jSONObject.put("p", jSONArray);
         } catch (JSONException unused) {
@@ -187,68 +187,68 @@ public class Session {
     public JSONObject getPageSessionHead() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("s", this.f8718a);
-            jSONObject.put("e", this.f8719b);
-            jSONObject.put("i", this.f8722e);
+            jSONObject.put("s", this.f8530a);
+            jSONObject.put("e", this.f8531b);
+            jSONObject.put("i", this.f8534e);
             jSONObject.put("c", 1);
-            jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.f8720c == 0 ? this.f8718a : this.f8720c);
-            jSONObject.put(Config.SESSTION_TRACK_END_TIME, this.f8721d == 0 ? this.f8719b : this.f8721d);
-            jSONObject.put("pc", this.f8723f);
+            jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.f8532c == 0 ? this.f8530a : this.f8532c);
+            jSONObject.put(Config.SESSTION_TRACK_END_TIME, this.f8533d == 0 ? this.f8531b : this.f8533d);
+            jSONObject.put("pc", this.f8535f);
         } catch (Exception unused) {
         }
         return jSONObject;
     }
 
     public long getStartTime() {
-        return this.f8718a;
+        return this.f8530a;
     }
 
     public boolean hasEnd() {
-        return this.f8719b > 0;
+        return this.f8531b > 0;
     }
 
     public boolean hasStart() {
-        return this.f8718a > 0;
+        return this.f8530a > 0;
     }
 
     public void reset() {
-        this.f8718a = 0L;
-        this.f8719b = 0L;
-        this.f8720c = 0L;
-        this.f8721d = 0L;
-        this.f8723f = 0;
-        this.f8724g.clear();
+        this.f8530a = 0L;
+        this.f8531b = 0L;
+        this.f8532c = 0L;
+        this.f8533d = 0L;
+        this.f8535f = 0;
+        this.f8536g.clear();
     }
 
     public void setEndTime(long j) {
-        this.f8719b = j;
+        this.f8531b = j;
     }
 
     public void setInvokeType(int i2) {
-        this.f8723f = i2;
+        this.f8535f = i2;
     }
 
     public void setLaunchInfo(JSONObject jSONObject) {
-        this.f8725h = jSONObject;
+        this.f8537h = jSONObject;
     }
 
     public void setStartTime(long j) {
-        if (this.f8718a > 0) {
+        if (this.f8530a > 0) {
             return;
         }
-        this.f8718a = j;
-        this.f8722e = j;
+        this.f8530a = j;
+        this.f8534e = j;
     }
 
     public void setTrackEndTime(long j) {
-        this.f8721d = j;
+        this.f8533d = j;
     }
 
     public void setTrackStartTime(long j) {
-        if (this.f8720c > 0) {
+        if (this.f8532c > 0) {
             return;
         }
-        this.f8720c = j;
+        this.f8532c = j;
     }
 
     public String toString() {
@@ -256,6 +256,6 @@ public class Session {
     }
 
     public void addPageView(a aVar) {
-        a(this.f8724g, aVar);
+        a(this.f8536g, aVar);
     }
 }

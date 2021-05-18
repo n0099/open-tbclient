@@ -19,29 +19,29 @@ import java.util.List;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f40282e = false;
+    public static boolean f39527e = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public IPackageGetCallback f40283a;
+    public IPackageGetCallback f39528a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile ResultData f40284b;
+    public volatile ResultData f39529b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile ErrorInfo f40285c;
+    public volatile ErrorInfo f39530c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RequestParams.Channel f40286d;
+    public RequestParams.Channel f39531d;
 
     /* renamed from: d.a.c.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0525a implements PackageCallback {
+    public class C0512a implements PackageCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IPackageGetCallback f40287a;
+        public final /* synthetic */ IPackageGetCallback f39532a;
 
-        public C0525a(IPackageGetCallback iPackageGetCallback) {
-            this.f40287a = iPackageGetCallback;
+        public C0512a(IPackageGetCallback iPackageGetCallback) {
+            this.f39532a = iPackageGetCallback;
         }
 
         @Override // com.baidu.searchbox.pms.callback.PackageCallback
@@ -50,12 +50,12 @@ public class a {
 
         @Override // com.baidu.searchbox.pms.callback.PackageCallback
         public void onFetchError(ErrorInfo errorInfo) {
-            a.this.n(errorInfo, this.f40287a);
+            a.this.n(errorInfo, this.f39532a);
         }
 
         @Override // com.baidu.searchbox.pms.callback.PackageCallback
         public void onResultData(ResultData resultData) {
-            a.this.o(resultData, this.f40287a);
+            a.this.o(resultData, this.f39532a);
         }
     }
 
@@ -71,7 +71,7 @@ public class a {
         @Override // com.baidu.searchbox.pms.callback.PackageCallback
         public void onFetchError(ErrorInfo errorInfo) {
             synchronized (a.this) {
-                a.this.f40285c = errorInfo;
+                a.this.f39530c = errorInfo;
                 a.this.p();
             }
         }
@@ -79,15 +79,15 @@ public class a {
         @Override // com.baidu.searchbox.pms.callback.PackageCallback
         public void onResultData(ResultData resultData) {
             synchronized (a.this) {
-                boolean unused = a.f40282e = true;
-                a.this.f40284b = resultData;
+                boolean unused = a.f39527e = true;
+                a.this.f39529b = resultData;
                 a.this.p();
             }
         }
     }
 
     public static boolean m() {
-        return f40282e;
+        return f39527e;
     }
 
     public final List<IBundleInfo> g(List<PackageInfo> list) {
@@ -138,7 +138,7 @@ public class a {
             arrayList.add(iBundleInfo.getPackageName());
         }
         channel.setPackageNames(arrayList);
-        channel.setCallback(new C0525a(iPackageGetCallback));
+        channel.setCallback(new C0512a(iPackageGetCallback));
         requestParams.addChannel(channel);
         PmsManager.getInstance().execute(requestParams);
     }
@@ -146,7 +146,7 @@ public class a {
     public void k(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback) {
         if (list == null || list.isEmpty()) {
             synchronized (this) {
-                this.f40283a = iPackageGetCallback;
+                this.f39528a = iPackageGetCallback;
                 p();
             }
             return;
@@ -155,16 +155,16 @@ public class a {
     }
 
     public RequestParams.Channel l() {
-        RequestParams.Channel channel = this.f40286d;
+        RequestParams.Channel channel = this.f39531d;
         if (channel != null) {
             return channel;
         }
         RequestParams.Channel channel2 = new RequestParams.Channel();
-        this.f40286d = channel2;
+        this.f39531d = channel2;
         channel2.setFetchAllPackages(true);
-        this.f40286d.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
-        this.f40286d.setCallback(new b());
-        return this.f40286d;
+        this.f39531d.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
+        this.f39531d.setCallback(new b());
+        return this.f39531d;
     }
 
     public final void n(ErrorInfo errorInfo, IPackageGetCallback iPackageGetCallback) {
@@ -179,17 +179,17 @@ public class a {
     }
 
     public final void p() {
-        if (this.f40283a == null) {
+        if (this.f39528a == null) {
             return;
         }
-        if (this.f40285c != null) {
-            n(this.f40285c, this.f40283a);
-            this.f40283a = null;
-            this.f40285c = null;
-        } else if (this.f40284b != null) {
-            o(this.f40284b, this.f40283a);
-            this.f40283a = null;
-            this.f40284b = null;
+        if (this.f39530c != null) {
+            n(this.f39530c, this.f39528a);
+            this.f39528a = null;
+            this.f39530c = null;
+        } else if (this.f39529b != null) {
+            o(this.f39529b, this.f39528a);
+            this.f39528a = null;
+            this.f39529b = null;
         }
     }
 }

@@ -9,31 +9,31 @@ import kotlin.jvm.internal.StringCompanionObject;
 public final class d implements d.r.b.a.a.j.d.f.a {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final a f67393i = new a(null);
+    public static final a f68079i = new a(null);
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f67394a;
+    public boolean f68080a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f67395b;
+    public Object f68081b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67396c = "";
+    public String f68082c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f67397d;
+    public final int f68083d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f67398e;
+    public final int f68084e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final RequestParams f67399f;
+    public final RequestParams f68085f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c f67400g;
+    public final c f68086g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.r.b.a.a.j.d.b f67401h;
+    public final d.r.b.a.a.j.d.b f68087h;
 
     /* loaded from: classes7.dex */
     public static final class a {
@@ -61,57 +61,57 @@ public final class d implements d.r.b.a.a.j.d.f.a {
     }
 
     public d(int i2, int i3, RequestParams requestParams, c cVar, d.r.b.a.a.j.d.b bVar) {
-        this.f67397d = i2;
-        this.f67398e = i3;
-        this.f67399f = requestParams;
-        this.f67400g = cVar;
-        this.f67401h = bVar;
+        this.f68083d = i2;
+        this.f68084e = i3;
+        this.f68085f = requestParams;
+        this.f68086g = cVar;
+        this.f68087h = bVar;
     }
 
     @Override // d.r.b.a.a.j.d.f.a
     public void a(Object obj) {
-        this.f67395b = obj;
+        this.f68081b = obj;
     }
 
     @Override // d.r.b.a.a.j.d.f.a
     public int b() {
-        return this.f67397d;
+        return this.f68083d;
     }
 
     @Override // d.r.b.a.a.j.d.f.a
     public Object c() {
-        return this.f67395b;
+        return this.f68081b;
     }
 
     public final String d() {
-        return this.f67396c;
+        return this.f68082c;
     }
 
     @Override // d.r.b.a.a.j.d.f.a
     public String e() {
-        return this.f67396c;
+        return this.f68082c;
     }
 
     public final void f(String str) {
-        this.f67396c = str;
+        this.f68082c = str;
     }
 
     @Override // d.r.b.a.a.j.d.f.a
     public boolean run() {
-        if (this.f67401h == null || this.f67400g == null) {
+        if (this.f68087h == null || this.f68086g == null) {
             return false;
         }
-        if (this.f67394a) {
+        if (this.f68080a) {
             return true;
         }
-        this.f67399f.setSeq(this.f67396c);
-        d.r.b.a.a.f.e.a a2 = this.f67400g.a(this.f67397d, this.f67398e, this.f67399f);
+        this.f68085f.setSeq(this.f68082c);
+        d.r.b.a.a.f.e.a a2 = this.f68086g.a(this.f68083d, this.f68084e, this.f68085f);
         if (a2 == null) {
             return false;
         }
-        this.f67394a = true;
-        d.r.b.a.a.j.d.b bVar = this.f67401h;
-        String str = this.f67396c;
+        this.f68080a = true;
+        d.r.b.a.a.j.d.b bVar = this.f68087h;
+        String str = this.f68082c;
         if (a2 == null) {
             Intrinsics.throwNpe();
         }

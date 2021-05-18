@@ -23,36 +23,36 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f28892a = "d";
+    public static final String f28137a = "d";
 
     /* renamed from: e  reason: collision with root package name */
-    public static d f28893e;
+    public static d f28138e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Map<String, Integer> f28894f;
+    public static final Map<String, Integer> f28139f;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<String> f28895b = new HashSet(1);
+    public final Set<String> f28140b = new HashSet(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<WeakReference<e>> f28896c = new ArrayList(1);
+    public final List<WeakReference<e>> f28141c = new ArrayList(1);
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<e> f28897d = new ArrayList(1);
+    public final List<e> f28142d = new ArrayList(1);
 
     static {
         HashMap hashMap = new HashMap();
-        f28894f = hashMap;
+        f28139f = hashMap;
         hashMap.put("android.permission.ACCESS_COARSE_LOCATION", Integer.valueOf(ad.b(p.a(), "tt_request_permission_descript_location")));
-        f28894f.put("android.permission.ACCESS_FINE_LOCATION", Integer.valueOf(ad.b(p.a(), "tt_request_permission_descript_location")));
-        f28894f.put("android.permission.READ_PHONE_STATE", Integer.valueOf(ad.b(p.a(), "tt_request_permission_descript_read_phone_state")));
-        f28894f.put(StorageUtils.EXTERNAL_STORAGE_PERMISSION, Integer.valueOf(ad.b(p.a(), "tt_request_permission_descript_external_storage")));
+        f28139f.put("android.permission.ACCESS_FINE_LOCATION", Integer.valueOf(ad.b(p.a(), "tt_request_permission_descript_location")));
+        f28139f.put("android.permission.READ_PHONE_STATE", Integer.valueOf(ad.b(p.a(), "tt_request_permission_descript_read_phone_state")));
+        f28139f.put(StorageUtils.EXTERNAL_STORAGE_PERMISSION, Integer.valueOf(ad.b(p.a(), "tt_request_permission_descript_external_storage")));
         if (Build.VERSION.SDK_INT >= 16) {
-            f28894f.put("android.permission.READ_EXTERNAL_STORAGE", Integer.valueOf(ad.b(p.a(), "tt_request_permission_descript_external_storage")));
+            f28139f.put("android.permission.READ_EXTERNAL_STORAGE", Integer.valueOf(ad.b(p.a(), "tt_request_permission_descript_external_storage")));
         }
     }
 
@@ -61,10 +61,10 @@ public class d {
     }
 
     public static d a() {
-        if (f28893e == null) {
-            f28893e = new d();
+        if (f28138e == null) {
+            f28138e = new d();
         }
-        return f28893e;
+        return f28138e;
     }
 
     private synchronized void b() {
@@ -77,9 +77,9 @@ public class d {
             try {
                 str = (String) field.get("");
             } catch (IllegalAccessException e2) {
-                Log.e(f28892a, "Could not access field", e2);
+                Log.e(f28137a, "Could not access field", e2);
             }
-            this.f28895b.add(str);
+            this.f28140b.add(str);
         }
     }
 
@@ -96,7 +96,7 @@ public class d {
             if (packageManager != null && (packageInfo = packageManager.getPackageInfo(packageName, 4096)) != null && (strArr = packageInfo.requestedPermissions) != null && strArr.length != 0) {
                 for (int i2 = 0; i2 < strArr.length; i2++) {
                     if (!TextUtils.isEmpty(strArr[i2])) {
-                        this.f28895b.add(strArr[i2]);
+                        this.f28140b.add(strArr[i2]);
                     }
                 }
             }
@@ -109,19 +109,19 @@ public class d {
             return;
         }
         eVar.a(strArr);
-        this.f28897d.add(eVar);
-        this.f28896c.add(new WeakReference<>(eVar));
+        this.f28142d.add(eVar);
+        this.f28141c.add(new WeakReference<>(eVar));
     }
 
     private synchronized void a(@Nullable e eVar) {
-        Iterator<WeakReference<e>> it = this.f28896c.iterator();
+        Iterator<WeakReference<e>> it = this.f28141c.iterator();
         while (it.hasNext()) {
             WeakReference<e> next = it.next();
             if (next.get() == eVar || next.get() == null) {
                 it.remove();
             }
         }
-        Iterator<e> it2 = this.f28897d.iterator();
+        Iterator<e> it2 = this.f28142d.iterator();
         while (it2.hasNext()) {
             if (it2.next() == eVar) {
                 it2.remove();
@@ -134,7 +134,7 @@ public class d {
         for (String str : strArr) {
             if (eVar != null) {
                 try {
-                    if (!this.f28895b.contains(str)) {
+                    if (!this.f28140b.contains(str)) {
                         a2 = eVar.a(str, c.NOT_FOUND);
                     } else if (b.a(activity, str) != 0) {
                         a2 = eVar.a(str, c.DENIED);
@@ -156,7 +156,7 @@ public class d {
     private List<String> c(@NonNull Activity activity, @NonNull String[] strArr, @Nullable e eVar) {
         ArrayList arrayList = new ArrayList(strArr.length);
         for (String str : strArr) {
-            if (this.f28895b.contains(str)) {
+            if (this.f28140b.contains(str)) {
                 if (!a(activity, str)) {
                     arrayList.add(str);
                 } else if (eVar != null) {
@@ -175,12 +175,12 @@ public class d {
             return false;
         }
         if (ae.e()) {
-            if (a.a(context, str) && (b.a(context, str) == 0 || !this.f28895b.contains(str))) {
+            if (a.a(context, str) && (b.a(context, str) == 0 || !this.f28140b.contains(str))) {
                 z = true;
             }
             return z;
         }
-        return (b.a(context, str) == 0 || !this.f28895b.contains(str)) ? true : true;
+        return (b.a(context, str) == 0 || !this.f28140b.contains(str)) ? true : true;
     }
 
     public synchronized void a(@Nullable Activity activity, @NonNull String[] strArr, @Nullable e eVar) {
@@ -226,7 +226,7 @@ public class d {
             if (iArr.length < length) {
                 length = iArr.length;
             }
-            Iterator<WeakReference<e>> it = this.f28896c.iterator();
+            Iterator<WeakReference<e>> it = this.f28141c.iterator();
             while (it.hasNext()) {
                 e eVar = it.next().get();
                 while (i2 < length) {
@@ -235,7 +235,7 @@ public class d {
                     break;
                 }
             }
-            Iterator<e> it2 = this.f28897d.iterator();
+            Iterator<e> it2 = this.f28142d.iterator();
             while (it2.hasNext()) {
                 it2.next();
                 it2.remove();

@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.BaseFragment;
 public abstract class BaseTemplateFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.i0.x0.a f13699e;
+    public d.a.j0.x0.a f13035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f13700f;
+    public ViewGroup f13036f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final CustomMessageListener f13701g = new a(2001453);
+    public final CustomMessageListener f13037g = new a(2001453);
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -35,37 +35,37 @@ public abstract class BaseTemplateFragment extends BaseFragment {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof d.a.i0.x0.b.a.a) {
-                d.a.i0.x0.b.a.a aVar = (d.a.i0.x0.b.a.a) data;
+            if (data instanceof d.a.j0.x0.b.a.a) {
+                d.a.j0.x0.b.a.a aVar = (d.a.j0.x0.b.a.a) data;
                 if (aVar.a() != BaseTemplateFragment.this.getUniqueId()) {
                     return;
                 }
                 if (aVar.c()) {
-                    BaseTemplateFragment.this.I0(aVar);
-                } else if (aVar.b()) {
                     BaseTemplateFragment.this.H0(aVar);
+                } else if (aVar.b()) {
+                    BaseTemplateFragment.this.G0(aVar);
                 }
             }
         }
     }
 
-    public final String E0(Object obj) {
+    public final String D0(Object obj) {
         return obj != null ? obj.getClass().getSimpleName() : StringUtil.NULL_STRING;
     }
 
-    public abstract d.a.i0.x0.a F0(ViewGroup viewGroup);
+    public abstract d.a.j0.x0.a E0(ViewGroup viewGroup);
 
-    public abstract ViewGroup G0();
+    public abstract ViewGroup F0();
 
-    public void H0(d.a.i0.x0.b.a.a aVar) {
+    public void G0(d.a.j0.x0.b.a.a aVar) {
     }
 
-    public void I0(d.a.i0.x0.b.a.a aVar) {
+    public void H0(d.a.j0.x0.b.a.a aVar) {
     }
 
-    public void J0() {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->sendReq----");
-        d.a.i0.x0.a aVar = this.f13699e;
+    public void I0() {
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->sendReq----");
+        d.a.j0.x0.a aVar = this.f13035e;
         if (aVar != null) {
             aVar.e();
         }
@@ -73,32 +73,32 @@ public abstract class BaseTemplateFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onActivityCreated---- ");
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onActivityCreated---- ");
         super.onActivityCreated(bundle);
         if (isPrimary()) {
-            J0();
+            I0();
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onAttach(Context context) {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onAttach---- ");
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onAttach---- ");
         super.onAttach(context);
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onAttachFragment(Fragment fragment) {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onAttachFragment----parentFragment=" + E0(getParentFragment()));
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onAttachFragment----currentFragment=" + E0(this));
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onAttachFragment----childFragment=" + E0(fragment));
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onAttachFragment----parentFragment=" + D0(getParentFragment()));
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onAttachFragment----currentFragment=" + D0(this));
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onAttachFragment----childFragment=" + D0(fragment));
         super.onAttachFragment(fragment);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onChangeSkinType---- ");
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onChangeSkinType---- ");
         super.onChangeSkinType(i2);
-        d.a.i0.x0.a aVar = this.f13699e;
+        d.a.j0.x0.a aVar = this.f13035e;
         if (aVar != null) {
             aVar.a(i2);
         }
@@ -106,34 +106,34 @@ public abstract class BaseTemplateFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onCreate---- ");
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onCreate---- ");
         super.onCreate(bundle);
         getArguments();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onCreateView---- ");
-        ViewGroup viewGroup2 = this.f13700f;
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onCreateView---- ");
+        ViewGroup viewGroup2 = this.f13036f;
         if (viewGroup2 != null && (viewGroup2.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.f13700f.getParent()).removeView(this.f13700f);
+            ((ViewGroup) this.f13036f.getParent()).removeView(this.f13036f);
         }
-        if (this.f13700f == null) {
-            this.f13700f = G0();
+        if (this.f13036f == null) {
+            this.f13036f = F0();
         }
-        if (this.f13699e == null) {
-            this.f13699e = F0(this.f13700f);
+        if (this.f13035e == null) {
+            this.f13035e = E0(this.f13036f);
         }
-        this.f13699e.f(getUniqueId());
-        registerListener(this.f13701g);
-        return this.f13700f;
+        this.f13035e.f(getUniqueId());
+        registerListener(this.f13037g);
+        return this.f13036f;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onDestroy---- ");
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onDestroy---- ");
         super.onDestroy();
-        d.a.i0.x0.a aVar = this.f13699e;
+        d.a.j0.x0.a aVar = this.f13035e;
         if (aVar != null) {
             aVar.b();
         }
@@ -141,34 +141,34 @@ public abstract class BaseTemplateFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDetach() {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onDetach---- ");
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onDetach---- ");
         super.onDetach();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onHiddenChanged(boolean z) {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onHiddenChanged----hidden=" + z);
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onHiddenChanged----hidden=" + z);
         super.onHiddenChanged(z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onLazyLoad---- ");
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onLazyLoad---- ");
         super.onLazyLoad();
-        J0();
+        I0();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onLazyLoad---- ");
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onLazyLoad---- ");
         super.onLoad();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onPause---- ");
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onPause---- ");
         super.onPause();
-        d.a.i0.x0.a aVar = this.f13699e;
+        d.a.j0.x0.a aVar = this.f13035e;
         if (aVar != null) {
             aVar.c();
         }
@@ -176,17 +176,17 @@ public abstract class BaseTemplateFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onPrimary----isPrimary =" + isPrimary());
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onPrimary----isPrimary =" + isPrimary());
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            d.a.i0.x0.a aVar = this.f13699e;
+            d.a.j0.x0.a aVar = this.f13035e;
             if (aVar != null) {
                 aVar.d();
                 return;
             }
             return;
         }
-        d.a.i0.x0.a aVar2 = this.f13699e;
+        d.a.j0.x0.a aVar2 = this.f13035e;
         if (aVar2 != null) {
             aVar2.c();
         }
@@ -194,13 +194,13 @@ public abstract class BaseTemplateFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->onViewCreated---- ");
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->onViewCreated---- ");
         super.onViewCreated(view, bundle);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void setUserVisibleHint(boolean z) {
-        d.a.i0.x0.d.a.b("BaseTemplateFragment-->setUserVisibleHint----isVisibleToUser=" + z);
+        d.a.j0.x0.d.a.b("BaseTemplateFragment-->setUserVisibleHint----isVisibleToUser=" + z);
         super.setUserVisibleHint(z);
     }
 }

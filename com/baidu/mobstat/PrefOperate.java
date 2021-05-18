@@ -67,7 +67,7 @@ public class PrefOperate {
     }
 
     public static void setAppKey(String str) {
-        CooperService.instance().getHeadObject().f8680e = str;
+        CooperService.instance().getHeadObject().f8492e = str;
     }
 
     public static void setAppChannel(Context context, String str, boolean z) {

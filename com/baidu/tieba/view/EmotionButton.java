@@ -24,19 +24,19 @@ public class EmotionButton extends View {
     public static int u = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22405e;
+    public int f21650e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22406f;
+    public int f21651f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22407g;
+    public int f21652g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22408h;
+    public int f21653h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f22409i;
+    public int f21654i;
     public int j;
     public Paint k;
     public TextPaint l;
@@ -71,7 +71,7 @@ public class EmotionButton extends View {
 
     public final void b(Canvas canvas) {
         this.k.setShader(this.p);
-        this.k.setShadowLayer(t, 2.0f, 2.0f, this.f22405e);
+        this.k.setShadowLayer(t, 2.0f, 2.0f, this.f21650e);
         if (this.m == null) {
             this.m = new RectF();
         }
@@ -90,7 +90,7 @@ public class EmotionButton extends View {
 
     public final void c(Canvas canvas) {
         this.k.setShader(this.q);
-        this.k.setShadowLayer(t, 2.0f, 2.0f, this.f22408h);
+        this.k.setShadowLayer(t, 2.0f, 2.0f, this.f21653h);
         if (this.m == null) {
             this.m = new RectF();
         }
@@ -108,11 +108,11 @@ public class EmotionButton extends View {
     }
 
     public final void d(Context context) {
-        this.f22405e = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-        this.f22406f = SkinManager.getColor(R.color.CAM_X0302);
-        this.f22407g = SkinManager.getColor(R.color.CAM_X0303);
-        this.f22408h = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-        this.f22409i = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+        this.f21650e = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+        this.f21651f = SkinManager.getColor(R.color.CAM_X0302);
+        this.f21652g = SkinManager.getColor(R.color.CAM_X0303);
+        this.f21653h = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+        this.f21654i = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
         this.j = SkinManager.getColor(R.color.cp_link_tip_b_alpha50);
         Paint paint = new Paint();
         this.k = paint;
@@ -156,8 +156,8 @@ public class EmotionButton extends View {
         super.onSizeChanged(i2, i3, i4, i5);
         this.n = i2;
         this.o = i3;
-        this.p = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f22407g, this.f22406f, Shader.TileMode.MIRROR);
-        this.q = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.j, this.f22409i, Shader.TileMode.MIRROR);
+        this.p = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f21652g, this.f21651f, Shader.TileMode.MIRROR);
+        this.q = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.j, this.f21654i, Shader.TileMode.MIRROR);
     }
 
     public void setText(String str) {

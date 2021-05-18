@@ -20,29 +20,29 @@ public class NHCreditMiniGroup extends BaseItemLayout {
     public static final float WIDTH_DIVIDER = 15.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    public NHTitleView f25185a;
+    public NHTitleView f24430a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f25186b;
+    public LinearLayout f24431b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f25187c;
+    public List<BaseItemView> f24432c;
 
     public NHCreditMiniGroup(Context context) {
         super(context);
-        this.f25187c = new ArrayList();
+        this.f24432c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f25187c;
+        return this.f24432c;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_mini_layout"), this);
-        this.f25185a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_mini_title"));
-        this.f25186b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_mini_layout"));
+        this.f24430a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_mini_title"));
+        this.f24431b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_mini_layout"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -55,14 +55,14 @@ public class NHCreditMiniGroup extends BaseItemLayout {
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
         int dip2px;
-        this.f25185a.setData(this.mConfigData, getWalletInterface());
-        this.f25185a.setHasGap(this.mConfigData.isLayoutHasGap());
+        this.f24430a.setData(this.mConfigData, getWalletInterface());
+        this.f24430a.setHasGap(this.mConfigData.isLayoutHasGap());
         int displayWidth = DisplayUtils.getDisplayWidth(getContext());
         if (this.mConfigData.list.length <= 2) {
-            this.f25186b.setLayoutParams(new FrameLayout.LayoutParams(displayWidth, -2));
+            this.f24431b.setLayoutParams(new FrameLayout.LayoutParams(displayWidth, -2));
             dip2px = (int) ((displayWidth - (DisplayUtils.dip2px(getContext(), 15.0f) * 3.0f)) / 2.0f);
         } else {
-            this.f25186b.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+            this.f24431b.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
             dip2px = (int) ((displayWidth - (DisplayUtils.dip2px(getContext(), 15.0f) * 3.0f)) / 2.2d);
         }
         HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
@@ -73,14 +73,14 @@ public class NHCreditMiniGroup extends BaseItemLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dip2px, DisplayUtils.dip2px(getContext(), 98.5f));
             layoutParams.width = dip2px;
             layoutParams.setMargins(DisplayUtils.dip2px(getContext(), 15.0f), 0, 0, 0);
-            this.f25186b.addView(nHCreditMiniItem, layoutParams);
-            this.f25187c.add(nHCreditMiniItem);
+            this.f24431b.addView(nHCreditMiniItem, layoutParams);
+            this.f24432c.add(nHCreditMiniItem);
         }
-        this.f25186b.addView(new View(getContext()), new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 15.0f), DisplayUtils.dip2px(getContext(), 98.5f)));
+        this.f24431b.addView(new View(getContext()), new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 15.0f), DisplayUtils.dip2px(getContext(), 98.5f)));
     }
 
     public NHCreditMiniGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f25187c = new ArrayList();
+        this.f24432c = new ArrayList();
     }
 }

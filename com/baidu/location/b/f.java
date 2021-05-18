@@ -1,20 +1,18 @@
 package com.baidu.location.b;
 
-import android.location.OnNmeaMessageListener;
+import java.io.File;
 /* loaded from: classes2.dex */
-public class f implements OnNmeaMessageListener {
+public class f extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f6907a;
+    public final /* synthetic */ d f6581a;
 
-    public f(e eVar) {
-        this.f6907a = eVar;
+    public f(d dVar) {
+        this.f6581a = dVar;
     }
 
-    @Override // android.location.OnNmeaMessageListener
-    public void onNmeaMessage(String str, long j) {
-        if (this.f6907a.b(str)) {
-            this.f6907a.a(str);
-        }
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        this.f6581a.a(new File(com.baidu.location.e.k.k() + "/baidu/tempdata", "intime.dat"), "https://itsdata.map.baidu.com/long-conn-gps/sdk.php");
     }
 }

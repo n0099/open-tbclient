@@ -1,7 +1,6 @@
 package d.o.a.d.n;
 
 import androidx.annotation.NonNull;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.d.f.c;
@@ -9,7 +8,7 @@ import d.o.a.d.f.n;
 import d.o.a.e.a.j;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static JSONObject a(@NonNull JSONObject jSONObject, d.o.a.b.a.c.a aVar) {
         k.r(jSONObject, "open_url", k.m(aVar.f(), "open_url_not_exist"));
@@ -117,7 +116,7 @@ public class f {
                 jSONObject.putOpt(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, Long.valueOf(downloadInfo.Q0()));
                 jSONObject.putOpt("cur_bytes", Long.valueOf(downloadInfo.E()));
                 jSONObject.putOpt("chunk_count", Integer.valueOf(downloadInfo.B()));
-                jSONObject.putOpt(DpStatConstants.KEY_APP_NAME, downloadInfo.P0());
+                jSONObject.putOpt("app_name", downloadInfo.P0());
                 jSONObject.putOpt("network_quality", downloadInfo.r0());
                 jSONObject.putOpt("save_path", downloadInfo.F0());
                 jSONObject.putOpt("file_name", downloadInfo.q0());

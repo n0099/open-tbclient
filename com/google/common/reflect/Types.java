@@ -34,10 +34,10 @@ import kotlin.text.Typography;
 public final class Types {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g<Type, String> f32221a = new a();
+    public static final g<Type, String> f31466a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final i f32222b = i.g(StringUtil.ARRAY_ELEMENT_SEPARATOR).i(StringUtil.NULL_STRING);
+    public static final i f31467b = i.g(StringUtil.ARRAY_ELEMENT_SEPARATOR).i(StringUtil.NULL_STRING);
 
     /* loaded from: classes6.dex */
     public enum ClassOwnership {
@@ -296,7 +296,7 @@ public final class Types {
             }
             sb.append(this.rawType.getName());
             sb.append(Typography.less);
-            sb.append(Types.f32222b.c(f0.n(this.argumentsList, Types.f32221a)));
+            sb.append(Types.f31467b.c(f0.n(this.argumentsList, Types.f31466a)));
             sb.append(Typography.greater);
             return sb.toString();
         }
@@ -366,30 +366,30 @@ public final class Types {
     public static class b extends d.g.c.h.g {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AtomicReference f32223b;
+        public final /* synthetic */ AtomicReference f31468b;
 
         public b(AtomicReference atomicReference) {
-            this.f32223b = atomicReference;
+            this.f31468b = atomicReference;
         }
 
         @Override // d.g.c.h.g
         public void b(Class<?> cls) {
-            this.f32223b.set(cls.getComponentType());
+            this.f31468b.set(cls.getComponentType());
         }
 
         @Override // d.g.c.h.g
         public void c(GenericArrayType genericArrayType) {
-            this.f32223b.set(genericArrayType.getGenericComponentType());
+            this.f31468b.set(genericArrayType.getGenericComponentType());
         }
 
         @Override // d.g.c.h.g
         public void e(TypeVariable<?> typeVariable) {
-            this.f32223b.set(Types.q(typeVariable.getBounds()));
+            this.f31468b.set(Types.q(typeVariable.getBounds()));
         }
 
         @Override // d.g.c.h.g
         public void f(WildcardType wildcardType) {
-            this.f32223b.set(Types.q(wildcardType.getUpperBounds()));
+            this.f31468b.set(Types.q(wildcardType.getUpperBounds()));
         }
     }
 
@@ -397,59 +397,59 @@ public final class Types {
     public static final class c<X> {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f32224a = !c.class.getTypeParameters()[0].equals(Types.l(c.class, "X", new Type[0]));
+        public static final boolean f31469a = !c.class.getTypeParameters()[0].equals(Types.l(c.class, "X", new Type[0]));
     }
 
     /* loaded from: classes6.dex */
     public static final class d<D extends GenericDeclaration> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final D f32225a;
+        public final D f31470a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f32226b;
+        public final String f31471b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ImmutableList<Type> f32227c;
+        public final ImmutableList<Type> f31472c;
 
         public d(D d2, String str, Type[] typeArr) {
             Types.g(typeArr, "bound for type variable");
             n.p(d2);
-            this.f32225a = d2;
+            this.f31470a = d2;
             n.p(str);
-            this.f32226b = str;
-            this.f32227c = ImmutableList.copyOf(typeArr);
+            this.f31471b = str;
+            this.f31472c = ImmutableList.copyOf(typeArr);
         }
 
         public D a() {
-            return this.f32225a;
+            return this.f31470a;
         }
 
         public String b() {
-            return this.f32226b;
+            return this.f31471b;
         }
 
         public boolean equals(Object obj) {
-            if (c.f32224a) {
+            if (c.f31469a) {
                 if (obj != null && Proxy.isProxyClass(obj.getClass()) && (Proxy.getInvocationHandler(obj) instanceof e)) {
-                    d dVar = ((e) Proxy.getInvocationHandler(obj)).f32229e;
-                    return this.f32226b.equals(dVar.b()) && this.f32225a.equals(dVar.a()) && this.f32227c.equals(dVar.f32227c);
+                    d dVar = ((e) Proxy.getInvocationHandler(obj)).f31474e;
+                    return this.f31471b.equals(dVar.b()) && this.f31470a.equals(dVar.a()) && this.f31472c.equals(dVar.f31472c);
                 }
                 return false;
             } else if (obj instanceof TypeVariable) {
                 TypeVariable typeVariable = (TypeVariable) obj;
-                return this.f32226b.equals(typeVariable.getName()) && this.f32225a.equals(typeVariable.getGenericDeclaration());
+                return this.f31471b.equals(typeVariable.getName()) && this.f31470a.equals(typeVariable.getGenericDeclaration());
             } else {
                 return false;
             }
         }
 
         public int hashCode() {
-            return this.f32225a.hashCode() ^ this.f32226b.hashCode();
+            return this.f31470a.hashCode() ^ this.f31471b.hashCode();
         }
 
         public String toString() {
-            return this.f32226b;
+            return this.f31471b;
         }
     }
 
@@ -457,10 +457,10 @@ public final class Types {
     public static final class e implements InvocationHandler {
 
         /* renamed from: f  reason: collision with root package name */
-        public static final ImmutableMap<String, Method> f32228f;
+        public static final ImmutableMap<String, Method> f31473f;
 
         /* renamed from: e  reason: collision with root package name */
-        public final d<?> f32229e;
+        public final d<?> f31474e;
 
         static {
             Method[] methods;
@@ -474,20 +474,20 @@ public final class Types {
                     builder.c(method.getName(), method);
                 }
             }
-            f32228f = builder.a();
+            f31473f = builder.a();
         }
 
         public e(d<?> dVar) {
-            this.f32229e = dVar;
+            this.f31474e = dVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
         public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
             String name = method.getName();
-            Method method2 = f32228f.get(name);
+            Method method2 = f31473f.get(name);
             if (method2 != null) {
                 try {
-                    return method2.invoke(this.f32229e, objArr);
+                    return method2.invoke(this.f31474e, objArr);
                 } catch (InvocationTargetException e2) {
                     throw e2.getCause();
                 }

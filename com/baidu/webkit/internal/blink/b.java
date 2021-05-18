@@ -1,23 +1,30 @@
 package com.baidu.webkit.internal.blink;
 
-import android.os.HandlerThread;
+import com.baidu.webkit.sdk.WebKitFactory;
+import java.io.File;
 /* loaded from: classes5.dex */
-public final class b implements Runnable {
+public final class b extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ HandlerThread f27384a;
+    public String f26643a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f27385b;
-
-    public b(a aVar, HandlerThread handlerThread) {
-        this.f27385b = aVar;
-        this.f27384a = handlerThread;
+    public b(String str, EngineManager engineManager, WebKitFactory.WebkitInstallListener webkitInstallListener) {
+        super(engineManager, webkitInstallListener);
+        if (str != null) {
+            String substring = str.substring(7);
+            if (new File(substring).isFile()) {
+                this.f26643a = substring;
+            }
+        }
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        this.f27385b.a();
-        this.f27384a.quit();
+    @Override // com.baidu.webkit.internal.blink.a
+    public final boolean c() {
+        return this.f26643a != null;
+    }
+
+    @Override // com.baidu.webkit.internal.blink.a
+    public final String d() {
+        return this.f26643a;
     }
 }

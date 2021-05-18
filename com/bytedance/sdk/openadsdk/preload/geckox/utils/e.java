@@ -1,11 +1,11 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.utils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30954a = false;
+    public static boolean f30199a = false;
 
     public static boolean a() {
-        return f30954a;
+        return f30199a;
     }
 }

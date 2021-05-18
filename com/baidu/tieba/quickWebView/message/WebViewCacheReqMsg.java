@@ -2,10 +2,10 @@ package com.baidu.tieba.quickWebView.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.i0.z0.w;
+import d.a.j0.z0.w;
 import tbclient.GetWebviewCacheInfo.DataReq;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class WebViewCacheReqMsg extends NetMessage {
     public String mWebViewVersion;
 

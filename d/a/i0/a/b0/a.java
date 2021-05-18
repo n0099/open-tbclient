@@ -1,59 +1,112 @@
 package d.a.i0.a.b0;
 
-import java.util.ArrayList;
-/* loaded from: classes3.dex */
+import android.text.TextUtils;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.apps.commonsync.CommonSyncServerData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.google.gson.Gson;
+import d.a.i0.a.k;
+import d.a.i0.a.n1.f;
+import java.util.Map;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
 public class a {
-    public static int C = 1;
-    public static int D = 2;
-    public static int E = 3;
-    public static int F = 4;
-    public static int G = 5;
-    public static int H = 1;
-    public static int I = 2;
-    public String A;
-    public String B;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f47785a;
+    public static final boolean f40627a = k.f43025a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f47786b;
+    public static int f40628b = 0;
 
-    /* renamed from: c  reason: collision with root package name */
-    public int f47787c;
+    /* renamed from: d.a.i0.a.b0.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public static class C0556a extends ResponseCallback<CommonSyncServerData> {
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f47788d;
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ d.a.i0.a.b0.c.a f40629a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public String f47789e;
+        public C0556a(d.a.i0.a.b0.c.a aVar) {
+            this.f40629a = aVar;
+        }
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f47790f;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(CommonSyncServerData commonSyncServerData, int i2) {
+            d.a.i0.a.b0.c.a aVar = this.f40629a;
+            if (aVar != null) {
+                aVar.a(commonSyncServerData);
+            }
+        }
 
-    /* renamed from: g  reason: collision with root package name */
-    public String f47791g;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public CommonSyncServerData parseResponse(Response response, int i2) throws Exception {
+            if (response != null && response.body() != null) {
+                String string = response.body().string();
+                if (TextUtils.isEmpty(string)) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject(string);
+                int optInt = jSONObject.optInt("errno");
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optInt == a.f40628b && optJSONObject != null) {
+                    return (CommonSyncServerData) new Gson().fromJson(optJSONObject.toString(), (Class<Object>) CommonSyncServerData.class);
+                }
+            }
+            return null;
+        }
 
-    /* renamed from: h  reason: collision with root package name */
-    public String f47792h;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            d.a.i0.a.b0.c.a aVar = this.f40629a;
+            if (aVar != null) {
+                aVar.onFail();
+            }
+        }
+    }
 
-    /* renamed from: i  reason: collision with root package name */
-    public int f47793i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public double n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public long t;
-    public long u;
-    public ArrayList<String> v = new ArrayList<>();
-    public ArrayList<String> w = new ArrayList<>();
-    public int x = 0;
-    public String y;
-    public String z;
+    public static void b(d.a.i0.a.b0.c.a aVar) {
+        if (!SwanAppNetworkUtils.h()) {
+            if (aVar != null) {
+                aVar.onFail();
+                return;
+            }
+            return;
+        }
+        d.a.i0.m.e.a.g().getRequest().cookieManager(d.a.i0.a.c1.a.p().a()).url(d.a.i0.a.c1.a.l().processUrl(b.a())).build().executeAsync(new C0556a(aVar));
+    }
+
+    public static RequestBody c(Map<String, Object> map) {
+        JSONObject jSONObject = new JSONObject();
+        if (map != null && map.size() > 0) {
+            for (String str : map.keySet()) {
+                try {
+                    jSONObject.put(str, map.get(str));
+                } catch (JSONException e2) {
+                    if (f40627a) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+        }
+        return RequestBody.create(f.f43519a, jSONObject.toString());
+    }
+
+    public static void d(Map<String, Object> map) {
+        if (SwanAppNetworkUtils.h()) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) d.a.i0.m.e.a.g().postRequest().cookieManager(d.a.i0.a.c1.a.p().a())).url(d.a.i0.a.c1.a.l().processUrl(b.b()))).requestBody(c(map)).build().executeAsync(null);
+        }
+    }
+
+    public static void e(Map<String, Object> map) {
+        if (SwanAppNetworkUtils.h()) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) d.a.i0.m.e.a.g().postRequest().cookieManager(d.a.i0.a.c1.a.p().a())).url(d.a.i0.a.c1.a.l().processUrl(b.c()))).requestBody(c(map)).build().executeAsync(null);
+        }
+    }
 }

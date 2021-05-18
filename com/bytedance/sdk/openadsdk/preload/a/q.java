@@ -1,20 +1,20 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
 import java.math.BigInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class q extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f30745a;
+    public final Object f29990a;
 
     public q(Boolean bool) {
-        this.f30745a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(bool);
+        this.f29990a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(bool);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public Number a() {
-        Object obj = this.f30745a;
-        return obj instanceof String ? new com.bytedance.sdk.openadsdk.preload.a.b.g((String) this.f30745a) : (Number) obj;
+        Object obj = this.f29990a;
+        return obj instanceof String ? new com.bytedance.sdk.openadsdk.preload.a.b.g((String) this.f29990a) : (Number) obj;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
@@ -23,9 +23,9 @@ public final class q extends l {
             return a().toString();
         }
         if (n()) {
-            return ((Boolean) this.f30745a).toString();
+            return ((Boolean) this.f29990a).toString();
         }
-        return (String) this.f30745a;
+        return (String) this.f29990a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
@@ -51,11 +51,11 @@ public final class q extends l {
             return false;
         }
         q qVar = (q) obj;
-        if (this.f30745a == null) {
-            return qVar.f30745a == null;
+        if (this.f29990a == null) {
+            return qVar.f29990a == null;
         } else if (a(this) && a(qVar)) {
             return a().longValue() == qVar.a().longValue();
-        } else if ((this.f30745a instanceof Number) && (qVar.f30745a instanceof Number)) {
+        } else if ((this.f29990a instanceof Number) && (qVar.f29990a instanceof Number)) {
             double doubleValue = a().doubleValue();
             double doubleValue2 = qVar.a().doubleValue();
             if (doubleValue != doubleValue2) {
@@ -63,27 +63,27 @@ public final class q extends l {
             }
             return true;
         } else {
-            return this.f30745a.equals(qVar.f30745a);
+            return this.f29990a.equals(qVar.f29990a);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public boolean f() {
         if (n()) {
-            return ((Boolean) this.f30745a).booleanValue();
+            return ((Boolean) this.f29990a).booleanValue();
         }
         return Boolean.parseBoolean(b());
     }
 
     public int hashCode() {
         long doubleToLongBits;
-        if (this.f30745a == null) {
+        if (this.f29990a == null) {
             return 31;
         }
         if (a(this)) {
             doubleToLongBits = a().longValue();
         } else {
-            Object obj = this.f30745a;
+            Object obj = this.f29990a;
             if (obj instanceof Number) {
                 doubleToLongBits = Double.doubleToLongBits(a().doubleValue());
             } else {
@@ -94,19 +94,19 @@ public final class q extends l {
     }
 
     public boolean n() {
-        return this.f30745a instanceof Boolean;
+        return this.f29990a instanceof Boolean;
     }
 
     public boolean o() {
-        return this.f30745a instanceof Number;
+        return this.f29990a instanceof Number;
     }
 
     public boolean p() {
-        return this.f30745a instanceof String;
+        return this.f29990a instanceof String;
     }
 
     public static boolean a(q qVar) {
-        Object obj = qVar.f30745a;
+        Object obj = qVar.f29990a;
         if (obj instanceof Number) {
             Number number = (Number) obj;
             return (number instanceof BigInteger) || (number instanceof Long) || (number instanceof Integer) || (number instanceof Short) || (number instanceof Byte);
@@ -115,10 +115,10 @@ public final class q extends l {
     }
 
     public q(Number number) {
-        this.f30745a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(number);
+        this.f29990a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(number);
     }
 
     public q(String str) {
-        this.f30745a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(str);
+        this.f29990a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(str);
     }
 }

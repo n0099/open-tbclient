@@ -8,25 +8,25 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.text.TextUtils;
 import android.view.View;
-import d.a.h0.e.a.d;
-import d.a.h0.e.a.e;
+import d.a.i0.f.i.b;
+import d.a.i0.f.i.c;
 /* loaded from: classes3.dex */
 public class SwanAdDownloadButtonView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f12351e;
+    public Paint f11639e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12352f;
+    public int f11640f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12353g;
+    public int f11641g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12354h;
+    public boolean f11642h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12355i;
+    public int f11643i;
     public boolean j;
     public Paint k;
     public int l;
@@ -47,17 +47,17 @@ public class SwanAdDownloadButtonView extends View {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f12356a;
+        public static final /* synthetic */ int[] f11644a;
 
         static {
             int[] iArr = new int[State.values().length];
-            f12356a = iArr;
+            f11644a = iArr;
             try {
                 iArr[State.DOWNLOADING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f12356a[State.FINISH.ordinal()] = 2;
+                f11644a[State.FINISH.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -65,55 +65,55 @@ public class SwanAdDownloadButtonView extends View {
 
     public SwanAdDownloadButtonView(Context context) {
         super(context);
-        this.f12351e = new Paint();
+        this.f11639e = new Paint();
         this.k = new Paint();
         this.l = -1;
         this.o = 100;
         this.p = State.PREPARE;
         this.q = -1.0f;
-        this.f12351e.setAntiAlias(true);
+        this.f11639e.setAntiAlias(true);
         this.k.setAntiAlias(true);
-        this.m = getResources().getDimensionPixelOffset(e.swanapp_ad_dimens_14dp);
-        this.f12352f = context.getResources().getColor(d.swanapp_ad_download_button_default_bg_color);
-        this.f12353g = context.getResources().getColor(d.swanapp_ad_download_button_default_fg_color);
+        this.m = getResources().getDimensionPixelOffset(c.swan_ad_dimens_14dp);
+        this.f11640f = context.getResources().getColor(b.swanapp_ad_download_button_default_bg_color);
+        this.f11641g = context.getResources().getColor(b.swanapp_ad_download_button_default_fg_color);
     }
 
     public final void a(Canvas canvas, RectF rectF) {
-        this.f12351e.setColor(this.f12352f);
-        this.f12351e.setStyle(Paint.Style.FILL);
+        this.f11639e.setColor(this.f11640f);
+        this.f11639e.setStyle(Paint.Style.FILL);
         float f2 = this.q;
         if (f2 <= 0.0f) {
-            f2 = this.f12354h ? rectF.height() / 2.0f : 0.0f;
+            f2 = this.f11642h ? rectF.height() / 2.0f : 0.0f;
         }
-        canvas.drawRoundRect(rectF, f2, f2, this.f12351e);
+        canvas.drawRoundRect(rectF, f2, f2, this.f11639e);
     }
 
     public final void b(Canvas canvas, RectF rectF) {
-        int i2 = a.f12356a[this.p.ordinal()];
+        int i2 = a.f11644a[this.p.ordinal()];
         float f2 = 0.0f;
         if (i2 != 1) {
             if (i2 != 2) {
                 return;
             }
-            this.f12351e.setColor(this.f12353g);
-            this.f12351e.setStyle(Paint.Style.FILL);
+            this.f11639e.setColor(this.f11641g);
+            this.f11639e.setStyle(Paint.Style.FILL);
             float f3 = this.q;
             if (f3 > 0.0f) {
                 f2 = f3;
-            } else if (this.f12354h) {
+            } else if (this.f11642h) {
                 f2 = rectF.height() / 2.0f;
             }
-            canvas.drawRoundRect(rectF, f2, f2, this.f12351e);
+            canvas.drawRoundRect(rectF, f2, f2, this.f11639e);
             return;
         }
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.FILL);
-        float f4 = this.f12355i / this.o;
-        paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.f12353g, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
+        float f4 = this.f11643i / this.o;
+        paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.f11641g, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
         float f5 = this.q;
         if (f5 > 0.0f) {
             f2 = f5;
-        } else if (this.f12354h) {
+        } else if (this.f11642h) {
             f2 = rectF.height() / 2.0f;
         }
         canvas.drawRoundRect(rectF, f2, f2, paint);
@@ -151,13 +151,13 @@ public class SwanAdDownloadButtonView extends View {
     public final void e(Canvas canvas) {
         float f2 = 0;
         RectF rectF = new RectF(f2, f2, getWidth() + 0, getHeight() + 0);
-        this.f12351e.setColor(this.f12352f);
-        this.f12351e.setStyle(Paint.Style.FILL);
+        this.f11639e.setColor(this.f11640f);
+        this.f11639e.setStyle(Paint.Style.FILL);
         float f3 = this.q;
         if (f3 <= 0.0f) {
-            f3 = this.f12354h ? rectF.height() / 2.0f : 0.0f;
+            f3 = this.f11642h ? rectF.height() / 2.0f : 0.0f;
         }
-        canvas.drawRoundRect(rectF, f3, f3, this.f12351e);
+        canvas.drawRoundRect(rectF, f3, f3, this.f11639e);
         this.k.setColor(this.l);
         this.k.setTextSize(this.m);
         Paint.FontMetrics fontMetrics = this.k.getFontMetrics();
@@ -166,7 +166,7 @@ public class SwanAdDownloadButtonView extends View {
     }
 
     public SwanAdDownloadButtonView f(boolean z) {
-        this.f12354h = z;
+        this.f11642h = z;
         return this;
     }
 
@@ -180,7 +180,7 @@ public class SwanAdDownloadButtonView extends View {
     }
 
     public SwanAdDownloadButtonView h(int i2) {
-        this.f12352f = i2;
+        this.f11640f = i2;
         return this;
     }
 
@@ -206,7 +206,7 @@ public class SwanAdDownloadButtonView extends View {
         if (i2 > i3) {
             i2 = i3;
         }
-        this.f12355i = i2;
+        this.f11643i = i2;
         if (i2 == 0) {
             this.p = State.PREPARE;
         } else if (i2 == this.o) {

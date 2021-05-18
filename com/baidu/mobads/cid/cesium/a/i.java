@@ -2,11 +2,11 @@ package com.baidu.mobads.cid.cesium.a;
 /* loaded from: classes2.dex */
 public final class i extends g {
     public i(int i2, int i3) {
-        this.f8330a = 4294967295L;
-        this.f8331b = 4;
-        this.f8332c = 32;
-        this.f8333d = i2;
-        this.f8334e = i3;
+        this.f8142a = 4294967295L;
+        this.f8143b = 4;
+        this.f8144c = 32;
+        this.f8145d = i2;
+        this.f8146e = i3;
     }
 
     @Override // com.baidu.mobads.cid.cesium.a.g

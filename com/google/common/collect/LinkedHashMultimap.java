@@ -86,13 +86,13 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
     public class a implements Iterator<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public ValueEntry<K, V> f31920e;
+        public ValueEntry<K, V> f31165e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ValueEntry<K, V> f31921f;
+        public ValueEntry<K, V> f31166f;
 
         public a() {
-            this.f31920e = LinkedHashMultimap.this.multimapHeaderEntry.successorInMultimap;
+            this.f31165e = LinkedHashMultimap.this.multimapHeaderEntry.successorInMultimap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,9 +100,9 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         /* renamed from: a */
         public Map.Entry<K, V> next() {
             if (hasNext()) {
-                ValueEntry<K, V> valueEntry = this.f31920e;
-                this.f31921f = valueEntry;
-                this.f31920e = valueEntry.successorInMultimap;
+                ValueEntry<K, V> valueEntry = this.f31165e;
+                this.f31166f = valueEntry;
+                this.f31165e = valueEntry.successorInMultimap;
                 return valueEntry;
             }
             throw new NoSuchElementException();
@@ -110,14 +110,14 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31920e != LinkedHashMultimap.this.multimapHeaderEntry;
+            return this.f31165e != LinkedHashMultimap.this.multimapHeaderEntry;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(this.f31921f != null);
-            LinkedHashMultimap.this.remove(this.f31921f.getKey(), this.f31921f.getValue());
-            this.f31921f = null;
+            m.e(this.f31166f != null);
+            LinkedHashMultimap.this.remove(this.f31166f.getKey(), this.f31166f.getValue());
+            this.f31166f = null;
         }
     }
 
@@ -125,40 +125,40 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
     public final class b extends Sets.a<V> implements c<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f31923e;
+        public final K f31168e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ValueEntry<K, V>[] f31924f;
+        public ValueEntry<K, V>[] f31169f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f31925g = 0;
+        public int f31170g = 0;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f31926h = 0;
+        public int f31171h = 0;
 
         /* renamed from: i  reason: collision with root package name */
-        public c<K, V> f31927i = this;
+        public c<K, V> f31172i = this;
         public c<K, V> j = this;
 
         /* loaded from: classes6.dex */
         public class a implements Iterator<V> {
 
             /* renamed from: e  reason: collision with root package name */
-            public c<K, V> f31928e;
+            public c<K, V> f31173e;
 
             /* renamed from: f  reason: collision with root package name */
-            public ValueEntry<K, V> f31929f;
+            public ValueEntry<K, V> f31174f;
 
             /* renamed from: g  reason: collision with root package name */
-            public int f31930g;
+            public int f31175g;
 
             public a() {
-                this.f31928e = b.this.f31927i;
-                this.f31930g = b.this.f31926h;
+                this.f31173e = b.this.f31172i;
+                this.f31175g = b.this.f31171h;
             }
 
             public final void a() {
-                if (b.this.f31926h != this.f31930g) {
+                if (b.this.f31171h != this.f31175g) {
                     throw new ConcurrentModificationException();
                 }
             }
@@ -166,16 +166,16 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
             @Override // java.util.Iterator
             public boolean hasNext() {
                 a();
-                return this.f31928e != b.this;
+                return this.f31173e != b.this;
             }
 
             @Override // java.util.Iterator
             public V next() {
                 if (hasNext()) {
-                    ValueEntry<K, V> valueEntry = (ValueEntry) this.f31928e;
+                    ValueEntry<K, V> valueEntry = (ValueEntry) this.f31173e;
                     V value = valueEntry.getValue();
-                    this.f31929f = valueEntry;
-                    this.f31928e = valueEntry.getSuccessorInValueSet();
+                    this.f31174f = valueEntry;
+                    this.f31173e = valueEntry.getSuccessorInValueSet();
                     return value;
                 }
                 throw new NoSuchElementException();
@@ -184,59 +184,59 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
             @Override // java.util.Iterator
             public void remove() {
                 a();
-                m.e(this.f31929f != null);
-                b.this.remove(this.f31929f.getValue());
-                this.f31930g = b.this.f31926h;
-                this.f31929f = null;
+                m.e(this.f31174f != null);
+                b.this.remove(this.f31174f.getValue());
+                this.f31175g = b.this.f31171h;
+                this.f31174f = null;
             }
         }
 
         public b(K k, int i2) {
-            this.f31923e = k;
-            this.f31924f = new ValueEntry[e0.a(i2, 1.0d)];
+            this.f31168e = k;
+            this.f31169f = new ValueEntry[e0.a(i2, 1.0d)];
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean add(V v) {
             int d2 = e0.d(v);
             int c2 = c() & d2;
-            ValueEntry<K, V> valueEntry = this.f31924f[c2];
+            ValueEntry<K, V> valueEntry = this.f31169f[c2];
             for (ValueEntry<K, V> valueEntry2 = valueEntry; valueEntry2 != null; valueEntry2 = valueEntry2.nextInValueBucket) {
                 if (valueEntry2.matchesValue(v, d2)) {
                     return false;
                 }
             }
-            ValueEntry<K, V> valueEntry3 = new ValueEntry<>(this.f31923e, v, d2, valueEntry);
+            ValueEntry<K, V> valueEntry3 = new ValueEntry<>(this.f31168e, v, d2, valueEntry);
             LinkedHashMultimap.succeedsInValueSet(this.j, valueEntry3);
             LinkedHashMultimap.succeedsInValueSet(valueEntry3, this);
             LinkedHashMultimap.succeedsInMultimap(LinkedHashMultimap.this.multimapHeaderEntry.getPredecessorInMultimap(), valueEntry3);
             LinkedHashMultimap.succeedsInMultimap(valueEntry3, LinkedHashMultimap.this.multimapHeaderEntry);
-            this.f31924f[c2] = valueEntry3;
-            this.f31925g++;
-            this.f31926h++;
+            this.f31169f[c2] = valueEntry3;
+            this.f31170g++;
+            this.f31171h++;
             d();
             return true;
         }
 
         public final int c() {
-            return this.f31924f.length - 1;
+            return this.f31169f.length - 1;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
-            Arrays.fill(this.f31924f, (Object) null);
-            this.f31925g = 0;
-            for (c<K, V> cVar = this.f31927i; cVar != this; cVar = cVar.getSuccessorInValueSet()) {
+            Arrays.fill(this.f31169f, (Object) null);
+            this.f31170g = 0;
+            for (c<K, V> cVar = this.f31172i; cVar != this; cVar = cVar.getSuccessorInValueSet()) {
                 LinkedHashMultimap.deleteFromMultimap((ValueEntry) cVar);
             }
             LinkedHashMultimap.succeedsInValueSet(this, this);
-            this.f31926h++;
+            this.f31171h++;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
             int d2 = e0.d(obj);
-            for (ValueEntry<K, V> valueEntry = this.f31924f[c() & d2]; valueEntry != null; valueEntry = valueEntry.nextInValueBucket) {
+            for (ValueEntry<K, V> valueEntry = this.f31169f[c() & d2]; valueEntry != null; valueEntry = valueEntry.nextInValueBucket) {
                 if (valueEntry.matchesValue(obj, d2)) {
                     return true;
                 }
@@ -247,12 +247,12 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: com.google.common.collect.LinkedHashMultimap$c<K, V> */
         /* JADX WARN: Multi-variable type inference failed */
         public final void d() {
-            if (e0.b(this.f31925g, this.f31924f.length, 1.0d)) {
-                int length = this.f31924f.length * 2;
+            if (e0.b(this.f31170g, this.f31169f.length, 1.0d)) {
+                int length = this.f31169f.length * 2;
                 ValueEntry<K, V>[] valueEntryArr = new ValueEntry[length];
-                this.f31924f = valueEntryArr;
+                this.f31169f = valueEntryArr;
                 int i2 = length - 1;
-                for (c cVar = (c<K, V>) this.f31927i; cVar != this; cVar = (c<K, V>) cVar.getSuccessorInValueSet()) {
+                for (c cVar = (c<K, V>) this.f31172i; cVar != this; cVar = (c<K, V>) cVar.getSuccessorInValueSet()) {
                     ValueEntry<K, V> valueEntry = (ValueEntry) cVar;
                     int i3 = valueEntry.smearedValueHash & i2;
                     valueEntry.nextInValueBucket = valueEntryArr[i3];
@@ -268,7 +268,7 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
 
         @Override // com.google.common.collect.LinkedHashMultimap.c
         public c<K, V> getSuccessorInValueSet() {
-            return this.f31927i;
+            return this.f31172i;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
@@ -281,17 +281,17 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
             int d2 = e0.d(obj);
             int c2 = c() & d2;
             ValueEntry<K, V> valueEntry = null;
-            for (ValueEntry<K, V> valueEntry2 = this.f31924f[c2]; valueEntry2 != null; valueEntry2 = valueEntry2.nextInValueBucket) {
+            for (ValueEntry<K, V> valueEntry2 = this.f31169f[c2]; valueEntry2 != null; valueEntry2 = valueEntry2.nextInValueBucket) {
                 if (valueEntry2.matchesValue(obj, d2)) {
                     if (valueEntry == null) {
-                        this.f31924f[c2] = valueEntry2.nextInValueBucket;
+                        this.f31169f[c2] = valueEntry2.nextInValueBucket;
                     } else {
                         valueEntry.nextInValueBucket = valueEntry2.nextInValueBucket;
                     }
                     LinkedHashMultimap.deleteFromValueSet(valueEntry2);
                     LinkedHashMultimap.deleteFromMultimap(valueEntry2);
-                    this.f31925g--;
-                    this.f31926h++;
+                    this.f31170g--;
+                    this.f31171h++;
                     return true;
                 }
                 valueEntry = valueEntry2;
@@ -306,12 +306,12 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
 
         @Override // com.google.common.collect.LinkedHashMultimap.c
         public void setSuccessorInValueSet(c<K, V> cVar) {
-            this.f31927i = cVar;
+            this.f31172i = cVar;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return this.f31925g;
+            return this.f31170g;
         }
     }
 

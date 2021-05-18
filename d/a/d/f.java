@@ -3,7 +3,6 @@ package d.a.d;
 import android.text.TextUtils;
 import com.baidu.afd.ParseError;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.recapp.activity.AdDebugActivity;
 import com.facebook.common.util.UriUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,9 +61,9 @@ public class f {
                                                 JSONObject optJSONObject4 = jSONArray.optJSONObject(0);
                                                 if (optJSONObject4 != null) {
                                                     e eVar = new e();
-                                                    eVar.f40476a = z;
-                                                    eVar.f40478c = d.a.j0.j1.o.b.i(optJSONObject4.optJSONObject(AdDebugActivity.KEY_LEGO).toString());
-                                                    eVar.f40477b = str2;
+                                                    eVar.f39721a = z;
+                                                    eVar.f39723c = d.a.k0.j1.o.b.i(optJSONObject4.optJSONObject("lego_card").toString());
+                                                    eVar.f39722b = str2;
                                                     return eVar;
                                                 }
                                                 throw new ParseError(1, "info array has no first element");

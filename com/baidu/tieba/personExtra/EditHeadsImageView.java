@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EditHeadsImageView extends DragImageView {
     public int s0;
     public int t0;

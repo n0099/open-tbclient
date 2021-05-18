@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LruBitmapPool implements BitmapPool {
     public static final Bitmap.Config DEFAULT_CONFIG = Bitmap.Config.ARGB_8888;
     public static final String TAG = "LruBitmapPool";
@@ -26,14 +26,14 @@ public class LruBitmapPool implements BitmapPool {
     public final LruPoolStrategy strategy;
     public final BitmapTracker tracker;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface BitmapTracker {
         void add(Bitmap bitmap);
 
         void remove(Bitmap bitmap);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class NullBitmapTracker implements BitmapTracker {
         @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruBitmapPool.BitmapTracker
         public void add(Bitmap bitmap) {
@@ -44,7 +44,7 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ThrowingBitmapTracker implements BitmapTracker {
         public final Set<Bitmap> bitmaps = Collections.synchronizedSet(new HashSet());
 

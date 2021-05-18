@@ -1,62 +1,191 @@
 package d.a.j0.b0;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.LocalViewSize;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tieba.R;
-import d.a.i0.r.s.a;
-/* loaded from: classes4.dex */
-public class a {
+import d.a.j0.b0.f;
+import java.lang.ref.WeakReference;
+/* loaded from: classes3.dex */
+public class a<T> {
 
-    /* renamed from: d.a.j0.b0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1139a implements a.e {
+    /* renamed from: c  reason: collision with root package name */
+    public String f48868c;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f51409e;
+    /* renamed from: e  reason: collision with root package name */
+    public T f48870e;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f51410f;
+    /* renamed from: f  reason: collision with root package name */
+    public final f f48871f;
 
-        public C1139a(TbPageContext tbPageContext, int i2) {
-            this.f51409e = tbPageContext;
-            this.f51410f = i2;
+    /* renamed from: g  reason: collision with root package name */
+    public int f48872g;
+
+    /* renamed from: a  reason: collision with root package name */
+    public WeakReference<b<T>> f48866a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public d f48867b = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public a<T>.c f48869d = null;
+
+    /* loaded from: classes3.dex */
+    public interface b<T> {
+        void a(int i2, T t);
+    }
+
+    /* loaded from: classes3.dex */
+    public class c extends BdAsyncTask<String, Integer, ImageUploadResult> implements f.a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f48873a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f48874b;
+
+        public c() {
+            this.f48873a = false;
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
-            aVar.dismiss();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f51409e.getPageActivity(), true, this.f51410f)));
+        @Override // d.a.j0.b0.f.a
+        public void a(String str, Object obj, long j, long j2) {
+            int i2;
+            if (j2 == 0) {
+                i2 = 0;
+            } else {
+                i2 = (int) ((((float) j) * 100.0f) / ((float) j2));
+                if (i2 > 100) {
+                    i2 = 90;
+                }
+            }
+            publishProgress(Integer.valueOf(i2));
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ImageUploadResult doInBackground(String... strArr) {
+            return g();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ImageUploadResult imageUploadResult) {
+            super.onPostExecute(imageUploadResult);
+            a.this.f48869d = null;
+            if (a.this.f48867b != null) {
+                if (imageUploadResult == null) {
+                    imageUploadResult = new ImageUploadResult();
+                    imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
+                    String string = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
+                    imageUploadResult.error_msg = string;
+                    TiebaStatic.imgError(-1002, string, "");
+                }
+                a.this.f48867b.a(a.this.f48868c, imageUploadResult);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            super.cancel();
+            a.this.f48869d = null;
+            a.this.f48871f.a();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onProgressUpdate(Integer... numArr) {
+            if (numArr == null || numArr.length == 0 || a.this.f48866a == null || a.this.f48866a.get() == null) {
+                return;
+            }
+            ((b) a.this.f48866a.get()).a(numArr[0].intValue(), a.this.f48870e);
+        }
+
+        public void e(boolean z) {
+            this.f48873a = z;
+        }
+
+        public void f(int i2) {
+            this.f48874b = i2;
+        }
+
+        public final ImageUploadResult g() {
+            a.this.f48871f.c(this, null);
+            a.this.f48871f.f(this.f48874b);
+            ImageUploadResult j = a.this.f48871f.j(a.this.f48868c, this.f48873a);
+            publishProgress(100);
+            return j;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreCancel() {
+            super.onPreCancel();
+            if (a.this.f48867b != null) {
+                ImageUploadResult imageUploadResult = new ImageUploadResult();
+                imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
+                imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
+                a.this.f48867b.a(a.this.f48868c, imageUploadResult);
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b implements a.e {
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
-            aVar.dismiss();
+    /* loaded from: classes3.dex */
+    public interface d {
+        void a(String str, ImageUploadResult imageUploadResult);
+    }
+
+    public a(String str, String str2) {
+        this.f48868c = null;
+        this.f48868c = str;
+        this.f48871f = new f(str2);
+    }
+
+    public T f() {
+        return this.f48870e;
+    }
+
+    public void g(boolean z) {
+        if (this.f48869d == null) {
+            a<T>.c cVar = new c();
+            this.f48869d = cVar;
+            cVar.e(z);
+            this.f48869d.f(this.f48872g);
+            this.f48869d.execute(new String[0]);
         }
     }
 
-    public static void a(Intent intent, TbPageContext tbPageContext, int i2) {
-        Uri uri;
-        if (intent == null || !TbadkCoreApplication.isLogin() || (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) == null) {
-            return;
-        }
-        String queryParameter = uri.getQueryParameter("portrait");
-        if (TbadkCoreApplication.getCurrentPortrait() == null || queryParameter == null || TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
-            return;
-        }
-        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(tbPageContext.getPageActivity());
-        aVar.setContentViewSize(1);
-        aVar.setMessage(tbPageContext.getString(R.string.account_not_the_same_as_pc));
-        aVar.setPositiveButton(R.string.change_account, new C1139a(tbPageContext, i2));
-        aVar.setNegativeButton(R.string.not_change_account, new b());
-        aVar.create(tbPageContext).show();
+    public void h(String str) {
+        this.f48871f.b(str);
+    }
+
+    public void i(T t) {
+        this.f48870e = t;
+    }
+
+    public void j() {
+        LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.getInstance().getMsgSPicMaxSize();
+        LocalViewSize.ImageSize msgBPicMaxSize = LocalViewSize.getInstance().getMsgBPicMaxSize();
+        k(msgBPicMaxSize.width, msgBPicMaxSize.height, msgSPicMaxSize.width, msgSPicMaxSize.height);
+    }
+
+    public void k(int i2, int i3, int i4, int i5) {
+        this.f48871f.e(i2, i3, i4, i5);
+    }
+
+    public void l(d dVar) {
+        this.f48867b = dVar;
+    }
+
+    public void m(b<T> bVar) {
+        this.f48866a = new WeakReference<>(bVar);
+    }
+
+    public void n(int i2) {
+        this.f48872g = i2;
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.searchbox.v8engine;
 
 import android.util.Xml;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -87,7 +86,7 @@ public class FontParser {
         }
     }
 
-    public static Config parse(InputStream inputStream) throws XmlPullParserException, IOException {
+    public static Config parse(InputStream inputStream) {
         try {
             XmlPullParser newPullParser = Xml.newPullParser();
             newPullParser.setInput(inputStream, null);
@@ -98,7 +97,7 @@ public class FontParser {
         }
     }
 
-    public static Alias readAlias(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
+    public static Alias readAlias(XmlPullParser xmlPullParser) {
         Alias alias = new Alias();
         alias.name = xmlPullParser.getAttributeValue(null, "name");
         alias.toName = xmlPullParser.getAttributeValue(null, "to");
@@ -116,7 +115,7 @@ public class FontParser {
         return alias;
     }
 
-    public static Axis readAxis(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
+    public static Axis readAxis(XmlPullParser xmlPullParser) {
         String attributeValue = xmlPullParser.getAttributeValue(null, "tag");
         if (attributeValue != null && TAG_PATTERN.matcher(attributeValue).matches()) {
             int charAt = (attributeValue.charAt(0) << 24) + (attributeValue.charAt(1) << 16) + (attributeValue.charAt(2) << '\b') + attributeValue.charAt(3);
@@ -131,7 +130,7 @@ public class FontParser {
         throw new XmlPullParserException("Invalid tag attribute value.", xmlPullParser, null);
     }
 
-    public static Config readFamilies(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
+    public static Config readFamilies(XmlPullParser xmlPullParser) {
         Config config = new Config();
         xmlPullParser.require(2, null, "familyset");
         while (xmlPullParser.next() != 3) {
@@ -178,7 +177,7 @@ public class FontParser {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Family readFamily(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
+    public static Family readFamily(XmlPullParser xmlPullParser) {
         String str;
         String lowerCase;
         String attributeValue = xmlPullParser.getAttributeValue(null, "name");
@@ -212,7 +211,7 @@ public class FontParser {
         return new Family(attributeValue, arrayList, attributeValue2, attributeValue3);
     }
 
-    public static Font readFont(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
+    public static Font readFont(XmlPullParser xmlPullParser) {
         String attributeValue = xmlPullParser.getAttributeValue(null, "index");
         int parseInt = attributeValue == null ? 0 : Integer.parseInt(attributeValue);
         ArrayList arrayList = new ArrayList();
@@ -235,7 +234,7 @@ public class FontParser {
         return new Font("/system/fonts/" + FILENAME_WHITESPACE_PATTERN.matcher(sb).replaceAll(""), parseInt, arrayList, parseInt2, equals);
     }
 
-    public static void skip(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
+    public static void skip(XmlPullParser xmlPullParser) {
         int i2 = 1;
         while (i2 > 0) {
             int next = xmlPullParser.next();

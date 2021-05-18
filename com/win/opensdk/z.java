@@ -33,7 +33,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class z {
     public static int a(Context context, float f2) {
         return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
@@ -89,7 +89,7 @@ public class z {
         }
         hashMap.put("Accept-Encoding", Collections.singletonList("application/gzip"));
         hashMap.put("Content-Encoding", Collections.singletonList("application/gzip"));
-        hashMap.put("User-Agent", Collections.singletonList(x1.f38002a));
+        hashMap.put("User-Agent", Collections.singletonList(x1.f37247a));
         return hashMap;
     }
 
@@ -177,7 +177,7 @@ public class z {
         sb4.append("o7my");
         d1 d1Var = new d1(sb3, sb4.toString());
         Cipher cipher = Cipher.getInstance("DES/CBC/NoPadding");
-        cipher.init(2, d1Var.f37853b, d1Var.f37852a);
+        cipher.init(2, d1Var.f37098b, d1Var.f37097a);
         int length = str.length() / 2;
         byte[] bArr = new byte[length];
         for (int i2 = 0; i2 < length; i2++) {
@@ -402,7 +402,7 @@ public class z {
             if (a2.getFlags() > 0) {
                 w0 a3 = x0.a(context);
                 try {
-                    a3.f37984b = x0.a("wist", new y0(info));
+                    a3.f37229b = x0.a("wist", new y0(info));
                     a3.a("msg", x0.a(str));
                 } catch (JSONException unused) {
                 }
@@ -425,7 +425,7 @@ public class z {
             if (a3 == 200) {
                 r0Var.a(r0);
             } else {
-                r0Var.a(a3, r0.f37755b);
+                r0Var.a(a3, r0.f37000b);
             }
         } catch (JSONException e2) {
             message = e2.getMessage();
@@ -471,7 +471,7 @@ public class z {
             if (info != null) {
                 w0 a2 = x0.a(context);
                 try {
-                    a2.f37984b = x0.a("wiin", new y0(info));
+                    a2.f37229b = x0.a("wiin", new y0(info));
                     a2.a("msg", x0.a(str));
                 } catch (JSONException unused) {
                 }
@@ -520,11 +520,11 @@ public class z {
     }
 
     public static int a(t0 t0Var, R0 r0) {
-        byte[] bArr = t0Var.f37949b;
-        int i2 = t0Var.f37948a;
+        byte[] bArr = t0Var.f37194b;
+        int i2 = t0Var.f37193a;
         if (i2 == 200) {
             r0.a(new String(bArr, "UTF-8"));
-            return r0.f37754a;
+            return r0.f36999a;
         }
         return i2;
     }

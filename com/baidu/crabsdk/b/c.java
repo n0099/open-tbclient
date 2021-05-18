@@ -5,7 +5,7 @@ import android.content.Context;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Thread f4821a;
+    public static Thread f4675a;
 
     public static void a(Context context, int i2) {
         com.baidu.crabsdk.c.a.b("===Anr init!===");
@@ -13,7 +13,7 @@ public final class c {
             com.baidu.crabsdk.c.a.b("===Anr watchThread start!===");
             try {
                 com.baidu.crabsdk.sender.d dVar = new com.baidu.crabsdk.sender.d(context, i2, (byte) 0);
-                f4821a = dVar;
+                f4675a = dVar;
                 dVar.start();
             } catch (Exception unused) {
                 com.baidu.crabsdk.c.a.d("Anr watchThread start failed !!");
@@ -22,6 +22,6 @@ public final class c {
     }
 
     public static Thread b() {
-        return f4821a;
+        return f4675a;
     }
 }

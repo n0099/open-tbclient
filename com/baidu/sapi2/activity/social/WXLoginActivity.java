@@ -59,16 +59,16 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     }
 
     private void e() {
-        ((BaseSSOLoginActivity) this).f10791g = v;
-        ((BaseSSOLoginActivity) this).f10789e = w;
-        ((BaseSSOLoginActivity) this).f10790f = x;
+        ((BaseSSOLoginActivity) this).f9828g = v;
+        ((BaseSSOLoginActivity) this).f9826e = w;
+        ((BaseSSOLoginActivity) this).f9827f = x;
         w = null;
         x = false;
         this.o = getIntent().getStringExtra("code");
         this.n = getIntent().getStringExtra("state");
         int intExtra = getIntent().getIntExtra("error_code", -1);
         this.p = intExtra;
-        if (!((BaseSSOLoginActivity) this).f10790f) {
+        if (!((BaseSSOLoginActivity) this).f9827f) {
             if (intExtra == 0) {
                 a(ParamsUtil.getUrlWeixinBind(this.configuration, this.o, this.n, false), "授权微信帐号登录中");
                 return;
@@ -95,8 +95,8 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         }
         if (!getIntent().getBooleanExtra(r, false)) {
             v = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
-            w = ((BaseSSOLoginActivity) this).f10789e;
-            x = ((BaseSSOLoginActivity) this).f10790f;
+            w = ((BaseSSOLoginActivity) this).f9826e;
+            x = ((BaseSSOLoginActivity) this).f9827f;
             a(new a());
             return;
         }

@@ -2,7 +2,7 @@ package com.squareup.wire2;
 
 import java.io.IOException;
 import java.net.ProtocolException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public enum FieldEncoding {
     VARINT(0),
     FIXED64(1),
@@ -11,29 +11,29 @@ public enum FieldEncoding {
     
     public final int value;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f36577a;
+        public static final /* synthetic */ int[] f35822a;
 
         static {
             int[] iArr = new int[FieldEncoding.values().length];
-            f36577a = iArr;
+            f35822a = iArr;
             try {
                 iArr[FieldEncoding.VARINT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f36577a[FieldEncoding.FIXED32.ordinal()] = 2;
+                f35822a[FieldEncoding.FIXED32.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f36577a[FieldEncoding.FIXED64.ordinal()] = 3;
+                f35822a[FieldEncoding.FIXED64.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f36577a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
+                f35822a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -60,7 +60,7 @@ public enum FieldEncoding {
     }
 
     public ProtoAdapter<?> rawProtoAdapter() {
-        int i2 = a.f36577a[ordinal()];
+        int i2 = a.f35822a[ordinal()];
         if (i2 != 1) {
             if (i2 != 2) {
                 if (i2 != 3) {

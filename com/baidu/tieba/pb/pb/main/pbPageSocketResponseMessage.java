@@ -4,17 +4,17 @@ import android.content.Context;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import d.a.j0.d2.h.c;
-import d.a.j0.d2.h.e;
-import d.a.j0.d2.k.e.k;
-import d.a.j0.s2.h0.b;
+import d.a.k0.d2.h.c;
+import d.a.k0.d2.h.e;
+import d.a.k0.d2.k.e.k;
+import d.a.k0.s2.i0.b;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.AppealInfo;
 import tbclient.PbPage.DataRes;
 import tbclient.PbPage.PbPageResIdl;
 import tbclient.SimpleForum;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public String cacheKey;
     public Context context;
@@ -77,12 +77,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             this.mAppealInfo = cVar;
             AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
             if (appealInfo != null) {
-                cVar.f52009a = appealInfo.source;
-                cVar.f52011c = appealInfo.appeal_url;
+                cVar.f52708a = appealInfo.source;
+                cVar.f52710c = appealInfo.appeal_url;
             }
             SimpleForum simpleForum = pbPageResIdl.data.forum;
             if (simpleForum != null) {
-                this.mAppealInfo.f52010b = simpleForum.name;
+                this.mAppealInfo.f52709b = simpleForum.name;
                 return;
             }
             return;

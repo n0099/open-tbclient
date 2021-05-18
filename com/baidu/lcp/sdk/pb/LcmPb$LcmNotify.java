@@ -41,13 +41,13 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmNotify, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6608e;
+        public int f6432e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6609f;
+        public long f6433f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f6610g;
+        public int f6434g;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -93,24 +93,24 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         /* renamed from: n */
         public LcmPb$LcmNotify buildPartial() {
             LcmPb$LcmNotify lcmPb$LcmNotify = new LcmPb$LcmNotify(this);
-            int i2 = this.f6608e;
+            int i2 = this.f6432e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            lcmPb$LcmNotify.logId_ = this.f6609f;
+            lcmPb$LcmNotify.logId_ = this.f6433f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            lcmPb$LcmNotify.action_ = this.f6610g;
+            lcmPb$LcmNotify.action_ = this.f6434g;
             lcmPb$LcmNotify.bitField0_ = i3;
             return lcmPb$LcmNotify;
         }
 
         public b o() {
             super.clear();
-            this.f6609f = 0L;
-            int i2 = this.f6608e & (-2);
-            this.f6608e = i2;
-            this.f6610g = 0;
-            this.f6608e = i2 & (-3);
+            this.f6433f = 0L;
+            int i2 = this.f6432e & (-2);
+            this.f6432e = i2;
+            this.f6434g = 0;
+            this.f6432e = i2 & (-3);
             return this;
         }
 
@@ -131,7 +131,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         }
 
         public boolean s() {
-            return (this.f6608e & 1) == 1;
+            return (this.f6432e & 1) == 1;
         }
 
         public b t(LcmPb$LcmNotify lcmPb$LcmNotify) {
@@ -182,14 +182,14 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         }
 
         public b v(int i2) {
-            this.f6608e |= 2;
-            this.f6610g = i2;
+            this.f6432e |= 2;
+            this.f6434g = i2;
             return this;
         }
 
         public b w(long j) {
-            this.f6608e |= 1;
-            this.f6609f = j;
+            this.f6432e |= 1;
+            this.f6433f = j;
             return this;
         }
 

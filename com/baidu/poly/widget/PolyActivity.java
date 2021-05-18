@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Window;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.poly.widget.m;
+import com.google.protobuf.CodedInputStream;
 import com.heytap.mcssdk.mode.CommandMessage;
 import d.a.a0.a;
 import d.a.a0.k.h.d;
@@ -64,6 +67,16 @@ public class PolyActivity extends Activity implements m.l {
         context.startActivity(intent);
     }
 
+    private void aa() {
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = getWindow();
+            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window.addFlags(Integer.MIN_VALUE);
+            window.setStatusBarColor(0);
+            window.getDecorView().setSystemUiVisibility(1024);
+        }
+    }
+
     private void b(Bundle bundle) {
         if (bundle == null) {
             return;
@@ -77,7 +90,7 @@ public class PolyActivity extends Activity implements m.l {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("c", bundle.getString("cuid"));
             jSONObject.put("z", string);
-            jSONObject.put(IAdRequestParam.MAC, d.a.a0.n.a.c());
+            jSONObject.put(IAdRequestParam.MAC, d.a.a0.n.a.d());
             jSONObject.put("app", "android");
             jSONObject.put("ver", X());
             bundle.putString("deviceInfo", jSONObject.toString());
@@ -89,12 +102,12 @@ public class PolyActivity extends Activity implements m.l {
         if (bundle == null) {
             return new Bundle();
         }
-        d.f39174a = bundle.getString("bduss");
-        d.f39175b = bundle.getString("tpOrderId");
-        d.f39178e = bundle.getString("nativeAppId");
+        d.f38419a = bundle.getString("bduss");
+        d.f38420b = bundle.getString("tpOrderId");
+        d.f38423e = bundle.getString("nativeAppId");
         bundle.putString("deviceType", "ANDROID");
         bundle.putString("channel", "cashiersdk");
-        bundle.putString(CommandMessage.SDK_VERSION, "2.7.5");
+        bundle.putString(CommandMessage.SDK_VERSION, "2.7.7");
         String[] stringArray = bundle.getStringArray("blockedPayChannels");
         if (stringArray != null && stringArray.length > 0) {
             bundle.remove("blockedPayChannels");
@@ -147,7 +160,7 @@ public class PolyActivity extends Activity implements m.l {
             super.onBackPressed();
             return;
         }
-        if (!mVar.f0()) {
+        if (!mVar.g0()) {
             super.onBackPressed();
         }
         d.a.a0.n.d.e("PolyActivity onBackPressed");
@@ -160,6 +173,7 @@ public class PolyActivity extends Activity implements m.l {
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
+        aa();
         o = true;
         p = this;
         d.a();

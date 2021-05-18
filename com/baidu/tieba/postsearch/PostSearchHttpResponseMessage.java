@@ -1,9 +1,9 @@
 package com.baidu.tieba.postsearch;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.j0.n2.b;
+import d.a.k0.n2.b;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PostSearchHttpResponseMessage extends JsonHttpResponsedMessage {
     public b mSearchData;
 

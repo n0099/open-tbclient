@@ -9,14 +9,14 @@ import com.bytedance.sdk.openadsdk.f.a.q;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<x> f29974a;
+    public WeakReference<x> f29219a;
 
     public b(x xVar) {
-        this.f29974a = new WeakReference<>(xVar);
+        this.f29219a = new WeakReference<>(xVar);
     }
 
     public static void a(q qVar, final x xVar) {
@@ -37,7 +37,7 @@ public class b extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject>
             sb.append(jSONObject != null ? jSONObject.toString() : "");
             Log.d("DoGetAdsFromNetwork", sb.toString());
         }
-        x xVar = this.f29974a.get();
+        x xVar = this.f29219a.get();
         if (xVar == null) {
             Log.e("DoGetAdsFromNetwork", "invoke error");
             c();

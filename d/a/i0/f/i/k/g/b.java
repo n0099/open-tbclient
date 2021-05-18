@@ -1,0 +1,316 @@
+package d.a.i0.f.i.k.g;
+
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.alibaba.fastjson.asm.Label;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.swan.game.ad.downloader.view.SwanAdDownloadButtonView;
+import d.a.i0.f.i.c;
+import d.a.i0.f.i.g;
+import d.a.i0.f.i.k.f.f;
+import java.util.List;
+/* loaded from: classes3.dex */
+public class b implements f {
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f46576a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public SwanAdDownloadButtonView f46577b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public d.a.i0.f.i.k.g.a f46578c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public d.a.i0.f.i.k.f.a f46579d;
+
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (d.a.i0.f.i.m.a.b() == null) {
+                return;
+            }
+            if (b.this.f46578c.f46573a == DownloadState.NOT_START || b.this.f46578c.f46573a == DownloadState.DELETED) {
+                d.a.i0.f.i.m.a.b().b(b.this.f46576a, ((DownloadParams) b.this.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.f46579d);
+            }
+            if (b.this.f46578c.f46573a == DownloadState.DOWNLOADING) {
+                d.a.i0.f.i.m.a.b().b(b.this.f46576a, ((DownloadParams) b.this.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, b.this.f46579d);
+            }
+            if (b.this.f46578c.f46573a == DownloadState.DOWNLOAD_PAUSED) {
+                d.a.i0.f.i.m.a.b().b(b.this.f46576a, ((DownloadParams) b.this.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.f46579d);
+            }
+            if (b.this.f46578c.f46573a == DownloadState.DOWNLOAD_FAILED) {
+                d.a.i0.f.i.m.a.b().b(b.this.f46576a, ((DownloadParams) b.this.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.f46579d);
+            }
+            if (b.this.f46578c.f46573a == DownloadState.DOWNLOADED) {
+                b.this.f46579d.b();
+                d.a.i0.f.i.m.a.b().b(b.this.f46576a, ((DownloadParams) b.this.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_INSTALL_APP, b.this.f46579d);
+            }
+            if (b.this.f46578c.f46573a == DownloadState.INSTALLED) {
+                String e2 = b.this.f46579d.e();
+                if (TextUtils.isEmpty(b.this.f46578c.f46574b) && !TextUtils.isEmpty(e2)) {
+                    b.this.a(e2);
+                }
+                b bVar = b.this;
+                bVar.r(bVar.f46578c.f46574b);
+            }
+        }
+    }
+
+    /* renamed from: d.a.i0.f.i.k.g.b$b  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class C0970b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f46581a;
+
+        static {
+            int[] iArr = new int[DownloadState.values().length];
+            f46581a = iArr;
+            try {
+                iArr[DownloadState.NOT_START.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f46581a[DownloadState.DOWNLOADING.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f46581a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f46581a[DownloadState.DOWNLOADED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                f46581a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                f46581a[DownloadState.INSTALLED.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+        }
+    }
+
+    public static float m(float f2) {
+        DisplayMetrics displayMetrics = AppRuntime.getAppContext().getResources().getDisplayMetrics();
+        return f2 * (displayMetrics != null ? displayMetrics.density : 0.0f);
+    }
+
+    @Override // d.a.i0.f.i.k.f.f
+    public void a(String str) {
+        this.f46578c.f46574b = str;
+    }
+
+    @Override // d.a.i0.f.i.k.f.f
+    public void b(DownloadState downloadState) {
+        v(downloadState);
+    }
+
+    @Override // d.a.i0.f.i.k.f.f
+    public /* bridge */ /* synthetic */ f c(Context context, DownloadParams downloadParams, d.a.i0.f.i.k.f.a aVar) {
+        l(context, downloadParams, aVar);
+        return this;
+    }
+
+    @Override // d.a.i0.f.i.k.f.f
+    public void d(int i2) {
+        t(i2);
+    }
+
+    @Override // d.a.i0.f.i.k.f.f
+    public void e(Object obj) {
+        this.f46577b.setTag(obj);
+    }
+
+    @Override // d.a.i0.f.i.k.f.f
+    public void f() {
+        u(this.f46577b);
+    }
+
+    @Override // d.a.i0.f.i.k.f.f
+    public View getRealView() {
+        return this.f46577b;
+    }
+
+    public final void k() {
+        this.f46577b = new SwanAdDownloadButtonView(this.f46576a);
+        String string = this.f46576a.getResources().getString(g.swanapp_ad_download_button);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+        layoutParams.gravity = 81;
+        layoutParams.bottomMargin = (int) (this.f46576a.getResources().getDisplayMetrics().heightPixels * 0.04d);
+        this.f46577b.setLayoutParams(layoutParams);
+        float n = n(this.f46576a, c.swan_ad_round_text_size);
+        int color = this.f46576a.getResources().getColor(d.a.i0.f.i.b.swanapp_ad_download_button_color);
+        u(this.f46577b);
+        SwanAdDownloadButtonView swanAdDownloadButtonView = this.f46577b;
+        swanAdDownloadButtonView.j(m(n));
+        swanAdDownloadButtonView.f(true);
+        swanAdDownloadButtonView.i(-1);
+        swanAdDownloadButtonView.h(color);
+        swanAdDownloadButtonView.g(true);
+        this.f46577b.setText(string);
+        this.f46577b.setVisibility(0);
+        this.f46577b.setProgress(this.f46578c.f46575c);
+    }
+
+    public b l(Context context, DownloadParams downloadParams, d.a.i0.f.i.k.f.a aVar) {
+        this.f46576a = context;
+        this.f46578c = d.a.i0.f.i.k.g.a.a(downloadParams.f11633a, downloadParams.f11634b);
+        this.f46579d = aVar;
+        k();
+        q();
+        return this;
+    }
+
+    public final float n(Context context, int i2) {
+        TypedValue typedValue = new TypedValue();
+        context.getResources().getValue(i2, typedValue, true);
+        return typedValue.getFloat();
+    }
+
+    public final ResolveInfo o(Context context, String str) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return null;
+        }
+        Intent intent = new Intent("android.intent.action.MAIN");
+        intent.addCategory("android.intent.category.LAUNCHER");
+        intent.setPackage(str);
+        List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+        if (queryIntentActivities.size() > 0) {
+            return queryIntentActivities.iterator().next();
+        }
+        return null;
+    }
+
+    public Object p() {
+        return this.f46577b.getTag();
+    }
+
+    public final void q() {
+        this.f46577b.setOnClickListener(new a());
+    }
+
+    public final void r(String str) {
+        ResolveInfo o;
+        if (TextUtils.isEmpty(str) || (o = o(this.f46576a, str)) == null) {
+            return;
+        }
+        Intent intent = new Intent("android.intent.action.MAIN");
+        intent.addCategory("android.intent.category.LAUNCHER");
+        ActivityInfo activityInfo = o.activityInfo;
+        intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        try {
+            this.f46576a.startActivity(intent);
+        } catch (Exception unused) {
+        }
+    }
+
+    public final int s(DownloadState downloadState) {
+        switch (C0970b.f46581a[downloadState.ordinal()]) {
+            case 1:
+                return g.swanapp_ad_download_button;
+            case 2:
+                return g.swanapp_ad_download_button_pause;
+            case 3:
+                return g.swanapp_ad_download_button_continue;
+            case 4:
+                return g.swanapp_ad_download_button_install;
+            case 5:
+                return g.swanapp_ad_download_button_failed_retry;
+            case 6:
+                return g.swanapp_ad_download_button_open;
+            default:
+                return g.swanapp_ad_download_button;
+        }
+    }
+
+    public final void t(int i2) {
+        d.a.i0.f.i.k.g.a aVar = this.f46578c;
+        if (i2 != aVar.f46575c) {
+            aVar.f46575c = i2;
+            w();
+        }
+    }
+
+    public final void u(View view) {
+        if (view != null) {
+            float n = n(this.f46576a, c.swan_ad_round_width_size);
+            float n2 = n(this.f46576a, c.swan_ad_round_height_size);
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new ViewGroup.LayoutParams(-1, -2);
+                view.setLayoutParams(layoutParams);
+            }
+            if (n >= 0.0f && n <= 1.0f) {
+                n *= this.f46576a.getResources().getDisplayMetrics().widthPixels;
+            }
+            if (n2 > 0.0f && n2 <= 1.0f) {
+                n2 *= this.f46576a.getResources().getDisplayMetrics().heightPixels;
+            }
+            layoutParams.width = (int) n;
+            layoutParams.height = (int) n2;
+        }
+    }
+
+    public final void v(DownloadState downloadState) {
+        d.a.i0.f.i.k.g.a aVar = this.f46578c;
+        if (downloadState != aVar.f46573a) {
+            aVar.f46573a = downloadState;
+            w();
+        }
+    }
+
+    public final void w() {
+        String string;
+        d.a.i0.f.i.k.g.a aVar = this.f46578c;
+        if (aVar.f46573a == DownloadState.DOWNLOADING) {
+            SwanAdDownloadButtonView swanAdDownloadButtonView = this.f46577b;
+            if (swanAdDownloadButtonView != null && swanAdDownloadButtonView.getVisibility() != 8) {
+                if (this.f46578c.f46575c < this.f46577b.getMax()) {
+                    String string2 = this.f46576a.getResources().getString(g.swanapp_ad_button_downloading);
+                    string = String.format(string2, this.f46578c.f46575c + "%");
+                } else {
+                    string = this.f46576a.getResources().getString(g.swanapp_ad_download_button_install);
+                }
+                this.f46577b.setText(string);
+                this.f46577b.setProgress(this.f46578c.f46575c);
+            }
+        } else {
+            if (d.a.i0.f.i.r.g.a(this.f46576a, aVar.f46574b)) {
+                this.f46578c.f46573a = DownloadState.INSTALLED;
+            }
+            String string3 = this.f46576a.getResources().getString(s(this.f46578c.f46573a));
+            if (this.f46578c.f46573a == DownloadState.DOWNLOADED) {
+                this.f46577b.setProgress(100);
+            }
+            d.a.i0.f.i.k.g.a aVar2 = this.f46578c;
+            if (aVar2.f46573a == DownloadState.DOWNLOAD_PAUSED) {
+                this.f46577b.setProgress(aVar2.f46575c);
+            }
+            this.f46577b.setText(string3);
+        }
+        SwanAdDownloadButtonView swanAdDownloadButtonView2 = this.f46577b;
+        if (swanAdDownloadButtonView2 != null) {
+            swanAdDownloadButtonView2.postInvalidate();
+        }
+    }
+}

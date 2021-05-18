@@ -10,31 +10,31 @@ import d.a.u.b.f.d;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f64032a = "b";
+    public static final String f64719a = "b";
 
     /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f64033a;
+        public static final /* synthetic */ int[] f64720a;
 
         static {
             int[] iArr = new int[ScaleType.values().length];
-            f64033a = iArr;
+            f64720a = iArr;
             try {
                 iArr[ScaleType.FIT_XY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f64033a[ScaleType.FIT_CENTER.ordinal()] = 2;
+                f64720a[ScaleType.FIT_CENTER.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f64033a[ScaleType.CENTER_CROP.ordinal()] = 3;
+                f64720a[ScaleType.CENTER_CROP.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f64033a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
+                f64720a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -42,7 +42,7 @@ public class b {
 
     public static void a(float[] fArr, MirrorType mirrorType) {
         if (fArr == null) {
-            Log.e(f64032a, "mirrorDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            Log.e(f64719a, "mirrorDraw2DMVP mvpMatrix == NULLLLLLL!!!");
         }
         if (mirrorType == MirrorType.HORIZONTALLY) {
             Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
@@ -59,21 +59,21 @@ public class b {
 
     public static void c(float[] fArr, float f2) {
         if (fArr == null) {
-            Log.e(f64032a, "rotateDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            Log.e(f64719a, "rotateDraw2DMVP mvpMatrix == NULLLLLLL!!!");
         }
         Matrix.rotateM(fArr, 0, f2, 0.0f, 0.0f, 1.0f);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x005e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x005f, code lost:
         if (r0 > r3) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0063, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0064, code lost:
         if (r0 > r3) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0065, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0066, code lost:
         r3 = r3 / r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0069, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x006a, code lost:
         r6 = r0 / r3;
         r3 = 1.0f;
      */
@@ -83,12 +83,12 @@ public class b {
     public static void d(float[] fArr, d dVar, c cVar, ScaleType scaleType, float f2) {
         float f3;
         if (fArr == null) {
-            Log.e(f64032a, "scaleDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            Log.e(f64719a, "scaleDraw2DMVP mvpMatrix == NULLLLLLL!!!");
         } else if (dVar != null && dVar.f() > 0 && dVar.c() > 0) {
             if (cVar != null && cVar.d() > 0 && cVar.c() > 0) {
                 float f4 = (dVar.f() * 1.0f) / dVar.c();
                 float d2 = (cVar.d() * 1.0f) / cVar.c();
-                int i2 = a.f64033a[scaleType.ordinal()];
+                int i2 = a.f64720a[scaleType.ordinal()];
                 if (i2 != 1) {
                     if (i2 != 2) {
                         if (i2 != 3) {
@@ -105,9 +105,9 @@ public class b {
                 Matrix.scaleM(fArr, 0, f2, f3, 1.0f);
                 return;
             }
-            Log.e(f64032a, "scaleDraw2DMVP draw target error!!!");
+            Log.e(f64719a, "scaleDraw2DMVP draw target error!!!");
         } else {
-            Log.e(f64032a, "scaleDraw2DMVP source texture error!!!");
+            Log.e(f64719a, "scaleDraw2DMVP source texture error!!!");
         }
     }
 

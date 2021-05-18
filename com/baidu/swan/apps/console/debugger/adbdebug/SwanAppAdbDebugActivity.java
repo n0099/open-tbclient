@@ -7,14 +7,14 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
-import d.a.h0.a.h;
-import d.a.h0.a.i2.u;
-import d.a.h0.a.k;
-import d.a.h0.a.q1.b.b.g;
-import d.a.h0.a.q1.b.f.d;
+import d.a.i0.a.h;
+import d.a.i0.a.k;
+import d.a.i0.a.v2.v;
+import d.a.i0.a.z1.b.b.h;
+import d.a.i0.a.z1.b.f.e;
 /* loaded from: classes2.dex */
 public class SwanAppAdbDebugActivity extends Activity {
-    public static final boolean DEBUG = k.f43101a;
+    public static final boolean DEBUG = k.f43025a;
     public static final String TAG = "SwanAppAdbDebugActivity";
 
     /* loaded from: classes2.dex */
@@ -32,16 +32,16 @@ public class SwanAppAdbDebugActivity extends Activity {
     public class b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f11632e;
+        public final /* synthetic */ Intent f10778e;
 
         public b(Intent intent) {
-            this.f11632e = intent;
+            this.f10778e = intent;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            this.f11632e.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
-            SwanAppAdbDebugActivity.this.startActivity(this.f11632e);
+            this.f10778e.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
+            SwanAppAdbDebugActivity.this.startActivity(this.f10778e);
             SwanAppAdbDebugActivity.this.finish();
         }
     }
@@ -52,24 +52,24 @@ public class SwanAppAdbDebugActivity extends Activity {
         if (DEBUG) {
             Log.d(TAG, "ADB Debug onCreate");
         }
-        if (u.a(this)) {
+        if (v.a(this)) {
             return;
         }
         Intent intent = getIntent();
         if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-            d.e(this, h.aiapps_adb_debug_lack_path).C();
+            e.f(this, h.aiapps_adb_debug_lack_path).F();
             if (DEBUG) {
                 Log.d(TAG, "ADB Debug lack of app path");
             }
             finish();
         }
-        g.a aVar = new g.a(this);
-        aVar.V(getString(h.aiapps_adb_debug));
-        aVar.y(getString(h.aiapps_adb_debug_alert));
-        aVar.n(new d.a.h0.a.j2.g.a());
+        h.a aVar = new h.a(this);
+        aVar.V(getString(d.a.i0.a.h.aiapps_adb_debug));
+        aVar.x(getString(d.a.i0.a.h.aiapps_adb_debug_alert));
+        aVar.n(new d.a.i0.a.w2.h.a());
         aVar.m(false);
-        aVar.O(h.aiapps_confirm, new b(intent));
-        aVar.C(h.aiapps_adb_debug_close, new a());
+        aVar.O(d.a.i0.a.h.aiapps_confirm, new b(intent));
+        aVar.B(d.a.i0.a.h.swanapp_close, new a());
         aVar.X();
     }
 }

@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonHeadPendantView extends HeadPendantView {
     public int q;
     public View r;

@@ -12,13 +12,13 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap f23326a;
+    public HashMap f22571a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23327b;
+    public String f22572b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23328c;
+    public String f22573c;
 
     public b(String str, Class cls) {
         String a2;
@@ -26,38 +26,38 @@ public final class b {
             if (TextUtils.isEmpty(str)) {
                 throw new Exception("injected name can not be null");
             }
-            this.f23327b = str;
-            this.f23326a = new HashMap();
+            this.f22572b = str;
+            this.f22571a = new HashMap();
             Method[] declaredMethods = cls.getDeclaredMethods();
             StringBuilder sb = new StringBuilder("javascript:(function(b){console.log(\"");
-            sb.append(this.f23327b);
+            sb.append(this.f22572b);
             sb.append(" initialization begin\");");
             sb.append("var a={queue:[],callback:function(){");
             sb.append("var d=Array.prototype.slice.call(arguments,0);");
             sb.append("var c=d.shift();var e=d.shift();this.queue[c].apply(this,d);if(!e){delete this.queue[c]}}};");
             for (Method method : declaredMethods) {
                 if (method.getModifiers() == 9 && (a2 = a(method)) != null) {
-                    this.f23326a.put(a2, method);
+                    this.f22571a.put(a2, method);
                     sb.append(String.format("a.%s=", method.getName()));
                 }
             }
             sb.append("function(){var f=Array.prototype.slice.call(arguments,0);if(f.length<1){throw\"");
-            sb.append(this.f23327b);
+            sb.append(this.f22572b);
             sb.append(" call error, message:miss method name\"}var e=[];for(var h=1;h<f.length;h++)");
             sb.append("{var c=f[h];var j=typeof c;e[e.length]=j;if(j==\"function\")");
             sb.append("{var d=a.queue.length;a.queue[d]=c;f[h]=d}}");
             sb.append("var g=JSON.parse(prompt(JSON.stringify({method:f.shift(),types:e,args:f})));");
             sb.append("if(g.code!=200){throw\"");
-            sb.append(this.f23327b);
+            sb.append(this.f22572b);
             sb.append(" call error, code:\"+g.code+\", message:\"+g.result}return g.result};");
             sb.append("Object.getOwnPropertyNames(a).forEach(function(d){var c=a[d];");
             sb.append("if(typeof c===\"function\"&&d!==\"callback\"){a[d]=function(){");
             sb.append("return c.apply(a,[d].concat(Array.prototype.slice.call(arguments,0)))}}});b.");
-            sb.append(this.f23327b);
+            sb.append(this.f22572b);
             sb.append("=a;console.log(\"");
-            sb.append(this.f23327b);
+            sb.append(this.f22572b);
             sb.append(" initialization end\")})(window);");
-            this.f23328c = sb.toString();
+            this.f22573c = sb.toString();
         } catch (Exception e2) {
             com.baidu.ufosdk.f.c.d("JsCallJava--> init js error:" + e2.getMessage());
         }
@@ -74,7 +74,7 @@ public final class b {
             }
         }
         String format = String.format("{\"code\": %d, \"result\": %s}", Integer.valueOf(i2), str2);
-        com.baidu.ufosdk.f.c.a("JsCallJava--> " + this.f23327b + " call json: " + str + " result:" + format);
+        com.baidu.ufosdk.f.c.a("JsCallJava--> " + this.f22572b + " call json: " + str + " result:" + format);
         return format;
     }
 
@@ -122,7 +122,7 @@ public final class b {
     }
 
     public final String a() {
-        return this.f23328c;
+        return this.f22573c;
     }
 
     public final String a(WebView webView, String str) {
@@ -170,13 +170,13 @@ public final class b {
                         objArr[i5] = obj;
                     } else if ("function".equals(optString)) {
                         string = string + "_F";
-                        objArr[i2 + 1] = new c(webView, this.f23327b, jSONArray2.getInt(i2));
+                        objArr[i2 + 1] = new c(webView, this.f22572b, jSONArray2.getInt(i2));
                     } else {
                         string = string + "_P";
                     }
                     i2++;
                 }
-                Method method = (Method) this.f23326a.get(string);
+                Method method = (Method) this.f22571a.get(string);
                 if (method == null) {
                     return a(str, 500, "not found method(" + string + ") with valid parameters");
                 }

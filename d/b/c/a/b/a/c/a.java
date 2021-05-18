@@ -5,14 +5,14 @@ import d.b.c.a.b.a0;
 import d.b.c.a.b.w;
 import d.b.c.a.b.y;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    public final y f64490a;
+    public final y f65176a;
 
     public a(y yVar) {
-        this.f64490a = yVar;
+        this.f65176a = yVar;
     }
 
     @Override // d.b.c.a.b.w
@@ -20,6 +20,6 @@ public final class a implements w {
         e.i iVar = (e.i) aVar;
         a0 a2 = iVar.a();
         f f2 = iVar.f();
-        return iVar.b(a2, f2, f2.d(this.f64490a, aVar, !a2.c().equals("GET")), f2.j());
+        return iVar.b(a2, f2, f2.d(this.f65176a, aVar, !a2.c().equals("GET")), f2.j());
     }
 }

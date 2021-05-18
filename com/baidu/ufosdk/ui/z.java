@@ -7,13 +7,13 @@ import android.widget.EditText;
 public final class z implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23712a;
+    public final /* synthetic */ FeedbackEditActivity f22957a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f23713b = 0;
+    public long f22958b = 0;
 
     public z(FeedbackEditActivity feedbackEditActivity) {
-        this.f23712a = feedbackEditActivity;
+        this.f22957a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,25 +23,25 @@ public final class z implements View.OnClickListener {
         SharedPreferences.Editor editor;
         SharedPreferences.Editor editor2;
         SharedPreferences.Editor editor3;
-        if (System.currentTimeMillis() - this.f23713b < 3000) {
+        if (System.currentTimeMillis() - this.f22958b < 3000) {
             return;
         }
-        z = this.f23712a.v;
+        z = this.f22957a.v;
         if (z) {
             return;
         }
-        this.f23713b = System.currentTimeMillis();
-        editText = this.f23712a.n;
+        this.f22958b = System.currentTimeMillis();
+        editText = this.f22957a.n;
         String obj = editText.getText().toString();
         if (obj == null || obj.trim().length() <= 0) {
-            editor = this.f23712a.f23387b;
+            editor = this.f22957a.f22632b;
             editor.putString("cryptContactData", "");
         } else {
-            editor3 = this.f23712a.f23387b;
+            editor3 = this.f22957a.f22632b;
             editor3.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
         }
-        editor2 = this.f23712a.f23387b;
+        editor2 = this.f22957a.f22632b;
         editor2.commit();
-        FeedbackEditActivity.h(this.f23712a);
+        FeedbackEditActivity.h(this.f22957a);
     }
 }

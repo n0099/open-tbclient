@@ -77,7 +77,7 @@ public class FieldUtils {
         return cls.toString() + "#" + str;
     }
 
-    public static Object readField(Field field, Object obj, boolean z) throws IllegalAccessException {
+    public static Object readField(Field field, Object obj, boolean z) {
         Validate.isTrue(field != null, "The field must not be null", new Object[0]);
         if (z && !field.isAccessible()) {
             field.setAccessible(true);
@@ -87,13 +87,13 @@ public class FieldUtils {
         return field.get(obj);
     }
 
-    public static Object readStaticField(Field field, boolean z) throws IllegalAccessException {
+    public static Object readStaticField(Field field, boolean z) {
         Validate.isTrue(field != null, "The field must not be null", new Object[0]);
         Validate.isTrue(Modifier.isStatic(field.getModifiers()), "The field '%s' is not static", field.getName());
         return readField(field, (Object) null, z);
     }
 
-    public static void writeDeclaredField(Object obj, String str, Object obj2) throws IllegalAccessException {
+    public static void writeDeclaredField(Object obj, String str, Object obj2) {
         Validate.isTrue(obj != null, "target object must not be null", new Object[0]);
         Class<?> cls = obj.getClass();
         Field declaredField = getDeclaredField(cls, str, true);
@@ -101,7 +101,7 @@ public class FieldUtils {
         writeField(declaredField, obj, obj2, false);
     }
 
-    public static void writeField(Field field, Object obj, Object obj2, boolean z) throws IllegalAccessException {
+    public static void writeField(Field field, Object obj, Object obj2, boolean z) {
         Validate.isTrue(field != null, "The field must not be null", new Object[0]);
         if (z && !field.isAccessible()) {
             field.setAccessible(true);
@@ -111,33 +111,33 @@ public class FieldUtils {
         field.set(obj, obj2);
     }
 
-    public static void writeStaticField(Field field, Object obj, boolean z) throws IllegalAccessException {
+    public static void writeStaticField(Field field, Object obj, boolean z) {
         Validate.isTrue(field != null, "The field must not be null", new Object[0]);
         Validate.isTrue(Modifier.isStatic(field.getModifiers()), "The field %s.%s is not static", field.getDeclaringClass().getName(), field.getName());
         writeField(field, (Object) null, obj, z);
     }
 
-    public static Object readStaticField(Class<?> cls, String str) throws IllegalAccessException {
+    public static Object readStaticField(Class<?> cls, String str) {
         Field field = getField(cls, str, true);
         Validate.isTrue(field != null, "Cannot locate field '%s' on %s", str, cls);
         return readStaticField(field, true);
     }
 
-    public static Object readField(Field field, Object obj) throws IllegalAccessException {
+    public static Object readField(Field field, Object obj) {
         return readField(field, obj, true);
     }
 
-    public static void writeField(Object obj, String str, Object obj2) throws IllegalAccessException {
+    public static void writeField(Object obj, String str, Object obj2) {
         writeField(obj, str, obj2, true);
     }
 
-    public static void writeStaticField(Class<?> cls, String str, Object obj) throws IllegalAccessException {
+    public static void writeStaticField(Class<?> cls, String str, Object obj) {
         Field field = getField(cls, str, true);
         Validate.isTrue(field != null, "Cannot locate field %s on %s", str, cls);
         writeStaticField(field, obj, true);
     }
 
-    public static Object readField(Object obj, String str) throws IllegalAccessException {
+    public static Object readField(Object obj, String str) {
         Validate.isTrue(obj != null, "target object must not be null", new Object[0]);
         Class<?> cls = obj.getClass();
         Field field = getField(cls, str, true);
@@ -145,7 +145,7 @@ public class FieldUtils {
         return readField(field, obj, false);
     }
 
-    public static void writeField(Object obj, String str, Object obj2, boolean z) throws IllegalAccessException {
+    public static void writeField(Object obj, String str, Object obj2, boolean z) {
         Validate.isTrue(obj != null, "target object must not be null", new Object[0]);
         Class<?> cls = obj.getClass();
         Field field = getField(cls, str, true);
@@ -153,7 +153,7 @@ public class FieldUtils {
         writeField(field, obj, obj2, z);
     }
 
-    public static Object readField(Object obj, String str, boolean z) throws IllegalAccessException {
+    public static Object readField(Object obj, String str, boolean z) {
         Validate.isTrue(obj != null, "target object must not be null", new Object[0]);
         Class<?> cls = obj.getClass();
         Field field = getField(cls, str, z);
@@ -161,7 +161,7 @@ public class FieldUtils {
         return readField(field, obj, z);
     }
 
-    public static void writeField(Field field, Object obj, Object obj2) throws IllegalAccessException {
+    public static void writeField(Field field, Object obj, Object obj2) {
         writeField(field, obj, obj2, true);
     }
 

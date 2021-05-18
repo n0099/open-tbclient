@@ -37,7 +37,7 @@ public class PackageParserAPI22 extends PackageParser {
     public Class<?> sProviderClass;
     public Class<?> sServiceClass;
 
-    public PackageParserAPI22(Context context) throws Exception {
+    public PackageParserAPI22(Context context) {
         super(context);
         initClasses();
     }
@@ -51,7 +51,7 @@ public class PackageParserAPI22 extends PackageParser {
         }
     }
 
-    private void initClasses() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    private void initClasses() {
         this.sPackageParserClass = Class.forName("android.content.pm.PackageParser");
         this.sActivityClass = Class.forName("android.content.pm.PackageParser$Activity");
         this.sServiceClass = Class.forName("android.content.pm.PackageParser$Service");
@@ -72,7 +72,7 @@ public class PackageParserAPI22 extends PackageParser {
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public void collectCertificates(int i2) throws Exception {
+    public void collectCertificates(int i2) {
         if (Build.VERSION.SDK_INT > 27) {
             MethodUtils.getAccessibleMethod(this.sPackageParserClass, "collectCertificates", this.mPackage.getClass(), Boolean.TYPE).invoke(this.mPackageParser, this.mPackage, Boolean.TRUE);
         } else {
@@ -81,27 +81,27 @@ public class PackageParserAPI22 extends PackageParser {
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public ActivityInfo generateActivityInfo(Object obj, int i2) throws Exception {
+    public ActivityInfo generateActivityInfo(Object obj, int i2) {
         Class<?> cls = this.sPackageParserClass;
         Class cls2 = Integer.TYPE;
         return (ActivityInfo) MethodUtils.getAccessibleMethod(cls, "generateActivityInfo", this.sActivityClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i2), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public ApplicationInfo generateApplicationInfo(int i2) throws Exception {
+    public ApplicationInfo generateApplicationInfo(int i2) {
         Class<?> cls = this.sPackageParserClass;
         Class cls2 = Integer.TYPE;
         return (ApplicationInfo) MethodUtils.getAccessibleMethod(cls, "generateApplicationInfo", this.mPackage.getClass(), cls2, this.sPackageUserStateClass, cls2).invoke(null, this.mPackage, Integer.valueOf(i2), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public InstrumentationInfo generateInstrumentationInfo(Object obj, int i2) throws Exception {
+    public InstrumentationInfo generateInstrumentationInfo(Object obj, int i2) {
         return (InstrumentationInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generateInstrumentationInfo", this.sInstrumentationClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i2));
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:7:0x0050 */
     @Override // com.baidu.ar.plugin.PackageParser
-    public PackageInfo generatePackageInfo(int[] iArr, int i2, long j, long j2, HashSet<String> hashSet) throws Exception {
+    public PackageInfo generatePackageInfo(int[] iArr, int i2, long j, long j2, HashSet<String> hashSet) {
         Object obj;
         Class<?> cls = Class.forName("java.util.Set");
         Class<?> cls2 = this.sPackageParserClass;
@@ -120,98 +120,98 @@ public class PackageParserAPI22 extends PackageParser {
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i2) throws Exception {
+    public PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i2) {
         return (PermissionGroupInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generatePermissionGroupInfo", this.sPermissionGroupClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i2));
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public PermissionInfo generatePermissionInfo(Object obj, int i2) throws Exception {
+    public PermissionInfo generatePermissionInfo(Object obj, int i2) {
         return (PermissionInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generatePermissionInfo", this.sPermissionClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i2));
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public ProviderInfo generateProviderInfo(Object obj, int i2) throws Exception {
+    public ProviderInfo generateProviderInfo(Object obj, int i2) {
         Class<?> cls = this.sPackageParserClass;
         Class cls2 = Integer.TYPE;
         return (ProviderInfo) MethodUtils.getAccessibleMethod(cls, "generateProviderInfo", this.sProviderClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i2), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public /* bridge */ /* synthetic */ ActivityInfo generateReceiverInfo(Object obj, int i2) throws Exception {
+    public /* bridge */ /* synthetic */ ActivityInfo generateReceiverInfo(Object obj, int i2) {
         return super.generateReceiverInfo(obj, i2);
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public ServiceInfo generateServiceInfo(Object obj, int i2) throws Exception {
+    public ServiceInfo generateServiceInfo(Object obj, int i2) {
         Class<?> cls = this.sPackageParserClass;
         Class cls2 = Integer.TYPE;
         return (ServiceInfo) MethodUtils.getAccessibleMethod(cls, "generateServiceInfo", this.sServiceClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i2), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public List getActivities() throws Exception {
+    public List getActivities() {
         return (List) FieldUtils.readField(this.mPackage, "activities");
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public List getInstrumentations() throws Exception {
+    public List getInstrumentations() {
         return (List) FieldUtils.readField(this.mPackage, "instrumentation");
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public String getPackageName() throws Exception {
+    public String getPackageName() {
         return (String) FieldUtils.readField(this.mPackage, "packageName");
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public List getPermissionGroups() throws Exception {
+    public List getPermissionGroups() {
         return (List) FieldUtils.readField(this.mPackage, "permissionGroups");
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public List getPermissions() throws Exception {
+    public List getPermissions() {
         return (List) FieldUtils.readField(this.mPackage, "permissions");
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public List getProviders() throws Exception {
+    public List getProviders() {
         return (List) FieldUtils.readField(this.mPackage, "providers");
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public List getReceivers() throws Exception {
+    public List getReceivers() {
         return (List) FieldUtils.readField(this.mPackage, "receivers");
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public List getRequestedPermissions() throws Exception {
+    public List getRequestedPermissions() {
         return (List) FieldUtils.readField(this.mPackage, "requestedPermissions");
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public List getServices() throws Exception {
+    public List getServices() {
         return (List) FieldUtils.readField(this.mPackage, "services");
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public void parsePackage(File file, int i2) throws Exception {
+    public void parsePackage(File file, int i2) {
         Object newInstance = this.sPackageParserClass.newInstance();
         this.mPackageParser = newInstance;
         this.mPackage = MethodUtils.invokeMethod(newInstance, "parsePackage", file, Integer.valueOf(i2));
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public List<IntentFilter> readIntentFilterFromComponent(Object obj) throws Exception {
+    public List<IntentFilter> readIntentFilterFromComponent(Object obj) {
         return (List) FieldUtils.readField(obj, "intents");
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public String readNameFromComponent(Object obj) throws Exception {
+    public String readNameFromComponent(Object obj) {
         return (String) FieldUtils.readField(obj, PushClientConstants.TAG_CLASS_NAME);
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public void writeSignature(Signature[] signatureArr) throws Exception {
+    public void writeSignature(Signature[] signatureArr) {
         FieldUtils.writeField(this.mPackage, "mSignatures", signatureArr);
     }
 }

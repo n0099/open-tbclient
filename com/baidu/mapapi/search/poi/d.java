@@ -5,21 +5,21 @@ import com.baidu.mapapi.search.poi.PoiFilter;
 public /* synthetic */ class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f7533a;
+    public static final /* synthetic */ int[] f7350a;
 
     static {
         int[] iArr = new int[PoiFilter.IndustryType.values().length];
-        f7533a = iArr;
+        f7350a = iArr;
         try {
             iArr[PoiFilter.IndustryType.HOTEL.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f7533a[PoiFilter.IndustryType.CATER.ordinal()] = 2;
+            f7350a[PoiFilter.IndustryType.CATER.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f7533a[PoiFilter.IndustryType.LIFE.ordinal()] = 3;
+            f7350a[PoiFilter.IndustryType.LIFE.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
     }

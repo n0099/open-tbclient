@@ -18,69 +18,69 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
     public static class IndoorRouteStep extends RouteStep {
 
         /* renamed from: d  reason: collision with root package name */
-        public RouteNode f7562d;
+        public RouteNode f7379d;
 
         /* renamed from: e  reason: collision with root package name */
-        public RouteNode f7563e;
+        public RouteNode f7380e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f7564f;
+        public String f7381f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f7565g;
+        public String f7382g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f7566h;
+        public String f7383h;
 
         /* renamed from: i  reason: collision with root package name */
-        public List<IndoorStepNode> f7567i;
+        public List<IndoorStepNode> f7384i;
         public List<Double> j;
 
         /* loaded from: classes2.dex */
         public static class IndoorStepNode {
 
             /* renamed from: a  reason: collision with root package name */
-            public String f7568a;
+            public String f7385a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f7569b;
+            public int f7386b;
 
             /* renamed from: c  reason: collision with root package name */
-            public LatLng f7570c;
+            public LatLng f7387c;
 
             /* renamed from: d  reason: collision with root package name */
-            public String f7571d;
+            public String f7388d;
 
             public String getDetail() {
-                return this.f7571d;
+                return this.f7388d;
             }
 
             public LatLng getLocation() {
-                return this.f7570c;
+                return this.f7387c;
             }
 
             public String getName() {
-                return this.f7568a;
+                return this.f7385a;
             }
 
             public int getType() {
-                return this.f7569b;
+                return this.f7386b;
             }
 
             public void setDetail(String str) {
-                this.f7571d = str;
+                this.f7388d = str;
             }
 
             public void setLocation(LatLng latLng) {
-                this.f7570c = latLng;
+                this.f7387c = latLng;
             }
 
             public void setName(String str) {
-                this.f7568a = str;
+                this.f7385a = str;
             }
 
             public void setType(int i2) {
-                this.f7569b = i2;
+                this.f7386b = i2;
             }
         }
 
@@ -93,27 +93,27 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         }
 
         public String getBuildingId() {
-            return this.f7566h;
+            return this.f7383h;
         }
 
         public RouteNode getEntrace() {
-            return this.f7562d;
+            return this.f7379d;
         }
 
         public RouteNode getExit() {
-            return this.f7563e;
+            return this.f7380e;
         }
 
         public String getFloorId() {
-            return this.f7565g;
+            return this.f7382g;
         }
 
         public String getInstructions() {
-            return this.f7564f;
+            return this.f7381f;
         }
 
         public List<IndoorStepNode> getStepNodes() {
-            return this.f7567i;
+            return this.f7384i;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
@@ -125,23 +125,23 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         }
 
         public void setBuildingId(String str) {
-            this.f7566h = str;
+            this.f7383h = str;
         }
 
         public void setEntrace(RouteNode routeNode) {
-            this.f7562d = routeNode;
+            this.f7379d = routeNode;
         }
 
         public void setExit(RouteNode routeNode) {
-            this.f7563e = routeNode;
+            this.f7380e = routeNode;
         }
 
         public void setFloorId(String str) {
-            this.f7565g = str;
+            this.f7382g = str;
         }
 
         public void setInstructions(String str) {
-            this.f7564f = str;
+            this.f7381f = str;
         }
 
         public void setPath(List<Double> list) {
@@ -149,7 +149,7 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         }
 
         public void setStepNodes(List<IndoorStepNode> list) {
-            this.f7567i = list;
+            this.f7384i = list;
         }
     }
 

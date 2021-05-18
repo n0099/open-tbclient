@@ -33,10 +33,10 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import d.a.c.a.b;
-import d.a.i0.a.c;
-import d.a.i0.a.f;
-import d.a.i0.a.v;
-import d.a.j0.d3.h0.m;
+import d.a.j0.a.c;
+import d.a.j0.a.f;
+import d.a.j0.a.w;
+import d.a.k0.d3.h0.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
@@ -48,7 +48,7 @@ public class SchemaRouteActivity extends BaseActivity {
         public a() {
         }
 
-        @Override // d.a.i0.a.f.b
+        @Override // d.a.j0.a.f.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(f.v) instanceof String)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(SchemaRouteActivity.this.getActivity(), null, (String) hashMap.get(f.v), true);
@@ -73,8 +73,8 @@ public class SchemaRouteActivity extends BaseActivity {
         clearClipBoardIfNeed(intent.getData());
         String dataString = intent.getDataString();
         UtilHelper.clearClipBoardBySchemaParam(dataString);
-        v.c(intent.getData());
-        v.a(intent.getData());
+        w.e(intent.getData());
+        w.c(intent.getData());
         if (!TextUtils.isEmpty(dataString) && (dataString.contains("invoke_frs") || dataString.contains("tbfrs") || dataString.contains("unidispatch/frs"))) {
             FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getActivity());
             frsActivityConfig.setUri(intent.getData());
@@ -132,7 +132,7 @@ public class SchemaRouteActivity extends BaseActivity {
             c.y().L(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(f.f47854b + f.k)) {
+                if (dataString.contains(f.f48688b + f.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter = parse.getQueryParameter(f.E);
                     String queryParameter2 = parse.getQueryParameter(f.F);

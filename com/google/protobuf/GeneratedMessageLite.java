@@ -220,7 +220,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             if (this.extensionsIsMutable) {
                 return;
             }
-            this.extensions = this.extensions.m41clone();
+            this.extensions = this.extensions.m40clone();
             this.extensionsIsMutable = true;
         }
 

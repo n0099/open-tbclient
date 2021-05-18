@@ -6,16 +6,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class d implements ThreadFactory {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final AtomicInteger f40951h = new AtomicInteger(1);
+    public static final AtomicInteger f40196h = new AtomicInteger(1);
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicInteger f40952e;
+    public final AtomicInteger f40197e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f40953f;
+    public String f40198f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40954g;
+    public int f40199g;
 
     public d() {
         this(5);
@@ -23,11 +23,11 @@ public class d implements ThreadFactory {
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        Thread thread = new Thread(runnable, this.f40953f + this.f40952e.getAndIncrement());
+        Thread thread = new Thread(runnable, this.f40198f + this.f40197e.getAndIncrement());
         if (thread.isDaemon()) {
             thread.setDaemon(false);
         }
-        int i2 = this.f40954g;
+        int i2 = this.f40199g;
         if (i2 != 5) {
             thread.setPriority(i2);
         } else {
@@ -37,8 +37,8 @@ public class d implements ThreadFactory {
     }
 
     public d(int i2) {
-        this.f40952e = new AtomicInteger(1);
-        this.f40953f = "sso-" + f40951h.getAndIncrement() + "-thread-";
-        this.f40954g = i2;
+        this.f40197e = new AtomicInteger(1);
+        this.f40198f = "sso-" + f40196h.getAndIncrement() + "-thread-";
+        this.f40199g = i2;
     }
 }

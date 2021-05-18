@@ -6,7 +6,7 @@ import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class MutableOnWriteList<T> extends AbstractList<T> implements RandomAccess, Serializable {
     public final List<T> immutableList;
     public List<T> mutableList;

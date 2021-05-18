@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView;
 import d.a.c.e.p.j;
-import d.a.i0.l.a;
-import d.a.j0.q3.f;
-/* loaded from: classes3.dex */
+import d.a.j0.l.a;
+import d.a.k0.q3.f;
+/* loaded from: classes5.dex */
 public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f20294i;
+    public TextView f19582i;
 
     public PbVideoNetworkStateTipView(Context context) {
         super(context);
@@ -25,7 +25,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     }
 
     private void c() {
-        this.f20294i = (TextView) findViewById(R.id.video_net_tip_duration);
+        this.f19582i = (TextView) findViewById(R.id.video_net_tip_duration);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
@@ -50,7 +50,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
         if (view.getId() == R.id.free_flow) {
             a.u(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         } else if (view.getId() == R.id.play) {
-            View.OnClickListener onClickListener = this.f20755g;
+            View.OnClickListener onClickListener = this.f20043g;
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }
@@ -63,7 +63,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
         if (i2 <= 0) {
             return;
         }
-        this.f20294i.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
+        this.f19582i.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
     }
 
     public PbVideoNetworkStateTipView(Context context, AttributeSet attributeSet) {

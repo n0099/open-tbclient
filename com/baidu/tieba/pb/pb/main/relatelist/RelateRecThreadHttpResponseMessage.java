@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.RelateRecThread.DataRes;
 import tbclient.RelateRecThread.RelateRecThreadResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class RelateRecThreadHttpResponseMessage extends TbHttpResponsedMessage {
     public DataRes mData;
 

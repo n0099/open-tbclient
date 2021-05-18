@@ -2,7 +2,7 @@ package d.o.a.e.b.l;
 
 import android.content.Context;
 import android.content.pm.ServiceInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g {
     public static boolean a(Context context, String str, String str2) {
         ServiceInfo[] serviceInfoArr;

@@ -2,10 +2,10 @@ package com.baidu.tieba.pbextra;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.i0.z0.w;
+import d.a.j0.z0.w;
 import tbclient.PushThread.DataReq;
 import tbclient.PushThread.PushThreadReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbPushRequestMessage extends NetMessage {
     public long mForumId;
     public int mPushType;

@@ -16,24 +16,24 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class j implements f, e.c {
     public final boolean A;
 
     /* renamed from: a  reason: collision with root package name */
-    public final DownloadInfo f66555a;
+    public final DownloadInfo f67241a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final m f66556b;
+    public final m f67242b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.o.a.e.b.i.b f66557c;
+    public final d.o.a.e.b.i.b f67243c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.o.a.e.b.k.f f66558d;
+    public final d.o.a.e.b.k.f f67244d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final g f66559e;
+    public final g f67245e;
     public d.o.a.e.b.n.b j;
     public d.o.a.e.b.n.b k;
     public long m;
@@ -49,16 +49,16 @@ public class j implements f, e.c {
     public int z;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f66560f = false;
+    public volatile boolean f67246f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f66561g = false;
+    public volatile boolean f67247g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<l> f66562h = new ArrayList();
+    public final List<l> f67248h = new ArrayList();
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<o> f66563i = new ArrayList();
+    public final List<o> f67249i = new ArrayList();
     public volatile boolean l = true;
     public final LinkedList<i> n = new LinkedList<>();
     public final List<i> o = new ArrayList();
@@ -66,18 +66,18 @@ public class j implements f, e.c {
     public final e.b B = new a();
     public final e.b C = new b();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements e.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f66564a;
+        public int f67250a;
 
         public a() {
         }
 
         @Override // d.o.a.e.b.k.e.b
         public long a() {
-            if (j.this.f66560f || j.this.f66561g) {
+            if (j.this.f67246f || j.this.f67247g) {
                 return -1L;
             }
             synchronized (j.this) {
@@ -86,13 +86,13 @@ public class j implements f, e.c {
                     if (j <= 0) {
                         return -1L;
                     }
-                    this.f66564a++;
+                    this.f67250a++;
                     l q = j.this.q(false, System.currentTimeMillis(), j);
                     if (q != null) {
                         Log.i("SegmentDispatcher", "connectWatcher: switchUrl and reconnect");
                         j.this.N(q);
                         q.v();
-                        return ((this.f66564a / j.this.f66563i.size()) + 1) * j;
+                        return ((this.f67250a / j.this.f67249i.size()) + 1) * j;
                     }
                     return j;
                 }
@@ -101,7 +101,7 @@ public class j implements f, e.c {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements e.b {
         public b() {
         }
@@ -113,12 +113,12 @@ public class j implements f, e.c {
     }
 
     public j(@NonNull DownloadInfo downloadInfo, @NonNull m mVar, d.o.a.e.b.k.f fVar) {
-        this.f66555a = downloadInfo;
-        this.f66556b = mVar;
-        d.o.a.e.b.i.b bVar = new d.o.a.e.b.i.b(mVar.g(), this.f66556b.h());
-        this.f66557c = bVar;
-        this.f66558d = fVar;
-        this.f66559e = new g(downloadInfo, fVar, bVar);
+        this.f67241a = downloadInfo;
+        this.f67242b = mVar;
+        d.o.a.e.b.i.b bVar = new d.o.a.e.b.i.b(mVar.g(), this.f67242b.h());
+        this.f67243c = bVar;
+        this.f67244d = fVar;
+        this.f67245e = new g(downloadInfo, fVar, bVar);
         this.u = new d.o.a.e.b.k.e();
         this.t = new d.o.a.e.b.l.d();
         this.A = d.o.a.e.b.j.a.d(downloadInfo.c0()).m("debug") == 1;
@@ -127,7 +127,7 @@ public class j implements f, e.c {
     public final boolean A(l lVar, long j, long j2, long j3, double d2) {
         if (lVar.J > 0) {
             long d3 = this.t.d(j, j2);
-            int size = this.f66562h.size();
+            int size = this.f67248h.size();
             long j4 = size > 0 ? d3 / size : d3;
             long a2 = lVar.a(j, j2);
             if (a2 < j3 || a2 < j4 * d2) {
@@ -164,33 +164,33 @@ public class j implements f, e.c {
 
     public void C() {
         d.o.a.e.b.c.a.h("SegmentDispatcher", "pause");
-        this.f66561g = true;
+        this.f67247g = true;
         synchronized (this) {
-            for (l lVar : this.f66562h) {
+            for (l lVar : this.f67248h) {
                 lVar.u();
             }
         }
-        this.f66559e.i();
-        this.f66557c.c();
+        this.f67245e.i();
+        this.f67243c.c();
     }
 
     public final void D(long j) {
-        this.t.c(this.f66555a.E(), j);
-        for (l lVar : this.f66562h) {
+        this.t.c(this.f67241a.E(), j);
+        for (l lVar : this.f67248h) {
             lVar.m(j);
         }
     }
 
     public final void E(l lVar, i iVar, o oVar, d.o.a.e.b.n.b bVar) throws BaseException, com.ss.android.socialbase.downloader.exception.h {
-        if (oVar.f66580d) {
+        if (oVar.f67266d) {
             if (this.j == null) {
                 this.j = bVar;
                 synchronized (this.s) {
                     this.s.notify();
                 }
-                d.o.a.e.b.k.f fVar = this.f66558d;
+                d.o.a.e.b.k.f fVar = this.f67244d;
                 if (fVar != null) {
-                    fVar.d(oVar.f66577a, bVar.f66716b, iVar.i());
+                    fVar.d(oVar.f67263a, bVar.f67402b, iVar.i());
                 }
                 long j = bVar.j();
                 if (j > 0) {
@@ -208,8 +208,8 @@ public class j implements f, e.c {
         u(bVar);
         if (this.k == null) {
             this.k = bVar;
-            if (this.f66555a.Q0() <= 0) {
-                this.f66555a.g3(bVar.j());
+            if (this.f67241a.Q0() <= 0) {
+                this.f67241a.g3(bVar.j());
             }
             synchronized (this.s) {
                 this.s.notify();
@@ -225,19 +225,19 @@ public class j implements f, e.c {
                 Log.i("SegmentDispatcher", "addIpListLocked: urlRecord = " + it.next());
             }
         }
-        int n = this.f66556b.n();
-        if ((n == 1 || n == 3) && (l = l(str)) >= 0 && l < this.f66563i.size()) {
-            this.f66563i.addAll(l + 1, list);
+        int n = this.f67242b.n();
+        if ((n == 1 || n == 3) && (l = l(str)) >= 0 && l < this.f67249i.size()) {
+            this.f67249i.addAll(l + 1, list);
         } else {
-            this.f66563i.addAll(list);
+            this.f67249i.addAll(list);
         }
     }
 
     public final void G(List<i> list) {
-        long Q0 = this.f66555a.Q0();
+        long Q0 = this.f67241a.Q0();
         this.m = Q0;
         if (Q0 <= 0) {
-            this.m = this.f66555a.Q();
+            this.m = this.f67241a.Q();
         }
         synchronized (this) {
             this.n.clear();
@@ -265,15 +265,15 @@ public class j implements f, e.c {
                 j = m;
             }
         }
-        long j2 = this.f66556b.j();
-        long k = this.f66556b.k();
+        long j2 = this.f67242b.j();
+        long k = this.f67242b.k();
         if (i2 < 0 || j <= j2) {
             return null;
         }
         i iVar = this.o.get(i2);
-        if (this.f66556b.p()) {
+        if (this.f67242b.p()) {
             float O = O(lVar, oVar);
-            long E = ((float) (this.m - this.f66555a.E())) * O;
+            long E = ((float) (this.m - this.f67241a.E())) * O;
             if (E < j2) {
                 E = j2;
             }
@@ -309,10 +309,10 @@ public class j implements f, e.c {
                             Log.i("SegmentDispatcher", "onDnsResolved: ip = " + hostAddress);
                         }
                         o oVar = new o(str, hostAddress);
-                        LinkedList linkedList = (LinkedList) linkedHashMap.get(oVar.f66579c);
+                        LinkedList linkedList = (LinkedList) linkedHashMap.get(oVar.f67265c);
                         if (linkedList == null) {
                             linkedList = new LinkedList();
-                            linkedHashMap.put(oVar.f66579c, linkedList);
+                            linkedHashMap.put(oVar.f67265c, linkedList);
                         }
                         linkedList.add(oVar);
                         i2++;
@@ -355,11 +355,11 @@ public class j implements f, e.c {
 
     public final void M(List<i> list) {
         long b2 = n.b(list);
-        d.o.a.e.b.c.a.h("SegmentDispatcher", "checkDownloadBytes: getCurBytes = " + this.f66555a.E() + ", totalBytes = " + this.f66555a.Q0() + ", downloadedBytes = " + b2);
-        if (this.f66555a.E() == this.f66555a.Q0() || this.f66555a.E() == b2) {
+        d.o.a.e.b.c.a.h("SegmentDispatcher", "checkDownloadBytes: getCurBytes = " + this.f67241a.E() + ", totalBytes = " + this.f67241a.Q0() + ", downloadedBytes = " + b2);
+        if (this.f67241a.E() == this.f67241a.Q0() || this.f67241a.E() == b2) {
             return;
         }
-        this.f66555a.n2(b2);
+        this.f67241a.n2(b2);
     }
 
     public final boolean N(l lVar) {
@@ -374,13 +374,13 @@ public class j implements f, e.c {
 
     public final float O(l lVar, o oVar) {
         long l = lVar.l();
-        int size = this.f66562h.size();
+        int size = this.f67248h.size();
         if (size <= 1) {
-            size = this.f66556b.a();
+            size = this.f67242b.a();
         }
         float f2 = 1.0f;
         if (l <= 0) {
-            float o = this.f66556b.o();
+            float o = this.f67242b.o();
             if (o <= 0.0f || o >= 1.0f) {
                 o = 1.0f / size;
             }
@@ -402,7 +402,7 @@ public class j implements f, e.c {
 
     public final o P(l lVar) {
         o oVar;
-        Iterator<o> it = this.f66563i.iterator();
+        Iterator<o> it = this.f67249i.iterator();
         o oVar2 = null;
         while (true) {
             if (!it.hasNext()) {
@@ -419,11 +419,11 @@ public class j implements f, e.c {
                 }
             }
         }
-        if (this.f66556b.e()) {
+        if (this.f67242b.e()) {
             if (oVar != null) {
                 return oVar;
             }
-            if (this.f66556b.f()) {
+            if (this.f67242b.f()) {
                 return null;
             }
         }
@@ -432,14 +432,14 @@ public class j implements f, e.c {
 
     public final void R() throws BaseException {
         try {
-            this.f66559e.c(this.f66557c);
+            this.f67245e.c(this.f67243c);
         } catch (p unused) {
         } catch (BaseException e2) {
             d.o.a.e.b.c.a.j("SegmentDispatcher", "dispatchSegments: loopAndWrite e = " + e2);
             s(e2);
             throw e2;
         }
-        if (this.f66561g || this.f66560f) {
+        if (this.f67247g || this.f67246f) {
             return;
         }
         if (!this.r && this.q != null) {
@@ -470,7 +470,7 @@ public class j implements f, e.c {
             }
         }
         i iVar3 = list.get(list.size() - 1);
-        long Q0 = this.f66555a.Q0();
+        long Q0 = this.f67241a.Q0();
         if (Q0 <= 0 || (iVar3.l() != -1 && iVar3.l() < Q0 - 1)) {
             d.o.a.e.b.c.a.i("SegmentDispatcher", "fixSegment: last segment = " + iVar3 + ", new end=-1");
             iVar3.h(-1L);
@@ -478,19 +478,19 @@ public class j implements f, e.c {
     }
 
     public final void U() {
-        int a2 = (this.m <= 0 || this.l) ? 1 : this.f66556b.a();
+        int a2 = (this.m <= 0 || this.l) ? 1 : this.f67242b.a();
         d.o.a.e.b.c.a.h("SegmentDispatcher", "dispatchReadThread: totalLength = " + this.m + ", threadCount = " + a2);
         int i2 = a2 > 0 ? a2 : 1;
         synchronized (this) {
             do {
-                if (this.f66562h.size() >= i2) {
+                if (this.f67248h.size() >= i2) {
                     break;
                 }
-                if (!this.f66561g && !this.f66560f) {
+                if (!this.f67247g && !this.f67246f) {
                     t(c0());
                 }
                 return;
-            } while (!this.f66556b.i());
+            } while (!this.f67242b.i());
         }
     }
 
@@ -508,7 +508,7 @@ public class j implements f, e.c {
         if (r6.a() > 0) goto L70;
      */
     /* JADX WARN: Code restructure failed: missing block: B:69:0x020c, code lost:
-        if (r6.f66553f == null) goto L60;
+        if (r6.f67239f == null) goto L60;
      */
     /* JADX WARN: Code restructure failed: missing block: B:71:0x020f, code lost:
         r3 = r3 + 1;
@@ -532,7 +532,7 @@ public class j implements f, e.c {
         android.util.Log.d("SegmentDispatcher", "applySegmentLocked: break 2");
      */
     /* JADX WARN: Code restructure failed: missing block: B:78:0x0247, code lost:
-        r24.f66553f = r23;
+        r24.f67239f = r23;
         d.o.a.e.b.c.a.h("SegmentDispatcher", "applySegment: OK " + r24);
      */
     /* JADX WARN: Code restructure failed: missing block: B:79:0x025d, code lost:
@@ -545,9 +545,9 @@ public class j implements f, e.c {
         i iVar2;
         long j;
         d.o.a.e.b.c.a.h("SegmentDispatcher", "applySegment: start " + iVar);
-        if (iVar.f66553f == lVar) {
+        if (iVar.f67239f == lVar) {
             d.o.a.e.b.c.a.h("SegmentDispatcher", "applySegment: " + lVar + " is already the owner of " + iVar);
-        } else if (iVar.f66553f == null) {
+        } else if (iVar.f67239f == null) {
             if (lVar.x() == iVar.i()) {
                 long g2 = iVar.g();
                 int k = k(g2);
@@ -557,7 +557,7 @@ public class j implements f, e.c {
                         if (iVar2.g() != iVar.g() || n(iVar2) <= 0) {
                             j = g2;
                         } else {
-                            l lVar2 = iVar2.f66553f;
+                            l lVar2 = iVar2.f67239f;
                             if (lVar2 != null) {
                                 j = g2;
                                 if (lVar.J - lVar2.J <= 1000 || iVar2.k() - iVar.k() >= n(iVar) / 2) {
@@ -597,7 +597,7 @@ public class j implements f, e.c {
                                 d.o.a.e.b.c.a.j("SegmentDispatcher", "applySegment:prev's current has over this start, prev = " + iVar3 + ", segment = " + iVar);
                                 this.o.remove(iVar);
                                 throw new com.ss.android.socialbase.downloader.f.j(3, "prev overstep");
-                            } else if (iVar3.f66553f == null) {
+                            } else if (iVar3.f67239f == null) {
                                 iVar3.h(j - 1);
                                 d.o.a.e.b.c.a.h("SegmentDispatcher", "applySegment: prev set end, prev = " + iVar3);
                                 if (iVar3.a() > 0) {
@@ -606,7 +606,7 @@ public class j implements f, e.c {
                                 }
                             } else {
                                 long j2 = j - 1;
-                                if (iVar3.f66553f.g(j2)) {
+                                if (iVar3.f67239f.g(j2)) {
                                     iVar3.h(j2);
                                     d.o.a.e.b.c.a.h("SegmentDispatcher", "applySegment: adjustSegmentEndOffset succeed, prev = " + iVar3);
                                 } else {
@@ -625,26 +625,26 @@ public class j implements f, e.c {
                 throw new com.ss.android.socialbase.downloader.f.j(5, "applySegment");
             }
         } else {
-            d.o.a.e.b.c.a.j("SegmentDispatcher", "applySegment: " + iVar + " is already has an owner:" + iVar.f66553f);
+            d.o.a.e.b.c.a.j("SegmentDispatcher", "applySegment: " + iVar + " is already has an owner:" + iVar.f67239f);
             throw new com.ss.android.socialbase.downloader.f.j(1, "segment already has an owner");
         }
     }
 
     public final void X() {
-        this.f66563i.add(new o(this.f66555a.T0(), true));
-        List<String> w = this.f66555a.w();
+        this.f67249i.add(new o(this.f67241a.T0(), true));
+        List<String> w = this.f67241a.w();
         if (w != null) {
             for (String str : w) {
                 if (!TextUtils.isEmpty(str)) {
-                    this.f66563i.add(new o(str, false));
+                    this.f67249i.add(new o(str, false));
                 }
             }
         }
-        this.f66556b.c(this.f66563i.size());
+        this.f67242b.c(this.f67249i.size());
     }
 
     public final void Z() {
-        m mVar = this.f66556b;
+        m mVar = this.f67242b;
         this.v = mVar.l();
         this.w = mVar.m();
         this.y = mVar.q();
@@ -656,7 +656,7 @@ public class j implements f, e.c {
 
     @Override // d.o.a.e.b.o.e.c
     public void a(String str, List<InetAddress> list) {
-        if (this.f66561g || this.f66560f) {
+        if (this.f67247g || this.f67246f) {
             return;
         }
         List<o> list2 = null;
@@ -670,7 +670,7 @@ public class j implements f, e.c {
                 F(str, list2);
             }
             this.l = false;
-            this.f66556b.c(this.f66563i.size());
+            this.f67242b.c(this.f67249i.size());
             Log.i("SegmentDispatcher", "onDnsResolved: dispatchReadThread");
             U();
         }
@@ -686,17 +686,17 @@ public class j implements f, e.c {
     @Override // d.o.a.e.b.i.f
     public void b(l lVar, i iVar, o oVar, d.o.a.e.b.n.b bVar) throws BaseException, com.ss.android.socialbase.downloader.exception.h {
         synchronized (this) {
-            if (!this.f66560f && !this.f66561g) {
+            if (!this.f67246f && !this.f67247g) {
                 E(lVar, iVar, oVar, bVar);
                 lVar.o(false);
                 if (this.m <= 0) {
-                    long Q0 = this.f66555a.Q0();
+                    long Q0 = this.f67241a.Q0();
                     this.m = Q0;
                     if (Q0 <= 0) {
                         this.m = bVar.j();
                     }
                     U();
-                } else if (this.f66556b.i()) {
+                } else if (this.f67242b.i()) {
                     U();
                 }
             } else {
@@ -707,15 +707,15 @@ public class j implements f, e.c {
 
     public final void b0() {
         List<String> w;
-        int n = this.f66556b.n();
+        int n = this.f67242b.n();
         if (n <= 0) {
             this.l = false;
             U();
             return;
         }
         d.o.a.e.b.o.e a2 = d.o.a.e.b.o.e.a();
-        a2.c(this.f66555a.T0(), this, 2000L);
-        if (n <= 2 || (w = this.f66555a.w()) == null) {
+        a2.c(this.f67241a.T0(), this, 2000L);
+        if (n <= 2 || (w = this.f67241a.w()) == null) {
             return;
         }
         for (String str : w) {
@@ -727,14 +727,14 @@ public class j implements f, e.c {
 
     @Override // d.o.a.e.b.i.f
     public i c(l lVar, o oVar) {
-        if (this.f66560f || this.f66561g) {
+        if (this.f67246f || this.f67247g) {
             return null;
         }
         synchronized (this) {
             i B = B(lVar, oVar);
             if (B != null) {
                 B.n();
-                if (B.f66553f != null) {
+                if (B.f67239f != null) {
                     return new i(B);
                 }
             }
@@ -745,11 +745,11 @@ public class j implements f, e.c {
     public final o c0() {
         o oVar;
         synchronized (this) {
-            int size = this.p % this.f66563i.size();
-            if (this.f66556b.e()) {
+            int size = this.p % this.f67249i.size();
+            if (this.f67242b.e()) {
                 this.p++;
             }
-            oVar = this.f66563i.get(size);
+            oVar = this.f67249i.get(size);
         }
         return oVar;
     }
@@ -763,7 +763,7 @@ public class j implements f, e.c {
 
     public final void d0() {
         d.o.a.e.b.c.a.h("SegmentDispatcher", "onComplete");
-        this.f66557c.c();
+        this.f67243c.c();
         synchronized (this.s) {
             this.s.notify();
         }
@@ -777,7 +777,7 @@ public class j implements f, e.c {
     }
 
     public final boolean e0() {
-        for (l lVar : this.f66562h) {
+        for (l lVar : this.f67248h) {
             if (!lVar.w()) {
                 return false;
             }
@@ -788,10 +788,10 @@ public class j implements f, e.c {
     @Override // d.o.a.e.b.i.f
     public void f(l lVar, i iVar) {
         synchronized (this) {
-            if (iVar.f66553f == lVar) {
+            if (iVar.f67239f == lVar) {
                 d.o.a.e.b.c.a.h("SegmentDispatcher", "unApplySegment " + iVar);
                 iVar.j(lVar.s());
-                iVar.f66553f = null;
+                iVar.f67239f = null;
                 lVar.c();
             }
         }
@@ -811,7 +811,7 @@ public class j implements f, e.c {
             for (int i3 = 1; i3 < size; i3++) {
                 i iVar = this.o.get(i2);
                 i iVar2 = this.o.get(i3);
-                if (iVar.k() > iVar2.g() && iVar2.a() <= 0 && iVar2.f66553f == null) {
+                if (iVar.k() > iVar2.g() && iVar2.a() <= 0 && iVar2.f67239f == null) {
                     arrayList.add(iVar2);
                     d.o.a.e.b.c.a.h("SegmentDispatcher", "clearCovered, covered = " + iVar2 + ", prev = " + iVar);
                 } else if (iVar2.k() > iVar.k()) {
@@ -863,8 +863,8 @@ public class j implements f, e.c {
     public e h(l lVar, i iVar) throws BaseException {
         e a2;
         synchronized (this) {
-            k kVar = new k(this.f66555a, this.f66557c, iVar);
-            this.f66559e.e(kVar);
+            k kVar = new k(this.f67241a, this.f67243c, iVar);
+            this.f67245e.e(kVar);
             a2 = kVar.a();
         }
         return a2;
@@ -872,7 +872,7 @@ public class j implements f, e.c {
 
     public final long h0() {
         long j = 0;
-        for (l lVar : this.f66562h) {
+        for (l lVar : this.f67248h) {
             j += lVar.l();
         }
         return j;
@@ -892,7 +892,7 @@ public class j implements f, e.c {
             if (j0 == null) {
                 return null;
             }
-            l lVar = j0.f66553f;
+            l lVar = j0.f67239f;
             if (lVar == null) {
                 return j0;
             }
@@ -930,13 +930,13 @@ public class j implements f, e.c {
         d.o.a.e.b.c.a.h("SegmentDispatcher", "onReaderExit: threadIndex = " + lVar.w);
         synchronized (this) {
             lVar.r(true);
-            this.f66562h.remove(lVar);
+            this.f67248h.remove(lVar);
             f0();
-            if (this.f66562h.isEmpty()) {
+            if (this.f67248h.isEmpty()) {
                 d0();
             } else if (g0()) {
                 Log.i("SegmentDispatcher", "onReaderExit: allContentDownloaded");
-                for (l lVar2 : this.f66562h) {
+                for (l lVar2 : this.f67248h) {
                     lVar2.u();
                 }
                 d0();
@@ -972,13 +972,13 @@ public class j implements f, e.c {
     }
 
     public final long k0() {
-        if (this.f66560f || this.f66561g) {
+        if (this.f67246f || this.f67247g) {
             return -1L;
         }
         long currentTimeMillis = System.currentTimeMillis();
         synchronized (this) {
             D(currentTimeMillis);
-            long m = this.f66556b.m();
+            long m = this.f67242b.m();
             if (m > 0) {
                 long j = this.x;
                 if (j > 0 && currentTimeMillis - j > m && x(currentTimeMillis, m)) {
@@ -991,9 +991,9 @@ public class j implements f, e.c {
     }
 
     public final int l(String str) {
-        int size = this.f66563i.size();
+        int size = this.f67249i.size();
         for (int i2 = 0; i2 < size; i2++) {
-            if (TextUtils.equals(this.f66563i.get(i2).f66577a, str)) {
+            if (TextUtils.equals(this.f67249i.get(i2).f67263a, str)) {
                 return i2;
             }
         }
@@ -1026,7 +1026,7 @@ public class j implements f, e.c {
         long j5 = Long.MAX_VALUE;
         int i3 = 0;
         l lVar = null;
-        for (l lVar2 : this.f66562h) {
+        for (l lVar2 : this.f67248h) {
             if (lVar2.J > 0) {
                 i3++;
                 long j6 = j5;
@@ -1056,7 +1056,7 @@ public class j implements f, e.c {
 
     public final l q(boolean z, long j, long j2) {
         l lVar = null;
-        for (l lVar2 : this.f66562h) {
+        for (l lVar2 : this.f67248h) {
             if (lVar2.w != 0 || z) {
                 if (lVar2.H > 0 && lVar2.I <= 0 && j - lVar2.H > j2 && (lVar == null || lVar2.H < lVar.H)) {
                     lVar = lVar2;
@@ -1068,30 +1068,30 @@ public class j implements f, e.c {
 
     public void r() {
         d.o.a.e.b.c.a.h("SegmentDispatcher", QueryResponse.Options.CANCEL);
-        this.f66560f = true;
+        this.f67246f = true;
         synchronized (this) {
-            for (l lVar : this.f66562h) {
+            for (l lVar : this.f67248h) {
                 lVar.u();
             }
         }
-        this.f66559e.a();
-        this.f66557c.c();
+        this.f67245e.a();
+        this.f67243c.c();
     }
 
     public final void s(BaseException baseException) {
         d.o.a.e.b.c.a.j("SegmentDispatcher", "onError, e = " + baseException);
         this.q = baseException;
-        this.f66557c.c();
+        this.f67243c.c();
         synchronized (this) {
-            for (l lVar : this.f66562h) {
+            for (l lVar : this.f67248h) {
                 lVar.u();
             }
         }
     }
 
     public final void t(o oVar) {
-        l lVar = new l(this.f66555a, this, this.f66557c, oVar, this.f66562h.size());
-        this.f66562h.add(lVar);
+        l lVar = new l(this.f67241a, this, this.f67243c, oVar, this.f67248h.size());
+        this.f67248h.add(lVar);
         lVar.e(d.o.a.e.b.g.d.B0().submit(lVar));
     }
 
@@ -1108,7 +1108,7 @@ public class j implements f, e.c {
             }
             return;
         }
-        throw new BaseException(1074, "total len not equals,len=" + j + ",sLen=" + j2 + ",code=" + bVar.f66717c + ",sCode=" + bVar2.f66717c + ",range=" + bVar.e() + ",sRange = " + bVar2.e() + ",url = " + bVar.f66715a + ",sUrl=" + bVar2.f66715a);
+        throw new BaseException(1074, "total len not equals,len=" + j + ",sLen=" + j2 + ",code=" + bVar.f67403c + ",sCode=" + bVar2.f67403c + ",range=" + bVar.e() + ",sRange = " + bVar2.e() + ",url = " + bVar.f67401a + ",sUrl=" + bVar2.f67401a);
     }
 
     public void v(List<i> list) throws BaseException, InterruptedException {
@@ -1121,13 +1121,13 @@ public class j implements f, e.c {
             long currentTimeMillis = System.currentTimeMillis();
             L();
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            this.f66555a.Y0(currentTimeMillis2);
-            this.f66555a.u2(currentTimeMillis2);
-            if (!this.f66561g && !this.f66560f) {
-                this.f66558d.a(this.m);
+            this.f67241a.Y0(currentTimeMillis2);
+            this.f67241a.u2(currentTimeMillis2);
+            if (!this.f67247g && !this.f67246f) {
+                this.f67244d.a(this.m);
                 a0();
                 R();
-                if (!this.f66561g && !this.f66560f) {
+                if (!this.f67247g && !this.f67246f) {
                     d.o.a.e.b.c.a.h("SegmentDispatcher", "finally pause");
                     C();
                 }
@@ -1147,7 +1147,7 @@ public class j implements f, e.c {
                 this.u.c();
                 return;
             }
-            if (!this.f66561g && !this.f66560f) {
+            if (!this.f67247g && !this.f67246f) {
                 d.o.a.e.b.c.a.h("SegmentDispatcher", "finally pause");
                 C();
             }
@@ -1166,7 +1166,7 @@ public class j implements f, e.c {
             }
             this.u.c();
         } catch (Throwable th3) {
-            if (!this.f66561g && !this.f66560f) {
+            if (!this.f67247g && !this.f67246f) {
                 d.o.a.e.b.c.a.h("SegmentDispatcher", "finally pause");
                 C();
             }
@@ -1204,7 +1204,7 @@ public class j implements f, e.c {
     public final boolean x(long j, long j2) {
         long j3 = j - j2;
         long d2 = this.t.d(j3, j);
-        int size = this.f66562h.size();
+        int size = this.f67248h.size();
         if (size > 0) {
             d2 /= size;
         }

@@ -5,10 +5,70 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface IAudioListener extends IInterface {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
+    public static class Default implements IAudioListener {
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return null;
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onCanPlay() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onChangeSrc(String str) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onDownloadProgress(int i2) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onEnded() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onError(int i2) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onNext() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onPause() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onPlay() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onPrev() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onSeekEnd() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onSeeking() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onStop() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onTimeUpdate(int i2, int i3) throws RemoteException {
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public static abstract class Stub extends Binder implements IAudioListener {
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IAudioListener";
         public static final int TRANSACTION_onCanPlay = 1;
@@ -25,8 +85,9 @@ public interface IAudioListener extends IInterface {
         public static final int TRANSACTION_onStop = 4;
         public static final int TRANSACTION_onTimeUpdate = 7;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes2.dex */
         public static class Proxy implements IAudioListener {
+            public static IAudioListener sDefaultImpl;
             public IBinder mRemote;
 
             public Proxy(IBinder iBinder) {
@@ -48,8 +109,11 @@ public interface IAudioListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(1, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onCanPlay();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -63,8 +127,11 @@ public interface IAudioListener extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
-                    this.mRemote.transact(6, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onChangeSrc(str);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -78,8 +145,11 @@ public interface IAudioListener extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeInt(i2);
-                    this.mRemote.transact(9, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(9, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onDownloadProgress(i2);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -92,8 +162,11 @@ public interface IAudioListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(5, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onEnded();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -107,8 +180,11 @@ public interface IAudioListener extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeInt(i2);
-                    this.mRemote.transact(8, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(8, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onError(i2);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -121,8 +197,11 @@ public interface IAudioListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(11, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(11, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onNext();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -135,8 +214,11 @@ public interface IAudioListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(3, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onPause();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -149,8 +231,11 @@ public interface IAudioListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(2, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onPlay();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -163,8 +248,11 @@ public interface IAudioListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(10, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(10, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onPrev();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -177,8 +265,11 @@ public interface IAudioListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(13, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(13, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onSeekEnd();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -191,8 +282,11 @@ public interface IAudioListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(12, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(12, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onSeeking();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -205,8 +299,11 @@ public interface IAudioListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(4, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onStop();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -221,8 +318,11 @@ public interface IAudioListener extends IInterface {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
-                    this.mRemote.transact(7, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(7, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onTimeUpdate(i2, i3);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -243,6 +343,18 @@ public interface IAudioListener extends IInterface {
                 return (IAudioListener) queryLocalInterface;
             }
             return new Proxy(iBinder);
+        }
+
+        public static IAudioListener getDefaultImpl() {
+            return Proxy.sDefaultImpl;
+        }
+
+        public static boolean setDefaultImpl(IAudioListener iAudioListener) {
+            if (Proxy.sDefaultImpl != null || iAudioListener == null) {
+                return false;
+            }
+            Proxy.sDefaultImpl = iAudioListener;
+            return true;
         }
 
         @Override // android.os.IInterface

@@ -15,10 +15,10 @@ import com.baidu.wallet.statistics.api.StatisticManager;
 public class RemotePaySplashActivity extends PayBaseBeanActivity {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27294a;
+    public int f26539a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PrecashierCreateOrderResponse f27295b;
+    public PrecashierCreateOrderResponse f26540b;
 
     public void getInstentDatas() {
         Intent intent = getIntent();
@@ -28,8 +28,8 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
             finish();
             return;
         }
-        this.f27294a = intent.getIntExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, 0);
-        this.f27295b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
+        this.f26539a = intent.getIntExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, 0);
+        this.f26540b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
@@ -60,8 +60,8 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
 
     public void startWelcomeActivity() {
         Intent intent = new Intent(this, WelcomeActivity.class);
-        intent.putExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.f27294a);
-        PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f27295b;
+        intent.putExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.f26539a);
+        PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f26540b;
         if (precashierCreateOrderResponse != null) {
             intent.putExtra(BaiduPay.PRECASHIER_PAY_RESPONSE, precashierCreateOrderResponse);
         }

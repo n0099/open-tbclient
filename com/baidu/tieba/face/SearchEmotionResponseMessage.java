@@ -2,7 +2,7 @@ package com.baidu.tieba.face;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
-import d.a.j0.k0.c.a;
+import d.a.k0.k0.c.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

@@ -1,5 +1,5 @@
 package i.a.a.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static final int abc_action_bar_home_description = 2131689531;
     public static final int abc_action_bar_up_description = 2131689532;
@@ -18,23 +18,23 @@ public final class e {
     public static final int abc_shareactionprovider_share_with = 2131689555;
     public static final int abc_shareactionprovider_share_with_application = 2131689556;
     public static final int abc_toolbar_collapse_description = 2131689557;
-    public static final int app_name = 2131690142;
-    public static final int my_wallet = 2131692544;
-    public static final int recharge = 2131693327;
-    public static final int search_menu_title = 2131693837;
-    public static final int status_bar_notification_info_overflow = 2131694097;
-    public static final int str_wallet_balance = 2131694104;
-    public static final int string_choose_recharge_amount = 2131694108;
-    public static final int string_choose_recharge_way = 2131694109;
-    public static final int string_confirm_recharge = 2131694110;
-    public static final int string_custom_amount = 2131694111;
-    public static final int string_query = 2131694112;
-    public static final int string_want_recharge = 2131694113;
-    public static final int yy_dialog_pay_title = 2131695325;
-    public static final int yy_dialog_title = 2131695326;
-    public static final int yy_string_pay_error_oversize = 2131695327;
-    public static final int yy_string_pls_input_correct_recharge_amount = 2131695328;
-    public static final int yy_string_recharge_max_amount_hint = 2131695329;
-    public static final int yy_y_coin_pay_agreement = 2131695330;
-    public static final int yy_y_coin_use_item = 2131695331;
+    public static final int app_name = 2131690168;
+    public static final int my_wallet = 2131692571;
+    public static final int recharge = 2131693354;
+    public static final int search_menu_title = 2131693864;
+    public static final int status_bar_notification_info_overflow = 2131694127;
+    public static final int str_wallet_balance = 2131694134;
+    public static final int string_choose_recharge_amount = 2131694138;
+    public static final int string_choose_recharge_way = 2131694139;
+    public static final int string_confirm_recharge = 2131694140;
+    public static final int string_custom_amount = 2131694141;
+    public static final int string_query = 2131694142;
+    public static final int string_want_recharge = 2131694143;
+    public static final int yy_dialog_pay_title = 2131695422;
+    public static final int yy_dialog_title = 2131695423;
+    public static final int yy_string_pay_error_oversize = 2131695424;
+    public static final int yy_string_pls_input_correct_recharge_amount = 2131695425;
+    public static final int yy_string_recharge_max_amount_hint = 2131695426;
+    public static final int yy_y_coin_pay_agreement = 2131695427;
+    public static final int yy_y_coin_use_item = 2131695428;
 }

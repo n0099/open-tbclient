@@ -4,14 +4,14 @@ import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import d.a.i0.k0.d;
+import d.a.j0.k0.d;
 /* loaded from: classes3.dex */
 public class MembercenterActivity extends BaseFragmentActivity {
     public MemberCenterFragment mFragment;
     public FragmentManager mFragmentManager;
     public FragmentTransaction mFragmentTransaction;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "b016";
     }
@@ -20,7 +20,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f48564a = true;
+            pageStayDurationItem.f49392a = true;
         }
         return pageStayDurationItem;
     }
@@ -35,7 +35,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
         String stringExtra = getIntent().getStringExtra("key_url");
         MemberCenterFragment memberCenterFragment = new MemberCenterFragment();
         this.mFragment = memberCenterFragment;
-        memberCenterFragment.J0(stringExtra);
+        memberCenterFragment.I0(stringExtra);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         this.mFragmentManager = supportFragmentManager;
         FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();

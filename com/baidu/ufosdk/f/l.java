@@ -8,11 +8,11 @@ import com.google.android.material.internal.ManufacturerUtils;
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f23353a;
+    public static int f22598a;
 
     public static int a() {
         int i2;
-        if (f23353a == 0) {
+        if (f22598a == 0) {
             String str = Build.MODEL;
             String str2 = Build.MANUFACTURER;
             String str3 = Build.BRAND;
@@ -39,10 +39,10 @@ public final class l {
                 } else if (str.contains("meizu") || str2.contains("meizu") || str3.contains("meizu")) {
                     i2 = 7;
                 }
-                f23353a = i2;
+                f22598a = i2;
             }
-            f23353a = 1;
+            f22598a = 1;
         }
-        return f23353a;
+        return f22598a;
     }
 }

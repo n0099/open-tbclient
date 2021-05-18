@@ -7,6 +7,7 @@ import android.opengl.EGLContext;
 import android.opengl.EGLDisplay;
 import android.opengl.EGLSurface;
 import android.view.Surface;
+import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import org.webrtc.EglBase10;
 /* loaded from: classes2.dex */
 public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
@@ -49,11 +50,11 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
                 throw new RuntimeException("unable to initialize EGL14");
             }
             EGLConfig[] eGLConfigArr = new EGLConfig[1];
-            if (EGL14.eglChooseConfig(this.mEGLDisplay, new int[]{12324, 8, 12323, 8, 12322, 8, 12352, 4, 12339, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
+            if (EGL14.eglChooseConfig(this.mEGLDisplay, new int[]{ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 8, 12352, 4, ZeusMonitorType.MONITOR_TYPE_MULTI_PERFORMANCE_TIMING, 1, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
+                this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
                 checkEglError("eglCreateContext");
                 if (this.mEGLContext != null) {
-                    this.mEGLSurface = EGL14.eglCreatePbufferSurface(this.mEGLDisplay, eGLConfigArr[0], new int[]{12375, i2, 12374, i3, 12344}, 0);
+                    this.mEGLSurface = EGL14.eglCreatePbufferSurface(this.mEGLDisplay, eGLConfigArr[0], new int[]{12375, i2, 12374, i3, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
                     checkEglError("eglCreatePbufferSurface");
                     if (this.mEGLSurface == null) {
                         throw new RuntimeException("surface was null");

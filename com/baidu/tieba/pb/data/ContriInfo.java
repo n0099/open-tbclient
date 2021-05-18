@@ -5,7 +5,7 @@ import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ContriInfo implements Serializable {
     public String afterMsg;
     public String colorMsg;

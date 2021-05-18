@@ -15,6 +15,8 @@ import com.baidu.down.common.TaskObserver;
 import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.down.common.intercepter.InterceptResult;
 import com.baidu.down.manage.Download;
+import com.baidu.down.request.task.AbstractTask;
+import com.baidu.down.request.task.BinaryReqTask;
 import com.baidu.down.request.taskmanager.BinaryTaskMng;
 import com.baidu.down.request.taskmanager.TaskFacade;
 import com.baidu.down.utils.NamingThreadFactory;
@@ -53,13 +55,14 @@ public final class DownloadManager {
     public int mProgressNotifyPercentage;
     public BinaryTaskMng mTaskManager;
     public ConcurrentHashMap<Long, Download> mDownloadMap = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, Download> mDownloadKeyMap = new ConcurrentHashMap<>();
     public CopyOnWriteArrayList<OnStateChangeListener> mOnStateChangeListeners = new CopyOnWriteArrayList<>();
     public CopyOnWriteArrayList<OnProgressChangeListener> mOnProgressChangeListeners = new CopyOnWriteArrayList<>();
     public Handler mHandler = new Handler(Looper.getMainLooper());
     public ExecutorService mExecutor = Executors.newFixedThreadPool(1, new NamingThreadFactory("DownloadManagerAsync"));
     public IIntercepter mWifiOnlyIntercepter = null;
     public List<String> mBadFileDir = new ArrayList();
-    public Runnable mProgressNotifyRunnable = new Runnable() { // from class: com.baidu.down.manage.DownloadManager.9
+    public Runnable mProgressNotifyRunnable = new Runnable() { // from class: com.baidu.down.manage.DownloadManager.10
         @Override // java.lang.Runnable
         public void run() {
             synchronized (DownloadManager.this.mOnProgressChangeListeners) {
@@ -79,7 +82,7 @@ public final class DownloadManager {
             }
         }
     };
-    public TaskObserver mtaskObserver = new TaskObserver() { // from class: com.baidu.down.manage.DownloadManager.10
+    public TaskObserver mtaskObserver = new TaskObserver() { // from class: com.baidu.down.manage.DownloadManager.11
         @Override // com.baidu.down.common.TaskObserver
         public void onDownloadCancel(String str, long j, long j2, long j3, String str2) {
             if (DownloadManager.DEBUG) {
@@ -218,6 +221,10 @@ public final class DownloadManager {
             download.setCurrentbytes(Long.valueOf(j2));
             download.setTotalbytes(Long.valueOf(j3));
             download.setProgressmap(str2);
+            AbstractTask taskByKey = TaskFacade.getInstance(DownloadManager.this.mContext).getBinaryTaskMng().getTaskByKey(str);
+            if (taskByKey instanceof BinaryReqTask) {
+                download.setRealUrl(taskByKey.mRealUrl);
+            }
             long currentTimeMillis = System.currentTimeMillis();
             if ((download.mLastSpeed == 0 || j4 != 0) && currentTimeMillis - download.mLastProgressNotiStamp < 200) {
                 return;
@@ -232,7 +239,7 @@ public final class DownloadManager {
             }
             if (currentTimeMillis - download.mLastProgressSaveStamp > 2000) {
                 download.mLastProgressSaveStamp = currentTimeMillis;
-                DownloadManager.this.runAsync(new Runnable() { // from class: com.baidu.down.manage.DownloadManager.10.1
+                DownloadManager.this.runAsync(new Runnable() { // from class: com.baidu.down.manage.DownloadManager.11.1
                     @Override // java.lang.Runnable
                     public void run() {
                         DownloadManager.this.mDownloadDao.update(download);
@@ -302,6 +309,7 @@ public final class DownloadManager {
                 }
                 download.setState(downloadState);
                 this.mDownloadMap.remove(Long.valueOf(j));
+                this.mDownloadKeyMap.remove(download.getKeyByUser());
                 if (DEBUG) {
                     Log.i("DownloadManager", "mDownloadMap remove downloadId: " + j + "  mDownloadMap size: " + this.mDownloadMap.size());
                 }
@@ -408,7 +416,13 @@ public final class DownloadManager {
 
     private void readAllDownload() {
         for (Download download : this.mDownloadDao.loadAll()) {
+            if (download.getState() == Download.DownloadState.DOWNLOADING || download.getState() == Download.DownloadState.WAITING) {
+                download.setState(Download.DownloadState.PAUSE);
+            }
             this.mDownloadMap.put(download.getId(), download);
+            if (!TextUtils.isEmpty(download.getKeyByUser())) {
+                this.mDownloadKeyMap.put(download.getKeyByUser(), download);
+            }
         }
     }
 
@@ -493,6 +507,7 @@ public final class DownloadManager {
         }
         FileMsg fileMsg = new FileMsg(download.getUrl(), download.getId().longValue(), savedPathForUser, download.getFileName(), download.getMimetype(), Boolean.TRUE, hashMap, j2, j, download.getEtag());
         fileMsg.mPattern = 0;
+        fileMsg.mRealUrl = download.getRealUrl();
         if (DEBUG) {
             Log.d("DownloadManager", "---startDownload  fMsg.mPattern: " + fileMsg.mPattern);
         }
@@ -550,6 +565,10 @@ public final class DownloadManager {
 
     public Collection<Download> getAllDownloads() {
         return this.mDownloadMap.values();
+    }
+
+    public Download getDownloadByUserKey(String str) {
+        return this.mDownloadKeyMap.get(str);
     }
 
     public Download getDownloadInfo(long j) {
@@ -684,6 +703,21 @@ public final class DownloadManager {
         this.mOnStateChangeListeners.remove(onStateChangeListener);
     }
 
+    public void updateDownload(final Download download) {
+        runAsync(new Runnable() { // from class: com.baidu.down.manage.DownloadManager.9
+            @Override // java.lang.Runnable
+            public void run() {
+                DownloadManager.this.mDownloadDao.update(download);
+            }
+        });
+    }
+
+    public void updatePriority(Download download, int i2) {
+        download.setPriority(i2);
+        this.mTaskManager.updateTaskPrioirty(download.getId().longValue(), i2);
+        updateDownload(download);
+    }
+
     public long start(String str, boolean z) {
         return start(str, z, null);
     }
@@ -716,8 +750,14 @@ public final class DownloadManager {
     }
 
     public long start(final Download download) {
+        if (download == null || TextUtils.isEmpty(download.getUrl())) {
+            return -1L;
+        }
         long insert = this.mDownloadDao.insert(download);
         this.mDownloadMap.put(Long.valueOf(insert), download);
+        if (!TextUtils.isEmpty(download.getKeyByUser())) {
+            this.mDownloadKeyMap.put(download.getKeyByUser(), download);
+        }
         runAsync(new Runnable() { // from class: com.baidu.down.manage.DownloadManager.1
             @Override // java.lang.Runnable
             public void run() {

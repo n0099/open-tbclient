@@ -1,57 +1,148 @@
 package d.a.h0.a;
-/* loaded from: classes.dex */
-public final class a {
-    public static final int abc_fade_in = 2130771968;
-    public static final int abc_fade_out = 2130771969;
-    public static final int abc_grow_fade_in_from_bottom = 2130771970;
-    public static final int abc_popup_enter = 2130771971;
-    public static final int abc_popup_exit = 2130771972;
-    public static final int abc_shrink_fade_out_from_bottom = 2130771973;
-    public static final int abc_slide_in_bottom = 2130771974;
-    public static final int abc_slide_in_top = 2130771975;
-    public static final int abc_slide_out_bottom = 2130771976;
-    public static final int abc_slide_out_top = 2130771977;
-    public static final int abc_tooltip_enter = 2130771978;
-    public static final int abc_tooltip_exit = 2130771979;
-    public static final int aiapp_menu_popupwindow_grow_fade_in = 2130771986;
-    public static final int aiapp_menu_popupwindow_grow_fade_in_from_bottom = 2130771987;
-    public static final int aiapp_menu_popupwindow_shrink_fade_out = 2130771988;
-    public static final int aiapp_menu_popupwindow_shrink_fade_out_from_bottom = 2130771989;
-    public static final int aiapps_accelerate_quad = 2130771990;
-    public static final int aiapps_action_sheet_enter = 2130771991;
-    public static final int aiapps_action_sheet_exit = 2130771992;
-    public static final int aiapps_big_pic_toast_enter = 2130771993;
-    public static final int aiapps_big_pic_toast_exit = 2130771994;
-    public static final int aiapps_brower_menu_close = 2130771995;
-    public static final int aiapps_brower_menu_open = 2130771996;
-    public static final int aiapps_highlight_toast_show = 2130771997;
-    public static final int aiapps_hold = 2130771998;
-    public static final int aiapps_loading_progress = 2130771999;
-    public static final int aiapps_pop_window_dismiss_anim = 2130772000;
-    public static final int aiapps_pop_window_show_anim = 2130772001;
-    public static final int aiapps_slide_in_from_right = 2130772004;
-    public static final int aiapps_slide_out_to_bottom = 2130772005;
-    public static final int aiapps_slide_out_to_right = 2130772007;
-    public static final int aiapps_slide_out_to_right_zadjustment_top = 2130772008;
-    public static final int aiapps_toast_enter = 2130772009;
-    public static final int aiapps_toast_exit = 2130772010;
-    public static final int aiapps_update_loading_progressbar_anim = 2130772011;
-    public static final int aiapps_wx_pay_loading_anim = 2130772012;
-    public static final int loading_rotate = 2130772118;
-    public static final int popupwindow_grow_fade_in = 2130772151;
-    public static final int popupwindow_grow_fade_in_from_bottom = 2130772152;
-    public static final int popupwindow_shrink_fade_out = 2130772153;
-    public static final int popupwindow_shrink_fade_out_from_bottom = 2130772154;
-    public static final int slide_in_bottom = 2130772243;
-    public static final int slide_out_bottom = 2130772244;
-    public static final int swanapp_album_checkshake = 2130772258;
-    public static final int swanapp_album_floating_layer_in_animation = 2130772259;
-    public static final int swanapp_album_floating_layer_out_animation = 2130772260;
-    public static final int swanapp_album_preview_enter = 2130772261;
-    public static final int swanapp_album_preview_img_enter = 2130772262;
-    public static final int swanapp_album_preview_img_exit = 2130772263;
-    public static final int swanapp_album_rotate_loading = 2130772264;
-    public static final int swanapp_album_slide_bottom_in = 2130772265;
-    public static final int swanapp_album_slide_bottom_out = 2130772266;
-    public static final int swangame_webview_loading = 2130772267;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import com.baidu.storage.swankv.SwanKV;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import kotlin.collections.MapsKt__MapsKt;
+/* loaded from: classes2.dex */
+public class a extends SwanKV implements SharedPreferences, SharedPreferences.Editor {
+
+    /* renamed from: d.a.h0.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public static final class RunnableC0546a implements Runnable {
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ Callable f40314f;
+
+        public RunnableC0546a(Callable callable) {
+            this.f40314f = callable;
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: d.a.h0.a.a */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // java.lang.Runnable
+        public final void run() {
+            Map<String, ?> all;
+            SharedPreferences sharedPreferences = (SharedPreferences) this.f40314f.call();
+            if (sharedPreferences == null || (all = sharedPreferences.getAll()) == null) {
+                return;
+            }
+            a.this.m(all, false);
+        }
+    }
+
+    public a(Context context, String str, int i2, String str2) {
+        super(context, str, i2, str2);
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public void apply() {
+        super.q(false);
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor clear() {
+        super.f();
+        return this;
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public boolean commit() {
+        super.q(true);
+        return true;
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
+        return super.g(str);
+    }
+
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
+        return this;
+    }
+
+    @Override // android.content.SharedPreferences
+    public Map<String, ?> getAll() {
+        return MapsKt__MapsKt.emptyMap();
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        return super.j(str, z);
+    }
+
+    @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
+    public float getFloat(String str, float f2) {
+        return super.getFloat(str, f2);
+    }
+
+    @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
+    public String getString(String str, String str2) {
+        return super.getString(str, str2);
+    }
+
+    @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
+    public Set<String> getStringSet(String str, Set<String> set) {
+        return super.getStringSet(str, set);
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putBoolean(String str, boolean z) {
+        super.r(str, z);
+        return this;
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putFloat(String str, float f2) {
+        super.t(str, f2);
+        return this;
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putInt(String str, int i2) {
+        super.u(str, i2);
+        return this;
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putLong(String str, long j) {
+        super.v(str, j);
+        return this;
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putString(String str, String str2) {
+        super.w(str, str2);
+        return this;
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
+        super.y(str, set);
+        return this;
+    }
+
+    @Override // android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        throw new UnsupportedOperationException("Not support registerOnSharedPreferenceChangeListener");
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor remove(String str) {
+        super.p(str);
+        return this;
+    }
+
+    @Override // android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        throw new UnsupportedOperationException("Not support unregisterOnSharedPreferenceChangeListener");
+    }
+
+    public void z(Callable<SharedPreferences> callable) {
+        new Thread(new RunnableC0546a(callable), "SharedPreferences-import").start();
+    }
 }

@@ -37,7 +37,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         public void a(InterestFrsData interestFrsData) {
             NewUserGuideActivity.this.mNewUserGuideModel.y(false);
             NewUserGuideActivity.this.mNewUserGuideModel.x(interestFrsData);
-            ((NewUserGuideMainFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.mViewPager.getAdapter()).getItem(1)).M0(interestFrsData);
+            ((NewUserGuideMainFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.mViewPager.getAdapter()).getItem(1)).L0(interestFrsData);
         }
 
         @Override // com.baidu.tieba.tblauncherInterestGuide.model.NewUserGuideModel.b
@@ -57,9 +57,9 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         public void onPageScrollStateChanged(int i2) {
             NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.mViewPager.getAdapter()).getItem(0);
             if (i2 == 0) {
-                newUserGuideIntroduceFragment.I0();
+                newUserGuideIntroduceFragment.H0();
             } else {
-                newUserGuideIntroduceFragment.K0();
+                newUserGuideIntroduceFragment.J0();
             }
         }
 

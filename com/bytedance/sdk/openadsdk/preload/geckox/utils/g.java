@@ -1,15 +1,15 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.utils;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f30957a;
+    public static Context f30202a;
 
     public static void a(Context context) {
         if (context != null) {
-            f30957a = context;
+            f30202a = context;
         }
     }
 

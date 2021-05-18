@@ -1,5 +1,5 @@
 package com.ta.utdid2.a.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g {
     public static String get(String str, String str2) {
         try {

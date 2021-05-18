@@ -25,82 +25,82 @@ public class c implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f35009a;
+    public int f34254a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35010b;
+    public String f34255b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35011c;
+    public String f34256c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f35012d;
+    public boolean f34257d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35013e;
+    public String f34258e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicInteger f35014f;
+    public final AtomicInteger f34259f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicLong f35015g;
+    public final AtomicLong f34260g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f35016h;
+    public long f34261h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f35017i;
+    public String f34262i;
     public String j;
     public int k;
     public boolean l;
 
     public c() {
-        this.f35015g = new AtomicLong();
-        this.f35014f = new AtomicInteger();
+        this.f34260g = new AtomicLong();
+        this.f34259f = new AtomicInteger();
     }
 
     public c(Parcel parcel) {
-        this.f35009a = parcel.readInt();
-        this.f35010b = parcel.readString();
-        this.f35011c = parcel.readString();
-        this.f35012d = parcel.readByte() != 0;
-        this.f35013e = parcel.readString();
-        this.f35014f = new AtomicInteger(parcel.readByte());
-        this.f35015g = new AtomicLong(parcel.readLong());
-        this.f35016h = parcel.readLong();
-        this.f35017i = parcel.readString();
+        this.f34254a = parcel.readInt();
+        this.f34255b = parcel.readString();
+        this.f34256c = parcel.readString();
+        this.f34257d = parcel.readByte() != 0;
+        this.f34258e = parcel.readString();
+        this.f34259f = new AtomicInteger(parcel.readByte());
+        this.f34260g = new AtomicLong(parcel.readLong());
+        this.f34261h = parcel.readLong();
+        this.f34262i = parcel.readString();
         this.j = parcel.readString();
         this.k = parcel.readInt();
         this.l = parcel.readByte() != 0;
     }
 
     public int a() {
-        return this.f35009a;
+        return this.f34254a;
     }
 
     public void a(byte b2) {
-        this.f35014f.set(b2);
+        this.f34259f.set(b2);
     }
 
     public void a(int i2) {
-        this.f35009a = i2;
+        this.f34254a = i2;
     }
 
     public void a(long j) {
-        this.f35015g.set(j);
+        this.f34260g.set(j);
     }
 
     public void a(String str) {
-        this.f35010b = str;
+        this.f34255b = str;
     }
 
     public void a(String str, boolean z) {
-        this.f35011c = str;
-        this.f35012d = z;
+        this.f34256c = str;
+        this.f34257d = z;
     }
 
     public String b() {
-        return this.f35010b;
+        return this.f34255b;
     }
 
     public void b(int i2) {
@@ -108,7 +108,7 @@ public class c implements Parcelable {
     }
 
     public void b(long j) {
-        this.f35015g.addAndGet(j);
+        this.f34260g.addAndGet(j);
     }
 
     public void b(String str) {
@@ -116,16 +116,16 @@ public class c implements Parcelable {
     }
 
     public String c() {
-        return this.f35011c;
+        return this.f34256c;
     }
 
     public void c(long j) {
         this.l = j > 2147483647L;
-        this.f35016h = j;
+        this.f34261h = j;
     }
 
     public void c(String str) {
-        this.f35017i = str;
+        this.f34262i = str;
     }
 
     public String d() {
@@ -133,7 +133,7 @@ public class c implements Parcelable {
     }
 
     public void d(String str) {
-        this.f35013e = str;
+        this.f34258e = str;
     }
 
     @Override // android.os.Parcelable
@@ -149,19 +149,19 @@ public class c implements Parcelable {
     }
 
     public byte f() {
-        return (byte) this.f35014f.get();
+        return (byte) this.f34259f.get();
     }
 
     public long g() {
-        return this.f35015g.get();
+        return this.f34260g.get();
     }
 
     public long h() {
-        return this.f35016h;
+        return this.f34261h;
     }
 
     public boolean i() {
-        return this.f35016h == -1;
+        return this.f34261h == -1;
     }
 
     public String j() {
@@ -169,15 +169,15 @@ public class c implements Parcelable {
     }
 
     public String k() {
-        return this.f35017i;
+        return this.f34262i;
     }
 
     public boolean l() {
-        return this.f35012d;
+        return this.f34257d;
     }
 
     public String m() {
-        return this.f35013e;
+        return this.f34258e;
     }
 
     public int n() {
@@ -211,20 +211,20 @@ public class c implements Parcelable {
     }
 
     public String toString() {
-        return f.a("id[%d], url[%s], path[%s], status[%d], sofar[%s], total[%d], etag[%s], %s", Integer.valueOf(this.f35009a), this.f35010b, this.f35011c, Integer.valueOf(this.f35014f.get()), this.f35015g, Long.valueOf(this.f35016h), this.j, super.toString());
+        return f.a("id[%d], url[%s], path[%s], status[%d], sofar[%s], total[%d], etag[%s], %s", Integer.valueOf(this.f34254a), this.f34255b, this.f34256c, Integer.valueOf(this.f34259f.get()), this.f34260g, Long.valueOf(this.f34261h), this.j, super.toString());
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f35009a);
-        parcel.writeString(this.f35010b);
-        parcel.writeString(this.f35011c);
-        parcel.writeByte(this.f35012d ? (byte) 1 : (byte) 0);
-        parcel.writeString(this.f35013e);
-        parcel.writeByte((byte) this.f35014f.get());
-        parcel.writeLong(this.f35015g.get());
-        parcel.writeLong(this.f35016h);
-        parcel.writeString(this.f35017i);
+        parcel.writeInt(this.f34254a);
+        parcel.writeString(this.f34255b);
+        parcel.writeString(this.f34256c);
+        parcel.writeByte(this.f34257d ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.f34258e);
+        parcel.writeByte((byte) this.f34259f.get());
+        parcel.writeLong(this.f34260g.get());
+        parcel.writeLong(this.f34261h);
+        parcel.writeString(this.f34262i);
         parcel.writeString(this.j);
         parcel.writeInt(this.k);
         parcel.writeByte(this.l ? (byte) 1 : (byte) 0);

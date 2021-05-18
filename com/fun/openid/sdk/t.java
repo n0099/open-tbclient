@@ -15,10 +15,10 @@ import com.fun.openid.sdk.u;
 public class t implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ u f31570a;
+    public final /* synthetic */ u f30815a;
 
     public t(u uVar) {
-        this.f31570a = uVar;
+        this.f30815a = uVar;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(9:8|9|(2:10|11)|(5:13|(2:15|(5:20|21|(2:23|24)|31|24)(2:17|18))(3:34|(1:36)|37)|25|26|27)|39|(0)(0)|25|26|27) */
@@ -29,35 +29,35 @@ public class t implements ServiceConnection {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        s c0344a;
+        s c0331a;
         boolean z;
         String str;
         s sVar;
         s sVar2;
-        u uVar = this.f31570a;
-        int i2 = s.a.f31568a;
+        u uVar = this.f30815a;
+        int i2 = s.a.f30813a;
         if (iBinder == null) {
-            c0344a = null;
+            c0331a = null;
         } else {
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.zui.deviceidservice.IDeviceidInterface");
-            c0344a = (queryLocalInterface == null || !(queryLocalInterface instanceof s)) ? new s.a.C0344a(iBinder) : (s) queryLocalInterface;
+            c0331a = (queryLocalInterface == null || !(queryLocalInterface instanceof s)) ? new s.a.C0331a(iBinder) : (s) queryLocalInterface;
         }
-        uVar.f31572b = c0344a;
-        u uVar2 = this.f31570a;
-        u.a aVar = uVar2.f31574d;
+        uVar.f30817b = c0331a;
+        u uVar2 = this.f30815a;
+        u.a aVar = uVar2.f30819d;
         if (aVar != null) {
             g.a aVar2 = (g.a) aVar;
             try {
-                sVar2 = uVar2.f31572b;
+                sVar2 = uVar2.f30817b;
             } catch (RemoteException unused) {
             }
             if (sVar2 != null) {
                 z = sVar2.a();
                 if (!z) {
-                    f.a aVar3 = aVar2.f31547a;
-                    if (uVar2.f31571a != null) {
+                    f.a aVar3 = aVar2.f30792a;
+                    if (uVar2.f30816a != null) {
                         try {
-                            sVar = uVar2.f31572b;
+                            sVar = uVar2.f30817b;
                         } catch (RemoteException e2) {
                             e2.printStackTrace();
                         }
@@ -74,24 +74,24 @@ public class t implements ServiceConnection {
                     if (FunOpenIDSdk.isLogEnabled()) {
                         Log.e(FunOpenIDSdk.TAG, "当前设备不支持获取OAID");
                     }
-                    ((e.a) aVar2.f31547a).a(false, null);
+                    ((e.a) aVar2.f30792a).a(false, null);
                 }
-                uVar2.f31571a.unbindService(uVar2.f31573c);
-                uVar2.f31572b = null;
-                g.this.f31546a = false;
+                uVar2.f30816a.unbindService(uVar2.f30818c);
+                uVar2.f30817b = null;
+                g.this.f30791a = false;
             }
             z = false;
             if (!z) {
             }
-            uVar2.f31571a.unbindService(uVar2.f31573c);
-            uVar2.f31572b = null;
-            g.this.f31546a = false;
+            uVar2.f30816a.unbindService(uVar2.f30818c);
+            uVar2.f30817b = null;
+            g.this.f30791a = false;
         }
-        this.f31570a.getClass();
+        this.f30815a.getClass();
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.f31570a.f31572b = null;
+        this.f30815a.f30817b = null;
     }
 }

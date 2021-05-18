@@ -13,6 +13,7 @@ import com.baidu.mobads.container.util.RemoteXAdLogger;
 import com.baidu.mobads.sdk.api.ICommonModuleObj;
 import com.baidu.mobads.sdk.api.IXAdContainerFactory;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tieba.service.AsInstallService;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AllInOneXAdContainerFactory implements IXAdContainerFactory {
@@ -35,7 +36,7 @@ public class AllInOneXAdContainerFactory implements IXAdContainerFactory {
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
         intentFilter.addAction("android.intent.action.PACKAGE_REPLACED");
-        intentFilter.addDataScheme("package");
+        intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
         context.getApplicationContext().registerReceiver(new APKInstallReceiver(), intentFilter);
     }
 

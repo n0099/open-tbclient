@@ -10,14 +10,14 @@ import com.baidu.mapsdkplatform.comapi.a.l;
 public class Transformation extends Animation {
     public Transformation(Point... pointArr) {
         if (pointArr == null || pointArr.length == 0) {
-            throw new NullPointerException("the points is null");
+            throw new NullPointerException("BDMapSDKException: the points is null");
         }
         this.bdAnimation = new l(pointArr);
     }
 
     public Transformation(LatLng... latLngArr) {
         if (latLngArr == null || latLngArr.length == 0) {
-            throw new NullPointerException("the latlngs is null");
+            throw new NullPointerException("BDMapSDKException: the latlngs is null");
         }
         this.bdAnimation = new l(latLngArr);
     }

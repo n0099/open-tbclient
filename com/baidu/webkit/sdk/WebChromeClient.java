@@ -88,12 +88,11 @@ public class WebChromeClient {
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
         } catch (Throwable th) {
-            String str = Log.LOG_TAG;
-            Log.e(str, "setDefaultEnableJsPromptSailor error:" + th);
+            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
         }
         if (DEBUG) {
-            String str2 = LOG_TAG;
-            Log.d(str2, "doJsCheckIfNeeded() jsCallInfo: " + bdJsCallInfo + " ,policy:" + bdJsCheckPolicy);
+            String str = LOG_TAG;
+            Log.d(str, "doJsCheckIfNeeded() jsCallInfo: " + bdJsCallInfo + " ,policy:" + bdJsCheckPolicy);
         }
         if (bdJsCheckPolicy != null) {
             if (bdJsCallInfo.hasFinishedPermissionCheck()) {
@@ -166,12 +165,12 @@ public class WebChromeClient {
         return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0153  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0156 A[Catch: InvocationTargetException -> 0x017b, IllegalAccessException -> 0x018a, IllegalArgumentException -> 0x0196, NoSuchMethodException -> 0x01c1, TryCatch #2 {IllegalAccessException -> 0x018a, IllegalArgumentException -> 0x0196, NoSuchMethodException -> 0x01c1, InvocationTargetException -> 0x017b, blocks: (B:33:0x00cb, B:35:0x00d1, B:37:0x00dc, B:39:0x00e6, B:41:0x00ea, B:44:0x00f4, B:45:0x010d, B:48:0x0113, B:51:0x0145, B:59:0x015a, B:61:0x015e, B:63:0x0173, B:64:0x0177, B:58:0x0156, B:49:0x013f), top: B:96:0x00cb }] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x015e A[Catch: InvocationTargetException -> 0x017b, IllegalAccessException -> 0x018a, IllegalArgumentException -> 0x0196, NoSuchMethodException -> 0x01c1, TryCatch #2 {IllegalAccessException -> 0x018a, IllegalArgumentException -> 0x0196, NoSuchMethodException -> 0x01c1, InvocationTargetException -> 0x017b, blocks: (B:33:0x00cb, B:35:0x00d1, B:37:0x00dc, B:39:0x00e6, B:41:0x00ea, B:44:0x00f4, B:45:0x010d, B:48:0x0113, B:51:0x0145, B:59:0x015a, B:61:0x015e, B:63:0x0173, B:64:0x0177, B:58:0x0156, B:49:0x013f), top: B:96:0x00cb }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0173 A[Catch: InvocationTargetException -> 0x017b, IllegalAccessException -> 0x018a, IllegalArgumentException -> 0x0196, NoSuchMethodException -> 0x01c1, TryCatch #2 {IllegalAccessException -> 0x018a, IllegalArgumentException -> 0x0196, NoSuchMethodException -> 0x01c1, InvocationTargetException -> 0x017b, blocks: (B:33:0x00cb, B:35:0x00d1, B:37:0x00dc, B:39:0x00e6, B:41:0x00ea, B:44:0x00f4, B:45:0x010d, B:48:0x0113, B:51:0x0145, B:59:0x015a, B:61:0x015e, B:63:0x0173, B:64:0x0177, B:58:0x0156, B:49:0x013f), top: B:96:0x00cb }] */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x01a4  */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x01bd  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x014b  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x014e A[Catch: InvocationTargetException -> 0x016f, IllegalAccessException -> 0x017e, IllegalArgumentException -> 0x018a, NoSuchMethodException -> 0x01b5, TryCatch #2 {IllegalAccessException -> 0x017e, IllegalArgumentException -> 0x018a, NoSuchMethodException -> 0x01b5, InvocationTargetException -> 0x016f, blocks: (B:33:0x00c3, B:35:0x00c9, B:37:0x00d4, B:39:0x00de, B:41:0x00e2, B:44:0x00ec, B:45:0x0105, B:48:0x010b, B:51:0x013d, B:59:0x0152, B:61:0x0156, B:63:0x0167, B:64:0x016b, B:58:0x014e, B:49:0x0137), top: B:96:0x00c3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0156 A[Catch: InvocationTargetException -> 0x016f, IllegalAccessException -> 0x017e, IllegalArgumentException -> 0x018a, NoSuchMethodException -> 0x01b5, TryCatch #2 {IllegalAccessException -> 0x017e, IllegalArgumentException -> 0x018a, NoSuchMethodException -> 0x01b5, InvocationTargetException -> 0x016f, blocks: (B:33:0x00c3, B:35:0x00c9, B:37:0x00d4, B:39:0x00de, B:41:0x00e2, B:44:0x00ec, B:45:0x0105, B:48:0x010b, B:51:0x013d, B:59:0x0152, B:61:0x0156, B:63:0x0167, B:64:0x016b, B:58:0x014e, B:49:0x0137), top: B:96:0x00c3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0167 A[Catch: InvocationTargetException -> 0x016f, IllegalAccessException -> 0x017e, IllegalArgumentException -> 0x018a, NoSuchMethodException -> 0x01b5, TryCatch #2 {IllegalAccessException -> 0x017e, IllegalArgumentException -> 0x018a, NoSuchMethodException -> 0x01b5, InvocationTargetException -> 0x016f, blocks: (B:33:0x00c3, B:35:0x00c9, B:37:0x00d4, B:39:0x00de, B:41:0x00e2, B:44:0x00ec, B:45:0x0105, B:48:0x010b, B:51:0x013d, B:59:0x0152, B:61:0x0156, B:63:0x0167, B:64:0x016b, B:58:0x014e, B:49:0x0137), top: B:96:0x00c3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x0198  */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x01b1  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -186,7 +185,7 @@ public class WebChromeClient {
         Object obj = webView.getSecureProcessor().d().get(str);
         if (obj == null) {
             if (DEBUG) {
-                Log.e(LOG_TAG, "not exist js interface:" + str);
+                Log.e(LOG_TAG, "not exist js interface:".concat(String.valueOf(str)));
             }
             if (z) {
                 jsPromptResult.confirm(getReturnValueInJSON(101, "interface:" + str + " not found!", null));
@@ -196,7 +195,7 @@ public class WebChromeClient {
             return true;
         } else if (objArr == null && str2 == null) {
             if (DEBUG) {
-                Log.d(LOG_TAG, "interface query: found for " + str);
+                Log.d(LOG_TAG, "interface query: found for ".concat(String.valueOf(str)));
             }
             if (z) {
                 jsPromptResult.confirm(getReturnValueInJSON(0, "interface:" + str + " found!", Boolean.TRUE.toString()));
@@ -253,7 +252,7 @@ public class WebChromeClient {
                     z3 = false;
                     String obj2 = !z3 ? "" : invoke.toString();
                     if (DEBUG) {
-                        Log.d(LOG_TAG, "called ok: " + obj2);
+                        Log.d(LOG_TAG, "called ok: ".concat(String.valueOf(obj2)));
                     }
                     if (z) {
                         obj2 = getReturnValueInJSON(0, null, obj2);
@@ -354,10 +353,8 @@ public class WebChromeClient {
         String substring;
         boolean z;
         if (DEBUG) {
-            String str4 = LOG_TAG;
-            Log.d(str4, "handle url: " + str);
-            String str5 = LOG_TAG;
-            Log.i(str5, "handle msg: " + str2);
+            Log.d(LOG_TAG, "handle url: ".concat(String.valueOf(str)));
+            Log.i(LOG_TAG, "handle msg: ".concat(String.valueOf(str2)));
         }
         if (TextUtils.isEmpty(str2)) {
             return false;
@@ -400,8 +397,8 @@ public class WebChromeClient {
                         }
                     }
                     sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                    String str6 = LOG_TAG;
-                    Log.d(str6, "call: " + sb.toString());
+                    String str4 = LOG_TAG;
+                    Log.d(str4, "call: " + sb.toString());
                 }
             }
             return invokeJSInterfaceMethod(webView, jsPromptResult, z, string, optString, objArr);

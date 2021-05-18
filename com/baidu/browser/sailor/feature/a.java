@@ -6,13 +6,13 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
     public static final String TAG = "BdSailorFeature";
-    public Map<String, d.a.h.b.c.a> mClientsMap = new HashMap();
+    public Map<String, d.a.h.b.a.a> mClientsMap = new HashMap();
     public Context mContext;
-    public Enum<EnumC0064a> mStatus;
+    public Enum<EnumC0063a> mStatus;
 
     /* renamed from: com.baidu.browser.sailor.feature.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public enum EnumC0064a {
+    public enum EnumC0063a {
         ENABLE,
         DISABLE
     }
@@ -30,14 +30,14 @@ public class a {
     }
 
     public void disable() {
-        this.mStatus = EnumC0064a.DISABLE;
+        this.mStatus = EnumC0063a.DISABLE;
     }
 
     public void enable() {
-        this.mStatus = EnumC0064a.ENABLE;
+        this.mStatus = EnumC0063a.ENABLE;
     }
 
-    public d.a.h.b.c.a getListenerFromActivity(String str) {
+    public d.a.h.b.a.a getListenerFromActivity(String str) {
         return this.mClientsMap.get(str);
     }
 
@@ -46,10 +46,10 @@ public class a {
     }
 
     public boolean isEnable() {
-        return this.mStatus == EnumC0064a.ENABLE;
+        return this.mStatus == EnumC0063a.ENABLE;
     }
 
-    public void regActivityResultCallback(String str, d.a.h.b.c.a aVar) {
+    public void regActivityResultCallback(String str, d.a.h.b.a.a aVar) {
         if (this.mClientsMap.containsKey(str)) {
             return;
         }

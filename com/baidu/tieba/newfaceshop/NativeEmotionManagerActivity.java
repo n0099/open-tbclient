@@ -25,8 +25,8 @@ import com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragme
 import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements d.a.j0.y1.h.c.a<Boolean> {
+/* loaded from: classes4.dex */
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements d.a.k0.y1.h.c.a<Boolean> {
     public BaseFragment createEmotionFragment;
     public int isModerator;
     public FragmentPagerAdapter mAdapter;
@@ -43,7 +43,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     public boolean edaitButtonShowCtrl = true;
     public int fragmentPostion = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends FragmentPagerAdapter {
         public a(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -71,7 +71,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends ViewPager.SimpleOnPageChangeListener {
         public b() {
         }
@@ -102,7 +102,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         this.mTitles.add("我的表情");
         MyEmotionManagerFragment myEmotionManagerFragment = new MyEmotionManagerFragment();
         this.myEmotionManagerFragment = myEmotionManagerFragment;
-        myEmotionManagerFragment.K0(this);
+        myEmotionManagerFragment.J0(this);
         this.fragments.add(this.myEmotionManagerFragment);
         if (this.isModerator == 1) {
             this.mTitles.add("单吧表情");
@@ -165,8 +165,8 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.mManager) {
-            boolean z = !d.a.j0.y1.h.a.b().a();
-            d.a.j0.y1.h.a.b().d(z);
+            boolean z = !d.a.k0.y1.h.a.b().a();
+            d.a.k0.y1.h.a.b().d(z);
             if (z) {
                 this.mManager.setText(R.string.emotion_manage_finish);
             } else {
@@ -185,7 +185,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.j0.y1.h.c.a
+    @Override // d.a.k0.y1.h.c.a
     public void onUpdate(Boolean bool) {
         if (bool == null) {
             return;

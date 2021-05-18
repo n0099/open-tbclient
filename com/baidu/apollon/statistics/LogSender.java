@@ -12,28 +12,28 @@ import java.util.HashMap;
 public class LogSender {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3916a = 10002;
+    public static final int f3917a = 10002;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3917b = 10003;
+    public static final int f3918b = 10003;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3918d = 10000;
+    public static final int f3919d = 10000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f3919e = 10001;
+    public static final int f3920e = 10001;
 
     /* renamed from: c  reason: collision with root package name */
-    public HandlerThread f3920c;
+    public HandlerThread f3921c;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f3921f;
+    public Handler f3922f;
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LogSender f3923a = new LogSender();
+        public static LogSender f3924a = new LogSender();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -42,31 +42,31 @@ public class LogSender {
         if (c2 == null) {
             return;
         }
-        this.f3921f.removeMessages(10001);
+        this.f3922f.removeMessages(10001);
         int d2 = g.a().d();
         if (com.baidu.apollon.statistics.a.a(c2)) {
             d2 = g.a().c();
         }
-        this.f3921f.sendEmptyMessageDelayed(10001, d2 * 60000);
+        this.f3922f.sendEmptyMessageDelayed(10001, d2 * 60000);
     }
 
     public static LogSender getInstance() {
-        return a.f3923a;
+        return a.f3924a;
     }
 
     public void triggerSending(String str) {
         if (Config.w.equals(str)) {
-            this.f3921f.sendEmptyMessage(10003);
+            this.f3922f.sendEmptyMessage(10003);
         } else {
-            this.f3921f.obtainMessage(10000, str).sendToTarget();
+            this.f3922f.obtainMessage(10000, str).sendToTarget();
         }
     }
 
     public LogSender() {
         HandlerThread handlerThread = new HandlerThread("LogSenderThread");
-        this.f3920c = handlerThread;
+        this.f3921c = handlerThread;
         handlerThread.start();
-        this.f3921f = new Handler(this.f3920c.getLooper()) { // from class: com.baidu.apollon.statistics.LogSender.1
+        this.f3922f = new Handler(this.f3921c.getLooper()) { // from class: com.baidu.apollon.statistics.LogSender.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (PayStatisticsUtil.c() == null) {
@@ -96,7 +96,7 @@ public class LogSender {
         Context c2 = PayStatisticsUtil.c();
         if (c2 != null) {
             f.a(BasicStoreTools.getInstance().getLastEvtId(c2));
-            this.f3921f.sendEmptyMessage(10002);
+            this.f3922f.sendEmptyMessage(10002);
         }
     }
 
@@ -106,13 +106,13 @@ public class LogSender {
             return false;
         }
         c.a a2 = c.a().a(str);
-        if (a2.f3940a == 0 || TextUtils.isEmpty(a2.f3941b) || !a(a2.f3941b, (String) null)) {
+        if (a2.f3941a == 0 || TextUtils.isEmpty(a2.f3942b) || !a(a2.f3942b, (String) null)) {
             return false;
         }
         if (str.equals("normal_log")) {
-            BasicStoreTools.getInstance().setLastData(c2, com.baidu.apollon.statistics.a.a(a2.f3941b.getBytes(), false));
+            BasicStoreTools.getInstance().setLastData(c2, com.baidu.apollon.statistics.a.a(a2.f3942b.getBytes(), false));
         }
-        d.a().a(str, a2.f3940a);
+        d.a().a(str, a2.f3941a);
         return true;
     }
 

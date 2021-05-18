@@ -8,7 +8,7 @@ import android.widget.TextView;
 public class LineCountNotifyTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f13742e;
+    public a f13078e;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -22,13 +22,13 @@ public class LineCountNotifyTextView extends TextView {
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        a aVar = this.f13742e;
+        a aVar = this.f13078e;
         if (aVar != null) {
             aVar.a();
         }
     }
 
     public void setGetLineCountCallback(a aVar) {
-        this.f13742e = aVar;
+        this.f13078e = aVar;
     }
 }

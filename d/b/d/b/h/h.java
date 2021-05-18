@@ -1,11 +1,11 @@
 package d.b.d.b.h;
 
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<Long> f65212a = new AtomicReference<>(0L);
+    public static final AtomicReference<Long> f65898a = new AtomicReference<>(0L);
 
     public static void a(long j) {
         int i2 = 0;
@@ -14,8 +14,8 @@ public class h {
             if (i2 >= 5) {
                 return;
             }
-            long longValue = f65212a.get().longValue();
-            if (f65212a.compareAndSet(Long.valueOf(longValue), Long.valueOf(longValue | j))) {
+            long longValue = f65898a.get().longValue();
+            if (f65898a.compareAndSet(Long.valueOf(longValue), Long.valueOf(longValue | j))) {
                 return;
             }
             i2 = i3;

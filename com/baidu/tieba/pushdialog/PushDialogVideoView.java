@@ -30,9 +30,9 @@ import com.baidu.tieba.play.PbVideoWifiTipLayout;
 import com.baidu.tieba.play.VideoControllerView;
 import com.baidu.tieba.play.VideoLoadingProgressView;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
-import d.a.j0.j2.n;
-import d.a.j0.j2.o;
-/* loaded from: classes4.dex */
+import d.a.k0.j2.n;
+import d.a.k0.j2.o;
+/* loaded from: classes5.dex */
 public class PushDialogVideoView extends RelativeLayout implements View.OnClickListener {
     public boolean A;
     public boolean B;
@@ -40,7 +40,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public boolean D;
     public boolean E;
     public boolean F;
-    public d.a.i0.b1.m.i G;
+    public d.a.j0.b1.m.i G;
     public CyberPlayerManager.OnPreparedListener H;
     public VideoLoadingProgressView.c I;
     public Runnable J;
@@ -55,21 +55,21 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public VideoControllerView.d S;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20860e;
+    public int f20148e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20861f;
+    public int f20149f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20862g;
+    public int f20150g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20863h;
+    public int f20151h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext<?> f20864i;
+    public TbPageContext<?> f20152i;
     public TbCyberVideoView j;
-    public d.a.j0.j2.m k;
+    public d.a.k0.j2.m k;
     public ProgressBar l;
     public View m;
     public View n;
@@ -86,7 +86,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public boolean y;
     public boolean z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public a(int i2) {
             super(i2);
@@ -101,7 +101,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -118,12 +118,12 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 if (PushDialogVideoView.this.S != null) {
                     PushDialogVideoView.this.S.a(currentPosition);
                 }
-                sendMessageDelayed(obtainMessage(1), PushDialogVideoView.this.f20860e - (currentPosition % PushDialogVideoView.this.f20860e));
+                sendMessageDelayed(obtainMessage(1), PushDialogVideoView.this.f20148e - (currentPosition % PushDialogVideoView.this.f20148e));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements VideoControllerView.d {
         public c() {
         }
@@ -138,7 +138,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements CyberPlayerManager.OnPreparedListener {
         public d() {
         }
@@ -149,7 +149,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements VideoLoadingProgressView.c {
         public e() {
         }
@@ -160,7 +160,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements Runnable {
         public f() {
         }
@@ -180,7 +180,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g implements CyberPlayerManager.OnCompletionListener {
         public g() {
         }
@@ -207,7 +207,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class h implements CyberPlayerManager.OnErrorListener {
         public h() {
         }
@@ -224,7 +224,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class i implements Runnable {
         public i() {
         }
@@ -236,7 +236,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class j implements CyberPlayerManager.OnSeekCompleteListener {
         public j() {
         }
@@ -249,7 +249,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class k implements Runnable {
         public k() {
         }
@@ -268,7 +268,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class l implements TbCyberVideoView.g {
         public l() {
         }
@@ -282,15 +282,15 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface m {
         void a(boolean z);
     }
 
     public PushDialogVideoView(Context context) {
         super(context);
-        this.f20860e = 50;
-        this.f20861f = 3;
+        this.f20148e = 50;
+        this.f20149f = 3;
         this.v = false;
         this.w = 0;
         this.y = true;
@@ -388,7 +388,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public final void M() {
         if (d.a.c.e.p.j.x()) {
-            d.a.j0.q3.f.d().g(getContext());
+            d.a.k0.q3.f.d().g(getContext());
         }
     }
 
@@ -398,15 +398,15 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
         this.l.setVisibility(0);
         int duration = ((this.j.getDuration() / 200) / 50) * 50;
-        this.f20860e = duration;
+        this.f20148e = duration;
         if (duration < 50) {
-            this.f20860e = 50;
+            this.f20148e = 50;
         } else if (duration > 500) {
-            this.f20860e = 500;
+            this.f20148e = 500;
         }
         this.R.removeMessages(1);
         Handler handler = this.R;
-        handler.sendMessageDelayed(handler.obtainMessage(1), this.f20860e - (this.j.getCurrentPosition() % this.f20860e));
+        handler.sendMessageDelayed(handler.obtainMessage(1), this.f20148e - (this.j.getCurrentPosition() % this.f20148e));
     }
 
     public void O(String str, String str2) {
@@ -455,7 +455,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         if (objArr != null && objArr.length > 0 && (objArr[0] instanceof Boolean)) {
             this.A = ((Boolean) objArr[0]).booleanValue();
         }
-        if (d.a.c.e.p.j.x() && !this.F && !d.a.j0.q3.f.d().e()) {
+        if (d.a.c.e.p.j.x() && !this.F && !d.a.k0.q3.f.d().e()) {
             this.u.setVisibility(0);
             this.u.setData(this.G.b(), this.G.c());
             return;
@@ -510,7 +510,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             this.F = true;
             this.u.setVisibility(8);
             O(this.r, this.s);
-        } else if (view != this.u.getTvOpenFreeData() || (tbPageContext = this.f20864i) == null) {
+        } else if (view != this.u.getTvOpenFreeData() || (tbPageContext = this.f20152i) == null) {
         } else {
             tbPageContext.getPageActivity().finish();
         }
@@ -519,7 +519,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        setMeasuredDimension(this.f20862g, this.f20863h);
+        setMeasuredDimension(this.f20150g, this.f20151h);
     }
 
     public void setNetworkChange() {
@@ -532,7 +532,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
-        this.f20864i = tbPageContext;
+        this.f20152i = tbPageContext;
         tbPageContext.registerListener(this.Q);
     }
 
@@ -542,7 +542,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         this.p.setVisibility(8);
     }
 
-    public void setTbRichTextVideoInfo(d.a.i0.b1.m.i iVar) {
+    public void setTbRichTextVideoInfo(d.a.j0.b1.m.i iVar) {
         this.G = iVar;
         this.q.setText(StringHelper.stringForVideoTime(iVar.b() * 1000));
     }
@@ -576,18 +576,18 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public final void x(Context context) {
         LayoutInflater.from(context).inflate(R.layout.cell_push_dialog_video_layout, (ViewGroup) this, true);
         int k2 = d.a.c.e.p.l.k(context) - d.a.c.e.p.l.g(context, R.dimen.tbds132);
-        this.f20862g = k2;
-        this.f20863h = (int) (k2 * 0.5625f);
+        this.f20150g = k2;
+        this.f20151h = (int) (k2 * 0.5625f);
         TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) findViewById(R.id.videoView);
         this.j = tbCyberVideoView;
         tbCyberVideoView.setPlayMode("2");
         this.j.setStageType(null);
-        d.a.j0.j2.m mVar = new d.a.j0.j2.m((ViewGroup) findViewById(R.id.auto_video_loading_container));
+        d.a.k0.j2.m mVar = new d.a.k0.j2.m((ViewGroup) findViewById(R.id.auto_video_loading_container));
         this.k = mVar;
         mVar.f(this.I);
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.pgrBottomProgress);
         this.l = progressBar;
-        progressBar.setMax(this.f20862g);
+        progressBar.setMax(this.f20150g);
         this.l.setProgress(0);
         this.m = findViewById(R.id.black_mask);
         this.n = findViewById(R.id.layout_error);
@@ -623,16 +623,16 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public void z() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f20861f) {
+        if (skinType == this.f20149f) {
             return;
         }
-        this.f20861f = skinType;
+        this.f20149f = skinType;
     }
 
     public PushDialogVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20860e = 50;
-        this.f20861f = 3;
+        this.f20148e = 50;
+        this.f20149f = 3;
         this.v = false;
         this.w = 0;
         this.y = true;
@@ -656,8 +656,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public PushDialogVideoView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f20860e = 50;
-        this.f20861f = 3;
+        this.f20148e = 50;
+        this.f20149f = 3;
         this.v = false;
         this.w = 0;
         this.y = true;

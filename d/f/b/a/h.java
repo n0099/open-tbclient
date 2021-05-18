@@ -10,29 +10,29 @@ import java.io.InputStreamReader;
 public class h extends a {
 
     /* renamed from: d  reason: collision with root package name */
-    public StringBuffer f65432d;
+    public StringBuffer f66118d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f65433e;
+    public int f66119e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f65434f;
+    public long f66120f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f65435g;
+    public long f66121g;
 
     public h(long j) {
         super(j);
-        this.f65432d = new StringBuffer();
-        this.f65433e = 0;
-        this.f65434f = 0L;
-        this.f65435g = 0L;
+        this.f66118d = new StringBuffer();
+        this.f66119e = 0;
+        this.f66120f = 0L;
+        this.f66121g = 0L;
     }
 
     @Override // d.f.b.a.a
     public void b() {
         BufferedReader bufferedReader;
-        this.f65432d.setLength(0);
+        this.f66118d.setLength(0);
         BufferedReader bufferedReader2 = null;
         try {
             try {
@@ -43,10 +43,10 @@ public class h extends a {
                     if (readLine == null) {
                         readLine = "";
                     }
-                    if (this.f65433e == 0) {
-                        this.f65433e = Process.myPid();
+                    if (this.f66119e == 0) {
+                        this.f66119e = Process.myPid();
                     }
-                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + this.f65433e + "/stat")), 1000);
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + this.f66119e + "/stat")), 1000);
                     try {
                         String readLine2 = bufferedReader.readLine();
                         if (readLine2 != null) {
@@ -101,7 +101,7 @@ public class h extends a {
     }
 
     public String e() {
-        return this.f65432d.toString();
+        return this.f66118d.toString();
     }
 
     public final void f(String str, String str2) {
@@ -118,15 +118,15 @@ public class h extends a {
             return;
         }
         if (parseLong5 != 0) {
-            long j = parseLong5 - this.f65435g;
-            this.f65432d.append(((j - (parseLong4 - this.f65434f)) * 100) / j);
+            long j = parseLong5 - this.f66121g;
+            this.f66118d.append(((j - (parseLong4 - this.f66120f)) * 100) / j);
         }
-        this.f65434f = parseLong4;
-        this.f65435g = parseLong5;
+        this.f66120f = parseLong4;
+        this.f66121g = parseLong5;
     }
 
     public final void g() {
-        this.f65434f = 0L;
-        this.f65435g = 0L;
+        this.f66120f = 0L;
+        this.f66121g = 0L;
     }
 }

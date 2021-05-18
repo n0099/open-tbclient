@@ -18,20 +18,20 @@ import java.util.Iterator;
 public class e extends BaseAdapter implements o {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f40338e;
+    public Context f39583e;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<c> f40340g;
+    public ArrayList<c> f39585g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<c> f40341h;
+    public ArrayList<c> f39586h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f40342i;
+    public boolean f39587i;
     public DataSetObserver k;
 
     /* renamed from: f  reason: collision with root package name */
-    public ListAdapter f40339f = null;
+    public ListAdapter f39584f = null;
     public DataSetObserver j = null;
     public b l = null;
 
@@ -69,40 +69,40 @@ public class e extends BaseAdapter implements o {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f40344a;
+        public View f39589a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f40345b;
+        public Object f39590b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f40346c;
+        public boolean f39591c;
 
         public c(e eVar) {
         }
     }
 
     public e(Context context) {
-        this.f40338e = null;
-        this.f40340g = null;
-        this.f40341h = null;
+        this.f39583e = null;
+        this.f39585g = null;
+        this.f39586h = null;
         boolean z = false;
-        this.f40342i = false;
+        this.f39587i = false;
         this.k = null;
-        this.f40338e = context;
-        this.f40340g = new ArrayList<>();
-        this.f40341h = new ArrayList<>();
-        if (i(this.f40340g) && i(this.f40341h)) {
+        this.f39583e = context;
+        this.f39585g = new ArrayList<>();
+        this.f39586h = new ArrayList<>();
+        if (i(this.f39585g) && i(this.f39586h)) {
             z = true;
         }
-        this.f40342i = z;
+        this.f39587i = z;
         this.k = new a();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
-        ListAdapter listAdapter = this.f40339f;
+        ListAdapter listAdapter = this.f39584f;
         if (listAdapter != null) {
-            return this.f40342i && listAdapter.areAllItemsEnabled();
+            return this.f39587i && listAdapter.areAllItemsEnabled();
         }
         return super.areAllItemsEnabled();
     }
@@ -116,13 +116,13 @@ public class e extends BaseAdapter implements o {
             return;
         }
         c cVar = new c(this);
-        cVar.f40344a = view;
-        cVar.f40345b = obj;
-        cVar.f40346c = z;
-        if (i2 >= 0 && i2 <= this.f40341h.size()) {
-            this.f40341h.add(i2, cVar);
+        cVar.f39589a = view;
+        cVar.f39590b = obj;
+        cVar.f39591c = z;
+        if (i2 >= 0 && i2 <= this.f39586h.size()) {
+            this.f39586h.add(i2, cVar);
         } else {
-            this.f40341h.add(cVar);
+            this.f39586h.add(cVar);
         }
         notifyDataSetChanged();
     }
@@ -135,9 +135,9 @@ public class e extends BaseAdapter implements o {
     public int getCount() {
         int l;
         int n;
-        if (this.f40339f != null) {
+        if (this.f39584f != null) {
             l = l() + n();
-            n = this.f40339f.getCount();
+            n = this.f39584f.getCount();
         } else {
             l = l();
             n = n();
@@ -149,57 +149,57 @@ public class e extends BaseAdapter implements o {
     public Object getItem(int i2) {
         int n = n();
         if (i2 < n) {
-            return this.f40340g.get(i2).f40345b;
+            return this.f39585g.get(i2).f39590b;
         }
         int i3 = i2 - n;
         int i4 = 0;
-        ListAdapter listAdapter = this.f40339f;
+        ListAdapter listAdapter = this.f39584f;
         if (listAdapter != null && i3 < (i4 = listAdapter.getCount())) {
-            return this.f40339f.getItem(i3);
+            return this.f39584f.getItem(i3);
         }
         int i5 = i3 - i4;
-        if (i5 < 0 || i5 >= this.f40341h.size()) {
+        if (i5 < 0 || i5 >= this.f39586h.size()) {
             return null;
         }
-        return this.f40341h.get(i5).f40345b;
+        return this.f39586h.get(i5).f39590b;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i2) {
         int i3;
         int n = n();
-        ListAdapter listAdapter = this.f40339f;
+        ListAdapter listAdapter = this.f39584f;
         if (listAdapter == null || i2 < n || (i3 = i2 - n) >= listAdapter.getCount()) {
             return Long.MIN_VALUE;
         }
-        return this.f40339f.getItemId(i3);
+        return this.f39584f.getItemId(i3);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i2) {
         int i3;
         int n = n();
-        ListAdapter listAdapter = this.f40339f;
+        ListAdapter listAdapter = this.f39584f;
         if (listAdapter == null || i2 < n || (i3 = i2 - n) >= listAdapter.getCount()) {
             return -2;
         }
-        return this.f40339f.getItemViewType(i3);
+        return this.f39584f.getItemViewType(i3);
     }
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         int n = n();
         if (i2 < n) {
-            View view2 = this.f40340g.get(i2).f40344a;
+            View view2 = this.f39585g.get(i2).f39589a;
             return view2 == null ? j() : view2;
         }
         int i3 = i2 - n;
         int i4 = 0;
-        ListAdapter listAdapter = this.f40339f;
+        ListAdapter listAdapter = this.f39584f;
         View view3 = null;
         if (listAdapter != null && i3 < (i4 = listAdapter.getCount())) {
             try {
-                view3 = this.f40339f.getView(i3, view, viewGroup);
+                view3 = this.f39584f.getView(i3, view, viewGroup);
             } catch (Exception e2) {
                 if (e2.getMessage() != null) {
                     BdLog.detailException(e2);
@@ -208,12 +208,12 @@ public class e extends BaseAdapter implements o {
                 }
             } catch (OutOfMemoryError unused) {
                 BdBaseApplication.getInst().onAppMemoryLow();
-                view3 = this.f40339f.getView(i3, view, viewGroup);
+                view3 = this.f39584f.getView(i3, view, viewGroup);
             }
             return view3 == null ? j() : view3;
         }
         try {
-            view3 = this.f40341h.get(i3 - i4).f40344a;
+            view3 = this.f39586h.get(i3 - i4).f39589a;
         } catch (Exception e3) {
             BdLog.detailException(e3);
         }
@@ -222,7 +222,7 @@ public class e extends BaseAdapter implements o {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        ListAdapter listAdapter = this.f40339f;
+        ListAdapter listAdapter = this.f39584f;
         if (listAdapter != null) {
             return listAdapter.getViewTypeCount() + 1;
         }
@@ -230,7 +230,7 @@ public class e extends BaseAdapter implements o {
     }
 
     public ListAdapter getWrappedAdapter() {
-        return this.f40339f;
+        return this.f39584f;
     }
 
     public void h(View view, Object obj, boolean z, int i2) {
@@ -238,20 +238,20 @@ public class e extends BaseAdapter implements o {
             return;
         }
         c cVar = new c(this);
-        cVar.f40344a = view;
-        cVar.f40345b = obj;
-        cVar.f40346c = z;
-        if (i2 >= 0 && i2 <= this.f40340g.size()) {
-            this.f40340g.add(i2, cVar);
+        cVar.f39589a = view;
+        cVar.f39590b = obj;
+        cVar.f39591c = z;
+        if (i2 >= 0 && i2 <= this.f39585g.size()) {
+            this.f39585g.add(i2, cVar);
         } else {
-            this.f40340g.add(cVar);
+            this.f39585g.add(cVar);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean hasStableIds() {
-        ListAdapter listAdapter = this.f40339f;
+        ListAdapter listAdapter = this.f39584f;
         if (listAdapter != null) {
             return listAdapter.hasStableIds();
         }
@@ -262,7 +262,7 @@ public class e extends BaseAdapter implements o {
         if (arrayList != null) {
             Iterator<c> it = arrayList.iterator();
             while (it.hasNext()) {
-                if (!it.next().f40346c) {
+                if (!it.next().f39591c) {
                     return false;
                 }
             }
@@ -273,7 +273,7 @@ public class e extends BaseAdapter implements o {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        ListAdapter listAdapter = this.f40339f;
+        ListAdapter listAdapter = this.f39584f;
         return listAdapter == null || listAdapter.isEmpty();
     }
 
@@ -282,47 +282,47 @@ public class e extends BaseAdapter implements o {
         int i3;
         int n = n();
         if (i2 < n) {
-            return this.f40340g.get(i2).f40346c;
+            return this.f39585g.get(i2).f39591c;
         }
         int i4 = i2 - n;
-        ListAdapter listAdapter = this.f40339f;
+        ListAdapter listAdapter = this.f39584f;
         if (listAdapter != null) {
             i3 = listAdapter.getCount();
             if (i4 < i3) {
-                return this.f40339f.isEnabled(i4);
+                return this.f39584f.isEnabled(i4);
             }
         } else {
             i3 = 0;
         }
         int i5 = i4 - i3;
-        if (i5 < 0 || i5 >= this.f40341h.size()) {
+        if (i5 < 0 || i5 >= this.f39586h.size()) {
             return false;
         }
-        return this.f40341h.get(i5).f40346c;
+        return this.f39586h.get(i5).f39591c;
     }
 
     public final View j() {
-        TextView textView = new TextView(this.f40338e);
+        TextView textView = new TextView(this.f39583e);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
-        int e2 = d.a.c.e.p.l.e(this.f40338e, 15.0f);
+        int e2 = d.a.c.e.p.l.e(this.f39583e, 15.0f);
         textView.setPadding(e2, e2, e2, e2);
         return textView;
     }
 
     public int k() {
-        return this.f40341h.size();
+        return this.f39586h.size();
     }
 
     public int l() {
-        return this.f40341h.size();
+        return this.f39586h.size();
     }
 
     public int m() {
-        return this.f40340g.size();
+        return this.f39585g.size();
     }
 
     public int n() {
-        return this.f40340g.size();
+        return this.f39585g.size();
     }
 
     @Override // android.widget.BaseAdapter, d.a.c.j.e.o
@@ -333,7 +333,7 @@ public class e extends BaseAdapter implements o {
     }
 
     public int o() {
-        ListAdapter listAdapter = this.f40339f;
+        ListAdapter listAdapter = this.f39584f;
         if (listAdapter != null) {
             return listAdapter.getCount();
         }
@@ -345,13 +345,13 @@ public class e extends BaseAdapter implements o {
         if (view == null) {
             return false;
         }
-        for (int i2 = 0; i2 < this.f40341h.size(); i2++) {
-            if (this.f40341h.get(i2).f40344a == view) {
-                this.f40341h.remove(i2);
-                if (i(this.f40340g) && i(this.f40341h)) {
+        for (int i2 = 0; i2 < this.f39586h.size(); i2++) {
+            if (this.f39586h.get(i2).f39589a == view) {
+                this.f39586h.remove(i2);
+                if (i(this.f39585g) && i(this.f39586h)) {
                     z = true;
                 }
-                this.f40342i = z;
+                this.f39587i = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -364,13 +364,13 @@ public class e extends BaseAdapter implements o {
         if (view == null) {
             return false;
         }
-        for (int i2 = 0; i2 < this.f40340g.size(); i2++) {
-            if (this.f40340g.get(i2).f40344a == view) {
-                this.f40340g.remove(i2);
-                if (i(this.f40340g) && i(this.f40341h)) {
+        for (int i2 = 0; i2 < this.f39585g.size(); i2++) {
+            if (this.f39585g.get(i2).f39589a == view) {
+                this.f39585g.remove(i2);
+                if (i(this.f39585g) && i(this.f39586h)) {
                     z = true;
                 }
-                this.f40342i = z;
+                this.f39587i = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -379,8 +379,8 @@ public class e extends BaseAdapter implements o {
     }
 
     public void r(ListAdapter listAdapter) {
-        ListAdapter listAdapter2 = this.f40339f;
-        this.f40339f = listAdapter;
+        ListAdapter listAdapter2 = this.f39584f;
+        this.f39584f = listAdapter;
         if (listAdapter != null) {
             boolean z = listAdapter instanceof Filterable;
         }
@@ -391,7 +391,7 @@ public class e extends BaseAdapter implements o {
     public void registerDataSetObserver(DataSetObserver dataSetObserver) {
         super.registerDataSetObserver(dataSetObserver);
         this.j = dataSetObserver;
-        ListAdapter listAdapter = this.f40339f;
+        ListAdapter listAdapter = this.f39584f;
         if (listAdapter != null) {
             listAdapter.registerDataSetObserver(this.k);
         }
@@ -405,7 +405,7 @@ public class e extends BaseAdapter implements o {
     public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
         super.unregisterDataSetObserver(dataSetObserver);
         this.j = dataSetObserver;
-        ListAdapter listAdapter = this.f40339f;
+        ListAdapter listAdapter = this.f39584f;
         if (listAdapter != null) {
             listAdapter.unregisterDataSetObserver(this.k);
         }

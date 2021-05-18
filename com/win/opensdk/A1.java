@@ -9,17 +9,17 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.win.opensdk.core.Info;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class A1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37608a;
+    public Context f36853a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Info f37609b;
+    public Info f36854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f37610c = new y1(this);
+    public Handler f36855c = new y1(this);
 
     public static boolean a(Uri uri) {
         return "appmarket".equalsIgnoreCase(uri.getScheme());
@@ -32,8 +32,8 @@ public class A1 {
     }
 
     public void a(Context context, String str, Info info) {
-        this.f37608a = context;
-        this.f37609b = info;
+        this.f36853a = context;
+        this.f36854b = info;
         WebView webView = new WebView(context);
         WebSettings settings = webView.getSettings();
         settings.setAllowContentAccess(true);
@@ -50,6 +50,6 @@ public class A1 {
         Message obtain = Message.obtain();
         obtain.what = 11;
         obtain.obj = str;
-        this.f37610c.sendMessageDelayed(obtain, 5000L);
+        this.f36855c.sendMessageDelayed(obtain, 5000L);
     }
 }

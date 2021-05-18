@@ -1,6 +1,5 @@
 package h;
 
-import h.g;
 import h.o.a.a0;
 import h.o.a.v;
 import h.o.a.w;
@@ -12,26 +11,26 @@ import rx.schedulers.Schedulers;
 public class h<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d<T> f67697a;
+    public final c<T> f68383a;
 
     /* loaded from: classes7.dex */
     public class a extends i<T> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h.n.b f67698f;
+        public final /* synthetic */ h.n.b f68384f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ h.n.b f67699g;
+        public final /* synthetic */ h.n.b f68385g;
 
         public a(h hVar, h.n.b bVar, h.n.b bVar2) {
-            this.f67698f = bVar;
-            this.f67699g = bVar2;
+            this.f68384f = bVar;
+            this.f68385g = bVar2;
         }
 
         @Override // h.i
         public final void b(Throwable th) {
             try {
-                this.f67698f.call(th);
+                this.f68384f.call(th);
             } finally {
                 unsubscribe();
             }
@@ -40,7 +39,7 @@ public class h<T> {
         @Override // h.i
         public final void c(T t) {
             try {
-                this.f67699g.call(t);
+                this.f68385g.call(t);
             } finally {
                 unsubscribe();
             }
@@ -48,108 +47,41 @@ public class h<T> {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements d<T> {
+    public class b implements h.n.b<Throwable> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f67700e;
+        public final /* synthetic */ h.n.b f68386e;
 
-        /* loaded from: classes7.dex */
-        public class a implements h.n.a {
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ i f67702e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ g.a f67703f;
-
-            /* renamed from: h.h$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes7.dex */
-            public class C1853a extends i<T> {
-                public C1853a() {
-                }
-
-                @Override // h.i
-                public void b(Throwable th) {
-                    try {
-                        a.this.f67702e.b(th);
-                    } finally {
-                        a.this.f67703f.unsubscribe();
-                    }
-                }
-
-                @Override // h.i
-                public void c(T t) {
-                    try {
-                        a.this.f67702e.c(t);
-                    } finally {
-                        a.this.f67703f.unsubscribe();
-                    }
-                }
-            }
-
-            public a(i iVar, g.a aVar) {
-                this.f67702e = iVar;
-                this.f67703f = aVar;
-            }
-
-            @Override // h.n.a
-            public void call() {
-                C1853a c1853a = new C1853a();
-                this.f67702e.a(c1853a);
-                h.this.j(c1853a);
-            }
-        }
-
-        public b(g gVar) {
-            this.f67700e = gVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // h.n.b
-        /* renamed from: a */
-        public void call(i<? super T> iVar) {
-            g.a createWorker = this.f67700e.createWorker();
-            iVar.a(createWorker);
-            createWorker.b(new a(iVar, createWorker));
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements h.n.b<Throwable> {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.n.b f67706e;
-
-        public c(h hVar, h.n.b bVar) {
-            this.f67706e = bVar;
+        public b(h hVar, h.n.b bVar) {
+            this.f68386e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(Throwable th) {
-            this.f67706e.call(th);
+            this.f68386e.call(th);
         }
     }
 
     /* loaded from: classes7.dex */
-    public interface d<T> extends h.n.b<i<? super T>> {
+    public interface c<T> extends h.n.b<i<? super T>> {
     }
 
-    public h(d<T> dVar) {
-        this.f67697a = h.r.c.i(dVar);
+    public h(c<T> cVar) {
+        this.f68383a = h.r.c.i(cVar);
     }
 
-    public static <T> h.d<T> a(h<T> hVar) {
-        return h.d.b(new a0(hVar.f67697a));
+    public static <T> d<T> a(h<T> hVar) {
+        return d.b(new a0(hVar.f68383a));
     }
 
-    public static <T> h<T> b(d<T> dVar) {
-        return new h<>(dVar);
+    public static <T> h<T> b(c<T> cVar) {
+        return new h<>(cVar);
     }
 
     public static <T> h<T> g(T t) {
-        return h.o.d.g.n(t);
+        return h.o.d.g.m(t);
     }
 
     public final h<T> c(long j, TimeUnit timeUnit) {
@@ -157,12 +89,12 @@ public class h<T> {
     }
 
     public final h<T> d(long j, TimeUnit timeUnit, g gVar) {
-        return b(new v(this.f67697a, j, timeUnit, gVar));
+        return b(new v(this.f68383a, j, timeUnit, gVar));
     }
 
     public final h<T> e(h.n.b<Throwable> bVar) {
         if (bVar != null) {
-            return b(new w(this, Actions.a(), new c(this, bVar)));
+            return b(new w(this, Actions.a(), new b(this, bVar)));
         }
         throw new IllegalArgumentException("onError is null");
     }
@@ -176,10 +108,10 @@ public class h<T> {
 
     public final h<T> h(g gVar) {
         if (this instanceof h.o.d.g) {
-            return ((h.o.d.g) this).o(gVar);
+            return ((h.o.d.g) this).n(gVar);
         }
         if (gVar != null) {
-            return b(new z(this.f67697a, gVar));
+            return b(new z(this.f68383a, gVar));
         }
         throw new NullPointerException("scheduler is null");
     }
@@ -191,7 +123,7 @@ public class h<T> {
     public final k j(i<? super T> iVar) {
         if (iVar != null) {
             try {
-                h.r.c.t(this, this.f67697a).call(iVar);
+                h.r.c.t(this, this.f68383a).call(iVar);
                 return h.r.c.s(iVar);
             } catch (Throwable th) {
                 h.m.a.e(th);
@@ -219,14 +151,7 @@ public class h<T> {
         throw new IllegalArgumentException("onSuccess can not be null");
     }
 
-    public final h<T> l(g gVar) {
-        if (this instanceof h.o.d.g) {
-            return ((h.o.d.g) this).o(gVar);
-        }
-        return b(new b(gVar));
-    }
-
-    public final h.d<T> m() {
+    public final d<T> l() {
         return a(this);
     }
 }

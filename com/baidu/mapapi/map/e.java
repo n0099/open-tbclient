@@ -1,40 +1,43 @@
 package com.baidu.mapapi.map;
 
-import com.baidu.mapapi.map.MyLocationConfiguration;
-import com.baidu.mapsdkplatform.comapi.map.aa;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.mapsdkplatform.comapi.map.ai;
+import java.util.concurrent.locks.Lock;
 /* loaded from: classes2.dex */
-public /* synthetic */ class e {
+public class e implements ai {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f7357a;
+    public final /* synthetic */ BaiduMap f7175a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f7358b;
+    public e(BaiduMap baiduMap) {
+        this.f7175a = baiduMap;
+    }
 
-    static {
-        int[] iArr = new int[aa.values().length];
-        f7358b = iArr;
+    @Override // com.baidu.mapsdkplatform.comapi.map.ai
+    public Bundle a(int i2, int i3, int i4, Context context) {
+        Lock lock;
+        Lock lock2;
+        TileOverlay tileOverlay;
+        Lock lock3;
+        TileOverlay tileOverlay2;
+        lock = this.f7175a.J;
+        lock.lock();
         try {
-            iArr[aa.TextureView.ordinal()] = 1;
-        } catch (NoSuchFieldError unused) {
-        }
-        try {
-            f7358b[aa.GLSurfaceView.ordinal()] = 2;
-        } catch (NoSuchFieldError unused2) {
-        }
-        int[] iArr2 = new int[MyLocationConfiguration.LocationMode.values().length];
-        f7357a = iArr2;
-        try {
-            iArr2[MyLocationConfiguration.LocationMode.COMPASS.ordinal()] = 1;
-        } catch (NoSuchFieldError unused3) {
-        }
-        try {
-            f7357a[MyLocationConfiguration.LocationMode.FOLLOWING.ordinal()] = 2;
-        } catch (NoSuchFieldError unused4) {
-        }
-        try {
-            f7357a[MyLocationConfiguration.LocationMode.NORMAL.ordinal()] = 3;
-        } catch (NoSuchFieldError unused5) {
+            tileOverlay = this.f7175a.G;
+            if (tileOverlay != null) {
+                tileOverlay2 = this.f7175a.G;
+                Tile a2 = tileOverlay2.a(i2, i3, i4);
+                if (a2 != null) {
+                    return a2.toBundle();
+                }
+            }
+            lock3 = this.f7175a.J;
+            lock3.unlock();
+            return null;
+        } finally {
+            lock2 = this.f7175a.J;
+            lock2.unlock();
         }
     }
 }

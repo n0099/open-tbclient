@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.i;
 import android.graphics.Bitmap;
 import d.b.c.b.b.d;
 import d.b.c.b.d.o;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements d.k {
     @Override // d.b.c.b.b.d.k
     public void a() {

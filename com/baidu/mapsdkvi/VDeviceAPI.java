@@ -9,16 +9,11 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.net.wifi.ScanResult;
-import android.net.wifi.WifiManager;
 import android.os.Environment;
 import android.os.PowerManager;
 import android.os.StatFs;
 import android.provider.Settings;
-import android.telephony.CellLocation;
 import android.telephony.PhoneNumberUtils;
-import android.telephony.TelephonyManager;
-import android.telephony.gsm.GsmCellLocation;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
@@ -26,15 +21,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
 /* loaded from: classes2.dex */
 public class VDeviceAPI {
 
     /* renamed from: a  reason: collision with root package name */
-    public static PowerManager.WakeLock f8231a;
+    public static PowerManager.WakeLock f8043a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f8232b;
+    public static BroadcastReceiver f8044b;
 
     public static String getAppVersion() {
         try {
@@ -52,18 +46,6 @@ public class VDeviceAPI {
 
     public static String getCachePath() {
         return Environment.getDataDirectory().getAbsolutePath();
-    }
-
-    public static String getCellId() {
-        TelephonyManager telephonyManager = (TelephonyManager) b.a().getSystemService("phone");
-        if (telephonyManager == null) {
-            return null;
-        }
-        CellLocation cellLocation = telephonyManager.getCellLocation();
-        if (cellLocation instanceof GsmCellLocation) {
-            return " " + ((GsmCellLocation) cellLocation).getCid();
-        }
-        return " ";
     }
 
     public static int getCurrentNetworkType() {
@@ -86,34 +68,6 @@ public class VDeviceAPI {
     public static long getFreeSpace() {
         StatFs statFs = new StatFs(Environment.getRootDirectory().getPath());
         return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024;
-    }
-
-    public static String getImei() {
-        TelephonyManager telephonyManager = (TelephonyManager) b.a().getSystemService("phone");
-        if (telephonyManager != null) {
-            return telephonyManager.getDeviceId();
-        }
-        return null;
-    }
-
-    public static String getImsi() {
-        TelephonyManager telephonyManager = (TelephonyManager) b.a().getSystemService("phone");
-        if (telephonyManager != null) {
-            return telephonyManager.getSubscriberId();
-        }
-        return null;
-    }
-
-    public static String getLac() {
-        TelephonyManager telephonyManager = (TelephonyManager) b.a().getSystemService("phone");
-        if (telephonyManager == null) {
-            return null;
-        }
-        CellLocation cellLocation = telephonyManager.getCellLocation();
-        if (cellLocation instanceof GsmCellLocation) {
-            return "" + ((GsmCellLocation) cellLocation).getLac();
-        }
-        return "";
     }
 
     public static String getModuleFileName() {
@@ -249,11 +203,6 @@ public class VDeviceAPI {
         return (statFs.getBlockSize() * statFs.getBlockCount()) / 1024;
     }
 
-    public static ScanResult[] getWifiHotpot() {
-        List<ScanResult> scanResults = ((WifiManager) b.a().getSystemService("wifi")).getScanResults();
-        return (ScanResult[]) scanResults.toArray(new ScanResult[scanResults.size()]);
-    }
-
     public static boolean isWifiConnected() {
         NetworkInfo networkInfo = ((ConnectivityManager) b.a().getSystemService("connectivity")).getNetworkInfo(1);
         if (networkInfo == null) {
@@ -299,24 +248,24 @@ public class VDeviceAPI {
 
     public static void setNetworkChangedCallback() {
         unsetNetworkChangedCallback();
-        f8232b = new a();
-        b.a().registerReceiver(f8232b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        f8044b = new a();
+        b.a().registerReceiver(f8044b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
     }
 
     public static void setScreenAlwaysOn(boolean z) {
         if (z) {
-            if (f8231a == null) {
-                f8231a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+            if (f8043a == null) {
+                f8043a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
             }
-            f8231a.acquire();
+            f8043a.acquire();
             return;
         }
-        PowerManager.WakeLock wakeLock = f8231a;
+        PowerManager.WakeLock wakeLock = f8043a;
         if (wakeLock == null || !wakeLock.isHeld()) {
             return;
         }
-        f8231a.release();
-        f8231a = null;
+        f8043a.release();
+        f8043a = null;
     }
 
     public static void setupSoftware(String str) {
@@ -326,9 +275,9 @@ public class VDeviceAPI {
     }
 
     public static void unsetNetworkChangedCallback() {
-        if (f8232b != null) {
-            b.a().unregisterReceiver(f8232b);
-            f8232b = null;
+        if (f8044b != null) {
+            b.a().unregisterReceiver(f8044b);
+            f8044b = null;
         }
     }
 }

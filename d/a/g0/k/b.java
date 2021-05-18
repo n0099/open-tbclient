@@ -6,10 +6,10 @@ import android.os.HandlerThread;
 public class b extends HandlerThread {
 
     /* renamed from: e  reason: collision with root package name */
-    public static b f40948e;
+    public static b f40193e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f40949f;
+    public static Handler f40194f;
 
     public b() {
         super("SSOHandlerThread", 10);
@@ -19,17 +19,17 @@ public class b extends HandlerThread {
         Handler handler;
         synchronized (b.class) {
             b();
-            handler = f40949f;
+            handler = f40194f;
         }
         return handler;
     }
 
     public static void b() {
-        if (f40948e == null) {
+        if (f40193e == null) {
             b bVar = new b();
-            f40948e = bVar;
+            f40193e = bVar;
             bVar.start();
-            f40949f = new Handler(f40948e.getLooper());
+            f40194f = new Handler(f40193e.getLooper());
         }
     }
 }

@@ -10,20 +10,20 @@ public class j extends i {
     public class a extends d.a.g0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f40882f;
+        public final /* synthetic */ int f40127f;
 
         public a(int i2) {
-            this.f40882f = i2;
+            this.f40127f = i2;
         }
 
         @Override // d.a.g0.k.c
         public void b() {
             try {
-                j.this.a(this.f40882f);
+                j.this.a(this.f40127f);
             } catch (Throwable th) {
                 d.a.g0.l.c.d(th);
                 j jVar = j.this;
-                jVar.c(this.f40882f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, jVar.f40875c, "cu on getToken unknown error.");
+                jVar.c(this.f40127f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, jVar.f40120c, "cu on getToken unknown error.");
             }
         }
     }
@@ -32,20 +32,20 @@ public class j extends i {
     public class b extends d.a.g0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f40884f;
+        public final /* synthetic */ int f40129f;
 
         public b(int i2) {
-            this.f40884f = i2;
+            this.f40129f = i2;
         }
 
         @Override // d.a.g0.k.c
         public void b() {
             try {
-                j.this.f(this.f40884f, j.this.f40875c, j.this.f40880h);
+                j.this.f(this.f40129f, j.this.f40120c, j.this.f40125h);
             } catch (Throwable th) {
                 d.a.g0.l.c.d(th);
                 j jVar = j.this;
-                jVar.l(this.f40884f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, jVar.f40875c, "cu on getToken unknown error.");
+                jVar.l(this.f40129f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, jVar.f40120c, "cu on getToken unknown error.");
             }
         }
     }
@@ -63,14 +63,14 @@ public class j extends i {
 
     @Override // d.a.g0.e.i
     public boolean j() {
-        if (TextUtils.isEmpty(this.f40877e)) {
-            this.f40879g = null;
-            this.f40878f = 0L;
+        if (TextUtils.isEmpty(this.f40122e)) {
+            this.f40124g = null;
+            this.f40123f = 0L;
             return true;
         }
-        if (this.f40878f - System.currentTimeMillis() < d.a.g0.l.b.f40959a) {
-            this.f40879g = null;
-            this.f40878f = 0L;
+        if (this.f40123f - System.currentTimeMillis() < d.a.g0.l.b.f40204a) {
+            this.f40124g = null;
+            this.f40123f = 0L;
             return true;
         }
         return false;
@@ -85,12 +85,12 @@ public class j extends i {
 
     @Override // d.a.g0.e.i
     public boolean p() {
-        if (TextUtils.isEmpty(this.f40880h)) {
-            this.f40881i = 0L;
+        if (TextUtils.isEmpty(this.f40125h)) {
+            this.f40126i = 0L;
             return true;
         }
-        if (this.f40881i - System.currentTimeMillis() < d.a.g0.l.b.f40959a) {
-            this.f40881i = 0L;
+        if (this.f40126i - System.currentTimeMillis() < d.a.g0.l.b.f40204a) {
+            this.f40126i = 0L;
             return true;
         }
         return false;

@@ -7,10 +7,14 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.R;
+import d.a.c.e.p.l;
 /* loaded from: classes5.dex */
 public class CurrencySwitchModel extends BdBaseModel {
+    public boolean isSending;
     public OnPostDataCallBack mCallBack;
     public final HttpMessageListener mSwitchCurrencyListener;
 
@@ -28,6 +32,7 @@ public class CurrencySwitchModel extends BdBaseModel {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof CurrencySwitchResponseMessage)) {
                     return;
                 }
+                CurrencySwitchModel.this.isSending = false;
                 CurrencySwitchResponseMessage currencySwitchResponseMessage = (CurrencySwitchResponseMessage) httpResponsedMessage;
                 if (CurrencySwitchModel.this.mCallBack != null) {
                     CurrencySwitchModel.this.mCallBack.callback(currencySwitchResponseMessage.isSwitchSuccess(), currencySwitchResponseMessage.getError(), currencySwitchResponseMessage.getTipMessage());
@@ -52,6 +57,7 @@ public class CurrencySwitchModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
+        this.isSending = false;
         cancelMessage();
         return false;
     }
@@ -62,6 +68,11 @@ public class CurrencySwitchModel extends BdBaseModel {
     }
 
     public void sendSwitchRequest() {
+        if (this.isSending) {
+            l.L(TbadkCoreApplication.getInst().getContext(), R.string.wallet_t_dou_switching_toast);
+            return;
+        }
+        this.isSending = true;
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_CURRENCY_SWITCH_REQUEST));
     }
 

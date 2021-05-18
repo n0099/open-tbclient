@@ -9,27 +9,27 @@ import com.qq.e.comm.util.GDTLogger;
 public class NativeAdContainer extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewStatusListener f36149a;
+    public ViewStatusListener f35394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewStatus f36150b;
+    public ViewStatus f35395b;
 
     /* renamed from: com.qq.e.ads.nativ.widget.NativeAdContainer$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f36151a;
+        public static final /* synthetic */ int[] f35396a;
 
         static {
             int[] iArr = new int[ViewStatus.values().length];
-            f36151a = iArr;
+            f35396a = iArr;
             try {
                 iArr[ViewStatus.ATTACHED.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f36151a[ViewStatus.DETACHED.ordinal()] = 2;
+                f35396a[ViewStatus.DETACHED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -44,22 +44,22 @@ public class NativeAdContainer extends FrameLayout {
 
     public NativeAdContainer(Context context) {
         super(context);
-        this.f36150b = ViewStatus.INIT;
+        this.f35395b = ViewStatus.INIT;
     }
 
     public NativeAdContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f36150b = ViewStatus.INIT;
+        this.f35395b = ViewStatus.INIT;
     }
 
     public NativeAdContainer(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f36150b = ViewStatus.INIT;
+        this.f35395b = ViewStatus.INIT;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        ViewStatusListener viewStatusListener = this.f36149a;
+        ViewStatusListener viewStatusListener = this.f35394a;
         if (viewStatusListener != null) {
             viewStatusListener.onDispatchTouchEvent(motionEvent);
         }
@@ -70,8 +70,8 @@ public class NativeAdContainer extends FrameLayout {
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         GDTLogger.d("NativeAdContainer onAttachedToWindow");
-        this.f36150b = ViewStatus.ATTACHED;
-        ViewStatusListener viewStatusListener = this.f36149a;
+        this.f35395b = ViewStatus.ATTACHED;
+        ViewStatusListener viewStatusListener = this.f35394a;
         if (viewStatusListener != null) {
             viewStatusListener.onAttachToWindow();
         }
@@ -81,8 +81,8 @@ public class NativeAdContainer extends FrameLayout {
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         GDTLogger.d("NativeAdContainer onDetachedFromWindow");
-        this.f36150b = ViewStatus.DETACHED;
-        ViewStatusListener viewStatusListener = this.f36149a;
+        this.f35395b = ViewStatus.DETACHED;
+        ViewStatusListener viewStatusListener = this.f35394a;
         if (viewStatusListener != null) {
             viewStatusListener.onDetachFromWindow();
         }
@@ -92,7 +92,7 @@ public class NativeAdContainer extends FrameLayout {
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
         GDTLogger.d("onWindowFocusChanged: hasWindowFocus: " + z);
-        ViewStatusListener viewStatusListener = this.f36149a;
+        ViewStatusListener viewStatusListener = this.f35394a;
         if (viewStatusListener != null) {
             viewStatusListener.onWindowFocusChanged(z);
         }
@@ -102,21 +102,21 @@ public class NativeAdContainer extends FrameLayout {
     public void onWindowVisibilityChanged(int i2) {
         super.onWindowVisibilityChanged(i2);
         GDTLogger.d("onWindowVisibilityChanged: visibility: " + i2);
-        ViewStatusListener viewStatusListener = this.f36149a;
+        ViewStatusListener viewStatusListener = this.f35394a;
         if (viewStatusListener != null) {
             viewStatusListener.onWindowVisibilityChanged(i2);
         }
     }
 
     public void setViewStatusListener(ViewStatusListener viewStatusListener) {
-        this.f36149a = viewStatusListener;
+        this.f35394a = viewStatusListener;
         if (viewStatusListener != null) {
-            int i2 = AnonymousClass1.f36151a[this.f36150b.ordinal()];
+            int i2 = AnonymousClass1.f35396a[this.f35395b.ordinal()];
             if (i2 == 1) {
-                this.f36149a.onAttachToWindow();
+                this.f35394a.onAttachToWindow();
             } else if (i2 != 2) {
             } else {
-                this.f36149a.onDetachFromWindow();
+                this.f35394a.onDetachFromWindow();
             }
         }
     }

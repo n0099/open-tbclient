@@ -17,34 +17,34 @@ import java.util.Map;
 public class DownSoHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4775a;
+    public Context f4629a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f4776b;
+    public List<b> f4630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f4777c = new HashMap();
+    public Map<String, Integer> f4631c = new HashMap();
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static DownSoHelper f4778a = new DownSoHelper();
+        public static DownSoHelper f4632a = new DownSoHelper();
     }
 
     public static DownSoHelper k(Context context) {
-        a.f4778a.f4775a = context.getApplicationContext();
-        return a.f4778a;
+        a.f4632a.f4629a = context.getApplicationContext();
+        return a.f4632a;
     }
 
     public final void e(b bVar, String str, int i2, String str2) {
-        this.f4777c.put(str, 2);
+        this.f4631c.put(str, 2);
         if (bVar != null) {
             bVar.onDownloadFail(str, i2, str2);
         }
-        if (this.f4776b != null) {
-            for (int i3 = 0; i3 < this.f4776b.size(); i3++) {
-                this.f4776b.get(i3).onDownloadFail(str, i2, str2);
+        if (this.f4630b != null) {
+            for (int i3 = 0; i3 < this.f4630b.size(); i3++) {
+                this.f4630b.get(i3).onDownloadFail(str, i2, str2);
             }
         }
     }
@@ -53,9 +53,9 @@ public class DownSoHelper {
         if (bVar != null) {
             bVar.onDownloadProgress(f2);
         }
-        if (this.f4776b != null) {
-            for (int i2 = 0; i2 < this.f4776b.size(); i2++) {
-                this.f4776b.get(i2).onDownloadProgress(f2);
+        if (this.f4630b != null) {
+            for (int i2 = 0; i2 < this.f4630b.size(); i2++) {
+                this.f4630b.get(i2).onDownloadProgress(f2);
             }
         }
     }
@@ -64,21 +64,21 @@ public class DownSoHelper {
         if (bVar != null) {
             bVar.onDownloadStart(str);
         }
-        if (this.f4776b != null) {
-            for (int i2 = 0; i2 < this.f4776b.size(); i2++) {
-                this.f4776b.get(i2).onDownloadStart(str);
+        if (this.f4630b != null) {
+            for (int i2 = 0; i2 < this.f4630b.size(); i2++) {
+                this.f4630b.get(i2).onDownloadStart(str);
             }
         }
     }
 
     public final void h(b bVar, String str, String str2) {
-        this.f4777c.put(str, 3);
+        this.f4631c.put(str, 3);
         if (bVar != null) {
             bVar.onDownloadSuccess(str, str2);
         }
-        if (this.f4776b != null) {
-            for (int i2 = 0; i2 < this.f4776b.size(); i2++) {
-                this.f4776b.get(i2).onDownloadSuccess(str, str2);
+        if (this.f4630b != null) {
+            for (int i2 = 0; i2 < this.f4630b.size(); i2++) {
+                this.f4630b.get(i2).onDownloadSuccess(str, str2);
             }
         }
     }
@@ -91,8 +91,8 @@ public class DownSoHelper {
         if (!file.exists()) {
             file.mkdirs();
         }
-        this.f4777c.put(str, 1);
-        String d2 = d.a.k.d.a.d(this.f4775a, str, str2);
+        this.f4631c.put(str, 1);
+        String d2 = d.a.k.d.a.d(this.f4629a, str, str2);
         File file2 = new File(d2 + XAdSimpleImageLoader.TEMP_SUFFIX);
         File file3 = new File(d2 + ".zip");
         Log.d("RtcDownSo", "start down folder=" + str2 + "name=" + file2.getName());
@@ -100,12 +100,12 @@ public class DownSoHelper {
     }
 
     public void j(@NonNull String str, boolean z, b bVar) {
-        String b2 = d.a.k.d.a.b(this.f4775a);
+        String b2 = d.a.k.d.a.b(this.f4629a);
         if (TextUtils.isEmpty(str)) {
             bVar.onDownloadFail(str, 108, "download url is empty.");
         } else if (l(str, b2)) {
             if (bVar != null) {
-                bVar.onDownloadSuccess(str, d.a.k.d.a.d(this.f4775a, str, b2));
+                bVar.onDownloadSuccess(str, d.a.k.d.a.d(this.f4629a, str, b2));
             }
         } else {
             if (z) {
@@ -123,7 +123,7 @@ public class DownSoHelper {
     }
 
     public boolean l(@NonNull String str, String str2) {
-        return d.a.k.d.a.i(this.f4775a, str, str2);
+        return d.a.k.d.a.i(this.f4629a, str, str2);
     }
 
     public final boolean m(String str) {
@@ -133,16 +133,16 @@ public class DownSoHelper {
     public boolean n(@NonNull String str) {
         File file = new File(str);
         if (file.exists()) {
-            Context context = this.f4775a;
+            Context context = this.f4629a;
             if (context == null ? false : shuoy.a().b(context, file)) {
                 return true;
             }
             try {
-                shuoy.a().a(this.f4775a, file);
+                shuoy.a().a(this.f4629a, file);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            Context context2 = this.f4775a;
+            Context context2 = this.f4629a;
             if (context2 == null) {
                 return false;
             }

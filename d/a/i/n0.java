@@ -2,18 +2,20 @@ package d.a.i;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.card.view.BjhArticleLayout;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import d.a.i.a;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import d.a.i.v0.a;
+import java.util.List;
 /* loaded from: classes.dex */
-public class n0 extends h {
-    public LinearLayout l;
-    public BjhArticleLayout m;
-    public d.a.i0.r.q.a n;
-    public int o;
+public class n0 extends d.a.i.a<d.a.j0.r.q.a> {
+    public int j;
+    public int k;
+    public ThreadCommentAndPraiseInfoLayout l;
+    public d.a.j0.r.q.a m;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -22,76 +24,155 @@ public class n0 extends h {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            n0 n0Var = n0.this;
-            a.InterfaceC1009a interfaceC1009a = n0Var.f47693i;
-            if (interfaceC1009a != null) {
-                interfaceC1009a.a(n0Var.n);
+            if (n0.this.d() != null) {
+                n0.this.d().a(view, n0.this.m);
             }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b implements a.b {
+        public b() {
+        }
+
+        @Override // d.a.i.v0.a.b
+        public boolean a(a.C0549a c0549a) {
+            if (c0549a.c() instanceof Boolean) {
+                if (!((Boolean) c0549a.c()).booleanValue()) {
+                    if ((n0.this.j & 128) <= 0) {
+                        n0.this.j &= -5;
+                        n0.this.j |= 64;
+                    }
+                } else {
+                    n0 n0Var = n0.this;
+                    n0Var.j = n0Var.k;
+                }
+                n0.this.l.setShowFlag(n0.this.j);
+                return false;
+            }
+            return false;
         }
     }
 
     public n0(Context context) {
         super(context);
-        this.o = 3;
+        this.j = 11;
+        this.k = 11;
+        ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout = new ThreadCardBottomOpSegmentLayout(context);
+        this.l = threadCardBottomOpSegmentLayout;
+        threadCardBottomOpSegmentLayout.setReplyTimeVisible(false);
+        this.l.setShowPraiseNum(true);
+        this.l.setNeedAddPraiseIcon(true);
+        this.l.setNeedAddReplyIcon(true);
+        this.l.setShareVisible(true);
+        this.l.setForumAfterClickListener(new a());
+    }
+
+    public void A(int i2) {
+        this.l.setShareReportFrom(i2);
+    }
+
+    public void B(String str) {
+        this.l.setStType(str);
+    }
+
+    public void D(String str) {
+        this.l.setTabName(str);
+    }
+
+    @Override // d.a.i.a
+    public void b(int i2) {
+        int i3 = i2 | this.j;
+        this.j = i3;
+        this.l.setShowFlag(i3);
+        this.k = this.j;
+    }
+
+    @Override // d.a.i.a
+    public void c(int i2) {
+        int i3 = (~i2) & this.j;
+        this.j = i3;
+        this.l.setShowFlag(i3);
+        this.k = this.j;
     }
 
     @Override // d.a.i.a
     public View g() {
-        if (this.l == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f47690f);
-            this.l = linearLayout;
-            SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
-            this.l.setOrientation(1);
-            this.l.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        }
-        this.l.removeAllViews();
-        if (this.m == null) {
-            BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.f47690f);
-            this.m = bjhArticleLayout;
-            bjhArticleLayout.setJumpToPbListener(new a());
-        }
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.topMargin = this.f47690f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
-        layoutParams.leftMargin = this.f47690f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-        layoutParams.rightMargin = this.f47690f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-        layoutParams.bottomMargin = this.f47690f.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
-        this.l.addView(this.m, layoutParams);
         return this.l;
     }
 
     @Override // d.a.i.a
-    public void l(d.a.j0.x.b0<d.a.i0.r.q.a> b0Var) {
-        super.l(b0Var);
-        BjhArticleLayout bjhArticleLayout = this.m;
-        if (bjhArticleLayout != null) {
-            bjhArticleLayout.setSubClickListener(b0Var);
-        }
+    public void h() {
+        this.f40315e.m(4, new b());
     }
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        if (i2 != this.o) {
-            this.o = i2;
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0206);
-            BjhArticleLayout bjhArticleLayout = this.m;
-            if (bjhArticleLayout != null) {
-                bjhArticleLayout.onChangeSkinType(tbPageContext, i2);
+        this.l.onChangeSkinType();
+    }
+
+    public final void t() {
+        boolean z = false;
+        k(this.l, 0);
+        d.a.i.a f2 = this.f40315e.f();
+        if (f2 == null) {
+            return;
+        }
+        ViewGroup viewGroup = (ViewGroup) f2.g();
+        int childCount = viewGroup.getChildCount();
+        int i2 = 0;
+        while (true) {
+            if (i2 >= childCount) {
+                z = true;
+                break;
+            } else if (!(viewGroup.getChildAt(i2) instanceof TextView) && viewGroup.getChildAt(i2).getVisibility() == 0) {
+                break;
+            } else {
+                i2++;
+            }
+        }
+        if (z) {
+            List<h> h2 = this.f40315e.h();
+            if (ListUtils.isEmpty(h2)) {
+                return;
+            }
+            for (h hVar : h2) {
+                if (hVar != null && hVar.g() != null && hVar.g().getVisibility() == 0) {
+                    return;
+                }
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
-    /* renamed from: t */
-    public void a(d.a.i0.r.q.a aVar) {
-        this.n = aVar;
-        BjhArticleLayout bjhArticleLayout = this.m;
-        if (bjhArticleLayout != null) {
-            bjhArticleLayout.a(aVar);
-        }
+    /* renamed from: u */
+    public void a(d.a.j0.r.q.a aVar) {
+        this.m = aVar;
+        this.l.setData(aVar.m());
+        t();
     }
 
-    public void u(a.InterfaceC1009a interfaceC1009a) {
-        this.f47693i = interfaceC1009a;
+    public void v(d.a.j0.r.q.e eVar) {
+        this.l.setAgreeStatisticData(eVar);
+    }
+
+    public void w(int i2) {
+        this.l.setFrom(i2);
+    }
+
+    public void x(int i2) {
+        this.l.R = i2;
+    }
+
+    public void y(int i2) {
+        this.l.setGameId(i2);
+    }
+
+    public void z(ThreadCommentAndPraiseInfoLayout.i iVar) {
+        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.l;
+        if (threadCommentAndPraiseInfoLayout != null) {
+            threadCommentAndPraiseInfoLayout.setOnCommentClickCallback(iVar);
+        }
     }
 }

@@ -20,6 +20,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -249,7 +250,7 @@ public class IMFetchMsgByIdMsg extends Message {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("rpc_retry_time", this.mFetchNum);
             jSONObject.put("rpc", jSONObject2.toString());
-            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             if (4 == this.mCategory) {
                 JSONObject json = MessageExt.getInstance().toJson();
                 this.mMessageExt = json;

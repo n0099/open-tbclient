@@ -15,42 +15,42 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class j extends com.kwad.sdk.core.video.videoview.a implements ao.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f34058b;
+    public View f33303b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ao f34059c;
+    public final ao f33304c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f34060d;
+    public final AtomicBoolean f33305d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f34061e;
+    public boolean f33306e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f34062f;
+    public boolean f33307f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdInfo f34063g;
+    public AdInfo f33308g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdTemplate f34064h;
+    public AdTemplate f33309h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f34065i;
+    public com.kwad.sdk.core.download.b.b f33310i;
     public String j;
 
     public j(Context context, AdTemplate adTemplate, @NonNull com.kwad.sdk.core.video.videoview.d dVar) {
         super(context, adTemplate, dVar);
-        this.f34059c = new ao(this);
-        this.f34060d = new AtomicBoolean(true);
-        this.f34062f = true;
+        this.f33304c = new ao(this);
+        this.f33305d = new AtomicBoolean(true);
+        this.f33307f = true;
         this.j = null;
-        this.f34058b = this;
-        this.f34064h = adTemplate;
+        this.f33303b = this;
+        this.f33309h = adTemplate;
         AdInfo g2 = com.kwad.sdk.core.response.b.c.g(adTemplate);
-        this.f34063g = g2;
+        this.f33308g = g2;
         if (com.kwad.sdk.core.response.b.a.v(g2)) {
-            this.f34065i = new com.kwad.sdk.core.download.b.b(this.f34064h, new com.kwad.sdk.core.download.b.c() { // from class: com.kwad.sdk.feed.widget.j.1
+            this.f33310i = new com.kwad.sdk.core.download.b.b(this.f33309h, new com.kwad.sdk.core.download.b.c() { // from class: com.kwad.sdk.feed.widget.j.1
                 @Override // com.kwad.sdk.core.download.b.c
                 public void a(int i2) {
                     j.this.j = com.kwad.sdk.core.response.b.a.b(i2);
@@ -61,7 +61,7 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ao.a {
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onDownloadFailed() {
                     j jVar = j.this;
-                    jVar.j = com.kwad.sdk.core.response.b.a.u(jVar.f34063g);
+                    jVar.j = com.kwad.sdk.core.response.b.a.u(jVar.f33308g);
                     j jVar2 = j.this;
                     jVar2.a(jVar2.j);
                 }
@@ -69,7 +69,7 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ao.a {
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onDownloadFinished() {
                     j jVar = j.this;
-                    jVar.j = com.kwad.sdk.core.response.b.a.a(jVar.f34064h);
+                    jVar.j = com.kwad.sdk.core.response.b.a.a(jVar.f33309h);
                     j jVar2 = j.this;
                     jVar2.a(jVar2.j);
                 }
@@ -84,7 +84,7 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ao.a {
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onIdle() {
                     j jVar = j.this;
-                    jVar.j = com.kwad.sdk.core.response.b.a.u(jVar.f34063g);
+                    jVar.j = com.kwad.sdk.core.response.b.a.u(jVar.f33308g);
                     j jVar2 = j.this;
                     jVar2.a(jVar2.j);
                 }
@@ -92,7 +92,7 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ao.a {
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onInstalled() {
                     j jVar = j.this;
-                    jVar.j = com.kwad.sdk.core.response.b.a.j(jVar.f34063g);
+                    jVar.j = com.kwad.sdk.core.response.b.a.j(jVar.f33308g);
                     j jVar2 = j.this;
                     jVar2.a(jVar2.j);
                 }
@@ -108,9 +108,9 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ao.a {
     }
 
     private void o() {
-        if (this.f34060d.getAndSet(false)) {
+        if (this.f33305d.getAndSet(false)) {
             com.kwad.sdk.core.d.a.c("FeedVideoPlayerController", "onViewAttached");
-            this.f34059c.sendEmptyMessage(1);
+            this.f33304c.sendEmptyMessage(1);
         }
     }
 
@@ -126,40 +126,40 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ao.a {
     @Override // com.kwad.sdk.utils.ao.a
     public void a(Message message) {
         if (message.what == 1) {
-            if (!an.a(this.f34058b, 30)) {
+            if (!an.a(this.f33303b, 30)) {
                 f();
-            } else if (!this.f34061e) {
+            } else if (!this.f33306e) {
                 e();
             }
-            this.f34059c.sendEmptyMessageDelayed(1, 500L);
+            this.f33304c.sendEmptyMessageDelayed(1, 500L);
         }
     }
 
     public void k() {
-        if (this.f34060d.getAndSet(true)) {
+        if (this.f33305d.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.c("FeedVideoPlayerController", "onViewDetached");
-        this.f34059c.removeCallbacksAndMessages(null);
-        if (this.f34062f) {
+        this.f33304c.removeCallbacksAndMessages(null);
+        if (this.f33307f) {
             g();
         } else {
-            this.f33525a.c();
+            this.f32770a.c();
         }
     }
 
     public void l() {
-        this.f33525a.c();
-        this.f34061e = true;
+        this.f32770a.c();
+        this.f33306e = true;
     }
 
     public void m() {
         e();
-        this.f34061e = false;
+        this.f33306e = false;
     }
 
     public void n() {
-        this.f34061e = false;
+        this.f33306e = false;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -201,6 +201,6 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ao.a {
     }
 
     public void setAutoRelease(boolean z) {
-        this.f34062f = z;
+        this.f33307f = z;
     }
 }

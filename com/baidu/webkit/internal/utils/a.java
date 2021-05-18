@@ -6,7 +6,7 @@ import java.util.Stack;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f27454a = "none";
+    public static String f26699a = "none";
 
     public static boolean a(File file) {
         return file.setReadable(true, false);
@@ -33,13 +33,13 @@ public final class a {
                 } else if (!file.delete()) {
                     sb = new StringBuilder("remove fail, can not delete file = ");
                     sb.append(file.getAbsolutePath());
-                    f27454a = sb.toString();
+                    f26699a = sb.toString();
                     return false;
                 }
             } else if (!file.delete()) {
                 sb = new StringBuilder("remove fail, can not delete file = ");
                 sb.append(file.getAbsolutePath());
-                f27454a = sb.toString();
+                f26699a = sb.toString();
                 return false;
             }
         }

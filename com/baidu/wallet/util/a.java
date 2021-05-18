@@ -5,29 +5,29 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Object> f27316a;
+    public ConcurrentHashMap<String, Object> f26561a;
 
     /* renamed from: com.baidu.wallet.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0283a {
+    public static class C0270a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f27317a = new a();
+        public static a f26562a = new a();
     }
 
     public static a a() {
-        return C0283a.f27317a;
+        return C0270a.f26562a;
     }
 
     public a() {
-        this.f27316a = new ConcurrentHashMap<>();
+        this.f26561a = new ConcurrentHashMap<>();
     }
 
     public static Object a(String str) {
         if (str == null) {
             return null;
         }
-        return a().f27316a.get(str);
+        return a().f26561a.get(str);
     }
 
     public static void a(String str, Object obj) {
@@ -36,9 +36,9 @@ public final class a {
         }
         a a2 = a();
         if (obj == null) {
-            a2.f27316a.remove(str);
+            a2.f26561a.remove(str);
         } else {
-            a2.f27316a.put(str, obj);
+            a2.f26561a.put(str, obj);
         }
     }
 }

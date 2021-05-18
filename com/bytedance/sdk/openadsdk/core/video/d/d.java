@@ -22,37 +22,37 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes5.dex */
-public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a {
+/* loaded from: classes6.dex */
+public class d implements c.a, c.b, c.InterfaceC0295c, c.d, c.e, c.f, c.g, am.a {
     public static boolean m = false;
     public static final SparseIntArray o = new SparseIntArray();
 
     /* renamed from: a  reason: collision with root package name */
-    public c f29243a;
+    public c f28488a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f29244b;
+    public boolean f28489b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29245c;
+    public boolean f28490c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f29246d;
+    public boolean f28491d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f29247e;
+    public boolean f28492e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29248f;
+    public int f28493f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f29249g;
+    public long f28494g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f29250h;
+    public final Handler f28495h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f29251i;
+    public Handler f28496i;
     public ArrayList<Runnable> j;
     public int k;
     public int l;
@@ -103,24 +103,24 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        if (this.f29243a == null) {
+        if (this.f28488a == null) {
             u.b("SSMediaPlayeWrapper", "SSMediaPlayerWrapper use System Mediaplayer");
             b bVar = new b();
-            this.f29243a = bVar;
+            this.f28488a = bVar;
             this.n = "0";
             bVar.a((c.e) this);
-            this.f29243a.a((c.b) this);
-            this.f29243a.a((c.InterfaceC0308c) this);
-            this.f29243a.a((c.a) this);
-            this.f29243a.a((c.f) this);
-            this.f29243a.a((c.d) this);
-            this.f29243a.a((c.g) this);
+            this.f28488a.a((c.b) this);
+            this.f28488a.a((c.InterfaceC0295c) this);
+            this.f28488a.a((c.a) this);
+            this.f28488a.a((c.f) this);
+            this.f28488a.a((c.d) this);
+            this.f28488a.a((c.g) this);
             try {
-                this.f29243a.b(this.f29244b);
+                this.f28488a.b(this.f28489b);
             } catch (Throwable th) {
                 u.a("SSMediaPlayeWrapper", "setLooping error: ", th);
             }
-            this.f29245c = false;
+            this.f28490c = false;
         }
     }
 
@@ -129,8 +129,8 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
         b(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.d.d.2
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.f29250h != null) {
-                    d.this.f29250h.sendEmptyMessage(104);
+                if (d.this.f28495h != null) {
+                    d.this.f28495h.sendEmptyMessage(104);
                     u.b("tag_video_play", "[video] MediaPlayerProxy#start first play prepare invoke ! sendMsg --> OP_PREPARE_ASYNC");
                 }
             }
@@ -138,7 +138,7 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
     }
 
     private void s() {
-        c cVar = this.f29243a;
+        c cVar = this.f28488a;
         if (cVar == null) {
             return;
         }
@@ -147,28 +147,28 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
         } catch (Throwable th) {
             u.a("SSMediaPlayeWrapper", "releaseMediaplayer error1: ", th);
         }
-        this.f29243a.a((c.b) null);
-        this.f29243a.a((c.g) null);
-        this.f29243a.a((c.a) null);
-        this.f29243a.a((c.d) null);
-        this.f29243a.a((c.InterfaceC0308c) null);
-        this.f29243a.a((c.e) null);
-        this.f29243a.a((c.f) null);
+        this.f28488a.a((c.b) null);
+        this.f28488a.a((c.g) null);
+        this.f28488a.a((c.a) null);
+        this.f28488a.a((c.d) null);
+        this.f28488a.a((c.InterfaceC0295c) null);
+        this.f28488a.a((c.e) null);
+        this.f28488a.a((c.f) null);
         try {
-            this.f29243a.k();
+            this.f28488a.k();
         } catch (Throwable th2) {
             u.a("SSMediaPlayeWrapper", "releaseMediaplayer error2: ", th2);
         }
     }
 
     private void t() {
-        Handler handler = this.f29250h;
+        Handler handler = this.f28495h;
         if (handler == null || handler.getLooper() == null) {
             return;
         }
         try {
             u.b("SSMediaPlayeWrapper", "onDestory............");
-            this.f29250h.getLooper().quit();
+            this.f28495h.getLooper().quit();
         } catch (Throwable th) {
             u.a("SSMediaPlayeWrapper", "onDestroy error: ", th);
         }
@@ -191,16 +191,16 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
     }
 
     private void w() {
-        if (this.f29246d) {
+        if (this.f28491d) {
             return;
         }
-        this.f29246d = true;
+        this.f28491d = true;
         Iterator it = new ArrayList(this.j).iterator();
         while (it.hasNext()) {
             ((Runnable) it.next()).run();
         }
         this.j.clear();
-        this.f29246d = false;
+        this.f28491d = false;
     }
 
     private void x() {
@@ -232,29 +232,29 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
         b(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.d.d.3
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.f29250h != null) {
-                    d.this.f29250h.sendEmptyMessage(105);
+                if (d.this.f28495h != null) {
+                    d.this.f28495h.sendEmptyMessage(105);
                 }
             }
         });
     }
 
     public void e() {
-        Handler handler = this.f29250h;
+        Handler handler = this.f28495h;
         if (handler != null) {
             handler.obtainMessage(108).sendToTarget();
         }
     }
 
     public void f() {
-        Handler handler = this.f29250h;
+        Handler handler = this.f28495h;
         if (handler != null) {
             handler.obtainMessage(109).sendToTarget();
         }
     }
 
     public boolean g() {
-        return (this.f29248f == 206 || this.f29250h.hasMessages(100)) && !this.r;
+        return (this.f28493f == 206 || this.f28495h.hasMessages(100)) && !this.r;
     }
 
     public boolean h() {
@@ -262,19 +262,19 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
     }
 
     public boolean i() {
-        return (this.f29248f == 207 || this.r) && !this.f29250h.hasMessages(100);
+        return (this.f28493f == 207 || this.r) && !this.f28495h.hasMessages(100);
     }
 
     public boolean j() {
-        return this.f29248f == 203;
+        return this.f28493f == 203;
     }
 
     public boolean k() {
-        return this.f29248f == 205;
+        return this.f28493f == 205;
     }
 
     public boolean l() {
-        return this.f29248f == 209;
+        return this.f28493f == 209;
     }
 
     public void m() {
@@ -301,17 +301,17 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
 
     @SuppressLint({"unused"})
     public d(Handler handler, int i2) {
-        this.f29243a = null;
-        this.f29244b = false;
-        this.f29245c = false;
-        this.f29248f = 201;
-        this.f29249g = -1L;
+        this.f28488a = null;
+        this.f28489b = false;
+        this.f28490c = false;
+        this.f28493f = 201;
+        this.f28494g = -1L;
         this.k = 0;
         this.n = "0";
         this.q = new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.d.d.1
             @Override // java.lang.Runnable
             public void run() {
-                d.this.f29250h.sendEmptyMessageDelayed(100, 0L);
+                d.this.f28495h.sendEmptyMessageDelayed(100, 0L);
                 u.b("tag_video_play", "[video] MediaPlayerProxy#start not first play ! sendMsg --> OP_START , video start to play !");
             }
         };
@@ -324,32 +324,32 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
         this.y = 0L;
         this.z = false;
         this.k = 0;
-        this.f29251i = handler;
+        this.f28496i = handler;
         HandlerThread handlerThread = new HandlerThread("VideoManager");
         handlerThread.start();
-        this.f29250h = new am(handlerThread.getLooper(), this);
+        this.f28495h = new am(handlerThread.getLooper(), this);
         this.z = Build.VERSION.SDK_INT >= 17;
         q();
     }
 
     public void b() {
-        this.f29250h.removeMessages(100);
+        this.f28495h.removeMessages(100);
         this.r = true;
-        this.f29250h.sendEmptyMessage(101);
+        this.f28495h.sendEmptyMessage(101);
         D();
     }
 
     public void c() {
-        this.f29248f = 203;
+        this.f28493f = 203;
         D();
         z();
-        if (this.f29250h != null) {
+        if (this.f28495h != null) {
             try {
                 b("release");
-                this.f29250h.removeCallbacksAndMessages(null);
-                if (this.f29243a != null) {
-                    this.f29247e = true;
-                    this.f29250h.sendEmptyMessage(103);
+                this.f28495h.removeCallbacksAndMessages(null);
+                if (this.f28488a != null) {
+                    this.f28492e = true;
+                    this.f28495h.sendEmptyMessage(103);
                 }
             } catch (Throwable th) {
                 t();
@@ -363,7 +363,7 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
     }
 
     public MediaPlayer a() throws Throwable {
-        c cVar = this.f29243a;
+        c cVar = this.f28488a;
         if (cVar != null) {
             return ((b) cVar).e();
         }
@@ -373,14 +373,14 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c.d
     public boolean b(c cVar, int i2, int i3) {
         u.f("SSMediaPlayeWrapper", "what,extra:" + i2 + "," + i3);
-        if (this.f29243a != cVar) {
+        if (this.f28488a != cVar) {
             return false;
         }
-        Handler handler = this.f29251i;
+        Handler handler = this.f28496i;
         if (handler != null) {
             handler.obtainMessage(304, i2, i3).sendToTarget();
             if (i3 == -1004) {
-                this.f29251i.obtainMessage(303, i2, i3).sendToTarget();
+                this.f28496i.obtainMessage(303, i2, i3).sendToTarget();
             }
         }
         b(i2, i3);
@@ -391,26 +391,26 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
         u.b("tag_video_play", "[video] MediaPlayerProxy#start firstSeekToPosition=" + j + ",firstPlay :" + z + ",isPauseOtherMusicVolume=" + z2);
         this.r = false;
         if (!z2) {
-            if (this.f29243a != null) {
+            if (this.f28488a != null) {
                 b(true);
             }
-        } else if (this.f29243a != null) {
+        } else if (this.f28488a != null) {
             b(false);
         }
         if (z) {
             u.b("tag_video_play", "[video] first start , SSMediaPlayer  start method !");
             r();
-            this.f29249g = j;
+            this.f28494g = j;
             return;
         }
         C();
-        c cVar = this.f29243a;
+        c cVar = this.f28488a;
         if (cVar != null) {
             try {
                 if (j <= cVar.i()) {
-                    j = this.f29243a.i();
+                    j = this.f28488a.i();
                 }
-                this.f29249g = j;
+                this.f28494g = j;
             } catch (Throwable th) {
                 u.b("tag_video_play", "[video] MediaPlayerProxy#start  error: getCurrentPosition :" + th.toString());
             }
@@ -441,7 +441,7 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c.f
     public void c(c cVar) {
-        Handler handler = this.f29251i;
+        Handler handler = this.f28496i;
         if (handler != null) {
             handler.sendEmptyMessage(306);
         }
@@ -449,14 +449,14 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c.e
     public void b(c cVar) {
-        this.f29248f = 205;
+        this.f28493f = 205;
         if (this.r) {
-            this.f29250h.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.d.d.8
+            this.f28495h.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.d.d.8
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        d.this.f29243a.h();
-                        d.this.f29248f = 207;
+                        d.this.f28488a.h();
+                        d.this.f28493f = 207;
                         d.this.r = false;
                     } catch (Throwable th) {
                         u.a("SSMediaPlayeWrapper", "onPrepared error: ", th);
@@ -464,11 +464,11 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                 }
             });
         } else {
-            Handler handler = this.f29250h;
+            Handler handler = this.f28495h;
             handler.sendMessage(handler.obtainMessage(100, -1, -1));
         }
         o.delete(this.k);
-        Handler handler2 = this.f29251i;
+        Handler handler2 = this.f28496i;
         if (handler2 != null) {
             handler2.sendEmptyMessage(305);
         }
@@ -477,13 +477,13 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
 
     public void a(final long j) {
         D();
-        int i2 = this.f29248f;
+        int i2 = this.f28493f;
         if (i2 == 207 || i2 == 206 || i2 == 209) {
             b(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.d.d.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (d.this.f29250h != null) {
-                        d.this.f29250h.obtainMessage(106, Long.valueOf(j)).sendToTarget();
+                    if (d.this.f28495h != null) {
+                        d.this.f28495h.obtainMessage(106, Long.valueOf(j)).sendToTarget();
                     }
                 }
             });
@@ -495,8 +495,8 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
             @Override // java.lang.Runnable
             public void run() {
                 d.this.q();
-                if (d.this.f29250h != null) {
-                    d.this.f29250h.obtainMessage(111, surfaceTexture).sendToTarget();
+                if (d.this.f28495h != null) {
+                    d.this.f28495h.obtainMessage(111, surfaceTexture).sendToTarget();
                 }
             }
         });
@@ -507,8 +507,8 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
             @Override // java.lang.Runnable
             public void run() {
                 d.this.q();
-                if (d.this.f29250h != null) {
-                    d.this.f29250h.obtainMessage(110, surfaceHolder).sendToTarget();
+                if (d.this.f28495h != null) {
+                    d.this.f28495h.obtainMessage(110, surfaceHolder).sendToTarget();
                 }
             }
         });
@@ -519,18 +519,18 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
             @Override // java.lang.Runnable
             public void run() {
                 d.this.q();
-                if (d.this.f29250h != null) {
-                    d.this.f29250h.obtainMessage(107, aVar).sendToTarget();
+                if (d.this.f28495h != null) {
+                    d.this.f28495h.obtainMessage(107, aVar).sendToTarget();
                 }
             }
         });
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:153:0x02d2  */
+    /* JADX WARN: Removed duplicated region for block: B:153:0x02d0  */
     /* JADX WARN: Removed duplicated region for block: B:183:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:31:0x00b0  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x01a3 A[Catch: all -> 0x01b0, TRY_LEAVE, TryCatch #7 {all -> 0x01b0, blocks: (B:43:0x00df, B:46:0x00f0, B:49:0x00f7, B:51:0x00fd, B:54:0x0103, B:56:0x011a, B:58:0x0122, B:73:0x019b, B:75:0x01a3, B:59:0x012a, B:61:0x014b, B:63:0x0151, B:65:0x0159, B:66:0x0180, B:67:0x0186, B:69:0x018c, B:71:0x0192, B:72:0x0196), top: B:171:0x00df }] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x01a1 A[Catch: all -> 0x01ae, TRY_LEAVE, TryCatch #5 {all -> 0x01ae, blocks: (B:43:0x00df, B:46:0x00f0, B:49:0x00f7, B:51:0x00fd, B:54:0x0103, B:56:0x011a, B:58:0x0122, B:73:0x0199, B:75:0x01a1, B:59:0x012a, B:61:0x014a, B:63:0x0150, B:65:0x0158, B:66:0x017e, B:67:0x0184, B:69:0x018a, B:71:0x0190, B:72:0x0194), top: B:167:0x00df }] */
     @Override // com.bytedance.sdk.openadsdk.utils.am.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -539,25 +539,25 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
         boolean z;
         long i2;
         int i3 = message.what;
-        u.b("tag_video_play", "[video]  execute , mCurrentState = " + this.f29248f + " handlerMsg=" + i3);
-        c cVar = this.f29243a;
+        u.b("tag_video_play", "[video]  execute , mCurrentState = " + this.f28493f + " handlerMsg=" + i3);
+        c cVar = this.f28488a;
         if (cVar != null) {
             long j = 0;
             switch (message.what) {
                 case 100:
-                    int i4 = this.f29248f;
+                    int i4 = this.f28493f;
                     if (i4 == 205 || i4 == 206 || i4 == 207 || i4 == 209) {
                         try {
-                            this.f29243a.f();
+                            this.f28488a.f();
                             u.b("tag_video_play", "[video] OP_START execute , mMediaPlayer real start !");
-                            this.f29248f = 206;
-                            if (this.f29249g >= 0) {
-                                this.f29243a.a(this.f29249g);
-                                this.f29249g = -1L;
+                            this.f28493f = 206;
+                            if (this.f28494g >= 0) {
+                                this.f28488a.a(this.f28494g);
+                                this.f28494g = -1L;
                             }
-                            if (this.f29251i != null) {
-                                this.f29251i.removeMessages(312);
-                                this.f29251i.sendEmptyMessage(313);
+                            if (this.f28496i != null) {
+                                this.f28496i.removeMessages(312);
+                                this.f28496i.sendEmptyMessage(313);
                             }
                         } catch (Throwable th) {
                             u.a("tag_video_play", "OP_START error: ", th);
@@ -568,23 +568,23 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                     z = true;
                     break;
                 case 101:
-                    int i5 = this.f29248f;
+                    int i5 = this.f28493f;
                     if (i5 == 206 || i5 == 207 || i5 == 209) {
                         try {
                             u.b("tag_video_play", "[video] OP_PAUSE execute , mMediaPlayer  OP_PAUSE !");
-                            this.f29243a.h();
-                            this.f29248f = 207;
-                        } catch (Throwable th2) {
-                            th = th2;
-                        }
-                        try {
-                            this.r = false;
+                            this.f28488a.h();
+                            this.f28493f = 207;
+                            try {
+                                this.r = false;
+                            } catch (Throwable th2) {
+                                th = th2;
+                                u.a("NativeVideoController", "OP_PAUSE error: ", th);
+                                z = false;
+                                if (z) {
+                                }
+                            }
                         } catch (Throwable th3) {
                             th = th3;
-                            u.a("NativeVideoController", "OP_PAUSE error: ", th);
-                            z = false;
-                            if (z) {
-                            }
                         }
                         z = false;
                     }
@@ -594,7 +594,7 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                     try {
                         cVar.l();
                         u.b("tag_video_play", "[video] OP_RELEASE execute , releaseMediaplayer !");
-                        this.f29248f = 201;
+                        this.f28493f = 201;
                         break;
                     } catch (Throwable th4) {
                         u.a("SSMediaPlayeWrapper", "OP_RESET error: ", th4);
@@ -607,20 +607,20 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                     } catch (Throwable th5) {
                         u.c("NativeVideoController", "OP_RELEASE error: ", th5);
                     }
-                    this.f29247e = false;
+                    this.f28492e = false;
                     a(309, (Object) null);
-                    this.f29248f = 203;
-                    this.f29243a = null;
+                    this.f28493f = 203;
+                    this.f28488a = null;
                     y();
                     break;
                 case 104:
-                    int i6 = this.f29248f;
+                    int i6 = this.f28493f;
                     if (i6 == 202 || i6 == 208) {
                         try {
-                            ((b) this.f29243a).e().prepareAsync();
+                            ((b) this.f28488a).e().prepareAsync();
                             u.b("tag_video_play", "[video] OP_PREPARE_ASYNC execute , mMediaPlayer real prepareAsync !");
-                            if (this.f29251i != null) {
-                                this.f29251i.sendEmptyMessageDelayed(312, 10000L);
+                            if (this.f28496i != null) {
+                                this.f28496i.sendEmptyMessageDelayed(312, 10000L);
                                 break;
                             }
                         } catch (Throwable th6) {
@@ -631,11 +631,11 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                     z = true;
                     break;
                 case 105:
-                    int i7 = this.f29248f;
+                    int i7 = this.f28493f;
                     if (i7 == 205 || i7 == 206 || i7 == 208 || i7 == 207 || i7 == 209) {
                         try {
-                            this.f29243a.g();
-                            this.f29248f = 208;
+                            this.f28488a.g();
+                            this.f28493f = 208;
                             break;
                         } catch (Throwable th7) {
                             u.a("SSMediaPlayeWrapper", "OP_STOP error: ", th7);
@@ -645,10 +645,10 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                     z = true;
                     break;
                 case 106:
-                    int i8 = this.f29248f;
+                    int i8 = this.f28493f;
                     if (i8 == 206 || i8 == 207 || i8 == 209) {
                         try {
-                            this.f29243a.a(((Long) message.obj).longValue());
+                            this.f28488a.a(((Long) message.obj).longValue());
                             break;
                         } catch (Throwable th8) {
                             u.a("SSMediaPlayeWrapper", "OP_SEEKTO error: ", th8);
@@ -658,11 +658,11 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                     z = true;
                     break;
                 case 107:
-                    int i9 = this.f29248f;
+                    int i9 = this.f28493f;
                     if (i9 == 201 || i9 == 203) {
                         try {
                             com.bytedance.sdk.openadsdk.core.video.b.a aVar = (com.bytedance.sdk.openadsdk.core.video.b.a) message.obj;
-                            String str = aVar.f29209a;
+                            String str = aVar.f28454a;
                             String a2 = com.bytedance.sdk.openadsdk.core.video.a.a.a(str);
                             if (!TextUtils.isEmpty(a2)) {
                                 str = a2;
@@ -670,10 +670,10 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                             if (TextUtils.isEmpty(str)) {
                                 return;
                             }
-                            if (!str.startsWith("/") && aVar.f29211c != 1) {
-                                com.bytedance.sdk.openadsdk.k.f.b b2 = new com.bytedance.sdk.openadsdk.k.f.b().a(aVar.f29209a).b(aVar.f29212d);
+                            if (!str.startsWith("/") && aVar.f28456c != 1) {
+                                com.bytedance.sdk.openadsdk.k.f.b b2 = new com.bytedance.sdk.openadsdk.k.f.b().a(aVar.f28454a).b(aVar.f28457d);
                                 if (Build.VERSION.SDK_INT >= 23 && str.startsWith("http")) {
-                                    this.f29243a.a(str, aVar.f29212d);
+                                    this.f28488a.a(str, aVar.f28457d);
                                 } else {
                                     String b3 = com.bytedance.sdk.openadsdk.k.f.a.a().b(b2);
                                     u.f("cache009", "使用Video缓存-OP_SET_DATASOURCE-proxyurl=" + b3);
@@ -682,22 +682,22 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                                         u.f("cache010", "使用uri parse =" + parse.getPath());
                                         a(parse.getPath());
                                     } else {
-                                        this.f29243a.a(b3);
+                                        this.f28488a.a(b3);
                                     }
                                 }
-                                this.f29248f = 202;
-                                if (this.f29251i != null) {
-                                    this.f29251i.obtainMessage(314).sendToTarget();
+                                this.f28493f = 202;
+                                if (this.f28496i != null) {
+                                    this.f28496i.obtainMessage(314).sendToTarget();
                                     break;
                                 }
                             }
                             if (com.bytedance.sdk.openadsdk.multipro.b.b() && str.startsWith("/")) {
                                 a(str);
                             } else {
-                                this.f29243a.a(str);
+                                this.f28488a.a(str);
                             }
-                            this.f29248f = 202;
-                            if (this.f29251i != null) {
+                            this.f28493f = 202;
+                            if (this.f28496i != null) {
                             }
                         } catch (Throwable th9) {
                             u.a("SSMediaPlayeWrapper", "OP_SET_DATASOURCE error: ", th9);
@@ -707,10 +707,10 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                     z = true;
                     break;
                 case 108:
-                    int i10 = this.f29248f;
+                    int i10 = this.f28493f;
                     if (i10 == 206 || i10 == 207) {
                         try {
-                            j = this.f29243a.j();
+                            j = this.f28488a.j();
                         } catch (Throwable th10) {
                             u.a("SSMediaPlayeWrapper", "OP_REQUEST_DURATION error: ", th10);
                         }
@@ -718,10 +718,10 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                     a(108, Long.valueOf(j));
                     break;
                 case 109:
-                    int i11 = this.f29248f;
+                    int i11 = this.f28493f;
                     if (i11 == 206 || i11 == 207) {
                         try {
-                            i2 = this.f29243a.i();
+                            i2 = this.f28488a.i();
                         } catch (Throwable th11) {
                             u.a("SSMediaPlayeWrapper", "OP_REQUEST_CUR_POSITION error: ", th11);
                         }
@@ -738,9 +738,9 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                     try {
                         cVar.a((SurfaceHolder) message.obj);
                         if (this.k == 2) {
-                            this.f29243a.a(p.a(), 10);
+                            this.f28488a.a(p.a(), 10);
                         }
-                        this.f29243a.a(true);
+                        this.f28488a.a(true);
                         break;
                     } catch (Throwable th12) {
                         u.a("SSMediaPlayeWrapper", "OP_SET_DISPLAY error: ", th12);
@@ -751,8 +751,8 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                         if (Build.VERSION.SDK_INT >= 14) {
                             cVar.a(new Surface((SurfaceTexture) message.obj));
                         }
-                        this.f29243a.a(true);
-                        this.f29243a.a(p.a(), 10);
+                        this.f28488a.a(true);
+                        this.f28488a.a(p.a(), 10);
                         x();
                         break;
                     } catch (Throwable th13) {
@@ -761,12 +761,12 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
                     }
             }
             if (z) {
-                this.f29248f = 200;
-                if (this.f29245c) {
+                this.f28493f = 200;
+                if (this.f28490c) {
                     return;
                 }
                 a(308, Integer.valueOf(i3));
-                this.f29245c = true;
+                this.f28490c = true;
                 return;
             }
             return;
@@ -780,7 +780,7 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
         if (runnable == null) {
             return;
         }
-        if (!this.f29247e) {
+        if (!this.f28492e) {
             runnable.run();
         } else {
             a(runnable);
@@ -790,9 +790,9 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
     public void b(boolean z) {
         try {
             if (z) {
-                this.f29243a.a(0.0f, 0.0f);
+                this.f28488a.a(0.0f, 0.0f);
             } else {
-                this.f29243a.a(1.0f, 1.0f);
+                this.f28488a.a(1.0f, 1.0f);
             }
         } catch (Throwable th) {
             u.a("SSMediaPlayeWrapper", "setQuietPlay error: ", th);
@@ -800,7 +800,7 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
     }
 
     private void b(String str) {
-        Handler handler = this.f29250h;
+        Handler handler = this.f28495h;
         if (handler != null) {
             handler.removeMessages(201);
         }
@@ -813,7 +813,7 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
 
     private void a(String str) throws Throwable {
         FileInputStream fileInputStream = new FileInputStream(str);
-        this.f29243a.a(fileInputStream.getFD());
+        this.f28488a.a(fileInputStream.getFD());
         fileInputStream.close();
     }
 
@@ -821,7 +821,7 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
         if (i2 == 309) {
             B();
         }
-        Handler handler = this.f29251i;
+        Handler handler = this.f28496i;
         if (handler != null) {
             handler.obtainMessage(i2, obj).sendToTarget();
         }
@@ -830,16 +830,16 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c.a
     public void a(c cVar, int i2) {
         Handler handler;
-        if (this.f29243a == cVar && (handler = this.f29251i) != null) {
+        if (this.f28488a == cVar && (handler = this.f28496i) != null) {
             handler.obtainMessage(301, Integer.valueOf(i2)).sendToTarget();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c.b
     public void a(c cVar) {
-        this.f29248f = !this.f29244b ? 209 : 206;
+        this.f28493f = !this.f28489b ? 209 : 206;
         o.delete(this.k);
-        Handler handler = this.f29251i;
+        Handler handler = this.f28496i;
         if (handler != null) {
             handler.obtainMessage(302).sendToTarget();
         }
@@ -847,23 +847,23 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
         D();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c.InterfaceC0308c
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c.InterfaceC0295c
     public boolean a(c cVar, int i2, int i3) {
         u.f("SSMediaPlayeWrapper", "what=" + i2 + "extra=" + i3);
         u();
-        this.f29248f = 200;
-        Handler handler = this.f29251i;
+        this.f28493f = 200;
+        Handler handler = this.f28496i;
         if (handler != null) {
             handler.obtainMessage(303, i2, i3).sendToTarget();
         }
-        Handler handler2 = this.f29250h;
+        Handler handler2 = this.f28495h;
         if (handler2 != null) {
             handler2.removeMessages(108);
-            this.f29250h.removeMessages(109);
+            this.f28495h.removeMessages(109);
         }
-        if (!this.f29245c) {
+        if (!this.f28490c) {
             a(308, Integer.valueOf(i2));
-            this.f29245c = true;
+            this.f28490c = true;
         }
         if (a(i2, i3)) {
             t();
@@ -901,7 +901,7 @@ public class d implements c.a, c.b, c.InterfaceC0308c, c.d, c.e, c.f, c.g, am.a 
 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c.g
     public void a(c cVar, int i2, int i3, int i4, int i5) {
-        Handler handler = this.f29251i;
+        Handler handler = this.f28496i;
         if (handler != null) {
             handler.obtainMessage(311, i2, i3).sendToTarget();
         }

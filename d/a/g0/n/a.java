@@ -11,37 +11,37 @@ import d.a.g0.m.c;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40983a;
+    public Context f40228a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f40984b;
+    public d f40229b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f40985c;
+    public ServiceConnection f40230c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40986d;
+    public String f40231d;
 
     /* renamed from: d.a.g0.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class ServiceConnectionC0557a implements ServiceConnection {
-        public ServiceConnectionC0557a() {
+    public class ServiceConnectionC0544a implements ServiceConnection {
+        public ServiceConnectionC0544a() {
         }
 
         @Override // android.content.ServiceConnection
         public final synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            a.this.f40984b = d.a.a(iBinder);
+            a.this.f40229b = d.a.a(iBinder);
         }
 
         @Override // android.content.ServiceConnection
         public final void onServiceDisconnected(ComponentName componentName) {
-            a.this.f40984b = null;
+            a.this.f40229b = null;
         }
     }
 
     public a(Context context, c cVar) {
-        this.f40983a = null;
-        this.f40983a = context;
+        this.f40228a = null;
+        this.f40228a = context;
     }
 
     public final String a() {
@@ -49,12 +49,12 @@ public final class a {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        if (TextUtils.isEmpty(this.f40986d)) {
-            if (this.f40984b != null) {
-                this.f40986d = this.f40984b.a();
+        if (TextUtils.isEmpty(this.f40231d)) {
+            if (this.f40229b != null) {
+                this.f40231d = this.f40229b.a();
             }
-            return this.f40986d;
+            return this.f40231d;
         }
-        return this.f40986d;
+        return this.f40231d;
     }
 }

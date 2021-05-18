@@ -6,36 +6,36 @@ import android.content.SharedPreferences;
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SharedPreferences f4883a;
+    public static SharedPreferences f4737a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences.Editor f4884b;
+    public static SharedPreferences.Editor f4738b;
 
     public static void a(Context context) {
-        if (f4883a == null) {
-            f4883a = context.getSharedPreferences("crablite_app_life", 0);
+        if (f4737a == null) {
+            f4737a = context.getSharedPreferences("crablite_app_life", 0);
         }
-        if (f4884b == null) {
-            f4884b = f4883a.edit();
+        if (f4738b == null) {
+            f4738b = f4737a.edit();
         }
     }
 
     public static void b(String str) {
-        SharedPreferences.Editor editor = f4884b;
+        SharedPreferences.Editor editor = f4738b;
         if (editor != null) {
             editor.putInt("used_count_" + str, 0);
-            com.baidu.crabsdk.lite.b.c.c(f4884b, false);
+            com.baidu.crabsdk.lite.b.c.c(f4738b, false);
         }
     }
 
     public static void c(String str) {
-        SharedPreferences.Editor editor = f4884b;
+        SharedPreferences.Editor editor = f4738b;
         editor.putInt("used_count_" + str, d(str) + 1);
-        com.baidu.crabsdk.lite.b.c.c(f4884b, false);
+        com.baidu.crabsdk.lite.b.c.c(f4738b, false);
     }
 
     public static int d(String str) {
-        SharedPreferences sharedPreferences = f4883a;
+        SharedPreferences sharedPreferences = f4737a;
         return sharedPreferences.getInt("used_count_" + str, 0);
     }
 }

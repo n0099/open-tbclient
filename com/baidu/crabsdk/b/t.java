@@ -10,52 +10,52 @@ import java.util.UUID;
 public final class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4847a;
+    public static Context f4701a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences f4848b;
+    public static SharedPreferences f4702b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, String> f4849c;
+    public static HashMap<String, String> f4703c;
 
     public static String a() {
-        if (!TextUtils.isEmpty(com.baidu.crabsdk.a.f4781c)) {
-            com.baidu.crabsdk.c.a.b("uid is which user setted " + com.baidu.crabsdk.a.f4781c);
-            return com.baidu.crabsdk.a.f4781c;
+        if (!TextUtils.isEmpty(com.baidu.crabsdk.a.f4635c)) {
+            com.baidu.crabsdk.c.a.b("uid is which user setted " + com.baidu.crabsdk.a.f4635c);
+            return com.baidu.crabsdk.a.f4635c;
         }
-        Context context = f4847a;
+        Context context = f4701a;
         if (context == null) {
             com.baidu.crabsdk.c.a.d("get SharedPreferences error because context is null for unknown reasons!!!");
             return "N/A";
         }
-        if (f4848b == null) {
-            f4848b = context.getSharedPreferences("crab_user_info", 0);
+        if (f4702b == null) {
+            f4702b = context.getSharedPreferences("crab_user_info", 0);
         }
-        String string = f4848b.getString("userId", "");
+        String string = f4702b.getString("userId", "");
         if (TextUtils.isEmpty(string)) {
             string = UUID.randomUUID().toString();
-            com.baidu.crabsdk.c.c.c(f4848b.edit().putString("userId", string), false);
+            com.baidu.crabsdk.c.c.c(f4702b.edit().putString("userId", string), false);
         }
         com.baidu.crabsdk.c.a.b("uid is UUID " + string);
         return string;
     }
 
     public static HashMap<String, String> b() {
-        if (f4849c == null) {
-            f4849c = new HashMap<>();
+        if (f4703c == null) {
+            f4703c = new HashMap<>();
         }
-        return f4849c;
+        return f4703c;
     }
 
     public static String c() {
-        HashMap<String, String> hashMap = f4849c;
+        HashMap<String, String> hashMap = f4703c;
         return hashMap != null ? com.baidu.crabsdk.sender.i.f(hashMap) : "";
     }
 
     public static void d(HashMap<String, String> hashMap) {
-        HashMap<String, String> hashMap2 = f4849c;
+        HashMap<String, String> hashMap2 = f4703c;
         if (hashMap2 == null) {
-            f4849c = hashMap;
+            f4703c = hashMap;
         } else if (hashMap != null) {
             hashMap2.putAll(hashMap);
         }
@@ -63,30 +63,30 @@ public final class t {
 
     public static void e(String str) {
         Context context;
-        com.baidu.crabsdk.a.f4781c = str;
-        if (f4848b == null && (context = f4847a) != null) {
-            f4848b = context.getSharedPreferences("crab_user_info", 0);
+        com.baidu.crabsdk.a.f4635c = str;
+        if (f4702b == null && (context = f4701a) != null) {
+            f4702b = context.getSharedPreferences("crab_user_info", 0);
         }
-        if (f4848b == null || TextUtils.isEmpty(str)) {
+        if (f4702b == null || TextUtils.isEmpty(str)) {
             return;
         }
-        com.baidu.crabsdk.c.c.c(f4848b.edit().putString("userId", str), false);
+        com.baidu.crabsdk.c.c.c(f4702b.edit().putString("userId", str), false);
     }
 
     public static void f(Context context) {
-        if (f4847a == null) {
-            f4847a = context;
-            f4848b = context.getSharedPreferences("crab_user_info", 0);
+        if (f4701a == null) {
+            f4701a = context;
+            f4702b = context.getSharedPreferences("crab_user_info", 0);
         }
     }
 
     public static String g() {
-        SharedPreferences sharedPreferences = f4848b;
+        SharedPreferences sharedPreferences = f4702b;
         return sharedPreferences != null ? sharedPreferences.getString(TbEnum.SystemMessage.KEY_USER_NAME, "") : "";
     }
 
     public static void h(String str) {
-        SharedPreferences sharedPreferences = f4848b;
+        SharedPreferences sharedPreferences = f4702b;
         if (sharedPreferences != null) {
             com.baidu.crabsdk.c.c.c(sharedPreferences.edit().putString(TbEnum.SystemMessage.KEY_USER_NAME, str), false);
         }

@@ -4,25 +4,25 @@ import android.os.Process;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FileLock {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Integer> f30951a = new HashMap();
+    public static final Map<String, Integer> f30196a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30952b;
+    public final int f30197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f30953c;
+    public final String f30198c;
 
     static {
         g.a("file_lock_pg");
     }
 
     public FileLock(String str, int i2) {
-        this.f30953c = str;
-        this.f30952b = i2;
+        this.f30198c = str;
+        this.f30197b = i2;
     }
 
     public static FileLock a(String str) {
@@ -62,12 +62,12 @@ public class FileLock {
 
     public static int d(String str) throws Exception {
         Integer num;
-        synchronized (f30951a) {
-            num = f30951a.get(str);
+        synchronized (f30196a) {
+            num = f30196a.get(str);
             if (num == null) {
                 new File(str).getParentFile().mkdirs();
                 num = Integer.valueOf(nGetFD(str));
-                f30951a.put(str, num);
+                f30196a.put(str, num);
             }
         }
         return num.intValue();
@@ -97,21 +97,21 @@ public class FileLock {
 
     public void b() {
         Integer remove;
-        synchronized (f30951a) {
-            remove = f30951a.remove(this.f30953c);
+        synchronized (f30196a) {
+            remove = f30196a.remove(this.f30198c);
         }
         try {
             nRelease(remove.intValue());
         } catch (Exception e2) {
-            throw new RuntimeException("release lock failed, file:" + this.f30953c + " caused by:" + e2.getMessage());
+            throw new RuntimeException("release lock failed, file:" + this.f30198c + " caused by:" + e2.getMessage());
         }
     }
 
     public void a() {
         try {
-            nUnlockFile(this.f30952b);
+            nUnlockFile(this.f30197b);
         } catch (Exception unused) {
-            throw new RuntimeException("release lock failed，path:" + this.f30953c);
+            throw new RuntimeException("release lock failed，path:" + this.f30198c);
         }
     }
 }

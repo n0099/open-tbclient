@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.util.TbEnum;
 import com.heytap.mcssdk.mode.MessageStat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class EventClientReport extends a {
     public String eventContent;
     public String eventId;

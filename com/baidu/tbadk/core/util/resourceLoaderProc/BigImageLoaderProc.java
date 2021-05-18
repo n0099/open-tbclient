@@ -24,7 +24,7 @@ import d.a.c.e.l.e;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.j.d.a;
-import d.a.i0.z0.o;
+import d.a.j0.z0.o;
 import java.io.File;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -66,7 +66,7 @@ public class BigImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(newDiskPicOperate);
-            bVar.f39786a = diskCancelWorker;
+            bVar.f39031a = diskCancelWorker;
         }
         if (d.g().a(newDiskPicOperate)) {
             int i2 = j.H() ? 500 : 2000;
@@ -78,8 +78,8 @@ public class BigImageLoaderProc implements e<a> {
                 }
             }
             if (newDiskPicOperate.isSuccess()) {
-                if (pidFromCDNURL == null || newDiskPicOperate.b() || !getIsHighQualityFromCDNURL(str)) {
-                    return newDiskPicOperate.a();
+                if (pidFromCDNURL == null || newDiskPicOperate.d() || !getIsHighQualityFromCDNURL(str)) {
+                    return newDiskPicOperate.c();
                 }
                 return null;
             }
@@ -170,22 +170,22 @@ public class BigImageLoaderProc implements e<a> {
         c newDiskPicOperate = newDiskPicOperate(getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE_FORCE);
         newDiskPicOperate.setGif(z);
         if (pidFromCDNURL != null) {
-            newDiskPicOperate.c(getIsHighQualityFromCDNURL(str));
+            newDiskPicOperate.e(getIsHighQualityFromCDNURL(str));
         } else {
-            newDiskPicOperate.c(true);
+            newDiskPicOperate.e(true);
         }
         newDiskPicOperate.setData(bArr);
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(newDiskPicOperate);
-            bVar.f39786a = diskCancelWorker;
+            bVar.f39031a = diskCancelWorker;
         }
         d.g().a(newDiskPicOperate);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public a m17decodeToResource(byte[] bArr, Object... objArr) {
+    public a m16decodeToResource(byte[] bArr, Object... objArr) {
         return null;
     }
 
@@ -284,13 +284,13 @@ public class BigImageLoaderProc implements e<a> {
                     z = true;
                     webClient = new WebClient();
                     if (bVar != null) {
-                        bVar.f39786a = webClient;
+                        bVar.f39031a = webClient;
                     }
                     downloadImageBytes = webClient.downloadImageBytes(str4, !booleanValue);
                     needCache = webClient.needCache();
                     if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                         BdLog.e("BIGIMAGE imagesize too big");
-                        d.a.i0.r.z.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                        d.a.j0.r.z.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                     }
                     if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                         try {
@@ -331,7 +331,7 @@ public class BigImageLoaderProc implements e<a> {
             needCache = webClient.needCache();
             if (webClient.IsRequestSuccess()) {
                 BdLog.e("BIGIMAGE imagesize too big");
-                d.a.i0.r.z.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                d.a.j0.r.z.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
             }
             if (webClient.responseCode == 302) {
                 InputStream openRawResource2 = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete_big2, new TypedValue());

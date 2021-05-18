@@ -20,31 +20,31 @@ import org.apache.http.message.BasicNameValuePair;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f40064a;
+    public Handler f39309a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile e0 f40065b;
+    public volatile e0 f39310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile g0 f40066c;
+    public volatile g0 f39311c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e.a f40067d;
+    public e.a f39312d;
 
     /* renamed from: e  reason: collision with root package name */
-    public URI f40068e;
+    public URI f39313e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f40069f;
+    public String f39314f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f40070g;
+    public String f39315g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40071h;
+    public int f39316h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f40072i;
+    public String f39317i;
     public String j;
     public String[] k;
     public List<BasicNameValuePair> l;
@@ -68,12 +68,12 @@ public class i {
             if (obj instanceof c0) {
                 c0 c0Var = (c0) obj;
                 if (i.this.m != null) {
-                    i.this.m.a(c0Var.f40011a);
+                    i.this.m.a(c0Var.f39256a);
                 }
             } else if (obj instanceof w) {
                 w wVar = (w) obj;
                 if (i.this.m != null) {
-                    i.this.m.d(wVar.f40093a);
+                    i.this.m.d(wVar.f39338a);
                 } else if (i.this.D()) {
                     BdLog.d("could not call onRawTextMessage() .. handler already NULL");
                 }
@@ -86,8 +86,8 @@ public class i {
                 }
             } else if (obj instanceof t) {
                 u uVar = new u();
-                uVar.f40091a = ((t) obj).f40090a;
-                i.this.f40066c.b(uVar);
+                uVar.f39336a = ((t) obj).f39335a;
+                i.this.f39311c.b(uVar);
             } else if (obj instanceof u) {
                 u uVar2 = (u) obj;
                 if (i.this.m != null) {
@@ -98,9 +98,9 @@ public class i {
                     i.this.q(1, null);
                 } else if (obj instanceof a0) {
                     a0 a0Var = (a0) obj;
-                    if (a0Var.f40007a) {
+                    if (a0Var.f39252a) {
                         if (i.this.m != null) {
-                            i.this.m.onOpen(a0Var.f40008b);
+                            i.this.m.onOpen(a0Var.f39253b);
                             i.this.o = true;
                             i.this.p = false;
                             if (i.this.m != null) {
@@ -112,32 +112,32 @@ public class i {
                         i.this.q(6, "handler already NULL");
                     }
                 } else if (obj instanceof n) {
-                    SocketException socketException = ((n) obj).f40086a;
+                    SocketException socketException = ((n) obj).f39331a;
                     message2 = socketException != null ? socketException.getMessage() : null;
                     i iVar = i.this;
                     iVar.q(3, "WebSockets connection lost = " + message2);
                 } else if (obj instanceof v) {
-                    WebSocketException webSocketException = ((v) obj).f40092a;
+                    WebSocketException webSocketException = ((v) obj).f39337a;
                     message2 = webSocketException != null ? webSocketException.getMessage() : null;
                     i iVar2 = i.this;
                     iVar2.q(4, "WebSockets protocol violation error = " + message2);
                 } else if (obj instanceof p) {
                     i iVar3 = i.this;
-                    iVar3.q(5, "WebSockets internal error (" + ((p) obj).f40088a.toString() + SmallTailInfo.EMOTION_SUFFIX);
+                    iVar3.q(5, "WebSockets internal error (" + ((p) obj).f39333a.toString() + SmallTailInfo.EMOTION_SUFFIX);
                 } else if (obj instanceof z) {
                     z zVar = (z) obj;
                     i iVar4 = i.this;
-                    iVar4.q(6, "Server error " + zVar.f40095a + " (" + zVar.f40096b + SmallTailInfo.EMOTION_SUFFIX);
+                    iVar4.q(6, "Server error " + zVar.f39340a + " (" + zVar.f39341b + SmallTailInfo.EMOTION_SUFFIX);
                 } else if (obj instanceof o) {
                     i iVar5 = i.this;
-                    iVar5.q(2, "WebSockets connot connect:" + ((o) obj).f40087a);
+                    iVar5.q(2, "WebSockets connot connect:" + ((o) obj).f39332a);
                 } else if (obj instanceof b0) {
                     if (i.this.m != null) {
-                        i.this.m.i(((b0) message.obj).f40094a);
+                        i.this.m.i(((b0) message.obj).f39339a);
                     }
                 } else if (obj instanceof q) {
                     i.this.s = null;
-                    c cVar = ((q) message.obj).f40094a;
+                    c cVar = ((q) message.obj).f39339a;
                     if (i.this.m != null) {
                         i.this.m.h(cVar);
                     }
@@ -146,7 +146,7 @@ public class i {
                     }
                 } else if (obj instanceof x) {
                     i.this.s = null;
-                    c cVar2 = ((x) message.obj).f40094a;
+                    c cVar2 = ((x) message.obj).f39339a;
                     if (i.this.m != null) {
                         i.this.m.g(2, cVar2);
                     }
@@ -171,25 +171,25 @@ public class i {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 e eVar = new e();
-                i.this.f40067d = eVar.a(i.this.f40070g, i.this.f40071h, i.this.n, false);
+                i.this.f39312d = eVar.a(i.this.f39315g, i.this.f39316h, i.this.n, false);
                 if (i.this.q) {
                     i.this.H(new m());
                     return;
                 }
                 try {
-                    if (!i.this.f40067d.isConnected()) {
+                    if (!i.this.f39312d.isConnected()) {
                         i.this.H(new o(2, "cannot connect"));
                         return;
                     }
                     i.this.r = System.currentTimeMillis() - currentTimeMillis;
                     i.this.t();
                     i.this.u();
-                    l lVar = new l(i.this.f40070g + ":" + i.this.f40071h);
-                    lVar.f40079b = i.this.f40072i;
-                    lVar.f40080c = i.this.j;
-                    lVar.f40082e = i.this.k;
-                    lVar.f40083f = i.this.l;
-                    i.this.f40066c.b(lVar);
+                    l lVar = new l(i.this.f39315g + ":" + i.this.f39316h);
+                    lVar.f39324b = i.this.f39317i;
+                    lVar.f39325c = i.this.j;
+                    lVar.f39327e = i.this.k;
+                    lVar.f39328f = i.this.l;
+                    i.this.f39311c.b(lVar);
                     if (i.this.q) {
                         i.this.H(new m());
                     }
@@ -214,7 +214,7 @@ public class i {
     }
 
     public long A() {
-        e.a aVar = this.f40067d;
+        e.a aVar = this.f39312d;
         if (aVar != null) {
             return aVar.c();
         }
@@ -222,7 +222,7 @@ public class i {
     }
 
     public String B() {
-        e.a aVar = this.f40067d;
+        e.a aVar = this.f39312d;
         if (aVar != null) {
             return aVar.d();
         }
@@ -249,9 +249,9 @@ public class i {
     }
 
     public final void H(Object obj) {
-        Message obtainMessage = this.f40064a.obtainMessage();
+        Message obtainMessage = this.f39309a.obtainMessage();
         obtainMessage.obj = obj;
-        this.f40064a.sendMessage(obtainMessage);
+        this.f39309a.sendMessage(obtainMessage);
     }
 
     public boolean I(c cVar) {
@@ -270,22 +270,22 @@ public class i {
     }
 
     public final boolean J(c cVar) {
-        if (this.f40066c == null) {
+        if (this.f39311c == null) {
             H(new p(new Exception("mWriter = null")));
             return false;
         }
-        return this.f40066c.b(new s(cVar));
+        return this.f39311c.b(new s(cVar));
     }
 
     public void o() {
-        if (this.f40065b != null) {
-            this.f40065b.a();
+        if (this.f39310b != null) {
+            this.f39310b.a();
         }
     }
 
     public void p() {
-        if (this.f40066c != null) {
-            this.f40066c.a();
+        if (this.f39311c != null) {
+            this.f39311c.a();
         }
     }
 
@@ -295,15 +295,15 @@ public class i {
         }
         this.o = false;
         this.q = true;
-        if (this.f40065b != null) {
-            this.f40065b.p();
-            this.f40065b = null;
+        if (this.f39310b != null) {
+            this.f39310b.p();
+            this.f39310b = null;
         }
-        if (this.f40066c != null) {
-            this.f40066c.i();
-            this.f40066c = null;
+        if (this.f39311c != null) {
+            this.f39311c.i();
+            this.f39311c = null;
         }
-        e.a aVar = this.f40067d;
+        e.a aVar = this.f39312d;
         if (aVar != null) {
             try {
                 aVar.close();
@@ -312,7 +312,7 @@ public class i {
                     th.printStackTrace();
                 }
             }
-            this.f40067d = null;
+            this.f39312d = null;
         }
         g gVar = this.m;
         this.m = null;
@@ -329,33 +329,33 @@ public class i {
 
     public void r(String str, String[] strArr, g gVar, d0 d0Var, List<BasicNameValuePair> list) throws WebSocketException {
         this.p = true;
-        e.a aVar = this.f40067d;
+        e.a aVar = this.f39312d;
         if (aVar != null && aVar.isConnected()) {
             throw new WebSocketException("already connected");
         }
         try {
             URI uri = new URI(str);
-            this.f40068e = uri;
-            if (!uri.getScheme().equals("ws") && !this.f40068e.getScheme().equals("wss")) {
+            this.f39313e = uri;
+            if (!uri.getScheme().equals("ws") && !this.f39313e.getScheme().equals("wss")) {
                 throw new WebSocketException("unsupported scheme for WebSockets URI");
             }
-            if (!this.f40068e.getScheme().equals("wss")) {
-                this.f40069f = this.f40068e.getScheme();
-                if (this.f40068e.getPort() == -1) {
-                    if (this.f40069f.equals("ws")) {
-                        this.f40071h = 80;
+            if (!this.f39313e.getScheme().equals("wss")) {
+                this.f39314f = this.f39313e.getScheme();
+                if (this.f39313e.getPort() == -1) {
+                    if (this.f39314f.equals("ws")) {
+                        this.f39316h = 80;
                     } else {
-                        this.f40071h = Constants.SOCKET_PORT_SSL;
+                        this.f39316h = Constants.SOCKET_PORT_SSL;
                     }
                 } else {
-                    this.f40071h = this.f40068e.getPort();
+                    this.f39316h = this.f39313e.getPort();
                 }
-                if (this.f40068e.getHost() != null) {
-                    this.f40070g = this.f40068e.getHost();
-                    if (this.f40068e.getPath() != null && !this.f40068e.getPath().equals("")) {
-                        this.f40072i = this.f40068e.getPath();
-                        if (this.f40068e.getQuery() != null && !this.f40068e.getQuery().equals("")) {
-                            this.j = this.f40068e.getQuery();
+                if (this.f39313e.getHost() != null) {
+                    this.f39315g = this.f39313e.getHost();
+                    if (this.f39313e.getPath() != null && !this.f39313e.getPath().equals("")) {
+                        this.f39317i = this.f39313e.getPath();
+                        if (this.f39313e.getQuery() != null && !this.f39313e.getQuery().equals("")) {
+                            this.j = this.f39313e.getQuery();
                             this.k = strArr;
                             this.l = list;
                             this.m = gVar;
@@ -371,9 +371,9 @@ public class i {
                         new b(this, null).start();
                         return;
                     }
-                    this.f40072i = "/";
-                    if (this.f40068e.getQuery() != null) {
-                        this.j = this.f40068e.getQuery();
+                    this.f39317i = "/";
+                    if (this.f39313e.getQuery() != null) {
+                        this.j = this.f39313e.getQuery();
                         this.k = strArr;
                         this.l = list;
                         this.m = gVar;
@@ -398,29 +398,29 @@ public class i {
     }
 
     public void s() {
-        this.f40064a = new a();
+        this.f39309a = new a();
     }
 
     public void t() {
-        this.f40065b = new e0(this.f40064a, this.f40067d, this.n, "WebSocketReader");
-        this.f40065b.start();
+        this.f39310b = new e0(this.f39309a, this.f39312d, this.n, "WebSocketReader");
+        this.f39310b.start();
     }
 
     public void u() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
-        this.f40066c = new g0(handlerThread.getLooper(), this.f40064a, this.f40067d, this.n);
+        this.f39311c = new g0(handlerThread.getLooper(), this.f39309a, this.f39312d, this.n);
     }
 
     public long v() {
-        if (this.f40065b != null) {
-            return this.f40065b.c();
+        if (this.f39310b != null) {
+            return this.f39310b.c();
         }
         return 0L;
     }
 
     public String w() {
-        e.a aVar = this.f40067d;
+        e.a aVar = this.f39312d;
         if (aVar != null) {
             return aVar.getLocalDns();
         }
@@ -428,7 +428,7 @@ public class i {
     }
 
     public String x() {
-        e.a aVar = this.f40067d;
+        e.a aVar = this.f39312d;
         if (aVar != null) {
             return aVar.b();
         }
@@ -436,8 +436,8 @@ public class i {
     }
 
     public long y() {
-        if (this.f40066c != null) {
-            return this.f40066c.c();
+        if (this.f39311c != null) {
+            return this.f39311c.c();
         }
         return 0L;
     }

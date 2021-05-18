@@ -3,36 +3,36 @@ package com.vivo.push;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37584a;
+    public int f36829a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37585b;
+    public String f36830b;
 
     public y(int i2) {
-        this.f37584a = -1;
+        this.f36829a = -1;
         if (i2 >= 0) {
-            this.f37584a = i2;
+            this.f36829a = i2;
             return;
         }
         throw new IllegalArgumentException("PushCommand: the value of command must > 0.");
     }
 
     private final void e(a aVar) {
-        aVar.a("command", this.f37584a);
-        aVar.a("client_pkgname", this.f37585b);
+        aVar.a("command", this.f36829a);
+        aVar.a("client_pkgname", this.f36830b);
         c(aVar);
     }
 
     public final String a() {
-        return this.f37585b;
+        return this.f36830b;
     }
 
     public final int b() {
-        return this.f37584a;
+        return this.f36829a;
     }
 
     public abstract void c(a aVar);
@@ -48,7 +48,7 @@ public abstract class y {
     }
 
     public final void a(String str) {
-        this.f37585b = str;
+        this.f36830b = str;
     }
 
     public final void b(Intent intent) {
@@ -57,7 +57,7 @@ public abstract class y {
             com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
             return;
         }
-        a2.a("method", this.f37584a);
+        a2.a("method", this.f36829a);
         e(a2);
         Bundle b2 = a2.b();
         if (b2 != null) {
@@ -79,7 +79,7 @@ public abstract class y {
     }
 
     public final void a(a aVar) {
-        String a2 = z.a(this.f37584a);
+        String a2 = z.a(this.f36829a);
         if (a2 == null) {
             a2 = "";
         }
@@ -90,9 +90,9 @@ public abstract class y {
     public final void b(a aVar) {
         String a2 = aVar.a();
         if (!TextUtils.isEmpty(a2)) {
-            this.f37585b = a2;
+            this.f36830b = a2;
         } else {
-            this.f37585b = aVar.a("client_pkgname");
+            this.f36830b = aVar.a("client_pkgname");
         }
         d(aVar);
     }

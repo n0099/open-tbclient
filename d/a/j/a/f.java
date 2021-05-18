@@ -6,19 +6,19 @@ import java.lang.reflect.Method;
 public final class f extends e {
 
     /* renamed from: d  reason: collision with root package name */
-    public b f50211d;
+    public b f48432d;
 
     /* loaded from: classes.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Class<?> f50212a;
+        public Class<?> f48433a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Method f50213b;
+        public Method f48434b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Method f50214c;
+        public Method f48435c;
 
         public b() {
             d();
@@ -26,7 +26,7 @@ public final class f extends e {
 
         public final long b(Object obj) {
             try {
-                return ((Long) this.f50214c.invoke(obj, new Object[0])).longValue();
+                return ((Long) this.f48435c.invoke(obj, new Object[0])).longValue();
             } catch (Exception unused) {
                 throw new i.a("");
             }
@@ -34,9 +34,9 @@ public final class f extends e {
 
         public final void d() {
             try {
-                this.f50212a = Class.forName(i.a(c.a()), true, Object.class.getClassLoader());
-                this.f50213b = i.b(this.f50212a, i.a(c.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                this.f50214c = i.b(this.f50212a, i.a(c.c()), null);
+                this.f48433a = Class.forName(i.a(c.a()), true, Object.class.getClassLoader());
+                this.f48434b = i.b(this.f48433a, i.a(c.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                this.f48435c = i.b(this.f48433a, i.a(c.c()), null);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -44,31 +44,31 @@ public final class f extends e {
 
         public final void f(Object obj, byte[] bArr, int i2, int i3) {
             try {
-                this.f50213b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
+                this.f48434b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
             } catch (Exception unused) {
                 throw new i.a("");
             }
         }
 
         public final Object g() {
-            return this.f50212a.newInstance();
+            return this.f48433a.newInstance();
         }
     }
 
     public f(int i2, int i3) {
-        this.f50208a = 32;
-        this.f50209b = i2;
-        this.f50210c = i3;
-        this.f50211d = new b();
+        this.f48429a = 32;
+        this.f48430b = i2;
+        this.f48431c = i3;
+        this.f48432d = new b();
     }
 
     @Override // d.a.j.a.e
     public com.baidu.cesium.a.b b(byte[] bArr, int i2, int i3) {
         long j;
         try {
-            Object g2 = this.f50211d.g();
-            this.f50211d.f(g2, bArr, i2, i3);
-            j = this.f50211d.b(g2);
+            Object g2 = this.f48432d.g();
+            this.f48432d.f(g2, bArr, i2, i3);
+            j = this.f48432d.b(g2);
         } catch (Exception unused) {
             j = 4294967295L;
         }

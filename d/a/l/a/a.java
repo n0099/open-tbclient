@@ -14,69 +14,69 @@ import java.io.InputStreamReader;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f63130d = AppConfig.isDebug();
+    public static boolean f63762d = AppConfig.isDebug();
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f63131e;
+    public static a f63763e;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63132a;
+    public String f63764a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63133b;
+    public String f63765b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f63134c;
+    public SharedPreferences f63766c;
 
     public a() {
         d();
     }
 
     public static a b() {
-        if (f63131e == null) {
+        if (f63763e == null) {
             synchronized (a.class) {
-                if (f63131e == null) {
-                    f63131e = new a();
+                if (f63763e == null) {
+                    f63763e = new a();
                 }
             }
         }
-        return f63131e;
+        return f63763e;
     }
 
     public String a() {
-        return this.f63133b;
+        return this.f63765b;
     }
 
     public String c() {
-        return this.f63132a;
+        return this.f63764a;
     }
 
     public final void d() {
-        this.f63134c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
+        this.f63766c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
         f();
         e();
     }
 
     public final void e() {
         String g2 = g();
-        this.f63133b = g2;
-        if (!TextUtils.isEmpty(g2) || TextUtils.isEmpty(this.f63132a)) {
+        this.f63765b = g2;
+        if (!TextUtils.isEmpty(g2) || TextUtils.isEmpty(this.f63764a)) {
             return;
         }
-        this.f63133b = this.f63132a;
+        this.f63765b = this.f63764a;
         j();
     }
 
     public final void f() {
         String i2 = i();
-        this.f63132a = i2;
+        this.f63764a = i2;
         if (TextUtils.isEmpty(i2)) {
-            this.f63132a = h();
+            this.f63764a = h();
         }
     }
 
     public final String g() {
-        return this.f63134c.getString("channel", null);
+        return this.f63766c.getString("channel", null);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:49:0x0080 A[Catch: Exception -> 0x007c, TRY_LEAVE, TryCatch #4 {Exception -> 0x007c, blocks: (B:45:0x0078, B:49:0x0080), top: B:59:0x0078 }] */
@@ -112,7 +112,7 @@ public class a {
                     try {
                         inputStream.close();
                     } catch (Exception e3) {
-                        if (f63130d) {
+                        if (f63762d) {
                             Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e3);
                             return str2;
                         }
@@ -127,14 +127,14 @@ public class a {
                 inputStream2 = inputStream;
                 str = str3;
                 try {
-                    if (f63130d) {
+                    if (f63762d) {
                         Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e);
                     }
                     if (inputStream2 != null) {
                         try {
                             inputStream2.close();
                         } catch (Exception e5) {
-                            if (f63130d) {
+                            if (f63762d) {
                                 Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e5);
                             }
                             return str;
@@ -152,7 +152,7 @@ public class a {
                         try {
                             inputStream.close();
                         } catch (Exception e6) {
-                            if (f63130d) {
+                            if (f63762d) {
                                 Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e6);
                             }
                             throw th;
@@ -186,10 +186,10 @@ public class a {
         android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromRaw", r3);
      */
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0045, code lost:
-        if (d.a.l.a.a.f63130d == false) goto L8;
+        if (d.a.l.a.a.f63762d == false) goto L8;
      */
     /* JADX WARN: Code restructure failed: missing block: B:9:0x002b, code lost:
-        if (d.a.l.a.a.f63130d == false) goto L8;
+        if (d.a.l.a.a.f63762d == false) goto L8;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -208,7 +208,7 @@ public class a {
                     e = e2;
                 }
             } catch (Exception e3) {
-                if (f63130d) {
+                if (f63762d) {
                     Log.e(ChannelManager.TAG, "readLastChannelFromRaw", e3);
                 }
                 try {
@@ -219,7 +219,7 @@ public class a {
                 }
             }
         } catch (Exception e5) {
-            if (f63130d) {
+            if (f63762d) {
                 Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e5);
             }
         }
@@ -227,6 +227,6 @@ public class a {
     }
 
     public final void j() {
-        this.f63134c.edit().putString("channel", this.f63133b).apply();
+        this.f63766c.edit().putString("channel", this.f63765b).apply();
     }
 }

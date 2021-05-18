@@ -10,11 +10,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.xiuba.JSResultData;
 import d.a.c.e.p.q;
-import d.a.j0.d3.l0.b;
-import d.a.j0.d3.l0.d.c;
+import d.a.k0.d3.l0.b;
+import d.a.k0.d3.l0.d.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -37,7 +36,7 @@ public class CommonTbJsBridge implements b {
         return OrmObject.jsonStrWithObject(jSResultData);
     }
 
-    @Override // d.a.j0.d3.l0.b
+    @Override // d.a.k0.d3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if ("startLoginModule".equals(str2)) {
@@ -88,7 +87,7 @@ public class CommonTbJsBridge implements b {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("imei", imei);
             jSONObject.put("cuid", cuid);
-            jSONObject.put(AdExtParam.KEY_SHOUBAI_CUID, cuidGalaxy2);
+            jSONObject.put("shoubai_cuid", cuidGalaxy2);
             jSONObject.put("brand", str);
             jSONObject.put("client_type", "Android");
             jSONObject.put("client_version", version);

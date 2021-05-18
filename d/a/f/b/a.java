@@ -7,15 +7,15 @@ import com.baidu.audiorecorder.lib.voice.SendVoiceView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tieba.R;
-import d.a.i0.w.m;
+import d.a.j0.w.m;
 /* loaded from: classes.dex */
 public class a extends m {
     public a(Context context) {
         super(context, (String) null, 6);
-        this.f49956b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
-        this.f49958d = R.drawable.icon_pure_post_speak24;
-        this.f49961g = false;
-        this.f49962h = true;
+        this.f50775b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
+        this.f50777d = R.drawable.icon_pure_post_speak24;
+        this.f50780g = false;
+        this.f50781h = true;
         this.m = true;
         this.l = 5;
         this.k = new SendVoiceView(context);

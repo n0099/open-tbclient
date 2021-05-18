@@ -8,33 +8,33 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 public class VoiceSendModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f18117e;
+    public a f17432e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f18118f;
+    public b f17433f;
 
     /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18119a;
+        public String f17434a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ChatMessage f18120b;
+        public ChatMessage f17435b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.a.j0.e1.s.b f18121c = new d.a.j0.e1.s.b();
+        public d.a.k0.e1.s.b f17436c = new d.a.k0.e1.s.b();
 
         public a(String str, ChatMessage chatMessage) {
-            this.f18119a = str;
-            this.f18120b = chatMessage;
+            this.f17434a = str;
+            this.f17435b = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(Object... objArr) {
             try {
-                return this.f18121c.a(this.f18119a);
+                return this.f17436c.a(this.f17434a);
             } catch (Exception unused) {
                 return null;
             }
@@ -44,8 +44,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.f18118f != null) {
-                VoiceSendModel.this.f18118f.a(str, this.f18120b);
+            if (VoiceSendModel.this.f17433f != null) {
+                VoiceSendModel.this.f17433f.a(str, this.f17435b);
             }
         }
     }
@@ -70,12 +70,12 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void t(b bVar) {
-        this.f18118f = bVar;
+        this.f17433f = bVar;
     }
 
     public void u(String str, ChatMessage chatMessage) {
         a aVar = new a(str, chatMessage);
-        this.f18117e = aVar;
+        this.f17432e = aVar;
         aVar.execute(new Object[0]);
     }
 }

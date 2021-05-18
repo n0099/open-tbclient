@@ -13,7 +13,7 @@ import com.google.android.material.badge.BadgeDrawable;
 public final class NotificationClickedActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public BroadcastReceiver f38044a;
+    public BroadcastReceiver f37289a;
 
     /* renamed from: a  reason: collision with other field name */
     public Handler f54a;
@@ -48,7 +48,7 @@ public final class NotificationClickedActivity extends Activity {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("action_clicked_activity_finish");
         ac acVar = new ac(this);
-        this.f38044a = acVar;
+        this.f37289a = acVar;
         try {
             registerReceiver(acVar, intentFilter, d.a(this), null);
         } catch (Exception unused) {
@@ -61,7 +61,7 @@ public final class NotificationClickedActivity extends Activity {
         super.onDestroy();
         this.f54a.removeCallbacksAndMessages(null);
         try {
-            unregisterReceiver(this.f38044a);
+            unregisterReceiver(this.f37289a);
         } catch (Exception unused) {
         }
     }

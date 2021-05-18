@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
 import d.a.c.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public ProgressBar t;
 
@@ -46,8 +46,8 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public void setBottomBarShow(boolean z) {
         this.t.setVisibility(z ? 0 : 8);
         this.l.setVisibility(z ? 8 : 0);
-        this.f20727h.setVisibility(z ? 8 : 0);
-        this.f20728i.setVisibility(z ? 8 : 0);
+        this.f20015h.setVisibility(z ? 8 : 0);
+        this.f20016i.setVisibility(z ? 8 : 0);
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
@@ -55,7 +55,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         super.setCurrentDuration(i2, z);
         if (!z) {
             this.l.setProgress((int) (((i2 * 1.0f) / this.p) * 10000.0f));
-            TextView textView = this.f20727h;
+            TextView textView = this.f20015h;
             if (textView != null) {
                 textView.setText(StringHelper.stringForVideoTime(i2));
             }
@@ -70,8 +70,8 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
             g2 = l.g(getContext(), R.dimen.tbds210);
         }
         layoutParams.height = g2;
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f20727h.getLayoutParams();
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f20728i.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f20015h.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f20016i.getLayoutParams();
         layoutParams2.leftMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
         layoutParams3.rightMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
     }

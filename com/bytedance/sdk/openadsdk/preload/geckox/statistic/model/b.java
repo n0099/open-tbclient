@@ -2,29 +2,29 @@ package com.bytedance.sdk.openadsdk.preload.geckox.statistic.model;
 
 import android.text.TextUtils;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30944a;
+    public String f30189a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30945b;
+    public String f30190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30946c;
+    public String f30191c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30947d;
+    public String f30192d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30948e;
+    public String f30193e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30949f;
+    public String f30194f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30950g;
+    public int f30195g;
 
     public static String a(Map<String, String> map) {
         if (map != null && !map.isEmpty()) {

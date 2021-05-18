@@ -12,47 +12,47 @@ import com.baidu.tieba.R;
 public class PrivilegeItemView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f19042e;
+    public Context f18330e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f19043f;
+    public View f18331f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f19044g;
+    public TbImageView f18332g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PrivilegeTextView f19045h;
+    public PrivilegeTextView f18333h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f19046i;
+    public TextView f18334i;
 
     public PrivilegeItemView(Context context) {
         super(context);
-        this.f19042e = context;
+        this.f18330e = context;
         a();
     }
 
     public final void a() {
-        View inflate = LayoutInflater.from(this.f19042e).inflate(R.layout.index_privilege_item, this);
-        this.f19043f = inflate;
-        this.f19044g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
-        this.f19045h = (PrivilegeTextView) this.f19043f.findViewById(R.id.privilege_name);
-        this.f19046i = (TextView) this.f19043f.findViewById(R.id.privilege_desc);
+        View inflate = LayoutInflater.from(this.f18330e).inflate(R.layout.index_privilege_item, this);
+        this.f18331f = inflate;
+        this.f18332g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
+        this.f18333h = (PrivilegeTextView) this.f18331f.findViewById(R.id.privilege_name);
+        this.f18334i = (TextView) this.f18331f.findViewById(R.id.privilege_desc);
     }
 
     public PrivilegeTextView getPrivilegeName() {
-        return this.f19045h;
+        return this.f18333h;
     }
 
     public PrivilegeItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19042e = context;
+        this.f18330e = context;
         a();
     }
 
     public PrivilegeItemView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
-        this.f19042e = context;
+        this.f18330e = context;
         a();
     }
 }

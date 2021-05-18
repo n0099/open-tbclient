@@ -17,29 +17,29 @@ public class NHCreditLongGroup extends BaseItemLayout {
     public static final float WIDTH_DIVIDER = 15.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    public NHTitleView f25176a;
+    public NHTitleView f24421a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f25177b;
+    public LinearLayout f24422b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f25178c;
+    public List<BaseItemView> f24423c;
 
     public NHCreditLongGroup(Context context) {
         super(context);
-        this.f25178c = new ArrayList();
+        this.f24423c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f25178c;
+        return this.f24423c;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_long_layout"), this);
-        this.f25176a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_group_title"));
-        this.f25177b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_group_list"));
+        this.f24421a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_group_title"));
+        this.f24422b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_group_list"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -51,8 +51,8 @@ public class NHCreditLongGroup extends BaseItemLayout {
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
-        this.f25176a.setData(this.mConfigData, getWalletInterface());
-        this.f25176a.setHasGap(this.mConfigData.isLayoutHasGap());
+        this.f24421a.setData(this.mConfigData, getWalletInterface());
+        this.f24421a.setHasGap(this.mConfigData.isLayoutHasGap());
         HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
         if (dataItemArr == null) {
             return;
@@ -62,8 +62,8 @@ public class NHCreditLongGroup extends BaseItemLayout {
         while (i2 < length) {
             NHCreditLongItem nHCreditLongItem = new NHCreditLongItem(getContext());
             nHCreditLongItem.setData(dataItemArr[i2], getWalletInterface());
-            this.f25177b.addView(nHCreditLongItem);
-            this.f25178c.add(nHCreditLongItem);
+            this.f24422b.addView(nHCreditLongItem);
+            this.f24423c.add(nHCreditLongItem);
             ((LinearLayout.LayoutParams) nHCreditLongItem.getLayoutParams()).setMargins(0, DisplayUtils.dip2px(getContext(), i2 == 0 ? 0.0f : 15.0f), 0, 0);
             i2++;
         }
@@ -71,6 +71,6 @@ public class NHCreditLongGroup extends BaseItemLayout {
 
     public NHCreditLongGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f25178c = new ArrayList();
+        this.f24423c = new ArrayList();
     }
 }

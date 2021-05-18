@@ -21,16 +21,16 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
-import d.a.i0.d0.g;
-import d.a.i0.d0.h;
-import d.a.i0.r.s.a;
+import d.a.j0.d0.g;
+import d.a.j0.d0.h;
+import d.a.j0.r.s.a;
 import java.net.URL;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public final String MODIFY_NICKNAME_URL = "https://tieba.baidu.com/n/interact/modifyname";
-    public d.a.i0.r.s.a mDialog;
+    public d.a.j0.r.s.a mDialog;
     public boolean mLoadSuccess;
     public g mLoadingView;
     public NavigationBar mNavigationBar;
@@ -41,7 +41,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public String mUrl;
     public BaseWebView mWebView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -52,7 +52,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -63,31 +63,31 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements a.e {
         public c() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             aVar.dismiss();
             EditNickNameActivity.this.onSaveClick();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements a.e {
         public d() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             aVar.dismiss();
             EditNickNameActivity.this.goBackOrFinish(null);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e extends WebViewClient {
         public e() {
         }
@@ -225,7 +225,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
 
     private void showDialog() {
         if (this.mDialog == null) {
-            d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getActivity());
+            d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(getActivity());
             this.mDialog = aVar;
             aVar.setMessage(getPageContext().getResources().getString(R.string.modify_user_dialog_msg));
             this.mDialog.setPositiveButton(R.string.save, new c());
@@ -267,7 +267,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         }
         setContentView(R.layout.edit_nickname_activity);
         initView();
-        d.a.i0.l.a.f(getApplicationContext());
+        d.a.j0.l.a.f(getApplicationContext());
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback

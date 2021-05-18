@@ -5,42 +5,42 @@ import android.util.DisplayMetrics;
 public class b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final b f39310g = new b();
+    public static final b f38555g = new b();
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.a.b0.a.b.a f39311a;
+    public final d.a.b0.a.b.a f38556a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f39312b;
+    public final int f38557b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f39313c;
+    public final int f38558c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39314d;
+    public int f38559d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39315e;
+    public int f38560e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f39316f;
+    public final int f38561f;
 
     public b() {
-        d.a.b0.a.b.a aVar = d.a.b0.a.b.a.f39288a.get();
-        this.f39311a = aVar;
+        d.a.b0.a.b.a aVar = d.a.b0.a.b.a.f38533a.get();
+        this.f38556a = aVar;
         aVar.s();
-        DisplayMetrics displayMetrics = this.f39311a.o().getResources().getDisplayMetrics();
-        this.f39313c = displayMetrics.heightPixels;
-        this.f39312b = displayMetrics.widthPixels;
-        this.f39316f = displayMetrics.densityDpi;
+        DisplayMetrics displayMetrics = this.f38556a.o().getResources().getDisplayMetrics();
+        this.f38558c = displayMetrics.heightPixels;
+        this.f38557b = displayMetrics.widthPixels;
+        this.f38561f = displayMetrics.densityDpi;
     }
 
     public static b a() {
-        return f39310g;
+        return f38555g;
     }
 
     public int[] b() {
-        int i2 = this.f39314d;
-        return i2 != 0 ? new int[]{i2, this.f39315e, this.f39316f} : new int[]{this.f39312b, this.f39313c, this.f39316f};
+        int i2 = this.f38559d;
+        return i2 != 0 ? new int[]{i2, this.f38560e, this.f38561f} : new int[]{this.f38557b, this.f38558c, this.f38561f};
     }
 }

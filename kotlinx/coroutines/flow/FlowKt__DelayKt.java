@@ -23,8 +23,8 @@ public final /* synthetic */ class FlowKt__DelayKt {
     @FlowPreview
     @ExperimentalTime
     /* renamed from: debounce-8GFy2Ro */
-    public static final <T> Flow<T> m1974debounce8GFy2Ro(Flow<? extends T> flow, double d2) {
-        return FlowKt.debounce(flow, DelayKt.m1951toDelayMillisLRDsOJo(d2));
+    public static final <T> Flow<T> m1973debounce8GFy2Ro(Flow<? extends T> flow, double d2) {
+        return FlowKt.debounce(flow, DelayKt.m1950toDelayMillisLRDsOJo(d2));
     }
 
     public static final ReceiveChannel<Unit> fixedPeriodTicker(CoroutineScope coroutineScope, long j, long j2) {
@@ -55,7 +55,7 @@ public final /* synthetic */ class FlowKt__DelayKt {
     @FlowPreview
     @ExperimentalTime
     /* renamed from: sample-8GFy2Ro */
-    public static final <T> Flow<T> m1975sample8GFy2Ro(Flow<? extends T> flow, double d2) {
-        return FlowKt.sample(flow, DelayKt.m1951toDelayMillisLRDsOJo(d2));
+    public static final <T> Flow<T> m1974sample8GFy2Ro(Flow<? extends T> flow, double d2) {
+        return FlowKt.sample(flow, DelayKt.m1950toDelayMillisLRDsOJo(d2));
     }
 }

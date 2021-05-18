@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import d.a.j0.i3.c;
+import d.a.k0.i3.c;
 /* loaded from: classes4.dex */
 public class HomeExtraStatic {
 
@@ -13,12 +13,12 @@ public class HomeExtraStatic {
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<c.a> run(CustomMessage<c.a> customMessage) {
-            return new CustomResponsedMessage<>(2156671, new d.a.j0.z0.d.a());
+            return new CustomResponsedMessage<>(2156671, new d.a.k0.z0.d.a());
         }
     }
 
     static {
-        MessageManager.getInstance().registerTask(new d.a.j0.z0.a());
+        MessageManager.getInstance().registerTask(new d.a.k0.z0.a());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001407, Boolean.TRUE));
         CustomMessageTask customMessageTask = new CustomMessageTask(2156671, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

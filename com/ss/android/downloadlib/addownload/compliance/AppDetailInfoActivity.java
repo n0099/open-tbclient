@@ -12,57 +12,57 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import d.o.a.d.f.c;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AppDetailInfoActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f36614a;
+    public ImageView f35859a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f36615b;
+    public TextView f35860b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f36616c;
+    public LinearLayout f35861c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RecyclerView f36617d;
+    public RecyclerView f35862d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f36618e;
+    public long f35863e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f36619f;
+    public long f35864f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Pair<String, String>> f36620g;
+    public List<Pair<String, String>> f35865g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.o.a.d.f.f.c.c("lp_app_detail_click_close", AppDetailInfoActivity.this.f36619f);
+            d.o.a.d.f.f.c.c("lp_app_detail_click_close", AppDetailInfoActivity.this.f35864f);
             AppDetailInfoActivity.this.finish();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.o.a.d.f.f.c.c("lp_app_detail_click_download", AppDetailInfoActivity.this.f36619f);
-            d.o.a.d.f.f.b.a().i(AppDetailInfoActivity.this.f36619f);
+            d.o.a.d.f.f.c.c("lp_app_detail_click_download", AppDetailInfoActivity.this.f35864f);
+            d.o.a.d.f.f.b.a().i(AppDetailInfoActivity.this.f35864f);
             d.o.a.e.a.d.q(AppDetailInfoActivity.this);
             d.o.a.e.a.d.q(d.o.a.d.f.f.b.a().h());
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c extends RecyclerView.Adapter<Object> {
         public c() {
         }
@@ -73,26 +73,26 @@ public class AppDetailInfoActivity extends Activity {
     }
 
     private void b() {
-        this.f36614a = (ImageView) findViewById(d.o.a.d.b.iv_detail_back);
-        this.f36615b = (TextView) findViewById(d.o.a.d.b.tv_empty);
-        this.f36617d = (RecyclerView) findViewById(d.o.a.d.b.permission_list);
-        this.f36616c = (LinearLayout) findViewById(d.o.a.d.b.ll_download);
-        if (this.f36620g.isEmpty()) {
-            this.f36617d.setVisibility(8);
-            this.f36615b.setVisibility(0);
+        this.f35859a = (ImageView) findViewById(d.o.a.d.b.iv_detail_back);
+        this.f35860b = (TextView) findViewById(d.o.a.d.b.tv_empty);
+        this.f35862d = (RecyclerView) findViewById(d.o.a.d.b.permission_list);
+        this.f35861c = (LinearLayout) findViewById(d.o.a.d.b.ll_download);
+        if (this.f35865g.isEmpty()) {
+            this.f35862d.setVisibility(8);
+            this.f35860b.setVisibility(0);
         } else {
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
             linearLayoutManager.setOrientation(1);
-            this.f36617d.setLayoutManager(linearLayoutManager);
-            this.f36617d.setAdapter(new c(this, null));
+            this.f35862d.setLayoutManager(linearLayoutManager);
+            this.f35862d.setAdapter(new c(this, null));
         }
-        this.f36614a.setOnClickListener(new a());
-        this.f36616c.setOnClickListener(new b());
+        this.f35859a.setOnClickListener(new a());
+        this.f35861c.setOnClickListener(new b());
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        d.o.a.d.f.f.c.c("lp_app_detail_click_close", this.f36619f);
+        d.o.a.d.f.f.c.c("lp_app_detail_click_close", this.f35864f);
         super.onBackPressed();
     }
 
@@ -111,9 +111,9 @@ public class AppDetailInfoActivity extends Activity {
     }
 
     private void a() {
-        this.f36618e = getIntent().getLongExtra("app_info_id", 0L);
-        c.C1798c a2 = com.ss.android.downloadlib.addownload.compliance.c.a().a(this.f36618e);
-        this.f36619f = a2.f66008b;
-        this.f36620g = a2.f66013g;
+        this.f35863e = getIntent().getLongExtra("app_info_id", 0L);
+        c.C1862c a2 = com.ss.android.downloadlib.addownload.compliance.c.a().a(this.f35863e);
+        this.f35864f = a2.f66694b;
+        this.f35865g = a2.f66699g;
     }
 }

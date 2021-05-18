@@ -10,6 +10,7 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.IMSDK;
 import com.baidu.android.imsdk.utils.BigEndianDataOutputStream;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.UUID;
@@ -38,7 +39,7 @@ public abstract class Message {
         try {
             JSONObject jSONObject = new JSONObject(this.mBody);
             if (this.context != null) {
-                jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.context));
+                jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.context));
             }
             if (TextUtils.isEmpty(jSONObject.optString("rpc"))) {
                 JSONObject jSONObject2 = new JSONObject();

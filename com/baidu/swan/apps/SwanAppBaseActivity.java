@@ -7,27 +7,28 @@ import android.view.Window;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-import d.a.h0.a.i2.k0;
-import d.a.h0.a.k;
-import d.a.h0.a.k1.c;
-import d.a.h0.a.n1.c.a;
-import d.a.h0.a.x1.b;
-/* loaded from: classes.dex */
+import d.a.i0.a.g2.b;
+import d.a.i0.a.k;
+import d.a.i0.a.s1.g;
+import d.a.i0.a.v1.c.a;
+import d.a.i0.a.v1.c.c;
+import d.a.i0.a.v2.q0;
+/* loaded from: classes2.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
-    public static final boolean DEBUG = k.f43101a;
+    public static final boolean DEBUG = k.f43025a;
     public static final String TAG = "SwanAppBaseActivity";
-    public c mPermissionHandler;
+    public g mPermissionHandler;
     public b mSkinDecorator = null;
 
     public b getSkinDecorator() {
         return this.mSkinDecorator;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.a.h0.m.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.a.i0.o.a.a.f, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        int V = k0.V(this);
+        int Z = q0.Z(this);
         super.onCreate(bundle);
-        k0.h(this, V);
+        q0.g(this, Z);
     }
 
     public void onNightModeCoverChanged(boolean z, boolean z2) {
@@ -50,7 +51,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
         }
         if (z2) {
             a e2 = a.e();
-            d.a.h0.a.n1.c.c cVar = new d.a.h0.a.n1.c.c(5);
+            c cVar = new c(5);
             cVar.f(true);
             e2.h(cVar);
         }
@@ -59,25 +60,25 @@ public class SwanAppBaseActivity extends FragmentActivity {
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        boolean a2 = d.a.h0.a.w0.a.z().a();
-        d.a.h0.a.y0.c.a.e(Boolean.valueOf(a2));
+        boolean a2 = d.a.i0.a.c1.a.H().a();
+        d.a.i0.a.f1.c.a.e(Boolean.valueOf(a2));
         onNightModeCoverChanged(a2, false);
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, d.a.h0.m.a.a.a.b
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, d.a.i0.o.a.a.a.b
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
-        c cVar = this.mPermissionHandler;
-        if (cVar != null) {
-            cVar.c(this, i2, strArr, iArr);
+        g gVar = this.mPermissionHandler;
+        if (gVar != null) {
+            gVar.f(this, i2, strArr, iArr);
         } else {
             superOnRequestPermissionsResult(i2, strArr, iArr);
         }
     }
 
-    public void requestPermissionsExt(int i2, @NonNull String[] strArr, c.a aVar) {
-        c b2 = c.b();
-        this.mPermissionHandler = b2;
-        b2.d(this, i2, strArr, aVar);
+    public void requestPermissionsExt(int i2, @NonNull String[] strArr, g.a aVar) {
+        g c2 = g.c();
+        this.mPermissionHandler = c2;
+        c2.g(this, i2, strArr, aVar);
     }
 
     public void superOnRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {

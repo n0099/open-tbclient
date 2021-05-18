@@ -8,47 +8,47 @@ public final class TrafficInfo implements Parcelable {
     public static final Parcelable.Creator<TrafficInfo> CREATOR = new n();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8089a;
+    public boolean f7886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8090b;
+    public String f7887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<Integer> f8091c;
+    public ArrayList<Integer> f7888c;
 
     public TrafficInfo() {
-        this.f8089a = false;
-        this.f8090b = null;
-        this.f8089a = false;
-        this.f8090b = null;
-        this.f8091c = new ArrayList<>();
+        this.f7886a = false;
+        this.f7887b = null;
+        this.f7886a = false;
+        this.f7887b = null;
+        this.f7888c = new ArrayList<>();
     }
 
     public TrafficInfo(Parcel parcel) {
-        this.f8089a = false;
-        this.f8090b = null;
-        this.f8089a = parcel.readByte() != 0;
-        this.f8090b = parcel.readString();
+        this.f7886a = false;
+        this.f7887b = null;
+        this.f7886a = parcel.readByte() != 0;
+        this.f7887b = parcel.readString();
     }
 
     public String a() {
-        return this.f8090b;
+        return this.f7887b;
     }
 
     public void a(String str) {
-        this.f8090b = str;
+        this.f7887b = str;
     }
 
     public void a(ArrayList<Integer> arrayList) {
-        this.f8091c = arrayList;
+        this.f7888c = arrayList;
     }
 
     public void a(boolean z) {
-        this.f8089a = z;
+        this.f7886a = z;
     }
 
     public ArrayList<Integer> b() {
-        return this.f8091c;
+        return this.f7888c;
     }
 
     @Override // android.os.Parcelable
@@ -58,7 +58,7 @@ public final class TrafficInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeByte(this.f8089a ? (byte) 1 : (byte) 0);
-        parcel.writeString(this.f8090b);
+        parcel.writeByte(this.f7886a ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.f7887b);
     }
 }

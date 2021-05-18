@@ -6,16 +6,16 @@ import java.util.concurrent.Executors;
 public abstract class h implements c {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f6221f = 24;
+    public static final int f6075f = 24;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f6222g = 1;
+    public static final int f6076g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f6223h = 1048576;
+    public static final int f6077h = 1048576;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f6224i;
+    public volatile boolean f6078i;
     public b j;
     public long m;
     public long n;
@@ -41,7 +41,7 @@ public abstract class h implements c {
 
     @Override // com.baidu.fsg.face.liveness.video.c
     public void g() {
-        if (!this.f6224i || this.p) {
+        if (!this.f6078i || this.p) {
             return;
         }
         b();

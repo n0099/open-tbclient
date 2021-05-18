@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
-import d.a.i0.r.q.a2;
+import d.a.j0.r.q.a2;
 /* loaded from: classes4.dex */
 public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     public ConcernThreadUserInfoLayout(Context context) {
@@ -15,7 +15,7 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
     public boolean j(a2 a2Var) {
         if (super.j(a2Var)) {
-            this.f13166i.setVisibility(8);
+            this.f12502i.setVisibility(8);
             return true;
         }
         return false;

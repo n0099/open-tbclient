@@ -4,10 +4,10 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import d.a.c.e.d.l;
-import d.a.i0.r.q.f1;
-import d.a.i0.r.r.a;
+import d.a.j0.r.q.f1;
+import d.a.j0.r.r.a;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public static final int CACHETIME = 604800000;
     public f1 data;

@@ -309,7 +309,7 @@ public final class r {
             httpURLConnection.setRequestProperty("Encrypt-Data", str);
             httpURLConnection.setRequestProperty("Content-Type", "application/octet-stream");
             httpURLConnection.setRequestProperty("Content-Length", String.valueOf(j));
-            httpURLConnection.setRequestProperty("User-Agent", com.baidu.crabsdk.a.f4782d);
+            httpURLConnection.setRequestProperty("User-Agent", com.baidu.crabsdk.a.f4636d);
             httpURLConnection.setRequestProperty("Encrypt-Type", "2");
             httpURLConnection.setRequestProperty("ver", "v5");
             return httpURLConnection;

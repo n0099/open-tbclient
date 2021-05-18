@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.multipro.e;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static ContentResolver a(Context context) {
         if (context == null) {
@@ -22,7 +22,7 @@ public class a {
     }
 
     public static String a() {
-        return e.f30496b + "/t_db/ttopensdk.db/";
+        return e.f29741b + "/t_db/ttopensdk.db/";
     }
 
     public static synchronized void a(Context context, String str, ContentValues contentValues) {

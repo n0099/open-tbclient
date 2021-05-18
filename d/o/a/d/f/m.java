@@ -1,7 +1,7 @@
 package d.o.a.d.f;
 
 import d.o.a.e.b.j.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class m {
     public static int a(int i2, int i3) {
         return (i3 <= 0 || i3 >= 100 || !d(i2)) ? i3 : (int) (Math.sqrt(i3) * 10.0d);
@@ -18,8 +18,8 @@ public class m {
     }
 
     public static d.o.a.a.a.d.e c(d.o.a.a.a.d.e eVar) {
-        if (eVar != null && d((int) eVar.f65862a)) {
-            eVar.f65865d = b((int) eVar.f65862a, eVar.f65865d, eVar.f65864c);
+        if (eVar != null && d((int) eVar.f66548a)) {
+            eVar.f66551d = b((int) eVar.f66548a, eVar.f66551d, eVar.f66550c);
         }
         return eVar;
     }

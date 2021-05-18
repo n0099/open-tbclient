@@ -7,41 +7,41 @@ import d.a.e0.a.d.c;
 public class b extends c {
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40659c = false;
+    public boolean f39904c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f40660d;
+    public long f39905d;
 
     /* renamed from: e  reason: collision with root package name */
-    public V8ExceptionInfo f40661e;
+    public V8ExceptionInfo f39906e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40662f;
+    public int f39907f;
 
     @Override // d.a.e0.a.d.c
     public synchronized void a(int i2, V8ExceptionInfo v8ExceptionInfo) {
-        if (this.f40661e == null && v8ExceptionInfo != null) {
-            this.f40661e = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-            this.f40662f = i2;
-            if (this.f40673b != null) {
-                this.f40673b.a();
+        if (this.f39906e == null && v8ExceptionInfo != null) {
+            this.f39906e = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
+            this.f39907f = i2;
+            if (this.f39918b != null) {
+                this.f39918b.a();
             }
         }
     }
 
     public final void d() {
-        this.f40661e = null;
-        this.f40660d = 0L;
-        this.f40662f = -1;
+        this.f39906e = null;
+        this.f39905d = 0L;
+        this.f39907f = -1;
     }
 
     public synchronized void e() {
-        if (this.f40659c) {
+        if (this.f39904c) {
             return;
         }
-        if (this.f40673b != null && this.f40660d > 0 && this.f40661e != null) {
-            if (System.currentTimeMillis() - this.f40661e.exceptionTime > this.f40672a && this.f40661e.exceptionTime > this.f40660d) {
-                this.f40673b.b(new d.a.e0.a.d.b(this.f40662f, this.f40661e, this.f40660d));
+        if (this.f39918b != null && this.f39905d > 0 && this.f39906e != null) {
+            if (System.currentTimeMillis() - this.f39906e.exceptionTime > this.f39917a && this.f39906e.exceptionTime > this.f39905d) {
+                this.f39918b.b(new d.a.e0.a.d.b(this.f39907f, this.f39906e, this.f39905d));
                 d();
             }
             return;
@@ -50,10 +50,10 @@ public class b extends c {
     }
 
     public synchronized void f(boolean z, long j) {
-        this.f40659c = z;
+        this.f39904c = z;
         if (z) {
-            this.f40660d = j;
-            this.f40661e = null;
+            this.f39905d = j;
+            this.f39906e = null;
         }
     }
 }

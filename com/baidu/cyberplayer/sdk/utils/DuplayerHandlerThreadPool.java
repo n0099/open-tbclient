@@ -19,41 +19,41 @@ public class DuplayerHandlerThreadPool {
     public static final String TAG = "DuplayerHandlerThreadPool";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f5251b = new Object();
+    public static final Object f5105b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public a f5252a;
+    public a f5106a;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<DuplayerHandlerThread> f5253c;
+    public ArrayList<DuplayerHandlerThread> f5107c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<DuplayerHandlerThread> f5254d;
+    public ArrayList<DuplayerHandlerThread> f5108d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f5255e;
+    public c f5109e;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicInteger f5256a = new AtomicInteger(1);
+        public final AtomicInteger f5110a = new AtomicInteger(1);
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f5257b;
+        public final String f5111b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f5258c;
+        public int f5112c;
 
         public a(String str) {
-            this.f5258c = 5;
-            this.f5257b = str + "-";
-            this.f5258c = 5;
+            this.f5112c = 5;
+            this.f5111b = str + "-";
+            this.f5112c = 5;
         }
 
         public DuplayerHandlerThread a() {
-            DuplayerHandlerThread duplayerHandlerThread = new DuplayerHandlerThread(this.f5257b + this.f5256a.getAndIncrement());
-            duplayerHandlerThread.setPriority(this.f5258c);
+            DuplayerHandlerThread duplayerHandlerThread = new DuplayerHandlerThread(this.f5111b + this.f5110a.getAndIncrement());
+            duplayerHandlerThread.setPriority(this.f5112c);
             return duplayerHandlerThread;
         }
     }
@@ -62,7 +62,7 @@ public class DuplayerHandlerThreadPool {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static DuplayerHandlerThreadPool f5259a = new DuplayerHandlerThreadPool();
+        public static DuplayerHandlerThreadPool f5113a = new DuplayerHandlerThreadPool();
     }
 
     /* loaded from: classes2.dex */
@@ -84,14 +84,14 @@ public class DuplayerHandlerThreadPool {
     }
 
     public DuplayerHandlerThreadPool() {
-        this.f5253c = new ArrayList<>();
-        this.f5254d = new ArrayList<>();
-        this.f5252a = new a("duplayer-t");
-        this.f5255e = new c(Looper.getMainLooper());
+        this.f5107c = new ArrayList<>();
+        this.f5108d = new ArrayList<>();
+        this.f5106a = new a("duplayer-t");
+        this.f5109e = new c(Looper.getMainLooper());
     }
 
     private DuplayerHandlerThread a() {
-        DuplayerHandlerThread a2 = this.f5252a.a();
+        DuplayerHandlerThread a2 = this.f5106a.a();
         a2.start();
         return a2;
     }
@@ -115,12 +115,12 @@ public class DuplayerHandlerThreadPool {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        synchronized (f5251b) {
-            int size = this.f5253c.size();
+        synchronized (f5105b) {
+            int size = this.f5107c.size();
             CyberLog.d(TAG, "checkIdlePoolShortTimeNoUse size:" + size);
             if (size > 3) {
                 int i2 = size - 3;
-                Iterator<DuplayerHandlerThread> it = this.f5253c.iterator();
+                Iterator<DuplayerHandlerThread> it = this.f5107c.iterator();
                 while (it.hasNext() && i2 > 0) {
                     DuplayerHandlerThread next = it.next();
                     if (next != null) {
@@ -140,16 +140,16 @@ public class DuplayerHandlerThreadPool {
     }
 
     public static DuplayerHandlerThreadPool getInstance() {
-        return b.f5259a;
+        return b.f5113a;
     }
 
     public void checkIdlePoolLongTimeNoUse() {
-        synchronized (f5251b) {
-            if (this.f5253c.size() <= 0) {
+        synchronized (f5105b) {
+            if (this.f5107c.size() <= 0) {
                 return;
             }
-            CyberLog.d(TAG, "checkIdlePoolLongTimeNoUse called size:" + this.f5253c.size());
-            Iterator<DuplayerHandlerThread> it = this.f5253c.iterator();
+            CyberLog.d(TAG, "checkIdlePoolLongTimeNoUse called size:" + this.f5107c.size());
+            Iterator<DuplayerHandlerThread> it = this.f5107c.iterator();
             while (it.hasNext()) {
                 DuplayerHandlerThread next = it.next();
                 if (next != null) {
@@ -174,21 +174,21 @@ public class DuplayerHandlerThreadPool {
     */
     public DuplayerHandlerThread obtain() {
         DuplayerHandlerThread duplayerHandlerThread;
-        synchronized (f5251b) {
-            if (this.f5253c.size() != 0) {
-                int size = this.f5253c.size() - 1;
-                DuplayerHandlerThread duplayerHandlerThread2 = this.f5253c.get(size);
-                this.f5253c.remove(size);
+        synchronized (f5105b) {
+            if (this.f5107c.size() != 0) {
+                int size = this.f5107c.size() - 1;
+                DuplayerHandlerThread duplayerHandlerThread2 = this.f5107c.get(size);
+                this.f5107c.remove(size);
                 if (duplayerHandlerThread2 != null) {
                     duplayerHandlerThread = duplayerHandlerThread2;
                     duplayerHandlerThread.setRunState(1);
                     duplayerHandlerThread.setIdleBeginTime(-1L);
-                    this.f5254d.add(duplayerHandlerThread);
-                    if (this.f5253c.size() <= 0) {
-                        this.f5255e.removeMessages(100);
+                    this.f5108d.add(duplayerHandlerThread);
+                    if (this.f5107c.size() <= 0) {
+                        this.f5109e.removeMessages(100);
                     }
-                    if (this.f5253c.size() <= 3) {
-                        this.f5255e.removeMessages(101);
+                    if (this.f5107c.size() <= 3) {
+                        this.f5109e.removeMessages(101);
                     }
                     CyberLog.d(TAG, " obtain handlerThread:" + duplayerHandlerThread);
                     print();
@@ -197,10 +197,10 @@ public class DuplayerHandlerThreadPool {
             duplayerHandlerThread = a();
             duplayerHandlerThread.setRunState(1);
             duplayerHandlerThread.setIdleBeginTime(-1L);
-            this.f5254d.add(duplayerHandlerThread);
-            if (this.f5253c.size() <= 0) {
+            this.f5108d.add(duplayerHandlerThread);
+            if (this.f5107c.size() <= 0) {
             }
-            if (this.f5253c.size() <= 3) {
+            if (this.f5107c.size() <= 3) {
             }
             CyberLog.d(TAG, " obtain handlerThread:" + duplayerHandlerThread);
             print();
@@ -209,16 +209,16 @@ public class DuplayerHandlerThreadPool {
     }
 
     public void print() {
-        synchronized (f5251b) {
-            int size = this.f5253c.size();
+        synchronized (f5105b) {
+            int size = this.f5107c.size();
             CyberLog.d(TAG, "-- mIdlePool size:" + size + "--");
             for (int i2 = 0; i2 < size; i2++) {
-                CyberLog.d(TAG, "-- mIdlePool i:" + i2 + " " + this.f5253c.get(i2) + " --");
+                CyberLog.d(TAG, "-- mIdlePool i:" + i2 + " " + this.f5107c.get(i2) + " --");
             }
-            int size2 = this.f5254d.size();
+            int size2 = this.f5108d.size();
             CyberLog.d(TAG, "-- mBusyPool size:" + size2 + " --");
             for (int i3 = 0; i3 < size2; i3++) {
-                CyberLog.d(TAG, "-- mBusyPool i:" + i3 + " " + this.f5254d.get(i3) + " --");
+                CyberLog.d(TAG, "-- mBusyPool i:" + i3 + " " + this.f5108d.get(i3) + " --");
             }
         }
     }
@@ -228,16 +228,16 @@ public class DuplayerHandlerThreadPool {
             return;
         }
         CyberLog.d(TAG, " recycle handlerThread:" + duplayerHandlerThread);
-        synchronized (f5251b) {
+        synchronized (f5105b) {
             duplayerHandlerThread.setIdleBeginTime(SystemClock.uptimeMillis());
             duplayerHandlerThread.setRunState(0);
-            this.f5254d.remove(duplayerHandlerThread);
-            this.f5253c.add(duplayerHandlerThread);
-            if (this.f5253c.size() > 0) {
-                this.f5255e.sendEmptyMessageDelayed(100, 900000L);
+            this.f5108d.remove(duplayerHandlerThread);
+            this.f5107c.add(duplayerHandlerThread);
+            if (this.f5107c.size() > 0) {
+                this.f5109e.sendEmptyMessageDelayed(100, 900000L);
             }
-            if (this.f5253c.size() > 3) {
-                this.f5255e.sendEmptyMessageDelayed(101, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
+            if (this.f5107c.size() > 3) {
+                this.f5109e.sendEmptyMessageDelayed(101, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
             }
             print();
         }

@@ -6,11 +6,11 @@ import java.util.concurrent.TimeUnit;
 public class h extends r {
 
     /* renamed from: e  reason: collision with root package name */
-    public r f64437e;
+    public r f65123e;
 
     public h(r rVar) {
         if (rVar != null) {
-            this.f64437e = rVar;
+            this.f65123e = rVar;
             return;
         }
         throw new IllegalArgumentException("delegate == null");
@@ -18,53 +18,53 @@ public class h extends r {
 
     @Override // d.b.c.a.a.r
     public r a(long j) {
-        return this.f64437e.a(j);
+        return this.f65123e.a(j);
     }
 
     @Override // d.b.c.a.a.r
     public r b(long j, TimeUnit timeUnit) {
-        return this.f64437e.b(j, timeUnit);
+        return this.f65123e.b(j, timeUnit);
     }
 
     @Override // d.b.c.a.a.r
     public long c() {
-        return this.f64437e.c();
+        return this.f65123e.c();
     }
 
     @Override // d.b.c.a.a.r
     public boolean d() {
-        return this.f64437e.d();
+        return this.f65123e.d();
     }
 
     @Override // d.b.c.a.a.r
     public long e() {
-        return this.f64437e.e();
+        return this.f65123e.e();
     }
 
     @Override // d.b.c.a.a.r
     public r f() {
-        return this.f64437e.f();
+        return this.f65123e.f();
     }
 
     @Override // d.b.c.a.a.r
     public r g() {
-        return this.f64437e.g();
+        return this.f65123e.g();
     }
 
     @Override // d.b.c.a.a.r
     public void h() throws IOException {
-        this.f64437e.h();
+        this.f65123e.h();
     }
 
     public final h i(r rVar) {
         if (rVar != null) {
-            this.f64437e = rVar;
+            this.f65123e = rVar;
             return this;
         }
         throw new IllegalArgumentException("delegate == null");
     }
 
     public final r j() {
-        return this.f64437e;
+        return this.f65123e;
     }
 }

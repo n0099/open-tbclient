@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
 import d.a.c.a.b;
 import d.a.c.e.p.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.j {
     public PersonPolymericFragment mFragment;
     public boolean mIsFromSchema = false;
@@ -36,7 +36,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         super.finish();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "a011";
     }

@@ -18,23 +18,23 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.a.c.e.p.l;
-import d.a.j0.f2.j.b;
-import d.a.j0.g2.e.h;
-import d.a.j0.x.b0;
-/* loaded from: classes4.dex */
+import d.a.k0.f2.j.b;
+import d.a.k0.g2.e.h;
+import d.a.k0.x.b0;
+/* loaded from: classes5.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public h mItemData;
     public b mMoreController;
     public b0 mOnCardSubClickListenner = new a();
     public Bundle mUrlBundle;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends b0<h> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.j0.x.b0
+        @Override // d.a.k0.x.b0
         /* renamed from: d */
         public void a(View view, h hVar) {
             PersonCenterMoreActivity.this.mItemData = hVar;
@@ -77,7 +77,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            d.a.i0.l.a.s(getPageContext().getPageActivity(), true, str);
+            d.a.j0.l.a.s(getPageContext().getPageActivity(), true, str);
         }
     }
 

@@ -14,7 +14,7 @@ public final class SynchronizedKt {
 
     @InternalCoroutinesApi
     /* renamed from: synchronized  reason: not valid java name */
-    public static final <T> T m1987synchronized(Object obj, Function0<? extends T> function0) {
+    public static final <T> T m1986synchronized(Object obj, Function0<? extends T> function0) {
         T invoke;
         synchronized (obj) {
             try {

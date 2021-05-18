@@ -29,8 +29,8 @@ public final class DelayKt {
 
     @ExperimentalTime
     /* renamed from: delay-p9JZ4hM  reason: not valid java name */
-    public static final Object m1950delayp9JZ4hM(double d2, Continuation<? super Unit> continuation) {
-        Object delay = delay(m1951toDelayMillisLRDsOJo(d2), continuation);
+    public static final Object m1949delayp9JZ4hM(double d2, Continuation<? super Unit> continuation) {
+        Object delay = delay(m1950toDelayMillisLRDsOJo(d2), continuation);
         return delay == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED() ? delay : Unit.INSTANCE;
     }
 
@@ -45,9 +45,9 @@ public final class DelayKt {
 
     @ExperimentalTime
     /* renamed from: toDelayMillis-LRDsOJo  reason: not valid java name */
-    public static final long m1951toDelayMillisLRDsOJo(double d2) {
-        if (Duration.m1893compareToLRDsOJo(d2, Duration.Companion.getZERO()) > 0) {
-            return RangesKt___RangesKt.coerceAtLeast(Duration.m1930toLongMillisecondsimpl(d2), 1L);
+    public static final long m1950toDelayMillisLRDsOJo(double d2) {
+        if (Duration.m1892compareToLRDsOJo(d2, Duration.Companion.getZERO()) > 0) {
+            return RangesKt___RangesKt.coerceAtLeast(Duration.m1929toLongMillisecondsimpl(d2), 1L);
         }
         return 0L;
     }

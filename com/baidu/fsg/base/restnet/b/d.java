@@ -9,15 +9,15 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f5356a;
+    public static d f5210a;
 
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f5356a == null) {
-                f5356a = new d();
+            if (f5210a == null) {
+                f5210a = new d();
             }
-            dVar = f5356a;
+            dVar = f5210a;
         }
         return dVar;
     }

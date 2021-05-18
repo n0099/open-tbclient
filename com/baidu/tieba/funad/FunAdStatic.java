@@ -4,10 +4,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import d.a.j0.r0.a;
-import d.a.j0.r0.b;
-import d.a.j0.s0.c;
-import d.a.j0.s0.d;
+import d.a.k0.r0.a;
+import d.a.k0.r0.b;
+import d.a.k0.s0.c;
+import d.a.k0.s0.d;
 /* loaded from: classes4.dex */
 public class FunAdStatic {
 
@@ -20,7 +20,7 @@ public class FunAdStatic {
     }
 
     static {
-        b.f59514a.set(new d());
+        b.f60259a.set(new d());
         a();
     }
 

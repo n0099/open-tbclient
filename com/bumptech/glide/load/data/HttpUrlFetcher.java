@@ -17,7 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HttpUrlFetcher implements DataFetcher<InputStream> {
     @VisibleForTesting
     public static final HttpUrlConnectionFactory DEFAULT_CONNECTION_FACTORY = new DefaultHttpUrlConnectionFactory();
@@ -31,7 +31,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public final int timeout;
     public HttpURLConnection urlConnection;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class DefaultHttpUrlConnectionFactory implements HttpUrlConnectionFactory {
         @Override // com.bumptech.glide.load.data.HttpUrlFetcher.HttpUrlConnectionFactory
         public HttpURLConnection build(URL url) throws IOException {
@@ -39,7 +39,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface HttpUrlConnectionFactory {
         HttpURLConnection build(URL url) throws IOException;
     }

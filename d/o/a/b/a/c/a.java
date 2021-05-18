@@ -4,7 +4,7 @@ import d.o.a.a.a.c.c;
 import d.o.a.a.a.c.d;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface a {
     String a();
 

@@ -2,33 +2,33 @@ package com.qq.e.comm.managers.status;
 
 import android.content.Context;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class APPStatus {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f36292a;
+    public String f35537a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f36293b;
+    public Context f35538b;
 
     public APPStatus(String str, Context context) {
-        this.f36292a = str;
-        this.f36293b = context;
+        this.f35537a = str;
+        this.f35538b = context;
     }
 
     public String getAPPID() {
-        return this.f36292a;
+        return this.f35537a;
     }
 
     public String getAPPName() {
-        return this.f36293b.getPackageName();
+        return this.f35538b.getPackageName();
     }
 
     public String getAPPRealName() {
         String aPPName = getAPPName();
         if (!StringUtil.isEmpty(aPPName)) {
             try {
-                return this.f36293b.getPackageManager().getPackageInfo(aPPName, 0).applicationInfo.loadLabel(this.f36293b.getPackageManager()).toString();
+                return this.f35538b.getPackageManager().getPackageInfo(aPPName, 0).applicationInfo.loadLabel(this.f35538b.getPackageManager()).toString();
             } catch (Exception unused) {
             }
         }
@@ -39,7 +39,7 @@ public class APPStatus {
         String aPPName = getAPPName();
         if (!StringUtil.isEmpty(aPPName)) {
             try {
-                return this.f36293b.getPackageManager().getPackageInfo(aPPName, 0).versionName;
+                return this.f35538b.getPackageManager().getPackageInfo(aPPName, 0).versionName;
             } catch (Exception unused) {
             }
         }

@@ -10,14 +10,14 @@ import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.core.f;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements com.bytedance.sdk.openadsdk.multipro.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f30396b = new Object();
+    public static final Object f29641b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30397a;
+    public Context f29642a;
 
     private boolean b(Uri uri) {
         boolean z = uri == null || TextUtils.isEmpty(uri.getPath());
@@ -28,7 +28,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     }
 
     private Context c() {
-        Context context = this.f30397a;
+        Context context = this.f29642a;
         return context == null ? p.a() : context;
     }
 
@@ -40,7 +40,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        this.f30397a = context;
+        this.f29642a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
@@ -50,7 +50,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public Cursor a(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         u.b("DBMultiProviderImpl", "query: " + String.valueOf(uri));
-        synchronized (f30396b) {
+        synchronized (f29641b) {
             if (b(uri)) {
                 return null;
             }
@@ -70,7 +70,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public String a(@NonNull Uri uri) {
         u.b("DBMultiProviderImpl", "getType: " + String.valueOf(uri));
-        synchronized (f30396b) {
+        synchronized (f29641b) {
             if (b(uri)) {
                 return null;
             }
@@ -102,7 +102,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public Uri a(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         u.b("DBMultiProviderImpl", "insert: " + String.valueOf(uri));
-        synchronized (f30396b) {
+        synchronized (f29641b) {
             if (b(uri)) {
                 return null;
             }
@@ -122,7 +122,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public int a(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         u.b("DBMultiProviderImpl", "delete: " + String.valueOf(uri));
-        synchronized (f30396b) {
+        synchronized (f29641b) {
             if (b(uri)) {
                 return 0;
             }
@@ -142,7 +142,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public int a(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         u.b("DBMultiProviderImpl", "update: " + String.valueOf(uri));
-        synchronized (f30396b) {
+        synchronized (f29641b) {
             if (b(uri)) {
                 return 0;
             }

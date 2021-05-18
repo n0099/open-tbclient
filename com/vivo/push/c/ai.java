@@ -2,7 +2,7 @@ package com.vivo.push.c;
 
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.mapapi.UIMsg;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ai {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Removed duplicated region for block: B:25:0x006d  */
@@ -65,7 +65,7 @@ public final class ai {
                         case 2003:
                         case 2004:
                         case 2005:
-                        case UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE /* 2008 */:
+                        case 2008:
                         case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE /* 2009 */:
                         case 2010:
                         case IMConstants.IM_MSG_TYPE_SHIELD /* 2011 */:

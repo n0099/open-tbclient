@@ -5,15 +5,15 @@ import android.util.Log;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40739a = false;
+    public static boolean f39984a = false;
 
     public static void a(String str, Object... objArr) {
-        if (f40739a) {
+        if (f39984a) {
             Log.v("BDHttpDns", String.format(str, objArr));
         }
     }
 
     public static void b(boolean z) {
-        f40739a = z;
+        f39984a = z;
     }
 }

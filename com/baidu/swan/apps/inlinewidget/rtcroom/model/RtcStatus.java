@@ -3,12 +3,13 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.model;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.sapi2.share.ShareCallPacking;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public enum RtcStatus {
     UNKNOWN(-1, RomUtils.UNKNOWN),
     LOCAL_JOIN(1001, "LOCAL_JOIN"),
     REMOTE_USER_JOIN(1002, "REMOTE_USER_JOIN"),
     REMOTE_USER_LEAVE(1003, "REMOTE_USER_LEAVE"),
+    REMOTE_USER_KICKOUT(1004, "REMOTE_USER_KICKOUT"),
     REMOTE_STREAM_ADD(2001, "REMOTE_STREAM_ADD"),
     REMOTE_STREAM_REMOVE(2002, "REMOTE_STREAM_REMOVE"),
     ACTIVITY_IS_NULL(ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : execute fail"),

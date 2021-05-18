@@ -215,21 +215,21 @@ public final class DownloadManager {
                 download.mCurrentLength = j2;
                 download.mFileLength = j3;
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - download.f4753a < 200) {
+                if (currentTimeMillis - download.f4607a < 200) {
                     return;
                 }
-                download.f4753a = currentTimeMillis;
+                download.f4607a = currentTimeMillis;
                 int progress = download.getProgress();
-                if (progress != download.f4755c) {
+                if (progress != download.f4609c) {
                     DownloadManager.this.notifyProgressChange(j, progress);
-                    download.f4755c = progress;
+                    download.f4609c = progress;
                 }
-                if (currentTimeMillis - download.f4754b > 2000) {
+                if (currentTimeMillis - download.f4608b > 2000) {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     DownloadManager.this.mDbHelper.b(download);
                     long currentTimeMillis3 = System.currentTimeMillis();
                     LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (currentTimeMillis3 - currentTimeMillis2) + "ms");
-                    download.f4754b = currentTimeMillis;
+                    download.f4608b = currentTimeMillis;
                 }
             }
 
@@ -292,7 +292,7 @@ public final class DownloadManager {
         Download download = (Download) this.mDownloadMap.get(Long.valueOf(j));
         if (download != null) {
             if (downloadState == DownloadState.CANCEL) {
-                if (download.f4756d) {
+                if (download.f4610d) {
                     try {
                         new File(download.mSavedPath, Uri.encode(download.mFileName)).delete();
                     } catch (Exception e2) {
@@ -811,7 +811,7 @@ public final class DownloadManager {
                 for (int i2 = 0; i2 < jArr.length; i2++) {
                     Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(jArr[i2]));
                     if (download != null) {
-                        download.f4756d = true;
+                        download.f4610d = true;
                         DownloadManager.this.mTaskManager.stopDownload(download.mUrl, jArr[i2], false);
                     }
                 }
@@ -823,7 +823,7 @@ public final class DownloadManager {
         for (int i2 = 0; i2 < jArr.length; i2++) {
             Download download = (Download) this.mDownloadMap.get(Long.valueOf(jArr[i2]));
             if (download != null) {
-                download.f4756d = false;
+                download.f4610d = false;
                 this.mTaskManager.stopDownload(download.mUrl, jArr[i2], false);
             }
         }

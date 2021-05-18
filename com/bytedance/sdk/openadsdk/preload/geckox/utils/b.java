@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.utils;
 import android.database.Cursor;
 import java.io.Closeable;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static boolean a(Closeable closeable) {
         if (closeable == null) {

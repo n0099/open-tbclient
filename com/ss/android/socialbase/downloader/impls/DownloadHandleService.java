@@ -6,26 +6,26 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import d.o.a.e.b.g.d;
 import d.o.a.e.b.g.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DownloadHandleService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36891a = DownloadHandleService.class.getSimpleName();
+    public static final String f36136a = DownloadHandleService.class.getSimpleName();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f36892e;
+        public final /* synthetic */ int f36137e;
 
         public a(int i2) {
-            this.f36892e = i2;
+            this.f36137e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                e.c().J(this.f36892e);
+                e.c().J(this.f36137e);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

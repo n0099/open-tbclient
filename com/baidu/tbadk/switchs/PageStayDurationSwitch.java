@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import d.a.c.e.f.a;
-import d.a.i0.k0.e;
+import d.a.j0.k0.e;
 /* loaded from: classes3.dex */
 public class PageStayDurationSwitch extends a {
     @Override // d.a.c.e.f.a

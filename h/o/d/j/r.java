@@ -6,11 +6,11 @@ public final class r<E> extends w<E> {
     }
 
     public final long h() {
-        return f0.f67992a.d(this, t.l);
+        return f0.f68672a.d(this, t.l);
     }
 
     public final long i() {
-        return f0.f67992a.d(this, x.k);
+        return f0.f68672a.d(this, x.k);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
@@ -19,17 +19,17 @@ public final class r<E> extends w<E> {
     }
 
     public final void j(long j) {
-        f0.f67992a.i(this, t.l, j);
+        f0.f68672a.i(this, t.l, j);
     }
 
     public final void k(long j) {
-        f0.f67992a.i(this, x.k, j);
+        f0.f68672a.i(this, x.k, j);
     }
 
     @Override // java.util.Queue
     public boolean offer(E e2) {
         if (e2 != null) {
-            E[] eArr = this.f67991f;
+            E[] eArr = this.f68671f;
             long j = this.producerIndex;
             long a2 = a(j);
             if (e(eArr, a2) != null) {
@@ -51,7 +51,7 @@ public final class r<E> extends w<E> {
     public E poll() {
         long j = this.consumerIndex;
         long a2 = a(j);
-        E[] eArr = this.f67991f;
+        E[] eArr = this.f68671f;
         E e2 = e(eArr, a2);
         if (e2 == null) {
             return null;

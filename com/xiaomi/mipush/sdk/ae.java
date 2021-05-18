@@ -9,7 +9,7 @@ import java.util.List;
 public class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ae f38052a;
+    public static volatile ae f37297a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f56a;
@@ -26,14 +26,14 @@ public class ae {
     }
 
     public static ae a(Context context) {
-        if (f38052a == null) {
+        if (f37297a == null) {
             synchronized (ae.class) {
-                if (f38052a == null) {
-                    f38052a = new ae(context);
+                if (f37297a == null) {
+                    f37297a = new ae(context);
                 }
             }
         }
-        return f38052a;
+        return f37297a;
     }
 
     public int a(String str) {
@@ -43,7 +43,7 @@ public class ae {
             if (this.f57a.contains(wVar)) {
                 for (w wVar2 : this.f57a) {
                     if (wVar2.equals(wVar)) {
-                        return wVar2.f38109a;
+                        return wVar2.f37354a;
                     }
                 }
             }
@@ -61,10 +61,10 @@ public class ae {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m78a(String str) {
+    public void m77a(String str) {
         synchronized (this.f57a) {
             w wVar = new w();
-            wVar.f38109a = 0;
+            wVar.f37354a = 0;
             wVar.f95a = str;
             if (this.f57a.contains(wVar)) {
                 this.f57a.remove(wVar);
@@ -74,7 +74,7 @@ public class ae {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m79a(String str) {
+    public boolean m78a(String str) {
         synchronized (this.f57a) {
             w wVar = new w();
             wVar.f95a = str;
@@ -99,7 +99,7 @@ public class ae {
                     }
                 }
             }
-            wVar.f38109a++;
+            wVar.f37354a++;
             this.f57a.remove(wVar);
             this.f57a.add(wVar);
         }

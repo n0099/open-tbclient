@@ -8,30 +8,30 @@ import com.baidu.pyramid.annotation.Inject;
 public class h {
 
     /* renamed from: b  reason: collision with root package name */
-    public static h f64160b = new h();
+    public static h f64847b = new h();
     @Inject
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.c0.a.b.c<IWebViewDataDirectoryManager> f64161a;
+    public d.a.c0.a.b.c<IWebViewDataDirectoryManager> f64848a;
 
     public h() {
         b();
     }
 
     public static h a() {
-        return f64160b;
+        return f64847b;
     }
 
     public void b() {
         d.a.c0.a.b.a b2 = d.a.c0.a.b.a.b();
-        this.f64161a = b2;
+        this.f64848a = b2;
         b2.a(new IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider());
     }
 
     public void c() {
         if (d.a.x.i.b.a()) {
-            Log.i("NPS-WebViewDataDirec", "webViewDataDirectoryManagerHolder class=" + this.f64161a.getClass());
+            Log.i("NPS-WebViewDataDirec", "webViewDataDirectoryManagerHolder class=" + this.f64848a.getClass());
         }
-        this.f64161a.get().setDataDirectorySuffix();
+        this.f64848a.get().setDataDirectorySuffix();
     }
 }

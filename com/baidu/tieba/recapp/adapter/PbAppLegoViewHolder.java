@@ -2,123 +2,123 @@ package com.baidu.tieba.recapp.adapter;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import d.a.j0.j2.e;
-import d.a.j0.s2.m;
-/* loaded from: classes3.dex */
+import d.a.k0.j2.e;
+import d.a.k0.s2.n;
+/* loaded from: classes5.dex */
 public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.j0.j1.o.l.e<?> f20938e;
+    public d.a.k0.j1.o.l.e<?> f20220e;
 
     /* renamed from: f  reason: collision with root package name */
-    public m f20939f;
+    public n f20221f;
 
-    public PbAppLegoViewHolder(d.a.j0.j1.o.l.e<?> eVar) {
+    public PbAppLegoViewHolder(d.a.k0.j1.o.l.e<?> eVar) {
         super((View) eVar);
-        this.f20938e = eVar;
+        this.f20220e = eVar;
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public boolean C() {
         return false;
     }
 
     public void b(int i2) {
-        m mVar = this.f20939f;
-        if (mVar != null) {
-            mVar.autoPlay(i2);
+        n nVar = this.f20221f;
+        if (nVar != null) {
+            nVar.autoPlay(i2);
         }
     }
 
     public boolean c() {
-        m mVar = this.f20939f;
-        if (mVar == null) {
+        n nVar = this.f20221f;
+        if (nVar == null) {
             return false;
         }
-        return mVar.canPlay();
+        return nVar.canPlay();
     }
 
     public int d() {
-        m mVar = this.f20939f;
-        if (mVar != null) {
-            return mVar.getPlayStatus();
+        n nVar = this.f20221f;
+        if (nVar != null) {
+            return nVar.getPlayStatus();
         }
         return -2;
     }
 
     public void e() {
-        m mVar = this.f20939f;
-        if (mVar != null) {
-            mVar.release();
+        n nVar = this.f20221f;
+        if (nVar != null) {
+            nVar.release();
         }
     }
 
-    public void f(m mVar) {
-        this.f20939f = mVar;
+    public void f(n nVar) {
+        this.f20221f = nVar;
     }
 
     public void g() {
-        d.a.j0.j1.o.l.e<?> eVar = this.f20938e;
+        d.a.k0.j1.o.l.e<?> eVar = this.f20220e;
         if (eVar != null) {
             eVar.e();
         }
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public int getCurrentPosition() {
-        m mVar = this.f20939f;
-        if (mVar == null) {
+        n nVar = this.f20221f;
+        if (nVar == null) {
             return 0;
         }
-        return (int) mVar.getCurrentPosition();
+        return (int) nVar.getCurrentPosition();
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public String getPlayUrl() {
-        m mVar = this.f20939f;
-        return mVar == null ? "" : mVar.getPlayUrl();
+        n nVar = this.f20221f;
+        return nVar == null ? "" : nVar.getPlayUrl();
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public View getVideoContainer() {
-        m mVar = this.f20939f;
-        if (mVar == null) {
+        n nVar = this.f20221f;
+        if (nVar == null) {
             return null;
         }
-        return mVar.getVideoContainer();
+        return nVar.getVideoContainer();
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public boolean isPlayStarted() {
-        m mVar = this.f20939f;
-        if (mVar == null) {
+        n nVar = this.f20221f;
+        if (nVar == null) {
             return false;
         }
-        return mVar.isPlayStarted();
+        return nVar.isPlayStarted();
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public boolean isPlaying() {
-        m mVar = this.f20939f;
-        if (mVar == null) {
+        n nVar = this.f20221f;
+        if (nVar == null) {
             return false;
         }
-        return mVar.isPlaying();
+        return nVar.isPlaying();
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public void startPlay() {
-        m mVar = this.f20939f;
-        if (mVar != null) {
-            mVar.startPlay();
+        n nVar = this.f20221f;
+        if (nVar != null) {
+            nVar.startPlay();
         }
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public void stopPlay() {
-        m mVar = this.f20939f;
-        if (mVar != null) {
-            mVar.stopPlay();
+        n nVar = this.f20221f;
+        if (nVar != null) {
+            nVar.stopPlay();
         }
     }
 }

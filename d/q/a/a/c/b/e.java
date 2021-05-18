@@ -10,16 +10,16 @@ import java.net.UnknownHostException;
 public class e implements d.q.a.a.a.b.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f66904e;
+    public Context f67590e;
 
     public e(Context context) {
-        this.f66904e = context;
+        this.f67590e = context;
     }
 
     public static String a(String str) {
         try {
             d a2 = c.a(new String[]{str}, false, true);
-            return !TextUtils.isEmpty(a2.f66902b) ? a2.f66902b : (TextUtils.isEmpty(a2.f66903c) || !a2.f66903c.contains("denied")) ? TextUtils.isEmpty(a2.f66902b) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
+            return !TextUtils.isEmpty(a2.f67588b) ? a2.f67588b : (TextUtils.isEmpty(a2.f67589c) || !a2.f67589c.contains("denied")) ? TextUtils.isEmpty(a2.f67588b) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
         } catch (Throwable th) {
             b.c(th);
             return "KWE_PE";
@@ -93,13 +93,13 @@ public class e implements d.q.a.a.a.b.b {
 
     @Override // d.q.a.a.a.b.b
     public String b() {
-        String e2 = d.q.a.a.a.b.e.a.a.a(this.f66904e).e();
+        String e2 = d.q.a.a.a.b.e.a.a.a(this.f67590e).e();
         return TextUtils.isEmpty(e2) ? "" : e2;
     }
 
     @Override // d.q.a.a.a.b.b
     public boolean c() {
-        return d.q.a.a.a.b.e.a.a.a(this.f66904e).d();
+        return d.q.a.a.a.b.e.a.a.a(this.f67590e).d();
     }
 
     @Override // d.q.a.a.a.b.b

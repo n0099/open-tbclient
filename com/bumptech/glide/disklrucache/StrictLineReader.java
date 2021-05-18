@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class StrictLineReader implements Closeable {
     public static final byte CR = 13;
     public static final byte LF = 10;

@@ -1,5 +1,6 @@
 package io.reactivex;
 
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import io.reactivex.annotations.BackpressureKind;
 import io.reactivex.annotations.BackpressureSupport;
@@ -1826,7 +1827,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     public static <T> Flowable<T> concatArrayEager(int i2, int i3, Publisher<? extends T>... publisherArr) {
         ObjectHelper.requireNonNull(publisherArr, "sources is null");
         ObjectHelper.verifyPositive(i2, "maxConcurrency");
-        ObjectHelper.verifyPositive(i3, "prefetch");
+        ObjectHelper.verifyPositive(i3, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableConcatMapEager(new FlowableFromArray(publisherArr), Functions.identity(), i2, i3, ErrorMode.IMMEDIATE));
     }
 
@@ -1836,7 +1837,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     public static <T> Flowable<T> concatEager(Publisher<? extends Publisher<? extends T>> publisher, int i2, int i3) {
         ObjectHelper.requireNonNull(publisher, "sources is null");
         ObjectHelper.verifyPositive(i2, "maxConcurrency");
-        ObjectHelper.verifyPositive(i3, "prefetch");
+        ObjectHelper.verifyPositive(i3, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableConcatMapEagerPublisher(publisher, Functions.identity(), i2, i3, ErrorMode.IMMEDIATE));
     }
 
@@ -1970,7 +1971,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @CheckReturnValue
     public final <R> Flowable<R> concatMap(Function<? super T, ? extends Publisher<? extends R>> function, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         if (this instanceof ScalarCallable) {
             Object call = ((ScalarCallable) this).call();
             if (call == null) {
@@ -1987,7 +1988,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @Experimental
     public final Completable concatMapCompletable(Function<? super T, ? extends CompletableSource> function, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableConcatMapCompletable(this, function, ErrorMode.IMMEDIATE, i2));
     }
 
@@ -2004,7 +2005,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @CheckReturnValue
     public final <R> Flowable<R> concatMapDelayError(Function<? super T, ? extends Publisher<? extends R>> function, int i2, boolean z) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         if (this instanceof ScalarCallable) {
             Object call = ((ScalarCallable) this).call();
             if (call == null) {
@@ -2021,7 +2022,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     public final <R> Flowable<R> concatMapEager(Function<? super T, ? extends Publisher<? extends R>> function, int i2, int i3) {
         ObjectHelper.requireNonNull(function, "mapper is null");
         ObjectHelper.verifyPositive(i2, "maxConcurrency");
-        ObjectHelper.verifyPositive(i3, "prefetch");
+        ObjectHelper.verifyPositive(i3, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableConcatMapEager(this, function, i2, i3, ErrorMode.IMMEDIATE));
     }
 
@@ -2031,7 +2032,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     public final <R> Flowable<R> concatMapEagerDelayError(Function<? super T, ? extends Publisher<? extends R>> function, int i2, int i3, boolean z) {
         ObjectHelper.requireNonNull(function, "mapper is null");
         ObjectHelper.verifyPositive(i2, "maxConcurrency");
-        ObjectHelper.verifyPositive(i3, "prefetch");
+        ObjectHelper.verifyPositive(i3, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableConcatMapEager(this, function, i2, i3, z ? ErrorMode.END : ErrorMode.BOUNDARY));
     }
 
@@ -2040,7 +2041,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @CheckReturnValue
     public final <U> Flowable<U> concatMapIterable(Function<? super T, ? extends Iterable<? extends U>> function, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableFlattenIterable(this, function, i2));
     }
 
@@ -2050,7 +2051,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @Experimental
     public final <R> Flowable<R> concatMapMaybe(Function<? super T, ? extends MaybeSource<? extends R>> function, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableConcatMapMaybe(this, function, ErrorMode.IMMEDIATE, i2));
     }
 
@@ -2068,7 +2069,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @Experimental
     public final <R> Flowable<R> concatMapSingle(Function<? super T, ? extends SingleSource<? extends R>> function, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableConcatMapSingle(this, function, ErrorMode.IMMEDIATE, i2));
     }
 
@@ -2441,7 +2442,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @Experimental
     public final Completable concatMapCompletableDelayError(Function<? super T, ? extends CompletableSource> function, boolean z, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableConcatMapCompletable(this, function, z ? ErrorMode.END : ErrorMode.BOUNDARY, i2));
     }
 
@@ -2451,7 +2452,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @Experimental
     public final <R> Flowable<R> concatMapMaybeDelayError(Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableConcatMapMaybe(this, function, z ? ErrorMode.END : ErrorMode.BOUNDARY, i2));
     }
 
@@ -2461,7 +2462,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @Experimental
     public final <R> Flowable<R> concatMapSingleDelayError(Function<? super T, ? extends SingleSource<? extends R>> function, boolean z, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableConcatMapSingle(this, function, z ? ErrorMode.END : ErrorMode.BOUNDARY, i2));
     }
 
@@ -2579,7 +2580,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @CheckReturnValue
     public final <R> Flowable<R> publish(Function<? super Flowable<T>, ? extends Publisher<? extends R>> function, int i2) {
         ObjectHelper.requireNonNull(function, "selector is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowablePublishMulticast(this, function, i2, false));
     }
 
@@ -2807,7 +2808,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @CheckReturnValue
     public final ParallelFlowable<T> parallel(int i2, int i3) {
         ObjectHelper.verifyPositive(i2, "parallelism");
-        ObjectHelper.verifyPositive(i3, "prefetch");
+        ObjectHelper.verifyPositive(i3, PrefetchEvent.MODULE);
         return ParallelFlowable.from(this, i2, i3);
     }
 
@@ -3261,7 +3262,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     public static <T> Flowable<T> concatEager(Iterable<? extends Publisher<? extends T>> iterable, int i2, int i3) {
         ObjectHelper.requireNonNull(iterable, "sources is null");
         ObjectHelper.verifyPositive(i2, "maxConcurrency");
-        ObjectHelper.verifyPositive(i3, "prefetch");
+        ObjectHelper.verifyPositive(i3, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableConcatMapEager(new FlowableFromIterable(iterable), Functions.identity(), i2, i3, ErrorMode.IMMEDIATE));
     }
 

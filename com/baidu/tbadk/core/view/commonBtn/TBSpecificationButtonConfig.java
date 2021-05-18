@@ -13,32 +13,32 @@ import d.a.c.e.p.l;
 public abstract class TBSpecificationButtonConfig {
 
     /* renamed from: a  reason: collision with root package name */
-    public WebpType f13235a;
+    public WebpType f12571a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13236b;
+    public int f12572b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13237c;
+    public int f12573c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13238d;
+    public int f12574d;
 
     /* renamed from: f  reason: collision with root package name */
-    public IconType f13240f;
+    public IconType f12576f;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13242h;
+    public int f12578h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13243i;
+    public boolean f12579i;
     public a s;
     public boolean p = true;
     public int q = 0;
     public GradientDrawable.Orientation r = GradientDrawable.Orientation.LEFT_RIGHT;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f13239e = new int[2];
+    public final int[] f12575e = new int[2];
     public int j = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
     public int k = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
     public int l = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
@@ -47,7 +47,7 @@ public abstract class TBSpecificationButtonConfig {
     public int o = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13241g = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+    public int f12577g = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
 
     /* loaded from: classes3.dex */
     public enum IconType {
@@ -75,20 +75,20 @@ public abstract class TBSpecificationButtonConfig {
 
     public final Drawable b(int i2) {
         Drawable drawable;
-        IconType iconType = this.f13240f;
+        IconType iconType = this.f12576f;
         if (iconType == IconType.SVG) {
-            int i3 = this.f13242h;
+            int i3 = this.f12578h;
             if (i3 <= 0) {
-                i3 = this.f13236b;
+                i3 = this.f12572b;
             }
             drawable = SvgManager.getInstance().getPureDrawableColorInt(i2, SkinManager.getColor(this.q, i3), SvgManager.SvgResourceStateType.NORMAL);
         } else if (iconType == IconType.WEBP) {
-            if (this.f13235a == WebpType.MASK) {
-                drawable = WebPManager.getMaskDrawable(i2, null);
+            if (this.f12571a == WebpType.MASK) {
+                drawable = WebPManager.getMaskDrawable(i2, (WebPManager.ResourceStateType) null);
             } else {
-                int i4 = this.f13242h;
+                int i4 = this.f12578h;
                 if (i4 <= 0) {
-                    i4 = this.f13236b;
+                    i4 = this.f12572b;
                 }
                 drawable = WebPManager.getPureDrawable(i2, SkinManager.getColor(this.q, i4), null);
             }
@@ -96,18 +96,18 @@ public abstract class TBSpecificationButtonConfig {
             drawable = SkinManager.getDrawable(this.q, i2);
         }
         if (drawable != null) {
-            int i5 = this.f13241g;
+            int i5 = this.f12577g;
             drawable.setBounds(0, 0, i5, i5);
         }
         return drawable;
     }
 
     public Drawable c() {
-        return b(this.f13239e[0]);
+        return b(this.f12575e[0]);
     }
 
     public Drawable d() {
-        return b(this.f13239e[1]);
+        return b(this.f12575e[1]);
     }
 
     public void e(GradientDrawable.Orientation orientation) {
@@ -119,10 +119,10 @@ public abstract class TBSpecificationButtonConfig {
     }
 
     public void g(int i2) {
-        if (i2 <= 0 || this.f13241g == i2) {
+        if (i2 <= 0 || this.f12577g == i2) {
             return;
         }
-        this.f13241g = i2;
+        this.f12577g = i2;
         a aVar = this.s;
         if (aVar != null) {
             aVar.a();
@@ -130,8 +130,8 @@ public abstract class TBSpecificationButtonConfig {
     }
 
     public void h(@ColorRes int i2) {
-        if (this.f13242h != i2) {
-            this.f13242h = i2;
+        if (this.f12578h != i2) {
+            this.f12578h = i2;
             a aVar = this.s;
             if (aVar != null) {
                 aVar.b();
@@ -140,14 +140,14 @@ public abstract class TBSpecificationButtonConfig {
     }
 
     public void i(int i2, int i3, IconType iconType) {
-        int[] iArr = this.f13239e;
-        if (iArr[0] == i2 && iArr[1] == i3 && this.f13240f == iconType) {
+        int[] iArr = this.f12575e;
+        if (iArr[0] == i2 && iArr[1] == i3 && this.f12576f == iconType) {
             return;
         }
-        int[] iArr2 = this.f13239e;
+        int[] iArr2 = this.f12575e;
         iArr2[0] = i2;
         iArr2[1] = i3;
-        this.f13240f = iconType;
+        this.f12576f = iconType;
         a aVar = this.s;
         if (aVar != null) {
             aVar.b();
@@ -178,6 +178,6 @@ public abstract class TBSpecificationButtonConfig {
     }
 
     public void n(WebpType webpType) {
-        this.f13235a = webpType;
+        this.f12571a = webpType;
     }
 }

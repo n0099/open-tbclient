@@ -10,31 +10,31 @@ public final class a {
     public static OnCrashExceedListener Q = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4779a = "";
+    public static String f4633a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4780b = "alpha";
+    public static String f4634b = "alpha";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4781c = null;
+    public static String f4635c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4782d = "UNSET";
+    public static String f4636d = "UNSET";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f4783e = 10;
+    public static int f4637e = 10;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f4784f = 5;
+    public static int f4638f = 5;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f4785g = 10;
+    public static int f4639g = 10;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f4786h = 200;
+    public static int f4640h = 200;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f4787i = true;
+    public static boolean f4641i = true;
     public static int j = 50;
     public static long k = 10800000;
     public static long l = 30000;

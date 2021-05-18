@@ -30,17 +30,17 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
     public static final class EntrySet<K, V> extends ImmutableSet<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableSetMultimap<K, V> f31887e;
+        public final transient ImmutableSetMultimap<K, V> f31132e;
 
         public EntrySet(ImmutableSetMultimap<K, V> immutableSetMultimap) {
-            this.f31887e = immutableSetMultimap;
+            this.f31132e = immutableSetMultimap;
         }
 
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
             if (obj instanceof Map.Entry) {
                 Map.Entry entry = (Map.Entry) obj;
-                return this.f31887e.containsEntry(entry.getKey(), entry.getValue());
+                return this.f31132e.containsEntry(entry.getKey(), entry.getValue());
             }
             return false;
         }
@@ -52,13 +52,13 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return this.f31887e.size();
+            return this.f31132e.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.ImmutableSet, com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet
         public c1<Map.Entry<K, V>> iterator() {
-            return this.f31887e.entryIterator();
+            return this.f31132e.entryIterator();
         }
     }
 
@@ -85,12 +85,12 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         }
 
         public ImmutableSetMultimap<K, V> f() {
-            Collection entrySet = this.f31865a.entrySet();
-            Comparator<? super K> comparator = this.f31866b;
+            Collection entrySet = this.f31110a.entrySet();
+            Comparator<? super K> comparator = this.f31111b;
             if (comparator != null) {
                 entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
             }
-            return ImmutableSetMultimap.fromMapEntries(entrySet, this.f31867c);
+            return ImmutableSetMultimap.fromMapEntries(entrySet, this.f31112c);
         }
 
         public a<K, V> g(K k, V v) {
@@ -113,7 +113,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final r0.b<ImmutableSetMultimap> f31888a = r0.a(ImmutableSetMultimap.class, "emptySet");
+        public static final r0.b<ImmutableSetMultimap> f31133a = r0.a(ImmutableSetMultimap.class, "emptySet");
     }
 
     public ImmutableSetMultimap(ImmutableMap<K, ImmutableSet<V>> immutableMap, int i2, Comparator<? super V> comparator) {
@@ -201,9 +201,9 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
                 }
             }
             try {
-                ImmutableMultimap.d.f31868a.b(this, builder.a());
-                ImmutableMultimap.d.f31869b.a(this, i2);
-                b.f31888a.b(this, emptySet(comparator));
+                ImmutableMultimap.d.f31113a.b(this, builder.a());
+                ImmutableMultimap.d.f31114b.a(this, i2);
+                b.f31133a.b(this, emptySet(comparator));
                 return;
             } catch (IllegalArgumentException e2) {
                 throw ((InvalidObjectException) new InvalidObjectException(e2.getMessage()).initCause(e2));

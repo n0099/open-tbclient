@@ -3,6 +3,7 @@ package com.baidu.android.imrtc;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.msg.BIMRtcListener;
+import com.baidu.android.imrtc.request.BIMRtcAnswerAbilityListener;
 import com.baidu.android.imrtc.request.BIMRtcTokenListener;
 import com.baidu.android.imrtc.send.BIMAnswerRtcInfo;
 import com.baidu.android.imrtc.send.BIMCancelRtcInfo;
@@ -19,6 +20,10 @@ public class BIMRtcClient {
 
     public static void cancelCall(@NonNull Context context, @NonNull BIMCancelRtcInfo bIMCancelRtcInfo, IStatusListener iStatusListener) {
         BIMRtcManager.getInstance(context).cancelCall(bIMCancelRtcInfo, iStatusListener);
+    }
+
+    public static void checkAnswerAbility(@NonNull Context context, String str, String str2, @NonNull BIMRtcAnswerAbilityListener bIMRtcAnswerAbilityListener) {
+        BIMRtcManager.getInstance(context).checkAnswerAbility(str, str2, bIMRtcAnswerAbilityListener);
     }
 
     public static void closeRoom(@NonNull Context context, @NonNull BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
@@ -64,6 +69,10 @@ public class BIMRtcClient {
 
     public static void unRegisterRtcListener(@NonNull Context context, @NonNull BIMRtcListener bIMRtcListener) {
         BIMRtcManager.getInstance(context).unRegisterRtcListener(bIMRtcListener);
+    }
+
+    public static void createRoom(@NonNull Context context, String str, String str2, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
+        BIMRtcManager.getInstance(context).createRoom(str, str2, bIMRtcTokenListener);
     }
 
     public static void hangout(@NonNull Context context, @NonNull BIMRtcInfo bIMRtcInfo, IStatusListener iStatusListener) {

@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl;
 import android.content.Context;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a(Context context, File file, long j) throws IOException {
         com.bytedance.sdk.openadsdk.preload.geckox.buffer.a b2 = b(context, file, j);

@@ -69,6 +69,7 @@ import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.wallet.api.IWalletLoginListener;
 import com.coremedia.iso.boxes.FreeSpaceBox;
@@ -1019,7 +1020,7 @@ public class SapiWebView extends WebView {
                         } else if (name.equalsIgnoreCase("os_headurl")) {
                             socialResponse2.socialPortraitUrl = newPullParser.nextText();
                             continue;
-                        } else if (name.equalsIgnoreCase("os_type")) {
+                        } else if (name.equalsIgnoreCase(SearchJsBridge.COOKIE_OS_TYPE)) {
                             socialResponse2.socialType = SocialType.getSocialType(Integer.parseInt(newPullParser.nextText()));
                             continue;
                         } else if (name.equalsIgnoreCase("notice_offline")) {
@@ -1827,7 +1828,7 @@ public class SapiWebView extends WebView {
                         } else if (name.equalsIgnoreCase("os_headurl")) {
                             sapiAccountResponse2.socialPortraitUrl = newPullParser.nextText();
                             continue;
-                        } else if (name.equalsIgnoreCase("os_type")) {
+                        } else if (name.equalsIgnoreCase(SearchJsBridge.COOKIE_OS_TYPE)) {
                             sapiAccountResponse2.socialType = SocialType.getSocialType(Integer.parseInt(newPullParser.nextText()));
                             continue;
                         } else if (name.equalsIgnoreCase("incomplete_user")) {

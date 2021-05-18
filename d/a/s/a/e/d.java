@@ -14,14 +14,14 @@ import org.json.JSONObject;
 public class d extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public a.d f63940b = null;
+    public a.d f64627b = null;
 
     public d(Context context) {
-        this.f63936a = context;
+        this.f64623a = context;
     }
 
     public void a(a.d dVar) {
-        this.f63940b = dVar;
+        this.f64627b = dVar;
     }
 
     @Override // d.a.s.a.e.c.b
@@ -48,22 +48,22 @@ public class d extends a {
 
     @Override // d.a.s.a.e.c.b
     public byte[] getRequestParameter() {
-        return ("type=ipv4,ipv6&dn=" + f.T(this.f63936a).x).getBytes();
+        return ("type=ipv4,ipv6&dn=" + f.T(this.f64623a).x).getBytes();
     }
 
     @Override // d.a.s.a.e.c.d
     public void onFailure(int i2, String str) {
         d.a.s.a.g.d.b("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i2 + ",errormsg:" + str);
         d.a.s.a.c.a.g(true);
-        d.a.s.a.c.a.d(this.f63936a).b(f.T(this.f63936a).x, this.f63940b);
+        d.a.s.a.c.a.d(this.f64623a).b(f.T(this.f64623a).x, this.f64627b);
     }
 
     @Override // d.a.s.a.e.c.d
     public void onSuccess(byte[] bArr) {
         String str = new String(bArr);
-        d.a.s.a.g.d.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + f.T(this.f63936a).x + " is " + str);
+        d.a.s.a.g.d.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + f.T(this.f64623a).x + " is " + str);
         try {
-            JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(f.T(this.f63936a).x);
+            JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(f.T(this.f64623a).x);
             JSONArray optJSONArray = jSONObject.optJSONArray("ip");
             JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
             int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
@@ -77,23 +77,23 @@ public class d extends a {
                     arrayList.add(optJSONArray2.getString(0));
                 }
                 d.a.s.a.c.a.k(arrayList);
-                if (this.f63940b == null || d.a.s.a.c.a.f63869c.size() <= 0) {
+                if (this.f64627b == null || d.a.s.a.c.a.f64556c.size() <= 0) {
                     return;
                 }
-                this.f63940b.a(0, "ok", d.a.s.a.c.a.f63869c.get(0));
-                if (d.a.s.a.c.a.f63869c.size() > 1) {
-                    d.a.s.a.c.a.f63870d++;
+                this.f64627b.a(0, "ok", d.a.s.a.c.a.f64556c.get(0));
+                if (d.a.s.a.c.a.f64556c.size() > 1) {
+                    d.a.s.a.c.a.f64557d++;
                     return;
                 }
                 return;
             }
             d.a.s.a.g.d.b("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
             d.a.s.a.c.a.g(true);
-            d.a.s.a.c.a.d(this.f63936a).b(f.T(this.f63936a).x, this.f63940b);
+            d.a.s.a.c.a.d(this.f64623a).b(f.T(this.f64623a).x, this.f64627b);
         } catch (Exception e2) {
             d.a.s.a.g.d.b("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e2.getMessage());
             d.a.s.a.c.a.g(true);
-            d.a.s.a.c.a.d(this.f63936a).b(f.T(this.f63936a).x, this.f63940b);
+            d.a.s.a.c.a.d(this.f64623a).b(f.T(this.f64623a).x, this.f64627b);
         }
     }
 }

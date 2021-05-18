@@ -3,32 +3,32 @@ package d.a.m.a;
 public final class i implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ long f63307e;
+    public final /* synthetic */ long f63846e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ long f63308f;
+    public final /* synthetic */ long f63847f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ long f63309g;
+    public final /* synthetic */ long f63848g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final /* synthetic */ long f63310h;
+    public final /* synthetic */ long f63849h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final /* synthetic */ h f63311i;
+    public final /* synthetic */ h f63850i;
 
     public i(h hVar, long j, long j2, long j3, long j4) {
-        this.f63311i = hVar;
-        this.f63307e = j;
-        this.f63308f = j2;
-        this.f63309g = j3;
-        this.f63310h = j4;
+        this.f63850i = hVar;
+        this.f63846e = j;
+        this.f63847f = j2;
+        this.f63848g = j3;
+        this.f63849h = j4;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         f fVar;
-        fVar = this.f63311i.f63304c;
-        fVar.a(this.f63307e, this.f63308f, this.f63309g, this.f63310h);
+        fVar = this.f63850i.f63843c;
+        fVar.a(this.f63846e, this.f63847f, this.f63848g, this.f63849h);
     }
 }

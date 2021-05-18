@@ -60,6 +60,7 @@ public class ZeusPerformanceTiming {
     public static final String KEY_NUM_PROCESSORS = "NumProcessors";
     public static final String KEY_PROVIDER_HIT_SYNCHRONIZED_STACK = "provider_hit_synchronized_stack";
     public static final String KEY_PROVIDER_MTHREAD_STACK = "provider_mthread_stack";
+    public static final String KEY_REVERT_DOWNLOAD_ZEUS = "revert_download_zeus";
     public static final String KEY_T7_CHROMIUM_PROVIDER_INIT = "k_p3";
     public static final String KEY_T7_CHROMIUM_PROVIDER_INIT_STEP0 = "k_p3_s0";
     public static final String KEY_T7_CHROMIUM_PROVIDER_INIT_STEP1 = "k_p3_s1";
@@ -97,6 +98,7 @@ public class ZeusPerformanceTiming {
     public static final int RECORD_FROM_FORCE_INIT = 2;
     public static final int RECORD_FROM_WEBVIEW_INIT = 1;
     public static final String SERVER_TYPE_T7_INIT = "t7_init";
+    public static final String UMA_METRIC_PREFIX = "Session.Startup.";
     public static long mInitOnAppStart;
     public static boolean mIsForceInitT7;
     public static boolean mIsGetProviderHitSynchronized;
@@ -106,6 +108,7 @@ public class ZeusPerformanceTiming {
     public static JSONObject mWebkitInitStatistics;
     public static int mZeusWebViewLoadClassTime;
     public static String sAppStartSource;
+    public static ArrayList<String> sExcludedKeysStartup;
     public static boolean sLogEnabled;
     public static int sRecordType;
     public static boolean sUploaded;
@@ -223,6 +226,33 @@ public class ZeusPerformanceTiming {
     }
 
     public static String getZeusPerformanceTiming() {
+        String str;
+        String str2;
+        if (sExcludedKeysStartup == null) {
+            str = KEY_T7_CHROMIUM_PROVIDER_INIT_STEP3;
+            ArrayList<String> arrayList = new ArrayList<>();
+            sExcludedKeysStartup = arrayList;
+            str2 = KEY_T7_CHROMIUM_PROVIDER_INIT_STEP2;
+            arrayList.add("type");
+            sExcludedKeysStartup.add(KEY_GET_PROVIDER_THREAD);
+            sExcludedKeysStartup.add(KEY_IS_PROCESS_MAIN);
+            sExcludedKeysStartup.add("memory");
+            sExcludedKeysStartup.add(KEY_NUM_PROCESSORS);
+            sExcludedKeysStartup.add(KEY_MAX_CPU_FREQ);
+            sExcludedKeysStartup.add(KEY_AMOUNT_PHYSICAL_MEMORY);
+            sExcludedKeysStartup.add(KEY_DALVIK_HEAP_SIZE);
+            sExcludedKeysStartup.add(KEY_BUILD_DATE_UTC);
+            sExcludedKeysStartup.add(KEY_APP_NEW_WEBVIEW);
+            sExcludedKeysStartup.add(KEY_PROVIDER_MTHREAD_STACK);
+            sExcludedKeysStartup.add(KEY_FORCE_INIT_ZEUS);
+            sExcludedKeysStartup.add(KEY_IS_GET_PROVIDER_HIT_SYNCHRONIZED);
+            sExcludedKeysStartup.add(KEY_PROVIDER_HIT_SYNCHRONIZED_STACK);
+            sExcludedKeysStartup.add(KEY_APP_START_SOURCE);
+            sExcludedKeysStartup.add(KEY_WEBKIT_INIT_STATISTICS);
+        } else {
+            str = KEY_T7_CHROMIUM_PROVIDER_INIT_STEP3;
+            str2 = KEY_T7_CHROMIUM_PROVIDER_INIT_STEP2;
+        }
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("type", 12300);
@@ -241,8 +271,10 @@ public class ZeusPerformanceTiming {
             jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT, Long.valueOf(getRecordedTime(KEY_T7_CHROMIUM_PROVIDER_INIT)));
             jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP0, Long.valueOf(getRecordedTime(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP0)));
             jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP1, Long.valueOf(getRecordedTime(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP1)));
-            jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP2, Long.valueOf(getRecordedTime(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP2)));
-            jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP3, Long.valueOf(getRecordedTime(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP3)));
+            String str3 = str2;
+            jSONObject.putOpt(str3, Long.valueOf(getRecordedTime(str2)));
+            String str4 = str;
+            jSONObject.putOpt(str4, Long.valueOf(getRecordedTime(str)));
             jSONObject.putOpt(KEY_ZEUS_WEBVIEW_LOAD_CLASS, Long.valueOf(zeusWebViewLoadClassTime()));
             jSONObject.putOpt(KEY_UNZIP, Long.valueOf(getRecordedTime(KEY_UNZIP)));
             jSONObject.putOpt(KEY_UNZIP_START_DIFF, Long.valueOf(unzipStartDiff()));
@@ -255,8 +287,8 @@ public class ZeusPerformanceTiming {
             jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD, Long.valueOf(getRecordedThreadTime(KEY_T7_CHROMIUM_PROVIDER_INIT)));
             jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP0, Long.valueOf(getRecordedThreadTime(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP0)));
             jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP1, Long.valueOf(getRecordedThreadTime(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP1)));
-            jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP2, Long.valueOf(getRecordedThreadTime(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP2)));
-            jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP3, Long.valueOf(getRecordedThreadTime(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP3)));
+            jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP2, Long.valueOf(getRecordedThreadTime(str3)));
+            jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP3, Long.valueOf(getRecordedThreadTime(str4)));
             jSONObject.putOpt(KEY_UNZIP_THREAD, Long.valueOf(getRecordedThreadTime(KEY_UNZIP)));
             if (CommonUtils.getSysMemoryInfo() != null) {
                 jSONObject.putOpt("memory", CommonUtils.getSysMemoryInfo().get("MemTotal:"));
@@ -303,7 +335,9 @@ public class ZeusPerformanceTiming {
                 jSONObject.putOpt(KEY_PROVIDER_HIT_SYNCHRONIZED_STACK, mProviderHitSynchronizedStack);
             }
             jSONObject.putOpt(KEY_APP_START_SOURCE, sAppStartSource);
+            jSONObject.putOpt(KEY_REVERT_DOWNLOAD_ZEUS, Long.valueOf(getRecordedTime(KEY_REVERT_DOWNLOAD_ZEUS)));
             jSONObject.putOpt(KEY_WEBKIT_INIT_STATISTICS, mWebkitInitStatistics);
+            UMALogger.getInstance().record(jSONObject, sExcludedKeysStartup, UMA_METRIC_PREFIX);
             return jSONObject.toString();
         } catch (JSONException e2) {
             Log.printStackTrace(e2);
@@ -466,7 +500,7 @@ public class ZeusPerformanceTiming {
             sLogEnabled = getBooleanFromFile();
             String zeusPerformanceTiming = getZeusPerformanceTiming();
             if (sLogEnabled) {
-                Log.i("ZeusPerformanceTiming", "upload data: " + zeusPerformanceTiming);
+                Log.i("ZeusPerformanceTiming", "upload data: ".concat(String.valueOf(zeusPerformanceTiming)));
             }
             if (zeusPerformanceTiming != null) {
                 SessionMonitorEngine.getInstance().recordImmediately(SERVER_TYPE_T7_INIT, zeusPerformanceTiming);

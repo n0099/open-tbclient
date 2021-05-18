@@ -13,35 +13,35 @@ import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
 import com.bytedance.sdk.openadsdk.utils.ad;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TTDislikeWebViewActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f29703a;
+    public View f28948a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f29704b;
+    public TextView f28949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SSWebView f29705c;
+    public SSWebView f28950c;
 
     /* renamed from: d  reason: collision with root package name */
-    public l f29706d;
+    public l f28951d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29707e;
+    public String f28952e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f29708f = false;
+    public boolean f28953f = false;
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         setContentView(ad.f(this, "tt_activity_lite_web_layout"));
-        this.f29703a = findViewById(ad.e(this, "tt_lite_web_back"));
-        this.f29704b = (TextView) findViewById(ad.e(this, "tt_lite_web_title"));
-        this.f29705c = (SSWebView) findViewById(ad.e(this, "tt_lite_web_view"));
-        this.f29703a.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.1
+        this.f28948a = findViewById(ad.e(this, "tt_lite_web_back"));
+        this.f28949b = (TextView) findViewById(ad.e(this, "tt_lite_web_title"));
+        this.f28950c = (SSWebView) findViewById(ad.e(this, "tt_lite_web_view"));
+        this.f28948a.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TTDislikeWebViewActivity.this.onBackPressed();
@@ -49,15 +49,15 @@ public class TTDislikeWebViewActivity extends Activity {
         });
         if (getIntent() != null) {
             a();
-            this.f29704b.setText(getIntent().getStringExtra("title"));
-            this.f29705c.loadUrl(getIntent().getStringExtra("url"));
-            this.f29707e = getIntent().getStringExtra("tag");
+            this.f28949b.setText(getIntent().getStringExtra("title"));
+            this.f28950c.loadUrl(getIntent().getStringExtra("url"));
+            this.f28952e = getIntent().getStringExtra("tag");
             try {
                 String stringExtra = getIntent().getStringExtra("meta");
                 if (TextUtils.isEmpty(stringExtra)) {
                     return;
                 }
-                this.f29706d = com.bytedance.sdk.openadsdk.core.c.a(new JSONObject(stringExtra));
+                this.f28951d = com.bytedance.sdk.openadsdk.core.c.a(new JSONObject(stringExtra));
                 return;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -68,24 +68,24 @@ public class TTDislikeWebViewActivity extends Activity {
     }
 
     private void a() {
-        this.f29705c.getSettings().setJavaScriptEnabled(true);
-        this.f29705c.getSettings().setDisplayZoomControls(false);
-        this.f29705c.getSettings().setCacheMode(2);
-        this.f29705c.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this, null, null) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.2
+        this.f28950c.getSettings().setJavaScriptEnabled(true);
+        this.f28950c.getSettings().setDisplayZoomControls(false);
+        this.f28950c.getSettings().setCacheMode(2);
+        this.f28950c.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this, null, null) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.2
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
-                if (TTDislikeWebViewActivity.this.f29706d == null || TTDislikeWebViewActivity.this.f29708f) {
+                if (TTDislikeWebViewActivity.this.f28951d == null || TTDislikeWebViewActivity.this.f28953f) {
                     return;
                 }
                 TTDislikeWebViewActivity tTDislikeWebViewActivity = TTDislikeWebViewActivity.this;
-                com.bytedance.sdk.openadsdk.c.d.b(tTDislikeWebViewActivity, tTDislikeWebViewActivity.f29706d, TTDislikeWebViewActivity.this.f29707e, "ad_explation_url_show");
+                com.bytedance.sdk.openadsdk.c.d.b(tTDislikeWebViewActivity, tTDislikeWebViewActivity.f28951d, TTDislikeWebViewActivity.this.f28952e, "ad_explation_url_show");
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
             public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
                 super.onReceivedError(webView, webResourceRequest, webResourceError);
-                TTDislikeWebViewActivity.this.f29708f = true;
+                TTDislikeWebViewActivity.this.f28953f = true;
             }
         });
     }

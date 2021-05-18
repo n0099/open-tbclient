@@ -12,17 +12,17 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.WeakHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends d.b.c.b.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f30023b;
+    public static String f29268b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakHashMap<String, String> f30024c = new WeakHashMap<>();
+    public WeakHashMap<String, String> f29269c = new WeakHashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.b.a f30025d = new com.bytedance.sdk.openadsdk.b.d();
+    public final com.bytedance.sdk.openadsdk.b.a f29270d = new com.bytedance.sdk.openadsdk.b.d();
 
     public static a a() {
         return new a();
@@ -97,7 +97,7 @@ public class a extends d.b.c.b.b.a {
                     if (file2.exists() && file2.length() > 0) {
                         file2.renameTo(file);
                     }
-                    this.f30025d.a(file);
+                    this.f29270d.a(file);
                     fileOutputStream2.close();
                 } catch (Throwable th) {
                     th = th;
@@ -127,12 +127,12 @@ public class a extends d.b.c.b.b.a {
     }
 
     public static String b() {
-        if (TextUtils.isEmpty(f30023b)) {
+        if (TextUtils.isEmpty(f29268b)) {
             File file = new File(d.b.c.b.a.h(p.a()), "diskImage");
             file.mkdirs();
-            f30023b = file.getAbsolutePath();
+            f29268b = file.getAbsolutePath();
         }
-        return f30023b;
+        return f29268b;
     }
 
     @Override // d.b.c.b.b.a, d.b.c.b.b.d.h
@@ -140,10 +140,10 @@ public class a extends d.b.c.b.b.a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String str2 = this.f30024c.get(str);
+        String str2 = this.f29269c.get(str);
         if (TextUtils.isEmpty(str2)) {
             String a2 = j.a(str);
-            this.f30024c.put(str, a2);
+            this.f29269c.put(str, a2);
             return a2;
         }
         return str2;

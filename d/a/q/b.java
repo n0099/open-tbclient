@@ -20,61 +20,61 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f63519d;
+    public static volatile b f64156d;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f63520a;
+    public Context f64157a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.q.d.a f63521b;
+    public d.a.q.d.a f64158b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.q.d.b f63522c;
+    public d.a.q.d.b f64159c;
 
     /* loaded from: classes2.dex */
     public class a implements a.c<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f63523a;
+        public final /* synthetic */ c f64160a;
 
         public a(b bVar, c cVar) {
-            this.f63523a = cVar;
+            this.f64160a = cVar;
         }
 
         @Override // d.a.q.d.a.c
         public void b(int i2, Exception exc, Bundle bundle) {
-            this.f63523a.a(i2, exc, bundle);
+            this.f64160a.a(i2, exc, bundle);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.q.d.a.c
         /* renamed from: c */
         public void a(String str, Bundle bundle) {
-            this.f63523a.b(d.a(str), bundle);
+            this.f64160a.b(d.a(str), bundle);
         }
     }
 
     /* renamed from: d.a.q.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C1709b implements a.c<String> {
+    public class C1772b implements a.c<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f63524a;
+        public final /* synthetic */ c f64161a;
 
-        public C1709b(b bVar, c cVar) {
-            this.f63524a = cVar;
+        public C1772b(b bVar, c cVar) {
+            this.f64161a = cVar;
         }
 
         @Override // d.a.q.d.a.c
         public void b(int i2, Exception exc, Bundle bundle) {
-            this.f63524a.a(i2, exc, bundle);
+            this.f64161a.a(i2, exc, bundle);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.q.d.a.c
         /* renamed from: c */
         public void a(String str, Bundle bundle) {
-            this.f63524a.b(str, bundle);
+            this.f64161a.b(str, bundle);
         }
     }
 
@@ -82,11 +82,11 @@ public class b {
     public static class c<T> extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.q.c<T> f63525a;
+        public d.a.q.c<T> f64162a;
 
         public c(d.a.q.c<T> cVar, Looper looper) {
             super(looper);
-            this.f63525a = cVar;
+            this.f64162a = cVar;
         }
 
         public void a(int i2, Exception exc, Bundle bundle) {
@@ -104,11 +104,11 @@ public class b {
             int i2 = message.what;
             if (i2 == 0) {
                 Pair pair = (Pair) message.obj;
-                this.f63525a.a(pair.first, (Bundle) pair.second);
+                this.f64162a.a(pair.first, (Bundle) pair.second);
             } else if (i2 != 1) {
             } else {
                 Pair pair2 = (Pair) message.obj;
-                this.f63525a.b(message.arg1, (Throwable) pair2.first, (Bundle) pair2.second);
+                this.f64162a.b(message.arg1, (Throwable) pair2.first, (Bundle) pair2.second);
             }
         }
     }
@@ -117,11 +117,11 @@ public class b {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<e> f63526a;
+        public List<e> f64163a;
 
         public d(List<e> list) {
             ArrayList arrayList = new ArrayList();
-            this.f63526a = arrayList;
+            this.f64163a = arrayList;
             arrayList.addAll(list);
         }
 
@@ -141,11 +141,11 @@ public class b {
         }
 
         public List<e> b() {
-            return this.f63526a;
+            return this.f64163a;
         }
 
         public String toString() {
-            return "sids {" + this.f63526a + '}';
+            return "sids {" + this.f64163a + '}';
         }
     }
 
@@ -153,74 +153,74 @@ public class b {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f63527a;
+        public final String f64164a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f63528b;
+        public final String f64165b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f63529c;
+        public final long f64166c;
 
         public e(String str, String str2, long j) {
-            this.f63527a = str;
-            this.f63528b = str2;
-            this.f63529c = j;
+            this.f64164a = str;
+            this.f64165b = str2;
+            this.f64166c = j;
         }
 
         public String toString() {
-            return "aid {packageName='" + this.f63527a + "', aid='" + this.f63528b + "', priority=" + this.f63529c + '}';
+            return "aid {packageName='" + this.f64164a + "', aid='" + this.f64165b + "', priority=" + this.f64166c + '}';
         }
     }
 
     public b(Context context) {
-        this.f63520a = context.getApplicationContext();
+        this.f64157a = context.getApplicationContext();
         d.a.q.d.b bVar = new d.a.q.d.b(new d.a.q.i.a());
-        this.f63522c = bVar;
-        this.f63521b = bVar.a();
-        a.C1710a c1710a = new a.C1710a();
-        c1710a.f63532a = new d.a.q.i.c();
-        c1710a.f63533b = new d.a.q.i.b();
-        c1710a.f63534c = this.f63520a;
-        c1710a.f63535d = new ThreadPoolExecutor(0, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        c1710a.f63536e = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 5L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.f64159c = bVar;
+        this.f64158b = bVar.a();
+        a.C1773a c1773a = new a.C1773a();
+        c1773a.f64169a = new d.a.q.i.c();
+        c1773a.f64170b = new d.a.q.i.b();
+        c1773a.f64171c = this.f64157a;
+        c1773a.f64172d = new ThreadPoolExecutor(0, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        c1773a.f64173e = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 5L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         new ThreadPoolExecutor(0, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.f63521b.b(c1710a);
-        this.f63521b.c(new a.b());
+        this.f64158b.b(c1773a);
+        this.f64158b.c(new a.b());
     }
 
     public static synchronized b d(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (f63519d == null) {
-                f63519d = new b(context.getApplicationContext());
+            if (f64156d == null) {
+                f64156d = new b(context.getApplicationContext());
             }
-            bVar = f63519d;
+            bVar = f64156d;
         }
         return bVar;
     }
 
     public String a() {
-        return this.f63521b.f("aid", null).f63537a;
+        return this.f64158b.f("aid", null).f64174a;
     }
 
     public d.a.q.d.a b() {
-        return this.f63521b;
+        return this.f64158b;
     }
 
     public String c() {
-        return this.f63521b.f(CommonUrlParamManager.PARAM_IID, null).f63537a;
+        return this.f64158b.f(CommonUrlParamManager.PARAM_IID, null).f64174a;
     }
 
     public String e() {
-        return this.f63521b.f("oid", null).f63537a;
+        return this.f64158b.f("oid", null).f64174a;
     }
 
     public String f() {
-        return this.f63521b.f("ssaid", null).f63537a;
+        return this.f64158b.f("ssaid", null).f64174a;
     }
 
     public boolean g() {
-        return this.f63521b.d(this.f63520a.getPackageName());
+        return this.f64158b.d(this.f64157a.getPackageName());
     }
 
     public void h(d.a.q.c<String> cVar) {
@@ -228,7 +228,7 @@ public class b {
     }
 
     public final void i(String str, d.a.q.c<String> cVar, Looper looper) {
-        this.f63521b.a(str, null, new C1709b(this, new c(cVar, looper)));
+        this.f64158b.a(str, null, new C1772b(this, new c(cVar, looper)));
     }
 
     public void j(d.a.q.c<String> cVar) {
@@ -240,6 +240,6 @@ public class b {
     }
 
     public void l(d.a.q.c<d> cVar, Looper looper) {
-        this.f63521b.a("sids", null, new a(this, new c(cVar, looper)));
+        this.f64158b.a("sids", null, new a(this, new c(cVar, looper)));
     }
 }

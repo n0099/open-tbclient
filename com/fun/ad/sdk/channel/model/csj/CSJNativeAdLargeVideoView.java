@@ -16,7 +16,7 @@ import com.fun.ad.sdk.R;
 public final class CSJNativeAdLargeVideoView extends b {
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f31464f;
+    public FrameLayout f30709f;
 
     public CSJNativeAdLargeVideoView(Context context) {
         super(context);
@@ -42,30 +42,30 @@ public final class CSJNativeAdLargeVideoView extends b {
                 TTFeedAd tTFeedAd = (TTFeedAd) tTNativeAd;
                 int adViewHeight = tTFeedAd.getAdViewHeight();
                 int adViewWidth = tTFeedAd.getAdViewWidth();
-                ViewGroup.LayoutParams layoutParams = this.f31464f.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.f30709f.getLayoutParams();
                 layoutParams.width = adViewWidth;
                 layoutParams.height = adViewHeight;
-                this.f31464f.setLayoutParams(layoutParams);
-                this.f31464f.requestLayout();
+                this.f30709f.setLayoutParams(layoutParams);
+                this.f30709f.requestLayout();
             }
-            this.f31464f.removeAllViews();
-            this.f31464f.addView(adView);
+            this.f30709f.removeAllViews();
+            this.f30709f.addView(adView);
         }
     }
 
     @Override // a.a.a.a.t.b.a.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f31464f = (FrameLayout) findViewById(R.id.ad_video);
+        this.f30709f = (FrameLayout) findViewById(R.id.ad_video);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f31464f.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30709f.getLayoutParams();
         int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i6;
         layoutParams.height = (int) (i6 / 1.78f);
-        this.f31464f.setLayoutParams(layoutParams);
+        this.f30709f.setLayoutParams(layoutParams);
     }
 }

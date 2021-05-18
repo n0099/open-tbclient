@@ -11,13 +11,13 @@ import java.util.List;
 public class bj extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bi f38934a;
+    public final /* synthetic */ bi f38179a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f930a = false;
 
     public bj(bi biVar) {
-        this.f38934a = biVar;
+        this.f38179a = biVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x0039 A[Catch: Exception -> 0x0047, TRY_LEAVE, TryCatch #0 {Exception -> 0x0047, blocks: (B:2:0x0000, B:4:0x0012, B:9:0x0024, B:11:0x0039), top: B:16:0x0000 }] */
@@ -30,43 +30,43 @@ public class bj extends al.b {
         String str;
         dt.a a2;
         try {
-            String a3 = a.a(com.xiaomi.push.t.m624a()).a();
+            String a3 = a.a(com.xiaomi.push.t.m623a()).a();
             if (!TextUtils.isEmpty(a3) && !com.xiaomi.push.o.China.name().equals(a3)) {
                 str = "https://resolver.msg.global.xiaomi.net/psc/?t=a";
-                a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m624a(), str, (List<com.xiaomi.push.bf>) null), 10));
+                a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m623a(), str, (List<com.xiaomi.push.bf>) null), 10));
                 if (a2 == null) {
-                    this.f38934a.f928a = a2;
+                    this.f38179a.f928a = a2;
                     this.f930a = true;
-                    this.f38934a.e();
+                    this.f38179a.e();
                     return;
                 }
                 return;
             }
             str = "https://resolver.msg.xiaomi.net/psc/?t=a";
-            a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m624a(), str, (List<com.xiaomi.push.bf>) null), 10));
+            a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m623a(), str, (List<com.xiaomi.push.bf>) null), 10));
             if (a2 == null) {
             }
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("fetch config failure: " + e2.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m57a("fetch config failure: " + e2.getMessage());
         }
     }
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo230c() {
+    public void mo229c() {
         List list;
         List list2;
         bi.a[] aVarArr;
         dt.a aVar;
-        this.f38934a.f927a = null;
+        this.f38179a.f927a = null;
         if (this.f930a) {
-            synchronized (this.f38934a) {
-                list = this.f38934a.f929a;
-                list2 = this.f38934a.f929a;
+            synchronized (this.f38179a) {
+                list = this.f38179a.f929a;
+                list2 = this.f38179a.f929a;
                 aVarArr = (bi.a[]) list.toArray(new bi.a[list2.size()]);
             }
             for (bi.a aVar2 : aVarArr) {
-                aVar = this.f38934a.f928a;
+                aVar = this.f38179a.f928a;
                 aVar2.a(aVar);
             }
         }

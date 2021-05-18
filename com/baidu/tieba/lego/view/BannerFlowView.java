@@ -11,27 +11,27 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
 import d.a.c.j.e.n;
-import d.a.i0.r.f0.r.b;
-import d.a.j0.j1.o.l.l;
-import d.a.j0.j1.t.a;
+import d.a.j0.r.f0.r.b;
+import d.a.k0.j1.o.l.l;
+import d.a.k0.j1.t.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class BannerFlowView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ListViewPager f18769e;
+    public ListViewPager f18084e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18770f;
+    public View f18085f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IndicatorView f18771g;
+    public IndicatorView f18086g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.j0.j1.t.b f18772h;
+    public d.a.k0.j1.t.b f18087h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.j0.j1.t.a f18773i;
+    public d.a.k0.j1.t.a f18088i;
     public c j;
 
     /* loaded from: classes4.dex */
@@ -39,14 +39,14 @@ public class BannerFlowView extends FrameLayout {
         public a() {
         }
 
-        @Override // d.a.j0.j1.o.l.l
+        @Override // d.a.k0.j1.o.l.l
         public void a(int i2) {
             if (BannerFlowView.this.j != null) {
                 BannerFlowView.this.j.a(i2);
             }
         }
 
-        @Override // d.a.j0.j1.o.l.l
+        @Override // d.a.k0.j1.o.l.l
         public void b(float f2) {
             if (BannerFlowView.this.j != null) {
                 BannerFlowView.this.j.b(f2);
@@ -86,45 +86,45 @@ public class BannerFlowView extends FrameLayout {
     }
 
     public final void b() {
-        SkinManager.setBackgroundResource(this.f18770f, R.drawable.bg_pic_shadow);
-        this.f18771g.setSelector(SkinManager.getDrawable(R.drawable.icon_diandian_white_s));
-        this.f18771g.setDrawable(SkinManager.getDrawable(R.drawable.icon_diandian_white_n));
+        SkinManager.setBackgroundResource(this.f18085f, R.drawable.bg_pic_shadow);
+        this.f18086g.setSelector(SkinManager.getDrawable(R.drawable.icon_diandian_white_s));
+        this.f18086g.setDrawable(SkinManager.getDrawable(R.drawable.icon_diandian_white_n));
     }
 
     public final void c(Context context) {
-        this.f18769e = new ListViewPager(context);
-        this.f18770f = new View(context);
+        this.f18084e = new ListViewPager(context);
+        this.f18085f = new View(context);
         IndicatorView indicatorView = new IndicatorView(context);
-        this.f18771g = indicatorView;
+        this.f18086g = indicatorView;
         indicatorView.setSpacing(0);
         b();
-        this.f18772h = new d.a.j0.j1.t.b(context, this.f18769e, this.f18771g, null);
-        this.f18773i = new d.a.j0.j1.t.a(context, d.a.i0.r.f0.r.d.a.f48943e);
-        this.f18772h.m(5000L);
-        this.f18772h.l(context, this.f18773i);
-        this.f18772h.q(new b());
-        addView(this.f18769e, new FrameLayout.LayoutParams(-1, -1));
+        this.f18087h = new d.a.k0.j1.t.b(context, this.f18084e, this.f18086g, null);
+        this.f18088i = new d.a.k0.j1.t.a(context, d.a.j0.r.f0.r.d.a.f49773e);
+        this.f18087h.m(5000L);
+        this.f18087h.l(context, this.f18088i);
+        this.f18087h.q(new b());
+        addView(this.f18084e, new FrameLayout.LayoutParams(-1, -1));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, d.a.c.e.p.l.g(context, R.dimen.ds80));
         layoutParams.gravity = 80;
-        addView(this.f18770f, layoutParams);
+        addView(this.f18085f, layoutParams);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams2.gravity = 85;
         layoutParams2.setMargins(0, 0, d.a.c.e.p.l.g(context, R.dimen.ds20), d.a.c.e.p.l.g(context, R.dimen.ds16));
-        addView(this.f18771g, layoutParams2);
+        addView(this.f18086g, layoutParams2);
     }
 
     public void setAutoScrollIntervalTime(long j) {
-        this.f18772h.m(j);
+        this.f18087h.m(j);
     }
 
     public void setData(List<n> list) {
-        this.f18769e.removeAllViews();
-        this.f18772h.n(list);
+        this.f18084e.removeAllViews();
+        this.f18087h.n(list);
     }
 
     public void setDescOnPic(boolean z, boolean z2) {
         if (z) {
-            View view = this.f18770f;
+            View view = this.f18085f;
             if (view != null) {
                 if (z2) {
                     view.setVisibility(0);
@@ -132,30 +132,30 @@ public class BannerFlowView extends FrameLayout {
                     view.setVisibility(4);
                 }
             }
-            this.f18772h.o(null);
+            this.f18087h.o(null);
             return;
         }
-        View view2 = this.f18770f;
+        View view2 = this.f18085f;
         if (view2 != null) {
             view2.setVisibility(8);
         }
-        this.f18772h.o(new a());
+        this.f18087h.o(new a());
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.f18769e.setDisableParentEvent(z);
+        this.f18084e.setDisableParentEvent(z);
     }
 
     public void setIndicatorViewPosition(int i2) {
-        IndicatorView indicatorView = this.f18771g;
+        IndicatorView indicatorView = this.f18086g;
         if (indicatorView != null) {
             if (i2 == 0) {
                 indicatorView.setVisibility(8);
             } else if (i2 == 1) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) indicatorView.getLayoutParams();
                 layoutParams.gravity = 85;
-                this.f18771g.setLayoutParams(layoutParams);
-                this.f18771g.setVisibility(0);
+                this.f18086g.setLayoutParams(layoutParams);
+                this.f18086g.setVisibility(0);
             } else if (i2 != 2) {
                 indicatorView.setVisibility(8);
             } else {
@@ -163,18 +163,18 @@ public class BannerFlowView extends FrameLayout {
                 layoutParams2.gravity = 81;
                 layoutParams2.rightMargin = 0;
                 layoutParams2.rightMargin = 0;
-                this.f18771g.setLayoutParams(layoutParams2);
-                this.f18771g.setVisibility(0);
+                this.f18086g.setLayoutParams(layoutParams2);
+                this.f18086g.setVisibility(0);
             }
         }
     }
 
     public void setMaxScrollCountLimit(int i2) {
-        this.f18772h.p(i2);
+        this.f18087h.p(i2);
     }
 
-    public void setOnItemClickListener(b.a<d.a.i0.r.f0.r.d.a, a.C1326a> aVar) {
-        d.a.j0.j1.t.a aVar2 = this.f18773i;
+    public void setOnItemClickListener(b.a<d.a.j0.r.f0.r.d.a, a.C1398a> aVar) {
+        d.a.k0.j1.t.a aVar2 = this.f18088i;
         if (aVar2 != null) {
             aVar2.f(aVar);
         }
@@ -185,9 +185,9 @@ public class BannerFlowView extends FrameLayout {
     }
 
     public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
-        this.f18769e.setSwipeControlInterface(cVar);
+        this.f18084e.setSwipeControlInterface(cVar);
         if (cVar != null) {
-            this.f18769e.setDisableParentEvent(false);
+            this.f18084e.setDisableParentEvent(false);
         }
     }
 

@@ -6,20 +6,20 @@ import java.lang.ref.WeakReference;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f23329a;
+    public int f22574a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f23330b = true;
+    public boolean f22575b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference f23331c;
+    public WeakReference f22576c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f23332d;
+    public String f22577d;
 
     public c(WebView webView, String str, int i2) {
-        this.f23331c = new WeakReference(webView);
-        this.f23332d = str;
-        this.f23329a = i2;
+        this.f22576c = new WeakReference(webView);
+        this.f22577d = str;
+        this.f22574a = i2;
     }
 }

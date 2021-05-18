@@ -24,25 +24,25 @@ import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.FaceBuyData;
 import d.a.c.e.p.k;
-import d.a.j0.l0.i;
+import d.a.k0.l0.i;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageDetailActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public FacePackageDetailModel f15458e;
+    public FacePackageDetailModel f14773e;
 
     /* renamed from: f  reason: collision with root package name */
-    public i f15459f;
+    public i f14774f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FacePackageDownloadModel f15460g;
+    public FacePackageDownloadModel f14775g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FaceBuyModel f15461h;
+    public FaceBuyModel f14776h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f15462i;
+    public float f14777i;
     public float j;
     public boolean k = false;
     public final Rect l = new Rect();
@@ -60,7 +60,7 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
             if (z) {
                 FacePackageDetailActivity.this.s();
             }
-            FacePackageDetailActivity.this.f15459f.c(z);
+            FacePackageDetailActivity.this.f14774f.c(z);
         }
     }
 
@@ -76,10 +76,10 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
             Object obj = objArr[0];
             Boolean bool = (Boolean) objArr[1];
             if (obj != null && (obj instanceof FacePackageDetailData)) {
-                if (FacePackageDetailActivity.this.f15459f != null) {
+                if (FacePackageDetailActivity.this.f14774f != null) {
                     FacePackageDetailData facePackageDetailData = (FacePackageDetailData) obj;
                     if (facePackageDetailData.errno == 0 && facePackageDetailData.usermsg != null) {
-                        FacePackageDetailActivity.this.f15459f.o(FacePackageDetailActivity.this.f15458e);
+                        FacePackageDetailActivity.this.f14774f.o(FacePackageDetailActivity.this.f14773e);
                         if (!bool.booleanValue()) {
                             FacePackageDetailActivity.this.k = true;
                             return;
@@ -107,10 +107,10 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
     public class c extends d.a.c.a.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DownloadData f15465a;
+        public final /* synthetic */ DownloadData f14780a;
 
         public c(DownloadData downloadData) {
-            this.f15465a = downloadData;
+            this.f14780a = downloadData;
         }
 
         @Override // d.a.c.a.e
@@ -119,12 +119,12 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                 FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
                 if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
                     String str = facePackageDownloadData.pack_url;
-                    FacePackageDetailActivity.this.f15458e.G(str);
-                    if (FacePackageDetailActivity.this.f15458e.A() == null || FacePackageDetailActivity.this.f15458e.A().faces_list == null) {
+                    FacePackageDetailActivity.this.f14773e.G(str);
+                    if (FacePackageDetailActivity.this.f14773e.A() == null || FacePackageDetailActivity.this.f14773e.A().faces_list == null) {
                         return;
                     }
                     FacePackageDetailActivity facePackageDetailActivity = FacePackageDetailActivity.this;
-                    facePackageDetailActivity.l(facePackageDetailActivity.f15458e.getPid(), FacePackageDetailActivity.this.f15458e.A().faces_list.pname, str);
+                    facePackageDetailActivity.l(facePackageDetailActivity.f14773e.getPid(), FacePackageDetailActivity.this.f14773e.A().faces_list.pname, str);
                     return;
                 }
                 String str2 = facePackageDownloadData.usermsg;
@@ -132,11 +132,11 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                     FacePackageDetailActivity.this.showToast(str2);
                     return;
                 } else {
-                    d.a.j0.l0.f.f().i(this.f15465a);
+                    d.a.k0.l0.f.f().i(this.f14780a);
                     return;
                 }
             }
-            d.a.j0.l0.f.f().i(this.f15465a);
+            d.a.k0.l0.f.f().i(this.f14780a);
         }
     }
 
@@ -155,7 +155,7 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                     String str = buyInfo.buy_url;
                     String str2 = buyInfo.return_url;
                     if (buyInfo.buy_status != 2) {
-                        FacePackageDetailActivity.this.f15458e.J(String.valueOf(faceBuyData.buy_info.order_id));
+                        FacePackageDetailActivity.this.f14773e.J(String.valueOf(faceBuyData.buy_info.order_id));
                         IntentConfig intentConfig = new IntentConfig(FacePackageDetailActivity.this.getActivity());
                         intentConfig.getIntent().putExtra(WebViewActivityConfig.TAG_URL, str);
                         intentConfig.getIntent().putExtra("tag_hook_url", str2);
@@ -165,11 +165,11 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                         return;
                     }
                     FacePackageDetailActivity.this.showToast(R.string.has_buy_book);
-                    FacePackageData facePackageData = FacePackageDetailActivity.this.f15458e.A().faces_list;
+                    FacePackageData facePackageData = FacePackageDetailActivity.this.f14773e.A().faces_list;
                     facePackageData.buy_status = 1;
                     facePackageData.can_download = 1;
-                    FacePackageDetailActivity.this.f15458e.K(facePackageData);
-                    FacePackageDetailActivity.this.f15459f.z();
+                    FacePackageDetailActivity.this.f14773e.K(facePackageData);
+                    FacePackageDetailActivity.this.f14774f.z();
                     return;
                 }
                 String str3 = faceBuyData.usermsg;
@@ -221,11 +221,11 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             List<DownloadData> data;
             DownloadData downloadData;
-            if (FacePackageDetailActivity.this.f15458e == null || FacePackageDetailActivity.this.f15458e.A() == null || FacePackageDetailActivity.this.f15459f == null || customResponsedMessage.getCmd() != 2001118 || !(customResponsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) customResponsedMessage).getData()) == null) {
+            if (FacePackageDetailActivity.this.f14773e == null || FacePackageDetailActivity.this.f14773e.A() == null || FacePackageDetailActivity.this.f14774f == null || customResponsedMessage.getCmd() != 2001118 || !(customResponsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) customResponsedMessage).getData()) == null) {
                 return;
             }
-            FacePackageData facePackageData = FacePackageDetailActivity.this.f15458e.A().faces_list;
-            if (data.size() >= 1 && (downloadData = data.get(0)) != null && downloadData.getId().equals(FacePackageDetailActivity.this.f15458e.getPid())) {
+            FacePackageData facePackageData = FacePackageDetailActivity.this.f14773e.A().faces_list;
+            if (data.size() >= 1 && (downloadData = data.get(0)) != null && downloadData.getId().equals(FacePackageDetailActivity.this.f14773e.getPid())) {
                 int status = downloadData.getStatus();
                 if (status == 3 || status == 0) {
                     facePackageData.downloaded = 1;
@@ -234,8 +234,8 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                     if (!k.isEmpty(downloadData.getStatusMsg())) {
                         FacePackageDetailActivity.this.showToast(downloadData.getStatusMsg());
                     }
-                    if (FacePackageDetailActivity.this.f15460g != null) {
-                        FacePackageDetailActivity.this.f15460g.cancelLoadData();
+                    if (FacePackageDetailActivity.this.f14775g != null) {
+                        FacePackageDetailActivity.this.f14775g.cancelLoadData();
                     }
                     facePackageData.downloaded = 0;
                     facePackageData.downloading = 0;
@@ -246,8 +246,8 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                     facePackageData.downloadNow = downloadData.getLength();
                 }
             }
-            FacePackageDetailActivity.this.f15458e.K(facePackageData);
-            FacePackageDetailActivity.this.f15459f.w(FacePackageDetailActivity.this.f15458e);
+            FacePackageDetailActivity.this.f14773e.K(facePackageData);
+            FacePackageDetailActivity.this.f14774f.w(FacePackageDetailActivity.this.f14773e);
         }
     }
 
@@ -260,10 +260,10 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
     */
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.f15462i = motionEvent.getX();
+            this.f14777i = motionEvent.getX();
             this.j = motionEvent.getY();
         }
-        i iVar = this.f15459f;
+        i iVar = this.f14774f;
         if (iVar == null) {
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -274,7 +274,7 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                     int x = (int) motionEvent.getX();
                     int y = (int) motionEvent.getY();
                     this.l.set(x, y, x + 1, y + 1);
-                    GridView g2 = this.f15459f.g();
+                    GridView g2 = this.f14774f.g();
                     ((ViewGroup) getWindow().getDecorView()).offsetRectIntoDescendantCoords(g2, this.l);
                     Rect rect = this.l;
                     int pointToPosition = g2.pointToPosition(rect.left, rect.top);
@@ -287,73 +287,73 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                 }
                 return true;
             }
-            this.f15459f.d();
+            this.f14774f.d();
             return true;
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     public final void j() {
-        this.f15459f.b(this.m);
+        this.f14774f.b(this.m);
     }
 
     public void k() {
         showProgressBar();
-        String pid = this.f15458e.getPid();
+        String pid = this.f14773e.getPid();
         FaceBuyModel faceBuyModel = new FaceBuyModel(getActivity());
-        this.f15461h = faceBuyModel;
+        this.f14776h = faceBuyModel;
         faceBuyModel.setLoadDataCallBack(new d());
-        this.f15461h.z(pid);
+        this.f14776h.z(pid);
     }
 
     public void l(String str, String str2, String str3) {
-        d.a.j0.l0.f.f().j(str, str2, str3);
+        d.a.k0.l0.f.f().j(str, str2, str3);
     }
 
     public final void m() {
         FacePackageDownloadModel facePackageDownloadModel = new FacePackageDownloadModel(getActivity());
-        this.f15460g = facePackageDownloadModel;
-        facePackageDownloadModel.z(this.f15458e.getPid());
-        DownloadData downloadData = new DownloadData(this.f15458e.getPid());
+        this.f14775g = facePackageDownloadModel;
+        facePackageDownloadModel.z(this.f14773e.getPid());
+        DownloadData downloadData = new DownloadData(this.f14773e.getPid());
         downloadData.setType(11);
         downloadData.setStatus(2);
         downloadData.setStatusMsg(getResources().getString(R.string.neterror));
-        this.f15460g.setLoadDataCallBack(new c(downloadData));
+        this.f14775g.setLoadDataCallBack(new c(downloadData));
     }
 
     public final void n(Bundle bundle) {
         FacePackageDetailModel facePackageDetailModel = new FacePackageDetailModel(this);
-        this.f15458e = facePackageDetailModel;
+        this.f14773e = facePackageDetailModel;
         if (bundle != null) {
             facePackageDetailModel.setStType(bundle.getString("st_type"));
-            this.f15458e.setPid(bundle.getString(IntentConfig.PKG_ID));
-            this.f15458e.H(bundle.getBoolean(IntentConfig.IS_DOWNLOADING));
+            this.f14773e.setPid(bundle.getString(IntentConfig.PKG_ID));
+            this.f14773e.H(bundle.getBoolean(IntentConfig.IS_DOWNLOADING));
         } else {
             facePackageDetailModel.setStType(getIntent().getStringExtra("st_type"));
-            this.f15458e.setPid(getIntent().getStringExtra(IntentConfig.PKG_ID));
-            this.f15458e.H(getIntent().getBooleanExtra(IntentConfig.IS_DOWNLOADING, false));
+            this.f14773e.setPid(getIntent().getStringExtra(IntentConfig.PKG_ID));
+            this.f14773e.H(getIntent().getBooleanExtra(IntentConfig.IS_DOWNLOADING, false));
             TiebaStatic.log(getIntent().getStringExtra("st_type"));
         }
-        this.f15458e.I(this.n);
+        this.f14773e.I(this.n);
     }
 
     public final void o() {
-        this.f15459f = new i(getPageContext());
+        this.f14774f = new i(getPageContext());
         j();
         registerListener(this.o);
-        d.a.j0.l0.f.f();
+        d.a.k0.l0.f.f();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onActivityResult(int i2, int i3, Intent intent) {
         FacePackageDetailModel facePackageDetailModel;
         super.onActivityResult(i2, i3, intent);
-        if (i3 != -1 || this.f15459f == null || (facePackageDetailModel = this.f15458e) == null || facePackageDetailModel.A() == null) {
+        if (i3 != -1 || this.f14774f == null || (facePackageDetailModel = this.f14773e) == null || facePackageDetailModel.A() == null) {
             return;
         }
         if (i2 != 10001) {
             if (i2 == 11003) {
-                if (this.f15458e.A().faces_list.can_download == 1) {
+                if (this.f14773e.A().faces_list.can_download == 1) {
                     m();
                     return;
                 } else {
@@ -364,23 +364,23 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
             return;
         }
         String stringExtra = intent.getStringExtra("tag_order_id");
-        if (this.f15458e.A().faces_list == null) {
+        if (this.f14773e.A().faces_list == null) {
             return;
         }
         if (k.isEmpty(stringExtra)) {
-            stringExtra = this.f15458e.D();
+            stringExtra = this.f14773e.D();
         }
-        this.f15459f.y();
+        this.f14774f.y();
         FaceBuyModel faceBuyModel = new FaceBuyModel(getActivity());
-        this.f15461h = faceBuyModel;
+        this.f14776h = faceBuyModel;
         faceBuyModel.setLoadDataCallBack(new e());
-        this.f15461h.A(stringExtra);
+        this.f14776h.A(stringExtra);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        i iVar = this.f15459f;
+        i iVar = this.f14774f;
         if (iVar != null) {
             iVar.l(i2);
         }
@@ -389,7 +389,7 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         i iVar;
-        if (this.f15458e == null || (iVar = this.f15459f) == null) {
+        if (this.f14773e == null || (iVar = this.f14774f) == null) {
             return;
         }
         if (view == iVar.e()) {
@@ -399,20 +399,20 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
             } else if (!this.k) {
                 return;
             } else {
-                int E = this.f15458e.E();
+                int E = this.f14773e.E();
                 if (E == 2 || E == 3) {
                     TiebaStatic.log("emotion_package_detail_free");
-                    String B = this.f15458e.B();
-                    DownloadData downloadData = new DownloadData(this.f15458e.getPid());
+                    String B = this.f14773e.B();
+                    DownloadData downloadData = new DownloadData(this.f14773e.getPid());
                     downloadData.setStatus(1);
                     downloadData.setStatusMsg(null);
                     downloadData.setType(11);
-                    d.a.j0.l0.f.f().i(downloadData);
+                    d.a.k0.l0.f.f().i(downloadData);
                     if (!k.isEmpty(B)) {
-                        if (this.f15458e.A() == null || this.f15458e.A().faces_list == null) {
+                        if (this.f14773e.A() == null || this.f14773e.A().faces_list == null) {
                             return;
                         }
-                        l(this.f15458e.getPid(), this.f15458e.A().faces_list.pname, B);
+                        l(this.f14773e.getPid(), this.f14773e.A().faces_list.pname, B);
                     } else {
                         m();
                     }
@@ -421,14 +421,14 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                     k();
                 }
             }
-        } else if (view == this.f15459f.f()) {
-            DownloadData downloadData2 = new DownloadData(this.f15458e.getPid());
+        } else if (view == this.f14774f.f()) {
+            DownloadData downloadData2 = new DownloadData(this.f14773e.getPid());
             downloadData2.setStatus(4);
             downloadData2.setStatusMsg(null);
             downloadData2.setType(11);
-            d.a.j0.l0.f.f().i(downloadData2);
-            this.f15458e.H(false);
-            d.a.j0.l0.f.f().e(this.f15458e.getPid());
+            d.a.k0.l0.f.f().i(downloadData2);
+            this.f14773e.H(false);
+            d.a.k0.l0.f.f().e(this.f14773e.getPid());
         }
         super.onClick(view);
     }
@@ -444,15 +444,15 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        FacePackageDetailModel facePackageDetailModel = this.f15458e;
+        FacePackageDetailModel facePackageDetailModel = this.f14773e;
         if (facePackageDetailModel != null) {
             facePackageDetailModel.cancelLoadData();
         }
-        FacePackageDownloadModel facePackageDownloadModel = this.f15460g;
+        FacePackageDownloadModel facePackageDownloadModel = this.f14775g;
         if (facePackageDownloadModel != null) {
             facePackageDownloadModel.cancelLoadData();
         }
-        FaceBuyModel faceBuyModel = this.f15461h;
+        FaceBuyModel faceBuyModel = this.f14776h;
         if (faceBuyModel != null) {
             faceBuyModel.cancelLoadData();
         }
@@ -462,7 +462,7 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        i iVar = this.f15459f;
+        i iVar = this.f14774f;
         if (iVar != null) {
             iVar.p();
         }
@@ -476,7 +476,7 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onResume() {
-        i iVar = this.f15459f;
+        i iVar = this.f14774f;
         if (iVar != null) {
             iVar.m();
         }
@@ -485,37 +485,37 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onSaveInstanceState(Bundle bundle) {
-        FacePackageDetailModel facePackageDetailModel = this.f15458e;
+        FacePackageDetailModel facePackageDetailModel = this.f14773e;
         if (facePackageDetailModel != null) {
             bundle.putString("st_type", facePackageDetailModel.getStType());
-            bundle.putString(IntentConfig.PKG_ID, this.f15458e.getPid());
-            bundle.putBoolean(IntentConfig.IS_DOWNLOADING, this.f15458e.C());
+            bundle.putString(IntentConfig.PKG_ID, this.f14773e.getPid());
+            bundle.putBoolean(IntentConfig.IS_DOWNLOADING, this.f14773e.C());
         }
         super.onSaveInstanceState(bundle);
     }
 
     public final boolean p(float f2, float f3) {
-        float f4 = f2 - this.f15462i;
+        float f4 = f2 - this.f14777i;
         float f5 = f3 - this.j;
         return Math.sqrt((double) ((f4 * f4) + (f5 * f5))) > ((double) getResources().getDimensionPixelSize(R.dimen.ds22));
     }
 
     public void q() {
-        this.f15459f.r();
+        this.f14774f.r();
     }
 
     public void r() {
-        this.f15459f.h();
+        this.f14774f.h();
         m();
     }
 
     public void s() {
         showProgressBar();
-        this.f15458e.F();
+        this.f14773e.F();
     }
 
     public final void t() {
-        this.f15459f.q(this.m);
+        this.f14774f.q(this.m);
     }
 
     public final void u(View view, int i2) {
@@ -525,9 +525,9 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
         }
         view.getDrawingRect(this.l);
         ((ViewGroup) getWindow().getDecorView()).offsetDescendantRectToMyCoords(view, this.l);
-        if (this.f15458e.A() == null || (facePackageData = this.f15458e.A().faces_list) == null) {
+        if (this.f14773e.A() == null || (facePackageData = this.f14773e.A().faces_list) == null) {
             return;
         }
-        this.f15459f.C(i2, this.l, facePackageData);
+        this.f14774f.C(i2, this.l, facePackageData);
     }
 }

@@ -7,22 +7,22 @@ import d.a.g.h;
 public class d implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ BDHttpDns.a f40716e;
+    public final /* synthetic */ BDHttpDns.a f39961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ BDHttpDnsResult.ResolveType f40717f;
+    public final /* synthetic */ BDHttpDnsResult.ResolveType f39962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ h.a f40718g;
+    public final /* synthetic */ h.a f39963g;
 
     public d(BDHttpDns bDHttpDns, BDHttpDns.a aVar, BDHttpDnsResult.ResolveType resolveType, h.a aVar2) {
-        this.f40716e = aVar;
-        this.f40717f = resolveType;
-        this.f40718g = aVar2;
+        this.f39961e = aVar;
+        this.f39962f = resolveType;
+        this.f39963g = aVar2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f40716e.a(new BDHttpDnsResult(this.f40717f, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f40718g.d(), this.f40718g.g()));
+        this.f39961e.a(new BDHttpDnsResult(this.f39962f, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f39963g.d(), this.f39963g.g()));
     }
 }

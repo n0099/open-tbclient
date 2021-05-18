@@ -5,36 +5,36 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class E implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37635b;
+    public String f36880b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37636c;
+    public String f36881c;
 
     /* renamed from: d  reason: collision with root package name */
-    public G f37637d;
+    public G f36882d;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f37639f;
+    public boolean f36884f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f37640g;
+    public long f36885g;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37634a = 0;
+    public int f36879a = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public C f37638e = new C(this);
+    public C f36883e = new C(this);
 
     public E(String str, String str2, G g2) {
-        this.f37639f = false;
-        this.f37635b = str;
-        this.f37636c = str2;
-        this.f37637d = g2;
-        this.f37639f = true;
+        this.f36884f = false;
+        this.f36880b = str;
+        this.f36881c = str2;
+        this.f36882d = g2;
+        this.f36884f = true;
     }
 
     public final void a() {
@@ -42,22 +42,22 @@ public class E implements Runnable {
             return;
         }
         try {
-            URL url = new URL(this.f37635b);
+            URL url = new URL(this.f36880b);
             HttpURLConnection httpURLConnection = url.toString().startsWith("https://") ? (HttpsURLConnection) url.openConnection() : (HttpURLConnection) url.openConnection();
             httpURLConnection.setConnectTimeout(3000);
             httpURLConnection.setReadTimeout(3000);
             httpURLConnection.setRequestMethod("GET");
-            httpURLConnection.setRequestProperty("Range", "bytes=" + this.f37634a + "-");
+            httpURLConnection.setRequestProperty("Range", "bytes=" + this.f36879a + "-");
             httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             httpURLConnection.connect();
-            this.f37640g = (long) httpURLConnection.getContentLength();
+            this.f36885g = (long) httpURLConnection.getContentLength();
             if (Thread.currentThread().isInterrupted()) {
                 return;
             }
-            if (this.f37638e != null && this.f37640g > 10) {
-                this.f37638e.a(httpURLConnection.getInputStream());
-            } else if (this.f37637d != null) {
-                this.f37637d.a();
+            if (this.f36883e != null && this.f36885g > 10) {
+                this.f36883e.a(httpURLConnection.getInputStream());
+            } else if (this.f36882d != null) {
+                this.f36882d.a();
             }
         } catch (IOException e2) {
             if (!Thread.currentThread().isInterrupted()) {
@@ -71,7 +71,7 @@ public class E implements Runnable {
         try {
             a();
         } catch (Exception unused) {
-            C c2 = this.f37638e;
+            C c2 = this.f36883e;
             if (c2 != null) {
                 c2.b(c2.a(1, new Object[]{D.Socket}));
             }

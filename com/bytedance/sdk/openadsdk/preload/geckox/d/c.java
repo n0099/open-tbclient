@@ -16,35 +16,35 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Map<String, List<Pair<String, Long>>>, List<UpdatePackage>> {
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.b f30867d;
+    public com.bytedance.sdk.openadsdk.preload.geckox.b f30112d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, Map<String, Object>> f30868e;
+    public Map<String, Map<String, Object>> f30113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, List<CheckRequestBodyModel.TargetChannel>> f30869f;
+    public Map<String, List<CheckRequestBodyModel.TargetChannel>> f30114f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.e.a f30870g;
+    public com.bytedance.sdk.openadsdk.preload.geckox.e.a f30115g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30871h;
+    public String f30116h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.b f30872i = new com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.b();
+    public com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.b f30117i = new com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.b();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends RuntimeException {
         public a(String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b extends RuntimeException {
         public b(String str, Throwable th) {
             super(str, th);
@@ -52,9 +52,9 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Map<String, List<
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.d.c$c  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0332c extends RuntimeException {
-        public C0332c(String str, Throwable th) {
+    /* loaded from: classes6.dex */
+    public static class C0319c extends RuntimeException {
+        public C0319c(String str, Throwable th) {
             super(str, th);
         }
     }
@@ -78,7 +78,7 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Map<String, List<
             ArrayList arrayList2 = new ArrayList();
             for (UpdatePackage updatePackage : list) {
                 try {
-                    File file = new File(new File(this.f30867d.m(), updatePackage.getAccessKey()), updatePackage.getChannel());
+                    File file = new File(new File(this.f30112d.m(), updatePackage.getAccessKey()), updatePackage.getChannel());
                     if (file.isFile()) {
                         com.bytedance.sdk.openadsdk.preload.geckox.utils.d.a(file);
                     }
@@ -92,11 +92,11 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Map<String, List<
                         arrayList.add(new Pair(updatePackage.getChannel(), a2));
                         arrayList2.add(updatePackage);
                     } else {
-                        a(this.f30870g, updatePackage.getChannel());
+                        a(this.f30115g, updatePackage.getChannel());
                     }
                 } catch (Exception e2) {
                     com.bytedance.sdk.openadsdk.preload.geckox.h.b.b("gecko-debug-tag", "filterChannel:", e2);
-                    a(updatePackage.getChannel(), this.f30870g, e2);
+                    a(updatePackage.getChannel(), this.f30115g, e2);
                 }
             }
             list.clear();
@@ -109,24 +109,24 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Map<String, List<
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public void a(Object... objArr) {
         super.a(objArr);
-        this.f30867d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
-        this.f30868e = (Map) objArr[1];
-        this.f30869f = (Map) objArr[2];
-        this.f30870g = (com.bytedance.sdk.openadsdk.preload.geckox.e.a) objArr[3];
-        this.f30871h = (String) objArr[4];
+        this.f30112d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
+        this.f30113e = (Map) objArr[1];
+        this.f30114f = (Map) objArr[2];
+        this.f30115g = (com.bytedance.sdk.openadsdk.preload.geckox.e.a) objArr[3];
+        this.f30116h = (String) objArr[4];
     }
 
     private Map<String, List<UpdatePackage>> b(Map<String, List<Pair<String, Long>>> map) throws Exception {
         String c2 = c(map);
-        String str = "https://" + this.f30867d.i() + "/gecko/server/v3/package";
+        String str = "https://" + this.f30112d.i() + "/gecko/server/v3/package";
         try {
-            this.f30872i.f30949f = com.bytedance.sdk.openadsdk.preload.geckox.utils.i.a(this.f30867d.a());
-            com.bytedance.sdk.openadsdk.preload.geckox.i.c a2 = this.f30867d.h().a(str, c2);
-            this.f30872i.f30950g = a2.f30910c;
-            this.f30872i.f30947d = a2.f30911d;
-            this.f30872i.f30948e = com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.b.a(a2.f30908a);
-            if (a2.f30910c == 200) {
-                String str2 = a2.f30909b;
+            this.f30117i.f30194f = com.bytedance.sdk.openadsdk.preload.geckox.utils.i.a(this.f30112d.a());
+            com.bytedance.sdk.openadsdk.preload.geckox.i.c a2 = this.f30112d.h().a(str, c2);
+            this.f30117i.f30195g = a2.f30155c;
+            this.f30117i.f30192d = a2.f30156d;
+            this.f30117i.f30193e = com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.b.a(a2.f30153a);
+            if (a2.f30155c == 200) {
+                String str2 = a2.f30154b;
                 com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "response:", str2);
                 try {
                     Response response = (Response) com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(str2, new com.bytedance.sdk.openadsdk.preload.a.c.a<Response<ComponentModel>>() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.d.c.3
@@ -134,10 +134,10 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Map<String, List<
                     int i2 = response.status;
                     if (i2 == 0) {
                         if (response.data != 0) {
-                            com.bytedance.sdk.openadsdk.preload.geckox.a.a.a(this.f30867d.a(), ((ComponentModel) response.data).getUniversalStrategies(), this.f30867d.m(), this.f30870g);
+                            com.bytedance.sdk.openadsdk.preload.geckox.a.a.a(this.f30112d.a(), ((ComponentModel) response.data).getUniversalStrategies(), this.f30112d.m(), this.f30115g);
                             Map<String, List<UpdatePackage>> packages = ((ComponentModel) response.data).getPackages();
                             if (packages != null && !packages.isEmpty()) {
-                                for (String str3 : this.f30867d.e()) {
+                                for (String str3 : this.f30112d.e()) {
                                     List<UpdatePackage> list = packages.get(str3);
                                     if (list != null && !list.isEmpty()) {
                                         for (UpdatePackage updatePackage : list) {
@@ -148,34 +148,34 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Map<String, List<
                                 }
                                 return packages;
                             }
-                            com.bytedance.sdk.openadsdk.preload.geckox.a.a.a(this.f30867d);
+                            com.bytedance.sdk.openadsdk.preload.geckox.a.a.a(this.f30112d);
                             return new HashMap();
                         } else {
-                            com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.b bVar = this.f30872i;
-                            bVar.f30947d = "check update error：response.data==null";
-                            com.bytedance.sdk.openadsdk.preload.geckox.statistic.e.a(this.f30867d, bVar);
+                            com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.b bVar = this.f30117i;
+                            bVar.f30192d = "check update error：response.data==null";
+                            com.bytedance.sdk.openadsdk.preload.geckox.statistic.e.a(this.f30112d, bVar);
                             throw new a("check update error：response.data==null");
                         }
                     }
                     if (i2 == 2000) {
-                        com.bytedance.sdk.openadsdk.preload.geckox.a.a.a(this.f30867d);
+                        com.bytedance.sdk.openadsdk.preload.geckox.a.a.a(this.f30112d);
                         return new HashMap();
                     }
                     String str4 = "check update error，unknow status code，response.status：" + response.status;
-                    com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.b bVar2 = this.f30872i;
-                    bVar2.f30947d = str4;
-                    com.bytedance.sdk.openadsdk.preload.geckox.statistic.e.a(this.f30867d, bVar2);
+                    com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.b bVar2 = this.f30117i;
+                    bVar2.f30192d = str4;
+                    com.bytedance.sdk.openadsdk.preload.geckox.statistic.e.a(this.f30112d, bVar2);
                     throw new a(str4);
                 } catch (Exception e2) {
-                    this.f30872i.f30947d = "json parse failed：" + e2.getMessage();
-                    com.bytedance.sdk.openadsdk.preload.geckox.statistic.e.a(this.f30867d, this.f30872i);
+                    this.f30117i.f30192d = "json parse failed：" + e2.getMessage();
+                    com.bytedance.sdk.openadsdk.preload.geckox.statistic.e.a(this.f30112d, this.f30117i);
                     throw new b("json parse failed：" + str2 + " caused by:" + e2.getMessage(), e2);
                 }
             }
-            throw new NetworkErrorException("net work get failed, code: " + a2.f30910c + ", url:" + str);
+            throw new NetworkErrorException("net work get failed, code: " + a2.f30155c + ", url:" + str);
         } catch (Exception e3) {
-            com.bytedance.sdk.openadsdk.preload.geckox.statistic.e.a(this.f30867d, this.f30872i);
-            throw new C0332c("request failed：url:" + str + ", caused by:" + e3.getMessage(), e3);
+            com.bytedance.sdk.openadsdk.preload.geckox.statistic.e.a(this.f30112d, this.f30117i);
+            throw new C0319c("request failed：url:" + str + ", caused by:" + e3.getMessage(), e3);
         }
     }
 
@@ -186,7 +186,7 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Map<String, List<
         List<Pair<String, com.bytedance.sdk.openadsdk.preload.geckox.g.a>> list;
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "start get server channel version[v3]... local channel version:", map);
         Map<String, List<UpdatePackage>> b2 = b(map);
-        com.bytedance.sdk.openadsdk.preload.geckox.statistic.e.a(this.f30867d, this.f30872i);
+        com.bytedance.sdk.openadsdk.preload.geckox.statistic.e.a(this.f30112d, this.f30117i);
         a(b2);
         ArrayList arrayList = new ArrayList();
         for (Map.Entry<String, List<UpdatePackage>> entry : b2.entrySet()) {
@@ -224,8 +224,8 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Map<String, List<
     private String c(Map<String, List<Pair<String, Long>>> map) {
         List<CheckRequestBodyModel.TargetChannel> list;
         CheckRequestBodyModel checkRequestBodyModel = new CheckRequestBodyModel();
-        Context a2 = this.f30867d.a();
-        checkRequestBodyModel.setCommon(new Common(this.f30867d.j(), this.f30867d.n(), this.f30867d.q(), com.bytedance.sdk.openadsdk.preload.geckox.utils.a.b(a2), com.bytedance.sdk.openadsdk.preload.geckox.utils.i.a(a2), this.f30867d.k(), this.f30867d.l()));
+        Context a2 = this.f30112d.a();
+        checkRequestBodyModel.setCommon(new Common(this.f30112d.j(), this.f30112d.n(), this.f30112d.q(), com.bytedance.sdk.openadsdk.preload.geckox.utils.a.b(a2), com.bytedance.sdk.openadsdk.preload.geckox.utils.i.a(a2), this.f30112d.k(), this.f30112d.l()));
         HashMap hashMap = new HashMap();
         for (Map.Entry<String, List<Pair<String, Long>>> entry : map.entrySet()) {
             HashMap hashMap2 = new HashMap();
@@ -236,25 +236,25 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Map<String, List<
             }
             hashMap.put(entry.getKey(), hashMap2);
         }
-        this.f30872i.f30944a = com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(hashMap);
+        this.f30117i.f30189a = com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(hashMap);
         checkRequestBodyModel.setLocal(hashMap);
         HashMap hashMap3 = new HashMap();
-        for (String str : this.f30867d.e()) {
+        for (String str : this.f30112d.e()) {
             CheckRequestBodyModel.Group group = new CheckRequestBodyModel.Group();
-            group.groupName = this.f30871h;
-            Map<String, List<CheckRequestBodyModel.TargetChannel>> map2 = this.f30869f;
-            if (map2 != null && !map2.isEmpty() && (list = this.f30869f.get(str)) != null && !list.isEmpty()) {
+            group.groupName = this.f30116h;
+            Map<String, List<CheckRequestBodyModel.TargetChannel>> map2 = this.f30114f;
+            if (map2 != null && !map2.isEmpty() && (list = this.f30114f.get(str)) != null && !list.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
                 group.targetChannels = arrayList;
                 arrayList.addAll(list);
             }
             hashMap3.put(str, group);
         }
-        this.f30872i.f30945b = com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(hashMap3);
+        this.f30117i.f30190b = com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(hashMap3);
         checkRequestBodyModel.setDeployments(hashMap3);
-        if (this.f30868e != null) {
-            this.f30872i.f30946c = com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(this.f30868e);
-            checkRequestBodyModel.setCustom(this.f30868e);
+        if (this.f30113e != null) {
+            this.f30117i.f30191c = com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(this.f30113e);
+            checkRequestBodyModel.setCustom(this.f30113e);
         }
         return com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(checkRequestBodyModel);
     }
@@ -264,7 +264,7 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Map<String, List<
             return;
         }
         for (UpdatePackage updatePackage : list) {
-            com.bytedance.sdk.openadsdk.preload.geckox.a.c.a(new File(new File(this.f30867d.m(), updatePackage.getAccessKey()), updatePackage.getChannel()).getAbsolutePath());
+            com.bytedance.sdk.openadsdk.preload.geckox.a.c.a(new File(new File(this.f30112d.m(), updatePackage.getAccessKey()), updatePackage.getChannel()).getAbsolutePath());
         }
     }
 
@@ -306,7 +306,7 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Map<String, List<
 
     private void a(Iterator<UpdatePackage> it, UpdatePackage updatePackage, long j, long j2) {
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", updatePackage.getChannel(), "rollback：", Long.valueOf(j), "->", Long.valueOf(j2));
-        File[] listFiles = new File(this.f30867d.m(), updatePackage.getAccessKey() + File.separator + updatePackage.getChannel()).listFiles(new FileFilter() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.d.c.1
+        File[] listFiles = new File(this.f30112d.m(), updatePackage.getAccessKey() + File.separator + updatePackage.getChannel()).listFiles(new FileFilter() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.d.c.1
             @Override // java.io.FileFilter
             public boolean accept(File file) {
                 return file.isDirectory();

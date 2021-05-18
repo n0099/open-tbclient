@@ -57,7 +57,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
     public class c extends Maps.u<K, Collection<V>> {
 
         /* renamed from: h  reason: collision with root package name */
-        public final transient Map<K, Collection<V>> f31718h;
+        public final transient Map<K, Collection<V>> f30963h;
 
         /* loaded from: classes6.dex */
         public class a extends Maps.j<K, Collection<V>> {
@@ -71,7 +71,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
 
             @Override // com.google.common.collect.Maps.j, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean contains(Object obj) {
-                return d.g.c.c.n.d(c.this.f31718h.entrySet(), obj);
+                return d.g.c.c.n.d(c.this.f30963h.entrySet(), obj);
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
@@ -93,41 +93,41 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
         public class b implements Iterator<Map.Entry<K, Collection<V>>> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final Iterator<Map.Entry<K, Collection<V>>> f31721e;
+            public final Iterator<Map.Entry<K, Collection<V>>> f30966e;
 
             /* renamed from: f  reason: collision with root package name */
-            public Collection<V> f31722f;
+            public Collection<V> f30967f;
 
             public b() {
-                this.f31721e = c.this.f31718h.entrySet().iterator();
+                this.f30966e = c.this.f30963h.entrySet().iterator();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Iterator
             /* renamed from: a */
             public Map.Entry<K, Collection<V>> next() {
-                Map.Entry<K, Collection<V>> next = this.f31721e.next();
-                this.f31722f = next.getValue();
+                Map.Entry<K, Collection<V>> next = this.f30966e.next();
+                this.f30967f = next.getValue();
                 return c.this.f(next);
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
-                return this.f31721e.hasNext();
+                return this.f30966e.hasNext();
             }
 
             @Override // java.util.Iterator
             public void remove() {
-                d.g.c.c.m.e(this.f31722f != null);
-                this.f31721e.remove();
-                AbstractMapBasedMultimap.this.totalSize -= this.f31722f.size();
-                this.f31722f.clear();
-                this.f31722f = null;
+                d.g.c.c.m.e(this.f30967f != null);
+                this.f30966e.remove();
+                AbstractMapBasedMultimap.this.totalSize -= this.f30967f.size();
+                this.f30967f.clear();
+                this.f30967f = null;
             }
         }
 
         public c(Map<K, Collection<V>> map) {
-            this.f31718h = map;
+            this.f30963h = map;
         }
 
         @Override // com.google.common.collect.Maps.u
@@ -137,7 +137,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
 
         @Override // java.util.AbstractMap, java.util.Map
         public void clear() {
-            if (this.f31718h == AbstractMapBasedMultimap.this.map) {
+            if (this.f30963h == AbstractMapBasedMultimap.this.map) {
                 AbstractMapBasedMultimap.this.clear();
             } else {
                 Iterators.d(new b());
@@ -146,14 +146,14 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
 
         @Override // java.util.AbstractMap, java.util.Map
         public boolean containsKey(Object obj) {
-            return Maps.w(this.f31718h, obj);
+            return Maps.w(this.f30963h, obj);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractMap, java.util.Map
         /* renamed from: d */
         public Collection<V> get(Object obj) {
-            Collection<V> collection = (Collection) Maps.x(this.f31718h, obj);
+            Collection<V> collection = (Collection) Maps.x(this.f30963h, obj);
             if (collection == null) {
                 return null;
             }
@@ -164,7 +164,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
         @Override // java.util.AbstractMap, java.util.Map
         /* renamed from: e */
         public Collection<V> remove(Object obj) {
-            Collection<V> remove = this.f31718h.remove(obj);
+            Collection<V> remove = this.f30963h.remove(obj);
             if (remove == null) {
                 return null;
             }
@@ -177,7 +177,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
 
         @Override // java.util.AbstractMap, java.util.Map
         public boolean equals(Object obj) {
-            return this == obj || this.f31718h.equals(obj);
+            return this == obj || this.f30963h.equals(obj);
         }
 
         public Map.Entry<K, Collection<V>> f(Map.Entry<K, Collection<V>> entry) {
@@ -187,7 +187,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
 
         @Override // java.util.AbstractMap, java.util.Map
         public int hashCode() {
-            return this.f31718h.hashCode();
+            return this.f30963h.hashCode();
         }
 
         @Override // com.google.common.collect.Maps.u, java.util.AbstractMap, java.util.Map
@@ -197,12 +197,12 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
 
         @Override // java.util.AbstractMap, java.util.Map
         public int size() {
-            return this.f31718h.size();
+            return this.f30963h.size();
         }
 
         @Override // java.util.AbstractMap
         public String toString() {
-            return this.f31718h.toString();
+            return this.f30963h.toString();
         }
     }
 
@@ -210,46 +210,46 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
     public abstract class d<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Iterator<Map.Entry<K, Collection<V>>> f31724e;
+        public final Iterator<Map.Entry<K, Collection<V>>> f30969e;
 
         /* renamed from: f  reason: collision with root package name */
-        public K f31725f = null;
+        public K f30970f = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public Collection<V> f31726g = null;
+        public Collection<V> f30971g = null;
 
         /* renamed from: h  reason: collision with root package name */
-        public Iterator<V> f31727h = Iterators.j();
+        public Iterator<V> f30972h = Iterators.j();
 
         /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: java.util.Iterator<java.util.Map$Entry<K, V>>, java.util.Iterator<java.util.Map$Entry<K, java.util.Collection<V>>> */
         public d() {
-            this.f31724e = (Iterator<Map.Entry<K, V>>) AbstractMapBasedMultimap.this.map.entrySet().iterator();
+            this.f30969e = (Iterator<Map.Entry<K, V>>) AbstractMapBasedMultimap.this.map.entrySet().iterator();
         }
 
         public abstract T a(K k, V v);
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31724e.hasNext() || this.f31727h.hasNext();
+            return this.f30969e.hasNext() || this.f30972h.hasNext();
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (!this.f31727h.hasNext()) {
-                Map.Entry<K, Collection<V>> next = this.f31724e.next();
-                this.f31725f = next.getKey();
+            if (!this.f30972h.hasNext()) {
+                Map.Entry<K, Collection<V>> next = this.f30969e.next();
+                this.f30970f = next.getKey();
                 Collection<V> value = next.getValue();
-                this.f31726g = value;
-                this.f31727h = value.iterator();
+                this.f30971g = value;
+                this.f30972h = value.iterator();
             }
-            return a(this.f31725f, this.f31727h.next());
+            return a(this.f30970f, this.f30972h.next());
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            this.f31727h.remove();
-            if (this.f31726g.isEmpty()) {
-                this.f31724e.remove();
+            this.f30972h.remove();
+            if (this.f30971g.isEmpty()) {
+                this.f30969e.remove();
             }
             AbstractMapBasedMultimap.access$210(AbstractMapBasedMultimap.this);
         }
@@ -262,35 +262,35 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
         public class a implements Iterator<K> {
 
             /* renamed from: e  reason: collision with root package name */
-            public Map.Entry<K, Collection<V>> f31730e;
+            public Map.Entry<K, Collection<V>> f30975e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Iterator f31731f;
+            public final /* synthetic */ Iterator f30976f;
 
             public a(Iterator it) {
-                this.f31731f = it;
+                this.f30976f = it;
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
-                return this.f31731f.hasNext();
+                return this.f30976f.hasNext();
             }
 
             @Override // java.util.Iterator
             public K next() {
-                Map.Entry<K, Collection<V>> entry = (Map.Entry) this.f31731f.next();
-                this.f31730e = entry;
+                Map.Entry<K, Collection<V>> entry = (Map.Entry) this.f30976f.next();
+                this.f30975e = entry;
                 return entry.getKey();
             }
 
             @Override // java.util.Iterator
             public void remove() {
-                d.g.c.c.m.e(this.f31730e != null);
-                Collection<V> value = this.f31730e.getValue();
-                this.f31731f.remove();
+                d.g.c.c.m.e(this.f30975e != null);
+                Collection<V> value = this.f30975e.getValue();
+                this.f30976f.remove();
                 AbstractMapBasedMultimap.this.totalSize -= value.size();
                 value.clear();
-                this.f31730e = null;
+                this.f30975e = null;
             }
         }
 
@@ -652,7 +652,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
         }
 
         public SortedMap<K, Collection<V>> i() {
-            return (SortedMap) this.f31718h;
+            return (SortedMap) this.f30963h;
         }
 
         @Override // java.util.SortedMap
@@ -751,7 +751,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
         }
 
         public final NavigableSet<V> j(NavigableSet<V> navigableSet) {
-            return new m(this.f31735e, navigableSet, c() == null ? this : c());
+            return new m(this.f30980e, navigableSet, c() == null ? this : c());
         }
 
         @Override // java.util.NavigableSet
@@ -792,9 +792,9 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
                 return false;
             }
             int size = size();
-            boolean g2 = Sets.g((Set) this.f31736f, collection);
+            boolean g2 = Sets.g((Set) this.f30981f, collection);
             if (g2) {
-                int size2 = this.f31736f.size();
+                int size2 = this.f30981f.size();
                 AbstractMapBasedMultimap.this.totalSize += size2 - size;
                 g();
             }
@@ -968,7 +968,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
 
     @Override // d.g.c.c.c
     public Collection<V> createValues() {
-        return new c.C1781c();
+        return new c.C1845c();
     }
 
     @Override // d.g.c.c.c, d.g.c.c.h0
@@ -1081,29 +1081,29 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
     public class k extends AbstractCollection<V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f31735e;
+        public final K f30980e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Collection<V> f31736f;
+        public Collection<V> f30981f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final AbstractMapBasedMultimap<K, V>.k f31737g;
+        public final AbstractMapBasedMultimap<K, V>.k f30982g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Collection<V> f31738h;
+        public final Collection<V> f30983h;
 
         public k(K k, Collection<V> collection, AbstractMapBasedMultimap<K, V>.k kVar) {
-            this.f31735e = k;
-            this.f31736f = collection;
-            this.f31737g = kVar;
-            this.f31738h = kVar == null ? null : kVar.d();
+            this.f30980e = k;
+            this.f30981f = collection;
+            this.f30982g = kVar;
+            this.f30983h = kVar == null ? null : kVar.d();
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean add(V v) {
             f();
-            boolean isEmpty = this.f31736f.isEmpty();
-            boolean add = this.f31736f.add(v);
+            boolean isEmpty = this.f30981f.isEmpty();
+            boolean add = this.f30981f.add(v);
             if (add) {
                 AbstractMapBasedMultimap.access$208(AbstractMapBasedMultimap.this);
                 if (isEmpty) {
@@ -1119,9 +1119,9 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
                 return false;
             }
             int size = size();
-            boolean addAll = this.f31736f.addAll(collection);
+            boolean addAll = this.f30981f.addAll(collection);
             if (addAll) {
-                int size2 = this.f31736f.size();
+                int size2 = this.f30981f.size();
                 AbstractMapBasedMultimap.this.totalSize += size2 - size;
                 if (size == 0) {
                     b();
@@ -1131,16 +1131,16 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
         }
 
         public void b() {
-            AbstractMapBasedMultimap<K, V>.k kVar = this.f31737g;
+            AbstractMapBasedMultimap<K, V>.k kVar = this.f30982g;
             if (kVar == null) {
-                AbstractMapBasedMultimap.this.map.put(this.f31735e, this.f31736f);
+                AbstractMapBasedMultimap.this.map.put(this.f30980e, this.f30981f);
             } else {
                 kVar.b();
             }
         }
 
         public AbstractMapBasedMultimap<K, V>.k c() {
-            return this.f31737g;
+            return this.f30982g;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
@@ -1149,7 +1149,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
             if (size == 0) {
                 return;
             }
-            this.f31736f.clear();
+            this.f30981f.clear();
             AbstractMapBasedMultimap.this.totalSize -= size;
             g();
         }
@@ -1157,21 +1157,21 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean contains(Object obj) {
             f();
-            return this.f31736f.contains(obj);
+            return this.f30981f.contains(obj);
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean containsAll(Collection<?> collection) {
             f();
-            return this.f31736f.containsAll(collection);
+            return this.f30981f.containsAll(collection);
         }
 
         public Collection<V> d() {
-            return this.f31736f;
+            return this.f30981f;
         }
 
         public K e() {
-            return this.f31735e;
+            return this.f30980e;
         }
 
         @Override // java.util.Collection
@@ -1180,36 +1180,36 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
                 return true;
             }
             f();
-            return this.f31736f.equals(obj);
+            return this.f30981f.equals(obj);
         }
 
         public void f() {
             Collection<V> collection;
-            AbstractMapBasedMultimap<K, V>.k kVar = this.f31737g;
+            AbstractMapBasedMultimap<K, V>.k kVar = this.f30982g;
             if (kVar != null) {
                 kVar.f();
-                if (this.f31737g.d() != this.f31738h) {
+                if (this.f30982g.d() != this.f30983h) {
                     throw new ConcurrentModificationException();
                 }
-            } else if (!this.f31736f.isEmpty() || (collection = (Collection) AbstractMapBasedMultimap.this.map.get(this.f31735e)) == null) {
+            } else if (!this.f30981f.isEmpty() || (collection = (Collection) AbstractMapBasedMultimap.this.map.get(this.f30980e)) == null) {
             } else {
-                this.f31736f = collection;
+                this.f30981f = collection;
             }
         }
 
         public void g() {
-            AbstractMapBasedMultimap<K, V>.k kVar = this.f31737g;
+            AbstractMapBasedMultimap<K, V>.k kVar = this.f30982g;
             if (kVar != null) {
                 kVar.g();
-            } else if (this.f31736f.isEmpty()) {
-                AbstractMapBasedMultimap.this.map.remove(this.f31735e);
+            } else if (this.f30981f.isEmpty()) {
+                AbstractMapBasedMultimap.this.map.remove(this.f30980e);
             }
         }
 
         @Override // java.util.Collection
         public int hashCode() {
             f();
-            return this.f31736f.hashCode();
+            return this.f30981f.hashCode();
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -1221,7 +1221,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean remove(Object obj) {
             f();
-            boolean remove = this.f31736f.remove(obj);
+            boolean remove = this.f30981f.remove(obj);
             if (remove) {
                 AbstractMapBasedMultimap.access$210(AbstractMapBasedMultimap.this);
                 g();
@@ -1235,9 +1235,9 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
                 return false;
             }
             int size = size();
-            boolean removeAll = this.f31736f.removeAll(collection);
+            boolean removeAll = this.f30981f.removeAll(collection);
             if (removeAll) {
-                int size2 = this.f31736f.size();
+                int size2 = this.f30981f.size();
                 AbstractMapBasedMultimap.this.totalSize += size2 - size;
                 g();
             }
@@ -1248,9 +1248,9 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
         public boolean retainAll(Collection<?> collection) {
             d.g.c.a.n.p(collection);
             int size = size();
-            boolean retainAll = this.f31736f.retainAll(collection);
+            boolean retainAll = this.f30981f.retainAll(collection);
             if (retainAll) {
-                int size2 = this.f31736f.size();
+                int size2 = this.f30981f.size();
                 AbstractMapBasedMultimap.this.totalSize += size2 - size;
                 g();
             }
@@ -1260,37 +1260,37 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
             f();
-            return this.f31736f.size();
+            return this.f30981f.size();
         }
 
         @Override // java.util.AbstractCollection
         public String toString() {
             f();
-            return this.f31736f.toString();
+            return this.f30981f.toString();
         }
 
         /* loaded from: classes6.dex */
         public class a implements Iterator<V> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final Iterator<V> f31740e;
+            public final Iterator<V> f30985e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final Collection<V> f31741f;
+            public final Collection<V> f30986f;
 
             public a() {
-                this.f31741f = k.this.f31736f;
-                this.f31740e = AbstractMapBasedMultimap.iteratorOrListIterator(k.this.f31736f);
+                this.f30986f = k.this.f30981f;
+                this.f30985e = AbstractMapBasedMultimap.iteratorOrListIterator(k.this.f30981f);
             }
 
             public Iterator<V> a() {
                 b();
-                return this.f31740e;
+                return this.f30985e;
             }
 
             public void b() {
                 k.this.f();
-                if (k.this.f31736f != this.f31741f) {
+                if (k.this.f30981f != this.f30986f) {
                     throw new ConcurrentModificationException();
                 }
             }
@@ -1298,25 +1298,25 @@ public abstract class AbstractMapBasedMultimap<K, V> extends d.g.c.c.c<K, V> imp
             @Override // java.util.Iterator
             public boolean hasNext() {
                 b();
-                return this.f31740e.hasNext();
+                return this.f30985e.hasNext();
             }
 
             @Override // java.util.Iterator
             public V next() {
                 b();
-                return this.f31740e.next();
+                return this.f30985e.next();
             }
 
             @Override // java.util.Iterator
             public void remove() {
-                this.f31740e.remove();
+                this.f30985e.remove();
                 AbstractMapBasedMultimap.access$210(AbstractMapBasedMultimap.this);
                 k.this.g();
             }
 
             public a(Iterator<V> it) {
-                this.f31741f = k.this.f31736f;
-                this.f31740e = it;
+                this.f30986f = k.this.f30981f;
+                this.f30985e = it;
             }
         }
     }

@@ -44,44 +44,44 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
     public static final int EVENT_TYPE_ON_VIDEO_START = 14;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f36081a;
+    public volatile int f35326a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f36082b;
+    public volatile int f35327b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<Integer> f36083c = Collections.synchronizedList(new ArrayList());
+    public List<Integer> f35328c = Collections.synchronizedList(new ArrayList());
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoOption f36084d;
+    public VideoOption f35329d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ADSize f36085e;
+    public ADSize f35330e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NativeExpressADListener f36086f;
+    public NativeExpressADListener f35331f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f36087g;
+    public String f35332g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LoadAdParams f36088h;
+    public LoadAdParams f35333h;
 
     /* loaded from: classes6.dex */
     public static class ADListenerAdapter implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public NativeExpressADListener f36089a;
+        public NativeExpressADListener f35334a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NativeExpressMediaListener f36090b;
+        public NativeExpressMediaListener f35335b;
 
         public ADListenerAdapter(NativeExpressADListener nativeExpressADListener) {
-            this.f36089a = nativeExpressADListener;
+            this.f35334a = nativeExpressADListener;
         }
 
         public ADListenerAdapter(NativeExpressMediaListener nativeExpressMediaListener) {
-            this.f36090b = nativeExpressMediaListener;
+            this.f35335b = nativeExpressMediaListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
@@ -97,7 +97,7 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
                 case 8:
                 case 9:
                 case 10:
-                    NativeExpressAD.a(this.f36089a, aDEvent);
+                    NativeExpressAD.a(this.f35334a, aDEvent);
                     return;
                 case 11:
                 case 12:
@@ -109,7 +109,7 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
                 case 18:
                 case 19:
                 case 21:
-                    NativeExpressAD.a(this.f36090b, aDEvent);
+                    NativeExpressAD.a(this.f35335b, aDEvent);
                     return;
                 case 20:
                 default:
@@ -160,9 +160,9 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
             a(nativeExpressADListener, 2001);
             return;
         }
-        this.f36085e = aDSize;
-        this.f36086f = nativeExpressADListener;
-        this.f36087g = str2;
+        this.f35330e = aDSize;
+        this.f35331f = nativeExpressADListener;
+        this.f35332g = str2;
         a(context, str, str2, nativeExpressADListener);
     }
 
@@ -340,21 +340,21 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
     /* JADX DEBUG: Return type fixed from 'com.qq.e.comm.pi.ADI' to match base method */
     @Override // com.qq.e.ads.AbstractAD
     public final /* synthetic */ NEADI a(Context context, POFactory pOFactory, String str, String str2) {
-        return pOFactory.getNativeExpressADDelegate(context, this.f36085e, str, str2, new ADListenerAdapter(this.f36086f));
+        return pOFactory.getNativeExpressADDelegate(context, this.f35330e, str, str2, new ADListenerAdapter(this.f35331f));
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.qq.e.comm.pi.ADI] */
     @Override // com.qq.e.ads.AbstractAD
     public final /* synthetic */ void a(NEADI neadi) {
         NEADI neadi2 = neadi;
-        neadi2.setMinVideoDuration(this.f36081a);
-        neadi2.setMaxVideoDuration(this.f36082b);
-        VideoOption videoOption = this.f36084d;
+        neadi2.setMinVideoDuration(this.f35326a);
+        neadi2.setMaxVideoDuration(this.f35327b);
+        VideoOption videoOption = this.f35329d;
         if (videoOption != null) {
             setVideoOption(videoOption);
         }
-        synchronized (this.f36083c) {
-            for (Integer num : this.f36083c) {
+        synchronized (this.f35328c) {
+            for (Integer num : this.f35328c) {
                 loadAD(num.intValue());
             }
         }
@@ -373,8 +373,8 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
             setAdParams(loadAdParams);
         }
         if (!b()) {
-            synchronized (this.f36083c) {
-                this.f36083c.add(Integer.valueOf(i2));
+            synchronized (this.f35328c) {
+                this.f35328c.add(Integer.valueOf(i2));
             }
             return;
         }
@@ -383,7 +383,7 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
             GDTLogger.e("Native Express AD Init error, see more logs");
             return;
         }
-        LoadAdParams loadAdParams2 = this.f36088h;
+        LoadAdParams loadAdParams2 = this.f35333h;
         if (loadAdParams2 != null) {
             a2.loadAd(i2, loadAdParams2);
         } else {
@@ -393,7 +393,7 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
 
     public void setAdParams(LoadAdParams loadAdParams) {
         String passThroughInfoJsonString;
-        this.f36088h = loadAdParams;
+        this.f35333h = loadAdParams;
         if (loadAdParams == null || (passThroughInfoJsonString = loadAdParams.getPassThroughInfoJsonString()) == null || passThroughInfoJsonString.getBytes().length < 512) {
             return;
         }
@@ -401,24 +401,24 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
     }
 
     public void setMaxVideoDuration(int i2) {
-        this.f36082b = i2;
-        if (this.f36082b > 0 && this.f36081a > this.f36082b) {
+        this.f35327b = i2;
+        if (this.f35327b > 0 && this.f35326a > this.f35327b) {
             GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
         }
         NEADI a2 = a();
         if (a2 != null) {
-            a2.setMaxVideoDuration(this.f36082b);
+            a2.setMaxVideoDuration(this.f35327b);
         }
     }
 
     public void setMinVideoDuration(int i2) {
-        this.f36081a = i2;
-        if (this.f36082b > 0 && this.f36081a > this.f36082b) {
+        this.f35326a = i2;
+        if (this.f35327b > 0 && this.f35326a > this.f35327b) {
             GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
         }
         NEADI a2 = a();
         if (a2 != null) {
-            a2.setMinVideoDuration(this.f36081a);
+            a2.setMinVideoDuration(this.f35326a);
         }
     }
 
@@ -427,7 +427,7 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
             return;
         }
         try {
-            GDTADManager.getInstance().getSM().setDEVCodeSetting(Constants.KEYS.AD_TAGS, new JSONObject(map), this.f36087g);
+            GDTADManager.getInstance().getSM().setDEVCodeSetting(Constants.KEYS.AD_TAGS, new JSONObject(map), this.f35332g);
         } catch (Exception e2) {
             GDTLogger.e("NativeUnifiedAD#setTag Exception");
             e2.printStackTrace();
@@ -435,7 +435,7 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
     }
 
     public void setVideoOption(VideoOption videoOption) {
-        this.f36084d = videoOption;
+        this.f35329d = videoOption;
         NEADI a2 = a();
         if (a2 == null || videoOption == null) {
             return;

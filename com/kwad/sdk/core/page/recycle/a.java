@@ -15,13 +15,13 @@ import com.kwad.sdk.R;
 public abstract class a extends com.kwad.sdk.b.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public RecyclerView f33292a;
+    public RecyclerView f32537a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f33293b;
+    public d f32538b;
 
     private void a() {
-        this.f33292a.setAdapter(this.f33293b);
+        this.f32537a.setAdapter(this.f32538b);
     }
 
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
@@ -33,13 +33,13 @@ public abstract class a extends com.kwad.sdk.b.d {
     public abstract int b();
 
     public void c() {
-        this.f33292a.setItemAnimator(null);
-        this.f33292a.setLayoutManager(e());
-        this.f33293b = a(this.f33292a);
+        this.f32537a.setItemAnimator(null);
+        this.f32537a.setLayoutManager(e());
+        this.f32538b = a(this.f32537a);
     }
 
     public RecyclerView d() {
-        return this.f33292a;
+        return this.f32537a;
     }
 
     public RecyclerView.LayoutManager e() {
@@ -64,7 +64,7 @@ public abstract class a extends com.kwad.sdk.b.d {
     @CallSuper
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View a2 = a(layoutInflater, viewGroup, bundle);
-        this.f33292a = (RecyclerView) a2.findViewById(f());
+        this.f32537a = (RecyclerView) a2.findViewById(f());
         return a2;
     }
 
@@ -76,7 +76,7 @@ public abstract class a extends com.kwad.sdk.b.d {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
         super.onDestroyView();
-        this.f33292a.clearOnChildAttachStateChangeListeners();
+        this.f32537a.clearOnChildAttachStateChangeListeners();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle

@@ -9,31 +9,31 @@ public class a {
 
     /* renamed from: d.a.s.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class RunnableC1734a implements Runnable {
+    public static class RunnableC1798a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IMPushPb.ActionType f63839e;
+        public final /* synthetic */ IMPushPb.ActionType f64526e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f63840f;
+        public final /* synthetic */ Context f64527f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Object f63841g;
+        public final /* synthetic */ Object f64528g;
 
-        public RunnableC1734a(IMPushPb.ActionType actionType, Context context, Object obj) {
-            this.f63839e = actionType;
-            this.f63840f = context;
-            this.f63841g = obj;
+        public RunnableC1798a(IMPushPb.ActionType actionType, Context context, Object obj) {
+            this.f64526e = actionType;
+            this.f64527f = context;
+            this.f64528g = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int i2 = b.f63842a[this.f63839e.ordinal()];
+            int i2 = b.f64529a[this.f64526e.ordinal()];
             if (i2 == 1) {
-                d.a.s.a.a.c.e(this.f63840f, (Connection) this.f63841g);
+                d.a.s.a.a.c.e(this.f64527f, (Connection) this.f64528g);
             } else if (i2 != 2) {
             } else {
-                d.a.s.a.a.c.f(this.f63840f, (Request) this.f63841g);
+                d.a.s.a.a.c.f(this.f64527f, (Request) this.f64528g);
             }
         }
     }
@@ -42,17 +42,17 @@ public class a {
     public static /* synthetic */ class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f63842a;
+        public static final /* synthetic */ int[] f64529a;
 
         static {
             int[] iArr = new int[IMPushPb.ActionType.values().length];
-            f63842a = iArr;
+            f64529a = iArr;
             try {
                 iArr[IMPushPb.ActionType.CONNECTION.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f63842a[IMPushPb.ActionType.REQUEST.ordinal()] = 2;
+                f64529a[IMPushPb.ActionType.REQUEST.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -62,15 +62,15 @@ public class a {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f63843a;
+        public Context f64530a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Connection f63844b;
+        public Connection f64531b;
 
         public c(Context context) {
             Connection connection = new Connection();
-            this.f63844b = connection;
-            this.f63843a = context;
+            this.f64531b = connection;
+            this.f64530a = context;
             connection.startTime = -1L;
             connection.stopTime = -1L;
             connection.reason = "";
@@ -81,36 +81,36 @@ public class a {
         }
 
         public c a(long j) {
-            this.f63844b.aliasId = j;
+            this.f64531b.aliasId = j;
             return this;
         }
 
         public void b() {
-            a.b(this.f63843a, IMPushPb.ActionType.CONNECTION, this.f63844b);
+            a.b(this.f64530a, IMPushPb.ActionType.CONNECTION, this.f64531b);
         }
 
         public c c(String str) {
-            this.f63844b.ext = str;
+            this.f64531b.ext = str;
             return this;
         }
 
         public c d(String str) {
-            this.f63844b.reason = str;
+            this.f64531b.reason = str;
             return this;
         }
 
         public c e(long j) {
-            this.f63844b.retryCount = j;
+            this.f64531b.retryCount = j;
             return this;
         }
 
         public c f(long j) {
-            this.f63844b.startTime = j;
+            this.f64531b.startTime = j;
             return this;
         }
 
         public c g(long j) {
-            this.f63844b.stopTime = j;
+            this.f64531b.stopTime = j;
             return this;
         }
     }
@@ -119,15 +119,15 @@ public class a {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f63845a;
+        public Context f64532a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Request f63846b;
+        public Request f64533b;
 
         public d(Context context) {
             Request request = new Request();
-            this.f63846b = request;
-            this.f63845a = context;
+            this.f64533b = request;
+            this.f64532a = context;
             request.method = "";
             request.requestId = "";
             request.timestamp = -1L;
@@ -138,41 +138,41 @@ public class a {
         }
 
         public d a(long j) {
-            this.f63846b.aliasId = j;
+            this.f64533b.aliasId = j;
             return this;
         }
 
         public void b() {
-            a.b(this.f63845a, IMPushPb.ActionType.REQUEST, this.f63846b);
+            a.b(this.f64532a, IMPushPb.ActionType.REQUEST, this.f64533b);
         }
 
         public d c(long j) {
-            this.f63846b.errorCode = j;
+            this.f64533b.errorCode = j;
             return this;
         }
 
         public d d(String str) {
-            this.f63846b.ext = str;
+            this.f64533b.ext = str;
             return this;
         }
 
         public d e(String str) {
-            this.f63846b.method = str;
+            this.f64533b.method = str;
             return this;
         }
 
         public d f(String str) {
-            this.f63846b.requestId = str;
+            this.f64533b.requestId = str;
             return this;
         }
 
         public d g(long j) {
-            this.f63846b.timestamp = j;
+            this.f64533b.timestamp = j;
             return this;
         }
 
         public d h(long j) {
-            this.f63846b.responseTime = j;
+            this.f64533b.responseTime = j;
             return this;
         }
     }
@@ -180,7 +180,7 @@ public class a {
     public static void b(Context context, IMPushPb.ActionType actionType, Object obj) {
         Context applicationContext = context.getApplicationContext();
         if (d.a.s.a.a.d.j(applicationContext)) {
-            d.a.s.a.f.a.a(applicationContext).b(new RunnableC1734a(actionType, applicationContext, obj));
+            d.a.s.a.f.a.a(applicationContext).b(new RunnableC1798a(actionType, applicationContext, obj));
         }
     }
 }

@@ -1,7 +1,7 @@
 package d.o.a.e.b.o;
 
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface i {
     String a(String str);
 

@@ -7,69 +7,69 @@ import org.java_websocket.framing.Framedata;
 public abstract class f implements Framedata {
 
     /* renamed from: b  reason: collision with root package name */
-    public Framedata.Opcode f67651b;
+    public Framedata.Opcode f68337b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ByteBuffer f67652c = g.c.k.b.a();
+    public ByteBuffer f68338c = g.c.k.b.a();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f67650a = true;
+    public boolean f68336a = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f67653d = false;
+    public boolean f68339d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f67654e = false;
+    public boolean f68340e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f67655f = false;
+    public boolean f68341f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f67656g = false;
+    public boolean f68342g = false;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f67657a;
+        public static final /* synthetic */ int[] f68343a;
 
         static {
             int[] iArr = new int[Framedata.Opcode.values().length];
-            f67657a = iArr;
+            f68343a = iArr;
             try {
                 iArr[Framedata.Opcode.PING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f67657a[Framedata.Opcode.PONG.ordinal()] = 2;
+                f68343a[Framedata.Opcode.PONG.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f67657a[Framedata.Opcode.TEXT.ordinal()] = 3;
+                f68343a[Framedata.Opcode.TEXT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f67657a[Framedata.Opcode.BINARY.ordinal()] = 4;
+                f68343a[Framedata.Opcode.BINARY.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f67657a[Framedata.Opcode.CLOSING.ordinal()] = 5;
+                f68343a[Framedata.Opcode.CLOSING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f67657a[Framedata.Opcode.CONTINUOUS.ordinal()] = 6;
+                f68343a[Framedata.Opcode.CONTINUOUS.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
     public f(Framedata.Opcode opcode) {
-        this.f67651b = opcode;
+        this.f68337b = opcode;
     }
 
     public static f g(Framedata.Opcode opcode) {
         if (opcode != null) {
-            switch (a.f67657a[opcode.ordinal()]) {
+            switch (a.f68343a[opcode.ordinal()]) {
                 case 1:
                     return new g();
                 case 2:
@@ -91,27 +91,27 @@ public abstract class f implements Framedata {
 
     @Override // org.java_websocket.framing.Framedata
     public ByteBuffer a() {
-        return this.f67652c;
+        return this.f68338c;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean b() {
-        return this.f67654e;
+        return this.f68340e;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean c() {
-        return this.f67655f;
+        return this.f68341f;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public Framedata.Opcode d() {
-        return this.f67651b;
+        return this.f68337b;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean e() {
-        return this.f67656g;
+        return this.f68342g;
     }
 
     public boolean equals(Object obj) {
@@ -122,9 +122,9 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.f67650a == fVar.f67650a && this.f67653d == fVar.f67653d && this.f67654e == fVar.f67654e && this.f67655f == fVar.f67655f && this.f67656g == fVar.f67656g && this.f67651b == fVar.f67651b) {
-            ByteBuffer byteBuffer = this.f67652c;
-            ByteBuffer byteBuffer2 = fVar.f67652c;
+        if (this.f68336a == fVar.f68336a && this.f68339d == fVar.f68339d && this.f68340e == fVar.f68340e && this.f68341f == fVar.f68341f && this.f68342g == fVar.f68342g && this.f68337b == fVar.f68337b) {
+            ByteBuffer byteBuffer = this.f68338c;
+            ByteBuffer byteBuffer2 = fVar.f68338c;
             return byteBuffer != null ? byteBuffer.equals(byteBuffer2) : byteBuffer2 == null;
         }
         return false;
@@ -132,39 +132,39 @@ public abstract class f implements Framedata {
 
     @Override // org.java_websocket.framing.Framedata
     public boolean f() {
-        return this.f67650a;
+        return this.f68336a;
     }
 
     public abstract void h() throws InvalidDataException;
 
     public int hashCode() {
-        int hashCode = (((this.f67650a ? 1 : 0) * 31) + this.f67651b.hashCode()) * 31;
-        ByteBuffer byteBuffer = this.f67652c;
-        return ((((((((hashCode + (byteBuffer != null ? byteBuffer.hashCode() : 0)) * 31) + (this.f67653d ? 1 : 0)) * 31) + (this.f67654e ? 1 : 0)) * 31) + (this.f67655f ? 1 : 0)) * 31) + (this.f67656g ? 1 : 0);
+        int hashCode = (((this.f68336a ? 1 : 0) * 31) + this.f68337b.hashCode()) * 31;
+        ByteBuffer byteBuffer = this.f68338c;
+        return ((((((((hashCode + (byteBuffer != null ? byteBuffer.hashCode() : 0)) * 31) + (this.f68339d ? 1 : 0)) * 31) + (this.f68340e ? 1 : 0)) * 31) + (this.f68341f ? 1 : 0)) * 31) + (this.f68342g ? 1 : 0);
     }
 
     public void i(boolean z) {
-        this.f67650a = z;
+        this.f68336a = z;
     }
 
     public void j(ByteBuffer byteBuffer) {
-        this.f67652c = byteBuffer;
+        this.f68338c = byteBuffer;
     }
 
     public void k(boolean z) {
-        this.f67654e = z;
+        this.f68340e = z;
     }
 
     public void l(boolean z) {
-        this.f67655f = z;
+        this.f68341f = z;
     }
 
     public void m(boolean z) {
-        this.f67656g = z;
+        this.f68342g = z;
     }
 
     public void n(boolean z) {
-        this.f67653d = z;
+        this.f68339d = z;
     }
 
     public String toString() {
@@ -180,11 +180,11 @@ public abstract class f implements Framedata {
         sb.append(", rsv3:");
         sb.append(e());
         sb.append(", payloadlength:[pos:");
-        sb.append(this.f67652c.position());
+        sb.append(this.f68338c.position());
         sb.append(", len:");
-        sb.append(this.f67652c.remaining());
+        sb.append(this.f68338c.remaining());
         sb.append("], payload:");
-        sb.append(this.f67652c.remaining() > 1000 ? "(too big to display)" : new String(this.f67652c.array()));
+        sb.append(this.f68338c.remaining() > 1000 ? "(too big to display)" : new String(this.f68338c.array()));
         sb.append('}');
         return sb.toString();
     }

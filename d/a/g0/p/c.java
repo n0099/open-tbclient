@@ -7,32 +7,32 @@ import android.text.TextUtils;
 public final class c implements d.a.g0.m.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f40999a;
+    public b f40244a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41000b;
+    public String f40245b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f41001c;
+    public Context f40246c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f41002d;
+    public a f40247d;
 
     @Override // d.a.g0.m.b
     public final String a() {
-        if (TextUtils.isEmpty(this.f41000b)) {
-            this.f41000b = this.f40999a.a();
+        if (TextUtils.isEmpty(this.f40245b)) {
+            this.f40245b = this.f40244a.a();
         }
-        return this.f41000b;
+        return this.f40245b;
     }
 
     @Override // d.a.g0.m.b
     public final void a(Context context, d.a.g0.m.c cVar) {
-        this.f40999a = new b(context);
-        this.f41001c = context;
+        this.f40244a = new b(context);
+        this.f40246c = context;
         if (b()) {
-            this.f41002d = new a(this);
-            context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f41002d);
+            this.f40247d = new a(this);
+            context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f40247d);
         }
     }
 

@@ -77,32 +77,32 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static final String PAGE_TYPE = "pageType";
 
     /* renamed from: e  reason: collision with root package name */
-    public static r f24912e = null;
+    public static r f24157e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f24913f = "";
+    public static String f24158f = "";
 
     /* renamed from: a  reason: collision with root package name */
-    public ListView f24914a;
+    public ListView f24159a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ag f24915b;
+    public ag f24160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f24916c;
+    public LinearLayout f24161c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NHFooterView f24917d;
+    public NHFooterView f24162d;
 
     /* renamed from: i  reason: collision with root package name */
-    public HomeCfgResponse f24920i;
+    public HomeCfgResponse f24165i;
     public WalletHomeActionBar j;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f24918g = toString() + hashCode();
+    public final String f24163g = toString() + hashCode();
 
     /* renamed from: h  reason: collision with root package name */
-    public String f24919h = HomeCfgBean.PAGE_HOME;
+    public String f24164h = HomeCfgBean.PAGE_HOME;
     public boolean k = false;
     public boolean l = false;
     public boolean m = false;
@@ -113,19 +113,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class a extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public BannerLayout f24923a;
+        public BannerLayout f24168a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24923a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24168a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             BannerLayout bannerLayout = new BannerLayout(context);
-            this.f24923a = bannerLayout;
+            this.f24168a = bannerLayout;
             return bannerLayout;
         }
     }
@@ -135,19 +135,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class aa extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NHSeperator f24924a;
+        public NHSeperator f24169a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24924a.setType(configData.getGroup_name());
+            this.f24169a.setType(configData.getGroup_name());
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             NHSeperator nHSeperator = new NHSeperator(context);
-            this.f24924a = nHSeperator;
+            this.f24169a = nHSeperator;
             return nHSeperator;
         }
     }
@@ -157,19 +157,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class ab extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NHToolGroup f24925a;
+        public NHToolGroup f24170a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24925a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24170a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             NHToolGroup nHToolGroup = new NHToolGroup(context);
-            this.f24925a = nHToolGroup;
+            this.f24170a = nHToolGroup;
             return nHToolGroup;
         }
     }
@@ -179,19 +179,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class ac extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public UMHBigCreditCardGroup f24926a;
+        public UMHBigCreditCardGroup f24171a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24926a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24171a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             UMHBigCreditCardGroup uMHBigCreditCardGroup = new UMHBigCreditCardGroup(context);
-            this.f24926a = uMHBigCreditCardGroup;
+            this.f24171a = uMHBigCreditCardGroup;
             return uMHBigCreditCardGroup;
         }
     }
@@ -201,19 +201,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class ad extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public UMHGuideGroup f24927a;
+        public UMHGuideGroup f24172a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24927a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24172a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             UMHGuideGroup uMHGuideGroup = new UMHGuideGroup(context);
-            this.f24927a = uMHGuideGroup;
+            this.f24172a = uMHGuideGroup;
             return uMHGuideGroup;
         }
     }
@@ -223,19 +223,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class ae extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public UMHHeadGroup f24928a;
+        public UMHHeadGroup f24173a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24928a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24173a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             UMHHeadGroup uMHHeadGroup = new UMHHeadGroup(context);
-            this.f24928a = uMHHeadGroup;
+            this.f24173a = uMHHeadGroup;
             return uMHHeadGroup;
         }
     }
@@ -245,19 +245,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class af extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public UMHNoticeBarGroup f24929a;
+        public UMHNoticeBarGroup f24174a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24929a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24174a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             UMHNoticeBarGroup uMHNoticeBarGroup = new UMHNoticeBarGroup(context);
-            this.f24929a = uMHNoticeBarGroup;
+            this.f24174a = uMHNoticeBarGroup;
             return uMHNoticeBarGroup;
         }
     }
@@ -266,15 +266,15 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class ag extends BaseListAdapter<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f24930a;
+        public int f24175a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f24931b;
+        public Handler f24176b;
 
         public ag(Context context) {
             super(context);
-            this.f24930a = 0;
-            this.f24931b = new Handler();
+            this.f24175a = 0;
+            this.f24176b = new Handler();
         }
 
         public ViewGroup a() {
@@ -282,7 +282,7 @@ public class WalletNewHomeActivity extends BeanActivity {
         }
 
         public void b() {
-            this.f24931b.post(new Runnable() { // from class: com.baidu.wallet.home.WalletNewHomeActivity.ag.1
+            this.f24176b.post(new Runnable() { // from class: com.baidu.wallet.home.WalletNewHomeActivity.ag.1
                 @Override // java.lang.Runnable
                 public void run() {
                     ag.this.notifyDataSetChanged();
@@ -650,7 +650,7 @@ public class WalletNewHomeActivity extends BeanActivity {
 
         @Override // android.widget.BaseAdapter
         public void notifyDataSetChanged() {
-            this.f24930a++;
+            this.f24175a++;
             super.notifyDataSetChanged();
         }
 
@@ -704,19 +704,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class b extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public CHBannerGroup f24933a;
+        public CHBannerGroup f24178a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24933a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24178a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             CHBannerGroup cHBannerGroup = new CHBannerGroup(context);
-            this.f24933a = cHBannerGroup;
+            this.f24178a = cHBannerGroup;
             return cHBannerGroup;
         }
     }
@@ -726,19 +726,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class c extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public CHBigCreditCardGroup f24934a;
+        public CHBigCreditCardGroup f24179a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24934a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24179a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             CHBigCreditCardGroup cHBigCreditCardGroup = new CHBigCreditCardGroup(context);
-            this.f24934a = cHBigCreditCardGroup;
+            this.f24179a = cHBigCreditCardGroup;
             return cHBigCreditCardGroup;
         }
     }
@@ -748,19 +748,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class d extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public CHCreditGroup f24935a;
+        public CHCreditGroup f24180a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24935a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24180a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             CHCreditGroup cHCreditGroup = new CHCreditGroup(context);
-            this.f24935a = cHCreditGroup;
+            this.f24180a = cHCreditGroup;
             return cHCreditGroup;
         }
     }
@@ -770,19 +770,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class e extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public CHFinanceEntryGroup f24936a;
+        public CHFinanceEntryGroup f24181a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24936a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24181a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             CHFinanceEntryGroup cHFinanceEntryGroup = new CHFinanceEntryGroup(context);
-            this.f24936a = cHFinanceEntryGroup;
+            this.f24181a = cHFinanceEntryGroup;
             return cHFinanceEntryGroup;
         }
     }
@@ -792,19 +792,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class f extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public CHFinanceProductGroup f24937a;
+        public CHFinanceProductGroup f24182a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24937a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24182a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             CHFinanceProductGroup cHFinanceProductGroup = new CHFinanceProductGroup(context);
-            this.f24937a = cHFinanceProductGroup;
+            this.f24182a = cHFinanceProductGroup;
             return cHFinanceProductGroup;
         }
     }
@@ -814,19 +814,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class g extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public CHFinanceUserGroup f24938a;
+        public CHFinanceUserGroup f24183a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24938a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24183a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             CHFinanceUserGroup cHFinanceUserGroup = new CHFinanceUserGroup(context);
-            this.f24938a = cHFinanceUserGroup;
+            this.f24183a = cHFinanceUserGroup;
             return cHFinanceUserGroup;
         }
     }
@@ -836,19 +836,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class h extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public CHLifeGridGroup f24939a;
+        public CHLifeGridGroup f24184a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24939a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24184a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             CHLifeGridGroup cHLifeGridGroup = new CHLifeGridGroup(context);
-            this.f24939a = cHLifeGridGroup;
+            this.f24184a = cHLifeGridGroup;
             return cHLifeGridGroup;
         }
     }
@@ -858,19 +858,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class i extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public CHMyCustomerGroup f24940a;
+        public CHMyCustomerGroup f24185a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24940a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24185a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             CHMyCustomerGroup cHMyCustomerGroup = new CHMyCustomerGroup(context);
-            this.f24940a = cHMyCustomerGroup;
+            this.f24185a = cHMyCustomerGroup;
             return cHMyCustomerGroup;
         }
     }
@@ -880,19 +880,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class j extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public CHNoticeBarGroup f24941a;
+        public CHNoticeBarGroup f24186a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24941a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24186a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             CHNoticeBarGroup cHNoticeBarGroup = new CHNoticeBarGroup(context);
-            this.f24941a = cHNoticeBarGroup;
+            this.f24186a = cHNoticeBarGroup;
             return cHNoticeBarGroup;
         }
     }
@@ -902,19 +902,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class k extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public CHToolGroup f24942a;
+        public CHToolGroup f24187a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24942a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24187a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             CHToolGroup cHToolGroup = new CHToolGroup(context);
-            this.f24942a = cHToolGroup;
+            this.f24187a = cHToolGroup;
             return cHToolGroup;
         }
     }
@@ -924,7 +924,7 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class l extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f24943a;
+        public View f24188a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
@@ -935,7 +935,7 @@ public class WalletNewHomeActivity extends BeanActivity {
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             View view = new View(context);
-            this.f24943a = view;
+            this.f24188a = view;
             return view;
         }
     }
@@ -945,19 +945,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class m extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public FinancingManageLayout f24944a;
+        public FinancingManageLayout f24189a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24944a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24189a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             FinancingManageLayout financingManageLayout = new FinancingManageLayout(context);
-            this.f24944a = financingManageLayout;
+            this.f24189a = financingManageLayout;
             return financingManageLayout;
         }
     }
@@ -967,19 +967,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class n extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public HomeInformationLayout f24945a;
+        public HomeInformationLayout f24190a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24945a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24190a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             HomeInformationLayout homeInformationLayout = new HomeInformationLayout(context);
-            this.f24945a = homeInformationLayout;
+            this.f24190a = homeInformationLayout;
             return homeInformationLayout;
         }
     }
@@ -989,19 +989,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class o extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public HomeRecommendView f24946a;
+        public HomeRecommendView f24191a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24946a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24191a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             HomeRecommendView homeRecommendView = new HomeRecommendView(context);
-            this.f24946a = homeRecommendView;
+            this.f24191a = homeRecommendView;
             return homeRecommendView;
         }
     }
@@ -1011,19 +1011,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class p extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public LifeGridLayout f24947a;
+        public LifeGridLayout f24192a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24947a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24192a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             LifeGridLayout lifeGridLayout = new LifeGridLayout(context);
-            this.f24947a = lifeGridLayout;
+            this.f24192a = lifeGridLayout;
             return lifeGridLayout;
         }
     }
@@ -1033,19 +1033,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class q extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public LifeSingleLineLayoutForType6 f24948a;
+        public LifeSingleLineLayoutForType6 f24193a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24948a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24193a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             LifeSingleLineLayoutForType6 lifeSingleLineLayoutForType6 = new LifeSingleLineLayoutForType6(context);
-            this.f24948a = lifeSingleLineLayoutForType6;
+            this.f24193a = lifeSingleLineLayoutForType6;
             return lifeSingleLineLayoutForType6;
         }
     }
@@ -1054,57 +1054,57 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class r implements com.baidu.wallet.home.ui.widget.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public ag f24949a;
+        public ag f24194a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HomeCfgResponse f24950b;
+        public HomeCfgResponse f24195b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f24951c;
+        public Context f24196c;
 
         /* renamed from: d  reason: collision with root package name */
-        public WeakReference<Activity> f24952d;
+        public WeakReference<Activity> f24197d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f24953e;
+        public String f24198e;
 
         public r(Activity activity, ag agVar, String str) {
-            this.f24953e = str;
-            this.f24951c = activity.getApplicationContext();
-            this.f24952d = new WeakReference<>(activity);
-            this.f24949a = agVar;
+            this.f24198e = str;
+            this.f24196c = activity.getApplicationContext();
+            this.f24197d = new WeakReference<>(activity);
+            this.f24194a = agVar;
         }
 
         public void a(HomeCfgResponse homeCfgResponse) {
-            this.f24950b = homeCfgResponse;
-            com.baidu.wallet.home.a.a().a(this.f24950b.abtype);
+            this.f24195b = homeCfgResponse;
+            com.baidu.wallet.home.a.a().a(this.f24195b.abtype);
         }
 
         @Override // com.baidu.wallet.home.ui.widget.b
         public String getAndroidPrefix() {
-            return TextUtils.isEmpty(this.f24950b.android_prefix) ? "" : this.f24950b.android_prefix;
+            return TextUtils.isEmpty(this.f24195b.android_prefix) ? "" : this.f24195b.android_prefix;
         }
 
         @Override // com.baidu.wallet.home.ui.widget.b
         public String getPageType() {
-            return this.f24953e;
+            return this.f24198e;
         }
 
         @Override // com.baidu.wallet.home.ui.widget.b
         public boolean isLoginData() {
-            return this.f24950b.isLogin();
+            return this.f24195b.isLogin();
         }
 
         @Override // com.baidu.wallet.home.ui.widget.b
         public void jump(String str, String str2, String str3, boolean z) {
-            WeakReference<Activity> weakReference = this.f24952d;
-            com.baidu.wallet.home.a.a().a((weakReference == null || weakReference.get() == null) ? this.f24951c : this.f24952d.get(), str, str2, str3, z, this.f24953e);
+            WeakReference<Activity> weakReference = this.f24197d;
+            com.baidu.wallet.home.a.a().a((weakReference == null || weakReference.get() == null) ? this.f24196c : this.f24197d.get(), str, str2, str3, z, this.f24198e);
         }
 
         @Override // com.baidu.wallet.home.ui.widget.b
         public void login() {
             WalletLoginHelper.getInstance().setIntervalDuration(0L);
-            WalletLoginHelper.getInstance().onlyLogin(new LoginBackListenerProxy(this.f24951c, new ILoginBackListener() { // from class: com.baidu.wallet.home.WalletNewHomeActivity.r.1
+            WalletLoginHelper.getInstance().onlyLogin(new LoginBackListenerProxy(this.f24196c, new ILoginBackListener() { // from class: com.baidu.wallet.home.WalletNewHomeActivity.r.1
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i2, String str) {
                     if (i2 == 603) {
@@ -1120,14 +1120,14 @@ public class WalletNewHomeActivity extends BeanActivity {
 
         @Override // com.baidu.wallet.home.ui.widget.b
         public void onEyeMaskBtnClick() {
-            boolean z = !com.baidu.wallet.home.storage.a.a(this.f24951c);
-            com.baidu.wallet.home.storage.a.a(this.f24951c, z);
-            String str = com.baidu.wallet.home.a.a.f24967a;
+            boolean z = !com.baidu.wallet.home.storage.a.a(this.f24196c);
+            com.baidu.wallet.home.storage.a.a(this.f24196c, z);
+            String str = com.baidu.wallet.home.a.a.f24212a;
             String[] strArr = new String[1];
             strArr[0] = z ? "true" : "false";
             DXMSdkSAUtils.onEventWithValues(str, Arrays.asList(strArr));
-            PayStatisticsUtil.onEventWithValue(com.baidu.wallet.home.a.a.f24967a, z ? "true" : "false");
-            ag agVar = this.f24949a;
+            PayStatisticsUtil.onEventWithValue(com.baidu.wallet.home.a.a.f24212a, z ? "true" : "false");
+            ag agVar = this.f24194a;
             if (agVar != null) {
                 ListView listView = (ListView) agVar.a();
                 for (int i2 = 0; i2 < listView.getChildCount(); i2++) {
@@ -1135,7 +1135,7 @@ public class WalletNewHomeActivity extends BeanActivity {
                         ((BaseItemLayout) listView.getChildAt(i2)).onEyeMaskChanged();
                     }
                 }
-                this.f24949a.b();
+                this.f24194a.b();
             }
         }
 
@@ -1149,19 +1149,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class s extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NHAssetGroup f24955a;
+        public NHAssetGroup f24200a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24955a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24200a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             NHAssetGroup nHAssetGroup = new NHAssetGroup(context);
-            this.f24955a = nHAssetGroup;
+            this.f24200a = nHAssetGroup;
             return nHAssetGroup;
         }
     }
@@ -1171,19 +1171,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class t extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NHBannerGroup f24956a;
+        public NHBannerGroup f24201a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24956a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24201a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             NHBannerGroup nHBannerGroup = new NHBannerGroup(context);
-            this.f24956a = nHBannerGroup;
+            this.f24201a = nHBannerGroup;
             return nHBannerGroup;
         }
     }
@@ -1193,19 +1193,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class u extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NHCreditLongGroup f24957a;
+        public NHCreditLongGroup f24202a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24957a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24202a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             NHCreditLongGroup nHCreditLongGroup = new NHCreditLongGroup(context);
-            this.f24957a = nHCreditLongGroup;
+            this.f24202a = nHCreditLongGroup;
             return nHCreditLongGroup;
         }
     }
@@ -1215,19 +1215,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class v extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NHCreditMiniGroup f24958a;
+        public NHCreditMiniGroup f24203a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24958a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24203a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             NHCreditMiniGroup nHCreditMiniGroup = new NHCreditMiniGroup(context);
-            this.f24958a = nHCreditMiniGroup;
+            this.f24203a = nHCreditMiniGroup;
             return nHCreditMiniGroup;
         }
     }
@@ -1237,19 +1237,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class w extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NHCreditPicGroup f24959a;
+        public NHCreditPicGroup f24204a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24959a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24204a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             NHCreditPicGroup nHCreditPicGroup = new NHCreditPicGroup(context);
-            this.f24959a = nHCreditPicGroup;
+            this.f24204a = nHCreditPicGroup;
             return nHCreditPicGroup;
         }
     }
@@ -1259,19 +1259,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class x extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NHCreditGroup f24960a;
+        public NHCreditGroup f24205a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24960a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24205a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             NHCreditGroup nHCreditGroup = new NHCreditGroup(context);
-            this.f24960a = nHCreditGroup;
+            this.f24205a = nHCreditGroup;
             return nHCreditGroup;
         }
     }
@@ -1281,19 +1281,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class y extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NHHorListLayout f24961a;
+        public NHHorListLayout f24206a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24961a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24206a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             NHHorListLayout nHHorListLayout = new NHHorListLayout(context);
-            this.f24961a = nHHorListLayout;
+            this.f24206a = nHHorListLayout;
             return nHHorListLayout;
         }
     }
@@ -1303,19 +1303,19 @@ public class WalletNewHomeActivity extends BeanActivity {
     public static class z extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.ConfigData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NHLifeGridLayout f24962a;
+        public NHLifeGridLayout f24207a;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         /* renamed from: a */
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
-            this.f24962a.setConfigData(configData, WalletNewHomeActivity.f24912e);
+            this.f24207a.setConfigData(configData, WalletNewHomeActivity.f24157e);
         }
 
         @Override // com.baidu.wallet.base.widget.listview.BaseListAdapter.BaseViewHolder
         public View createView(Context context) {
             NHLifeGridLayout nHLifeGridLayout = new NHLifeGridLayout(context);
-            this.f24962a = nHLifeGridLayout;
+            this.f24207a = nHLifeGridLayout;
             return nHLifeGridLayout;
         }
     }
@@ -1323,16 +1323,16 @@ public class WalletNewHomeActivity extends BeanActivity {
     private void a() {
         initHomeActionBar("dxm_finance_brand");
         this.j = (WalletHomeActionBar) findViewById(ResUtils.id(this.mAct, "bdactionbar"));
-        if (HomeCfgBean.PAGE_CREDIT.equals(this.f24919h)) {
+        if (HomeCfgBean.PAGE_CREDIT.equals(this.f24164h)) {
             this.j.setRightImgZone1Visibility(4);
         }
     }
 
     private void b() {
         this.m = false;
-        HomeCfgResponse responseFromCache = HomeDataCacheManager.getInstance().getResponseFromCache(this.mAct, this.f24919h);
+        HomeCfgResponse responseFromCache = HomeDataCacheManager.getInstance().getResponseFromCache(this.mAct, this.f24164h);
         if (responseFromCache != null && responseFromCache.doCheckValidity()) {
-            this.f24920i = responseFromCache;
+            this.f24165i = responseFromCache;
             this.m = true;
             c();
             d();
@@ -1349,59 +1349,59 @@ public class WalletNewHomeActivity extends BeanActivity {
                 return;
             }
         }
-        HomeCfgResponse homeCfgResponse = this.f24920i;
+        HomeCfgResponse homeCfgResponse = this.f24165i;
         if (homeCfgResponse == null || !homeCfgResponse.doCheckValidity()) {
-            this.f24920i = HomeDataCacheManager.getInstance().getResponseFromAsset(this.mAct, this.f24919h);
+            this.f24165i = HomeDataCacheManager.getInstance().getResponseFromAsset(this.mAct, this.f24164h);
         }
-        HomeCfgResponse homeCfgResponse2 = this.f24920i;
+        HomeCfgResponse homeCfgResponse2 = this.f24165i;
         if (homeCfgResponse2 == null || !homeCfgResponse2.doCheckValidity()) {
             return;
         }
-        r rVar = f24912e;
+        r rVar = f24157e;
         if (rVar != null) {
-            rVar.a(this.f24920i);
+            rVar.a(this.f24165i);
         }
-        this.f24916c.setBackgroundColor(ResUtils.getColor(this, "5".equals(this.f24920i.version) ? "wallet_home_nh_whiteColor" : "wallet_extend_home_nh_separate_bright"));
+        this.f24161c.setBackgroundColor(ResUtils.getColor(this, "5".equals(this.f24165i.version) ? "wallet_home_nh_whiteColor" : "wallet_extend_home_nh_separate_bright"));
         WalletHomeActionBar walletHomeActionBar = this.j;
         BeanActivity beanActivity = this.mAct;
-        HomeCfgResponse homeCfgResponse3 = this.f24920i;
-        walletHomeActionBar.toRefreshTitleBar(beanActivity, homeCfgResponse3.android_prefix, homeCfgResponse3.layout_title, this.f24919h);
-        HomeCfgResponse.ConfigData[] a2 = com.baidu.wallet.home.ui.widget.newhome.a.a(this.f24920i);
-        this.f24915b.initList(Arrays.asList(a2));
-        a(this.f24920i, a2);
+        HomeCfgResponse homeCfgResponse3 = this.f24165i;
+        walletHomeActionBar.toRefreshTitleBar(beanActivity, homeCfgResponse3.android_prefix, homeCfgResponse3.layout_title, this.f24164h);
+        HomeCfgResponse.ConfigData[] a2 = com.baidu.wallet.home.ui.widget.newhome.a.a(this.f24165i);
+        this.f24160b.initList(Arrays.asList(a2));
+        a(this.f24165i, a2);
     }
 
     private void d() {
         this.l = false;
-        HomeCfgBean homeCfgBean = (HomeCfgBean) WalletHomeBeanFactory.getInstance().getBean((Context) this.mAct, WalletHomeBeanFactory.BEAN_ID_HOME_CFG, this.f24918g);
+        HomeCfgBean homeCfgBean = (HomeCfgBean) WalletHomeBeanFactory.getInstance().getBean((Context) this.mAct, WalletHomeBeanFactory.BEAN_ID_HOME_CFG, this.f24163g);
         homeCfgBean.setAbtypeHomePage(true);
-        HomeCfgResponse homeCfgResponse = this.f24920i;
+        HomeCfgResponse homeCfgResponse = this.f24165i;
         if (homeCfgResponse != null) {
             HomeCfgResponse.AllConfig allConfig = homeCfgResponse.layout_content;
             if (allConfig != null && !TextUtils.isEmpty(allConfig.fingerprint)) {
-                homeCfgBean.setAllFingerPrint(this.f24920i.layout_content.fingerprint);
+                homeCfgBean.setAllFingerPrint(this.f24165i.layout_content.fingerprint);
             } else {
                 homeCfgBean.setAllFingerPrint(null);
             }
-            HomeCfgResponse.TitleConfig titleConfig = this.f24920i.layout_title;
+            HomeCfgResponse.TitleConfig titleConfig = this.f24165i.layout_title;
             if (titleConfig != null && !TextUtils.isEmpty(titleConfig.fingerprint)) {
-                homeCfgBean.setTitleFingerPrint(this.f24920i.layout_title.fingerprint);
+                homeCfgBean.setTitleFingerPrint(this.f24165i.layout_title.fingerprint);
             } else {
                 homeCfgBean.setTitleFingerPrint(null);
             }
-            HomeCfgResponse.FooterConfig footerConfig = this.f24920i.layout_footer;
+            HomeCfgResponse.FooterConfig footerConfig = this.f24165i.layout_footer;
             if (footerConfig != null && !TextUtils.isEmpty(footerConfig.fingerprint)) {
-                homeCfgBean.setFooterFingerPrint(this.f24920i.layout_footer.fingerprint);
+                homeCfgBean.setFooterFingerPrint(this.f24165i.layout_footer.fingerprint);
             } else {
                 homeCfgBean.setFooterFingerPrint(null);
             }
-            if (this.f24920i.doCheckValidity() && !TextUtils.isEmpty(this.f24920i.changedSign)) {
-                homeCfgBean.setChangeSign(this.f24920i.changedSign);
+            if (this.f24165i.doCheckValidity() && !TextUtils.isEmpty(this.f24165i.changedSign)) {
+                homeCfgBean.setChangeSign(this.f24165i.changedSign);
             } else {
                 homeCfgBean.setChangeSign(null);
             }
         }
-        homeCfgBean.setPageId(TextUtils.isEmpty(this.f24919h) ? HomeCfgBean.PAGE_HOME : this.f24919h);
+        homeCfgBean.setPageId(TextUtils.isEmpty(this.f24164h) ? HomeCfgBean.PAGE_HOME : this.f24164h);
         homeCfgBean.setResponseCallback(this);
         homeCfgBean.execBean();
     }
@@ -1459,25 +1459,25 @@ public class WalletNewHomeActivity extends BeanActivity {
         }
         HomeCfgResponse homeCfgResponse = (HomeCfgResponse) obj;
         if (homeCfgResponse.doCheckValidity()) {
-            this.f24920i = homeCfgResponse;
+            this.f24165i = homeCfgResponse;
             if (!homeCfgResponse.isLogin()) {
                 AccountManager.getInstance(getActivity()).logout();
             }
-            this.f24920i.doStoreResponse(this.mAct, this.f24919h);
+            this.f24165i.doStoreResponse(this.mAct, this.f24164h);
             c();
             this.l = true;
         }
     }
 
     public void initViews() {
-        this.f24916c = (LinearLayout) findViewById(ResUtils.id(this, "homerootview"));
-        this.f24914a = (ListView) findViewById(ResUtils.id(this, "listview"));
+        this.f24161c = (LinearLayout) findViewById(ResUtils.id(this, "homerootview"));
+        this.f24159a = (ListView) findViewById(ResUtils.id(this, "listview"));
         ag agVar = new ag(this);
-        this.f24915b = agVar;
-        this.f24914a.setAdapter((ListAdapter) agVar);
-        this.f24914a.setBackgroundColor(ResUtils.getColor(this, "bd_wallet_white"));
-        f24913f = this.f24918g;
-        f24912e = new r(getActivity(), this.f24915b, this.f24919h);
+        this.f24160b = agVar;
+        this.f24159a.setAdapter((ListAdapter) agVar);
+        this.f24159a.setBackgroundColor(ResUtils.getColor(this, "bd_wallet_white"));
+        f24158f = this.f24163g;
+        f24157e = new r(getActivity(), this.f24160b, this.f24164h);
         a();
     }
 
@@ -1519,7 +1519,7 @@ public class WalletNewHomeActivity extends BeanActivity {
         this.n = true;
         String string = getIntent().getExtras().getString("pageType");
         if (!TextUtils.isEmpty(string)) {
-            this.f24919h = string;
+            this.f24164h = string;
         }
         getActivity().getWindow().setSoftInputMode(3);
         setContentView(ResUtils.layout(this.mAct, "wallet_home_main_new"));
@@ -1530,9 +1530,9 @@ public class WalletNewHomeActivity extends BeanActivity {
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        BeanManager.getInstance().removeAllBeans(this.f24918g);
-        if (f24913f.equals(this.f24918g)) {
-            f24912e = null;
+        BeanManager.getInstance().removeAllBeans(this.f24163g);
+        if (f24158f.equals(this.f24163g)) {
+            f24157e = null;
         }
     }
 
@@ -1541,7 +1541,7 @@ public class WalletNewHomeActivity extends BeanActivity {
         super.onNewIntent(intent);
         String string = intent.getExtras().getString("pageType");
         if (!TextUtils.isEmpty(string)) {
-            this.f24919h = string;
+            this.f24164h = string;
         }
         this.l = false;
         this.m = false;
@@ -1561,14 +1561,14 @@ public class WalletNewHomeActivity extends BeanActivity {
     }
 
     private void a(HomeCfgResponse homeCfgResponse, HomeCfgResponse.ConfigData[] configDataArr) {
-        if (homeCfgResponse.layout_footer != null && this.f24917d == null) {
+        if (homeCfgResponse.layout_footer != null && this.f24162d == null) {
             NHFooterView nHFooterView = new NHFooterView(this);
-            this.f24917d = nHFooterView;
-            this.f24914a.addFooterView(nHFooterView);
+            this.f24162d = nHFooterView;
+            this.f24159a.addFooterView(nHFooterView);
         }
-        if (this.f24917d != null) {
-            r rVar = f24912e;
-            this.f24917d.setData(homeCfgResponse, f24912e, rVar == null ? 0 : measureHomeLayout(this, configDataArr, rVar));
+        if (this.f24162d != null) {
+            r rVar = f24157e;
+            this.f24162d.setData(homeCfgResponse, f24157e, rVar == null ? 0 : measureHomeLayout(this, configDataArr, rVar));
         }
     }
 }

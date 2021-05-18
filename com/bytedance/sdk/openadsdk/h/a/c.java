@@ -9,39 +9,39 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.x;
 import com.bytedance.sdk.openadsdk.utils.y;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c<T extends c> implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30005a;
+    public String f29250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30006b;
+    public String f29251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30007c;
+    public String f29252c;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30009e;
+    public String f29254e;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30012h;
+    public String f29257h;
     public String j;
     public String k;
     public String l;
     public String m;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30008d = "3.4.5.5";
+    public String f29253d = "3.4.5.5";
 
     /* renamed from: f  reason: collision with root package name */
-    public long f30010f = System.currentTimeMillis() / 1000;
+    public long f29255f = System.currentTimeMillis() / 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30011g = 0;
+    public int f29256g = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30013i = 0;
+    public int f29258i = 0;
 
     public static c<c> b() {
         return new c<>();
@@ -117,7 +117,7 @@ public class c<T extends c> implements a {
     }
 
     public String c() {
-        return this.f30005a;
+        return this.f29250a;
     }
 
     public String d() {
@@ -125,35 +125,35 @@ public class c<T extends c> implements a {
     }
 
     public String e() {
-        return this.f30006b;
+        return this.f29251b;
     }
 
     public String f() {
-        return this.f30007c;
+        return this.f29252c;
     }
 
     public String g() {
-        return this.f30008d;
+        return this.f29253d;
     }
 
     public String h() {
-        return this.f30009e;
+        return this.f29254e;
     }
 
     public long i() {
-        return this.f30010f;
+        return this.f29255f;
     }
 
     public int j() {
-        return this.f30011g;
+        return this.f29256g;
     }
 
     public String k() {
-        return this.f30012h;
+        return this.f29257h;
     }
 
     public int l() {
-        return this.f30013i;
+        return this.f29258i;
     }
 
     public String m() {
@@ -174,22 +174,22 @@ public class c<T extends c> implements a {
     }
 
     public T c(String str) {
-        this.f30006b = str;
+        this.f29251b = str;
         return q();
     }
 
     public T d(String str) {
-        this.f30007c = str;
+        this.f29252c = str;
         return q();
     }
 
     public T e(String str) {
-        this.f30008d = str;
+        this.f29253d = str;
         return q();
     }
 
     public T f(String str) {
-        this.f30012h = str;
+        this.f29257h = str;
         return q();
     }
 
@@ -209,22 +209,22 @@ public class c<T extends c> implements a {
     }
 
     public T b(int i2) {
-        this.f30013i = i2;
+        this.f29258i = i2;
         return q();
     }
 
     public T c(long j) {
-        this.f30010f = j;
+        this.f29255f = j;
         return q();
     }
 
     public T a(String str) {
-        this.f30005a = str;
+        this.f29250a = str;
         return q();
     }
 
     public T a(int i2) {
-        this.f30011g = i2;
+        this.f29256g = i2;
         return q();
     }
 }

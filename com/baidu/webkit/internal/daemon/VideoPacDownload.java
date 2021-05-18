@@ -35,7 +35,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
                 Log.w(LOG_TAG, "restoreLastData null");
                 return;
             }
-            Log.w(LOG_TAG, "restoreLastData  " + str);
+            Log.w(LOG_TAG, "restoreLastData  ".concat(String.valueOf(str)));
             VideoFreeFlowConfigManager.getInstance().setPacData(str);
         } catch (Throwable th) {
             th.printStackTrace();
@@ -147,9 +147,9 @@ public class VideoPacDownload implements IResourceTask, INetListener {
             Map<String, String> map = this.mHeader;
             if (map != null) {
                 String str2 = map.get("Last-Modified");
-                Log.w(LOG_TAG, "lastModify " + str2);
+                Log.w(LOG_TAG, "lastModify ".concat(String.valueOf(str2)));
                 if (str2 != null) {
-                    Log.w(LOG_TAG, "lastModify1 " + str2);
+                    Log.w(LOG_TAG, "lastModify1 ".concat(String.valueOf(str2)));
                     CfgFileUtils.set(CfgFileUtils.KEY_VIDEO_PROXY_LASTMODIFY, str2);
                 }
             }
@@ -162,7 +162,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
                 CfgFileUtils.set(CfgFileUtils.KEY_VIDEO_PROXY_DATA, str3);
                 return;
             } catch (Exception e2) {
-                str = "mTimgConfData1 " + e2;
+                str = "mTimgConfData1 ".concat(String.valueOf(e2));
             }
         } else {
             str = "mData==null";
@@ -185,7 +185,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
 
     @Override // com.baidu.webkit.internal.resource.IResourceTask
     public void onResourceReady(String str, IResourceTask.ResultType resultType) {
-        Log.w(LOG_TAG, "onResourceReady1 " + resultType);
+        Log.w(LOG_TAG, "onResourceReady1 ".concat(String.valueOf(resultType)));
         if (str != null) {
             Log.w(LOG_TAG, "onResourceReady2 " + str.length());
             VideoFreeFlowConfigManager.getInstance().setPacData(str);

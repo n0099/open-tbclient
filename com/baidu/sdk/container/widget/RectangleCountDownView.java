@@ -14,10 +14,10 @@ import d.a.d0.a.k.h;
 public class RectangleCountDownView extends AbsCountDownView {
 
     /* renamed from: h  reason: collision with root package name */
-    public long f11069h;
+    public long f10106h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f11070i;
+    public long f10107i;
     public long j;
 
     public RectangleCountDownView(Context context) {
@@ -27,8 +27,8 @@ public class RectangleCountDownView extends AbsCountDownView {
     @Override // com.baidu.sdk.container.widget.AbsCountDownView
     public void b() {
         setTaskPeriod(250L);
-        this.f11069h = System.currentTimeMillis();
-        setText(String.format("跳过 %02d", Long.valueOf(this.f11070i / 1000)));
+        this.f10106h = System.currentTimeMillis();
+        setText(String.format("跳过 %02d", Long.valueOf(this.f10107i / 1000)));
         super.b();
     }
 
@@ -39,13 +39,13 @@ public class RectangleCountDownView extends AbsCountDownView {
 
     @Override // com.baidu.sdk.container.widget.AbsCountDownView
     public void d() {
-        long currentTimeMillis = this.f11070i - (System.currentTimeMillis() - this.f11069h);
+        long currentTimeMillis = this.f10107i - (System.currentTimeMillis() - this.f10106h);
         this.j = currentTimeMillis;
         if (currentTimeMillis > 0) {
             postInvalidate();
             return;
         }
-        AbsCountDownView.b bVar = this.f11041f;
+        AbsCountDownView.b bVar = this.f10078f;
         if (bVar != null) {
             bVar.onEnd();
             c();
@@ -67,7 +67,7 @@ public class RectangleCountDownView extends AbsCountDownView {
         gradientDrawable.setCornerRadius(h.a(context, 15.0f));
         gradientDrawable.setColor(Color.parseColor("#33000000"));
         setBackground(gradientDrawable);
-        setText(String.format("跳过 %02d", Long.valueOf(this.f11070i / 1000)));
+        setText(String.format("跳过 %02d", Long.valueOf(this.f10107i / 1000)));
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -78,7 +78,7 @@ public class RectangleCountDownView extends AbsCountDownView {
 
     @Override // com.baidu.sdk.container.widget.AbsCountDownView
     public void setTimeMillis(long j) {
-        this.f11070i = j;
+        this.f10107i = j;
         this.j = j;
     }
 
@@ -88,7 +88,7 @@ public class RectangleCountDownView extends AbsCountDownView {
 
     public RectangleCountDownView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11069h = 0L;
+        this.f10106h = 0L;
         f(context, attributeSet);
     }
 }

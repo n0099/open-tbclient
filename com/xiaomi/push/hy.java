@@ -16,7 +16,7 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
     public static final jg f599a = new jg("XmPushActionCollectData");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f38651a = new iy("", (byte) 15, 1);
+    public static final iy f37896a = new iy("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -24,11 +24,11 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
     public int compareTo(hy hyVar) {
         int a2;
         if (hy.class.equals(hyVar.getClass())) {
-            int compareTo = Boolean.valueOf(m417a()).compareTo(Boolean.valueOf(hyVar.m417a()));
+            int compareTo = Boolean.valueOf(m416a()).compareTo(Boolean.valueOf(hyVar.m416a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m417a() || (a2 = ir.a(this.f600a, hyVar.f600a)) == 0) {
+            if (!m416a() || (a2 = ir.a(this.f600a, hyVar.f600a)) == 0) {
                 return 0;
             }
             return a2;
@@ -50,19 +50,19 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.iq
     public void a(jb jbVar) {
-        jbVar.m512a();
+        jbVar.m511a();
         while (true) {
-            iy m508a = jbVar.m508a();
-            byte b2 = m508a.f38795a;
+            iy m507a = jbVar.m507a();
+            byte b2 = m507a.f38040a;
             if (b2 == 0) {
                 jbVar.f();
                 a();
                 return;
             }
-            if (m508a.f807a == 1 && b2 == 15) {
-                iz m509a = jbVar.m509a();
-                this.f600a = new ArrayList(m509a.f808a);
-                for (int i2 = 0; i2 < m509a.f808a; i2++) {
+            if (m507a.f807a == 1 && b2 == 15) {
+                iz m508a = jbVar.m508a();
+                this.f600a = new ArrayList(m508a.f808a);
+                for (int i2 = 0; i2 < m508a.f808a; i2++) {
                     hn hnVar = new hn();
                     hnVar.a(jbVar);
                     this.f600a.add(hnVar);
@@ -76,19 +76,19 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m417a() {
+    public boolean m416a() {
         return this.f600a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m418a(hy hyVar) {
+    public boolean m417a(hy hyVar) {
         if (hyVar == null) {
             return false;
         }
-        boolean m417a = m417a();
-        boolean m417a2 = hyVar.m417a();
-        if (m417a || m417a2) {
-            return m417a && m417a2 && this.f600a.equals(hyVar.f600a);
+        boolean m416a = m416a();
+        boolean m416a2 = hyVar.m416a();
+        if (m416a || m416a2) {
+            return m416a && m416a2 && this.f600a.equals(hyVar.f600a);
         }
         return true;
     }
@@ -98,7 +98,7 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
         a();
         jbVar.a(f599a);
         if (this.f600a != null) {
-            jbVar.a(f38651a);
+            jbVar.a(f37896a);
             jbVar.a(new iz(StandardMessageCodec.LIST, this.f600a.size()));
             for (hn hnVar : this.f600a) {
                 hnVar.b(jbVar);
@@ -107,12 +107,12 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         jbVar.c();
-        jbVar.m516a();
+        jbVar.m515a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hy)) {
-            return m418a((hy) obj);
+            return m417a((hy) obj);
         }
         return false;
     }

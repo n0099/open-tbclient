@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityOpenPageAuto;
 import d.a.c.e.m.b;
-import d.a.i0.d.f;
-import d.a.i0.t.k;
-import d.a.j0.s.a;
+import d.a.j0.d.f;
+import d.a.j0.t.k;
+import d.a.k0.s.a;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpenPage {
@@ -45,19 +45,18 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         Uri parse = Uri.parse(pageStringValue.getResult());
         final AlaPersonCenterActivityConfig alaPersonCenterActivityConfig = new AlaPersonCenterActivityConfig(TbadkCoreApplication.getInst(), parse.getQueryParameter("kUid"), parse.getQueryParameter(TbEnum.SystemMessage.KEY_USER_NAME), parse.getQueryParameter("portrait"), b.d(parse.getQueryParameter("sex"), 0), true);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, new f() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.UtilityOpenPage.1
-            @Override // d.a.i0.d.f
+            @Override // d.a.j0.d.f
             public void onFail() {
                 onSwitchGet(false);
             }
 
-            @Override // d.a.i0.d.f
+            @Override // d.a.j0.d.f
             public void onSwitchGet(boolean z) {
-                TbPageContextSupport tbPageContextSupport;
                 if (z) {
-                    if (!(TbadkApplication.getInst().getCurrentActivity() instanceof TbPageContextSupport) || (tbPageContextSupport = (TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()) == null) {
+                    if (TbadkApplication.getInst().getCurrentActivity() instanceof TbPageContextSupport) {
+                        UrlManager.getInstance().dealOneLink(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{UrlSchemaHelper.GO_TO_YY_PERSONAL_CENTER_PAGE});
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{UrlSchemaHelper.GO_TO_YY_PERSONAL_CENTER_PAGE});
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, alaPersonCenterActivityConfig));
@@ -90,7 +89,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         if (toWhereParam.getResult() == null) {
             return;
         }
-        d.a.i0.r.a0.b.g(TbadkCoreApplication.getInst(), toWhereParam.getResult().intValue(), false);
+        d.a.j0.r.a0.b.g(TbadkCoreApplication.getInst(), toWhereParam.getResult().intValue(), false);
     }
 
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityOpenPageAuto.HostUtilityOpenPage
@@ -109,7 +108,10 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
 
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityOpenPageAuto.HostUtilityOpenPage
     public void goToSignIn(TiebaUtilityOpenPageAuto.SignInParam signInParam) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SignAllForumActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity())));
+        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+        if (currentActivity instanceof TbPageContextSupport) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SignAllForumActivityConfig(currentActivity)));
+        }
     }
 
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityOpenPageAuto.HostUtilityOpenPage
@@ -146,7 +148,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
     public void postSignProcess(TiebaUtilityOpenPageAuto.SignProcessParam signProcessParam) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity instanceof TbPageContextSupport) {
-            d.a.i0.s.d.f.c().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
+            d.a.j0.s.d.f.c().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
         }
     }
 

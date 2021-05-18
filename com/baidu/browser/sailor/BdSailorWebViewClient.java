@@ -67,6 +67,11 @@ public class BdSailorWebViewClient implements INoProGuard {
     public void onUnhandledKeyEvent(BdSailorWebView bdSailorWebView, KeyEvent keyEvent) {
     }
 
+    public WebResourceResponse shouldInterceptRequest(BdSailorWebView bdSailorWebView, WebResourceRequest webResourceRequest) {
+        return null;
+    }
+
+    @Deprecated
     public WebResourceResponse shouldInterceptRequest(BdSailorWebView bdSailorWebView, String str) {
         return null;
     }

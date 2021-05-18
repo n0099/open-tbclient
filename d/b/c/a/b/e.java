@@ -2,17 +2,17 @@ package d.b.c.a.b;
 
 import java.net.InetSocketAddress;
 import java.net.Proxy;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f64803a;
+    public final b f65489a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Proxy f64804b;
+    public final Proxy f65490b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final InetSocketAddress f64805c;
+    public final InetSocketAddress f65491c;
 
     public e(b bVar, Proxy proxy, InetSocketAddress inetSocketAddress) {
         if (bVar == null) {
@@ -22,34 +22,34 @@ public final class e {
             throw new NullPointerException("proxy == null");
         }
         if (inetSocketAddress != null) {
-            this.f64803a = bVar;
-            this.f64804b = proxy;
-            this.f64805c = inetSocketAddress;
+            this.f65489a = bVar;
+            this.f65490b = proxy;
+            this.f65491c = inetSocketAddress;
             return;
         }
         throw new NullPointerException("inetSocketAddress == null");
     }
 
     public b a() {
-        return this.f64803a;
+        return this.f65489a;
     }
 
     public Proxy b() {
-        return this.f64804b;
+        return this.f65490b;
     }
 
     public InetSocketAddress c() {
-        return this.f64805c;
+        return this.f65491c;
     }
 
     public boolean d() {
-        return this.f64803a.f64781i != null && this.f64804b.type() == Proxy.Type.HTTP;
+        return this.f65489a.f65467i != null && this.f65490b.type() == Proxy.Type.HTTP;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof e) {
             e eVar = (e) obj;
-            if (eVar.f64803a.equals(this.f64803a) && eVar.f64804b.equals(this.f64804b) && eVar.f64805c.equals(this.f64805c)) {
+            if (eVar.f65489a.equals(this.f65489a) && eVar.f65490b.equals(this.f65490b) && eVar.f65491c.equals(this.f65491c)) {
                 return true;
             }
         }
@@ -57,10 +57,10 @@ public final class e {
     }
 
     public int hashCode() {
-        return ((((527 + this.f64803a.hashCode()) * 31) + this.f64804b.hashCode()) * 31) + this.f64805c.hashCode();
+        return ((((527 + this.f65489a.hashCode()) * 31) + this.f65490b.hashCode()) * 31) + this.f65491c.hashCode();
     }
 
     public String toString() {
-        return "Route{" + this.f64805c + "}";
+        return "Route{" + this.f65491c + "}";
     }
 }

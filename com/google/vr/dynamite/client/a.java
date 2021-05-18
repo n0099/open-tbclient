@@ -3,7 +3,6 @@ package com.google.vr.dynamite.client;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import android.os.RemoteException;
 /* loaded from: classes6.dex */
 public final class a extends com.google.a.a.a implements ILoadedInstanceCreator {
     public a(IBinder iBinder) {
@@ -11,7 +10,7 @@ public final class a extends com.google.a.a.a implements ILoadedInstanceCreator 
     }
 
     @Override // com.google.vr.dynamite.client.ILoadedInstanceCreator
-    public final INativeLibraryLoader newNativeLibraryLoader(IObjectWrapper iObjectWrapper, IObjectWrapper iObjectWrapper2) throws RemoteException {
+    public final INativeLibraryLoader newNativeLibraryLoader(IObjectWrapper iObjectWrapper, IObjectWrapper iObjectWrapper2) {
         INativeLibraryLoader bVar;
         Parcel a2 = a();
         d.g.a.a.a.b(a2, iObjectWrapper);

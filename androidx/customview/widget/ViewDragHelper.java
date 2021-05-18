@@ -9,6 +9,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.OverScroller;
+import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Px;
@@ -42,6 +43,7 @@ public class ViewDragHelper {
     };
     public final Callback mCallback;
     public View mCapturedView;
+    public final int mDefaultEdgeSize;
     public int mDragState;
     public int[] mEdgeDragsInProgress;
     public int[] mEdgeDragsLocked;
@@ -123,7 +125,9 @@ public class ViewDragHelper {
             this.mParentView = viewGroup;
             this.mCallback = callback;
             ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
-            this.mEdgeSize = (int) ((context.getResources().getDisplayMetrics().density * 20.0f) + 0.5f);
+            int i2 = (int) ((context.getResources().getDisplayMetrics().density * 20.0f) + 0.5f);
+            this.mDefaultEdgeSize = i2;
+            this.mEdgeSize = i2;
             this.mTouchSlop = viewConfiguration.getScaledTouchSlop();
             this.mMaxVelocity = viewConfiguration.getScaledMaximumFlingVelocity();
             this.mMinVelocity = viewConfiguration.getScaledMinimumFlingVelocity();
@@ -502,6 +506,11 @@ public class ViewDragHelper {
     }
 
     @Px
+    public int getDefaultEdgeSize() {
+        return this.mDefaultEdgeSize;
+    }
+
+    @Px
     public int getEdgeSize() {
         return this.mEdgeSize;
     }
@@ -665,6 +674,10 @@ public class ViewDragHelper {
                 this.mCapturedView = null;
             }
         }
+    }
+
+    public void setEdgeSize(@IntRange(from = 0) @Px int i2) {
+        this.mEdgeSize = i2;
     }
 
     public void setEdgeTrackingEnabled(int i2) {

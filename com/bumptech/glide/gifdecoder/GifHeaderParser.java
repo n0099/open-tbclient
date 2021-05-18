@@ -7,7 +7,7 @@ import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GifHeaderParser {
     public static final int DEFAULT_FRAME_DELAY = 10;
     public static final int DESCRIPTOR_MASK_INTERLACE_FLAG = 64;

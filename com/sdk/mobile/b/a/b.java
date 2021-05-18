@@ -4,23 +4,23 @@ import android.content.Context;
 import com.baidu.sapi2.result.OneKeyLoginOptResult;
 import com.sdk.base.framework.f.g.g;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class b implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ int f36560a;
+    public /* synthetic */ int f35805a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f36561b;
+    public /* synthetic */ a f35806b;
 
     public b(a aVar, int i2) {
-        this.f36561b = aVar;
-        this.f36560a = i2;
+        this.f35806b = aVar;
+        this.f35805a = i2;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i2, int i3, String str) {
-        this.f36561b.a(i2, i3, str);
+        this.f35806b.a(i2, i3, str);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r13v0, resolved type: T */
@@ -32,33 +32,33 @@ public final class b implements com.sdk.base.framework.b.a<T> {
         Boolean bool;
         Context context2;
         Context context3;
-        context = this.f36561b.f36556d;
+        context = this.f35806b.f35801d;
         com.sdk.base.framework.f.i.b.b(context);
         String str4 = t;
         if (i2 == 0) {
             try {
-                context2 = this.f36561b.f36556d;
-                com.sdk.base.framework.a.a.a.a(context2, this.f36560a, com.sdk.base.framework.a.a.a.a(t, str2), g.f36524b.a());
-                context3 = this.f36561b.f36556d;
+                context2 = this.f35806b.f35801d;
+                com.sdk.base.framework.a.a.a.a(context2, this.f35805a, com.sdk.base.framework.a.a.a.a(t, str2), g.f35769b.a());
+                context3 = this.f35806b.f35801d;
                 String a2 = com.sdk.base.framework.f.k.a.a(context3, String.valueOf(t));
                 if (a2 == null) {
-                    this.f36561b.a(1, "SDK解密异常", 302001, a2, str2);
+                    this.f35806b.a(1, "SDK解密异常", 302001, a2, str2);
                     return;
                 }
                 JSONObject jSONObject = new JSONObject(String.valueOf(a2));
                 str4 = a2;
-                if (this.f36560a == 1) {
+                if (this.f35805a == 1) {
                     jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
                     str4 = jSONObject.toString();
                 }
             } catch (Exception e2) {
-                str3 = a.f36553a;
+                str3 = a.f35798a;
                 String exc = e2.toString();
-                bool = a.f36554b;
+                bool = a.f35799b;
                 com.sdk.base.framework.a.a.c.b(str3, exc, bool);
                 str4 = t;
             }
         }
-        this.f36561b.a(i2, str, i3, str4, str2);
+        this.f35806b.a(i2, str, i3, str4, str2);
     }
 }

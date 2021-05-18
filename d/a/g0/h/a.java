@@ -6,10 +6,10 @@ import android.os.HandlerThread;
 public class a extends HandlerThread {
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f40905e;
+    public static a f40150e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f40906f;
+    public static Handler f40151f;
 
     public a() {
         super("BackgroundThread", 10);
@@ -19,17 +19,17 @@ public class a extends HandlerThread {
         Handler handler;
         synchronized (a.class) {
             b();
-            handler = f40906f;
+            handler = f40151f;
         }
         return handler;
     }
 
     public static void b() {
-        if (f40905e == null) {
+        if (f40150e == null) {
             a aVar = new a();
-            f40905e = aVar;
+            f40150e = aVar;
             aVar.start();
-            f40906f = new Handler(f40905e.getLooper());
+            f40151f = new Handler(f40150e.getLooper());
         }
     }
 }

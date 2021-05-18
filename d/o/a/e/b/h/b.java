@@ -2,7 +2,7 @@ package d.o.a.e.b.h;
 
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface b {
     d.o.a.e.b.i.a a() throws IOException, BaseException, InterruptedException;
 

@@ -268,7 +268,7 @@ public final class SapiCache {
 
     @TargetApi(4)
     public String loadDataFromInternal(Context context, String str) throws IOException {
-        return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f5743g + File.separator + str);
+        return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f5597g + File.separator + str);
     }
 
     public void loadModuleFromExternal(SapiOptions.Cache.Module module, LoadModuleEventListener loadModuleEventListener) {

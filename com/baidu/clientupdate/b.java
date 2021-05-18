@@ -8,15 +8,15 @@ import com.baidu.util.LogUtil;
 public class b extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ClientUpdater f4720a;
+    public final /* synthetic */ ClientUpdater f4574a;
 
     public b(ClientUpdater clientUpdater) {
-        this.f4720a = clientUpdater;
+        this.f4574a = clientUpdater;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         LogUtil.logE("ClientUpdater", "receive:android.net.conn.CONNECTIVITY_CHANGE");
-        this.f4720a.a();
+        this.f4574a.a();
     }
 }

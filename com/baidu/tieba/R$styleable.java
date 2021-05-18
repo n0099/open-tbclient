@@ -664,6 +664,7 @@ public final class R$styleable {
     public static final int DrawerArrowToggle_gapBetweenBars = 5;
     public static final int DrawerArrowToggle_spinBars = 6;
     public static final int DrawerArrowToggle_thickness = 7;
+    public static final int DrawerLayout_elevation = 0;
     public static final int EmotionButton_ebTextSize = 0;
     public static final int EmotionButton_text = 1;
     public static final int EntelechyPullUpRefreshView_tb_pull_show_top_line = 0;
@@ -969,7 +970,8 @@ public final class R$styleable {
     public static final int MaterialTextView_lineHeight = 2;
     public static final int MaxHeightFrameLayout_mhf_HeightDimen = 0;
     public static final int MaxHeightFrameLayout_mhf_HeightRatio = 1;
-    public static final int MaxHeightScrollView_heightRatio = 0;
+    public static final int MaxHeightScrollView_maxHeightRatio = 0;
+    public static final int MaxHeightScrollView_minHeightRatio = 1;
     public static final int MenuGroup_android_checkableBehavior = 5;
     public static final int MenuGroup_android_enabled = 0;
     public static final int MenuGroup_android_id = 1;
@@ -1435,26 +1437,6 @@ public final class R$styleable {
     public static final int SwanAppActionBar_titleTxtShadowDx = 17;
     public static final int SwanAppActionBar_titleTxtShadowDy = 18;
     public static final int SwanAppActionBar_titleTxtShadowRadius = 19;
-    public static final int SwanAppBdActionBar_rightImgZone1ImageSrc = 0;
-    public static final int SwanAppBdActionBar_rightImgZone1Visibility = 1;
-    public static final int SwanAppBdActionBar_rightImgZone2ImageSrc = 2;
-    public static final int SwanAppBdActionBar_rightImgZone2Visibility = 3;
-    public static final int SwanAppBdActionBar_rightTxtZone1Text = 4;
-    public static final int SwanAppBdActionBar_rightTxtZone1TxtColor = 5;
-    public static final int SwanAppBdActionBar_rightTxtZone1TxtShadowColor = 6;
-    public static final int SwanAppBdActionBar_rightTxtZone1TxtShadowDx = 7;
-    public static final int SwanAppBdActionBar_rightTxtZone1TxtShadowDy = 8;
-    public static final int SwanAppBdActionBar_rightTxtZone1TxtShadowRadius = 9;
-    public static final int SwanAppBdActionBar_rightTxtZone1TxtSize = 10;
-    public static final int SwanAppBdActionBar_rightTxtZone1Visibility = 11;
-    public static final int SwanAppBdActionBar_rightZonesVisibility = 12;
-    public static final int SwanAppBdActionBar_titleAlignment = 13;
-    public static final int SwanAppBdActionBar_titleColor = 14;
-    public static final int SwanAppBdActionBar_titleText = 15;
-    public static final int SwanAppBdActionBar_titleTxtShadowColor = 16;
-    public static final int SwanAppBdActionBar_titleTxtShadowDx = 17;
-    public static final int SwanAppBdActionBar_titleTxtShadowDy = 18;
-    public static final int SwanAppBdActionBar_titleTxtShadowRadius = 19;
     public static final int SwitchButton_kswAnimationDuration = 0;
     public static final int SwitchButton_kswBackColor = 1;
     public static final int SwitchButton_kswBackDrawable = 2;
@@ -1848,6 +1830,12 @@ public final class R$styleable {
     public static final int sapi_sdk_RoundWebview_sapi_sdk_top_right = 3;
     public static final int sapi_sdk_sms_login_view_sapi_sdk_show_keyboard = 0;
     public static final int scaleStyle_scalableType = 0;
+    public static final int swan_pickerview_swan_wheelview_gravity = 0;
+    public static final int swan_pickerview_wheelview_dividerColor = 1;
+    public static final int swan_pickerview_wheelview_lineSpacingMultiplier = 2;
+    public static final int swan_pickerview_wheelview_textColorCenter = 3;
+    public static final int swan_pickerview_wheelview_textColorOut = 4;
+    public static final int swan_pickerview_wheelview_textSize = 5;
     public static final int videoScaleStyle_videoScalableType = 0;
     public static final int win_CircleProgressbar_win_in_circle_color = 0;
     public static final int[] AbsHListView = {16843003, 16843004, 16843006, 16843009, 16843051, 16843313, R.attr.hlv_stackFromRight, R.attr.hlv_transcriptMode};
@@ -1905,6 +1893,7 @@ public final class R$styleable {
     public static final int[] DatePicker = {R.attr.picker_select_textColor, R.attr.picker_split, R.attr.picker_split_height, R.attr.picker_text_color};
     public static final int[] DragSort = {R.attr.click_remove_id, R.attr.collapsed_height, R.attr.drag_enabled, R.attr.drag_handle_id, R.attr.drag_scroll_start, R.attr.drop_animation_duration, R.attr.fling_handle_id, R.attr.float_alpha, R.attr.float_background_color, R.attr.max_drag_scroll_speed, R.attr.remove_animation_duration, R.attr.remove_enabled, R.attr.slide_shuffle_speed, R.attr.sort_enabled, R.attr.tb_drag_remove_mode, R.attr.tb_drag_start_mode, R.attr.track_drag_sort, R.attr.use_default_controller};
     public static final int[] DrawerArrowToggle = {R.attr.arrowHeadLength, R.attr.arrowShaftLength, R.attr.barLength, R.attr.color, R.attr.drawableSize, R.attr.gapBetweenBars, R.attr.spinBars, R.attr.thickness};
+    public static final int[] DrawerLayout = {R.attr.elevation};
     public static final int[] EmotionButton = {R.attr.ebTextSize, R.attr.text};
     public static final int[] EntelechyPullUpRefreshView = {R.attr.tb_pull_show_top_line, R.attr.tb_pull_up_icon};
     public static final int[] ExpandListView = {R.attr.beforeExpandHeight, R.attr.expandDistance};
@@ -1962,7 +1951,7 @@ public final class R$styleable {
     public static final int[] MaterialTextAppearance = {16844159, R.attr.lineHeight};
     public static final int[] MaterialTextView = {16842804, 16844159, R.attr.lineHeight};
     public static final int[] MaxHeightFrameLayout = {R.attr.mhf_HeightDimen, R.attr.mhf_HeightRatio};
-    public static final int[] MaxHeightScrollView = {R.attr.heightRatio};
+    public static final int[] MaxHeightScrollView = {R.attr.maxHeightRatio, R.attr.minHeightRatio};
     public static final int[] MenuGroup = {16842766, 16842960, 16843156, 16843230, 16843231, 16843232};
     public static final int[] MenuItem = {16842754, 16842766, 16842960, 16843014, 16843156, 16843230, 16843231, 16843233, 16843234, 16843235, 16843236, 16843237, 16843375, R.attr.actionLayout, R.attr.actionProviderClass, R.attr.actionViewClass, R.attr.alphabeticModifiers, R.attr.contentDescription, R.attr.iconTint, R.attr.iconTintMode, R.attr.numericModifiers, R.attr.showAsAction, R.attr.tooltipText};
     public static final int[] MenuView = {16842926, 16843052, 16843053, 16843054, 16843055, 16843056, 16843057, R.attr.preserveIconSpacing, R.attr.subMenuArrow};
@@ -2015,7 +2004,6 @@ public final class R$styleable {
     public static final int[] SubsamplingScaleImageView = {R.attr.assetName, R.attr.panEnabled, R.attr.quickScaleEnabled, R.attr.src, R.attr.tileBackgroundColor, R.attr.zoomEnabled};
     public static final int[] SurfaceViewForScan = {R.attr.camera_mode_scan, R.attr.camera_position};
     public static final int[] SwanAppActionBar = {R.attr.rightImgZone1ImageSrc, R.attr.rightImgZone1Visibility, R.attr.rightImgZone2ImageSrc, R.attr.rightImgZone2Visibility, R.attr.rightTxtZone1Text, R.attr.rightTxtZone1TxtColor, R.attr.rightTxtZone1TxtShadowColor, R.attr.rightTxtZone1TxtShadowDx, R.attr.rightTxtZone1TxtShadowDy, R.attr.rightTxtZone1TxtShadowRadius, R.attr.rightTxtZone1TxtSize, R.attr.rightTxtZone1Visibility, R.attr.rightZonesVisibility, R.attr.titleAlignment, R.attr.titleColor, R.attr.titleText, R.attr.titleTxtShadowColor, R.attr.titleTxtShadowDx, R.attr.titleTxtShadowDy, R.attr.titleTxtShadowRadius};
-    public static final int[] SwanAppBdActionBar = {R.attr.rightImgZone1ImageSrc, R.attr.rightImgZone1Visibility, R.attr.rightImgZone2ImageSrc, R.attr.rightImgZone2Visibility, R.attr.rightTxtZone1Text, R.attr.rightTxtZone1TxtColor, R.attr.rightTxtZone1TxtShadowColor, R.attr.rightTxtZone1TxtShadowDx, R.attr.rightTxtZone1TxtShadowDy, R.attr.rightTxtZone1TxtShadowRadius, R.attr.rightTxtZone1TxtSize, R.attr.rightTxtZone1Visibility, R.attr.rightZonesVisibility, R.attr.titleAlignment, R.attr.titleColor, R.attr.titleText, R.attr.titleTxtShadowColor, R.attr.titleTxtShadowDx, R.attr.titleTxtShadowDy, R.attr.titleTxtShadowRadius};
     public static final int[] SwitchButton = {R.attr.kswAnimationDuration, R.attr.kswBackColor, R.attr.kswBackDrawable, R.attr.kswBackRadius, R.attr.kswFadeBack, R.attr.kswTextAdjust, R.attr.kswTextExtra, R.attr.kswTextOff, R.attr.kswTextOn, R.attr.kswTextThumbInset, R.attr.kswThumbColor, R.attr.kswThumbDrawable, R.attr.kswThumbHeight, R.attr.kswThumbMargin, R.attr.kswThumbMarginBottom, R.attr.kswThumbMarginLeft, R.attr.kswThumbMarginRight, R.attr.kswThumbMarginTop, R.attr.kswThumbRadius, R.attr.kswThumbRangeRatio, R.attr.kswThumbWidth, R.attr.kswTintColor};
     public static final int[] SwitchCompat = {16843044, 16843045, 16843074, R.attr.showText, R.attr.splitTrack, R.attr.switchMinWidth, R.attr.switchPadding, R.attr.switchTextAppearance, R.attr.thumbTextPadding, R.attr.thumbTint, R.attr.thumbTintMode, R.attr.track, R.attr.trackTint, R.attr.trackTintMode};
     public static final int[] SwitchMaterial = {R.attr.useMaterialThemeColors};
@@ -2059,6 +2047,7 @@ public final class R$styleable {
     public static final int[] sapi_sdk_RoundWebview = {R.attr.sapi_sdk_bottom_left, R.attr.sapi_sdk_bottom_right, R.attr.sapi_sdk_top_left, R.attr.sapi_sdk_top_right};
     public static final int[] sapi_sdk_sms_login_view = {R.attr.sapi_sdk_show_keyboard};
     public static final int[] scaleStyle = {R.attr.scalableType};
+    public static final int[] swan_pickerview = {R.attr.swan_wheelview_gravity, R.attr.wheelview_dividerColor, R.attr.wheelview_lineSpacingMultiplier, R.attr.wheelview_textColorCenter, R.attr.wheelview_textColorOut, R.attr.wheelview_textSize};
     public static final int[] videoScaleStyle = {R.attr.videoScalableType};
     public static final int[] win_CircleProgressbar = {R.attr.win_in_circle_color};
 }

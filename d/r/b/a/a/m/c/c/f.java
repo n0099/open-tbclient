@@ -11,28 +11,28 @@ import kotlin.jvm.internal.Intrinsics;
 public final class f {
 
     /* renamed from: e  reason: collision with root package name */
-    public static f f67451e;
+    public static f f68137e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final b f67452f = new b(null);
+    public static final b f68138f = new b(null);
 
     /* renamed from: a  reason: collision with root package name */
-    public ExecutorService f67453a;
+    public ExecutorService f68139a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f67454b;
+    public d f68140b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.r.b.a.a.m.c.c.b f67455c;
+    public d.r.b.a.a.m.c.c.b f68141c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ScheduledExecutorService f67456d;
+    public ScheduledExecutorService f68142d;
 
     /* loaded from: classes7.dex */
     public static final class a implements ThreadFactory {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f67457e = new a();
+        public static final a f68143e = new a();
 
         @Override // java.util.concurrent.ThreadFactory
         public final Thread newThread(Runnable runnable) {
@@ -48,15 +48,15 @@ public final class f {
         }
 
         public final f a() {
-            if (f.f67451e == null) {
+            if (f.f68137e == null) {
                 synchronized (f.class) {
-                    if (f.f67451e == null) {
-                        f.f67451e = new f(null);
+                    if (f.f68137e == null) {
+                        f.f68137e = new f(null);
                     }
                     Unit unit = Unit.INSTANCE;
                 }
             }
-            return f.f67451e;
+            return f.f68137e;
         }
 
         public /* synthetic */ b(DefaultConstructorMarker defaultConstructorMarker) {
@@ -66,27 +66,27 @@ public final class f {
 
     public f() {
         if (d.r.b.a.a.m.c.c.a.a() == null) {
-            this.f67453a = Executors.newFixedThreadPool(5);
+            this.f68139a = Executors.newFixedThreadPool(5);
             Executors.newSingleThreadExecutor();
-            Executors.newScheduledThreadPool(1, a.f67457e);
+            Executors.newScheduledThreadPool(1, a.f68143e);
             return;
         }
         d a2 = d.r.b.a.a.m.c.c.a.a();
-        this.f67454b = a2;
+        this.f68140b = a2;
         if (a2 == null) {
             Intrinsics.throwNpe();
         }
         d.r.b.a.a.m.c.c.b a3 = a2.a();
-        this.f67455c = a3;
+        this.f68141c = a3;
         if (a3 == null) {
             Executors.newSingleThreadExecutor();
         }
     }
 
     public final void c(Runnable runnable) {
-        d dVar = this.f67454b;
+        d dVar = this.f68140b;
         if (dVar == null) {
-            ExecutorService executorService = this.f67453a;
+            ExecutorService executorService = this.f68139a;
             if (executorService == null) {
                 Intrinsics.throwNpe();
             }
@@ -106,16 +106,16 @@ public final class f {
 
     public final ScheduledExecutorService d() {
         ScheduledExecutorService newScheduledThreadPool;
-        ScheduledExecutorService scheduledExecutorService = this.f67456d;
+        ScheduledExecutorService scheduledExecutorService = this.f68142d;
         if (scheduledExecutorService != null) {
             return scheduledExecutorService;
         }
         synchronized (this) {
-            if (this.f67456d != null) {
-                newScheduledThreadPool = this.f67456d;
+            if (this.f68142d != null) {
+                newScheduledThreadPool = this.f68142d;
             } else {
                 newScheduledThreadPool = Executors.newScheduledThreadPool(1);
-                this.f67456d = newScheduledThreadPool;
+                this.f68142d = newScheduledThreadPool;
             }
         }
         return newScheduledThreadPool;

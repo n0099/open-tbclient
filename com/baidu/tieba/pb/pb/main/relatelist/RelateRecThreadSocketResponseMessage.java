@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.RelateRecThread.DataRes;
 import tbclient.RelateRecThread.RelateRecThreadResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class RelateRecThreadSocketResponseMessage extends SocketResponsedMessage {
     public DataRes mData;
 

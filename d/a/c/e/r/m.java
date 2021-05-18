@@ -3,18 +3,18 @@ package d.a.c.e.r;
 public class m extends r {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40084a;
+    public int f39329a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40085b;
+    public String f39330b;
 
     public m() {
-        this.f40084a = -1;
-        this.f40085b = null;
+        this.f39329a = -1;
+        this.f39330b = null;
     }
 
     public m(int i2, String str) {
-        this.f40084a = i2;
-        this.f40085b = str;
+        this.f39329a = i2;
+        this.f39330b = str;
     }
 }

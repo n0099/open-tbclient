@@ -20,9 +20,9 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.a.c.e.j.b.a;
 import d.a.c.e.p.l;
-import d.a.i0.f0.b;
-import d.a.i0.f0.h;
-import d.a.i0.z0.g;
+import d.a.j0.f0.b;
+import d.a.j0.f0.h;
+import d.a.j0.z0.g;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PermissionUtil {
@@ -30,7 +30,7 @@ public class PermissionUtil {
     public static boolean isSdkInited = false;
     public static b mAgreePrivacyPolicyEventListener = new b<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.i0.f0.b
+        @Override // d.a.j0.f0.b
         public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
             if (privacyPolicyEvent == null) {
                 return true;
@@ -272,7 +272,7 @@ public class PermissionUtil {
     }
 
     public static boolean isAgreePrivacyPolicy() {
-        return isAgreePrivacyPolicy || d.a.i0.r.d0.b.j().g("key_secret_is_show", false) || d.a.i0.r.d0.b.j().g("key_secret_is_show_new", false);
+        return isAgreePrivacyPolicy || d.a.j0.r.d0.b.j().g("key_secret_is_show", false) || d.a.j0.r.d0.b.j().g("key_secret_is_show_new", false);
     }
 
     public static Context providerContext(Context context) {
@@ -372,7 +372,7 @@ public class PermissionUtil {
 
     public static void setIsAgreePrivacyPolicy(boolean z) {
         isAgreePrivacyPolicy = z;
-        d.a.i0.r.d0.b.j().t("key_secret_is_show_new", z);
+        d.a.j0.r.d0.b.j().t("key_secret_is_show_new", z);
         h.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
         BdSocketLinkService.setHasAbsoluteClose(false);
         BdSocketLinkService.setAvailable(true);
@@ -380,10 +380,10 @@ public class PermissionUtil {
     }
 
     public static void syncAgreeStatus(boolean z) {
-        if (z && d.a.i0.r.d0.b.j().g("key_secret_is_show", false)) {
+        if (z && d.a.j0.r.d0.b.j().g("key_secret_is_show", false)) {
             isAgreePrivacyPolicy = true;
-            d.a.i0.r.d0.b.j().t("key_secret_is_show_new", true);
-            d.a.i0.r.d0.b.j().C("key_secret_is_show");
+            d.a.j0.r.d0.b.j().t("key_secret_is_show_new", true);
+            d.a.j0.r.d0.b.j().C("key_secret_is_show");
         }
     }
 

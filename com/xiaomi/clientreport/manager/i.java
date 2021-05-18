@@ -1,17 +1,17 @@
 package com.xiaomi.clientreport.manager;
 
 import com.xiaomi.push.bo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f38032a;
+    public final /* synthetic */ a f37277a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ bo f38a;
 
     public i(a aVar, bo boVar) {
-        this.f38032a = aVar;
+        this.f37277a = aVar;
         this.f38a = boVar;
     }
 

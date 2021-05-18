@@ -4,7 +4,7 @@ import android.app.Activity;
 import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface RVADI extends ApkDownloadComplianceInterface {
     String getAdNetWorkName();
 

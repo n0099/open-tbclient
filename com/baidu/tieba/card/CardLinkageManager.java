@@ -9,7 +9,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import d.a.c.j.e.n;
 import d.a.c.j.e.s;
-import d.a.i0.r.u.c;
+import d.a.j0.r.u.c;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */

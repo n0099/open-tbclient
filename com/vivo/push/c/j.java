@@ -3,38 +3,38 @@ package com.vivo.push.c;
 import android.content.Context;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f37417a;
+    public final /* synthetic */ int f36662a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f37418b;
+    public final /* synthetic */ List f36663b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f37419c;
+    public final /* synthetic */ List f36664c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f37420d;
+    public final /* synthetic */ String f36665d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ h f37421e;
+    public final /* synthetic */ h f36666e;
 
     public j(h hVar, int i2, List list, List list2, String str) {
-        this.f37421e = hVar;
-        this.f37417a = i2;
-        this.f37418b = list;
-        this.f37419c = list2;
-        this.f37420d = str;
+        this.f36666e = hVar;
+        this.f36662a = i2;
+        this.f36663b = list;
+        this.f36664c = list2;
+        this.f36665d = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        h hVar = this.f37421e;
-        PushMessageCallback pushMessageCallback = ((ab) hVar).f37396b;
-        context = hVar.f37578a;
-        pushMessageCallback.onDelAlias(context, this.f37417a, this.f37418b, this.f37419c, this.f37420d);
+        h hVar = this.f36666e;
+        PushMessageCallback pushMessageCallback = ((ab) hVar).f36641b;
+        context = hVar.f36823a;
+        pushMessageCallback.onDelAlias(context, this.f36662a, this.f36663b, this.f36664c, this.f36665d);
     }
 }

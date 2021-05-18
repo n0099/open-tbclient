@@ -4,13 +4,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import d.a.c.j.e.n;
-import d.a.i0.g0.b.a;
+import d.a.j0.g0.b.a;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes4.dex */
 public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements a {
-    public d.a.j0.i0.l.d.a enterForumTabFeedData;
+    public d.a.k0.i0.l.d.a enterForumTabFeedData;
 
     public TabFeedListHttpResponsedMessage() {
         super(CmdConfigHttp.CMD_TAB_FEED_LIST);
@@ -39,7 +39,7 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
             setErrorString(tabfeedlistResIdl.error.usermsg);
         }
         if (getError() == 0 && tabfeedlistResIdl.data != null) {
-            d.a.j0.i0.l.d.a aVar = new d.a.j0.i0.l.d.a();
+            d.a.k0.i0.l.d.a aVar = new d.a.k0.i0.l.d.a();
             this.enterForumTabFeedData = aVar;
             aVar.g(tabfeedlistResIdl.data);
         }

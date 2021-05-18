@@ -111,9 +111,9 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     public Excluder disableInnerClassSerialization() {
-        Excluder m40clone = m40clone();
-        m40clone.serializeInnerClasses = false;
-        return m40clone;
+        Excluder m39clone = m39clone();
+        m39clone.serializeInnerClasses = false;
+        return m39clone;
     }
 
     public boolean excludeClass(Class<?> cls, boolean z) {
@@ -148,44 +148,44 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     public Excluder excludeFieldsWithoutExposeAnnotation() {
-        Excluder m40clone = m40clone();
-        m40clone.requireExpose = true;
-        return m40clone;
+        Excluder m39clone = m39clone();
+        m39clone.requireExpose = true;
+        return m39clone;
     }
 
     public Excluder withExclusionStrategy(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
-        Excluder m40clone = m40clone();
+        Excluder m39clone = m39clone();
         if (z) {
             ArrayList arrayList = new ArrayList(this.serializationStrategies);
-            m40clone.serializationStrategies = arrayList;
+            m39clone.serializationStrategies = arrayList;
             arrayList.add(exclusionStrategy);
         }
         if (z2) {
             ArrayList arrayList2 = new ArrayList(this.deserializationStrategies);
-            m40clone.deserializationStrategies = arrayList2;
+            m39clone.deserializationStrategies = arrayList2;
             arrayList2.add(exclusionStrategy);
         }
-        return m40clone;
+        return m39clone;
     }
 
     public Excluder withModifiers(int... iArr) {
-        Excluder m40clone = m40clone();
-        m40clone.modifiers = 0;
+        Excluder m39clone = m39clone();
+        m39clone.modifiers = 0;
         for (int i2 : iArr) {
-            m40clone.modifiers = i2 | m40clone.modifiers;
+            m39clone.modifiers = i2 | m39clone.modifiers;
         }
-        return m40clone;
+        return m39clone;
     }
 
     public Excluder withVersion(double d2) {
-        Excluder m40clone = m40clone();
-        m40clone.version = d2;
-        return m40clone;
+        Excluder m39clone = m39clone();
+        m39clone.version = d2;
+        return m39clone;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Excluder m40clone() {
+    public Excluder m39clone() {
         try {
             return (Excluder) super.clone();
         } catch (CloneNotSupportedException e2) {

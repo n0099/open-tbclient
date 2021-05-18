@@ -5,6 +5,7 @@ import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.live.net.LiveNetwork;
 import com.baidu.searchbox.live.interfaces.net.LiveNetConstants;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import d.a.t.b.a;
 import d.a.t.e.c;
 import java.nio.charset.Charset;
@@ -34,7 +35,7 @@ public final class LiveNpsGetSwitchManager {
     private final Map<String, String> addLiveCommonParameters(Map<String, String> map, Map<String, String> map2) {
         HashMap hashMap = new HashMap();
         hashMap.put("timestamp", String.valueOf(System.currentTimeMillis()));
-        hashMap.put("sdk_version", "4.3.3");
+        hashMap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "4.3.3");
         hashMap.put("im_sdk_version", "1.3.262");
         hashMap.put("sign", genSignParamsStr(map, hashMap, map2));
         return hashMap;

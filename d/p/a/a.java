@@ -24,33 +24,33 @@ import java.net.NetworkInterface;
 import java.util.Collections;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f66793a;
+        public Intent f67479a;
 
         public final int e() {
-            return this.f66793a.getIntExtra("level", 0);
+            return this.f67479a.getIntExtra("level", 0);
         }
 
         public final int f() {
-            return this.f66793a.getIntExtra("scale", 0);
+            return this.f67479a.getIntExtra("scale", 0);
         }
 
         public final int g() {
-            return this.f66793a.getIntExtra("temperature", 0);
+            return this.f67479a.getIntExtra("temperature", 0);
         }
 
         public final int h() {
-            return this.f66793a.getIntExtra("voltage", 0);
+            return this.f67479a.getIntExtra("voltage", 0);
         }
 
         public b(Context context) {
-            this.f66793a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            this.f67479a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
     }
 
@@ -216,7 +216,7 @@ public class a {
                     case 12:
                     case 14:
                     case 15:
-                        str = g.f3962b;
+                        str = g.f3963b;
                         str2 = str;
                         break;
                     case 13:

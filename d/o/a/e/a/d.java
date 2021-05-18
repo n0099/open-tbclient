@@ -32,72 +32,72 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f66312a;
+    public static int f66998a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f66313b;
+    public static NotificationChannel f66999b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements k {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f66314a;
+        public final /* synthetic */ Context f67000a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f66315b;
+        public final /* synthetic */ int f67001b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f66316c;
+        public final /* synthetic */ boolean f67002c;
 
         public a(Context context, int i2, boolean z) {
-            this.f66314a = context;
-            this.f66315b = i2;
-            this.f66316c = z;
+            this.f67000a = context;
+            this.f67001b = i2;
+            this.f67002c = z;
         }
 
         @Override // d.o.a.e.a.d.k
         public void a() {
-            int unused = d.f66312a = d.P(this.f66314a, this.f66315b, this.f66316c);
+            int unused = d.f66998a = d.P(this.f67000a, this.f67001b, this.f67002c);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f66317e;
+        public final /* synthetic */ Context f67003e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f66318f;
+        public final /* synthetic */ int f67004f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f66319g;
+        public final /* synthetic */ boolean f67005g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f66320h;
+        public final /* synthetic */ DownloadInfo f67006h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ File f66321i;
+        public final /* synthetic */ File f67007i;
 
         public b(Context context, int i2, boolean z, DownloadInfo downloadInfo, File file) {
-            this.f66317e = context;
-            this.f66318f = i2;
-            this.f66319g = z;
-            this.f66320h = downloadInfo;
-            this.f66321i = file;
+            this.f67003e = context;
+            this.f67004f = i2;
+            this.f67005g = z;
+            this.f67006h = downloadInfo;
+            this.f67007i = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.I(this.f66320h, this.f66319g, d.e(this.f66317e, this.f66318f, this.f66319g, this.f66320h, this.f66321i));
+            d.I(this.f67006h, this.f67005g, d.e(this.f67003e, this.f67004f, this.f67005g, this.f67006h, this.f67007i));
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements e {
         @Override // d.o.a.e.a.d.e
         public n a(Context context) {
@@ -115,22 +115,22 @@ public class d {
     }
 
     /* renamed from: d.o.a.e.a.d$d  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public abstract class AbstractC1814d implements n {
+    /* loaded from: classes7.dex */
+    public abstract class AbstractC1878d implements n {
         @Override // d.o.a.e.a.d.n
         public n a(boolean z) {
             return null;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         n a(Context context);
 
         boolean a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface f {
         void a(int i2, int i3, String str, String str2, String str3);
 
@@ -145,7 +145,7 @@ public class d {
         void b(int i2, int i3, String str, int i4, long j);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface g {
         String a();
 
@@ -160,41 +160,41 @@ public class d {
         void b(int i2, String str, String str2, String str3);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface h {
         Uri a(int i2, String str, String str2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface i {
         void a(DownloadInfo downloadInfo, boolean z);
 
         void a(List<DownloadInfo> list);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface j {
         void a(DownloadInfo downloadInfo, BaseException baseException, int i2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface k {
         void a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface l {
         void a(DownloadInfo downloadInfo, k kVar);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface m {
         void a();
 
         boolean b();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface n {
         m a();
 
@@ -211,12 +211,12 @@ public class d {
         n c(DialogInterface.OnCancelListener onCancelListener);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface o {
         NotificationCompat.Builder a(Context context, String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface p {
         void a();
 
@@ -298,12 +298,12 @@ public class d {
     @TargetApi(26)
     public static String H(@NonNull Context context) {
         try {
-            if (f66313b == null) {
+            if (f66999b == null) {
                 NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                f66313b = notificationChannel;
+                f66999b = notificationChannel;
                 notificationChannel.setSound(null, null);
-                f66313b.setShowBadge(false);
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f66313b);
+                f66999b.setShowBadge(false);
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f66999b);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -418,9 +418,9 @@ public class d {
             return P(context, i2, z);
         }
         DownloadInfo f2 = d.o.a.e.b.g.a.l(context).f(i2);
-        f66312a = 1;
+        f66998a = 1;
         C.a(f2, new a(context, i2, z));
-        return f66312a;
+        return f66998a;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */

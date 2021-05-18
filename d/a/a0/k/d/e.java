@@ -14,9 +14,9 @@ public class e extends Handler {
     public void handleMessage(Message message) {
         super.handleMessage(message);
         f fVar = (f) message.obj;
-        ImageView imageView = fVar.f39130a;
-        if (((String) imageView.getTag()).equals(fVar.f39131b)) {
-            imageView.setImageBitmap(fVar.f39132c);
+        ImageView imageView = fVar.f38375a;
+        if (((String) imageView.getTag()).equals(fVar.f38376b)) {
+            imageView.setImageBitmap(fVar.f38377c);
         } else {
             d.a.a0.n.d.e("不是最新数据");
         }

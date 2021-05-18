@@ -18,8 +18,8 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import d.a.c.e.m.b;
 import d.a.c.e.p.k;
-import d.a.i0.k0.d;
-import d.a.j0.p3.c;
+import d.a.j0.k0.d;
+import d.a.k0.p3.c;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
@@ -58,13 +58,13 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         }
         VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
         if (videoMiddlePageFragment == null) {
-            videoMiddlePageFragment = VideoMiddlePageFragment.N0(this.mFrom, this.mId);
+            videoMiddlePageFragment = VideoMiddlePageFragment.M0(this.mFrom, this.mId);
             supportFragmentManager.beginTransaction().add(R.id.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
         }
         this.mFragment = videoMiddlePageFragment;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "a023";
     }
@@ -144,7 +144,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         VideoMiddlePageFragment videoMiddlePageFragment;
         if (keyEvent != null && (videoMiddlePageFragment = this.mFragment) != null) {
-            if (videoMiddlePageFragment.R0(i2)) {
+            if (videoMiddlePageFragment.Q0(i2)) {
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);
@@ -155,7 +155,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        d.a.i0.a.c.y().E();
+        d.a.j0.a.c.y().E();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -164,7 +164,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         if (k.isEmpty(this.mId)) {
             return;
         }
-        d.a.i0.a.c.y().P(d.a.i0.a.b.Z, b.f(this.mId, 0L));
+        d.a.j0.a.c.y().P(d.a.j0.a.b.Z, b.f(this.mId, 0L));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity

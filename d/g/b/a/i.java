@@ -6,15 +6,15 @@ import com.google.ar.core.InstallActivity;
 public final class i implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f65467e;
+    public final /* synthetic */ InstallActivity f66153e;
 
     public i(InstallActivity installActivity) {
-        this.f65467e = installActivity;
+        this.f66153e = installActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.f65467e.animateToSpinner();
-        this.f65467e.startInstaller();
+        this.f66153e.animateToSpinner();
+        this.f66153e.startInstaller();
     }
 }

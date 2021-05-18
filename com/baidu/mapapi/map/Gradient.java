@@ -6,30 +6,30 @@ import java.util.HashMap;
 public class Gradient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f7121a;
+    public final int f6933a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f7122b;
+    public final int[] f6934b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final float[] f7123c;
+    public final float[] f6935c;
 
     /* loaded from: classes2.dex */
     public class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f7125b;
+        public final int f6937b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f7126c;
+        public final int f6938c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final float f7127d;
+        public final float f6939d;
 
         public a(int i2, int i3, float f2) {
-            this.f7125b = i2;
-            this.f7126c = i3;
-            this.f7127d = f2;
+            this.f6937b = i2;
+            this.f6938c = i3;
+            this.f6939d = f2;
         }
     }
 
@@ -39,25 +39,25 @@ public class Gradient {
 
     public Gradient(int[] iArr, float[] fArr, int i2) {
         if (iArr == null || fArr == null) {
-            throw new IllegalArgumentException("colors and startPoints should not be null");
+            throw new IllegalArgumentException("BDMapSDKException: colors and startPoints should not be null");
         }
         if (iArr.length != fArr.length) {
-            throw new IllegalArgumentException("colors and startPoints should be same length");
+            throw new IllegalArgumentException("BDMapSDKException: colors and startPoints should be same length");
         }
         if (iArr.length == 0) {
-            throw new IllegalArgumentException("No colors have been defined");
+            throw new IllegalArgumentException("BDMapSDKException: No colors have been defined");
         }
         for (int i3 = 1; i3 < fArr.length; i3++) {
             if (fArr[i3] <= fArr[i3 - 1]) {
-                throw new IllegalArgumentException("startPoints should be in increasing order");
+                throw new IllegalArgumentException("BDMapSDKException: startPoints should be in increasing order");
             }
         }
-        this.f7121a = i2;
+        this.f6933a = i2;
         int[] iArr2 = new int[iArr.length];
-        this.f7122b = iArr2;
-        this.f7123c = new float[fArr.length];
+        this.f6934b = iArr2;
+        this.f6935c = new float[fArr.length];
         System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
-        System.arraycopy(fArr, 0, this.f7123c, 0, fArr.length);
+        System.arraycopy(fArr, 0, this.f6935c, 0, fArr.length);
     }
 
     public static int a(int i2, int i3, float f2) {
@@ -80,42 +80,42 @@ public class Gradient {
 
     private HashMap<Integer, a> a() {
         HashMap<Integer, a> hashMap = new HashMap<>();
-        if (this.f7123c[0] != 0.0f) {
-            hashMap.put(0, new a(Color.argb(0, Color.red(this.f7122b[0]), Color.green(this.f7122b[0]), Color.blue(this.f7122b[0])), this.f7122b[0], this.f7121a * this.f7123c[0]));
+        if (this.f6935c[0] != 0.0f) {
+            hashMap.put(0, new a(Color.argb(0, Color.red(this.f6934b[0]), Color.green(this.f6934b[0]), Color.blue(this.f6934b[0])), this.f6934b[0], this.f6933a * this.f6935c[0]));
         }
-        for (int i2 = 1; i2 < this.f7122b.length; i2++) {
+        for (int i2 = 1; i2 < this.f6934b.length; i2++) {
             int i3 = i2 - 1;
-            Integer valueOf = Integer.valueOf((int) (this.f7121a * this.f7123c[i3]));
-            int[] iArr = this.f7122b;
+            Integer valueOf = Integer.valueOf((int) (this.f6933a * this.f6935c[i3]));
+            int[] iArr = this.f6934b;
             int i4 = iArr[i3];
             int i5 = iArr[i2];
-            float[] fArr = this.f7123c;
-            hashMap.put(valueOf, new a(i4, i5, (fArr[i2] - fArr[i3]) * this.f7121a));
+            float[] fArr = this.f6935c;
+            hashMap.put(valueOf, new a(i4, i5, (fArr[i2] - fArr[i3]) * this.f6933a));
         }
-        float[] fArr2 = this.f7123c;
+        float[] fArr2 = this.f6935c;
         if (fArr2[fArr2.length - 1] != 1.0f) {
             int length = fArr2.length - 1;
-            Integer valueOf2 = Integer.valueOf((int) (this.f7121a * fArr2[length]));
-            int[] iArr2 = this.f7122b;
-            hashMap.put(valueOf2, new a(iArr2[length], iArr2[length], this.f7121a * (1.0f - this.f7123c[length])));
+            Integer valueOf2 = Integer.valueOf((int) (this.f6933a * fArr2[length]));
+            int[] iArr2 = this.f6934b;
+            hashMap.put(valueOf2, new a(iArr2[length], iArr2[length], this.f6933a * (1.0f - this.f6935c[length])));
         }
         return hashMap;
     }
 
     public int[] a(double d2) {
         HashMap<Integer, a> a2 = a();
-        int[] iArr = new int[this.f7121a];
+        int[] iArr = new int[this.f6933a];
         a aVar = a2.get(0);
         int i2 = 0;
-        for (int i3 = 0; i3 < this.f7121a; i3++) {
+        for (int i3 = 0; i3 < this.f6933a; i3++) {
             if (a2.containsKey(Integer.valueOf(i3))) {
                 aVar = a2.get(Integer.valueOf(i3));
                 i2 = i3;
             }
-            iArr[i3] = a(aVar.f7125b, aVar.f7126c, (i3 - i2) / aVar.f7127d);
+            iArr[i3] = a(aVar.f6937b, aVar.f6938c, (i3 - i2) / aVar.f6939d);
         }
         if (d2 != 1.0d) {
-            for (int i4 = 0; i4 < this.f7121a; i4++) {
+            for (int i4 = 0; i4 < this.f6933a; i4++) {
                 int i5 = iArr[i4];
                 iArr[i4] = Color.argb((int) (Color.alpha(i5) * d2), Color.red(i5), Color.green(i5), Color.blue(i5));
             }

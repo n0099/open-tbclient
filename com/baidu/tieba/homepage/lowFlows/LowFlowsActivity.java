@@ -5,13 +5,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
-import d.a.j0.a1.f.c;
-import d.a.j0.a1.f.i.a;
+import d.a.k0.a1.f.c;
+import d.a.k0.a1.f.i.a;
 /* loaded from: classes4.dex */
 public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
     public c mLowFlowsView;
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "a086";
     }
@@ -49,7 +49,7 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
             cVar.loadData();
         }
         if (getIntent() != null) {
-            d.a.j0.a1.f.h.a.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra(LowFlowsActivityConfig.TAB_CODE));
+            d.a.k0.a1.f.h.a.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra(LowFlowsActivityConfig.TAB_CODE));
         }
     }
 }

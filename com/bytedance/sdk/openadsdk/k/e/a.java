@@ -3,22 +3,22 @@ package com.bytedance.sdk.openadsdk.k.e;
 import com.bytedance.sdk.openadsdk.k.i;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<i.b> f30234a;
+    public List<i.b> f29479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f30235b;
+    public f f29480b;
 
     public abstract int a();
 
     public i.b a(String str) {
         List<i.b> list;
-        if (str != null && (list = this.f30234a) != null && list.size() > 0) {
-            for (i.b bVar : this.f30234a) {
-                if (str.equals(bVar.f30312a)) {
+        if (str != null && (list = this.f29479a) != null && list.size() > 0) {
+            for (i.b bVar : this.f29479a) {
+                if (str.equals(bVar.f29557a)) {
                     return bVar;
                 }
             }
@@ -125,6 +125,6 @@ public abstract class a {
     public abstract String f();
 
     public f g() {
-        return this.f30235b;
+        return this.f29480b;
     }
 }

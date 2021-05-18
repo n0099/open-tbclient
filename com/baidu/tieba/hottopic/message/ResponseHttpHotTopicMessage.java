@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.j0.c1.c.e;
+import d.a.k0.c1.c.e;
 import tbclient.Hottopic.HottopicResIdl;
 /* loaded from: classes4.dex */
 public class ResponseHttpHotTopicMessage extends TbHttpResponsedMessage {

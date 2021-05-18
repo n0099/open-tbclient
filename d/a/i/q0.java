@@ -1,96 +1,100 @@
 package d.a.i;
 
-import android.widget.RelativeLayout;
-import com.baidu.card.Align;
-import com.baidu.card.view.UnfollowedDecorView;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
-import d.a.i0.r.q.a2;
+import com.baidu.tieba.card.OriginalThreadCardView;
+import d.a.i.v0.a;
 /* loaded from: classes.dex */
-public class q0 extends c implements p<a2>, q {
-    public static final int k = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+public class q0 extends d.a.i.a<d.a.j0.r.q.a> {
+    public static final int q = d.a.c.e.p.l.k(TbadkCoreApplication.getInst()) - ((d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+    public View j;
+    public TextView k;
+    public TextView l;
+    public OriginalThreadCardView m;
+    public d.a.j0.r.q.a n;
+    public boolean o;
+    public OriginalThreadCardView.b p;
 
-    /* renamed from: i  reason: collision with root package name */
-    public UnfollowedDecorView f47750i;
-    public Align j;
-
-    public q0(TbPageContext tbPageContext, Align align) {
-        h(-1);
-        UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(tbPageContext.getPageActivity());
-        this.f47750i = unfollowedDecorView;
-        unfollowedDecorView.setId(R.id.decor_item_right_id);
-        g(this.f47750i);
-        k(align);
-    }
-
-    public void k(Align align) {
-        if (align == this.j) {
-            return;
+    /* loaded from: classes.dex */
+    public class a implements OriginalThreadCardView.b {
+        public a() {
         }
-        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
-        if (align == Align.ALIGN_RIGHT_TOP) {
-            int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds60);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
-            layoutParams.addRule(11);
-            layoutParams.addRule(10);
-            layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
-            layoutParams.topMargin = dimenPixelSize2;
-            i(layoutParams);
-            this.f47750i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f47750i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f47750i.setLayoutParams(layoutParams);
-        } else if (align == Align.ALIGN_RIGHT_CENTER) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
-            layoutParams2.addRule(11);
-            layoutParams2.addRule(15);
-            layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
-            layoutParams2.bottomMargin = 0;
-            i(layoutParams2);
-            this.f47750i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f47750i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f47750i.setLayoutParams(layoutParams2);
-        } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
-            int i2 = k;
-            int g2 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-            int g3 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int g4 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i2, i2);
-            layoutParams3.addRule(11);
-            layoutParams3.addRule(12);
-            layoutParams3.rightMargin = g3;
-            layoutParams3.bottomMargin = g4;
-            i(layoutParams3);
-            this.f47750i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
-            this.f47750i.setPadding(g2, g2, g2, g2);
-            this.f47750i.setLayoutParams(layoutParams3);
-        }
-        this.j = align;
-    }
 
-    public void l(d.a.i0.r.q.a aVar) {
-        if (aVar.isSupportTop()) {
-            k(Align.ALIGN_RIGHT_TOP);
-        } else if (aVar.isSupportBottom()) {
-            k0 k0Var = this.f47700h;
-            if (k0Var != null) {
-                k0Var.n(this);
+        @Override // com.baidu.tieba.card.OriginalThreadCardView.b
+        public void a(OriginalThreadInfo originalThreadInfo) {
+            if (q0.this.n == null || q0.this.n.m() == null) {
+                return;
             }
-        } else {
-            k(Align.ALIGN_RIGHT_TOP);
+            if (q0.this.d() != null) {
+                q0.this.d().a(q0.this.m, q0.this.n);
+            }
+            String o0 = q0.this.n.m().o0();
+            d.a.k0.x.m.a(o0);
+            q0.this.s(o0);
+            q0.this.f40315e.o(new a.C0549a(1));
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.i.p
-    /* renamed from: m */
-    public void a(a2 a2Var) {
-        this.f47750i.a(a2Var);
+    public q0(Context context) {
+        super(context);
+        this.o = false;
+        this.p = new a();
+        View inflate = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
+        this.j = inflate;
+        this.k = (TextView) inflate.findViewById(R.id.thread_card_title);
+        this.l = (TextView) this.j.findViewById(R.id.thread_card_abstract);
+        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.j.findViewById(R.id.original_thread_view);
+        this.m = originalThreadCardView;
+        originalThreadCardView.setSubClickListener(this.p);
+    }
+
+    @Override // d.a.i.a
+    public View g() {
+        return this.j;
+    }
+
+    @Override // d.a.i.a
+    public void l(d.a.k0.x.b0<d.a.j0.r.q.a> b0Var) {
+        super.l(b0Var);
     }
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        this.f47750i.i();
+        this.m.n();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.i.p
+    /* renamed from: r */
+    public void a(d.a.j0.r.q.a aVar) {
+        if (aVar == null || aVar.m() == null) {
+            return;
+        }
+        this.n = aVar;
+        ThreadCardUtils.setTitle(this.k, aVar.m(), this.o);
+        ThreadCardUtils.setAbstract(this.l, this.k, aVar.m(), q, this.o);
+        this.m.f(aVar.m().r1);
+    }
+
+    public final void s(String str) {
+        d.a.k0.x.m.l(this.k, str, R.color.CAM_X0105, R.color.CAM_X0109);
+        d.a.k0.x.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
+        this.m.setReadState(d.a.k0.x.m.k(str));
+    }
+
+    public void t(boolean z) {
+        this.o = z;
+    }
+
+    public void u(int i2) {
+        this.m.q = i2;
     }
 }

@@ -14,65 +14,65 @@ import java.util.Iterator;
 public class h {
 
     /* renamed from: d  reason: collision with root package name */
-    public static h f39394d;
+    public static h f38639d;
 
     /* renamed from: a  reason: collision with root package name */
-    public Resources f39395a = null;
+    public Resources f38640a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f39396b = null;
+    public ArrayList<String> f38641b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f39397c = null;
+    public HashSet<String> f38642c = null;
 
     public static h a() {
-        if (f39394d == null) {
+        if (f38639d == null) {
             synchronized (h.class) {
-                if (f39394d == null) {
-                    f39394d = new h();
+                if (f38639d == null) {
+                    f38639d = new h();
                 }
             }
         }
-        return f39394d;
+        return f38639d;
     }
 
     public synchronized Resources b() {
-        return this.f39395a;
+        return this.f38640a;
     }
 
     public synchronized void c(String str, String str2) throws IllegalAccessException, InstantiationException, SecurityException, IllegalArgumentException, NoSuchMethodException, InvocationTargetException {
         if (!TextUtils.isEmpty(str2)) {
-            if (this.f39395a != null) {
+            if (this.f38640a != null) {
                 if (!TextUtils.isEmpty(str)) {
-                    if (this.f39397c == null) {
-                        this.f39397c = new HashSet<>();
+                    if (this.f38642c == null) {
+                        this.f38642c = new HashSet<>();
                     }
-                    if (this.f39397c.contains(str)) {
+                    if (this.f38642c.contains(str)) {
                         d.a.c.h.h.a.b().o("plugin_load", "repeat_inject_res", str, str2);
                     }
-                    this.f39397c.add(str);
+                    this.f38642c.add(str);
                 }
-                if (this.f39396b == null) {
-                    this.f39396b = new ArrayList<>();
+                if (this.f38641b == null) {
+                    this.f38641b = new ArrayList<>();
                 }
-                if (this.f39396b.contains(str2)) {
+                if (this.f38641b.contains(str2)) {
                     return;
                 }
                 if (Build.VERSION.SDK_INT >= 20) {
-                    d.a.c.h.k.d.a(this.f39395a.getAssets(), V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
+                    d.a.c.h.k.d.a(this.f38640a.getAssets(), V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
                 } else {
                     AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                    if (this.f39396b.size() > 0) {
-                        Iterator<String> it = this.f39396b.iterator();
+                    if (this.f38641b.size() > 0) {
+                        Iterator<String> it = this.f38641b.iterator();
                         while (it.hasNext()) {
                             d.a.c.h.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{it.next()});
                         }
                     }
                     d.a.c.h.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
                     d.a.c.h.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
-                    this.f39395a = new Resources(assetManager, this.f39395a.getDisplayMetrics(), this.f39395a.getConfiguration());
+                    this.f38640a = new Resources(assetManager, this.f38640a.getDisplayMetrics(), this.f38640a.getConfiguration());
                 }
-                this.f39396b.add(str2);
+                this.f38641b.add(str2);
                 return;
             }
             throw new RuntimeException("hostResources is null");
@@ -81,6 +81,6 @@ public class h {
     }
 
     public synchronized void d(Resources resources) {
-        this.f39395a = resources;
+        this.f38640a = resources;
     }
 }

@@ -109,15 +109,23 @@ public class e extends com.baidu.platform.base.d {
 
     private boolean a(JSONObject jSONObject, ReverseGeoCodeResult reverseGeoCodeResult) {
         JSONObject optJSONObject;
+        String str;
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("result")) == null) {
             return false;
         }
         reverseGeoCodeResult.setCityCode(optJSONObject.optInt("cityCode"));
         reverseGeoCodeResult.setAddress(optJSONObject.optString("formatted_address"));
         reverseGeoCodeResult.setBusinessCircle(optJSONObject.optString(Constant.KEY_BUSINESS));
-        reverseGeoCodeResult.setAddressDetail(a(optJSONObject, "addressComponent"));
+        ReverseGeoCodeResult.AddressComponent a2 = a(optJSONObject, "addressComponent");
+        reverseGeoCodeResult.setAddressDetail(a2);
         reverseGeoCodeResult.setLocation(d(optJSONObject, "location"));
-        reverseGeoCodeResult.setPoiList(a(optJSONObject, "pois", reverseGeoCodeResult.getAddressDetail() != null ? reverseGeoCodeResult.getAddressDetail().city : ""));
+        if (a2 != null) {
+            str = a2.city;
+            reverseGeoCodeResult.setAdcode(a2.adcode);
+        } else {
+            str = "";
+        }
+        reverseGeoCodeResult.setPoiList(a(optJSONObject, "pois", str));
         reverseGeoCodeResult.setSematicDescription(optJSONObject.optString("sematic_description"));
         reverseGeoCodeResult.setPoiRegionsInfoList(b(optJSONObject, "poiRegions"));
         reverseGeoCodeResult.error = SearchResult.ERRORNO.NO_ERROR;

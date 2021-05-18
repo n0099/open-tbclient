@@ -18,22 +18,22 @@ public class d {
         LcmPb$RpcData parseFrom = LcmPb$RpcData.parseFrom(bArr);
         if (parseFrom.hasLcmResponse()) {
             LcmPb$LcmResponse lcmResponse = parseFrom.getLcmResponse();
-            d.a.s.a.g.d.a("PbProcessor", "methodId ：" + bVar.f63887i + ", logId :" + lcmResponse.getLogId() + ", errMsg :" + lcmResponse.getErrorMsg() + ", errCode :" + lcmResponse.getErrorCode() + ", pingMS :" + lcmResponse.getNextIntervalMs());
+            d.a.s.a.g.d.a("PbProcessor", "methodId ：" + bVar.f64574i + ", logId :" + lcmResponse.getLogId() + ", errMsg :" + lcmResponse.getErrorMsg() + ", errCode :" + lcmResponse.getErrorCode() + ", pingMS :" + lcmResponse.getNextIntervalMs());
             if (lcmResponse.getErrorCode() == 0) {
-                long j = bVar.f63887i;
+                long j = bVar.f64574i;
                 if (j == 1) {
                     bVar.j = 0;
-                    bVar.f63885g = lcmResponse.getNextIntervalMs();
+                    bVar.f64572g = lcmResponse.getNextIntervalMs();
                 } else if (j == 2) {
                     bVar.j = -1;
                 } else if (j == 3) {
-                    bVar.f63885g = lcmResponse.getNextIntervalMs();
+                    bVar.f64572g = lcmResponse.getNextIntervalMs();
                 } else if (j == 4) {
                     d.a.s.a.g.d.a("PbProcessor", "parseLcmResponse notify");
                 }
             } else {
-                bVar.f63881c = lcmResponse.getErrorCode();
-                bVar.f63882d = lcmResponse.getErrorMsg();
+                bVar.f64568c = lcmResponse.getErrorCode();
+                bVar.f64569d = lcmResponse.getErrorMsg();
                 bVar.j = -1;
             }
         } else if (parseFrom.hasLcmNotify()) {
@@ -78,31 +78,31 @@ public class d {
             bArr2 = d(bArr2);
             d.a.s.a.g.d.a("PbProcessor", "payload is gzip compressed，length : " + bArr2.length);
         }
-        bVar.f63884f = bArr2;
+        bVar.f64571f = bArr2;
         if (parseFrom.hasNotify()) {
             RpcMetaPb$RpcNotifyMeta notify = parseFrom.getNotify();
-            bVar.f63881c = 0;
-            bVar.f63882d = "notify";
-            bVar.f63886h = notify.getServiceId();
-            bVar.f63887i = notify.getMethodId();
+            bVar.f64568c = 0;
+            bVar.f64569d = "notify";
+            bVar.f64573h = notify.getServiceId();
+            bVar.f64574i = notify.getMethodId();
             bVar.n = notify.getLogId();
-            bVar.f63883e = true;
+            bVar.f64570e = true;
         } else if (parseFrom.hasResponse()) {
             RpcMetaPb$RpcResponseMeta response = parseFrom.getResponse();
-            bVar.f63881c = response.getErrorCode();
-            bVar.f63882d = response.getErrorText();
-            bVar.f63886h = response.getServiceId();
-            bVar.f63887i = response.getMethodId();
+            bVar.f64568c = response.getErrorCode();
+            bVar.f64569d = response.getErrorText();
+            bVar.f64573h = response.getServiceId();
+            bVar.f64574i = response.getMethodId();
             bVar.n = response.getLogId();
-            bVar.f63883e = false;
-            if (bVar.f63881c == 0 && bVar.f63886h == 1) {
+            bVar.f64570e = false;
+            if (bVar.f64568c == 0 && bVar.f64573h == 1) {
                 a(bVar, bArr2);
                 return bVar;
             }
         } else if (parseFrom.hasRequest()) {
             RpcMetaPb$RpcRequestMeta request = parseFrom.getRequest();
-            bVar.f63886h = request.getServiceId();
-            bVar.f63887i = request.getMethodId();
+            bVar.f64573h = request.getServiceId();
+            bVar.f64574i = request.getMethodId();
             d.a.s.a.g.d.a("PbProcessor", "parseRpcMeta requestMeta");
             a(bVar, bArr2);
         }

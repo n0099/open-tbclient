@@ -16,22 +16,22 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.h1.b.a;
+import d.a.k0.h1.b.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LabelItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18527e;
+    public boolean f17842e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18528f;
+    public int f17843f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18529g;
+    public int f17844g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f18530h;
+    public Paint f17845h;
 
     public LabelItemView(Context context) {
         super(context);
@@ -46,11 +46,11 @@ public class LabelItemView extends LinearLayout {
         setWeightSum(3.0f);
         setOrientation(0);
         Paint paint = new Paint();
-        this.f18530h = paint;
+        this.f17845h = paint;
         paint.setStyle(Paint.Style.STROKE);
-        this.f18530h.setColor(SkinManager.getColor(R.color.CAM_X0204));
-        this.f18530h.setStrokeWidth(1.0f);
-        this.f18529g = l.g(getContext(), R.dimen.ds46);
+        this.f17845h.setColor(SkinManager.getColor(R.color.CAM_X0204));
+        this.f17845h.setStrokeWidth(1.0f);
+        this.f17844g = l.g(getContext(), R.dimen.ds46);
         for (int i2 = 0; i2 < 3; i2++) {
             addView(a());
         }
@@ -61,15 +61,15 @@ public class LabelItemView extends LinearLayout {
         super.dispatchDraw(canvas);
         int width = getWidth() / 3;
         int height = getHeight();
-        for (int i2 = 1; i2 < this.f18528f; i2++) {
+        for (int i2 = 1; i2 < this.f17843f; i2++) {
             int i3 = width * i2;
-            int i4 = this.f18529g;
-            canvas.drawLine(i3, (height - i4) / 2, i3 + 1, (i4 + height) / 2, this.f18530h);
+            int i4 = this.f17844g;
+            canvas.drawLine(i3, (height - i4) / 2, i3 + 1, (i4 + height) / 2, this.f17845h);
         }
-        if (this.f18527e) {
+        if (this.f17842e) {
             return;
         }
-        canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f18530h);
+        canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f17845h);
     }
 
     public void setData(List<a> list, boolean z) {
@@ -77,11 +77,11 @@ public class LabelItemView extends LinearLayout {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f18527e = z;
-        this.f18528f = Math.min(list.size(), 3);
+        this.f17842e = z;
+        this.f17843f = Math.min(list.size(), 3);
         int i3 = 0;
         while (true) {
-            i2 = this.f18528f;
+            i2 = this.f17843f;
             if (i3 >= i2) {
                 break;
             }
@@ -89,14 +89,14 @@ public class LabelItemView extends LinearLayout {
             if (aVar != null && (getChildAt(i3) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i3);
                 textView.setVisibility(0);
-                String str = aVar.f54790b;
-                if (!StringUtils.isNull(str) && aVar.f54790b.length() > 4) {
-                    str = aVar.f54790b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = aVar.f55497b;
+                if (!StringUtils.isNull(str) && aVar.f55497b.length() > 4) {
+                    str = aVar.f55497b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(aVar.f54791c);
+                textView.setSelected(aVar.f55498c);
                 textView.setTag(aVar);
             }
             i3++;

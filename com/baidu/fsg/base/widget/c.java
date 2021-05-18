@@ -5,18 +5,18 @@ import android.view.View;
 public class c implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardEditText f5694a;
+    public final /* synthetic */ SafeKeyBoardEditText f5548a;
 
     public c(SafeKeyBoardEditText safeKeyBoardEditText) {
-        this.f5694a = safeKeyBoardEditText;
+        this.f5548a = safeKeyBoardEditText;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
         boolean z;
-        z = this.f5694a.p;
+        z = this.f5548a.p;
         if (z) {
-            this.f5694a.requestFocusFromTouch();
+            this.f5548a.requestFocusFromTouch();
             return true;
         }
         return false;

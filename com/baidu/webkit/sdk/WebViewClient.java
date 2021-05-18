@@ -7,11 +7,11 @@ import android.view.KeyEvent;
 import android.webkit.SslErrorHandler;
 import com.baidu.webkit.internal.b.a;
 import com.baidu.webkit.internal.b.b;
+import com.baidu.webkit.internal.b.c;
+import com.baidu.webkit.internal.b.d;
+import com.baidu.webkit.internal.b.e;
 import com.baidu.webkit.internal.b.f;
 import com.baidu.webkit.internal.b.g;
-import com.baidu.webkit.internal.b.h;
-import com.baidu.webkit.internal.b.i;
-import com.baidu.webkit.internal.b.j;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
@@ -35,7 +35,101 @@ public class WebViewClient {
     public static final String SCHEMA_HTTP = "http://";
     public static final String SCHEMA_HTTPS = "https://";
     public static final String TAG = "WebViewClient";
-    public List<j> mUrlHandlers = new ArrayList();
+    public List<g> mUrlHandlers = new ArrayList();
+
+    /* loaded from: classes5.dex */
+    public static class FirstScreenImageInfo {
+        public boolean bHaveImageInScreen;
+        public int nErrorOccurredCount;
+        public int nImageCount;
+        public long nMaxTimeStamp;
+        public int nPaintHeightForMaxImage;
+        public int nPaintWidthForMaxImage;
+        public int nPosXForMaxImage;
+        public int nPosYForMaxImage;
+        public long nTimeStampForMaxImage;
+        public String url;
+
+        public int getErrorOccurredCount() {
+            return this.nErrorOccurredCount;
+        }
+
+        public boolean getHaveImageInScreen() {
+            return this.bHaveImageInScreen;
+        }
+
+        public int getImageCount() {
+            return this.nImageCount;
+        }
+
+        public long getMaxTimeStamp() {
+            return this.nMaxTimeStamp;
+        }
+
+        public int getPaintHeightForMaxImage() {
+            return this.nPaintHeightForMaxImage;
+        }
+
+        public int getPaintWidthForMaxImage() {
+            return this.nPaintWidthForMaxImage;
+        }
+
+        public int getPosXForMaxImage() {
+            return this.nPosXForMaxImage;
+        }
+
+        public int getPosYForMaxImage() {
+            return this.nPosYForMaxImage;
+        }
+
+        public long getTimeStampForMaxImage() {
+            return this.nTimeStampForMaxImage;
+        }
+
+        public String getUrl() {
+            return this.url;
+        }
+
+        public void setErrorOccurredCount(int i2) {
+            this.nErrorOccurredCount = i2;
+        }
+
+        public void setHaveImageInScreen(boolean z) {
+            this.bHaveImageInScreen = z;
+        }
+
+        public void setImageCount(int i2) {
+            this.nImageCount = i2;
+        }
+
+        public void setMaxTimeStamp(long j) {
+            this.nMaxTimeStamp = j;
+        }
+
+        public void setPaintHeightForMaxImage(int i2) {
+            this.nPaintHeightForMaxImage = i2;
+        }
+
+        public void setPaintWidthForMaxImage(int i2) {
+            this.nPaintWidthForMaxImage = i2;
+        }
+
+        public void setPosXForMaxImage(int i2) {
+            this.nPosXForMaxImage = i2;
+        }
+
+        public void setPosYForMaxImage(int i2) {
+            this.nPosYForMaxImage = i2;
+        }
+
+        public void setTimeStampForMaxImage(long j) {
+            this.nTimeStampForMaxImage = j;
+        }
+
+        public void setUrl(String str) {
+            this.url = str;
+        }
+    }
 
     /* loaded from: classes5.dex */
     public enum InteractionType {
@@ -117,20 +211,20 @@ public class WebViewClient {
     }
 
     public WebViewClient() {
-        addUrlHandler(new f());
+        addUrlHandler(new c());
         addUrlHandler(new b());
-        addUrlHandler(new g());
-        addUrlHandler(new i());
+        addUrlHandler(new d());
+        addUrlHandler(new f());
         addUrlHandler(new a());
-        addUrlHandler(new h());
+        addUrlHandler(new e());
     }
 
     public void AntiHijackSign(WebView webView, String str) {
     }
 
-    public void addUrlHandler(j jVar) {
-        if (jVar != null) {
-            this.mUrlHandlers.add(jVar);
+    public void addUrlHandler(g gVar) {
+        if (gVar != null) {
+            this.mUrlHandlers.add(gVar);
         }
     }
 
@@ -187,7 +281,10 @@ public class WebViewClient {
     public void onFirstPaintDid(WebView webView, String str) {
     }
 
-    public void onFirstScreenPaintFinished(WebView webView, String str, int i2, int i3, int i4, int i5, int i6) {
+    public void onFirstScreenImagePaint(WebView webView, FirstScreenImageInfo firstScreenImageInfo) {
+    }
+
+    public void onFirstScreenPaintFinished(WebView webView, String str, int i2, int i3, int i4, int i5, int i6, int i7) {
     }
 
     public void onFirstTextPaint(WebView webView, String str) {
@@ -352,6 +449,9 @@ public class WebViewClient {
     public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
     }
 
+    public void onReceivedImageDataCompleted(String str, String str2, byte[] bArr) {
+    }
+
     public void onReceivedLoginRequest(WebView webView, String str, String str2, String str3) {
     }
 
@@ -422,9 +522,9 @@ public class WebViewClient {
     public void onUserInteraction(WebView webView, String str, InteractionType interactionType) {
     }
 
-    public void removeUrlHander(j jVar) {
-        if (jVar != null) {
-            this.mUrlHandlers.remove(jVar);
+    public void removeUrlHander(g gVar) {
+        if (gVar != null) {
+            this.mUrlHandlers.remove(gVar);
         }
     }
 
@@ -463,8 +563,8 @@ public class WebViewClient {
 
     @Deprecated
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        for (j jVar : this.mUrlHandlers) {
-            if (jVar.a(webView.getContext(), str)) {
+        for (g gVar : this.mUrlHandlers) {
+            if (gVar.a(webView.getContext(), str)) {
                 return true;
             }
         }

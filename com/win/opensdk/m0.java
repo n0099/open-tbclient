@@ -5,33 +5,33 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
 import com.win.opensdk.core.Info;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class m0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f37906a;
+    public View f37151a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37907b;
+    public boolean f37152b;
 
     /* renamed from: c  reason: collision with root package name */
-    public l0 f37908c;
+    public l0 f37153c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Info f37909d;
+    public Info f37154d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f37910e = new j0(this, Looper.getMainLooper());
+    public Handler f37155e = new j0(this, Looper.getMainLooper());
 
     public void a(View view, Info info, l0 l0Var) {
-        this.f37906a = view;
-        this.f37908c = l0Var;
-        this.f37909d = info;
+        this.f37151a = view;
+        this.f37153c = l0Var;
+        this.f37154d = info;
         try {
-            if (!this.f37907b) {
-                this.f37910e.sendEmptyMessage(1101);
+            if (!this.f37152b) {
+                this.f37155e.sendEmptyMessage(1101);
             }
-            this.f37906a.getViewTreeObserver().addOnScrollChangedListener(new k0(this, l0Var));
+            this.f37151a.getViewTreeObserver().addOnScrollChangedListener(new k0(this, l0Var));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -48,9 +48,9 @@ public class m0 {
             return false;
         }
         Rect rect = new Rect();
-        if (view.getGlobalVisibleRect(rect) && this.f37909d != null) {
-            if (rect.width() >= this.f37909d.getSper() * view.getMeasuredWidth()) {
-                if (rect.height() >= this.f37909d.getSper() * view.getMeasuredHeight()) {
+        if (view.getGlobalVisibleRect(rect) && this.f37154d != null) {
+            if (rect.width() >= this.f37154d.getSper() * view.getMeasuredWidth()) {
+                if (rect.height() >= this.f37154d.getSper() * view.getMeasuredHeight()) {
                     z = false;
                     return z;
                 }

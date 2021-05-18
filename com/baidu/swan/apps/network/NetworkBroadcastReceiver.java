@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import d.a.h0.a.k;
+import d.a.i0.a.k;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class NetworkBroadcastReceiver extends BroadcastReceiver {
-    public static final boolean DEBUG = k.f43101a;
+    public static final boolean DEBUG = k.f43025a;
     public String mCallback;
     public WeakReference<CallbackHandler> mCallbackHandlerWeakRef;
 
@@ -27,7 +27,7 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
         if (DEBUG) {
             Log.d("NetworkBroadcast", "——> onReceive: ");
         }
-        SwanAppNetworkUtils.j(context, this.mCallbackHandlerWeakRef.get(), this.mCallback);
+        SwanAppNetworkUtils.k(context, this.mCallbackHandlerWeakRef.get(), this.mCallback);
     }
 
     public void updateCallback(CallbackHandler callbackHandler, String str) {

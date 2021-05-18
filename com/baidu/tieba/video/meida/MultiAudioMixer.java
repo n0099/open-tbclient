@@ -10,7 +10,7 @@ import java.util.Arrays;
 public abstract class MultiAudioMixer {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f22127a;
+    public c f21372a;
 
     /* loaded from: classes5.dex */
     public static class AudioMixException extends IOException {
@@ -95,8 +95,8 @@ public abstract class MultiAudioMixer {
                         fileInputStreamArr[i3] = new FileInputStream(fileArr[i3]);
                     } catch (Exception e2) {
                         e2.printStackTrace();
-                        if (this.f22127a != null) {
-                            this.f22127a.c(1);
+                        if (this.f21372a != null) {
+                            this.f21372a.c(1);
                         }
                         while (i2 < length) {
                             FileInputStream fileInputStream = fileInputStreamArr[i2];
@@ -138,8 +138,8 @@ public abstract class MultiAudioMixer {
                 }
             }
             byte[] c2 = c(bArr);
-            if (c2 != null && this.f22127a != null) {
-                this.f22127a.a(c2);
+            if (c2 != null && this.f21372a != null) {
+                this.f21372a.a(c2);
             }
             z = true;
             for (int i5 = 0; i5 < length; i5++) {
@@ -148,8 +148,8 @@ public abstract class MultiAudioMixer {
                 }
             }
         } while (!z);
-        if (this.f22127a != null) {
-            this.f22127a.b();
+        if (this.f21372a != null) {
+            this.f21372a.b();
         }
         while (i2 < length) {
             FileInputStream fileInputStream4 = fileInputStreamArr[i2];
@@ -163,6 +163,6 @@ public abstract class MultiAudioMixer {
     public abstract byte[] c(byte[][] bArr);
 
     public void d(c cVar) {
-        this.f22127a = cVar;
+        this.f21372a = cVar;
     }
 }

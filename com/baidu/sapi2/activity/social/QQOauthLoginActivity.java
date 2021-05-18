@@ -24,19 +24,19 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
     public class a implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Tencent f10807a;
+        public final /* synthetic */ Tencent f9844a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ com.baidu.sapi2.a.a.a f10808b;
+        public final /* synthetic */ com.baidu.sapi2.a.a.a f9845b;
 
         public a(Tencent tencent, com.baidu.sapi2.a.a.a aVar) {
-            this.f10807a = tencent;
-            this.f10808b = aVar;
+            this.f9844a = tencent;
+            this.f9845b = aVar;
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
-            this.f10808b.a();
+            this.f9845b.a();
         }
 
         @Override // com.tencent.tauth.IUiListener
@@ -48,19 +48,19 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
                     String optString2 = jSONObject.optString("expires_in");
                     String optString3 = jSONObject.optString("openid");
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
-                        this.f10807a.setAccessToken(optString, optString2);
-                        this.f10807a.setOpenId(optString3);
-                        QQOauthLoginActivity.this.a(this.f10807a, this.f10808b);
+                        this.f9844a.setAccessToken(optString, optString2);
+                        this.f9844a.setOpenId(optString3);
+                        QQOauthLoginActivity.this.a(this.f9844a, this.f9845b);
                         return;
                     }
-                    this.f10808b.a();
+                    this.f9845b.a();
                 }
             }
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            this.f10808b.a();
+            this.f9845b.a();
         }
     }
 
@@ -68,33 +68,33 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
     public class b implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.baidu.sapi2.a.a.a f10810a;
+        public final /* synthetic */ com.baidu.sapi2.a.a.a f9847a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Tencent f10811b;
+        public final /* synthetic */ Tencent f9848b;
 
         public b(com.baidu.sapi2.a.a.a aVar, Tencent tencent) {
-            this.f10810a = aVar;
-            this.f10811b = tencent;
+            this.f9847a = aVar;
+            this.f9848b = tencent;
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
-            this.f10810a.a();
+            this.f9847a.a();
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
             if (obj != null) {
-                this.f10810a.a(this.f10811b.getAccessToken(), this.f10811b.getOpenId(), ((JSONObject) obj).optString("unionid"));
+                this.f9847a.a(this.f9848b.getAccessToken(), this.f9848b.getOpenId(), ((JSONObject) obj).optString("unionid"));
                 return;
             }
-            this.f10810a.a();
+            this.f9847a.a();
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            this.f10810a.a();
+            this.f9847a.a();
         }
     }
 

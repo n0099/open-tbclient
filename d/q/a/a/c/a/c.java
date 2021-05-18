@@ -22,36 +22,36 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile c f66892d;
+    public static volatile c f67578d;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f66893a;
+    public e f67579a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap f66894b = new ConcurrentHashMap(10);
+    public ConcurrentHashMap f67580b = new ConcurrentHashMap(10);
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f66895c;
+    public Context f67581c;
 
     public c(Context context) {
-        this.f66893a = null;
+        this.f67579a = null;
         try {
-            this.f66895c = context;
-            this.f66893a = new e(context);
+            this.f67581c = context;
+            this.f67579a = new e(context);
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
         }
     }
 
     public static c b(Context context) {
-        if (f66892d == null) {
+        if (f67578d == null) {
             synchronized (c.class) {
-                if (f66892d == null) {
-                    f66892d = new c(context);
+                if (f67578d == null) {
+                    f67578d = new c(context);
                 }
             }
         }
-        return f66892d;
+        return f67578d;
     }
 
     public static void e(Context context, String str) {
@@ -100,14 +100,14 @@ public class c {
     public final synchronized Pair a() {
         byte[] bArr;
         try {
-            if (this.f66894b != null) {
+            if (this.f67580b != null) {
                 StringBuilder sb = new StringBuilder();
-                if (!TextUtils.isEmpty((String) this.f66894b.get("cache_e"))) {
-                    return Pair.create(Pair.create(Boolean.TRUE, sb.toString()), this.f66894b);
+                if (!TextUtils.isEmpty((String) this.f67580b.get("cache_e"))) {
+                    return Pair.create(Pair.create(Boolean.TRUE, sb.toString()), this.f67580b);
                 }
             }
-            this.f66894b.clear();
-            String c2 = this.f66893a.c();
+            this.f67580b.clear();
+            String c2 = this.f67579a.c();
             if (!TextUtils.isEmpty(c2)) {
                 try {
                     bArr = Base64.decode(c2, 0);
@@ -121,14 +121,14 @@ public class c {
                     }
                 }
                 JSONObject jSONObject = new JSONObject(new String(d.q.a.a.c.b.a.f(bArr, "20212102sjcudiab".getBytes())));
-                this.f66894b.put("cache_e", jSONObject.optString("cache_e", ""));
-                this.f66894b.put("cache_m", jSONObject.optString("cache_m", ""));
-                this.f66894b.put("c_time", Long.toString(jSONObject.optLong("c_time", 0L)));
+                this.f67580b.put("cache_e", jSONObject.optString("cache_e", ""));
+                this.f67580b.put("cache_m", jSONObject.optString("cache_m", ""));
+                this.f67580b.put("c_time", Long.toString(jSONObject.optLong("c_time", 0L)));
             }
-            if (this.f66894b != null && this.f66894b.size() > 0) {
+            if (this.f67580b != null && this.f67580b.size() > 0) {
                 StringBuilder sb2 = new StringBuilder();
-                if (!TextUtils.isEmpty((String) this.f66894b.get("cache_e"))) {
-                    return Pair.create(Pair.create(Boolean.TRUE, sb2.toString()), this.f66894b);
+                if (!TextUtils.isEmpty((String) this.f67580b.get("cache_e"))) {
+                    return Pair.create(Pair.create(Boolean.TRUE, sb2.toString()), this.f67580b);
                 }
             }
             return Pair.create(Pair.create(Boolean.TRUE, "8"), null);
@@ -226,9 +226,9 @@ public class c {
         LinkedHashMap linkedHashMap = null;
         try {
             long currentTimeMillis = System.currentTimeMillis();
-            this.f66894b.put("c_time", Long.toString(currentTimeMillis));
-            this.f66894b.put("cache_e", str);
-            this.f66894b.put("cache_m", str2);
+            this.f67580b.put("c_time", Long.toString(currentTimeMillis));
+            this.f67580b.put("cache_e", str);
+            this.f67580b.put("cache_m", str2);
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("c_time", currentTimeMillis);
             jSONObject.put("cache_e", str);
@@ -246,37 +246,37 @@ public class c {
                 }
             }
             if (bArr != null) {
-                this.f66893a.a(new String(bArr));
+                this.f67579a.a(new String(bArr));
             }
         } catch (Throwable unused3) {
         }
         try {
-            String c2 = d.c(this.f66895c, "k_w_o_d_out_dtt");
+            String c2 = d.c(this.f67581c, "k_w_o_d_out_dtt");
             if (TextUtils.isEmpty(c2)) {
                 d.q.a.a.c.b.a.b();
-                if (d.q.a.a.c.b.e.e(this.f66895c, new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION})) {
+                if (d.q.a.a.c.b.e.e(this.f67581c, new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION})) {
                     c2 = g("Lm91a2R0ZnQ=");
                 }
             }
             if (!TextUtils.isEmpty(c2) && (linkedHashMap = d(c2)) != null) {
-                String e2 = b.f66891a.e();
+                String e2 = b.f67577a.e();
                 if (!TextUtils.isEmpty(e2)) {
                     if (linkedHashMap.containsKey(e2)) {
                         linkedHashMap.remove(e2);
                     }
-                    linkedHashMap.put(b.f66891a.e(), str);
+                    linkedHashMap.put(b.f67577a.e(), str);
                 }
             }
             if (linkedHashMap == null || linkedHashMap.size() == 0) {
                 linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put(b.f66891a.e(), str);
+                linkedHashMap.put(b.f67577a.e(), str);
             }
             String c3 = c(linkedHashMap);
             if (!TextUtils.isEmpty(c3)) {
-                d.d(this.f66895c, "k_w_o_d_out_dtt", c3);
+                d.d(this.f67581c, "k_w_o_d_out_dtt", c3);
                 d.q.a.a.c.b.a.b();
-                if (d.q.a.a.c.b.e.e(this.f66895c, new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION})) {
-                    e(this.f66895c, c3);
+                if (d.q.a.a.c.b.e.e(this.f67581c, new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION})) {
+                    e(this.f67581c, c3);
                 }
             }
         } catch (Throwable th) {
@@ -286,7 +286,7 @@ public class c {
 
     public final String g(String str) {
         try {
-            File file = new File(d.q.a.a.c.b.a.a(this.f66895c, false), new String(Base64.decode(str, 0)));
+            File file = new File(d.q.a.a.c.b.a.a(this.f67581c, false), new String(Base64.decode(str, 0)));
             if (!file.exists()) {
                 return "";
             }

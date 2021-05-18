@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.h;
 
 import android.util.Log;
 import com.baidu.android.common.others.lang.StringUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements c {
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.h.c
     public void a(String str, Object... objArr) {

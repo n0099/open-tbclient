@@ -10,30 +10,30 @@ import com.baidu.tieba.R;
 public class PrivateMgrApplyViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f15775a;
+    public TextView f15090a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15776b;
+    public TextView f15091b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f15777c;
+    public RelativeLayout f15092c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f15778d;
+    public View f15093d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15779e;
+    public LinearLayout f15094e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15780f;
+    public int f15095f;
 
     public PrivateMgrApplyViewHolder(View view) {
         super(view);
-        this.f15780f = 3;
-        this.f15779e = (LinearLayout) view.findViewById(R.id.root_private_member_apply);
-        this.f15778d = view.findViewById(R.id.private_apply_line);
-        this.f15775a = (TextView) view.findViewById(R.id.private_apply_tip);
-        this.f15776b = (TextView) view.findViewById(R.id.private_left_tv);
-        this.f15777c = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
+        this.f15095f = 3;
+        this.f15094e = (LinearLayout) view.findViewById(R.id.root_private_member_apply);
+        this.f15093d = view.findViewById(R.id.private_apply_line);
+        this.f15090a = (TextView) view.findViewById(R.id.private_apply_tip);
+        this.f15091b = (TextView) view.findViewById(R.id.private_left_tv);
+        this.f15092c = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
     }
 }

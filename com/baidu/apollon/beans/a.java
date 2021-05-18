@@ -7,34 +7,34 @@ import java.util.Iterator;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f3641a;
+    public static a f3642a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, ArrayList<ApollonBean<?>>> f3642b = new HashMap<>();
+    public final HashMap<String, ArrayList<ApollonBean<?>>> f3643b = new HashMap<>();
 
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f3641a == null) {
-                f3641a = new a();
+            if (f3642a == null) {
+                f3642a = new a();
             }
-            aVar = f3641a;
+            aVar = f3642a;
         }
         return aVar;
     }
 
     public synchronized void a(String str, ApollonBean<?> apollonBean) {
-        ArrayList<ApollonBean<?>> arrayList = this.f3642b.get(str);
+        ArrayList<ApollonBean<?>> arrayList = this.f3643b.get(str);
         if (arrayList == null) {
             arrayList = new ArrayList<>();
-            this.f3642b.put(str, arrayList);
+            this.f3643b.put(str, arrayList);
         }
         arrayList.add(apollonBean);
     }
 
     public synchronized void a(ApollonBean<?> apollonBean) {
-        for (String str : this.f3642b.keySet()) {
-            ArrayList<ApollonBean<?>> arrayList = this.f3642b.get(str);
+        for (String str : this.f3643b.keySet()) {
+            ArrayList<ApollonBean<?>> arrayList = this.f3643b.get(str);
             Iterator<ApollonBean<?>> it = arrayList.iterator();
             while (true) {
                 if (it.hasNext()) {
@@ -51,13 +51,13 @@ public final class a {
     }
 
     public synchronized void a(String str) {
-        ArrayList<ApollonBean<?>> arrayList = this.f3642b.get(str);
+        ArrayList<ApollonBean<?>> arrayList = this.f3643b.get(str);
         if (arrayList != null) {
             Iterator<ApollonBean<?>> it = arrayList.iterator();
             while (it.hasNext()) {
                 it.next().destroyBean();
             }
-            this.f3642b.remove(str);
+            this.f3643b.remove(str);
         }
     }
 }

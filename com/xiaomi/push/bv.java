@@ -6,15 +6,15 @@ import com.xiaomi.push.ai;
 public class bv extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bu f38198a;
+    public final /* synthetic */ bu f37443a;
 
     public bv(bu buVar) {
-        this.f38198a = buVar;
+        this.f37443a = buVar;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo172a() {
+    public String mo171a() {
         return "10052";
     }
 
@@ -24,12 +24,12 @@ public class bv extends ai.a {
         ck ckVar2;
         Context context;
         com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-        ckVar = this.f38198a.f160a;
+        ckVar = this.f37443a.f160a;
         if (ckVar != null) {
-            ckVar2 = this.f38198a.f160a;
-            context = this.f38198a.f157a;
+            ckVar2 = this.f37443a.f160a;
+            context = this.f37443a.f157a;
             ckVar2.a(context);
-            this.f38198a.b("upload_time");
+            this.f37443a.b("upload_time");
         }
     }
 }

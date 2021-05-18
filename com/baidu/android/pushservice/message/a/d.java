@@ -8,16 +8,16 @@ import org.json.JSONObject;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3503a;
+    public Context f3504a;
 
     public d(Context context) {
-        this.f3503a = context;
+        this.f3504a = context;
     }
 
     public abstract com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr);
 
     public String a(String str) {
-        return ("com.baidu.searchbox_samsung".equals(str) && "com.baidu.searchbox".equals(this.f3503a.getPackageName())) ? "com.baidu.searchbox" : str;
+        return ("com.baidu.searchbox_samsung".equals(str) && "com.baidu.searchbox".equals(this.f3504a.getPackageName())) ? "com.baidu.searchbox" : str;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0033 A[ORIG_RETURN, RETURN] */
@@ -31,7 +31,7 @@ public abstract class d {
         try {
             jSONObject = new JSONObject(new String(bArr));
         } catch (Exception e2) {
-            new b.c(this.f3503a).a(Log.getStackTraceString(e2)).a();
+            new b.c(this.f3504a).a(Log.getStackTraceString(e2)).a();
         }
         if (!jSONObject.isNull("bccs_fb")) {
             i2 = Integer.parseInt(jSONObject.getString("bccs_fb"));

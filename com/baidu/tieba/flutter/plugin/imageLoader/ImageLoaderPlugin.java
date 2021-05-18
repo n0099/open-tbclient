@@ -124,7 +124,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     }
 
     private boolean shouldMonitorPerformance(int i2) {
-        return d.a.i0.m0.k.d().g() && i2 % 100 == 0;
+        return d.a.j0.m0.k.d().g() && i2 % 100 == 0;
     }
 
     @Override // com.baidu.tieba.flutter.plugin.imageLoader.ImageLoaderAuto.HostImageLoader
@@ -182,7 +182,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
             } else if (requestParam.getPatternColor() != null && requestParam.getPatternColor().longValue() != 0) {
                 maskDrawable = WebPManager.getPureDrawable(identifier, requestParam.getPatternColor().intValue(), WebPManager.ResourceStateType.NORMAL);
             } else {
-                maskDrawable = WebPManager.getMaskDrawable(identifier, null);
+                maskDrawable = WebPManager.getMaskDrawable(identifier, (WebPManager.ResourceStateType) null);
             }
             if (maskDrawable != null) {
                 Bitmap createBitmap = Bitmap.createBitmap(maskDrawable.getIntrinsicWidth(), maskDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
@@ -262,11 +262,11 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        d.a.j0.m0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
+        d.a.k0.m0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        d.a.j0.m0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
+        d.a.k0.m0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
     }
 }

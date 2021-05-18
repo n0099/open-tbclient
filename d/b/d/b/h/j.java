@@ -4,28 +4,28 @@ import android.os.Build;
 import android.system.Os;
 import android.system.OsConstants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f65215a = -1;
+    public static long f65901a = -1;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static long f65216a = -1;
+        public static long f65902a = -1;
 
         public static long a() {
-            if (j.f65215a == -1) {
-                long unused = j.f65215a = 1000 / d();
+            if (j.f65901a == -1) {
+                long unused = j.f65901a = 1000 / d();
             }
-            return j.f65215a;
+            return j.f65901a;
         }
 
         public static long b(long j) {
             long c2;
-            long j2 = f65216a;
+            long j2 = f65902a;
             if (j2 > 0) {
                 return j2;
             }
@@ -38,7 +38,7 @@ public class j {
             if (c2 > 0) {
                 j = c2;
             }
-            f65216a = j;
+            f65902a = j;
             return j;
         }
 

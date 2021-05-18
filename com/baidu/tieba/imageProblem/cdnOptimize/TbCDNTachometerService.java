@@ -61,12 +61,12 @@ public class TbCDNTachometerService extends BdBaseService {
                     if (customMsgData == null) {
                         return;
                     }
-                    String str = customMsgData.f18429e;
-                    boolean z = customMsgData.f18427c;
-                    long j = customMsgData.f18428d;
+                    String str = customMsgData.f17744e;
+                    boolean z = customMsgData.f17742c;
+                    long j = customMsgData.f17743d;
                     String valueOf = String.valueOf(j);
                     int i2 = 0;
-                    if (customMsgData.f18432h != null && customMsgData.f18432h.length() > 0) {
+                    if (customMsgData.f17747h != null && customMsgData.f17747h.length() > 0) {
                         TbCDNTachometerService.this.canBroadCast = true;
                         if (!z || j > TbCDNTachometerService.this.hiPhotosMaxTime) {
                             TbCDNTachometerService.this.isNormal = false;
@@ -144,32 +144,32 @@ public class TbCDNTachometerService extends BdBaseService {
     public class CustomMsgData {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbCdnIpListData f18425a;
+        public TbCdnIpListData f17740a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f18426b;
+        public int f17741b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f18427c;
+        public boolean f17742c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f18428d;
+        public long f17743d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f18429e;
+        public String f17744e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbCdnTachometerModel f18430f;
+        public TbCdnTachometerModel f17745f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f18431g = false;
+        public boolean f17746g = false;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f18432h = null;
+        public String f17747h = null;
 
         public CustomMsgData(TbCdnIpListData tbCdnIpListData, int i2) {
-            this.f18425a = tbCdnIpListData;
-            this.f18426b = i2;
+            this.f17740a = tbCdnIpListData;
+            this.f17741b = i2;
         }
     }
 
@@ -271,40 +271,40 @@ public class TbCDNTachometerService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     public void startTachometer(TbCdnIpListData tbCdnIpListData) {
         this.numOfThrowIp = 0;
-        if (tbCdnIpListData != null && tbCdnIpListData.f18434a == 0) {
-            if (!tbCdnIpListData.f18439f) {
+        if (tbCdnIpListData != null && tbCdnIpListData.f17749a == 0) {
+            if (!tbCdnIpListData.f17754f) {
                 broadCastAndStopSelf(null);
                 return;
-            } else if (tbCdnIpListData.f18438e.size() == 0) {
+            } else if (tbCdnIpListData.f17753e.size() == 0) {
                 broadCastAndStopSelf(null);
                 return;
             } else {
-                breakUpIpList(tbCdnIpListData.f18438e);
-                String str = tbCdnIpListData.f18436c;
-                String str2 = tbCdnIpListData.f18440g;
-                String str3 = tbCdnIpListData.f18437d;
+                breakUpIpList(tbCdnIpListData.f17753e);
+                String str = tbCdnIpListData.f17751c;
+                String str2 = tbCdnIpListData.f17755g;
+                String str3 = tbCdnIpListData.f17752d;
                 if (str == null || str2 == null || str3 == null) {
                     return;
                 }
-                int size = tbCdnIpListData.f18438e.size();
+                int size = tbCdnIpListData.f17753e.size();
                 if (size > 0) {
                     CustomMsgData customMsgData = new CustomMsgData(tbCdnIpListData, 0);
-                    customMsgData.f18430f = this.cdnTachometerModel;
-                    customMsgData.f18431g = this.isNormal;
-                    customMsgData.f18432h = "c.hiphotos.baidu.com";
+                    customMsgData.f17745f = this.cdnTachometerModel;
+                    customMsgData.f17746g = this.isNormal;
+                    customMsgData.f17747h = "c.hiphotos.baidu.com";
                     CustomMessage customMessage = new CustomMessage(2017000, customMsgData);
                     customMessage.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage);
                 }
                 for (int i2 = 0; i2 < size; i2++) {
-                    ArrayList<String> arrayList = tbCdnIpListData.f18438e.get(i2);
+                    ArrayList<String> arrayList = tbCdnIpListData.f17753e.get(i2);
                     String str4 = arrayList.size() > 0 ? arrayList.get(0) : "";
                     if (!this.cdnIpMap.containsKey(str4)) {
                         this.cdnIpMap.put(str4, arrayList);
                     }
                     CustomMsgData customMsgData2 = new CustomMsgData(tbCdnIpListData, i2);
-                    customMsgData2.f18430f = this.cdnTachometerModel;
-                    customMsgData2.f18431g = this.isNormal;
+                    customMsgData2.f17745f = this.cdnTachometerModel;
+                    customMsgData2.f17746g = this.isNormal;
                     CustomMessage customMessage2 = new CustomMessage(2017000, customMsgData2);
                     customMessage2.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage2);
@@ -320,14 +320,14 @@ public class TbCDNTachometerService extends BdBaseService {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
-                        lastTachometerTime = d.a.i0.r.d0.b.j().l(LAST_GETCDNLIST_TIME, 0L);
+                        lastTachometerTime = d.a.j0.r.d0.b.j().l(LAST_GETCDNLIST_TIME, 0L);
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     if (0 != lastTachometerTime && currentTimeMillis - lastTachometerTime < 300000) {
                         return;
                     }
                     lastTachometerTime = currentTimeMillis;
-                    d.a.i0.r.d0.b.j().w(LAST_GETCDNLIST_TIME, currentTimeMillis);
+                    d.a.j0.r.d0.b.j().w(LAST_GETCDNLIST_TIME, currentTimeMillis);
                 }
             }
             Intent intent = new Intent(context, TbCDNTachometerService.class);

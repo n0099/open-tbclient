@@ -7,28 +7,28 @@ import java.util.HashMap;
 public class LocalRouter {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5419a = "LocalRouter";
+    public static final String f5273a = "LocalRouter";
 
     /* renamed from: b  reason: collision with root package name */
-    public static LocalRouter f5420b;
+    public static LocalRouter f5274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, RouterProvider> f5421c;
+    public HashMap<String, RouterProvider> f5275c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f5422d;
+    public Context f5276d;
 
     public LocalRouter(Context context) {
-        this.f5421c = null;
-        this.f5422d = context;
-        this.f5421c = new HashMap<>();
+        this.f5275c = null;
+        this.f5276d = context;
+        this.f5275c = new HashMap<>();
     }
 
     public static synchronized LocalRouter getInstance() {
         LocalRouter localRouter;
         synchronized (LocalRouter.class) {
-            if (f5420b != null) {
-                localRouter = f5420b;
+            if (f5274b != null) {
+                localRouter = f5274b;
             } else {
                 throw new RuntimeException("Local Router must be init first");
             }
@@ -39,16 +39,16 @@ public class LocalRouter {
     public static synchronized LocalRouter init(Context context) {
         LocalRouter localRouter;
         synchronized (LocalRouter.class) {
-            if (f5420b == null) {
-                f5420b = new LocalRouter(context);
+            if (f5274b == null) {
+                f5274b = new LocalRouter(context);
             }
-            localRouter = f5420b;
+            localRouter = f5274b;
         }
         return localRouter;
     }
 
     public void a(String str, RouterProvider routerProvider) {
-        this.f5421c.put(str, routerProvider);
+        this.f5275c.put(str, routerProvider);
     }
 
     public void a(Context context, RouterRequest routerRequest, RouterCallback routerCallback) {
@@ -68,10 +68,10 @@ public class LocalRouter {
     }
 
     private RouterAction a(RouterRequest routerRequest) {
-        RouterProvider routerProvider = this.f5421c.get(routerRequest.getProvider());
+        RouterProvider routerProvider = this.f5275c.get(routerRequest.getProvider());
         ErrorAction errorAction = new ErrorAction();
         if (routerProvider == null) {
-            for (RouterProvider routerProvider2 : this.f5421c.values()) {
+            for (RouterProvider routerProvider2 : this.f5275c.values()) {
                 RouterAction findAction = routerProvider2.findAction(routerRequest.getAction());
                 if (findAction != null) {
                     return findAction;

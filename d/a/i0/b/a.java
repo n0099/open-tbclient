@@ -1,11 +1,42 @@
 package d.a.i0.b;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
+import java.util.Map;
+@Service
 /* loaded from: classes3.dex */
-public class a {
+public class a implements d.a.i0.e.i.c {
+    @Override // d.a.i0.e.i.d
+    @Nullable
+    public Map<String, Object> a(@NonNull d.a.i0.a.u.c.b bVar) {
+        return SwanApi$$ModulesProvider.getV8ApiModules(bVar);
+    }
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f47971a;
+    @Override // d.a.i0.e.i.d
+    public void b(d.a.i0.a.c2.e eVar) {
+        eVar.b(new d.a.i0.b.n.a.c(eVar));
+        eVar.b(new d.a.i0.b.n.a.g(eVar));
+        eVar.b(new d.a.i0.b.n.i.a.c(eVar));
+        eVar.b(new d.a.i0.b.n.i.a.b(eVar));
+        eVar.b(new d.a.i0.b.n.c.b(eVar));
+        eVar.b(new d.a.i0.a.q.a(eVar));
+        eVar.b(new d.a.i0.b.n.f.c(eVar));
+        eVar.b(new d.a.i0.b.n.a.h(eVar));
+        eVar.b(new d.a.i0.b.n.a.e(eVar));
+        eVar.b(new d.a.i0.b.n.e.a(eVar));
+        eVar.b(new d.a.i0.b.n.f.a(eVar));
+        eVar.b(new d.a.i0.b.n.b.a(eVar));
+        eVar.b(new d.a.i0.b.n.a.d(eVar));
+        eVar.b(new d.a.i0.b.n.a.b(eVar));
+        eVar.b(new d.a.i0.b.n.a.a(eVar));
+        eVar.b(new d.a.i0.b.n.a.f(eVar));
+    }
 
-    public a(String str, String str2, String str3) {
-        this.f47971a = str2;
+    @Override // d.a.i0.e.i.d
+    @Nullable
+    public Map<String, Object> c(@NonNull d.a.i0.a.u.c.b bVar) {
+        return SwanApi$$ModulesProvider.getWebviewApiModules(bVar);
     }
 }

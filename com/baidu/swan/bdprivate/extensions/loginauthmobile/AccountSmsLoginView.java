@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.sapi2.views.SmsLoginView;
-import d.a.h0.a.i2.w;
-import d.a.h0.b.e;
+import d.a.i0.a.v2.x;
+import d.a.i0.b.e;
 /* loaded from: classes3.dex */
 public class AccountSmsLoginView extends SmsLoginView {
     public Context s;
@@ -19,7 +19,7 @@ public class AccountSmsLoginView extends SmsLoginView {
 
         @Override // java.lang.Runnable
         public void run() {
-            w.a(AccountSmsLoginView.this.s, ((FragmentActivity) AccountSmsLoginView.this.s).getWindow().getDecorView().getWindowToken());
+            x.a(AccountSmsLoginView.this.s, ((FragmentActivity) AccountSmsLoginView.this.s).getWindow().getDecorView().getWindowToken());
         }
     }
 
@@ -30,7 +30,7 @@ public class AccountSmsLoginView extends SmsLoginView {
 
         @Override // java.lang.Runnable
         public void run() {
-            w.b(AccountSmsLoginView.this.s, false);
+            x.b(AccountSmsLoginView.this.s, false);
         }
     }
 

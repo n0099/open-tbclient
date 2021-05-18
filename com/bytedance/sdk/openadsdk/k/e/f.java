@@ -1,21 +1,21 @@
 package com.bytedance.sdk.openadsdk.k.e;
 
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30238a;
+    public int f29483a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30239b;
+    public String f29484b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f30240c = -1;
+    public long f29485c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f30241d = -1;
+    public long f29486d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, String> f30242e;
+    public Map<String, String> f29487e;
 }

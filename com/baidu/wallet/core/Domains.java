@@ -21,7 +21,7 @@ public class Domains implements NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Domains f24652a = new Domains();
+        public static final Domains f23897a = new Domains();
     }
 
     static {
@@ -38,7 +38,7 @@ public class Domains implements NoProguard {
     }
 
     public static final Domains getInstance() {
-        return a.f24652a;
+        return a.f23897a;
     }
 
     public Map<String, EnumSet<Permission>> getDomainsPermissionConfig() {

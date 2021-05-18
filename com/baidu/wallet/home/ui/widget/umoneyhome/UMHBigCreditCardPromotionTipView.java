@@ -13,22 +13,22 @@ import com.baidu.wallet.home.ui.widget.MaskTextView;
 public class UMHBigCreditCardPromotionTipView extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f25230a;
+    public NetImageView f24475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetImageView f25231b;
+    public NetImageView f24476b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f25232c;
+    public MaskTextView f24477c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f25233d;
+    public MaskTextView f24478d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HomeCfgResponse.DataIcon f25234e;
+    public HomeCfgResponse.DataIcon f24479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HomeCfgResponse.DataIcon f25235f;
+    public HomeCfgResponse.DataIcon f24480f;
 
     public UMHBigCreditCardPromotionTipView(Context context) {
         super(context);
@@ -41,55 +41,55 @@ public class UMHBigCreditCardPromotionTipView extends BaseItemView {
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_umh_big_credit_card_tip_tip_item_layout"), this);
-        this.f25230a = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_img1"));
-        this.f25231b = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_img2"));
-        this.f25232c = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_text1"));
-        this.f25233d = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_text2"));
+        this.f24475a = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_img1"));
+        this.f24476b = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_img2"));
+        this.f24477c = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_text1"));
+        this.f24478d = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_credit_card_tip_tip_item_text2"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public void onEyeMaskChanged() {
         super.onEyeMaskChanged();
-        this.f25232c.resetMaskText();
-        this.f25233d.resetMaskText();
+        this.f24477c.resetMaskText();
+        this.f24478d.resetMaskText();
     }
 
     public void refresh() {
-        HomeCfgResponse.DataIcon dataIcon = this.f25234e;
+        HomeCfgResponse.DataIcon dataIcon = this.f24479e;
         if (dataIcon != null) {
             if (!TextUtils.isEmpty(dataIcon.icon_link)) {
-                this.f25230a.setImageUrl(this.f25234e.icon_link);
+                this.f24475a.setImageUrl(this.f24479e.icon_link);
             }
-            if (!TextUtils.isEmpty(this.f25234e.name)) {
-                this.f25232c.setVisibility(0);
-                this.f25232c.setMaskText(this.f25234e.name);
+            if (!TextUtils.isEmpty(this.f24479e.name)) {
+                this.f24477c.setVisibility(0);
+                this.f24477c.setMaskText(this.f24479e.name);
             } else {
-                this.f25232c.setVisibility(4);
+                this.f24477c.setVisibility(4);
             }
         } else {
-            this.f25230a.setVisibility(4);
-            this.f25232c.setVisibility(4);
+            this.f24475a.setVisibility(4);
+            this.f24477c.setVisibility(4);
         }
-        HomeCfgResponse.DataIcon dataIcon2 = this.f25235f;
+        HomeCfgResponse.DataIcon dataIcon2 = this.f24480f;
         if (dataIcon2 != null) {
             if (!TextUtils.isEmpty(dataIcon2.icon_link)) {
-                this.f25231b.setImageUrl(this.f25235f.icon_link);
+                this.f24476b.setImageUrl(this.f24480f.icon_link);
             }
-            if (!TextUtils.isEmpty(this.f25235f.name)) {
-                this.f25233d.setVisibility(0);
-                this.f25233d.setMaskText(this.f25235f.name);
+            if (!TextUtils.isEmpty(this.f24480f.name)) {
+                this.f24478d.setVisibility(0);
+                this.f24478d.setMaskText(this.f24480f.name);
                 return;
             }
-            this.f25233d.setVisibility(4);
+            this.f24478d.setVisibility(4);
             return;
         }
-        this.f25231b.setVisibility(4);
-        this.f25233d.setVisibility(4);
+        this.f24476b.setVisibility(4);
+        this.f24478d.setVisibility(4);
     }
 
     public void setData(HomeCfgResponse.DataIcon dataIcon, HomeCfgResponse.DataIcon dataIcon2) {
-        this.f25234e = dataIcon;
-        this.f25235f = dataIcon2;
+        this.f24479e = dataIcon;
+        this.f24480f = dataIcon2;
         initView();
         refresh();
     }

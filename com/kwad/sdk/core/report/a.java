@@ -35,7 +35,7 @@ public class a {
     public int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f33364a;
+    public AdTemplate f32609a;
     public int aa;
     public long ab;
     public String ac;
@@ -55,28 +55,28 @@ public class a {
     public long aq;
 
     /* renamed from: b  reason: collision with root package name */
-    public SceneImpl f33365b;
+    public SceneImpl f32610b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f33366c;
+    public long f32611c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f33367d;
+    public long f32612d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f33368e;
+    public long f32613e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f33369f;
+    public long f32614f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f33370g;
+    public long f32615g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f33371h;
+    public long f32616h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f33372i;
+    public long f32617i;
     public long j;
     public long k;
     public long l;
@@ -111,8 +111,8 @@ public class a {
         this.ag = -1;
         this.aj = -1;
         this.al = 0;
-        this.f33366c = j;
-        this.f33364a = null;
+        this.f32611c = j;
+        this.f32609a = null;
     }
 
     public a(long j, @NonNull AdTemplate adTemplate) {
@@ -131,8 +131,8 @@ public class a {
         this.ag = -1;
         this.aj = -1;
         this.al = 0;
-        this.f33366c = j;
-        this.f33364a = adTemplate;
+        this.f32611c = j;
+        this.f32609a = adTemplate;
         a(adTemplate.getShowPosition());
     }
 

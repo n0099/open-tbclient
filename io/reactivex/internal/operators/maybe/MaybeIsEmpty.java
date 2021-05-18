@@ -12,7 +12,7 @@ public final class MaybeIsEmpty<T> extends AbstractMaybeWithUpstream<T, Boolean>
         public final MaybeObserver<? super Boolean> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68261d;
+        public Disposable f68941d;
 
         public IsEmptyMaybeObserver(MaybeObserver<? super Boolean> maybeObserver) {
             this.actual = maybeObserver;
@@ -20,12 +20,12 @@ public final class MaybeIsEmpty<T> extends AbstractMaybeWithUpstream<T, Boolean>
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68261d.dispose();
+            this.f68941d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68261d.isDisposed();
+            return this.f68941d.isDisposed();
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -40,8 +40,8 @@ public final class MaybeIsEmpty<T> extends AbstractMaybeWithUpstream<T, Boolean>
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68261d, disposable)) {
-                this.f68261d = disposable;
+            if (DisposableHelper.validate(this.f68941d, disposable)) {
+                this.f68941d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

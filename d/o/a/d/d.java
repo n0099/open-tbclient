@@ -1,7 +1,7 @@
 package d.o.a.d;
 
 import com.bytedance.sdk.openadsdk.adhost.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static final int tt_appdownloader_style_detail_download_progress_bar = R.style.tt_appdownloader_style_detail_download_progress_bar;
     public static final int tt_appdownloader_style_notification_text = R.style.tt_appdownloader_style_notification_text;

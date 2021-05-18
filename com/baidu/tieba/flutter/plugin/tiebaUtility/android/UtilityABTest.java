@@ -1,7 +1,7 @@
 package com.baidu.tieba.flutter.plugin.tiebaUtility.android;
 
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityAbtestAuto;
-import d.a.i0.b.c;
+import d.a.j0.b.c;
 /* loaded from: classes4.dex */
 public class UtilityABTest implements TiebaUtilityAbtestAuto.HostUtilityABTest {
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityAbtestAuto.HostUtilityABTest

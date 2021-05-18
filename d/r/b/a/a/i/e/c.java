@@ -14,26 +14,26 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, f> f67130a = new HashMap(5);
+    public Map<String, f> f67816a = new HashMap(5);
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f67131a = new c();
+        public static final c f67817a = new c();
     }
 
     public static c d() {
-        return a.f67131a;
+        return a.f67817a;
     }
 
     public synchronized void a(PayType payType, f fVar) {
-        if (this.f67130a.containsKey(payType.getChannel())) {
+        if (this.f67816a.containsKey(payType.getChannel())) {
             d.f("PayMethodProxyFactory", "addPayMethodProxyMap but contains paychannel:" + payType.getChannel());
             return;
         }
         d.b("PayMethodProxyFactory", "addPayMethodProxyMap paychannel:" + payType.getChannel());
-        this.f67130a.put(payType.getChannel(), fVar);
+        this.f67816a.put(payType.getChannel(), fVar);
     }
 
     public synchronized IPayMethod b(PayType payType) {
@@ -65,7 +65,7 @@ public class c {
     }
 
     public synchronized f c(PayType payType) {
-        f fVar = this.f67130a.get(payType.getChannel());
+        f fVar = this.f67816a.get(payType.getChannel());
         if (fVar == null) {
             d.b("PayMethodProxyFactory", "findProxyPayMethod null paychannel:" + payType.getChannel());
             return null;

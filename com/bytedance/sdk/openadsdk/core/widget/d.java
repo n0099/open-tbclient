@@ -11,42 +11,42 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.ad;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f29470a;
+    public TextView f28715a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f29471b;
+    public TextView f28716b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f29472c;
+    public Button f28717c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f29473d;
+    public TextView f28718d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f29474e;
+    public TextView f28719e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TTRoundRectImageView f29475f;
+    public TTRoundRectImageView f28720f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f29476g;
+    public Context f28721g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f29477h;
+    public TextView f28722h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f29478i;
+    public TextView f28723i;
     public String j;
     public String k;
     public String l;
     public String m;
     public a n;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(Dialog dialog);
 
@@ -59,27 +59,27 @@ public class d extends AlertDialog {
 
     public d(Context context) {
         super(context, ad.g(context, "tt_dialog_full"));
-        this.f29476g = context;
+        this.f28721g = context;
     }
 
     private void b() {
-        if (this.f29476g == null) {
-            this.f29476g = p.a();
+        if (this.f28721g == null) {
+            this.f28721g = p.a();
         }
-        TextView textView = this.f29470a;
+        TextView textView = this.f28715a;
         if (textView != null) {
             textView.setText(this.j);
         }
-        if (this.f29475f != null && !TextUtils.isEmpty(this.l)) {
-            com.bytedance.sdk.openadsdk.i.e.c().a(this.l, this.f29475f);
+        if (this.f28720f != null && !TextUtils.isEmpty(this.l)) {
+            com.bytedance.sdk.openadsdk.i.e.c().a(this.l, this.f28720f);
         }
-        if (this.f29478i != null) {
-            String a2 = ad.a(this.f29476g, "tt_open_app_detail_developer");
-            this.f29478i.setText(TextUtils.isEmpty(this.m) ? String.format(a2, "补充中，可于应用官网查看") : String.format(a2, this.m));
+        if (this.f28723i != null) {
+            String a2 = ad.a(this.f28721g, "tt_open_app_detail_developer");
+            this.f28723i.setText(TextUtils.isEmpty(this.m) ? String.format(a2, "补充中，可于应用官网查看") : String.format(a2, this.m));
         }
-        if (this.f29471b != null) {
-            String a3 = ad.a(this.f29476g, "tt_open_app_version");
-            this.f29471b.setText(TextUtils.isEmpty(this.k) ? String.format(a3, "暂无") : String.format(a3, this.k));
+        if (this.f28716b != null) {
+            String a3 = ad.a(this.f28721g, "tt_open_app_version");
+            this.f28716b.setText(TextUtils.isEmpty(this.k) ? String.format(a3, "暂无") : String.format(a3, this.k));
         }
     }
 
@@ -104,7 +104,7 @@ public class d extends AlertDialog {
     @Override // android.app.AlertDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(ad.f(this.f29476g, "tt_common_download_dialog"));
+        setContentView(ad.f(this.f28721g, "tt_common_download_dialog"));
         setCanceledOnTouchOutside(false);
         a();
     }
@@ -116,15 +116,15 @@ public class d extends AlertDialog {
     }
 
     private void a() {
-        this.f29470a = (TextView) findViewById(ad.e(this.f29476g, "tt_download_title"));
-        this.f29473d = (TextView) findViewById(ad.e(this.f29476g, "tt_download_app_detail"));
-        this.f29472c = (Button) findViewById(ad.e(this.f29476g, "tt_download_btn"));
-        this.f29471b = (TextView) findViewById(ad.e(this.f29476g, "tt_download_app_version"));
-        this.f29474e = (TextView) findViewById(ad.e(this.f29476g, "tt_download_cancel"));
-        this.f29477h = (TextView) findViewById(ad.e(this.f29476g, "tt_download_app_privacy"));
-        this.f29478i = (TextView) findViewById(ad.e(this.f29476g, "tt_download_app_developer"));
-        this.f29475f = (TTRoundRectImageView) findViewById(ad.e(this.f29476g, "tt_download_icon"));
-        this.f29472c.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.d.1
+        this.f28715a = (TextView) findViewById(ad.e(this.f28721g, "tt_download_title"));
+        this.f28718d = (TextView) findViewById(ad.e(this.f28721g, "tt_download_app_detail"));
+        this.f28717c = (Button) findViewById(ad.e(this.f28721g, "tt_download_btn"));
+        this.f28716b = (TextView) findViewById(ad.e(this.f28721g, "tt_download_app_version"));
+        this.f28719e = (TextView) findViewById(ad.e(this.f28721g, "tt_download_cancel"));
+        this.f28722h = (TextView) findViewById(ad.e(this.f28721g, "tt_download_app_privacy"));
+        this.f28723i = (TextView) findViewById(ad.e(this.f28721g, "tt_download_app_developer"));
+        this.f28720f = (TTRoundRectImageView) findViewById(ad.e(this.f28721g, "tt_download_icon"));
+        this.f28717c.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (d.this.n != null) {
@@ -132,7 +132,7 @@ public class d extends AlertDialog {
                 }
             }
         });
-        this.f29473d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.d.2
+        this.f28718d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (d.this.n != null) {
@@ -140,7 +140,7 @@ public class d extends AlertDialog {
                 }
             }
         });
-        this.f29474e.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.d.3
+        this.f28719e.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (d.this.n != null) {
@@ -148,7 +148,7 @@ public class d extends AlertDialog {
                 }
             }
         });
-        this.f29477h.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.d.4
+        this.f28722h.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.d.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (d.this.n != null) {

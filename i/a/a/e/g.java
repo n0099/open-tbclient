@@ -1,7 +1,7 @@
 package i.a.a.e;
 
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public static final int ActionBarLayout_android_layout_gravity = 0;
     public static final int ActionBar_background = 0;

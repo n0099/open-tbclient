@@ -1,135 +1,73 @@
 package d.a.j0.t;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.c.e.p.j;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public JSONObject f60386a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f60387b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f60388c = BdUniqueId.gen();
-
-    /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f60389d = BdUniqueId.gen();
+import tbclient.Advertisement;
+/* loaded from: classes3.dex */
+public class a implements Comparable<a> {
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f60390e = new b(2000994);
+    public long f50695e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f60391f = new c(2921324);
+    public String f50696f;
 
-    /* renamed from: d.a.j0.t.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1553a extends HttpMessageListener {
-        public C1553a(int i2) {
-            super(i2);
-        }
+    /* renamed from: g  reason: collision with root package name */
+    public String f50697g;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                a.this.f60386a = null;
-            }
-        }
+    /* renamed from: h  reason: collision with root package name */
+    public String f50698h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f50699i;
+    public int j;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(a aVar) {
+        return g() > aVar.g() ? -1 : 1;
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
-        public b(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.A() && a.this.f60386a != null) {
-                a aVar = a.this;
-                aVar.h(aVar.f60386a, a.this.f60389d);
-            }
-        }
+    public String b() {
+        return this.f50699i;
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends CustomMessageListener {
-        public c(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject)) {
-                return;
-            }
-            a.this.f((JSONObject) customResponsedMessage.getData());
-        }
+    public int c() {
+        return this.j;
     }
 
-    public a(TbPageContext tbPageContext) {
-        if (this.f60387b == null) {
-            this.f60387b = new C1553a(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
-        }
-        MessageManager.getInstance().registerListener(this.f60387b);
-        MessageManager.getInstance().registerListener(this.f60390e);
-        this.f60391f.setTag(tbPageContext.getUniqueId());
-        this.f60391f.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f60391f);
+    public String d() {
+        return this.f50698h;
     }
 
-    public final void f(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        if (j.A()) {
-            h(jSONObject, this.f60388c);
-        } else {
-            this.f60386a = jSONObject;
-        }
+    public String e() {
+        return this.f50696f;
     }
 
-    public void g() {
-        MessageManager.getInstance().unRegisterListener(this.f60387b);
-        MessageManager.getInstance().unRegisterListener(this.f60390e);
-        MessageManager.getInstance().unRegisterListener(this.f60391f);
-        this.f60386a = null;
+    public String f() {
+        return this.f50697g;
     }
 
-    public final void h(JSONObject jSONObject, BdUniqueId bdUniqueId) {
-        if (jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("tid");
-        String optString2 = jSONObject.optString("fid");
-        String optString3 = jSONObject.optString("dislike_ids");
-        String optString4 = jSONObject.optString("type");
-        int i2 = 1;
-        if ("ala_frs_stage_live_feed_back_type".equals(optString4)) {
-            i2 = 2;
-        } else {
-            "ala_frs_demo_hell_live_feed_back_type".equals(optString4);
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
-        httpMessage.addParam("thread_id", optString);
-        httpMessage.addParam("forum_id", optString2);
-        httpMessage.addParam("dislike_reason_id", optString3);
-        httpMessage.addParam("reason_type", i2);
-        httpMessage.setTag(bdUniqueId);
-        MessageManager.getInstance().sendMessage(httpMessage);
+    public long g() {
+        return this.f50695e;
+    }
+
+    public void h(Advertisement advertisement) {
+        this.f50695e = advertisement.time.longValue();
+        this.f50696f = advertisement.pic;
+        this.f50697g = advertisement.pic_click;
+        this.f50698h = advertisement.jump_link;
+        this.f50699i = advertisement.advertisement_id;
+    }
+
+    public void i(JSONObject jSONObject) {
+        this.f50696f = jSONObject.optString("pic");
+        this.f50697g = jSONObject.optString("pic_click");
+        this.f50698h = jSONObject.optString("jump_link");
+        this.f50699i = jSONObject.optString("advertisement_id");
+    }
+
+    public void j(int i2) {
+        this.j = i2;
     }
 }

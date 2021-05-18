@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class b implements a {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f24693i = "https://www.baifubao.com";
+    public static final String f23938i = "https://www.baifubao.com";
     public static final String j = "https:/chong.baidu.com";
     public static final String k = "https://xinyongka.baidu.com";
     public static final String l = "https://zhifu.duxiaoman.com";
@@ -107,7 +107,7 @@ public class b implements a {
             } else {
                 this.u = "";
             }
-            String optString2 = jSONObject.optString(a.f24686b);
+            String optString2 = jSONObject.optString(a.f23931b);
             if (!TextUtils.isEmpty(optString2) && t.matcher(optString2).matches()) {
                 this.v = optString2;
             } else {
@@ -127,13 +127,13 @@ public class b implements a {
                 this.x = "";
                 com.baidu.apollon.heartbeat.a.c().a("https://www.baifubao.com");
             }
-            String optString5 = jSONObject.optString(a.f24689e);
+            String optString5 = jSONObject.optString(a.f23934e);
             if (!TextUtils.isEmpty(optString5) && t.matcher(optString5).matches()) {
                 this.y = optString5;
             } else {
                 this.y = "";
             }
-            String optString6 = jSONObject.optString(a.f24690f);
+            String optString6 = jSONObject.optString(a.f23935f);
             if (!TextUtils.isEmpty(optString6) && t.matcher(optString6).matches()) {
                 this.z = optString6;
             } else {

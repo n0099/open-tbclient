@@ -4,7 +4,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import d.r.b.a.a.f.c.b;
 import d.r.b.a.a.f.d.d;
 import i.a.a.a.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public enum DataSenderAdapterFactory {
     HTTP_SENDER("tv.athena.revenue.http.HttpDataSenderAdapter"),
     SIGNAL_SENDER("tv.athena.revenue.signal.SignalDataSenderAdapter");
@@ -13,21 +13,21 @@ public enum DataSenderAdapterFactory {
     public final String clazz;
     public b dataSenderAdapter;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f68868a;
+        public static final /* synthetic */ int[] f69550a;
 
         static {
             int[] iArr = new int[ProtocolType.values().length];
-            f68868a = iArr;
+            f69550a = iArr;
             try {
                 iArr[ProtocolType.HTTP.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f68868a[ProtocolType.SERVICE.ordinal()] = 2;
+                f69550a[ProtocolType.SERVICE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -56,7 +56,7 @@ public enum DataSenderAdapterFactory {
     }
 
     public static b valueOf(ProtocolType protocolType) {
-        int i2 = a.f68868a[protocolType.ordinal()];
+        int i2 = a.f69550a[protocolType.ordinal()];
         if (i2 != 1) {
             if (i2 != 2) {
                 return new c();

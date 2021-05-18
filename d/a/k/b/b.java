@@ -6,67 +6,67 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public File f63056a;
+    public File f51041a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f63057b;
+    public CharSequence f51042b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63058c;
+    public String f51043c;
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public CharSequence f63059a;
+        public CharSequence f51044a;
 
         /* renamed from: b  reason: collision with root package name */
-        public File f63060b;
+        public File f51045b;
 
         /* renamed from: c  reason: collision with root package name */
-        public CharSequence f63061c;
+        public CharSequence f51046c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f63062d;
+        public String f51047d;
 
         public b a() {
-            return new b(this.f63062d, this.f63060b, this.f63061c, this.f63059a);
+            return new b(this.f51047d, this.f51045b, this.f51046c, this.f51044a);
         }
 
         public a b(File file) {
-            this.f63060b = file;
+            this.f51045b = file;
             return this;
         }
 
         public a c(CharSequence charSequence) {
-            this.f63061c = charSequence;
+            this.f51046c = charSequence;
             return this;
         }
 
         public a d(String str) {
-            this.f63062d = str;
+            this.f51047d = str;
             return this;
         }
     }
 
     public b(String str, File file, CharSequence charSequence, CharSequence charSequence2) {
-        this.f63058c = str;
-        this.f63056a = file;
-        this.f63057b = charSequence;
+        this.f51043c = str;
+        this.f51041a = file;
+        this.f51042b = charSequence;
     }
 
     public File a() {
-        return this.f63056a;
+        return this.f51041a;
     }
 
     public CharSequence b() {
-        if (TextUtils.isEmpty(this.f63057b)) {
-            this.f63057b = d.a.k.b.d.b.a(c());
+        if (TextUtils.isEmpty(this.f51042b)) {
+            this.f51042b = d.a.k.b.d.b.a(c());
         }
-        return this.f63057b;
+        return this.f51042b;
     }
 
     public String c() {
-        return this.f63058c;
+        return this.f51043c;
     }
 }

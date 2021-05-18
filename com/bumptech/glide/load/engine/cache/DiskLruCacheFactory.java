@@ -2,12 +2,12 @@ package com.bumptech.glide.load.engine.cache;
 
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DiskLruCacheFactory implements DiskCache.Factory {
     public final CacheDirectoryGetter cacheDirectoryGetter;
     public final long diskCacheSize;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface CacheDirectoryGetter {
         File getCacheDirectory();
     }

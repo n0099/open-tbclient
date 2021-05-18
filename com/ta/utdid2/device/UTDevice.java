@@ -2,7 +2,7 @@ package com.ta.utdid2.device;
 
 import android.content.Context;
 import com.ta.utdid2.a.a.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class UTDevice {
     public static String a(Context context) {
         a b2 = b.b(context);

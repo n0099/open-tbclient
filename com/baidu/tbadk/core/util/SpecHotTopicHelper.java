@@ -13,8 +13,8 @@ import d.a.c.e.l.d;
 import d.a.c.e.m.e;
 import d.a.c.e.p.l;
 import d.a.c.j.d.a;
-import d.a.i0.r.f0.k;
-import d.a.i0.r.q.a2;
+import d.a.j0.r.f0.k;
+import d.a.j0.r.q.a2;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -26,7 +26,7 @@ public class SpecHotTopicHelper {
         public void onLoaded(a aVar, String str, int i2) {
             super.onLoaded((AnonymousClass2) aVar, str, i2);
             if (aVar != null) {
-                d.a.i0.a0.c.k().a(str, aVar.p());
+                d.a.j0.a0.c.k().a(str, aVar.p());
             }
         }
     };
@@ -43,15 +43,15 @@ public class SpecHotTopicHelper {
         if (StringUtils.isNull(D0) || StringUtils.isNull(c1)) {
             return;
         }
-        Bitmap j = d.a.i0.a0.c.k().j(D0);
+        Bitmap j = d.a.j0.a0.c.k().j(D0);
         if ((j == null || !AbstractImageLoaderProc.isImageFileExist(D0, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(D0, 10)) != null) {
             j = loadBdImageFromLocal.p();
-            d.a.i0.a0.c.k().a(D0, j);
+            d.a.j0.a0.c.k().a(D0, j);
         }
-        Bitmap j2 = d.a.i0.a0.c.k().j(c1);
+        Bitmap j2 = d.a.j0.a0.c.k().j(c1);
         if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(c1, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(c1, 10)) != null) {
             j2 = loadBdImageFromLocal2.p();
-            d.a.i0.a0.c.k().a(c1, j2);
+            d.a.j0.a0.c.k().a(c1, j2);
         }
         if (j != null && !j.isRecycled() && j2 != null && !j2.isRecycled()) {
             int i3 = 0;
@@ -77,8 +77,8 @@ public class SpecHotTopicHelper {
     }
 
     public static void loadSpecTopicIconIfNeed(final String str, final String str2) {
-        Bitmap j = d.a.i0.a0.c.k().j(str);
-        Bitmap j2 = d.a.i0.a0.c.k().j(str2);
+        Bitmap j = d.a.j0.a0.c.k().j(str);
+        Bitmap j2 = d.a.j0.a0.c.k().j(str2);
         if (j == null || j2 == null) {
             if (!l.C()) {
                 e.a().post(new Runnable() { // from class: com.baidu.tbadk.core.util.SpecHotTopicHelper.1
@@ -112,8 +112,8 @@ public class SpecHotTopicHelper {
     public static void setSpecTopicIcon(long j, a2 a2Var) {
         Pair<String, String> pair = mMap.get(Long.valueOf(j));
         if (pair != null) {
-            a2Var.u3(j);
-            a2Var.i4((String) pair.first, (String) pair.second);
+            a2Var.w3(j);
+            a2Var.k4((String) pair.first, (String) pair.second);
         }
     }
 }

@@ -6,9 +6,9 @@ import android.util.SparseIntArray;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.tieba.R;
 import d.a.c.e.m.b;
-import d.a.i0.w.a;
-import d.a.i0.w.h;
-import d.a.i0.w.i;
+import d.a.j0.w.a;
+import d.a.j0.w.h;
+import d.a.j0.w.i;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class MoreDeskView extends CommonTabHost {
@@ -22,12 +22,12 @@ public class MoreDeskView extends CommonTabHost {
         setToolId(2);
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, d.a.i0.w.n
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, d.a.j0.w.n
     public void b() {
         super.b();
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, d.a.i0.w.n
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, d.a.j0.w.n
     public void init() {
         setShowDelete(false);
         i iVar = new i();
@@ -35,10 +35,10 @@ public class MoreDeskView extends CommonTabHost {
         k(iVar);
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, d.a.i0.w.b
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, d.a.j0.w.b
     public void onAction(a aVar) {
         super.onAction(aVar);
-        if (aVar == null || aVar.f49949a != 2 || aVar.f49950b == 5) {
+        if (aVar == null || aVar.f50768a != 2 || aVar.f50769b == 5) {
             return;
         }
         r(aVar);
@@ -66,9 +66,9 @@ public class MoreDeskView extends CommonTabHost {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void r(a aVar) {
-        Integer valueOf = Integer.valueOf(this.r.get(aVar.f49950b));
+        Integer valueOf = Integer.valueOf(this.r.get(aVar.f50769b));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
-        Object obj = aVar.f49951c;
+        Object obj = aVar.f50770c;
         if (obj != null) {
             if (obj instanceof String) {
                 String str = (String) obj;
@@ -76,10 +76,10 @@ public class MoreDeskView extends CommonTabHost {
                     intValue = TextUtils.isEmpty(str.trim()) ? 1 : b.d(str, 1);
                 }
             }
-            this.r.put(aVar.f49950b, intValue >= 0 ? intValue : 0);
+            this.r.put(aVar.f50769b, intValue >= 0 ? intValue : 0);
         }
         intValue = 0;
-        this.r.put(aVar.f49950b, intValue >= 0 ? intValue : 0);
+        this.r.put(aVar.f50769b, intValue >= 0 ? intValue : 0);
     }
 
     public MoreDeskView(Context context, boolean z) {

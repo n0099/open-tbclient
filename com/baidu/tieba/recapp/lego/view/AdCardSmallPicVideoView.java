@@ -12,9 +12,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
-import d.a.i0.r.q.d;
+import d.a.j0.r.q.d;
 import tbclient.VideoInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public TbImageView A;
     public TextView B;
@@ -22,21 +22,21 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public ImageView D;
     public XfremodeRoundLayout z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCard f21003e;
+        public final /* synthetic */ AdCard f20252e;
 
         public a(AdCard adCard) {
-            this.f21003e = adCard;
+            this.f20252e = adCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AdCardSmallPicVideoView adCardSmallPicVideoView = AdCardSmallPicVideoView.this;
             if (adCardSmallPicVideoView.C == null) {
-                adCardSmallPicVideoView.Z(this.f21003e);
+                adCardSmallPicVideoView.X(this.f20252e);
             }
             DistributeVideoView distributeVideoView = AdCardSmallPicVideoView.this.C;
             int jump2DownloadDetailPage = distributeVideoView != null ? distributeVideoView.jump2DownloadDetailPage() : 0;
@@ -56,7 +56,7 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void Q(AdCard adCard) {
+    public void O(AdCard adCard) {
         VideoInfo videoInfo;
         if (adCard != null && (videoInfo = adCard.videoInfo) != null) {
             String str = videoInfo.thumbnail_url;
@@ -65,7 +65,7 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
                 this.A.V(str, 17, false);
             }
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            if (advertAppInfo != null && advertAppInfo.B4()) {
+            if (advertAppInfo != null && advertAppInfo.D4()) {
                 this.r.setOnClickListener(new a(adCard));
             }
             this.D.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
@@ -76,7 +76,7 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void S(View view) {
+    public void Q(View view) {
         float dimensionPixelSize = this.m.getResources().getDimensionPixelSize(R.dimen.tbds10);
         this.z = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
         this.A = (TbImageView) view.findViewById(R.id.ad_img);
@@ -86,7 +86,7 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
         this.z.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
     }
 
-    public final void Z(AdCard adCard) {
+    public final void X(AdCard adCard) {
         if (this.C != null) {
             return;
         }
@@ -95,17 +95,16 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
         distributeVideoView.setPageContext(this.m);
         this.C.setVideoTailFrameData(adCard.tailFrame);
         this.C.setData(adCard.videoInfo);
-        this.C.setChargeInfo(adCard.chargeInfo);
         this.C.setScheme(adCard.getScheme());
         this.C.setAdInfo(adCard);
         AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
         if (advertAppInfo != null) {
             int i2 = -1;
             String pageTypeByBusiness = getPageTypeByBusiness();
-            d dVar = advertAppInfo.Y3;
+            d dVar = advertAppInfo.O3;
             if (dVar != null) {
-                i2 = dVar.f49117b;
-                pageTypeByBusiness = dVar.f49116a;
+                i2 = dVar.f49936b;
+                pageTypeByBusiness = dVar.f49935a;
             }
             this.C.setStatisticInfo(advertAppInfo, i2, pageTypeByBusiness);
         }

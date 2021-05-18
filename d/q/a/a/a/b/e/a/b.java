@@ -9,12 +9,12 @@ import android.os.Message;
 public final class b extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ Context f66834a;
+    public /* synthetic */ Context f67520a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, Looper looper, Context context) {
         super(looper);
-        this.f66834a = context;
+        this.f67520a = context;
     }
 
     @Override // android.os.Handler
@@ -26,12 +26,12 @@ public final class b extends Handler {
             try {
                 Bundle data = message.getData();
                 if (data != null) {
-                    f2 = a.f(this.f66834a, data.getString("appid"));
-                    String unused = a.f66830g = f2;
+                    f2 = a.f(this.f67520a, data.getString("appid"));
+                    String unused = a.f67516g = f2;
                 }
-                obj = a.f66827d;
+                obj = a.f67513d;
                 synchronized (obj) {
-                    obj2 = a.f66827d;
+                    obj2 = a.f67513d;
                     obj2.notify();
                 }
             } catch (Throwable th) {

@@ -22,19 +22,19 @@ import d.a.c.e.p.l;
 public class ShareSdkView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22673e;
+    public int f21918e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f22674f;
+    public View f21919f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22675g;
+    public TextView f21920g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f22676h;
+    public View f21921h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HeadImageView f22677i;
+    public HeadImageView f21922i;
     public TextView j;
     public TextView k;
     public TbImageView l;
@@ -115,7 +115,7 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
 
     public ShareSdkView(Context context) {
         super(context);
-        this.f22673e = 3;
+        this.f21918e = 3;
         k(context);
     }
 
@@ -123,10 +123,10 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         setOrientation(1);
         setGravity(16);
         LayoutInflater.from(context).inflate(R.layout.share_sdk_view, (ViewGroup) this, true);
-        this.f22674f = findViewById(R.id.share_sdk_content_root);
-        this.f22675g = (TextView) findViewById(R.id.share_sdk_forum);
-        this.f22676h = findViewById(R.id.share_sdk_content_container);
-        this.f22677i = (HeadImageView) findViewById(R.id.share_sdk_appicon);
+        this.f21919f = findViewById(R.id.share_sdk_content_root);
+        this.f21920g = (TextView) findViewById(R.id.share_sdk_forum);
+        this.f21921h = findViewById(R.id.share_sdk_content_container);
+        this.f21922i = (HeadImageView) findViewById(R.id.share_sdk_appicon);
         this.j = (TextView) findViewById(R.id.share_sdk_appname);
         this.k = (TextView) findViewById(R.id.share_sdk_content);
         this.l = (TbImageView) findViewById(R.id.share_sdk_img);
@@ -138,12 +138,12 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         setOnClickListener(this);
         this.o.setOnClickListener(this);
         this.q.setOnClickListener(this);
-        this.f22677i.setIsRound(true);
-        this.f22677i.setIsPreDrawBorder(true);
-        this.f22677i.setDrawBorder(true);
-        this.f22677i.setBorderWidth(l.g(context, R.dimen.tbds1));
-        this.f22677i.setDefaultResource(R.color.CAM_X0205);
-        this.f22677i.setRadius(l.g(context, R.dimen.ds70));
+        this.f21922i.setIsRound(true);
+        this.f21922i.setIsPreDrawBorder(true);
+        this.f21922i.setDrawBorder(true);
+        this.f21922i.setBorderWidth(l.g(context, R.dimen.tbds1));
+        this.f21922i.setDefaultResource(R.color.CAM_X0205);
+        this.f21922i.setRadius(l.g(context, R.dimen.ds70));
         this.l.setDefaultBgResource(R.drawable.pic_share_default_applets);
         this.r = (l.k(getContext()) - l.g(getContext(), R.dimen.tbds516)) / l.g(getContext(), R.dimen.tbds45);
         this.u = l.g(getContext(), R.dimen.tbds27);
@@ -158,19 +158,19 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
 
     public void l() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f22673e) {
+        if (skinType == this.f21918e) {
             return;
         }
-        this.f22673e = skinType;
+        this.f21918e = skinType;
         SkinManager.setBackgroundColor(this, R.color.black_alpha30);
-        SkinManager.setBackgroundResource(this.f22674f, R.drawable.share_sdk_bg);
-        SkinManager.setViewTextColor(this.f22675g, R.color.CAM_X0105);
-        SkinManager.setBackgroundColor(this.f22676h, R.color.CAM_X0205);
-        this.f22677i.setBorderColor(SkinManager.getColor(R.color.CAM_X0111));
-        this.f22677i.setIsNight(this.f22673e == 1);
+        SkinManager.setBackgroundResource(this.f21919f, R.drawable.share_sdk_bg);
+        SkinManager.setViewTextColor(this.f21920g, R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.f21921h, R.color.CAM_X0205);
+        this.f21922i.setBorderColor(SkinManager.getColor(R.color.CAM_X0111));
+        this.f21922i.setIsNight(this.f21918e == 1);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0106);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105);
-        this.l.setIsNight(this.f22673e == 1);
+        this.l.setIsNight(this.f21918e == 1);
         this.m.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
         this.m.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         SkinManager.setBackgroundResource(this.m, R.drawable.share_sdk_input_shape_bg);
@@ -204,21 +204,21 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         super.onDetachedFromWindow();
     }
 
-    public void setData(d.a.j0.v3.p.c cVar) {
+    public void setData(d.a.k0.v3.p.c cVar) {
         if (cVar == null && getParent() != null) {
             ((ViewGroup) getParent()).removeView(this);
             return;
         }
-        this.f22675g.setText(String.format(getResources().getString(R.string.share_sdk_forum), cVar.f62068f));
-        this.f22677i.V(cVar.f62066d, 10, false);
-        this.j.setText(cVar.f62065c);
-        if (StringUtils.isNull(cVar.f62070h)) {
+        this.f21920g.setText(String.format(getResources().getString(R.string.share_sdk_forum), cVar.f62792f));
+        this.f21922i.V(cVar.f62790d, 10, false);
+        this.j.setText(cVar.f62789c);
+        if (StringUtils.isNull(cVar.f62794h)) {
             this.k.setVisibility(8);
         } else {
-            this.k.setText(cVar.f62070h);
+            this.k.setText(cVar.f62794h);
         }
         this.l.setEvent(new b());
-        this.l.V(cVar.f62071i, 42, false);
+        this.l.V(cVar.f62795i, 42, false);
     }
 
     public void setOnShareListener(c cVar) {
@@ -227,13 +227,13 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
 
     public ShareSdkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f22673e = 3;
+        this.f21918e = 3;
         k(context);
     }
 
     public ShareSdkView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f22673e = 3;
+        this.f21918e = 3;
         k(context);
     }
 }

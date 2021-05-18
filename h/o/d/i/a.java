@@ -8,19 +8,19 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 public abstract class a<E> extends AbstractQueue<E> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReferenceArray<E> f67963e;
+    public final AtomicReferenceArray<E> f68643e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f67964f;
+    public final int f68644f;
 
     public a(int i2) {
         int b2 = i.b(i2);
-        this.f67964f = b2 - 1;
-        this.f67963e = new AtomicReferenceArray<>(b2);
+        this.f68644f = b2 - 1;
+        this.f68643e = new AtomicReferenceArray<>(b2);
     }
 
     public final int a(long j) {
-        return this.f67964f & ((int) j);
+        return this.f68644f & ((int) j);
     }
 
     public final int b(long j, int i2) {
@@ -28,7 +28,7 @@ public abstract class a<E> extends AbstractQueue<E> {
     }
 
     public final E c(int i2) {
-        return d(this.f67963e, i2);
+        return d(this.f68643e, i2);
     }
 
     @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection

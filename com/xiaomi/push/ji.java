@@ -7,25 +7,25 @@ import java.io.OutputStream;
 public class ji extends jl {
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f38812a;
+    public InputStream f38057a;
 
     /* renamed from: a  reason: collision with other field name */
     public OutputStream f813a;
 
     public ji() {
-        this.f38812a = null;
+        this.f38057a = null;
         this.f813a = null;
     }
 
     public ji(OutputStream outputStream) {
-        this.f38812a = null;
+        this.f38057a = null;
         this.f813a = null;
         this.f813a = outputStream;
     }
 
     @Override // com.xiaomi.push.jl
     public int a(byte[] bArr, int i2, int i3) {
-        InputStream inputStream = this.f38812a;
+        InputStream inputStream = this.f38057a;
         if (inputStream != null) {
             try {
                 int read = inputStream.read(bArr, i2, i3);

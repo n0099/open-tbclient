@@ -7,13 +7,13 @@ import com.kwad.sdk.core.videocache.f;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f33542a;
+    public static f f32787a;
 
     public static f a(Context context) {
-        f fVar = f33542a;
+        f fVar = f32787a;
         if (fVar == null) {
             f b2 = b(context);
-            f33542a = b2;
+            f32787a = b2;
             return b2;
         }
         return fVar;

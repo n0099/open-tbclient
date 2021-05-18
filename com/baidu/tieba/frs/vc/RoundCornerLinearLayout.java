@@ -18,19 +18,19 @@ public class RoundCornerLinearLayout extends LinearLayout {
     public static final int j = R.color.white_alpha100;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f16553e;
+    public float f15868e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Shape f16554f;
+    public Shape f15869f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f16555g;
+    public Paint f15870g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f16556h;
+    public Paint f15871h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RectF f16557i;
+    public RectF f15872i;
 
     public RoundCornerLinearLayout(Context context) {
         this(context, null);
@@ -39,20 +39,20 @@ public class RoundCornerLinearLayout extends LinearLayout {
     public final void a() {
         setLayerType(1, null);
         Paint paint = new Paint();
-        this.f16555g = paint;
+        this.f15870g = paint;
         paint.setAntiAlias(true);
-        this.f16555g.setColor(-7829368);
-        this.f16555g.setStyle(Paint.Style.FILL);
-        this.f16555g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f15870g.setColor(-7829368);
+        this.f15870g.setStyle(Paint.Style.FILL);
+        this.f15870g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
-        this.f16556h = paint2;
+        this.f15871h = paint2;
         paint2.setAntiAlias(true);
-        this.f16556h.setColor(getResources().getColor(j));
-        this.f16556h.setStyle(Paint.Style.FILL);
-        this.f16556h.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(j));
-        this.f16556h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
-        this.f16557i = new RectF();
-        this.f16553e = getResources().getDimension(R.dimen.tbds20);
+        this.f15871h.setColor(getResources().getColor(j));
+        this.f15871h.setStyle(Paint.Style.FILL);
+        this.f15871h.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(j));
+        this.f15871h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
+        this.f15872i = new RectF();
+        this.f15868e = getResources().getDimension(R.dimen.tbds20);
         setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.tbds1));
     }
 
@@ -61,13 +61,13 @@ public class RoundCornerLinearLayout extends LinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        Shape shape = this.f16554f;
+        Shape shape = this.f15869f;
         if (shape != null) {
-            shape.draw(canvas, this.f16555g);
+            shape.draw(canvas, this.f15870g);
         }
-        RectF rectF = this.f16557i;
-        float f2 = this.f16553e;
-        canvas.drawRoundRect(rectF, f2, f2, this.f16556h);
+        RectF rectF = this.f15872i;
+        float f2 = this.f15868e;
+        canvas.drawRoundRect(rectF, f2, f2, this.f15871h);
         if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
             return;
         }
@@ -78,7 +78,7 @@ public class RoundCornerLinearLayout extends LinearLayout {
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         super.onLayout(z, i2, i3, i4, i5);
         if (z) {
-            if (this.f16554f == null) {
+            if (this.f15869f == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingLeft();
@@ -87,16 +87,16 @@ public class RoundCornerLinearLayout extends LinearLayout {
                 float paddingBottom = getPaddingBottom() > 0 ? getPaddingBottom() : 1.0f;
                 RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
                 float[] fArr2 = new float[8];
-                Arrays.fill(fArr2, this.f16553e);
-                this.f16554f = new RoundRectShape(fArr, rectF, fArr2);
-                this.f16557i.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
+                Arrays.fill(fArr2, this.f15868e);
+                this.f15869f = new RoundRectShape(fArr, rectF, fArr2);
+                this.f15872i.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
             }
-            this.f16554f.resize(getWidth(), getHeight());
+            this.f15869f.resize(getWidth(), getHeight());
         }
     }
 
     public void setRadius(float f2) {
-        this.f16553e = f2;
+        this.f15868e = f2;
     }
 
     public RoundCornerLinearLayout(Context context, @Nullable AttributeSet attributeSet) {

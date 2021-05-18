@@ -6,13 +6,13 @@ import android.content.Context;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Application f40452a;
+    public static Application f39697a;
 
     public static Context a() {
-        return f40452a;
+        return f39697a;
     }
 
     public static void b(Application application) {
-        f40452a = application;
+        f39697a = application;
     }
 }

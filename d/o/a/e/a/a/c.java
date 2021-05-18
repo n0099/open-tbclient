@@ -7,15 +7,15 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c extends a {
 
     /* renamed from: d  reason: collision with root package name */
-    public final JSONObject f66283d;
+    public final JSONObject f66969d;
 
     public c(Context context, d.o.a.e.b.j.a aVar, String str, JSONObject jSONObject) {
         super(context, aVar, str);
-        this.f66283d = jSONObject;
+        this.f66969d = jSONObject;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -77,13 +77,13 @@ public class c extends a {
 
     @Override // d.o.a.e.a.a.e
     public Intent b() {
-        String optString = this.f66283d.optString("action");
-        String optString2 = this.f66283d.optString("category");
-        int optInt = this.f66283d.optInt("flags", 1342210048);
-        String optString3 = this.f66283d.optString("path_extra_key");
-        String optString4 = this.f66283d.optString("path_data_key");
-        JSONObject optJSONObject = this.f66283d.optJSONObject("extra");
-        JSONObject optJSONObject2 = this.f66283d.optJSONObject("extra_type");
+        String optString = this.f66969d.optString("action");
+        String optString2 = this.f66969d.optString("category");
+        int optInt = this.f66969d.optInt("flags", 1342210048);
+        String optString3 = this.f66969d.optString("path_extra_key");
+        String optString4 = this.f66969d.optString("path_data_key");
+        JSONObject optJSONObject = this.f66969d.optJSONObject("extra");
+        JSONObject optJSONObject2 = this.f66969d.optJSONObject("extra_type");
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
@@ -93,13 +93,13 @@ public class c extends a {
         }
         if (!TextUtils.isEmpty(optString4)) {
             try {
-                intent.setData(Uri.parse(String.format(optString4, this.f66282c)));
+                intent.setData(Uri.parse(String.format(optString4, this.f66968c)));
             } catch (Throwable unused) {
             }
         }
         intent.setFlags(optInt);
         if (!TextUtils.isEmpty(optString3)) {
-            intent.putExtra(optString3, this.f66282c);
+            intent.putExtra(optString3, this.f66968c);
         }
         b(intent, optJSONObject, optJSONObject2);
         return intent;

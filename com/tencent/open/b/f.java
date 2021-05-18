@@ -15,14 +15,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class f extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f37218a = {"key"};
+    public static final String[] f36463a = {"key"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f37219b;
+    public static f f36464b;
 
     public f(Context context) {
         super(context, "sdk_report.db", (SQLiteDatabase.CursorFactory) null, 2);
@@ -31,10 +31,10 @@ public class f extends SQLiteOpenHelper {
     public static synchronized f a() {
         f fVar;
         synchronized (f.class) {
-            if (f37219b == null) {
-                f37219b = new f(com.tencent.open.utils.e.a());
+            if (f36464b == null) {
+                f36464b = new f(com.tencent.open.utils.e.a());
             }
-            fVar = f37219b;
+            fVar = f36464b;
         }
         return fVar;
     }

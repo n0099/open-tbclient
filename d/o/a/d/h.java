@@ -23,13 +23,13 @@ import d.o.a.d.f.n;
 import d.o.a.d.j;
 import d.o.a.e.a.d;
 import d.o.a.e.b.a.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class h implements d.j {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f66179a = new Handler(Looper.getMainLooper());
+    public Handler f66865a = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public a(h hVar) {
         }
@@ -40,63 +40,63 @@ public class h implements d.j {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.e.b.j.a f66180e;
+        public final /* synthetic */ d.o.a.e.b.j.a f66866e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.a.a.c.d f66181f;
+        public final /* synthetic */ d.o.a.a.a.c.d f66867f;
 
         public b(h hVar, d.o.a.e.b.j.a aVar, d.o.a.a.a.c.d dVar) {
-            this.f66180e = aVar;
-            this.f66181f = dVar;
+            this.f66866e = aVar;
+            this.f66867f = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            n.n().a(2, n.a(), this.f66181f, this.f66180e.h("no_enough_space_toast_text", "您的存储空间不足，请清理后再试"), null, 0);
+            n.n().a(2, n.a(), this.f66867f, this.f66866e.h("no_enough_space_toast_text", "您的存储空间不足，请清理后再试"), null, 0);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements a.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.b.a.c.b f66182e;
+        public final /* synthetic */ d.o.a.b.a.c.b f66868e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f66183f;
+        public final /* synthetic */ long f66869f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f66184g;
+        public final /* synthetic */ long f66870g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ double f66185h;
+        public final /* synthetic */ double f66871h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f66186i;
+        public final /* synthetic */ DownloadInfo f66872i;
 
         public c(h hVar, d.o.a.b.a.c.b bVar, long j, long j2, double d2, DownloadInfo downloadInfo) {
-            this.f66182e = bVar;
-            this.f66183f = j;
-            this.f66184g = j2;
-            this.f66185h = d2;
-            this.f66186i = downloadInfo;
+            this.f66868e = bVar;
+            this.f66869f = j;
+            this.f66870g = j2;
+            this.f66871h = d2;
+            this.f66872i = downloadInfo;
         }
 
         @Override // d.o.a.e.b.a.a.b
         public void b() {
-            if (!d.o.a.d.n.k.D(this.f66182e)) {
-                long j = this.f66183f;
-                if (j <= -1 || this.f66184g <= -1 || j >= this.f66185h) {
+            if (!d.o.a.d.n.k.D(this.f66868e)) {
+                long j = this.f66869f;
+                if (j <= -1 || this.f66870g <= -1 || j >= this.f66871h) {
                     return;
                 }
-                j.c.a().u("clean_space_install", d.o.a.d.f.h.d("install_no_enough_space"), this.f66182e);
-                if (d.o.a.d.f.h.p(this.f66186i, ((long) this.f66185h) - this.f66183f)) {
+                j.c.a().u("clean_space_install", d.o.a.d.f.h.d("install_no_enough_space"), this.f66868e);
+                if (d.o.a.d.f.h.p(this.f66872i, ((long) this.f66871h) - this.f66869f)) {
                     d.o.a.e.b.a.a.c().h(this);
-                    this.f66182e.G0(true);
+                    this.f66868e.G0(true);
                     return;
                 }
                 return;
@@ -109,62 +109,62 @@ public class h implements d.j {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements d.o.a.a.a.a.k {
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class a implements DialogInterface.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.a.a.d.c f66187e;
+            public final /* synthetic */ d.o.a.a.a.d.c f66873e;
 
             public a(d.o.a.a.a.d.c cVar) {
-                this.f66187e = cVar;
+                this.f66873e = cVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
-                c.InterfaceC1792c interfaceC1792c = this.f66187e.f65833h;
-                if (interfaceC1792c != null) {
-                    interfaceC1792c.b(dialogInterface);
+                c.InterfaceC1856c interfaceC1856c = this.f66873e.f66519h;
+                if (interfaceC1856c != null) {
+                    interfaceC1856c.b(dialogInterface);
                 }
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class b implements DialogInterface.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.a.a.d.c f66188e;
+            public final /* synthetic */ d.o.a.a.a.d.c f66874e;
 
             public b(d.o.a.a.a.d.c cVar) {
-                this.f66188e = cVar;
+                this.f66874e = cVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
-                c.InterfaceC1792c interfaceC1792c = this.f66188e.f65833h;
-                if (interfaceC1792c != null) {
-                    interfaceC1792c.a(dialogInterface);
+                c.InterfaceC1856c interfaceC1856c = this.f66874e.f66519h;
+                if (interfaceC1856c != null) {
+                    interfaceC1856c.a(dialogInterface);
                 }
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class c implements DialogInterface.OnCancelListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.a.a.d.c f66189e;
+            public final /* synthetic */ d.o.a.a.a.d.c f66875e;
 
             public c(d.o.a.a.a.d.c cVar) {
-                this.f66189e = cVar;
+                this.f66875e = cVar;
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                c.InterfaceC1792c interfaceC1792c = this.f66189e.f65833h;
-                if (interfaceC1792c != null) {
-                    interfaceC1792c.c(dialogInterface);
+                c.InterfaceC1856c interfaceC1856c = this.f66875e.f66519h;
+                if (interfaceC1856c != null) {
+                    interfaceC1856c.c(dialogInterface);
                 }
             }
         }
@@ -183,10 +183,10 @@ public class h implements d.j {
             if (cVar == null) {
                 return null;
             }
-            AlertDialog show = new AlertDialog.Builder(cVar.f65826a).setTitle(cVar.f65827b).setMessage(cVar.f65828c).setPositiveButton(cVar.f65829d, new b(cVar)).setNegativeButton(cVar.f65830e, new a(cVar)).show();
-            show.setCanceledOnTouchOutside(cVar.f65831f);
+            AlertDialog show = new AlertDialog.Builder(cVar.f66512a).setTitle(cVar.f66513b).setMessage(cVar.f66514c).setPositiveButton(cVar.f66515d, new b(cVar)).setNegativeButton(cVar.f66516e, new a(cVar)).show();
+            show.setCanceledOnTouchOutside(cVar.f66517f);
             show.setOnCancelListener(new c(cVar));
-            Drawable drawable = cVar.f65832g;
+            Drawable drawable = cVar.f66518g;
             if (drawable != null) {
                 show.setIcon(drawable);
             }
@@ -223,7 +223,7 @@ public class h implements d.j {
             BaseException baseException2 = null;
             if (baseException != null) {
                 if (d.o.a.e.b.j.a.d(downloadInfo.c0()).b("toast_without_network", 0) == 1 && baseException.getErrorCode() == 1049) {
-                    this.f66179a.post(new a(this));
+                    this.f66865a.post(new a(this));
                 }
                 if (d.o.a.e.b.l.e.M0(baseException)) {
                     if (n.v() != null) {
@@ -237,7 +237,7 @@ public class h implements d.j {
                     if ((n.v() == null || !n.v().d()) && (a2 = c.g.e().a(c2.b())) != null && a2.k()) {
                         d.o.a.e.b.j.a d2 = d.o.a.e.b.j.a.d(downloadInfo.c0());
                         if (d2.b("show_no_enough_space_toast", 0) == 1) {
-                            this.f66179a.post(new b(this, d2, a2));
+                            this.f66865a.post(new b(this, d2, a2));
                         }
                     }
                 }
@@ -264,16 +264,16 @@ public class h implements d.j {
         d.o.a.e.b.a.a.c().f(new c(this, bVar, f2, Q0, d2, downloadInfo));
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e implements d.o.a.a.a.a.h {
 
         /* renamed from: a  reason: collision with root package name */
-        public q f66190a;
+        public q f66876a;
 
         @Override // d.o.a.a.a.a.h
         public void a(@NonNull Activity activity, @NonNull String[] strArr, q qVar) {
             if (Build.VERSION.SDK_INT >= 23) {
-                this.f66190a = qVar;
+                this.f66876a = qVar;
                 activity.requestPermissions(strArr, 1);
             } else if (qVar != null) {
                 qVar.a();
@@ -288,7 +288,7 @@ public class h implements d.j {
         @Override // d.o.a.a.a.a.h
         public void a(@NonNull Activity activity, int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
             q qVar;
-            if (iArr.length <= 0 || (qVar = this.f66190a) == null) {
+            if (iArr.length <= 0 || (qVar = this.f66876a) == null) {
                 return;
             }
             if (iArr[0] == -1) {

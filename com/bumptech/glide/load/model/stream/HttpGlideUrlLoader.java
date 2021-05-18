@@ -11,13 +11,13 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
     public static final Option<Integer> TIMEOUT = Option.memory("com.bumptech.glide.load.model.stream.HttpGlideUrlLoader.Timeout", 2500);
     @Nullable
     public final ModelCache<GlideUrl, GlideUrl> modelCache;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Factory implements ModelLoaderFactory<GlideUrl, InputStream> {
         public final ModelCache<GlideUrl, GlideUrl> modelCache = new ModelCache<>(500);
 

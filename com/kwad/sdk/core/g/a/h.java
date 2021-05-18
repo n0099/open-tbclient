@@ -23,31 +23,31 @@ import org.webrtc.MediaStreamTrack;
 public class h implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f33073a;
+    public int f32318a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33074b;
+    public String f32319b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33075c;
+    public int f32320c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Long f33076d;
+    public Long f32321d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Long f33077e;
+    public Long f32322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Long f33078f;
+    public Long f32323f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Long f33079g;
+    public Long f32324g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f33080h;
+    public String f32325h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f33081i;
+    public String f32326i;
     public List<com.kwad.sdk.core.g.a.a> j = new ArrayList();
     public long k;
     public String l;
@@ -69,20 +69,20 @@ public class h implements com.kwad.sdk.core.b {
     public static class a extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f33082a;
+        public int f32327a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f33083b;
+        public int f32328b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f33084c;
+        public int f32329c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f33085d;
+        public int f32330d;
 
         public a(int i2) {
-            this.f33082a = -1;
-            this.f33082a = i2;
+            this.f32327a = -1;
+            this.f32327a = i2;
         }
 
         private int a(int i2) {
@@ -123,12 +123,12 @@ public class h implements com.kwad.sdk.core.b {
             if (context == null) {
                 return null;
             }
-            int a2 = a(this.f33082a);
+            int a2 = a(this.f32327a);
             AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-            this.f33085d = audioManager.getStreamVolume(a2);
-            this.f33083b = audioManager.getStreamMaxVolume(a2);
+            this.f32330d = audioManager.getStreamVolume(a2);
+            this.f32328b = audioManager.getStreamMaxVolume(a2);
             if (Build.VERSION.SDK_INT >= 28) {
-                this.f33084c = audioManager.getStreamMinVolume(a2);
+                this.f32329c = audioManager.getStreamMinVolume(a2);
             }
             return this;
         }
@@ -137,15 +137,15 @@ public class h implements com.kwad.sdk.core.b {
     @WorkerThread
     public static h a() {
         h hVar = new h();
-        hVar.f33073a = ai.c();
-        hVar.f33074b = AbiUtil.a();
-        hVar.f33075c = ai.a(KsAdSDKImpl.get().getContext());
-        hVar.f33076d = Long.valueOf(ai.b(KsAdSDKImpl.get().getContext()));
-        hVar.f33077e = Long.valueOf(ai.c(KsAdSDKImpl.get().getContext()));
-        hVar.f33078f = Long.valueOf(ai.a());
-        hVar.f33079g = Long.valueOf(ai.b());
-        hVar.f33080h = ai.g(KsAdSDKImpl.get().getContext());
-        hVar.f33081i = ai.h(KsAdSDKImpl.get().getContext());
+        hVar.f32318a = ai.c();
+        hVar.f32319b = AbiUtil.a();
+        hVar.f32320c = ai.a(KsAdSDKImpl.get().getContext());
+        hVar.f32321d = Long.valueOf(ai.b(KsAdSDKImpl.get().getContext()));
+        hVar.f32322e = Long.valueOf(ai.c(KsAdSDKImpl.get().getContext()));
+        hVar.f32323f = Long.valueOf(ai.a());
+        hVar.f32324g = Long.valueOf(ai.b());
+        hVar.f32325h = ai.g(KsAdSDKImpl.get().getContext());
+        hVar.f32326i = ai.h(KsAdSDKImpl.get().getContext());
         hVar.j = as.a(KsAdSDKImpl.get().getContext(), 15);
         hVar.k = SystemClock.elapsedRealtime() / 1000;
         hVar.n = Build.TIME;
@@ -193,15 +193,15 @@ public class h implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "cpuCount", this.f33073a);
-        o.a(jSONObject, "cpuAbi", this.f33074b);
-        o.a(jSONObject, "batteryPercent", this.f33075c);
-        o.a(jSONObject, "totalMemorySize", this.f33076d.longValue());
-        o.a(jSONObject, "availableMemorySize", this.f33077e.longValue());
-        o.a(jSONObject, "totalDiskSize", this.f33078f.longValue());
-        o.a(jSONObject, "availableDiskSize", this.f33079g.longValue());
-        o.a(jSONObject, "imsi", this.f33080h);
-        o.a(jSONObject, "iccid", this.f33081i);
+        o.a(jSONObject, "cpuCount", this.f32318a);
+        o.a(jSONObject, "cpuAbi", this.f32319b);
+        o.a(jSONObject, "batteryPercent", this.f32320c);
+        o.a(jSONObject, "totalMemorySize", this.f32321d.longValue());
+        o.a(jSONObject, "availableMemorySize", this.f32322e.longValue());
+        o.a(jSONObject, "totalDiskSize", this.f32323f.longValue());
+        o.a(jSONObject, "availableDiskSize", this.f32324g.longValue());
+        o.a(jSONObject, "imsi", this.f32325h);
+        o.a(jSONObject, "iccid", this.f32326i);
         o.a(jSONObject, "wifiList", this.j);
         o.a(jSONObject, "bootTime", this.k);
         o.a(jSONObject, "romName", this.l);

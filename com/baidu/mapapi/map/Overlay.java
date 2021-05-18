@@ -7,12 +7,12 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class Overlay {
+    public boolean A;
+    public Bundle B;
     public a listener;
     public com.baidu.mapsdkplatform.comapi.map.h type;
-    public String v = System.currentTimeMillis() + "_" + hashCode();
-    public int w;
-    public boolean x;
-    public Bundle y;
+    public String y = System.currentTimeMillis() + "_" + hashCode();
+    public int z;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -45,29 +45,29 @@ public abstract class Overlay {
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putString("id", this.v);
+        bundle.putString("id", this.y);
         bundle.putInt("type", this.type.ordinal());
         return bundle;
     }
 
     public Bundle a(Bundle bundle) {
-        bundle.putString("id", this.v);
+        bundle.putString("id", this.y);
         bundle.putInt("type", this.type.ordinal());
-        bundle.putInt("visibility", this.x ? 1 : 0);
-        bundle.putInt("z_index", this.w);
+        bundle.putInt("visibility", this.A ? 1 : 0);
+        bundle.putInt("z_index", this.z);
         return bundle;
     }
 
     public Bundle getExtraInfo() {
-        return this.y;
+        return this.B;
     }
 
     public int getZIndex() {
-        return this.w;
+        return this.z;
     }
 
     public boolean isVisible() {
-        return this.x;
+        return this.A;
     }
 
     public void remove() {
@@ -75,16 +75,16 @@ public abstract class Overlay {
     }
 
     public void setExtraInfo(Bundle bundle) {
-        this.y = bundle;
+        this.B = bundle;
     }
 
     public void setVisible(boolean z) {
-        this.x = z;
+        this.A = z;
         this.listener.b(this);
     }
 
     public void setZIndex(int i2) {
-        this.w = i2;
+        this.z = i2;
         this.listener.b(this);
     }
 }

@@ -28,13 +28,13 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
     public class a implements Sample {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Sample f32319a;
+        public final Sample f31564a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final CencSampleAuxiliaryDataFormat f32320b;
+        public final CencSampleAuxiliaryDataFormat f31565b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Cipher f32321c;
+        public final Cipher f31566c;
 
         public /* synthetic */ a(CommonEncryptionSampleList commonEncryptionSampleList, Sample sample, CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, Cipher cipher, a aVar) {
             this(sample, cencSampleAuxiliaryDataFormat, cipher);
@@ -42,9 +42,9 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
-            ByteBuffer byteBuffer = (ByteBuffer) this.f32319a.asByteBuffer().rewind();
+            ByteBuffer byteBuffer = (ByteBuffer) this.f31564a.asByteBuffer().rewind();
             ByteBuffer allocate = ByteBuffer.allocate(byteBuffer.limit());
-            CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = this.f32320b;
+            CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = this.f31565b;
             CommonEncryptionSampleList.this.initCipher(cencSampleAuxiliaryDataFormat.iv);
             try {
                 if (cencSampleAuxiliaryDataFormat.pairs != null) {
@@ -55,13 +55,13 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
                         if (pair.encrypted > 0) {
                             byte[] bArr2 = new byte[CastUtils.l2i(pair.encrypted)];
                             byteBuffer.get(bArr2);
-                            allocate.put(this.f32321c.update(bArr2));
+                            allocate.put(this.f31566c.update(bArr2));
                         }
                     }
                 } else {
                     byte[] bArr3 = new byte[byteBuffer.limit()];
                     byteBuffer.get(bArr3);
-                    allocate.put(this.f32321c.doFinal(bArr3));
+                    allocate.put(this.f31566c.doFinal(bArr3));
                 }
                 byteBuffer.rewind();
                 allocate.rewind();
@@ -75,29 +75,29 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public long getSize() {
-            return this.f32319a.getSize();
+            return this.f31564a.getSize();
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            ByteBuffer byteBuffer = (ByteBuffer) this.f32319a.asByteBuffer().rewind();
-            CommonEncryptionSampleList.this.initCipher(this.f32320b.iv);
+            ByteBuffer byteBuffer = (ByteBuffer) this.f31564a.asByteBuffer().rewind();
+            CommonEncryptionSampleList.this.initCipher(this.f31565b.iv);
             try {
-                if (this.f32320b.pairs != null && this.f32320b.pairs.size() > 0) {
-                    for (CencSampleAuxiliaryDataFormat.Pair pair : this.f32320b.pairs) {
+                if (this.f31565b.pairs != null && this.f31565b.pairs.size() > 0) {
+                    for (CencSampleAuxiliaryDataFormat.Pair pair : this.f31565b.pairs) {
                         byte[] bArr = new byte[pair.clear];
                         byteBuffer.get(bArr);
                         writableByteChannel.write(ByteBuffer.wrap(bArr));
                         if (pair.encrypted > 0) {
                             byte[] bArr2 = new byte[CastUtils.l2i(pair.encrypted)];
                             byteBuffer.get(bArr2);
-                            writableByteChannel.write(ByteBuffer.wrap(this.f32321c.update(bArr2)));
+                            writableByteChannel.write(ByteBuffer.wrap(this.f31566c.update(bArr2)));
                         }
                     }
                 } else {
                     byte[] bArr3 = new byte[byteBuffer.limit()];
                     byteBuffer.get(bArr3);
-                    writableByteChannel.write(ByteBuffer.wrap(this.f32321c.doFinal(bArr3)));
+                    writableByteChannel.write(ByteBuffer.wrap(this.f31566c.doFinal(bArr3)));
                 }
                 byteBuffer.rewind();
             } catch (BadPaddingException e2) {
@@ -108,9 +108,9 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
         }
 
         public a(Sample sample, CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, Cipher cipher) {
-            this.f32319a = sample;
-            this.f32320b = cencSampleAuxiliaryDataFormat;
-            this.f32321c = cipher;
+            this.f31564a = sample;
+            this.f31565b = cencSampleAuxiliaryDataFormat;
+            this.f31566c = cipher;
         }
     }
 

@@ -27,11 +27,11 @@ import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.ChannelNativeAds_6;
 import com.fun.ad.sdk.FunNativeAd;
 import com.kwad.sdk.api.KsNativeAd;
-import d.a.i0.b.d;
-import d.a.i0.r.u.c;
-import d.a.j0.d3.h0.n;
-import d.a.j0.r0.a;
-import d.a.j0.s0.b;
+import d.a.j0.b.d;
+import d.a.j0.r.u.c;
+import d.a.k0.d3.h0.n;
+import d.a.k0.r0.a;
+import d.a.k0.s0.b;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -39,16 +39,16 @@ import java.util.List;
 public class FunAdNativePbView extends FunAbsAdView {
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f16758f;
+    public RelativeLayout f16073f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f16759g;
+    public View f16074g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f16760h;
+    public ViewGroup f16075h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FunAdSmallPicView f16761i;
+    public FunAdSmallPicView f16076i;
     public ViewGroup j;
     public CardView k;
     public FunAdNativePicView l;
@@ -79,12 +79,12 @@ public class FunAdNativePbView extends FunAbsAdView {
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
     public void d(int i2) {
-        this.f16758f.setVisibility(i2);
+        this.f16073f.setVisibility(i2);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
     public void e(BdUniqueId bdUniqueId) {
-        if (bdUniqueId == AdvertAppInfo.n4) {
+        if (bdUniqueId == AdvertAppInfo.k4) {
             this.r.setVisibility(8);
         } else {
             this.r.setVisibility(0);
@@ -99,22 +99,22 @@ public class FunAdNativePbView extends FunAbsAdView {
         FunNativeAd funNativeAd = (FunNativeAd) nVar.d();
         b.f(funNativeAd);
         String title = funNativeAd.getTitle();
-        this.f16724e = title;
-        if (StringUtils.isNull(title) || this.f16724e.equals(activity.getString(R.string.fun_ad_label))) {
-            this.f16724e = activity.getString(R.string.fun_ad_title_promotion);
+        this.f16039e = title;
+        if (StringUtils.isNull(title) || this.f16039e.equals(activity.getString(R.string.fun_ad_label))) {
+            this.f16039e = activity.getString(R.string.fun_ad_title_promotion);
         }
-        this.n.setText(this.f16724e);
+        this.n.setText(this.f16039e);
         this.m.setText(funNativeAd.getDescription());
         List<String> imageUrls = funNativeAd.getImageUrls();
         this.k.removeAllViews();
         if (b.k(funNativeAd, imageUrls)) {
-            this.f16760h.setVisibility(8);
-            this.f16761i.setVisibility(0);
-            this.f16761i.setData(funNativeAd, (String) ListUtils.getItem(imageUrls, 0));
+            this.f16075h.setVisibility(8);
+            this.f16076i.setVisibility(0);
+            this.f16076i.setData(funNativeAd, (String) ListUtils.getItem(imageUrls, 0));
             return;
         }
-        this.f16760h.setVisibility(0);
-        this.f16761i.setVisibility(8);
+        this.f16075h.setVisibility(0);
+        this.f16076i.setVisibility(8);
         if (funNativeAd.getVideoView() != null) {
             b.q(this.j, b.m(funNativeAd));
             this.k.addView(funNativeAd.getVideoView(), new ViewGroup.LayoutParams(-1, -1));
@@ -139,14 +139,14 @@ public class FunAdNativePbView extends FunAbsAdView {
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
     public void g(Context context) {
         LayoutInflater.from(context).inflate(getLayoutId(), (ViewGroup) this, true);
-        this.f16758f = (RelativeLayout) findViewById(R.id.fun_card_layout);
-        this.f16759g = findViewById(R.id.divider_with_reply_title);
+        this.f16073f = (RelativeLayout) findViewById(R.id.fun_card_layout);
+        this.f16074g = findViewById(R.id.divider_with_reply_title);
         this.m = (EMTextView) findViewById(R.id.fun_card_description);
-        this.f16760h = (ViewGroup) findViewById(R.id.fun_ad_container);
+        this.f16075h = (ViewGroup) findViewById(R.id.fun_ad_container);
         this.j = (ViewGroup) findViewById(R.id.media_container);
         this.k = (CardView) findViewById(R.id.media_video);
         this.l = (FunAdNativePicView) findViewById(R.id.medig_image);
-        this.f16761i = (FunAdSmallPicView) findViewById(R.id.media_small);
+        this.f16076i = (FunAdSmallPicView) findViewById(R.id.media_small);
         this.n = (TextView) findViewById(R.id.fun_ad_title);
         this.o = (LinearLayout) findViewById(R.id.fun_ad_lable_pb_layout);
         this.p = (ImageView) findViewById(R.id.fun_ad_lable_icon);
@@ -158,7 +158,7 @@ public class FunAdNativePbView extends FunAbsAdView {
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
     public List<View> getClickViews() {
-        return Arrays.asList(this, this.f16758f, this.k, this.n, this.t, this.s);
+        return Arrays.asList(this, this.f16073f, this.k, this.n, this.t, this.s);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
@@ -189,7 +189,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
     public void h() {
         WebPManager.setPureDrawable(this.r, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-        SkinManager.setBackgroundColor(this.f16759g, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(this.f16074g, R.color.CAM_X0204);
         c.d(this.m).q(R.color.CAM_X0105);
         c.d(this.n).q(R.color.CAM_X0109);
         c.d(this.q).q(R.color.CAM_X0101);
@@ -199,7 +199,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         this.s.h();
         this.t.d(TbadkCoreApplication.getInst().getSkinType());
         this.l.d();
-        this.f16761i.c();
+        this.f16076i.c();
     }
 
     public void i(@NonNull FunNativeAd funNativeAd) {
@@ -223,7 +223,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         KsNativeAd ksNativeAd;
         ChannelNativeAds_6 channelNativeAds_6 = funNativeAd.getChannelNativeAds_6();
         this.u.setTag(nVar);
-        d.a.j0.s0.f.a aVar = new d.a.j0.s0.f.a(this.u, nVar);
+        d.a.k0.s0.f.a aVar = new d.a.k0.s0.f.a(this.u, nVar);
         if (channelNativeAds_6 != null && (ksNativeAd = channelNativeAds_6.ksNative) != null) {
             ksNativeAd.setDownloadListener(aVar);
         } else if (channelNativeAds_6 != null && (tTNativeAd = channelNativeAds_6.csjNative) != null) {
@@ -246,7 +246,7 @@ public class FunAdNativePbView extends FunAbsAdView {
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
     public void setFeedBackListener(View.OnClickListener onClickListener) {
-        FunAdSmallPicView funAdSmallPicView = this.f16761i;
+        FunAdSmallPicView funAdSmallPicView = this.f16076i;
         if (funAdSmallPicView != null) {
             funAdSmallPicView.setFeedBackListener(onClickListener);
         }
@@ -254,7 +254,7 @@ public class FunAdNativePbView extends FunAbsAdView {
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
     public void setFunAdViewVisible(boolean z) {
-        RelativeLayout relativeLayout = this.f16758f;
+        RelativeLayout relativeLayout = this.f16073f;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(z ? 0 : 8);
         }

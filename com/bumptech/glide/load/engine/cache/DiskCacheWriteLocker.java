@@ -7,18 +7,18 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class DiskCacheWriteLocker {
     public final Map<String, WriteLock> locks = new HashMap();
     public final WriteLockPool writeLockPool = new WriteLockPool();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class WriteLock {
         public int interestedThreads;
         public final Lock lock = new ReentrantLock();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class WriteLockPool {
         public static final int MAX_POOL_SIZE = 10;
         public final Queue<WriteLock> pool = new ArrayDeque();

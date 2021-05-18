@@ -18,23 +18,23 @@ import d.a.a0.k.d.b;
 public class a extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f10377e;
+    public ImageView f9414e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f10378f;
+    public TextView f9415f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f10379g;
+    public TextView f9416g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f10380h;
+    public ImageView f9417h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC0133a f10381i;
+    public InterfaceC0118a f9418i;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0133a {
+    public interface InterfaceC0118a {
         void a();
     }
 
@@ -42,59 +42,59 @@ public class a extends RelativeLayout implements View.OnClickListener {
         this(context, null);
     }
 
-    public void a(o oVar, InterfaceC0133a interfaceC0133a) {
+    public void a(o oVar, InterfaceC0118a interfaceC0118a) {
         String displayName = oVar.getDisplayName();
         String S = oVar.S();
         String icon = oVar.getIcon();
         int P = oVar.P();
         int N = oVar.N();
-        b.c().b(this.f10377e, icon);
-        this.f10378f.setText(displayName);
+        b.c().b(this.f9414e, icon);
+        this.f9415f.setText(displayName);
         if (P == 1) {
-            this.f10380h.setImageResource(e.channel_checked);
+            this.f9417h.setImageResource(e.channel_checked);
         } else {
-            this.f10380h.setImageResource(e.unchecked);
+            this.f9417h.setImageResource(e.unchecked);
         }
         if (1 == N) {
-            this.f10381i = interfaceC0133a;
+            this.f9418i = interfaceC0118a;
         } else {
-            this.f10377e.setAlpha(0.4f);
-            this.f10378f.setAlpha(0.4f);
-            this.f10379g.setAlpha(0.4f);
-            this.f10380h.setVisibility(8);
+            this.f9414e.setAlpha(0.4f);
+            this.f9415f.setAlpha(0.4f);
+            this.f9416g.setAlpha(0.4f);
+            this.f9417h.setVisibility(8);
         }
         if (!TextUtils.isEmpty(S)) {
             String M = oVar.M();
             if (!TextUtils.isEmpty(M)) {
                 try {
-                    this.f10379g.setTextColor(Color.parseColor(M));
+                    this.f9416g.setTextColor(Color.parseColor(M));
                 } catch (Exception unused) {
                 }
             }
-            this.f10379g.setText(S);
+            this.f9416g.setText(S);
             return;
         }
-        this.f10379g.setVisibility(8);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f10378f.getLayoutParams();
+        this.f9416g.setVisibility(8);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f9415f.getLayoutParams();
         layoutParams.addRule(15);
         layoutParams.topMargin = 0;
-        this.f10378f.setLayoutParams(layoutParams);
+        this.f9415f.setLayoutParams(layoutParams);
     }
 
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(g.view_channel_list_item, (ViewGroup) this, true);
-        this.f10377e = (ImageView) findViewById(f.channel_icon_view);
-        this.f10378f = (TextView) findViewById(f.channel_name_view);
-        this.f10379g = (TextView) findViewById(f.channel_desc_view);
-        this.f10380h = (ImageView) findViewById(f.channel_select_view);
+        this.f9414e = (ImageView) findViewById(f.channel_icon_view);
+        this.f9415f = (TextView) findViewById(f.channel_name_view);
+        this.f9416g = (TextView) findViewById(f.channel_desc_view);
+        this.f9417h = (ImageView) findViewById(f.channel_select_view);
         setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        InterfaceC0133a interfaceC0133a = this.f10381i;
-        if (interfaceC0133a != null) {
-            interfaceC0133a.a();
+        InterfaceC0118a interfaceC0118a = this.f9418i;
+        if (interfaceC0118a != null) {
+            interfaceC0118a.a();
         }
     }
 

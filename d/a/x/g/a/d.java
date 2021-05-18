@@ -5,21 +5,21 @@ import android.database.sqlite.SQLiteDatabase;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f64173a = false;
+    public boolean f64860a = false;
 
     public boolean a() {
-        return this.f64173a;
+        return this.f64860a;
     }
 
     public abstract boolean b(SQLiteDatabase sQLiteDatabase);
 
     public void c(SQLiteDatabase sQLiteDatabase) {
-        this.f64173a = false;
+        this.f64860a = false;
         try {
             sQLiteDatabase.beginTransaction();
             if (b(sQLiteDatabase)) {
                 sQLiteDatabase.setTransactionSuccessful();
-                this.f64173a = true;
+                this.f64860a = true;
             }
         } catch (Exception unused) {
         } catch (Throwable th) {

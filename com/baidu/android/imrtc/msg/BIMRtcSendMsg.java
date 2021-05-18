@@ -21,6 +21,7 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -76,10 +77,10 @@ public class BIMRtcSendMsg extends Message {
             jSONObject.put("appid", this.mRtcAppID);
             jSONObject.put("msg_key", "");
             jSONObject.put("app_version", RtcUtility.getAppVersionName(this.mContext));
-            jSONObject.put("sdk_version", this.mSdkVersion);
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, this.mSdkVersion);
             jSONObject.put("signal_sdk_version", RtcConstants.RTC_VERSION);
             jSONObject.put("uk", this.mImUk);
-            jSONObject.put("third_userid", IMJni.transBDUID("" + Utility.getBuid(this.mContext)));
+            jSONObject.put("third_userid", IMJni.transBDUID(Utility.readUid(this.mContext)));
             jSONObject.put("action", this.mAction);
             jSONObject.put("rtc_room_id", this.mRoomId);
             jSONObject.put(RtcConstants.EXTRA_RTC_INFO, this.mRtcInfo);

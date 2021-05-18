@@ -8,31 +8,31 @@ import java.util.Locale;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f66936a;
+    public long f67622a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f66937b;
+    public int f67623b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66938c;
+    public int f67624c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66939d;
+    public int f67625d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.r.b.a.a.f.c.d f66940e;
+    public d.r.b.a.a.f.c.d f67626e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f66941f;
+    public String f67627f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66942g;
+    public String f67628g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f66943h;
+    public Context f67629h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f66944i;
+    public String f67630i;
     public String j;
     public String k;
     public String l;
@@ -45,29 +45,29 @@ public class b {
     public static final class a {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.r.b.a.a.f.c.d f66949e;
+        public d.r.b.a.a.f.c.d f67635e;
 
         /* renamed from: h  reason: collision with root package name */
-        public Context f66952h;
+        public Context f67638h;
         public d.r.b.a.a.f.f.c p;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f66945a = 0;
+        public long f67631a = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f66947c = 0;
+        public int f67633c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f66948d = 0;
+        public int f67634d = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f66950f = Locale.getDefault().getCountry();
+        public String f67636f = Locale.getDefault().getCountry();
 
         /* renamed from: g  reason: collision with root package name */
-        public String f66951g = Locale.getDefault().getLanguage();
+        public String f67637g = Locale.getDefault().getLanguage();
 
         /* renamed from: i  reason: collision with root package name */
-        public String f66953i = "";
+        public String f67639i = "";
         public String j = "";
         public String k = "";
         public String l = "";
@@ -76,7 +76,7 @@ public class b {
         public boolean o = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f66946b = 0;
+        public int f67632b = 0;
 
         public static a a() {
             return new a();
@@ -84,14 +84,14 @@ public class b {
 
         public b b() {
             b bVar = new b();
-            bVar.f66939d = this.f66948d;
-            bVar.f66940e = this.f66949e;
-            bVar.f66938c = this.f66947c;
-            bVar.f66941f = this.f66950f;
-            bVar.f66942g = this.f66951g;
-            bVar.f66936a = this.f66945a;
-            bVar.f66943h = this.f66952h;
-            bVar.f66944i = this.f66953i;
+            bVar.f67625d = this.f67634d;
+            bVar.f67626e = this.f67635e;
+            bVar.f67624c = this.f67633c;
+            bVar.f67627f = this.f67636f;
+            bVar.f67628g = this.f67637g;
+            bVar.f67622a = this.f67631a;
+            bVar.f67629h = this.f67638h;
+            bVar.f67630i = this.f67639i;
             bVar.j = this.j;
             bVar.k = this.k;
             bVar.l = this.l;
@@ -99,12 +99,12 @@ public class b {
             bVar.n = this.n;
             bVar.o = this.o;
             bVar.p = this.p;
-            bVar.f66937b = this.f66946b;
+            bVar.f67623b = this.f67632b;
             return bVar;
         }
 
         public a c(int i2) {
-            this.f66946b = i2;
+            this.f67632b = i2;
             return this;
         }
 
@@ -119,22 +119,22 @@ public class b {
         }
 
         public a f(@NonNull Context context) {
-            this.f66952h = context;
+            this.f67638h = context;
             return this;
         }
 
         public a g(@NonNull String str) {
-            this.f66950f = str;
+            this.f67636f = str;
             return this;
         }
 
         public a h(int i2) {
-            this.f66948d = i2;
+            this.f67634d = i2;
             return this;
         }
 
         public a i(@NonNull d.r.b.a.a.f.c.d dVar) {
-            this.f66949e = dVar;
+            this.f67635e = dVar;
             return this;
         }
 
@@ -144,12 +144,12 @@ public class b {
         }
 
         public a k(@NonNull String str) {
-            this.f66951g = str;
+            this.f67637g = str;
             return this;
         }
 
         public a l(@NonNull String str) {
-            this.f66953i = str;
+            this.f67639i = str;
             return this;
         }
 
@@ -159,34 +159,34 @@ public class b {
         }
 
         public a n(long j) {
-            this.f66945a = j;
+            this.f67631a = j;
             return this;
         }
 
         public a o(int i2) {
-            this.f66947c = i2;
+            this.f67633c = i2;
             return this;
         }
     }
 
     public long A() {
-        return this.f66936a;
+        return this.f67622a;
     }
 
     public int B() {
-        return this.f66938c;
+        return this.f67624c;
     }
 
     public void C(String str) {
-        this.f66941f = str;
+        this.f67627f = str;
     }
 
     public void D(long j) {
-        this.f66936a = j;
+        this.f67622a = j;
     }
 
     public int q() {
-        return this.f66937b;
+        return this.f67623b;
     }
 
     public String r() {
@@ -194,19 +194,19 @@ public class b {
     }
 
     public Context s() {
-        return this.f66943h;
+        return this.f67629h;
     }
 
     public String t() {
-        return this.f66941f;
+        return this.f67627f;
     }
 
     public int u() {
-        return this.f66939d;
+        return this.f67625d;
     }
 
     public d.r.b.a.a.f.c.d v() {
-        return this.f66940e;
+        return this.f67626e;
     }
 
     public String w() {

@@ -16,16 +16,16 @@ public class b {
     public static final String A = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.u.b.g.c f64035b;
+    public d.a.u.b.g.c f64722b;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f64038e;
+    public long f64725e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f64039f;
+    public long f64726f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f64040g;
+    public long f64727g;
     public d.a.u.c.g.d k;
     public boolean l;
     public Context m;
@@ -34,16 +34,16 @@ public class b {
     public d.a.u.a.a.a q;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64034a = 120000;
+    public int f64721a = 120000;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64036c = -1;
+    public int f64723c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64037d = false;
+    public boolean f64724d = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f64041h = false;
+    public boolean f64728h = false;
     public int r = 0;
     public int s = 0;
     public byte[] t = ByteBuffer.allocate(DisplayCompat.DISPLAY_SIZE_4K_WIDTH).putShort(ShortCompanionObject.MIN_VALUE).array();
@@ -55,7 +55,7 @@ public class b {
     public long z = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f64042i = d.x();
+    public d f64729i = d.x();
     public d.a.u.c.a p = null;
     public e j = new a();
 
@@ -84,16 +84,16 @@ public class b {
         @Override // d.a.u.c.e
         public void c(boolean z, String str) {
             String str2 = b.A;
-            Log.i(str2, "on RecorderComplete record time :" + b.this.f64040g);
+            Log.i(str2, "on RecorderComplete record time :" + b.this.f64727g);
             if (b.this.o != null) {
-                b.this.o.z((int) b.this.f64040g, str);
+                b.this.o.y((int) b.this.f64727g, str);
             }
         }
 
         @Override // d.a.u.c.e
         public void d(long j) {
-            b.this.f64040g = j;
-            if (j <= b.this.f64034a || !b.this.l) {
+            b.this.f64727g = j;
+            if (j <= b.this.f64721a || !b.this.l) {
                 return;
             }
             b.this.I();
@@ -102,8 +102,8 @@ public class b {
 
     /* renamed from: d.a.u.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C1743b extends TimerTask {
-        public C1743b() {
+    public class C1807b extends TimerTask {
+        public C1807b() {
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -124,26 +124,26 @@ public class b {
     public static class c implements d.a.u.a.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<b> f64045a;
+        public WeakReference<b> f64732a;
 
         public c(b bVar) {
-            this.f64045a = new WeakReference<>(bVar);
+            this.f64732a = new WeakReference<>(bVar);
             String str = b.A;
-            Log.i(str, "gameRecorderRef is:" + this.f64045a.get());
+            Log.i(str, "gameRecorderRef is:" + this.f64732a.get());
         }
 
         @Override // d.a.u.a.a.a
         public void a(ByteBuffer byteBuffer, int i2, long j) {
-            if (this.f64045a.get() != null) {
-                this.f64045a.get().y = false;
-                this.f64045a.get().K(byteBuffer, i2, j);
+            if (this.f64732a.get() != null) {
+                this.f64732a.get().y = false;
+                this.f64732a.get().K(byteBuffer, i2, j);
             }
         }
 
         @Override // d.a.u.a.a.a
         public void b(boolean z, AudioParams audioParams) {
-            if (this.f64045a.get() != null) {
-                this.f64045a.get().G(z, audioParams);
+            if (this.f64732a.get() != null) {
+                this.f64732a.get().G(z, audioParams);
                 Log.i(b.A, "onAudioStart");
             }
         }
@@ -151,8 +151,8 @@ public class b {
         @Override // d.a.u.a.a.a
         public void c(boolean z) {
             Log.i(b.A, "onAudioStop");
-            if (this.f64045a.get() != null) {
-                this.f64045a.get().H();
+            if (this.f64732a.get() != null) {
+                this.f64732a.get().H();
             }
         }
     }
@@ -206,12 +206,12 @@ public class b {
         this.k.v(i3);
         this.k.x(this.r);
         this.k.w(this.s);
-        this.f64038e = 0L;
-        this.f64040g = 0L;
+        this.f64725e = 0L;
+        this.f64727g = 0L;
         if (i2 > 0 && i2 < 120) {
-            this.f64034a = i3;
+            this.f64721a = i3;
         } else {
-            this.f64034a = 120000;
+            this.f64721a = 120000;
         }
         E(null);
     }
@@ -226,9 +226,9 @@ public class b {
         this.l = true;
         H();
         this.v = new Timer();
-        C1743b c1743b = new C1743b();
-        this.w = c1743b;
-        this.v.schedule(c1743b, 300L, 20L);
+        C1807b c1807b = new C1807b();
+        this.w = c1807b;
+        this.v.schedule(c1807b, 300L, 20L);
     }
 
     public final synchronized void H() {
@@ -251,7 +251,7 @@ public class b {
                 throw new RuntimeException("unknown status " + this.n);
             }
             this.n = 0;
-            d dVar = this.f64042i;
+            d dVar = this.f64729i;
             if (dVar != null) {
                 dVar.U();
             }
@@ -263,17 +263,17 @@ public class b {
             int i3 = this.n;
             if (i3 == 0) {
                 p();
-                d dVar = this.f64042i;
+                d dVar = this.f64729i;
                 if (dVar != null) {
                     dVar.S(this.m, this.k, this.j);
                 }
                 this.n = 1;
             } else if (i3 != 1) {
                 if (i3 == 2) {
-                    this.f64035b.k().h(i2);
-                    d dVar2 = this.f64042i;
+                    this.f64722b.k().h(i2);
+                    d dVar2 = this.f64729i;
                     if (dVar2 != null) {
-                        dVar2.W(this.f64035b);
+                        dVar2.W(this.f64722b);
                     }
                     this.n = 1;
                 } else {
@@ -281,24 +281,24 @@ public class b {
                 }
             }
         }
-        d dVar3 = this.f64042i;
-        if (dVar3 == null || this.f64037d) {
+        d dVar3 = this.f64729i;
+        if (dVar3 == null || this.f64724d) {
             return;
         }
-        dVar3.H(j - this.f64038e);
+        dVar3.H(j - this.f64725e);
     }
 
     public final void K(ByteBuffer byteBuffer, int i2, long j) {
-        d dVar = this.f64042i;
-        if (dVar == null || !this.l || byteBuffer == null || i2 <= 0 || this.f64037d) {
+        d dVar = this.f64729i;
+        if (dVar == null || !this.l || byteBuffer == null || i2 <= 0 || this.f64724d) {
             return;
         }
-        dVar.F(byteBuffer, i2, j - this.f64038e);
+        dVar.F(byteBuffer, i2, j - this.f64725e);
     }
 
     public final void p() {
         d.a.u.c.g.d dVar = this.k;
-        if (dVar == null || this.f64035b == null) {
+        if (dVar == null || this.f64722b == null) {
             return;
         }
         int l = dVar.l();
@@ -327,14 +327,14 @@ public class b {
     }
 
     public final void r() {
-        if (this.f64037d) {
-            this.f64038e += System.nanoTime() - this.f64039f;
-            this.f64037d = false;
+        if (this.f64724d) {
+            this.f64725e += System.nanoTime() - this.f64726f;
+            this.f64724d = false;
         }
     }
 
     public long s() {
-        return this.f64040g;
+        return this.f64727g;
     }
 
     public void t(boolean z, EGLContext eGLContext, int i2, int i3, Context context) {
@@ -344,16 +344,16 @@ public class b {
         this.m = context;
         String str = A;
         Log.i(str, "onContextChanged:" + eGLContext + "; w:" + i2 + "; h:" + i3 + "; isFlip:" + z);
-        d.a.u.b.g.c cVar = this.f64035b;
+        d.a.u.b.g.c cVar = this.f64722b;
         if (cVar == null) {
-            this.f64035b = new d.a.u.b.g.c(eGLContext, 0, true);
+            this.f64722b = new d.a.u.b.g.c(eGLContext, 0, true);
         } else {
             cVar.o(eGLContext);
         }
-        this.f64035b.j().f(i2);
-        this.f64035b.j().e(i3);
+        this.f64722b.j().f(i2);
+        this.f64722b.j().e(i3);
         if (z) {
-            this.f64035b.d().k(MirrorType.VERTICALLY);
+            this.f64722b.d().k(MirrorType.VERTICALLY);
         }
         this.r = i2;
         this.s = i3;
@@ -362,37 +362,37 @@ public class b {
     }
 
     public void u(int i2) {
-        if (this.f64035b == null) {
+        if (this.f64722b == null) {
             return;
         }
-        if (this.f64036c != i2) {
+        if (this.f64723c != i2) {
             d.a.u.b.f.d dVar = new d.a.u.b.f.d();
             dVar.h(i2);
-            this.f64035b.r(dVar);
-            d dVar2 = this.f64042i;
+            this.f64722b.r(dVar);
+            d dVar2 = this.f64729i;
             if (dVar2 != null) {
-                dVar2.s(this.f64035b);
+                dVar2.s(this.f64722b);
             }
-            this.f64036c = i2;
+            this.f64723c = i2;
         }
-        J(this.f64036c, System.nanoTime());
+        J(this.f64723c, System.nanoTime());
     }
 
     public void v() {
-        if (this.f64037d) {
+        if (this.f64724d) {
             Log.i(A, "pauseRecord cmd has executed, please run resumeRecord!");
         } else if (this.l) {
-            this.f64037d = true;
+            this.f64724d = true;
             Log.i(A, "pauseRecord");
-            this.f64039f = System.nanoTime();
-            this.f64038e = 0L;
-            d dVar = this.f64042i;
+            this.f64726f = System.nanoTime();
+            this.f64725e = 0L;
+            d dVar = this.f64729i;
             if (dVar != null) {
                 dVar.I();
-                long y = (this.f64039f - (this.f64040g * 1000000)) - this.f64042i.y();
-                this.f64038e = y;
+                long y = (this.f64726f - (this.f64727g * 1000000)) - this.f64729i.y();
+                this.f64725e = y;
                 if (y < 0) {
-                    this.f64038e = 0L;
+                    this.f64725e = 0L;
                 }
             }
             d.a.u.c.c cVar = this.o;
@@ -404,19 +404,19 @@ public class b {
     }
 
     public void w() {
-        if (!this.f64037d) {
-            this.f64041h = true;
+        if (!this.f64724d) {
+            this.f64728h = true;
             v();
             return;
         }
-        this.f64041h = false;
+        this.f64728h = false;
     }
 
     public void x() {
-        d dVar = this.f64042i;
+        d dVar = this.f64729i;
         if (dVar != null) {
             dVar.G();
-            this.f64042i = null;
+            this.f64729i = null;
         }
         if (this.j != null) {
             this.j = null;
@@ -424,9 +424,9 @@ public class b {
     }
 
     public void y() {
-        if (this.f64037d) {
-            this.f64038e += System.nanoTime() - this.f64039f;
-            this.f64037d = false;
+        if (this.f64724d) {
+            this.f64725e += System.nanoTime() - this.f64726f;
+            this.f64724d = false;
             E(null);
             d.a.u.c.c cVar = this.o;
             if (cVar != null) {
@@ -436,9 +436,9 @@ public class b {
     }
 
     public void z() {
-        if (this.f64037d && this.f64041h) {
+        if (this.f64724d && this.f64728h) {
             y();
         }
-        this.f64041h = false;
+        this.f64728h = false;
     }
 }

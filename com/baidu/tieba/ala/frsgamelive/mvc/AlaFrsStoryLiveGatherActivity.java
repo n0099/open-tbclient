@@ -26,8 +26,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherModel;
 import d.a.c.e.p.l;
-import d.a.i0.r.f0.f;
-import d.a.i0.r.q.a2;
+import d.a.j0.r.f0.f;
+import d.a.j0.r.q.a2;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveGatherActivity> {
@@ -35,14 +35,14 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     public String forumName;
     public AlaFrsStoryLiveGatherModel liveModel;
     public TextView mAllBtn;
-    public d.a.j0.t.e.c.b mLiveView;
+    public d.a.k0.t.e.c.b mLiveView;
     public NavigationBar mNavigationBar;
     public View mStatusBarView;
     public AlaFrsStoryLiveGatherModel.b modelCallback = new c();
-    public d.a.j0.t.c subCardClickListener = new d();
+    public d.a.k0.t.c subCardClickListener = new d();
     public f.g listPullRefreshListener = new e();
     public BdListView.p scrollToBottomListener = new f();
-    public d.a.j0.t.e.c.d frsLiveViewEvent = new g();
+    public d.a.k0.t.e.c.d frsLiveViewEvent = new g();
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -112,11 +112,11 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes4.dex */
-    public class d implements d.a.j0.t.c {
+    public class d implements d.a.k0.t.c {
         public d() {
         }
 
-        @Override // d.a.j0.t.c
+        @Override // d.a.k0.t.c
         public void a(a2 a2Var) {
             AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity = AlaFrsStoryLiveGatherActivity.this;
             alaFrsStoryLiveGatherActivity.jumpToLiveRoom(alaFrsStoryLiveGatherActivity.getPageContext(), a2Var);
@@ -128,7 +128,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         public e() {
         }
 
-        @Override // d.a.i0.r.f0.f.g
+        @Override // d.a.j0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (AlaFrsStoryLiveGatherActivity.this.liveModel != null) {
                 AlaFrsStoryLiveGatherActivity.this.liveModel.O();
@@ -155,11 +155,11 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes4.dex */
-    public class g implements d.a.j0.t.e.c.d {
+    public class g implements d.a.k0.t.e.c.d {
         public g() {
         }
 
-        @Override // d.a.j0.t.e.c.d
+        @Override // d.a.k0.t.e.c.d
         public void a(int i2) {
             if (AlaFrsStoryLiveGatherActivity.this.liveModel == null || AlaFrsStoryLiveGatherActivity.this.liveModel.J() == i2) {
                 return;
@@ -203,7 +203,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         this.mNavigationBar.setCenterTextTitle(string);
         linearLayout.addView(this.mNavigationBar, new LinearLayout.LayoutParams(-1, -2));
         SkinManager.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.CAM_X0204);
-        d.a.j0.t.e.c.b bVar = new d.a.j0.t.e.c.b(getPageContext(), false, false, getUniqueId());
+        d.a.k0.t.e.c.b bVar = new d.a.k0.t.e.c.b(getPageContext(), false, false, getUniqueId());
         this.mLiveView = bVar;
         bVar.j();
         this.mLiveView.p(1);
@@ -265,7 +265,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0106);
         }
-        d.a.j0.t.e.c.b bVar = this.mLiveView;
+        d.a.k0.t.e.c.b bVar = this.mLiveView;
         if (bVar != null) {
             bVar.l(TbadkCoreApplication.getInst().getSkinType());
         }

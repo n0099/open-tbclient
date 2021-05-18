@@ -31,10 +31,10 @@ import java.util.concurrent.TimeUnit;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f32723a;
+    public static Context f31968a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, com.kwad.sdk.collector.c> f32724b = new HashMap();
+    public static Map<String, com.kwad.sdk.collector.c> f31969b = new HashMap();
 
     /* loaded from: classes6.dex */
     public static class a extends com.kwad.sdk.collector.c<com.kwad.sdk.core.g.a.c> {
@@ -193,10 +193,10 @@ public class h {
             com.kwad.sdk.collector.a.f fVar = new com.kwad.sdk.collector.a.f();
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (Build.VERSION.SDK_INT >= 22) {
-                fVar.f32704b = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoCount();
+                fVar.f31949b = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoCount();
             }
             if (Build.VERSION.SDK_INT >= 23) {
-                fVar.f32703a = telephonyManager.getPhoneCount();
+                fVar.f31948a = telephonyManager.getPhoneCount();
             }
             return fVar;
         }
@@ -211,9 +211,9 @@ public class h {
     }
 
     public static <T> T a(String str) {
-        com.kwad.sdk.collector.c cVar = f32724b.get(str);
+        com.kwad.sdk.collector.c cVar = f31969b.get(str);
         if (cVar != null) {
-            return (T) cVar.a(f32723a);
+            return (T) cVar.a(f31968a);
         }
         return null;
     }
@@ -222,12 +222,12 @@ public class h {
         if (context == null || d()) {
             return;
         }
-        f32723a = context.getApplicationContext();
-        f32724b.put("baseStationEnable", new a(com.kwad.sdk.core.config.c.O()));
-        f32724b.put("sensorEventEnable", new b(com.kwad.sdk.core.config.c.H()));
-        f32724b.put("simCardInfoEnable", new c(com.kwad.sdk.core.config.c.G()));
-        for (com.kwad.sdk.collector.c cVar : f32724b.values()) {
-            com.kwad.sdk.core.d.a.a("SensitiveInfoCollectors", "collector: " + cVar.f32709a + StringUtil.ARRAY_ELEMENT_SEPARATOR + cVar.getClass().getSimpleName());
+        f31968a = context.getApplicationContext();
+        f31969b.put("baseStationEnable", new a(com.kwad.sdk.core.config.c.O()));
+        f31969b.put("sensorEventEnable", new b(com.kwad.sdk.core.config.c.H()));
+        f31969b.put("simCardInfoEnable", new c(com.kwad.sdk.core.config.c.G()));
+        for (com.kwad.sdk.collector.c cVar : f31969b.values()) {
+            com.kwad.sdk.core.d.a.a("SensitiveInfoCollectors", "collector: " + cVar.f31954a + StringUtil.ARRAY_ELEMENT_SEPARATOR + cVar.getClass().getSimpleName());
         }
         com.kwad.sdk.collector.a.c.a(context);
     }
@@ -250,6 +250,6 @@ public class h {
     }
 
     public static boolean d() {
-        return f32723a != null;
+        return f31968a != null;
     }
 }

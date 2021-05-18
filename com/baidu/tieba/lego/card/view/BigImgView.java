@@ -16,14 +16,14 @@ public class BigImgView extends BaseCardView<BigImgCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: J */
-    public void x(BigImgCard bigImgCard, int i2) {
+    /* renamed from: I */
+    public void w(BigImgCard bigImgCard, int i2) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: K */
-    public void y(BigImgCard bigImgCard) {
+    /* renamed from: J */
+    public void x(BigImgCard bigImgCard) {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.r.getLayoutParams();
         if (bigImgCard.getRatio() > 0.0d) {
             int ratio = (int) (bigImgCard.getRatio() * l.k(getContext()));
@@ -39,7 +39,7 @@ public class BigImgView extends BaseCardView<BigImgCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View u() {
+    public View t() {
         TbImageView tbImageView = new TbImageView(getContext());
         this.r = tbImageView;
         return tbImageView;

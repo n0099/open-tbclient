@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.core;
 
 import com.baidu.android.imsdk.IMConstants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static String a(int i2) {
         if (i2 != 201) {

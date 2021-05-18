@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
     public PbVideoFullUserInfoLikeButton(Context context) {
         super(context);
@@ -13,7 +13,7 @@ public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void g(int i2) {
-        if (this.f13271g) {
+        if (this.f12607g) {
             SkinManager.setBackgroundResource(this, R.drawable.haslike_grey_bg);
             SkinManager.setViewTextColor(this, R.color.CAM_X0110);
             return;

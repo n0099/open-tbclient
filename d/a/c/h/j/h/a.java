@@ -16,28 +16,28 @@ import java.util.Map;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f40267b;
+    public static a f39512b;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<String, PluginStatus> f40268a = new LinkedHashMap<>(10);
+    public final LinkedHashMap<String, PluginStatus> f39513a = new LinkedHashMap<>(10);
 
     public static a b() {
-        if (f40267b == null) {
+        if (f39512b == null) {
             synchronized (a.class) {
-                if (f40267b == null) {
-                    f40267b = new a();
+                if (f39512b == null) {
+                    f39512b = new a();
                 }
             }
         }
-        return f40267b;
+        return f39512b;
     }
 
     public List<PluginStatus> a() {
         ArrayList arrayList;
         PluginStatus value;
-        synchronized (this.f40268a) {
-            arrayList = new ArrayList(this.f40268a.size());
-            for (Map.Entry<String, PluginStatus> entry : this.f40268a.entrySet()) {
+        synchronized (this.f39513a) {
+            arrayList = new ArrayList(this.f39513a.size());
+            for (Map.Entry<String, PluginStatus> entry : this.f39513a.entrySet()) {
                 if (entry != null && (value = entry.getValue()) != null && value.f2235g == PluginPackageManager.PluginStatus.ERROR) {
                     arrayList.add(value);
                 }
@@ -51,12 +51,12 @@ public class a {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f40268a) {
-            pluginStatus = this.f40268a.get(str);
+        synchronized (this.f39513a) {
+            pluginStatus = this.f39513a.get(str);
             if (pluginStatus == null) {
                 pluginStatus = new PluginStatus();
                 pluginStatus.f2233e = str;
-                this.f40268a.put(str, pluginStatus);
+                this.f39513a.put(str, pluginStatus);
             }
         }
         return pluginStatus;

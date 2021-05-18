@@ -1,0 +1,212 @@
+package d.a.i0.a.h0.f.d;
+
+import android.util.Log;
+import com.baidu.browser.sailor.BdSailor;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
+import com.baidu.webkit.sdk.WebKitFactory;
+import d.a.i0.a.k;
+import d.a.i0.a.p.e.h;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+/* loaded from: classes2.dex */
+public class a implements h {
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final boolean f41792g = k.f43025a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public ArrayList<d.a.i0.a.h0.f.d.b> f41793a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Lock f41794b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public volatile boolean f41795c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public volatile boolean f41796d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c f41797e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public WebKitFactory.IForceInitZeusListener f41798f;
+
+    /* renamed from: d.a.i0.a.h0.f.d.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public class C0635a implements c {
+        public C0635a() {
+        }
+
+        @Override // d.a.i0.a.h0.f.d.a.c
+        public void a() {
+            try {
+                a.this.f41794b.lock();
+                a.this.f41796d = true;
+                a.this.j();
+                a.this.p();
+            } finally {
+                a.this.f41794b.unlock();
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements WebKitFactory.IForceInitZeusListener {
+        public b() {
+        }
+
+        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
+        public void onForceInitZeusFinish(boolean z) {
+            try {
+                a.this.f41794b.lock();
+                a.this.f41795c = true;
+                a.this.p();
+                a.this.f41794b.unlock();
+                BdSailor.getInstance().removeForceInitListener(a.this.f41798f);
+            } catch (Throwable th) {
+                a.this.f41794b.unlock();
+                throw th;
+            }
+        }
+
+        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
+        public void onForceInitZeusStart() {
+            if (a.f41792g) {
+                Log.d("NgWebViewInitHelper", "onForceInitZeusStart");
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public interface c {
+        void a();
+    }
+
+    /* loaded from: classes2.dex */
+    public static class d {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final a f41801a = new a(null);
+    }
+
+    public /* synthetic */ a(C0635a c0635a) {
+        this();
+    }
+
+    public static a k() {
+        return d.f41801a;
+    }
+
+    @Override // d.a.i0.a.p.e.h
+    public void a(d.a.i0.a.h0.f.d.b bVar) {
+        try {
+            this.f41794b.lock();
+            if (bVar != null && this.f41793a.contains(bVar)) {
+                this.f41793a.remove(bVar);
+            }
+        } finally {
+            this.f41794b.unlock();
+        }
+    }
+
+    @Override // d.a.i0.a.p.e.h
+    public void b(d.a.i0.a.h0.f.d.b bVar) {
+        try {
+            this.f41794b.lock();
+            if (bVar == null) {
+                return;
+            }
+            if (!this.f41793a.contains(bVar)) {
+                this.f41793a.add(bVar);
+            }
+            if (n()) {
+                p();
+            }
+        } finally {
+            this.f41794b.unlock();
+        }
+    }
+
+    public final synchronized void j() {
+        if (!ProcessUtils.isMainProcess()) {
+            WebSettingsGlobalBlink.setFileInIOEnabled(true);
+        }
+    }
+
+    public void l() {
+        m(false);
+    }
+
+    public void m(boolean z) {
+        d.a.i0.a.c1.a.f().d(z);
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x004f, code lost:
+        if (o() != false) goto L13;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean n() {
+        boolean z;
+        try {
+            this.f41794b.lock();
+            if (f41792g) {
+                Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.f41796d);
+                Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.f41795c + " ,isZeusForceInited: " + o());
+            }
+            if (this.f41796d) {
+                if (!this.f41795c) {
+                }
+                z = true;
+                return z;
+            }
+            z = false;
+            return z;
+        } finally {
+            this.f41794b.unlock();
+        }
+    }
+
+    public final boolean o() {
+        if (f41792g) {
+            Log.d("NgWebViewInitHelper", "checkZeusForceInit: " + BdSailor.getInstance().checkZeusForceInit());
+            Log.d("NgWebViewInitHelper", "isZeusForceInited: " + BdSailor.getInstance().isZeusForceInited());
+        }
+        return !BdSailor.getInstance().checkZeusForceInit() || (BdSailor.getInstance().checkZeusForceInit() && BdSailor.getInstance().isZeusForceInited());
+    }
+
+    public final void p() {
+        try {
+            this.f41794b.lock();
+            if (n()) {
+                Iterator<d.a.i0.a.h0.f.d.b> it = this.f41793a.iterator();
+                while (it.hasNext()) {
+                    d.a.i0.a.h0.f.d.b next = it.next();
+                    if (next != null) {
+                        next.a();
+                    }
+                }
+                this.f41793a.clear();
+            }
+        } finally {
+            this.f41794b.unlock();
+        }
+    }
+
+    public a() {
+        this.f41793a = new ArrayList<>();
+        this.f41794b = new ReentrantLock();
+        this.f41795c = false;
+        this.f41796d = false;
+        this.f41797e = new C0635a();
+        b bVar = new b();
+        this.f41798f = bVar;
+        BdSailor.addForceInitListener(bVar);
+        d.a.i0.a.c1.a.f().h(this.f41797e);
+    }
+}

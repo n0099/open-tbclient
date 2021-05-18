@@ -19,23 +19,23 @@ public enum RevenueDataParser {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ byte[] f39043e;
+        public final /* synthetic */ byte[] f38288e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f39044f;
+        public final /* synthetic */ int f38289f;
 
         public a(byte[] bArr, int i2) {
-            this.f39043e = bArr;
-            this.f39044f = i2;
+            this.f38288e = bArr;
+            this.f38289f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.r.b.a.a.f.e.d dVar = new d.r.b.a.a.f.e.d(this.f39043e);
+            d.r.b.a.a.f.e.d dVar = new d.r.b.a.a.f.e.d(this.f38288e);
             d.r.b.a.a.f.d.d.g(RevenueDataParser.TAG, "parserRevenueResponseData: %s", dVar.toString());
             d.r.b.a.a.f.d.d.c(RevenueDataParser.TAG, "parserRevenueResponseData: jsonMsg = %s", dVar.l());
             for (d.r.b.a.a.f.c.c cVar : RevenueDataParser.this.revenueDataReceivers) {
-                cVar.k(this.f39044f, dVar);
+                cVar.k(this.f38289f, dVar);
             }
         }
     }
@@ -44,18 +44,18 @@ public enum RevenueDataParser {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f39046e;
+        public final /* synthetic */ f f38291e;
 
         public b(f fVar) {
-            this.f39046e = fVar;
+            this.f38291e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e eVar = new e(this.f39046e.f66976b);
+            e eVar = new e(this.f38291e.f67662b);
             d.r.b.a.a.f.d.d.g(RevenueDataParser.TAG, "RevenueUnicastData = %s", eVar.toString());
             d.r.b.a.a.f.d.d.c(RevenueDataParser.TAG, "RevenueUnicastData: jsonData = %s", eVar.m());
-            eVar.o(this.f39046e.f66975a);
+            eVar.o(this.f38291e.f67661a);
             for (d.r.b.a.a.f.c.c cVar : RevenueDataParser.this.revenueDataReceivers) {
                 cVar.j(eVar.l(), eVar);
             }
@@ -66,18 +66,18 @@ public enum RevenueDataParser {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.r.b.a.a.f.c.e f39048e;
+        public final /* synthetic */ d.r.b.a.a.f.c.e f38293e;
 
         public c(d.r.b.a.a.f.c.e eVar) {
-            this.f39048e = eVar;
+            this.f38293e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.r.b.a.a.f.e.b bVar = new d.r.b.a.a.f.e.b(this.f39048e.f66974b);
+            d.r.b.a.a.f.e.b bVar = new d.r.b.a.a.f.e.b(this.f38293e.f67660b);
             d.r.b.a.a.f.d.d.g(RevenueDataParser.TAG, "RevenueBroadcastData = %s", bVar.toString());
             d.r.b.a.a.f.d.d.g(RevenueDataParser.TAG, "RevenueBroadcastData: jsonData = %s", bVar.m());
-            bVar.n(this.f39048e.f66973a);
+            bVar.n(this.f38293e.f67659a);
             int optInt = bVar.l().optInt(Constants.APP_ID, 0);
             for (d.r.b.a.a.f.c.c cVar : RevenueDataParser.this.revenueDataReceivers) {
                 cVar.h(optInt, bVar);
@@ -89,33 +89,33 @@ public enum RevenueDataParser {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f39050e;
+        public final /* synthetic */ int f38295e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f39051f;
+        public final /* synthetic */ String f38296f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f39052g;
+        public final /* synthetic */ String f38297g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f39053h;
+        public final /* synthetic */ int f38298h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f39054i;
+        public final /* synthetic */ int f38299i;
 
         public d(int i2, String str, String str2, int i3, int i4) {
-            this.f39050e = i2;
-            this.f39051f = str;
-            this.f39052g = str2;
-            this.f39053h = i3;
-            this.f39054i = i4;
+            this.f38295e = i2;
+            this.f38296f = str;
+            this.f38297g = str2;
+            this.f38298h = i3;
+            this.f38299i = i4;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.r.b.a.a.f.d.d.g(RevenueDataParser.TAG, "onRequestError appId = %d, seq = %s, message = %s", Integer.valueOf(this.f39050e), this.f39051f, this.f39052g);
+            d.r.b.a.a.f.d.d.g(RevenueDataParser.TAG, "onRequestError appId = %d, seq = %s, message = %s", Integer.valueOf(this.f38295e), this.f38296f, this.f38297g);
             for (d.r.b.a.a.f.c.c cVar : RevenueDataParser.this.revenueDataReceivers) {
-                cVar.g(this.f39050e, this.f39051f, this.f39053h, this.f39054i, this.f39052g);
+                cVar.g(this.f38295e, this.f38296f, this.f38298h, this.f38299i, this.f38297g);
             }
         }
     }

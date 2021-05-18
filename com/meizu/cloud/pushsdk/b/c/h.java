@@ -11,31 +11,31 @@ import java.util.UUID;
 public final class h extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f35454a = g.a("multipart/mixed");
+    public static final g f34699a = g.a("multipart/mixed");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f35455b = g.a("multipart/alternative");
+    public static final g f34700b = g.a("multipart/alternative");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f35456c = g.a("multipart/digest");
+    public static final g f34701c = g.a("multipart/digest");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f35457d = g.a("multipart/parallel");
+    public static final g f34702d = g.a("multipart/parallel");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f35458e = g.a(IMAudioTransRequest.CONTENT_TYPE);
+    public static final g f34703e = g.a(IMAudioTransRequest.CONTENT_TYPE);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final byte[] f35459f = {58, 32};
+    public static final byte[] f34704f = {58, 32};
 
     /* renamed from: g  reason: collision with root package name */
-    public static final byte[] f35460g = {13, 10};
+    public static final byte[] f34705g = {13, 10};
 
     /* renamed from: h  reason: collision with root package name */
-    public static final byte[] f35461h = {UtilsBlink.VER_TYPE_SEPARATOR, UtilsBlink.VER_TYPE_SEPARATOR};
+    public static final byte[] f34706h = {UtilsBlink.VER_TYPE_SEPARATOR, UtilsBlink.VER_TYPE_SEPARATOR};
 
     /* renamed from: i  reason: collision with root package name */
-    public final com.meizu.cloud.pushsdk.b.g.e f35462i;
+    public final com.meizu.cloud.pushsdk.b.g.e f34707i;
     public final g j;
     public final g k;
     public final List<b> l;
@@ -45,22 +45,22 @@ public final class h extends j {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.meizu.cloud.pushsdk.b.g.e f35463a;
+        public final com.meizu.cloud.pushsdk.b.g.e f34708a;
 
         /* renamed from: b  reason: collision with root package name */
-        public g f35464b;
+        public g f34709b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<b> f35465c;
+        public final List<b> f34710c;
 
         public a() {
             this(UUID.randomUUID().toString());
         }
 
         public a(String str) {
-            this.f35464b = h.f35454a;
-            this.f35465c = new ArrayList();
-            this.f35463a = com.meizu.cloud.pushsdk.b.g.e.a(str);
+            this.f34709b = h.f34699a;
+            this.f34710c = new ArrayList();
+            this.f34708a = com.meizu.cloud.pushsdk.b.g.e.a(str);
         }
 
         public a a(c cVar, j jVar) {
@@ -70,7 +70,7 @@ public final class h extends j {
         public a a(g gVar) {
             if (gVar != null) {
                 if (gVar.a().equals("multipart")) {
-                    this.f35464b = gVar;
+                    this.f34709b = gVar;
                     return this;
                 }
                 throw new IllegalArgumentException("multipart != " + gVar);
@@ -80,17 +80,17 @@ public final class h extends j {
 
         public a a(b bVar) {
             if (bVar != null) {
-                this.f35465c.add(bVar);
+                this.f34710c.add(bVar);
                 return this;
             }
             throw new NullPointerException("part == null");
         }
 
         public h a() {
-            if (this.f35465c.isEmpty()) {
+            if (this.f34710c.isEmpty()) {
                 throw new IllegalStateException("Multipart body must have at least one part.");
             }
-            return new h(this.f35463a, this.f35464b, this.f35465c);
+            return new h(this.f34708a, this.f34709b, this.f34710c);
         }
     }
 
@@ -98,14 +98,14 @@ public final class h extends j {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final c f35466a;
+        public final c f34711a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final j f35467b;
+        public final j f34712b;
 
         public b(c cVar, j jVar) {
-            this.f35466a = cVar;
-            this.f35467b = jVar;
+            this.f34711a = cVar;
+            this.f34712b = jVar;
         }
 
         public static b a(c cVar, j jVar) {
@@ -123,7 +123,7 @@ public final class h extends j {
     }
 
     public h(com.meizu.cloud.pushsdk.b.g.e eVar, g gVar, List<b> list) {
-        this.f35462i = eVar;
+        this.f34707i = eVar;
         this.j = gVar;
         this.k = g.a(gVar + "; boundary=" + eVar.a());
         this.l = m.a(list);
@@ -145,40 +145,40 @@ public final class h extends j {
         long j = 0;
         for (int i2 = 0; i2 < size; i2++) {
             b bVar2 = this.l.get(i2);
-            c cVar2 = bVar2.f35466a;
-            j jVar = bVar2.f35467b;
-            cVar.c(f35461h);
-            cVar.b(this.f35462i);
-            cVar.c(f35460g);
+            c cVar2 = bVar2.f34711a;
+            j jVar = bVar2.f34712b;
+            cVar.c(f34706h);
+            cVar.b(this.f34707i);
+            cVar.c(f34705g);
             if (cVar2 != null) {
                 int a2 = cVar2.a();
                 for (int i3 = 0; i3 < a2; i3++) {
-                    cVar.b(cVar2.a(i3)).c(f35459f).b(cVar2.b(i3)).c(f35460g);
+                    cVar.b(cVar2.a(i3)).c(f34704f).b(cVar2.b(i3)).c(f34705g);
                 }
             }
             g a3 = jVar.a();
             if (a3 != null) {
-                cVar.b(Part.CONTENT_TYPE).b(a3.toString()).c(f35460g);
+                cVar.b(Part.CONTENT_TYPE).b(a3.toString()).c(f34705g);
             }
             long b2 = jVar.b();
             if (b2 != -1) {
-                cVar.b("Content-Length: ").e(b2).c(f35460g);
+                cVar.b("Content-Length: ").e(b2).c(f34705g);
             } else if (z) {
                 bVar.j();
                 return -1L;
             }
-            cVar.c(f35460g);
+            cVar.c(f34705g);
             if (z) {
                 j += b2;
             } else {
                 jVar.a(cVar);
             }
-            cVar.c(f35460g);
+            cVar.c(f34705g);
         }
-        cVar.c(f35461h);
-        cVar.b(this.f35462i);
-        cVar.c(f35461h);
-        cVar.c(f35460g);
+        cVar.c(f34706h);
+        cVar.b(this.f34707i);
+        cVar.c(f34706h);
+        cVar.c(f34705g);
         if (z) {
             long a4 = j + bVar.a();
             bVar.j();

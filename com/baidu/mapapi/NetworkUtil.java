@@ -123,7 +123,7 @@ public class NetworkUtil {
         }
         int i2 = -1;
         try {
-            i2 = ((WifiManager) context.getSystemService("wifi")).getWifiState();
+            i2 = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getWifiState();
         } catch (Exception unused) {
         }
         return i2 == 3;

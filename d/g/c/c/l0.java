@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class l0<K> extends k0<K> {
 
     /* renamed from: i  reason: collision with root package name */
-    public transient long[] f65563i;
+    public transient long[] f66249i;
     public transient int j;
     public transient int k;
 
@@ -14,15 +14,15 @@ public class l0<K> extends k0<K> {
     }
 
     public final int E(int i2) {
-        return (int) (this.f65563i[i2] >>> 32);
+        return (int) (this.f66249i[i2] >>> 32);
     }
 
     public final int F(int i2) {
-        return (int) this.f65563i[i2];
+        return (int) this.f66249i[i2];
     }
 
     public final void G(int i2, int i3) {
-        long[] jArr = this.f65563i;
+        long[] jArr = this.f66249i;
         jArr[i2] = (jArr[i2] & 4294967295L) | (i3 << 32);
     }
 
@@ -40,7 +40,7 @@ public class l0<K> extends k0<K> {
     }
 
     public final void I(int i2, int i3) {
-        long[] jArr = this.f65563i;
+        long[] jArr = this.f66249i;
         jArr[i2] = (jArr[i2] & (-4294967296L)) | (i3 & 4294967295L);
     }
 
@@ -66,7 +66,7 @@ public class l0<K> extends k0<K> {
         this.j = -2;
         this.k = -2;
         long[] jArr = new long[i2];
-        this.f65563i = jArr;
+        this.f66249i = jArr;
         Arrays.fill(jArr, -1L);
     }
 
@@ -105,10 +105,10 @@ public class l0<K> extends k0<K> {
     @Override // d.g.c.c.k0
     public void y(int i2) {
         super.y(i2);
-        long[] jArr = this.f65563i;
+        long[] jArr = this.f66249i;
         int length = jArr.length;
         long[] copyOf = Arrays.copyOf(jArr, i2);
-        this.f65563i = copyOf;
+        this.f66249i = copyOf;
         Arrays.fill(copyOf, length, i2, -1L);
     }
 

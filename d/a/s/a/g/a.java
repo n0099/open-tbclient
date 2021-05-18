@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.lcp.sdk.pb.LcmPb$Common;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import d.a.s.a.a.a;
 import java.security.MessageDigest;
@@ -62,7 +63,7 @@ public class a {
                     jSONObject.put("model_type", str3);
                     jSONObject.put(Constants.APP_ID, e.b(context));
                     jSONObject.put("app_version", b2);
-                    jSONObject.put("sdk_version", "2240016");
+                    jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "2240016");
                     jSONObject.put("ts", currentTimeMillis);
                     jSONObject.put("sign", f(b3, e2, "android", currentTimeMillis));
                     return jSONObject;

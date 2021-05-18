@@ -16,31 +16,31 @@ import android.view.View;
 public class BlurringView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6234a;
+    public int f6088a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6235b;
+    public int f6089b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f6236c;
+    public View f6090c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6237d;
+    public int f6091d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6238e;
+    public int f6092e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f6239f;
+    public boolean f6093f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f6240g;
+    public Bitmap f6094g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f6241h;
+    public Bitmap f6095h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Canvas f6242i;
+    public Canvas f6096i;
     public RenderScript j;
     public ScriptIntrinsicBlur k;
     public Allocation l;
@@ -57,10 +57,10 @@ public class BlurringView extends View {
     }
 
     public void blur() {
-        this.l.copyFrom(this.f6240g);
+        this.l.copyFrom(this.f6094g);
         this.k.setInput(this.l);
         this.k.forEach(this.m);
-        this.m.copyTo(this.f6241h);
+        this.m.copyTo(this.f6095h);
     }
 
     @Override // android.view.View
@@ -75,56 +75,56 @@ public class BlurringView extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.f6236c != null) {
+        if (this.f6090c != null) {
             if (prepare()) {
-                if (this.f6236c.getBackground() != null && (this.f6236c.getBackground() instanceof ColorDrawable)) {
-                    this.f6240g.eraseColor(((ColorDrawable) this.f6236c.getBackground()).getColor());
+                if (this.f6090c.getBackground() != null && (this.f6090c.getBackground() instanceof ColorDrawable)) {
+                    this.f6094g.eraseColor(((ColorDrawable) this.f6090c.getBackground()).getColor());
                 } else {
-                    this.f6240g.eraseColor(0);
+                    this.f6094g.eraseColor(0);
                 }
-                this.f6236c.draw(this.f6242i);
+                this.f6090c.draw(this.f6096i);
                 blur();
                 canvas.save();
-                canvas.translate(this.f6236c.getX() - getX(), this.f6236c.getY() - getY());
-                int i2 = this.f6234a;
+                canvas.translate(this.f6090c.getX() - getX(), this.f6090c.getY() - getY());
+                int i2 = this.f6088a;
                 canvas.scale(i2, i2);
-                canvas.drawBitmap(this.f6241h, 0.0f, 0.0f, (Paint) null);
+                canvas.drawBitmap(this.f6095h, 0.0f, 0.0f, (Paint) null);
                 canvas.restore();
             }
-            canvas.drawColor(this.f6235b);
+            canvas.drawColor(this.f6089b);
         }
     }
 
     public boolean prepare() {
-        int width = this.f6236c.getWidth();
-        int height = this.f6236c.getHeight();
-        if (this.f6242i == null || this.f6239f || this.f6237d != width || this.f6238e != height) {
-            this.f6239f = false;
-            this.f6237d = width;
-            this.f6238e = height;
-            int i2 = this.f6234a;
+        int width = this.f6090c.getWidth();
+        int height = this.f6090c.getHeight();
+        if (this.f6096i == null || this.f6093f || this.f6091d != width || this.f6092e != height) {
+            this.f6093f = false;
+            this.f6091d = width;
+            this.f6092e = height;
+            int i2 = this.f6088a;
             int i3 = width / i2;
             int i4 = height / i2;
             int i5 = (i3 - (i3 % 4)) + 4;
             int i6 = (i4 - (i4 % 4)) + 4;
-            Bitmap bitmap = this.f6241h;
-            if (bitmap == null || bitmap.getWidth() != i5 || this.f6241h.getHeight() != i6) {
+            Bitmap bitmap = this.f6095h;
+            if (bitmap == null || bitmap.getWidth() != i5 || this.f6095h.getHeight() != i6) {
                 Bitmap createBitmap = Bitmap.createBitmap(i5, i6, Bitmap.Config.ARGB_8888);
-                this.f6240g = createBitmap;
+                this.f6094g = createBitmap;
                 if (createBitmap == null) {
                     return false;
                 }
                 Bitmap createBitmap2 = Bitmap.createBitmap(i5, i6, Bitmap.Config.ARGB_8888);
-                this.f6241h = createBitmap2;
+                this.f6095h = createBitmap2;
                 if (createBitmap2 == null) {
                     return false;
                 }
             }
-            Canvas canvas = new Canvas(this.f6240g);
-            this.f6242i = canvas;
-            int i7 = this.f6234a;
+            Canvas canvas = new Canvas(this.f6094g);
+            this.f6096i = canvas;
+            int i7 = this.f6088a;
             canvas.scale(1.0f / i7, 1.0f / i7);
-            Allocation createFromBitmap = Allocation.createFromBitmap(this.j, this.f6240g, Allocation.MipmapControl.MIPMAP_NONE, 1);
+            Allocation createFromBitmap = Allocation.createFromBitmap(this.j, this.f6094g, Allocation.MipmapControl.MIPMAP_NONE, 1);
             this.l = createFromBitmap;
             this.m = Allocation.createTyped(this.j, createFromBitmap.getType());
         }
@@ -136,14 +136,14 @@ public class BlurringView extends View {
     }
 
     public void setBlurredView(View view) {
-        this.f6236c = view;
+        this.f6090c = view;
     }
 
     public void setDownsampleFactor(int i2) {
         if (i2 > 0) {
-            if (this.f6234a != i2) {
-                this.f6234a = i2;
-                this.f6239f = true;
+            if (this.f6088a != i2) {
+                this.f6088a = i2;
+                this.f6093f = true;
                 return;
             }
             return;
@@ -152,7 +152,7 @@ public class BlurringView extends View {
     }
 
     public void setOverlayColor(int i2) {
-        this.f6235b = i2;
+        this.f6089b = i2;
     }
 
     public BlurringView(Context context, AttributeSet attributeSet) {

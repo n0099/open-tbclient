@@ -7,35 +7,35 @@ import tbclient.PrivatePopInfo;
 public class PrivateForumPopInfoData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12805e = null;
+    public String f12141e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12806f = null;
+    public String f12142f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12807g = null;
+    public String f12143g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public Integer f12808h = null;
+    public Integer f12144h = null;
 
     public void A(String str) {
-        this.f12807g = str;
+        this.f12143g = str;
     }
 
     public String s() {
-        return this.f12806f;
+        return this.f12142f;
     }
 
     public Integer t() {
-        return this.f12808h;
+        return this.f12144h;
     }
 
     public String u() {
-        return this.f12805e;
+        return this.f12141e;
     }
 
     public String v() {
-        return this.f12807g;
+        return this.f12143g;
     }
 
     public void w(PrivatePopInfo privatePopInfo) {
@@ -43,24 +43,24 @@ public class PrivateForumPopInfoData extends OrmObject {
             return;
         }
         try {
-            this.f12805e = privatePopInfo.pop_type;
-            this.f12806f = privatePopInfo.pop_content;
-            this.f12807g = privatePopInfo.pop_url;
-            this.f12808h = privatePopInfo.pop_forum_id;
+            this.f12141e = privatePopInfo.pop_type;
+            this.f12142f = privatePopInfo.pop_content;
+            this.f12143g = privatePopInfo.pop_url;
+            this.f12144h = privatePopInfo.pop_forum_id;
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }
     }
 
     public void x(String str) {
-        this.f12806f = str;
+        this.f12142f = str;
     }
 
     public void y(Integer num) {
-        this.f12808h = num;
+        this.f12144h = num;
     }
 
     public void z(String str) {
-        this.f12805e = str;
+        this.f12141e = str;
     }
 }

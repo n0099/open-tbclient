@@ -1,7 +1,7 @@
 package com.bumptech.glide.load.engine;
 
 import com.bumptech.glide.load.Key;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface EngineJobListener {
     void onEngineJobCancelled(EngineJob<?> engineJob, Key key);
 

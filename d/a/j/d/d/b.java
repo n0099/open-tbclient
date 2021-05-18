@@ -7,7 +7,7 @@ import javax.crypto.BadPaddingException;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SecureRandom f50307a = new SecureRandom();
+    public static final SecureRandom f48528a = new SecureRandom();
 
     public static int a(BigInteger bigInteger) {
         return (bigInteger.bitLength() + 7) >> 3;

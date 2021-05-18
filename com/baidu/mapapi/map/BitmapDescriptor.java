@@ -11,14 +11,14 @@ import java.security.NoSuchAlgorithmException;
 public final class BitmapDescriptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f7097a;
+    public Bitmap f6908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bundle f7098b;
+    public Bundle f6909b;
 
     public BitmapDescriptor(Bitmap bitmap) {
         if (bitmap != null) {
-            this.f7097a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
+            this.f6908a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
         }
     }
 
@@ -33,17 +33,17 @@ public final class BitmapDescriptor {
     }
 
     public byte[] a() {
-        ByteBuffer allocate = ByteBuffer.allocate(this.f7097a.getWidth() * this.f7097a.getHeight() * 4);
-        this.f7097a.copyPixelsToBuffer(allocate);
+        ByteBuffer allocate = ByteBuffer.allocate(this.f6908a.getWidth() * this.f6908a.getHeight() * 4);
+        this.f6908a.copyPixelsToBuffer(allocate);
         return allocate.array();
     }
 
     public Bundle b() {
-        if (this.f7097a != null) {
-            if (this.f7098b == null) {
+        if (this.f6908a != null) {
+            if (this.f6909b == null) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("image_width", this.f7097a.getWidth());
-                bundle.putInt("image_height", this.f7097a.getHeight());
+                bundle.putInt("image_width", this.f6908a.getWidth());
+                bundle.putInt("image_height", this.f6908a.getHeight());
                 byte[] a2 = a();
                 bundle.putByteArray("image_data", a2);
                 MessageDigest messageDigest = null;
@@ -52,30 +52,32 @@ public final class BitmapDescriptor {
                 } catch (NoSuchAlgorithmException e2) {
                     e2.printStackTrace();
                 }
-                messageDigest.update(a2, 0, a2.length);
-                byte[] digest = messageDigest.digest();
-                StringBuilder sb = new StringBuilder("");
-                for (byte b2 : digest) {
-                    sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
+                if (messageDigest != null) {
+                    messageDigest.update(a2, 0, a2.length);
+                    byte[] digest = messageDigest.digest();
+                    StringBuilder sb = new StringBuilder("");
+                    for (byte b2 : digest) {
+                        sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
+                    }
+                    bundle.putString("image_hashcode", sb.toString());
                 }
-                bundle.putString("image_hashcode", sb.toString());
-                this.f7098b = bundle;
+                this.f6909b = bundle;
             }
-            return this.f7098b;
+            return this.f6909b;
         }
-        throw new IllegalStateException("the bitmap has been recycled! you can not use it again");
+        throw new IllegalStateException("BDMapSDKException: the bitmap has been recycled! you can not use it again");
     }
 
     public Bitmap getBitmap() {
-        return this.f7097a;
+        return this.f6908a;
     }
 
     public void recycle() {
-        Bitmap bitmap = this.f7097a;
+        Bitmap bitmap = this.f6908a;
         if (bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        this.f7097a.recycle();
-        this.f7097a = null;
+        this.f6908a.recycle();
+        this.f6908a = null;
     }
 }

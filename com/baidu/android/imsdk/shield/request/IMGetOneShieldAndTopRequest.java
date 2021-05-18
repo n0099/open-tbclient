@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.shield.model.GetShieldAndTopResult;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,7 +64,7 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("appid", appid);
             jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-            jSONObject.put("sdk_version", "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
             jSONObject.put("device_type", 2);
             jSONObject.put("uk", uk);

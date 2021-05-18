@@ -46,7 +46,7 @@ public class Static {
             if (customResponsedMessage instanceof HistoryMessage) {
                 HistoryMessage historyMessage = (HistoryMessage) customResponsedMessage;
                 PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(historyMessage.Activity);
-                d.a.j0.w1.h.a aVar = new d.a.j0.w1.h.a();
+                d.a.k0.w1.h.a aVar = new d.a.k0.w1.h.a();
                 aVar.J(historyMessage.threadId);
                 aVar.B(historyMessage.forumName);
                 aVar.K(historyMessage.threadName);
@@ -69,16 +69,16 @@ public class Static {
     /* loaded from: classes3.dex */
     public static class c implements CustomMessageTask.CustomRunnable<BaseActivity> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.i0.h.a> run(CustomMessage<BaseActivity> customMessage) {
-            return new CustomResponsedMessage<>(2001279, (customMessage == null || customMessage.getData() == null) ? null : new d.a.j0.w1.g.b(customMessage.getData()));
+        public CustomResponsedMessage<d.a.j0.h.a> run(CustomMessage<BaseActivity> customMessage) {
+            return new CustomResponsedMessage<>(2001279, (customMessage == null || customMessage.getData() == null) ? null : new d.a.k0.w1.g.b(customMessage.getData()));
         }
     }
 
     /* loaded from: classes3.dex */
     public static class d implements CustomMessageTask.CustomRunnable<BaseFragmentActivity> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.i0.h.a> run(CustomMessage<BaseFragmentActivity> customMessage) {
-            return new CustomResponsedMessage<>(2921318, (customMessage == null || customMessage.getData() == null) ? null : new d.a.j0.w1.g.b(customMessage.getData()));
+        public CustomResponsedMessage<d.a.j0.h.a> run(CustomMessage<BaseFragmentActivity> customMessage) {
+            return new CustomResponsedMessage<>(2921318, (customMessage == null || customMessage.getData() == null) ? null : new d.a.k0.w1.g.b(customMessage.getData()));
         }
     }
 
@@ -93,11 +93,11 @@ public class Static {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    d.a.j0.w1.j.a.d().c();
+                    d.a.k0.w1.j.a.d().c();
                 } else if (TbadkCoreApplication.isLogin()) {
-                    d.a.j0.w1.j.a.d().f();
+                    d.a.k0.w1.j.a.d().f();
                 } else {
-                    d.a.j0.w1.j.a.d().c();
+                    d.a.k0.w1.j.a.d().c();
                 }
             }
         }
@@ -113,9 +113,9 @@ public class Static {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (TbadkCoreApplication.isLogin()) {
-                d.a.j0.w1.j.a.d().e();
+                d.a.k0.w1.j.a.d().e();
             } else {
-                d.a.j0.w1.j.a.d().c();
+                d.a.k0.w1.j.a.d().c();
             }
         }
     }
@@ -132,8 +132,8 @@ public class Static {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001120 || !(customResponsedMessage instanceof NewsNotifyMessage) || ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() <= 0) {
                 return;
             }
-            d.a.j0.w1.b.b().d();
-            d.a.j0.w1.b.b().e(true);
+            d.a.k0.w1.b.b().d();
+            d.a.k0.w1.b.b().e(true);
         }
     }
 
@@ -156,6 +156,6 @@ public class Static {
         MessageManager.getInstance().registerListener(new e(2001011));
         MessageManager.getInstance().registerListener(new f(2005016));
         MessageManager.getInstance().registerListener(new g(2001120));
-        d.a.j0.d3.d0.a.e(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED, TbConfig.URL_ALA_LIVE_ROOM_CLOSED, AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true);
+        d.a.k0.d3.d0.a.e(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED, TbConfig.URL_ALA_LIVE_ROOM_CLOSED, AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true);
     }
 }

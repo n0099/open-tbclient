@@ -11,30 +11,30 @@ import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.c.j;
 import com.bytedance.sdk.openadsdk.core.x;
 import com.bytedance.sdk.openadsdk.utils.r;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f29585a = WebChromeClient.class.getSimpleName();
+    public static final String f28830a = WebChromeClient.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public final x f29586b;
+    public final x f28831b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f29587c;
+    public j f28832c;
 
     public b(x xVar, j jVar) {
-        this.f29586b = xVar;
-        this.f29587c = jVar;
+        this.f28831b = xVar;
+        this.f28832c = jVar;
     }
 
     private boolean a(@NonNull String str) {
         try {
-            String str2 = f29585a;
+            String str2 = f28830a;
             Log.w(str2, "message:" + str);
             Uri parse = Uri.parse(str);
             if ("bytedance".equals(parse.getScheme().toLowerCase())) {
-                r.a(parse, this.f29586b);
+                r.a(parse, this.f28831b);
                 return true;
             }
             return false;
@@ -54,7 +54,7 @@ public class b extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public void onProgressChanged(WebView webView, int i2) {
         super.onProgressChanged(webView, i2);
-        j jVar = this.f29587c;
+        j jVar = this.f28832c;
         if (jVar != null) {
             jVar.a(webView, i2);
         }

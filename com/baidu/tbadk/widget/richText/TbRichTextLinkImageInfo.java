@@ -8,73 +8,73 @@ import tbclient.PbContent;
 public class TbRichTextLinkImageInfo extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14023e;
+    public int f13359e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14024f;
+    public int f13360f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14025g;
+    public String f13361g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14026h;
+    public String f13362h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f14027i;
+    public boolean f13363i;
 
     public TbRichTextLinkImageInfo() {
-        this.f14023e = 1;
-        this.f14024f = 1;
-        this.f14025g = null;
-        this.f14026h = null;
-        this.f14027i = true;
+        this.f13359e = 1;
+        this.f13360f = 1;
+        this.f13361g = null;
+        this.f13362h = null;
+        this.f13363i = true;
     }
 
     public int getHeight() {
-        return this.f14024f;
+        return this.f13360f;
     }
 
     public String getLink() {
-        return this.f14026h;
+        return this.f13362h;
     }
 
     public int getWidth() {
-        return this.f14023e;
+        return this.f13359e;
     }
 
     public String s() {
-        return this.f14025g;
+        return this.f13361g;
     }
 
     public boolean t() {
-        return this.f14027i;
+        return this.f13363i;
     }
 
     public TbRichTextLinkImageInfo(PbContent pbContent) {
-        this.f14023e = 1;
-        this.f14024f = 1;
-        this.f14025g = null;
-        this.f14026h = null;
-        this.f14027i = true;
-        this.f14025g = pbContent.cdn_src;
-        this.f14026h = pbContent.link;
+        this.f13359e = 1;
+        this.f13360f = 1;
+        this.f13361g = null;
+        this.f13362h = null;
+        this.f13363i = true;
+        this.f13361g = pbContent.cdn_src;
+        this.f13362h = pbContent.link;
         String str = pbContent.bsize;
         if (str != null) {
             try {
                 String[] split = str.split(",");
-                this.f14023e = Integer.valueOf(split[0]).intValue();
-                this.f14024f = Integer.valueOf(split[1]).intValue();
+                this.f13359e = Integer.valueOf(split[0]).intValue();
+                this.f13360f = Integer.valueOf(split[1]).intValue();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f14023e <= 0) {
-            this.f14023e = 1;
+        if (this.f13359e <= 0) {
+            this.f13359e = 1;
         }
-        if (this.f14024f <= 0) {
-            this.f14024f = 1;
+        if (this.f13360f <= 0) {
+            this.f13360f = 1;
         }
-        String str2 = this.f14025g;
+        String str2 = this.f13361g;
         if (str2 != null) {
             str2.indexOf(Domains.BAIDU);
         }

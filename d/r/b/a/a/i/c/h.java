@@ -3,14 +3,14 @@ package d.r.b.a.a.i.c;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67096a;
+    public int f67782a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67097b;
+    public String f67783b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67098c;
+    public String f67784c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67099d;
+    public String f67785d;
 }

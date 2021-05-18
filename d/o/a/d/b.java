@@ -1,7 +1,7 @@
 package d.o.a.d;
 
 import com.bytedance.sdk.openadsdk.adhost.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static final int cancel_tv = R.id.cancel_tv;
     public static final int confirm_tv = R.id.confirm_tv;

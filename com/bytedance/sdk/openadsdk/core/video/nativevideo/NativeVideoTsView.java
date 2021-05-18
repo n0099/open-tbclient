@@ -29,7 +29,7 @@ import com.bytedance.sdk.openadsdk.utils.x;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     public ViewStub A;
     public c.b B;
@@ -39,31 +39,31 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     public AtomicBoolean F;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f29268a;
+    public final Context f28513a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f29269b;
+    public final l f28514b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f29270c;
+    public c f28515c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameLayout f29271d;
+    public FrameLayout f28516d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f29272e;
+    public boolean f28517e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f29273f;
+    public RelativeLayout f28518f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f29274g;
+    public ImageView f28519g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f29275h;
+    public ImageView f28520h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f29276i;
+    public ImageView f28521i;
     public boolean j;
     public String k;
     public int l;
@@ -82,12 +82,12 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     public boolean y;
     public final String z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(boolean z, long j, long j2, long j3, boolean z2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(View view, int i2);
     }
@@ -97,38 +97,38 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     }
 
     private void c(boolean z) {
-        if (this.f29269b == null || this.f29270c == null) {
+        if (this.f28514b == null || this.f28515c == null) {
             return;
         }
         boolean q = q();
         r();
-        if (q && this.f29270c.w()) {
-            u.b("NativeVideoAdView", "changeVideoStatus---isFromDetailPage()=" + q + "，mNativeVideoController.isPlayComplete()=" + this.f29270c.w());
+        if (q && this.f28515c.w()) {
+            u.b("NativeVideoAdView", "changeVideoStatus---isFromDetailPage()=" + q + "，mNativeVideoController.isPlayComplete()=" + this.f28515c.w());
             b(true);
             d();
-        } else if (z && !this.f29270c.w() && !this.f29270c.t()) {
-            if (this.f29270c.u() != null && this.f29270c.u().i()) {
+        } else if (z && !this.f28515c.w() && !this.f28515c.t()) {
+            if (this.f28515c.u() != null && this.f28515c.u().i()) {
                 if (this.q) {
                     if ("ALP-AL00".equals(this.z)) {
-                        this.f29270c.k();
+                        this.f28515c.k();
                     } else {
-                        ((f) this.f29270c).g(q);
+                        ((f) this.f28515c).g(q);
                     }
                     c.b bVar = this.B;
                     if (bVar != null) {
                         bVar.c();
                     }
                 }
-            } else if (this.q && this.f29270c.u() == null) {
+            } else if (this.q && this.f28515c.u() == null) {
                 if (!this.C.get()) {
                     this.C.set(true);
                 }
                 this.F.set(false);
                 m();
             }
-        } else if (this.f29270c.u() == null || !this.f29270c.u().g()) {
+        } else if (this.f28515c.u() == null || !this.f28515c.u().g()) {
         } else {
-            this.f29270c.h();
+            this.f28515c.h();
             c.b bVar2 = this.B;
             if (bVar2 != null) {
                 bVar2.e_();
@@ -142,7 +142,7 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     }
 
     private void e() {
-        addView(a(this.f29268a));
+        addView(a(this.f28513a));
         k();
     }
 
@@ -150,70 +150,70 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
         if (!(this instanceof NativeDrawVideoTsView) || this.m.get() || i.d().u() == null) {
             return;
         }
-        this.f29276i.setImageBitmap(i.d().u());
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f29276i.getLayoutParams();
+        this.f28521i.setImageBitmap(i.d().u());
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f28521i.getLayoutParams();
         int a2 = (int) al.a(getContext(), this.l);
         layoutParams.width = a2;
         layoutParams.height = a2;
-        this.f29276i.setLayoutParams(layoutParams);
+        this.f28521i.setLayoutParams(layoutParams);
         this.m.set(true);
     }
 
     private void k() {
-        this.f29270c = new f(this.f29268a, this.f29271d, this.f29269b, this.k, !v(), this.s, this.t);
+        this.f28515c = new f(this.f28513a, this.f28516d, this.f28514b, this.k, !v(), this.s, this.t);
         l();
         this.p.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 NativeVideoTsView nativeVideoTsView = NativeVideoTsView.this;
-                ((f) nativeVideoTsView.f29270c).a(nativeVideoTsView.p.getWidth(), NativeVideoTsView.this.p.getHeight());
+                ((f) nativeVideoTsView.f28515c).a(nativeVideoTsView.p.getWidth(), NativeVideoTsView.this.p.getHeight());
                 NativeVideoTsView.this.p.getViewTreeObserver().removeGlobalOnLayoutListener(this);
             }
         });
     }
 
     private void l() {
-        c cVar = this.f29270c;
+        c cVar = this.f28515c;
         if (cVar == null) {
             return;
         }
         cVar.e(this.q);
-        ((f) this.f29270c).a((f.a) this);
-        this.f29270c.a(this);
+        ((f) this.f28515c).a((f.a) this);
+        this.f28515c.a(this);
     }
 
     private void m() {
-        c cVar = this.f29270c;
+        c cVar = this.f28515c;
         if (cVar == null) {
             k();
         } else if ((cVar instanceof f) && !v()) {
-            ((f) this.f29270c).f();
+            ((f) this.f28515c).f();
         }
-        if (this.f29270c == null || !this.C.get()) {
+        if (this.f28515c == null || !this.C.get()) {
             return;
         }
         this.C.set(false);
         b();
         if (i()) {
-            al.a((View) this.f29273f, 8);
-            ImageView imageView = this.f29275h;
+            al.a((View) this.f28518f, 8);
+            ImageView imageView = this.f28520h;
             if (imageView != null) {
                 al.a((View) imageView, 8);
             }
-            l lVar = this.f29269b;
+            l lVar = this.f28514b;
             if (lVar != null && lVar.X() != null) {
-                this.f29270c.a(this.f29269b.X().i(), this.f29269b.am(), this.p.getWidth(), this.p.getHeight(), null, this.f29269b.ap(), 0L, u());
-                this.f29270c.d(false);
+                this.f28515c.a(this.f28514b.X().i(), this.f28514b.am(), this.p.getWidth(), this.p.getHeight(), null, this.f28514b.ap(), 0L, u());
+                this.f28515c.d(false);
                 return;
             }
             u.f("NativeVideoAdView", "attachTask materialMeta.getVideo() is null !!");
-        } else if (this.f29270c.w()) {
-            u.b("NativeVideoAdView", "attachTask-mNativeVideoController.isPlayComplete()=" + this.f29270c.w());
+        } else if (this.f28515c.w()) {
+            u.b("NativeVideoAdView", "attachTask-mNativeVideoController.isPlayComplete()=" + this.f28515c.w());
             b(true);
         } else {
             u.c("NativeVideoAdView", "attachTask.......mRlImgCover.....VISIBLE");
             h();
-            al.a((View) this.f29273f, 0);
+            al.a((View) this.f28518f, 0);
         }
     }
 
@@ -226,7 +226,7 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     private void o() {
         if (!this.C.get()) {
             this.C.set(true);
-            c cVar = this.f29270c;
+            c cVar = this.f28515c;
             if (cVar != null) {
                 cVar.a(true);
             }
@@ -255,31 +255,31 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     }
 
     private void s() {
-        if (this.f29270c == null || v() || !com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_is_update_flag", false)) {
+        if (this.f28515c == null || v() || !com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_is_update_flag", false)) {
             return;
         }
         boolean a2 = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_native_video_complete", false);
         long a3 = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_current_play_position", -1L);
-        long a4 = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_total_play_duration", this.f29270c.p());
-        long a5 = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_duration", this.f29270c.s());
-        this.f29270c.d(a2);
+        long a4 = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_total_play_duration", this.f28515c.p());
+        long a5 = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_duration", this.f28515c.s());
+        this.f28515c.d(a2);
         if (a2) {
-            this.f29270c.a(a5);
+            this.f28515c.a(a5);
         } else {
-            this.f29270c.a(a3);
+            this.f28515c.a(a3);
         }
-        this.f29270c.b(a4);
-        this.f29270c.c(a5);
+        this.f28515c.b(a4);
+        this.f28515c.c(a5);
         com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_is_update_flag", Boolean.FALSE);
         u.f("MultiProcess", "onResumeFeedNativeVideoControllerData-isComplete=" + a2 + ",position=" + a3 + ",totalPlayDuration=" + a4 + ",duration=" + a5);
     }
 
     private boolean t() {
-        return 2 == p.h().c(ak.d(this.f29269b.ap()));
+        return 2 == p.h().c(ak.d(this.f28514b.ap()));
     }
 
     private boolean u() {
-        return this.f29272e;
+        return this.f28517e;
     }
 
     private boolean v() {
@@ -287,8 +287,8 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     }
 
     private void w() {
-        al.f(this.f29275h);
-        al.f(this.f29273f);
+        al.f(this.f28520h);
+        al.f(this.f28518f);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
@@ -296,31 +296,31 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     }
 
     public void b() {
-        l lVar = this.f29269b;
+        l lVar = this.f28514b;
         if (lVar == null) {
             return;
         }
         int d2 = ak.d(lVar.ap());
         int c2 = p.h().c(d2);
         if (c2 == 1) {
-            this.q = x.d(this.f29268a);
+            this.q = x.d(this.f28513a);
         } else if (c2 == 2) {
-            this.q = x.e(this.f29268a) || x.d(this.f29268a);
+            this.q = x.e(this.f28513a) || x.d(this.f28513a);
         } else if (c2 == 3) {
             this.q = false;
         } else if (c2 == 4) {
             this.n = true;
         }
         if (!this.r) {
-            this.f29272e = p.h().a(d2);
+            this.f28517e = p.h().a(d2);
         } else {
-            this.f29272e = false;
+            this.f28517e = false;
         }
         if ("splash_ad".equals(this.k)) {
             this.q = true;
-            this.f29272e = true;
+            this.f28517e = true;
         }
-        c cVar = this.f29270c;
+        c cVar = this.f28515c;
         if (cVar != null) {
             cVar.e(this.q);
         }
@@ -344,23 +344,23 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     }
 
     public c getNativeVideoController() {
-        return this.f29270c;
+        return this.f28515c;
     }
 
     public void h() {
         ViewStub viewStub;
-        if (this.f29268a == null || (viewStub = this.A) == null || viewStub.getParent() == null || this.f29269b == null || this.f29273f != null) {
+        if (this.f28513a == null || (viewStub = this.A) == null || viewStub.getParent() == null || this.f28514b == null || this.f28518f != null) {
             return;
         }
-        this.f29273f = (RelativeLayout) this.A.inflate();
-        this.f29274g = (ImageView) findViewById(ad.e(this.f29268a, "tt_native_video_img_id"));
-        ImageView imageView = (ImageView) findViewById(ad.e(this.f29268a, "tt_native_video_play"));
-        this.f29276i = imageView;
+        this.f28518f = (RelativeLayout) this.A.inflate();
+        this.f28519g = (ImageView) findViewById(ad.e(this.f28513a, "tt_native_video_img_id"));
+        ImageView imageView = (ImageView) findViewById(ad.e(this.f28513a, "tt_native_video_play"));
+        this.f28521i = imageView;
         if (this.j) {
             al.a((View) imageView, 0);
         }
-        if (this.f29269b.X() != null && this.f29269b.X().h() != null) {
-            com.bytedance.sdk.openadsdk.i.e.c().a(this.f29269b.X().h(), this.f29274g);
+        if (this.f28514b.X() != null && this.f28514b.X().h() != null) {
+            com.bytedance.sdk.openadsdk.i.e.c().a(this.f28514b.X().h(), this.f28519g);
         }
         f();
     }
@@ -371,7 +371,7 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
 
     public void j() {
         h v;
-        c cVar = this.f29270c;
+        c cVar = this.f28515c;
         if (cVar == null || (v = cVar.v()) == null) {
             return;
         }
@@ -407,8 +407,8 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         a aVar;
         c cVar;
-        if (!this.r && (aVar = this.o) != null && (cVar = this.f29270c) != null) {
-            aVar.a(cVar.w(), this.f29270c.s(), this.f29270c.p(), this.f29270c.n(), this.q);
+        if (!this.r && (aVar = this.o) != null && (cVar = this.f28515c) != null) {
+            aVar.a(cVar.w(), this.f28515c.s(), this.f28515c.p(), this.f28515c.n(), this.q);
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
@@ -427,17 +427,17 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
         c cVar4;
         super.onWindowFocusChanged(z);
         s();
-        if (q() && (cVar4 = this.f29270c) != null && cVar4.w()) {
+        if (q() && (cVar4 = this.f28515c) != null && cVar4.w()) {
             r();
-            al.a((View) this.f29273f, 8);
+            al.a((View) this.f28518f, 8);
             b(true);
             d();
             return;
         }
         b();
-        if (!v() && i() && (cVar2 = this.f29270c) != null && !cVar2.t()) {
+        if (!v() && i() && (cVar2 = this.f28515c) != null && !cVar2.t()) {
             if (this.x != null) {
-                if (z && (cVar3 = this.f29270c) != null && !cVar3.w()) {
+                if (z && (cVar3 = this.f28515c) != null && !cVar3.w()) {
                     this.x.obtainMessage(1).sendToTarget();
                     return;
                 }
@@ -446,7 +446,7 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
             }
         } else if (i()) {
         } else {
-            if (!z && (cVar = this.f29270c) != null && cVar.u() != null && this.f29270c.u().g()) {
+            if (!z && (cVar = this.f28515c) != null && cVar.u() != null && this.f28515c.u().g()) {
                 this.x.removeMessages(1);
                 c(false);
             } else if (z) {
@@ -466,25 +466,25 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
         if (this.D) {
             this.D = i2 == 0;
         }
-        if (q() && (cVar3 = this.f29270c) != null && cVar3.w()) {
+        if (q() && (cVar3 = this.f28515c) != null && cVar3.w()) {
             r();
-            al.a((View) this.f29273f, 8);
+            al.a((View) this.f28518f, 8);
             b(true);
             d();
             return;
         }
         b();
-        if (v() || !i() || (cVar = this.f29270c) == null || cVar.t() || (lVar = this.f29269b) == null) {
+        if (v() || !i() || (cVar = this.f28515c) == null || cVar.t() || (lVar = this.f28514b) == null) {
             return;
         }
         if (this.v && lVar.X() != null) {
-            this.f29270c.a(this.f29269b.X().i(), this.f29269b.am(), this.p.getWidth(), this.p.getHeight(), null, this.f29269b.ap(), this.w, u());
+            this.f28515c.a(this.f28514b.X().i(), this.f28514b.am(), this.p.getWidth(), this.p.getHeight(), null, this.f28514b.ap(), this.w, u());
             this.v = false;
-            al.a((View) this.f29273f, 8);
+            al.a((View) this.f28518f, 8);
         } else {
             u.f("NativeVideoAdView", "attachTask materialMeta.getVideo() is null !!");
         }
-        if (i2 != 0 || this.x == null || (cVar2 = this.f29270c) == null || cVar2.w()) {
+        if (i2 != 0 || this.x == null || (cVar2 = this.f28515c) == null || cVar2.w()) {
             return;
         }
         this.x.obtainMessage(1).sendToTarget();
@@ -495,7 +495,7 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     }
 
     public void setDrawVideoListener(TTDrawFeedAd.DrawVideoListener drawVideoListener) {
-        c cVar = this.f29270c;
+        c cVar = this.f28515c;
         if (cVar != null) {
             ((f) cVar).a(drawVideoListener);
         }
@@ -503,52 +503,52 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
 
     public void setIsAutoPlay(boolean z) {
         l lVar;
-        if (this.y || (lVar = this.f29269b) == null) {
+        if (this.y || (lVar = this.f28514b) == null) {
             return;
         }
         int c2 = p.h().c(ak.d(lVar.ap()));
-        if (z && c2 != 4 && (!x.e(this.f29268a) ? !x.d(this.f29268a) : !t())) {
+        if (z && c2 != 4 && (!x.e(this.f28513a) ? !x.d(this.f28513a) : !t())) {
             z = false;
         }
         this.q = z;
-        c cVar = this.f29270c;
+        c cVar = this.f28515c;
         if (cVar != null) {
             cVar.e(z);
         }
         if (!this.q) {
             h();
-            RelativeLayout relativeLayout = this.f29273f;
+            RelativeLayout relativeLayout = this.f28518f;
             if (relativeLayout != null) {
                 al.a((View) relativeLayout, 0);
-                if (this.f29269b.X() != null) {
-                    com.bytedance.sdk.openadsdk.i.e.c().a(this.f29269b.X().h(), this.f29274g);
+                if (this.f28514b.X() != null) {
+                    com.bytedance.sdk.openadsdk.i.e.c().a(this.f28514b.X().h(), this.f28519g);
                 } else {
                     u.f("NativeVideoAdView", "attachTask materialMeta.getVideo() is null !!");
                 }
             }
         } else {
-            al.a((View) this.f29273f, 8);
+            al.a((View) this.f28518f, 8);
         }
         this.y = true;
     }
 
     public void setIsQuiet(boolean z) {
-        this.f29272e = z;
-        c cVar = this.f29270c;
+        this.f28517e = z;
+        c cVar = this.f28515c;
         if (cVar != null) {
             cVar.c(z);
         }
     }
 
     public void setNativeVideoAdListener(c.a aVar) {
-        c cVar = this.f29270c;
+        c cVar = this.f28515c;
         if (cVar != null) {
             cVar.a(aVar);
         }
     }
 
     public void setNativeVideoController(c cVar) {
-        this.f29270c = cVar;
+        this.f28515c = cVar;
     }
 
     public void setNeedNativeVideoPlayBtnVisible(boolean z) {
@@ -556,7 +556,7 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     }
 
     public void setVideoAdClickListener(b bVar) {
-        c cVar = this.f29270c;
+        c cVar = this.f28515c;
         if (cVar != null) {
             ((f) cVar).a(bVar);
         }
@@ -566,10 +566,10 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
         this.B = bVar;
     }
 
-    public void setVideoAdLoadListener(c.InterfaceC0310c interfaceC0310c) {
-        c cVar = this.f29270c;
+    public void setVideoAdLoadListener(c.InterfaceC0297c interfaceC0297c) {
+        c cVar = this.f28515c;
         if (cVar != null) {
-            cVar.a(interfaceC0310c);
+            cVar.a(interfaceC0297c);
         }
     }
 
@@ -600,7 +600,7 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     public NativeVideoTsView(@NonNull Context context, @NonNull l lVar, boolean z, boolean z2, String str, boolean z3, boolean z4) {
         super(context);
         this.q = true;
-        this.f29272e = true;
+        this.f28517e = true;
         this.r = false;
         this.s = false;
         this.t = true;
@@ -618,8 +618,8 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
         this.D = true;
         this.F = new AtomicBoolean(false);
         this.k = str;
-        this.f29268a = context;
-        this.f29269b = lVar;
+        this.f28513a = context;
+        this.f28514b = lVar;
         this.r = z;
         this.u = z2;
         this.s = z3;
@@ -640,21 +640,21 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     private View a(Context context) {
         FrameLayout frameLayout = new FrameLayout(context);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        frameLayout.setId(ad.e(this.f29268a, "tt_native_video_layout"));
+        frameLayout.setId(ad.e(this.f28513a, "tt_native_video_layout"));
         layoutParams.gravity = 17;
         frameLayout.setVisibility(8);
         this.p = frameLayout;
         FrameLayout frameLayout2 = new FrameLayout(context);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
-        frameLayout2.setId(ad.e(this.f29268a, "tt_native_video_frame"));
+        frameLayout2.setId(ad.e(this.f28513a, "tt_native_video_frame"));
         layoutParams2.gravity = 17;
         frameLayout2.setLayoutParams(layoutParams2);
         frameLayout.addView(frameLayout2);
-        this.f29271d = frameLayout2;
+        this.f28516d = frameLayout2;
         ViewStub viewStub = new ViewStub(context);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, -1);
-        viewStub.setId(ad.e(this.f29268a, "tt_native_video_img_cover_viewStub"));
-        viewStub.setLayoutResource(ad.f(this.f29268a, "tt_native_video_img_cover_layout"));
+        viewStub.setId(ad.e(this.f28513a, "tt_native_video_img_cover_viewStub"));
+        viewStub.setLayoutResource(ad.f(this.f28513a, "tt_native_video_img_cover_layout"));
         viewStub.setLayoutParams(layoutParams3);
         frameLayout.addView(viewStub);
         this.A = viewStub;
@@ -665,8 +665,8 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
         if (x.c(p.a()) == 0) {
             return;
         }
-        if (this.f29270c.u() != null) {
-            if (this.f29270c.u().g() && i2 == 2) {
+        if (this.f28515c.u() != null) {
+            if (this.f28515c.u().g() && i2 == 2) {
                 c(false);
                 am amVar = this.x;
                 if (amVar != null) {
@@ -674,7 +674,7 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
                 }
                 a(true);
                 return;
-            } else if (this.f29270c.u().i() && i2 == 3) {
+            } else if (this.f28515c.u().i() && i2 == 3) {
                 this.q = true;
                 c(true);
                 b();
@@ -690,10 +690,10 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
             return;
         }
         this.F.set(true);
-        l lVar = this.f29269b;
+        l lVar = this.f28514b;
         if (lVar != null && lVar.X() != null) {
             w();
-            this.f29270c.a(this.f29269b.X().i(), this.f29269b.am(), this.p.getWidth(), this.p.getHeight(), null, this.f29269b.ap(), this.w, u());
+            this.f28515c.a(this.f28514b.X().i(), this.f28514b.am(), this.p.getWidth(), this.p.getHeight(), null, this.f28514b.ap(), this.w, u());
         } else {
             u.f("NativeVideoAdView", "attachTask materialMeta.getVideo() is null !!");
         }
@@ -708,26 +708,26 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
         long j2;
         int i2;
         this.p.setVisibility(0);
-        if (this.f29270c == null) {
-            this.f29270c = new f(this.f29268a, this.f29271d, this.f29269b, this.k, this.s, this.t);
+        if (this.f28515c == null) {
+            this.f28515c = new f(this.f28513a, this.f28516d, this.f28514b, this.k, this.s, this.t);
             l();
         }
         this.w = j;
         if (v()) {
-            this.f29270c.b(false);
-            l lVar = this.f29269b;
-            boolean a2 = (lVar == null || lVar.X() == null) ? false : this.f29270c.a(this.f29269b.X().i(), this.f29269b.am(), this.p.getWidth(), this.p.getHeight(), null, this.f29269b.ap(), j, u());
+            this.f28515c.b(false);
+            l lVar = this.f28514b;
+            boolean a2 = (lVar == null || lVar.X() == null) ? false : this.f28515c.a(this.f28514b.X().i(), this.f28514b.am(), this.p.getWidth(), this.p.getHeight(), null, this.f28514b.ap(), j, u());
             int i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if ((i3 > 0 && !z && !z2) || (i3 > 0 && z && !this.u)) {
-                c cVar = this.f29270c;
+                c cVar = this.f28515c;
                 if (cVar != null) {
                     j2 = cVar.p();
-                    i2 = this.f29270c.r();
+                    i2 = this.f28515c.r();
                 } else {
                     j2 = 0;
                     i2 = 0;
                 }
-                com.bytedance.sdk.openadsdk.c.d.a(this.f29268a, this.f29269b, this.k, "feed_continue", j2, i2, ak.a(this.f29269b, this.f29270c.o(), this.f29270c.u()));
+                com.bytedance.sdk.openadsdk.c.d.a(this.f28513a, this.f28514b, this.k, "feed_continue", j2, i2, ak.a(this.f28514b, this.f28515c.o(), this.f28515c.u()));
             }
             return a2;
         }
@@ -738,8 +738,8 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
         if (x.c(p.a()) == 0) {
             return;
         }
-        if (this.f29270c.u() != null) {
-            if (this.f29270c.u().g()) {
+        if (this.f28515c.u() != null) {
+            if (this.f28515c.u().g()) {
                 c(false);
                 am amVar = this.x;
                 if (amVar != null) {
@@ -747,7 +747,7 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
                 }
                 a(true);
                 return;
-            } else if (this.f29270c.u().i()) {
+            } else if (this.f28515c.u().i()) {
                 this.q = true;
                 c(true);
                 b();
@@ -763,10 +763,10 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
             return;
         }
         this.F.set(true);
-        l lVar = this.f29269b;
+        l lVar = this.f28514b;
         if (lVar != null && lVar.X() != null) {
             w();
-            this.f29270c.a(this.f29269b.X().i(), this.f29269b.am(), this.p.getWidth(), this.p.getHeight(), null, this.f29269b.ap(), this.w, u());
+            this.f28515c.a(this.f28514b.X().i(), this.f28514b.am(), this.p.getWidth(), this.p.getHeight(), null, this.f28514b.ap(), this.w, u());
         } else {
             u.f("NativeVideoAdView", "attachTask materialMeta.getVideo() is null !!");
         }
@@ -786,10 +786,10 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     }
 
     public void b(boolean z) {
-        c cVar = this.f29270c;
+        c cVar = this.f28515c;
         if (cVar != null) {
             cVar.d(z);
-            h v = this.f29270c.v();
+            h v = this.f28515c.v();
             if (v != null) {
                 v.w();
                 View s = v.s();
@@ -799,7 +799,7 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
                     }
                     s.setVisibility(0);
                     addView(s);
-                    v.a(this.f29269b, new WeakReference<>(this.f29268a), false);
+                    v.a(this.f28514b, new WeakReference<>(this.f28513a), false);
                 }
             }
         }
@@ -811,26 +811,26 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
     }
 
     public void a(boolean z) {
-        if (this.f29275h == null) {
-            this.f29275h = new ImageView(getContext());
+        if (this.f28520h == null) {
+            this.f28520h = new ImageView(getContext());
             if (i.d().u() != null) {
-                this.f29275h.setImageBitmap(i.d().u());
+                this.f28520h.setImageBitmap(i.d().u());
             } else {
-                this.f29275h.setImageResource(ad.d(p.a(), "tt_new_play_video"));
+                this.f28520h.setImageResource(ad.d(p.a(), "tt_new_play_video"));
             }
-            this.f29275h.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.f28520h.setScaleType(ImageView.ScaleType.FIT_XY);
             int a2 = (int) al.a(getContext(), this.l);
             int a3 = (int) al.a(getContext(), 10.0f);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(a2, a2);
             layoutParams.gravity = 17;
             layoutParams.rightMargin = a3;
             layoutParams.bottomMargin = a3;
-            this.p.addView(this.f29275h, layoutParams);
+            this.p.addView(this.f28520h, layoutParams);
         }
         if (z) {
-            this.f29275h.setVisibility(0);
+            this.f28520h.setVisibility(0);
         } else {
-            this.f29275h.setVisibility(8);
+            this.f28520h.setVisibility(8);
         }
     }
 }

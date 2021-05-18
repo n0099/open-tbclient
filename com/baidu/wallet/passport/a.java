@@ -19,23 +19,23 @@ import org.json.JSONException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f25816a = {Domains.DU_XIAO_MAN_PAY, Domains.DU_XIAO_MAN, Domains.BAIFUBAO, ".8.baidu.com"};
+    public static final String[] f25061a = {Domains.DU_XIAO_MAN_PAY, Domains.DU_XIAO_MAN, Domains.BAIFUBAO, ".8.baidu.com"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f25817b = 8;
+    public static final int f25062b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f25818c;
+    public Context f25063c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25819d;
+    public String f25064d;
 
     /* renamed from: com.baidu.wallet.passport.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0257a {
+    public static class C0244a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f25820a = new a();
+        public static final a f25065a = new a();
     }
 
     private void a(int i2) {
@@ -45,8 +45,8 @@ public class a {
         Date time = calendar.getTime();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
         simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-        this.f25819d = simpleDateFormat.format(time);
-        LogUtil.d("--DxmCookieManager---cookie----expires--->" + this.f25819d);
+        this.f25064d = simpleDateFormat.format(time);
+        LogUtil.d("--DxmCookieManager---cookie----expires--->" + this.f25064d);
     }
 
     public void b() {
@@ -54,7 +54,7 @@ public class a {
     }
 
     public a() {
-        this.f25818c = BaiduWalletDelegate.getInstance().getAppContext();
+        this.f25063c = BaiduWalletDelegate.getInstance().getAppContext();
     }
 
     private String[] b(String str) {
@@ -66,7 +66,7 @@ public class a {
     }
 
     public static a a() {
-        return C0257a.f25820a;
+        return C0244a.f25065a;
     }
 
     public void a(String str) {
@@ -76,15 +76,15 @@ public class a {
     private void a(int i2, String str) {
         try {
             a(i2);
-            String[] b2 = b(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f25818c));
+            String[] b2 = b(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f25063c));
             if (b2 == null) {
-                b2 = f25816a;
+                b2 = f25061a;
             }
-            CookieSyncManager.createInstance(this.f25818c);
+            CookieSyncManager.createInstance(this.f25063c);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
             String str2 = "OPENBDUSS=" + str;
-            String str3 = ";expires=" + this.f25819d;
+            String str3 = ";expires=" + this.f25064d;
             LogUtil.d("------------------DxmCookieManager start setCookie--------------");
             for (String str4 : b2) {
                 if (!str4.startsWith(".")) {

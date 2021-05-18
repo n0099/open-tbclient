@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import d.a.h0.a.i2.u;
-import d.a.h0.d.h.b;
+import d.a.i0.a.v2.v;
+import d.a.i0.e.l.b;
 /* loaded from: classes4.dex */
 public class SwanEntryActivity extends Activity {
     public static final String LAUNCHER_URI = "SWAN_URI";
@@ -45,7 +45,7 @@ public class SwanEntryActivity extends Activity {
     public void onCreate(Bundle bundle) {
         d.a.c.a.a.b(this);
         super.onCreate(bundle);
-        if (u.a(this)) {
+        if (v.a(this)) {
             return;
         }
         doLaunch();

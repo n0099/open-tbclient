@@ -15,26 +15,26 @@ import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
-import d.a.i0.w.n;
-import d.a.j0.r1.h.e.g;
-import d.a.j0.r1.h.e.h;
+import d.a.j0.w.n;
+import d.a.k0.r1.h.e.g;
+import d.a.k0.r1.h.e.h;
 /* loaded from: classes3.dex */
 public class TailToolController extends NoPressedLinearLayout implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19129e;
+    public int f18417e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f19130f;
+    public h f18418f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f19131g;
+    public g f18419g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.j0.r1.h.e.b f19132h;
+    public d.a.k0.r1.h.e.b f18420h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f19133i;
+    public Context f18421i;
     public EditorTools j;
     public CustomMessageListener k;
     public CustomMessageListener l;
@@ -66,9 +66,9 @@ public class TailToolController extends NoPressedLinearLayout implements n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && TailToolController.this.f19131g.h()) {
+            if (customResponsedMessage != null && TailToolController.this.f18419g.h()) {
                 TailToolController.this.setVisibility(0);
-                TailToolController.this.f19131g.m(false);
+                TailToolController.this.f18419g.m(false);
             }
         }
     }
@@ -87,65 +87,65 @@ public class TailToolController extends NoPressedLinearLayout implements n {
 
     public TailToolController(Context context) {
         super(context);
-        this.f19129e = 0;
+        this.f18417e = 0;
         this.k = new a(2001344);
         this.l = new b(2001348);
         this.m = new c();
         j(context);
     }
 
-    @Override // d.a.i0.w.n
+    @Override // d.a.j0.w.n
     public void b() {
         setVisibility(0);
-        this.f19131g.j();
+        this.f18419g.j();
     }
 
-    @Override // d.a.i0.w.n
-    public void d(d.a.i0.w.a aVar) {
+    @Override // d.a.j0.w.n
+    public void d(d.a.j0.w.a aVar) {
         EditorTools editorTools = this.j;
         if (editorTools != null) {
             editorTools.A(aVar);
         }
     }
 
-    @Override // d.a.i0.w.n
+    @Override // d.a.j0.w.n
     public int getToolId() {
-        return this.f19129e;
+        return this.f18417e;
     }
 
-    @Override // d.a.i0.w.n
+    @Override // d.a.j0.w.n
     public void hide() {
         setVisibility(8);
     }
 
-    @Override // d.a.i0.w.n
+    @Override // d.a.j0.w.n
     public void init() {
         n();
     }
 
     public final void j(Context context) {
-        this.f19133i = context;
-        this.f19130f = new h((ViewGroup) LayoutInflater.from(context).inflate(R.layout.tail_tool, (ViewGroup) this, true));
-        this.f19131g = new g(context);
-        d.a.j0.r1.h.e.b bVar = new d.a.j0.r1.h.e.b(context, this.f19131g, this.m);
-        this.f19132h = bVar;
-        this.f19130f.a(bVar);
+        this.f18421i = context;
+        this.f18418f = new h((ViewGroup) LayoutInflater.from(context).inflate(R.layout.tail_tool, (ViewGroup) this, true));
+        this.f18419g = new g(context);
+        d.a.k0.r1.h.e.b bVar = new d.a.k0.r1.h.e.b(context, this.f18419g, this.m);
+        this.f18420h = bVar;
+        this.f18418f.a(bVar);
     }
 
     public final void k() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f19133i, this.f19131g.i().isEmpty())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f18421i, this.f18419g.i().isEmpty())));
     }
 
     public final void l() {
         hide();
-        this.f19131g.m(true);
+        this.f18419g.m(true);
     }
 
     public final void m(boolean z) {
         if (z) {
-            d(new d.a.i0.w.a(2, 16, " "));
+            d(new d.a.j0.w.a(2, 16, " "));
         } else {
-            d(new d.a.i0.w.a(2, 16, null));
+            d(new d.a.j0.w.a(2, 16, null));
         }
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -160,43 +160,43 @@ public class TailToolController extends NoPressedLinearLayout implements n {
         }
     }
 
-    @Override // d.a.i0.w.b
-    public void onAction(d.a.i0.w.a aVar) {
+    @Override // d.a.j0.w.b
+    public void onAction(d.a.j0.w.a aVar) {
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.f19131g.k();
+        this.f18419g.k();
         MessageManager.getInstance().registerListener(this.k);
         MessageManager.getInstance().registerListener(this.l);
     }
 
-    @Override // d.a.i0.w.n
+    @Override // d.a.j0.w.n
     public void onChangeSkinType(int i2) {
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.f19131g.l();
+        this.f18419g.l();
         MessageManager.getInstance().unRegisterListener(this.k);
         MessageManager.getInstance().unRegisterListener(this.l);
     }
 
-    @Override // d.a.i0.w.n
+    @Override // d.a.j0.w.n
     public void setEditorTools(EditorTools editorTools) {
         this.j = editorTools;
     }
 
-    @Override // d.a.i0.w.n
+    @Override // d.a.j0.w.n
     public void setToolId(int i2) {
-        this.f19129e = i2;
+        this.f18417e = i2;
     }
 
     public TailToolController(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19129e = 0;
+        this.f18417e = 0;
         this.k = new a(2001344);
         this.l = new b(2001348);
         this.m = new c();

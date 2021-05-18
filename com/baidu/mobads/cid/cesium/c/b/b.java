@@ -11,13 +11,13 @@ import java.util.Random;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f8443a = c(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    public static final int[] f8255a = c(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f8444b;
+    public final int f8256b;
 
     public b(int i2) {
-        this.f8444b = i2;
+        this.f8256b = i2;
     }
 
     public static int a(int i2, int i3) {
@@ -28,7 +28,7 @@ public class b {
         int remaining = byteBuffer2.remaining();
         int i2 = (remaining / 64) + 1;
         for (int i3 = 0; i3 < i2; i3++) {
-            ByteBuffer a2 = a(bArr, bArr2, this.f8444b + i3);
+            ByteBuffer a2 = a(bArr, bArr2, this.f8256b + i3);
             if (i3 == i2 - 1) {
                 a.a(byteBuffer, byteBuffer2, a2, remaining % 64);
             } else {
@@ -62,9 +62,9 @@ public class b {
     }
 
     public static void a(int[] iArr, int[] iArr2) {
-        int[] iArr3 = f8443a;
+        int[] iArr3 = f8255a;
         System.arraycopy(iArr3, 0, iArr, 0, iArr3.length);
-        System.arraycopy(iArr2, 0, iArr, f8443a.length, 8);
+        System.arraycopy(iArr2, 0, iArr, f8255a.length, 8);
     }
 
     public static int[] c(byte[] bArr) {

@@ -21,10 +21,10 @@ public class i0 extends z {
     @Override // d.b.b.z
     @NonNull
     public z a(@NonNull Cursor cursor) {
-        this.f64413e = cursor.getLong(0);
-        this.f64414f = cursor.getLong(1);
-        this.f64415g = cursor.getString(2);
-        this.f64416h = cursor.getString(3);
+        this.f65099e = cursor.getLong(0);
+        this.f65100f = cursor.getLong(1);
+        this.f65101g = cursor.getString(2);
+        this.f65102h = cursor.getString(3);
         this.m = cursor.getString(4);
         this.n = cursor.getInt(5);
         this.o = cursor.getInt(6);
@@ -36,10 +36,10 @@ public class i0 extends z {
 
     @Override // d.b.b.z
     public void d(@NonNull ContentValues contentValues) {
-        contentValues.put("local_time_ms", Long.valueOf(this.f64413e));
-        contentValues.put("tea_event_index", Long.valueOf(this.f64414f));
-        contentValues.put(ETAG.KEY_STATISTICS_SEESIONID, this.f64415g);
-        contentValues.put("user_unique_id", this.f64416h);
+        contentValues.put("local_time_ms", Long.valueOf(this.f65099e));
+        contentValues.put("tea_event_index", Long.valueOf(this.f65100f));
+        contentValues.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65101g);
+        contentValues.put("user_unique_id", this.f65102h);
         contentValues.put("event_name", this.m);
         contentValues.put("is_monitor", Integer.valueOf(this.n));
         contentValues.put("bav_monitor_rate", Integer.valueOf(this.o));
@@ -50,10 +50,10 @@ public class i0 extends z {
 
     @Override // d.b.b.z
     public void e(@NonNull JSONObject jSONObject) {
-        jSONObject.put("local_time_ms", this.f64413e);
-        jSONObject.put("tea_event_index", this.f64414f);
-        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f64415g);
-        jSONObject.put("user_unique_id", this.f64416h);
+        jSONObject.put("local_time_ms", this.f65099e);
+        jSONObject.put("tea_event_index", this.f65100f);
+        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65101g);
+        jSONObject.put("user_unique_id", this.f65102h);
         jSONObject.put("event_name", this.m);
         jSONObject.put("is_monitor", this.n);
         jSONObject.put("bav_monitor_rate", this.o);
@@ -69,10 +69,10 @@ public class i0 extends z {
 
     @Override // d.b.b.z
     public z h(@NonNull JSONObject jSONObject) {
-        this.f64413e = jSONObject.optLong("local_time_ms", 0L);
-        this.f64414f = jSONObject.optLong("tea_event_index", 0L);
-        this.f64415g = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID, null);
-        this.f64416h = jSONObject.optString("user_unique_id", null);
+        this.f65099e = jSONObject.optLong("local_time_ms", 0L);
+        this.f65100f = jSONObject.optLong("tea_event_index", 0L);
+        this.f65101g = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID, null);
+        this.f65102h = jSONObject.optString("user_unique_id", null);
         this.m = jSONObject.optString("event_name", null);
         this.n = jSONObject.optInt("is_monitor", 0);
         this.o = jSONObject.optInt("bav_monitor_rate", 0);

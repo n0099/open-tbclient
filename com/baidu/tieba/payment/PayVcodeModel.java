@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.payment.message.ResponsePayNewVcodeInfoMessage;
 import d.a.c.a.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
 
     /* renamed from: e  reason: collision with root package name */
-    public f<?> f19576e;
+    public f<?> f18864e;
 
     public PayVcodeModel(f<?> fVar) {
-        this.f19576e = fVar;
+        this.f18864e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -36,6 +36,6 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     }
 
     public void t() {
-        this.f19576e.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
+        this.f18864e.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
     }
 }

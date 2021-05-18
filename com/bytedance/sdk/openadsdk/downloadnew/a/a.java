@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.downloadnew.a;
 import android.content.Context;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.downloadnew.core.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends b implements com.bytedance.sdk.openadsdk.downloadnew.core.b {
     public b.a k;
 

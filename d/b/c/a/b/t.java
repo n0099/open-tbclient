@@ -5,17 +5,17 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final t f64880a = new a();
+    public static final t f65566a = new a();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends t {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b implements c {
         public b() {
         }
@@ -26,7 +26,7 @@ public abstract class t {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         t a(i iVar);
     }

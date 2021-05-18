@@ -12,31 +12,31 @@ import org.json.JSONObject;
 public class c extends com.baidu.mobads.cid.cesium.b.a {
 
     /* renamed from: d  reason: collision with root package name */
-    public a.C0105a f8366d;
+    public a.C0105a f8178d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f8367e;
+    public a f8179e;
 
     /* loaded from: classes2.dex */
     public class a {
 
         /* renamed from: c  reason: collision with root package name */
-        public long f8370c;
+        public long f8182c;
 
         /* renamed from: d  reason: collision with root package name */
-        public g.a f8371d;
+        public g.a f8183d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f8372e;
+        public boolean f8184e;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f8374g;
+        public int f8186g;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.mobads.cid.cesium.f.b f8369b = new com.baidu.mobads.cid.cesium.f.b();
+        public com.baidu.mobads.cid.cesium.f.b f8181b = new com.baidu.mobads.cid.cesium.f.b();
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f8373f = true;
+        public boolean f8185f = true;
 
         public a() {
         }
@@ -45,10 +45,10 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.f8370c = jSONObject.getLong("pub_lst_ts");
-                    this.f8371d = g.a(jSONObject.getString("pub_info"));
-                    this.f8374g = jSONObject.getInt("d_form_ver");
-                    this.f8372e = false;
+                    this.f8182c = jSONObject.getLong("pub_lst_ts");
+                    this.f8183d = g.a(jSONObject.getString("pub_info"));
+                    this.f8186g = jSONObject.getInt("d_form_ver");
+                    this.f8184e = false;
                     return true;
                 } catch (Exception unused) {
                 }
@@ -57,17 +57,17 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         }
 
         public long a() {
-            return this.f8370c;
+            return this.f8182c;
         }
 
         public boolean a(PackageInfo packageInfo) {
-            String a2 = c.this.f8366d.a(new File(packageInfo.applicationInfo.dataDir)).a("pub.dat", true);
-            this.f8373f = false;
+            String a2 = c.this.f8178d.a(new File(packageInfo.applicationInfo.dataDir)).a("pub.dat", true);
+            this.f8185f = false;
             return a(a2);
         }
 
         public g.a b() {
-            return this.f8371d;
+            return this.f8183d;
         }
     }
 
@@ -75,25 +75,25 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
     public class b extends a.b {
 
         /* renamed from: b  reason: collision with root package name */
-        public int f8376b;
+        public int f8188b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8377c;
+        public String f8189c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f8378d;
+        public long f8190d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f8379e;
+        public long f8191e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f8380f;
+        public long f8192f;
 
         /* renamed from: g  reason: collision with root package name */
-        public g.a f8381g;
+        public g.a f8193g;
 
         public b(String str) {
-            super(c.this.f8366d, str);
+            super(c.this.f8178d, str);
         }
 
         public void a(a aVar) {
@@ -103,17 +103,17 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
 
         @Override // com.baidu.mobads.cid.cesium.b.a.b
         public void a(JSONObject jSONObject) {
-            this.f8377c = jSONObject.getString("pkg");
-            this.f8379e = jSONObject.getInt("tar_pkg_lst_pub_ts");
-            this.f8378d = jSONObject.getLong("last_fe_ts");
-            this.f8381g = g.a(jSONObject.getString("info"));
-            this.f8380f = jSONObject.getLong("tar_pkg_lst_up_ts");
-            this.f8376b = jSONObject.getInt("d_form_ver");
+            this.f8189c = jSONObject.getString("pkg");
+            this.f8191e = jSONObject.getInt("tar_pkg_lst_pub_ts");
+            this.f8190d = jSONObject.getLong("last_fe_ts");
+            this.f8193g = g.a(jSONObject.getString("info"));
+            this.f8192f = jSONObject.getLong("tar_pkg_lst_up_ts");
+            this.f8188b = jSONObject.getInt("d_form_ver");
         }
 
         public boolean a(long j) {
-            if (this.f8378d != j) {
-                this.f8378d = j;
+            if (this.f8190d != j) {
+                this.f8190d = j;
                 a(true);
                 return true;
             }
@@ -121,36 +121,36 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         }
 
         public boolean a(g.a aVar) {
-            if (aVar.equals(this.f8381g)) {
+            if (aVar.equals(this.f8193g)) {
                 return false;
             }
-            this.f8381g = aVar;
+            this.f8193g = aVar;
             a(true);
             return true;
         }
 
         public boolean a(String str) {
-            if (str.equals(this.f8377c)) {
+            if (str.equals(this.f8189c)) {
                 return false;
             }
-            this.f8377c = str;
+            this.f8189c = str;
             a(true);
             return true;
         }
 
         @Override // com.baidu.mobads.cid.cesium.b.a.b
         public void b(JSONObject jSONObject) {
-            jSONObject.put("pkg", this.f8377c);
-            jSONObject.put("last_fe_ts", this.f8378d);
-            jSONObject.put("tar_pkg_lst_pub_ts", this.f8379e);
-            jSONObject.put("info", this.f8381g.b());
-            jSONObject.put("tar_pkg_lst_up_ts", this.f8380f);
+            jSONObject.put("pkg", this.f8189c);
+            jSONObject.put("last_fe_ts", this.f8190d);
+            jSONObject.put("tar_pkg_lst_pub_ts", this.f8191e);
+            jSONObject.put("info", this.f8193g.b());
+            jSONObject.put("tar_pkg_lst_up_ts", this.f8192f);
             jSONObject.put("d_form_ver", 1);
         }
 
         public boolean b(long j) {
-            if (this.f8379e != j) {
-                this.f8379e = j;
+            if (this.f8191e != j) {
+                this.f8191e = j;
                 a(true);
                 return true;
             }
@@ -158,12 +158,12 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         }
 
         public String c() {
-            return this.f8377c;
+            return this.f8189c;
         }
 
         public boolean c(long j) {
-            if (this.f8380f != j) {
-                this.f8380f = j;
+            if (this.f8192f != j) {
+                this.f8192f = j;
                 a(true);
                 return true;
             }
@@ -171,17 +171,17 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         }
 
         public g.a d() {
-            return this.f8381g;
+            return this.f8193g;
         }
 
         public long e() {
-            return this.f8380f;
+            return this.f8192f;
         }
     }
 
     public c() {
         super("isc", 8000000L);
-        this.f8367e = new a();
+        this.f8179e = new a();
     }
 
     @Override // com.baidu.mobads.cid.cesium.b.a
@@ -190,14 +190,14 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         g.a b2;
         b bVar = null;
         try {
-            packageInfo = this.f8350a.f8354a.getPackageManager().getPackageInfo(str, 0);
+            packageInfo = this.f8162a.f8166a.getPackageManager().getPackageInfo(str, 0);
         } catch (PackageManager.NameNotFoundException unused) {
             packageInfo = null;
         }
         if (packageInfo == null) {
             return a.e.a(-2);
         }
-        if (dVar.f8360a) {
+        if (dVar.f8172a) {
             bVar = new b(str);
             bVar.a();
             if (str.equals(bVar.c()) && packageInfo.lastUpdateTime == bVar.e()) {
@@ -207,7 +207,7 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         }
         a aVar = new a();
         if (aVar.a(packageInfo)) {
-            if (dVar.f8360a && bVar != null) {
+            if (dVar.f8172a && bVar != null) {
                 bVar.a(aVar);
                 bVar.a(System.currentTimeMillis());
                 bVar.c(packageInfo.lastUpdateTime);
@@ -222,6 +222,6 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
 
     @Override // com.baidu.mobads.cid.cesium.b.a
     public void a(a.c cVar) {
-        this.f8366d = this.f8351b.a("isc");
+        this.f8178d = this.f8163b.a("isc");
     }
 }

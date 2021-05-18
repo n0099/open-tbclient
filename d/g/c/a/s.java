@@ -6,15 +6,15 @@ import java.lang.reflect.Method;
 public final class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f65517a;
+    public static final Object f66203a;
 
     static {
         Object b2 = b();
-        f65517a = b2;
+        f66203a = b2;
         if (b2 != null) {
             a();
         }
-        if (f65517a == null) {
+        if (f66203a == null) {
             return;
         }
         d();

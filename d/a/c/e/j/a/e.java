@@ -7,40 +7,40 @@ import java.util.List;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f39721a = new f();
+    public f f38966a = new f();
 
     /* renamed from: b  reason: collision with root package name */
-    public g f39722b = new g();
+    public g f38967b = new g();
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<d> f39723c = new LinkedList<>();
+    public LinkedList<d> f38968c = new LinkedList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public d f39724d = null;
+    public d f38969d = null;
 
     public d a() {
-        return this.f39724d;
+        return this.f38969d;
     }
 
     public f b() {
-        return this.f39721a;
+        return this.f38966a;
     }
 
     public g c() {
-        return this.f39722b;
+        return this.f38967b;
     }
 
     public List<d> d() {
-        return Collections.unmodifiableList(this.f39723c);
+        return Collections.unmodifiableList(this.f38968c);
     }
 
     public void e(d dVar) {
         if (dVar != null) {
-            this.f39723c.add(dVar);
+            this.f38968c.add(dVar);
         }
     }
 
     public void f(d dVar) {
-        this.f39724d = dVar;
+        this.f38969d = dVar;
     }
 }

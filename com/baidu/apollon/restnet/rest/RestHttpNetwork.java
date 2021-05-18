@@ -10,35 +10,35 @@ import java.util.concurrent.TimeoutException;
 public class RestHttpNetwork implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3841a = 30000;
+    public static final int f3842a = 30000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3842b = 30000;
+    public static final int f3843b = 30000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3843c = 10;
+    public static final int f3844c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3844d = 10;
+    public static final int f3845d = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f3845e = 8192;
+    public static final int f3846e = 8192;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f3846f = 3;
+    public static final int f3847f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f3847g = 1000;
+    public static final int f3848g = 1000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3848h = "RestHttpNetwork";
+    public static final String f3849h = "RestHttpNetwork";
 
     /* renamed from: i  reason: collision with root package name */
-    public final c f3849i;
+    public final c f3850i;
     public final g j = new g(3, 1000);
 
     public RestHttpNetwork(c cVar) {
-        this.f3849i = cVar;
+        this.f3850i = cVar;
     }
 
     /*  JADX ERROR: IF instruction can be used only in fallback mode
@@ -85,7 +85,7 @@ public class RestHttpNetwork implements c {
             r6 = 0
         Ld:
             if (r5 == 0) goto Lde
-            com.baidu.apollon.restnet.rest.c r4 = r10.f3849i     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
+            com.baidu.apollon.restnet.rest.c r4 = r10.f3850i     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
             com.baidu.apollon.restnet.rest.e r4 = r4.a(r11)     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
             if (r4 == 0) goto L2c
             com.baidu.apollon.restnet.http.HttpStatus r5 = r4.e()     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
@@ -186,6 +186,6 @@ public class RestHttpNetwork implements c {
 
     @Override // com.baidu.apollon.restnet.rest.c
     public void a() {
-        this.f3849i.a();
+        this.f3850i.a();
     }
 }

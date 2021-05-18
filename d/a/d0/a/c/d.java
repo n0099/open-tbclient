@@ -14,52 +14,52 @@ import java.util.PriorityQueue;
 public class d extends LruCache<String, d.a.d0.a.c.c<File>> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<e> f40543a;
+    public final List<e> f39788a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f40544b;
+    public final String f39789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<d.a.d0.a.c.c<File>, byte[]> f40545c;
+    public HashMap<d.a.d0.a.c.c<File>, byte[]> f39790c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f40546d;
+    public long f39791d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f40547e;
+    public volatile boolean f39792e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40548f;
+    public int f39793f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f40549g;
+    public long f39794g;
 
     /* loaded from: classes2.dex */
     public static class a extends d.a.d0.a.l.b {
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f40550g;
+        public final /* synthetic */ String f39795g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f40551h;
+        public final /* synthetic */ d f39796h;
 
         public a(String str, d dVar) {
-            this.f40550g = str;
-            this.f40551h = dVar;
+            this.f39795g = str;
+            this.f39796h = dVar;
         }
 
         @Override // d.a.d0.a.l.b
         public Object b() {
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                File file = new File(this.f40550g);
+                File file = new File(this.f39795g);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                this.f40551h.r(file.listFiles(), currentTimeMillis);
+                this.f39796h.r(file.listFiles(), currentTimeMillis);
                 return null;
             } catch (Exception e2) {
-                this.f40551h.f40547e = true;
+                this.f39796h.f39792e = true;
                 d.a.d0.a.k.b i2 = d.a.d0.a.k.b.i();
                 i2.a("Disk cache initialize failed for " + e2.getMessage());
                 return null;
@@ -71,37 +71,37 @@ public class d extends LruCache<String, d.a.d0.a.c.c<File>> {
     public class b extends d.a.d0.a.l.b {
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ byte[] f40552g;
+        public final /* synthetic */ byte[] f39797g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.a.d0.a.c.c f40553h;
+        public final /* synthetic */ d.a.d0.a.c.c f39798h;
 
         public b(byte[] bArr, d.a.d0.a.c.c cVar) {
-            this.f40552g = bArr;
-            this.f40553h = cVar;
+            this.f39797g = bArr;
+            this.f39798h = cVar;
         }
 
         @Override // d.a.d0.a.l.b
         public Object b() {
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                d.a.d0.a.k.d.b(this.f40552g, (File) this.f40553h.a());
-                d.this.put(((File) this.f40553h.a()).getName(), this.f40553h);
+                d.a.d0.a.k.d.b(this.f39797g, (File) this.f39798h.a());
+                d.this.put(((File) this.f39798h.a()).getName(), this.f39798h);
                 d.b(d.this);
-                if (!d.this.f40543a.isEmpty()) {
-                    for (e eVar : d.this.f40543a) {
-                        eVar.c(((File) this.f40553h.a()).getName(), this.f40553h);
+                if (!d.this.f39788a.isEmpty()) {
+                    for (e eVar : d.this.f39788a) {
+                        eVar.c(((File) this.f39798h.a()).getName(), this.f39798h);
                     }
                 }
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                 d dVar = d.this;
-                dVar.m("File saved using " + currentTimeMillis2 + "ms: " + ((File) this.f40553h.a()).getName() + "\nStatus:" + d.this.t());
+                dVar.m("File saved using " + currentTimeMillis2 + "ms: " + ((File) this.f39798h.a()).getName() + "\nStatus:" + d.this.t());
                 d.this.g();
                 return null;
             } catch (Throwable th) {
-                if (!d.this.f40543a.isEmpty()) {
-                    for (e eVar2 : d.this.f40543a) {
-                        eVar2.b(((File) this.f40553h.a()).getName(), this.f40553h);
+                if (!d.this.f39788a.isEmpty()) {
+                    for (e eVar2 : d.this.f39788a) {
+                        eVar2.b(((File) this.f39798h.a()).getName(), this.f39798h);
                     }
                 }
                 d.a.d0.a.k.b i2 = d.a.d0.a.k.b.i();
@@ -115,20 +115,20 @@ public class d extends LruCache<String, d.a.d0.a.c.c<File>> {
     public class c extends d.a.d0.a.l.b {
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.d0.a.c.c f40555g;
+        public final /* synthetic */ d.a.d0.a.c.c f39800g;
 
         public c(d.a.d0.a.c.c cVar) {
-            this.f40555g = cVar;
+            this.f39800g = cVar;
         }
 
         @Override // d.a.d0.a.l.b
         public Object b() {
             try {
-                if (this.f40555g != null) {
+                if (this.f39800g != null) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    String name = ((File) this.f40555g.a()).getName();
+                    String name = ((File) this.f39800g.a()).getName();
                     d.c(d.this);
-                    this.f40555g.e();
+                    this.f39800g.e();
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                     d dVar = d.this;
                     dVar.m("File deleted using " + currentTimeMillis2 + "ms: " + name);
@@ -145,8 +145,8 @@ public class d extends LruCache<String, d.a.d0.a.c.c<File>> {
 
     /* renamed from: d.a.d0.a.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0534d implements Comparator<File> {
-        public C0534d(d dVar) {
+    public class C0521d implements Comparator<File> {
+        public C0521d(d dVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -168,51 +168,51 @@ public class d extends LruCache<String, d.a.d0.a.c.c<File>> {
 
     public d(int i2, String str) {
         super(i2);
-        this.f40543a = new ArrayList();
-        this.f40547e = false;
-        this.f40548f = 0;
-        this.f40549g = 2592000000L;
-        this.f40544b = str;
-        this.f40545c = new HashMap<>();
+        this.f39788a = new ArrayList();
+        this.f39792e = false;
+        this.f39793f = 0;
+        this.f39794g = 2592000000L;
+        this.f39789b = str;
+        this.f39790c = new HashMap<>();
     }
 
     public static /* synthetic */ int b(d dVar) {
-        int i2 = dVar.f40548f;
-        dVar.f40548f = i2 + 1;
+        int i2 = dVar.f39793f;
+        dVar.f39793f = i2 + 1;
         return i2;
     }
 
     public static /* synthetic */ int c(d dVar) {
-        int i2 = dVar.f40548f;
-        dVar.f40548f = i2 - 1;
+        int i2 = dVar.f39793f;
+        dVar.f39793f = i2 - 1;
         return i2;
     }
 
     public static d o(String str, int i2) {
         d dVar = new d(i2, str);
-        dVar.f40547e = false;
+        dVar.f39792e = false;
         d.a.d0.a.l.c.a().c(new a(str, dVar));
         return dVar;
     }
 
     public void f(e eVar) {
-        this.f40543a.add(eVar);
+        this.f39788a.add(eVar);
     }
 
     public synchronized void g() {
-        if (System.currentTimeMillis() - this.f40546d < this.f40549g) {
+        if (System.currentTimeMillis() - this.f39791d < this.f39794g) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         Map snapshot = super.snapshot();
-        this.f40546d = System.currentTimeMillis();
+        this.f39791d = System.currentTimeMillis();
         for (String str : snapshot.keySet()) {
             d.a.d0.a.c.c cVar = (d.a.d0.a.c.c) snapshot.get(str);
-            if (cVar.d(this.f40549g)) {
+            if (cVar.d(this.f39794g)) {
                 ((File) ((d.a.d0.a.c.c) super.remove(str)).a()).delete();
-                this.f40548f--;
-            } else if (((File) cVar.a()).lastModified() < this.f40546d) {
-                this.f40546d = ((File) cVar.a()).lastModified();
+                this.f39793f--;
+            } else if (((File) cVar.a()).lastModified() < this.f39791d) {
+                this.f39791d = ((File) cVar.a()).lastModified();
             }
         }
         m("Clear cache using " + (System.currentTimeMillis() - currentTimeMillis) + "ms: ");
@@ -230,10 +230,10 @@ public class d extends LruCache<String, d.a.d0.a.c.c<File>> {
         if (z && cVar != null) {
             h(cVar);
         }
-        if (!z || this.f40543a.isEmpty()) {
+        if (!z || this.f39788a.isEmpty()) {
             return;
         }
-        for (e eVar : this.f40543a) {
+        for (e eVar : this.f39788a) {
             eVar.a(str, cVar);
         }
     }
@@ -253,7 +253,7 @@ public class d extends LruCache<String, d.a.d0.a.c.c<File>> {
     }
 
     public String k() {
-        return this.f40544b;
+        return this.f39789b;
     }
 
     public long l() {
@@ -264,36 +264,36 @@ public class d extends LruCache<String, d.a.d0.a.c.c<File>> {
     }
 
     public final synchronized void n() {
-        this.f40547e = true;
-        if (this.f40545c != null) {
-            for (d.a.d0.a.c.c<File> cVar : this.f40545c.keySet()) {
-                v(cVar, this.f40545c.get(cVar));
+        this.f39792e = true;
+        if (this.f39790c != null) {
+            for (d.a.d0.a.c.c<File> cVar : this.f39790c.keySet()) {
+                v(cVar, this.f39790c.get(cVar));
             }
-            this.f40545c.clear();
-            this.f40545c = null;
+            this.f39790c.clear();
+            this.f39790c = null;
         }
     }
 
     public final void p(String str, File file) {
         if (file.exists()) {
             super.put(str, new d.a.d0.a.c.c(file));
-            this.f40548f++;
+            this.f39793f++;
         }
     }
 
     public void q(e eVar) {
-        if (this.f40543a.contains(eVar)) {
-            this.f40543a.remove(eVar);
+        if (this.f39788a.contains(eVar)) {
+            this.f39788a.remove(eVar);
         }
     }
 
     public final void r(File[] fileArr, long j) {
         if (fileArr != null && fileArr.length > 0) {
-            PriorityQueue priorityQueue = new PriorityQueue(11, new C0534d(this));
+            PriorityQueue priorityQueue = new PriorityQueue(11, new C0521d(this));
             if (priorityQueue.size() > 0) {
-                this.f40546d = ((File) priorityQueue.peek()).lastModified();
+                this.f39791d = ((File) priorityQueue.peek()).lastModified();
             } else {
-                this.f40546d = System.currentTimeMillis();
+                this.f39791d = System.currentTimeMillis();
             }
             priorityQueue.addAll(Arrays.asList(fileArr));
             while (!priorityQueue.isEmpty()) {
@@ -317,7 +317,7 @@ public class d extends LruCache<String, d.a.d0.a.c.c<File>> {
 
     public String t() {
         int hitCount = hitCount() + missCount();
-        return String.format(Locale.CHINA, "LruDiskCache[count=%d,size=%d/%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.f40548f), Integer.valueOf(size()), Integer.valueOf(maxSize()), Integer.valueOf(hitCount()), Integer.valueOf(missCount()), Integer.valueOf(hitCount != 0 ? (hitCount() * 100) / hitCount : 0));
+        return String.format(Locale.CHINA, "LruDiskCache[count=%d,size=%d/%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.f39793f), Integer.valueOf(size()), Integer.valueOf(maxSize()), Integer.valueOf(hitCount()), Integer.valueOf(missCount()), Integer.valueOf(hitCount != 0 ? (hitCount() * 100) / hitCount : 0));
     }
 
     @Override // android.util.LruCache
@@ -327,10 +327,10 @@ public class d extends LruCache<String, d.a.d0.a.c.c<File>> {
 
     public void u(byte[] bArr, d.a.d0.a.c.c<File> cVar) {
         if (cVar != null) {
-            if (this.f40547e) {
+            if (this.f39792e) {
                 v(cVar, bArr);
             } else {
-                this.f40545c.put(cVar, bArr);
+                this.f39790c.put(cVar, bArr);
             }
         }
     }

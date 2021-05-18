@@ -13,13 +13,13 @@ import javax.net.ssl.X509TrustManager;
 public class b implements X509TrustManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public final X509TrustManager f3581a = d.a();
+    public final X509TrustManager f3582a = d.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<c> f3582b;
+    public final Set<c> f3583b;
 
     public b(@NonNull Set<c> set) {
-        this.f3582b = set;
+        this.f3583b = set;
     }
 
     public static boolean a(List<X509Certificate> list, Set<c> set) {
@@ -33,19 +33,19 @@ public class b implements X509TrustManager {
 
     @Override // javax.net.ssl.X509TrustManager
     public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-        this.f3581a.checkClientTrusted(x509CertificateArr, str);
+        this.f3582a.checkClientTrusted(x509CertificateArr, str);
     }
 
     @Override // javax.net.ssl.X509TrustManager
     public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-        this.f3581a.checkServerTrusted(x509CertificateArr, str);
-        if (this.f3582b.isEmpty() || a(Arrays.asList(x509CertificateArr), this.f3582b)) {
+        this.f3582a.checkServerTrusted(x509CertificateArr, str);
+        if (this.f3583b.isEmpty() || a(Arrays.asList(x509CertificateArr), this.f3583b)) {
             return;
         }
         StringBuilder sb = new StringBuilder();
         sb.append("Pin verification failed");
         sb.append("\n  Configured pins: ");
-        for (c cVar : this.f3582b) {
+        for (c cVar : this.f3583b) {
             sb.append(cVar);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
         }
@@ -61,6 +61,6 @@ public class b implements X509TrustManager {
 
     @Override // javax.net.ssl.X509TrustManager
     public X509Certificate[] getAcceptedIssuers() {
-        return this.f3581a.getAcceptedIssuers();
+        return this.f3582a.getAcceptedIssuers();
     }
 }

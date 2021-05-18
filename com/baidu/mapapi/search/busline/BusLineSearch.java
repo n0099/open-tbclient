@@ -8,10 +8,10 @@ import com.baidu.platform.core.busline.c;
 public class BusLineSearch extends l {
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7428b = false;
+    public boolean f7245b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public IBusLineSearch f7427a = new c();
+    public IBusLineSearch f7244a = new c();
 
     public static BusLineSearch newInstance() {
         BMapManager.init();
@@ -19,32 +19,32 @@ public class BusLineSearch extends l {
     }
 
     public void destroy() {
-        if (this.f7428b) {
+        if (this.f7245b) {
             return;
         }
-        this.f7428b = true;
-        this.f7427a.a();
+        this.f7245b = true;
+        this.f7244a.a();
         BMapManager.destroy();
     }
 
     public boolean searchBusLine(BusLineSearchOption busLineSearchOption) {
-        IBusLineSearch iBusLineSearch = this.f7427a;
+        IBusLineSearch iBusLineSearch = this.f7244a;
         if (iBusLineSearch != null) {
             if (busLineSearchOption == null || busLineSearchOption.mCity == null || busLineSearchOption.mUid == null) {
-                throw new IllegalArgumentException("option or city or uid can not be null");
+                throw new IllegalArgumentException("BDMapSDKException: option or city or uid can not be null");
             }
             return iBusLineSearch.a(busLineSearchOption);
         }
-        throw new IllegalStateException("searcher is null, please call newInstance first.");
+        throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
     }
 
     public void setOnGetBusLineSearchResultListener(OnGetBusLineSearchResultListener onGetBusLineSearchResultListener) {
-        IBusLineSearch iBusLineSearch = this.f7427a;
+        IBusLineSearch iBusLineSearch = this.f7244a;
         if (iBusLineSearch == null) {
-            throw new IllegalStateException("searcher is null, please call newInstance first.");
+            throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
         }
         if (onGetBusLineSearchResultListener == null) {
-            throw new IllegalArgumentException("listener can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: listener can not be null");
         }
         iBusLineSearch.a(onGetBusLineSearchResultListener);
     }

@@ -8,7 +8,7 @@ import d.o.a.e.b.f.u;
 import io.reactivex.annotations.SchedulerSupport;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static a a(Context context, String str, JSONObject jSONObject, DownloadInfo downloadInfo) {
         if (downloadInfo == null || context == null || jSONObject == null) {

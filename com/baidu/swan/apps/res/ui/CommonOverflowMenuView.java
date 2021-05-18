@@ -10,32 +10,33 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import d.a.h0.a.c;
-import d.a.h0.a.e;
-import d.a.h0.a.f;
-import d.a.h0.a.g;
-import d.a.h0.a.q1.b.e.b;
+import d.a.i0.a.c;
+import d.a.i0.a.e;
+import d.a.i0.a.f;
+import d.a.i0.a.g;
+import d.a.i0.a.z1.b.e.a;
+import d.a.i0.a.z1.b.e.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class CommonOverflowMenuView extends LinearLayout {
+public class CommonOverflowMenuView extends LinearLayout implements a.g {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11962e;
+    public int f11179e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11963f;
+    public int f11180f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ColorStateList f11964g;
+    public ColorStateList f11181g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<ImageView> f11965h;
+    public List<ImageView> f11182h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<TextView> f11966i;
+    public List<TextView> f11183i;
     public HashMap<b, ImageView> j;
     public View k;
     public LinearLayout l;
@@ -43,17 +44,17 @@ public class CommonOverflowMenuView extends LinearLayout {
     public Object n;
 
     /* loaded from: classes3.dex */
-    public class a implements d.a.h0.a.x1.a {
+    public class a implements d.a.i0.a.g2.a {
         public a() {
         }
     }
 
     public CommonOverflowMenuView(Context context) {
         super(context);
-        this.f11962e = e.aiapps_discovery_home_menu_item_selector;
-        this.f11963f = c.aiapps_home_menu_separator_color;
-        this.f11965h = new ArrayList();
-        this.f11966i = new ArrayList();
+        this.f11179e = e.aiapps_discovery_home_menu_item_selector;
+        this.f11180f = c.aiapps_home_menu_separator_color;
+        this.f11182h = new ArrayList();
+        this.f11183i = new ArrayList();
         this.j = new HashMap<>();
         new SparseArray();
         this.n = new Object();
@@ -71,21 +72,21 @@ public class CommonOverflowMenuView extends LinearLayout {
     }
 
     public final void b() {
-        this.f11964g = getResources().getColorStateList(c.aiapps_discovery_home_menu_text_color);
+        this.f11181g = getResources().getColorStateList(c.aiapps_discovery_home_menu_text_color);
         setBackground(getResources().getDrawable(e.aiapps_discovery_feedback_menu_bg));
-        for (ImageView imageView : this.f11965h) {
-            imageView.setBackgroundColor(getResources().getColor(this.f11963f));
+        for (ImageView imageView : this.f11182h) {
+            imageView.setBackgroundColor(getResources().getColor(this.f11180f));
         }
-        for (TextView textView : this.f11966i) {
-            textView.setTextColor(this.f11964g);
+        for (TextView textView : this.f11183i) {
+            textView.setTextColor(this.f11181g);
         }
         for (Map.Entry<b, ImageView> entry : this.j.entrySet()) {
-            entry.getValue().setImageDrawable(entry.getKey().a());
+            entry.getValue().setImageDrawable(entry.getKey().b());
         }
     }
 
     public int getItemBgRes() {
-        return this.f11962e;
+        return this.f11179e;
     }
 
     public LinearLayout getLinearContent() {
@@ -93,32 +94,32 @@ public class CommonOverflowMenuView extends LinearLayout {
     }
 
     public ColorStateList getTextColor() {
-        return this.f11964g;
+        return this.f11181g;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        d.a.h0.a.w0.a.z().f(this.n, new a());
+        d.a.i0.a.c1.a.H().f(this.n, new a());
         b();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        d.a.h0.a.w0.a.z().g(this.n);
+        d.a.i0.a.c1.a.H().g(this.n);
     }
 
     public void setItemBackground(int i2) {
-        this.f11962e = i2;
+        this.f11179e = i2;
     }
 
     public void setItemDivider(int i2, int i3) {
-        this.f11963f = i2;
+        this.f11180f = i2;
     }
 
     public void setItemTextColor(int i2) {
-        this.f11964g = getResources().getColorStateList(i2);
+        this.f11181g = getResources().getColorStateList(i2);
     }
 
     public void setMaxHeightPixel(int i2) {
@@ -131,10 +132,10 @@ public class CommonOverflowMenuView extends LinearLayout {
 
     public CommonOverflowMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11962e = e.aiapps_discovery_home_menu_item_selector;
-        this.f11963f = c.aiapps_home_menu_separator_color;
-        this.f11965h = new ArrayList();
-        this.f11966i = new ArrayList();
+        this.f11179e = e.aiapps_discovery_home_menu_item_selector;
+        this.f11180f = c.aiapps_home_menu_separator_color;
+        this.f11182h = new ArrayList();
+        this.f11183i = new ArrayList();
         this.j = new HashMap<>();
         new SparseArray();
         this.n = new Object();

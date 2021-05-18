@@ -16,21 +16,21 @@ public abstract class h extends MessageSnapshot {
     public static class b extends h {
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f35177b;
+        public final boolean f34422b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f35178c;
+        public final int f34423c;
 
         public b(int i2, boolean z, int i3) {
             super(i2);
-            this.f35177b = z;
-            this.f35178c = i3;
+            this.f34422b = z;
+            this.f34423c = i3;
         }
 
         public b(Parcel parcel) {
             super(parcel);
-            this.f35177b = parcel.readByte() != 0;
-            this.f35178c = parcel.readInt();
+            this.f34422b = parcel.readByte() != 0;
+            this.f34423c = parcel.readInt();
         }
 
         @Override // com.kwai.filedownloader.message.c
@@ -40,7 +40,7 @@ public abstract class h extends MessageSnapshot {
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public int c() {
-            return this.f35178c;
+            return this.f34423c;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -50,14 +50,14 @@ public abstract class h extends MessageSnapshot {
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public boolean e() {
-            return this.f35177b;
+            return this.f34422b;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
             super.writeToParcel(parcel, i2);
-            parcel.writeByte(this.f35177b ? (byte) 1 : (byte) 0);
-            parcel.writeInt(this.f35178c);
+            parcel.writeByte(this.f34422b ? (byte) 1 : (byte) 0);
+            parcel.writeInt(this.f34423c);
         }
     }
 
@@ -65,31 +65,31 @@ public abstract class h extends MessageSnapshot {
     public static class c extends h {
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f35179b;
+        public final boolean f34424b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f35180c;
+        public final int f34425c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f35181d;
+        public final String f34426d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f35182e;
+        public final String f34427e;
 
         public c(int i2, boolean z, int i3, String str, String str2) {
             super(i2);
-            this.f35179b = z;
-            this.f35180c = i3;
-            this.f35181d = str;
-            this.f35182e = str2;
+            this.f34424b = z;
+            this.f34425c = i3;
+            this.f34426d = str;
+            this.f34427e = str2;
         }
 
         public c(Parcel parcel) {
             super(parcel);
-            this.f35179b = parcel.readByte() != 0;
-            this.f35180c = parcel.readInt();
-            this.f35181d = parcel.readString();
-            this.f35182e = parcel.readString();
+            this.f34424b = parcel.readByte() != 0;
+            this.f34425c = parcel.readInt();
+            this.f34426d = parcel.readString();
+            this.f34427e = parcel.readString();
         }
 
         @Override // com.kwai.filedownloader.message.c
@@ -99,7 +99,7 @@ public abstract class h extends MessageSnapshot {
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public int c() {
-            return this.f35180c;
+            return this.f34425c;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -109,26 +109,26 @@ public abstract class h extends MessageSnapshot {
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public String f() {
-            return this.f35182e;
+            return this.f34427e;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public boolean g() {
-            return this.f35179b;
+            return this.f34424b;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public String h() {
-            return this.f35181d;
+            return this.f34426d;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
             super.writeToParcel(parcel, i2);
-            parcel.writeByte(this.f35179b ? (byte) 1 : (byte) 0);
-            parcel.writeInt(this.f35180c);
-            parcel.writeString(this.f35181d);
-            parcel.writeString(this.f35182e);
+            parcel.writeByte(this.f34424b ? (byte) 1 : (byte) 0);
+            parcel.writeInt(this.f34425c);
+            parcel.writeString(this.f34426d);
+            parcel.writeString(this.f34427e);
         }
     }
 
@@ -136,26 +136,26 @@ public abstract class h extends MessageSnapshot {
     public static class d extends h {
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f35183b;
+        public final int f34428b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Throwable f35184c;
+        public final Throwable f34429c;
 
         public d(int i2, int i3, Throwable th) {
             super(i2);
-            this.f35183b = i3;
-            this.f35184c = th;
+            this.f34428b = i3;
+            this.f34429c = th;
         }
 
         public d(Parcel parcel) {
             super(parcel);
-            this.f35183b = parcel.readInt();
-            this.f35184c = (Throwable) parcel.readSerializable();
+            this.f34428b = parcel.readInt();
+            this.f34429c = (Throwable) parcel.readSerializable();
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public int a() {
-            return this.f35183b;
+            return this.f34428b;
         }
 
         @Override // com.kwai.filedownloader.message.c
@@ -170,14 +170,14 @@ public abstract class h extends MessageSnapshot {
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public Throwable j() {
-            return this.f35184c;
+            return this.f34429c;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
             super.writeToParcel(parcel, i2);
-            parcel.writeInt(this.f35183b);
-            parcel.writeSerializable(this.f35184c);
+            parcel.writeInt(this.f34428b);
+            parcel.writeSerializable(this.f34429c);
         }
     }
 
@@ -197,21 +197,21 @@ public abstract class h extends MessageSnapshot {
     public static class f extends h {
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f35185b;
+        public final int f34430b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f35186c;
+        public final int f34431c;
 
         public f(int i2, int i3, int i4) {
             super(i2);
-            this.f35185b = i3;
-            this.f35186c = i4;
+            this.f34430b = i3;
+            this.f34431c = i4;
         }
 
         public f(Parcel parcel) {
             super(parcel);
-            this.f35185b = parcel.readInt();
-            this.f35186c = parcel.readInt();
+            this.f34430b = parcel.readInt();
+            this.f34431c = parcel.readInt();
         }
 
         public f(f fVar) {
@@ -220,7 +220,7 @@ public abstract class h extends MessageSnapshot {
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public int a() {
-            return this.f35185b;
+            return this.f34430b;
         }
 
         public byte b() {
@@ -229,14 +229,14 @@ public abstract class h extends MessageSnapshot {
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public int c() {
-            return this.f35186c;
+            return this.f34431c;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
             super.writeToParcel(parcel, i2);
-            parcel.writeInt(this.f35185b);
-            parcel.writeInt(this.f35186c);
+            parcel.writeInt(this.f34430b);
+            parcel.writeInt(this.f34431c);
         }
     }
 
@@ -244,21 +244,21 @@ public abstract class h extends MessageSnapshot {
     public static class g extends h {
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f35187b;
+        public final int f34432b;
 
         public g(int i2, int i3) {
             super(i2);
-            this.f35187b = i3;
+            this.f34432b = i3;
         }
 
         public g(Parcel parcel) {
             super(parcel);
-            this.f35187b = parcel.readInt();
+            this.f34432b = parcel.readInt();
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public int a() {
-            return this.f35187b;
+            return this.f34432b;
         }
 
         @Override // com.kwai.filedownloader.message.c
@@ -274,25 +274,25 @@ public abstract class h extends MessageSnapshot {
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
             super.writeToParcel(parcel, i2);
-            parcel.writeInt(this.f35187b);
+            parcel.writeInt(this.f34432b);
         }
     }
 
     /* renamed from: com.kwai.filedownloader.message.h$h  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0411h extends d {
+    public static class C0398h extends d {
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f35188b;
+        public final int f34433b;
 
-        public C0411h(int i2, int i3, Throwable th, int i4) {
+        public C0398h(int i2, int i3, Throwable th, int i4) {
             super(i2, i3, th);
-            this.f35188b = i4;
+            this.f34433b = i4;
         }
 
-        public C0411h(Parcel parcel) {
+        public C0398h(Parcel parcel) {
             super(parcel);
-            this.f35188b = parcel.readInt();
+            this.f34433b = parcel.readInt();
         }
 
         @Override // com.kwai.filedownloader.message.h.d, com.kwai.filedownloader.message.c
@@ -307,13 +307,13 @@ public abstract class h extends MessageSnapshot {
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public int k() {
-            return this.f35188b;
+            return this.f34433b;
         }
 
         @Override // com.kwai.filedownloader.message.h.d, com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
             super.writeToParcel(parcel, i2);
-            parcel.writeInt(this.f35188b);
+            parcel.writeInt(this.f34433b);
         }
     }
 
@@ -347,7 +347,7 @@ public abstract class h extends MessageSnapshot {
 
     public h(int i2) {
         super(i2);
-        this.f35152a = false;
+        this.f34397a = false;
     }
 
     public h(Parcel parcel) {

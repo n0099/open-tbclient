@@ -13,40 +13,40 @@ import com.baidu.wallet.core.utils.WalletGlobalUtils;
 public class LoadingDialog extends Dialog {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f24272c = "LoadingDialog";
+    public static final String f23517c = "LoadingDialog";
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f24273a;
+    public TextView f23518a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24274b;
+    public String f23519b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f24275d;
+    public Context f23520d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f24276e;
+    public ImageView f23521e;
 
     public LoadingDialog(Context context) {
         super(context, ResUtils.style(context, "EbpayPromptDialog"));
-        this.f24275d = null;
-        this.f24275d = context;
+        this.f23520d = null;
+        this.f23520d = context;
     }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         requestWindowFeature(1);
-        setContentView(ResUtils.layout(this.f24275d, "wallet_base_layout_loading"));
-        this.f24273a = (TextView) findViewById(ResUtils.id(this.f24275d, "dialog_msg"));
-        if (!TextUtils.isEmpty(this.f24274b)) {
-            this.f24273a.setText(this.f24274b);
+        setContentView(ResUtils.layout(this.f23520d, "wallet_base_layout_loading"));
+        this.f23518a = (TextView) findViewById(ResUtils.id(this.f23520d, "dialog_msg"));
+        if (!TextUtils.isEmpty(this.f23519b)) {
+            this.f23518a.setText(this.f23519b);
         }
         if (!TextUtils.isEmpty(WalletGlobalUtils.showStr)) {
-            this.f24273a.setText(WalletGlobalUtils.showStr);
+            this.f23518a.setText(WalletGlobalUtils.showStr);
         }
-        ImageView imageView = (ImageView) findViewById(ResUtils.id(this.f24275d, "img_anim"));
-        this.f24276e = imageView;
+        ImageView imageView = (ImageView) findViewById(ResUtils.id(this.f23520d, "img_anim"));
+        this.f23521e = imageView;
         AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getDrawable();
         animationDrawable.stop();
         animationDrawable.start();
@@ -55,7 +55,7 @@ public class LoadingDialog extends Dialog {
     }
 
     public void setMessage(int i2) {
-        TextView textView = this.f24273a;
+        TextView textView = this.f23518a;
         if (textView == null) {
             return;
         }
@@ -63,7 +63,7 @@ public class LoadingDialog extends Dialog {
     }
 
     public void setMessage(String str) {
-        TextView textView = this.f24273a;
+        TextView textView = this.f23518a;
         if (textView == null) {
             return;
         }
@@ -72,13 +72,13 @@ public class LoadingDialog extends Dialog {
 
     public LoadingDialog(Context context, String str) {
         super(context, ResUtils.style(context, "EbpayPromptDialog"));
-        this.f24275d = null;
-        this.f24274b = str;
-        this.f24275d = context;
+        this.f23520d = null;
+        this.f23519b = str;
+        this.f23520d = context;
     }
 
     public LoadingDialog(Context context, int i2) {
         super(context, i2);
-        this.f24275d = null;
+        this.f23520d = null;
     }
 }

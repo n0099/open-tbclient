@@ -9,38 +9,38 @@ import org.json.JSONObject;
 public class t implements d.r.b.a.a.j.d.f.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67346a;
+    public String f68032a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67347b;
+    public long f68033b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67348c;
+    public int f68034c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67349d;
+    public int f68035d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f67350e;
+    public boolean f68036e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67351f;
+    public int f68037f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f67352g;
+    public int f68038g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f67353h;
+    public boolean f68039h;
 
     public t(String str, long j, int i2, String str2, int i3, boolean z, int i4, int i5, boolean z2) {
-        this.f67346a = str;
-        this.f67347b = j;
-        this.f67348c = i2;
-        this.f67349d = i3;
-        this.f67350e = z;
-        this.f67351f = i4;
-        this.f67352g = i5;
-        this.f67353h = z2;
+        this.f68032a = str;
+        this.f68033b = j;
+        this.f68034c = i2;
+        this.f68035d = i3;
+        this.f68036e = z;
+        this.f68037f = i4;
+        this.f68038g = i5;
+        this.f68039h = z2;
     }
 
     @Override // d.r.b.a.a.j.d.f.b
@@ -48,14 +48,14 @@ public class t implements d.r.b.a.a.j.d.f.b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("cmd", SDKLogTypeConstants.TYPE_AD_CLICK_LP);
-            jSONObject.put(IAdRequestParam.SEQ, this.f67346a);
-            jSONObject.put("uid", this.f67347b);
-            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f67348c);
-            jSONObject.put("goodsType", this.f67349d);
-            jSONObject.put("hasUsed", this.f67350e);
-            jSONObject.put("page", this.f67351f);
-            jSONObject.put("pageSize", this.f67352g);
-            jSONObject.put("includeExpire", this.f67353h);
+            jSONObject.put(IAdRequestParam.SEQ, this.f68032a);
+            jSONObject.put("uid", this.f68033b);
+            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f68034c);
+            jSONObject.put("goodsType", this.f68035d);
+            jSONObject.put("hasUsed", this.f68036e);
+            jSONObject.put("page", this.f68037f);
+            jSONObject.put("pageSize", this.f68038g);
+            jSONObject.put("includeExpire", this.f68039h);
             return jSONObject.toString();
         } catch (JSONException e2) {
             d.r.b.a.a.f.d.d.d("GetUserCouponStoreRequest", "constructPSCIMessageRequest error.", e2);

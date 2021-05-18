@@ -7,30 +7,30 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30892b;
+    public String f30137b;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30894d;
+    public String f30139d;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a> f30891a = new HashMap();
+    public final Map<String, a> f30136a = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f30893c = new AtomicBoolean(false);
+    public AtomicBoolean f30138c = new AtomicBoolean(false);
 
     public b(Context context, String str, File file) {
         if (!TextUtils.isEmpty(str)) {
-            this.f30892b = str;
+            this.f30137b = str;
             if (file == null) {
                 File filesDir = context.getFilesDir();
-                this.f30894d = new File(filesDir, "gecko_offline_res_x" + File.separator + str).getAbsolutePath();
+                this.f30139d = new File(filesDir, "gecko_offline_res_x" + File.separator + str).getAbsolutePath();
                 return;
             }
-            this.f30894d = new File(file, str).getAbsolutePath();
+            this.f30139d = new File(file, str).getAbsolutePath();
             return;
         }
         throw new RuntimeException("access key empty");
@@ -43,18 +43,18 @@ public class b {
             new RuntimeException("缺少channel：" + str);
         }
         String substring = str.substring(0, indexOf);
-        synchronized (this.f30891a) {
-            aVar = this.f30891a.get(substring);
+        synchronized (this.f30136a) {
+            aVar = this.f30136a.get(substring);
             if (aVar == null) {
-                aVar = new a(this.f30892b, this.f30894d, substring);
-                this.f30891a.put(substring, aVar);
+                aVar = new a(this.f30137b, this.f30139d, substring);
+                this.f30136a.put(substring, aVar);
             }
         }
         return aVar;
     }
 
     public InputStream a(String str) throws Exception {
-        if (!this.f30893c.get()) {
+        if (!this.f30138c.get()) {
             if (!TextUtils.isEmpty(str)) {
                 return c(str.trim()).a(str);
             }
@@ -64,7 +64,7 @@ public class b {
     }
 
     public boolean b(String str) throws Exception {
-        if (!this.f30893c.get()) {
+        if (!this.f30138c.get()) {
             if (!TextUtils.isEmpty(str)) {
                 return c(str.trim()).b(str);
             }
@@ -74,16 +74,16 @@ public class b {
     }
 
     private void b() throws Exception {
-        synchronized (this.f30891a) {
-            for (a aVar : this.f30891a.values()) {
+        synchronized (this.f30136a) {
+            for (a aVar : this.f30136a.values()) {
                 aVar.a();
             }
-            this.f30891a.clear();
+            this.f30136a.clear();
         }
     }
 
     public void a() throws Exception {
-        if (this.f30893c.getAndSet(true)) {
+        if (this.f30138c.getAndSet(true)) {
             return;
         }
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("Loader", "release version res loader");

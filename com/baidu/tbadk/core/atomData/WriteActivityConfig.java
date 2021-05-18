@@ -23,9 +23,9 @@ import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
 import d.a.c.e.p.l;
-import d.a.j0.d3.q0.a;
-import d.a.j0.d3.q0.b;
-import d.a.j0.d3.q0.c;
+import d.a.k0.d3.q0.a;
+import d.a.k0.d3.q0.b;
+import d.a.k0.d3.q0.c;
 /* loaded from: classes3.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
@@ -88,7 +88,7 @@ public class WriteActivityConfig extends IntentConfig {
     }
 
     public void send() {
-        c.f53297g = new Intent(getIntent());
+        c.f54004g = new Intent(getIntent());
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
     }
 

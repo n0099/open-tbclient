@@ -5,28 +5,28 @@ import org.json.JSONObject;
 public class e extends h {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67012b;
+    public String f67698b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f67013c;
+    public long f67699c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67014d;
+    public int f67700d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f67015e;
+    public int f67701e;
 
     /* renamed from: f  reason: collision with root package name */
-    public JSONObject f67016f;
+    public JSONObject f67702f;
 
     public e(String str) {
-        this.f67012b = str;
+        this.f67698b = str;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f67016f = jSONObject;
-            this.f67013c = jSONObject.optLong("uri", 0L);
-            this.f67014d = this.f67016f.optInt("appid", -1);
-            this.f67015e = this.f67016f.optInt("usedChannel", 0);
+            this.f67702f = jSONObject;
+            this.f67699c = jSONObject.optLong("uri", 0L);
+            this.f67700d = this.f67702f.optInt("appid", -1);
+            this.f67701e = this.f67702f.optInt("usedChannel", 0);
         } catch (Exception e2) {
             d.r.b.a.a.f.d.d.d("PSCIMessageUnicast", "popPacketData error.", e2);
         }
@@ -35,34 +35,34 @@ public class e extends h {
     @Override // d.r.b.a.a.f.e.h
     public void k() {
         try {
-            this.f67012b = g();
-            JSONObject jSONObject = new JSONObject(this.f67012b);
-            this.f67016f = jSONObject;
-            this.f67013c = jSONObject.optLong("uri", 0L);
-            this.f67014d = this.f67016f.optInt("appid", -1);
-            this.f67015e = this.f67016f.optInt("usedChannel", 0);
+            this.f67698b = g();
+            JSONObject jSONObject = new JSONObject(this.f67698b);
+            this.f67702f = jSONObject;
+            this.f67699c = jSONObject.optLong("uri", 0L);
+            this.f67700d = this.f67702f.optInt("appid", -1);
+            this.f67701e = this.f67702f.optInt("usedChannel", 0);
         } catch (Exception e2) {
             d.r.b.a.a.f.d.d.d("PSCIMessageUnicast", "popPacketData error.", e2);
         }
     }
 
     public int l() {
-        return this.f67014d;
+        return this.f67700d;
     }
 
     public String m() {
-        return this.f67012b;
+        return this.f67698b;
     }
 
     public long n() {
-        return this.f67013c;
+        return this.f67699c;
     }
 
     public void o(long j) {
-        this.f67013c = j;
+        this.f67699c = j;
     }
 
     public String toString() {
-        return "PSCIMessageUnicast{uri=" + this.f67013c + ", appId=" + this.f67014d + ", channelId=" + this.f67015e + '}';
+        return "PSCIMessageUnicast{uri=" + this.f67699c + ", appId=" + this.f67700d + ", channelId=" + this.f67701e + '}';
     }
 }

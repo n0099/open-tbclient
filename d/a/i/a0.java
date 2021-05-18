@@ -27,18 +27,18 @@ public class a0 extends h {
         this.l.b();
     }
 
-    public final boolean s(d.a.i0.r.q.a aVar) {
-        return (aVar == null || aVar.m() == null || !aVar.m().z2() || aVar.m().u1() == null) ? false : true;
+    public final boolean s(d.a.j0.r.q.a aVar) {
+        return (aVar == null || aVar.m() == null || !aVar.m().B2() || aVar.m().v1() == null) ? false : true;
     }
 
-    public final boolean t(d.a.i0.r.q.a aVar) {
+    public final boolean t(d.a.j0.r.q.a aVar) {
         return (aVar == null || aVar.m() == null || aVar.m().O0() == null || aVar.m().O0().getOptions() == null || aVar.m().O0().getOptions().size() <= 0) ? false : true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: u */
-    public void a(d.a.i0.r.q.a aVar) {
+    public void a(d.a.j0.r.q.a aVar) {
         if (!t(aVar) && !s(aVar) && aVar != null && aVar.m() != null && ((!ListUtils.isEmpty(aVar.m().G0()) || ListUtils.getCount(aVar.m().l0()) > 1) && ((!ListUtils.isEmpty(aVar.m().l0()) || ListUtils.getCount(aVar.m().G0()) > 1) && ListUtils.getCount(aVar.m().G0()) + ListUtils.getCount(aVar.m().l0()) > 1))) {
             this.l.a(aVar.m().G0(), aVar.m().l0());
             this.l.setVisibility(0);

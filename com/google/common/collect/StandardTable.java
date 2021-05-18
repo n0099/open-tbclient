@@ -27,43 +27,43 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
     public class b implements Iterator<y0.a<R, C, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Iterator<Map.Entry<R, Map<C, V>>> f32075e;
+        public final Iterator<Map.Entry<R, Map<C, V>>> f31320e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Map.Entry<R, Map<C, V>> f32076f;
+        public Map.Entry<R, Map<C, V>> f31321f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Iterator<Map.Entry<C, V>> f32077g;
+        public Iterator<Map.Entry<C, V>> f31322g;
 
         public b() {
-            this.f32075e = StandardTable.this.backingMap.entrySet().iterator();
-            this.f32077g = Iterators.j();
+            this.f31320e = StandardTable.this.backingMap.entrySet().iterator();
+            this.f31322g = Iterators.j();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         /* renamed from: a */
         public y0.a<R, C, V> next() {
-            if (!this.f32077g.hasNext()) {
-                Map.Entry<R, Map<C, V>> next = this.f32075e.next();
-                this.f32076f = next;
-                this.f32077g = next.getValue().entrySet().iterator();
+            if (!this.f31322g.hasNext()) {
+                Map.Entry<R, Map<C, V>> next = this.f31320e.next();
+                this.f31321f = next;
+                this.f31322g = next.getValue().entrySet().iterator();
             }
-            Map.Entry<C, V> next2 = this.f32077g.next();
-            return Tables.c(this.f32076f.getKey(), next2.getKey(), next2.getValue());
+            Map.Entry<C, V> next2 = this.f31322g.next();
+            return Tables.c(this.f31321f.getKey(), next2.getKey(), next2.getValue());
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f32075e.hasNext() || this.f32077g.hasNext();
+            return this.f31320e.hasNext() || this.f31322g.hasNext();
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            this.f32077g.remove();
-            if (this.f32076f.getValue().isEmpty()) {
-                this.f32075e.remove();
-                this.f32076f = null;
+            this.f31322g.remove();
+            if (this.f31321f.getValue().isEmpty()) {
+                this.f31320e.remove();
+                this.f31321f = null;
             }
         }
     }
@@ -72,7 +72,7 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
     public class c extends Maps.u<R, V> {
 
         /* renamed from: h  reason: collision with root package name */
-        public final C f32079h;
+        public final C f31324h;
 
         /* loaded from: classes6.dex */
         public class a extends Sets.a<Map.Entry<R, V>> {
@@ -88,7 +88,7 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
             public boolean contains(Object obj) {
                 if (obj instanceof Map.Entry) {
                     Map.Entry entry = (Map.Entry) obj;
-                    return StandardTable.this.containsMapping(entry.getKey(), c.this.f32079h, entry.getValue());
+                    return StandardTable.this.containsMapping(entry.getKey(), c.this.f31324h, entry.getValue());
                 }
                 return false;
             }
@@ -96,7 +96,7 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean isEmpty() {
                 c cVar = c.this;
-                return !StandardTable.this.containsColumn(cVar.f32079h);
+                return !StandardTable.this.containsColumn(cVar.f31324h);
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
@@ -108,7 +108,7 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
             public boolean remove(Object obj) {
                 if (obj instanceof Map.Entry) {
                     Map.Entry entry = (Map.Entry) obj;
-                    return StandardTable.this.removeMapping(entry.getKey(), c.this.f32079h, entry.getValue());
+                    return StandardTable.this.removeMapping(entry.getKey(), c.this.f31324h, entry.getValue());
                 }
                 return false;
             }
@@ -122,7 +122,7 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
             public int size() {
                 int i2 = 0;
                 for (Map<C, V> map : StandardTable.this.backingMap.values()) {
-                    if (map.containsKey(c.this.f32079h)) {
+                    if (map.containsKey(c.this.f31324h)) {
                         i2++;
                     }
                 }
@@ -134,48 +134,48 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
         public class b extends AbstractIterator<Map.Entry<R, V>> {
 
             /* renamed from: g  reason: collision with root package name */
-            public final Iterator<Map.Entry<R, Map<C, V>>> f32082g;
+            public final Iterator<Map.Entry<R, Map<C, V>>> f31327g;
 
             /* loaded from: classes6.dex */
             public class a extends d.g.c.c.b<R, V> {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map.Entry f32084e;
+                public final /* synthetic */ Map.Entry f31329e;
 
                 /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 public a(Map.Entry entry) {
-                    this.f32084e = entry;
+                    this.f31329e = entry;
                 }
 
                 @Override // d.g.c.c.b, java.util.Map.Entry
                 public R getKey() {
-                    return (R) this.f32084e.getKey();
+                    return (R) this.f31329e.getKey();
                 }
 
                 @Override // d.g.c.c.b, java.util.Map.Entry
                 public V getValue() {
-                    return (V) ((Map) this.f32084e.getValue()).get(c.this.f32079h);
+                    return (V) ((Map) this.f31329e.getValue()).get(c.this.f31324h);
                 }
 
                 @Override // d.g.c.c.b, java.util.Map.Entry
                 public V setValue(V v) {
-                    C c2 = c.this.f32079h;
+                    C c2 = c.this.f31324h;
                     n.p(v);
-                    return (V) ((Map) this.f32084e.getValue()).put(c2, v);
+                    return (V) ((Map) this.f31329e.getValue()).put(c2, v);
                 }
             }
 
             public b() {
-                this.f32082g = StandardTable.this.backingMap.entrySet().iterator();
+                this.f31327g = StandardTable.this.backingMap.entrySet().iterator();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.AbstractIterator
             /* renamed from: d */
             public Map.Entry<R, V> a() {
-                while (this.f32082g.hasNext()) {
-                    Map.Entry<R, Map<C, V>> next = this.f32082g.next();
-                    if (next.getValue().containsKey(c.this.f32079h)) {
+                while (this.f31327g.hasNext()) {
+                    Map.Entry<R, Map<C, V>> next = this.f31327g.next();
+                    if (next.getValue().containsKey(c.this.f31324h)) {
                         return new a(next);
                     }
                 }
@@ -185,21 +185,21 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
 
         /* renamed from: com.google.common.collect.StandardTable$c$c  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0354c extends Maps.m<R, V> {
-            public C0354c() {
+        public class C0341c extends Maps.m<R, V> {
+            public C0341c() {
                 super(c.this);
             }
 
             @Override // com.google.common.collect.Maps.m, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean contains(Object obj) {
                 c cVar = c.this;
-                return StandardTable.this.contains(obj, cVar.f32079h);
+                return StandardTable.this.contains(obj, cVar.f31324h);
             }
 
             @Override // com.google.common.collect.Maps.m, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean remove(Object obj) {
                 c cVar = c.this;
-                return StandardTable.this.remove(obj, cVar.f32079h) != null;
+                return StandardTable.this.remove(obj, cVar.f31324h) != null;
             }
 
             @Override // com.google.common.collect.Sets.a, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -232,7 +232,7 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
 
         public c(C c2) {
             n.p(c2);
-            this.f32079h = c2;
+            this.f31324h = c2;
         }
 
         @Override // com.google.common.collect.Maps.u
@@ -242,7 +242,7 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
 
         @Override // com.google.common.collect.Maps.u
         public Set<R> b() {
-            return new C0354c();
+            return new C0341c();
         }
 
         @Override // com.google.common.collect.Maps.u
@@ -252,7 +252,7 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
 
         @Override // java.util.AbstractMap, java.util.Map
         public boolean containsKey(Object obj) {
-            return StandardTable.this.contains(obj, this.f32079h);
+            return StandardTable.this.contains(obj, this.f31324h);
         }
 
         public boolean d(o<? super Map.Entry<R, V>> oVar) {
@@ -261,9 +261,9 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
             while (it.hasNext()) {
                 Map.Entry<R, Map<C, V>> next = it.next();
                 Map<C, V> value = next.getValue();
-                V v = value.get(this.f32079h);
+                V v = value.get(this.f31324h);
                 if (v != null && oVar.apply(Maps.j(next.getKey(), v))) {
-                    value.remove(this.f32079h);
+                    value.remove(this.f31324h);
                     z = true;
                     if (value.isEmpty()) {
                         it.remove();
@@ -275,17 +275,17 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
 
         @Override // java.util.AbstractMap, java.util.Map
         public V get(Object obj) {
-            return (V) StandardTable.this.get(obj, this.f32079h);
+            return (V) StandardTable.this.get(obj, this.f31324h);
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public V put(R r, V v) {
-            return (V) StandardTable.this.put(r, this.f32079h, v);
+            return (V) StandardTable.this.put(r, this.f31324h, v);
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public V remove(Object obj) {
-            return (V) StandardTable.this.remove(obj, this.f32079h);
+            return (V) StandardTable.this.remove(obj, this.f31324h);
         }
     }
 
@@ -293,31 +293,31 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
     public class d extends AbstractIterator<C> {
 
         /* renamed from: g  reason: collision with root package name */
-        public final Map<C, V> f32088g;
+        public final Map<C, V> f31333g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Iterator<Map<C, V>> f32089h;
+        public final Iterator<Map<C, V>> f31334h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Iterator<Map.Entry<C, V>> f32090i;
+        public Iterator<Map.Entry<C, V>> f31335i;
 
         public d() {
-            this.f32088g = StandardTable.this.factory.get();
-            this.f32089h = StandardTable.this.backingMap.values().iterator();
-            this.f32090i = Iterators.h();
+            this.f31333g = StandardTable.this.factory.get();
+            this.f31334h = StandardTable.this.backingMap.values().iterator();
+            this.f31335i = Iterators.h();
         }
 
         @Override // com.google.common.collect.AbstractIterator
         public C a() {
             while (true) {
-                if (this.f32090i.hasNext()) {
-                    Map.Entry<C, V> next = this.f32090i.next();
-                    if (!this.f32088g.containsKey(next.getKey())) {
-                        this.f32088g.put(next.getKey(), next.getValue());
+                if (this.f31335i.hasNext()) {
+                    Map.Entry<C, V> next = this.f31335i.next();
+                    if (!this.f31333g.containsKey(next.getKey())) {
+                        this.f31333g.put(next.getKey(), next.getValue());
                         return next.getKey();
                     }
-                } else if (this.f32089h.hasNext()) {
-                    this.f32090i = this.f32089h.next().entrySet().iterator();
+                } else if (this.f31334h.hasNext()) {
+                    this.f31335i = this.f31334h.next().entrySet().iterator();
                 } else {
                     return b();
                 }
@@ -408,8 +408,8 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
 
             /* renamed from: com.google.common.collect.StandardTable$f$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0355a implements d.g.c.a.g<C, Map<R, V>> {
-                public C0355a() {
+            public class C0342a implements d.g.c.a.g<C, Map<R, V>> {
+                public C0342a() {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -438,7 +438,7 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
             public Iterator<Map.Entry<C, Map<R, V>>> iterator() {
-                return Maps.d(StandardTable.this.columnKeySet(), new C0355a());
+                return Maps.d(StandardTable.this.columnKeySet(), new C0342a());
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -579,36 +579,36 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
     public class g extends Maps.l<C, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final R f32096e;
+        public final R f31341e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Map<C, V> f32097f;
+        public Map<C, V> f31342f;
 
         /* loaded from: classes6.dex */
         public class a implements Iterator<Map.Entry<C, V>> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Iterator f32099e;
+            public final /* synthetic */ Iterator f31344e;
 
             public a(Iterator it) {
-                this.f32099e = it;
+                this.f31344e = it;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Iterator
             /* renamed from: a */
             public Map.Entry<C, V> next() {
-                return g.this.e((Map.Entry) this.f32099e.next());
+                return g.this.e((Map.Entry) this.f31344e.next());
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
-                return this.f32099e.hasNext();
+                return this.f31344e.hasNext();
             }
 
             @Override // java.util.Iterator
             public void remove() {
-                this.f32099e.remove();
+                this.f31344e.remove();
                 g.this.d();
             }
         }
@@ -617,17 +617,17 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
         public class b extends v<C, V> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Map.Entry f32101e;
+            public final /* synthetic */ Map.Entry f31346e;
 
             public b(g gVar, Map.Entry entry) {
-                this.f32101e = entry;
+                this.f31346e = entry;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.g.c.c.y
             /* renamed from: b */
             public Map.Entry<C, V> delegate() {
-                return this.f32101e;
+                return this.f31346e;
             }
 
             @Override // d.g.c.c.v, java.util.Map.Entry
@@ -644,7 +644,7 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
 
         public g(R r) {
             n.p(r);
-            this.f32096e = r;
+            this.f31341e = r;
         }
 
         @Override // com.google.common.collect.Maps.l
@@ -657,17 +657,17 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
         }
 
         public Map<C, V> b() {
-            Map<C, V> map = this.f32097f;
-            if (map == null || (map.isEmpty() && StandardTable.this.backingMap.containsKey(this.f32096e))) {
+            Map<C, V> map = this.f31342f;
+            if (map == null || (map.isEmpty() && StandardTable.this.backingMap.containsKey(this.f31341e))) {
                 Map<C, V> c2 = c();
-                this.f32097f = c2;
+                this.f31342f = c2;
                 return c2;
             }
-            return this.f32097f;
+            return this.f31342f;
         }
 
         public Map<C, V> c() {
-            return StandardTable.this.backingMap.get(this.f32096e);
+            return StandardTable.this.backingMap.get(this.f31341e);
         }
 
         @Override // com.google.common.collect.Maps.l, java.util.AbstractMap, java.util.Map
@@ -686,11 +686,11 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
         }
 
         public void d() {
-            if (b() == null || !this.f32097f.isEmpty()) {
+            if (b() == null || !this.f31342f.isEmpty()) {
                 return;
             }
-            StandardTable.this.backingMap.remove(this.f32096e);
-            this.f32097f = null;
+            StandardTable.this.backingMap.remove(this.f31341e);
+            this.f31342f = null;
         }
 
         public Map.Entry<C, V> e(Map.Entry<C, V> entry) {
@@ -710,11 +710,11 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
         public V put(C c2, V v) {
             n.p(c2);
             n.p(v);
-            Map<C, V> map = this.f32097f;
+            Map<C, V> map = this.f31342f;
             if (map != null && !map.isEmpty()) {
-                return this.f32097f.put(c2, v);
+                return this.f31342f.put(c2, v);
             }
-            return (V) StandardTable.this.put(this.f32096e, c2, v);
+            return (V) StandardTable.this.put(this.f31341e, c2, v);
         }
 
         @Override // java.util.AbstractMap, java.util.Map
@@ -746,8 +746,8 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
 
             /* renamed from: com.google.common.collect.StandardTable$h$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0356a implements d.g.c.a.g<R, Map<C, V>> {
-                public C0356a() {
+            public class C0343a implements d.g.c.a.g<R, Map<C, V>> {
+                public C0343a() {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -773,7 +773,7 @@ public class StandardTable<R, C, V> extends d.g.c.c.i<R, C, V> implements Serial
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
             public Iterator<Map.Entry<R, Map<C, V>>> iterator() {
-                return Maps.d(StandardTable.this.backingMap.keySet(), new C0356a());
+                return Maps.d(StandardTable.this.backingMap.keySet(), new C0343a());
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set

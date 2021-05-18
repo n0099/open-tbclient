@@ -7,14 +7,14 @@ import android.view.View;
 public abstract class AbsCanvasView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11617e;
+    public boolean f10763e;
 
     public AbsCanvasView(Context context) {
         this(context, null);
     }
 
     public boolean a() {
-        return this.f11617e;
+        return this.f10763e;
     }
 
     public void setGesture(boolean z) {
@@ -24,7 +24,7 @@ public abstract class AbsCanvasView extends View {
     }
 
     public void setInterceptTouchEvent(boolean z) {
-        this.f11617e = z;
+        this.f10763e = z;
     }
 
     public AbsCanvasView(Context context, AttributeSet attributeSet) {
@@ -33,6 +33,6 @@ public abstract class AbsCanvasView extends View {
 
     public AbsCanvasView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11617e = false;
+        this.f10763e = false;
     }
 }

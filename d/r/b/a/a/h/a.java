@@ -12,22 +12,22 @@ import org.json.JSONObject;
 public final class a extends d.r.b.a.a.f.e.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67053b;
+    public long f67739b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67054c;
+    public int f67740c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67055d;
+    public String f67741d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f67056e;
+    public String f67742e;
 
     public a(long j, int i2, String str, String str2) {
-        this.f67053b = j;
-        this.f67054c = i2;
-        this.f67055d = str;
-        this.f67056e = str2;
+        this.f67739b = j;
+        this.f67740c = i2;
+        this.f67741d = str;
+        this.f67742e = str2;
     }
 
     @Override // d.r.b.a.a.f.e.a
@@ -36,16 +36,16 @@ public final class a extends d.r.b.a.a.f.e.a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("cmd", 1050);
-            jSONObject.put("uid", this.f67053b);
-            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f67054c);
-            jSONObject.put(IAdRequestParam.SEQ, this.f67055d);
-            jSONObject.put("ticket", this.f67056e);
+            jSONObject.put("uid", this.f67739b);
+            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f67740c);
+            jSONObject.put(IAdRequestParam.SEQ, this.f67741d);
+            jSONObject.put("ticket", this.f67742e);
             String jSONObject2 = jSONObject.toString();
             Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "jMsg.toString()");
             str = new Regex("").replace(jSONObject2, "");
         } catch (JSONException e2) {
             d.d("HeartBeatRequest", "constructPSCIMessageRequest", e2);
         }
-        this.f66994a = new c(1050, this.f67054c, 0, this.f67056e, "", str);
+        this.f67680a = new c(1050, this.f67740c, 0, this.f67742e, "", str);
     }
 }

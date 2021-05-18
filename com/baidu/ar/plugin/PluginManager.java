@@ -16,7 +16,6 @@ import com.baidu.ar.session.XRSessionAnchor;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.lang.ref.WeakReference;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Proxy;
 import java.util.Collections;
 import java.util.HashMap;
@@ -34,7 +33,7 @@ public class PluginManager {
         this.mContext = context;
     }
 
-    private int copyNativeLibs(Context context, String str, ApplicationInfo applicationInfo) throws Exception {
+    private int copyNativeLibs(Context context, String str, ApplicationInfo applicationInfo) {
         String pluginNativeLibraryDir = PluginDirHelper.getPluginNativeLibraryDir(context, applicationInfo.packageName);
         if (new File(pluginNativeLibraryDir).list().length > 1) {
             return 1;
@@ -49,14 +48,14 @@ public class PluginManager {
         return sPluginManager;
     }
 
-    private void hookPackageManager(PluginPackageParser pluginPackageParser) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+    private void hookPackageManager(PluginPackageParser pluginPackageParser) {
         Object currentActivityThread = ActivityThreadCompat.currentActivityThread();
         Object readField = FieldUtils.readField(currentActivityThread, "sPackageManager");
         Class<?> cls = Class.forName("android.content.pm.IPackageManager");
         FieldUtils.writeField(currentActivityThread, "sPackageManager", Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new PackageManagerHookHandler(readField, pluginPackageParser)));
     }
 
-    private void preLoadAPK(String str, ApplicationInfo applicationInfo) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+    private void preLoadAPK(String str, ApplicationInfo applicationInfo) {
         synchronized (sPluginLoadedApkCache) {
             Object currentActivityThread = ActivityThreadCompat.currentActivityThread();
             if (currentActivityThread != null) {

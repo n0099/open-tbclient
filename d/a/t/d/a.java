@@ -6,18 +6,18 @@ import com.baidu.live.asynctask.BdAsyncTaskParallelType;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d.a.t.e.b f63968a = d.a.t.e.b.a();
+    public static final d.a.t.e.b f64655a = d.a.t.e.b.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d.a.t.a.c f63969b = new d.a.t.a.c(BdAsyncTaskParallelType.SERIAL, f63968a);
+    public static final d.a.t.a.c f64656b = new d.a.t.a.c(BdAsyncTaskParallelType.SERIAL, f64655a);
 
     /* renamed from: d.a.t.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1742a<T> extends BdAsyncTask<String, Object, T> {
+    public static class C1806a<T> extends BdAsyncTask<String, Object, T> {
         public b<T> m;
         public c<T> n;
 
-        public C1742a(b<T> bVar, c<T> cVar) {
+        public C1806a(b<T> bVar, c<T> cVar) {
             this.m = null;
             this.n = null;
             this.m = bVar;
@@ -54,12 +54,12 @@ public class a {
 
     public static <T> BdAsyncTask b(b<T> bVar, c<T> cVar, int i2) {
         if (bVar != null) {
-            C1742a c1742a = new C1742a(bVar, cVar);
-            c1742a.v(f63969b);
-            c1742a.x(f63968a);
-            c1742a.w(i2);
-            c1742a.g(new String[0]);
-            return c1742a;
+            C1806a c1806a = new C1806a(bVar, cVar);
+            c1806a.v(f64656b);
+            c1806a.x(f64655a);
+            c1806a.w(i2);
+            c1806a.g(new String[0]);
+            return c1806a;
         }
         return null;
     }

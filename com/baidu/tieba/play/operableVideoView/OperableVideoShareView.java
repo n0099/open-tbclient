@@ -22,28 +22,28 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import d.a.c.e.p.k;
-import d.a.i0.r.q.a2;
-import d.a.i0.z0.l;
-import d.a.j0.j2.q.d;
+import d.a.j0.r.q.a2;
+import d.a.j0.z0.l;
+import d.a.k0.j2.q.d;
 import java.text.MessageFormat;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OperableVideoShareView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public d f20757e;
+    public d f20045e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f20758f;
+    public View f20046f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f20759g;
+    public ImageView f20047g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f20760h;
+    public View f20048h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f20761i;
+    public ImageView f20049i;
     public View j;
     public ImageView k;
     public View l;
@@ -53,7 +53,7 @@ public class OperableVideoShareView extends LinearLayout {
     public int p;
     public View.OnClickListener q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -63,9 +63,9 @@ public class OperableVideoShareView extends LinearLayout {
             if (l.a()) {
                 return;
             }
-            if (view == OperableVideoShareView.this.f20758f) {
+            if (view == OperableVideoShareView.this.f20046f) {
                 OperableVideoShareView.this.i(3);
-            } else if (view == OperableVideoShareView.this.f20760h) {
+            } else if (view == OperableVideoShareView.this.f20048h) {
                 OperableVideoShareView.this.i(2);
             } else if (view == OperableVideoShareView.this.j) {
                 OperableVideoShareView.this.i(8);
@@ -83,8 +83,8 @@ public class OperableVideoShareView extends LinearLayout {
     public void e(boolean z, boolean z2) {
         int g2;
         int g3;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f20760h.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f20758f.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f20048h.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f20046f.getLayoutParams();
         LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.j.getLayoutParams();
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.l.getLayoutParams();
         LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.m.getLayoutParams();
@@ -129,13 +129,13 @@ public class OperableVideoShareView extends LinearLayout {
 
     public final int g(a2 a2Var) {
         if (a2Var != null) {
-            if (a2Var.o2()) {
+            if (a2Var.p2()) {
                 return 4;
             }
             if (a2Var.s0() == 1) {
                 return 3;
             }
-            return a2Var.p2() ? 2 : 1;
+            return a2Var.q2() ? 2 : 1;
         }
         return 0;
     }
@@ -146,21 +146,21 @@ public class OperableVideoShareView extends LinearLayout {
 
     public final void h() {
         LinearLayout.inflate(getContext(), getLayoutR(), this);
-        this.f20758f = findViewById(R.id.share_weixin);
-        this.f20759g = (ImageView) findViewById(R.id.share_weixin_img);
-        this.f20760h = findViewById(R.id.share_weixin_timeline);
-        this.f20761i = (ImageView) findViewById(R.id.share_weixin_timeline_img);
+        this.f20046f = findViewById(R.id.share_weixin);
+        this.f20047g = (ImageView) findViewById(R.id.share_weixin_img);
+        this.f20048h = findViewById(R.id.share_weixin_timeline);
+        this.f20049i = (ImageView) findViewById(R.id.share_weixin_timeline_img);
         this.j = findViewById(R.id.share_qq);
         this.k = (ImageView) findViewById(R.id.share_qq_img);
         this.l = findViewById(R.id.divider_line);
         this.m = findViewById(R.id.video_replay);
         this.n = (ImageView) findViewById(R.id.replay_img);
-        this.f20758f.setOnClickListener(this.q);
-        this.f20760h.setOnClickListener(this.q);
+        this.f20046f.setOnClickListener(this.q);
+        this.f20048h.setOnClickListener(this.q);
         this.j.setOnClickListener(this.q);
         setOnClickListener(this.q);
-        this.f20759g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_wechat40_svg, 1, false));
-        this.f20761i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_circle40_svg, 1, false));
+        this.f20047g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_wechat40_svg, 1, false));
+        this.f20049i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_circle40_svg, 1, false));
         this.k.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_qq40_svg, 1, false));
         this.n.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_replay44_svg, R.color.CAM_X0105, null, false));
         this.n.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(d.a.c.e.p.l.g(getContext(), R.dimen.tbds52), getResources().getColor(R.color.CAM_X0622)));
@@ -178,25 +178,25 @@ public class OperableVideoShareView extends LinearLayout {
             valueOf = originalForumInfo.id;
             i0 = originalForumInfo.ori_fname;
         }
+        String y1 = this.o.y1();
         String x1 = this.o.x1();
-        String w1 = this.o.w1();
-        String str = "http://tieba.baidu.com/p/" + w1 + "?share=9105&fr=share";
+        String str = "http://tieba.baidu.com/p/" + x1 + "?share=9105&fr=share";
         String f2 = f(this.o);
         Uri parse = f2 == null ? null : Uri.parse(f2);
         String C = this.o.C();
-        String format = MessageFormat.format(getResources().getString(R.string.share_content_tpl), x1, C);
+        String format = MessageFormat.format(getResources().getString(R.string.share_content_tpl), y1, C);
         ShareItem shareItem = new ShareItem();
-        shareItem.r = x1;
+        shareItem.r = y1;
         shareItem.s = format;
-        if (!this.o.y2() && this.o.p2() && this.o.u1() != null) {
-            shareItem.R = this.o.u1().play_count.intValue();
+        if (!this.o.A2() && this.o.q2() && this.o.v1() != null) {
+            shareItem.R = this.o.v1().play_count.intValue();
         }
         shareItem.D = C;
         shareItem.t = str;
         shareItem.o = this.p;
-        shareItem.q = w1;
+        shareItem.q = x1;
         shareItem.F = 3;
-        shareItem.G = 1;
+        shareItem.G = this.o.F2() ? 11 : 2;
         if (i2 == 3) {
             shareItem.H = 1;
         } else if (i2 == 2) {
@@ -208,9 +208,9 @@ public class OperableVideoShareView extends LinearLayout {
         }
         shareItem.J = valueOf;
         shareItem.p = i0;
-        shareItem.K = w1;
+        shareItem.K = x1;
         shareItem.L = this.o.L0();
-        shareItem.f13358h = true;
+        shareItem.f12694h = true;
         shareItem.E = 3;
         shareItem.M = g(this.o);
         if (parse != null) {
@@ -247,16 +247,16 @@ public class OperableVideoShareView extends LinearLayout {
 
     public void setShareData(a2 a2Var) {
         this.o = a2Var;
-        if (a2Var != null && !a2Var.y2()) {
+        if (a2Var != null && !a2Var.A2()) {
             this.j.setVisibility(0);
-            this.f20758f.setVisibility(0);
-            this.f20760h.setVisibility(0);
+            this.f20046f.setVisibility(0);
+            this.f20048h.setVisibility(0);
             this.l.setVisibility(0);
             return;
         }
         this.j.setVisibility(8);
-        this.f20758f.setVisibility(8);
-        this.f20760h.setVisibility(8);
+        this.f20046f.setVisibility(8);
+        this.f20048h.setVisibility(8);
         this.l.setVisibility(8);
     }
 
@@ -265,7 +265,7 @@ public class OperableVideoShareView extends LinearLayout {
     }
 
     public void setVideoContainer(d dVar) {
-        this.f20757e = dVar;
+        this.f20045e = dVar;
         this.m.setOnClickListener(dVar);
     }
 

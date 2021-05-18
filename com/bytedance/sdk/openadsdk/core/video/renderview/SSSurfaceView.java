@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.core.video.renderview;
 
 import android.content.Context;
 import android.view.SurfaceView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SSSurfaceView extends SurfaceView {
     public SSSurfaceView(Context context) {
         super(context);

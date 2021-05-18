@@ -1,88 +1,53 @@
 package d.a.i;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.view.ThreadSmartAppLayout;
 import com.baidu.tieba.R;
-import d.a.i0.r.q.a2;
 /* loaded from: classes.dex */
-public class j0 extends c implements p<a2> {
-
-    /* renamed from: i  reason: collision with root package name */
-    public TbPageContext f47712i;
-    public TbImageView j;
-    public boolean k = true;
+public class j0 extends h {
+    public ThreadSmartAppLayout l;
+    public d.a.j0.r.q.a m;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f47713e;
-
-        public a(ThemeCardInUserData themeCardInUserData) {
-            this.f47713e = themeCardInUserData;
+        public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(j0.this.f47712i.getPageActivity(), this.f47713e.getCardId())));
-        }
-    }
-
-    public j0(TbPageContext tbPageContext) {
-        this.f47712i = tbPageContext;
-        h(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds180), d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds50));
-        layoutParams.addRule(11);
-        layoutParams.topMargin = d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
-        layoutParams.rightMargin = d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
-        i(layoutParams);
-        TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
-        this.j = tbImageView;
-        g(tbImageView);
-    }
-
-    public void l(a2 a2Var) {
-        MetaData T;
-        if (a2Var == null || this.j == null || (T = a2Var.T()) == null) {
-            return;
-        }
-        ThemeCardInUserData themeCard = T.getThemeCard();
-        if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !a2Var.P1) {
-            if (this.k && (this.j.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-                layoutParams.rightMargin = d.a.c.e.p.l.g(this.f47712i.getPageActivity(), R.dimen.tbds106);
-                this.j.setLayoutParams(layoutParams);
+            if (j0.this.d() != null) {
+                j0.this.d().a(view, j0.this.m);
             }
-            this.j.setVisibility(0);
-            this.j.setImageDrawable(null);
-            this.j.V(themeCard.getCardImageUrlAndroid(), 10, false);
-            this.j.setOnClickListener(new a(themeCard));
-            return;
         }
-        this.j.setVisibility(8);
+    }
+
+    public j0(Context context) {
+        super(context);
+        r(d.a.c.e.p.l.g(context, R.dimen.M_H_X003));
+        this.l = new ThreadSmartAppLayout(context);
+        this.l.setAfterClickListener(new a());
+    }
+
+    @Override // d.a.i.a
+    public View g() {
+        return this.l;
+    }
+
+    @Override // d.a.i.q
+    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+        ThreadSmartAppLayout threadSmartAppLayout = this.l;
+        if (threadSmartAppLayout != null) {
+            threadSmartAppLayout.d();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
-    /* renamed from: m */
-    public void a(a2 a2Var) {
-        l(a2Var);
-    }
-
-    public void n(boolean z) {
-        this.k = z;
-    }
-
-    public void o(BdUniqueId bdUniqueId) {
-        this.j.setPageId(bdUniqueId);
+    /* renamed from: t */
+    public void a(d.a.j0.r.q.a aVar) {
+        this.m = aVar;
+        this.l.a(aVar);
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import d.a.c.e.p.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonIntroductionActivity extends BaseActivity {
     public static final String PERSON_INTRODUCTION = "person_introduction";
     public ImageView mBackImg;
@@ -20,7 +20,7 @@ public class PersonIntroductionActivity extends BaseActivity {
     public NavigationBar mNavigationBar;
     public View mRootView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }

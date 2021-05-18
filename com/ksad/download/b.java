@@ -6,35 +6,35 @@ import java.io.File;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f32407a;
+    public static Context f31652a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static File f32408b;
+    public static File f31653b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f32409c;
+    public static a f31654c;
 
     public static Context a() {
-        return f32407a;
+        return f31652a;
     }
 
     public static void a(Context context) {
-        f32407a = context.getApplicationContext();
+        f31652a = context.getApplicationContext();
     }
 
     public static void a(a aVar) {
-        f32409c = aVar;
+        f31654c = aVar;
     }
 
     public static void a(File file) {
-        f32408b = file;
+        f31653b = file;
     }
 
     public static void a(String str) {
-        f32409c.installApp(a(), str);
+        f31654c.installApp(a(), str);
     }
 
     public static File b() {
-        return f32408b;
+        return f31653b;
     }
 }

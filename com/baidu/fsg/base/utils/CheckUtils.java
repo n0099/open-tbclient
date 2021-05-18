@@ -13,19 +13,19 @@ import java.util.regex.Pattern;
 public final class CheckUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5514a = "CheckUtils";
+    public static final String f5368a = "CheckUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5515b = 3;
+    public static final int f5369b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5516c = 12;
+    public static final int f5370c = 12;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5517d = 4;
+    public static final int f5371d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f5518e;
+    public static long f5372e;
 
     @SuppressLint({"DefaultLocale"})
     public static boolean checkParams(String str) {
@@ -239,13 +239,13 @@ public final class CheckUtils {
 
     public static boolean isFastDoubleClick() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - f5518e;
+        long j = currentTimeMillis - f5372e;
         LogUtil.logd("timeD=" + j);
         if (0 < j && j < 500) {
             LogUtil.logd("点的太快了 timeD=" + j);
             return true;
         }
-        f5518e = currentTimeMillis;
+        f5372e = currentTimeMillis;
         return false;
     }
 

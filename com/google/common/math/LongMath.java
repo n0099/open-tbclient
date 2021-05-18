@@ -116,41 +116,41 @@ public final class LongMath {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f32197a;
+        public static final /* synthetic */ int[] f31442a;
 
         static {
             int[] iArr = new int[RoundingMode.values().length];
-            f32197a = iArr;
+            f31442a = iArr;
             try {
                 iArr[RoundingMode.UNNECESSARY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f32197a[RoundingMode.DOWN.ordinal()] = 2;
+                f31442a[RoundingMode.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f32197a[RoundingMode.FLOOR.ordinal()] = 3;
+                f31442a[RoundingMode.FLOOR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f32197a[RoundingMode.UP.ordinal()] = 4;
+                f31442a[RoundingMode.UP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f32197a[RoundingMode.CEILING.ordinal()] = 5;
+                f31442a[RoundingMode.CEILING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f32197a[RoundingMode.HALF_DOWN.ordinal()] = 6;
+                f31442a[RoundingMode.HALF_DOWN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f32197a[RoundingMode.HALF_UP.ordinal()] = 7;
+                f31442a[RoundingMode.HALF_UP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f32197a[RoundingMode.HALF_EVEN.ordinal()] = 8;
+                f31442a[RoundingMode.HALF_EVEN.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -179,7 +179,7 @@ public final class LongMath {
         }
         int i3 = (int) ((j ^ j2) >> 63);
         int i4 = i3 | 1;
-        switch (a.f32197a[roundingMode.ordinal()]) {
+        switch (a.f31442a[roundingMode.ordinal()]) {
             case 1:
                 e.d(i2 == 0);
                 r9 = false;

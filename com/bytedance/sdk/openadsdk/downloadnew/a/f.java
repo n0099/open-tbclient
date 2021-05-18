@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.downloadnew.a;
 
 import android.text.TextUtils;
 import com.bytedance.sdk.openadsdk.core.d.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static String a(l lVar) {
         if (lVar == null) {

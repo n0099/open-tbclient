@@ -1,58 +1,72 @@
 package d.a.j0.c1.b;
 
-import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.widget.OvalActionButton;
-import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.core.data.AccountData;
+/* loaded from: classes3.dex */
 public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f51656a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public OvalActionButton f51657b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f51658c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f51659d;
-
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public a() {
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            c.this.b();
-        }
+    public static void a() {
+        d.a.j0.r.d0.b.j().C("key_youngster_verify");
     }
 
-    public c(OvalActionButton ovalActionButton, TbPageContext<?> tbPageContext) {
-        this.f51656a = tbPageContext;
-        this.f51657b = ovalActionButton;
-        ovalActionButton.setIsCircle(true);
-        this.f51657b.setHasShadow(false);
-        this.f51657b.setOnClickListener(new a());
+    public static String b(d.a.j0.c1.a.a aVar) {
+        if (aVar == null || StringUtils.isNull(aVar.c()) || StringUtils.isNull(aVar.b()) || StringUtils.isNull(aVar.a())) {
+            return "";
+        }
+        return aVar.c() + "," + aVar.b() + "," + aVar.a();
     }
 
-    public final void b() {
-        if (WriteActivityConfig.isAsyncWriting() || this.f51658c == null) {
+    public static d.a.j0.c1.a.a c(String str) {
+        if (StringUtils.isNull(str)) {
+            return null;
+        }
+        String[] split = str.split(",");
+        if (split.length > 2) {
+            return new d.a.j0.c1.a.a(split[0], split[1], split[2]);
+        }
+        return null;
+    }
+
+    public static boolean d() {
+        String p = d.a.j0.r.d0.b.j().p("key_youngster_verify", "");
+        if (StringUtils.isNull(p)) {
+            a();
+            return false;
+        }
+        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+        if (currentAccountInfo == null) {
+            a();
+            return false;
+        }
+        d.a.j0.c1.a.a c2 = c(p);
+        if (c2 == null || StringUtils.isNull(c2.c()) || !c2.c().equals(currentAccountInfo.getID()) || StringUtils.isNull(c2.b()) || !c2.b().equals(currentAccountInfo.getPortrait())) {
+            a();
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean e(String str) {
+        if (StringUtils.isNull(str)) {
+            return false;
+        }
+        String p = d.a.j0.r.d0.b.j().p("key_youngster_verify", "");
+        if (StringUtils.isNull(p)) {
+            a();
+            return false;
+        }
+        d.a.j0.c1.a.a c2 = c(p);
+        if (c2 == null) {
+            return false;
+        }
+        return str.equals(c2.a());
+    }
+
+    public static void f(String str) {
+        AccountData currentAccountInfo;
+        if (StringUtils.isNull(str) || (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) == null) {
             return;
         }
-        WriteActivityConfig.newInstance(this.f51656a.getPageActivity()).setType(9).setForumId("0").setTopicId(String.valueOf(this.f51658c)).setFrom("topic_detail").setCallFrom("1").setTitle(StringUtils.isNull(this.f51659d) ? null : String.format(TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_write_name), this.f51659d)).send();
-    }
-
-    public void c(String str) {
-        this.f51659d = str;
-    }
-
-    public void d(String str) {
-        this.f51658c = str;
+        d.a.j0.r.d0.b.j().x("key_youngster_verify", b(new d.a.j0.c1.a.a(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
     }
 }

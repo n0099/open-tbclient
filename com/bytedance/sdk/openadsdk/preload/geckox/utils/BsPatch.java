@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BsPatch {
     static {
         g.a("geckox_bspatch");

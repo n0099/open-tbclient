@@ -6,16 +6,16 @@ import d.o.a.d.n.j;
 import d.o.a.d.n.k;
 import d.o.a.e.b.f.r;
 import d.o.a.e.b.f.s;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a implements s {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f66049a;
+    public int f66735a;
 
     @Override // d.o.a.e.b.f.s
     public boolean a(long j, long j2, r rVar) {
         long j3;
-        d.o.a.e.b.j.a d2 = d.o.a.e.b.j.a.d(this.f66049a);
+        d.o.a.e.b.j.a d2 = d.o.a.e.b.j.a.d(this.f66735a);
         if (e(d2)) {
             long currentTimeMillis = System.currentTimeMillis();
             d.a().h();
@@ -56,11 +56,11 @@ public class a implements s {
     }
 
     public void c(int i2) {
-        this.f66049a = i2;
+        this.f66735a = i2;
     }
 
     public final void d(long j, long j2, long j3, long j4, long j5) {
-        DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(this.f66049a);
+        DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(this.f66735a);
         if (f2 == null) {
             return;
         }

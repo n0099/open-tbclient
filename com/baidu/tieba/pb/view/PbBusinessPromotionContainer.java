@@ -15,27 +15,27 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.i0.r.q.a2;
-import d.a.i0.r.q.w1;
-/* loaded from: classes3.dex */
+import d.a.j0.r.q.a2;
+import d.a.j0.r.q.w1;
+/* loaded from: classes5.dex */
 public class PbBusinessPromotionContainer extends RelativeLayout {
     public static final int q = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds60);
     public static final int r = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f20318e;
+    public RelativeLayout f19606e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f20319f;
+    public TbImageView f19607f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20320g;
+    public TextView f19608g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20321h;
+    public TextView f19609h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a2 f20322i;
+    public a2 f19610i;
     public View.OnClickListener j;
     public boolean k;
     public boolean l;
@@ -44,21 +44,21 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
     public CustomMessageListener o;
     public CustomMessageListener p;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            view.setTag(PbBusinessPromotionContainer.this.f20322i);
+            view.setTag(PbBusinessPromotionContainer.this.f19610i);
             if (PbBusinessPromotionContainer.this.j != null) {
                 PbBusinessPromotionContainer.this.j.onClick(view);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public b(int i2) {
             super(i2);
@@ -71,14 +71,14 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                 return;
             }
             long longValue = ((Long) customResponsedMessage.getData()).longValue();
-            if (PbBusinessPromotionContainer.this.f20322i != null && PbBusinessPromotionContainer.this.f20322i.c0() == longValue && PbBusinessPromotionContainer.this.m) {
+            if (PbBusinessPromotionContainer.this.f19610i != null && PbBusinessPromotionContainer.this.f19610i.c0() == longValue && PbBusinessPromotionContainer.this.m) {
                 PbBusinessPromotionContainer.this.l = false;
                 PbBusinessPromotionContainer.this.j();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class c extends CustomMessageListener {
         public c(int i2) {
             super(i2);
@@ -91,7 +91,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                 return;
             }
             long longValue = ((Long) customResponsedMessage.getData()).longValue();
-            if (PbBusinessPromotionContainer.this.f20322i != null && PbBusinessPromotionContainer.this.f20322i.c0() == longValue && PbBusinessPromotionContainer.this.m) {
+            if (PbBusinessPromotionContainer.this.f19610i != null && PbBusinessPromotionContainer.this.f19610i.c0() == longValue && PbBusinessPromotionContainer.this.m) {
                 PbBusinessPromotionContainer.this.l = true;
                 PbBusinessPromotionContainer.this.j();
             }
@@ -104,12 +104,12 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
 
     public void f(a2 a2Var, w1 w1Var, boolean z) {
         if (a2Var != null && w1Var != null && !StringUtils.isNull(w1Var.g())) {
-            this.f20322i = a2Var;
+            this.f19610i = a2Var;
             i(z);
             this.m = true;
             setVisibility(0);
-            this.f20319f.V(w1Var.a(), 10, false);
-            this.f20320g.setText(w1Var.g());
+            this.f19607f.V(w1Var.a(), 10, false);
+            this.f19608g.setText(w1Var.g());
             if (this.k) {
                 return;
             }
@@ -135,15 +135,15 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
     }
 
     public void h() {
-        SkinManager.setViewTextColor(this.f20320g, R.color.CAM_X0105);
-        SkinManager.setBackgroundResource(this.f20318e, R.drawable.pb_business_promotion_bg);
+        SkinManager.setViewTextColor(this.f19608g, R.color.CAM_X0105);
+        SkinManager.setBackgroundResource(this.f19606e, R.drawable.pb_business_promotion_bg);
         if (this.l) {
-            SkinManager.setViewTextColor(this.f20321h, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f20321h, 17170445);
+            SkinManager.setViewTextColor(this.f19609h, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f19609h, 17170445);
             return;
         }
-        SkinManager.setViewTextColor(this.f20321h, R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.f20321h, R.drawable.pb_business_promotion_attention_bg);
+        SkinManager.setViewTextColor(this.f19609h, R.color.CAM_X0101);
+        SkinManager.setBackgroundResource(this.f19609h, R.drawable.pb_business_promotion_attention_bg);
     }
 
     public final void i(boolean z) {
@@ -156,16 +156,16 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
 
     public final void j() {
         if (this.l) {
-            this.f20321h.setText(getResources().getString(R.string.followed));
-            SkinManager.setViewTextColor(this.f20321h, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f20321h, 17170445);
-            this.f20321h.setOnClickListener(null);
+            this.f19609h.setText(getResources().getString(R.string.followed));
+            SkinManager.setViewTextColor(this.f19609h, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f19609h, 17170445);
+            this.f19609h.setOnClickListener(null);
             return;
         }
-        this.f20321h.setText(getResources().getString(R.string.attention));
-        SkinManager.setViewTextColor(this.f20321h, R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.f20321h, R.drawable.pb_business_promotion_attention_bg);
-        this.f20321h.setOnClickListener(this.n);
+        this.f19609h.setText(getResources().getString(R.string.attention));
+        SkinManager.setViewTextColor(this.f19609h, R.color.CAM_X0101);
+        SkinManager.setBackgroundResource(this.f19609h, R.drawable.pb_business_promotion_attention_bg);
+        this.f19609h.setOnClickListener(this.n);
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
@@ -185,15 +185,15 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         this.o = new b(2001336);
         this.p = new c(2001335);
         LayoutInflater.from(context).inflate(R.layout.layout_pb_business_promotion, this);
-        this.f20318e = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
-        this.f20319f = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
-        this.f20320g = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
-        this.f20321h = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
-        this.f20319f.setRadius(l.g(context, R.dimen.tbds24));
-        this.f20319f.setConrers(5);
-        this.f20319f.setDefaultResource(17170445);
-        this.f20319f.setDefaultBgResource(17170445);
-        this.f20318e.setOnClickListener(this.n);
+        this.f19606e = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
+        this.f19607f = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
+        this.f19608g = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
+        this.f19609h = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
+        this.f19607f.setRadius(l.g(context, R.dimen.tbds24));
+        this.f19607f.setConrers(5);
+        this.f19607f.setDefaultResource(17170445);
+        this.f19607f.setDefaultBgResource(17170445);
+        this.f19606e.setOnClickListener(this.n);
         MessageManager.getInstance().registerListener(this.p);
         MessageManager.getInstance().registerListener(this.o);
     }

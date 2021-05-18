@@ -19,20 +19,20 @@ public final class DpSessionDatasUploader {
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    public static DpSessionDatasUploader f5219a;
+    public static DpSessionDatasUploader f5073a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f5220b = new d();
+    public d f5074b = new d();
 
     /* renamed from: c  reason: collision with root package name */
-    public d f5221c = new d("live_show_session");
+    public d f5075c = new d("live_show_session");
 
     private void a() {
-        d dVar = this.f5220b;
+        d dVar = this.f5074b;
         if (dVar != null) {
             dVar.a();
         }
-        d dVar2 = this.f5221c;
+        d dVar2 = this.f5075c;
         if (dVar2 != null) {
             dVar2.a();
         }
@@ -60,12 +60,12 @@ public final class DpSessionDatasUploader {
     private void a(byte[] bArr, int i2) {
         d dVar;
         if (i2 == 24) {
-            dVar = this.f5221c;
+            dVar = this.f5075c;
             if (dVar == null) {
                 return;
             }
         } else {
-            dVar = this.f5220b;
+            dVar = this.f5074b;
             if (dVar == null) {
                 return;
             }
@@ -89,10 +89,10 @@ public final class DpSessionDatasUploader {
     public static synchronized DpSessionDatasUploader getInstance() {
         DpSessionDatasUploader dpSessionDatasUploader;
         synchronized (DpSessionDatasUploader.class) {
-            if (f5219a == null) {
-                f5219a = new DpSessionDatasUploader();
+            if (f5073a == null) {
+                f5073a = new DpSessionDatasUploader();
             }
-            dpSessionDatasUploader = f5219a;
+            dpSessionDatasUploader = f5073a;
         }
         return dpSessionDatasUploader;
     }
@@ -111,29 +111,29 @@ public final class DpSessionDatasUploader {
 
     public void a(Context context) {
         d dVar;
-        if (context == null || (dVar = this.f5220b) == null || this.f5221c == null) {
+        if (context == null || (dVar = this.f5074b) == null || this.f5075c == null) {
             return;
         }
         dVar.a(context);
-        this.f5221c.a(context);
+        this.f5075c.a(context);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00dd */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0086, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00de */
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0087, code lost:
         if (r10 == null) goto L15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0088, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0089, code lost:
         r10.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b4, code lost:
         if (r10 == null) goto L15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d5, code lost:
         if (r10 == null) goto L15;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x00ea A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x00e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x00eb A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00e1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r10v0, types: [java.lang.CharSequence, java.lang.String] */
     /* JADX WARN: Type inference failed for: r10v1 */
     /* JADX WARN: Type inference failed for: r10v4, types: [java.net.HttpURLConnection] */

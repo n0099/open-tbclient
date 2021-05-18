@@ -25,8 +25,8 @@ import com.baidu.tieba.R;
 import d.a.c.a.j;
 import d.a.c.d.a;
 import d.a.c.f.a.i;
-import d.a.i0.m.d;
-import d.a.i0.z0.o;
+import d.a.j0.m.d;
+import d.a.j0.z0.o;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class GifView extends TbImageView implements Runnable, View.OnClickListener, i {
@@ -261,7 +261,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
 
     @Override // com.baidu.tbadk.widget.TbImageView
     public float[] getRadius() {
-        return d.a.i0.r.u.d.a.b(this.a1);
+        return d.a.j0.r.u.d.a.b(this.a1);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
@@ -455,17 +455,6 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         this.c1.sendEmptyMessageDelayed(1, gif.b(this.z0));
     }
 
-    public void r0() {
-        d.a.c.d.b bVar;
-        Y();
-        Q();
-        if (!this.W0 || (bVar = this.x0) == null || bVar == null) {
-            return;
-        }
-        bVar.close();
-        this.x0 = null;
-    }
-
     @Override // com.baidu.tbadk.widget.TbImageView, d.a.c.f.a.i
     public void refresh() {
         GifInfo gifInfo = this.e1;
@@ -489,6 +478,17 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         }
         invalidate();
         L();
+    }
+
+    public void s0() {
+        d.a.c.d.b bVar;
+        Y();
+        Q();
+        if (!this.W0 || (bVar = this.x0) == null || bVar == null) {
+            return;
+        }
+        bVar.close();
+        this.x0 = null;
     }
 
     public void setAutoPlay(boolean z) {
@@ -634,7 +634,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         if (bArr == null || bArr.length < i3) {
             return;
         }
-        d.a.c.j.d.a a2 = a.C0509a.b().a(bArr, 0, i3);
+        d.a.c.j.d.a a2 = a.C0496a.b().a(bArr, 0, i3);
         this.W0 = true;
         setGif(a2);
     }

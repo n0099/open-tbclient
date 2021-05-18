@@ -99,25 +99,25 @@ public class WriteThread implements Runnable {
         }
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(6:(11:39|40|41|(1:43)|92|50|51|52|53|55|56)(1:98)|(9:46|(1:48)|49|50|51|52|53|55|56)|52|53|55|56) */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x0210, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(12:37|38|(11:40|41|42|(1:44)|93|51|52|53|54|56|57)(1:99)|45|(9:47|(1:49)|50|51|52|53|54|56|57)|93|51|52|53|54|56|57) */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x0218, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:72:0x02aa, code lost:
-        if ((r0 instanceof java.io.FileNotFoundException) == false) goto L69;
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x02b2, code lost:
+        if ((r0 instanceof java.io.FileNotFoundException) == false) goto L80;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:79:0x02c1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x02c9, code lost:
         r3.failType = 2;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x02fc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x0304, code lost:
         r0 = new android.content.ContentValues();
         r0.put("status", java.lang.Integer.valueOf(r5.mStatus));
         r0.put(com.baidu.down.request.db.DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, java.lang.Long.valueOf(r5.mProgressInfo.getCurrentLength()));
         com.baidu.down.request.taskmanager.TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(r0, "_id=?", new java.lang.String[]{java.lang.String.valueOf(r5.mDownloadId)});
      */
-    /* JADX WARN: Removed duplicated region for block: B:116:0x033e A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x02a8 A[Catch: all -> 0x033b, TryCatch #5 {all -> 0x033b, blocks: (B:58:0x020b, B:64:0x0214, B:66:0x021a, B:69:0x0222, B:71:0x02a8, B:81:0x02c9, B:83:0x02fc, B:75:0x02af, B:77:0x02b5, B:79:0x02c1, B:80:0x02c5), top: B:99:0x020b }] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x02fc A[Catch: all -> 0x033b, TRY_LEAVE, TryCatch #5 {all -> 0x033b, blocks: (B:58:0x020b, B:64:0x0214, B:66:0x021a, B:69:0x0222, B:71:0x02a8, B:81:0x02c9, B:83:0x02fc, B:75:0x02af, B:77:0x02b5, B:79:0x02c1, B:80:0x02c5), top: B:99:0x020b }] */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x0346 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x02b0 A[Catch: all -> 0x0343, TryCatch #2 {all -> 0x0343, blocks: (B:58:0x0213, B:64:0x021c, B:66:0x0222, B:69:0x022a, B:71:0x02b0, B:81:0x02d1, B:83:0x0304, B:75:0x02b7, B:77:0x02bd, B:79:0x02c9, B:80:0x02cd), top: B:101:0x0213 }] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x0304 A[Catch: all -> 0x0343, TRY_LEAVE, TryCatch #2 {all -> 0x0343, blocks: (B:58:0x0213, B:64:0x021c, B:66:0x0222, B:69:0x022a, B:71:0x02b0, B:81:0x02d1, B:83:0x0304, B:75:0x02b7, B:77:0x02bd, B:79:0x02c9, B:80:0x02cd), top: B:101:0x0213 }] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -194,6 +194,7 @@ public class WriteThread implements Runnable {
                                         }
                                         this.mTaskmsg.transferedSpeed = taskByKey.mLastNotifySpeed;
                                         this.mTaskmsg.status = 1002;
+                                        this.mTaskmsg.url = taskByKey.getDefaultUrl();
                                         binaryTaskMng2 = binaryTaskMng3;
                                         binaryTaskMng2.notifyUi(this.mTaskmsg);
                                     } catch (Exception e3) {
@@ -249,6 +250,7 @@ public class WriteThread implements Runnable {
                                     taskByKey.mLastNotifyTime = elapsedRealtime;
                                     taskByKey.mLastNotifySpeed = this.mTaskmsg.transferedSpeed;
                                     this.mTaskmsg.status = 1002;
+                                    this.mTaskmsg.url = taskByKey.getDefaultUrl();
                                     binaryTaskMng2 = binaryTaskMng3;
                                     binaryTaskMng2.notifyUi(this.mTaskmsg);
                                 }
@@ -260,6 +262,7 @@ public class WriteThread implements Runnable {
                             }
                             this.mTaskmsg.transferedSpeed = taskByKey.mLastNotifySpeed;
                             this.mTaskmsg.status = 1002;
+                            this.mTaskmsg.url = taskByKey.getDefaultUrl();
                             binaryTaskMng2 = binaryTaskMng3;
                         }
                     }

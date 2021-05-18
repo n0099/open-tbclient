@@ -20,19 +20,19 @@ import d.a.c.e.l.d;
 public class TbMemeImageView extends ImageView implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.c.d.b f13805e;
+    public d.a.c.d.b f13141e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f13806f;
+    public Bitmap f13142f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13807g;
+    public int f13143g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.c.j.d.a f13808h;
+    public d.a.c.j.d.a f13144h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13809i;
+    public boolean f13145i;
     public Drawable j;
     public Drawable k;
     public String l;
@@ -50,15 +50,15 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
         public void handleMessage(Message message) {
             d.a.c.d.b gif = TbMemeImageView.this.getGif();
             if (gif != null && message.what == 1) {
-                TbMemeImageView.this.f13807g++;
-                if (TbMemeImageView.this.f13807g >= gif.getFrameCount()) {
-                    TbMemeImageView.this.f13807g = 0;
+                TbMemeImageView.this.f13143g++;
+                if (TbMemeImageView.this.f13143g >= gif.getFrameCount()) {
+                    TbMemeImageView.this.f13143g = 0;
                 }
-                gif.c(TbMemeImageView.this.f13807g);
-                gif.a(TbMemeImageView.this.f13806f, null);
+                gif.c(TbMemeImageView.this.f13143g);
+                gif.a(TbMemeImageView.this.f13142f, null);
                 TbMemeImageView.this.invalidate();
                 TbMemeImageView.this.o.removeMessages(1);
-                TbMemeImageView.this.o.sendEmptyMessageDelayed(1, gif.b(TbMemeImageView.this.f13807g));
+                TbMemeImageView.this.o.sendEmptyMessageDelayed(1, gif.b(TbMemeImageView.this.f13143g));
             }
         }
     }
@@ -84,7 +84,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
 
     public TbMemeImageView(Context context) {
         super(context);
-        this.f13809i = true;
+        this.f13145i = true;
         this.j = SkinManager.getDrawable(R.color.common_color_10220);
         this.k = SkinManager.getDrawable(R.drawable.icon_click);
         SkinManager.getDrawable(R.drawable.img_default_100);
@@ -113,32 +113,32 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
         if (gif == null) {
             return;
         }
-        if (this.f13807g != 0) {
-            this.f13807g = 0;
+        if (this.f13143g != 0) {
+            this.f13143g = 0;
         }
         gif.c(0);
         this.o.removeMessages(1);
-        this.o.sendEmptyMessageDelayed(1, gif.b(this.f13807g));
+        this.o.sendEmptyMessageDelayed(1, gif.b(this.f13143g));
     }
 
     public void g(d.a.c.j.d.a aVar) {
         if (aVar == null) {
             return;
         }
-        this.f13808h = aVar;
+        this.f13144h = aVar;
         if (aVar.t() && aVar.k() != null && aVar.k().length > 0) {
             NSGif f2 = NSGif.f(aVar.k(), 0, aVar.k().length);
             if (f2 == null) {
                 return;
             }
-            this.f13805e = f2;
+            this.f13141e = f2;
             f2.c(0);
-            Bitmap bitmap = this.f13806f;
-            if (bitmap == null || (bitmap.getWidth() != this.f13805e.getWidth() && this.f13806f.getHeight() != this.f13805e.getHeight())) {
-                this.f13806f = Bitmap.createBitmap(this.f13805e.getWidth(), this.f13805e.getHeight(), Bitmap.Config.ARGB_4444);
+            Bitmap bitmap = this.f13142f;
+            if (bitmap == null || (bitmap.getWidth() != this.f13141e.getWidth() && this.f13142f.getHeight() != this.f13141e.getHeight())) {
+                this.f13142f = Bitmap.createBitmap(this.f13141e.getWidth(), this.f13141e.getHeight(), Bitmap.Config.ARGB_4444);
             }
-            this.f13805e.a(this.f13806f, null);
-            setImageBitmap(this.f13806f);
+            this.f13141e.a(this.f13142f, null);
+            setImageBitmap(this.f13142f);
             f();
         } else if (aVar.p() != null) {
             setImageBitmap(aVar.p());
@@ -146,11 +146,11 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     }
 
     public d.a.c.j.d.a getBdImage() {
-        return this.f13808h;
+        return this.f13144h;
     }
 
     public d.a.c.d.b getGif() {
-        d.a.c.d.b bVar = this.f13805e;
+        d.a.c.d.b bVar = this.f13141e;
         if (bVar == null) {
             return null;
         }
@@ -166,7 +166,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f13808h == null && this.f13809i) {
+        if (this.f13144h == null && this.f13145i) {
             d.h().l(this.l, 33, this.p, 0, 0, false, null, new Object[0]);
             return;
         }
@@ -180,46 +180,46 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.o.removeMessages(1);
-        d.a.c.d.b bVar = this.f13805e;
+        d.a.c.d.b bVar = this.f13141e;
         if (bVar != null) {
             bVar.close();
-            this.f13805e = null;
+            this.f13141e = null;
         }
-        if (this.f13808h != null) {
-            this.f13808h = null;
+        if (this.f13144h != null) {
+            this.f13144h = null;
         }
-        Bitmap bitmap = this.f13806f;
+        Bitmap bitmap = this.f13142f;
         if (bitmap != null) {
             bitmap.recycle();
-            this.f13806f = null;
+            this.f13142f = null;
         }
-        this.f13807g = 0;
+        this.f13143g = 0;
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
         this.o.removeMessages(1);
-        d.a.c.d.b bVar = this.f13805e;
+        d.a.c.d.b bVar = this.f13141e;
         if (bVar != null) {
             bVar.close();
-            this.f13805e = null;
+            this.f13141e = null;
         }
-        if (this.f13808h != null) {
-            this.f13808h = null;
+        if (this.f13144h != null) {
+            this.f13144h = null;
         }
-        Bitmap bitmap = this.f13806f;
+        Bitmap bitmap = this.f13142f;
         if (bitmap != null) {
             bitmap.recycle();
-            this.f13806f = null;
+            this.f13142f = null;
         }
-        this.f13807g = 0;
+        this.f13143g = 0;
     }
 
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i2) {
         super.onWindowVisibilityChanged(i2);
-        if (this.f13805e == null) {
+        if (this.f13141e == null) {
             return;
         }
         if (i2 == 4 || i2 == 8) {
@@ -262,12 +262,12 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     }
 
     public void setSupportNoImage(boolean z) {
-        this.f13809i = z;
+        this.f13145i = z;
     }
 
     public TbMemeImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13809i = true;
+        this.f13145i = true;
         this.j = SkinManager.getDrawable(R.color.common_color_10220);
         this.k = SkinManager.getDrawable(R.drawable.icon_click);
         SkinManager.getDrawable(R.drawable.img_default_100);
@@ -279,7 +279,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
 
     public TbMemeImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13809i = true;
+        this.f13145i = true;
         this.j = SkinManager.getDrawable(R.color.common_color_10220);
         this.k = SkinManager.getDrawable(R.drawable.icon_click);
         SkinManager.getDrawable(R.drawable.img_default_100);

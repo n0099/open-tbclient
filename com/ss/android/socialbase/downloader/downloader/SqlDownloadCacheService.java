@@ -10,11 +10,11 @@ import android.util.Log;
 import d.o.a.e.b.g.d;
 import d.o.a.e.b.g.j;
 import d.o.a.e.b.g.s;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SqlDownloadCacheService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36818a = SqlDownloadCacheService.class.getSimpleName();
+    public static final String f36063a = SqlDownloadCacheService.class.getSimpleName();
 
     public static void a(Context context, ServiceConnection serviceConnection) {
         if (context != null) {
@@ -25,7 +25,7 @@ public class SqlDownloadCacheService extends Service {
                 }
                 context.startService(intent);
             } catch (Throwable th) {
-                Log.w(f36818a, "startServiceAndBind fail", th);
+                Log.w(f36063a, "startServiceAndBind fail", th);
             }
         }
     }

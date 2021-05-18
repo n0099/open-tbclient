@@ -35,15 +35,16 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.tieba.ad.download.broadcast.AppNotificationReceiver;
-import d.a.i0.z0.n0;
-import d.a.j0.s2.l;
+import com.baidu.tieba.service.AsInstallService;
+import d.a.j0.z0.n0;
+import d.a.k0.s2.m;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 /* loaded from: classes4.dex */
 public class AdStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f14225a = true;
+    public static boolean f13561a = true;
 
     /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
@@ -57,14 +58,14 @@ public class AdStatic {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
                 return;
             }
-            d.a.j0.o.c.a.c(TbadkCoreApplication.getInst());
+            d.a.k0.o.c.a.c(TbadkCoreApplication.getInst());
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements l.c {
-        @Override // d.a.j0.s2.l.c
-        public int a(Context context, String str, String str2, boolean z, l.d dVar, boolean z2, Bundle bundle) {
+    public static class b implements m.c {
+        @Override // d.a.k0.s2.m.c
+        public int a(Context context, String str, String str2, boolean z, m.d dVar, boolean z2, Bundle bundle) {
             if (z2) {
                 AdStatic.p(context, str2, null, bundle);
                 return 0;
@@ -75,8 +76,8 @@ public class AdStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class c implements l.a {
-        @Override // d.a.j0.s2.l.a
+    public static class c implements m.a {
+        @Override // d.a.k0.s2.m.a
         public int a(Context context, String[] strArr) {
             Bundle i2;
             if (context != null && strArr != null && strArr.length != 0) {
@@ -101,7 +102,7 @@ public class AdStatic {
                     UtilHelper.smsTo(context, substring, str4);
                     return 0;
                 } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_JUMP_OUTER)) {
-                    d.a.j0.o.c.a.f(context, str);
+                    d.a.k0.o.c.a.f(context, str);
                     return 1;
                 } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) && (context instanceof Activity)) {
                     ((Activity) context).finish();
@@ -130,9 +131,9 @@ public class AdStatic {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                     return 0;
                 } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE)) {
-                    AdStatic.p(context, d.a.j0.o.c.a.d(str.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE, ""), str2), null, null);
+                    AdStatic.p(context, d.a.k0.o.c.a.d(str.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE, ""), str2), null, null);
                 } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_WEB)) {
-                    AdStatic.p(context, d.a.j0.o.c.a.d(str.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, ""), str2), null, null);
+                    AdStatic.p(context, d.a.k0.o.c.a.d(str.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, ""), str2), null, null);
                 } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TOPIC)) {
                     AdStatic.p(context, str3, str.substring(6), null);
                 } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_ZB)) {
@@ -149,8 +150,8 @@ public class AdStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class d implements l.a {
-        @Override // d.a.j0.s2.l.a
+    public static class d implements m.a {
+        @Override // d.a.k0.s2.m.a
         public int a(Context context, String[] strArr) {
             if (strArr != null && strArr[0] != null) {
                 Uri parse = Uri.parse(strArr[0]);
@@ -216,8 +217,8 @@ public class AdStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class e implements l.a {
-        @Override // d.a.j0.s2.l.a
+    public static class e implements m.a {
+        @Override // d.a.k0.s2.m.a
         public int a(Context context, String[] strArr) {
             if (strArr != null && strArr[0] != null) {
                 String str = strArr[0];
@@ -258,9 +259,9 @@ public class AdStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
-        intentFilter.addDataScheme("package");
+        intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
         TbadkCoreApplication.getInst().registerReceiver(new AppNotificationReceiver(), intentFilter);
-        d.a.j0.o.a.l().o(bVar);
+        d.a.k0.o.a.l().o(bVar);
         SwitchManager.getInstance().addSwitchData(new d.a.c.e.f.b("switch_mbaidu_startup", 1, null));
         l();
         m();
@@ -390,19 +391,19 @@ public class AdStatic {
     }
 
     public static void l() {
-        d.a.j0.o.a.l().e(new c());
+        d.a.k0.o.a.l().e(new c());
     }
 
     public static void m() {
-        d.a.j0.o.a.l().e(new d());
+        d.a.k0.o.a.l().e(new d());
     }
 
     public static void n() {
-        d.a.j0.o.a.l().e(new e());
+        d.a.k0.o.a.l().e(new e());
     }
 
     public static void o(Context context, String str, String str2, Bundle bundle) {
-        String d2 = d.a.j0.o.c.a.d(str, null);
+        String d2 = d.a.k0.o.c.a.d(str, null);
         Intent intent = new Intent();
         intent.setAction("com.baidu.searchbox.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
@@ -420,13 +421,13 @@ public class AdStatic {
 
     public static void p(Context context, String str, String str2, Bundle bundle) {
         k(str);
-        d.a.j0.o.c.a.g(context, str, str2, bundle);
+        d.a.k0.o.c.a.g(context, str, str2, bundle);
     }
 
     public static void q(Context context, String str, String str2, Bundle bundle) {
         TiebaStatic.eventStat(context, "url_1", null);
         String h2 = h(str);
-        if (!g(h2) && e() && i("com.baidu.searchbox") && f(h2) && f14225a) {
+        if (!g(h2) && e() && i("com.baidu.searchbox") && f(h2) && f13561a) {
             TiebaStatic.eventStat(context, "url_2", null);
             o(context, str, str2, bundle);
             return;

@@ -5,31 +5,31 @@ import java.io.Serializable;
 public final class b implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11139a;
+    public int f10206a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11140b;
+    public int f10207b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11141c;
+    public String f10208c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11142d;
+    public String f10209d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11143e;
+    public String f10210e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11144f;
+    public int f10211f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11145g;
+    public int f10212g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11146h;
+    public int f10213h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11147i;
+    public int f10214i;
     public String j;
     public String k;
     public int l;

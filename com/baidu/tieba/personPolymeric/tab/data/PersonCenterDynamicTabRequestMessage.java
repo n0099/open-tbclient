@@ -2,10 +2,10 @@ package com.baidu.tieba.personPolymeric.tab.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.i0.z0.w;
+import d.a.j0.z0.w;
 import tbclient.GetShoubaiThreadList.DataReq;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonCenterDynamicTabRequestMessage extends NetMessage {
     public long cursor;
     public int pageSize;

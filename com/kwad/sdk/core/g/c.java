@@ -14,16 +14,16 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f33095a = false;
+    public static boolean f32340a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f33096b = false;
+    public static volatile boolean f32341b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f33097c;
+    public static Context f32342c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f33098d;
+    public static a f32343d;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -36,13 +36,13 @@ public class c {
     public static class b implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            com.kwad.sdk.core.config.c.a(c.f33097c);
-            if (c.f33098d != null) {
-                c.f33098d.a();
+            com.kwad.sdk.core.config.c.a(c.f32342c);
+            if (c.f32343d != null) {
+                c.f32343d.a();
             }
-            if (!c.f33095a) {
-                e.b(c.f33097c);
-                boolean unused = c.f33095a = true;
+            if (!c.f32340a) {
+                e.b(c.f32342c);
+                boolean unused = c.f32340a = true;
             }
             c.a();
         }
@@ -96,10 +96,10 @@ public class c {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.core.g.b bVar, @NonNull SdkConfigData sdkConfigData) {
-                com.kwad.sdk.core.config.b.a(c.f33097c);
-                com.kwad.sdk.core.config.c.a(c.f33097c, sdkConfigData);
-                if (c.f33098d != null) {
-                    c.f33098d.a(sdkConfigData);
+                com.kwad.sdk.core.config.b.a(c.f32342c);
+                com.kwad.sdk.core.config.c.a(c.f32342c, sdkConfigData);
+                if (c.f32343d != null) {
+                    c.f32343d.a(sdkConfigData);
                 }
             }
         });
@@ -107,13 +107,13 @@ public class c {
 
     public static synchronized void a(Context context, a aVar) {
         synchronized (c.class) {
-            if (f33096b) {
+            if (f32341b) {
                 com.kwad.sdk.core.d.a.a("ConfigRequestManager", "config request manager has init-ed");
                 return;
             }
-            f33096b = true;
-            f33097c = context;
-            f33098d = aVar;
+            f32341b = true;
+            f32342c = context;
+            f32343d = aVar;
             f.a(new b());
         }
     }

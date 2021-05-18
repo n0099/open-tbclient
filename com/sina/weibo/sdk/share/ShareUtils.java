@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Calendar;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ShareUtils {
     /* JADX WARN: Removed duplicated region for block: B:32:0x00b6 A[Catch: all -> 0x0143, Exception -> 0x0146, TryCatch #13 {Exception -> 0x0146, all -> 0x0143, blocks: (B:3:0x0003, B:6:0x0013, B:20:0x0097, B:30:0x00b0, B:32:0x00b6, B:36:0x00cd, B:37:0x00d4, B:28:0x00ac, B:58:0x013f, B:59:0x0142), top: B:92:0x0003 }] */
     /* JADX WARN: Removed duplicated region for block: B:40:0x0111 A[Catch: all -> 0x0136, Exception -> 0x0139, TryCatch #11 {Exception -> 0x0139, all -> 0x0136, blocks: (B:38:0x00ec, B:40:0x0111, B:41:0x0114), top: B:94:0x00ec }] */
@@ -65,7 +65,7 @@ public final class ShareUtils {
                                 str2 = null;
                                 if (TextUtils.isEmpty(str2)) {
                                 }
-                                bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f7975a).getFileDescriptor()));
+                                bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f7772a).getFileDescriptor()));
                                 file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str + str2);
                                 if (file.exists()) {
                                 }
@@ -146,7 +146,7 @@ public final class ShareUtils {
                 sb.append(i2 == 0 ? "_sdk_temp.mp4" : "_sdk_temp.jpg");
                 str2 = sb.toString();
             }
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f7975a).getFileDescriptor()));
+            bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f7772a).getFileDescriptor()));
         } catch (Exception e5) {
             e = e5;
             bufferedInputStream = null;

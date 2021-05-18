@@ -14,30 +14,30 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class a extends AbstrackKsSplashScreenAd {
 
     /* renamed from: a  reason: collision with root package name */
-    public AdResultData f34743a;
+    public AdResultData f33988a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsScene f34744b;
+    public KsScene f33989b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public final AdTemplate f34745c;
+    public final AdTemplate f33990c;
 
     public a(@NonNull KsScene ksScene, @NonNull AdResultData adResultData) {
-        this.f34743a = adResultData;
-        this.f34744b = ksScene;
-        this.f34745c = adResultData.adTemplateList.get(0);
+        this.f33988a = adResultData;
+        this.f33989b = ksScene;
+        this.f33990c = adResultData.adTemplateList.get(0);
     }
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.b.a.x(com.kwad.sdk.core.response.b.c.g(this.f34745c));
+        return com.kwad.sdk.core.response.b.a.x(com.kwad.sdk.core.response.b.c.g(this.f33990c));
     }
 
     @Override // com.kwad.sdk.api.core.AbstrackKsSplashScreenAd
     @NonNull
     public KsFragment getFragment2(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
-        KsSplashScreenFragment a2 = KsSplashScreenFragment.a(this.f34744b, this.f34743a);
+        KsSplashScreenFragment a2 = KsSplashScreenFragment.a(this.f33989b, this.f33988a);
         a2.a(splashScreenAdInteractionListener);
         return a2;
     }
@@ -45,24 +45,24 @@ public class a extends AbstrackKsSplashScreenAd {
     @Override // com.kwad.sdk.api.core.AbstrackKsSplashScreenAd
     @NonNull
     public View getView2(Context context, KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
-        b a2 = b.a(context, this.f34744b, this.f34743a);
+        b a2 = b.a(context, this.f33989b, this.f33988a);
         a2.setSplashScreenAdListener(splashScreenAdInteractionListener);
         return a2;
     }
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     public boolean isAdEnable() {
-        return SplashPreloadManager.b().a(this.f34743a) || SplashPreloadManager.b().b(this.f34743a);
+        return SplashPreloadManager.b().a(this.f33988a) || SplashPreloadManager.b().b(this.f33988a);
     }
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     public boolean isVideo() {
-        return com.kwad.sdk.core.response.b.a.F(com.kwad.sdk.core.response.b.c.g(this.f34743a.adTemplateList.get(0)));
+        return com.kwad.sdk.core.response.b.a.F(com.kwad.sdk.core.response.b.c.g(this.f33988a.adTemplateList.get(0)));
     }
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     public void setBidEcpm(int i2) {
-        AdTemplate adTemplate = this.f34745c;
+        AdTemplate adTemplate = this.f33990c;
         adTemplate.mBidEcpm = i2;
         com.kwad.sdk.core.report.b.l(adTemplate);
     }

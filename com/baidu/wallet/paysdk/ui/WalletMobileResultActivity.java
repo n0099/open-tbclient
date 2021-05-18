@@ -26,31 +26,31 @@ import com.baidu.wallet.paysdk.datamodel.WalletChargeResultBannerResponse;
 public class WalletMobileResultActivity extends PayBaseBeanActivity implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26755a = WalletMobileResultActivity.class.getSimpleName();
+    public static final String f26000a = WalletMobileResultActivity.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public static ResultPageStateListener f26756b;
+    public static ResultPageStateListener f26001b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f26757c;
+    public TextView f26002c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f26758d;
+    public TextView f26003d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f26759e;
+    public Button f26004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f26760f;
+    public ImageView f26005f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NetImageView f26761g;
+    public NetImageView f26006g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CharSequence f26762h;
+    public CharSequence f26007h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CharSequence f26763i;
+    public CharSequence f26008i;
     public boolean j;
     public String k;
     public boolean l;
@@ -59,35 +59,35 @@ public class WalletMobileResultActivity extends PayBaseBeanActivity implements V
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.f26762h = bundle.getCharSequence("business_result_text");
-            this.f26763i = bundle.getCharSequence("business_result_desc");
+            this.f26007h = bundle.getCharSequence("business_result_text");
+            this.f26008i = bundle.getCharSequence("business_result_desc");
             this.k = bundle.getString("business_result_order");
             this.j = bundle.getBoolean("business_result_ischarge", false);
             this.l = bundle.getBoolean("business_result_paying", false);
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.f26762h = intent.getCharSequenceExtra("business_result_text");
-                this.f26763i = intent.getCharSequenceExtra("business_result_desc");
+                this.f26007h = intent.getCharSequenceExtra("business_result_text");
+                this.f26008i = intent.getCharSequenceExtra("business_result_desc");
                 this.k = intent.getStringExtra("business_result_order");
                 this.j = intent.getBooleanExtra("business_result_ischarge", false);
                 this.l = intent.getBooleanExtra("business_result_paying", false);
             }
         }
-        if (TextUtils.isEmpty(this.f26762h)) {
-            this.f26762h = ResUtils.getString(getActivity(), this.l ? "wallet_phone_charge_result_paying" : "wallet_phone_charge_result_desc");
+        if (TextUtils.isEmpty(this.f26007h)) {
+            this.f26007h = ResUtils.getString(getActivity(), this.l ? "wallet_phone_charge_result_paying" : "wallet_phone_charge_result_desc");
         }
-        if (TextUtils.isEmpty(this.f26763i)) {
+        if (TextUtils.isEmpty(this.f26008i)) {
             if (this.j) {
-                this.f26763i = ResUtils.getString(getActivity(), "wallet_phone_charge_payresult_paydesc");
+                this.f26008i = ResUtils.getString(getActivity(), "wallet_phone_charge_payresult_paydesc");
             } else {
-                this.f26763i = ResUtils.getString(getActivity(), "wallet_phone_traffic_payresult_paydesc");
+                this.f26008i = ResUtils.getString(getActivity(), "wallet_phone_traffic_payresult_paydesc");
             }
         }
     }
 
     public static void gotoBusniessResultPage(Context context, boolean z, String str, CharSequence charSequence, boolean z2, ResultPageStateListener resultPageStateListener) {
-        f26756b = resultPageStateListener;
+        f26001b = resultPageStateListener;
         Intent intent = new Intent(context, WalletMobileResultActivity.class);
         intent.putExtra("business_result_order", str);
         intent.putExtra("business_result_ischarge", z);
@@ -106,7 +106,7 @@ public class WalletMobileResultActivity extends PayBaseBeanActivity implements V
     }
 
     public static void setBusnessResultListener(ResultPageStateListener resultPageStateListener) {
-        f26756b = resultPageStateListener;
+        f26001b = resultPageStateListener;
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
@@ -120,11 +120,11 @@ public class WalletMobileResultActivity extends PayBaseBeanActivity implements V
             this.m = walletChargeResultBannerResponse;
             WalletChargeResultBannerResponse.AdBanner adBanner = walletChargeResultBannerResponse.banner;
             if (adBanner != null && !TextUtils.isEmpty(adBanner.imgUrl)) {
-                this.f26761g.setVisibility(0);
-                this.f26761g.setImageUrl(this.m.banner.imgUrl);
+                this.f26006g.setVisibility(0);
+                this.f26006g.setImageUrl(this.m.banner.imgUrl);
                 return;
             }
-            this.f26761g.setVisibility(8);
+            this.f26006g.setVisibility(8);
         }
     }
 
@@ -135,14 +135,14 @@ public class WalletMobileResultActivity extends PayBaseBeanActivity implements V
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         WalletChargeResultBannerResponse.AdBanner adBanner;
-        if (view == this.f26759e) {
-            ResultPageStateListener resultPageStateListener = f26756b;
+        if (view == this.f26004e) {
+            ResultPageStateListener resultPageStateListener = f26001b;
             if (resultPageStateListener != null) {
                 resultPageStateListener.onConfirm();
             }
             finish();
         }
-        if (view == this.f26761g) {
+        if (view == this.f26006g) {
             if (this.j) {
                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_MOBILE_RESULT_BANNER_CLICK, "0");
             } else {
@@ -165,31 +165,31 @@ public class WalletMobileResultActivity extends PayBaseBeanActivity implements V
         BdActionBar bdActionBar = (BdActionBar) findViewById(ResUtils.id(getActivity(), "bdactionbar"));
         this.n = bdActionBar;
         bdActionBar.hideLeftZone();
-        this.f26757c = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_text"));
-        this.f26758d = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_desc"));
+        this.f26002c = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_text"));
+        this.f26003d = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_desc"));
         Button button = (Button) findViewById(ResUtils.id(getActivity(), "wallet_business_result_confirm"));
-        this.f26759e = button;
+        this.f26004e = button;
         button.setOnClickListener(this);
-        this.f26760f = (ImageView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_image"));
+        this.f26005f = (ImageView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_image"));
         NetImageView netImageView = (NetImageView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_ad_banner"));
-        this.f26761g = netImageView;
+        this.f26006g = netImageView;
         netImageView.setOnClickListener(this);
-        this.f26757c.setText(this.f26762h);
-        this.f26758d.setText(this.f26763i);
+        this.f26002c.setText(this.f26007h);
+        this.f26003d.setText(this.f26008i);
         a();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        BeanManager.getInstance().removeAllBeans(f26755a);
-        f26756b = null;
+        BeanManager.getInstance().removeAllBeans(f26000a);
+        f26001b = null;
         super.onDestroy();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putCharSequence("business_result_text", this.f26762h);
-        bundle.putCharSequence("business_result_desc", this.f26763i);
+        bundle.putCharSequence("business_result_text", this.f26007h);
+        bundle.putCharSequence("business_result_desc", this.f26008i);
         bundle.putString("business_result_order", this.k);
         bundle.putBoolean("business_result_ischarge", this.j);
         bundle.putBoolean("business_result_paying", this.l);
@@ -197,7 +197,7 @@ public class WalletMobileResultActivity extends PayBaseBeanActivity implements V
     }
 
     private void a() {
-        u uVar = (u) PayBeanFactory.getInstance().getBean((Context) getActivity(), 528, f26755a);
+        u uVar = (u) PayBeanFactory.getInstance().getBean((Context) getActivity(), 528, f26000a);
         uVar.a(this.j);
         uVar.a(this.k);
         uVar.setResponseCallback(this);

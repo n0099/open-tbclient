@@ -31,9 +31,13 @@ public class RtcConstants {
     public static final String EXTRA_RTC_ROOM_ID = "rtc_room_id";
     public static final int IM_RTC_1V1 = 1;
     public static final int IM_RTC_1VN = 2;
+    public static final int IM_RTC_ANSWER_ABILITY_NO = 0;
+    public static final int IM_RTC_ANSWER_ABILITY_OK = 1;
     public static final int IM_RTC_ANSWER_NO = 2;
     public static final int IM_RTC_ANSWER_OK = 1;
     public static final int IM_RTC_ANSWER_TIMEOUT = 3;
+    public static final int IM_RTC_APP_STATE_BACK = 1;
+    public static final int IM_RTC_APP_STATE_FRONT = 0;
     public static final int IM_RTC_KICKED_NO = 2;
     public static final int IM_RTC_KICKED_NONE = 0;
     public static final int IM_RTC_KICKED_OK = 1;
@@ -51,7 +55,7 @@ public class RtcConstants {
     public static long RTC_HEART_BEAT_TIME = 10000;
     public static final int RTC_SERVICE_ID = 5;
     public static volatile long RTC_TRACK_UPLOAD_DURATION = 300000;
-    public static int RTC_VERSION = 102060;
+    public static final int RTC_VERSION = 103010;
     public static final int SUCCESS = 0;
 
     /* loaded from: classes.dex */

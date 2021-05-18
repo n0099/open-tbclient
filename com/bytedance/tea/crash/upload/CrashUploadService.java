@@ -11,7 +11,7 @@ import d.b.d.b.n.e;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CrashUploadService extends IntentService {
     public CrashUploadService() {
         super("CrashUploadService");

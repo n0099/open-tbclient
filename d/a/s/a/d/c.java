@@ -18,7 +18,7 @@ public class c {
 
     public d.a.s.a.c.b b(d.a.s.a.c.b bVar, boolean z) {
         bVar.o = z;
-        h(bVar, f(bVar.f63886h, bVar.f63887i, bVar.n, d(false)), a(bVar.f63879a, d(false)));
+        h(bVar, f(bVar.f64573h, bVar.f64574i, bVar.n, d(false)), a(bVar.f64566a, d(false)));
         return bVar;
     }
 
@@ -27,8 +27,8 @@ public class c {
         d.a.s.a.c.b bVar = new d.a.s.a.c.b();
         bVar.n = random;
         bVar.o = true;
-        bVar.f63886h = 1L;
-        bVar.f63887i = j;
+        bVar.f64573h = 1L;
+        bVar.f64574i = j;
         bVar.l = j == 1;
         bVar.k = j == 3;
         h(bVar, f(1L, j, random, d(false)), a(e(context, random, j), d(false)));
@@ -126,7 +126,7 @@ public class c {
             allocate.putInt(bArr.length);
             allocate.put(bArr);
             allocate.put(bArr2);
-            bVar.f63879a = allocate.array();
+            bVar.f64566a = allocate.array();
         } catch (Exception unused) {
         }
         return bVar;

@@ -39,19 +39,19 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
     public static long u;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f21503e = null;
+    public ImageView f20747e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f21504f = null;
+    public RelativeLayout f20748f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f21505g = null;
+    public RelativeLayout f20749g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21506h = null;
+    public TextView f20750h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f21507i = null;
+    public View.OnClickListener f20751i = null;
     public BaseWebView j = null;
     public ProgressBar k = null;
     public LinearLayout l = null;
@@ -94,18 +94,18 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
     public class c extends BdAsyncTask<Object, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f21509a;
+        public NetWork f20753a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f21510b;
+        public String f20754b;
 
         public c() {
-            this.f21509a = null;
+            this.f20753a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            NetWork netWork = this.f21509a;
+            NetWork netWork = this.f20753a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -117,28 +117,28 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(Object... objArr) {
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/tag/gettogether");
-            this.f21509a = netWork;
+            this.f20753a = netWork;
             netWork.getNetContext().getRequest().getNetWorkParam().mIsJson = false;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.f21509a.addPostData("night_type", "1");
+                this.f20753a.addPostData("night_type", "1");
             }
-            this.f21509a.addPostData(Config.PACKAGE_NAME, DailyClassicalActivity.this.s);
-            this.f21509a.addPostData("_version_more", "1");
-            this.f21509a.addPostData(Constants.PARAM_PLATFORM, "android");
+            this.f20753a.addPostData(Config.PACKAGE_NAME, DailyClassicalActivity.this.s);
+            this.f20753a.addPostData("_version_more", "1");
+            this.f20753a.addPostData(Constants.PARAM_PLATFORM, "android");
             if (DailyClassicalActivity.t) {
                 boolean unused = DailyClassicalActivity.t = false;
-                this.f21509a.addPostData("msg_click", "1");
-                this.f21509a.addPostData("message_id", String.valueOf(DailyClassicalActivity.u));
+                this.f20753a.addPostData("msg_click", "1");
+                this.f20753a.addPostData("message_id", String.valueOf(DailyClassicalActivity.u));
             }
             Address h2 = d.a.c.e.i.a.l().h(false);
             if (h2 != null && DailyClassicalActivity.this.u()) {
-                NetWork netWork2 = this.f21509a;
+                NetWork netWork2 = this.f20753a;
                 netWork2.addPostData("lbs", String.valueOf(h2.getLatitude()) + "," + String.valueOf(h2.getLongitude()));
             }
             try {
-                this.f21510b = this.f21509a.postNetData();
-                if (this.f21509a.isNetSuccess()) {
-                    return this.f21510b;
+                this.f20754b = this.f20753a.postNetData();
+                if (this.f20753a.isNetSuccess()) {
+                    return this.f20754b;
                 }
                 return null;
             } catch (Exception e2) {
@@ -152,12 +152,12 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         public void onPostExecute(String str) {
             DailyClassicalActivity.this.m = null;
             DailyClassicalActivity.this.l.setOnClickListener(null);
-            NetWork netWork = this.f21509a;
+            NetWork netWork = this.f20753a;
             if (netWork == null || !netWork.isNetSuccess() || str == null || str.length() <= 0) {
                 DailyClassicalActivity.this.o = false;
                 DailyClassicalActivity.this.p.setVisibility(0);
                 DailyClassicalActivity.this.j.setVisibility(8);
-                DailyClassicalActivity.this.l.setOnClickListener(DailyClassicalActivity.this.f21507i);
+                DailyClassicalActivity.this.l.setOnClickListener(DailyClassicalActivity.this.f20751i);
             } else {
                 DailyClassicalActivity.this.j.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.DATA_MIME_TYPE, "utf-8", "");
                 DailyClassicalActivity.this.p.setVisibility(8);
@@ -186,10 +186,10 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        SkinManager.setBgColor(this.f21504f, i2);
-        SkinManager.setTopBarBgImage(this.f21505g, i2);
-        SkinManager.setTopBarTitleColor(this.f21506h, i2);
-        SkinManager.setTopBarBackBgImage(this.f21503e, i2);
+        SkinManager.setBgColor(this.f20748f, i2);
+        SkinManager.setTopBarBgImage(this.f20749g, i2);
+        SkinManager.setTopBarTitleColor(this.f20750h, i2);
+        SkinManager.setTopBarBackBgImage(this.f20747e, i2);
         BaseWebView baseWebView = this.j;
         if (baseWebView != null) {
             SkinManager.setBgColor(baseWebView, i2);
@@ -240,7 +240,7 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
                 y();
                 return true;
             }
-            d.a.i0.l.a.k(this, str + "&_client_version=" + TbConfig.getVersion());
+            d.a.j0.l.a.k(this, str + "&_client_version=" + TbConfig.getVersion());
             return true;
         }
     }
@@ -288,17 +288,17 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
     }
 
     public final void w() {
-        this.f21504f = (RelativeLayout) findViewById(R.id.parent);
-        this.f21505g = (RelativeLayout) findViewById(R.id.title);
-        this.f21506h = (TextView) findViewById(R.id.title_text);
+        this.f20748f = (RelativeLayout) findViewById(R.id.parent);
+        this.f20749g = (RelativeLayout) findViewById(R.id.title);
+        this.f20750h = (TextView) findViewById(R.id.title_text);
         this.l = (LinearLayout) findViewById(R.id.tag_webview_item);
-        this.f21503e = (ImageView) findViewById(R.id.back);
+        this.f20747e = (ImageView) findViewById(R.id.back);
         this.p = (TextView) this.l.findViewById(R.id.webview_fail);
         this.q = (TextView) this.l.findViewById(R.id.webview_crash_tip);
         this.k = (ProgressBar) findViewById(R.id.tag_progress);
         b bVar = new b();
-        this.f21507i = bVar;
-        this.f21503e.setOnClickListener(bVar);
+        this.f20751i = bVar;
+        this.f20747e.setOnClickListener(bVar);
         if (t()) {
             this.q.setVisibility(8);
             y();

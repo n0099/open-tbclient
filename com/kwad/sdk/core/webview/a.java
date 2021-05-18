@@ -10,27 +10,27 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f33621a;
+    public int f32866a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f33622b;
+    public AdTemplate f32867b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f33623c;
+    public AdBaseFrameLayout f32868c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f33624d;
+    public JSONObject f32869d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f33625e;
+    public ViewGroup f32870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WebView f33626f;
+    public WebView f32871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f33627g = true;
+    public boolean f32872g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f33628h = true;
+    public boolean f32873h = true;
 }

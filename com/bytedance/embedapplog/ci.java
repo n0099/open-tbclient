@@ -13,13 +13,13 @@ public interface ci extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.ci$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0288a implements ci {
+        public static class C0275a implements ci {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f27663a;
+            public IBinder f26908a;
 
-            public C0288a(IBinder iBinder) {
-                this.f27663a = iBinder;
+            public C0275a(IBinder iBinder) {
+                this.f26908a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.ci
@@ -28,7 +28,7 @@ public interface ci extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f27663a.transact(1, obtain, obtain2, 0);
+                    this.f26908a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -39,7 +39,7 @@ public interface ci extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f27663a;
+                return this.f26908a;
             }
 
             @Override // com.bytedance.embedapplog.ci
@@ -48,7 +48,7 @@ public interface ci extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f27663a.transact(2, obtain, obtain2, 0);
+                    this.f26908a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -66,7 +66,7 @@ public interface ci extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ci)) {
                 return (ci) queryLocalInterface;
             }
-            return new C0288a(iBinder);
+            return new C0275a(iBinder);
         }
 
         @Override // android.os.Binder

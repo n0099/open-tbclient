@@ -5,27 +5,27 @@ import androidx.core.app.NotificationCompatJellybean;
 import com.bytedance.sdk.openadsdk.core.c;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public l f29796a;
+    public l f29041a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29797b;
+    public String f29042b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29798c;
+    public String f29043c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f29799d;
+    public JSONObject f29044d;
 
     public static a a() {
         return new a();
     }
 
     public a b(String str) {
-        this.f29798c = str;
+        this.f29043c = str;
         return this;
     }
 
@@ -63,7 +63,7 @@ public class a {
     }
 
     public a b(JSONObject jSONObject) {
-        this.f29799d = jSONObject;
+        this.f29044d = jSONObject;
         return this;
     }
 
@@ -71,13 +71,13 @@ public class a {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("tag", this.f29797b);
-            jSONObject.put(NotificationCompatJellybean.KEY_LABEL, this.f29798c);
-            if (this.f29799d != null) {
-                jSONObject.put("extra", this.f29799d);
+            jSONObject.put("tag", this.f29042b);
+            jSONObject.put(NotificationCompatJellybean.KEY_LABEL, this.f29043c);
+            if (this.f29044d != null) {
+                jSONObject.put("extra", this.f29044d);
             }
-            if (this.f29796a != null) {
-                jSONObject.put("material_meta", this.f29796a.aL());
+            if (this.f29041a != null) {
+                jSONObject.put("material_meta", this.f29041a.aL());
             }
         } catch (Exception unused) {
         }
@@ -85,12 +85,12 @@ public class a {
     }
 
     public a a(l lVar) {
-        this.f29796a = lVar;
+        this.f29041a = lVar;
         return this;
     }
 
     public a a(String str) {
-        this.f29797b = str;
+        this.f29042b = str;
         return this;
     }
 }

@@ -5,13 +5,13 @@ import android.view.View;
 public abstract class ReDoubleOnClickListener implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f24444a = true;
+    public static boolean f23689a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Runnable f24445b = new Runnable() { // from class: com.baidu.wallet.base.widget.clickListener.ReDoubleOnClickListener.1
+    public static final Runnable f23690b = new Runnable() { // from class: com.baidu.wallet.base.widget.clickListener.ReDoubleOnClickListener.1
         @Override // java.lang.Runnable
         public void run() {
-            boolean unused = ReDoubleOnClickListener.f24444a = true;
+            boolean unused = ReDoubleOnClickListener.f23689a = true;
         }
     };
 
@@ -19,9 +19,9 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        if (f24444a) {
-            f24444a = false;
-            view.post(f24445b);
+        if (f23689a) {
+            f23689a = false;
+            view.post(f23690b);
             doClick(view);
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.tieba.quickWebView.message;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class QuickWebViewHttpReqMsg extends HttpMessage {
     public long begin;
     public String jsCallbackMethod;

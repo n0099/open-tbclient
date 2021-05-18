@@ -8,42 +8,42 @@ import android.text.TextUtils;
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4843a;
+    public static Context f4697a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f4844b;
+    public static PackageManager f4698b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static PackageInfo f4845c;
+    public static PackageInfo f4699c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4846d;
+    public static String f4700d;
 
     public static String a() {
-        return f4843a.getPackageName();
+        return f4697a.getPackageName();
     }
 
     public static String b() {
-        if (f4846d == null) {
-            PackageInfo packageInfo = f4845c;
+        if (f4700d == null) {
+            PackageInfo packageInfo = f4699c;
             if (packageInfo == null) {
                 return "N/A";
             }
-            f4846d = packageInfo.applicationInfo.loadLabel(f4844b).toString();
+            f4700d = packageInfo.applicationInfo.loadLabel(f4698b).toString();
         }
-        return f4846d;
+        return f4700d;
     }
 
     public static String c() {
         if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
-            PackageInfo packageInfo = f4845c;
+            PackageInfo packageInfo = f4699c;
             return packageInfo == null ? "N/A" : packageInfo.versionName;
         }
         return com.baidu.crabsdk.a.o;
     }
 
     public static int d() {
-        PackageInfo packageInfo = f4845c;
+        PackageInfo packageInfo = f4699c;
         if (packageInfo == null) {
             return 0;
         }
@@ -51,12 +51,12 @@ public final class p {
     }
 
     public static void e(Context context) {
-        if (f4843a == null) {
-            f4843a = context;
+        if (f4697a == null) {
+            f4697a = context;
             PackageManager packageManager = context.getPackageManager();
-            f4844b = packageManager;
+            f4698b = packageManager;
             try {
-                f4845c = packageManager.getPackageInfo(f4843a.getPackageName(), 0);
+                f4699c = packageManager.getPackageInfo(f4697a.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e2) {
                 com.baidu.crabsdk.c.a.a("PackageCollector.init fail.", e2);
             }

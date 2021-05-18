@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.j0.v2.d.a;
+import d.a.k0.v2.d.a;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.b {

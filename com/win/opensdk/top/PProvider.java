@@ -10,15 +10,15 @@ import android.os.Looper;
 import com.win.opensdk.a1;
 import com.win.opensdk.s1;
 import com.win.opensdk.z;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37951a;
+    public Context f37196a;
 
     public final void a() {
-        if (s1.g(this.f37951a) == 0) {
-            z.c(this.f37951a);
+        if (s1.g(this.f37196a) == 0) {
+            z.c(this.f37196a);
         }
     }
 
@@ -40,10 +40,10 @@ public class PProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {
         Context context = getContext();
-        this.f37951a = context;
+        this.f37196a = context;
         if (context != null) {
             if (s1.g(context) == 0) {
-                z.c(this.f37951a);
+                z.c(this.f37196a);
                 return true;
             }
             return true;

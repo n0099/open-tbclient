@@ -11,23 +11,23 @@ public class h extends BroadcastReceiver {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11356e;
+        public final /* synthetic */ String f10423e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f11357f;
+        public final /* synthetic */ Context f10424f;
 
         public a(h hVar, String str, Context context) {
-            this.f11356e = str;
-            this.f11357f = context;
+            this.f10423e = str;
+            this.f10424f = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                if ("sso_action_t_m".equals(this.f11356e)) {
-                    c.m(this.f11357f);
-                } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.f11356e) && c.k(this.f11357f) != 0 && d.a.g0.b.c.b(this.f11357f).f()) {
-                    d.a.g0.e.c.i().g(this.f11357f.getApplicationContext(), false);
+                if ("sso_action_t_m".equals(this.f10423e)) {
+                    c.m(this.f10424f);
+                } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.f10423e) && c.k(this.f10424f) != 0 && d.a.g0.b.c.b(this.f10424f).f()) {
+                    d.a.g0.e.c.i().g(this.f10424f.getApplicationContext(), false);
                 }
             } catch (Throwable th) {
                 c.d(th);

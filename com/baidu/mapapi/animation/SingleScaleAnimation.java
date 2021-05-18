@@ -16,7 +16,7 @@ public class SingleScaleAnimation extends Animation {
     public SingleScaleAnimation(ScaleType scaleType, float... fArr) {
         j jVar;
         if (fArr == null || fArr.length == 0) {
-            throw new NullPointerException("the scales is null");
+            throw new NullPointerException("BDMapSDKException: the scales is null");
         }
         if (scaleType == ScaleType.SCALE_X) {
             jVar = new j(1, fArr);

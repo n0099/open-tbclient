@@ -5,11 +5,11 @@ import com.kwad.sdk.mvp.Presenter;
 public class a extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f32456a;
+    public b f31701a;
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f32456a = (b) k();
+        this.f31701a = (b) k();
     }
 }

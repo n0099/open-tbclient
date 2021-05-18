@@ -1,0 +1,62 @@
+package d.a.k0.d2.k.e;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
+import d.a.j0.r.q.d1;
+/* loaded from: classes5.dex */
+public class l0 extends o<d1, PbRecommendNovelHolder> {
+    public d.a.k0.d2.h.e s;
+    public PbRecommendNovelHolder.b t;
+
+    /* loaded from: classes5.dex */
+    public class a implements PbRecommendNovelHolder.b {
+        public a() {
+        }
+
+        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
+        public void a(d1 d1Var) {
+            if (d1Var != null) {
+                d.a.k0.d2.m.a.a(l0.this.s, d1Var, d1Var.d0, 6);
+            }
+        }
+    }
+
+    public l0(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
+        this.t = new a();
+    }
+
+    @Override // d.a.k0.d2.k.e.o, d.a.c.j.e.a
+    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        i0(i2, view, viewGroup, (d1) obj, (PbRecommendNovelHolder) viewHolder);
+        return view;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.j.e.a
+    /* renamed from: h0 */
+    public PbRecommendNovelHolder P(ViewGroup viewGroup) {
+        return new PbRecommendNovelHolder(this.n.getPageContext(), LayoutInflater.from(this.f39564e).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.t);
+    }
+
+    public View i0(int i2, View view, ViewGroup viewGroup, d1 d1Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
+        super.W(i2, view, viewGroup, d1Var, pbRecommendNovelHolder);
+        if (d1Var == null) {
+            return view;
+        }
+        d1Var.d0 = i2 + 1;
+        d.a.k0.d2.m.a.d(this.n.getUniqueId(), this.s, d1Var, d1Var.d0, 6);
+        pbRecommendNovelHolder.e(d1Var);
+        return view;
+    }
+
+    public void s(d.a.k0.d2.h.e eVar) {
+        this.s = eVar;
+    }
+}

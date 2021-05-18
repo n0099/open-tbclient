@@ -3,7 +3,9 @@ package com.baidu.mapapi.map;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.view.View;
 import com.baidu.mapapi.animation.Animation;
+import com.baidu.mapapi.map.InfoWindow;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.ParcelItem;
@@ -17,36 +19,38 @@ import java.util.Iterator;
 public final class Marker extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f7222a;
+    public LatLng f7038a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BitmapDescriptor f7223b;
+    public BitmapDescriptor f7039b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f7224c;
+    public float f7040c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f7225d;
+    public float f7041d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f7226e;
+    public boolean f7042e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f7227f;
+    public boolean f7043f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f7228g;
+    public float f7044g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f7229h;
+    public String f7045h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f7230i;
+    public int f7046i;
     public float l;
     public int m;
     public ArrayList<BitmapDescriptor> o;
     public Animation q;
     public Point u;
+    public InfoWindow v;
+    public InfoWindow.a w;
     public boolean j = false;
     public boolean k = false;
     public boolean n = false;
@@ -54,6 +58,7 @@ public final class Marker extends Overlay {
     public float r = 1.0f;
     public float s = 1.0f;
     public float t = 1.0f;
+    public boolean x = false;
 
     public Marker() {
         this.type = com.baidu.mapsdkplatform.comapi.map.h.marker;
@@ -70,7 +75,7 @@ public final class Marker extends Overlay {
             }
             ParcelItem parcelItem = new ParcelItem();
             Bundle bundle2 = new Bundle();
-            Bitmap bitmap = it.next().f7097a;
+            Bitmap bitmap = it.next().f6908a;
             ByteBuffer allocate = ByteBuffer.allocate(bitmap.getWidth() * bitmap.getHeight() * 4);
             bitmap.copyPixelsToBuffer(allocate);
             byte[] array = allocate.array();
@@ -83,14 +88,16 @@ public final class Marker extends Overlay {
             } catch (NoSuchAlgorithmException e2) {
                 e2.printStackTrace();
             }
-            messageDigest.update(array, 0, array.length);
-            byte[] digest = messageDigest.digest();
-            StringBuilder sb = new StringBuilder("");
-            while (i2 < digest.length) {
-                sb.append(Integer.toString((digest[i2] & 255) + 256, 16).substring(1));
-                i2++;
+            if (messageDigest != null) {
+                messageDigest.update(array, 0, array.length);
+                byte[] digest = messageDigest.digest();
+                StringBuilder sb = new StringBuilder("");
+                while (i2 < digest.length) {
+                    sb.append(Integer.toString((digest[i2] & 255) + 256, 16).substring(1));
+                    i2++;
+                }
+                bundle2.putString("image_hashcode", sb.toString());
             }
-            bundle2.putString("image_hashcode", sb.toString());
             parcelItem.setBundle(bundle2);
             arrayList2.add(parcelItem);
         }
@@ -108,19 +115,19 @@ public final class Marker extends Overlay {
     public Bundle a(Bundle bundle) {
         super.a(bundle);
         Bundle bundle2 = new Bundle();
-        BitmapDescriptor bitmapDescriptor = this.f7223b;
+        BitmapDescriptor bitmapDescriptor = this.f7039b;
         if (bitmapDescriptor != null) {
             bundle.putBundle("image_info", bitmapDescriptor.b());
         }
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f7222a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f7038a);
         bundle.putInt("animatetype", this.m);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-        bundle.putInt("perspective", this.f7226e ? 1 : 0);
-        bundle.putFloat("anchor_x", this.f7224c);
-        bundle.putFloat("anchor_y", this.f7225d);
-        bundle.putFloat("rotate", this.f7228g);
-        bundle.putInt("y_offset", this.f7230i);
+        bundle.putInt("perspective", this.f7042e ? 1 : 0);
+        bundle.putFloat("anchor_x", this.f7040c);
+        bundle.putFloat("anchor_y", this.f7041d);
+        bundle.putFloat("rotate", this.f7044g);
+        bundle.putInt("y_offset", this.f7046i);
         bundle.putInt("isflat", this.j ? 1 : 0);
         bundle.putInt("istop", this.k ? 1 : 0);
         bundle.putInt("period", this.p);
@@ -153,11 +160,11 @@ public final class Marker extends Overlay {
     }
 
     public float getAnchorX() {
-        return this.f7224c;
+        return this.f7040c;
     }
 
     public float getAnchorY() {
-        return this.f7225d;
+        return this.f7041d;
     }
 
     public Point getFixedPosition() {
@@ -165,7 +172,7 @@ public final class Marker extends Overlay {
     }
 
     public BitmapDescriptor getIcon() {
-        return this.f7223b;
+        return this.f7039b;
     }
 
     public ArrayList<BitmapDescriptor> getIcons() {
@@ -173,6 +180,10 @@ public final class Marker extends Overlay {
     }
 
     public String getId() {
+        return this.y;
+    }
+
+    public InfoWindow getInfoWindow() {
         return this.v;
     }
 
@@ -181,11 +192,11 @@ public final class Marker extends Overlay {
     }
 
     public LatLng getPosition() {
-        return this.f7222a;
+        return this.f7038a;
     }
 
     public float getRotate() {
-        return this.f7228g;
+        return this.f7044g;
     }
 
     public float getScale() {
@@ -201,15 +212,23 @@ public final class Marker extends Overlay {
     }
 
     public String getTitle() {
-        return this.f7229h;
+        return this.f7045h;
     }
 
     public int getYOffset() {
-        return this.f7230i;
+        return this.f7046i;
+    }
+
+    public void hideInfoWindow() {
+        InfoWindow.a aVar = this.w;
+        if (aVar != null) {
+            aVar.a(this.v);
+            this.x = false;
+        }
     }
 
     public boolean isDraggable() {
-        return this.f7227f;
+        return this.f7043f;
     }
 
     public boolean isFixed() {
@@ -220,8 +239,12 @@ public final class Marker extends Overlay {
         return this.j;
     }
 
+    public boolean isInfoWindowEnabled() {
+        return this.x;
+    }
+
     public boolean isPerspective() {
-        return this.f7226e;
+        return this.f7042e;
     }
 
     public void setAlpha(float f2) {
@@ -237,8 +260,8 @@ public final class Marker extends Overlay {
         if (f2 < 0.0f || f2 > 1.0f || f3 < 0.0f || f3 > 1.0f) {
             return;
         }
-        this.f7224c = f2;
-        this.f7225d = f3;
+        this.f7040c = f2;
+        this.f7041d = f3;
         this.listener.b(this);
     }
 
@@ -255,13 +278,13 @@ public final class Marker extends Overlay {
     }
 
     public void setDraggable(boolean z) {
-        this.f7227f = z;
+        this.f7043f = z;
         this.listener.b(this);
     }
 
     public void setFixedScreenPosition(Point point) {
         if (point == null) {
-            throw new IllegalArgumentException("the screenPosition can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: the screenPosition can not be null");
         }
         this.u = point;
         this.n = true;
@@ -275,16 +298,16 @@ public final class Marker extends Overlay {
 
     public void setIcon(BitmapDescriptor bitmapDescriptor) {
         if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("marker's icon can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: marker's icon can not be null");
         }
-        this.f7223b = bitmapDescriptor;
+        this.f7039b = bitmapDescriptor;
         this.listener.b(this);
     }
 
     public void setIcons(ArrayList<BitmapDescriptor> arrayList) {
         BitmapDescriptor bitmapDescriptor;
         if (arrayList == null) {
-            throw new IllegalArgumentException("marker's icons can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: marker's icons can not be null");
         }
         if (arrayList.size() == 0) {
             return;
@@ -293,43 +316,55 @@ public final class Marker extends Overlay {
             bitmapDescriptor = arrayList.get(0);
         } else {
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                if (arrayList.get(i2) == null || arrayList.get(i2).f7097a == null) {
+                if (arrayList.get(i2) == null || arrayList.get(i2).f6908a == null) {
                     return;
                 }
             }
             this.o = (ArrayList) arrayList.clone();
             bitmapDescriptor = null;
         }
-        this.f7223b = bitmapDescriptor;
+        this.f7039b = bitmapDescriptor;
         this.listener.b(this);
     }
 
     public void setPeriod(int i2) {
         if (i2 <= 0) {
-            throw new IllegalArgumentException("marker's period must be greater than zero ");
+            throw new IllegalArgumentException("BDMapSDKException: marker's period must be greater than zero ");
         }
         this.p = i2;
         this.listener.b(this);
     }
 
     public void setPerspective(boolean z) {
-        this.f7226e = z;
+        this.f7042e = z;
         this.listener.b(this);
     }
 
     public void setPosition(LatLng latLng) {
         if (latLng == null) {
-            throw new IllegalArgumentException("marker's position can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: marker's position can not be null");
         }
-        this.f7222a = latLng;
+        this.f7038a = latLng;
         this.listener.b(this);
+    }
+
+    public void setPositionWithInfoWindow(LatLng latLng) {
+        if (latLng == null) {
+            throw new IllegalArgumentException("BDMapSDKException: marker's position can not be null");
+        }
+        this.f7038a = latLng;
+        this.listener.b(this);
+        InfoWindow infoWindow = this.v;
+        if (infoWindow != null) {
+            infoWindow.setPosition(latLng);
+        }
     }
 
     public void setRotate(float f2) {
         while (f2 < 0.0f) {
             f2 += 360.0f;
         }
-        this.f7228g = f2 % 360.0f;
+        this.f7044g = f2 % 360.0f;
         this.listener.b(this);
     }
 
@@ -359,7 +394,7 @@ public final class Marker extends Overlay {
     }
 
     public void setTitle(String str) {
-        this.f7229h = str;
+        this.f7045h = str;
     }
 
     public void setToTop() {
@@ -368,14 +403,75 @@ public final class Marker extends Overlay {
     }
 
     public void setYOffset(int i2) {
-        this.f7230i = i2;
+        this.f7046i = i2;
         this.listener.b(this);
+    }
+
+    public void showInfoWindow(InfoWindow infoWindow) {
+        if (infoWindow == null) {
+            throw new IllegalArgumentException("BDMapSDKException: the InfoWindow can not be null");
+        }
+        this.v = infoWindow;
+        InfoWindow.a aVar = this.w;
+        if (aVar != null) {
+            aVar.b(infoWindow);
+            this.x = true;
+        }
+    }
+
+    public void showSmoothMoveInfoWindow(InfoWindow infoWindow) {
+        if (infoWindow == null) {
+            return;
+        }
+        if (!infoWindow.j) {
+            throw new IllegalArgumentException("BDMapSDKException: the SmoothMoveInfoWindow must build with View");
+        }
+        if (infoWindow.f6972b == null) {
+            throw new IllegalArgumentException("BDMapSDKException: the SmoothMoveInfoWindow's View can not be null");
+        }
+        this.v = infoWindow;
+        infoWindow.f6979i = true;
+        InfoWindow.a aVar = this.w;
+        if (aVar != null) {
+            aVar.b(infoWindow);
+            this.x = true;
+        }
     }
 
     public void startAnimation() {
         Animation animation = this.q;
         if (animation != null) {
             animation.bdAnimation.a();
+        }
+    }
+
+    public void updateInfoWindowBitmapDescriptor(BitmapDescriptor bitmapDescriptor) {
+        InfoWindow infoWindow = this.v;
+        if (infoWindow == null || infoWindow.k) {
+            return;
+        }
+        infoWindow.setBitmapDescriptor(bitmapDescriptor);
+    }
+
+    public void updateInfoWindowPosition(LatLng latLng) {
+        InfoWindow infoWindow = this.v;
+        if (infoWindow != null) {
+            infoWindow.setPosition(latLng);
+        }
+    }
+
+    public void updateInfoWindowView(View view) {
+        InfoWindow infoWindow = this.v;
+        if (infoWindow == null || !infoWindow.j) {
+            return;
+        }
+        infoWindow.setView(view);
+    }
+
+    public void updateInfoWindowYOffset(int i2) {
+        InfoWindow infoWindow = this.v;
+        if (infoWindow != null) {
+            infoWindow.setYOffset(i2);
         }
     }
 }

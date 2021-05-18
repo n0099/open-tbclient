@@ -2,47 +2,47 @@ package com.tencent.connect.auth;
 
 import com.tencent.tauth.IUiListener;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f37061a;
+    public static b f36306a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ boolean f37062d = !b.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f36307d = !b.class.desiredAssertionStatus();
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f37063e = 0;
+    public static int f36308e = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, a> f37064b = new HashMap<>();
+    public HashMap<String, a> f36309b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f37065c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    public final String f36310c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public IUiListener f37066a;
+        public IUiListener f36311a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.tencent.connect.auth.a f37067b;
+        public com.tencent.connect.auth.a f36312b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37068c;
+        public String f36313c;
     }
 
     public static b a() {
-        if (f37061a == null) {
-            f37061a = new b();
+        if (f36306a == null) {
+            f36306a = new b();
         }
-        return f37061a;
+        return f36306a;
     }
 
     public static int b() {
-        int i2 = f37063e + 1;
-        f37063e = i2;
+        int i2 = f36308e + 1;
+        f36308e = i2;
         return i2;
     }
 
@@ -60,7 +60,7 @@ public class b {
     public String a(a aVar) {
         int b2 = b();
         try {
-            HashMap<String, a> hashMap = this.f37064b;
+            HashMap<String, a> hashMap = this.f36309b;
             hashMap.put("" + b2, aVar);
         } catch (Throwable th) {
             th.printStackTrace();

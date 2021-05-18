@@ -17,164 +17,164 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public final n f64947b;
+    public final n f65633b;
 
     /* renamed from: d  reason: collision with root package name */
-    public final h f64949d;
+    public final h f65635d;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f64946a = Executors.newCachedThreadPool();
+    public final ExecutorService f65632a = Executors.newCachedThreadPool();
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64948c = 50;
+    public int f65634c = 50;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, g> f64950e = Collections.synchronizedMap(new HashMap());
+    public final Map<String, g> f65636e = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: f  reason: collision with root package name */
-    public final Map<String, g> f64951f = Collections.synchronizedMap(new HashMap());
+    public final Map<String, g> f65637f = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: g  reason: collision with root package name */
-    public final Handler f64952g = new Handler(Looper.getMainLooper());
+    public final Handler f65638g = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f64953e;
+        public final /* synthetic */ String f65639e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k f64954f;
+        public final /* synthetic */ k f65640f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ j f64955g;
+        public final /* synthetic */ j f65641g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f64956h;
+        public final /* synthetic */ int f65642h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f64957i;
+        public final /* synthetic */ int f65643i;
         public final /* synthetic */ ImageView.ScaleType j;
 
         public a(String str, k kVar, j jVar, int i2, int i3, ImageView.ScaleType scaleType) {
-            this.f64953e = str;
-            this.f64954f = kVar;
-            this.f64955g = jVar;
-            this.f64956h = i2;
-            this.f64957i = i3;
+            this.f65639e = str;
+            this.f65640f = kVar;
+            this.f65641g = jVar;
+            this.f65642h = i2;
+            this.f65643i = i3;
             this.j = scaleType;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.l(this.f64953e, this.f64954f, this.f64955g, this.f64956h, this.f64957i, this.j);
+            d.this.l(this.f65639e, this.f65640f, this.f65641g, this.f65642h, this.f65643i, this.j);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f64958e;
+        public final /* synthetic */ k f65644e;
 
         public b(d dVar, k kVar) {
-            this.f64958e = kVar;
+            this.f65644e = kVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f64958e.a();
+            this.f65644e.a();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f64959e;
+        public final /* synthetic */ k f65645e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f64960f;
+        public final /* synthetic */ i f65646f;
 
         public c(d dVar, k kVar, i iVar) {
-            this.f64959e = kVar;
-            this.f64960f = iVar;
+            this.f65645e = kVar;
+            this.f65646f = iVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f64959e.a(this.f64960f, true);
-            this.f64959e.b();
+            this.f65645e.a(this.f65646f, true);
+            this.f65645e.b();
         }
     }
 
     /* renamed from: d.b.c.b.b.d$d  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C1768d implements o.a<Bitmap> {
+    /* loaded from: classes6.dex */
+    public class C1832d implements o.a<Bitmap> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f64961e;
+        public final /* synthetic */ String f65647e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k f64962f;
+        public final /* synthetic */ k f65648f;
 
         /* renamed from: d.b.c.b.b.d$d$a */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ o f64964e;
+            public final /* synthetic */ o f65650e;
 
             public a(o oVar) {
-                this.f64964e = oVar;
+                this.f65650e = oVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                C1768d c1768d = C1768d.this;
-                d.this.j(c1768d.f64961e, this.f64964e, c1768d.f64962f);
+                C1832d c1832d = C1832d.this;
+                d.this.j(c1832d.f65647e, this.f65650e, c1832d.f65648f);
             }
         }
 
         /* renamed from: d.b.c.b.b.d$d$b */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ o f64966e;
+            public final /* synthetic */ o f65652e;
 
             public b(o oVar) {
-                this.f64966e = oVar;
+                this.f65652e = oVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                C1768d c1768d = C1768d.this;
-                d.this.i(c1768d.f64961e, this.f64966e);
+                C1832d c1832d = C1832d.this;
+                d.this.i(c1832d.f65647e, this.f65652e);
             }
         }
 
-        public C1768d(String str, k kVar) {
-            this.f64961e = str;
-            this.f64962f = kVar;
+        public C1832d(String str, k kVar) {
+            this.f65647e = str;
+            this.f65648f = kVar;
         }
 
         @Override // d.b.c.b.d.o.a
         public void a(o<Bitmap> oVar) {
-            d.this.f64946a.execute(new a(oVar));
+            d.this.f65632a.execute(new a(oVar));
         }
 
         @Override // d.b.c.b.d.o.a
         public void b(o<Bitmap> oVar) {
-            d.this.f64946a.execute(new b(oVar));
+            d.this.f65632a.execute(new b(oVar));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class e extends d.b.c.b.b.e {
         public final /* synthetic */ j B;
 
@@ -191,80 +191,80 @@ public class d {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f64968e;
+        public final /* synthetic */ String f65654e;
 
         public f(String str) {
-            this.f64968e = str;
+            this.f65654e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            g gVar = (g) d.this.f64951f.get(this.f64968e);
+            g gVar = (g) d.this.f65637f.get(this.f65654e);
             if (gVar != null) {
-                for (i iVar : gVar.f64973d) {
-                    if (iVar.f64975b != null) {
+                for (i iVar : gVar.f65659d) {
+                    if (iVar.f65661b != null) {
                         if (gVar.b() == null) {
-                            iVar.f64976c = gVar.f64970a.f65081b.f65105b;
-                            iVar.f64974a = gVar.f64971b;
-                            iVar.f64975b.a(iVar, false);
+                            iVar.f65662c = gVar.f65656a.f65767b.f65791b;
+                            iVar.f65660a = gVar.f65657b;
+                            iVar.f65661b.a(iVar, false);
                         } else {
-                            iVar.f64975b.b(gVar.g());
+                            iVar.f65661b.b(gVar.g());
                         }
-                        iVar.f64975b.b();
+                        iVar.f65661b.b();
                     }
                 }
             }
-            d.this.f64951f.remove(this.f64968e);
+            d.this.f65637f.remove(this.f65654e);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public o<Bitmap> f64970a;
+        public o<Bitmap> f65656a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Bitmap f64971b;
+        public Bitmap f65657b;
 
         /* renamed from: c  reason: collision with root package name */
-        public VAdError f64972c;
+        public VAdError f65658c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final List<i> f64973d;
+        public final List<i> f65659d;
 
         public g(Request<?> request, i iVar) {
             List<i> synchronizedList = Collections.synchronizedList(new ArrayList());
-            this.f64973d = synchronizedList;
+            this.f65659d = synchronizedList;
             synchronizedList.add(iVar);
         }
 
         public VAdError b() {
-            return this.f64972c;
+            return this.f65658c;
         }
 
         public void d(i iVar) {
-            this.f64973d.add(iVar);
+            this.f65659d.add(iVar);
         }
 
         public void e(o<Bitmap> oVar) {
-            this.f64970a = oVar;
+            this.f65656a = oVar;
         }
 
         public void f(VAdError vAdError) {
-            this.f64972c = vAdError;
+            this.f65658c = vAdError;
         }
 
         public o<Bitmap> g() {
-            return this.f64970a;
+            return this.f65656a;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface h {
         String a(String str, int i2, int i3, ImageView.ScaleType scaleType);
 
@@ -275,34 +275,34 @@ public class d {
         Bitmap b(String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public Bitmap f64974a;
+        public Bitmap f65660a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final k f64975b;
+        public final k f65661b;
 
         /* renamed from: c  reason: collision with root package name */
-        public byte[] f64976c;
+        public byte[] f65662c;
 
         public i(d dVar, byte[] bArr, Bitmap bitmap, String str, String str2, k kVar) {
-            this.f64974a = bitmap;
-            this.f64975b = kVar;
+            this.f65660a = bitmap;
+            this.f65661b = kVar;
         }
 
         public Bitmap a() {
-            return this.f64974a;
+            return this.f65660a;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface j {
         Bitmap a(byte[] bArr);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface k extends o.a<Bitmap> {
         void a();
 
@@ -314,16 +314,16 @@ public class d {
     }
 
     public d(n nVar, h hVar) {
-        this.f64947b = nVar;
-        this.f64949d = hVar == null ? new d.b.c.b.b.a() : hVar;
+        this.f65633b = nVar;
+        this.f65635d = hVar == null ? new d.b.c.b.b.a() : hVar;
     }
 
     public Request<Bitmap> a(String str, int i2, int i3, ImageView.ScaleType scaleType, String str2, j jVar, k kVar) {
-        return new e(this, str, new C1768d(str2, kVar), i2, i3, scaleType, Bitmap.Config.ARGB_4444, jVar);
+        return new e(this, str, new C1832d(str2, kVar), i2, i3, scaleType, Bitmap.Config.ARGB_4444, jVar);
     }
 
     public final String b(String str, int i2, int i3, ImageView.ScaleType scaleType) {
-        String a2 = this.f64949d.a(str, i2, i3, scaleType);
+        String a2 = this.f65635d.a(str, i2, i3, scaleType);
         if (TextUtils.isEmpty(a2)) {
             StringBuilder sb = new StringBuilder(str.length() + 12);
             sb.append("#W");
@@ -339,8 +339,8 @@ public class d {
     }
 
     public final void e(String str, g gVar) {
-        this.f64951f.put(str, gVar);
-        this.f64952g.postDelayed(new f(str), this.f64948c);
+        this.f65637f.put(str, gVar);
+        this.f65638g.postDelayed(new f(str), this.f65634c);
     }
 
     public void f(String str, k kVar) {
@@ -352,49 +352,49 @@ public class d {
     }
 
     public void h(String str, k kVar, j jVar, int i2, int i3, ImageView.ScaleType scaleType) {
-        this.f64946a.execute(new a(str, kVar, jVar, i2, i3, scaleType));
+        this.f65632a.execute(new a(str, kVar, jVar, i2, i3, scaleType));
     }
 
     public void i(String str, o<Bitmap> oVar) {
-        g remove = this.f64950e.remove(str);
+        g remove = this.f65636e.remove(str);
         if (remove != null) {
-            remove.f(oVar.f65082c);
+            remove.f(oVar.f65768c);
             remove.e(oVar);
             e(str, remove);
         }
     }
 
     public void j(String str, o<Bitmap> oVar, k kVar) {
-        b.a aVar = oVar.f65081b;
-        this.f64949d.a(str, oVar.f65080a, (aVar == null || !kVar.a(aVar.f65105b)) ? new byte[0] : oVar.f65081b.f65105b);
-        g remove = this.f64950e.remove(str);
+        b.a aVar = oVar.f65767b;
+        this.f65635d.a(str, oVar.f65766a, (aVar == null || !kVar.a(aVar.f65791b)) ? new byte[0] : oVar.f65767b.f65791b);
+        g remove = this.f65636e.remove(str);
         if (remove != null) {
-            remove.f64971b = oVar.f65080a;
+            remove.f65657b = oVar.f65766a;
             remove.e(oVar);
             e(str, remove);
         }
     }
 
     public final void l(String str, k kVar, j jVar, int i2, int i3, ImageView.ScaleType scaleType) {
-        this.f64952g.post(new b(this, kVar));
+        this.f65638g.post(new b(this, kVar));
         String b2 = b(str, i2, i3, scaleType);
-        Bitmap b3 = this.f64949d.b(b2);
-        byte[] a2 = this.f64949d.a(b2);
+        Bitmap b3 = this.f65635d.b(b2);
+        byte[] a2 = this.f65635d.a(b2);
         if (b3 == null && a2.length <= 0) {
             i iVar = new i(this, new byte[0], null, str, b2, kVar);
-            g gVar = this.f64950e.get(b2);
+            g gVar = this.f65636e.get(b2);
             if (gVar == null) {
-                gVar = this.f64951f.get(b2);
+                gVar = this.f65637f.get(b2);
             }
             if (gVar != null) {
                 gVar.d(iVar);
                 return;
             }
             Request<Bitmap> a3 = a(str, i2, i3, scaleType, b2, jVar, kVar);
-            this.f64947b.a(a3);
-            this.f64950e.put(b2, new g(a3, iVar));
+            this.f65633b.a(a3);
+            this.f65636e.put(b2, new g(a3, iVar));
             return;
         }
-        this.f64952g.post(new c(this, kVar, new i(this, this.f64949d.a(b2), b3, str, null, null)));
+        this.f65638g.post(new c(this, kVar, new i(this, this.f65635d.a(b2), b3, str, null, null)));
     }
 }

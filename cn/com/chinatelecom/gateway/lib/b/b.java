@@ -4,6 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
@@ -147,7 +148,7 @@ public class b {
             jSONObject.put("br", this.f1527g);
             jSONObject.put("ml", this.f1528h);
             jSONObject.put(IAdRequestParam.OS, this.f1529i);
-            jSONObject.put("ov", this.j);
+            jSONObject.put(SearchJsBridge.COOKIE_OV, this.j);
             jSONObject.put("sv", this.k);
             jSONObject.put("ri", this.l);
             jSONObject.put(RetrieveTaskManager.KEY, this.m);

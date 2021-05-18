@@ -33,12 +33,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class CandidateSearchActivity extends BaseActivity {
-    public List<d.a.j0.v.b.a> dataList;
+    public List<d.a.k0.v.b.a> dataList;
     public CandidateSearchAdapter mAdapter;
     public TextView mButtonCancelSearch;
     public ImageView mButtonDel;
     public String mForumId;
-    public d.a.j0.v.d.a mModel;
+    public d.a.k0.v.d.a mModel;
     public NavigationBar mNavigationBar;
     public View mNavigationCustomView;
     public View mNoDataView;
@@ -84,7 +84,7 @@ public class CandidateSearchActivity extends BaseActivity {
             if (responsedMessage == null) {
                 return;
             }
-            d.a.j0.v.b.a aVar = null;
+            d.a.k0.v.b.a aVar = null;
             if (responsedMessage instanceof CandidateSearchHttpResMsg) {
                 aVar = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
             } else if (responsedMessage instanceof CandidateSearchSocketResMsg) {
@@ -143,15 +143,15 @@ public class CandidateSearchActivity extends BaseActivity {
             if (error == 0) {
                 l.L(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
                 if (CandidateSearchActivity.this.dataList != null) {
-                    for (d.a.j0.v.b.a aVar : CandidateSearchActivity.this.dataList) {
+                    for (d.a.k0.v.b.a aVar : CandidateSearchActivity.this.dataList) {
                         aVar.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                d.a.j0.d3.n0.f.b(error, "", null);
+                d.a.k0.d3.n0.f.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    d.a.j0.d3.n0.f.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    d.a.k0.d3.n0.f.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 l.M(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
@@ -249,7 +249,7 @@ public class CandidateSearchActivity extends BaseActivity {
         this.mRecyclerView.setAdapter(candidateSearchAdapter);
         registerListener(this.mDataResListener);
         registerListener(this.mVoteListener);
-        this.mModel = new d.a.j0.v.d.a(getPageContext());
+        this.mModel = new d.a.k0.v.d.a(getPageContext());
         d.a.c.e.m.e.a().postDelayed(this.mShowKeyboardRunnable, 100L);
     }
 

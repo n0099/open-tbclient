@@ -7,26 +7,26 @@ import com.baidu.platform.base.SearchType;
 public class b extends com.baidu.platform.base.a implements a {
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetSuggestionResultListener f10351b = null;
+    public OnGetSuggestionResultListener f9387b = null;
 
     @Override // com.baidu.platform.core.f.a
     public void a() {
-        this.f9717a.lock();
-        this.f10351b = null;
-        this.f9717a.unlock();
+        this.f9338a.lock();
+        this.f9387b = null;
+        this.f9338a.unlock();
     }
 
     @Override // com.baidu.platform.core.f.a
     public void a(OnGetSuggestionResultListener onGetSuggestionResultListener) {
-        this.f9717a.lock();
-        this.f10351b = onGetSuggestionResultListener;
-        this.f9717a.unlock();
+        this.f9338a.lock();
+        this.f9387b = onGetSuggestionResultListener;
+        this.f9338a.unlock();
     }
 
     @Override // com.baidu.platform.core.f.a
     public boolean a(SuggestionSearchOption suggestionSearchOption) {
         c cVar = new c();
         cVar.a(SearchType.SUGGESTION_SEARCH_TYPE);
-        return a(new d(suggestionSearchOption), this.f10351b, cVar);
+        return a(new d(suggestionSearchOption), this.f9387b, cVar);
     }
 }

@@ -7,20 +7,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e extends com.bytedance.sdk.openadsdk.preload.b.d<String, Map<String, List<Pair<String, Long>>>> {
 
     /* renamed from: d  reason: collision with root package name */
-    public File f30879d;
+    public File f30124d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f30880e;
+    public List<String> f30125e;
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public void a(Object... objArr) {
         super.a(objArr);
-        this.f30879d = (File) objArr[0];
-        this.f30880e = (List) objArr[1];
+        this.f30124d = (File) objArr[0];
+        this.f30125e = (List) objArr[1];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,8 +30,8 @@ public class e extends com.bytedance.sdk.openadsdk.preload.b.d<String, Map<Strin
         Long a2;
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "get local channel version:", str);
         HashMap hashMap = new HashMap();
-        for (String str2 : this.f30880e) {
-            File file = new File(this.f30879d, str2);
+        for (String str2 : this.f30125e) {
+            File file = new File(this.f30124d, str2);
             String[] list = file.list();
             ArrayList arrayList = new ArrayList();
             if (list != null && list.length > 0) {

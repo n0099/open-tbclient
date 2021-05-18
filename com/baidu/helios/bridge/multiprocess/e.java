@@ -13,26 +13,26 @@ public interface e extends IInterface {
     public static abstract class a extends Binder implements e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f6414a = "com.baidu.helios.bridge.multiprocess.IMultiProcessBridge";
+        public static final String f6268a = "com.baidu.helios.bridge.multiprocess.IMultiProcessBridge";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f6415b = 1;
+        public static final int f6269b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f6416c = 2;
+        public static final int f6270c = 2;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f6417d = 3;
+        public static final int f6271d = 3;
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0085a implements e {
+        public static class C0084a implements e {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f6418a;
+            public IBinder f6272a;
 
-            public C0085a(IBinder iBinder) {
-                this.f6418a = iBinder;
+            public C0084a(IBinder iBinder) {
+                this.f6272a = iBinder;
             }
 
             @Override // com.baidu.helios.bridge.multiprocess.e
@@ -40,7 +40,7 @@ public interface e extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(a.f6414a);
+                    obtain.writeInterfaceToken(a.f6268a);
                     obtain.writeString(str);
                     if (bundle != null) {
                         obtain.writeInt(1);
@@ -48,7 +48,7 @@ public interface e extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f6418a.transact(1, obtain, obtain2, 0);
+                    this.f6272a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
                 } finally {
@@ -58,7 +58,7 @@ public interface e extends IInterface {
             }
 
             public String a() {
-                return a.f6414a;
+                return a.f6268a;
             }
 
             @Override // com.baidu.helios.bridge.multiprocess.e
@@ -66,7 +66,7 @@ public interface e extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(a.f6414a);
+                    obtain.writeInterfaceToken(a.f6268a);
                     obtain.writeString(str);
                     if (bundle != null) {
                         obtain.writeInt(1);
@@ -75,7 +75,7 @@ public interface e extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeStrongBinder(fVar != null ? fVar.asBinder() : null);
-                    this.f6418a.transact(2, obtain, obtain2, 0);
+                    this.f6272a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -88,9 +88,9 @@ public interface e extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(a.f6414a);
+                    obtain.writeInterfaceToken(a.f6268a);
                     obtain.writeString(str);
-                    this.f6418a.transact(3, obtain, obtain2, 0);
+                    this.f6272a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -101,20 +101,20 @@ public interface e extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6418a;
+                return this.f6272a;
             }
         }
 
         public a() {
-            attachInterface(this, f6414a);
+            attachInterface(this, f6268a);
         }
 
         public static e a(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
             }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface(f6414a);
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof e)) ? new C0085a(iBinder) : (e) queryLocalInterface;
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(f6268a);
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof e)) ? new C0084a(iBinder) : (e) queryLocalInterface;
         }
 
         @Override // android.os.IInterface
@@ -125,7 +125,7 @@ public interface e extends IInterface {
         @Override // android.os.Binder
         public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
             if (i2 == 1) {
-                parcel.enforceInterface(f6414a);
+                parcel.enforceInterface(f6268a);
                 Bundle a2 = a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                 parcel2.writeNoException();
                 if (a2 != null) {
@@ -136,7 +136,7 @@ public interface e extends IInterface {
                 }
                 return true;
             } else if (i2 == 2) {
-                parcel.enforceInterface(f6414a);
+                parcel.enforceInterface(f6268a);
                 a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null, f.a.a(parcel.readStrongBinder()));
                 parcel2.writeNoException();
                 return true;
@@ -144,10 +144,10 @@ public interface e extends IInterface {
                 if (i2 != 1598968902) {
                     return super.onTransact(i2, parcel, parcel2, i3);
                 }
-                parcel2.writeString(f6414a);
+                parcel2.writeString(f6268a);
                 return true;
             } else {
-                parcel.enforceInterface(f6414a);
+                parcel.enforceInterface(f6268a);
                 boolean a3 = a(parcel.readString());
                 parcel2.writeNoException();
                 parcel2.writeInt(a3 ? 1 : 0);

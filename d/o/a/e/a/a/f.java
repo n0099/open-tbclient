@@ -3,7 +3,7 @@ package d.o.a.e.a.a;
 import android.content.Context;
 import android.content.Intent;
 import com.alibaba.fastjson.asm.Label;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class f extends a {
     public f(Context context) {
         super(context, null, null);

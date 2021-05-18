@@ -1,397 +1,273 @@
 package com.baidu.location.b;
 
-import android.annotation.SuppressLint;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
-import android.net.DhcpInfo;
-import android.net.NetworkInfo;
-import android.net.wifi.ScanResult;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+import android.location.Location;
 import android.os.Build;
 import android.os.Handler;
-import com.baidu.android.common.others.IStringUtil;
-import com.baidu.android.imsdk.mcast.McastConfig;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
-import java.util.List;
+import android.os.Message;
+import android.text.TextUtils;
+import com.baidu.location.BDLocation;
+import com.baidu.location.Jni;
+import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class i {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static long f6914a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static i f6915b;
+public abstract class i {
 
     /* renamed from: c  reason: collision with root package name */
-    public WifiManager f6916c = null;
+    public static String f6605c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public a f6917d = null;
+    /* renamed from: a  reason: collision with root package name */
+    public com.baidu.location.c.h f6606a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public com.baidu.location.c.a f6607b = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f6918e = null;
+    public boolean f6609e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f6919f = 0;
+    public boolean f6610f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f6920g = 0;
+    public boolean f6611g = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Handler f6608d = new a();
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f6921h = false;
+    public String f6612h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f6922i = new Handler();
-    public long j = 0;
-    public long k = 0;
+    public String f6613i = null;
+    public boolean j = false;
 
     /* loaded from: classes2.dex */
-    public class a extends BroadcastReceiver {
+    public class a extends Handler {
+        public a() {
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            if (com.baidu.location.f.isServing) {
+                int i2 = message.what;
+                if (i2 == 21) {
+                    i.this.a(message);
+                } else if (i2 == 62 || i2 == 63) {
+                    i.this.a();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b extends com.baidu.location.e.e {
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f6615a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f6924b;
+        public String f6616b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f6925c;
+        public long f6617c = 0;
 
-        public a() {
-            this.f6924b = 0L;
-            this.f6925c = false;
+        /* renamed from: d  reason: collision with root package name */
+        public long f6618d = 0;
+
+        public b() {
+            this.k = new HashMap();
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            if (context == null) {
-                return;
+        @Override // com.baidu.location.e.e
+        public void a() {
+            this.f6807h = com.baidu.location.e.k.e();
+            if ((com.baidu.location.e.k.f6826h || com.baidu.location.e.k.j) && i.this.f6612h != null && i.this.f6613i != null) {
+                this.f6616b += String.format(Locale.CHINA, "&ki=%s&sn=%s", i.this.f6612h, i.this.f6613i);
             }
-            String action = intent.getAction();
-            if (action.equals("android.net.wifi.SCAN_RESULTS")) {
-                i.f6914a = System.currentTimeMillis() / 1000;
-                i.this.f6922i.post(new j(this));
-            } else if (action.equals(McastConfig.ACTION_NETWORK_STATE_CHANGED) && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.f6924b >= 5000) {
-                this.f6924b = System.currentTimeMillis();
-                if (this.f6925c) {
+            if (j.a().b()) {
+                this.f6616b += "&enc=2";
+            }
+            String encodeTp4 = Jni.encodeTp4(this.f6616b);
+            this.f6616b = null;
+            if (this.f6615a == null) {
+                this.f6615a = w.b();
+            }
+            this.k.put(BaseLocationBox.TYPE, encodeTp4);
+            String str = this.f6615a;
+            if (str != null) {
+                this.k.put("up", str);
+            }
+            this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
+        }
+
+        public void a(String str, long j) {
+            this.f6616b = str;
+            this.f6618d = System.currentTimeMillis();
+            this.f6617c = j;
+            ExecutorService b2 = v.a().b();
+            if (com.baidu.location.e.k.b()) {
+                a(b2, false, null);
+            } else if (b2 != null) {
+                a(b2, com.baidu.location.e.k.f6824f);
+            } else {
+                b(com.baidu.location.e.k.f6824f);
+            }
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:4:0x0008, code lost:
+            r10 = r9.j;
+         */
+        /* JADX WARN: Removed duplicated region for block: B:44:0x00e2  */
+        /* JADX WARN: Removed duplicated region for block: B:53:? A[RETURN, SYNTHETIC] */
+        @Override // com.baidu.location.e.e
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void a(boolean z) {
+            Map<String, Object> map;
+            String str;
+            BDLocation bDLocation;
+            Message obtainMessage;
+            if (z && str != null) {
+                try {
+                    i.f6605c = str;
+                    if (str.contains("enc") && j.a().b()) {
+                        try {
+                            JSONObject jSONObject = new JSONObject(str);
+                            if (jSONObject.has("enc")) {
+                                str = j.a().a(jSONObject.getString("enc"));
+                            }
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                    try {
+                        bDLocation = new BDLocation(str);
+                        if (bDLocation.getLocType() == 161) {
+                            h.a().a(str);
+                        }
+                        bDLocation.setOperators(com.baidu.location.c.b.a().h());
+                        if (n.a().d()) {
+                            bDLocation.setDirection(n.a().e());
+                        }
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                        bDLocation = new BDLocation();
+                        bDLocation.setLocType(0);
+                    }
+                    this.f6615a = null;
+                    if (bDLocation.getLocType() == 0 && bDLocation.getLatitude() == Double.MIN_VALUE && bDLocation.getLongitude() == Double.MIN_VALUE) {
+                        obtainMessage = i.this.f6608d.obtainMessage(63);
+                        obtainMessage.obj = "HttpStatus error";
+                    } else {
+                        long currentTimeMillis = (System.currentTimeMillis() - this.f6618d) / 1000;
+                        if (currentTimeMillis < 0) {
+                            currentTimeMillis = 0;
+                        }
+                        if (this.f6617c < 0) {
+                            this.f6617c = 0L;
+                        }
+                        bDLocation.setDelayTime(this.f6617c + currentTimeMillis);
+                        obtainMessage = i.this.f6608d.obtainMessage(21);
+                        obtainMessage.obj = bDLocation;
+                    }
+                    obtainMessage.sendToTarget();
+                } catch (Exception unused) {
+                }
+                map = this.k;
+                if (map == null) {
+                    map.clear();
                     return;
                 }
-                this.f6925c = true;
+                return;
+            }
+            Message obtainMessage2 = i.this.f6608d.obtainMessage(63);
+            obtainMessage2.obj = "HttpStatus error";
+            obtainMessage2.sendToTarget();
+            map = this.k;
+            if (map == null) {
             }
         }
     }
 
-    public static synchronized i a() {
-        i iVar;
-        synchronized (i.class) {
-            if (f6915b == null) {
-                f6915b = new i();
-            }
-            iVar = f6915b;
+    public String a(String str) {
+        com.baidu.location.c.h hVar;
+        String l;
+        if (this.f6612h == null) {
+            this.f6612h = com.baidu.location.a.a.b(com.baidu.location.f.getServiceContext());
         }
-        return iVar;
-    }
-
-    private String a(long j) {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(String.valueOf((int) (j & 255)));
-        stringBuffer.append(IStringUtil.EXTENSION_SEPARATOR);
-        stringBuffer.append(String.valueOf((int) ((j >> 8) & 255)));
-        stringBuffer.append(IStringUtil.EXTENSION_SEPARATOR);
-        stringBuffer.append(String.valueOf((int) ((j >> 16) & 255)));
-        stringBuffer.append(IStringUtil.EXTENSION_SEPARATOR);
-        stringBuffer.append(String.valueOf((int) ((j >> 24) & 255)));
-        return stringBuffer.toString();
-    }
-
-    public static boolean a(h hVar, h hVar2) {
-        boolean a2 = a(hVar, hVar2, 0.7f);
-        long currentTimeMillis = System.currentTimeMillis() - com.baidu.location.a.a.f6701c;
-        if (currentTimeMillis <= 0 || currentTimeMillis >= StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD || !a2 || hVar2.f() - hVar.f() <= 30) {
-            return a2;
+        if (this.f6613i == null) {
+            this.f6613i = com.baidu.location.a.a.c(com.baidu.location.f.getServiceContext());
         }
-        return false;
-    }
-
-    public static boolean a(h hVar, h hVar2, float f2) {
-        if (hVar != null && hVar2 != null) {
-            List<ScanResult> list = hVar.f6909a;
-            List<ScanResult> list2 = hVar2.f6909a;
-            if (list == list2) {
-                return true;
-            }
-            if (list != null && list2 != null) {
-                int size = list.size();
-                int size2 = list2.size();
-                if (size == 0 && size2 == 0) {
-                    return true;
-                }
-                if (size != 0 && size2 != 0) {
-                    int i2 = 0;
-                    for (int i3 = 0; i3 < size; i3++) {
-                        String str = list.get(i3).BSSID;
-                        if (str != null) {
-                            int i4 = 0;
-                            while (true) {
-                                if (i4 >= size2) {
-                                    break;
-                                } else if (str.equals(list2.get(i4).BSSID)) {
-                                    i2++;
-                                    break;
-                                } else {
-                                    i4++;
-                                }
-                            }
-                        }
-                    }
-                    if (i2 >= size * f2) {
-                        return true;
-                    }
-                }
-            }
+        com.baidu.location.c.a aVar = this.f6607b;
+        if (aVar == null || !aVar.a()) {
+            this.f6607b = com.baidu.location.c.b.a().f();
         }
-        return false;
-    }
-
-    public static boolean i() {
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) com.baidu.location.f.getServiceContext().getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null) {
-                return activeNetworkInfo.getType() == 1;
-            }
-            return false;
-        } catch (Exception unused) {
-            return false;
+        com.baidu.location.c.h hVar2 = this.f6606a;
+        if (hVar2 == null || !hVar2.j()) {
+            this.f6606a = com.baidu.location.c.i.a().o();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void r() {
-        WifiManager wifiManager = this.f6916c;
-        if (wifiManager == null) {
-            return;
-        }
-        try {
-            List<ScanResult> scanResults = wifiManager.getScanResults();
-            if (scanResults != null) {
-                h hVar = new h(scanResults, System.currentTimeMillis());
-                h hVar2 = this.f6918e;
-                if (hVar2 == null || !hVar.a(hVar2)) {
-                    this.f6918e = hVar;
-                }
-            }
-        } catch (Exception unused) {
-        }
-    }
-
-    public void b() {
-        this.j = 0L;
-    }
-
-    public synchronized void c() {
-        if (this.f6921h) {
-            return;
-        }
-        if (com.baidu.location.f.isServing) {
-            this.f6916c = (WifiManager) com.baidu.location.f.getServiceContext().getApplicationContext().getSystemService("wifi");
-            this.f6917d = new a();
-            try {
-                com.baidu.location.f.getServiceContext().registerReceiver(this.f6917d, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
-            } catch (Exception unused) {
-            }
-            this.f6921h = true;
-        }
-    }
-
-    public synchronized void d() {
-        if (this.f6921h) {
-            try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.f6917d);
-                f6914a = 0L;
-            } catch (Exception unused) {
-            }
-            this.f6917d = null;
-            this.f6916c = null;
-            this.f6921h = false;
-        }
-    }
-
-    public boolean e() {
-        long currentTimeMillis = System.currentTimeMillis();
-        long j = this.f6920g;
-        if (currentTimeMillis - j <= 0 || currentTimeMillis - j > 5000) {
-            this.f6920g = currentTimeMillis;
-            b();
-            return f();
-        }
-        return false;
-    }
-
-    public boolean f() {
-        if (this.f6916c == null) {
-            return false;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        long j = this.f6919f;
-        if (currentTimeMillis - j > 0) {
-            long j2 = this.j;
-            if (currentTimeMillis - j <= j2 + 5000 || currentTimeMillis - (f6914a * 1000) <= j2 + 5000) {
-                return false;
-            }
-            if (i() && currentTimeMillis - this.f6919f <= this.j + 10000) {
-                return false;
-            }
-        }
-        return h();
-    }
-
-    @SuppressLint({"NewApi"})
-    public String g() {
-        WifiManager wifiManager = this.f6916c;
-        if (wifiManager != null) {
-            try {
-                if (!wifiManager.isWifiEnabled()) {
-                    if (Build.VERSION.SDK_INT <= 17) {
-                        return "";
-                    }
-                    if (!this.f6916c.isScanAlwaysAvailable()) {
-                        return "";
-                    }
-                }
-                return "&wifio=1";
-            } catch (Exception | NoSuchMethodError unused) {
-                return "";
-            }
-        }
-        return "";
-    }
-
-    @SuppressLint({"NewApi"})
-    public boolean h() {
-        long currentTimeMillis = System.currentTimeMillis() - this.k;
-        if (currentTimeMillis < 0 || currentTimeMillis > 2000) {
-            this.k = System.currentTimeMillis();
-            try {
-                if (!this.f6916c.isWifiEnabled() && (Build.VERSION.SDK_INT <= 17 || !this.f6916c.isScanAlwaysAvailable())) {
-                    return false;
-                }
-                this.f6916c.startScan();
-                this.f6919f = System.currentTimeMillis();
-                return true;
-            } catch (Exception | NoSuchMethodError unused) {
-                return false;
-            }
-        }
-        return false;
-    }
-
-    @SuppressLint({"NewApi"})
-    public boolean j() {
-        try {
-            if ((this.f6916c.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.f6916c.isScanAlwaysAvailable())) && !i()) {
-                return new h(this.f6916c.getScanResults(), 0L).e();
-            }
-            return false;
-        } catch (Exception | NoSuchMethodError unused) {
-            return false;
-        }
-    }
-
-    public WifiInfo k() {
-        WifiManager wifiManager = this.f6916c;
-        if (wifiManager == null) {
+        Location g2 = com.baidu.location.c.e.a().i() ? com.baidu.location.c.e.a().g() : null;
+        com.baidu.location.c.a aVar2 = this.f6607b;
+        if ((aVar2 == null || aVar2.d() || this.f6607b.c()) && (((hVar = this.f6606a) == null || hVar.a() == 0) && g2 == null)) {
             return null;
         }
-        try {
-            WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-            if (connectionInfo != null && connectionInfo.getBSSID() != null && connectionInfo.getRssi() > -100) {
-                String bssid = connectionInfo.getBSSID();
-                if (bssid != null) {
-                    String replace = bssid.replace(":", "");
-                    if (!"000000000000".equals(replace)) {
-                        if ("".equals(replace)) {
-                        }
+        String b2 = b();
+        if (h.a().d() == -2) {
+            b2 = b2 + "&imo=1";
+        }
+        int b3 = com.baidu.location.e.k.b(com.baidu.location.f.getServiceContext());
+        if (b3 >= 0) {
+            b2 = b2 + "&lmd=" + b3;
+            if (Build.VERSION.SDK_INT >= 28 && !this.j) {
+                this.j = true;
+                try {
+                    if (com.baidu.location.f.getServiceContext().getPackageManager().hasSystemFeature("android.hardware.wifi.rtt")) {
+                        b2 = b2 + "&rtt=1";
                     }
-                    return null;
+                } catch (Throwable th) {
+                    th.printStackTrace();
                 }
-                return connectionInfo;
-            }
-        } catch (Error | Exception unused) {
-        }
-        return null;
-    }
-
-    public String l() {
-        StringBuffer stringBuffer = new StringBuffer();
-        WifiInfo k = a().k();
-        if (k != null && k.getBSSID() != null) {
-            String replace = k.getBSSID().replace(":", "");
-            int rssi = k.getRssi();
-            String m = a().m();
-            if (rssi < 0) {
-                rssi = -rssi;
-            }
-            if (replace != null && rssi < 100) {
-                stringBuffer.append("&wf=");
-                stringBuffer.append(replace);
-                stringBuffer.append(";");
-                stringBuffer.append("" + rssi + ";");
-                String ssid = k.getSSID();
-                if (ssid != null && (ssid.contains("&") || ssid.contains(";"))) {
-                    ssid = ssid.replace("&", "_");
-                }
-                stringBuffer.append(ssid);
-                stringBuffer.append("&wf_n=1");
-                if (m != null) {
-                    stringBuffer.append("&wf_gw=");
-                    stringBuffer.append(m);
-                }
-                return stringBuffer.toString();
             }
         }
-        return null;
-    }
-
-    public String m() {
-        DhcpInfo dhcpInfo;
-        WifiManager wifiManager = this.f6916c;
-        if (wifiManager == null || (dhcpInfo = wifiManager.getDhcpInfo()) == null) {
-            return null;
+        com.baidu.location.c.h hVar3 = this.f6606a;
+        if ((hVar3 == null || hVar3.a() == 0) && (l = com.baidu.location.c.i.a().l()) != null) {
+            b2 = l + b2;
         }
-        return a(dhcpInfo.gateway);
+        String str2 = b2;
+        if (this.f6610f) {
+            this.f6610f = false;
+            return com.baidu.location.e.k.a(this.f6607b, this.f6606a, g2, str2, 0, true);
+        }
+        return com.baidu.location.e.k.a(this.f6607b, this.f6606a, g2, str2, 0);
     }
 
-    public h n() {
-        h hVar = this.f6918e;
-        return (hVar == null || !hVar.i()) ? p() : this.f6918e;
-    }
+    public abstract void a();
 
-    public h o() {
-        h hVar = this.f6918e;
-        return (hVar == null || !hVar.j()) ? p() : this.f6918e;
-    }
+    public abstract void a(Message message);
 
-    public h p() {
-        WifiManager wifiManager = this.f6916c;
-        if (wifiManager != null) {
-            try {
-                return new h(wifiManager.getScanResults(), this.f6919f);
-            } catch (Exception unused) {
+    public String b() {
+        String c2 = com.baidu.location.b.a.a().c();
+        String format = com.baidu.location.c.i.i() ? "&cn=32" : String.format(Locale.CHINA, "&cn=%d", Integer.valueOf(com.baidu.location.c.b.a().e()));
+        if (Build.VERSION.SDK_INT >= 18) {
+            String d2 = com.baidu.location.e.k.d();
+            if (!TextUtils.isEmpty(d2)) {
+                format = format + "&qcip6c=" + d2;
             }
         }
-        return new h(null, 0L);
-    }
-
-    public String q() {
-        try {
-            WifiInfo connectionInfo = this.f6916c.getConnectionInfo();
-            if (connectionInfo != null) {
-                return connectionInfo.getMacAddress();
+        if (this.f6609e) {
+            this.f6609e = false;
+            int i2 = Build.VERSION.SDK_INT;
+        } else if (!this.f6611g) {
+            String e2 = w.e();
+            if (e2 != null) {
+                format = format + e2;
             }
-            return null;
-        } catch (Error | Exception unused) {
-            return null;
+            this.f6611g = true;
         }
+        return format + c2;
     }
 }

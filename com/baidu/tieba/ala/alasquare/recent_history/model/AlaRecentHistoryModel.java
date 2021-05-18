@@ -21,22 +21,22 @@ import java.util.List;
 public class AlaRecentHistoryModel extends BdBaseModel {
 
     /* renamed from: f  reason: collision with root package name */
-    public b f14572f;
+    public b f13887f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14573g;
+    public int f13888g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14574h;
+    public int f13889h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f14575i;
+    public boolean f13890i;
     public boolean j;
     public HttpMessageListener l;
     public BdUniqueId k = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.a.j0.t.d.e.b.b> f14571e = new ArrayList();
+    public List<d.a.k0.t.d.e.b.b> f13886e = new ArrayList();
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -50,27 +50,27 @@ public class AlaRecentHistoryModel extends BdBaseModel {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021082 && (httpResponsedMessage instanceof AlaRecentHistoryResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaRecentHistoryModel.this.k) {
                 AlaRecentHistoryResponseMessage alaRecentHistoryResponseMessage = (AlaRecentHistoryResponseMessage) httpResponsedMessage;
                 if (!alaRecentHistoryResponseMessage.isSuccess()) {
-                    if (AlaRecentHistoryModel.this.f14572f != null) {
-                        AlaRecentHistoryModel.this.f14572f.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaRecentHistoryModel.this.j);
+                    if (AlaRecentHistoryModel.this.f13887f != null) {
+                        AlaRecentHistoryModel.this.f13887f.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaRecentHistoryModel.this.j);
                     }
                 } else {
-                    d.a.j0.t.d.e.b.a recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
+                    d.a.k0.t.d.e.b.a recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
                     if (recentHistoryData == null) {
                         return;
                     }
-                    AlaRecentHistoryModel.this.f14575i = recentHistoryData.f60679a;
-                    List<d.a.j0.t.d.e.b.b> list = recentHistoryData.f60680b;
+                    AlaRecentHistoryModel.this.f13890i = recentHistoryData.f61403a;
+                    List<d.a.k0.t.d.e.b.b> list = recentHistoryData.f61404b;
                     if (!AlaRecentHistoryModel.this.j) {
-                        AlaRecentHistoryModel.this.f14571e.clear();
+                        AlaRecentHistoryModel.this.f13886e.clear();
                         if (!ListUtils.isEmpty(list)) {
-                            AlaRecentHistoryModel.this.f14571e.addAll(list);
+                            AlaRecentHistoryModel.this.f13886e.addAll(list);
                         }
                     } else if (!ListUtils.isEmpty(list)) {
                         AlaRecentHistoryModel.x(AlaRecentHistoryModel.this);
-                        AlaRecentHistoryModel.this.f14571e.addAll(list);
+                        AlaRecentHistoryModel.this.f13886e.addAll(list);
                     }
-                    if (AlaRecentHistoryModel.this.f14572f != null) {
-                        AlaRecentHistoryModel.this.f14572f.a(AlaRecentHistoryModel.this.f14575i, AlaRecentHistoryModel.this.f14571e);
+                    if (AlaRecentHistoryModel.this.f13887f != null) {
+                        AlaRecentHistoryModel.this.f13887f.a(AlaRecentHistoryModel.this.f13890i, AlaRecentHistoryModel.this.f13886e);
                     }
                 }
                 AlaRecentHistoryModel.this.j = false;
@@ -80,44 +80,44 @@ public class AlaRecentHistoryModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(boolean z, List<d.a.j0.t.d.e.b.b> list);
+        void a(boolean z, List<d.a.k0.t.d.e.b.b> list);
 
         void b(int i2, String str, boolean z);
     }
 
     public AlaRecentHistoryModel(TbPageContext tbPageContext, int i2, b bVar) {
-        this.f14573g = i2;
-        this.f14572f = bVar;
+        this.f13888g = i2;
+        this.f13887f = bVar;
         registerListener();
         registerTask();
     }
 
     public static /* synthetic */ int x(AlaRecentHistoryModel alaRecentHistoryModel) {
-        int i2 = alaRecentHistoryModel.f14574h;
-        alaRecentHistoryModel.f14574h = i2 + 1;
+        int i2 = alaRecentHistoryModel.f13889h;
+        alaRecentHistoryModel.f13889h = i2 + 1;
         return i2;
     }
 
     public void A() {
-        if (!this.f14575i || this.j) {
+        if (!this.f13890i || this.j) {
             return;
         }
         this.j = true;
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
-        httpMessage.addParam("type", this.f14573g);
-        httpMessage.addParam(Config.PACKAGE_NAME, this.f14574h + 1);
+        httpMessage.addParam("type", this.f13888g);
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f13889h + 1);
         httpMessage.setTag(this.k);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void B() {
         this.j = false;
-        this.f14574h = 0;
+        this.f13889h = 0;
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
-        httpMessage.addParam("type", this.f14573g);
-        httpMessage.addParam(Config.PACKAGE_NAME, this.f14574h);
+        httpMessage.addParam("type", this.f13888g);
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f13889h);
         httpMessage.setTag(this.k);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
@@ -132,8 +132,8 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         return false;
     }
 
-    public List<d.a.j0.t.d.e.b.b> getData() {
-        return this.f14571e;
+    public List<d.a.k0.t.d.e.b.b> getData() {
+        return this.f13886e;
     }
 
     public void onDestroy() {

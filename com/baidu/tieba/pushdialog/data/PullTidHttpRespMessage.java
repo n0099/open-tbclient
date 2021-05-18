@@ -3,7 +3,7 @@ package com.baidu.tieba.pushdialog.data;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
 import tbclient.GetLockWindowTid.GetLockWindowTidResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PullTidHttpRespMessage extends HttpResponsedMessage {
     public String tid;
 
@@ -19,7 +19,7 @@ public class PullTidHttpRespMessage extends HttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         try {
-            this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f20857a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
+            this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f20145a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
         } catch (Throwable unused) {
         }
     }

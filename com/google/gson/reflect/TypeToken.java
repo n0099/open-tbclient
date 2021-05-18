@@ -17,7 +17,7 @@ public class TypeToken<T> {
     public final Type type;
 
     public TypeToken() {
-        Type superclassTypeParameter = getSuperclassTypeParameter(TypeToken.class);
+        Type superclassTypeParameter = getSuperclassTypeParameter(getClass());
         this.type = superclassTypeParameter;
         this.rawType = (Class<? super T>) C$Gson$Types.getRawType(superclassTypeParameter);
         this.hashCode = this.type.hashCode();

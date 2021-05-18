@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.text.Layout;
@@ -7,14 +8,15 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
+@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes3.dex */
 public class CenterTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public StaticLayout f12217e;
+    public StaticLayout f11423e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextPaint f12218f;
+    public TextPaint f11424f;
 
     public CenterTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -22,15 +24,15 @@ public class CenterTextView extends TextView {
 
     public final void a() {
         TextPaint textPaint = new TextPaint(1);
-        this.f12218f = textPaint;
+        this.f11424f = textPaint;
         textPaint.setTextSize(getTextSize());
-        this.f12218f.setColor(getCurrentTextColor());
-        this.f12217e = new StaticLayout(getText(), this.f12218f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+        this.f11424f.setColor(getCurrentTextColor());
+        this.f11423e = new StaticLayout(getText(), this.f11424f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
-        StaticLayout staticLayout = this.f12217e;
+        StaticLayout staticLayout = this.f11423e;
         if (staticLayout != null) {
             staticLayout.draw(canvas);
         }

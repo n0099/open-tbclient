@@ -2,7 +2,7 @@ package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.j0.z2.c;
+import d.a.k0.z2.c;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class GetForumResponsed extends JsonHttpResponsedMessage {

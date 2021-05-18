@@ -4,31 +4,31 @@ import android.content.Context;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f37442a = new Object();
+    public static final Object f36687a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f37443b;
+    public static volatile b f36688b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f37444c;
+    public e f36689c;
 
     public static b a() {
-        if (f37443b == null) {
-            synchronized (f37442a) {
-                if (f37443b == null) {
-                    f37443b = new b();
+        if (f36688b == null) {
+            synchronized (f36687a) {
+                if (f36688b == null) {
+                    f36688b = new b();
                 }
             }
         }
-        return f37443b;
+        return f36688b;
     }
 
     public final e a(Context context) {
-        e eVar = this.f37444c;
+        e eVar = this.f36689c;
         if (eVar != null) {
             return eVar;
         }
@@ -37,7 +37,7 @@ public final class b {
             Method method = Class.forName(str).getMethod("getInstance", Context.class);
             p.d("ConfigManagerFactory", "createConfig success is " + str);
             e eVar2 = (e) method.invoke(null, context);
-            this.f37444c = eVar2;
+            this.f36689c = eVar2;
             return eVar2;
         } catch (Exception e2) {
             e2.printStackTrace();

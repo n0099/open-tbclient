@@ -22,11 +22,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
 import d.a.c.e.p.l;
-import d.a.j0.y1.g.f;
+import d.a.k0.y1.g.f;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     public static final int ALBUM_TYPE = 3;
     public static final int COLLECT_TYPE = 2;
@@ -43,7 +43,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     public int mChoosedNum = 0;
     public ViewPager.OnPageChangeListener mOnPageChangeListener = new b();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -52,24 +52,24 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         public void onClick(View view) {
             Intent intent = new Intent();
             ArrayList arrayList = new ArrayList();
-            if (PickFaceTabActivity.this.mSearchFragment != null && PickFaceTabActivity.this.mSearchFragment.T0() != null) {
-                for (Map.Entry<String, EmotionImageData> entry : PickFaceTabActivity.this.mSearchFragment.T0().entrySet()) {
+            if (PickFaceTabActivity.this.mSearchFragment != null && PickFaceTabActivity.this.mSearchFragment.S0() != null) {
+                for (Map.Entry<String, EmotionImageData> entry : PickFaceTabActivity.this.mSearchFragment.S0().entrySet()) {
                     FaceData faceData = new FaceData();
                     faceData.type = 2;
                     faceData.emotionImageData = entry.getValue();
                     arrayList.add(faceData);
                 }
             }
-            if (PickFaceTabActivity.this.mAlbumFragment != null && PickFaceTabActivity.this.mAlbumFragment.I0() != null) {
-                for (Map.Entry<String, ImageFileInfo> entry2 : PickFaceTabActivity.this.mAlbumFragment.I0().entrySet()) {
+            if (PickFaceTabActivity.this.mAlbumFragment != null && PickFaceTabActivity.this.mAlbumFragment.H0() != null) {
+                for (Map.Entry<String, ImageFileInfo> entry2 : PickFaceTabActivity.this.mAlbumFragment.H0().entrySet()) {
                     FaceData faceData2 = new FaceData();
                     faceData2.type = 3;
                     faceData2.imageFileInfo = entry2.getValue();
                     arrayList.add(faceData2);
                 }
             }
-            if (PickFaceTabActivity.this.mCollectFragment != null && PickFaceTabActivity.this.mCollectFragment.I0() != null) {
-                for (Map.Entry<String, EmotionImageData> entry3 : PickFaceTabActivity.this.mCollectFragment.I0().entrySet()) {
+            if (PickFaceTabActivity.this.mCollectFragment != null && PickFaceTabActivity.this.mCollectFragment.H0() != null) {
+                for (Map.Entry<String, EmotionImageData> entry3 : PickFaceTabActivity.this.mCollectFragment.H0().entrySet()) {
                     FaceData faceData3 = new FaceData();
                     faceData3.type = 1;
                     faceData3.emotionImageData = entry3.getValue();
@@ -82,7 +82,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements ViewPager.OnPageChangeListener {
         public b() {
         }
@@ -107,25 +107,25 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12907c = fragment;
-        bVar.f12905a = i2;
+        bVar.f12243c = fragment;
+        bVar.f12241a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f12906b = fragmentTabIndicator;
+        bVar.f12242b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
     private void initFragment() {
         FaceSearchFragment faceSearchFragment = new FaceSearchFragment();
         this.mSearchFragment = faceSearchFragment;
-        faceSearchFragment.Z0(this);
+        faceSearchFragment.Y0(this);
         FaceAlbumFragment faceAlbumFragment = new FaceAlbumFragment();
         this.mAlbumFragment = faceAlbumFragment;
-        faceAlbumFragment.M0(this);
+        faceAlbumFragment.L0(this);
         FaceCollectFragment faceCollectFragment = new FaceCollectFragment();
         this.mCollectFragment = faceCollectFragment;
-        faceCollectFragment.K0(this);
+        faceCollectFragment.J0(this);
         Intent intent = getIntent();
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra(PickFaceTabActivityConfig.CHOOSED_LIST);
@@ -186,7 +186,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         this.mTitleBar.setRightText(string);
     }
 
-    @Override // d.a.j0.y1.g.f
+    @Override // d.a.k0.y1.g.f
     public boolean canChooseMore() {
         return this.mChoosedNum < 24;
     }
@@ -204,7 +204,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         this.mTabHost.o(i2);
     }
 
-    @Override // d.a.j0.y1.g.f
+    @Override // d.a.k0.y1.g.f
     public void onChoose() {
         this.mChoosedNum++;
         updateChoosedNum();
@@ -226,7 +226,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         initFragment();
     }
 
-    @Override // d.a.j0.y1.g.f
+    @Override // d.a.k0.y1.g.f
     public void onUnChoose() {
         int i2 = this.mChoosedNum;
         if (i2 > 0) {

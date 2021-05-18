@@ -12,52 +12,52 @@ import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLProtocolException;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<o> f64491a;
+    public final List<o> f65177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64492b = 0;
+    public int f65178b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f64493c;
+    public boolean f65179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64494d;
+    public boolean f65180d;
 
     public b(List<o> list) {
-        this.f64491a = list;
+        this.f65177a = list;
     }
 
     public o a(SSLSocket sSLSocket) throws IOException {
         o oVar;
-        int i2 = this.f64492b;
-        int size = this.f64491a.size();
+        int i2 = this.f65178b;
+        int size = this.f65177a.size();
         while (true) {
             if (i2 >= size) {
                 oVar = null;
                 break;
             }
-            oVar = this.f64491a.get(i2);
+            oVar = this.f65177a.get(i2);
             if (oVar.c(sSLSocket)) {
-                this.f64492b = i2 + 1;
+                this.f65178b = i2 + 1;
                 break;
             }
             i2++;
         }
         if (oVar != null) {
-            this.f64493c = c(sSLSocket);
-            d.b.c.a.b.a.b.f64489a.e(oVar, sSLSocket, this.f64494d);
+            this.f65179c = c(sSLSocket);
+            d.b.c.a.b.a.b.f65175a.e(oVar, sSLSocket, this.f65180d);
             return oVar;
         }
-        throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.f64494d + ", modes=" + this.f64491a + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
+        throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.f65180d + ", modes=" + this.f65177a + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
     }
 
     public boolean b(IOException iOException) {
-        this.f64494d = true;
-        if (!this.f64493c || (iOException instanceof ProtocolException) || (iOException instanceof InterruptedIOException)) {
+        this.f65180d = true;
+        if (!this.f65179c || (iOException instanceof ProtocolException) || (iOException instanceof InterruptedIOException)) {
             return false;
         }
         boolean z = iOException instanceof SSLHandshakeException;
@@ -68,8 +68,8 @@ public final class b {
     }
 
     public final boolean c(SSLSocket sSLSocket) {
-        for (int i2 = this.f64492b; i2 < this.f64491a.size(); i2++) {
-            if (this.f64491a.get(i2).c(sSLSocket)) {
+        for (int i2 = this.f65178b; i2 < this.f65177a.size(); i2++) {
+            if (this.f65177a.get(i2).c(sSLSocket)) {
                 return true;
             }
         }

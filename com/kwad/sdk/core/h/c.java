@@ -8,36 +8,36 @@ import java.io.InputStream;
 public class c extends InputStream {
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f33198d;
+    public InputStream f32443d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f33199e;
+    public int f32444e;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile float f33201g;
+    public volatile float f32446g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f33202h;
+    public volatile long f32447h;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f33195a = -1;
+    public int f32440a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33196b = 10000;
+    public int f32441b = 10000;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f33197c = -1;
+    public long f32442c = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f33200f = -1;
+    public long f32445f = -1;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f33203i = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_EXTRA;
+    public int f32448i = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_EXTRA;
 
     public c(@NonNull InputStream inputStream, int i2) {
         i2 = i2 < 20480 ? LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_EXTRA : i2;
-        this.f33198d = inputStream;
-        this.f33201g = i2 / 1000.0f;
+        this.f32443d = inputStream;
+        this.f32446g = i2 / 1000.0f;
     }
 
     private long a(long j, long j2) {
@@ -60,18 +60,18 @@ public class c extends InputStream {
     }
 
     private void b() {
-        this.f33195a = 0;
-        this.f33197c = System.currentTimeMillis();
+        this.f32440a = 0;
+        this.f32442c = System.currentTimeMillis();
     }
 
     private void c() {
-        if (this.f33195a < this.f33196b) {
+        if (this.f32440a < this.f32441b) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - this.f33197c;
-        float f2 = this.f33195a / this.f33201g;
-        this.f33202h = a(this.f33199e, currentTimeMillis - this.f33200f);
+        long j = currentTimeMillis - this.f32442c;
+        float f2 = this.f32440a / this.f32446g;
+        this.f32447h = a(this.f32444e, currentTimeMillis - this.f32445f);
         float f3 = (float) j;
         if (f2 > f3) {
             a(f2 - f3);
@@ -80,56 +80,56 @@ public class c extends InputStream {
     }
 
     public long a() {
-        return this.f33202h;
+        return this.f32447h;
     }
 
     @Override // java.io.InputStream
     public int available() {
-        return this.f33198d.available();
+        return this.f32443d.available();
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f33198d.close();
+        this.f32443d.close();
         b.a(this);
-        this.f33200f = -1L;
+        this.f32445f = -1L;
     }
 
     @Override // java.io.InputStream
     public synchronized void mark(int i2) {
-        this.f33198d.mark(i2);
+        this.f32443d.mark(i2);
     }
 
     @Override // java.io.InputStream
     public boolean markSupported() {
-        return this.f33198d.markSupported();
+        return this.f32443d.markSupported();
     }
 
     @Override // java.io.InputStream
     public int read() {
-        if (this.f33200f <= 0) {
-            this.f33200f = System.currentTimeMillis();
+        if (this.f32445f <= 0) {
+            this.f32445f = System.currentTimeMillis();
         }
-        this.f33199e++;
-        if (b.f33191b && b.f33190a) {
-            if (this.f33195a < 0) {
+        this.f32444e++;
+        if (b.f32436b && b.f32435a) {
+            if (this.f32440a < 0) {
                 b();
             }
-            int read = this.f33198d.read();
-            this.f33195a++;
+            int read = this.f32443d.read();
+            this.f32440a++;
             c();
             return read;
         }
-        return this.f33198d.read();
+        return this.f32443d.read();
     }
 
     @Override // java.io.InputStream
     public synchronized void reset() {
-        this.f33198d.reset();
+        this.f32443d.reset();
     }
 
     @Override // java.io.InputStream
     public long skip(long j) {
-        return this.f33198d.skip(j);
+        return this.f32443d.skip(j);
     }
 }

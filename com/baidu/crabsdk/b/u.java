@@ -16,22 +16,22 @@ import org.json.JSONArray;
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b<List> f4850a = new b<>(com.baidu.crabsdk.a.f4785g);
+    public static b<List> f4704a = new b<>(com.baidu.crabsdk.a.f4639g);
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4851b = "";
+    public static String f4705b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4852c = "";
+    public static String f4706c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f4853d = 0;
+    public static int f4707d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f4854e = 0;
+    public static int f4708e = 0;
 
     public static String a() {
-        return f4850a.size() > 0 ? new JSONArray((Collection) f4850a).toString() : "";
+        return f4704a.size() > 0 ? new JSONArray((Collection) f4704a).toString() : "";
     }
 
     public static boolean b() {
@@ -43,7 +43,7 @@ public final class u {
             ViewGroup viewGroup = (ViewGroup) view;
             for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                 View childAt = viewGroup.getChildAt(i2);
-                if (childAt.getVisibility() == 0 && childAt.getLocalVisibleRect(new Rect(0, 0, f4853d, f4854e))) {
+                if (childAt.getVisibility() == 0 && childAt.getLocalVisibleRect(new Rect(0, 0, f4707d, f4708e))) {
                     if (childAt instanceof WebView) {
                         return (WebView) childAt;
                     }
@@ -68,20 +68,20 @@ public final class u {
         if (activity == null) {
             return;
         }
-        if (f4853d == 0 || f4854e == 0) {
+        if (f4707d == 0 || f4708e == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            f4854e = displayMetrics.heightPixels;
-            f4853d = displayMetrics.widthPixels;
+            f4708e = displayMetrics.heightPixels;
+            f4707d = displayMetrics.widthPixels;
         }
         if (motionEvent.getAction() != 0) {
             return;
         }
         String name = activity.getClass().getName();
-        if (!name.equals(f4852c)) {
+        if (!name.equals(f4706c)) {
             com.baidu.crabsdk.c.a.c("***** !tempName.equals(activityName) *****");
-            f4852c = name;
-            f4850a.clear();
+            f4706c = name;
+            f4704a.clear();
         }
         if (activity != null) {
             try {
@@ -90,17 +90,17 @@ public final class u {
                     c2 = c(decorView);
                     if (c2 == null) {
                         String url = c2.getUrl();
-                        if (url.equals(f4851b)) {
+                        if (url.equals(f4705b)) {
                             return;
                         }
                         com.baidu.crabsdk.c.a.c("-------- !tempUrl.equals(mUrl) --------");
-                        f4851b = url;
+                        f4705b = url;
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                         arrayList.add(c2.getTitle());
-                        arrayList.add(f4851b);
-                        com.baidu.crabsdk.c.a.c("title:" + c2.getTitle() + "; url:" + f4851b);
-                        f4850a.add(arrayList);
+                        arrayList.add(f4705b);
+                        com.baidu.crabsdk.c.a.c("title:" + c2.getTitle() + "; url:" + f4705b);
+                        f4704a.add(arrayList);
                         StringBuilder sb = new StringBuilder("###### jsonArray.toString() : ");
                         sb.append(a());
                         com.baidu.crabsdk.c.a.c(sb.toString());

@@ -11,10 +11,10 @@ import java.util.HashMap;
 public final class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ String f63318e;
+    public final /* synthetic */ String f63857e;
 
     public b(String str) {
-        this.f63318e = str;
+        this.f63857e = str;
     }
 
     @Override // java.lang.Runnable
@@ -24,14 +24,14 @@ public final class b implements Runnable {
         DataOutputStream dataOutputStream;
         String str;
         try {
-            String str2 = this.f63318e;
+            String str2 = this.f63857e;
             DataOutputStream dataOutputStream2 = null;
             try {
                 String f2 = com.baidu.crabsdk.lite.sender.b.f(str2);
                 com.baidu.crabsdk.lite.b.a.c(str2, "sync json is " + f2);
                 URL url = new URL(com.baidu.crabsdk.lite.a.c(str2));
                 if (com.baidu.crabsdk.lite.a.l != null) {
-                    HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4862a.get(str2);
+                    HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4716a.get(str2);
                     if (hashMap != null) {
                         Object obj = hashMap.get("domain_proxy");
                         openConnection = obj != null ? url.openConnection((Proxy) obj) : url.openConnection();

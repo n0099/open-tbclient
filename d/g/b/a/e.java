@@ -12,10 +12,10 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 public class e implements ArCoreApk.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f65456a;
+    public final /* synthetic */ f f66142a;
 
     public e(f fVar) {
-        this.f65456a = fVar;
+        this.f66142a = fVar;
     }
 
     public static Uri b(String str) {
@@ -35,7 +35,7 @@ public class e implements ArCoreApk.a {
         }
     }
 
-    public static PendingIntent d(Context context) throws UnavailableDeviceNotCompatibleException, UnavailableUserDeclinedInstallationException {
+    public static PendingIntent d(Context context) {
         try {
             Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
             if (call == null) {
@@ -69,9 +69,9 @@ public class e implements ArCoreApk.a {
 
     @Override // com.google.ar.core.ArCoreApk.a
     public void a(ArCoreApk.Availability availability) {
-        synchronized (this.f65456a) {
-            f.c(this.f65456a, availability);
-            f.f(this.f65456a, false);
+        synchronized (this.f66142a) {
+            f.c(this.f66142a, availability);
+            f.f(this.f66142a, false);
         }
     }
 }

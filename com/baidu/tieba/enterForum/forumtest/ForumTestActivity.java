@@ -30,16 +30,16 @@ import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.i0.r.s.h;
-import d.a.i0.r.s.j;
-import d.a.i0.r.s.l;
-import d.a.i0.z0.q;
+import d.a.j0.r.s.h;
+import d.a.j0.r.s.j;
+import d.a.j0.r.s.l;
+import d.a.j0.z0.q;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ForumTestActivity extends BaseActivity implements d.a.j0.i0.e.a.b {
+public class ForumTestActivity extends BaseActivity implements d.a.k0.i0.e.a.b {
     public j mMoreDialog;
     public List<h> mMoreDialogDataList;
     public l mMoreDialogView;
@@ -67,15 +67,15 @@ public class ForumTestActivity extends BaseActivity implements d.a.j0.i0.e.a.b {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f15171e;
+        public final /* synthetic */ ShareItem f14486e;
 
         public b(ShareItem shareItem) {
-            this.f15171e = shareItem;
+            this.f14486e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.c.e.p.a.a(this.f15171e.t);
+            d.a.c.e.p.a.a(this.f14486e.t);
             d.a.c.e.p.l.M(ForumTestActivity.this, view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
@@ -85,7 +85,7 @@ public class ForumTestActivity extends BaseActivity implements d.a.j0.i0.e.a.b {
         public c() {
         }
 
-        @Override // d.a.i0.r.s.l.c
+        @Override // d.a.j0.r.s.l.c
         public void onClick() {
             ForumTestActivity.this.hideMoreDialog();
         }
@@ -96,7 +96,7 @@ public class ForumTestActivity extends BaseActivity implements d.a.j0.i0.e.a.b {
         public d() {
         }
 
-        @Override // d.a.i0.r.s.l.d
+        @Override // d.a.j0.r.s.l.d
         public void onClick() {
             ForumTestActivity forumTestActivity = ForumTestActivity.this;
             forumTestActivity.saveImage(forumTestActivity.mWebView.getHitTestResult().getExtra());
@@ -109,12 +109,12 @@ public class ForumTestActivity extends BaseActivity implements d.a.j0.i0.e.a.b {
         public e() {
         }
 
-        @Override // d.a.i0.z0.q.a
+        @Override // d.a.j0.z0.q.a
         public void onError(int i2, String str) {
             d.a.c.e.p.l.L(TbadkCoreApplication.getInst(), R.string.tb_webview_download_image_success_tip);
         }
 
-        @Override // d.a.i0.z0.q.a
+        @Override // d.a.j0.z0.q.a
         public void onSuccess(String str) {
             d.a.c.e.p.l.L(TbadkCoreApplication.getInst(), R.string.save_success);
         }
@@ -204,7 +204,7 @@ public class ForumTestActivity extends BaseActivity implements d.a.j0.i0.e.a.b {
         this.mMoreDialog.l();
     }
 
-    @Override // d.a.j0.i0.e.a.b
+    @Override // d.a.k0.i0.e.a.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if ("share".equals(str2)) {
@@ -234,7 +234,7 @@ public class ForumTestActivity extends BaseActivity implements d.a.j0.i0.e.a.b {
                 finish();
                 jsPromptResult.confirm(CommonTbJsBridge.FINISH_THIS_PAGE);
                 return true;
-            } else if ("finishTestAnswer".equals(str2)) {
+            } else if (CommonTbJsBridge.FINISH_TEST_ANSWER.equals(str2)) {
                 try {
                     this.mTestId = new JSONObject(str3).optLong("testId");
                 } catch (JSONException e3) {
@@ -242,7 +242,7 @@ public class ForumTestActivity extends BaseActivity implements d.a.j0.i0.e.a.b {
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(this.mTestId)));
                 finish();
-                jsPromptResult.confirm("finishTestAnswer");
+                jsPromptResult.confirm(CommonTbJsBridge.FINISH_TEST_ANSWER);
                 return true;
             } else {
                 return false;

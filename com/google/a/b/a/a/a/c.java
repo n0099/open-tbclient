@@ -3,7 +3,6 @@ package com.google.a.b.a.a.a;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
-import android.os.RemoteException;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class c extends com.google.a.a.a implements a {
@@ -12,7 +11,7 @@ public final class c extends com.google.a.a.a implements a {
     }
 
     @Override // com.google.a.b.a.a.a.a
-    public final void a(String str, List<Bundle> list, Bundle bundle, d dVar) throws RemoteException {
+    public final void a(String str, List<Bundle> list, Bundle bundle, d dVar) {
         Parcel a2 = a();
         a2.writeString(str);
         a2.writeTypedList(list);
@@ -22,7 +21,7 @@ public final class c extends com.google.a.a.a implements a {
     }
 
     @Override // com.google.a.b.a.a.a.a
-    public final void a(String str, Bundle bundle, d dVar) throws RemoteException {
+    public final void a(String str, Bundle bundle, d dVar) {
         Parcel a2 = a();
         a2.writeString(str);
         d.g.a.a.a.c(a2, bundle);

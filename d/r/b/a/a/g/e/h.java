@@ -3,5 +3,5 @@ package d.r.b.a.a.g.e;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67050a;
+    public int f67736a;
 }

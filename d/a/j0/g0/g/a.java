@@ -1,71 +1,115 @@
 package d.a.j0.g0.g;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.google.gson.Gson;
-import d.a.c.c.f.d;
-import d.a.j0.g0.c;
-import java.util.HashMap;
-/* loaded from: classes4.dex */
-public class a extends d {
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import d.a.c.j.e.b;
+import d.a.k0.d3.t;
+/* loaded from: classes3.dex */
+public class a extends b implements t {
 
-    /* renamed from: a  reason: collision with root package name */
-    public c f54389a;
+    /* renamed from: f  reason: collision with root package name */
+    public TbPageContextSupport f49372f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f54390b;
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f49373g;
 
-    /* renamed from: c  reason: collision with root package name */
-    public Gson f54391c;
+    /* renamed from: h  reason: collision with root package name */
+    public ProgressBar f49374h;
 
-    public a(int i2) {
-        super(i2);
-        this.f54391c = new Gson();
+    /* renamed from: i  reason: collision with root package name */
+    public View.OnClickListener f49375i;
+    public View j;
+    public View k;
+    public int l;
+    public ViewGroup m;
+    public int n;
+
+    public a(TbPageContextSupport tbPageContextSupport) {
+        this.f49372f = null;
+        this.f49373g = null;
+        this.f49374h = null;
+        this.f49375i = null;
+        this.j = null;
+        this.f49372f = tbPageContextSupport;
+        this.l = tbPageContextSupport.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
     }
 
-    public String a(String str) {
-        if (str.contains("?")) {
-            str = str.split("[?]")[0];
+    @Override // d.a.c.j.e.b
+    public View a() {
+        if (this.m == null) {
+            this.j = LayoutInflater.from(this.f49372f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+        } else {
+            this.j = LayoutInflater.from(this.f49372f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.m, false);
         }
-        String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        HashMap<String, String> hashMap = this.f54390b;
-        if (hashMap != null) {
-            return hashMap.get(replace);
+        View view = this.j;
+        int i2 = this.l;
+        view.setPadding(0, i2, 0, i2);
+        if (this.n != 0) {
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(this.j.getLayoutParams());
+            layoutParams.height = this.n;
+            this.j.setLayoutParams(layoutParams);
         }
-        return null;
+        this.f49373g = (TextView) this.j.findViewById(R.id.pb_more_text);
+        View findViewById = this.j.findViewById(R.id.pb_more_view);
+        this.k = findViewById;
+        findViewById.setVisibility(8);
+        this.f49374h = (ProgressBar) this.j.findViewById(R.id.progress);
+        onChangeSkinType(this.f49372f.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.k.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        return this.j;
     }
 
-    public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        String json;
-        String a2 = a(httpMessageTask.getUrl());
-        if (a2 != null && this.f54389a != null) {
-            if (httpMessage.getExtra() instanceof NetMessage) {
-                NetMessage netMessage = (NetMessage) httpMessage.getExtra();
-                json = netMessage.getSocketMessage() != null ? this.f54391c.toJson(netMessage.getSocketMessage().getData()) : "";
-            } else {
-                json = this.f54391c.toJson(httpMessage.getParams());
-            }
-            this.f54389a.a(httpMessageTask.getUrl(), this.f54391c.toJson(a2), this.f54391c.toJson(json));
+    @Override // d.a.c.j.e.b
+    public void c() {
+        View.OnClickListener onClickListener = this.f49375i;
+        if (onClickListener != null) {
+            onClickListener.onClick(this.j);
         }
-        return httpMessage;
     }
 
-    public void c(c cVar) {
-        this.f54389a = cVar;
+    public void d() {
+        this.k.setVisibility(0);
+        View view = this.j;
+        int i2 = this.l;
+        view.setPadding(0, i2, 0, i2);
     }
 
-    public void d(HashMap<String, String> hashMap) {
-        this.f54390b = hashMap;
+    public void e() {
+        this.k.setVisibility(8);
+        this.j.setPadding(0, 0, 0, 0);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // d.a.c.c.f.f
-    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        HttpMessage httpMessage2 = httpMessage;
-        b(httpMessage2, httpMessageTask);
-        return httpMessage2;
+    public void f(int i2) {
+        this.f49374h.setVisibility(0);
+        this.f49373g.setText(i2);
+        this.k.setVisibility(0);
+    }
+
+    public void g(int i2) {
+        this.f49374h.setVisibility(8);
+        this.f49373g.setText(i2);
+    }
+
+    public void h(int i2) {
+        this.n = i2;
+    }
+
+    @Override // d.a.k0.d3.t
+    public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
+        this.f49372f.getPageContext().getLayoutMode().j(this.k);
+        return true;
+    }
+
+    public a(TbPageContextSupport tbPageContextSupport, ViewGroup viewGroup) {
+        this(tbPageContextSupport);
+        this.m = viewGroup;
     }
 }

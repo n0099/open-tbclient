@@ -7,17 +7,17 @@ import com.sdk.base.framework.bean.PInfo;
 import com.sdk.base.framework.bean.SInfo;
 import com.sdk.base.module.config.BaseConfig;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f36474a = false;
+    public static boolean f35719a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36475b = "";
+    public static String f35720b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36476c = "";
+    public static String f35721c = "";
 
     public static AInfo a(Context context) {
         AInfo aInfo = new AInfo();
@@ -36,7 +36,7 @@ public final class a {
     public static SInfo b() {
         SInfo sInfo = new SInfo();
         sInfo.setN(BaseConfig.n);
-        sInfo.setC(BaseConfig.f36545c);
+        sInfo.setC(BaseConfig.f35790c);
         sInfo.setV(BaseConfig.v);
         sInfo.setCm(BaseConfig.cm);
         return sInfo;

@@ -32,12 +32,12 @@ import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import d.a.c.e.p.l;
 import d.a.i.b0;
-import d.a.i0.f0.h;
-import d.a.i0.r.d0.b;
-import d.a.i0.r.q.a2;
-import d.a.i0.r.q.v0;
-import d.a.j0.d3.h0.e;
-import d.a.j0.r2.a;
+import d.a.j0.f0.h;
+import d.a.j0.r.d0.b;
+import d.a.j0.r.q.a2;
+import d.a.j0.r.q.v0;
+import d.a.k0.d3.h0.e;
+import d.a.k0.r2.a;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -60,7 +60,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
     */
     private void doAgreeAndDisagree(boolean z, JSONObject jSONObject, String str) {
         a2 a2Var = new a2();
-        a2Var.Q2(jSONObject);
+        a2Var.S2(jSONObject);
         AgreeData L = a2Var.L();
         int i2 = 1;
         if (z) {
@@ -115,7 +115,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
             sendMesage(i2, L);
         }
         e eVar = new e();
-        eVar.f53077b = L;
+        eVar.f53784b = L;
         if (a2Var.V() != null) {
             L.nid = a2Var.V().oriUgcNid;
         }
@@ -161,13 +161,13 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         final boolean[] zArr = {false};
         if (currentActivity instanceof TbPageContextSupport) {
             PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(((TbPageContextSupport) currentActivity).getPageContext());
-            pbHistoryCacheModel.K(new CacheModel.c<d.a.j0.w1.h.a>() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.UtilityComponents.1
+            pbHistoryCacheModel.K(new CacheModel.c<d.a.k0.w1.h.a>() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.UtilityComponents.1
                 @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-                public void onCacheDataGet(ReadCacheRespMsg<List<d.a.j0.w1.h.a>> readCacheRespMsg, ReadCacheMessage<d.a.j0.w1.h.a> readCacheMessage) {
+                public void onCacheDataGet(ReadCacheRespMsg<List<d.a.k0.w1.h.a>> readCacheRespMsg, ReadCacheMessage<d.a.k0.w1.h.a> readCacheMessage) {
                     if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
                         return;
                     }
-                    List<d.a.j0.w1.h.a> data = readCacheRespMsg.getData();
+                    List<d.a.k0.w1.h.a> data = readCacheRespMsg.getData();
                     if (zArr[0] || result == null) {
                         return;
                     }
@@ -178,7 +178,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 }
 
                 @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-                public void onCacheDataWrite(WriteCacheRespMsg<List<d.a.j0.w1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.a.j0.w1.h.a> writeCacheMessage) {
+                public void onCacheDataWrite(WriteCacheRespMsg<List<d.a.k0.w1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.a.k0.w1.h.a> writeCacheMessage) {
                 }
             });
             pbHistoryCacheModel.H();
@@ -222,7 +222,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         if (result2.get("item") != null) {
             JSONObject optJSONObject = new JSONObject((HashMap) result2.get("item")).optJSONObject("item");
             a2 a2Var = new a2();
-            a2Var.Q2(optJSONObject);
+            a2Var.S2(optJSONObject);
             v0 h2 = a2Var.h();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity instanceof TbPageContextSupport) {
@@ -314,7 +314,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityComponentsAuto.HostUtilityComponents
     public void showRedDotForMyTab(TiebaUtilityComponentsAuto.Result<TiebaUtilityComponentsAuto.ComponentsBoolResult> result) {
         TiebaUtilityComponentsAuto.ComponentsBoolResult componentsBoolResult = new TiebaUtilityComponentsAuto.ComponentsBoolResult();
-        componentsBoolResult.setResult(Boolean.valueOf(d.a.j0.t2.a.v().z()));
+        componentsBoolResult.setResult(Boolean.valueOf(d.a.k0.t2.a.v().z()));
         result.success(componentsBoolResult);
     }
 }

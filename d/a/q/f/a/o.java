@@ -10,47 +10,47 @@ import org.json.JSONObject;
 public class o implements j {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f63654a;
+    public a f64291a;
 
     /* loaded from: classes2.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f63655a;
+        public Context f64292a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a.C1722a f63656b;
+        public a.C1785a f64293b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f63657c;
+        public boolean f64294c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f63658d;
+        public boolean f64295d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f63659e;
+        public boolean f64296e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f63660f;
+        public long f64297f;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f63661g;
+        public JSONObject f64298g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f63662h;
+        public JSONObject f64299h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f63663i;
+        public long f64300i;
 
         public a(o oVar, Context context) {
             if (context == null) {
                 throw new NullPointerException("context should not be null");
             }
-            this.f63656b = new d.a.q.g.d.a(context.getApplicationContext()).d().f("cloud").f("cstore");
+            this.f64293b = new d.a.q.g.d.a(context.getApplicationContext()).d().f("cloud").f("cstore");
         }
 
         public void a(JSONObject jSONObject) {
-            this.f63662h = jSONObject;
+            this.f64299h = jSONObject;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:14:0x0029, code lost:
@@ -62,10 +62,10 @@ public class o implements j {
         public synchronized boolean b() {
             n();
             o();
-            boolean g2 = d.a.q.b.d(this.f63655a).g();
+            boolean g2 = d.a.q.b.d(this.f64292a).g();
             boolean z = false;
-            if (this.f63657c && g2) {
-                if (this.f63661g == null) {
+            if (this.f64294c && g2) {
+                if (this.f64298g == null) {
                     return true;
                 }
                 if (!f()) {
@@ -92,26 +92,26 @@ public class o implements j {
         }
 
         public void d(JSONObject jSONObject) {
-            this.f63661g = jSONObject;
+            this.f64298g = jSONObject;
             k();
         }
 
         public final synchronized boolean e() {
-            if (this.f63661g == null) {
+            if (this.f64298g == null) {
                 return true;
             }
-            if (this.f63662h != null) {
-                return c(this.f63661g, this.f63662h);
+            if (this.f64299h != null) {
+                return c(this.f64298g, this.f64299h);
             }
             throw new IllegalArgumentException("you forgot invoke methond :IMatchConditions.setComparedCStoreParams before ");
         }
 
         public final boolean f() {
-            return Math.abs(System.currentTimeMillis() - this.f63663i) / 1000 > this.f63660f;
+            return Math.abs(System.currentTimeMillis() - this.f64300i) / 1000 > this.f64297f;
         }
 
         public final long g() {
-            JSONObject jSONObject = this.f63661g;
+            JSONObject jSONObject = this.f64298g;
             if (jSONObject == null) {
                 return 0L;
             }
@@ -120,42 +120,42 @@ public class o implements j {
 
         public final void h() {
             try {
-                this.f63661g = n.a(this.f63656b.g("cs.dat", true));
-                this.f63663i = g();
+                this.f64298g = n.a(this.f64293b.g("cs.dat", true));
+                this.f64300i = g();
             } catch (Exception unused) {
-                this.f63663i = 0L;
+                this.f64300i = 0L;
             }
         }
 
         public final void i() {
             try {
-                JSONObject a2 = n.a(this.f63656b.g("ct.dat", true));
+                JSONObject a2 = n.a(this.f64293b.g("ct.dat", true));
                 if (a2 == null) {
-                    this.f63660f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
+                    this.f64297f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
                 } else {
-                    this.f63660f = a2.optLong("TIME_OUT", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME);
+                    this.f64297f = a2.optLong("TIME_OUT", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME);
                 }
             } catch (Exception unused) {
-                this.f63660f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
+                this.f64297f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
             }
         }
 
         public final void j() {
             try {
-                JSONObject a2 = n.a(this.f63656b.g("ci.dat", true));
+                JSONObject a2 = n.a(this.f64293b.g("ci.dat", true));
                 if (a2 == null) {
-                    this.f63657c = true;
+                    this.f64294c = true;
                 } else {
-                    this.f63657c = a2.optBoolean("isOn", true);
+                    this.f64294c = a2.optBoolean("isOn", true);
                 }
             } catch (Exception unused) {
-                this.f63657c = true;
+                this.f64294c = true;
             }
         }
 
         public final boolean k() {
             try {
-                this.f63656b.i("cs.dat", this.f63661g.toString(), true);
+                this.f64293b.i("cs.dat", this.f64298g.toString(), true);
                 return true;
             } catch (Exception unused) {
                 return false;
@@ -165,8 +165,8 @@ public class o implements j {
         public final boolean l() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("isOn", this.f63657c);
-                this.f63656b.i("ci.dat", jSONObject.toString(), true);
+                jSONObject.put("isOn", this.f64294c);
+                this.f64293b.i("ci.dat", jSONObject.toString(), true);
                 return true;
             } catch (Exception unused) {
                 return false;
@@ -176,8 +176,8 @@ public class o implements j {
         public final boolean m() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("TIME_OUT", this.f63660f);
-                this.f63656b.i("ct.dat", jSONObject.toString(), true);
+                jSONObject.put("TIME_OUT", this.f64297f);
+                this.f64293b.i("ct.dat", jSONObject.toString(), true);
                 return true;
             } catch (Exception unused) {
                 return false;
@@ -186,14 +186,14 @@ public class o implements j {
 
         public final synchronized void n() {
             boolean z = true;
-            if (this.f63658d) {
-                this.f63658d = !l();
+            if (this.f64295d) {
+                this.f64295d = !l();
             }
-            if (this.f63659e) {
+            if (this.f64296e) {
                 if (m()) {
                     z = false;
                 }
-                this.f63659e = z;
+                this.f64296e = z;
             }
         }
 
@@ -208,8 +208,8 @@ public class o implements j {
         if (context == null) {
             throw new NullPointerException("context should not be null");
         }
-        if (this.f63654a == null) {
-            this.f63654a = new a(this, context.getApplicationContext());
+        if (this.f64291a == null) {
+            this.f64291a = new a(this, context.getApplicationContext());
         }
     }
 
@@ -230,17 +230,17 @@ public class o implements j {
 
     @Override // d.a.q.f.a.j
     public j a(JSONObject jSONObject) {
-        this.f63654a.a(jSONObject);
+        this.f64291a.a(jSONObject);
         return this;
     }
 
     @Override // d.a.q.f.a.j
     public boolean a() {
-        return this.f63654a.b();
+        return this.f64291a.b();
     }
 
     @Override // d.a.q.f.a.j
     public void b(JSONObject jSONObject) {
-        this.f63654a.d(jSONObject);
+        this.f64291a.d(jSONObject);
     }
 }

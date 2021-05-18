@@ -6,7 +6,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-/* loaded from: classes3.dex */
+import d.a.k0.j1.o.k.a;
+import d.a.k0.s2.f0.b.c;
+/* loaded from: classes5.dex */
 public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public TbImageView A;
     public XfremodeRoundLayout z;
@@ -16,10 +18,10 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void Q(AdCard adCard) {
-        AdCard.d[] dVarArr;
-        if (adCard != null && (dVarArr = adCard.threadPicList) != null && dVarArr.length >= 1) {
-            String str = dVarArr[0].f20950a;
+    public void O(AdCard adCard) {
+        c cVar;
+        if (adCard != null && (cVar = adCard.picInfo) != null && a.k(cVar.f60965c) >= 1) {
+            String str = (String) a.d(adCard.picInfo.f60965c, 0);
             if (!TextUtils.isEmpty(str)) {
                 this.t.setVisibility(0);
                 this.A.V(str, 17, false);
@@ -32,7 +34,7 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void S(View view) {
+    public void Q(View view) {
         float dimensionPixelSize = this.m.getResources().getDimensionPixelSize(R.dimen.tbds10);
         this.z = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ad_img);

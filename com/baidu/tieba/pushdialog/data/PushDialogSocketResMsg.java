@@ -2,10 +2,10 @@ package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
-import d.a.j0.o2.d.a;
+import d.a.k0.o2.d.a;
 import java.io.IOException;
 import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PushDialogSocketResMsg extends SocketResponsedMessage {
     public a mData;
 
@@ -21,7 +21,7 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i2, byte[] bArr) {
         try {
-            GetLockWindowMsgResIdl getLockWindowMsgResIdl = (GetLockWindowMsgResIdl) PushDialogStatic.f20857a.parseFrom(bArr, GetLockWindowMsgResIdl.class);
+            GetLockWindowMsgResIdl getLockWindowMsgResIdl = (GetLockWindowMsgResIdl) PushDialogStatic.f20145a.parseFrom(bArr, GetLockWindowMsgResIdl.class);
             setError(getLockWindowMsgResIdl.error.errorno.intValue());
             setErrorString(getLockWindowMsgResIdl.error.usermsg);
             if (getLockWindowMsgResIdl.data != null) {

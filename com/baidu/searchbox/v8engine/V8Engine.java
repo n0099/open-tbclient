@@ -15,6 +15,7 @@ import android.webkit.ValueCallback;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
 import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
+import com.baidu.searchbox.v8engine.net.NetRequest;
 import com.baidu.searchbox.v8engine.thread.V8DefaultThreadPolicy;
 import com.baidu.searchbox.v8engine.thread.V8ExecuteCallback;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
@@ -46,7 +47,6 @@ public class V8Engine implements JSRuntime {
     public static boolean APP_DEBUG = false;
     public static final long CLOCKS_PER_SEC = 1000;
     public static final float DEFAULT_FRAMES = 16.666666f;
-    public static final String MARIO_CACHE_PATH = "mario";
     public static final String TAG = "V8Engine";
     public static final String TYPE_V8 = "v8";
     public static int mSurfaceViewHeight;
@@ -58,6 +58,7 @@ public class V8Engine implements JSRuntime {
     public V8EngineConfiguration.CacheInfo mCacheInfo;
     public V8EngineConfiguration.CodeCacheSetting mCodeCacheSetting;
     public ComponentCallbacks2 mComponentCallbacks2;
+    public File mDiskCodeCachePathFile;
     public JavaScriptExceptionDelegate mExceptionDelegate;
     public V8FileSystemDelegatePolicy mFileSystemDelegatePolicy;
     public String mInitBasePath;
@@ -68,6 +69,7 @@ public class V8Engine implements JSRuntime {
     public JavaBoundObjectManager mJavaBoundObjectManager;
     public Object mMainGlobalObject;
     public long mNativeV8Engine;
+    public NetRequest mNetRequest;
     public Object mOpenGlobalObject;
     public PerformanceJsonBean mPerformanceJsonBean;
     public volatile boolean mReady;
@@ -165,6 +167,7 @@ public class V8Engine implements JSRuntime {
 
     static {
         regiestMessageChannelForT7();
+        V8NetFunctionTable.addOnCronetThreadInitializedListenerForT7();
         sWorkerID = 0;
         APP_DEBUG = false;
         mSurfaceViewWidth = 0;
@@ -202,8 +205,8 @@ public class V8Engine implements JSRuntime {
     }
 
     private boolean checkVersion() {
-        Log.w(TAG, "[mario] version: 1.3.1.15 nativeVersion: " + nativeGetVersionName());
-        return "1.3.1.15".equals(nativeGetVersionName()) && 15 == nativeGetVersionCode();
+        Log.w(TAG, "[mario] version: 1.3.2.3 nativeVersion: " + nativeGetVersionName());
+        return "1.3.2.3".equals(nativeGetVersionName()) && 3 == nativeGetVersionCode();
     }
 
     public static void clearCrashKey(String str) {
@@ -238,7 +241,12 @@ public class V8Engine implements JSRuntime {
     }
 
     private void delegateRunnableAsync(Runnable runnable) {
-        this.mThreadDelegatePolicy.doDelegateRunnable(runnable);
+        V8ThreadDelegatePolicy v8ThreadDelegatePolicy = this.mThreadDelegatePolicy;
+        if (v8ThreadDelegatePolicy != null) {
+            v8ThreadDelegatePolicy.doDelegateRunnable(runnable);
+        } else {
+            Log.w(TAG, "Execute delegateRunnableAsync failed. mThreadDelegatePolicy is null");
+        }
     }
 
     public static void dumpJavaStackTraceToLogcat(String str) {
@@ -345,11 +353,15 @@ public class V8Engine implements JSRuntime {
     }
 
     private void initialize(Context context, String str, String str2, V8ThreadDelegatePolicy v8ThreadDelegatePolicy, Object obj, Object obj2) {
-        ApplicationInfo applicationInfo;
         Context applicationContext = context.getApplicationContext();
         sAppContext = applicationContext;
-        if (applicationContext != null && (applicationInfo = applicationContext.getApplicationInfo()) != null) {
-            APP_DEBUG = (applicationInfo.flags & 2) != 0;
+        if (applicationContext != null) {
+            ApplicationInfo applicationInfo = applicationContext.getApplicationInfo();
+            if (applicationInfo != null) {
+                APP_DEBUG = (applicationInfo.flags & 2) != 0;
+            }
+            DiskCodeCacheManager.clearAllOldDiskCodeCacheResources(context, "app_mario");
+            DiskCodeCacheManager.clearAllOldDiskCodeCacheResources(context, DiskCodeCacheManager.OLD_DISK_CODE_CACHE_PACKAGE_WEBVIEW_NAME);
         }
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             this.mInitBasePath = str;
@@ -373,16 +385,23 @@ public class V8Engine implements JSRuntime {
 
                 @Override // android.content.ComponentCallbacks2
                 public void onTrimMemory(final int i2) {
-                    V8Engine.this.postOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.1.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            V8Engine.nativeSetV8GCPressureLevel(V8Engine.this.mNativeV8Engine, i2 < 15 ? 1 : 2);
-                        }
-                    });
+                    if (!V8Engine.this.isReady()) {
+                        Log.w(V8Engine.TAG, "onTrimMemory failed. V8Engine is not ready.");
+                    } else {
+                        V8Engine.this.postOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.1.1
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                V8Engine.nativeSetV8GCPressureLevel(V8Engine.this.mNativeV8Engine, i2 < 15 ? 1 : 2);
+                            }
+                        });
+                    }
                 }
             };
             this.mComponentCallbacks2 = componentCallbacks2;
-            sAppContext.registerComponentCallbacks(componentCallbacks2);
+            Context context2 = sAppContext;
+            if (context2 != null) {
+                context2.registerComponentCallbacks(componentCallbacks2);
+            }
             synchronized (sEngines) {
                 sEngines.put(Long.valueOf(this.mNativeV8Engine), this);
             }
@@ -393,6 +412,15 @@ public class V8Engine implements JSRuntime {
             this.mMainGlobalObject = obj;
             this.mOpenGlobalObject = obj2;
             this.mCacheInfo = new V8EngineConfiguration.CacheInfo(null, false);
+            V8NetFunctionTable.addOnCronetThreadInitializedListener(new ValueCallback<Long>() { // from class: com.baidu.searchbox.v8engine.V8Engine.2
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.webkit.ValueCallback
+                public void onReceiveValue(Long l) {
+                    Log.i(V8Engine.TAG, "[mario-request] nativeInitGlobalV8NetFunctionTable: value = " + l);
+                    V8Engine v8Engine = V8Engine.this;
+                    v8Engine.nativeInitGlobalV8NetFunctionTable(v8Engine.mNativeV8Engine, l.longValue());
+                }
+            });
             return;
         }
         throw new RuntimeException("basePath and path must not be null.");
@@ -415,15 +443,20 @@ public class V8Engine implements JSRuntime {
 
     public static native String nativeGetVersionName();
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void nativeInitGlobalV8NetFunctionTable(long j, long j2);
+
     private native void nativeOnReady(long j);
 
     private native byte[] nativeSerialize(long j, JsSerializeValue jsSerializeValue, boolean z);
 
     private native void nativeSetBdFileRealPath(long j, String str);
 
-    private native void nativeSetCodeCacheSetting(long j, String str, String str2, int i2, String[] strArr, int i3);
+    private native boolean nativeSetCodeCacheSetting(long j, String str, String str2, int i2, String[] strArr, int i3, long j2);
 
     private native void nativeSetMainPackageBasePath(long j, String str);
+
+    private native boolean nativeSetNetRequest(long j, Object obj);
 
     private native void nativeSetUserAgent(long j, String str);
 
@@ -578,6 +611,17 @@ public class V8Engine implements JSRuntime {
         this.mConsoles.add(v8EngineConsole);
     }
 
+    public boolean clearDiskCodeCache(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        File file = this.mDiskCodeCachePathFile;
+        if (file == null || !file.exists()) {
+            return true;
+        }
+        return DiskCodeCacheManager.clearDiskCodeCache(this.mDiskCodeCachePathFile.getAbsolutePath(), str);
+    }
+
     public long createWorkerV8Engine(long j) {
         Log.e("V8", "!!!!!createWorkerV8Engine, mWorkerFactoryDelegate =  " + this.mWorkerFactoryDelegate);
         WorkerFactory workerFactory = this.mWorkerFactoryDelegate;
@@ -608,7 +652,7 @@ public class V8Engine implements JSRuntime {
 
     public void destroyEngine(final V8ExecuteCallback v8ExecuteCallback) {
         Log.e("V8", "v8engine.java::destroyEngine");
-        runOnJSThreadDirectly(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.2
+        runOnJSThreadDirectly(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.3
             @Override // java.lang.Runnable
             public void run() {
                 Log.e(V8Engine.TAG, "v8engine.java::destroyEngine run");
@@ -652,7 +696,7 @@ public class V8Engine implements JSRuntime {
     }
 
     public void destroyOpenDataContext() {
-        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.11
+        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.12
             @Override // java.lang.Runnable
             public void run() {
                 if (!V8Engine.this.mIsDestroyed.get()) {
@@ -670,7 +714,7 @@ public class V8Engine implements JSRuntime {
     }
 
     public void evaluateJavascript(final String str, final ValueCallback<String> valueCallback, final String str2) {
-        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.12
+        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.13
             @Override // java.lang.Runnable
             public void run() {
                 V8Engine.this.evaluateJavascriptImpl(str, valueCallback, str2, true);
@@ -684,7 +728,7 @@ public class V8Engine implements JSRuntime {
     }
 
     public void evaluateJavascriptForOpenData(final String str, final ValueCallback<String> valueCallback, final String str2) {
-        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.13
+        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.14
             @Override // java.lang.Runnable
             public void run() {
                 V8Engine.this.evaluateJavascriptImpl(str, valueCallback, str2, false);
@@ -719,6 +763,10 @@ public class V8Engine implements JSRuntime {
 
     public String getMainPackageBasePath() {
         return this.mMainPackageBasePath;
+    }
+
+    public NetRequest getNetRequest() {
+        return this.mNetRequest;
     }
 
     public Object getOpenGlobalObject() {
@@ -850,7 +898,7 @@ public class V8Engine implements JSRuntime {
     @NotProguard
     public void pumpMessageLoop() {
         try {
-            postOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.3
+            postOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.4
                 @Override // java.lang.Runnable
                 public void run() {
                     if (V8Engine.this.mIsDestroyed.get()) {
@@ -867,7 +915,7 @@ public class V8Engine implements JSRuntime {
     }
 
     public void removeJavascriptInterface(final String str) {
-        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.7
+        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.8
             @Override // java.lang.Runnable
             public void run() {
                 if (!V8Engine.this.mIsDestroyed.get()) {
@@ -881,7 +929,7 @@ public class V8Engine implements JSRuntime {
     }
 
     public void removeJavascriptInterfaceForOpenData(final String str) {
-        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.8
+        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.9
             @Override // java.lang.Runnable
             public void run() {
                 if (!V8Engine.this.mIsDestroyed.get()) {
@@ -909,7 +957,7 @@ public class V8Engine implements JSRuntime {
     }
 
     public void requireJSFile(final String str, final String str2) {
-        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.9
+        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.10
             @Override // java.lang.Runnable
             public void run() {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !V8Engine.this.mIsDestroyed.get()) {
@@ -923,7 +971,7 @@ public class V8Engine implements JSRuntime {
     }
 
     public void requireJSFileForOpenData(final String str, final String str2) {
-        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.10
+        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.11
             @Override // java.lang.Runnable
             public void run() {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !V8Engine.this.mIsDestroyed.get()) {
@@ -974,21 +1022,9 @@ public class V8Engine implements JSRuntime {
         }
     }
 
+    @Deprecated
     public void setCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
-        this.mCodeCacheSetting = codeCacheSetting;
-        if (codeCacheSetting.id == null || codeCacheSetting.pathList == null) {
-            return;
-        }
-        File dir = getAppContext().getDir(ALTERNATIVE_CACHE_PATH, 0);
-        if (!a.b(getBuildInV8BinPath())) {
-            dir = getAppContext().getDir(MARIO_CACHE_PATH, 0);
-            dir.mkdirs();
-        }
-        if (dir.exists()) {
-            String[] strArr = new String[codeCacheSetting.pathList.size()];
-            codeCacheSetting.pathList.toArray(strArr);
-            nativeSetCodeCacheSetting(this.mNativeV8Engine, codeCacheSetting.id, dir.getAbsolutePath(), codeCacheSetting.maxCount, strArr, codeCacheSetting.sizeLimit);
-        }
+        useCodeCacheSetting(codeCacheSetting);
     }
 
     public void setExternalV8BinFilesPath(String str) {
@@ -1031,6 +1067,21 @@ public class V8Engine implements JSRuntime {
         }
     }
 
+    public boolean setNetRequest(NetRequest netRequest) {
+        this.mNetRequest = netRequest;
+        if (netRequest != null) {
+            boolean nativeSetNetRequest = nativeSetNetRequest(this.mNativeV8Engine, netRequest);
+            if (nativeSetNetRequest) {
+                this.mNetRequest.bindV8Engine(this);
+                return nativeSetNetRequest;
+            }
+            Log.w(TAG, "[mario-request] NA-NetRequest对象初始化失败.");
+            return nativeSetNetRequest;
+        }
+        Log.w(TAG, "[mario-request] Java-NetRequest对象为空, naRequest初始化失败");
+        return false;
+    }
+
     public void setPreferredFramesPerSecond(short s) {
         if (s <= 0 || s > 60) {
             return;
@@ -1063,13 +1114,13 @@ public class V8Engine implements JSRuntime {
     }
 
     public void startEngineInternal() {
-        Log.i(TAG, "[V8Dispose][mario] java version = 1.3.1.15, nativeVersion = " + nativeGetVersionName());
+        Log.i(TAG, "[V8Dispose][mario] java version = 1.3.2.3, nativeVersion = " + nativeGetVersionName());
         try {
         } catch (Exception e2) {
             Log.e(TAG, Log.getStackTraceString(e2));
         }
         if (!checkVersion()) {
-            throw new Exception("[mario] java version and native version dismatch  version: 1.3.1.15 nativeVersion: " + nativeGetVersionName());
+            throw new Exception("[mario] java version and native version dismatch  version: 1.3.2.3 nativeVersion: " + nativeGetVersionName());
         }
         this.mTimer.initialize(this, new Handler(Looper.getMainLooper()));
         initializeV8();
@@ -1087,7 +1138,7 @@ public class V8Engine implements JSRuntime {
     }
 
     public void throwJSException(final JSExceptionType jSExceptionType, final String str) {
-        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.5
+        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.6
             @Override // java.lang.Runnable
             public void run() {
                 V8Engine.checkValid(V8Engine.this.mNativeV8Engine, V8Engine.this.mV8ThreadId);
@@ -1098,7 +1149,7 @@ public class V8Engine implements JSRuntime {
     }
 
     public void throwJSExceptionForOpenData(final JSExceptionType jSExceptionType, final String str) {
-        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.6
+        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.7
             @Override // java.lang.Runnable
             public void run() {
                 V8Engine.checkValid(V8Engine.this.mNativeV8Engine, V8Engine.this.mV8ThreadId);
@@ -1108,12 +1159,33 @@ public class V8Engine implements JSRuntime {
         });
     }
 
-    public String userAgent() {
-        return this.mUserAgent;
+    public boolean useCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
+        Context appContext = getAppContext();
+        if (appContext == null) {
+            Log.w(TAG, "[CodeCache] SetCodeCacheSetting failed. Context is null");
+            return false;
+        } else if (!DiskCodeCacheManager.isCodeCacheSettingValid(appContext, codeCacheSetting)) {
+            Log.w(TAG, "[CodeCache] CodeCacheSetting is invalid.");
+            return false;
+        } else {
+            File createDiskCodeCacheDirectory = DiskCodeCacheManager.createDiskCodeCacheDirectory(appContext, null);
+            this.mDiskCodeCachePathFile = createDiskCodeCacheDirectory;
+            if (createDiskCodeCacheDirectory == null) {
+                Log.w(TAG, "[CodeCache] Create disk code cache directory failed.");
+                return false;
+            }
+            String[] strArr = new String[codeCacheSetting.pathList.size()];
+            codeCacheSetting.pathList.toArray(strArr);
+            boolean nativeSetCodeCacheSetting = nativeSetCodeCacheSetting(this.mNativeV8Engine, codeCacheSetting.id, this.mDiskCodeCachePathFile.getAbsolutePath(), codeCacheSetting.maxCount, strArr, codeCacheSetting.sizeLimit, codeCacheSetting.diskCodeCacheSizeThreshold);
+            if (!nativeSetCodeCacheSetting) {
+                Log.w(TAG, "[CodeCache] NativeSetCodeCacheSetting failed.");
+            }
+            return nativeSetCodeCacheSetting;
+        }
     }
 
-    private void delegateRunnableAsync(Runnable runnable, long j) {
-        this.mThreadDelegatePolicy.doDelegateRunnable(runnable, j);
+    public String userAgent() {
+        return this.mUserAgent;
     }
 
     @NotProguard
@@ -1122,7 +1194,7 @@ public class V8Engine implements JSRuntime {
             return;
         }
         try {
-            postOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.4
+            postOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.5
                 @Override // java.lang.Runnable
                 public void run() {
                     if (V8Engine.this.mIsDestroyed.get()) {
@@ -1135,6 +1207,15 @@ public class V8Engine implements JSRuntime {
             }, j2);
         } catch (Throwable th) {
             android.util.Log.e(TAG, "", th);
+        }
+    }
+
+    private void delegateRunnableAsync(Runnable runnable, long j) {
+        V8ThreadDelegatePolicy v8ThreadDelegatePolicy = this.mThreadDelegatePolicy;
+        if (v8ThreadDelegatePolicy != null) {
+            v8ThreadDelegatePolicy.doDelegateRunnable(runnable, j);
+        } else {
+            Log.w(TAG, "Execute delegateRunnableAsync failed. mThreadDelegatePolicy is null");
         }
     }
 

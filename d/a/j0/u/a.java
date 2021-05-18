@@ -1,213 +1,390 @@
 package d.a.j0.u;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.SystemClock;
-import android.view.Choreographer;
-import androidx.annotation.RequiresApi;
-import androidx.collection.SimpleArrayMap;
+import android.os.Message;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.FieldBuilder;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.distribute.DistributeHttpResponse;
+import com.baidu.tbadk.distribute.DistributeRequest;
+import com.baidu.tbadk.distribute.DistributeSocketResponse;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tieba.recapp.report.DownloadStaticsData;
+import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.k0.s2.i0.e;
+import d.a.k0.s2.i0.g;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+import java.util.HashMap;
+import java.util.List;
+import tbclient.LogTogether.AdReq;
+/* loaded from: classes3.dex */
 public class a {
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final ThreadLocal<a> f61267g = new ThreadLocal<>();
-
-    /* renamed from: d  reason: collision with root package name */
-    public c f61271d;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final SimpleArrayMap<b, Long> f61268a = new SimpleArrayMap<>();
-
-    /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<b> f61269b = new ArrayList<>();
-
-    /* renamed from: c  reason: collision with root package name */
-    public final C1598a f61270c = new C1598a();
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f61272e = 0;
+    public static String o;
+    public static a p = new a();
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f61273f = false;
+    public Handler f50738f = new HandlerC1155a(Looper.getMainLooper());
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.a.c.c.g.a f50739g = new b(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+
+    /* renamed from: h  reason: collision with root package name */
+    public CustomMessageListener f50740h = new c(2000994);
+
+    /* renamed from: i  reason: collision with root package name */
+    public final CustomMessageListener f50741i = new d(2001118);
+    public HashMap<String, AdvertAppInfo> l = new HashMap<>();
+    public HashMap<String, AdvertAppInfo> m = new HashMap<>();
+    public HashMap<String, DownloadStaticsData> n = new HashMap<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    public ArrayList<AdReq> f50734b = new ArrayList<>();
+    public ArrayList<AdvertAppInfo> j = new ArrayList<>();
+    public ArrayList<AdvertAppInfo> k = new ArrayList<>();
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f50735c = true;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f50736d = 60000;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f50737e = 10;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f50733a = j.z();
 
     /* renamed from: d.a.j0.u.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1598a {
-        public C1598a() {
+    /* loaded from: classes3.dex */
+    public class HandlerC1155a extends Handler {
+        public HandlerC1155a(Looper looper) {
+            super(looper);
         }
 
-        public void a() {
-            a.this.f61272e = SystemClock.uptimeMillis();
-            a aVar = a.this;
-            aVar.h(aVar.f61272e);
-            if (a.this.f61269b.size() > 0) {
-                a.this.j().a();
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            if (message.what != 1) {
+                return;
             }
+            a.this.i(true);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        boolean a(long j);
-    }
-
-    /* loaded from: classes4.dex */
-    public static abstract class c {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final C1598a f61275a;
-
-        public c(C1598a c1598a) {
-            this.f61275a = c1598a;
+    /* loaded from: classes3.dex */
+    public class b extends d.a.c.c.g.a {
+        public b(int i2, int i3) {
+            super(i2, i3);
         }
 
-        public abstract void a();
-    }
-
-    /* loaded from: classes4.dex */
-    public static class d extends c {
-
-        /* renamed from: b  reason: collision with root package name */
-        public final Runnable f61276b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final Handler f61277c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public long f61278d;
-
-        /* renamed from: d.a.j0.u.a$d$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC1599a implements Runnable {
-            public RunnableC1599a() {
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                d.this.f61278d = SystemClock.uptimeMillis();
-                d.this.f61275a.a();
-            }
-        }
-
-        public d(C1598a c1598a) {
-            super(c1598a);
-            this.f61278d = -1L;
-            this.f61276b = new RunnableC1599a();
-            this.f61277c = new Handler(Looper.myLooper());
-        }
-
-        @Override // d.a.j0.u.a.c
-        public void a() {
-            this.f61277c.postDelayed(this.f61276b, Math.max(10 - (SystemClock.uptimeMillis() - this.f61278d), 0L));
-        }
-    }
-
-    @RequiresApi(16)
-    /* loaded from: classes4.dex */
-    public static class e extends c {
-
-        /* renamed from: b  reason: collision with root package name */
-        public final Choreographer f61280b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final Choreographer.FrameCallback f61281c;
-
-        /* renamed from: d.a.j0.u.a$e$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class Choreographer$FrameCallbackC1600a implements Choreographer.FrameCallback {
-            public Choreographer$FrameCallbackC1600a() {
-            }
-
-            @Override // android.view.Choreographer.FrameCallback
-            public void doFrame(long j) {
-                e.this.f61275a.a();
-            }
-        }
-
-        public e(C1598a c1598a) {
-            super(c1598a);
-            this.f61280b = Choreographer.getInstance();
-            this.f61281c = new Choreographer$FrameCallbackC1600a();
-        }
-
-        @Override // d.a.j0.u.a.c
-        public void a() {
-            this.f61280b.postFrameCallback(this.f61281c);
-        }
-    }
-
-    public static a i() {
-        if (f61267g.get() == null) {
-            f61267g.set(new a());
-        }
-        return f61267g.get();
-    }
-
-    public void f(b bVar, long j) {
-        if (this.f61269b.size() == 0) {
-            j().a();
-        }
-        if (!this.f61269b.contains(bVar)) {
-            this.f61269b.add(bVar);
-        }
-        if (j > 0) {
-            this.f61268a.put(bVar, Long.valueOf(SystemClock.uptimeMillis() + j));
-        }
-    }
-
-    public final void g() {
-        if (this.f61273f) {
-            for (int size = this.f61269b.size() - 1; size >= 0; size--) {
-                if (this.f61269b.get(size) == null) {
-                    this.f61269b.remove(size);
+        @Override // d.a.c.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (responsedMessage != null && responsedMessage.hasError()) {
+                Object extra = responsedMessage.getOrginalMessage().getExtra();
+                if (extra instanceof DistributeRequest) {
+                    a.this.g(((DistributeRequest) extra).getAdReqList());
                 }
             }
-            this.f61273f = false;
         }
     }
 
-    public final void h(long j) {
-        long uptimeMillis = SystemClock.uptimeMillis();
-        for (int i2 = 0; i2 < this.f61269b.size(); i2++) {
-            b bVar = this.f61269b.get(i2);
-            if (bVar != null && k(bVar, uptimeMillis)) {
-                bVar.a(j);
+    /* loaded from: classes3.dex */
+    public class c extends CustomMessageListener {
+        public c(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                if (j.H() || j.x()) {
+                    a.this.t(true);
+                } else {
+                    a.this.t(false);
+                }
             }
         }
-        g();
     }
 
-    public final c j() {
-        if (this.f61271d == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                this.f61271d = new e(this.f61270c);
-            } else {
-                this.f61271d = new d(this.f61270c);
+    /* loaded from: classes3.dex */
+    public class d extends CustomMessageListener {
+        public d(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            List<DownloadData> data;
+            if (!(customResponsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) customResponsedMessage).getData()) == null || data.isEmpty()) {
+                return;
+            }
+            for (int i2 = 0; i2 < data.size(); i2++) {
+                DownloadData downloadData = data.get(i2);
+                if (downloadData.getType() == 12) {
+                    int status = downloadData.getStatus();
+                    if (status != 0) {
+                        if (status == 1) {
+                            a.this.q(downloadData.getId(), downloadData.getDownloadStaticsData());
+                        } else if (status != 2 && status != 4) {
+                            if (status == 5) {
+                                a.this.p(downloadData.getDownloadStaticsData());
+                            }
+                        }
+                    }
+                    a.this.r(downloadData.getId(), downloadData.getStatus());
+                }
             }
         }
-        return this.f61271d;
     }
 
-    public final boolean k(b bVar, long j) {
-        Long l = this.f61268a.get(bVar);
-        if (l == null) {
-            return true;
-        }
-        if (l.longValue() < j) {
-            this.f61268a.remove(bVar);
-            return true;
-        }
-        return false;
+    public static a k() {
+        return p;
     }
 
-    public void l(b bVar) {
-        this.f61268a.remove(bVar);
-        int indexOf = this.f61269b.indexOf(bVar);
-        if (indexOf >= 0) {
-            this.f61269b.set(indexOf, null);
-            this.f61273f = true;
+    public final synchronized void g(List<AdReq> list) {
+        if (this.f50734b != null) {
+            this.f50734b.addAll(list);
         }
+    }
+
+    public void h(AdvertAppInfo advertAppInfo) {
+        this.l.put(advertAppInfo.X3, advertAppInfo);
+    }
+
+    public final void i(boolean z) {
+        if (this.f50733a && this.f50735c) {
+            List<AdReq> l = l(z);
+            if (z || !o()) {
+                s();
+            }
+            if (l == null || l.size() == 0) {
+                return;
+            }
+            if (!z) {
+                s();
+            }
+            MessageManager.getInstance().sendMessage(new DistributeRequest(l));
+        }
+    }
+
+    public final HttpMessageTask j() {
+        HttpMessageTask httpMessageTask = new HttpMessageTask(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, TbConfig.SERVER_ADDRESS + TbConfig.LOG_TOGETHER + "?cmd=303101");
+        httpMessageTask.setResponsedClass(DistributeHttpResponse.class);
+        return httpMessageTask;
+    }
+
+    public final synchronized List<AdReq> l(boolean z) {
+        if (!z) {
+            if (this.f50734b.size() < this.f50737e) {
+                return null;
+            }
+        }
+        if (this.f50734b.size() <= 0) {
+            return null;
+        }
+        ArrayList arrayList = new ArrayList();
+        arrayList.addAll(this.f50734b);
+        this.f50734b.clear();
+        return arrayList;
+    }
+
+    public final SocketMessageTask m() {
+        SocketMessageTask socketMessageTask = new SocketMessageTask(303101);
+        socketMessageTask.g(true);
+        socketMessageTask.setResponsedClass(DistributeSocketResponse.class);
+        return socketMessageTask;
+    }
+
+    public void n(boolean z) {
+        MessageManager messageManager = MessageManager.getInstance();
+        if (z) {
+            messageManager.registerTask(m());
+        }
+        messageManager.registerTask(j());
+        messageManager.registerListener(this.f50739g);
+        messageManager.registerListener(this.f50740h);
+        messageManager.registerListener(this.f50741i);
+    }
+
+    public final boolean o() {
+        return this.f50738f.hasMessages(1);
+    }
+
+    public final void p(DownloadStaticsData downloadStaticsData) {
+        if (downloadStaticsData != null) {
+            d.a.k0.s2.i0.c d2 = g.d(downloadStaticsData, 101, 0);
+            d2.r(null);
+            d2.a("dl", "delete");
+            e.b().d(d2);
+        }
+    }
+
+    public final void q(String str, DownloadStaticsData downloadStaticsData) {
+        AdvertAppInfo remove = this.l.remove(str);
+        if (remove != null) {
+            this.m.put(str, remove);
+        } else if (downloadStaticsData == null || !"1".equals(downloadStaticsData.getDa_range_nt())) {
+            return;
+        } else {
+            this.n.put(str, downloadStaticsData);
+            downloadStaticsData.setDa_page(null);
+            downloadStaticsData.setFid(null);
+        }
+        d.a.k0.s2.i0.c d2 = g.d(downloadStaticsData, 101, 0);
+        d2.a("dl", IntentConfig.START);
+        e.b().d(d2);
+        if (downloadStaticsData == null || !"1".equals(downloadStaticsData.getDa_range_nt())) {
+            return;
+        }
+        downloadStaticsData.setDa_range_nt("0");
+    }
+
+    public final void r(String str, int i2) {
+        d.a.k0.s2.i0.c d2;
+        String str2;
+        AdvertAppInfo remove = this.m.remove(str);
+        DownloadStaticsData remove2 = this.n.remove(str);
+        if (remove != null) {
+            d2 = g.b(remove, 101, 0);
+        } else if (remove2 == null) {
+            return;
+        } else {
+            d2 = g.d(remove2, 101, 0);
+            d2.r(null);
+        }
+        if (remove == null && remove2 == null) {
+            return;
+        }
+        if (i2 == 0) {
+            str2 = "success";
+        } else if (i2 == 2) {
+            str2 = "fail";
+        } else if (i2 != 4) {
+            return;
+        } else {
+            str2 = QueryResponse.Options.CANCEL;
+        }
+        d2.a("dl", str2);
+        e.b().d(d2);
+    }
+
+    public final void s() {
+        this.f50738f.removeMessages(1);
+        this.f50738f.sendEmptyMessageDelayed(1, this.f50736d);
+    }
+
+    public final void t(boolean z) {
+        if (this.f50733a == z) {
+            return;
+        }
+        this.f50733a = z;
+        if (z) {
+            i(true);
+        } else {
+            x();
+        }
+    }
+
+    public void u(int i2) {
+        if (i2 > 3600) {
+            this.f50736d = 300000L;
+        } else if (i2 <= 0) {
+            this.f50736d = 60000L;
+        } else {
+            this.f50736d = i2 * 1000;
+        }
+    }
+
+    public void v(int i2) {
+        if (i2 > 20) {
+            this.f50737e = 10;
+        } else if (i2 <= 0) {
+            this.f50737e = 5;
+        } else {
+            this.f50737e = i2;
+        }
+    }
+
+    public void w(boolean z) {
+        this.f50735c = z;
+    }
+
+    public final void x() {
+        this.f50738f.removeMessages(1);
+    }
+
+    public void y(Context context, String str, String str2, long j) {
+        if (TextUtils.equals(str, "frs")) {
+            z(context, this.j, str, str2, j);
+        } else if (TextUtils.equals(str, "pb")) {
+            z(context, this.k, str, str2, j);
+        }
+    }
+
+    public final void z(Context context, ArrayList<AdvertAppInfo> arrayList, String str, String str2, long j) {
+        ArrayList<AdvertAppInfo> arrayList2 = arrayList;
+        if (arrayList2 == null || arrayList.size() <= 0) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+        StringBuilder sb3 = new StringBuilder();
+        StringBuilder sb4 = new StringBuilder();
+        StringBuilder sb5 = new StringBuilder();
+        StringBuilder sb6 = new StringBuilder();
+        StringBuilder sb7 = new StringBuilder();
+        StringBuilder sb8 = new StringBuilder();
+        StringBuilder sb9 = new StringBuilder();
+        StringBuilder sb10 = new StringBuilder();
+        StringBuilder sb11 = new StringBuilder();
+        int size = arrayList.size();
+        int i2 = 0;
+        while (i2 < size) {
+            AdvertAppInfo advertAppInfo = arrayList2.get(i2);
+            if (advertAppInfo != null) {
+                if (i2 == size - 1) {
+                    sb2.append(advertAppInfo.L3);
+                    sb3.append(advertAppInfo.F3);
+                    sb5.append(advertAppInfo.M3);
+                    sb7.append(advertAppInfo.S3);
+                } else {
+                    sb2.append(advertAppInfo.L3);
+                    sb2.append(FieldBuilder.SE);
+                    sb3.append(advertAppInfo.F3);
+                    sb3.append(FieldBuilder.SE);
+                    sb5.append(advertAppInfo.M3);
+                    sb5.append(FieldBuilder.SE);
+                    sb7.append(advertAppInfo.S3);
+                    sb7.append(FieldBuilder.SE);
+                }
+            }
+            i2++;
+            arrayList2 = arrayList;
+        }
+        StringBuilder sb12 = new StringBuilder(15);
+        sb12.append(String.valueOf(l.k(context)));
+        sb12.append(",");
+        sb12.append(String.valueOf(l.i(context)));
+        TiebaStatic.eventStat(context, "ad_distribute", null, 1, "da_task", "tbda", "da_page", str, "da_locate", sb2, "da_type", "show", "da_obj_id", sb3, "fid", str2, "tid", Long.valueOf(j), "da_good_id", sb4, "da_ext_info", sb5, "da_price", sb6, "da_verify", sb, "cuid", TbadkCoreApplication.getInst().getCuid(), "uid", TbadkCoreApplication.getCurrentAccount(), "baiduid", TbadkCoreApplication.getCurrentBduss(), "da_obj_name", sb7, "da_first_name", sb8, "da_second_name", sb9, "da_cpid", sb10, "da_abtest", sb11, "da_stime", Long.valueOf(System.currentTimeMillis()), "phone_screen", sb12.toString(), "model", Build.MODEL);
+        arrayList.clear();
     }
 }

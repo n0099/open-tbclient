@@ -12,13 +12,13 @@ import java.util.concurrent.TimeUnit;
 public abstract class AbsCountDownView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public long f11040e;
+    public long f10077e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f11041f;
+    public b f10078f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.d0.a.l.b f11042g;
+    public d.a.d0.a.l.b f10079g;
 
     /* loaded from: classes2.dex */
     public class a extends d.a.d0.a.l.b {
@@ -44,8 +44,8 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public final void a() {
-        this.f11042g = new a();
-        c.a().d(this.f11042g, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
+        this.f10079g = new a();
+        c.a().d(this.f10079g, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
     }
 
     public void b() {
@@ -54,10 +54,10 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void c() {
-        d.a.d0.a.l.b bVar = this.f11042g;
+        d.a.d0.a.l.b bVar = this.f10079g;
         if (bVar != null) {
             bVar.cancel();
-            this.f11042g = null;
+            this.f10079g = null;
         }
     }
 
@@ -67,7 +67,7 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public long getTaskPeriod() {
-        long j = this.f11040e;
+        long j = this.f10077e;
         if (j == 0) {
             return 100L;
         }
@@ -75,11 +75,11 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void setCountdownProgressListener(b bVar) {
-        this.f11041f = bVar;
+        this.f10078f = bVar;
     }
 
     public void setTaskPeriod(long j) {
-        this.f11040e = j;
+        this.f10077e = j;
     }
 
     public abstract void setTimeMillis(long j);

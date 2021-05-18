@@ -5,13 +5,13 @@ import java.util.LinkedList;
 public class bi {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedList<a> f38185a = new LinkedList<>();
+    public LinkedList<a> f37430a = new LinkedList<>();
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final bi f38186a = new bi();
+        public static final bi f37431a = new bi();
 
         /* renamed from: a  reason: collision with other field name */
         public int f150a;
@@ -29,31 +29,31 @@ public class bi {
     }
 
     public static bi a() {
-        return a.f38186a;
+        return a.f37431a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m165a() {
-        if (this.f38185a.size() > 100) {
-            this.f38185a.removeFirst();
+    private void m164a() {
+        if (this.f37430a.size() > 100) {
+            this.f37430a.removeFirst();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m166a() {
-        return this.f38185a.size();
+    public synchronized int m165a() {
+        return this.f37430a.size();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m167a() {
+    public synchronized LinkedList<a> m166a() {
         LinkedList<a> linkedList;
-        linkedList = this.f38185a;
-        this.f38185a = new LinkedList<>();
+        linkedList = this.f37430a;
+        this.f37430a = new LinkedList<>();
         return linkedList;
     }
 
     public synchronized void a(Object obj) {
-        this.f38185a.add(new a(0, obj));
-        m165a();
+        this.f37430a.add(new a(0, obj));
+        m164a();
     }
 }

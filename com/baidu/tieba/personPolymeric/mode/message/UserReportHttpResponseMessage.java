@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.R;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UserReportHttpResponseMessage extends JsonHttpResponsedMessage {
     public UserReportHttpResponseMessage(int i2) {
         super(i2);

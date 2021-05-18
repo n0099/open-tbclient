@@ -22,18 +22,18 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
-import d.a.i0.z0.l;
-import d.a.j0.h2.h;
-import d.a.j0.h2.i;
+import d.a.j0.z0.l;
+import d.a.k0.h2.h;
+import d.a.k0.h2.i;
 import tbclient.SmartApp;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public SmartAppBrowseHistoryAdapter mAdapter;
     public i mHistoryRecordMoreDialog;
     public FrameLayout mListContainer;
     public h mModel;
     public NavigationBar mNavigationBar;
-    public d.a.i0.d0.h mNetRefreshView;
+    public d.a.j0.d0.h mNetRefreshView;
     public NoDataView mNoDataView;
     public TextView mNoMoreDataView;
     public NoNetworkView mNoNetworkView;
@@ -45,13 +45,13 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public View.OnClickListener mOnNoNetButtonClickListener = new e();
     public View.OnClickListener mNoDataViewRefreshListener = new f();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements h.b {
         public a() {
         }
 
-        @Override // d.a.j0.h2.h.b
-        public void a(boolean z, d.a.j0.h2.a aVar) {
+        @Override // d.a.k0.h2.h.b
+        public void a(boolean z, d.a.k0.h2.a aVar) {
             if (!z || aVar == null) {
                 SmartAppBrowseHistoryActivity.this.dealNoDataView(true);
                 SmartAppBrowseHistoryActivity.this.dealNoMoreDataView(0);
@@ -64,12 +64,12 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements i.b {
         public b() {
         }
 
-        @Override // d.a.j0.h2.i.b
+        @Override // d.a.k0.h2.i.b
         public void a(String str) {
             if (SmartAppBrowseHistoryActivity.this.mAdapter != null) {
                 SmartAppBrowseHistoryActivity.this.mAdapter.g(str);
@@ -83,7 +83,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -92,7 +92,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         public void onClick(View view) {
             if (view.getTag() instanceof SmartApp) {
                 SmartApp smartApp = (SmartApp) view.getTag();
-                if (!d.a.j0.s.a.b(smartApp.id, smartApp.link, "1191000600000000", smartApp.is_game)) {
+                if (!d.a.k0.s.a.b(smartApp.id, smartApp.link, "1191000600000000", smartApp.is_game)) {
                     if (k.isEmpty(smartApp.h5_url)) {
                         return;
                     }
@@ -112,7 +112,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements View.OnLongClickListener {
         public d() {
         }
@@ -134,7 +134,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements View.OnClickListener {
         public e() {
         }
@@ -152,7 +152,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements View.OnClickListener {
         public f() {
         }
@@ -202,7 +202,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
         this.mRecyclerView.setVisibility(8);
         if (this.mNetRefreshView == null) {
-            this.mNetRefreshView = new d.a.i0.d0.h(getActivity(), this.mOnNoNetButtonClickListener);
+            this.mNetRefreshView = new d.a.j0.d0.h(getActivity(), this.mOnNoNetButtonClickListener);
         }
         this.mNetRefreshView.j(getActivity().getResources().getDimensionPixelSize(R.dimen.tbds340));
         this.mNetRefreshView.l(getString(R.string.neterror));
@@ -251,7 +251,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         super.onChangeSkinType(i2);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         this.mNoNetworkView.c(getPageContext(), i2);
-        d.a.i0.d0.h hVar = this.mNetRefreshView;
+        d.a.j0.d0.h hVar = this.mNetRefreshView;
         if (hVar != null) {
             hVar.onChangeSkinType();
         }

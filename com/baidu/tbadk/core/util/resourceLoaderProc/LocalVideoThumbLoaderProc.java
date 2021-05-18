@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import d.a.c.e.l.b;
 import d.a.c.e.l.e;
 import d.a.c.j.d.a;
-import d.a.i0.a0.c;
+import d.a.j0.a0.c;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class LocalVideoThumbLoaderProc implements e<a> {
@@ -24,7 +24,7 @@ public class LocalVideoThumbLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public a m23decodeToResource(byte[] bArr, Object... objArr) {
+    public a m22decodeToResource(byte[] bArr, Object... objArr) {
         return null;
     }
 

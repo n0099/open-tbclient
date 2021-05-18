@@ -5,26 +5,26 @@ import h.g;
 public class i implements h.n.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.n.a f67924e;
+    public final h.n.a f68604e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g.a f67925f;
+    public final g.a f68605f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f67926g;
+    public final long f68606g;
 
     public i(h.n.a aVar, g.a aVar2, long j) {
-        this.f67924e = aVar;
-        this.f67925f = aVar2;
-        this.f67926g = j;
+        this.f68604e = aVar;
+        this.f68605f = aVar2;
+        this.f68606g = j;
     }
 
     @Override // h.n.a
     public void call() {
-        if (this.f67925f.isUnsubscribed()) {
+        if (this.f68605f.isUnsubscribed()) {
             return;
         }
-        long a2 = this.f67926g - this.f67925f.a();
+        long a2 = this.f68606g - this.f68605f.a();
         if (a2 > 0) {
             try {
                 Thread.sleep(a2);
@@ -34,9 +34,9 @@ public class i implements h.n.a {
                 throw null;
             }
         }
-        if (this.f67925f.isUnsubscribed()) {
+        if (this.f68605f.isUnsubscribed()) {
             return;
         }
-        this.f67924e.call();
+        this.f68604e.call();
     }
 }

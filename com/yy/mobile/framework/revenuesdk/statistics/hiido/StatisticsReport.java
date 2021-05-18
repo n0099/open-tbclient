@@ -18,33 +18,33 @@ import kotlin.reflect.KProperty;
 public final class StatisticsReport {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.r.b.a.a.m.c.b.b f39065a;
+    public d.r.b.a.a.m.c.b.b f38310a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39066b;
+    public boolean f38311b;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f39064e = new a(null);
+    public static final a f38309e = new a(null);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39062c = StatisticsReport.class.getSimpleName();
+    public static final String f38307c = StatisticsReport.class.getSimpleName();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Lazy f39063d = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) StatisticsReport$Companion$instance$2.INSTANCE);
+    public static final Lazy f38308d = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) StatisticsReport$Companion$instance$2.INSTANCE);
 
     /* loaded from: classes7.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ KProperty[] f39067a = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(a.class), Transition.MATCH_INSTANCE_STR, "getInstance()Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/StatisticsReport;"))};
+        public static final /* synthetic */ KProperty[] f38312a = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(a.class), Transition.MATCH_INSTANCE_STR, "getInstance()Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/StatisticsReport;"))};
 
         public a() {
         }
 
         public final StatisticsReport a() {
-            Lazy lazy = StatisticsReport.f39063d;
-            a aVar = StatisticsReport.f39064e;
-            KProperty kProperty = f39067a[0];
+            Lazy lazy = StatisticsReport.f38308d;
+            a aVar = StatisticsReport.f38309e;
+            KProperty kProperty = f38312a[0];
             return (StatisticsReport) lazy.getValue();
         }
 
@@ -57,21 +57,21 @@ public final class StatisticsReport {
     public static final class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f39068e;
+        public final /* synthetic */ String f38313e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ StatisticsReport f39069f;
+        public final /* synthetic */ StatisticsReport f38314f;
 
         public b(String str, StatisticsReport statisticsReport) {
-            this.f39068e = str;
-            this.f39069f = statisticsReport;
+            this.f38313e = str;
+            this.f38314f = statisticsReport;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            d.r.b.a.a.m.c.b.b bVar = this.f39069f.f39065a;
+            d.r.b.a.a.m.c.b.b bVar = this.f38314f.f38310a;
             if (bVar != null) {
-                bVar.g(this.f39068e);
+                bVar.g(this.f38313e);
             }
         }
     }
@@ -83,18 +83,18 @@ public final class StatisticsReport {
     public final void c(String str) {
         f a2;
         if (TextUtils.isEmpty(str)) {
-            d.a(f39062c, "context is empty");
-        } else if (str == null || (a2 = f.f67452f.a()) == null) {
+            d.a(f38307c, "context is empty");
+        } else if (str == null || (a2 = f.f68138f.a()) == null) {
         } else {
             a2.c(new b(str, this));
         }
     }
 
     public final boolean d() {
-        return this.f39066b;
+        return this.f38311b;
     }
 
     public StatisticsReport() {
-        this.f39065a = new d.r.b.a.a.m.c.b.b();
+        this.f38310a = new d.r.b.a.a.m.c.b.b();
     }
 }

@@ -5,21 +5,21 @@ import java.util.LinkedList;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f35655a;
+    public final boolean f34900a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<Long> f35656b;
+    public final LinkedList<Long> f34901b;
 
     public g(boolean z, LinkedList<Long> linkedList) {
-        this.f35655a = z;
-        this.f35656b = linkedList;
+        this.f34900a = z;
+        this.f34901b = linkedList;
     }
 
     public boolean a() {
-        return this.f35655a;
+        return this.f34900a;
     }
 
     public LinkedList<Long> b() {
-        return this.f35656b;
+        return this.f34901b;
     }
 }

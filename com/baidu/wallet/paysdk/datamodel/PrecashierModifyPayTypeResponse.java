@@ -15,18 +15,18 @@ public class PrecashierModifyPayTypeResponse extends DirectPayContentResponse im
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PrecashierModifyPayTypeResponse f26027a = new PrecashierModifyPayTypeResponse();
+        public static PrecashierModifyPayTypeResponse f25272a = new PrecashierModifyPayTypeResponse();
     }
 
     public static PrecashierModifyPayTypeResponse getInstance() {
-        return a.f26027a;
+        return a.f25272a;
     }
 
     public static void updateContent(Object obj) {
         if (obj instanceof PrecashierModifyPayTypeResponse) {
-            PrecashierModifyPayTypeResponse unused = a.f26027a = (PrecashierModifyPayTypeResponse) obj;
+            PrecashierModifyPayTypeResponse unused = a.f25272a = (PrecashierModifyPayTypeResponse) obj;
         } else if (obj == null) {
-            PrecashierModifyPayTypeResponse unused2 = a.f26027a = null;
+            PrecashierModifyPayTypeResponse unused2 = a.f25272a = null;
         }
     }
 

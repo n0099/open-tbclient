@@ -3,30 +3,30 @@ package d.a.c.e.b.b.a.b;
 public class i implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39548a;
+    public int f38793a;
 
     public i(int i2) {
-        this.f39548a = i2;
+        this.f38793a = i2;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object a(d.a.c.e.b.b.a.e.c cVar) {
-        return Integer.valueOf(this.f39548a);
+        return Integer.valueOf(this.f38793a);
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object b(d.a.c.e.b.b.a.e.c cVar) {
-        return Integer.valueOf(this.f39548a);
+        return Integer.valueOf(this.f38793a);
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object c(d.a.c.e.b.b.a.e.c cVar) {
-        return Integer.valueOf(this.f39548a);
+        return Integer.valueOf(this.f38793a);
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object d(d.a.c.e.b.b.a.e.c cVar) {
-        return Integer.valueOf(this.f39548a);
+        return Integer.valueOf(this.f38793a);
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -36,6 +36,6 @@ public class i implements h {
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object f(d.a.c.e.b.b.a.e.c cVar) {
-        return Integer.valueOf(this.f39548a);
+        return Integer.valueOf(this.f38793a);
     }
 }

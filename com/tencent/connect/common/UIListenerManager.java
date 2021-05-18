@@ -13,16 +13,16 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class UIListenerManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static UIListenerManager f37083a;
+    public static UIListenerManager f36328a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, ApiTask> f37084b;
+    public Map<String, ApiTask> f36329b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class ApiTask {
         public IUiListener mListener;
         public int mRequestCode;
@@ -35,9 +35,9 @@ public class UIListenerManager {
 
     public UIListenerManager() {
         Map<String, ApiTask> synchronizedMap = Collections.synchronizedMap(new HashMap());
-        this.f37084b = synchronizedMap;
+        this.f36329b = synchronizedMap;
         if (synchronizedMap == null) {
-            this.f37084b = Collections.synchronizedMap(new HashMap());
+            this.f36329b = Collections.synchronizedMap(new HashMap());
         }
     }
 
@@ -53,10 +53,10 @@ public class UIListenerManager {
     }
 
     public static UIListenerManager getInstance() {
-        if (f37083a == null) {
-            f37083a = new UIListenerManager();
+        if (f36328a == null) {
+            f36328a = new UIListenerManager();
         }
-        return f37083a;
+        return f36328a;
     }
 
     public IUiListener getListnerWithAction(String str) {
@@ -65,9 +65,9 @@ public class UIListenerManager {
             f.e("openSDK_LOG.UIListenerManager", "getListnerWithAction action is null!");
             return null;
         }
-        synchronized (this.f37084b) {
-            apiTask = this.f37084b.get(str);
-            this.f37084b.remove(str);
+        synchronized (this.f36329b) {
+            apiTask = this.f36329b.get(str);
+            this.f36329b.remove(str);
         }
         if (apiTask == null) {
             return null;
@@ -209,8 +209,8 @@ public class UIListenerManager {
             f.e("openSDK_LOG.UIListenerManager", "setListener action is null! rquestCode=" + i2);
             return null;
         }
-        synchronized (this.f37084b) {
-            put = this.f37084b.put(a2, new ApiTask(i2, iUiListener));
+        synchronized (this.f36329b) {
+            put = this.f36329b.put(a2, new ApiTask(i2, iUiListener));
         }
         if (put == null) {
             return null;
@@ -225,8 +225,8 @@ public class UIListenerManager {
             f.e("openSDK_LOG.UIListenerManager", "setListnerWithAction fail, action = " + str);
             return null;
         }
-        synchronized (this.f37084b) {
-            put = this.f37084b.put(str, new ApiTask(a2, iUiListener));
+        synchronized (this.f36329b) {
+            put = this.f36329b.put(str, new ApiTask(a2, iUiListener));
         }
         if (put == null) {
             return null;

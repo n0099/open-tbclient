@@ -15,21 +15,21 @@ public class a extends com.baidu.platform.base.e {
         if (districtSearchOption == null) {
             return;
         }
-        this.f9730a.a("qt", "con");
-        this.f9730a.a("rp_format", "json");
-        this.f9730a.a("rp_filter", "mobile");
-        this.f9730a.a("area_res", "true");
-        this.f9730a.a("addr_identify", "1");
-        this.f9730a.a("ie", "utf-8");
-        this.f9730a.a(Config.PACKAGE_NAME, "0");
-        this.f9730a.a("rn", "10");
-        this.f9730a.a("c", districtSearchOption.mCityName);
+        this.f9352a.a("qt", "con");
+        this.f9352a.a("rp_format", "json");
+        this.f9352a.a("rp_filter", "mobile");
+        this.f9352a.a("area_res", "true");
+        this.f9352a.a("addr_identify", "1");
+        this.f9352a.a("ie", "utf-8");
+        this.f9352a.a(Config.PACKAGE_NAME, "0");
+        this.f9352a.a("rn", "10");
+        this.f9352a.a("c", districtSearchOption.mCityName);
         String str2 = districtSearchOption.mDistrictName;
         if (str2 == null || str2.equals("")) {
-            aVar = this.f9730a;
+            aVar = this.f9352a;
             str = districtSearchOption.mCityName;
         } else {
-            aVar = this.f9730a;
+            aVar = this.f9352a;
             str = districtSearchOption.mDistrictName;
         }
         aVar.a(ActVideoSetting.WIFI_DISPLAY, str);

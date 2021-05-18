@@ -1,6 +1,5 @@
 package kotlin.io;
 
-import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -161,7 +160,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
                 } else {
                     int read2 = fileInputStream.read();
                     if (read2 != -1) {
-                        ExposingBufferByteArrayOutputStream exposingBufferByteArrayOutputStream = new ExposingBufferByteArrayOutputStream(UIMsg.k_event.V_WM_ROTATE);
+                        ExposingBufferByteArrayOutputStream exposingBufferByteArrayOutputStream = new ExposingBufferByteArrayOutputStream(8193);
                         exposingBufferByteArrayOutputStream.write(read2);
                         ByteStreamsKt.copyTo$default(fileInputStream, exposingBufferByteArrayOutputStream, 0, 2, null);
                         int size = exposingBufferByteArrayOutputStream.size() + i2;

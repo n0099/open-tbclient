@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WeiboMultiMessage implements Serializable {
     public static int NineImageType = 2;
     public static int OneImageType = 1;

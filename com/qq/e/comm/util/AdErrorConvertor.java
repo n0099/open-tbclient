@@ -2,7 +2,7 @@ package com.qq.e.comm.util;
 
 import com.bytedance.sdk.adnet.err.VAdError;
 import com.qq.e.comm.constants.ErrorCode;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AdErrorConvertor {
     public static AdError formatErrorCode(int i2) {
         AdError adError;

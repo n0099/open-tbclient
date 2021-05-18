@@ -3,7 +3,7 @@ package com.tencent.mm.opensdk.modelmsg;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WXDynamicVideoMiniProgramObject extends WXMiniProgramObject {
     public static final String TAG = "MicroMsg.SDK.WXDynamicVideoMiniProgramObject";
     public String appThumbUrl;

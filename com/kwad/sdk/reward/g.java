@@ -22,7 +22,7 @@ public class g {
         if (a4) {
             com.kwad.sdk.core.report.e.a(adTemplate, 1);
         } else {
-            com.kwad.sdk.core.report.e.a(adTemplate, 1, aVar.f32930a);
+            com.kwad.sdk.core.report.e.a(adTemplate, 1, aVar.f32175a);
         }
         return a4;
     }

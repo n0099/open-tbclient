@@ -16,6 +16,7 @@ public class FileMsg {
     public String mMimetype;
     public Boolean mNeedMuti;
     public int mPattern;
+    public String mRealUrl;
     public String mSavePath;
     public String mSid;
     public String mSize;

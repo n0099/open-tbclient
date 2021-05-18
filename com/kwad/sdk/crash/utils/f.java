@@ -52,15 +52,15 @@ import org.json.JSONObject;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f33843a = new File("/proc/self/fd");
+    public static final File f33088a = new File("/proc/self/fd");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f33844b = new File("/proc/self/task");
+    public static final File f33089b = new File("/proc/self/task");
 
     public static int a() {
         File[] listFiles;
-        Objects.requireNonNull(f33843a);
-        if (f33843a.exists() && f33843a.isDirectory() && (listFiles = f33843a.listFiles()) != null) {
+        Objects.requireNonNull(f33088a);
+        if (f33088a.exists() && f33088a.isDirectory() && (listFiles = f33088a.listFiles()) != null) {
             return listFiles.length;
         }
         return 0;
@@ -215,17 +215,17 @@ public final class f {
         List<String> list;
         String canonicalPath;
         SystemUtil.a c2 = SystemUtil.c();
-        c2.f33839e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        c2.f33835a = SystemUtil.a();
+        c2.f33084e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        c2.f33080a = SystemUtil.a();
         long pss = Debug.getPss();
-        c2.f33838d = pss;
-        memoryInfo.mTotalMB = (int) (c2.f33835a / 1048576);
-        memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f33783a / 1048576.0d);
-        memoryInfo.mJavaHeapMB = (int) (c2.f33839e / 1048576);
-        memoryInfo.mVssMB = (int) (c2.f33836b / 1024);
-        memoryInfo.mRssMB = (int) (c2.f33837c / 1024);
+        c2.f33083d = pss;
+        memoryInfo.mTotalMB = (int) (c2.f33080a / 1048576);
+        memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f33028a / 1048576.0d);
+        memoryInfo.mJavaHeapMB = (int) (c2.f33084e / 1048576);
+        memoryInfo.mVssMB = (int) (c2.f33081b / 1024);
+        memoryInfo.mRssMB = (int) (c2.f33082c / 1024);
         memoryInfo.mPssMB = (int) (pss / 1024);
-        memoryInfo.mThreadsCount = c2.f33840f;
+        memoryInfo.mThreadsCount = c2.f33085f;
         memoryInfo.mFdCount = a();
         if (context != null) {
             memoryInfo.mAvailableMB = (int) (SystemUtil.b(context) / 1048576);
@@ -234,7 +234,7 @@ public final class f {
         if (memoryInfo.mFdCount > 800) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeFdOOM();
             exceptionMessage.mFdOverflow = "True";
-            File[] listFiles = f33843a.listFiles();
+            File[] listFiles = f33088a.listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
                     try {
@@ -254,7 +254,7 @@ public final class f {
             }
         }
         exceptionMessage.mThreadOverflow = "False";
-        if (c2.f33840f > 400) {
+        if (c2.f33085f > 400) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeThreadOOM();
             exceptionMessage.mThreadOverflow = "True";
             a(memoryInfo);
@@ -271,7 +271,7 @@ public final class f {
     }
 
     public static void a(MemoryInfo memoryInfo) {
-        File[] listFiles = f33844b.listFiles();
+        File[] listFiles = f33089b.listFiles();
         if (listFiles == null) {
             return;
         }
@@ -455,12 +455,12 @@ public final class f {
             com.kwad.sdk.core.d.a.b(e2);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.f33784b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f33785c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.f33029b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f33030c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }
-        Matcher matcher = com.kwad.sdk.crash.c.f33786d.matcher(absolutePath);
-        Matcher matcher2 = com.kwad.sdk.crash.c.f33787e.matcher(absolutePath);
+        Matcher matcher = com.kwad.sdk.crash.c.f33031d.matcher(absolutePath);
+        Matcher matcher2 = com.kwad.sdk.crash.c.f33032e.matcher(absolutePath);
         if (matcher.matches()) {
             group = matcher.group(1);
         } else if (!matcher2.matches()) {

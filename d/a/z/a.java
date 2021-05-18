@@ -15,23 +15,23 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.a.a0.a f64216a = null;
+    public static d.a.a0.a f64903a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.a.a0.o.a.a f64217b = null;
+    public static d.a.a0.o.a.a f64904b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f64218c = 1;
+    public static int f64905c = 1;
 
     /* renamed from: d.a.z.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C1752a extends a.b {
+    public class C1816a extends a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.z.e.a f64219a;
+        public final /* synthetic */ d.a.z.e.a f64906a;
 
-        public C1752a(a aVar, d.a.z.e.a aVar2) {
-            this.f64219a = aVar2;
+        public C1816a(a aVar, d.a.z.e.a aVar2) {
+            this.f64906a = aVar2;
         }
 
         @Override // d.a.a0.a.b
@@ -40,15 +40,15 @@ public class a {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     jSONObject.put("statusCode", 6);
-                    this.f64219a.onPayResult(6, jSONObject.toString());
+                    this.f64906a.onPayResult(6, jSONObject.toString());
                     return;
                 } catch (JSONException e2) {
                     e2.printStackTrace();
-                    this.f64219a.onPayResult(6, str);
+                    this.f64906a.onPayResult(6, str);
                     return;
                 }
             }
-            this.f64219a.onPayResult(i2, str);
+            this.f64906a.onPayResult(i2, str);
         }
     }
 
@@ -57,35 +57,35 @@ public class a {
 
         /* renamed from: d.a.z.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C1753a implements d.a.z.e.a {
+        public class C1817a implements d.a.z.e.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.a.a0.o.a.a f64220a;
+            public final /* synthetic */ d.a.a0.o.a.a f64907a;
 
-            public C1753a(b bVar, d.a.a0.o.a.a aVar) {
-                this.f64220a = aVar;
+            public C1817a(b bVar, d.a.a0.o.a.a aVar) {
+                this.f64907a = aVar;
             }
 
             @Override // d.a.z.e.a
             public void onPayResult(int i2, String str) {
-                a.f(this.f64220a, i2, str);
+                a.f(this.f64907a, i2, str);
             }
         }
 
         /* renamed from: d.a.z.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C1754b implements d.a.z.e.a {
+        public class C1818b implements d.a.z.e.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.a.a0.o.a.a f64221a;
+            public final /* synthetic */ d.a.a0.o.a.a f64908a;
 
-            public C1754b(b bVar, d.a.a0.o.a.a aVar) {
-                this.f64221a = aVar;
+            public C1818b(b bVar, d.a.a0.o.a.a aVar) {
+                this.f64908a = aVar;
             }
 
             @Override // d.a.z.e.a
             public void onPayResult(int i2, String str) {
-                a.f(this.f64221a, i2, str);
+                a.f(this.f64908a, i2, str);
             }
         }
 
@@ -93,41 +93,25 @@ public class a {
         public class c implements d.a.z.e.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.a.a0.o.a.a f64222a;
+            public final /* synthetic */ d.a.a0.o.a.a f64909a;
 
             public c(b bVar, d.a.a0.o.a.a aVar) {
-                this.f64222a = aVar;
+                this.f64909a = aVar;
             }
 
             @Override // d.a.z.e.a
             public void onPayResult(int i2, String str) {
-                a.f(this.f64222a, i2, str);
-            }
-        }
-
-        /* loaded from: classes2.dex */
-        public class d implements d.a.z.e.a {
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.a.a0.o.a.a f64223a;
-
-            public d(b bVar, d.a.a0.o.a.a aVar) {
-                this.f64223a = aVar;
-            }
-
-            @Override // d.a.z.e.a
-            public void onPayResult(int i2, String str) {
-                a.f(this.f64223a, i2, str);
+                a.f(this.f64909a, i2, str);
             }
         }
 
         @Override // d.a.a0.o.a.c
         public void a(Activity activity, d.a.a0.o.a.b bVar, d.a.a0.o.a.a aVar) {
-            if (bVar == null || TextUtils.isEmpty(bVar.f39233a) || bVar.f39234b == null) {
+            if (bVar == null || TextUtils.isEmpty(bVar.f38478a) || bVar.f38479b == null) {
                 a.f(aVar, 6, "支付信息不能为空");
                 return;
             }
-            String str = bVar.f39233a;
+            String str = bVar.f38478a;
             char c2 = 65535;
             switch (str.hashCode()) {
                 case -1537577171:
@@ -168,36 +152,34 @@ public class a {
                     break;
             }
             if (c2 == 0 || c2 == 1) {
-                d.a.z.c.f().a(activity, bVar.f39234b.optString("orderInfo"), new C1753a(this, aVar));
+                d.a.z.c.e().a(activity, bVar.f38479b.optString("orderInfo"), new C1817a(this, aVar));
             } else if (c2 == 2) {
-                d.a.z.c.f().e(activity, bVar.f39234b, new C1754b(this, aVar));
+                d.a.z.c.e().d(activity, bVar.f38479b, new C1818b(this, aVar));
             } else if (c2 == 3) {
-                d.a.z.c.f().b(activity, bVar.f39234b.optString("orderInfo"), new c(this, aVar));
+                d.a.z.c.e().b(activity, bVar.f38479b.optString("orderInfo"), new c(this, aVar));
             } else if (c2 == 4) {
-                d.a.a0.o.a.a unused = a.f64217b = aVar;
-                d.a.z.d.c();
-                d.a.z.c.f().d(activity, bVar.f39234b);
-            } else if (c2 != 5) {
-                aVar.onResult(3, "未知的支付方式");
+                d.a.a0.o.a.a unused = a.f64904b = aVar;
+                d.c();
+                d.a.z.c.e().c(activity, bVar.f38479b);
             } else {
-                d.a.z.c.f().c(activity, bVar.f39234b, new d(this, aVar));
+                aVar.onResult(3, "未知的支付方式");
             }
             activity.finish();
         }
     }
 
     public static d.a.a0.a e(Context context) {
-        d.a.a0.a aVar = f64216a;
+        d.a.a0.a aVar = f64903a;
         if (aVar != null) {
             return aVar;
         }
-        f64218c = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
-        a.C0487a c0487a = new a.C0487a();
-        c0487a.g(f64218c);
-        c0487a.e(context.getApplicationContext());
-        c0487a.f(false);
-        d.a.a0.a d2 = c0487a.d();
-        f64216a = d2;
+        f64905c = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
+        a.C0474a c0474a = new a.C0474a();
+        c0474a.g(f64905c);
+        c0474a.e(context.getApplicationContext());
+        c0474a.f(false);
+        d.a.a0.a d2 = c0474a.d();
+        f64903a = d2;
         return d2;
     }
 
@@ -220,10 +202,10 @@ public class a {
     }
 
     public static void h(int i2, String str) {
-        d.a.a0.o.a.a aVar = f64217b;
+        d.a.a0.o.a.a aVar = f64904b;
         if (aVar != null) {
             aVar.onResult(i2, str);
-            f64217b = null;
+            f64904b = null;
         }
     }
 
@@ -401,7 +383,7 @@ public class a {
             bundle.putString("chosenChannel", str);
         }
         bundle.putString("zid", d.a.z.b.a().e(activity));
-        e(activity).a(activity, bundle, g(), new C1752a(this, aVar));
+        e(activity).a(activity, bundle, g(), new C1816a(this, aVar));
     }
 
     public void k(JSONObject jSONObject, d.a.a0.l.a aVar) {

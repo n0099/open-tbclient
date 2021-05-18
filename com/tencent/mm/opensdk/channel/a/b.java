@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.channel.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static byte[] a(String str, int i2, String str2) {
         StringBuffer stringBuffer = new StringBuffer();

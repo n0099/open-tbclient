@@ -15,10 +15,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f33495a = new AtomicBoolean(false);
+    public static final AtomicBoolean f32740a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicBoolean f33496b;
+    public static AtomicBoolean f32741b;
 
     public static void a(Context context) {
         com.kwad.sdk.core.d.a.a("kp init");
@@ -30,27 +30,27 @@ public class e {
     }
 
     public static boolean a() {
-        AtomicBoolean atomicBoolean = f33496b;
+        AtomicBoolean atomicBoolean = f32741b;
         if (atomicBoolean != null) {
             return atomicBoolean.get();
         }
-        f33496b = new AtomicBoolean(true);
-        if (com.kwad.sdk.d.f33864a == 2) {
+        f32741b = new AtomicBoolean(true);
+        if (com.kwad.sdk.d.f33109a == 2) {
             try {
                 if (Class.forName("com.kwai.video.player.KsMediaMeta") != null) {
-                    f33496b = new AtomicBoolean(true);
+                    f32741b = new AtomicBoolean(true);
                     return true;
                 }
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
-                f33496b = new AtomicBoolean(false);
+                f32741b = new AtomicBoolean(false);
             }
         }
-        return f33496b.get();
+        return f32741b.get();
     }
 
     public static boolean b() {
-        return f33495a.get() || KsAdSDKImpl.get().getIsExternal();
+        return f32740a.get() || KsAdSDKImpl.get().getIsExternal();
     }
 
     public static void c(Context context) {
@@ -82,11 +82,11 @@ public class e {
             @Override // com.kwai.sodler.lib.a.b.a
             public com.kwai.sodler.lib.b.b a(String str2) {
                 com.kwai.sodler.lib.b.b bVar = new com.kwai.sodler.lib.b.b();
-                bVar.f35254c = t;
-                bVar.f35256e = true;
-                bVar.f35252a = str;
-                bVar.f35253b = "3.2";
-                bVar.f35258g = true;
+                bVar.f34499c = t;
+                bVar.f34501e = true;
+                bVar.f34497a = str;
+                bVar.f34498b = "3.2";
+                bVar.f34503g = true;
                 return bVar;
             }
         });
@@ -95,19 +95,19 @@ public class e {
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(h hVar) {
                 super.a(hVar);
-                e.f33495a.set(false);
+                e.f32740a.set(false);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(h hVar, PluginError pluginError) {
-                e.f33495a.set(false);
+                e.f32740a.set(false);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(h hVar, g gVar) {
-                e.f33495a.set(true);
+                e.f32740a.set(true);
                 e.c(context);
                 e.e();
             }

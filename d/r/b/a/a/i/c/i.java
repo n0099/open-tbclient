@@ -3,15 +3,15 @@ package d.r.b.a.a.i.c;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67100a;
+    public int f67786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67101b;
+    public int f67787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67102c;
+    public int f67788c;
 
     public String toString() {
-        return "PollingModeInfo{times=" + this.f67100a + ", interval=" + this.f67101b + '}';
+        return "PollingModeInfo{times=" + this.f67786a + ", interval=" + this.f67787b + '}';
     }
 }

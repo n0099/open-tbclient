@@ -10,27 +10,27 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import d.a.c.e.k.b;
-import d.a.i0.b1.j.c;
-import d.a.i0.b1.j.d;
+import d.a.j0.b1.j.c;
+import d.a.j0.b1.j.d;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ConstrainImageGroup extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f13871e;
+    public BdUniqueId f13207e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b<ConstrainImageLayout> f13872f;
+    public b<ConstrainImageLayout> f13208f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b<TbImageView> f13873g;
+    public b<TbImageView> f13209g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f13874h;
+    public c f13210h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13875i;
+    public int f13211i;
     public boolean j;
     public double k;
     public d l;
@@ -50,18 +50,18 @@ public class ConstrainImageGroup extends LinearLayout {
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
-            if (!(view2 instanceof ConstrainImageLayout) || ConstrainImageGroup.this.f13872f == null) {
+            if (!(view2 instanceof ConstrainImageLayout) || ConstrainImageGroup.this.f13208f == null) {
                 return;
             }
             ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) view2;
             constrainImageLayout.i();
-            ConstrainImageGroup.this.f13872f.e(constrainImageLayout);
+            ConstrainImageGroup.this.f13208f.e(constrainImageLayout);
         }
     }
 
     public ConstrainImageGroup(Context context) {
         super(context);
-        this.f13874h = new d.a.i0.b1.j.b();
+        this.f13210h = new d.a.j0.b1.j.b();
         this.j = false;
         this.o = new a();
         this.p = false;
@@ -70,13 +70,13 @@ public class ConstrainImageGroup extends LinearLayout {
     }
 
     private ConstrainImageLayout getConstrainImageLayout() {
-        ConstrainImageLayout b2 = this.f13872f.b();
-        b2.setImagePadding(this.f13875i);
-        b2.setImageViewObjectPool(this.f13873g);
+        ConstrainImageLayout b2 = this.f13208f.b();
+        b2.setImagePadding(this.f13211i);
+        b2.setImageViewObjectPool(this.f13209g);
         b2.setImageMaxChildCount(-1);
         b2.setExtraCenterText(null);
         b2.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        b2.setPageUniqueId(this.f13871e);
+        b2.setPageUniqueId(this.f13207e);
         b2.setPreloadSizeReadyCallback(this.n);
         return b2;
     }
@@ -92,7 +92,7 @@ public class ConstrainImageGroup extends LinearLayout {
     }
 
     public final void c(int i2) {
-        int b2 = this.f13874h.b(i2);
+        int b2 = this.f13210h.b(i2);
         int childCount = getChildCount() - b2;
         if (childCount > 0) {
             removeViews(b2, childCount);
@@ -119,7 +119,7 @@ public class ConstrainImageGroup extends LinearLayout {
     }
 
     public void setConstrainLayoutPool(b<ConstrainImageLayout> bVar) {
-        this.f13872f = bVar;
+        this.f13208f = bVar;
     }
 
     public void setFromCDN(boolean z) {
@@ -141,14 +141,14 @@ public class ConstrainImageGroup extends LinearLayout {
 
     public void setImageMargin(int i2) {
         if (i2 >= 0) {
-            this.f13875i = i2;
+            this.f13211i = i2;
         } else {
-            this.f13875i = 0;
+            this.f13211i = 0;
         }
     }
 
     public void setImageMediaList(List<MediaData> list) {
-        if (ListUtils.isEmpty(list) || this.f13872f == null) {
+        if (ListUtils.isEmpty(list) || this.f13208f == null) {
             return;
         }
         c(ListUtils.getCount(list));
@@ -171,14 +171,14 @@ public class ConstrainImageGroup extends LinearLayout {
                     constrainImageLayout.setOnClickListener(onClickListener);
                 }
                 constrainImageLayout.setSinglePicUseStyleV10(this.p);
-                i2 = this.f13874h.a(constrainImageLayout, list, i3, i2);
+                i2 = this.f13210h.a(constrainImageLayout, list, i3, i2);
             }
         }
     }
 
     public void setImageProcessor(c cVar) {
         if (cVar != null) {
-            this.f13874h = cVar;
+            this.f13210h = cVar;
         }
     }
 
@@ -198,11 +198,11 @@ public class ConstrainImageGroup extends LinearLayout {
     }
 
     public void setImageViewPool(b<TbImageView> bVar) {
-        this.f13873g = bVar;
+        this.f13209g = bVar;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.f13871e = bdUniqueId;
+        this.f13207e = bdUniqueId;
     }
 
     public void setPreloadSizeReadyCallback(d.a.c.j.c.b bVar) {
@@ -226,7 +226,7 @@ public class ConstrainImageGroup extends LinearLayout {
 
     public ConstrainImageGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13874h = new d.a.i0.b1.j.b();
+        this.f13210h = new d.a.j0.b1.j.b();
         this.j = false;
         this.o = new a();
         this.p = false;
@@ -236,7 +236,7 @@ public class ConstrainImageGroup extends LinearLayout {
 
     public ConstrainImageGroup(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13874h = new d.a.i0.b1.j.b();
+        this.f13210h = new d.a.j0.b1.j.b();
         this.j = false;
         this.o = new a();
         this.p = false;

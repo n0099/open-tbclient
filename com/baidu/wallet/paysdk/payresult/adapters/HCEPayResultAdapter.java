@@ -15,28 +15,28 @@ public class HCEPayResultAdapter extends BasePayResultAdapter {
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public HashMap<String, String> getPayingContents() {
         this.contents.clear();
-        PayResultContent payResultContent = this.f26136c;
-        if (payResultContent == null || this.f26135b == null) {
+        PayResultContent payResultContent = this.f25381c;
+        if (payResultContent == null || this.f25380b == null) {
             return null;
         }
         if (!payResultContent.isPaySuccess) {
             this.contents.put("statusDrawableName", "wallet_hce_icon_nfc_fail");
             this.contents.put("mainTip", "wallet_hce_pay_failed");
-            this.contents.put("errorMsg", this.f26136c.mErrorMsg);
+            this.contents.put("errorMsg", this.f25381c.mErrorMsg);
         }
-        PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_PAY_RET_SHOW, this.f26136c.isPaySuccess ? "1" : "0");
+        PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_PAY_RET_SHOW, this.f25381c.isPaySuccess ? "1" : "0");
         return this.contents;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public void handleOKBtnOnclick() {
-        PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_PAY_DONE_CLICK, this.f26136c.isPaySuccess ? "1" : "0");
+        PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_PAY_DONE_CLICK, this.f25381c.isPaySuccess ? "1" : "0");
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean onCreateCheckInvalide(Bundle bundle) {
         boolean onCreateCheckInvalide = super.onCreateCheckInvalide(bundle);
-        PayResultContent payResultContent = this.f26136c;
+        PayResultContent payResultContent = this.f25381c;
         if (payResultContent != null) {
             PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_CLICK_OPEN, payResultContent.isPaySuccess ? "1" : "0");
         }

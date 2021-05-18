@@ -26,12 +26,12 @@ import com.baidu.tieba.im.message.SaveDraftMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.model.MsglistModel;
-import d.a.i0.z0.f0;
-import d.a.i0.z0.h0;
-import d.a.j0.e1.g.c;
-import d.a.j0.e1.h.l;
-import d.a.j0.e1.k.b;
-import d.a.j0.e1.s.a;
+import d.a.j0.z0.f0;
+import d.a.j0.z0.h0;
+import d.a.k0.e1.g.c;
+import d.a.k0.e1.h.l;
+import d.a.k0.e1.k.b;
+import d.a.k0.e1.s.a;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -104,7 +104,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             if (loadHistoryResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f18056b;
+            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f17371b;
             if (list == null) {
                 list = new LinkedList();
             }
@@ -189,7 +189,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.i0.z0.f0
+            @Override // d.a.j0.z0.f0
             public Boolean doInBackground() {
                 return Boolean.valueOf(l.t().c(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
             }
@@ -245,21 +245,21 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             return false;
         }
         LoadDraftMessage.a aVar = new LoadDraftMessage.a();
-        aVar.f18049a = this.mUser.getUserId();
+        aVar.f17364a = this.mUser.getUserId();
         super.sendMessage(new LoadOfficialBarDraftMessage(aVar));
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(d.a.j0.e1.f.c cVar) {
+    public boolean loadFirst(d.a.k0.e1.f.c cVar) {
         if (this.mUser == null) {
             return false;
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.f18053c = 10;
-        aVar.f18051a = null;
-        aVar.f18052b = null;
-        aVar.f18054d = this.mUser.getUserIdLong() + "";
+        aVar.f17368c = 10;
+        aVar.f17366a = null;
+        aVar.f17367b = null;
+        aVar.f17369d = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialHistoryMessage(aVar));
         return true;
     }
@@ -271,7 +271,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             return false;
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.f18053c = 10;
+        aVar.f17368c = 10;
         MsgPageData msgPageData = this.mDatas;
         long j2 = 0;
         if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
@@ -280,9 +280,9 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             j2 = this.mDatas.getChatMessages().get(0).getMsgId();
             j = this.mDatas.getChatMessages().get(0).getRecordId();
         }
-        aVar.f18051a = String.valueOf(j2);
-        aVar.f18052b = String.valueOf(j);
-        aVar.f18054d = this.mUser.getUserIdLong() + "";
+        aVar.f17366a = String.valueOf(j2);
+        aVar.f17367b = String.valueOf(j);
+        aVar.f17369d = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialHistoryMessage(aVar));
         return true;
     }
@@ -295,7 +295,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.i0.z0.f0
+            @Override // d.a.j0.z0.f0
             public Boolean doInBackground() {
                 return Boolean.valueOf(l.t().n(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
             }
@@ -315,8 +315,8 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         if (userData == null) {
             return false;
         }
-        aVar.f18077b = String.valueOf(String.valueOf(userData.getUserId()));
-        aVar.f18076a = str;
+        aVar.f17392b = String.valueOf(String.valueOf(userData.getUserId()));
+        aVar.f17391a = str;
         super.sendMessage(new OfficialBarSaveDraftMessage(aVar));
         return true;
     }

@@ -5,37 +5,37 @@ import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import kotlinx.coroutines.DebugKt;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
     public String A;
     public boolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f28819a;
+    public float f28064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f28820b;
+    public float f28065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f28821c;
+    public float f28066c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f28822d;
+    public float f28067d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f28823e;
+    public float f28068e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f28824f;
+    public float f28069f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f28825g;
+    public float f28070g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f28826h;
+    public float f28071h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f28827i;
+    public float f28072i;
     public float j;
     public int k;
     public int l;
@@ -55,39 +55,39 @@ public class d {
     public String z;
 
     public float a() {
-        return this.f28819a;
+        return this.f28064a;
     }
 
     public float b() {
-        return this.f28820b;
+        return this.f28065b;
     }
 
     public void c(float f2) {
-        this.f28821c = f2;
+        this.f28066c = f2;
     }
 
     public void d(float f2) {
-        this.f28822d = f2;
+        this.f28067d = f2;
     }
 
     public void e(float f2) {
-        this.f28823e = f2;
+        this.f28068e = f2;
     }
 
     public void f(float f2) {
-        this.f28824f = f2;
+        this.f28069f = f2;
     }
 
     public void g(float f2) {
-        this.f28825g = f2;
+        this.f28070g = f2;
     }
 
     public void h(float f2) {
-        this.f28826h = f2;
+        this.f28071h = f2;
     }
 
     public void i(float f2) {
-        this.f28827i = f2;
+        this.f28072i = f2;
     }
 
     public void j(float f2) {
@@ -115,27 +115,27 @@ public class d {
     }
 
     public void a(float f2) {
-        this.f28819a = f2;
+        this.f28064a = f2;
     }
 
     public void b(float f2) {
-        this.f28820b = f2;
+        this.f28065b = f2;
     }
 
     public float c() {
-        return this.f28824f;
+        return this.f28069f;
     }
 
     public float d() {
-        return this.f28825g;
+        return this.f28070g;
     }
 
     public float e() {
-        return this.f28826h;
+        return this.f28071h;
     }
 
     public float f() {
-        return this.f28827i;
+        return this.f28072i;
     }
 
     public float g() {

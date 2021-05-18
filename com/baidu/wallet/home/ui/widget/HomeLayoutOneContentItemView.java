@@ -14,13 +14,13 @@ public class HomeLayoutOneContentItemView extends BaseItemView {
     public static final String TAG = "HomeFinanceContentItemView";
 
     /* renamed from: a  reason: collision with root package name */
-    public View f25026a;
+    public View f24271a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetImageView f25027b;
+    public NetImageView f24272b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f25028c;
+    public NetImageView f24273c;
     public MaskTextView mDesc_1;
     public MaskTextView mDesc_2;
     public NetImageView mIcon;
@@ -33,13 +33,13 @@ public class HomeLayoutOneContentItemView extends BaseItemView {
     private void a() {
         removeAllViews();
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_layout1_item_layout"), this);
-        this.f25026a = findViewById(ResUtils.id(getContext(), "content_layout"));
+        this.f24271a = findViewById(ResUtils.id(getContext(), "content_layout"));
         this.mIcon = (NetImageView) findViewById(ResUtils.id(getContext(), "home_finance_item_icon"));
         this.mTitle = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_finance_item_title"));
         this.mDesc_1 = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_finance_item_des_1"));
         this.mDesc_2 = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_finance_item_des_2"));
-        this.f25027b = (NetImageView) findViewById(ResUtils.id(getContext(), "red_dot_im"));
-        this.f25028c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
+        this.f24272b = (NetImageView) findViewById(ResUtils.id(getContext(), "red_dot_im"));
+        this.f24273c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
     }
 
     public static int getItemHeight(Context context, HomeCfgResponse.DataItem[] dataItemArr) {
@@ -58,14 +58,14 @@ public class HomeLayoutOneContentItemView extends BaseItemView {
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public boolean handlePoint() {
         if (isShoudShowPoint()) {
-            this.f25027b.setVisibility(0);
-            ((RelativeLayout.LayoutParams) this.f25027b.getLayoutParams()).addRule(1, this.mTitle.getId());
-            ((RelativeLayout.LayoutParams) this.f25027b.getLayoutParams()).addRule(6, this.mTitle.getId());
-            ((RelativeLayout.LayoutParams) this.f25027b.getLayoutParams()).leftMargin = (int) (ResUtils.getDimension(getContext(), "bd_wallet_home_icon_flag_text_right_margin") - ResUtils.getDimension(getContext(), "bd_wallet_home_item_life_margin"));
-            this.f25027b.setImageDrawable(ResUtils.getDrawable(getContext(), isShowWhiteDot() ? "wallet_home_white_star" : "wallet_home_red_star"));
+            this.f24272b.setVisibility(0);
+            ((RelativeLayout.LayoutParams) this.f24272b.getLayoutParams()).addRule(1, this.mTitle.getId());
+            ((RelativeLayout.LayoutParams) this.f24272b.getLayoutParams()).addRule(6, this.mTitle.getId());
+            ((RelativeLayout.LayoutParams) this.f24272b.getLayoutParams()).leftMargin = (int) (ResUtils.getDimension(getContext(), "bd_wallet_home_icon_flag_text_right_margin") - ResUtils.getDimension(getContext(), "bd_wallet_home_item_life_margin"));
+            this.f24272b.setImageDrawable(ResUtils.getDrawable(getContext(), isShowWhiteDot() ? "wallet_home_white_star" : "wallet_home_red_star"));
             return true;
         }
-        this.f25027b.setVisibility(8);
+        this.f24272b.setVisibility(8);
         return false;
     }
 
@@ -106,12 +106,12 @@ public class HomeLayoutOneContentItemView extends BaseItemView {
         }
         setIconUrl(getData().logo);
         if (!handlePoint() && hasCornor()) {
-            this.f25028c.setVisibility(0);
-            NetImageView netImageView = this.f25028c;
+            this.f24273c.setVisibility(0);
+            NetImageView netImageView = this.f24273c;
             netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().corner_addr);
             return;
         }
-        this.f25028c.setVisibility(8);
+        this.f24273c.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
@@ -152,7 +152,7 @@ public class HomeLayoutOneContentItemView extends BaseItemView {
     }
 
     public void setHeight(int i2) {
-        this.f25026a.getLayoutParams().height = i2;
+        this.f24271a.getLayoutParams().height = i2;
     }
 
     public void setIconUrl(String str) {

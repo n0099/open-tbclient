@@ -2,7 +2,7 @@ package com.sina.deviceidjnisdk;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DeviceIdFactory {
     public static volatile IDeviceId sInstance;
 

@@ -3,7 +3,7 @@ package com.xiaomi.push;
 public final class iz {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f38796a;
+    public final byte f38041a;
 
     /* renamed from: a  reason: collision with other field name */
     public final int f808a;
@@ -13,7 +13,7 @@ public final class iz {
     }
 
     public iz(byte b2, int i2) {
-        this.f38796a = b2;
+        this.f38041a = b2;
         this.f808a = i2;
     }
 }

@@ -6,79 +6,79 @@ import android.util.Log;
 import com.bytedance.sdk.openadsdk.k.a.c;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.k.a.b f30225a;
+    public static volatile com.bytedance.sdk.openadsdk.k.a.b f29470a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.k.a.c f30226b;
+    public static volatile com.bytedance.sdk.openadsdk.k.a.c f29471b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile boolean f30228d;
+    public static volatile boolean f29473d;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f30230f;
+    public static volatile boolean f29475f;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile Integer f30233i;
+    public static volatile Integer f29478i;
     public static volatile com.bytedance.sdk.openadsdk.k.b.c j;
     @SuppressLint({"StaticFieldLeak"})
     public static volatile Context k;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f30227c = u.c();
+    public static final boolean f29472c = u.c();
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f30229e = true;
+    public static volatile boolean f29474e = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile int f30231g = 0;
+    public static volatile int f29476g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile int f30232h = 3;
+    public static volatile int f29477h = 3;
 
     public static Context a() {
         return k;
     }
 
     public static void b(boolean z) {
-        f30230f = z;
+        f29475f = z;
     }
 
     public static com.bytedance.sdk.openadsdk.k.a.b c() {
-        return f30225a;
+        return f29470a;
     }
 
     public static void a(boolean z) {
-        f30229e = z;
+        f29474e = z;
     }
 
     public static com.bytedance.sdk.openadsdk.k.a.c b() {
-        return f30226b;
+        return f29471b;
     }
 
     public static void a(int i2) {
-        f30231g = i2;
+        f29476g = i2;
     }
 
     public static void a(com.bytedance.sdk.openadsdk.k.a.c cVar, Context context) {
         if (cVar != null && context != null) {
             k = context.getApplicationContext();
-            if (f30226b != null) {
+            if (f29471b != null) {
                 return;
             }
-            com.bytedance.sdk.openadsdk.k.a.b bVar = f30225a;
-            if (bVar != null && bVar.f30155a.getAbsolutePath().equals(cVar.f30157a.getAbsolutePath())) {
+            com.bytedance.sdk.openadsdk.k.a.b bVar = f29470a;
+            if (bVar != null && bVar.f29400a.getAbsolutePath().equals(cVar.f29402a.getAbsolutePath())) {
                 throw new IllegalArgumentException("DiskLruCache 和 DiskCache 不能使用相同的目录");
             }
-            f30226b = cVar;
+            f29471b = cVar;
             j = com.bytedance.sdk.openadsdk.k.b.c.a(context);
-            f30226b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.k.e.1
+            f29471b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.k.e.1
                 @Override // com.bytedance.sdk.openadsdk.k.a.c.a
                 public void a(String str) {
-                    if (e.f30227c) {
+                    if (e.f29472c) {
                         Log.i("TAG_PROXY_DiskLruCache", "new cache created: " + str);
                     }
                 }
@@ -86,7 +86,7 @@ public class e {
                 @Override // com.bytedance.sdk.openadsdk.k.a.c.a
                 public void a(Set<String> set) {
                     e.j.a(set, 0);
-                    if (e.f30227c) {
+                    if (e.f29472c) {
                         Log.i("TAG_PROXY_DiskLruCache", "cache file removed, " + set);
                     }
                 }

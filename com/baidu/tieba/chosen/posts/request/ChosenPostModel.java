@@ -4,8 +4,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
 import com.baidu.tieba.chosen.posts.ChosenPostActivity;
-import d.a.j0.y.a.d.a;
-import d.a.j0.y.a.d.b;
+import d.a.k0.y.a.d.a;
+import d.a.k0.y.a.d.b;
 /* loaded from: classes4.dex */
 public class ChosenPostModel extends NetAutoModel<a, b, ChosenPostActivity> {
     public ChosenPostModel(TbPageContext<ChosenPostActivity> tbPageContext, a aVar) {

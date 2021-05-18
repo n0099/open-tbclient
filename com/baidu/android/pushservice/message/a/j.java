@@ -78,36 +78,36 @@ public final class j {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("msgContent");
                 if (!jSONObject2.isNull("adContent")) {
                     JSONObject jSONObject3 = jSONObject2.getJSONObject("adContent");
-                    iVar.f3548e = jSONObject3.getString("notifyTitle");
-                    iVar.f3549f = jSONObject3.getString("content");
+                    iVar.f3549e = jSONObject3.getString("notifyTitle");
+                    iVar.f3550f = jSONObject3.getString("content");
                     if (!jSONObject3.isNull("param")) {
                         JSONObject jSONObject4 = jSONObject3.getJSONObject("param");
                         if (!jSONObject4.isNull("url")) {
-                            iVar.f3544a = jSONObject4.getString("url");
+                            iVar.f3545a = jSONObject4.getString("url");
                         }
                         if (!jSONObject4.isNull("intentUri")) {
                             string2 = jSONObject4.getString("intentUri");
                         } else if (!jSONObject4.isNull("acn")) {
                             string2 = jSONObject4.getString("acn");
                         }
-                        iVar.f3546c = string2;
+                        iVar.f3547c = string2;
                     }
                 }
                 if (!jSONObject2.isNull("psContent")) {
                     JSONObject jSONObject5 = jSONObject2.getJSONObject("psContent");
-                    iVar.f3550g = jSONObject5.getString("notifyTitle");
-                    iVar.f3551h = jSONObject5.getString("content");
+                    iVar.f3551g = jSONObject5.getString("notifyTitle");
+                    iVar.f3552h = jSONObject5.getString("content");
                     if (!jSONObject5.isNull("param")) {
                         JSONObject jSONObject6 = jSONObject5.getJSONObject("param");
                         if (!jSONObject6.isNull("url")) {
-                            iVar.f3545b = jSONObject6.getString("url");
+                            iVar.f3546b = jSONObject6.getString("url");
                         }
                         if (!jSONObject6.isNull("intentUri")) {
                             string = jSONObject6.getString("intentUri");
                         } else if (!jSONObject6.isNull("acn")) {
                             string = jSONObject6.getString("acn");
                         }
-                        iVar.f3547d = string;
+                        iVar.f3548d = string;
                     }
                 }
                 if (!jSONObject2.isNull("extras")) {
@@ -148,10 +148,10 @@ public final class j {
                 crossPushMessage.mPkgContent = jSONObject.getString("pkg_content");
             }
             if (!jSONObject.isNull("dest_pkg")) {
-                crossPushMessage.f3491a = jSONObject.getString("dest_pkg");
+                crossPushMessage.f3492a = jSONObject.getString("dest_pkg");
             }
             if (!jSONObject.isNull("dest_icon")) {
-                crossPushMessage.f3492b = jSONObject.getString("dest_icon");
+                crossPushMessage.f3493b = jSONObject.getString("dest_icon");
             }
         } catch (Exception e2) {
             new b.c(context).a(Log.getStackTraceString(e2)).a();

@@ -3,7 +3,7 @@ package d.o.a.e.a.a;
 import android.content.Context;
 import android.content.Intent;
 import com.alibaba.fastjson.asm.Label;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class j extends a {
     public j(Context context, d.o.a.e.b.j.a aVar, String str) {
         super(context, aVar, str);
@@ -12,7 +12,7 @@ public class j extends a {
     @Override // d.o.a.e.a.a.e
     public Intent b() {
         Intent intent = new Intent("com.android.filemanager.FILE_OPEN");
-        intent.putExtra("FilePathToBeOpenAfterScan", this.f66282c);
+        intent.putExtra("FilePathToBeOpenAfterScan", this.f66968c);
         intent.putExtra("com.iqoo.secure", true);
         intent.putExtra("OpenParentAndLocationDestFile", true);
         intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);

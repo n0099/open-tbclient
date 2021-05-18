@@ -6,14 +6,14 @@ import java.util.concurrent.atomic.AtomicReference;
 public class d implements ArCoreApk.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AtomicReference f65455a;
+    public final /* synthetic */ AtomicReference f66141a;
 
     public d(AtomicReference atomicReference) {
-        this.f65455a = atomicReference;
+        this.f66141a = atomicReference;
     }
 
     @Override // com.google.ar.core.ArCoreApk.a
     public void a(ArCoreApk.Availability availability) {
-        this.f65455a.set(availability);
+        this.f66141a.set(availability);
     }
 }

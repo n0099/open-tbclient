@@ -17,19 +17,19 @@ import java.util.HashMap;
 public class CtrlPoint extends CtrlPointProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8249a;
+    public long f8061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CtrlPointProvider.CtrlPointListener f8250b;
+    public CtrlPointProvider.CtrlPointListener f8062b;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8252d;
+    public String f8064d;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8251c = null;
+    public String f8063c = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f8253e = new a(Looper.getMainLooper());
+    public Handler f8065e = new a(Looper.getMainLooper());
 
     /* loaded from: classes2.dex */
     public class a extends Handler {
@@ -42,39 +42,39 @@ public class CtrlPoint extends CtrlPointProvider {
             CtrlPointProvider.CtrlPointListener ctrlPointListener;
             int i2 = message.what;
             if (i2 == 1) {
-                CtrlPointProvider.CtrlPointListener ctrlPointListener2 = CtrlPoint.this.f8250b;
+                CtrlPointProvider.CtrlPointListener ctrlPointListener2 = CtrlPoint.this.f8062b;
                 if (ctrlPointListener2 != null) {
                     ctrlPointListener2.onPrepared();
                 }
             } else if (i2 == 2) {
-                CtrlPointProvider.CtrlPointListener ctrlPointListener3 = CtrlPoint.this.f8250b;
+                CtrlPointProvider.CtrlPointListener ctrlPointListener3 = CtrlPoint.this.f8062b;
                 if (ctrlPointListener3 != null) {
                     ctrlPointListener3.onComplete();
                 }
             } else if (i2 == 3) {
-                CtrlPointProvider.CtrlPointListener ctrlPointListener4 = CtrlPoint.this.f8250b;
+                CtrlPointProvider.CtrlPointListener ctrlPointListener4 = CtrlPoint.this.f8062b;
                 if (ctrlPointListener4 != null) {
                     ctrlPointListener4.onError(message.arg1, message.arg2);
                 }
             } else if (i2 != 4) {
-                if (i2 == 5 && (ctrlPointListener = CtrlPoint.this.f8250b) != null) {
+                if (i2 == 5 && (ctrlPointListener = CtrlPoint.this.f8062b) != null) {
                     ctrlPointListener.onSeekCompleted(message.arg1, message.arg2);
                 }
-            } else if (CtrlPoint.this.f8250b != null) {
+            } else if (CtrlPoint.this.f8062b != null) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("url", CtrlPoint.this.f8251c);
-                hashMap.put("uuid", CtrlPoint.this.f8252d);
-                CtrlPoint.this.f8250b.onInfo(message.arg1, message.arg2, hashMap);
+                hashMap.put("url", CtrlPoint.this.f8063c);
+                hashMap.put("uuid", CtrlPoint.this.f8064d);
+                CtrlPoint.this.f8062b.onInfo(message.arg1, message.arg2, hashMap);
             }
             super.handleMessage(message);
         }
     }
 
     public CtrlPoint(long j, String str) {
-        this.f8249a = 0L;
-        this.f8252d = null;
-        this.f8249a = j;
-        this.f8252d = str;
+        this.f8061a = 0L;
+        this.f8064d = null;
+        this.f8061a = j;
+        this.f8064d = str;
     }
 
     public static boolean a(Context context) {
@@ -117,7 +117,7 @@ public class CtrlPoint extends CtrlPointProvider {
     public static void onComplete(Object obj) {
         CtrlPoint ctrlPoint;
         Handler handler;
-        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8253e) == null) {
+        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8065e) == null) {
             return;
         }
         Message.obtain(handler, 2).sendToTarget();
@@ -127,7 +127,7 @@ public class CtrlPoint extends CtrlPointProvider {
     public static void onError(Object obj, int i2, int i3) {
         CtrlPoint ctrlPoint;
         Handler handler;
-        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8253e) == null) {
+        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8065e) == null) {
             return;
         }
         Message obtain = Message.obtain(handler, 3);
@@ -140,7 +140,7 @@ public class CtrlPoint extends CtrlPointProvider {
     public static void onInfo(Object obj, int i2, int i3) {
         CtrlPoint ctrlPoint;
         Handler handler;
-        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8253e) == null) {
+        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8065e) == null) {
             return;
         }
         Message obtain = Message.obtain(handler, 4);
@@ -166,7 +166,7 @@ public class CtrlPoint extends CtrlPointProvider {
     public static void onPrepared(Object obj) {
         CtrlPoint ctrlPoint;
         Handler handler;
-        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8253e) == null) {
+        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8065e) == null) {
             return;
         }
         Message.obtain(handler, 1).sendToTarget();
@@ -176,7 +176,7 @@ public class CtrlPoint extends CtrlPointProvider {
     public static void onSeekCompleted(Object obj, int i2, int i3) {
         CtrlPoint ctrlPoint;
         Handler handler;
-        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8253e) == null) {
+        if (obj == null || (ctrlPoint = (CtrlPoint) ((WeakReference) obj).get()) == null || (handler = ctrlPoint.f8065e) == null) {
             return;
         }
         Message obtain = Message.obtain(handler, 5);
@@ -187,7 +187,7 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public long getCurrentTime() {
-        long j = this.f8249a;
+        long j = this.f8061a;
         if (j != 0) {
             return nativeCtrlPointGetCurrentPos(j);
         }
@@ -196,7 +196,7 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public long getDuration() {
-        long j = this.f8249a;
+        long j = this.f8061a;
         if (j != 0) {
             return nativeCtrlPointDuration(j);
         }
@@ -205,7 +205,7 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public int getPlaybackVolume() {
-        long j = this.f8249a;
+        long j = this.f8061a;
         if (j != 0) {
             return nativeCtrlPointGetPlaybackVolume(j);
         }
@@ -214,7 +214,7 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void pause() {
-        long j = this.f8249a;
+        long j = this.f8061a;
         if (j != 0) {
             nativeCtrlPointPause(j);
         }
@@ -222,7 +222,7 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void play() {
-        long j = this.f8249a;
+        long j = this.f8061a;
         if (j != 0) {
             nativeCtrlPointPlay(j);
         }
@@ -230,7 +230,7 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void seek(long j) {
-        long j2 = this.f8249a;
+        long j2 = this.f8061a;
         if (j2 != 0) {
             nativeCtrlPointSeek(j2, j);
         }
@@ -238,25 +238,25 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setAVTransportUrl(String str) {
-        if (this.f8249a == 0 || str == null || str.length() <= 0) {
+        if (this.f8061a == 0 || str == null || str.length() <= 0) {
             return;
         }
-        nativeCtrlPointSetAVTransportURI(this.f8249a, str);
-        this.f8251c = str;
+        nativeCtrlPointSetAVTransportURI(this.f8061a, str);
+        this.f8063c = str;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setListener(CtrlPointProvider.CtrlPointListener ctrlPointListener) {
-        long j = this.f8249a;
+        long j = this.f8061a;
         if (j != 0) {
-            this.f8250b = ctrlPointListener;
+            this.f8062b = ctrlPointListener;
             nativeCtrlPointSetListener(j, new WeakReference(this));
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setMute(int i2) {
-        long j = this.f8249a;
+        long j = this.f8061a;
         if (j != 0) {
             nativeCtrlPointSetMute(j, i2);
         }
@@ -264,7 +264,7 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setPlaybackVolume(int i2) {
-        long j = this.f8249a;
+        long j = this.f8061a;
         if (j != 0) {
             nativeCtrlPointSetPlaybackVolume(j, i2);
         }
@@ -272,16 +272,16 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void shutdown() {
-        long j = this.f8249a;
+        long j = this.f8061a;
         if (j != 0) {
             nativeCtrlPointShutdown(j);
-            this.f8249a = 0L;
+            this.f8061a = 0L;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void stop() {
-        long j = this.f8249a;
+        long j = this.f8061a;
         if (j != 0) {
             nativeCtrlPointStop(j);
         }

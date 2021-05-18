@@ -1,11 +1,11 @@
 package com.vivo.push.b;
 
 import com.baidu.android.imsdk.IMConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class j extends com.vivo.push.y {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37367a;
+    public String f36612a;
 
     public j() {
         super(IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME);
@@ -13,16 +13,16 @@ public final class j extends com.vivo.push.y {
 
     @Override // com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
-        aVar.a("MsgArriveCommand.MSG_TAG", this.f37367a);
+        aVar.a("MsgArriveCommand.MSG_TAG", this.f36612a);
     }
 
     @Override // com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
-        this.f37367a = aVar.a("MsgArriveCommand.MSG_TAG");
+        this.f36612a = aVar.a("MsgArriveCommand.MSG_TAG");
     }
 
     public j(String str) {
         this();
-        this.f37367a = str;
+        this.f36612a = str;
     }
 }

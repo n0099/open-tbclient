@@ -22,7 +22,7 @@ public final class b implements Serializable {
         public String E = "unkonw";
 
         /* renamed from: i  reason: collision with root package name */
-        public String f23279i;
+        public String f22524i;
         public String osVersion;
         public String q;
         public String r;
@@ -48,7 +48,7 @@ public final class b implements Serializable {
         }
 
         public final void b(String str) {
-            this.f23279i = str;
+            this.f22524i = str;
         }
 
         public final void d(String str) {
@@ -96,7 +96,7 @@ public final class b implements Serializable {
         }
 
         public final String l() {
-            return this.f23279i;
+            return this.f22524i;
         }
 
         public final void m(String str) {

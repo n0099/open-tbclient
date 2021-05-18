@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
-import d.a.i0.s.c.d;
-import d.a.j0.d3.j0.a;
+import d.a.j0.s.c.d;
+import d.a.k0.d3.j0.a;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,8 +63,8 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                 if (cVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("tid", cVar.f53154a);
-                        jSONObject.put("locate", cVar.f53156c);
+                        jSONObject.put("tid", cVar.f53861a);
+                        jSONObject.put("locate", cVar.f53863c);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e2) {
                         BdLog.e(e2);
@@ -85,9 +85,9 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                 if (cVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("pid", cVar.f53155b);
+                        jSONObject.put("pid", cVar.f53862b);
                         jSONObject.put("tid", str4);
-                        jSONObject.put("locate", cVar.f53156c);
+                        jSONObject.put("locate", cVar.f53863c);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e2) {
                         BdLog.e(e2);

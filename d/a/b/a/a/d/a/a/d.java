@@ -5,15 +5,15 @@ import java.math.BigInteger;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static byte[] f39285a;
+    public static byte[] f38530a;
 
     public static byte[] a() {
-        byte[] bArr = f39285a;
+        byte[] bArr = f38530a;
         if (bArr != null) {
             return bArr;
         }
-        byte[] byteArray = new BigInteger(c.f39282a).modPow(new BigInteger(c.f39283b), new BigInteger(c.f39284c)).toByteArray();
-        f39285a = byteArray;
+        byte[] byteArray = new BigInteger(c.f38527a).modPow(new BigInteger(c.f38528b), new BigInteger(c.f38529c)).toByteArray();
+        f38530a = byteArray;
         return byteArray;
     }
 }

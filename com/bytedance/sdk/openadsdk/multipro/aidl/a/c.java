@@ -4,29 +4,29 @@ import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import com.bytedance.sdk.openadsdk.ICommonDialogListener;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f30411a = new HashMap<>();
+    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f29656a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f30412b;
+    public static volatile c f29657b;
 
     public static c a() {
-        if (f30412b == null) {
+        if (f29657b == null) {
             synchronized (c.class) {
-                if (f30412b == null) {
-                    f30412b = new c();
+                if (f29657b == null) {
+                    f29657b = new c();
                 }
             }
         }
-        return f30412b;
+        return f29657b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
     public void broadcastDialogListener(String str, int i2) throws RemoteException {
-        RemoteCallbackList<ICommonDialogListener> remove = f30411a.remove(str);
+        RemoteCallbackList<ICommonDialogListener> remove = f29656a.remove(str);
         if (remove == null) {
             return;
         }
@@ -56,6 +56,6 @@ public class c extends a {
         }
         RemoteCallbackList<ICommonDialogListener> remoteCallbackList = new RemoteCallbackList<>();
         remoteCallbackList.register(iCommonDialogListener);
-        f30411a.put(str, remoteCallbackList);
+        f29656a.put(str, remoteCallbackList);
     }
 }

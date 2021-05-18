@@ -24,19 +24,19 @@ import java.util.Enumeration;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40969a = "";
+    public static String f40214a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40970b = "";
+    public static String f40215b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40971c = "";
+    public static String f40216c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f40972d = "";
+    public static String f40217d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f40973e = "";
+    public static String f40218e = "";
 
     public static String a(Context context) {
         try {
@@ -44,18 +44,18 @@ public final class d {
             c.d(th);
         }
         if (!d.a.g0.b.a.g(context).d()) {
-            return f40972d;
+            return f40217d;
         }
-        if (!TextUtils.isEmpty(f40972d)) {
-            return f40972d;
+        if (!TextUtils.isEmpty(f40217d)) {
+            return f40217d;
         }
         if (c.o(context)) {
             String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
-            f40972d = string;
+            f40217d = string;
             if (TextUtils.isEmpty(string)) {
-                f40972d = "";
+                f40217d = "";
             }
-            return f40972d;
+            return f40217d;
         }
         return "";
     }
@@ -151,11 +151,11 @@ public final class d {
         } catch (Throwable th) {
             c.d(th);
         }
-        if (!TextUtils.isEmpty(f40969a)) {
-            return f40969a;
+        if (!TextUtils.isEmpty(f40214a)) {
+            return f40214a;
         }
-        f40969a = d.a.g0.b.a.g(context).H();
-        return f40969a;
+        f40214a = d.a.g0.b.a.g(context).H();
+        return f40214a;
     }
 
     public static String f() {
@@ -195,21 +195,21 @@ public final class d {
     public static synchronized String g(Context context) {
         synchronized (d.class) {
             if (d.a.g0.b.a.g(context).d()) {
-                if (!TextUtils.isEmpty(f40970b)) {
-                    return f40970b;
+                if (!TextUtils.isEmpty(f40215b)) {
+                    return f40215b;
                 } else if (c.o(context)) {
                     if (context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) == -1) {
-                        return f40970b;
+                        return f40215b;
                     }
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     if (telephonyManager != null) {
                         String deviceId = telephonyManager.getDeviceId();
-                        f40970b = deviceId;
+                        f40215b = deviceId;
                         if (TextUtils.isEmpty(deviceId)) {
-                            f40970b = "";
+                            f40215b = "";
                         }
                     }
-                    return f40970b;
+                    return f40215b;
                 } else {
                     return "";
                 }
@@ -286,21 +286,21 @@ public final class d {
             c.d(th);
         }
         if (d.a.g0.b.a.g(context).d()) {
-            if (!TextUtils.isEmpty(f40973e)) {
-                return f40973e;
+            if (!TextUtils.isEmpty(f40218e)) {
+                return f40218e;
             }
             if (context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) != -1 && c.o(context)) {
                 if (Build.VERSION.SDK_INT > 25) {
                     if (n(context) > 1) {
-                        f40973e = m(context)[0];
+                        f40218e = m(context)[0];
                     } else {
-                        f40973e = o(context);
+                        f40218e = o(context);
                     }
                 }
-                if (f40973e == null) {
+                if (f40218e == null) {
                     return "";
                 }
-                return f40973e;
+                return f40218e;
             }
             return "";
         }
@@ -314,33 +314,33 @@ public final class d {
             c.d(th);
         }
         if (d.a.g0.b.a.g(context).d()) {
-            if (!TextUtils.isEmpty(f40971c)) {
-                return f40971c;
+            if (!TextUtils.isEmpty(f40216c)) {
+                return f40216c;
             }
             if (context.checkPermission("android.permission.ACCESS_WIFI_STATE", Process.myPid(), Process.myUid()) == -1) {
-                return f40971c;
+                return f40216c;
             }
             if (c.o(context)) {
                 WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
                 if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
-                    f40971c = connectionInfo.getMacAddress();
+                    f40216c = connectionInfo.getMacAddress();
                 }
-                if (!TextUtils.isEmpty(f40971c) && !f40971c.equals(Config.DEF_MAC_ID)) {
-                    return f40971c;
+                if (!TextUtils.isEmpty(f40216c) && !f40216c.equals(Config.DEF_MAC_ID)) {
+                    return f40216c;
                 }
                 if (k()) {
-                    f40971c = d();
+                    f40216c = d();
                 }
-                if (TextUtils.isEmpty(f40971c)) {
-                    f40971c = h();
+                if (TextUtils.isEmpty(f40216c)) {
+                    f40216c = h();
                 }
-                if (TextUtils.isEmpty(f40971c)) {
-                    f40971c = f().toUpperCase().substring(0, 17);
+                if (TextUtils.isEmpty(f40216c)) {
+                    f40216c = f().toUpperCase().substring(0, 17);
                 }
-                if (TextUtils.isEmpty(f40971c)) {
-                    f40971c = d();
+                if (TextUtils.isEmpty(f40216c)) {
+                    f40216c = d();
                 }
-                return f40971c;
+                return f40216c;
             }
             return "";
         }

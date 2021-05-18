@@ -9,7 +9,7 @@ import com.baidu.cyberplayer.sdk.Keep;
 public class CyberRTCVideoView {
 
     /* renamed from: a  reason: collision with root package name */
-    public RTCVideoViewProvider f5214a;
+    public RTCVideoViewProvider f5068a;
 
     public CyberRTCVideoView(Context context) {
         this(context, null);
@@ -20,11 +20,11 @@ public class CyberRTCVideoView {
     }
 
     public CyberRTCVideoView(Context context, AttributeSet attributeSet, boolean z) {
-        this.f5214a = a.a().a(context, attributeSet, z);
+        this.f5068a = a.a().a(context, attributeSet, z);
     }
 
     public SurfaceView getRTCVideoView() {
-        RTCVideoViewProvider rTCVideoViewProvider = this.f5214a;
+        RTCVideoViewProvider rTCVideoViewProvider = this.f5068a;
         if (rTCVideoViewProvider != null) {
             return rTCVideoViewProvider.getRTCVideoView();
         }

@@ -4,7 +4,7 @@ import android.content.res.AssetManager;
 import androidx.annotation.NonNull;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class StreamAssetPathFetcher extends AssetPathFetcher<InputStream> {
     public StreamAssetPathFetcher(AssetManager assetManager, String str) {
         super(assetManager, str);

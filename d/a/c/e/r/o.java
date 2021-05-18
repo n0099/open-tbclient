@@ -3,9 +3,9 @@ package d.a.c.e.r;
 public class o extends r {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40087a;
+    public String f39332a;
 
     public o(int i2, String str) {
-        this.f40087a = str;
+        this.f39332a = str;
     }
 }

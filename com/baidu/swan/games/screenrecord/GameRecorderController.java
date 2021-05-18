@@ -4,28 +4,28 @@ import com.baidu.mario.audio.AudioParams;
 import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.nalib.audio.SwanAudioPlayer;
-import d.a.h0.a.z0.f;
+import d.a.i0.a.g1.f;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class GameRecorderController {
 
     /* renamed from: a  reason: collision with root package name */
-    public AREngineDelegate f12431a;
+    public AREngineDelegate f11773a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.u.c.c f12432b;
+    public d.a.u.c.c f11774b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RecorderState f12433c;
+    public RecorderState f11775c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.u.a.a.a f12434d;
+    public d.a.u.a.a.a f11776d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f12435e;
+    public long f11777e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.h0.j.a.b f12436f = new a();
+    public d.a.i0.l.a.b f11778f = new a();
 
     /* loaded from: classes3.dex */
     public enum RecorderState {
@@ -36,14 +36,14 @@ public class GameRecorderController {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements d.a.h0.j.a.b {
+    public class a implements d.a.i0.l.a.b {
         public a() {
         }
 
-        @Override // d.a.h0.j.a.b
-        public void a(d.a.h0.j.a.a aVar) {
-            if (GameRecorderController.this.f12434d != null) {
-                GameRecorderController.this.f12434d.a(ByteBuffer.wrap(aVar.f47103a), (int) aVar.f47104b, aVar.f47105c - GameRecorderController.this.f12435e);
+        @Override // d.a.i0.l.a.b
+        public void a(d.a.i0.l.a.a aVar) {
+            if (GameRecorderController.this.f11776d != null) {
+                GameRecorderController.this.f11776d.a(ByteBuffer.wrap(aVar.f47790a), (int) aVar.f47791b, aVar.f47792c - GameRecorderController.this.f11777e);
             }
         }
     }
@@ -55,7 +55,7 @@ public class GameRecorderController {
 
         @Override // java.lang.Runnable
         public void run() {
-            SwanAudioPlayer.getInstance().setOnAudioRecordListener(GameRecorderController.this.f12436f);
+            SwanAudioPlayer.getInstance().setOnAudioRecordListener(GameRecorderController.this.f11778f);
         }
     }
 
@@ -66,8 +66,8 @@ public class GameRecorderController {
 
         @Override // d.a.u.c.a
         public void a(d.a.u.a.a.a aVar) {
-            GameRecorderController.this.f12434d = aVar;
-            GameRecorderController.this.f12435e = System.nanoTime();
+            GameRecorderController.this.f11776d = aVar;
+            GameRecorderController.this.f11777e = System.nanoTime();
             GameRecorderController.this.m();
         }
     }
@@ -76,15 +76,15 @@ public class GameRecorderController {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f12440e;
+        public final /* synthetic */ boolean f11782e;
 
         public d(GameRecorderController gameRecorderController, boolean z) {
-            this.f12440e = z;
+            this.f11782e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            SwanAudioPlayer.getInstance().setAudioRecord(this.f12440e);
+            SwanAudioPlayer.getInstance().setAudioRecord(this.f11782e);
         }
     }
 
@@ -95,42 +95,42 @@ public class GameRecorderController {
 
         @Override // d.a.u.c.c
         public void onError(int i2) {
-            GameRecorderController.this.f12433c = RecorderState.IDLE;
-            if (GameRecorderController.this.f12432b != null) {
-                GameRecorderController.this.f12432b.onError(i2);
+            GameRecorderController.this.f11775c = RecorderState.IDLE;
+            if (GameRecorderController.this.f11774b != null) {
+                GameRecorderController.this.f11774b.onError(i2);
             }
         }
 
         @Override // d.a.u.c.c
         public void onPause() {
-            GameRecorderController.this.f12433c = RecorderState.PAUSE;
-            if (GameRecorderController.this.f12432b != null) {
-                GameRecorderController.this.f12432b.onPause();
+            GameRecorderController.this.f11775c = RecorderState.PAUSE;
+            if (GameRecorderController.this.f11774b != null) {
+                GameRecorderController.this.f11774b.onPause();
             }
         }
 
         @Override // d.a.u.c.c
         public void onResume() {
-            GameRecorderController.this.f12433c = RecorderState.RECORDING;
-            if (GameRecorderController.this.f12432b != null) {
-                GameRecorderController.this.f12432b.onResume();
+            GameRecorderController.this.f11775c = RecorderState.RECORDING;
+            if (GameRecorderController.this.f11774b != null) {
+                GameRecorderController.this.f11774b.onResume();
             }
         }
 
         @Override // d.a.u.c.c
         public void onStart() {
-            GameRecorderController.this.f12433c = RecorderState.RECORDING;
-            if (GameRecorderController.this.f12432b != null) {
-                GameRecorderController.this.f12432b.onStart();
+            GameRecorderController.this.f11775c = RecorderState.RECORDING;
+            if (GameRecorderController.this.f11774b != null) {
+                GameRecorderController.this.f11774b.onStart();
             }
         }
 
         @Override // d.a.u.c.c
-        public void z(int i2, String str) {
-            GameRecorderController.this.f12433c = RecorderState.STOP;
+        public void y(int i2, String str) {
+            GameRecorderController.this.f11775c = RecorderState.STOP;
             GameRecorderController.this.n();
-            if (GameRecorderController.this.f12432b != null) {
-                GameRecorderController.this.f12432b.z(i2, str);
+            if (GameRecorderController.this.f11774b != null) {
+                GameRecorderController.this.f11774b.y(i2, str);
             }
         }
 
@@ -140,12 +140,12 @@ public class GameRecorderController {
     }
 
     public GameRecorderController(AREngineDelegate aREngineDelegate) {
-        this.f12431a = aREngineDelegate;
+        this.f11773a = aREngineDelegate;
         if (aREngineDelegate != null) {
-            this.f12433c = RecorderState.IDLE;
+            this.f11775c = RecorderState.IDLE;
             aREngineDelegate.setGameRecordCallback(new e(this, null));
         }
-        d.a.h0.g.c.j.b.h().e().post(new b());
+        d.a.i0.h.c.j.b.h().e().post(new b());
     }
 
     public static GameRecorderController j() {
@@ -153,7 +153,7 @@ public class GameRecorderController {
     }
 
     public long k() {
-        AREngineDelegate aREngineDelegate = this.f12431a;
+        AREngineDelegate aREngineDelegate = this.f11773a;
         if (aREngineDelegate != null) {
             return aREngineDelegate.getCurrentRecordProcess();
         }
@@ -161,24 +161,24 @@ public class GameRecorderController {
     }
 
     public RecorderState l() {
-        return this.f12433c;
+        return this.f11775c;
     }
 
     public final void m() {
-        if (this.f12434d != null) {
+        if (this.f11776d != null) {
             int i2 = SwanAudioPlayer.mSampleRate;
             int i3 = SwanAudioPlayer.mSampleBufSize;
             AudioParams audioParams = new AudioParams();
             audioParams.setSampleRate(i2 * 2);
             audioParams.setAudioBufferSize(i3 * 2);
             audioParams.setChannelConfig(1);
-            this.f12434d.b(true, audioParams);
+            this.f11776d.b(true, audioParams);
         }
         r(true);
     }
 
     public final void n() {
-        d.a.u.a.a.a aVar = this.f12434d;
+        d.a.u.a.a.a aVar = this.f11776d;
         if (aVar != null) {
             aVar.c(true);
         }
@@ -186,7 +186,7 @@ public class GameRecorderController {
     }
 
     public void o() {
-        AREngineDelegate aREngineDelegate = this.f12431a;
+        AREngineDelegate aREngineDelegate = this.f11773a;
         if (aREngineDelegate != null) {
             aREngineDelegate.pauseRecord();
         }
@@ -194,15 +194,15 @@ public class GameRecorderController {
     }
 
     public void p() {
-        if (this.f12431a != null && this.f12432b != null && (l() == RecorderState.RECORDING || l() == RecorderState.PAUSE)) {
-            this.f12432b.onError(-1);
+        if (this.f11773a != null && this.f11774b != null && (l() == RecorderState.RECORDING || l() == RecorderState.PAUSE)) {
+            this.f11774b.onError(-1);
         }
         s(null);
-        this.f12433c = RecorderState.IDLE;
+        this.f11775c = RecorderState.IDLE;
     }
 
     public void q() {
-        AREngineDelegate aREngineDelegate = this.f12431a;
+        AREngineDelegate aREngineDelegate = this.f11773a;
         if (aREngineDelegate != null) {
             aREngineDelegate.resumeRecord();
         }
@@ -210,24 +210,24 @@ public class GameRecorderController {
     }
 
     public final void r(boolean z) {
-        d.a.h0.g.c.j.b.h().e().post(new d(this, z));
+        d.a.i0.h.c.j.b.h().e().post(new d(this, z));
     }
 
     public void s(d.a.u.c.c cVar) {
-        this.f12432b = cVar;
+        this.f11774b = cVar;
     }
 
     public void t(int i2, String str) {
-        if (this.f12431a != null) {
+        if (this.f11773a != null) {
             SwanAppActivity activity = f.V().getActivity();
             boolean z = activity != null && activity.isLandScape();
-            this.f12431a.setAudioEngineProxy(new c());
-            this.f12431a.startRecord(true, i2, str, z);
+            this.f11773a.setAudioEngineProxy(new c());
+            this.f11773a.startRecord(true, i2, str, z);
         }
     }
 
     public void u() {
-        AREngineDelegate aREngineDelegate = this.f12431a;
+        AREngineDelegate aREngineDelegate = this.f11773a;
         if (aREngineDelegate != null) {
             aREngineDelegate.stopRecord();
         }

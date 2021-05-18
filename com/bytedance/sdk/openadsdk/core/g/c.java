@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.core.g;
 import com.bytedance.sdk.openadsdk.utils.l;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends com.bytedance.sdk.openadsdk.b.c {
     public c(int i2, int i3) {
         super(i2, i3);

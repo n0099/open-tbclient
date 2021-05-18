@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import d.b.d.b.l;
 import d.b.d.b.m;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends a {
     public b(Handler handler, long j, long j2) {
         super(handler, j, j2);

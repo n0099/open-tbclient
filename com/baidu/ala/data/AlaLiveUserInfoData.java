@@ -5,7 +5,7 @@ import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import d.a.i0.r.q.o;
+import d.a.j0.r.q.o;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +62,7 @@ public class AlaLiveUserInfoData extends o implements Serializable {
     public int verifyType;
     public int verifyVideoStatus;
 
-    @Override // d.a.i0.r.q.o
+    @Override // d.a.j0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;

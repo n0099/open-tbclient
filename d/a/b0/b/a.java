@@ -10,6 +10,7 @@ import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.prologue.business.data.ParseError;
 import com.baidu.prologue.service.network.Als;
 import com.baidu.prologue.service.network.Request;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.qq.e.comm.constants.Constants;
 import d.a.b0.a.c.g;
@@ -26,33 +27,33 @@ public class a {
 
     /* renamed from: d.a.b0.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0504a implements l {
+    public static class C0491a implements l {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.b0.a.b.a f39305a;
+        public final /* synthetic */ d.a.b0.a.b.a f38550a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f39306b;
+        public final /* synthetic */ long f38551b;
 
-        public C0504a(d.a.b0.a.b.a aVar, long j) {
-            this.f39305a = aVar;
-            this.f39306b = j;
+        public C0491a(d.a.b0.a.b.a aVar, long j) {
+            this.f38550a = aVar;
+            this.f38551b = j;
         }
 
         @Override // d.a.b0.d.a.i
         public void a(Throwable th) {
-            g gVar = g.f39302a;
+            g gVar = g.f38547a;
             gVar.e("Afd", "update接口 " + th.getMessage());
-            a.f(this.f39305a, this.f39306b, th.getMessage(), IMTrack.DbBuilder.ACTION_UPDATE);
+            a.f(this.f38550a, this.f38551b, th.getMessage(), IMTrack.DbBuilder.ACTION_UPDATE);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.b0.d.a.i
         /* renamed from: c */
         public void b(String str) {
-            a.f(this.f39305a, this.f39306b, BasicPushStatus.SUCCESS_CODE, IMTrack.DbBuilder.ACTION_UPDATE);
+            a.f(this.f38550a, this.f38551b, BasicPushStatus.SUCCESS_CODE, IMTrack.DbBuilder.ACTION_UPDATE);
             try {
-                d.a.b0.b.f.a.b(str, this.f39305a.l());
+                d.a.b0.b.f.a.b(str, this.f38550a.l());
             } catch (ParseError e2) {
                 e2.printStackTrace();
             }
@@ -63,43 +64,43 @@ public class a {
     public static class b implements l {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.b0.a.b.a f39307a;
+        public final /* synthetic */ d.a.b0.a.b.a f38552a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f39308b;
+        public final /* synthetic */ long f38553b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f39309c;
+        public final /* synthetic */ c f38554c;
 
         public b(d.a.b0.a.b.a aVar, long j, c cVar) {
-            this.f39307a = aVar;
-            this.f39308b = j;
-            this.f39309c = cVar;
+            this.f38552a = aVar;
+            this.f38553b = j;
+            this.f38554c = cVar;
         }
 
         @Override // d.a.b0.d.a.i
         public void a(Throwable th) {
-            g gVar = g.f39302a;
+            g gVar = g.f38547a;
             gVar.e("Afd", "query接口 " + th.getMessage());
-            this.f39309c.a(th);
-            a.f(this.f39307a, this.f39308b, th.getMessage(), "query");
+            this.f38554c.a(th);
+            a.f(this.f38552a, this.f38553b, th.getMessage(), "query");
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.b0.d.a.i
         /* renamed from: c */
         public void b(String str) {
-            a.f(this.f39307a, this.f39308b, BasicPushStatus.SUCCESS_CODE, "query");
+            a.f(this.f38552a, this.f38553b, BasicPushStatus.SUCCESS_CODE, "query");
             try {
-                List<d.a.b0.b.f.g> b2 = d.a.b0.b.f.a.b(str, this.f39307a.l());
+                List<d.a.b0.b.f.g> b2 = d.a.b0.b.f.a.b(str, this.f38552a.l());
                 if (b2 != null && b2.size() > 0 && b2.get(0) != null) {
-                    this.f39309c.b(b2.get(0));
+                    this.f38554c.b(b2.get(0));
                 } else {
-                    this.f39309c.a(new Throwable("no ad"));
+                    this.f38554c.a(new Throwable("no ad"));
                 }
             } catch (ParseError e2) {
                 e2.printStackTrace();
-                this.f39309c.a(e2);
+                this.f38554c.a(e2);
             }
         }
     }
@@ -110,8 +111,8 @@ public class a {
         cVar.j("uid", aVar.w());
         cVar.j("bdid", aVar.k());
         cVar.j("cuid", aVar.f());
-        cVar.j("mod", aVar.q());
-        cVar.j("ov", aVar.g());
+        cVar.j(SearchJsBridge.COOKIE_MOD, aVar.q());
+        cVar.j(SearchJsBridge.COOKIE_OV, aVar.g());
         cVar.j("imei", aVar.C());
         cVar.j("ua", aVar.n());
         cVar.j("fmt", "json");
@@ -149,15 +150,15 @@ public class a {
             if (n != null && n.size() > 0) {
                 for (d.a.b0.b.f.g gVar : n) {
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put(Config.APP_KEY, gVar.f39346c);
-                    if (!TextUtils.isEmpty(gVar.f39346c)) {
+                    jSONObject3.put(Config.APP_KEY, gVar.f38591c);
+                    if (!TextUtils.isEmpty(gVar.f38591c)) {
                         int e2 = d.a.b0.b.f.f.e(gVar);
                         Log.e("Afd", "onAdSuccess: " + e2);
                         if (e2 == 0) {
-                            arrayList.add(gVar.f39346c);
+                            arrayList.add(gVar.f38591c);
                         }
                     }
-                    jSONObject3.put(r.f7975a, String.valueOf(gVar.w));
+                    jSONObject3.put(r.f7772a, String.valueOf(gVar.w));
                     jSONArray2.put(jSONObject3);
                 }
             }
@@ -212,6 +213,6 @@ public class a {
         long currentTimeMillis = System.currentTimeMillis();
         Request.c d2 = d(aVar, IMTrack.DbBuilder.ACTION_UPDATE, aVar.l(), currentTimeMillis);
         d2.m();
-        d2.l().e(new C0504a(aVar, currentTimeMillis));
+        d2.l().e(new C0491a(aVar, currentTimeMillis));
     }
 }

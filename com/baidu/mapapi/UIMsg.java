@@ -120,6 +120,7 @@ public class UIMsg {
 
     /* loaded from: classes2.dex */
     public static class WalkNaviMsg {
+        public static final int MSG_APP_PB_DATA_OK = 2008;
         public static final int NL_UI_MESSAGE_TYPE_COMPASS_GUIDEINFO_UPDATE = 4106;
         public static final int NL_UI_MESSAGE_TYPE_GPS_STATE_CHANGE = 4103;
         public static final int NL_UI_MESSAGE_TYPE_INVALID = 4096;
@@ -394,6 +395,7 @@ public class UIMsg {
         public static final int V_WM_STATUS_CHANGE = 41;
         public static final int V_WM_STREET_JUMP = 49;
         public static final int V_WM_TRACKBALLMOVE = 38;
+        public static final int V_WM_VDATAENGINE = 65289;
 
         public k_event() {
         }
@@ -464,6 +466,7 @@ public class UIMsg {
         public static final int MSG_SET_SENSOR_STATUS = 519;
         public static final int MSG_SUG_TEXTCHAGNE = 8018;
         public static final int V_WM_ADDLISTUPDATE = -255;
+        public static final int V_WM_BMBAR = 65301;
         public static final int V_WM_DESTROY = 6;
         public static final int V_WM_FLSPUDATE = 65287;
         public static final int V_WM_GETBKGDATA = 65296;

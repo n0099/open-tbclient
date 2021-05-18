@@ -28,14 +28,14 @@ public class BdNetTask implements INoProGuard {
     public volatile boolean mIsStop;
     public BdNet.HttpMethod mMethod = BdNet.HttpMethod.METHOD_GET;
     public BdNet mNet;
-    public f mNetWorker;
+    public com.baidu.webkit.net.b mNetWorker;
     public int mReadTimeOut;
     public String mRedirectUrl;
     public String mRefer;
     public Map<String, String> mResHeaders;
     public SSLContext mSSLContext;
     public Object mSetting;
-    public int mTaskPriority$77d0b2dd;
+    public b mTaskPriority;
     public String mUrl;
     public static final Map<String, String> NULL_ARRAY = Collections.emptyMap();
     public static Vector<BdNetTask> sTaskPool = new Vector<>();
@@ -73,25 +73,12 @@ public class BdNetTask implements INoProGuard {
         }
     }
 
-    /* JADX WARN: $VALUES field not found */
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
-    public static final class b {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final int f27542a = 1;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final int f27543b = 2;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final int f27544c = 3;
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final int f27545d = 4;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ int[] f27546e = {1, 2, 3, 4};
+    public enum b {
+        PRIORITY_HIGHER,
+        PRIORITY_NORMAL,
+        PRIORITY_LOWER,
+        PRIORITY_IDLE
     }
 
     public BdNetTask() {
@@ -103,7 +90,7 @@ public class BdNetTask implements INoProGuard {
         this.mConnectionTimeOut = 0;
         this.mFollowRedirects = true;
         this.isUseCorenet = true;
-        this.mTaskPriority$77d0b2dd = b.f27543b;
+        this.mTaskPriority = b.PRIORITY_NORMAL;
     }
 
     private void clearForRecycle() {
@@ -258,15 +245,15 @@ public class BdNetTask implements INoProGuard {
         return this.mSetting;
     }
 
-    public int getTaskPriority$78f3a484() {
-        return this.mTaskPriority$77d0b2dd;
+    public b getTaskPriority() {
+        return this.mTaskPriority;
     }
 
     public String getUrl() {
         return this.mUrl;
     }
 
-    public f getWorker() {
+    public com.baidu.webkit.net.b getWorker() {
         return this.mNetWorker;
     }
 
@@ -275,7 +262,7 @@ public class BdNetTask implements INoProGuard {
     }
 
     public boolean isHigherPriority() {
-        return this.mTaskPriority$77d0b2dd == b.f27542a;
+        return this.mTaskPriority == b.PRIORITY_HIGHER;
     }
 
     public boolean isRedirect() {
@@ -359,16 +346,16 @@ public class BdNetTask implements INoProGuard {
         this.mSetting = obj;
     }
 
-    public void setTaskPriority$31e7403e(int i2) {
-        this.mTaskPriority$77d0b2dd = i2;
+    public void setTaskPriority(b bVar) {
+        this.mTaskPriority = bVar;
     }
 
     public void setUrl(String str) {
         this.mUrl = str;
     }
 
-    public void setWorker(f fVar) {
-        this.mNetWorker = fVar;
+    public void setWorker(com.baidu.webkit.net.b bVar) {
+        this.mNetWorker = bVar;
     }
 
     public synchronized void start() {

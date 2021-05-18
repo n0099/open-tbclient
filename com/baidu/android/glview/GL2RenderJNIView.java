@@ -7,6 +7,7 @@ import android.opengl.GLSurfaceView;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.Surface;
+import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
@@ -35,7 +36,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
     /* loaded from: classes.dex */
     public static class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
         public static int EGL_OPENGL_ES2_BIT = 4;
-        public static int[] s_configAttribs2 = {12324, 4, 12323, 4, 12322, 4, 12352, 4, 12344};
+        public static int[] s_configAttribs2 = {ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 4, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 4, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 4, 12352, 4, ZeusMonitorType.MONITOR_TYPE_AD_FILTER};
         public int mAlphaSize;
         public int mBlueSize;
         public int mDepthSize;
@@ -58,7 +59,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
 
         private void printConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
-            int[] iArr = {12320, 12321, 12322, 12323, 12324, 12325, 12326, 12327, 12328, 12329, 12330, 12331, 12332, 12333, 12334, 12335, 12336, 12337, 12338, 12339, 12340, 12343, 12342, 12341, 12345, 12346, 12347, 12348, 12349, 12350, 12351, 12352, 12354};
+            int[] iArr = {ZeusMonitorType.MONITOR_TYPE_ADD_JAVA_SCRIPT, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, ZeusMonitorType.MONITOR_TYPE_KEY_RESOURCE, ZeusMonitorType.MONITOR_TYPE_FEEDBACK, ZeusMonitorType.MONITOR_TYPE_NETINJECT_DETECT_COUNT, ZeusMonitorType.MONITOR_TYPE_WORMHOLE_ERROR, ZeusMonitorType.MONITOR_TYPE_RESOURCE_PREFETCH, ZeusMonitorType.MONITOR_TYPE_MAIN_RESOURCE_PREFETCH, ZeusMonitorType.MONITOR_TYPE_MAIN_RESOURCE_LOAD, ZeusMonitorType.MONITOR_TYPE_WHITE_SCREEN_PIXEL, ZeusMonitorType.MONITOR_TYPE_SEARCH_FPS, ZeusMonitorType.MONITOR_TYPE_INTEGRATION_TASK, ZeusMonitorType.MONITOR_TYPE_SKELETON, ZeusMonitorType.MONITOR_TYPE_MIP_PERFORMANCE_TIMING, ZeusMonitorType.MONITOR_TYPE_MULTI_PERFORMANCE_TIMING, ZeusMonitorType.MONITOR_TYPE_WEB_TRANSITION, ZeusMonitorType.MONITOR_TYPE_SAMEDOM_WHITE_SCREEN, ZeusMonitorType.MONITOR_TYPE_MIPCDN_RETRY, ZeusMonitorType.MONITOR_TYPE_RESOURCE_PERFORMANCE_TIMING, ZeusMonitorType.MONITOR_TYPE_FRAME_TRACE, ZeusMonitorType.MONITOR_TYPE_DITINGNODE_EFFECTIVE, ZeusMonitorType.MONITOR_TYPE_DITINGMAX_EFFECTIVE, ZeusMonitorType.MONITOR_TYPE_LANDING_PAGE_QUALITY, ZeusMonitorType.MONITOR_TYPE_MAIN_WEBCACHE_MISSED, ZeusMonitorType.MONITOR_TYPE_DITING30_EFFECTIVE, 12351, 12352, 12354};
             String[] strArr = {"EGL_BUFFER_SIZE", "EGL_ALPHA_SIZE", "EGL_BLUE_SIZE", "EGL_GREEN_SIZE", "EGL_RED_SIZE", "EGL_DEPTH_SIZE", "EGL_STENCIL_SIZE", "EGL_CONFIG_CAVEAT", "EGL_CONFIG_ID", "EGL_LEVEL", "EGL_MAX_PBUFFER_HEIGHT", "EGL_MAX_PBUFFER_PIXELS", "EGL_MAX_PBUFFER_WIDTH", "EGL_NATIVE_RENDERABLE", "EGL_NATIVE_VISUAL_ID", "EGL_NATIVE_VISUAL_TYPE", "EGL_PRESERVED_RESOURCES", "EGL_SAMPLES", "EGL_SAMPLE_BUFFERS", "EGL_SURFACE_TYPE", "EGL_TRANSPARENT_TYPE", "EGL_TRANSPARENT_RED_VALUE", "EGL_TRANSPARENT_GREEN_VALUE", "EGL_TRANSPARENT_BLUE_VALUE", "EGL_BIND_TO_TEXTURE_RGB", "EGL_BIND_TO_TEXTURE_RGBA", "EGL_MIN_SWAP_INTERVAL", "EGL_MAX_SWAP_INTERVAL", "EGL_LUMINANCE_SIZE", "EGL_ALPHA_MASK_SIZE", "EGL_COLOR_BUFFER_TYPE", "EGL_RENDERABLE_TYPE", "EGL_CONFORMANT"};
             int[] iArr2 = new int[1];
             for (int i2 = 0; i2 < 33; i2++) {
@@ -97,13 +98,13 @@ public class GL2RenderJNIView extends GLSurfaceView {
 
         public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr) {
             for (EGLConfig eGLConfig : eGLConfigArr) {
-                int findConfigAttrib = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12325, 0);
-                int findConfigAttrib2 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12326, 0);
+                int findConfigAttrib = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, 0);
+                int findConfigAttrib2 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, 0);
                 if (findConfigAttrib >= this.mDepthSize && findConfigAttrib2 >= this.mStencilSize) {
-                    int findConfigAttrib3 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12324, 0);
-                    int findConfigAttrib4 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12323, 0);
-                    int findConfigAttrib5 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12322, 0);
-                    int findConfigAttrib6 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12321, 0);
+                    int findConfigAttrib3 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 0);
+                    int findConfigAttrib4 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 0);
+                    int findConfigAttrib5 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 0);
+                    int findConfigAttrib6 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, 0);
                     if (findConfigAttrib3 == this.mRedSize && findConfigAttrib4 == this.mGreenSize && findConfigAttrib5 == this.mBlueSize && findConfigAttrib6 == this.mAlphaSize) {
                         return eGLConfig;
                     }
@@ -124,7 +125,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
         public EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
             Log.w(GL2RenderJNIView.TAG, "creating OpenGL ES 2.0 context");
             GL2RenderJNIView.checkEglError("Before eglCreateContext", egl10);
-            EGLContext eglCreateContext = egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{EGL_CONTEXT_CLIENT_VERSION, 2, 12344});
+            EGLContext eglCreateContext = egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER});
             GL2RenderJNIView.checkEglError("After eglCreateContext", egl10);
             return eglCreateContext;
         }

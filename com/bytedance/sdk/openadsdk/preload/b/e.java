@@ -1,8 +1,8 @@
 package com.bytedance.sdk.openadsdk.preload.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface e {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements e {
         @Override // com.bytedance.sdk.openadsdk.preload.b.e
         public <T> T a(Class<T> cls) {

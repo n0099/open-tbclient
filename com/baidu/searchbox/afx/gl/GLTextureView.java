@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.TextureView;
 import android.view.View;
+import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.Writer;
 import java.lang.ref.WeakReference;
@@ -104,7 +105,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         public int[] mValue;
 
         public ComponentSizeChooser(int i2, int i3, int i4, int i5, int i6, int i7) {
-            super(new int[]{12324, i2, 12323, i3, 12322, i4, 12321, i5, 12325, i6, 12326, i7, 12344});
+            super(new int[]{ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, i2, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, i3, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, i4, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, i5, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, i6, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, i7, ZeusMonitorType.MONITOR_TYPE_AD_FILTER});
             this.mValue = new int[1];
             this.mRedSize = i2;
             this.mGreenSize = i3;
@@ -121,13 +122,13 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         @Override // com.baidu.searchbox.afx.gl.GLTextureView.BaseConfigChooser
         public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr) {
             for (EGLConfig eGLConfig : eGLConfigArr) {
-                int findConfigAttrib = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12325, 0);
-                int findConfigAttrib2 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12326, 0);
+                int findConfigAttrib = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, 0);
+                int findConfigAttrib2 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, 0);
                 if (findConfigAttrib >= this.mDepthSize && findConfigAttrib2 >= this.mStencilSize) {
-                    int findConfigAttrib3 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12324, 0);
-                    int findConfigAttrib4 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12323, 0);
-                    int findConfigAttrib5 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12322, 0);
-                    int findConfigAttrib6 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12321, 0);
+                    int findConfigAttrib3 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 0);
+                    int findConfigAttrib4 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 0);
+                    int findConfigAttrib5 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 0);
+                    int findConfigAttrib6 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, 0);
                     if (findConfigAttrib3 == this.mRedSize && findConfigAttrib4 == this.mGreenSize && findConfigAttrib5 == this.mBlueSize && findConfigAttrib6 == this.mAlphaSize) {
                         return eGLConfig;
                     }
@@ -147,7 +148,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
         @Override // com.baidu.searchbox.afx.gl.GLTextureView.EGLContextFactory
         public EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
-            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, GLTextureView.this.mEGLContextClientVersion, 12344};
+            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, GLTextureView.this.mEGLContextClientVersion, ZeusMonitorType.MONITOR_TYPE_AD_FILTER};
             EGLContext eGLContext = EGL10.EGL_NO_CONTEXT;
             if (GLTextureView.this.mEGLContextClientVersion == 0) {
                 iArr = null;

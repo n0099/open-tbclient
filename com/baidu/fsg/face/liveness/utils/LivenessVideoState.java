@@ -10,10 +10,10 @@ public class LivenessVideoState {
     public static final int STATE_VIDEO_DONE = 6;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f6186a;
+    public long f6040a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f6187b;
+    public long f6041b;
     public boolean isLrcTipAnimCalling;
     public boolean isWarningTipAnimCalled;
     public long lrcTextStartTime;
@@ -22,15 +22,15 @@ public class LivenessVideoState {
     public int currentCount = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f6188c = false;
+    public boolean f6042c = false;
     public boolean isLrcTipViewHadGone = false;
 
     public String getLrcStartTimeOffset() {
-        return ((this.lrcTextStartTime - this.f6186a) / 1000) + "";
+        return ((this.lrcTextStartTime - this.f6040a) / 1000) + "";
     }
 
     public long getVideoTime() {
-        return (System.currentTimeMillis() - this.f6186a) / 1000;
+        return (System.currentTimeMillis() - this.f6040a) / 1000;
     }
 
     public boolean isFirstRecog() {
@@ -38,12 +38,12 @@ public class LivenessVideoState {
     }
 
     public boolean isFirstRecogTimeout() {
-        return this.currentState < 5 && System.currentTimeMillis() - this.f6186a > 20000;
+        return this.currentState < 5 && System.currentTimeMillis() - this.f6040a > 20000;
     }
 
     public boolean isGotoRecogFace(long[] jArr) {
-        if (this.currentState < 5 && !this.f6188c) {
-            this.f6188c = true;
+        if (this.currentState < 5 && !this.f6042c) {
+            this.f6042c = true;
             return true;
         }
         if (this.currentState == 5 && jArr != null && jArr.length != 0) {
@@ -69,7 +69,7 @@ public class LivenessVideoState {
     }
 
     public boolean isVideoStateLostFaceTimeout() {
-        return this.currentState == 5 && System.currentTimeMillis() - this.f6187b > 5000;
+        return this.currentState == 5 && System.currentTimeMillis() - this.f6041b > 5000;
     }
 
     public boolean isWarnCancleTipAfterOnPause() {
@@ -77,7 +77,7 @@ public class LivenessVideoState {
     }
 
     public void setLastFindFaceStartTime() {
-        this.f6187b = System.currentTimeMillis();
+        this.f6041b = System.currentTimeMillis();
     }
 
     public void setLrcTextStartTime() {
@@ -85,7 +85,7 @@ public class LivenessVideoState {
     }
 
     public void setProcessStartTime() {
-        this.f6186a = System.currentTimeMillis();
+        this.f6040a = System.currentTimeMillis();
         setLastFindFaceStartTime();
     }
 

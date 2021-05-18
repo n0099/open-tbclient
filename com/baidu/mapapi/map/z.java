@@ -1,25 +1,25 @@
 package com.baidu.mapapi.map;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.view.View;
+import com.baidu.mapsdkplatform.comapi.map.ab;
 /* loaded from: classes2.dex */
-public class z extends AnimatorListenerAdapter {
+public class z implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f7398a;
+    public final /* synthetic */ WearMapView f7216a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f7399b;
-
-    public z(WearMapView wearMapView, View view) {
-        this.f7399b = wearMapView;
-        this.f7398a = view;
+    public z(WearMapView wearMapView) {
+        this.f7216a = wearMapView;
     }
 
-    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
-        this.f7398a.setVisibility(4);
-        super.onAnimationEnd(animator);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.mapsdkplatform.comapi.map.j jVar;
+        com.baidu.mapsdkplatform.comapi.map.j jVar2;
+        jVar = this.f7216a.f7160f;
+        ab E = jVar.a().E();
+        E.f7671a += 1.0f;
+        jVar2 = this.f7216a.f7160f;
+        jVar2.a().a(E, 300);
     }
 }

@@ -28,27 +28,27 @@ import org.apache.http.cookie.SM;
 public class g extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f39382a = new ThreadPoolExecutor(0, 5, 60, TimeUnit.SECONDS, new LinkedBlockingQueue());
+    public final ExecutorService f38627a = new ThreadPoolExecutor(0, 5, 60, TimeUnit.SECONDS, new LinkedBlockingQueue());
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Request f39383e;
+        public final /* synthetic */ Request f38628e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k f39384f;
+        public final /* synthetic */ k f38629f;
 
         public a(Request request, k kVar) {
-            this.f39383e = request;
-            this.f39384f = kVar;
+            this.f38628e = request;
+            this.f38629f = kVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             g gVar = g.this;
-            Request request = this.f39383e;
-            gVar.h(0, request, request.f10430a, this.f39384f);
+            Request request = this.f38628e;
+            gVar.h(0, request, request.f9467a, this.f38629f);
         }
     }
 
@@ -57,25 +57,25 @@ public class g extends b {
 
     public static void d(HttpURLConnection httpURLConnection, Request request) throws UnsupportedEncodingException {
         e(httpURLConnection, request);
-        Map<String, String> map = request.f10432c;
+        Map<String, String> map = request.f9469c;
         if (map == null || map.size() == 0) {
             return;
         }
-        for (Map.Entry<String, String> entry : request.f10432c.entrySet()) {
+        for (Map.Entry<String, String> entry : request.f9469c.entrySet()) {
             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
         }
     }
 
     public static void e(HttpURLConnection httpURLConnection, Request request) {
         boolean z;
-        Map<String, String> map = request.f10432c;
+        Map<String, String> map = request.f9469c;
         if (map != null && map.containsKey("Cookie")) {
             return;
         }
         try {
             CookieManager cookieManager = CookieManager.getInstance();
             if (cookieManager != null) {
-                String cookie = cookieManager.getCookie(request.f10430a.toString());
+                String cookie = cookieManager.getCookie(request.f9467a.toString());
                 if (TextUtils.isEmpty(cookie)) {
                     return;
                 }
@@ -132,7 +132,7 @@ public class g extends b {
 
     @Override // d.a.b0.d.a.e
     public void a(Request request, k kVar) {
-        this.f39382a.execute(new a(request, kVar));
+        this.f38627a.execute(new a(request, kVar));
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(6:(3:24|26|27)|31|32|33|26|27) */
@@ -150,8 +150,8 @@ public class g extends b {
             return;
         }
         try {
-            byte[] bytes = request.f() ? g(request.f10433d, "utf-8").toString().getBytes() : null;
-            HttpURLConnection i3 = i(url, 30000, request.f(), request.f10431b, request.j);
+            byte[] bytes = request.f() ? g(request.f9470d, "utf-8").toString().getBytes() : null;
+            HttpURLConnection i3 = i(url, 30000, request.f(), request.f9468b, request.j);
             if (i3 == null) {
                 kVar.a(new Exception("Unable to open connection"));
                 return;
@@ -226,8 +226,8 @@ public class g extends b {
                 }
                 httpURLConnection2.setInstanceFollowRedirects(true);
                 if (z2) {
-                    httpURLConnection2.setConnectTimeout(d.f39378b);
-                    httpURLConnection2.setReadTimeout(d.f39379c);
+                    httpURLConnection2.setConnectTimeout(d.f38623b);
+                    httpURLConnection2.setReadTimeout(d.f38624c);
                 } else {
                     httpURLConnection2.setConnectTimeout(i2);
                     httpURLConnection2.setReadTimeout(60000);
@@ -245,7 +245,7 @@ public class g extends b {
             } catch (Throwable th) {
                 th = th;
                 httpURLConnection = httpURLConnection2;
-                d.a.b0.a.c.g gVar = d.a.b0.a.c.g.f39302a;
+                d.a.b0.a.c.g gVar = d.a.b0.a.c.g.f38547a;
                 gVar.e("OriginHttp", "failed to connect to url " + url, th);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();

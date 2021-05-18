@@ -21,11 +21,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
 import d.a.c.e.p.l;
-import d.a.j0.r1.a.c;
+import d.a.k0.r1.a.c;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
-    public d.a.j0.r1.a.b mBubbleChooseView;
+    public d.a.k0.r1.a.b mBubbleChooseView;
     public BubbleListModel mBubbleModel;
     public final int PAGE_NUM = 0;
     public final int PAGE_LENGTH = 50;
@@ -93,7 +93,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         public void a(SetBubbleResultData setBubbleResultData) {
             BubbleChooseActivity.this.mBubbleChooseView.h();
             int v = BubbleChooseActivity.this.mBubbleModel.v();
-            d.a.j0.r1.a.a d2 = BubbleChooseActivity.this.mBubbleChooseView.d();
+            d.a.k0.r1.a.a d2 = BubbleChooseActivity.this.mBubbleChooseView.d();
             if (v == 0) {
                 d2.d(true);
                 for (BubbleListData.BubbleData bubbleData : d2.b()) {
@@ -142,13 +142,13 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         public c() {
         }
 
-        @Override // d.a.j0.r1.a.c.e
+        @Override // d.a.k0.r1.a.c.e
         public void a(int i2) {
             BubbleChooseActivity.this.useBubble(i2);
             BubbleChooseActivity.this.mBubbleChooseView.k();
         }
 
-        @Override // d.a.j0.r1.a.c.e
+        @Override // d.a.k0.r1.a.c.e
         public void b() {
         }
     }
@@ -158,7 +158,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         public d() {
         }
 
-        @Override // d.a.j0.r1.a.c.e
+        @Override // d.a.k0.r1.a.c.e
         public void a(int i2) {
             TiebaStatic.eventStat(BubbleChooseActivity.this.getPageContext().getPageActivity(), "consume_19", PrefetchEvent.STATE_CLICK);
             BubbleChooseActivity.this.mBubbleModel.D(i2);
@@ -167,7 +167,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
         }
 
-        @Override // d.a.j0.r1.a.c.e
+        @Override // d.a.k0.r1.a.c.e
         public void b() {
         }
     }
@@ -195,7 +195,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     }
 
     private void initView() {
-        d.a.j0.r1.a.b bVar = new d.a.j0.r1.a.b(getPageContext());
+        d.a.k0.r1.a.b bVar = new d.a.k0.r1.a.b(getPageContext());
         this.mBubbleChooseView = bVar;
         bVar.f().setOnItemClickListener(this);
         this.mBubbleChooseView.k();
@@ -237,7 +237,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         if (view == this.mBubbleChooseView.e()) {
             Activity pageActivity = getPageContext().getPageActivity();
             String string = getPageContext().getString(R.string.web_title_bubble_explain);
-            d.a.i0.l.a.o(pageActivity, string, TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion(), true, true, true);
+            d.a.j0.l.a.o(pageActivity, string, TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion(), true, true, true);
         }
     }
 
@@ -268,10 +268,10 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         }
         if (g2.getBcode() != 0 && !g2.canUse()) {
             if (g2.isFree()) {
-                d.a.j0.r1.a.c.a(getPageContext(), g2, this.mFreeBubbleTipDialogCallback);
+                d.a.k0.r1.a.c.a(getPageContext(), g2, this.mFreeBubbleTipDialogCallback);
                 return;
             } else {
-                d.a.j0.r1.a.c.b(getPageContext(), g2, this.mPayBubbleTipDialogCallback);
+                d.a.k0.r1.a.c.b(getPageContext(), g2, this.mPayBubbleTipDialogCallback);
                 return;
             }
         }

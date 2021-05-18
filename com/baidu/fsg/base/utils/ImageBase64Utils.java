@@ -12,37 +12,37 @@ import java.io.IOException;
 public class ImageBase64Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5537a = "ImageBase64Utils";
+    public static final String f5391a = "ImageBase64Utils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f5538b = 70;
+    public static int f5392b = 70;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ImageBase64Utils f5539c;
+    public static ImageBase64Utils f5393c;
 
     /* loaded from: classes2.dex */
     public class ImageBase64AsyncTask extends AsyncTask<String, Integer, String> {
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageBase64Listener f5541b;
+        public ImageBase64Listener f5395b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f5542c;
+        public String f5396c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f5543d;
+        public int f5397d;
 
         public ImageBase64AsyncTask(ImageBase64Listener imageBase64Listener, String str, int i2) {
-            this.f5541b = imageBase64Listener;
-            this.f5542c = str;
-            this.f5543d = i2;
+            this.f5395b = imageBase64Listener;
+            this.f5396c = str;
+            this.f5397d = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public String doInBackground(String... strArr) {
-            return ImageBase64Utils.b(this.f5542c, this.f5543d);
+            return ImageBase64Utils.b(this.f5396c, this.f5397d);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,7 @@ public class ImageBase64Utils {
         /* renamed from: a */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            ImageBase64Listener imageBase64Listener = this.f5541b;
+            ImageBase64Listener imageBase64Listener = this.f5395b;
             if (imageBase64Listener != null) {
                 imageBase64Listener.onBase64Result(str);
             }
@@ -78,7 +78,7 @@ public class ImageBase64Utils {
                 options.inJustDecodeBounds = false;
                 Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                decodeFile.compress(Bitmap.CompressFormat.JPEG, f5538b, byteArrayOutputStream);
+                decodeFile.compress(Bitmap.CompressFormat.JPEG, f5392b, byteArrayOutputStream);
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 LogUtil.d("ImageBase64Utils", "compress size:\t" + byteArray.length + "\tsampleSize" + computeSampleSize + "\twidth" + decodeFile.getWidth());
                 decodeFile.recycle();
@@ -151,10 +151,10 @@ public class ImageBase64Utils {
     }
 
     public static ImageBase64Utils getInstance() {
-        if (f5539c == null) {
-            f5539c = new ImageBase64Utils();
+        if (f5393c == null) {
+            f5393c = new ImageBase64Utils();
         }
-        return f5539c;
+        return f5393c;
     }
 
     public void getImgageBase64(String str, int i2, ImageBase64Listener imageBase64Listener) {

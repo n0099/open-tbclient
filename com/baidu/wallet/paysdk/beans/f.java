@@ -12,11 +12,11 @@ import java.util.List;
 public class f extends BaseBean<CardRedEemMasResp> {
 
     /* renamed from: a  reason: collision with root package name */
-    public SourceFlag f25974a;
+    public SourceFlag f25219a;
 
     public f(Context context) {
         super(context);
-        this.f25974a = SourceFlag.SDK;
+        this.f25219a = SourceFlag.SDK;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -27,7 +27,7 @@ public class f extends BaseBean<CardRedEemMasResp> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("source_flag", this.f25974a.value()));
+        arrayList.add(new RestNameValuePair("source_flag", this.f25219a.value()));
         arrayList.add(new RestNameValuePair("is_from_sdk", "1"));
         return arrayList;
     }

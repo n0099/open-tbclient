@@ -20,53 +20,53 @@ import com.kwad.sdk.utils.an;
 public class b extends AbstractKsFeedAd {
 
     /* renamed from: a  reason: collision with root package name */
-    public KsFeedAd.AdInteractionListener f33997a;
+    public KsFeedAd.AdInteractionListener f33242a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.feed.widget.base.a f33998b;
+    public com.kwad.sdk.feed.widget.base.a f33243b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.feed.widget.base.a f33999c;
+    public com.kwad.sdk.feed.widget.base.a f33244c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f34000d;
+    public boolean f33245d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34001e;
+    public int f33246e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f34002f;
+    public AdTemplate f33247f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdInfo f34003g;
+    public AdInfo f33248g;
 
     /* renamed from: h  reason: collision with root package name */
-    public KsAdVideoPlayConfig f34004h;
+    public KsAdVideoPlayConfig f33249h;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f34009a;
+        public int f33254a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f34010b;
+        public int f33255b;
 
         public a(int i2) {
-            this.f34009a = i2;
+            this.f33254a = i2;
         }
 
         public boolean a() {
-            int i2 = this.f34010b + 1;
-            this.f34010b = i2;
-            return i2 == this.f34009a;
+            int i2 = this.f33255b + 1;
+            this.f33255b = i2;
+            return i2 == this.f33254a;
         }
     }
 
     /* renamed from: com.kwad.sdk.feed.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0391b {
+    public interface InterfaceC0378b {
         void a();
     }
 
@@ -75,21 +75,21 @@ public class b extends AbstractKsFeedAd {
     }
 
     public b(@NonNull AdTemplate adTemplate, int i2, boolean z) {
-        this.f34004h = new KsAdVideoPlayConfig.Builder().videoSoundEnable(false).dataFlowAutoStart(false).build();
-        this.f34002f = adTemplate;
+        this.f33249h = new KsAdVideoPlayConfig.Builder().videoSoundEnable(false).dataFlowAutoStart(false).build();
+        this.f33247f = adTemplate;
         adTemplate.mInitVoiceStatus = 1;
-        this.f34003g = c.g(adTemplate);
-        this.f34000d = z;
-        this.f34001e = i2;
+        this.f33248g = c.g(adTemplate);
+        this.f33245d = z;
+        this.f33246e = i2;
     }
 
     @Nullable
     private com.kwad.sdk.feed.widget.base.a a(Context context) {
-        if (!com.kwad.sdk.core.config.c.c(context).exists() || !a() || !this.f34000d) {
-            return com.kwad.sdk.feed.a.a(context, FeedType.fromInt(this.f34002f.type), com.kwad.sdk.core.response.b.a.H(this.f34003g));
+        if (!com.kwad.sdk.core.config.c.c(context).exists() || !a() || !this.f33245d) {
+            return com.kwad.sdk.feed.a.a(context, FeedType.fromInt(this.f33247f.type), com.kwad.sdk.core.response.b.a.H(this.f33248g));
         }
         l lVar = new l(context);
-        lVar.setVideoPlayConfig(this.f34004h);
+        lVar.setVideoPlayConfig(this.f33249h);
         return lVar;
     }
 
@@ -98,25 +98,25 @@ public class b extends AbstractKsFeedAd {
         if (aVar == null) {
             return;
         }
-        aVar.setAdClickListener(new a.InterfaceC0392a() { // from class: com.kwad.sdk.feed.b.2
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0392a
+        aVar.setAdClickListener(new a.InterfaceC0379a() { // from class: com.kwad.sdk.feed.b.2
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0379a
             public void a() {
-                if (b.this.f33997a != null) {
-                    b.this.f33997a.onAdClicked();
+                if (b.this.f33242a != null) {
+                    b.this.f33242a.onAdClicked();
                 }
             }
 
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0392a
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0379a
             public void b() {
-                if (b.this.f33997a != null) {
-                    b.this.f33997a.onAdShow();
+                if (b.this.f33242a != null) {
+                    b.this.f33242a.onAdShow();
                 }
             }
 
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0392a
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC0379a
             public void c() {
-                if (b.this.f33997a != null) {
-                    b.this.f33997a.onDislikeClicked();
+                if (b.this.f33242a != null) {
+                    b.this.f33242a.onDislikeClicked();
                     try {
                         if (aVar.getParent() instanceof ViewGroup) {
                             ((ViewGroup) aVar.getParent()).removeView(aVar);
@@ -130,7 +130,7 @@ public class b extends AbstractKsFeedAd {
     }
 
     private boolean a() {
-        return !TextUtils.isEmpty(this.f34003g.adStyleInfo.feedAdInfo.templateConfig);
+        return !TextUtils.isEmpty(this.f33248g.adStyleInfo.feedAdInfo.templateConfig);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x004d, code lost:
@@ -145,82 +145,82 @@ public class b extends AbstractKsFeedAd {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public com.kwad.sdk.feed.widget.base.a a(final InterfaceC0391b interfaceC0391b) {
+    public com.kwad.sdk.feed.widget.base.a a(final InterfaceC0378b interfaceC0378b) {
         Context context = KsAdSDK.getContext();
         if (context == null) {
-            interfaceC0391b.a();
+            interfaceC0378b.a();
         }
-        this.f33999c = a(context);
-        this.f33999c.setMargin(an.a(context, 16.0f));
-        com.kwad.sdk.feed.widget.base.a aVar = this.f33999c;
+        this.f33244c = a(context);
+        this.f33244c.setMargin(an.a(context, 16.0f));
+        com.kwad.sdk.feed.widget.base.a aVar = this.f33244c;
         if (aVar != null) {
             if (aVar instanceof l) {
                 l lVar = (l) aVar;
-                int i2 = this.f34001e;
+                int i2 = this.f33246e;
                 if (i2 > 0) {
                     lVar.setWidth(i2);
                 }
-                lVar.a(this.f34002f, new l.a() { // from class: com.kwad.sdk.feed.b.1
+                lVar.a(this.f33247f, new l.a() { // from class: com.kwad.sdk.feed.b.1
                     @Override // com.kwad.sdk.feed.widget.l.a
                     public void a() {
                         b bVar = b.this;
-                        bVar.a(bVar.f33999c);
-                        InterfaceC0391b interfaceC0391b2 = interfaceC0391b;
-                        if (interfaceC0391b2 != null) {
-                            interfaceC0391b2.a();
+                        bVar.a(bVar.f33244c);
+                        InterfaceC0378b interfaceC0378b2 = interfaceC0378b;
+                        if (interfaceC0378b2 != null) {
+                            interfaceC0378b2.a();
                         }
                     }
                 });
             } else {
-                aVar.a(this.f34002f);
-                com.kwad.sdk.feed.widget.base.a aVar2 = this.f33999c;
+                aVar.a(this.f33247f);
+                com.kwad.sdk.feed.widget.base.a aVar2 = this.f33244c;
                 if (aVar2 instanceof com.kwad.sdk.feed.widget.a) {
-                    ((com.kwad.sdk.feed.widget.a) aVar2).a(this.f34004h);
+                    ((com.kwad.sdk.feed.widget.a) aVar2).a(this.f33249h);
                 }
-                a(this.f33999c);
+                a(this.f33244c);
             }
         }
-        return this.f33999c;
+        return this.f33244c;
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.b.a.x(this.f34003g);
+        return com.kwad.sdk.core.response.b.a.x(this.f33248g);
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsFeedAd
     public View getFeedView2(Context context) {
-        com.kwad.sdk.feed.widget.base.a aVar = this.f33998b;
+        com.kwad.sdk.feed.widget.base.a aVar = this.f33243b;
         if (aVar == null) {
-            com.kwad.sdk.feed.widget.base.a aVar2 = this.f33999c;
+            com.kwad.sdk.feed.widget.base.a aVar2 = this.f33244c;
             if (aVar2 != null) {
-                this.f33998b = aVar2;
+                this.f33243b = aVar2;
                 return aVar2;
             }
-            this.f33998b = a(context);
+            this.f33243b = a(context);
         } else if (aVar.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.f33998b.getParent()).removeView(this.f33998b);
+            ((ViewGroup) this.f33243b.getParent()).removeView(this.f33243b);
         }
-        com.kwad.sdk.feed.widget.base.a aVar3 = this.f33998b;
+        com.kwad.sdk.feed.widget.base.a aVar3 = this.f33243b;
         if (aVar3 != null) {
-            aVar3.a(this.f34002f);
-            com.kwad.sdk.feed.widget.base.a aVar4 = this.f33998b;
+            aVar3.a(this.f33247f);
+            com.kwad.sdk.feed.widget.base.a aVar4 = this.f33243b;
             if (aVar4 instanceof com.kwad.sdk.feed.widget.a) {
-                ((com.kwad.sdk.feed.widget.a) aVar4).a(this.f34004h);
+                ((com.kwad.sdk.feed.widget.a) aVar4).a(this.f33249h);
             }
-            a(this.f33998b);
+            a(this.f33243b);
         }
-        return this.f33998b;
+        return this.f33243b;
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd
     public void setAdInteractionListener(KsFeedAd.AdInteractionListener adInteractionListener) {
-        this.f33997a = adInteractionListener;
+        this.f33242a = adInteractionListener;
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd
     public void setBidEcpm(int i2) {
-        AdTemplate adTemplate = this.f34002f;
+        AdTemplate adTemplate = this.f33247f;
         adTemplate.mBidEcpm = i2;
         com.kwad.sdk.core.report.b.l(adTemplate);
     }
@@ -230,12 +230,12 @@ public class b extends AbstractKsFeedAd {
         AdTemplate adTemplate;
         int i2;
         if (ksAdVideoPlayConfig != null) {
-            this.f34004h = ksAdVideoPlayConfig;
+            this.f33249h = ksAdVideoPlayConfig;
             if (ksAdVideoPlayConfig.isVideoSoundEnable()) {
-                adTemplate = this.f34002f;
+                adTemplate = this.f33247f;
                 i2 = 2;
             } else {
-                adTemplate = this.f34002f;
+                adTemplate = this.f33247f;
                 i2 = 1;
             }
             adTemplate.mInitVoiceStatus = i2;
@@ -246,12 +246,12 @@ public class b extends AbstractKsFeedAd {
     public void setVideoSoundEnable(boolean z) {
         AdTemplate adTemplate;
         int i2;
-        this.f34004h.setVideoSoundEnable(z);
-        if (this.f34004h.isVideoSoundEnable()) {
-            adTemplate = this.f34002f;
+        this.f33249h.setVideoSoundEnable(z);
+        if (this.f33249h.isVideoSoundEnable()) {
+            adTemplate = this.f33247f;
             i2 = 2;
         } else {
-            adTemplate = this.f34002f;
+            adTemplate = this.f33247f;
             i2 = 1;
         }
         adTemplate.mInitVoiceStatus = i2;

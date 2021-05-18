@@ -19,6 +19,7 @@ import com.baidu.webkit.internal.daemon.Statistics;
 import com.baidu.webkit.internal.daemon.ZeusThreadPoolUtil;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.baidu.webkit.internal.resource.ResourceSchedulerEngine;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.baidu.webkit.internal.utils.b;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.dumper.ZeusLogUploader;
@@ -30,10 +31,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
 public final class WebKitFactory {
     public static final String ARCH_ARM = "armv";
@@ -42,7 +44,11 @@ public final class WebKitFactory {
     public static final int ENGINE_BLINK = 1;
     public static final int ENGINE_INVALID = -1;
     public static final int ENGINE_ORIGINAL = 0;
+    public static final int FORCE_INIT_STATE_DEFAULT = 0;
+    public static final int FORCE_INIT_STATE_FINISH = 2;
+    public static final int FORCE_INIT_STATE_START = 1;
     public static final int FORCE_INIT_ZEUS = 1;
+    public static final int FORCE_INIT_ZEUS_BY_USER = 2;
     public static final String OS_64 = "64";
     public static final String OS_ARCH = "os.arch";
     public static final String PROCESS_TYPE_BROWSER = "3";
@@ -56,15 +62,19 @@ public final class WebKitFactory {
     public static DelayedInitTask mDelayedInitTask = null;
     public static int mInitWebkitType = 0;
     public static JsUploadTask mJavaScriptInterface = null;
-    public static List<IForceInitZeusListener> mListenerLst = null;
+    public static ArrayList<IForceInitZeusListener> mListenerLst = null;
+    public static FileLock mLock = null;
     public static String sAppId = null;
     public static String sAppVersion = null;
     public static String sCUID = "0";
     public static String sCrashCallback = null;
+    public static String sDumpCopyDir = null;
     public static String sEmulator = null;
     public static boolean sEnableIntegratedCrashpad = true;
-    public static SwitchState sEnableMultipleProcess = SwitchState.Invalid;
+    public static boolean sForceInitResult = false;
+    public static volatile int sForceInitedState = 0;
     public static int sHashSign = 0;
+    public static int sHttpCacheMbSize = -1;
     public static volatile boolean sInited = false;
     public static volatile boolean sIsNeedDownloadCloudResource = true;
     public static volatile boolean sIsWebKitBuiltin = false;
@@ -81,6 +91,8 @@ public final class WebKitFactory {
     public static String sZID = null;
     public static boolean sZeusSupported = true;
     public static boolean sZeusSupportedLoaded;
+    public static Object sForceInitLock = new Object();
+    public static SwitchState sEnableMultipleProcess = SwitchState.Invalid;
 
     /* loaded from: classes5.dex */
     public static class DelayedInitTask extends Thread {
@@ -88,6 +100,40 @@ public final class WebKitFactory {
 
         public DelayedInitTask(boolean z) {
             this.mResult = z;
+        }
+
+        private void checkRetryInstallZeus() {
+            String retryInstallZeusPath = EngineManager.getInstance().getRetryInstallZeusPath();
+            if (TextUtils.isEmpty(retryInstallZeusPath)) {
+                return;
+            }
+            if (!EngineManager.getInstance().checkRetryInstallZeus()) {
+                EngineManager.getInstance().resetRetryInstallZeus();
+                return;
+            }
+            Log.i(EngineManager.LOG_TAG, " checkRetryInstallZeus start ");
+            if (!retryInstallZeusPath.startsWith("file://")) {
+                retryInstallZeusPath = "file://".concat(String.valueOf(retryInstallZeusPath));
+            }
+            WebKitFactory.installAsync(retryInstallZeusPath, new WebkitInstallListener() { // from class: com.baidu.webkit.sdk.WebKitFactory.DelayedInitTask.1
+                @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+                public void onInstallFinish(int i2, String str) {
+                    Log.i(EngineManager.LOG_TAG, " RetryInstallZeus onInstallFinish");
+                }
+
+                @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+                public void onInstallStart() {
+                    Log.i(EngineManager.LOG_TAG, " RetryInstallZeus onInstallStart");
+                }
+            });
+        }
+
+        private void checkUpdateZeusVersion() {
+            String sdkVersionName = WebKitFactory.getSdkVersionName();
+            if (sdkVersionName.equalsIgnoreCase(ZeusInitConfigUtils.get(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, ""))) {
+                return;
+            }
+            ZeusInitConfigUtils.set(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, sdkVersionName);
         }
 
         private void doInitStatistics() {
@@ -117,27 +163,6 @@ public final class WebKitFactory {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-        }
-
-        private void forceInitZeus() {
-            if (1 != WebKitFactory.mInitWebkitType || WebViewFactory.isZeusProvider()) {
-                return;
-            }
-            if (WebKitFactory.mListenerLst != null) {
-                for (IForceInitZeusListener iForceInitZeusListener : WebKitFactory.mListenerLst) {
-                    iForceInitZeusListener.onForceInitZeusStart();
-                }
-            }
-            System.currentTimeMillis();
-            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
-            boolean forceInitZeusProvider = WebViewFactory.forceInitZeusProvider();
-            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
-            if (WebKitFactory.mListenerLst != null) {
-                for (IForceInitZeusListener iForceInitZeusListener2 : WebKitFactory.mListenerLst) {
-                    iForceInitZeusListener2.onForceInitZeusFinish(forceInitZeusProvider);
-                }
-            }
-            ZeusPerformanceTiming.recordWebkitInitStatistics(2);
         }
 
         /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:8:0x006e -> B:15:0x0071). Please submit an issue!!! */
@@ -174,7 +199,13 @@ public final class WebKitFactory {
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            forceInitZeus();
+            WebKitFactory.lockUpdateZeus();
+            WebKitFactory.forceInitZeusInternal();
+            WebKitFactory.unLockUpdateZeus();
+            if (WebViewFactory.isMainAppProcess()) {
+                checkRetryInstallZeus();
+                checkUpdateZeusVersion();
+            }
             doDelayedTask();
             WebViewFactory.handleTaskAfterWebkitInited();
             ResourceSchedulerEngine.getInstance().fetchIntegrationInfoFromServer();
@@ -236,6 +267,23 @@ public final class WebKitFactory {
         void onInstallStart();
     }
 
+    public static String[] GetKernelInfo() {
+        Log.i("CRASHPAD", "WebkitFactory.GetKernelInfo");
+        WebViewFactoryProvider provider = WebViewFactory.getProvider();
+        if (provider == null || getCurEngine() != 1) {
+            return new String[0];
+        }
+        String[] GetKernelInfo = provider.GetKernelInfo();
+        if (GetKernelInfo == null || GetKernelInfo.length == 0) {
+            return new String[0];
+        }
+        String checkProcessType = checkProcessType();
+        if (checkProcessType != null && !checkProcessType.isEmpty()) {
+            GetKernelInfo[8] = checkProcessType;
+        }
+        return GetKernelInfo;
+    }
+
     public static Object JavascriptInterface() {
         JsUploadTask jsUploadTask = mJavaScriptInterface;
         if (jsUploadTask != null) {
@@ -252,10 +300,10 @@ public final class WebKitFactory {
         }
     }
 
-    public static synchronized void addListener(IForceInitZeusListener iForceInitZeusListener) {
-        synchronized (WebKitFactory.class) {
+    public static void addListener(IForceInitZeusListener iForceInitZeusListener) {
+        synchronized (sForceInitLock) {
             if (mListenerLst == null) {
-                mListenerLst = new ArrayList();
+                mListenerLst = new ArrayList<>();
             }
             mListenerLst.add(iForceInitZeusListener);
         }
@@ -278,6 +326,10 @@ public final class WebKitFactory {
         }
     }
 
+    public static String checkProcessType() {
+        return WebViewFactory.isMainAppProcess() ? (getCurEngine() == 1 && WebSettingsGlobalBlink.isMultiProcessEnabled()) ? "3" : "0" : WebViewFactory.isSwanProcess() ? "1" : WebViewFactory.isRendererProcess() ? "2" : WebViewFactory.isMediaProcess() ? "4" : "";
+    }
+
     public static boolean checkZeusCompatibility(String str) {
         return true;
     }
@@ -291,8 +343,53 @@ public final class WebKitFactory {
     }
 
     public static void forceInitT7(int i2) {
-        if (i2 == 0 || 1 == i2) {
+        if (i2 == 0 || 1 == i2 || 2 == i2) {
             mInitWebkitType = i2;
+        }
+    }
+
+    public static void forceInitZeus() {
+        if (WebViewFactory.isZeusProvider()) {
+            notifyForceInitZeusListener(false);
+            return;
+        }
+        int i2 = sForceInitedState;
+        if (i2 != 0) {
+            if (i2 == 1) {
+                notifyForceInitZeusListener(true);
+                return;
+            } else if (i2 != 2) {
+                return;
+            } else {
+                notifyForceInitZeusListener(false);
+                return;
+            }
+        }
+        sForceInitedState = 1;
+        notifyForceInitZeusListener(true);
+        System.currentTimeMillis();
+        ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
+        sForceInitResult = WebViewFactory.forceInitZeusProvider();
+        ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
+        sForceInitedState = 2;
+        notifyForceInitZeusListener(false);
+        ZeusPerformanceTiming.recordWebkitInitStatistics(2);
+    }
+
+    public static void forceInitZeusByUser() {
+        if (2 != mInitWebkitType) {
+            notifyForceInitZeusListener(false);
+            return;
+        }
+        Log.i(TAG, "forceInitZeusByUser mInitWebkitType=" + mInitWebkitType + ", sForceInitedState=" + sForceInitedState);
+        forceInitZeus();
+    }
+
+    public static void forceInitZeusInternal() {
+        if (1 == mInitWebkitType) {
+            forceInitZeus();
+        } else {
+            notifyForceInitZeusListener(false);
         }
     }
 
@@ -335,6 +432,11 @@ public final class WebKitFactory {
         return VideoCloudSetting.getCyberSdkVersion();
     }
 
+    public static String getDumpCopyDir() {
+        String str = sDumpCopyDir;
+        return str != null ? str : "";
+    }
+
     public static String getEmulatorString() {
         String str = sEmulator;
         return str != null ? str : "";
@@ -358,6 +460,10 @@ public final class WebKitFactory {
 
     public static int getHashSign() {
         return sHashSign;
+    }
+
+    public static int getHttpCacheMbSize() {
+        return sHttpCacheMbSize;
     }
 
     public static boolean getIntegratedCrashpad() {
@@ -538,6 +644,10 @@ public final class WebKitFactory {
         return WebKitVersionBlink.getVersionName();
     }
 
+    public static String getZeusVersionNamekernel() {
+        return WebKitVersionBlink.getZeusVersionByUpdate();
+    }
+
     public static synchronized boolean init(Context context, String str, String str2) {
         synchronized (WebKitFactory.class) {
             if (sInited) {
@@ -577,7 +687,8 @@ public final class WebKitFactory {
     }
 
     public static boolean isForceInitT7() {
-        return 1 == mInitWebkitType;
+        int i2 = mInitWebkitType;
+        return 1 == i2 || 2 == i2;
     }
 
     public static boolean isNeedKillProcess() {
@@ -585,8 +696,22 @@ public final class WebKitFactory {
     }
 
     public static boolean isPlatformSupported() {
-        int i2 = Build.VERSION.SDK_INT;
-        return i2 >= 14 && i2 <= 29;
+        int intValue;
+        String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("t7_max_sdk_version_supported");
+        if (!TextUtils.isEmpty(GetCloudSettingsValue)) {
+            try {
+                intValue = Integer.valueOf(GetCloudSettingsValue).intValue();
+            } catch (Exception e2) {
+                Log.e(TAG, "in isPlatformSupported, cloudSetting is not digit", e2);
+            }
+            int i2 = Build.VERSION.SDK_INT;
+            return i2 >= 14 && i2 <= intValue;
+        }
+        intValue = 30;
+        int i22 = Build.VERSION.SDK_INT;
+        if (i22 >= 14) {
+            return false;
+        }
     }
 
     public static boolean isUserPrivacyEnabled() {
@@ -630,6 +755,22 @@ public final class WebKitFactory {
         return sZeusSupported;
     }
 
+    public static boolean lockUpdateZeus() {
+        try {
+            if (WebViewFactory.getContext() != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(WebViewFactory.getContext().getFilesDir().getAbsolutePath() + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH, "update_zeus"), "rw");
+                Log.i(EngineManager.LOG_TAG, " invoke lockUpdateZeus");
+                mLock = randomAccessFile.getChannel().lock();
+                Log.i(EngineManager.LOG_TAG, " lockUpdateZeus time = " + (System.currentTimeMillis() - currentTimeMillis));
+                return mLock != null;
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        return false;
+    }
+
     public static void notifyCuidChanged() {
         setCuidJs(getCUIDString());
         if (WebViewFactory.isZeusProvider()) {
@@ -638,11 +779,31 @@ public final class WebKitFactory {
         SessionMonitorEngine.getInstance().updateCuidIfNeeded();
     }
 
+    public static void notifyForceInitZeusListener(boolean z) {
+        ArrayList arrayList;
+        if (mListenerLst != null) {
+            synchronized (sForceInitLock) {
+                arrayList = (ArrayList) mListenerLst.clone();
+            }
+            if (arrayList != null) {
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    IForceInitZeusListener iForceInitZeusListener = (IForceInitZeusListener) it.next();
+                    if (z) {
+                        iForceInitZeusListener.onForceInitZeusStart();
+                    } else {
+                        iForceInitZeusListener.onForceInitZeusFinish(sForceInitResult);
+                    }
+                }
+            }
+        }
+    }
+
     public static void notifyUserPrivacyConfirmIfNeeded(boolean z) {
         if (sUserPrivacyConfirm != z) {
             sUserPrivacyConfirm = z;
             if (z) {
-                Log.i(TAG, "notifyUserPrivacyConfirmIfNeeded confirm=" + z);
+                Log.i(TAG, "notifyUserPrivacyConfirmIfNeeded confirm=".concat(String.valueOf(z)));
                 notifyUserPrivacyConfirmedInner();
             }
         }
@@ -660,8 +821,8 @@ public final class WebKitFactory {
         }
     }
 
-    public static synchronized void removeListener(IForceInitZeusListener iForceInitZeusListener) {
-        synchronized (WebKitFactory.class) {
+    public static void removeListener(IForceInitZeusListener iForceInitZeusListener) {
+        synchronized (sForceInitLock) {
             if (mListenerLst.contains(iForceInitZeusListener)) {
                 mListenerLst.remove(iForceInitZeusListener);
             }
@@ -715,7 +876,7 @@ public final class WebKitFactory {
     }
 
     public static void setCrashCallback(Context context, Class<? extends Object> cls) {
-        Log.v("BR", "--WebKitFactory.java--setCrashCallback----" + cls);
+        Log.v("BR", "--WebKitFactory.java--setCrashCallback----".concat(String.valueOf(cls)));
         if (cls != null) {
             sCrashCallback = cls.getName();
         }
@@ -739,6 +900,10 @@ public final class WebKitFactory {
         }
     }
 
+    public static void setDumpCopyDir(String str) {
+        sDumpCopyDir = str;
+    }
+
     public static void setEmulator(String str) {
         sEmulator = str;
     }
@@ -755,11 +920,13 @@ public final class WebKitFactory {
         int curEngine;
         synchronized (WebKitFactory.class) {
             WebViewFactory.installZesEngineIfNeeded(!ZeusSDK.usingZeusSDK(), false);
+            lockUpdateZeus();
             WebViewFactory.setUseSystemWebView(1 != i2);
             if (1 == i2) {
                 WebViewFactory.unzip();
             }
             WebViewFactory.getProvider();
+            unLockUpdateZeus();
             if (mDelayedInitTask == null) {
                 DelayedInitTask delayedInitTask = new DelayedInitTask(WebViewFactory.hasProvider());
                 mDelayedInitTask = delayedInitTask;
@@ -805,6 +972,13 @@ public final class WebKitFactory {
     public static void setGpuTypeJs(String str) {
         if (mJavaScriptInterface != null) {
             JsUploadTask.setGpuType(str);
+        }
+    }
+
+    public static void setHttpCacheMbSize(int i2) {
+        if (i2 != sHttpCacheMbSize) {
+            Log.i("maqian04-httpcache", " WebKitFactory setHttpCacheSize size is ".concat(String.valueOf(i2)));
+            sHttpCacheMbSize = i2;
         }
     }
 
@@ -952,6 +1126,18 @@ public final class WebKitFactory {
     public static void setZeusVerJs(String str) {
         if (mJavaScriptInterface != null) {
             JsUploadTask.setZeusVer(str);
+        }
+    }
+
+    public static void unLockUpdateZeus() {
+        try {
+            if (mLock != null) {
+                mLock.release();
+                mLock = null;
+                Log.i(EngineManager.LOG_TAG, " unLockUpdateZeus");
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

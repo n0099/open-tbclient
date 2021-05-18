@@ -14,8 +14,8 @@ import android.util.Log;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.faceunity.gles.Texture2dProgram;
-import d.a.j0.t1.g;
-import d.a.j0.t1.k;
+import d.a.k0.t1.g;
+import d.a.k0.t1.k;
 import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
@@ -28,32 +28,32 @@ public class d {
     public long B;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.e.c.e f65361a;
+    public d.e.c.e f66047a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.e.c.a f65362b;
+    public d.e.c.a f66048b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.e.c.c f65363c;
+    public d.e.c.c f66049c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f65364d;
+    public int f66050d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.e.b.e f65365e;
+    public d.e.b.e f66051e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.e.b.a f65366f;
+    public d.e.b.a f66052f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.e.b.c f65367g;
+    public d.e.b.c f66053g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile e f65368h;
+    public volatile e f66054h;
     public boolean j;
     public boolean k;
     public int l;
-    public InterfaceC1777d m;
+    public InterfaceC1841d m;
     public int p;
     public int q;
     public int r;
@@ -67,7 +67,7 @@ public class d {
     public boolean z;
 
     /* renamed from: i  reason: collision with root package name */
-    public Object f65369i = new Object();
+    public Object f66055i = new Object();
     public long n = 0;
     public long o = 0;
 
@@ -92,23 +92,23 @@ public class d {
             try {
                 d.e.b.b bVar = new d.e.b.b();
                 if (bVar.a() != null) {
-                    ByteBuffer allocateDirect = ByteBuffer.allocateDirect(d.e.b.b.f65352e);
+                    ByteBuffer allocateDirect = ByteBuffer.allocateDirect(d.e.b.b.f66038e);
                     bVar.e();
                     d.this.l = 1;
                     while (!d.this.A) {
                         allocateDirect.clear();
-                        int c2 = bVar.c(allocateDirect, d.e.b.b.f65352e);
+                        int c2 = bVar.c(allocateDirect, d.e.b.b.f66038e);
                         if (c2 > 0) {
                             allocateDirect.position(c2);
                             allocateDirect.flip();
-                            d.this.f65366f.b(allocateDirect, c2, d.this.u());
-                            d.this.f65366f.a();
+                            d.this.f66052f.b(allocateDirect, c2, d.this.u());
+                            d.this.f66052f.a();
                         }
                     }
-                    d.this.f65366f.b(null, 0, d.this.u());
+                    d.this.f66052f.b(null, 0, d.this.u());
                     bVar.f();
                     bVar.d();
-                    d.this.f65366f.c();
+                    d.this.f66052f.c();
                 } else {
                     Log.e("TextureMovieEncoder", "failed to initialize AudioRecord");
                 }
@@ -126,44 +126,44 @@ public class d {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final File f65371a;
+        public final File f66057a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f65372b;
+        public final int f66058b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f65373c;
+        public final int f66059c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f65374d;
+        public final int f66060d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final EGLContext f65375e;
+        public final EGLContext f66061e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f65376f;
+        public final long f66062f;
 
         public c(File file, int i2, int i3, int i4, EGLContext eGLContext, long j) {
-            this.f65371a = file;
-            this.f65372b = i2;
-            this.f65373c = i3;
-            this.f65374d = i4;
+            this.f66057a = file;
+            this.f66058b = i2;
+            this.f66059c = i3;
+            this.f66060d = i4;
             if (eGLContext != null) {
-                this.f65375e = eGLContext;
+                this.f66061e = eGLContext;
             } else {
-                this.f65375e = EGL14.eglGetCurrentContext();
+                this.f66061e = EGL14.eglGetCurrentContext();
             }
-            this.f65376f = j;
+            this.f66062f = j;
         }
 
         public String toString() {
-            return "EncoderConfig: " + this.f65372b + "x" + this.f65373c + CoroutineContextKt.DEBUG_THREAD_NAME_SEPARATOR + this.f65374d + " to '" + this.f65371a.toString() + "' ctxt=" + this.f65375e;
+            return "EncoderConfig: " + this.f66058b + "x" + this.f66059c + CoroutineContextKt.DEBUG_THREAD_NAME_SEPARATOR + this.f66060d + " to '" + this.f66057a.toString() + "' ctxt=" + this.f66061e;
         }
     }
 
     /* renamed from: d.e.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1777d {
+    public interface InterfaceC1841d {
         void a();
 
         void b();
@@ -173,17 +173,17 @@ public class d {
     public static class e extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<d> f65377a;
+        public WeakReference<d> f66063a;
 
         public e(d dVar) {
-            this.f65377a = new WeakReference<>(dVar);
+            this.f66063a = new WeakReference<>(dVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             int i2 = message.what;
             Object obj = message.obj;
-            d dVar = this.f65377a.get();
+            d dVar = this.f66063a.get();
             if (dVar == null) {
                 Log.w("TextureMovieEncoder", "VideoEncoderHandler.handleMessage: encoder is null");
             } else if (i2 == 0) {
@@ -219,18 +219,18 @@ public class d {
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             Looper.prepare();
-            synchronized (d.this.f65369i) {
-                d.this.f65368h = new e(d.this);
+            synchronized (d.this.f66055i) {
+                d.this.f66054h = new e(d.this);
                 d.this.j = true;
-                d.this.f65369i.notify();
+                d.this.f66055i.notify();
             }
             Looper.loop();
             Log.d("TextureMovieEncoder", "Encoder thread exiting");
-            synchronized (d.this.f65369i) {
+            synchronized (d.this.f66055i) {
                 d dVar = d.this;
                 d.this.k = false;
                 dVar.j = false;
-                d.this.f65368h = null;
+                d.this.f66054h = null;
             }
         }
     }
@@ -256,9 +256,9 @@ public class d {
     public final void A(EGLContext eGLContext, int i2, int i3, int i4, File file) {
         try {
             d.e.b.c cVar = new d.e.b.c(file.toString());
-            this.f65367g = cVar;
-            this.f65365e = new d.e.b.e(i2, i3, i4, cVar);
-            this.f65366f = new d.e.b.a(this.f65367g);
+            this.f66053g = cVar;
+            this.f66051e = new d.e.b.e(i2, i3, i4, cVar);
+            this.f66052f = new d.e.b.a(this.f66053g);
             this.z = true;
             synchronized (this.v) {
                 this.w = true;
@@ -267,51 +267,51 @@ public class d {
         } catch (IOException e2) {
             g gVar = this.t;
             if (gVar != null) {
-                gVar.b(12, d.a.j0.t1.a.a(e2));
+                gVar.b(12, d.a.k0.t1.a.a(e2));
             }
         } catch (IllegalStateException e3) {
             this.z = false;
             g gVar2 = this.t;
             if (gVar2 != null) {
-                gVar2.b(13, d.a.j0.t1.a.a(e3));
+                gVar2.b(13, d.a.k0.t1.a.a(e3));
                 return;
             }
             return;
         }
         d.e.c.a aVar = new d.e.c.a(eGLContext, 1);
-        this.f65362b = aVar;
-        d.e.c.e eVar = new d.e.c.e(aVar, this.f65365e.b(), true);
-        this.f65361a = eVar;
+        this.f66048b = aVar;
+        d.e.c.e eVar = new d.e.c.e(aVar, this.f66051e.b(), true);
+        this.f66047a = eVar;
         eVar.b();
-        this.f65363c = new d.e.c.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+        this.f66049c = new d.e.c.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
     }
 
     public final void B() {
         try {
-            this.f65365e.c();
-            if (this.f65361a != null) {
-                this.f65361a.g();
-                this.f65361a = null;
+            this.f66051e.c();
+            if (this.f66047a != null) {
+                this.f66047a.g();
+                this.f66047a = null;
             }
-            if (this.f65363c != null) {
-                this.f65363c.c(false);
-                this.f65363c = null;
+            if (this.f66049c != null) {
+                this.f66049c.c(false);
+                this.f66049c = null;
             }
-            if (this.f65362b != null) {
-                this.f65362b.e();
-                this.f65362b = null;
+            if (this.f66048b != null) {
+                this.f66048b.e();
+                this.f66048b = null;
             }
         } catch (Exception e2) {
             e2.printStackTrace();
             g gVar = this.t;
             if (gVar != null) {
-                gVar.b(14, d.a.j0.t1.a.a(e2));
+                gVar.b(14, d.a.k0.t1.a.a(e2));
             }
         }
     }
 
-    public void C(InterfaceC1777d interfaceC1777d) {
-        this.m = interfaceC1777d;
+    public void C(InterfaceC1841d interfaceC1841d) {
+        this.m = interfaceC1841d;
     }
 
     public void D(d.e.c.c cVar, int i2, float[] fArr) {
@@ -326,17 +326,17 @@ public class d {
             }
             GLES20.glBindFramebuffer(36160, 0);
             GLES20.glViewport(iArr[0], iArr[1], iArr[2], iArr[3]);
-            synchronized (this.f65369i) {
+            synchronized (this.f66055i) {
                 if (this.j) {
-                    this.f65368h.sendMessage(this.f65368h.obtainMessage(3, this.p, 0, null));
+                    this.f66054h.sendMessage(this.f66054h.obtainMessage(3, this.p, 0, null));
                 }
             }
         }
     }
 
     public void E(c cVar) {
-        this.r = cVar.f65372b;
-        this.s = cVar.f65373c;
+        this.r = cVar.f66058b;
+        this.s = cVar.f66059c;
         int[] iArr = new int[1];
         GLES20.glGenTextures(1, iArr, 0);
         int i2 = iArr[0];
@@ -351,9 +351,9 @@ public class d {
         this.q = iArr2[0];
         Log.d("TextureMovieEncoder", "Encoder: startRecording()");
         this.l = 5;
-        this.n = cVar.f65376f;
+        this.n = cVar.f66062f;
         this.o = System.nanoTime();
-        synchronized (this.f65369i) {
+        synchronized (this.f66055i) {
             if (this.k) {
                 Log.w("TextureMovieEncoder", "Encoder thread already running");
                 return;
@@ -363,11 +363,11 @@ public class d {
             new b().start();
             while (!this.j) {
                 try {
-                    this.f65369i.wait();
+                    this.f66055i.wait();
                 } catch (InterruptedException unused) {
                 }
             }
-            this.f65368h.sendMessage(this.f65368h.obtainMessage(0, cVar));
+            this.f66054h.sendMessage(this.f66054h.obtainMessage(0, cVar));
         }
     }
 
@@ -376,17 +376,17 @@ public class d {
         GLES20.glDeleteTextures(1, new int[]{this.p}, 0);
         this.q = 0;
         this.p = 0;
-        d.e.b.c cVar = this.f65367g;
+        d.e.b.c cVar = this.f66053g;
         if (cVar == null || !cVar.b()) {
             this.A = true;
-            d.e.b.e eVar = this.f65365e;
+            d.e.b.e eVar = this.f66051e;
             if (eVar != null) {
                 eVar.d();
             }
         }
         this.l = 4;
-        this.f65368h.sendMessage(this.f65368h.obtainMessage(1));
-        this.f65368h.sendMessage(this.f65368h.obtainMessage(5));
+        this.f66054h.sendMessage(this.f66054h.obtainMessage(1));
+        this.f66054h.sendMessage(this.f66054h.obtainMessage(5));
     }
 
     public boolean s(int i2) {
@@ -394,7 +394,7 @@ public class d {
     }
 
     public void t(SurfaceTexture surfaceTexture) {
-        synchronized (this.f65369i) {
+        synchronized (this.f66055i) {
             if (this.j) {
                 float[] fArr = new float[16];
                 Matrix.setIdentityM(fArr, 0);
@@ -402,7 +402,7 @@ public class d {
                 if (timestamp == 0) {
                     Log.w("TextureMovieEncoder", "HEY: got SurfaceTexture with timestamp of zero");
                 } else {
-                    this.f65368h.sendMessage(this.f65368h.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
+                    this.f66054h.sendMessage(this.f66054h.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
                 }
             }
         }
@@ -431,42 +431,42 @@ public class d {
     public final void v(float[] fArr, long j) {
         if (this.p != 0) {
             try {
-                this.f65365e.a(false);
+                this.f66051e.a(false);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
             c cVar = this.u;
-            GLES20.glViewport(0, 0, cVar.f65372b, cVar.f65373c);
+            GLES20.glViewport(0, 0, cVar.f66058b, cVar.f66059c);
             synchronized (d.class) {
-                this.f65363c.b(this.f65364d, fArr);
+                this.f66049c.b(this.f66050d, fArr);
             }
-            d.e.c.e eVar = this.f65361a;
+            d.e.c.e eVar = this.f66047a;
             if (eVar != null) {
                 eVar.d(u() * 1000);
-                this.f65361a.e();
+                this.f66047a.e();
             }
         }
     }
 
     public final void w(int i2) {
-        this.f65364d = i2;
+        this.f66050d = i2;
     }
 
     public final void x(c cVar) {
         Log.d("TextureMovieEncoder", "handleStartRecording " + cVar);
         this.u = cVar;
-        A(cVar.f65375e, cVar.f65372b, cVar.f65373c, cVar.f65374d, cVar.f65371a);
+        A(cVar.f66061e, cVar.f66058b, cVar.f66059c, cVar.f66060d, cVar.f66057a);
         this.A = false;
-        InterfaceC1777d interfaceC1777d = this.m;
-        if (interfaceC1777d != null) {
-            interfaceC1777d.a();
+        InterfaceC1841d interfaceC1841d = this.m;
+        if (interfaceC1841d != null) {
+            interfaceC1841d.a();
         }
     }
 
     public final void y() {
         Log.d("TextureMovieEncoder", "handleStopRecording");
         try {
-            this.f65365e.a(true);
+            this.f66051e.a(true);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -483,30 +483,30 @@ public class d {
             }
         }
         this.y = false;
-        InterfaceC1777d interfaceC1777d = this.m;
-        if (interfaceC1777d != null) {
-            interfaceC1777d.b();
+        InterfaceC1841d interfaceC1841d = this.m;
+        if (interfaceC1841d != null) {
+            interfaceC1841d.b();
         }
     }
 
     public final void z(EGLContext eGLContext) {
         Log.d("TextureMovieEncoder", "handleUpdatedSharedContext " + eGLContext);
-        d.e.c.e eVar = this.f65361a;
+        d.e.c.e eVar = this.f66047a;
         if (eVar != null) {
             eVar.c();
         }
-        this.f65363c.c(false);
-        d.e.c.a aVar = this.f65362b;
+        this.f66049c.c(false);
+        d.e.c.a aVar = this.f66048b;
         if (aVar != null) {
             aVar.e();
         }
         d.e.c.a aVar2 = new d.e.c.a(eGLContext, 1);
-        this.f65362b = aVar2;
-        d.e.c.e eVar2 = this.f65361a;
+        this.f66048b = aVar2;
+        d.e.c.e eVar2 = this.f66047a;
         if (eVar2 != null) {
             eVar2.f(aVar2);
-            this.f65361a.b();
+            this.f66047a.b();
         }
-        this.f65363c = new d.e.c.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+        this.f66049c = new d.e.c.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
     }
 }

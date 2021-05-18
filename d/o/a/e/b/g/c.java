@@ -11,28 +11,28 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.util.SparseArray;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class c implements o {
     public static final String l = "c";
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Service> f66469e;
+    public WeakReference<Service> f67155e;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f66472h;
+    public volatile boolean f67158h;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<d.o.a.e.b.n.a> f66470f = new SparseArray<>();
+    public final SparseArray<d.o.a.e.b.n.a> f67156f = new SparseArray<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f66471g = false;
+    public volatile boolean f67157g = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f66473i = false;
+    public volatile boolean f67159i = false;
     public Handler j = new Handler(Looper.getMainLooper());
     public Runnable k = new a();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -42,7 +42,7 @@ public abstract class c implements o {
             if (d.o.a.e.b.c.a.e()) {
                 d.o.a.e.b.c.a.g(c.l, "tryDownload: 2 try");
             }
-            if (c.this.f66471g) {
+            if (c.this.f67157g) {
                 return;
             }
             if (d.o.a.e.b.c.a.e()) {
@@ -58,7 +58,7 @@ public abstract class c implements o {
 
     @Override // d.o.a.e.b.g.o
     public boolean a() {
-        return this.f66471g;
+        return this.f67157g;
     }
 
     @Override // d.o.a.e.b.g.o
@@ -68,8 +68,8 @@ public abstract class c implements o {
     @Override // d.o.a.e.b.g.o
     public boolean b() {
         String str = l;
-        d.o.a.e.b.c.a.h(str, "isServiceForeground = " + this.f66472h);
-        return this.f66472h;
+        d.o.a.e.b.c.a.h(str, "isServiceForeground = " + this.f67158h);
+        return this.f67158h;
     }
 
     @Override // d.o.a.e.b.g.o
@@ -78,12 +78,12 @@ public abstract class c implements o {
 
     @Override // d.o.a.e.b.g.o
     public void c(WeakReference weakReference) {
-        this.f66469e = weakReference;
+        this.f67155e = weakReference;
     }
 
     @Override // d.o.a.e.b.g.o
     public void d() {
-        this.f66471g = false;
+        this.f67157g = false;
     }
 
     @Override // d.o.a.e.b.g.o
@@ -97,25 +97,25 @@ public abstract class c implements o {
             return;
         }
         String str = l;
-        d.o.a.e.b.c.a.g(str, "pendDownloadTask pendingTasks.size:" + this.f66470f.size() + " downloadTask.getDownloadId():" + aVar.G());
-        if (this.f66470f.get(aVar.G()) == null) {
-            synchronized (this.f66470f) {
-                if (this.f66470f.get(aVar.G()) == null) {
-                    this.f66470f.put(aVar.G(), aVar);
+        d.o.a.e.b.c.a.g(str, "pendDownloadTask pendingTasks.size:" + this.f67156f.size() + " downloadTask.getDownloadId():" + aVar.G());
+        if (this.f67156f.get(aVar.G()) == null) {
+            synchronized (this.f67156f) {
+                if (this.f67156f.get(aVar.G()) == null) {
+                    this.f67156f.put(aVar.G(), aVar);
                 }
             }
         }
         String str2 = l;
-        d.o.a.e.b.c.a.g(str2, "after pendDownloadTask pendingTasks.size:" + this.f66470f.size());
+        d.o.a.e.b.c.a.g(str2, "after pendDownloadTask pendingTasks.size:" + this.f67156f.size());
     }
 
     public void g() {
         SparseArray<d.o.a.e.b.n.a> clone;
         String str = l;
-        d.o.a.e.b.c.a.g(str, "resumePendingTask pendingTasks.size:" + this.f66470f.size());
-        synchronized (this.f66470f) {
-            clone = this.f66470f.clone();
-            this.f66470f.clear();
+        d.o.a.e.b.c.a.g(str, "resumePendingTask pendingTasks.size:" + this.f67156f.size());
+        synchronized (this.f67156f) {
+            clone = this.f67156f.clone();
+            this.f67156f.clear();
         }
         d.o.a.e.b.m.a c2 = d.c();
         if (c2 != null) {
@@ -136,13 +136,13 @@ public abstract class c implements o {
 
     @Override // d.o.a.e.b.g.o
     public void a(int i2, Notification notification) {
-        WeakReference<Service> weakReference = this.f66469e;
+        WeakReference<Service> weakReference = this.f67155e;
         if (weakReference != null && weakReference.get() != null) {
             String str = l;
-            d.o.a.e.b.c.a.h(str, "startForeground  id = " + i2 + ", service = " + this.f66469e.get() + ",  isServiceAlive = " + this.f66471g);
+            d.o.a.e.b.c.a.h(str, "startForeground  id = " + i2 + ", service = " + this.f67155e.get() + ",  isServiceAlive = " + this.f67157g);
             try {
-                this.f66469e.get().startForeground(i2, notification);
-                this.f66472h = true;
+                this.f67155e.get().startForeground(i2, notification);
+                this.f67158h = true;
                 return;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -154,7 +154,7 @@ public abstract class c implements o {
 
     @Override // d.o.a.e.b.g.o
     public void f() {
-        if (this.f66471g) {
+        if (this.f67157g) {
             return;
         }
         if (d.o.a.e.b.c.a.e()) {
@@ -165,15 +165,15 @@ public abstract class c implements o {
 
     @Override // d.o.a.e.b.g.o
     public void a(boolean z) {
-        WeakReference<Service> weakReference = this.f66469e;
+        WeakReference<Service> weakReference = this.f67155e;
         if (weakReference == null || weakReference.get() == null) {
             return;
         }
         String str = l;
-        d.o.a.e.b.c.a.h(str, "stopForeground  service = " + this.f66469e.get() + ",  isServiceAlive = " + this.f66471g);
+        d.o.a.e.b.c.a.h(str, "stopForeground  service = " + this.f67155e.get() + ",  isServiceAlive = " + this.f67157g);
         try {
-            this.f66472h = false;
-            this.f66469e.get().stopForeground(z);
+            this.f67158h = false;
+            this.f67155e.get().stopForeground(z);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -184,19 +184,19 @@ public abstract class c implements o {
         if (aVar == null) {
             return;
         }
-        if (!this.f66471g) {
+        if (!this.f67157g) {
             if (d.o.a.e.b.c.a.e()) {
                 d.o.a.e.b.c.a.g(l, "tryDownload but service is not alive");
             }
             if (d.o.a.e.b.l.a.a(262144)) {
-                synchronized (this.f66470f) {
+                synchronized (this.f67156f) {
                     f(aVar);
-                    if (!this.f66473i) {
+                    if (!this.f67159i) {
                         if (d.o.a.e.b.c.a.e()) {
                             d.o.a.e.b.c.a.g(l, "tryDownload: 1");
                         }
                         e(d.l(), null);
-                        this.f66473i = true;
+                        this.f67159i = true;
                     } else {
                         this.j.removeCallbacks(this.k);
                         this.j.postDelayed(this.k, 10L);
@@ -208,10 +208,10 @@ public abstract class c implements o {
             e(d.l(), null);
             return;
         }
-        if (this.f66470f.get(aVar.G()) != null) {
-            synchronized (this.f66470f) {
-                if (this.f66470f.get(aVar.G()) != null) {
-                    this.f66470f.remove(aVar.G());
+        if (this.f67156f.get(aVar.G()) != null) {
+            synchronized (this.f67156f) {
+                if (this.f67156f.get(aVar.G()) != null) {
+                    this.f67156f.remove(aVar.G());
                 }
             }
         }

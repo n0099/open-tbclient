@@ -46,7 +46,7 @@ public class ZeusThreadPoolUtil implements INoProGuard {
             if (mExecutor == null || runnable == null) {
                 return;
             }
-            Log.d(LOG_TAG, "execute task:" + runnable);
+            Log.d(LOG_TAG, "execute task:".concat(String.valueOf(runnable)));
             mExecutor.execute(runnable);
         } catch (Throwable th) {
             Log.printStackTrace(th);
@@ -63,7 +63,7 @@ public class ZeusThreadPoolUtil implements INoProGuard {
                 mLazyRunQueue = new ConcurrentLinkedQueue();
             }
             mLazyRunQueue.add(runnable);
-            Log.d(LOG_TAG, "WebkitUnLoaded execute task=" + runnable);
+            Log.d(LOG_TAG, "WebkitUnLoaded execute task=".concat(String.valueOf(runnable)));
         }
     }
 

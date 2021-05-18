@@ -23,6 +23,7 @@ import androidx.core.widget.TextViewCompat;
 import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tieba.service.AsInstallService;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -244,7 +245,7 @@ public class SpeechRecognitionDialog extends Dialog {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-                    intent.setData(Uri.fromParts("package", SpeechRecognitionDialog.this.activity.getPackageName(), null));
+                    intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, SpeechRecognitionDialog.this.activity.getPackageName(), null));
                     SpeechRecognitionDialog.this.activity.startActivityForResult(intent, SpeechRecognitionDialog.REQUEST_SETTING_CODE);
                 }
             });

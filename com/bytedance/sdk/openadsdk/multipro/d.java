@@ -6,7 +6,7 @@ import android.os.Build;
 import android.os.Process;
 import android.webkit.WebView;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static void a(Context context) {
         if (context == null) {

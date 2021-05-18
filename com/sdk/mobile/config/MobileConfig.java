@@ -3,13 +3,13 @@ package com.sdk.mobile.config;
 import com.sdk.base.framework.c.e;
 import com.sdk.base.framework.f.c.a;
 import com.sdk.base.module.config.BaseConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MobileConfig implements e {
     public String apk = BaseConfig.apk;
     public String cm = BaseConfig.cm;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36574c = 1;
+    public int f35819c = 1;
     public String v = "1.0";
     public String n = "ZzxOAuth";
     public long r = System.currentTimeMillis();

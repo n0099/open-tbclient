@@ -3,17 +3,17 @@ package com.baidu.mobads.cid.cesium.c.a;
 public abstract class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f8438b;
+    public final b f8250b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f8439c;
+    public final int f8251c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f8440d;
+    public byte[] f8252d;
 
     public f(b bVar) {
-        this.f8438b = bVar;
-        this.f8439c = bVar.a();
+        this.f8250b = bVar;
+        this.f8251c = bVar.a();
     }
 
     public abstract void a();

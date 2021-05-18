@@ -5,44 +5,44 @@ import java.nio.FloatBuffer;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public FloatBuffer f64001a;
+    public FloatBuffer f64688a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FloatBuffer f64002b;
+    public FloatBuffer f64689b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64003c;
+    public int f64690c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f64004d;
+    public int f64691d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64005e;
+    public int f64692e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64006f;
+    public int f64693f;
 
     public int a() {
-        return this.f64004d;
+        return this.f64691d;
     }
 
     public FloatBuffer b() {
-        return this.f64002b;
+        return this.f64689b;
     }
 
     public int c() {
-        return this.f64006f;
+        return this.f64693f;
     }
 
     public FloatBuffer d() {
-        return this.f64001a;
+        return this.f64688a;
     }
 
     public int e() {
-        return this.f64003c;
+        return this.f64690c;
     }
 
     public int f() {
-        return this.f64005e;
+        return this.f64692e;
     }
 }

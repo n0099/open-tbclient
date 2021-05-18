@@ -6,19 +6,19 @@ import com.baidu.mario.gldraw2d.params.ScaleType;
 public class a implements Cloneable {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f64017e = 0.0f;
+    public float f64704e = 0.0f;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f64018f = 0.0f;
+    public float f64705f = 0.0f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MirrorType f64019g = MirrorType.NO_MIRROR;
+    public MirrorType f64706g = MirrorType.NO_MIRROR;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f64020h = 0;
+    public int f64707h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public ScaleType f64021i = ScaleType.FIT_XY;
+    public ScaleType f64708i = ScaleType.FIT_XY;
     public float j = 1.0f;
     public int k = -90;
 
@@ -34,7 +34,7 @@ public class a implements Cloneable {
     }
 
     public int c() {
-        return this.f64020h;
+        return this.f64707h;
     }
 
     public float d() {
@@ -42,11 +42,11 @@ public class a implements Cloneable {
     }
 
     public MirrorType e() {
-        return this.f64019g;
+        return this.f64706g;
     }
 
     public ScaleType f() {
-        return this.f64021i;
+        return this.f64708i;
     }
 
     public int g() {
@@ -54,18 +54,18 @@ public class a implements Cloneable {
     }
 
     public float h() {
-        return this.f64017e;
+        return this.f64704e;
     }
 
     public float i() {
-        return this.f64018f;
+        return this.f64705f;
     }
 
     public void j(int i2) {
-        this.f64020h = i2;
+        this.f64707h = i2;
     }
 
     public void k(MirrorType mirrorType) {
-        this.f64019g = mirrorType;
+        this.f64706g = mirrorType;
     }
 }

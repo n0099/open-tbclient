@@ -6,26 +6,26 @@ import java.util.Collections;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ad f64882a;
+    public final ad f65568a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f64883b;
+    public final l f65569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<Certificate> f64884c;
+    public final List<Certificate> f65570c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Certificate> f64885d;
+    public final List<Certificate> f65571d;
 
     public u(ad adVar, l lVar, List<Certificate> list, List<Certificate> list2) {
-        this.f64882a = adVar;
-        this.f64883b = lVar;
-        this.f64884c = list;
-        this.f64885d = list2;
+        this.f65568a = adVar;
+        this.f65569b = lVar;
+        this.f65570c = list;
+        this.f65571d = list2;
     }
 
     public static u b(SSLSession sSLSession) {
@@ -62,22 +62,22 @@ public final class u {
     }
 
     public l a() {
-        return this.f64883b;
+        return this.f65569b;
     }
 
     public List<Certificate> c() {
-        return this.f64884c;
+        return this.f65570c;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof u) {
             u uVar = (u) obj;
-            return this.f64882a.equals(uVar.f64882a) && this.f64883b.equals(uVar.f64883b) && this.f64884c.equals(uVar.f64884c) && this.f64885d.equals(uVar.f64885d);
+            return this.f65568a.equals(uVar.f65568a) && this.f65569b.equals(uVar.f65569b) && this.f65570c.equals(uVar.f65570c) && this.f65571d.equals(uVar.f65571d);
         }
         return false;
     }
 
     public int hashCode() {
-        return ((((((527 + this.f64882a.hashCode()) * 31) + this.f64883b.hashCode()) * 31) + this.f64884c.hashCode()) * 31) + this.f64885d.hashCode();
+        return ((((((527 + this.f65568a.hashCode()) * 31) + this.f65569b.hashCode()) * 31) + this.f65570c.hashCode()) * 31) + this.f65571d.hashCode();
     }
 }

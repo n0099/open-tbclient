@@ -7,6 +7,7 @@ import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraIn
 import com.baidu.mobads.container.components.controller.InstallReceiver;
 import com.baidu.mobads.container.util.RemoteXAdLogger;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tieba.service.AsInstallService;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class XAdInstallController {
@@ -36,7 +37,7 @@ public class XAdInstallController {
         }
         try {
             IntentFilter intentFilter = new IntentFilter(PackageChangedReceiver.ACTION_INSTALL);
-            intentFilter.addDataScheme("package");
+            intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
             context.registerReceiver(this.mReceiverList.get(str), intentFilter);
             this.mRegisterList.put(str, Boolean.TRUE);
         } catch (Exception unused) {

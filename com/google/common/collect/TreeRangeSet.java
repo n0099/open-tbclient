@@ -113,10 +113,10 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
     public final class b extends r<Range<C>> implements Set<Range<C>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Collection<Range<C>> f32139e;
+        public final Collection<Range<C>> f31384e;
 
         public b(TreeRangeSet treeRangeSet, Collection<Range<C>> collection) {
-            this.f32139e = collection;
+            this.f31384e = collection;
         }
 
         @Override // java.util.Collection, java.util.Set
@@ -132,7 +132,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.g.c.c.r, d.g.c.c.y
         public Collection<Range<C>> delegate() {
-            return this.f32139e;
+            return this.f31384e;
         }
     }
 
@@ -140,30 +140,30 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
     public static final class c<C extends Comparable<?>> extends d.g.c.c.e<Cut<C>, Range<C>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final NavigableMap<Cut<C>, Range<C>> f32140e;
+        public final NavigableMap<Cut<C>, Range<C>> f31385e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final NavigableMap<Cut<C>, Range<C>> f32141f;
+        public final NavigableMap<Cut<C>, Range<C>> f31386f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Range<Cut<C>> f32142g;
+        public final Range<Cut<C>> f31387g;
 
         /* loaded from: classes6.dex */
         public class a extends AbstractIterator<Map.Entry<Cut<C>, Range<C>>> {
 
             /* renamed from: g  reason: collision with root package name */
-            public Cut<C> f32143g;
+            public Cut<C> f31388g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ Cut f32144h;
+            public final /* synthetic */ Cut f31389h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ m0 f32145i;
+            public final /* synthetic */ m0 f31390i;
 
             public a(Cut cut, m0 m0Var) {
-                this.f32144h = cut;
-                this.f32145i = m0Var;
-                this.f32143g = this.f32144h;
+                this.f31389h = cut;
+                this.f31390i = m0Var;
+                this.f31388g = this.f31389h;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -171,14 +171,14 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             /* renamed from: d */
             public Map.Entry<Cut<C>, Range<C>> a() {
                 Range create;
-                if (!c.this.f32142g.upperBound.isLessThan(this.f32143g) && this.f32143g != Cut.aboveAll()) {
-                    if (this.f32145i.hasNext()) {
-                        Range range = (Range) this.f32145i.next();
-                        create = Range.create(this.f32143g, range.lowerBound);
-                        this.f32143g = range.upperBound;
+                if (!c.this.f31387g.upperBound.isLessThan(this.f31388g) && this.f31388g != Cut.aboveAll()) {
+                    if (this.f31390i.hasNext()) {
+                        Range range = (Range) this.f31390i.next();
+                        create = Range.create(this.f31388g, range.lowerBound);
+                        this.f31388g = range.upperBound;
                     } else {
-                        create = Range.create(this.f32143g, Cut.aboveAll());
-                        this.f32143g = Cut.aboveAll();
+                        create = Range.create(this.f31388g, Cut.aboveAll());
+                        this.f31388g = Cut.aboveAll();
                     }
                     return Maps.j(create.lowerBound, create);
                 }
@@ -190,38 +190,38 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         public class b extends AbstractIterator<Map.Entry<Cut<C>, Range<C>>> {
 
             /* renamed from: g  reason: collision with root package name */
-            public Cut<C> f32146g;
+            public Cut<C> f31391g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ Cut f32147h;
+            public final /* synthetic */ Cut f31392h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ m0 f32148i;
+            public final /* synthetic */ m0 f31393i;
 
             public b(Cut cut, m0 m0Var) {
-                this.f32147h = cut;
-                this.f32148i = m0Var;
-                this.f32146g = this.f32147h;
+                this.f31392h = cut;
+                this.f31393i = m0Var;
+                this.f31391g = this.f31392h;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.AbstractIterator
             /* renamed from: d */
             public Map.Entry<Cut<C>, Range<C>> a() {
-                if (this.f32146g == Cut.belowAll()) {
+                if (this.f31391g == Cut.belowAll()) {
                     return (Map.Entry) b();
                 }
-                if (!this.f32148i.hasNext()) {
-                    if (c.this.f32142g.lowerBound.isLessThan(Cut.belowAll())) {
-                        Range create = Range.create(Cut.belowAll(), this.f32146g);
-                        this.f32146g = Cut.belowAll();
+                if (!this.f31393i.hasNext()) {
+                    if (c.this.f31387g.lowerBound.isLessThan(Cut.belowAll())) {
+                        Range create = Range.create(Cut.belowAll(), this.f31391g);
+                        this.f31391g = Cut.belowAll();
                         return Maps.j(Cut.belowAll(), create);
                     }
                 } else {
-                    Range range = (Range) this.f32148i.next();
-                    Range create2 = Range.create(range.upperBound, this.f32146g);
-                    this.f32146g = range.lowerBound;
-                    if (c.this.f32142g.lowerBound.isLessThan(create2.lowerBound)) {
+                    Range range = (Range) this.f31393i.next();
+                    Range create2 = Range.create(range.upperBound, this.f31391g);
+                    this.f31391g = range.lowerBound;
+                    if (c.this.f31387g.lowerBound.isLessThan(create2.lowerBound)) {
                         return Maps.j(create2.lowerBound, create2);
                     }
                 }
@@ -237,13 +237,13 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         public Iterator<Map.Entry<Cut<C>, Range<C>>> a() {
             Collection<Range<C>> values;
             Cut cut;
-            if (this.f32142g.hasLowerBound()) {
-                values = this.f32141f.tailMap(this.f32142g.lowerEndpoint(), this.f32142g.lowerBoundType() == BoundType.CLOSED).values();
+            if (this.f31387g.hasLowerBound()) {
+                values = this.f31386f.tailMap(this.f31387g.lowerEndpoint(), this.f31387g.lowerBoundType() == BoundType.CLOSED).values();
             } else {
-                values = this.f32141f.values();
+                values = this.f31386f.values();
             }
             m0 p = Iterators.p(values.iterator());
-            if (this.f32142g.contains(Cut.belowAll()) && (!p.hasNext() || ((Range) p.peek()).lowerBound != Cut.belowAll())) {
+            if (this.f31387g.contains(Cut.belowAll()) && (!p.hasNext() || ((Range) p.peek()).lowerBound != Cut.belowAll())) {
                 cut = Cut.belowAll();
             } else if (p.hasNext()) {
                 cut = ((Range) p.next()).upperBound;
@@ -257,20 +257,20 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         public Iterator<Map.Entry<Cut<C>, Range<C>>> b() {
             Cut<C> aboveAll;
             Cut<C> higherKey;
-            if (this.f32142g.hasUpperBound()) {
-                aboveAll = this.f32142g.upperEndpoint();
+            if (this.f31387g.hasUpperBound()) {
+                aboveAll = this.f31387g.upperEndpoint();
             } else {
                 aboveAll = Cut.aboveAll();
             }
-            m0 p = Iterators.p(this.f32141f.headMap(aboveAll, this.f32142g.hasUpperBound() && this.f32142g.upperBoundType() == BoundType.CLOSED).descendingMap().values().iterator());
+            m0 p = Iterators.p(this.f31386f.headMap(aboveAll, this.f31387g.hasUpperBound() && this.f31387g.upperBoundType() == BoundType.CLOSED).descendingMap().values().iterator());
             if (p.hasNext()) {
                 if (((Range) p.peek()).upperBound == Cut.aboveAll()) {
                     higherKey = ((Range) p.next()).lowerBound;
                 } else {
-                    higherKey = this.f32140e.higherKey(((Range) p.peek()).upperBound);
+                    higherKey = this.f31385e.higherKey(((Range) p.peek()).upperBound);
                 }
-            } else if (this.f32142g.contains(Cut.belowAll()) && !this.f32140e.containsKey(Cut.belowAll())) {
-                higherKey = this.f32140e.higherKey(Cut.belowAll());
+            } else if (this.f31387g.contains(Cut.belowAll()) && !this.f31385e.containsKey(Cut.belowAll())) {
+                higherKey = this.f31385e.higherKey(Cut.belowAll());
             } else {
                 return Iterators.h();
             }
@@ -319,10 +319,10 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         }
 
         public final NavigableMap<Cut<C>, Range<C>> g(Range<Cut<C>> range) {
-            if (!this.f32142g.isConnected(range)) {
+            if (!this.f31387g.isConnected(range)) {
                 return ImmutableSortedMap.of();
             }
-            return new c(this.f32140e, range.intersection(this.f32142g));
+            return new c(this.f31385e, range.intersection(this.f31387g));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -338,9 +338,9 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         }
 
         public c(NavigableMap<Cut<C>, Range<C>> navigableMap, Range<Cut<C>> range) {
-            this.f32140e = navigableMap;
-            this.f32141f = new d(navigableMap);
-            this.f32142g = range;
+            this.f31385e = navigableMap;
+            this.f31386f = new d(navigableMap);
+            this.f31387g = range;
         }
     }
 
@@ -348,41 +348,41 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
     public static final class e<C extends Comparable<?>> extends d.g.c.c.e<Cut<C>, Range<C>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Range<Cut<C>> f32155e;
+        public final Range<Cut<C>> f31400e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Range<C> f32156f;
+        public final Range<C> f31401f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final NavigableMap<Cut<C>, Range<C>> f32157g;
+        public final NavigableMap<Cut<C>, Range<C>> f31402g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final NavigableMap<Cut<C>, Range<C>> f32158h;
+        public final NavigableMap<Cut<C>, Range<C>> f31403h;
 
         /* loaded from: classes6.dex */
         public class a extends AbstractIterator<Map.Entry<Cut<C>, Range<C>>> {
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Iterator f32159g;
+            public final /* synthetic */ Iterator f31404g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ Cut f32160h;
+            public final /* synthetic */ Cut f31405h;
 
             public a(Iterator it, Cut cut) {
-                this.f32159g = it;
-                this.f32160h = cut;
+                this.f31404g = it;
+                this.f31405h = cut;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.AbstractIterator
             /* renamed from: d */
             public Map.Entry<Cut<C>, Range<C>> a() {
-                if (!this.f32159g.hasNext()) {
+                if (!this.f31404g.hasNext()) {
                     return (Map.Entry) b();
                 }
-                Range range = (Range) this.f32159g.next();
-                if (!this.f32160h.isLessThan(range.lowerBound)) {
-                    Range intersection = range.intersection(e.this.f32156f);
+                Range range = (Range) this.f31404g.next();
+                if (!this.f31405h.isLessThan(range.lowerBound)) {
+                    Range intersection = range.intersection(e.this.f31401f);
                     return Maps.j(intersection.lowerBound, intersection);
                 }
                 return (Map.Entry) b();
@@ -393,23 +393,23 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         public class b extends AbstractIterator<Map.Entry<Cut<C>, Range<C>>> {
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Iterator f32162g;
+            public final /* synthetic */ Iterator f31407g;
 
             public b(Iterator it) {
-                this.f32162g = it;
+                this.f31407g = it;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.AbstractIterator
             /* renamed from: d */
             public Map.Entry<Cut<C>, Range<C>> a() {
-                if (!this.f32162g.hasNext()) {
+                if (!this.f31407g.hasNext()) {
                     return (Map.Entry) b();
                 }
-                Range range = (Range) this.f32162g.next();
-                if (e.this.f32156f.lowerBound.compareTo((Cut) range.upperBound) < 0) {
-                    Range intersection = range.intersection(e.this.f32156f);
-                    if (e.this.f32155e.contains(intersection.lowerBound)) {
+                Range range = (Range) this.f31407g.next();
+                if (e.this.f31401f.lowerBound.compareTo((Cut) range.upperBound) < 0) {
+                    Range intersection = range.intersection(e.this.f31401f);
+                    if (e.this.f31400e.contains(intersection.lowerBound)) {
                         return Maps.j(intersection.lowerBound, intersection);
                     }
                     return (Map.Entry) b();
@@ -421,29 +421,29 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         @Override // com.google.common.collect.Maps.l
         public Iterator<Map.Entry<Cut<C>, Range<C>>> a() {
             Iterator<Range<C>> it;
-            if (this.f32156f.isEmpty()) {
+            if (this.f31401f.isEmpty()) {
                 return Iterators.h();
             }
-            if (this.f32155e.upperBound.isLessThan(this.f32156f.lowerBound)) {
+            if (this.f31400e.upperBound.isLessThan(this.f31401f.lowerBound)) {
                 return Iterators.h();
             }
-            if (this.f32155e.lowerBound.isLessThan(this.f32156f.lowerBound)) {
-                it = this.f32158h.tailMap(this.f32156f.lowerBound, false).values().iterator();
+            if (this.f31400e.lowerBound.isLessThan(this.f31401f.lowerBound)) {
+                it = this.f31403h.tailMap(this.f31401f.lowerBound, false).values().iterator();
             } else {
-                it = this.f32157g.tailMap(this.f32155e.lowerBound.endpoint(), this.f32155e.lowerBoundType() == BoundType.CLOSED).values().iterator();
+                it = this.f31402g.tailMap(this.f31400e.lowerBound.endpoint(), this.f31400e.lowerBoundType() == BoundType.CLOSED).values().iterator();
             }
-            return new a(it, (Cut) Ordering.natural().min(this.f32155e.upperBound, Cut.belowValue(this.f32156f.upperBound)));
+            return new a(it, (Cut) Ordering.natural().min(this.f31400e.upperBound, Cut.belowValue(this.f31401f.upperBound)));
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.util.NavigableMap<com.google.common.collect.Cut<C extends java.lang.Comparable<?>>, com.google.common.collect.Range<C extends java.lang.Comparable<?>>> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // d.g.c.c.e
         public Iterator<Map.Entry<Cut<C>, Range<C>>> b() {
-            if (this.f32156f.isEmpty()) {
+            if (this.f31401f.isEmpty()) {
                 return Iterators.h();
             }
-            Cut cut = (Cut) Ordering.natural().min(this.f32155e.upperBound, Cut.belowValue(this.f32156f.upperBound));
-            return new b(this.f32157g.headMap(cut.endpoint(), cut.typeAsUpperBound() == BoundType.CLOSED).descendingMap().values().iterator());
+            Cut cut = (Cut) Ordering.natural().min(this.f31400e.upperBound, Cut.belowValue(this.f31401f.upperBound));
+            return new b(this.f31402g.headMap(cut.endpoint(), cut.typeAsUpperBound() == BoundType.CLOSED).descendingMap().values().iterator());
         }
 
         @Override // java.util.SortedMap
@@ -463,16 +463,16 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             if (obj instanceof Cut) {
                 try {
                     Cut<C> cut = (Cut) obj;
-                    if (this.f32155e.contains(cut) && cut.compareTo(this.f32156f.lowerBound) >= 0 && cut.compareTo(this.f32156f.upperBound) < 0) {
-                        if (cut.equals(this.f32156f.lowerBound)) {
-                            Range range = (Range) Maps.M(this.f32157g.floorEntry(cut));
-                            if (range != null && range.upperBound.compareTo((Cut) this.f32156f.lowerBound) > 0) {
-                                return range.intersection(this.f32156f);
+                    if (this.f31400e.contains(cut) && cut.compareTo(this.f31401f.lowerBound) >= 0 && cut.compareTo(this.f31401f.upperBound) < 0) {
+                        if (cut.equals(this.f31401f.lowerBound)) {
+                            Range range = (Range) Maps.M(this.f31402g.floorEntry(cut));
+                            if (range != null && range.upperBound.compareTo((Cut) this.f31401f.lowerBound) > 0) {
+                                return range.intersection(this.f31401f);
                             }
                         } else {
-                            Range range2 = (Range) this.f32157g.get(cut);
+                            Range range2 = (Range) this.f31402g.get(cut);
                             if (range2 != null) {
-                                return range2.intersection(this.f32156f);
+                                return range2.intersection(this.f31401f);
                             }
                         }
                     }
@@ -497,10 +497,10 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         }
 
         public final NavigableMap<Cut<C>, Range<C>> h(Range<Cut<C>> range) {
-            if (!range.isConnected(this.f32155e)) {
+            if (!range.isConnected(this.f31400e)) {
                 return ImmutableSortedMap.of();
             }
-            return new e(this.f32155e.intersection(range), this.f32156f, this.f32157g);
+            return new e(this.f31400e.intersection(range), this.f31401f, this.f31402g);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -517,12 +517,12 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
 
         public e(Range<Cut<C>> range, Range<C> range2, NavigableMap<Cut<C>, Range<C>> navigableMap) {
             n.p(range);
-            this.f32155e = range;
+            this.f31400e = range;
             n.p(range2);
-            this.f32156f = range2;
+            this.f31401f = range2;
             n.p(navigableMap);
-            this.f32157g = navigableMap;
-            this.f32158h = new d(navigableMap);
+            this.f31402g = navigableMap;
+            this.f31403h = new d(navigableMap);
         }
     }
 
@@ -740,30 +740,30 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
     public static final class d<C extends Comparable<?>> extends d.g.c.c.e<Cut<C>, Range<C>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final NavigableMap<Cut<C>, Range<C>> f32149e;
+        public final NavigableMap<Cut<C>, Range<C>> f31394e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Range<Cut<C>> f32150f;
+        public final Range<Cut<C>> f31395f;
 
         /* loaded from: classes6.dex */
         public class a extends AbstractIterator<Map.Entry<Cut<C>, Range<C>>> {
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Iterator f32151g;
+            public final /* synthetic */ Iterator f31396g;
 
             public a(Iterator it) {
-                this.f32151g = it;
+                this.f31396g = it;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.AbstractIterator
             /* renamed from: d */
             public Map.Entry<Cut<C>, Range<C>> a() {
-                if (!this.f32151g.hasNext()) {
+                if (!this.f31396g.hasNext()) {
                     return (Map.Entry) b();
                 }
-                Range range = (Range) this.f32151g.next();
-                if (d.this.f32150f.upperBound.isLessThan(range.upperBound)) {
+                Range range = (Range) this.f31396g.next();
+                if (d.this.f31395f.upperBound.isLessThan(range.upperBound)) {
                     return (Map.Entry) b();
                 }
                 return Maps.j(range.upperBound, range);
@@ -774,21 +774,21 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         public class b extends AbstractIterator<Map.Entry<Cut<C>, Range<C>>> {
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ m0 f32153g;
+            public final /* synthetic */ m0 f31398g;
 
             public b(m0 m0Var) {
-                this.f32153g = m0Var;
+                this.f31398g = m0Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.AbstractIterator
             /* renamed from: d */
             public Map.Entry<Cut<C>, Range<C>> a() {
-                if (!this.f32153g.hasNext()) {
+                if (!this.f31398g.hasNext()) {
                     return (Map.Entry) b();
                 }
-                Range range = (Range) this.f32153g.next();
-                if (d.this.f32150f.lowerBound.isLessThan(range.upperBound)) {
+                Range range = (Range) this.f31398g.next();
+                if (d.this.f31395f.lowerBound.isLessThan(range.upperBound)) {
                     return Maps.j(range.upperBound, range);
                 }
                 return (Map.Entry) b();
@@ -796,23 +796,23 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         }
 
         public d(NavigableMap<Cut<C>, Range<C>> navigableMap) {
-            this.f32149e = navigableMap;
-            this.f32150f = Range.all();
+            this.f31394e = navigableMap;
+            this.f31395f = Range.all();
         }
 
         @Override // com.google.common.collect.Maps.l
         public Iterator<Map.Entry<Cut<C>, Range<C>>> a() {
             Iterator<Range<C>> it;
-            if (!this.f32150f.hasLowerBound()) {
-                it = this.f32149e.values().iterator();
+            if (!this.f31395f.hasLowerBound()) {
+                it = this.f31394e.values().iterator();
             } else {
-                Map.Entry<Cut<C>, Range<C>> lowerEntry = this.f32149e.lowerEntry(this.f32150f.lowerEndpoint());
+                Map.Entry<Cut<C>, Range<C>> lowerEntry = this.f31394e.lowerEntry(this.f31395f.lowerEndpoint());
                 if (lowerEntry == null) {
-                    it = this.f32149e.values().iterator();
-                } else if (this.f32150f.lowerBound.isLessThan(lowerEntry.getValue().upperBound)) {
-                    it = this.f32149e.tailMap(lowerEntry.getKey(), true).values().iterator();
+                    it = this.f31394e.values().iterator();
+                } else if (this.f31395f.lowerBound.isLessThan(lowerEntry.getValue().upperBound)) {
+                    it = this.f31394e.tailMap(lowerEntry.getKey(), true).values().iterator();
                 } else {
-                    it = this.f32149e.tailMap(this.f32150f.lowerEndpoint(), true).values().iterator();
+                    it = this.f31394e.tailMap(this.f31395f.lowerEndpoint(), true).values().iterator();
                 }
             }
             return new a(it);
@@ -821,13 +821,13 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         @Override // d.g.c.c.e
         public Iterator<Map.Entry<Cut<C>, Range<C>>> b() {
             Collection<Range<C>> values;
-            if (this.f32150f.hasUpperBound()) {
-                values = this.f32149e.headMap(this.f32150f.upperEndpoint(), false).descendingMap().values();
+            if (this.f31395f.hasUpperBound()) {
+                values = this.f31394e.headMap(this.f31395f.upperEndpoint(), false).descendingMap().values();
             } else {
-                values = this.f32149e.descendingMap().values();
+                values = this.f31394e.descendingMap().values();
             }
             m0 p = Iterators.p(values.iterator());
-            if (p.hasNext() && this.f32150f.upperBound.isLessThan(((Range) p.peek()).upperBound)) {
+            if (p.hasNext() && this.f31395f.upperBound.isLessThan(((Range) p.peek()).upperBound)) {
                 p.next();
             }
             return new b(p);
@@ -851,7 +851,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             if (obj instanceof Cut) {
                 try {
                     Cut<C> cut = (Cut) obj;
-                    if (this.f32150f.contains(cut) && (lowerEntry = this.f32149e.lowerEntry(cut)) != null && lowerEntry.getValue().upperBound.equals(cut)) {
+                    if (this.f31395f.contains(cut) && (lowerEntry = this.f31394e.lowerEntry(cut)) != null && lowerEntry.getValue().upperBound.equals(cut)) {
                         return lowerEntry.getValue();
                     }
                 } catch (ClassCastException unused) {
@@ -875,8 +875,8 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         }
 
         public final NavigableMap<Cut<C>, Range<C>> g(Range<Cut<C>> range) {
-            if (range.isConnected(this.f32150f)) {
-                return new d(this.f32149e, range.intersection(this.f32150f));
+            if (range.isConnected(this.f31395f)) {
+                return new d(this.f31394e, range.intersection(this.f31395f));
             }
             return ImmutableSortedMap.of();
         }
@@ -890,23 +890,23 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
 
         @Override // java.util.AbstractMap, java.util.Map
         public boolean isEmpty() {
-            if (this.f32150f.equals(Range.all())) {
-                return this.f32149e.isEmpty();
+            if (this.f31395f.equals(Range.all())) {
+                return this.f31394e.isEmpty();
             }
             return !a().hasNext();
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public int size() {
-            if (this.f32150f.equals(Range.all())) {
-                return this.f32149e.size();
+            if (this.f31395f.equals(Range.all())) {
+                return this.f31394e.size();
             }
             return Iterators.u(a());
         }
 
         public d(NavigableMap<Cut<C>, Range<C>> navigableMap, Range<Cut<C>> range) {
-            this.f32149e = navigableMap;
-            this.f32150f = range;
+            this.f31394e = navigableMap;
+            this.f31395f = range;
         }
     }
 

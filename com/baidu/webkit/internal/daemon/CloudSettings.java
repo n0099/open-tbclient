@@ -7,8 +7,8 @@ import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
+import com.baidu.webkit.internal.RC4;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.baidu.webkit.internal.d;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.baidu.webkit.internal.utils.b;
 import com.baidu.webkit.net.BdNet;
@@ -43,30 +43,30 @@ public class CloudSettings implements INoProGuard, INetListener {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f27416a;
+        public long f26668a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27417b = -1;
+        public int f26669b = -1;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f27418c;
+        public boolean f26670c;
 
         public a() {
         }
 
         public final void a(int i2) {
-            Log.w(CloudSettings.LOG_TAG, "setNetRes " + i2);
-            this.f27417b = i2;
+            Log.w(CloudSettings.LOG_TAG, "setNetRes ".concat(String.valueOf(i2)));
+            this.f26669b = i2;
         }
 
         public final void a(long j) {
-            Log.w(CloudSettings.LOG_TAG, "setNetTime " + j);
-            this.f27416a = j;
+            Log.w(CloudSettings.LOG_TAG, "setNetTime ".concat(String.valueOf(j)));
+            this.f26668a = j;
         }
 
         public final void a(boolean z) {
-            Log.w(CloudSettings.LOG_TAG, "mCronet " + z);
-            this.f27418c = z;
+            Log.w(CloudSettings.LOG_TAG, "mCronet ".concat(String.valueOf(z)));
+            this.f26670c = z;
         }
     }
 
@@ -132,7 +132,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             Log.e(LOG_TAG, "model exception ", th);
         }
         String str = cloudSettingUrl + sb.toString();
-        Log.w(LOG_TAG, "cloud url=" + str);
+        Log.w(LOG_TAG, "cloud url=".concat(String.valueOf(str)));
         return str;
     }
 
@@ -308,9 +308,9 @@ public class CloudSettings implements INoProGuard, INetListener {
         Map<String, String> map = this.mHeader;
         if (map != null) {
             String str = map.get("Last-Modified");
-            Log.w(LOG_TAG, "lastModify " + str);
+            Log.w(LOG_TAG, "lastModify ".concat(String.valueOf(str)));
             if (str != null) {
-                Log.w(LOG_TAG, "lastModify1 " + str);
+                Log.w(LOG_TAG, "lastModify1 ".concat(String.valueOf(str)));
                 CfgFileUtils.set(CfgFileUtils.KEY_CLOUDSETTINGS_LASTMODIFY, str);
             }
         }
@@ -319,7 +319,7 @@ public class CloudSettings implements INoProGuard, INetListener {
         Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
         Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
         try {
-            byteArray = new d(WebSettingsGlobalBlink.getRc4SecrectKey()).a(byteArray);
+            byteArray = new RC4(WebSettingsGlobalBlink.getRc4SecrectKey()).decrypt(byteArray);
             WebSettingsGlobalBlink.setCloudSettings(new String(byteArray, "utf-8"));
             VideoCloudSetting.saveVideoSettingToCfg();
         } catch (Exception e2) {

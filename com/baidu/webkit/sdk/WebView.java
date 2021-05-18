@@ -46,7 +46,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.internal.Statistics;
-import com.baidu.webkit.internal.e;
+import com.baidu.webkit.internal.a;
 import com.baidu.webkit.sdk.WebViewProvider;
 import com.baidu.webkit.sdk.jsapi.IJsAbility;
 import com.baidu.webkit.sdk.jsapi.ZeusJsBridge;
@@ -77,7 +77,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public static final int VIRTUAL_MEMORY_PRESSURE_LEVEL_CRITICAL = 2;
     public static final int VIRTUAL_MEMORY_PRESSURE_LEVEL_MODERATE = 1;
     public static final int VIRTUAL_MEMORY_PRESSURE_LEVEL_NONE = 0;
+    public static long mIdentifier;
     public static volatile boolean sEnforceThreadChecking;
+    public long mCurrentSourceId;
     public boolean mDestroyed;
     public FindListenerDistributor mFindListener;
     public boolean mHasPerformedLongPress;
@@ -86,7 +88,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public ZeusJsBridge mJsBridge;
     public boolean mOnViewHierarchy;
     public WebViewProvider mProvider;
-    public e mSecureProcessor;
+    public a mSecureProcessor;
     public int mSetOverScrollModeBeforeProviderReady;
     public int mSoftInputMode;
     public Statistics.Client mStatisticClient;
@@ -422,6 +424,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         public static final int SRC_IMAGE_ANCHOR_TYPE = 8;
         public static final int SRC_JS_ANCHOR_TYPE = 11;
         public static final int UNKNOWN_TYPE = 0;
+        public boolean mDataNoNaDialogEnabled;
         public String mExtra;
         public String mExtra2;
         public String mFirstNavigationUrl;
@@ -432,7 +435,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         public String mOriginLinkUrl;
         public String mOriginSrcUrl;
         public String mPageUrl;
+        public float mTouchPageX;
+        public float mTouchPageY;
         public int mType = 0;
+
+        public boolean getDataNoNaDialogEnabled() {
+            return this.mDataNoNaDialogEnabled;
+        }
 
         public String getExtra() {
             return this.mExtra;
@@ -466,6 +475,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
             return this.mPageUrl;
         }
 
+        public float getTouchPageX() {
+            return this.mTouchPageX;
+        }
+
+        public float getTouchPageY() {
+            return this.mTouchPageY;
+        }
+
         public int getType() {
             return this.mType;
         }
@@ -476,6 +493,10 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
         public boolean isTextNode() {
             return this.mIsTextNode;
+        }
+
+        public void setDataNoNaDialogEnabled(boolean z) {
+            this.mDataNoNaDialogEnabled = z;
         }
 
         public void setExtra(String str) {
@@ -516,6 +537,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
         public void setPageUrl(String str) {
             this.mPageUrl = str;
+        }
+
+        public void setTouchPageX(float f2) {
+            this.mTouchPageX = f2;
+        }
+
+        public void setTouchPageY(float f2) {
+            this.mTouchPageY = f2;
         }
 
         public void setType(int i2) {
@@ -947,7 +976,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
         } catch (Throwable th) {
-            Log.e(LOGTAG, "getStaticWebSeting error:" + th);
+            Log.e(LOGTAG, "getStaticWebSeting error:".concat(String.valueOf(th)));
         }
         if (WebViewFactory.hasProvider()) {
             z = ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_ENABLE_JS_PROMPT)).booleanValue();
@@ -1088,7 +1117,10 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public static void preconnectUrl(String str, Context context) {
-        WebViewFactory.hasProvider();
+        if (WebViewFactory.hasProvider()) {
+            Log.w(Log.LOG_TAG, "Webview preconnectUrl url= ".concat(String.valueOf(str)));
+            getFactory().getStatics().preconnectUrl(str, 0);
+        }
     }
 
     public static void prefetch(String str, Map<String, String> map, MainResourcePrefetchListener mainResourcePrefetchListener) {
@@ -1117,24 +1149,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public static void setDataDirectorySuffix(String str) {
-        if (str == null) {
-            Log.e(LOGTAG, "suffix is null", new IllegalArgumentException(StringUtil.NULL_STRING));
-            return;
-        }
-        setDataDirectorySuffixSystem(str);
         WebViewFactory.setDataDirectorySuffix(str);
-    }
-
-    public static void setDataDirectorySuffixSystem(String str) {
-        if (Build.VERSION.SDK_INT >= 28) {
-            try {
-                android.webkit.WebView.class.getMethod("setDataDirectorySuffix", String.class).invoke(null, str);
-            } catch (IllegalStateException e2) {
-                throw e2;
-            } catch (Throwable th) {
-                Log.e(LOGTAG, "Failed to set data directory suffix: ", th);
-            }
-        }
     }
 
     private void setFindIsUp(boolean z) {
@@ -1173,7 +1188,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
                 while (i2 < stackTrace.length - 1) {
                     try {
                         StackTraceElement stackTraceElement = stackTrace[i2];
-                        sb.append("\tat " + stackTraceElement);
+                        sb.append("\tat ".concat(String.valueOf(stackTraceElement)));
                         String methodName = stackTraceElement.getMethodName();
                         i2++;
                         String methodName2 = stackTrace[i2].getMethodName();
@@ -1203,11 +1218,11 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
             client.onCommitRecord(jSInterfaceStatistics);
             return;
         }
-        e secureProcessor = getSecureProcessor();
+        a secureProcessor = getSecureProcessor();
         boolean a2 = true ^ secureProcessor.a();
         if (obj != null && !TextUtils.isEmpty(str)) {
             secureProcessor.d().put(str, obj);
-            secureProcessor.f27423d = null;
+            secureProcessor.f26621d = null;
         }
         if (!a2 || getEnableJsPrompt()) {
             return;
@@ -1276,6 +1291,10 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         } else {
             getWebView().addView(view, -1, layoutParams);
         }
+    }
+
+    public void addWebMessageListener(WebMessageListener webMessageListener, String str, String[] strArr) {
+        this.mProvider.addWebMessageListener(webMessageListener, str, strArr);
     }
 
     public void addZeusPluginFactory(ZeusPluginFactory zeusPluginFactory) {
@@ -1406,6 +1425,10 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mProvider.clearCache(z);
     }
 
+    public boolean clearDiskJsCodeCache(String str) {
+        return this.mProvider.clearDiskJsCodeCache(str);
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     public void clearFocus() {
         WebViewProvider webViewProvider = this.mProvider;
@@ -1521,15 +1544,15 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public void destroy() {
-        e secureProcessor = getSecureProcessor();
-        if (secureProcessor.f27422c.getContext().getPackageName().contains("com.baidu.searchbox")) {
-            HashMap<String, Object> hashMap = secureProcessor.f27421b;
+        a secureProcessor = getSecureProcessor();
+        if (secureProcessor.f26620c.getContext().getPackageName().contains("com.baidu.searchbox")) {
+            HashMap<String, Object> hashMap = secureProcessor.f26619b;
             if (hashMap != null) {
                 hashMap.clear();
-                secureProcessor.f27421b = null;
+                secureProcessor.f26619b = null;
             }
-            if (secureProcessor.f27422c.getWebViewClient() != null) {
-                secureProcessor.f27423d = null;
+            if (secureProcessor.f26620c.getWebViewClient() != null) {
+                secureProcessor.f26621d = null;
             }
         }
         checkThread();
@@ -1543,16 +1566,6 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public void destroyCanvasCacheBmp() {
-    }
-
-    @Override // android.view.View
-    public void destroyDrawingCache() {
-        WebViewProvider webViewProvider = this.mProvider;
-        if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
-            super.destroyDrawingCache();
-        } else {
-            getWebView().destroyDrawingCache();
-        }
     }
 
     public void disableMedia() {
@@ -1608,7 +1621,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public void execJavaScript(String str) {
-        loadUrl("javascript:" + str);
+        loadUrl("javascript:".concat(String.valueOf(str)));
     }
 
     public void execJavaScriptExt(String str, String... strArr) {
@@ -1718,6 +1731,10 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return getScale();
     }
 
+    public long getCurrentSourceId() {
+        return this.mCurrentSourceId;
+    }
+
     public View getCurrentTitleBar() {
         return this.mViewDelegate.getCurrentTitleBar();
     }
@@ -1819,9 +1836,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return this.mViewDelegate.getSearchResultTitleBar();
     }
 
-    public e getSecureProcessor() {
+    public a getSecureProcessor() {
         if (this.mSecureProcessor == null) {
-            this.mSecureProcessor = new e(this);
+            this.mSecureProcessor = new a(this);
         }
         return this.mSecureProcessor;
     }
@@ -2182,9 +2199,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return true;
     }
 
-    public void notifyPageLeave() {
+    public void notifyUkmPageLeave() {
         checkThread();
-        this.mProvider.notifyPageLeave();
+        this.mProvider.notifyUkmPageLeave();
     }
 
     public void notifyUnsafeInvolved(int i2, String str) {
@@ -2574,13 +2591,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public void removeJavascriptInterface(String str) {
-        e secureProcessor = getSecureProcessor();
+        a secureProcessor = getSecureProcessor();
         boolean z = true;
-        if (!"searchBoxJavaBridge_".equalsIgnoreCase(str) && secureProcessor.f27422c.getContext().getPackageName().contains("com.baidu.searchbox")) {
+        if (!"searchBoxJavaBridge_".equalsIgnoreCase(str) && secureProcessor.f26620c.getContext().getPackageName().contains("com.baidu.searchbox")) {
             boolean z2 = !secureProcessor.a();
             secureProcessor.d().remove(str);
-            if (secureProcessor.f27422c.getWebViewClient() != null) {
-                secureProcessor.f27423d = null;
+            if (secureProcessor.f26620c.getWebViewClient() != null) {
+                secureProcessor.f26621d = null;
             }
             z = z2;
         }
@@ -2744,6 +2761,21 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public void setCertificate(SslCertificate sslCertificate) {
         checkThread();
         this.mProvider.setCertificate(sslCertificate);
+    }
+
+    public void setCurrentSourceIdByIdentifier() {
+        long j = mIdentifier + 1;
+        mIdentifier = j;
+        this.mCurrentSourceId = j << 16;
+        Log.i("huqin-sourceid", "setCurrentSourceIdByIdentifier sourceId = " + this.mCurrentSourceId);
+    }
+
+    public void setCurrentSourceIdByNavigationId(long j) {
+        if (j < 0) {
+            return;
+        }
+        this.mCurrentSourceId = (j << 2) + 1;
+        Log.i("huqin-sourceid", "setCurrentSourceIdByNavigationId sourceId = " + this.mCurrentSourceId);
     }
 
     public void setCurrentTitleBar(boolean z) {

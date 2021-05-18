@@ -8,25 +8,25 @@ import android.widget.Toast;
 import com.win.opensdk.core.Info;
 import com.win.opensdk.downloader.WDownLoadService;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class D1 implements DownloadListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ E1 f37633a;
+    public final /* synthetic */ E1 f36878a;
 
     public D1(E1 e1) {
-        this.f37633a = e1;
+        this.f36878a = e1;
     }
 
     @Override // android.webkit.DownloadListener
     public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-        Info info = this.f37633a.f37644c;
+        Info info = this.f36878a.f36889c;
         if (info == null || info.getOpent() != 1 || j <= 10) {
             return;
         }
-        E1 e1 = this.f37633a;
-        Context context = e1.f37642a;
-        Info info2 = e1.f37644c;
+        E1 e1 = this.f36878a;
+        Context context = e1.f36887a;
+        Info info2 = e1.f36889c;
         if (!z.d(context)) {
             Toast.makeText(context, context.getString(R.string.win_wdownload_no_netwrok) + info2.getDl_name(), 0).show();
             x0.a(context).b(new y0(info2), 1).a();
@@ -38,7 +38,7 @@ public class D1 implements DownloadListener {
                 y0 y0Var = new y0(info2);
                 String open = info2.getOpen();
                 try {
-                    a2.f37984b = x0.a("wii", y0Var);
+                    a2.f37229b = x0.a("wii", y0Var);
                     a2.a("msg", x0.a(open));
                 } catch (JSONException unused) {
                 }

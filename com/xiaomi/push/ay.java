@@ -15,7 +15,7 @@ import java.security.MessageDigest;
 public class ay implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f38153a;
+    public static boolean f37398a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f137a;
@@ -39,19 +39,19 @@ public class ay implements ar {
         public String f141a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f38155b;
+        public String f37400b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f38156c;
+        public String f37401c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f38157d;
+        public String f37402d;
 
         public a() {
             this.f141a = null;
-            this.f38155b = null;
-            this.f38156c = null;
-            this.f38157d = null;
+            this.f37400b = null;
+            this.f37401c = null;
+            this.f37402d = null;
         }
     }
 
@@ -118,7 +118,7 @@ public class ay implements ar {
         }
         synchronized (this.f140a) {
             try {
-                com.xiaomi.channel.commonutils.logger.b.m58a("oppo's " + str + " wait...");
+                com.xiaomi.channel.commonutils.logger.b.m57a("oppo's " + str + " wait...");
                 this.f140a.wait(3000L);
             } catch (Exception unused) {
             }
@@ -131,7 +131,7 @@ public class ay implements ar {
             if (packageInfo != null) {
                 long longVersionCode = Build.VERSION.SDK_INT >= 28 ? packageInfo.getLongVersionCode() : packageInfo.versionCode;
                 boolean z = (packageInfo.applicationInfo.flags & 1) != 0;
-                f38153a = longVersionCode >= 1;
+                f37398a = longVersionCode >= 1;
                 if (z) {
                     return true;
                 }
@@ -178,17 +178,17 @@ public class ay implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return f38153a;
+        return f37398a;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo137b() {
+    public String mo136b() {
         a("getOAID");
         if (this.f139a == null) {
             return null;
         }
-        return this.f139a.f38155b;
+        return this.f139a.f37400b;
     }
 
     @Override // com.xiaomi.push.ar
@@ -197,7 +197,7 @@ public class ay implements ar {
         if (this.f139a == null) {
             return null;
         }
-        return this.f139a.f38156c;
+        return this.f139a.f37401c;
     }
 
     @Override // com.xiaomi.push.ar
@@ -206,6 +206,6 @@ public class ay implements ar {
         if (this.f139a == null) {
             return null;
         }
-        return this.f139a.f38157d;
+        return this.f139a.f37402d;
     }
 }

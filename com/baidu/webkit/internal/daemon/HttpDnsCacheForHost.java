@@ -64,7 +64,7 @@ public class HttpDnsCacheForHost implements INetListener {
     public String getUrl(Context context) {
         String httpDnsUrlIP = WebSettingsGlobalBlink.getHttpDnsUrlIP();
         if (httpDnsUrlIP != null) {
-            Log.d(LOG_TAG, "urlNative!=null: " + httpDnsUrlIP);
+            Log.d(LOG_TAG, "urlNative!=null: ".concat(String.valueOf(httpDnsUrlIP)));
         } else {
             Log.d(LOG_TAG, "urlNative==null ");
             httpDnsUrlIP = "https://180.76.76.112/v6/0010";
@@ -73,15 +73,13 @@ public class HttpDnsCacheForHost implements INetListener {
             httpDnsUrlIP = (httpDnsUrlIP + TARGET_EXTERNALHOST) + this.mExternalHost;
         }
         String transHttpsUrl = transHttpsUrl(httpDnsUrlIP);
-        Log.d("cronet", "http_dns cloud url " + transHttpsUrl);
+        Log.d("cronet", "http_dns cloud url ".concat(String.valueOf(transHttpsUrl)));
         return transHttpsUrl;
     }
 
     public String getUrlIpv6Only(Context context) {
         String transHttpsUrl = transHttpsUrl(((SERVER_URL_IPV6_ONLY + TARGET_EXTERNALHOST) + this.mExternalHost) + "&type=ipv6&group=ipv6");
-        StringBuilder sb = new StringBuilder("http_dns cloud url ipv6 ");
-        sb.append(transHttpsUrl);
-        Log.d("cronet", sb.toString());
+        Log.d("cronet", "http_dns cloud url ipv6 ".concat(String.valueOf(transHttpsUrl)));
         return transHttpsUrl;
     }
 

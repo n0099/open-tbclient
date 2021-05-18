@@ -8,10 +8,10 @@ public abstract class SaveDraftMessage extends CustomMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18076a;
+        public String f17391a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18077b;
+        public String f17392b;
     }
 
     public SaveDraftMessage(int i2, a aVar) {

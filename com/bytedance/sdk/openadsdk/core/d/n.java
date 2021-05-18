@@ -1,14 +1,14 @@
 package com.bytedance.sdk.openadsdk.core.d;
 
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28744a;
+    public String f27989a;
 
     public String a() {
-        return this.f28744a;
+        return this.f27989a;
     }
 
     public JSONObject b() {
@@ -29,7 +29,7 @@ public class n {
     }
 
     public void a(String str) {
-        this.f28744a = str;
+        this.f27989a = str;
     }
 
     public static n a(JSONObject jSONObject) {

@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.httpNet.ImgHttpClient;
 import d.a.c.e.p.j;
-import d.a.i0.c0.a;
+import d.a.j0.c0.a;
 import org.apache.http.conn.params.ConnRoutePNames;
 /* loaded from: classes3.dex */
 public class SocketStatic {

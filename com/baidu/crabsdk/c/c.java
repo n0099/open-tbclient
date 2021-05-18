@@ -16,16 +16,16 @@ import org.json.JSONObject;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f4856a;
+    public static SimpleDateFormat f4710a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f4857b;
+    public static PackageManager f4711b;
 
     public static String a(Date date) {
-        if (f4856a == null) {
-            f4856a = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (f4710a == null) {
+            f4710a = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return f4856a.format(date);
+        return f4710a.format(date);
     }
 
     public static JSONObject b(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -194,10 +194,10 @@ public final class c {
     }
 
     public static boolean i(Context context, String str) {
-        if (f4857b == null) {
-            f4857b = context.getPackageManager();
+        if (f4711b == null) {
+            f4711b = context.getPackageManager();
         }
-        return f4857b.checkPermission(str, context.getPackageName()) == 0;
+        return f4711b.checkPermission(str, context.getPackageName()) == 0;
     }
 
     public static byte[] j(String str) {

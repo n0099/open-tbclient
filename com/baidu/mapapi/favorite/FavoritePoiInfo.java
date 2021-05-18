@@ -5,76 +5,76 @@ import com.baidu.mapapi.model.LatLng;
 public class FavoritePoiInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7043a;
+    public String f6854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7044b;
+    public String f6855b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f7045c;
+    public LatLng f6856c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7046d;
+    public String f6857d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7047e;
+    public String f6858e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7048f;
+    public String f6859f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f7049g;
+    public long f6860g;
 
     public FavoritePoiInfo addr(String str) {
-        this.f7046d = str;
+        this.f6857d = str;
         return this;
     }
 
     public FavoritePoiInfo cityName(String str) {
-        this.f7047e = str;
+        this.f6858e = str;
         return this;
     }
 
     public String getAddr() {
-        return this.f7046d;
+        return this.f6857d;
     }
 
     public String getCityName() {
-        return this.f7047e;
+        return this.f6858e;
     }
 
     public String getID() {
-        return this.f7043a;
+        return this.f6854a;
     }
 
     public String getPoiName() {
-        return this.f7044b;
+        return this.f6855b;
     }
 
     public LatLng getPt() {
-        return this.f7045c;
+        return this.f6856c;
     }
 
     public long getTimeStamp() {
-        return this.f7049g;
+        return this.f6860g;
     }
 
     public String getUid() {
-        return this.f7048f;
+        return this.f6859f;
     }
 
     public FavoritePoiInfo poiName(String str) {
-        this.f7044b = str;
+        this.f6855b = str;
         return this;
     }
 
     public FavoritePoiInfo pt(LatLng latLng) {
-        this.f7045c = latLng;
+        this.f6856c = latLng;
         return this;
     }
 
     public FavoritePoiInfo uid(String str) {
-        this.f7048f = str;
+        this.f6859f = str;
         return this;
     }
 }

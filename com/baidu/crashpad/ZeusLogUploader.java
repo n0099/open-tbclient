@@ -1,6 +1,7 @@
 package com.baidu.crashpad;
 
 import android.util.Log;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -90,9 +91,9 @@ public final class ZeusLogUploader {
         this.mUseHttps = z;
         JSONObject jSONObject = new JSONObject();
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put("CUID").put(str2);
+        jSONArray.put(SearchJsBridge.CUID).put(str2);
         try {
-            jSONObject.put("CUID", jSONArray);
+            jSONObject.put(SearchJsBridge.CUID, jSONArray);
         } catch (JSONException e2) {
             Log.e(TAG, "", e2);
         }

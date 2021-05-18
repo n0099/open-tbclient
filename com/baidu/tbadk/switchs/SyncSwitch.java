@@ -104,5 +104,6 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(LimitLowQualityPicUploadSwitch.class);
         SwitchManager.getInstance().registerSwitch(PicReqSwitch.class);
         SwitchManager.getInstance().registerSwitch(WorkIntroSwitch.class);
+        SwitchManager.getInstance().registerSwitch(CreateCenterTipSwitch.class);
     }
 }

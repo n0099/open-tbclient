@@ -8,9 +8,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.tieba.service.AsInstallService;
 import d.o.a.e.b.d.c;
 import d.o.a.e.b.g.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends Fragment {
     public static Intent d() {
         return new Intent("android.settings.APPLICATION_SETTINGS");
@@ -28,7 +29,7 @@ public class a extends Fragment {
         }
         Intent intent = new Intent("android.settings.APP_NOTIFICATION_SETTINGS");
         String packageName = e2.getPackageName();
-        intent.putExtra("package", packageName);
+        intent.putExtra(AsInstallService.SCHEME_PACKAGE_ADDED, packageName);
         intent.putExtra("android.provider.extra.APP_PACKAGE", packageName);
         intent.putExtra("app_package", packageName);
         int i2 = e2.getApplicationInfo().uid;
@@ -61,7 +62,7 @@ public class a extends Fragment {
         String packageName = e2.getPackageName();
         if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
             String lowerCase = Build.MANUFACTURER.toLowerCase();
-            if (lowerCase.contains(c.f66451c)) {
+            if (lowerCase.contains(c.f67137c)) {
                 Intent intent = new Intent();
                 intent.putExtra("packageName", packageName);
                 intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));

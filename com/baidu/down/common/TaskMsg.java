@@ -5,7 +5,6 @@ public class TaskMsg {
     public DownDetail downDetail;
     public String errorStr;
     public String etag;
-    public int failType = -1;
     public String filePath;
     public long fileSize;
     public String progressMap;
@@ -16,4 +15,6 @@ public class TaskMsg {
     public long transferedSize;
     public long transferedSpeed;
     public String uKey;
+    public int failType = -1;
+    public String url = "";
 }

@@ -1,5 +1,5 @@
 package i.a.a.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static final int abc_action_bar_title_item = 2131492864;
     public static final int abc_action_bar_up_container = 2131492865;
@@ -28,27 +28,27 @@ public final class d {
     public static final int abc_search_view = 2131492889;
     public static final int abc_select_dialog_material = 2131492890;
     public static final int abc_tooltip = 2131492891;
-    public static final int notification_action = 2131494208;
-    public static final int notification_action_tombstone = 2131494209;
-    public static final int notification_template_custom_big = 2131494217;
-    public static final int notification_template_icon_group = 2131494218;
-    public static final int notification_template_part_chronometer = 2131494222;
-    public static final int notification_template_part_time = 2131494223;
-    public static final int select_dialog_item_material = 2131494487;
-    public static final int select_dialog_multichoice_material = 2131494488;
-    public static final int select_dialog_singlechoice_material = 2131494489;
-    public static final int support_simple_spinner_dropdown_item = 2131494575;
-    public static final int yy_common_web_activity = 2131495155;
-    public static final int yy_dialog_input_number = 2131495156;
-    public static final int yy_dialog_pay_common = 2131495157;
-    public static final int yy_dialog_pay_way = 2131495158;
-    public static final int yy_item_pay_amount_choose = 2131495159;
-    public static final int yy_item_pay_way_choose = 2131495160;
-    public static final int yy_layout_navigation = 2131495161;
-    public static final int yy_layout_pay_amount_view = 2131495162;
-    public static final int yy_layout_pay_common_view = 2131495163;
-    public static final int yy_layout_pay_result_view = 2131495164;
-    public static final int yy_layout_pay_wallet_view = 2131495165;
-    public static final int yy_layout_pay_way_view = 2131495166;
-    public static final int yy_pay_common_loading = 2131495167;
+    public static final int notification_action = 2131494225;
+    public static final int notification_action_tombstone = 2131494226;
+    public static final int notification_template_custom_big = 2131494234;
+    public static final int notification_template_icon_group = 2131494235;
+    public static final int notification_template_part_chronometer = 2131494239;
+    public static final int notification_template_part_time = 2131494240;
+    public static final int select_dialog_item_material = 2131494504;
+    public static final int select_dialog_multichoice_material = 2131494505;
+    public static final int select_dialog_singlechoice_material = 2131494506;
+    public static final int support_simple_spinner_dropdown_item = 2131494592;
+    public static final int yy_common_web_activity = 2131495183;
+    public static final int yy_dialog_input_number = 2131495184;
+    public static final int yy_dialog_pay_common = 2131495185;
+    public static final int yy_dialog_pay_way = 2131495186;
+    public static final int yy_item_pay_amount_choose = 2131495187;
+    public static final int yy_item_pay_way_choose = 2131495188;
+    public static final int yy_layout_navigation = 2131495189;
+    public static final int yy_layout_pay_amount_view = 2131495190;
+    public static final int yy_layout_pay_common_view = 2131495191;
+    public static final int yy_layout_pay_result_view = 2131495192;
+    public static final int yy_layout_pay_wallet_view = 2131495193;
+    public static final int yy_layout_pay_way_view = 2131495194;
+    public static final int yy_pay_common_loading = 2131495195;
 }

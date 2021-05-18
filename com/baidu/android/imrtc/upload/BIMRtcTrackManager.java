@@ -18,18 +18,17 @@ public class BIMRtcTrackManager {
         final BIMRtcPbGenerator bIMRtcPbGenerator = new BIMRtcPbGenerator();
         byte[] generateRtcClient = bIMRtcPbGenerator.generateRtcClient(context);
         if (generateRtcClient == null) {
-            LogUtils.d(TAG, "RequestUpload payload is null ");
-        } else {
-            IMPushUploadManager.getInstance(context).requestUpload(null, generateRtcClient, "", new IMPushUploadResponseListener() { // from class: com.baidu.android.imrtc.upload.BIMRtcTrackManager.2
-                @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
-                public void uploadResponse(int i2, String str) {
-                    LogUtils.d(BIMRtcTrackManager.TAG, "requestRtcUpload response :" + i2 + ", msg :" + str);
-                    if (i2 == 0) {
-                        BIMRtcTrackManager.clearRtcTrack(context, bIMRtcPbGenerator);
-                    }
-                }
-            });
+            return;
         }
+        IMPushUploadManager.getInstance(context).requestUpload(null, generateRtcClient, "", new IMPushUploadResponseListener() { // from class: com.baidu.android.imrtc.upload.BIMRtcTrackManager.2
+            @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
+            public void uploadResponse(int i2, String str) {
+                LogUtils.d(BIMRtcTrackManager.TAG, "requestRtcUpload response :" + i2 + ", msg :" + str);
+                if (i2 == 0) {
+                    BIMRtcTrackManager.clearRtcTrack(context, bIMRtcPbGenerator);
+                }
+            }
+        });
     }
 
     public static void uploadRtcActionData(final Context context) {

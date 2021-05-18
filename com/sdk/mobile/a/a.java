@@ -6,7 +6,7 @@ import com.sdk.base.framework.a.f;
 import com.sdk.base.framework.a.j;
 import com.sdk.base.framework.b.b;
 import com.sdk.base.framework.bean.DataInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static <T> f a(Context context, String str, String str2, com.sdk.base.framework.b.a<T> aVar) {
         DataInfo dataInfo;
@@ -19,18 +19,18 @@ public final class a {
         if (c.a(str2).booleanValue()) {
             dataInfo = new DataInfo();
             dataInfo.putData("accessCode", str);
-            str3 = aVar2.f36497b;
+            str3 = aVar2.f35742b;
             a2 = aVar2.a();
-            jVar = j.f36448b;
+            jVar = j.f35693b;
             i2 = 0;
             str4 = "/api/netm/v1.0/qhbt";
         } else {
             dataInfo = new DataInfo();
             dataInfo.putData("accessCode", str);
             dataInfo.putData("mobile", str2);
-            str3 = aVar2.f36497b;
+            str3 = aVar2.f35742b;
             a2 = aVar2.a();
-            jVar = j.f36448b;
+            jVar = j.f35693b;
             i2 = 0;
             str4 = "/api/netm/v1.0/qhbv";
         }

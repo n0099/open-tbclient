@@ -3,7 +3,7 @@ package d.g.c.a;
 public abstract class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final t f65518a = new a();
+    public static final t f66204a = new a();
 
     /* loaded from: classes6.dex */
     public static class a extends t {
@@ -14,7 +14,7 @@ public abstract class t {
     }
 
     public static t b() {
-        return f65518a;
+        return f66204a;
     }
 
     public abstract long a();

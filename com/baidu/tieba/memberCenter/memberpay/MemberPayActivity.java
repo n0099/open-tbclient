@@ -28,7 +28,7 @@ import com.baidu.tbadk.pay.PayConfigModel;
 import com.baidu.tbadk.pay.ResponseGetPayinfoMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import d.a.i0.s.c.u;
+import d.a.j0.s.c.u;
 /* loaded from: classes3.dex */
 public class MemberPayActivity extends BaseActivity<MemberPayActivity> implements RadioGroup.OnCheckedChangeListener {
     public static String AUTO_PAY_AGREEMENT_JUMP_URL = "https://tieba.baidu.com/tb/viprenew_eula_mobile.html";
@@ -78,7 +78,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                         MemberPayActivity.this.addPaySussStats();
                         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(MemberPayActivity.this.mCurrentShowType)));
                         MemberPayActivity.this.setResult(-1);
-                        d.a.i0.r.d0.b.j().t("show_member_deid_line", true);
+                        d.a.j0.r.d0.b.j().t("show_member_deid_line", true);
                         if (MemberPayActivity.this.mIsClose) {
                             MemberPayActivity.this.closeActivity();
                         } else {
@@ -138,23 +138,23 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     }
 
     /* loaded from: classes3.dex */
-    public class d implements d.a.i0.l0.a {
+    public class d implements d.a.j0.l0.a {
         public d() {
         }
 
-        @Override // d.a.i0.l0.a
+        @Override // d.a.j0.l0.a
         public void a() {
-            d.a.i0.l0.d c2 = d.a.i0.l0.d.c();
+            d.a.j0.l0.d c2 = d.a.j0.l0.d.c();
             c2.b("http://tieba.baidu.com/mo/q/tbeantshow?refer_page=" + MemberPayActivity.this.mReferPage + "&click_zone=" + MemberPayActivity.this.mClickZone, MemberPayActivity.this.getPageContext());
             MemberPayActivity.this.finish();
         }
 
-        @Override // d.a.i0.l0.a
+        @Override // d.a.j0.l0.a
         public void b() {
             MemberPayActivity.this.requestMemberPayInfo();
         }
 
-        @Override // d.a.i0.l0.a
+        @Override // d.a.j0.l0.a
         public void onError(String str) {
             MemberPayActivity.this.requestMemberPayInfo();
         }
@@ -324,7 +324,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         return this.mClickZone;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "b001";
     }
@@ -334,10 +334,10 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.a.i0.k0.d getPageStayDurationItem() {
-        d.a.i0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
+    public d.a.j0.k0.d getPageStayDurationItem() {
+        d.a.j0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f48564a = true;
+            pageStayDurationItem.f49392a = true;
         }
         return pageStayDurationItem;
     }

@@ -5,14 +5,14 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import d.b.d.b.l;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65152a;
+    public final String f65838a;
 
     public a(String str) {
-        this.f65152a = str;
+        this.f65838a = str;
     }
 
     public abstract ContentValues a(T t);
@@ -23,7 +23,7 @@ public abstract class a<T> {
         try {
             StringBuilder sb = new StringBuilder();
             sb.append("CREATE TABLE ");
-            sb.append(this.f65152a);
+            sb.append(this.f65838a);
             sb.append(" (_id INTEGER PRIMARY KEY AUTOINCREMENT, ");
             HashMap<String, String> b2 = b();
             if (b2 != null) {
@@ -47,7 +47,7 @@ public abstract class a<T> {
             return;
         }
         try {
-            sQLiteDatabase.insert(this.f65152a, null, a(t));
+            sQLiteDatabase.insert(this.f65838a, null, a(t));
         } catch (Exception e2) {
             l.k.c(e2);
         }

@@ -11,17 +11,17 @@ import org.json.JSONObject;
 public class k extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f64327e;
+    public final Context f65013e;
 
     public k(Context context) {
         super(true, false);
-        this.f64327e = context;
+        this.f65013e = context;
     }
 
     @Override // d.b.b.h2
     public boolean b(JSONObject jSONObject) {
         String str;
-        DisplayMetrics displayMetrics = this.f64327e.getResources().getDisplayMetrics();
+        DisplayMetrics displayMetrics = this.f65013e.getResources().getDisplayMetrics();
         int i2 = displayMetrics.densityDpi;
         switch (i2) {
             case 120:

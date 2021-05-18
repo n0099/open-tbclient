@@ -8,11 +8,11 @@ import android.os.Process;
 import android.text.TextUtils;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30968a;
+    public static String f30213a;
 
     public static boolean a(Context context) {
         if (context == null) {
@@ -22,21 +22,21 @@ public class aa {
     }
 
     public static String b(Context context) {
-        if (!TextUtils.isEmpty(f30968a)) {
-            return f30968a;
+        if (!TextUtils.isEmpty(f30213a)) {
+            return f30213a;
         }
         String a2 = a();
-        f30968a = a2;
+        f30213a = a2;
         if (!TextUtils.isEmpty(a2)) {
-            return f30968a;
+            return f30213a;
         }
         String b2 = b();
-        f30968a = b2;
+        f30213a = b2;
         if (!TextUtils.isEmpty(b2)) {
-            return f30968a;
+            return f30213a;
         }
         String c2 = c(context);
-        f30968a = c2;
+        f30213a = c2;
         return c2;
     }
 

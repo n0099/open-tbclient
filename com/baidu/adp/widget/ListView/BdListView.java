@@ -482,7 +482,7 @@ public class BdListView extends ListView implements d.a.c.j.e.p<BdListView> {
             }
             d.a.c.j.e.f fVar = new d.a.c.j.e.f(view.getContext(), 0, -e2.q(), this.j);
             fVar.d(new a());
-            fVar.e(e2.f40329i);
+            fVar.e(e2.f39574i);
             fVar.f(view);
         }
 

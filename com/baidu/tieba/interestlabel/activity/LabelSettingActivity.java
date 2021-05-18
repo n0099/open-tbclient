@@ -9,10 +9,10 @@ import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 import com.baidu.tieba.interestlabel.model.LabelSettingModel;
 import com.baidu.tieba.interestlabel.view.LabelSettingView;
 import d.a.c.e.p.j;
-import d.a.j0.h1.b.b;
+import d.a.k0.h1.b.b;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements d.a.j0.h1.c.a {
+public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements d.a.k0.h1.c.a {
     public LabelSettingModel mLabelSettingModel;
     public LabelSettingView mLabelSettingView;
 
@@ -20,28 +20,28 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f18515a;
+        public static final /* synthetic */ int[] f17830a;
 
         static {
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f18515a = iArr;
+            f17830a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f18515a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f17830a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
-    @Override // d.a.j0.h1.c.a
+    @Override // d.a.k0.h1.c.a
     public void callback(LabelRequestEnum labelRequestEnum, b bVar, int i2) {
-        int i3 = a.f18515a[labelRequestEnum.ordinal()];
+        int i3 = a.f17830a[labelRequestEnum.ordinal()];
         if (i3 != 1) {
             if (i3 == 2 && i2 == 0) {
-                d.a.i0.r.d0.b.j().t("set_recommend_label", true);
+                d.a.j0.r.d0.b.j().t("set_recommend_label", true);
                 finish();
                 return;
             }
@@ -56,7 +56,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         this.mLabelSettingView.o(true);
     }
 
-    @Override // d.a.j0.h1.c.a
+    @Override // d.a.k0.h1.c.a
     public void getLabel() {
         if (!j.A()) {
             this.mLabelSettingView.g();
@@ -94,7 +94,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         return super.onKeyDown(i2, keyEvent);
     }
 
-    @Override // d.a.j0.h1.c.a
+    @Override // d.a.k0.h1.c.a
     public void subLabel(List<Integer> list) {
         if (!j.A()) {
             showToast(R.string.neterror);

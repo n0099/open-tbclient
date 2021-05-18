@@ -8,49 +8,49 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ClipImageView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f36640e;
+    public boolean f35885e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f36641f;
+    public Path f35886f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f36642g;
+    public RectF f35887g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f36643h;
+    public Paint f35888h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float[] f36644i;
+    public float[] f35889i;
 
     public ClipImageView(Context context) {
         super(context);
-        this.f36640e = true;
+        this.f35885e = true;
         a(context);
     }
 
     public void a(Context context) {
-        this.f36641f = new Path();
-        this.f36642g = new RectF();
+        this.f35886f = new Path();
+        this.f35887g = new RectF();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.f36640e) {
-            this.f36641f.reset();
-            this.f36642g.set(0.0f, 0.0f, getWidth(), getHeight());
-            float[] fArr = this.f36644i;
+        if (this.f35885e) {
+            this.f35886f.reset();
+            this.f35887g.set(0.0f, 0.0f, getWidth(), getHeight());
+            float[] fArr = this.f35889i;
             if (fArr != null) {
-                this.f36641f.addRoundRect(this.f36642g, fArr, Path.Direction.CW);
+                this.f35886f.addRoundRect(this.f35887g, fArr, Path.Direction.CW);
             }
             canvas.setDrawFilter(new PaintFlagsDrawFilter(0, 3));
-            canvas.clipPath(this.f36641f);
-            Paint paint = this.f36643h;
+            canvas.clipPath(this.f35886f);
+            Paint paint = this.f35888h;
             if (paint != null) {
-                canvas.drawPath(this.f36641f, paint);
+                canvas.drawPath(this.f35886f, paint);
             }
         }
         super.onDraw(canvas);
@@ -59,20 +59,20 @@ public class ClipImageView extends ImageView {
     @Override // android.view.View
     public void setBackgroundColor(int i2) {
         Paint paint = new Paint(1);
-        this.f36643h = paint;
+        this.f35888h = paint;
         paint.setStyle(Paint.Style.FILL);
-        this.f36643h.setColor(i2);
+        this.f35888h.setColor(i2);
     }
 
     public void setClip(boolean z) {
-        this.f36640e = z;
+        this.f35885e = z;
     }
 
     public void setRadius(float[] fArr) {
         if (fArr == null || fArr.length != 8) {
             return;
         }
-        this.f36644i = fArr;
+        this.f35889i = fArr;
     }
 
     public void setRoundRadius(int i2) {
@@ -84,13 +84,13 @@ public class ClipImageView extends ImageView {
 
     public ClipImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f36640e = true;
+        this.f35885e = true;
         a(context);
     }
 
     public ClipImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f36640e = true;
+        this.f35885e = true;
         a(context);
     }
 }

@@ -60,6 +60,7 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
     public int mStatus = -1;
     public long mDownloadId = -1;
     public String mUri = "";
+    public String mRealUrl = "";
     public String mFilename = "";
     public boolean mKeepNameAndPath = false;
     public String mFileDir = "";

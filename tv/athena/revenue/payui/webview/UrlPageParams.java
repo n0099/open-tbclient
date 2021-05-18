@@ -3,7 +3,7 @@ package tv.athena.revenue.payui.webview;
 import androidx.annotation.Keep;
 import com.google.gson.annotations.SerializedName;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UrlPageParams {
     @SerializedName("pageType")
     public int pageType;

@@ -1,19 +1,19 @@
 package com.win.opensdk;
 
 import com.win.opensdk.core.Info;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class y0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38009a;
+    public String f37254a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Info f38010b;
+    public Info f37255b;
 
     public y0(Info info) {
-        this.f38010b = info;
+        this.f37255b = info;
         if (info != null) {
-            this.f38009a = info.getPid();
+            this.f37254a = info.getPid();
         }
     }
 }

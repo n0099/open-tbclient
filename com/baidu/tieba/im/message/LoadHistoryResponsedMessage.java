@@ -10,13 +10,13 @@ public class LoadHistoryResponsedMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18055a;
+        public String f17370a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<ChatMessage> f18056b;
+        public List<ChatMessage> f17371b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f18057c;
+        public boolean f17372c;
     }
 
     public LoadHistoryResponsedMessage(int i2) {

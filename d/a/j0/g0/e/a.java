@@ -1,56 +1,31 @@
 package d.a.j0.g0.e;
+/* loaded from: classes3.dex */
+public abstract class a<T> extends b<T> {
 
-import com.heytap.mcssdk.mode.Message;
-import d.a.c.e.p.k;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class a {
+    /* renamed from: f  reason: collision with root package name */
+    public String f49359f;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f54386a = "";
+    /* renamed from: g  reason: collision with root package name */
+    public Class<T> f49360g;
 
-    /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f54387b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f54388c;
-
-    public String a() {
-        return this.f54386a;
+    public a(int i2, String str, Class<T> cls) {
+        super(i2);
+        this.f49359f = str;
+        this.f49360g = cls;
     }
 
-    public HashMap<String, String> b() {
-        return this.f54387b;
-    }
-
-    public boolean c() {
-        return this.f54388c;
-    }
-
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-        if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject("hotmonitor")) == null) {
-            return;
-        }
-        this.f54386a = optJSONObject.optString("link");
-        this.f54388c = optJSONObject.optInt("open", 0) == 1;
-        JSONArray optJSONArray = optJSONObject.optJSONArray("config");
-        if (optJSONArray == null || optJSONArray.length() == 0) {
-            return;
-        }
-        this.f54387b = new HashMap<>();
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
-            if (optJSONObject3 != null) {
-                String optString = optJSONObject3.optString("event");
-                String optString2 = optJSONObject3.optString(Message.RULE);
-                if (!k.isEmpty(optString) && !k.isEmpty(optString2)) {
-                    this.f54387b.put(optString, optString2);
-                }
-            }
+    public T a() {
+        try {
+            return this.f49360g.newInstance();
+        } catch (ExceptionInInitializerError e2) {
+            e2.printStackTrace();
+            return null;
+        } catch (IllegalAccessException e3) {
+            e3.printStackTrace();
+            return null;
+        } catch (InstantiationException e4) {
+            e4.printStackTrace();
+            return null;
         }
     }
 }

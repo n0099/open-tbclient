@@ -11,23 +11,23 @@ import android.view.View;
 public class MistLayorView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Paint f27264a;
+    public final Paint f26509a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f27265b;
+    public final int f26510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f27266c;
+    public Rect f26511c;
 
     public MistLayorView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f27266c = new Rect();
-        this.f27264a = new Paint();
-        this.f27265b = Color.argb(127, 0, 0, 0);
+        this.f26511c = new Rect();
+        this.f26509a = new Paint();
+        this.f26510b = Color.argb(127, 0, 0, 0);
     }
 
     public Rect getFocusFrame() {
-        return this.f27266c;
+        return this.f26511c;
     }
 
     @Override // android.view.View
@@ -35,22 +35,22 @@ public class MistLayorView extends View {
         super.onDraw(canvas);
         int width = canvas.getWidth();
         int height = canvas.getHeight();
-        this.f27264a.setColor(this.f27265b);
-        if (this.f27266c.width() == 0) {
-            canvas.drawRect(0.0f, 0.0f, width, height, this.f27264a);
+        this.f26509a.setColor(this.f26510b);
+        if (this.f26511c.width() == 0) {
+            canvas.drawRect(0.0f, 0.0f, width, height, this.f26509a);
             return;
         }
         float f2 = width;
-        canvas.drawRect(0.0f, 0.0f, f2, this.f27266c.top, this.f27264a);
-        Rect rect = this.f27266c;
-        canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom + 1, this.f27264a);
-        Rect rect2 = this.f27266c;
-        canvas.drawRect(rect2.right + 1, rect2.top, f2, rect2.bottom + 1, this.f27264a);
-        canvas.drawRect(0.0f, this.f27266c.bottom + 1, f2, height, this.f27264a);
+        canvas.drawRect(0.0f, 0.0f, f2, this.f26511c.top, this.f26509a);
+        Rect rect = this.f26511c;
+        canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom + 1, this.f26509a);
+        Rect rect2 = this.f26511c;
+        canvas.drawRect(rect2.right + 1, rect2.top, f2, rect2.bottom + 1, this.f26509a);
+        canvas.drawRect(0.0f, this.f26511c.bottom + 1, f2, height, this.f26509a);
     }
 
     public void setFocusFrame(Rect rect) {
-        this.f27266c = rect;
+        this.f26511c = rect;
         invalidate();
     }
 }

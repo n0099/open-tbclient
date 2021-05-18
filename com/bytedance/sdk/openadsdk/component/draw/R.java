@@ -1,14 +1,14 @@
 package com.bytedance.sdk.openadsdk.component.draw;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class R {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class anim {
         public static final int tt_dislike_animation_dismiss = com.bytedance.sdk.openadsdk.adhost.R.anim.tt_dislike_animation_dismiss;
         public static final int tt_dislike_animation_show = com.bytedance.sdk.openadsdk.adhost.R.anim.tt_dislike_animation_show;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class color {
         public static final int tt_app_detail_bg = com.bytedance.sdk.openadsdk.adhost.R.color.tt_app_detail_bg;
         public static final int tt_app_detail_line_bg = com.bytedance.sdk.openadsdk.adhost.R.color.tt_app_detail_line_bg;
@@ -78,7 +78,7 @@ public final class R {
         public static final int ttdownloader_transparent = com.bytedance.sdk.openadsdk.adhost.R.color.ttdownloader_transparent;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class dimen {
         public static final int tt_video_container_maxheight = com.bytedance.sdk.openadsdk.adhost.R.dimen.tt_video_container_maxheight;
         public static final int tt_video_container_minheight = com.bytedance.sdk.openadsdk.adhost.R.dimen.tt_video_container_minheight;
@@ -86,7 +86,7 @@ public final class R {
         public static final int tt_video_cover_padding_vertical = com.bytedance.sdk.openadsdk.adhost.R.dimen.tt_video_cover_padding_vertical;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class drawable {
         public static final int tt_ad_backup_bk = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_ad_backup_bk;
         public static final int tt_ad_backup_bk2 = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_ad_backup_bk2;
@@ -224,7 +224,7 @@ public final class R {
         public static final int ttdownloader_icon_yes = com.bytedance.sdk.openadsdk.adhost.R.drawable.ttdownloader_icon_yes;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class id {
         public static final int cancel_tv = com.bytedance.sdk.openadsdk.adhost.R.id.cancel_tv;
         public static final int confirm_tv = com.bytedance.sdk.openadsdk.adhost.R.id.confirm_tv;
@@ -431,12 +431,12 @@ public final class R {
         public static final int web_frame = com.bytedance.sdk.openadsdk.adhost.R.id.web_frame;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class integer {
         public static final int tt_video_progress_max = com.bytedance.sdk.openadsdk.adhost.R.integer.tt_video_progress_max;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class layout {
         public static final int tt_activity_lite_web_layout = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_lite_web_layout;
         public static final int tt_activity_middle_page = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_middle_page;
@@ -496,7 +496,7 @@ public final class R {
         public static final int ttdownloader_item_permission = com.bytedance.sdk.openadsdk.adhost.R.layout.ttdownloader_item_permission;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class string {
         public static final int app_name = com.bytedance.sdk.openadsdk.adhost.R.string.app_name;
         public static final int tt_00_00 = com.bytedance.sdk.openadsdk.adhost.R.string.tt_00_00;
@@ -600,7 +600,7 @@ public final class R {
         public static final int tt_will_play = com.bytedance.sdk.openadsdk.adhost.R.string.tt_will_play;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class style {
         public static final int EditTextStyle = com.bytedance.sdk.openadsdk.adhost.R.style.EditTextStyle;
         public static final int Theme_Dialog_TTDownload = com.bytedance.sdk.openadsdk.adhost.R.style.Theme_Dialog_TTDownload;

@@ -3,5 +3,5 @@ package com.baidu.wallet.home.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f24967a = "HomePage_UsePrivacyEye";
+    public static String f24212a = "HomePage_UsePrivacyEye";
 }

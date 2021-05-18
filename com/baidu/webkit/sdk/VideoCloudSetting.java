@@ -212,7 +212,7 @@ public class VideoCloudSetting {
             } else {
                 z = z2;
             }
-            Log.d(VideoCloudSetting.TAG, "canErrorLogUpload canUpload:" + z);
+            Log.d(VideoCloudSetting.TAG, "canErrorLogUpload canUpload:".concat(String.valueOf(z)));
             return z;
         }
 
@@ -224,7 +224,7 @@ public class VideoCloudSetting {
     public static boolean canUploadVideoErrorLog() {
         VideoSettings createVideoSetting;
         String videoCfgValue = getVideoCfgValue(PREF_KEY_CYBER_SDK_VERSION, null);
-        Log.d(TAG, "hasCyberSdkVersion called :" + videoCfgValue);
+        Log.d(TAG, "hasCyberSdkVersion called :".concat(String.valueOf(videoCfgValue)));
         if (TextUtils.isEmpty(videoCfgValue) || (createVideoSetting = createVideoSetting()) == null) {
             return false;
         }
@@ -267,18 +267,18 @@ public class VideoCloudSetting {
     public static int getFeedVideoPvCount() {
         int parseInt;
         String videoCfgValue = getVideoCfgValue(PREF_KEY_CYBER_FEED_PLAY_COUNT, null);
-        Log.d(TAG, "getFeedVideoPvCount feedCountStr " + videoCfgValue);
+        Log.d(TAG, "getFeedVideoPvCount feedCountStr ".concat(String.valueOf(videoCfgValue)));
         if (videoCfgValue != null) {
             try {
                 parseInt = Integer.parseInt(videoCfgValue);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            Log.d(TAG, "getFeedVideoPvCount count " + parseInt);
+            Log.d(TAG, "getFeedVideoPvCount count ".concat(String.valueOf(parseInt)));
             return parseInt;
         }
         parseInt = 0;
-        Log.d(TAG, "getFeedVideoPvCount count " + parseInt);
+        Log.d(TAG, "getFeedVideoPvCount count ".concat(String.valueOf(parseInt)));
         return parseInt;
     }
 
@@ -301,18 +301,18 @@ public class VideoCloudSetting {
     public static int getVideoPvCount() {
         int parseInt;
         String videoCfgValue = getVideoCfgValue(PREF_KEY_CYBER_PLAY_COUNT, null);
-        Log.d(TAG, "getVideoPvCount countStr " + videoCfgValue);
+        Log.d(TAG, "getVideoPvCount countStr ".concat(String.valueOf(videoCfgValue)));
         if (videoCfgValue != null) {
             try {
                 parseInt = Integer.parseInt(videoCfgValue);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            Log.d(TAG, "getVideoPvCount count " + parseInt);
+            Log.d(TAG, "getVideoPvCount count ".concat(String.valueOf(parseInt)));
             return parseInt;
         }
         parseInt = 0;
-        Log.d(TAG, "getVideoPvCount count " + parseInt);
+        Log.d(TAG, "getVideoPvCount count ".concat(String.valueOf(parseInt)));
         return parseInt;
     }
 
@@ -365,19 +365,17 @@ public class VideoCloudSetting {
         String GetCloudSettingsValue16 = WebSettingsGlobalBlink.GetCloudSettingsValue("pcdn_forbidden");
         String GetCloudSettingsValue17 = WebSettingsGlobalBlink.GetCloudSettingsValue(PREF_KEY_SESSION_LOG_COLLECT_PERCENT);
         Log.d(TAG, "saveVideoSettingToCfg logEnableCyberVersion:" + GetCloudSettingsValue + " logEnableHost:" + GetCloudSettingsValue2);
-        StringBuilder sb = new StringBuilder("VideoBlackUrlForFileCache = ");
-        sb.append(GetCloudSettingsValue3);
-        Log.d(TAG, sb.toString());
-        Log.d(TAG, "videoBlackDevicesList = " + GetCloudSettingsValue6);
-        Log.d(TAG, "videoCacheSize = " + GetCloudSettingsValue7);
-        Log.d(TAG, "videoCacheInterval = " + GetCloudSettingsValue8);
-        Log.d(TAG, "videoCacheFreeSpace = " + GetCloudSettingsValue9);
-        Log.d(TAG, "videoLogHwDecoderExceptionEnable = " + GetCloudSettingsValue10);
-        Log.d(TAG, "videoMp4DeviceWhiteList = " + GetCloudSettingsValue11);
-        Log.d(TAG, "videoFormatCollectPercent = " + GetCloudSettingsValue12);
-        Log.d(TAG, "springFestivalSwitch = " + GetCloudSettingsValue15);
-        Log.d(TAG, "pcdnForbidden = " + GetCloudSettingsValue16);
-        Log.d(TAG, "sessionLogCollectPercent = " + GetCloudSettingsValue17);
+        Log.d(TAG, "VideoBlackUrlForFileCache = ".concat(String.valueOf(GetCloudSettingsValue3)));
+        Log.d(TAG, "videoBlackDevicesList = ".concat(String.valueOf(GetCloudSettingsValue6)));
+        Log.d(TAG, "videoCacheSize = ".concat(String.valueOf(GetCloudSettingsValue7)));
+        Log.d(TAG, "videoCacheInterval = ".concat(String.valueOf(GetCloudSettingsValue8)));
+        Log.d(TAG, "videoCacheFreeSpace = ".concat(String.valueOf(GetCloudSettingsValue9)));
+        Log.d(TAG, "videoLogHwDecoderExceptionEnable = ".concat(String.valueOf(GetCloudSettingsValue10)));
+        Log.d(TAG, "videoMp4DeviceWhiteList = ".concat(String.valueOf(GetCloudSettingsValue11)));
+        Log.d(TAG, "videoFormatCollectPercent = ".concat(String.valueOf(GetCloudSettingsValue12)));
+        Log.d(TAG, "springFestivalSwitch = ".concat(String.valueOf(GetCloudSettingsValue15)));
+        Log.d(TAG, "pcdnForbidden = ".concat(String.valueOf(GetCloudSettingsValue16)));
+        Log.d(TAG, "sessionLogCollectPercent = ".concat(String.valueOf(GetCloudSettingsValue17)));
         if (GetCloudSettingsValue != null) {
             setVideoCfgValue(PREF_KEY_ENABLE_CYBER_VERSION, GetCloudSettingsValue);
         } else {

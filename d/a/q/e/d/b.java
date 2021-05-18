@@ -26,16 +26,16 @@ import org.json.JSONObject;
 public class b extends d.a.q.e.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public a.C1722a f63606f;
+    public a.C1785a f64243f;
 
     /* renamed from: g  reason: collision with root package name */
-    public C1718b f63607g;
+    public C1781b f64244g;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f63608a;
+        public String f64245a;
 
         public static a d(String str) {
             JSONObject jSONObject = new JSONObject(new String(new d.a.q.g.b.b().a(Base64.decode(str, 3))));
@@ -46,23 +46,23 @@ public class b extends d.a.q.e.a {
         }
 
         public String a() {
-            return this.f63608a;
+            return this.f64245a;
         }
 
         public void b(int i2) {
         }
 
         public void c(String str) {
-            this.f63608a = str;
+            this.f64245a = str;
         }
 
         public String e() {
-            if (this.f63608a == null) {
+            if (this.f64245a == null) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             d.a.q.g.b.b bVar = new d.a.q.g.b.b();
-            jSONObject.put("id", this.f63608a);
+            jSONObject.put("id", this.f64245a);
             jSONObject.put("d_form_ver", 1);
             return Base64.encodeToString(bVar.b(jSONObject.toString().getBytes()), 3);
         }
@@ -70,51 +70,51 @@ public class b extends d.a.q.e.a {
 
     /* renamed from: d.a.q.e.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C1718b {
+    public class C1781b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f63609a;
+        public long f64246a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f63610b;
+        public String f64247b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f63611c;
+        public boolean f64248c;
 
-        public C1718b() {
+        public C1781b() {
         }
 
         public String a() {
-            return this.f63610b;
+            return this.f64247b;
         }
 
         public void b(long j) {
-            if (this.f63609a != j) {
-                this.f63609a = j;
-                this.f63611c = true;
+            if (this.f64246a != j) {
+                this.f64246a = j;
+                this.f64248c = true;
             }
         }
 
         public void c(String str) {
-            if (str.equals(this.f63610b)) {
+            if (str.equals(this.f64247b)) {
                 return;
             }
-            this.f63610b = str;
-            this.f63611c = true;
+            this.f64247b = str;
+            this.f64248c = true;
         }
 
         public boolean d() {
-            return e(b.this.f63606f.g("pub.dat", true));
+            return e(b.this.f64243f.g("pub.dat", true));
         }
 
         public final boolean e(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.f63609a = jSONObject.getLong("pub_lst_ts");
-                    this.f63610b = jSONObject.getString("pub_id");
+                    this.f64246a = jSONObject.getLong("pub_lst_ts");
+                    this.f64247b = jSONObject.getString("pub_id");
                     jSONObject.getInt("d_form_ver");
-                    this.f63611c = false;
+                    this.f64248c = false;
                     return true;
                 } catch (Exception unused) {
                 }
@@ -123,14 +123,14 @@ public class b extends d.a.q.e.a {
         }
 
         public boolean f() {
-            if (this.f63611c) {
+            if (this.f64248c) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("pub_id", this.f63610b);
-                    jSONObject.put("pub_lst_ts", this.f63609a);
+                    jSONObject.put("pub_id", this.f64247b);
+                    jSONObject.put("pub_lst_ts", this.f64246a);
                     jSONObject.put("d_form_ver", 1);
-                    b.this.f63606f.i("pub.dat", jSONObject.toString(), true);
-                    this.f63611c = false;
+                    b.this.f64243f.i("pub.dat", jSONObject.toString(), true);
+                    this.f64248c = false;
                     return true;
                 } catch (Exception unused) {
                 }
@@ -143,46 +143,46 @@ public class b extends d.a.q.e.a {
     public class c extends a.c {
 
         /* renamed from: d  reason: collision with root package name */
-        public String f63613d;
+        public String f64250d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f63614e;
+        public long f64251e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f63615f;
+        public long f64252f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f63616g;
+        public String f64253g;
 
         public c(b bVar, String str) {
-            super(bVar.f63606f, str);
+            super(bVar.f64243f, str);
         }
 
         @Override // d.a.q.e.a.c
         public void c(JSONObject jSONObject) {
-            this.f63613d = jSONObject.getString("pkg");
-            this.f63614e = jSONObject.getLong("last_fe_ts");
-            this.f63616g = jSONObject.getString("id");
-            this.f63615f = jSONObject.getLong("tar_pkg_lst_up_ts");
+            this.f64250d = jSONObject.getString("pkg");
+            this.f64251e = jSONObject.getLong("last_fe_ts");
+            this.f64253g = jSONObject.getString("id");
+            this.f64252f = jSONObject.getLong("tar_pkg_lst_up_ts");
             jSONObject.getInt("d_form_ver");
         }
 
         @Override // d.a.q.e.a.c
         public void e(JSONObject jSONObject) {
-            jSONObject.put("pkg", this.f63613d);
-            jSONObject.put("last_fe_ts", this.f63614e);
-            jSONObject.put("id", this.f63616g);
-            jSONObject.put("tar_pkg_lst_up_ts", this.f63615f);
+            jSONObject.put("pkg", this.f64250d);
+            jSONObject.put("last_fe_ts", this.f64251e);
+            jSONObject.put("id", this.f64253g);
+            jSONObject.put("tar_pkg_lst_up_ts", this.f64252f);
             jSONObject.put("d_form_ver", 1);
         }
 
         public String f() {
-            return this.f63613d;
+            return this.f64250d;
         }
 
         public boolean g(long j) {
-            if (this.f63614e != j) {
-                this.f63614e = j;
+            if (this.f64251e != j) {
+                this.f64251e = j;
                 a(true);
                 return true;
             }
@@ -190,21 +190,21 @@ public class b extends d.a.q.e.a {
         }
 
         public boolean h(String str) {
-            if (str.equals(this.f63613d)) {
+            if (str.equals(this.f64250d)) {
                 return false;
             }
-            this.f63613d = str;
+            this.f64250d = str;
             a(true);
             return true;
         }
 
         public String i() {
-            return this.f63616g;
+            return this.f64253g;
         }
 
         public boolean j(long j) {
-            if (this.f63615f != j) {
-                this.f63615f = j;
+            if (this.f64252f != j) {
+                this.f64252f = j;
                 a(true);
                 return true;
             }
@@ -212,22 +212,22 @@ public class b extends d.a.q.e.a {
         }
 
         public boolean k(String str) {
-            if (str.equals(this.f63616g)) {
+            if (str.equals(this.f64253g)) {
                 return false;
             }
-            this.f63616g = str;
+            this.f64253g = str;
             a(true);
             return true;
         }
 
         public long l() {
-            return this.f63615f;
+            return this.f64252f;
         }
     }
 
     public b() {
         super("esc-ms", 7500000L);
-        this.f63607g = new C1718b();
+        this.f64244g = new C1781b();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, IGET]}, finally: {[INVOKE, IGET, INVOKE, IF, IF] complete} */
@@ -239,7 +239,7 @@ public class b extends d.a.q.e.a {
         if (Build.VERSION.SDK_INT < 29) {
             i2 = -101;
         } else {
-            Context context = this.f63578a.f63582a;
+            Context context = this.f64215a.f64219a;
             Cursor cursor = null;
             try {
                 packageInfo = context.getPackageManager().getPackageInfo(str, 0);
@@ -249,7 +249,7 @@ public class b extends d.a.q.e.a {
             if (packageInfo == null) {
                 i2 = -1;
             } else {
-                if (gVar.f63588a) {
+                if (gVar.f64225a) {
                     cVar = new c(this, str);
                     cVar.d();
                     if (str.equals(cVar.f()) && packageInfo.lastUpdateTime == cVar.l()) {
@@ -272,7 +272,7 @@ public class b extends d.a.q.e.a {
                                         try {
                                             String a2 = a.d(string).a();
                                             if (!TextUtils.isEmpty(a2)) {
-                                                if (gVar.f63588a && cVar != null) {
+                                                if (gVar.f64225a && cVar != null) {
                                                     cVar.k(a2);
                                                     cVar.g(System.currentTimeMillis());
                                                     cVar.j(packageInfo.lastUpdateTime);
@@ -280,7 +280,7 @@ public class b extends d.a.q.e.a {
                                                 }
                                                 a.h e2 = a.h.e(a2);
                                                 d.a.q.g.c.a.c.a(cursor);
-                                                if (gVar.f63588a && cVar != null) {
+                                                if (gVar.f64225a && cVar != null) {
                                                     cVar.b();
                                                 }
                                                 return e2;
@@ -293,21 +293,21 @@ public class b extends d.a.q.e.a {
                                 }
                             }
                             d.a.q.g.c.a.c.a(cursor);
-                            if (gVar.f63588a && cVar != null) {
+                            if (gVar.f64225a && cVar != null) {
                                 cVar.b();
                             }
                             i2 = -2;
                         } catch (Exception e3) {
                             a.h c2 = a.h.c(e3);
                             d.a.q.g.c.a.c.a(cursor);
-                            if (gVar.f63588a && cVar != null) {
+                            if (gVar.f64225a && cVar != null) {
                                 cVar.b();
                             }
                             return c2;
                         }
                     } catch (Throwable th) {
                         d.a.q.g.c.a.c.a(cursor);
-                        if (gVar.f63588a && cVar != null) {
+                        if (gVar.f64225a && cVar != null) {
                             cVar.b();
                         }
                         throw th;
@@ -322,7 +322,7 @@ public class b extends d.a.q.e.a {
 
     @Override // d.a.q.e.a
     public void e(a.d dVar) {
-        this.f63606f = this.f63579b.f("esc-ms");
+        this.f64243f = this.f64216b.f("esc-ms");
     }
 
     @Override // d.a.q.e.a
@@ -330,11 +330,11 @@ public class b extends d.a.q.e.a {
         if (Build.VERSION.SDK_INT < 29) {
             return a.f.a();
         }
-        this.f63607g.d();
+        this.f64244g.d();
         try {
             return i(eVar);
         } finally {
-            this.f63607g.f();
+            this.f64244g.f();
         }
     }
 
@@ -366,11 +366,11 @@ public class b extends d.a.q.e.a {
 
     public final a.f i(a.e eVar) {
         ParcelFileDescriptor.AutoCloseOutputStream autoCloseOutputStream;
-        Context context = this.f63578a.f63582a;
+        Context context = this.f64215a.f64219a;
         String packageName = context.getPackageName();
-        ContentResolver contentResolver = this.f63578a.f63582a.getContentResolver();
-        String c2 = this.f63578a.f63584c.a("aid").c();
-        String a2 = this.f63607g.a();
+        ContentResolver contentResolver = this.f64215a.f64219a.getContentResolver();
+        String c2 = this.f64215a.f64221c.a("aid").c();
+        String a2 = this.f64244g.a();
         if (a2 == null || !TextUtils.equals(a2, c2)) {
             if (Build.VERSION.SDK_INT < 29) {
                 return a.f.a();
@@ -389,8 +389,8 @@ public class b extends d.a.q.e.a {
             }
             try {
                 j(autoCloseOutputStream, context);
-                this.f63607g.c(c2);
-                this.f63607g.b(System.currentTimeMillis());
+                this.f64244g.c(c2);
+                this.f64244g.b(System.currentTimeMillis());
                 a.f d2 = a.f.d();
                 d.a.q.g.c.a.c.b(autoCloseOutputStream);
                 return d2;

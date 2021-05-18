@@ -6,6 +6,8 @@ import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public class MediaModel implements Parcelable, Comparable<Object> {
     public static final Parcelable.Creator<MediaModel> CREATOR = new a();
+    public static final String TYPE_IMAGE = "image";
+    public static final String TYPE_VIDEO = "video";
     public long addDate;
     public String path;
     public long size;

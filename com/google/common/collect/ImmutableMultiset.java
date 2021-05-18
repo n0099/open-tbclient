@@ -79,32 +79,32 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     public class a extends c1<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31870e;
+        public int f31115e;
 
         /* renamed from: f  reason: collision with root package name */
-        public E f31871f;
+        public E f31116f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Iterator f31872g;
+        public final /* synthetic */ Iterator f31117g;
 
         public a(ImmutableMultiset immutableMultiset, Iterator it) {
-            this.f31872g = it;
+            this.f31117g = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31870e > 0 || this.f31872g.hasNext();
+            return this.f31115e > 0 || this.f31117g.hasNext();
         }
 
         @Override // java.util.Iterator
         public E next() {
-            if (this.f31870e <= 0) {
-                i0.a aVar = (i0.a) this.f31872g.next();
-                this.f31871f = (E) aVar.getElement();
-                this.f31870e = aVar.getCount();
+            if (this.f31115e <= 0) {
+                i0.a aVar = (i0.a) this.f31117g.next();
+                this.f31116f = (E) aVar.getElement();
+                this.f31115e = aVar.getCount();
             }
-            this.f31870e--;
-            return this.f31871f;
+            this.f31115e--;
+            return this.f31116f;
         }
     }
 
@@ -112,13 +112,13 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     public static class b<E> extends ImmutableCollection.b<E> {
 
         /* renamed from: a  reason: collision with root package name */
-        public k0<E> f31873a;
+        public k0<E> f31118a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f31874b;
+        public boolean f31119b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f31875c;
+        public boolean f31120c;
 
         public b() {
             this(4);
@@ -155,14 +155,14 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                 i0 d2 = Multisets.d(iterable);
                 k0 l = l(d2);
                 if (l != null) {
-                    k0<E> k0Var = this.f31873a;
+                    k0<E> k0Var = this.f31118a;
                     k0Var.d(Math.max(k0Var.C(), l.C()));
                     for (int e2 = l.e(); e2 >= 0; e2 = l.s(e2)) {
                         j(l.i(e2), l.k(e2));
                     }
                 } else {
                     Set<i0.a<E>> entrySet = d2.entrySet();
-                    k0<E> k0Var2 = this.f31873a;
+                    k0<E> k0Var2 = this.f31118a;
                     k0Var2.d(Math.max(k0Var2.C(), entrySet.size()));
                     for (i0.a<E> aVar : d2.entrySet()) {
                         j(aVar.getElement(), aVar.getCount());
@@ -183,39 +183,39 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
             if (i2 == 0) {
                 return this;
             }
-            if (this.f31874b) {
-                this.f31873a = new k0<>((k0<? extends E>) this.f31873a);
-                this.f31875c = false;
+            if (this.f31119b) {
+                this.f31118a = new k0<>((k0<? extends E>) this.f31118a);
+                this.f31120c = false;
             }
-            this.f31874b = false;
+            this.f31119b = false;
             n.p(e2);
-            k0<E> k0Var = this.f31873a;
+            k0<E> k0Var = this.f31118a;
             k0Var.u(e2, i2 + k0Var.f(e2));
             return this;
         }
 
         public ImmutableMultiset<E> k() {
-            if (this.f31873a.C() == 0) {
+            if (this.f31118a.C() == 0) {
                 return ImmutableMultiset.of();
             }
-            if (this.f31875c) {
-                this.f31873a = new k0<>((k0<? extends E>) this.f31873a);
-                this.f31875c = false;
+            if (this.f31120c) {
+                this.f31118a = new k0<>((k0<? extends E>) this.f31118a);
+                this.f31120c = false;
             }
-            this.f31874b = true;
-            return new RegularImmutableMultiset(this.f31873a);
+            this.f31119b = true;
+            return new RegularImmutableMultiset(this.f31118a);
         }
 
         public b(int i2) {
-            this.f31874b = false;
-            this.f31875c = false;
-            this.f31873a = k0.c(i2);
+            this.f31119b = false;
+            this.f31120c = false;
+            this.f31118a = k0.c(i2);
         }
 
         public b(boolean z) {
-            this.f31874b = false;
-            this.f31875c = false;
-            this.f31873a = null;
+            this.f31119b = false;
+            this.f31120c = false;
+            this.f31118a = null;
         }
     }
 

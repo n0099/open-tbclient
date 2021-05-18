@@ -42,7 +42,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-            return WebViewCardView.this.P(str2, jsPromptResult);
+            return WebViewCardView.this.O(str2, jsPromptResult);
         }
     }
 
@@ -106,7 +106,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
-    public final void N() {
+    public final void M() {
         this.t = new BaseWebView(TbadkCoreApplication.getInst());
         if (this.u == null) {
             this.u = new XiubaTbJsBridge(this.m);
@@ -122,13 +122,13 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: O */
-    public void x(WebViewCard webViewCard, int i2) {
+    /* renamed from: N */
+    public void w(WebViewCard webViewCard, int i2) {
         if (TextUtils.isEmpty(webViewCard.getPageUrl()) || this.t == null) {
         }
     }
 
-    public final boolean P(String str, JsPromptResult jsPromptResult) {
+    public final boolean O(String str, JsPromptResult jsPromptResult) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("interfaceName");
@@ -146,8 +146,8 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: Q */
-    public void y(WebViewCard webViewCard) {
+    /* renamed from: P */
+    public void x(WebViewCard webViewCard) {
         if (this.t == null) {
             return;
         }
@@ -169,7 +169,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         CompatibleUtile.getInstance().loadUrl(this.t, webViewCard.getPageUrl());
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, d.a.j0.j1.o.l.e
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, d.a.k0.j1.o.l.e
     public void k(BdUniqueId bdUniqueId) {
         if (bdUniqueId == null) {
             return;
@@ -179,9 +179,9 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View u() {
+    public View t() {
         this.s = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_webview, (ViewGroup) null);
-        N();
+        M();
         return this.s;
     }
 }

@@ -5,7 +5,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import d.o.a.d.f.n;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static String a() {
         return d(n.a());

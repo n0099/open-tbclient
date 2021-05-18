@@ -3,20 +3,20 @@ package com.bytedance.sdk.openadsdk.utils;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30972a;
+    public static String f30217a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Resources f30973b;
+    public static Resources f30218b;
 
     public static String a(Context context) {
-        if (f30972a == null) {
-            f30972a = context.getPackageName();
+        if (f30217a == null) {
+            f30217a = context.getPackageName();
         }
-        return f30972a;
+        return f30217a;
     }
 
     public static int b(Context context, String str) {
@@ -64,10 +64,10 @@ public final class ad {
     }
 
     public static int a(Context context, String str, String str2) {
-        if (f30973b == null) {
-            f30973b = context.getResources();
+        if (f30218b == null) {
+            f30218b = context.getResources();
         }
-        return f30973b.getIdentifier(str, str2, a(context));
+        return f30218b.getIdentifier(str, str2, a(context));
     }
 
     public static String a(Context context, String str) {

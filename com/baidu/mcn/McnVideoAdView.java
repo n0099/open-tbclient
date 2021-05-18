@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.s2.x;
+import d.a.k0.s2.y;
 /* loaded from: classes2.dex */
 public class McnVideoAdView extends FrameLayout {
     public static final int r = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds626);
@@ -25,19 +25,19 @@ public class McnVideoAdView extends FrameLayout {
     public static final int t = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112);
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f8242e;
+    public Context f8054e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f8243f;
+    public TbImageView f8055f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f8244g;
+    public TextView f8056g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f8245h;
+    public TextView f8057h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Animation f8246i;
+    public Animation f8058i;
     public Animation j;
     public float k;
     public float l;
@@ -93,7 +93,7 @@ public class McnVideoAdView extends FrameLayout {
         super(context);
         this.m = false;
         this.p = new Handler();
-        this.f8242e = context;
+        this.f8054e = context;
         h();
     }
 
@@ -102,14 +102,14 @@ public class McnVideoAdView extends FrameLayout {
             return;
         }
         this.n = aVar;
-        this.f8243f.V(aVar.f64102a, 10, false);
-        if (!StringUtils.isNull(aVar.f64103b)) {
-            this.f8244g.setText(aVar.f64103b);
+        this.f8055f.V(aVar.f64789a, 10, false);
+        if (!StringUtils.isNull(aVar.f64790b)) {
+            this.f8056g.setText(aVar.f64790b);
         }
-        if (StringUtils.isNull(aVar.f64104c)) {
+        if (StringUtils.isNull(aVar.f64791c)) {
             return;
         }
-        this.f8245h.setText(aVar.f64104c);
+        this.f8057h.setText(aVar.f64791c);
     }
 
     public final void d() {
@@ -119,11 +119,11 @@ public class McnVideoAdView extends FrameLayout {
     public final void e() {
         d.a.v.a aVar;
         String str;
-        Context context = this.f8242e;
-        if (context == null || (aVar = this.n) == null || (str = aVar.f64105d) == null) {
+        Context context = this.f8054e;
+        if (context == null || (aVar = this.n) == null || (str = aVar.f64792d) == null) {
             return;
         }
-        x.d(context, str, null, null);
+        y.d(context, str, null, null);
         c cVar = this.o;
         if (cVar != null) {
             cVar.b(this.n);
@@ -142,16 +142,16 @@ public class McnVideoAdView extends FrameLayout {
     }
 
     public final void h() {
-        LayoutInflater.from(this.f8242e).inflate(R.layout.mcn_video_ad_layout, this);
-        this.f8243f = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
-        this.f8244g = (TextView) findViewById(R.id.id_mcn_video_ad_title);
-        this.f8245h = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
-        this.f8243f.setConrers(5);
-        this.f8243f.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
-        this.f8243f.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
-        this.f8243f.setRadius(l.g(this.f8242e, R.dimen.tbds20));
-        this.f8246i = AnimationUtils.loadAnimation(this.f8242e, R.anim.mcn_video_ad_open_anim);
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f8242e, R.anim.mcn_video_ad_close_anim);
+        LayoutInflater.from(this.f8054e).inflate(R.layout.mcn_video_ad_layout, this);
+        this.f8055f = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
+        this.f8056g = (TextView) findViewById(R.id.id_mcn_video_ad_title);
+        this.f8057h = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
+        this.f8055f.setConrers(5);
+        this.f8055f.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
+        this.f8055f.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
+        this.f8055f.setRadius(l.g(this.f8054e, R.dimen.tbds20));
+        this.f8058i = AnimationUtils.loadAnimation(this.f8054e, R.anim.mcn_video_ad_open_anim);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f8054e, R.anim.mcn_video_ad_close_anim);
         this.j = loadAnimation;
         loadAnimation.setAnimationListener(new a());
     }
@@ -176,9 +176,9 @@ public class McnVideoAdView extends FrameLayout {
 
     public void l(d.a.v.a aVar, ViewGroup viewGroup) {
         m(aVar, viewGroup);
-        if (this.f8246i != null) {
+        if (this.f8058i != null) {
             clearAnimation();
-            startAnimation(this.f8246i);
+            startAnimation(this.f8058i);
         }
     }
 
@@ -243,7 +243,7 @@ public class McnVideoAdView extends FrameLayout {
         super(context, attributeSet);
         this.m = false;
         this.p = new Handler();
-        this.f8242e = context;
+        this.f8054e = context;
         h();
     }
 
@@ -251,7 +251,7 @@ public class McnVideoAdView extends FrameLayout {
         super(context, attributeSet, i2);
         this.m = false;
         this.p = new Handler();
-        this.f8242e = context;
+        this.f8054e = context;
         h();
     }
 }

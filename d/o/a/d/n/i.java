@@ -6,13 +6,13 @@ import d.o.a.d.f.n;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, a> f66276a = Collections.synchronizedMap(new HashMap());
+    public static Map<String, a> f66962a = Collections.synchronizedMap(new HashMap());
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
 
@@ -31,7 +31,7 @@ public class i {
         if (TextUtils.isEmpty(str) || aVar == null) {
             return;
         }
-        f66276a.put(str, aVar);
+        f66962a.put(str, aVar);
     }
 
     public static void c(String str, String str2) {
@@ -59,6 +59,6 @@ public class i {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f66276a.remove(str);
+        return f66962a.remove(str);
     }
 }

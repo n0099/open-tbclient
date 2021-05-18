@@ -10,7 +10,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
 import com.baidu.tbadk.core.hybrid.BridgeWebView;
-import d.a.j0.d3.l0.b;
+import d.a.k0.d3.l0.b;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
@@ -22,7 +22,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
     public int signBonusPoint = 0;
     public CustomMessageListener mBuyMemberListener = new a(2001194);
     public b mSupplementSignInterface = new b() { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
-        @Override // d.a.j0.d3.l0.b
+        @Override // d.a.k0.d3.l0.b
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("SupplementSignInterface".equalsIgnoreCase(str) && "signSuccess".equalsIgnoreCase(str2)) {
                 if (!StringUtils.isNull(str3)) {

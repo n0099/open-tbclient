@@ -12,19 +12,19 @@ public final class f<T> implements Queue<T> {
     public static final Object n = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicLong f67975e;
+    public final AtomicLong f68655e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67976f;
+    public int f68656f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f67977g;
+    public long f68657g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f67978h;
+    public int f68658h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AtomicReferenceArray<Object> f67979i;
+    public AtomicReferenceArray<Object> f68659i;
     public int j;
     public AtomicReferenceArray<Object> k;
     public final AtomicLong l;
@@ -32,15 +32,15 @@ public final class f<T> implements Queue<T> {
     public f(int i2) {
         int b2 = i.b(Math.max(8, i2));
         int i3 = b2 - 1;
-        this.f67975e = new AtomicLong();
+        this.f68655e = new AtomicLong();
         this.l = new AtomicLong();
         AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(b2 + 1);
-        this.f67979i = atomicReferenceArray;
-        this.f67978h = i3;
+        this.f68659i = atomicReferenceArray;
+        this.f68658h = i3;
         a(b2);
         this.k = atomicReferenceArray;
         this.j = i3;
-        this.f67977g = i3 - 1;
+        this.f68657g = i3 - 1;
         p(0L);
     }
 
@@ -63,7 +63,7 @@ public final class f<T> implements Queue<T> {
     }
 
     public final void a(int i2) {
-        this.f67976f = Math.min(i2 / 4, m);
+        this.f68656f = Math.min(i2 / 4, m);
     }
 
     @Override // java.util.Queue, java.util.Collection
@@ -100,7 +100,7 @@ public final class f<T> implements Queue<T> {
     }
 
     public final long e() {
-        return this.f67975e.get();
+        return this.f68655e.get();
     }
 
     @Override // java.util.Queue
@@ -119,7 +119,7 @@ public final class f<T> implements Queue<T> {
     }
 
     public final long i() {
-        return this.f67975e.get();
+        return this.f68655e.get();
     }
 
     @Override // java.util.Collection
@@ -151,8 +151,8 @@ public final class f<T> implements Queue<T> {
 
     public final void l(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i2, T t, long j2) {
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.f67979i = atomicReferenceArray2;
-        this.f67977g = (j2 + j) - 1;
+        this.f68659i = atomicReferenceArray2;
+        this.f68657g = (j2 + j) - 1;
         p(j + 1);
         n(atomicReferenceArray2, i2, t);
         o(atomicReferenceArray, atomicReferenceArray2);
@@ -172,16 +172,16 @@ public final class f<T> implements Queue<T> {
     @Override // java.util.Queue
     public boolean offer(T t) {
         if (t != null) {
-            AtomicReferenceArray<Object> atomicReferenceArray = this.f67979i;
+            AtomicReferenceArray<Object> atomicReferenceArray = this.f68659i;
             long e2 = e();
-            int i2 = this.f67978h;
+            int i2 = this.f68658h;
             int c2 = c(e2, i2);
-            if (e2 < this.f67977g) {
+            if (e2 < this.f68657g) {
                 return q(atomicReferenceArray, t, e2, c2);
             }
-            long j = this.f67976f + e2;
+            long j = this.f68656f + e2;
             if (g(atomicReferenceArray, c(j, i2)) == null) {
-                this.f67977g = j - 1;
+                this.f68657g = j - 1;
                 return q(atomicReferenceArray, t, e2, c2);
             } else if (g(atomicReferenceArray, c(1 + e2, i2)) != null) {
                 return q(atomicReferenceArray, t, e2, c2);
@@ -194,7 +194,7 @@ public final class f<T> implements Queue<T> {
     }
 
     public final void p(long j) {
-        this.f67975e.lazySet(j);
+        this.f68655e.lazySet(j);
     }
 
     @Override // java.util.Queue

@@ -1,7 +1,5 @@
 package com.baidu.tbadk.game;
 
-import com.alipay.sdk.cons.b;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -58,8 +56,8 @@ public class GameShareJsBridge {
             this.mIconUrl = String.valueOf(jSONObject.opt("app_icon"));
             this.mShareContentUrl = String.valueOf(jSONObject.opt("app_link"));
             this.mShareImage = String.valueOf(jSONObject.opt("img"));
-            this.mShareName = String.valueOf(jSONObject.opt(DpStatConstants.KEY_APP_NAME));
-            this.mGameId = String.valueOf(jSONObject.opt(b.f1831h));
+            this.mShareName = String.valueOf(jSONObject.opt("app_name"));
+            this.mGameId = String.valueOf(jSONObject.opt("app_key"));
         } catch (JSONException e2) {
             e2.printStackTrace();
         } catch (Exception e3) {

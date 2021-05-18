@@ -3,16 +3,16 @@ package com.kwai.filedownloader.event;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Runnable f35110a = null;
+    public Runnable f34355a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f35111b;
+    public final String f34356b;
 
     public b(String str) {
-        this.f35111b = str;
+        this.f34356b = str;
     }
 
     public final String b() {
-        return this.f35111b;
+        return this.f34356b;
     }
 }

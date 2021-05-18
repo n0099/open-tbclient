@@ -1,21 +1,23 @@
 package com.baidu.swan.ubc;
 
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.searchbox.live.interfaces.DI;
-import d.a.h0.n.e;
-import d.a.h0.n.l;
-import d.a.h0.n.n;
-import d.a.h0.n.r;
-import d.a.h0.o.d;
+import d.a.i0.r.e;
+import d.a.i0.r.l;
+import d.a.i0.r.n;
+import d.a.i0.r.r;
+import d.a.i0.s.d;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@SuppressLint({"SyntheticAccessor"})
 /* loaded from: classes3.dex */
 public class Flow implements Parcelable {
     public static final Parcelable.Creator<Flow> CREATOR = new a();
@@ -56,17 +58,17 @@ public class Flow implements Parcelable {
         if (this.mValid) {
             if (d.a.c0.b.a.a.g()) {
                 if (d.a()) {
-                    n.k().q(this.mId, str, this.mHandle, str2, this.mOption);
+                    n.f().m(this.mId, str, this.mHandle, str2, this.mOption);
                 }
                 l lVar = this.mUbcContext;
                 if (lVar == null || this.mIsSampled) {
                     return;
                 }
-                lVar.e(this.mId, str, this.mHandle, str2, this.mOption);
+                lVar.g(this.mId, str, this.mHandle, str2, this.mOption);
                 return;
             }
             try {
-                e.f().flowAddEvent(this, str, str2);
+                e.g().flowAddEvent(this, str, str2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -77,17 +79,17 @@ public class Flow implements Parcelable {
         if (this.mValid) {
             if (d.a.c0.b.a.a.g()) {
                 if (d.a()) {
-                    n.k().r(this.mId, str, this.mHandle, str2, j, this.mOption);
+                    n.f().n(this.mId, str, this.mHandle, str2, j, this.mOption);
                 }
                 l lVar = this.mUbcContext;
                 if (lVar == null || this.mIsSampled) {
                     return;
                 }
-                lVar.m(this.mId, str, this.mHandle, str2, j, this.mOption);
+                lVar.o(this.mId, str, this.mHandle, str2, j, this.mOption);
                 return;
             }
             try {
-                e.f().flowAddEventWithTime(this, str, str2, j);
+                e.g().flowAddEventWithTime(this, str, str2, j);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -98,17 +100,17 @@ public class Flow implements Parcelable {
         if (this.mValid) {
             if (d.a.c0.b.a.a.g()) {
                 if (d.a()) {
-                    n.k().h(this.mId, this.mHandle);
+                    n.f().c(this.mId, this.mHandle);
                 }
                 l lVar = this.mUbcContext;
                 if (lVar == null || this.mIsSampled) {
                     return;
                 }
-                lVar.d(this.mId, this.mHandle);
+                lVar.f(this.mId, this.mHandle);
                 return;
             }
             try {
-                e.f().flowCancel(this);
+                e.g().flowCancel(this);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -133,17 +135,17 @@ public class Flow implements Parcelable {
                     }
                 }
                 if (d.a()) {
-                    n.k().j(this.mId, this.mHandle, jSONArray);
+                    n.f().e(this.mId, this.mHandle, jSONArray);
                 }
                 l lVar = this.mUbcContext;
                 if (lVar == null || this.mIsSampled) {
                     return;
                 }
-                lVar.c(this.mId, this.mHandle, jSONArray);
+                lVar.e(this.mId, this.mHandle, jSONArray);
                 return;
             }
             try {
-                e.f().flowEnd(this);
+                e.g().flowEnd(this);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -199,17 +201,17 @@ public class Flow implements Parcelable {
         if (this.mValid) {
             if (d.a.c0.b.a.a.g()) {
                 if (d.a()) {
-                    n.k().t(this.mId, this.mHandle, str);
+                    n.f().p(this.mId, this.mHandle, str);
                 }
                 l lVar = this.mUbcContext;
                 if (lVar == null || this.mIsSampled) {
                     return;
                 }
-                lVar.h(this.mId, this.mHandle, str);
+                lVar.i(this.mId, this.mHandle, str);
                 return;
             }
             try {
-                e.f().flowSetValue(this, r.b(str));
+                e.g().flowSetValue(this, r.b(str));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -238,17 +240,17 @@ public class Flow implements Parcelable {
                     e2.printStackTrace();
                 }
                 if (d.a()) {
-                    n.k().t(this.mId, this.mHandle, jSONObject.toString());
+                    n.f().p(this.mId, this.mHandle, jSONObject.toString());
                 }
                 l lVar = this.mUbcContext;
                 if (lVar == null || this.mIsSampled) {
                     return;
                 }
-                lVar.h(this.mId, this.mHandle, jSONObject.toString());
+                lVar.i(this.mId, this.mHandle, jSONObject.toString());
                 return;
             }
             try {
-                e.f().flowSetValueWithDuration(this, r.b(str));
+                e.g().flowSetValueWithDuration(this, r.b(str));
             } catch (RemoteException e3) {
                 e3.printStackTrace();
             }
@@ -280,7 +282,7 @@ public class Flow implements Parcelable {
     public Flow() {
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.mUbcContext = e.g();
+        this.mUbcContext = e.h();
         this.mId = "";
         this.mHandle = -1;
         this.mOption = 0;
@@ -290,7 +292,7 @@ public class Flow implements Parcelable {
     public Flow(String str, int i2, int i3) {
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.mUbcContext = e.g();
+        this.mUbcContext = e.h();
         this.mId = str;
         this.mHandle = i2;
         this.mOption = i3;
@@ -300,7 +302,7 @@ public class Flow implements Parcelable {
     public Flow(Parcel parcel) {
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.mUbcContext = e.g();
+        this.mUbcContext = e.h();
         this.mId = parcel.readString();
         this.mHandle = parcel.readInt();
         this.mOption = parcel.readInt();

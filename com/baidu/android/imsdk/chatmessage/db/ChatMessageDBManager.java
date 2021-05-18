@@ -136,7 +136,7 @@ public class ChatMessageDBManager extends DBBase {
         long j7 = cursor.getLong(cursor.getColumnIndex("expires_time"));
         String string6 = cursor.getString(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_SERVICE_TYPE));
         int i12 = cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_TIPS_CODE));
-        String string7 = cursor.getString(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_TIPS));
+        String string7 = cursor.getString(cursor.getColumnIndex("tips"));
         int i13 = cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_TEMPLATE));
         if (i6 == 80) {
             try {
@@ -1319,7 +1319,7 @@ public class ChatMessageDBManager extends DBBase {
         contentValues.put("content", chatMsg.getJsonContent());
         contentValues.put("time", Long.valueOf(chatMsg.getMsgTime()));
         contentValues.put(TableDefine.MessageColumns.COLUME_TIPS_CODE, Integer.valueOf(chatMsg.getTipsCode()));
-        contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, chatMsg.getTips());
+        contentValues.put("tips", chatMsg.getTips());
         synchronized (DBBase.mSyncLock) {
             update = update("message", "_id = ?", new String[]{String.valueOf(chatMsg.getRowId())}, contentValues);
             if (update >= 0) {
@@ -3674,7 +3674,7 @@ public class ChatMessageDBManager extends DBBase {
                     contentValues.put("expires_time", Long.valueOf(chatMsg.getExpiresTime()));
                     contentValues.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, chatMsg.getServiceType());
                     contentValues.put(TableDefine.MessageColumns.COLUME_TIPS_CODE, Integer.valueOf(chatMsg.getTipsCode()));
-                    contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, chatMsg.getTips());
+                    contentValues.put("tips", chatMsg.getTips());
                     contentValues.put(TableDefine.MessageColumns.COLUME_TEMPLATE, Integer.valueOf(chatMsg.getTemplateType()));
                     return openDatabase.insert("message", null, contentValues);
                 }

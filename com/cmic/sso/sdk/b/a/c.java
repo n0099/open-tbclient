@@ -6,13 +6,13 @@ import com.baidu.down.retry.HttpRetryStrategyDataParse;
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f31287a;
+    public b f30532a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.cmic.sso.sdk.b.d.c f31288b;
+    public com.cmic.sso.sdk.b.d.c f30533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.cmic.sso.sdk.b.a f31289c = new com.cmic.sso.sdk.b.a();
+    public com.cmic.sso.sdk.b.a f30534c = new com.cmic.sso.sdk.b.a();
 
     @Override // com.cmic.sso.sdk.b.a.b
     public void a(com.cmic.sso.sdk.b.c.c cVar, com.cmic.sso.sdk.b.d.c cVar2, com.cmic.sso.sdk.a aVar) {
@@ -20,18 +20,18 @@ public class c implements b {
     }
 
     public void b(final com.cmic.sso.sdk.b.c.c cVar, final com.cmic.sso.sdk.b.d.c cVar2, final com.cmic.sso.sdk.a aVar) {
-        if (this.f31287a != null) {
-            this.f31288b = new com.cmic.sso.sdk.b.d.c() { // from class: com.cmic.sso.sdk.b.a.c.1
+        if (this.f30532a != null) {
+            this.f30533b = new com.cmic.sso.sdk.b.d.c() { // from class: com.cmic.sso.sdk.b.a.c.1
                 @Override // com.cmic.sso.sdk.b.d.c
                 public void a(com.cmic.sso.sdk.b.d.b bVar) {
                     if (bVar.d()) {
-                        com.cmic.sso.sdk.b.c.c a2 = c.this.f31289c.a(cVar, bVar, aVar);
+                        com.cmic.sso.sdk.b.c.c a2 = c.this.f30534c.a(cVar, bVar, aVar);
                         c cVar3 = c.this;
-                        cVar3.b(a2, cVar3.f31288b, aVar);
-                    } else if (!TextUtils.isEmpty(c.this.f31289c.a())) {
-                        com.cmic.sso.sdk.b.c.c b2 = c.this.f31289c.b(cVar, bVar, aVar);
+                        cVar3.b(a2, cVar3.f30533b, aVar);
+                    } else if (!TextUtils.isEmpty(c.this.f30534c.a())) {
+                        com.cmic.sso.sdk.b.c.c b2 = c.this.f30534c.b(cVar, bVar, aVar);
                         c cVar4 = c.this;
-                        cVar4.b(b2, cVar4.f31288b, aVar);
+                        cVar4.b(b2, cVar4.f30533b, aVar);
                     } else {
                         cVar2.a(bVar);
                     }
@@ -48,7 +48,7 @@ public class c implements b {
                 }
             };
             if (cVar.g()) {
-                this.f31287a.a(cVar, this.f31288b, aVar);
+                this.f30532a.a(cVar, this.f30533b, aVar);
             } else {
                 cVar2.a(com.cmic.sso.sdk.b.d.a.a(200025));
             }
@@ -56,6 +56,6 @@ public class c implements b {
     }
 
     public void a(b bVar) {
-        this.f31287a = bVar;
+        this.f30532a = bVar;
     }
 }

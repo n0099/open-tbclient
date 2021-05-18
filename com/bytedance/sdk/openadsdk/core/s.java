@@ -3,27 +3,27 @@ package com.bytedance.sdk.openadsdk.core;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.TTSecAbs;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile s f29187a;
+    public static volatile s f28432a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static t f29188b;
+    public static t f28433b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f29189c = false;
+    public volatile boolean f28434c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29190d = null;
+    public String f28435d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29191e = null;
+    public String f28436e = null;
 
     public s() {
         if (d() == null) {
-            f29188b = t.b();
+            f28433b = t.b();
         }
     }
 
@@ -44,56 +44,56 @@ public class s {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        t tVar = f29188b;
+        t tVar = f28433b;
         if (tVar != null) {
             tVar.a(str);
         }
-        this.f29190d = str;
+        this.f28435d = str;
         if (d() != null) {
             d().NM_setParams(str);
         }
     }
 
     public void b(@NonNull String str) {
-        t tVar = f29188b;
+        t tVar = f28433b;
         if (tVar != null) {
             tVar.b(str);
         }
-        if (this.f29189c || d() == null) {
+        if (this.f28434c || d() == null) {
             return;
         }
         d().NM_reportNow(str);
-        this.f29189c = true;
+        this.f28434c = true;
     }
 
     public String c() {
         try {
-            if (!TextUtils.isEmpty(this.f29191e)) {
-                return this.f29191e;
+            if (!TextUtils.isEmpty(this.f28436e)) {
+                return this.f28436e;
             }
             String a2 = i.a("sdk_app_sha1", 2592000000L);
-            this.f29191e = a2;
+            this.f28436e = a2;
             if (!TextUtils.isEmpty(a2)) {
-                return this.f29191e;
+                return this.f28436e;
             }
             if (d() != null) {
-                this.f29191e = d().NM_pullSg();
-            } else if (f29188b != null) {
-                this.f29191e = f29188b.c();
+                this.f28436e = d().NM_pullSg();
+            } else if (f28433b != null) {
+                this.f28436e = f28433b.c();
             }
-            if (d(this.f29191e)) {
-                String upperCase = this.f29191e.toUpperCase();
-                this.f29191e = upperCase;
+            if (d(this.f28436e)) {
+                String upperCase = this.f28436e.toUpperCase();
+                this.f28436e = upperCase;
                 i.a("sdk_app_sha1", upperCase);
-                return this.f29191e;
+                return this.f28436e;
             }
             String a3 = com.bytedance.sdk.openadsdk.utils.e.a(p.a());
-            this.f29191e = a3;
+            this.f28436e = a3;
             if (d(a3)) {
-                String upperCase2 = this.f29191e.toUpperCase();
-                this.f29191e = upperCase2;
+                String upperCase2 = this.f28436e.toUpperCase();
+                this.f28436e = upperCase2;
                 i.a("sdk_app_sha1", upperCase2);
-                return this.f29191e;
+                return this.f28436e;
             }
             return "";
         } catch (Exception unused) {
@@ -106,18 +106,18 @@ public class s {
     }
 
     public static s a() {
-        if (f29187a == null) {
+        if (f28432a == null) {
             synchronized (s.class) {
-                if (f29187a == null) {
-                    f29187a = new s();
+                if (f28432a == null) {
+                    f28432a = new s();
                 }
             }
         }
-        return f29187a;
+        return f28432a;
     }
 
     public String b() {
-        t tVar = f29188b;
+        t tVar = f28433b;
         if (tVar != null) {
             String a2 = tVar.a();
             return a2.length() > 100 ? a2 : "";
@@ -136,7 +136,7 @@ public class s {
         if (d() != null) {
             return d().NM_pullVer(a2);
         }
-        t tVar = f29188b;
+        t tVar = f28433b;
         return tVar != null ? tVar.c(str) : "";
     }
 }

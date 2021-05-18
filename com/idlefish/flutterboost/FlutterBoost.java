@@ -18,7 +18,7 @@ import com.baidu.tbadk.switchs.FlutterCrashRepairEnableSwitch;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
 import d.a.c.h.j.g.d;
-import d.a.j0.i3.a;
+import d.a.k0.i3.a;
 import dalvik.system.PathClassLoader;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.android.FlutterView;
@@ -157,7 +157,7 @@ public class FlutterBoost {
             a.getInstance().setFlutterPath("createEngine1");
         }
         if (this.mEngine == null) {
-            synchronized (d.a.c.h.k.a.f40269a) {
+            synchronized (d.a.c.h.k.a.f39514a) {
                 PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
                 try {
                     if (FlutterCrashRepairEnableSwitch.isOn() && h2 != null && h2.apkPath != null) {

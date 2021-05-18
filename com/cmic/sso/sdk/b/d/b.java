@@ -7,36 +7,36 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f31374a;
+    public int f30619a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, List<String>> f31375b;
+    public Map<String, List<String>> f30620b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31376c;
+    public String f30621c;
 
     public b(int i2, Map<String, List<String>> map, String str) {
-        this.f31374a = i2;
-        this.f31375b = map;
-        this.f31376c = str;
+        this.f30619a = i2;
+        this.f30620b = map;
+        this.f30621c = str;
     }
 
     public int a() {
-        return this.f31374a;
+        return this.f30619a;
     }
 
     public Map<String, List<String>> b() {
-        Map<String, List<String>> map = this.f31375b;
+        Map<String, List<String>> map = this.f30620b;
         return map == null ? new HashMap() : map;
     }
 
     public String c() {
-        String str = this.f31376c;
+        String str = this.f30621c;
         return str == null ? "" : str;
     }
 
     public boolean d() {
-        int i2 = this.f31374a;
+        int i2 = this.f30619a;
         return i2 == 302 || i2 == 301;
     }
 }

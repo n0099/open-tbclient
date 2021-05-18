@@ -8,31 +8,31 @@ import java.nio.ByteBuffer;
 public class RequestBodyOutputStream extends OutputStream {
 
     /* renamed from: e  reason: collision with root package name */
-    public final PipedOutputStreamAndroid25 f23209e;
+    public final PipedOutputStreamAndroid25 f22454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final PipedInputStreamAndroid25 f23210f;
+    public final PipedInputStreamAndroid25 f22455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f23211g;
+    public String f22456g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f23212h;
+    public int f22457h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f23213i;
+    public int f22458i;
     public byte[] j;
 
     public int c(ByteBuffer byteBuffer) throws IOException {
         int read;
-        int min = Math.min(byteBuffer.remaining(), this.f23212h);
+        int min = Math.min(byteBuffer.remaining(), this.f22457h);
         int i2 = 0;
         do {
-            read = this.f23210f.read(this.j, i2, min - i2);
+            read = this.f22455f.read(this.j, i2, min - i2);
             if (read > 0) {
                 i2 += read;
             }
-            if (i2 >= this.f23213i) {
+            if (i2 >= this.f22458i) {
                 break;
             }
         } while (read >= 0);
@@ -44,31 +44,31 @@ public class RequestBodyOutputStream extends OutputStream {
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (!"".equals(this.f23211g)) {
-            String str = "\r\n--" + this.f23211g + "--" + Part.CRLF;
+        if (!"".equals(this.f22456g)) {
+            String str = "\r\n--" + this.f22456g + "--" + Part.CRLF;
             write(str.getBytes(), 0, str.getBytes().length);
         }
-        this.f23209e.close();
+        this.f22454e.close();
     }
 
     public int n() {
-        return this.f23212h;
+        return this.f22457h;
     }
 
     public void o() throws IOException {
-        this.f23210f.close();
-        this.f23209e.close();
+        this.f22455f.close();
+        this.f22454e.close();
     }
 
     @Override // java.io.OutputStream
     public void write(int i2) throws IOException {
-        this.f23209e.write(i2);
-        this.f23209e.flush();
+        this.f22454e.write(i2);
+        this.f22454e.flush();
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i2, int i3) throws IOException {
-        this.f23209e.write(bArr, i2, i3);
-        this.f23209e.flush();
+        this.f22454e.write(bArr, i2, i3);
+        this.f22454e.flush();
     }
 }

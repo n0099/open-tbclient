@@ -16,7 +16,7 @@ public final class MaybeFromCompletable<T> extends Maybe<T> implements HasUpstre
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68256d;
+        public Disposable f68936d;
 
         public FromCompletableObserver(MaybeObserver<? super T> maybeObserver) {
             this.actual = maybeObserver;
@@ -24,31 +24,31 @@ public final class MaybeFromCompletable<T> extends Maybe<T> implements HasUpstre
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68256d.dispose();
-            this.f68256d = DisposableHelper.DISPOSED;
+            this.f68936d.dispose();
+            this.f68936d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68256d.isDisposed();
+            return this.f68936d.isDisposed();
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
-            this.f68256d = DisposableHelper.DISPOSED;
+            this.f68936d = DisposableHelper.DISPOSED;
             this.actual.onComplete();
         }
 
         @Override // io.reactivex.CompletableObserver
         public void onError(Throwable th) {
-            this.f68256d = DisposableHelper.DISPOSED;
+            this.f68936d = DisposableHelper.DISPOSED;
             this.actual.onError(th);
         }
 
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68256d, disposable)) {
-                this.f68256d = disposable;
+            if (DisposableHelper.validate(this.f68936d, disposable)) {
+                this.f68936d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

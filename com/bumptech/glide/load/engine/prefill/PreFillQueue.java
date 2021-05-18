@@ -3,7 +3,7 @@ package com.bumptech.glide.load.engine.prefill;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class PreFillQueue {
     public final Map<PreFillType, Integer> bitmapsPerType;
     public int bitmapsRemaining;

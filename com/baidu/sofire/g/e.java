@@ -8,32 +8,32 @@ import com.baidu.sofire.rp.receiver.Receiver;
 public final class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f11249c;
+    public static e f10316c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f11250a;
+    public Context f10317a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.sofire.f.a f11251b;
+    public com.baidu.sofire.f.a f10318b;
 
     public e(Context context) {
-        this.f11250a = context.getApplicationContext();
-        this.f11251b = new com.baidu.sofire.f.a(context);
+        this.f10317a = context.getApplicationContext();
+        this.f10318b = new com.baidu.sofire.f.a(context);
     }
 
     public static synchronized e a(Context context) {
         e eVar;
         synchronized (e.class) {
-            if (f11249c == null) {
-                f11249c = new e(context);
+            if (f10316c == null) {
+                f10316c = new e(context);
             }
-            eVar = f11249c;
+            eVar = f10316c;
         }
         return eVar;
     }
 
     public final void b() {
-        com.baidu.sofire.f.a aVar = this.f11251b;
+        com.baidu.sofire.f.a aVar = this.f10318b;
         Message message = new Message();
         message.what = 7;
         aVar.a(message);
@@ -42,17 +42,17 @@ public final class e {
     public final void c() {
         Message message = new Message();
         message.what = 2;
-        this.f11251b.a(message);
+        this.f10318b.a(message);
     }
 
     public final void a() {
-        com.baidu.sofire.f.a aVar = this.f11251b;
-        if (aVar.f11232c == null) {
-            aVar.f11232c = new Receiver();
+        com.baidu.sofire.f.a aVar = this.f10318b;
+        if (aVar.f10299c == null) {
+            aVar.f10299c = new Receiver();
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.b.r.p");
-        aVar.f11231b.getApplicationContext().registerReceiver(aVar.f11232c, intentFilter, aVar.f11231b.getPackageName() + ".permission.sofire.RECEIVE", null);
+        aVar.f10298b.getApplicationContext().registerReceiver(aVar.f10299c, intentFilter, aVar.f10298b.getPackageName() + ".permission.sofire.RECEIVE", null);
         Message message = new Message();
         message.what = 5;
         aVar.a(message);

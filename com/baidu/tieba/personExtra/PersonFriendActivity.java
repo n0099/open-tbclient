@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import android.os.Bundle;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonFriendActivity extends BasePersonInfoActivity {
     public PersonFriendAdapter mAdapter = null;
     public PersonFriendModel mModel = null;

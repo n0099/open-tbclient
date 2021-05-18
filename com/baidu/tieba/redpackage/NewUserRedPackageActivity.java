@@ -18,13 +18,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import d.a.c.e.l.d;
 import d.a.c.e.p.l;
-import d.a.i0.a.s;
+import d.a.j0.a.t;
 /* loaded from: classes5.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public ImageView mBgImage;
     public ImageView mCloseBtnImage;
     public NewUserRedPackageData mData;
-    public s mGetMoneyModel;
+    public t mGetMoneyModel;
     public View.OnClickListener mOnClickListener = new a();
     public RoundRelativeLayout mRoundCornerLayout;
 
@@ -110,6 +110,6 @@ public class NewUserRedPackageActivity extends BaseActivity {
         this.mCloseBtnImage.setOnClickListener(this.mOnClickListener);
         setData();
         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-        this.mGetMoneyModel = new s();
+        this.mGetMoneyModel = new t();
     }
 }

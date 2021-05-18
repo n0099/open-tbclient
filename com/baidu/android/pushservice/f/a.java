@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.service.AsInstallService;
 /* loaded from: classes.dex */
 public class a implements b {
     @Override // com.baidu.android.pushservice.f.b
@@ -15,7 +16,7 @@ public class a implements b {
     @Override // com.baidu.android.pushservice.f.b
     public void a(Context context, ComponentName componentName, int i2) {
         Bundle bundle = new Bundle();
-        bundle.putString("package", context.getPackageName());
+        bundle.putString(AsInstallService.SCHEME_PACKAGE_ADDED, context.getPackageName());
         bundle.putString(DealIntentService.KEY_CLASS, componentName.getClassName());
         bundle.putInt("badgenumber", i2);
         try {

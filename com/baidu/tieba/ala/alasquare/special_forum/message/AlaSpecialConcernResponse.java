@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.special_forum.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.j0.t.d.f.c.d;
+import d.a.k0.t.d.f.c.d;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
