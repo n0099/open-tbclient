@@ -8,11 +8,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import d.a.d.d;
-import d.a.j0.j1.o.l.f;
-import d.a.j0.j1.o.l.k;
-import d.a.j0.q0.p2.c;
-import d.a.j0.s2.h0.e;
-import d.a.j0.s2.h0.h;
+import d.a.k0.j1.o.l.f;
+import d.a.k0.j1.o.l.h;
+import d.a.k0.j1.o.l.k;
+import d.a.k0.q0.p2.c;
+import d.a.k0.s2.i0.e;
+import d.a.k0.s2.i0.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +22,7 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
     public ICardInfo m;
     public d n;
     public TbPageContext o;
-    public d.a.j0.q0.i1.a p;
+    public d.a.k0.q0.i1.a p;
     public c q;
     public k r;
     public List<k> s;
@@ -29,24 +30,18 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
 
     /* renamed from: d.a.d.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0529a implements d.a.j0.j1.o.a {
-        public C0529a() {
+    public class C0516a implements d.a.k0.j1.o.a {
+        public C0516a() {
         }
 
-        @Override // d.a.j0.j1.o.a
+        @Override // d.a.k0.j1.o.a
         public void a(int i2, HashMap<String, Object> hashMap) {
-            a aVar = a.this;
-            aVar.i0(aVar.n, a.this.n.m());
-        }
-
-        @Override // d.a.j0.j1.o.a
-        public void b(String str, String str2, HashMap<String, Object> hashMap) {
             a aVar = a.this;
             aVar.i0(aVar.n, a.this.n.m());
         }
     }
 
-    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, d.a.j0.q0.i1.a aVar, c cVar, f fVar) {
+    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, d.a.k0.q0.i1.a aVar, c cVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.s = new ArrayList();
         this.o = tbPageContext;
@@ -64,7 +59,7 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
         return super.H(i2, view, viewGroup, dVar);
     }
 
-    @Override // d.a.j0.j1.o.l.f
+    @Override // d.a.k0.j1.o.l.f
     public void h(k kVar) {
         this.r = kVar;
         f fVar = this.t;
@@ -88,25 +83,25 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
         }
         AdvertAppInfo v = dVar.v();
         int i3 = 2;
-        if (v != null && (iLegoAdvert = v.W3) != null && iLegoAdvert.forFree()) {
+        if (v != null && (iLegoAdvert = v.N3) != null && iLegoAdvert.forFree()) {
             i3 = 102;
         }
-        e.b().d(h.b(v, i3, i2));
-        d.a.j0.j1.o.h.c.h(dVar);
+        e.b().d(g.b(v, i3, i2));
+        d.a.k0.j1.o.h.c.h(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.j.e.a
     /* renamed from: j0 */
     public AdCardViewHolder P(ViewGroup viewGroup) {
-        d.a.j0.j1.o.l.e a2;
-        if (this.m == null || (a2 = d.a.j0.j1.o.b.h().a(this.o, this.m, 2)) == null) {
+        d.a.k0.j1.o.l.e a2;
+        if (this.m == null || (a2 = d.a.k0.j1.o.b.h().a(this.o, this.m, 2)) == null) {
             return null;
         }
         if (a2 instanceof k) {
             this.s.add((k) a2);
         }
-        a2.setAfterClickSchemeListener(new C0529a());
+        a2.setAfterClickSchemeListener(new C0516a());
         return new AdCardViewHolder(a2);
     }
 
@@ -137,8 +132,8 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
         if (dVar == null || adCardViewHolder == null) {
             return null;
         }
-        if (adCardViewHolder.b() instanceof d.a.j0.j1.o.l.h) {
-            d.a.j0.j1.o.l.h hVar = (d.a.j0.j1.o.l.h) adCardViewHolder.b();
+        if (adCardViewHolder.b() instanceof h) {
+            h hVar = (h) adCardViewHolder.b();
             hVar.setAutoPlayCallBack(this.p);
             hVar.setOnVideoContainerForegroundClickListener(this.q);
             hVar.setCurrentPlayCallBack(this);
@@ -158,7 +153,7 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
         }
     }
 
-    public void r0() {
+    public void s0() {
         k kVar = this.r;
         if (kVar == null) {
             return;

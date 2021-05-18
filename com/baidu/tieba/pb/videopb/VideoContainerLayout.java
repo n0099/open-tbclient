@@ -6,65 +6,65 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import d.a.c.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class VideoContainerLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20140e;
+    public int f19428e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20141f;
+    public int f19429f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20142g;
+    public int f19430g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20143h;
+    public int f19431h;
 
     public VideoContainerLayout(Context context) {
         super(context);
-        this.f20143h = l.k(context) / 10;
+        this.f19431h = l.k(context) / 10;
     }
 
     public int getMaxHeight() {
-        return this.f20141f;
+        return this.f19429f;
     }
 
     public int getMinHeight() {
-        return this.f20140e;
+        return this.f19428e;
     }
 
     public int getOriginHeight() {
-        return this.f20142g;
+        return this.f19430g;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.f20143h && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+        if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.f19431h && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
             ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setMaxHeight(int i2) {
-        this.f20141f = i2;
+        this.f19429f = i2;
     }
 
     public void setMinHeight(int i2) {
-        this.f20140e = i2;
+        this.f19428e = i2;
     }
 
     public void setOriginHeight(int i2) {
-        this.f20142g = i2;
+        this.f19430g = i2;
     }
 
     public VideoContainerLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20143h = l.k(context) / 10;
+        this.f19431h = l.k(context) / 10;
     }
 
     public VideoContainerLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f20143h = l.k(context) / 10;
+        this.f19431h = l.k(context) / 10;
     }
 }

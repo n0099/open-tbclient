@@ -3,11 +3,11 @@ package com.sdk.base.framework.bean;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DataInfo extends JSONObject {
     public DataInfo() {
         try {
-            put(r.f7975a, System.currentTimeMillis());
+            put(r.f7772a, System.currentTimeMillis());
         } catch (JSONException unused) {
         }
     }

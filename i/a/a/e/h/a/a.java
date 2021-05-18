@@ -9,39 +9,39 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Display;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f68069a;
+    public final int f68749a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f68070b;
+    public final int f68750b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f68071c;
+    public final boolean f68751c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f68072d;
+    public final int f68752d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f68073e;
+    public final int f68753e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f68074f;
+    public final boolean f68754f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final float f68075g;
+    public final float f68755g;
 
     public a(Activity activity) {
         Resources resources = activity.getResources();
-        this.f68074f = resources.getConfiguration().orientation == 1;
-        this.f68075g = h(activity);
-        this.f68069a = c(resources, "status_bar_height");
-        this.f68070b = b(activity);
-        this.f68072d = e(activity);
-        this.f68073e = g(activity);
-        this.f68071c = this.f68072d > 0;
+        this.f68754f = resources.getConfiguration().orientation == 1;
+        this.f68755g = h(activity);
+        this.f68749a = c(resources, "status_bar_height");
+        this.f68750b = b(activity);
+        this.f68752d = e(activity);
+        this.f68753e = g(activity);
+        this.f68751c = this.f68752d > 0;
     }
 
     @TargetApi(14)
@@ -59,7 +59,7 @@ public class a {
     }
 
     public int a() {
-        return this.f68070b;
+        return this.f68750b;
     }
 
     @TargetApi(14)
@@ -87,7 +87,7 @@ public class a {
     }
 
     public int d() {
-        return this.f68072d;
+        return this.f68752d;
     }
 
     @TargetApi(14)
@@ -96,11 +96,11 @@ public class a {
         if (Build.VERSION.SDK_INT < 14 || !j((Activity) context)) {
             return 0;
         }
-        return c(resources, this.f68074f ? "navigation_bar_height" : "navigation_bar_height_landscape");
+        return c(resources, this.f68754f ? "navigation_bar_height" : "navigation_bar_height_landscape");
     }
 
     public int f() {
-        return this.f68073e;
+        return this.f68753e;
     }
 
     @TargetApi(14)
@@ -125,14 +125,14 @@ public class a {
     }
 
     public int i() {
-        return this.f68069a;
+        return this.f68749a;
     }
 
     public boolean k() {
-        return this.f68071c;
+        return this.f68751c;
     }
 
     public boolean l() {
-        return this.f68075g >= 600.0f || this.f68074f;
+        return this.f68755g >= 600.0f || this.f68754f;
     }
 }

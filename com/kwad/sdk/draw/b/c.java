@@ -8,23 +8,23 @@ import com.kwad.sdk.contentalliance.detail.video.e;
 public class c extends com.kwad.sdk.draw.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f33939b;
+    public TextView f33184b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f33940c = new e() { // from class: com.kwad.sdk.draw.b.c.1
+    public d f33185c = new e() { // from class: com.kwad.sdk.draw.b.c.1
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void a(int i2, int i3) {
-            c.this.f33939b.setVisibility(0);
+            c.this.f33184b.setVisibility(0);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void c() {
-            c.this.f33939b.setVisibility(8);
+            c.this.f33184b.setVisibility(8);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void d() {
-            c.this.f33939b.setVisibility(8);
+            c.this.f33184b.setVisibility(8);
         }
     };
 
@@ -34,25 +34,25 @@ public class c extends com.kwad.sdk.draw.a.a {
         int i2;
         super.a();
         if (com.ksad.download.d.b.a(l())) {
-            textView = this.f33939b;
+            textView = this.f33184b;
             i2 = 8;
         } else {
-            textView = this.f33939b;
+            textView = this.f33184b;
             i2 = 0;
         }
         textView.setVisibility(i2);
-        ((com.kwad.sdk.draw.a.a) this).f33875a.f33880e.a(this.f33940c);
+        ((com.kwad.sdk.draw.a.a) this).f33120a.f33125e.a(this.f33185c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b() {
         super.b();
-        this.f33939b = (TextView) a(R.id.ksad_video_fail_tip);
+        this.f33184b = (TextView) a(R.id.ksad_video_fail_tip);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        ((com.kwad.sdk.draw.a.a) this).f33875a.f33880e.b(this.f33940c);
+        ((com.kwad.sdk.draw.a.a) this).f33120a.f33125e.b(this.f33185c);
     }
 }

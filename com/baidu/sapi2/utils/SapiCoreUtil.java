@@ -18,6 +18,7 @@ import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.wallet.api.IWalletLoginListener;
 import java.io.BufferedReader;
@@ -315,7 +316,7 @@ public class SapiCoreUtil {
                         } else if (name.equalsIgnoreCase("os_headurl")) {
                             sapiAccountResponse2.socialPortraitUrl = newPullParser.nextText();
                             continue;
-                        } else if (name.equalsIgnoreCase("os_type")) {
+                        } else if (name.equalsIgnoreCase(SearchJsBridge.COOKIE_OS_TYPE)) {
                             sapiAccountResponse2.socialType = SocialType.getSocialType(Integer.parseInt(newPullParser.nextText()));
                             continue;
                         } else if (name.equalsIgnoreCase("incomplete_user")) {
@@ -384,7 +385,7 @@ public class SapiCoreUtil {
             return null;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put(r.f7975a, 4);
+        hashMap.put(r.f7772a, 4);
         hashMap.put("w", 2);
         int i2 = 1;
         hashMap.put("x", 1);

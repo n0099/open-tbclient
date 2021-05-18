@@ -5,7 +5,7 @@ import android.os.Bundle;
 public class ge extends gc {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38472a;
+    public int f37717a;
 
     /* renamed from: a  reason: collision with other field name */
     public a f428a;
@@ -14,7 +14,7 @@ public class ge extends gc {
     public b f429a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38473b;
+    public String f37718b;
 
     /* loaded from: classes7.dex */
     public enum a {
@@ -40,17 +40,17 @@ public class ge extends gc {
     public ge(Bundle bundle) {
         super(bundle);
         this.f429a = b.available;
-        this.f38473b = null;
-        this.f38472a = Integer.MIN_VALUE;
+        this.f37718b = null;
+        this.f37717a = Integer.MIN_VALUE;
         this.f428a = null;
         if (bundle.containsKey("ext_pres_type")) {
             this.f429a = b.valueOf(bundle.getString("ext_pres_type"));
         }
         if (bundle.containsKey("ext_pres_status")) {
-            this.f38473b = bundle.getString("ext_pres_status");
+            this.f37718b = bundle.getString("ext_pres_status");
         }
         if (bundle.containsKey("ext_pres_prio")) {
-            this.f38472a = bundle.getInt("ext_pres_prio");
+            this.f37717a = bundle.getInt("ext_pres_prio");
         }
         if (bundle.containsKey("ext_pres_mode")) {
             this.f428a = a.valueOf(bundle.getString("ext_pres_mode"));
@@ -59,8 +59,8 @@ public class ge extends gc {
 
     public ge(b bVar) {
         this.f429a = b.available;
-        this.f38473b = null;
-        this.f38472a = Integer.MIN_VALUE;
+        this.f37718b = null;
+        this.f37717a = Integer.MIN_VALUE;
         this.f428a = null;
         a(bVar);
     }
@@ -72,11 +72,11 @@ public class ge extends gc {
         if (bVar != null) {
             a2.putString("ext_pres_type", bVar.toString());
         }
-        String str = this.f38473b;
+        String str = this.f37718b;
         if (str != null) {
             a2.putString("ext_pres_status", str);
         }
-        int i2 = this.f38472a;
+        int i2 = this.f37717a;
         if (i2 != Integer.MIN_VALUE) {
             a2.putInt("ext_pres_prio", i2);
         }
@@ -122,14 +122,14 @@ public class ge extends gc {
             sb.append("\"");
         }
         sb.append(">");
-        if (this.f38473b != null) {
+        if (this.f37718b != null) {
             sb.append("<status>");
-            sb.append(gn.a(this.f38473b));
+            sb.append(gn.a(this.f37718b));
             sb.append("</status>");
         }
-        if (this.f38472a != Integer.MIN_VALUE) {
+        if (this.f37717a != Integer.MIN_VALUE) {
             sb.append("<priority>");
-            sb.append(this.f38472a);
+            sb.append(this.f37717a);
             sb.append("</priority>");
         }
         a aVar = this.f428a;
@@ -139,9 +139,9 @@ public class ge extends gc {
             sb.append("</show>");
         }
         sb.append(o());
-        gg m331a = m331a();
-        if (m331a != null) {
-            sb.append(m331a.m335a());
+        gg m330a = m330a();
+        if (m330a != null) {
+            sb.append(m330a.m334a());
         }
         sb.append("</presence>");
         return sb.toString();
@@ -149,7 +149,7 @@ public class ge extends gc {
 
     public void a(int i2) {
         if (i2 >= -128 && i2 <= 128) {
-            this.f38472a = i2;
+            this.f37717a = i2;
             return;
         }
         throw new IllegalArgumentException("Priority value " + i2 + " is not valid. Valid range is -128 through 128.");
@@ -168,6 +168,6 @@ public class ge extends gc {
 
     @Override // com.xiaomi.push.gc
     public void a(String str) {
-        this.f38473b = str;
+        this.f37718b = str;
     }
 }

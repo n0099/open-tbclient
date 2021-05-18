@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
-import d.a.j0.x.e0.c;
+import d.a.k0.x.e0.c;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbGoodsInfo;
@@ -43,7 +43,7 @@ public class PbGoodsData extends c implements Serializable {
         this.goodsUrlH5 = pbGoodsInfo.goods_url_h5;
     }
 
-    @Override // d.a.j0.x.e0.c
+    @Override // d.a.k0.x.e0.c
     public int sort() {
         return this.sort;
     }

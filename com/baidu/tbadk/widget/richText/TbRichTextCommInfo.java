@@ -16,53 +16,53 @@ public class TbRichTextCommInfo extends OrmObject {
     public static final int URL_VALIDITY_VALID = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14003e;
+    public String f13339e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14004f;
+    public String f13340f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14005g;
+    public String f13341g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14006h;
+    public int f13342h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14007i;
+    public int f13343i;
     public String j;
     public String k;
     public int l;
 
     public TbRichTextCommInfo() {
-        this.f14003e = null;
-        this.f14004f = null;
-        this.f14005g = null;
-        this.f14006h = 0;
+        this.f13339e = null;
+        this.f13340f = null;
+        this.f13341g = null;
+        this.f13342h = 0;
         this.l = 0;
     }
 
     public String getLink() {
-        return this.f14004f;
+        return this.f13340f;
     }
 
     public String getText() {
-        return this.f14003e;
+        return this.f13339e;
     }
 
     public int s() {
-        return this.f14007i;
+        return this.f13343i;
     }
 
     public void setLink(String str) {
-        this.f14004f = str;
+        this.f13340f = str;
     }
 
     public void setText(String str) {
-        this.f14003e = str;
+        this.f13339e = str;
     }
 
     public String t() {
-        return this.f14005g;
+        return this.f13341g;
     }
 
     public String u() {
@@ -74,101 +74,101 @@ public class TbRichTextCommInfo extends OrmObject {
     }
 
     public void w() {
-        String str = this.f14003e;
+        String str = this.f13339e;
         if (str != null) {
-            this.f14003e = str.replaceAll("\n", "");
+            this.f13339e = str.replaceAll("\n", "");
         }
-        String str2 = this.f14004f;
+        String str2 = this.f13340f;
         if (str2 != null) {
-            this.f14004f = str2.replaceAll("\n", "");
+            this.f13340f = str2.replaceAll("\n", "");
         }
     }
 
     public TbRichTextCommInfo(JSONObject jSONObject) {
-        this.f14003e = null;
-        this.f14004f = null;
-        this.f14005g = null;
-        this.f14006h = 0;
+        this.f13339e = null;
+        this.f13340f = null;
+        this.f13341g = null;
+        this.f13342h = 0;
         this.l = 0;
         if (jSONObject == null) {
             return;
         }
-        this.f14003e = jSONObject.optString("text");
-        this.f14004f = jSONObject.optString("link");
-        this.f14005g = jSONObject.optString(LegoListActivityConfig.ITEM_ID);
-        this.f14006h = jSONObject.optInt("type", 0);
+        this.f13339e = jSONObject.optString("text");
+        this.f13340f = jSONObject.optString("link");
+        this.f13341g = jSONObject.optString(LegoListActivityConfig.ITEM_ID);
+        this.f13342h = jSONObject.optInt("type", 0);
         this.l = jSONObject.optInt("url_type", 0);
         int optInt = jSONObject.optInt("is_native_app", 0);
-        this.f14007i = optInt;
+        this.f13343i = optInt;
         if (optInt != 1) {
             return;
         }
         if (jSONObject.optJSONObject("native_app") == null) {
-            this.f14007i = 0;
+            this.f13343i = 0;
             return;
         }
         this.j = jSONObject.optString("jump_and");
         this.k = jSONObject.optString("download_and");
         if (!TextUtils.isEmpty(this.j) && !TextUtils.isEmpty(this.k)) {
-            int i2 = this.f14006h;
+            int i2 = this.f13342h;
             if (i2 == 1) {
-                this.j += ";download_url:" + this.k + ";web_play_url:" + this.f14004f;
+                this.j += ";download_url:" + this.k + ";web_play_url:" + this.f13340f;
             } else if (i2 == 5) {
-                this.j += ";download_url:" + this.k + ";web_play_url:" + this.f14003e;
+                this.j += ";download_url:" + this.k + ";web_play_url:" + this.f13339e;
             }
             this.j += ";is_native_app=1";
             return;
         }
-        this.f14007i = 0;
+        this.f13343i = 0;
     }
 
     public TbRichTextCommInfo(PbContent pbContent) {
-        this.f14003e = null;
-        this.f14004f = null;
-        this.f14005g = null;
-        this.f14006h = 0;
+        this.f13339e = null;
+        this.f13340f = null;
+        this.f13341g = null;
+        this.f13342h = 0;
         this.l = 0;
         if (pbContent == null) {
             return;
         }
-        this.f14003e = pbContent.text;
-        this.f14004f = pbContent.link;
-        this.f14006h = pbContent.type.intValue();
-        this.f14005g = pbContent.item_id + "";
+        this.f13339e = pbContent.text;
+        this.f13340f = pbContent.link;
+        this.f13342h = pbContent.type.intValue();
+        this.f13341g = pbContent.item_id + "";
         this.l = pbContent.url_type.intValue();
         int intValue = pbContent.is_native_app.intValue();
-        this.f14007i = intValue;
+        this.f13343i = intValue;
         if (intValue != 1) {
             return;
         }
         NativeApp nativeApp = pbContent.native_app;
         if (nativeApp == null) {
-            this.f14007i = 0;
+            this.f13343i = 0;
             return;
         }
         String str = nativeApp.jump_and;
         this.j = str;
         this.k = nativeApp.download_and;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.k)) {
-            int i2 = this.f14006h;
+            int i2 = this.f13342h;
             if (i2 == 1) {
-                this.j += ";download_url:" + this.k + ";web_play_url:" + this.f14004f;
+                this.j += ";download_url:" + this.k + ";web_play_url:" + this.f13340f;
             } else if (i2 == 5) {
-                this.j += ";download_url:" + this.k + ";web_play_url:" + this.f14003e;
+                this.j += ";download_url:" + this.k + ";web_play_url:" + this.f13339e;
             }
             this.j += ";is_native_app=1";
             return;
         }
-        this.f14007i = 0;
+        this.f13343i = 0;
     }
 
     public TbRichTextCommInfo(String str, String str2) {
-        this.f14003e = null;
-        this.f14004f = null;
-        this.f14005g = null;
-        this.f14006h = 0;
+        this.f13339e = null;
+        this.f13340f = null;
+        this.f13341g = null;
+        this.f13342h = 0;
         this.l = 0;
-        this.f14003e = str;
-        this.f14004f = str2;
+        this.f13339e = str;
+        this.f13340f = str2;
     }
 }

@@ -5,36 +5,36 @@ import com.baidu.android.common.others.lang.StringUtil;
 public class Jni {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f6679a = 0;
+    public static int f6503a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f6680b = 1;
+    public static int f6504b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f6681c = 2;
+    public static int f6505c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6682d = 11;
+    public static int f6506d = 11;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f6683e = 12;
+    public static int f6507e = 12;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f6684f = 13;
+    public static int f6508f = 13;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6685g = 14;
+    public static int f6509g = 14;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f6686h = 15;
+    public static int f6510h = 15;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f6687i = 1024;
+    public static int f6511i = 1024;
     public static boolean j = false;
 
     static {
         try {
-            System.loadLibrary("locSDK7b");
+            System.loadLibrary("locSDK7d");
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
             j = true;
@@ -54,19 +54,19 @@ public class Jni {
         }
         int i2 = -1;
         if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
-            i2 = f6679a;
+            i2 = f6503a;
         } else if (str.equals("bd09ll")) {
-            i2 = f6680b;
+            i2 = f6504b;
         } else if (str.equals("gcj02")) {
-            i2 = f6681c;
+            i2 = f6505c;
         } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {
-            i2 = f6682d;
+            i2 = f6506d;
         } else if (str.equals(BDLocation.BDLOCATION_BD09_TO_GCJ02)) {
-            i2 = f6683e;
+            i2 = f6507e;
         } else if (str.equals(BDLocation.BDLOCATION_BD09LL_TO_GCJ02)) {
-            i2 = f6684f;
+            i2 = f6508f;
         } else if (str.equals("wgs842mc")) {
-            i2 = f6686h;
+            i2 = f6510h;
         }
         try {
             String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(":");
@@ -87,7 +87,7 @@ public class Jni {
             return StringUtil.NULL_STRING;
         }
         byte[] bytes = str.getBytes();
-        byte[] bArr = new byte[f6687i];
+        byte[] bArr = new byte[f6511i];
         int length = bytes.length;
         if (length > 740) {
             length = 740;
@@ -198,7 +198,21 @@ public class Jni {
         }
     }
 
+    public static String getldkaiv() {
+        if (j) {
+            return null;
+        }
+        try {
+            return ldkaiv();
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
+            return null;
+        }
+    }
+
     public static native double gsr(float f2, double d2, double d3);
+
+    public static native String ldkaiv();
 
     public static native long murmur(String str);
 }

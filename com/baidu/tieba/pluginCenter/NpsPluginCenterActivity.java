@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 import d.a.c.g.c;
-import d.a.i0.g0.f.a;
-import d.a.i0.g0.f.b;
+import d.a.j0.g0.f.a;
+import d.a.j0.g0.f.b;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
     public TbSettingTextTipView livePlugin;
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b<Object, d.a.i0.g0.d.b, a<Object, d.a.i0.g0.d.b>> mPluginCenterAdapter;
+    public b<Object, d.a.j0.g0.d.b, a<Object, d.a.j0.g0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
 

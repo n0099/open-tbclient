@@ -1,5 +1,5 @@
 package com.bumptech.glide.gifdecoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.bumptech.glide.gifdecoder";
     public static final String BUILD_TYPE = "debug";

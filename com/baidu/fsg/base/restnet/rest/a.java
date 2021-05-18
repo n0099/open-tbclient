@@ -8,25 +8,25 @@ import android.net.NetworkInfo;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5394b = "a";
+    public static final String f5248b = "a";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f5395c = false;
+    public static final boolean f5249c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5396a;
+    public String f5250a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5397d;
+    public String f5251d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5398e;
+    public String f5252e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f5399f;
+    public String f5253f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5400g;
+    public boolean f5254g;
 
     public a(Context context) {
         b(context);
@@ -49,22 +49,22 @@ public class a {
     }
 
     public String b() {
-        return this.f5397d;
+        return this.f5251d;
     }
 
     public String c() {
-        return this.f5398e;
+        return this.f5252e;
     }
 
     public String d() {
-        return this.f5399f;
+        return this.f5253f;
     }
 
     public String e() {
-        return this.f5396a;
+        return this.f5250a;
     }
 
     public boolean a() {
-        return this.f5400g;
+        return this.f5254g;
     }
 }

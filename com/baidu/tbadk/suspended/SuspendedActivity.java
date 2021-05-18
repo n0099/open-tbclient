@@ -22,7 +22,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public NoNetworkView.b mNetListener = new a();
     public NoNetworkView mNoNetView;
     public SusPendedView mRootView;
-    public d.a.i0.t0.a mSuspendedContentView;
+    public d.a.j0.t0.a mSuspendedContentView;
     public TranView mTranView;
 
     /* loaded from: classes3.dex */
@@ -64,7 +64,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     private void initContentView() {
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.content_view);
         this.mContentView = linearLayout;
-        d.a.i0.t0.a suspendedContentView = getSuspendedContentView(linearLayout, this.mNavigationBar);
+        d.a.j0.t0.a suspendedContentView = getSuspendedContentView(linearLayout, this.mNavigationBar);
         this.mSuspendedContentView = suspendedContentView;
         if (suspendedContentView != null) {
             this.mRootView.setContentViewTop(suspendedContentView);
@@ -98,7 +98,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     }
 
     public void close() {
-        d.a.i0.t0.a aVar = this.mSuspendedContentView;
+        d.a.j0.t0.a aVar = this.mSuspendedContentView;
         if (aVar == null || aVar.isOnViewCancel()) {
             if (this.mTranView != null) {
                 this.mRootView.h();
@@ -120,7 +120,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        d.a.i0.t0.a aVar = this.mSuspendedContentView;
+        d.a.j0.t0.a aVar = this.mSuspendedContentView;
         if (aVar != null) {
             Intent resultIntent = aVar.getResultIntent();
             if (resultIntent != null) {
@@ -137,7 +137,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         super.finish();
     }
 
-    public abstract d.a.i0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar);
+    public abstract d.a.j0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar);
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i2) {
@@ -147,7 +147,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0608);
         SkinManager.setBackgroundColor(this.mContentView, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.mCancel, R.color.CAM_X0105);
-        d.a.i0.t0.a aVar = this.mSuspendedContentView;
+        d.a.j0.t0.a aVar = this.mSuspendedContentView;
         if (aVar != null) {
             aVar.onViewChangeSkinType(i2);
         }

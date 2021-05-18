@@ -549,7 +549,7 @@ public class SapiUtils implements NoProguard {
                     case 12:
                     case 14:
                     case 15:
-                        return g.f3962b;
+                        return g.f3963b;
                     case 13:
                         return "4G";
                     default:

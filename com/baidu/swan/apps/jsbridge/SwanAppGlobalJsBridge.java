@@ -10,32 +10,111 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.searchbox.unitedscheme.moniter.SchemeTimeCostMoniter;
-import d.a.h0.a.i2.k0;
+import d.a.i0.a.h0.l.g.f;
+import d.a.i0.a.r1.l.e;
+import d.a.i0.a.v2.q0;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 @Keep
-/* loaded from: classes2.dex */
-public class SwanAppGlobalJsBridge extends d.a.h0.a.x0.a {
+/* loaded from: classes3.dex */
+public class SwanAppGlobalJsBridge extends d.a.i0.a.d1.a {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_jsbridge";
     public static final String TAG = "SwanAppGlobalJsBridge";
+    public CopyOnWriteArrayList<String> mPendingSchemeList;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            SwanAppGlobalJsBridge.this.registerLaunchTrigger();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends d.a.i0.a.o0.c {
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ String f10896g;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(String str, String str2) {
+            super(str);
+            this.f10896g = str2;
+        }
+
+        @Override // d.a.i0.a.o0.c
+        public void c() {
+            SwanAppGlobalJsBridge swanAppGlobalJsBridge = SwanAppGlobalJsBridge.this;
+            swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f10896g);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11734e;
+        public final /* synthetic */ String f10898e;
 
-        public a(String str) {
-            this.f11734e = str;
+        public c(String str) {
+            this.f10898e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             SwanAppGlobalJsBridge swanAppGlobalJsBridge = SwanAppGlobalJsBridge.this;
-            swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f11734e);
+            swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f10898e);
         }
     }
 
-    public SwanAppGlobalJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler) {
-        super(context, unitedSchemeMainDispatcher, callbackHandler);
+    /* loaded from: classes3.dex */
+    public class d implements d.a.i0.a.r1.k.h.a {
+
+        /* loaded from: classes3.dex */
+        public class a implements Runnable {
+            public a() {
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Iterator it = SwanAppGlobalJsBridge.this.mPendingSchemeList.iterator();
+                while (it.hasNext()) {
+                    SwanAppGlobalJsBridge swanAppGlobalJsBridge = SwanAppGlobalJsBridge.this;
+                    swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), (String) it.next());
+                }
+                if (d.a.i0.a.f1.f.a.f41678a) {
+                    Log.d("SwanPerformance", "pending api count = " + SwanAppGlobalJsBridge.this.mPendingSchemeList.size());
+                }
+                SwanAppGlobalJsBridge.this.mPendingSchemeList.clear();
+            }
+        }
+
+        public d() {
+        }
+
+        @Override // d.a.i0.a.r1.k.h.a
+        public void a() {
+            if (SwanAppGlobalJsBridge.this.mPendingSchemeList.isEmpty()) {
+                return;
+            }
+            q0.X(new a());
+        }
+    }
+
+    public SwanAppGlobalJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, d.a.i0.a.h0.f.a aVar) {
+        super(context, unitedSchemeMainDispatcher, callbackHandler, aVar);
+        this.mPendingSchemeList = new CopyOnWriteArrayList<>();
+        q0.b0(new a());
+    }
+
+    private void dispatchOnUiThread(String str) {
+        if (e.a()) {
+            d.a.i0.a.o0.b.b().c(new b(str, str), null);
+        } else {
+            q0.b0(new c(str));
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -46,19 +125,34 @@ public class SwanAppGlobalJsBridge extends d.a.h0.a.x0.a {
         UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(str2));
         unitedSchemeEntity.setReferUrl(this.mCallbackHandler.getCurrentPageUrl());
         unitedSchemeEntity.setPageUrl(str);
-        if (d.a.h0.a.x0.a.DEBUG) {
+        if (d.a.i0.a.d1.a.DEBUG) {
             Log.d(TAG, "doSchemeDispatch scheme: " + str2 + " mCallbackHandler: " + this.mCallbackHandler);
         }
         SchemeTimeCostMoniter.getInstance().schemeStart(str2);
-        unitedSchemeEntity.getUri().getPath();
         boolean dispatch = this.mMainDispatcher.dispatch(getDispatchContext(), unitedSchemeEntity, this.mCallbackHandler);
         SchemeTimeCostMoniter.getInstance().schemeEnd(str2);
         return dispatch;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void registerLaunchTrigger() {
+        d.a.i0.a.r1.k.h.b.c().d(new d());
+    }
+
     @JavascriptInterface
     public boolean dispatch(String str) {
-        k0.X(new a(str));
+        if (f.a(this.mJsContainer, str)) {
+            return false;
+        }
+        if (d.a.i0.a.r1.k.h.b.c().b(str)) {
+            this.mPendingSchemeList.add(str);
+            if (d.a.i0.a.f1.f.a.f41678a) {
+                Log.d("SwanPerformance", "pending api size = " + this.mPendingSchemeList.size());
+                return true;
+            }
+            return true;
+        }
+        dispatchOnUiThread(str);
         return true;
     }
 }

@@ -5,9 +5,9 @@ import androidx.annotation.NonNull;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39325a = "";
+    public static String f38570a = "";
 
     public static void a(@NonNull g gVar) {
-        f39325a = gVar.f39347d;
+        f38570a = gVar.f38592d;
     }
 }

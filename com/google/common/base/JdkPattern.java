@@ -15,16 +15,16 @@ public final class JdkPattern extends e implements Serializable {
     public static final class a extends d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Matcher f31621a;
+        public final Matcher f30866a;
 
         public a(Matcher matcher) {
             n.p(matcher);
-            this.f31621a = matcher;
+            this.f30866a = matcher;
         }
 
         @Override // d.g.c.a.d
         public boolean a() {
-            return this.f31621a.find();
+            return this.f30866a.find();
         }
     }
 

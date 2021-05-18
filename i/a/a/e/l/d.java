@@ -2,7 +2,7 @@ package i.a.a.e.l;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static String a(double d2) {
         long j = (long) d2;

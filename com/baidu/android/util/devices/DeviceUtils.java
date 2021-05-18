@@ -63,7 +63,7 @@ public class DeviceUtils implements IDevices {
                     RandomAccessFile randomAccessFile2 = null;
                     try {
                         try {
-                            randomAccessFile = new RandomAccessFile(file, r.f7975a);
+                            randomAccessFile = new RandomAccessFile(file, r.f7772a);
                         } catch (Throwable th) {
                             th = th;
                         }

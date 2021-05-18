@@ -1,6 +1,7 @@
 package com.kwad.sdk.internal.api;
 
 import androidx.annotation.Nullable;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.utils.o;
@@ -55,13 +56,13 @@ public class SceneImpl extends com.kwad.sdk.core.response.a.a implements KsScene
         if (jSONObject == null) {
             return;
         }
-        this.rewardCallbackExtraData = o.b(jSONObject.optString("extraData"));
+        this.rewardCallbackExtraData = o.b(jSONObject.optString(PrefetchEvent.EVENT_DATA_EXTRA_DATA));
     }
 
     @Override // com.kwad.sdk.core.response.a.a
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
-        o.a(jSONObject, "extraData", o.a(this.rewardCallbackExtraData));
+        o.a(jSONObject, PrefetchEvent.EVENT_DATA_EXTRA_DATA, o.a(this.rewardCallbackExtraData));
     }
 
     @Override // com.kwad.sdk.api.KsScene

@@ -11,16 +11,16 @@ public final class ULongArrayKt {
     public static final long[] ULongArray(int i2, Function1<? super Integer, ULong> function1) {
         long[] jArr = new long[i2];
         for (int i3 = 0; i3 < i2; i3++) {
-            jArr[i3] = function1.invoke(Integer.valueOf(i3)).m835unboximpl();
+            jArr[i3] = function1.invoke(Integer.valueOf(i3)).m834unboximpl();
         }
-        return ULongArray.m838constructorimpl(jArr);
+        return ULongArray.m837constructorimpl(jArr);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: ulongArrayOf-QwZRm1k  reason: not valid java name */
-    public static final long[] m854ulongArrayOfQwZRm1k(long... jArr) {
+    public static final long[] m853ulongArrayOfQwZRm1k(long... jArr) {
         return jArr;
     }
 }

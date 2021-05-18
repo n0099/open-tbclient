@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -46,7 +47,7 @@ public class IMJoinCastMsg extends Message {
             jSONObject.put("uk", this.mUk);
             jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
             jSONObject.put("msg_key", this.mMsgKey);
-            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("is_reliable", this.mIsReliable);
             this.mBody = jSONObject.toString();
         } catch (JSONException e2) {
@@ -103,7 +104,7 @@ public class IMJoinCastMsg extends Message {
             if (r3 <= 0) goto L5d
             int r3 = r3 * 1000
             com.baidu.android.imsdk.internal.Heartbeat.ALARM_TIMEOUT = r3     // Catch: java.lang.Exception -> Ld0
-            boolean r9 = d.a.r.a.f63831e     // Catch: java.lang.Exception -> Ld0
+            boolean r9 = d.a.r.a.f64518e     // Catch: java.lang.Exception -> Ld0
             if (r9 == 0) goto L64
             com.baidu.android.imsdk.conversation.ConversationStudioManImpl.mCastHeartBeatTime = r3     // Catch: java.lang.Exception -> Ld0
             goto L64

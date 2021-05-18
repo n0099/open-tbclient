@@ -35,13 +35,13 @@ import com.baidu.tieba.view.AdapterLinearLayout;
 import d.a.c.e.p.l;
 import d.a.c.j.e.n;
 import d.a.c.j.e.w;
-import d.a.i0.r.q.a2;
-import d.a.i0.r.q.t;
-import d.a.i0.x.d;
-import d.a.j0.d3.i;
-import d.a.j0.d3.p;
-import d.a.j0.q0.r2.e;
-import d.a.j0.q0.y0;
+import d.a.j0.r.q.a2;
+import d.a.j0.r.q.t;
+import d.a.j0.x.d;
+import d.a.k0.d3.i;
+import d.a.k0.d3.p;
+import d.a.k0.q0.r2.e;
+import d.a.k0.q0.y0;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -50,19 +50,19 @@ import tbclient.ForumRuleStatus;
 public class FrsTopView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsFoldingView f16546e;
+    public FrsFoldingView f15861e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ForumData f16547f;
+    public ForumData f15862f;
 
     /* renamed from: g  reason: collision with root package name */
-    public UserData f16548g;
+    public UserData f15863g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16549h;
+    public String f15864h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f16550i;
+    public String f15865i;
     public BdUniqueId j;
     public int k;
     public String l;
@@ -72,7 +72,7 @@ public class FrsTopView extends LinearLayout {
     public w p;
     public y0 q;
     public ArrayList<Boolean> r;
-    public d.a.j0.q0.j2.b s;
+    public d.a.k0.q0.j2.b s;
 
     /* loaded from: classes4.dex */
     public final class b implements w {
@@ -81,15 +81,15 @@ public class FrsTopView extends LinearLayout {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f16552e;
+            public final /* synthetic */ String f15867e;
 
             public a(b bVar, String str) {
-                this.f16552e = str;
+                this.f15867e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                NetWork netWork = new NetWork(this.f16552e);
+                NetWork netWork = new NetWork(this.f15867e);
                 netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
                 netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
                 netWork.getNetData();
@@ -115,7 +115,7 @@ public class FrsTopView extends LinearLayout {
                                 if (StringUtils.isNull(a2) || !l.D()) {
                                     return;
                                 }
-                                d.a.i0.l.a.k(FrsTopView.this.getContext(), a2);
+                                d.a.j0.l.a.k(FrsTopView.this.getContext(), a2);
                             }
                         } else if (a2Var.W() != null) {
                             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
@@ -132,23 +132,23 @@ public class FrsTopView extends LinearLayout {
                                 new Thread(new a(this, J)).start();
                                 z = true;
                             }
-                            String w1 = a2Var.w1();
-                            if (w1 == null) {
-                                w1 = "";
+                            String x1 = a2Var.x1();
+                            if (x1 == null) {
+                                x1 = "";
                             }
-                            if (a2Var.x0() == 2 && !w1.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB)) {
-                                UrlManager.getInstance().dealOneLink(FrsTopView.this.getTbPageContext(), new String[]{w1, "", null});
+                            if (a2Var.x0() == 2 && !x1.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB)) {
+                                UrlManager.getInstance().dealOneLink(FrsTopView.this.getTbPageContext(), new String[]{x1, "", null});
                                 return;
                             }
-                            if (w1.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB) && !TextUtils.isEmpty(w1) && w1.length() > 3) {
-                                a2Var.E3(w1.substring(3));
+                            if (x1.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB) && !TextUtils.isEmpty(x1) && x1.length() > 3) {
+                                a2Var.G3(x1.substring(3));
                             }
-                            if (bdUniqueId.getId() == a2.A3.getId()) {
-                                d.a.j0.q0.n2.l.c(a2Var.o1());
-                            } else if (bdUniqueId.getId() == a2.j3.getId()) {
+                            if (bdUniqueId.getId() == a2.B3.getId()) {
+                                d.a.k0.q0.n2.l.c(a2Var.o1());
+                            } else if (bdUniqueId.getId() == a2.k3.getId()) {
                                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_TRANSMIT_THREAD);
                                 statisticItem.param("obj_type", "2");
-                                statisticItem.param("tid", a2Var.w1());
+                                statisticItem.param("tid", a2Var.x1());
                                 TiebaStatic.log(statisticItem);
                             }
                             FrsTopView frsTopView = FrsTopView.this;
@@ -198,23 +198,23 @@ public class FrsTopView extends LinearLayout {
             valueOf = originalForumInfo.id;
             str = valueOf;
         }
-        if (a2Var.A0() > 0 && d.a.j0.d3.n0.e.c()) {
-            createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createHistoryCfg(a2Var.w1(), String.valueOf(a2Var.A0()), false, true, "frs_page");
+        if (a2Var.A0() > 0 && d.a.k0.d3.n0.e.c()) {
+            createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createHistoryCfg(a2Var.x1(), String.valueOf(a2Var.A0()), false, true, "frs_page");
         } else {
-            createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createFromThreadCfg(a2Var, this.f16549h, "frs_page", 18003, true, false, z);
+            createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createFromThreadCfg(a2Var, this.f15864h, "frs_page", 18003, true, false, z);
         }
         if (i2 == 4) {
             createFromThreadCfg.setVideo_source("floor5");
         } else {
             createFromThreadCfg.setVideo_source("frs");
         }
-        createFromThreadCfg.setFromSmartFrs(a2Var.t2());
+        createFromThreadCfg.setFromSmartFrs(a2Var.v2());
         createFromThreadCfg.setSmartFrsPosition(i2);
         createFromThreadCfg.setForumId(valueOf);
         createFromThreadCfg.setFromForumId(str);
         createFromThreadCfg.setStartFrom(3);
         createFromThreadCfg.setFrom("from_frs");
-        if (a2Var.e2() && createFromThreadCfg.getIntent() != null) {
+        if (a2Var.f2() && createFromThreadCfg.getIntent() != null) {
             createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
         }
         baseFragmentActivity.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
@@ -222,7 +222,7 @@ public class FrsTopView extends LinearLayout {
 
     public final void f() {
         LayoutInflater.from(getContext()).inflate(R.layout.frs_top_view_layout, (ViewGroup) this, true);
-        this.f16546e = (FrsFoldingView) findViewById(R.id.frs_folding_layout);
+        this.f15861e = (FrsFoldingView) findViewById(R.id.frs_folding_layout);
     }
 
     public final void g() {
@@ -230,8 +230,8 @@ public class FrsTopView extends LinearLayout {
         adapterLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         adapterLinearLayout.setOrientation(1);
         e eVar = new e(getContext());
-        eVar.s(this.f16550i, this.f16549h, this.f16548g);
-        eVar.t(this.f16547f);
+        eVar.s(this.f15865i, this.f15864h, this.f15863g);
+        eVar.t(this.f15862f);
         eVar.q(this.j);
         String str = this.l;
         if (str != null) {
@@ -246,7 +246,7 @@ public class FrsTopView extends LinearLayout {
         this.n.add(eVar);
     }
 
-    public d.a.j0.q0.j2.b getStatisticMetaData() {
+    public d.a.k0.q0.j2.b getStatisticMetaData() {
         return this.s;
     }
 
@@ -262,7 +262,7 @@ public class FrsTopView extends LinearLayout {
         for (e eVar : this.n) {
             eVar.notifyDataSetChanged();
         }
-        FrsFoldingView frsFoldingView = this.f16546e;
+        FrsFoldingView frsFoldingView = this.f15861e;
         if (frsFoldingView != null) {
             frsFoldingView.k();
         }
@@ -296,40 +296,40 @@ public class FrsTopView extends LinearLayout {
             return;
         }
         setVisibility(0);
-        FrsFoldingView frsFoldingView = this.f16546e;
+        FrsFoldingView frsFoldingView = this.f15861e;
         if (frsFoldingView != null) {
             frsFoldingView.setViews(this.m, this.n);
         }
     }
 
     public final void k(ForumRuleStatus forumRuleStatus) {
-        if (forumRuleStatus == null || this.f16548g == null || this.f16547f == null) {
+        if (forumRuleStatus == null || this.f15863g == null || this.f15862f == null) {
             return;
         }
         int i2 = 1;
-        if ((d.a.c.a.b.f().h("ForumRulesEditActivity") || d.h().k()) && this.f16548g.getIs_manager() == 1) {
+        if ((d.a.c.a.b.f().h("ForumRulesEditActivity") || d.h().k()) && this.f15863g.getIs_manager() == 1) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921518, ""));
             return;
         }
-        if (this.f16548g.getIs_manager() == 1 && forumRuleStatus.has_forum_rule.intValue() == 0 && forumRuleStatus.audit_status.intValue() == 0) {
+        if (this.f15863g.getIs_manager() == 1 && forumRuleStatus.has_forum_rule.intValue() == 0 && forumRuleStatus.audit_status.intValue() == 0) {
             Context context = getContext();
-            String str = this.f16550i;
-            String str2 = this.f16549h;
-            ForumData forumData = this.f16547f;
+            String str = this.f15865i;
+            String str2 = this.f15864h;
+            ForumData forumData = this.f15862f;
             String image_url = forumData != null ? forumData.getImage_url() : "";
-            ForumData forumData2 = this.f16547f;
+            ForumData forumData2 = this.f15862f;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRuleEditActivityConfig(context, str, str2, ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS, image_url, forumData2 != null ? forumData2.getUser_level() : 0, 25052)));
         } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(getContext(), this.f16550i, "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(getContext(), this.f15865i, "")));
         }
         StatisticItem statisticItem = new StatisticItem("c14027");
-        statisticItem.param("fid", this.f16550i);
+        statisticItem.param("fid", this.f15865i);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.f16548g.getIs_manager() != 1) {
-            if (this.f16548g.getIs_manager() == 2) {
+        if (this.f15863g.getIs_manager() != 1) {
+            if (this.f15863g.getIs_manager() == 2) {
                 i2 = 2;
             } else {
-                i2 = this.f16547f.isLike() == 1 ? 3 : 4;
+                i2 = this.f15862f.isLike() == 1 ? 3 : 4;
             }
         }
         statisticItem.param("obj_type", i2);
@@ -370,10 +370,10 @@ public class FrsTopView extends LinearLayout {
     }
 
     public void setForum(String str, String str2, ForumData forumData, UserData userData, String str3) {
-        this.f16550i = str;
-        this.f16549h = str2;
-        this.f16547f = forumData;
-        this.f16548g = userData;
+        this.f15865i = str;
+        this.f15864h = str2;
+        this.f15862f = forumData;
+        this.f15863g = userData;
     }
 
     public void setFragmentUniqueId(BdUniqueId bdUniqueId) {
@@ -402,14 +402,14 @@ public class FrsTopView extends LinearLayout {
 
     public FrsTopView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f16549h = "";
-        this.f16550i = "";
+        this.f15864h = "";
+        this.f15865i = "";
         this.k = 0;
         this.l = null;
         this.m = new ArrayList();
         this.n = new ArrayList();
         this.o = new ArrayList();
-        this.s = new d.a.j0.q0.j2.b();
+        this.s = new d.a.k0.q0.j2.b();
         f();
     }
 }

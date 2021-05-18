@@ -19,7 +19,7 @@ import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.a.j0.d3.c;
+import d.a.k0.d3.c;
 /* loaded from: classes3.dex */
 public class SvgManager {
     public static final int DRAWABLE_TYPE_ANIMATED_VECTOR_DRAWABLE = 2;

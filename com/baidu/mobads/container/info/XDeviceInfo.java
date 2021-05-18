@@ -17,6 +17,7 @@ import com.baidu.mobads.container.util.ScreenUtils;
 import com.baidu.mobads.container.util.SdcardUtils;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobads.container.util.oaid.UniqueIdUtils;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -95,7 +96,7 @@ public class XDeviceInfo {
                 if (TextUtils.isEmpty(cuid)) {
                     cuid = PluginLoader.getCuidFromGalaxy(this.mAdContainerCxt.getAppContext());
                 }
-                jSONObject.putOpt("CUID", cuid);
+                jSONObject.putOpt(SearchJsBridge.CUID, cuid);
             } catch (Throwable unused4) {
             }
             try {

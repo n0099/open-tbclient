@@ -5,10 +5,10 @@ import com.baidu.adp.BdUniqueId;
 public class t implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f40414e = BdUniqueId.gen();
+    public static final BdUniqueId f39659e = BdUniqueId.gen();
 
     @Override // d.a.c.j.e.n
     public BdUniqueId getType() {
-        return f40414e;
+        return f39659e;
     }
 }

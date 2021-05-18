@@ -46,58 +46,58 @@ import java.util.List;
 public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.b.a.a.j.d.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67132a;
+    public int f67818a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67134c;
+    public String f67820c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67135d;
+    public String f67821d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.r.b.a.a.i.f.a f67136e;
+    public d.r.b.a.a.i.f.a f67822e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f67137f;
+    public d f67823f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.r.b.a.a.j.b.c f67138g;
+    public d.r.b.a.a.j.b.c f67824g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.r.b.a.a.j.b.d f67139h;
+    public d.r.b.a.a.j.b.d f67825h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.r.b.a.a.f.f.b f67140i;
+    public d.r.b.a.a.f.f.b f67826i;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67133b = "";
+    public String f67819b = "";
     public List<d.r.b.a.a.i.b> j = new ArrayList();
 
     /* renamed from: d.r.b.a.a.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1836a implements d.InterfaceC1838d {
+    public class C1900a implements d.InterfaceC1902d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f67141a;
+        public final /* synthetic */ String f67827a;
 
-        public C1836a(String str) {
-            this.f67141a = str;
+        public C1900a(String str) {
+            this.f67827a = str;
         }
 
-        @Override // d.r.b.a.a.j.b.d.InterfaceC1838d
+        @Override // d.r.b.a.a.j.b.d.InterfaceC1902d
         public void a(ChargeCurrencyReqParams chargeCurrencyReqParams, int i2, String str) {
-            if (a.this.f67140i != null) {
-                a.this.f67140i.b("paychargeorderStatus", i2 + "", "poller fail! failReason:" + str, this.f67141a, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
+            if (a.this.f67826i != null) {
+                a.this.f67826i.b("paychargeorderStatus", i2 + "", "poller fail! failReason:" + str, this.f67827a, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
             }
-            d.r.b.a.a.f.d.d.h("AppPayServiceImpl", "paychargeorderStatus onFail orderId:" + this.f67141a + " code:" + i2 + " failReason:" + str);
+            d.r.b.a.a.f.d.d.h("AppPayServiceImpl", "paychargeorderStatus onFail orderId:" + this.f67827a + " code:" + i2 + " failReason:" + str);
         }
 
-        @Override // d.r.b.a.a.j.b.d.InterfaceC1838d
+        @Override // d.r.b.a.a.j.b.d.InterfaceC1902d
         public void b(ChargeCurrencyReqParams chargeCurrencyReqParams, GetChargeOrderStatusResult getChargeOrderStatusResult) {
-            if (a.this.f67140i != null) {
-                a.this.f67140i.b("paychargeorderStatus", getChargeOrderStatusResult.getStatus() + "", "poller success!", this.f67141a, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
+            if (a.this.f67826i != null) {
+                a.this.f67826i.b("paychargeorderStatus", getChargeOrderStatusResult.getStatus() + "", "poller success!", this.f67827a, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
             }
-            d.r.b.a.a.f.d.d.h("AppPayServiceImpl", "paychargeorderStatus success orderId:" + this.f67141a);
+            d.r.b.a.a.f.d.d.h("AppPayServiceImpl", "paychargeorderStatus success orderId:" + this.f67827a);
         }
     }
 
@@ -105,23 +105,23 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ChargeCurrencyReqParams f67143e;
+        public final /* synthetic */ ChargeCurrencyReqParams f67829e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PayOrderResult f67144f;
+        public final /* synthetic */ PayOrderResult f67830f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.r.b.a.a.f.b f67145g;
+        public final /* synthetic */ d.r.b.a.a.f.b f67831g;
 
         public b(a aVar, ChargeCurrencyReqParams chargeCurrencyReqParams, PayOrderResult payOrderResult, d.r.b.a.a.f.b bVar) {
-            this.f67143e = chargeCurrencyReqParams;
-            this.f67144f = payOrderResult;
-            this.f67145g = bVar;
+            this.f67829e = chargeCurrencyReqParams;
+            this.f67830f = payOrderResult;
+            this.f67831g = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ((IPayCallback) this.f67143e.getCallback()).onSuccess(this.f67144f, this.f67145g);
+            ((IPayCallback) this.f67829e.getCallback()).onSuccess(this.f67830f, this.f67831g);
         }
     }
 
@@ -129,39 +129,39 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ChargeCurrencyReqParams f67146e;
+        public final /* synthetic */ ChargeCurrencyReqParams f67832e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.r.b.a.a.j.d.g.a f67147f;
+        public final /* synthetic */ d.r.b.a.a.j.d.g.a f67833f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.r.b.a.a.f.b f67148g;
+        public final /* synthetic */ d.r.b.a.a.f.b f67834g;
 
         public c(a aVar, ChargeCurrencyReqParams chargeCurrencyReqParams, d.r.b.a.a.j.d.g.a aVar2, d.r.b.a.a.f.b bVar) {
-            this.f67146e = chargeCurrencyReqParams;
-            this.f67147f = aVar2;
-            this.f67148g = bVar;
+            this.f67832e = chargeCurrencyReqParams;
+            this.f67833f = aVar2;
+            this.f67834g = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int responseCode = this.f67147f.getResponseCode();
-            ((IPayCallback) this.f67146e.getCallback()).onFail(responseCode, "order fail, fialReason:" + this.f67147f.getMessage(), this.f67148g);
+            int responseCode = this.f67833f.getResponseCode();
+            ((IPayCallback) this.f67832e.getCallback()).onFail(responseCode, "order fail, fialReason:" + this.f67833f.getMessage(), this.f67834g);
         }
     }
 
     public a(int i2, int i3, String str, String str2, String str3, String str4, boolean z, boolean z2, d.r.b.a.a.f.c.d dVar, IReporter iReporter, d.r.b.a.a.f.f.b bVar) {
-        this.f67134c = "";
-        this.f67135d = "";
-        this.f67132a = i2;
-        this.f67134c = str3;
-        this.f67135d = str4;
-        this.f67140i = bVar;
-        this.f67137f = new d.r.b.a.a.j.d.d(i2, dVar, this, z);
+        this.f67820c = "";
+        this.f67821d = "";
+        this.f67818a = i2;
+        this.f67820c = str3;
+        this.f67821d = str4;
+        this.f67826i = bVar;
+        this.f67823f = new d.r.b.a.a.j.d.d(i2, dVar, this, z);
         d.r.b.a.a.j.c.a aVar = new d.r.b.a.a.j.c.a(iReporter, str2, str);
-        this.f67136e = aVar;
-        this.f67138g = new d.r.b.a.a.j.b.c(aVar, this, this.f67134c, this.f67135d);
-        this.f67139h = new d.r.b.a.a.j.b.d(this, this);
+        this.f67822e = aVar;
+        this.f67824g = new d.r.b.a.a.j.b.c(aVar, this, this.f67820c, this.f67821d);
+        this.f67825h = new d.r.b.a.a.j.b.d(this, this);
         d.r.b.a.a.f.d.d.f("AppPayServiceImpl", "construct versionName:4.1.4-bdpay");
     }
 
@@ -211,16 +211,16 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
     @Override // d.r.b.a.a.j.d.c
     public void d(int i2, d.r.b.a.a.j.d.g.a aVar) {
         d.r.b.a.a.f.d.d.g("AppPayServiceImpl", "onRevenueResponse command = %d", Integer.valueOf(i2));
-        this.f67138g.t(i2, aVar);
+        this.f67824g.t(i2, aVar);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void exchangeCurrency(@NonNull ExchangeCurrencyReqParams exchangeCurrencyReqParams, IResult<ExchangeResult> iResult) {
         if (n(exchangeCurrencyReqParams, iResult)) {
             exchangeCurrencyReqParams.setCallback(iResult);
-            d.r.b.a.a.j.d.f.a i2 = this.f67137f.i(1025, exchangeCurrencyReqParams);
+            d.r.b.a.a.j.d.f.a i2 = this.f67823f.i(1025, exchangeCurrencyReqParams);
             i2.a(exchangeCurrencyReqParams);
-            this.f67137f.l(i2);
+            this.f67823f.l(i2);
         }
     }
 
@@ -230,7 +230,7 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
 
     @Override // d.r.b.a.a.f.c.c
     public void g(int i2, String str, int i3, int i4, String str2) {
-        this.f67137f.g(i2, str, i3, i4, str2);
+        this.f67823f.g(i2, str, i3, i4, str2);
     }
 
     @Override // d.r.b.a.a.f.c.c
@@ -239,7 +239,7 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
 
     @Override // d.r.b.a.a.j.b.a
     public void i(ChargeCurrencyReqParams chargeCurrencyReqParams, String str, i iVar) {
-        this.f67139h.f(chargeCurrencyReqParams, this.f67132a, str, iVar, new C1836a(str));
+        this.f67825h.f(chargeCurrencyReqParams, this.f67818a, str, iVar, new C1900a(str));
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
@@ -262,12 +262,12 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
 
     @Override // d.r.b.a.a.f.c.c
     public void j(int i2, d.r.b.a.a.f.e.e eVar) {
-        this.f67137f.j(i2, eVar);
+        this.f67823f.j(i2, eVar);
     }
 
     @Override // d.r.b.a.a.f.c.c
     public void k(int i2, d.r.b.a.a.f.e.d dVar) {
-        this.f67137f.k(i2, dVar);
+        this.f67823f.k(i2, dVar);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:47:0x027e  */
@@ -282,7 +282,7 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
         String str;
         if (aVar.a() && chargeCurrencyReqParams != null && payOrderResult != null) {
             d.r.b.a.a.f.d.d.h("AppPayServiceImpl", "payorder --- order sucess! orderid=" + payOrderResult.getOrderId());
-            d.r.b.a.a.f.f.b bVar = this.f67140i;
+            d.r.b.a.a.f.f.b bVar = this.f67826i;
             if (bVar != null) {
                 bVar.b("payorder", aVar.getResponseCode() + "", "order success!" + aVar.getMessage(), payOrderResult.getOrderId(), "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
             }
@@ -303,14 +303,14 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
                     iPayCallback2.onPayStatus(PurchaseStatus.ORDER_SUCCESS, bVar2);
                 }
                 str = "order success!";
-                p(payOrderResult.getOrderId(), chargeCurrencyReqParams.getContext(), chargeCurrencyReqParams, chargeCurrencyReqParams.getPayType(), chargeCurrencyReqParams.getProductId(), payUrl, z, new d.r.b.a.a.j.b.b(chargeCurrencyReqParams.getPayType(), payOrderResult.getOrderId(), chargeCurrencyReqParams, payUrl, payOrderResult.getPollingModeInfo(), this.f67133b, this.f67140i, this, this, iPayCallback2));
+                p(payOrderResult.getOrderId(), chargeCurrencyReqParams.getContext(), chargeCurrencyReqParams, chargeCurrencyReqParams.getPayType(), chargeCurrencyReqParams.getProductId(), payUrl, z, new d.r.b.a.a.j.b.b(chargeCurrencyReqParams.getPayType(), payOrderResult.getOrderId(), chargeCurrencyReqParams, payUrl, payOrderResult.getPollingModeInfo(), this.f67819b, this.f67826i, this, this, iPayCallback2));
             }
-            if (this.f67136e != null) {
-                cVar.f67025a = "1";
-                cVar.f67030f = "支付下单成功";
-                cVar.f67026b = aVar.getResponseCode() + "";
-                cVar.f67027c = str + aVar.getMessage();
-                this.f67136e.g(cVar);
+            if (this.f67822e != null) {
+                cVar.f67711a = "1";
+                cVar.f67716f = "支付下单成功";
+                cVar.f67712b = aVar.getResponseCode() + "";
+                cVar.f67713c = str + aVar.getMessage();
+                this.f67822e.g(cVar);
                 return;
             }
             return;
@@ -329,20 +329,20 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
                 if (chargeCurrencyReqParams != null && (iPayCallback = (IPayCallback) chargeCurrencyReqParams.getCallback()) != null) {
                     iPayCallback.onPayStatus(PurchaseStatus.ORDER_FAIL, bVar3);
                 }
-                this.f67138g.h(aVar2.e(), aVar.getResponseCode(), "order fial, fialReason:" + aVar.getMessage(), chargeCurrencyReqParams.getCallback(), bVar3);
-                if (this.f67136e != null) {
-                    cVar.f67025a = "2";
-                    cVar.f67030f = "支付下单失败";
-                    cVar.f67026b = aVar.getResponseCode() + "";
-                    cVar.f67027c = "order fial, fialReason:" + aVar.getMessage();
-                    this.f67136e.g(cVar);
-                    cVar.f67025a = "101";
-                    cVar.f67030f = "购买业务失败";
-                    this.f67136e.d(cVar);
+                this.f67824g.h(aVar2.e(), aVar.getResponseCode(), "order fial, fialReason:" + aVar.getMessage(), chargeCurrencyReqParams.getCallback(), bVar3);
+                if (this.f67822e != null) {
+                    cVar.f67711a = "2";
+                    cVar.f67716f = "支付下单失败";
+                    cVar.f67712b = aVar.getResponseCode() + "";
+                    cVar.f67713c = "order fial, fialReason:" + aVar.getMessage();
+                    this.f67822e.g(cVar);
+                    cVar.f67711a = "101";
+                    cVar.f67716f = "购买业务失败";
+                    this.f67822e.d(cVar);
                 }
-                if (this.f67140i == null) {
+                if (this.f67826i == null) {
                     String orderId = payOrderResult != null ? payOrderResult.getOrderId() : "";
-                    this.f67140i.b("payorder", aVar.getResponseCode() + "", "order fial, fialReason:" + aVar.getMessage(), orderId, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
+                    this.f67826i.b("payorder", aVar.getResponseCode() + "", "order fial, fialReason:" + aVar.getMessage(), orderId, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
                     return;
                 }
                 return;
@@ -351,10 +351,10 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
         if (chargeCurrencyReqParams != null) {
             iPayCallback.onPayStatus(PurchaseStatus.ORDER_FAIL, bVar3);
         }
-        this.f67138g.h(aVar2.e(), aVar.getResponseCode(), "order fial, fialReason:" + aVar.getMessage(), chargeCurrencyReqParams.getCallback(), bVar3);
-        if (this.f67136e != null) {
+        this.f67824g.h(aVar2.e(), aVar.getResponseCode(), "order fial, fialReason:" + aVar.getMessage(), chargeCurrencyReqParams.getCallback(), bVar3);
+        if (this.f67822e != null) {
         }
-        if (this.f67140i == null) {
+        if (this.f67826i == null) {
         }
     }
 
@@ -375,16 +375,16 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
             chargeCurrencyReqParams.setCallback(iPayCallback);
             chargeCurrencyReqParams.setPayChannel(payType.getChannel());
             chargeCurrencyReqParams.setPayMethod(payType.getMethod());
-            chargeCurrencyReqParams.setSrcAmount(jVar.f67107e.doubleValue());
+            chargeCurrencyReqParams.setSrcAmount(jVar.f67793e.doubleValue());
             chargeCurrencyReqParams.setProductId(jVar.A);
-            chargeCurrencyReqParams.setCid(jVar.f67103a);
+            chargeCurrencyReqParams.setCid(jVar.f67789a);
             chargeCurrencyReqParams.setTraceid(g.a());
             ChargeCurrencyReqParams a2 = ChargeCurrencyReqParams.Companion.a(chargeCurrencyReqParams);
             a2.setPayChannel(payType.getChannel());
             a2.setPayMethod(payType.getMethod());
-            a2.setSrcAmount(jVar.f67107e.doubleValue());
+            a2.setSrcAmount(jVar.f67793e.doubleValue());
             a2.setProductId(jVar.A);
-            a2.setCid(jVar.f67103a);
+            a2.setCid(jVar.f67789a);
             a2.setRetryCount(i2);
             a2.setIntervalMs(i3);
             a2.setTimeOutMs(i4);
@@ -410,32 +410,32 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
             a2.setCurrencyType(chargeCurrencyReqParams.getCurrencyType());
             d.r.b.a.a.f.d.d.f("AppPayServiceImpl", "doOrderRequest---reqParams:" + a2.getPayType() + " " + a2.getSubscriptionType() + " " + a2.getCid() + "requestTime:" + currentTimeMillis + "--uid:" + a2.getUid() + "--productId:" + a2.getProductId());
             iPayCallback.onPayStatus(PurchaseStatus.ORDER_START, new d.r.b.a.a.f.b(null, a2.getProductId(), null, a2.getRequestTime(), null, null, null, null, PurchaseStatus.ORDER_START));
-            d.r.b.a.a.j.d.f.a i5 = this.f67137f.i(1022, chargeCurrencyReqParams);
+            d.r.b.a.a.j.d.f.a i5 = this.f67823f.i(1022, chargeCurrencyReqParams);
             i5.a(a2);
-            this.f67137f.l(i5);
+            this.f67823f.l(i5);
             a.c cVar = new a.c();
-            cVar.f67029e = chargeCurrencyReqParams.getFrom();
-            cVar.f67028d = chargeCurrencyReqParams.getUid();
+            cVar.f67715e = chargeCurrencyReqParams.getFrom();
+            cVar.f67714d = chargeCurrencyReqParams.getUid();
             cVar.o = chargeCurrencyReqParams.getTraceid();
-            cVar.m = this.f67133b;
+            cVar.m = this.f67819b;
             RouterInfo a3 = d.r.b.a.a.f.g.b.a(activity.getApplicationContext(), a2.getCmd());
             if (a3 == null) {
-                cVar.k = this.f67134c;
-                cVar.l = this.f67135d;
+                cVar.k = this.f67820c;
+                cVar.l = this.f67821d;
             } else {
                 cVar.k = a3.serviceName;
                 cVar.l = a3.functionName;
             }
             d.r.b.a.a.f.d.d.f("AppPayServiceImpl", "doOrderRequest---mServiceName:" + cVar.k + "---mFunctionName" + cVar.l);
-            d.r.b.a.a.i.f.a aVar = this.f67136e;
+            d.r.b.a.a.i.f.a aVar = this.f67822e;
             if (aVar != null) {
-                cVar.f67025a = "0";
-                cVar.f67030f = "支付请求";
-                cVar.f67026b = "0";
-                cVar.f67027c = "doOrderRequest";
+                cVar.f67711a = "0";
+                cVar.f67716f = "支付请求";
+                cVar.f67712b = "0";
+                cVar.f67713c = "doOrderRequest";
                 aVar.f(cVar);
             }
-            d.r.b.a.a.f.f.b bVar = this.f67140i;
+            d.r.b.a.a.f.f.b bVar = this.f67826i;
             if (bVar != null) {
                 bVar.b("payingstart", "0", "doOrderRequest", "", "" + a2.getRequestTime(), jVar.A, payType.getChannel(), a2.getTraceid());
             }
@@ -454,7 +454,7 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
     public final void p(String str, Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, PayType payType, String str2, String str3, boolean z, IPayCallback iPayCallback) {
         PayMethodFactory.valueOf(payType).requestPay(activity, chargeCurrencyReqParams.getUid(), str2, str3, z, iPayCallback);
         d.r.b.a.a.f.d.d.h("AppPayServiceImpl", "payingaddpaymentrequest request sdk Pay orderId:" + str);
-        d.r.b.a.a.f.f.b bVar = this.f67140i;
+        d.r.b.a.a.f.f.b bVar = this.f67826i;
         if (bVar != null) {
             bVar.b("payingaddpaymentrequest", "0", "request sdk pay", str, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
         }
@@ -471,9 +471,9 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
             getChargeOrderStatusReqParams.setCallback(iResult);
             getChargeOrderStatusReqParams.setRequestTime(System.currentTimeMillis());
             getChargeOrderStatusReqParams.setTraceid(g.a());
-            d.r.b.a.a.j.d.f.a i2 = this.f67137f.i(1061, getChargeOrderStatusReqParams);
+            d.r.b.a.a.j.d.f.a i2 = this.f67823f.i(1061, getChargeOrderStatusReqParams);
             i2.a(getChargeOrderStatusReqParams);
-            this.f67137f.l(i2);
+            this.f67823f.l(i2);
         }
     }
 
@@ -481,9 +481,9 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
     public void queryMyBalance(@NonNull QueryCurrencyReqParams queryCurrencyReqParams, IResult<MyBalanceResult> iResult) {
         if (n(queryCurrencyReqParams, iResult)) {
             queryCurrencyReqParams.setCallback(iResult);
-            d.r.b.a.a.j.d.f.a i2 = this.f67137f.i(1005, queryCurrencyReqParams);
+            d.r.b.a.a.j.d.f.a i2 = this.f67823f.i(1005, queryCurrencyReqParams);
             i2.a(queryCurrencyReqParams);
-            this.f67137f.l(i2);
+            this.f67823f.l(i2);
         }
     }
 
@@ -493,9 +493,9 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
             queryCurrencyReqParams.setCallback(iResult);
             queryCurrencyReqParams.setRequestTime(System.currentTimeMillis());
             queryCurrencyReqParams.setTraceid(g.a());
-            d.r.b.a.a.j.d.f.a i2 = this.f67137f.i(1021, queryCurrencyReqParams);
+            d.r.b.a.a.j.d.f.a i2 = this.f67823f.i(1021, queryCurrencyReqParams);
             i2.a(queryCurrencyReqParams);
-            this.f67137f.l(i2);
+            this.f67823f.l(i2);
         }
     }
 
@@ -505,9 +505,9 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
             queryCurrencyChannelsReqParams.setCallback(iResult);
             queryCurrencyChannelsReqParams.setRequestTime(System.currentTimeMillis());
             queryCurrencyChannelsReqParams.setTraceid(g.a());
-            d.r.b.a.a.j.d.f.a i2 = this.f67137f.i(1060, queryCurrencyChannelsReqParams);
+            d.r.b.a.a.j.d.f.a i2 = this.f67823f.i(1060, queryCurrencyChannelsReqParams);
             i2.a(queryCurrencyChannelsReqParams);
-            this.f67137f.l(i2);
+            this.f67823f.l(i2);
         }
     }
 
@@ -515,9 +515,9 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
     public void queryRechargeHistory(@NonNull QueryRechargeHistoryReqParams queryRechargeHistoryReqParams, IResult<RechargeHistoryResult> iResult) {
         if (n(queryRechargeHistoryReqParams, iResult)) {
             queryRechargeHistoryReqParams.setCallback(iResult);
-            d.r.b.a.a.j.d.f.a i2 = this.f67137f.i(1054, queryRechargeHistoryReqParams);
+            d.r.b.a.a.j.d.f.a i2 = this.f67823f.i(1054, queryRechargeHistoryReqParams);
             i2.a(queryRechargeHistoryReqParams);
-            this.f67137f.l(i2);
+            this.f67823f.l(i2);
         }
     }
 
@@ -527,15 +527,15 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
             getUserYbDetailsReqParams.setCallback(iResult);
             getUserYbDetailsReqParams.setRequestTime(System.currentTimeMillis());
             getUserYbDetailsReqParams.setTraceid(g.a());
-            d.r.b.a.a.j.d.f.a i2 = this.f67137f.i(1068, getUserYbDetailsReqParams);
+            d.r.b.a.a.j.d.f.a i2 = this.f67823f.i(1068, getUserYbDetailsReqParams);
             i2.a(getUserYbDetailsReqParams);
-            this.f67137f.l(i2);
+            this.f67823f.l(i2);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void registerPayReporter(d.r.b.a.a.i.f.a aVar) {
-        this.f67136e = aVar;
+        this.f67822e = aVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x0013, code lost:
@@ -558,15 +558,15 @@ public class a implements IAppPayService, d.r.b.a.a.j.b.a, d.r.b.a.a.f.c.c, d.r.
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void reportPayEntrancePage(int i2) {
-        this.f67133b = d.r.b.a.a.f.h.d.a();
+        this.f67819b = d.r.b.a.a.f.h.d.a();
         a.c cVar = new a.c();
-        cVar.f67025a = "-10";
-        cVar.f67030f = "支付入口页面";
-        cVar.m = this.f67133b;
-        cVar.f67029e = i2;
-        cVar.f67026b = "0";
-        cVar.f67027c = "pay-entrance-page（支付入口页面）";
-        d.r.b.a.a.i.f.a aVar = this.f67136e;
+        cVar.f67711a = "-10";
+        cVar.f67716f = "支付入口页面";
+        cVar.m = this.f67819b;
+        cVar.f67715e = i2;
+        cVar.f67712b = "0";
+        cVar.f67713c = "pay-entrance-page（支付入口页面）";
+        d.r.b.a.a.i.f.a aVar = this.f67822e;
         if (aVar != null) {
             aVar.a(cVar);
         }

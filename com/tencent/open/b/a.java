@@ -8,11 +8,11 @@ import android.net.Uri;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.webkit.internal.ConectivityUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Uri f37210a = Uri.parse("content://telephony/carriers/preferapn");
+    public static final Uri f36455a = Uri.parse("content://telephony/carriers/preferapn");
 
     public static String a(Context context) {
         int d2 = d(context);
@@ -55,7 +55,7 @@ public class a {
 
     public static String b(Context context) {
         try {
-            Cursor query = context.getContentResolver().query(f37210a, null, null, null, null);
+            Cursor query = context.getContentResolver().query(f36455a, null, null, null, null);
             if (query == null) {
                 return null;
             }
@@ -82,7 +82,7 @@ public class a {
 
     public static String c(Context context) {
         try {
-            Cursor query = context.getContentResolver().query(f37210a, null, null, null, null);
+            Cursor query = context.getContentResolver().query(f36455a, null, null, null, null);
             if (query == null) {
                 return null;
             }

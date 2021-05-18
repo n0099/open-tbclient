@@ -18,7 +18,7 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends Request<File> {
     @Nullable
     @GuardedBy("mLock")
@@ -27,7 +27,7 @@ public class c extends Request<File> {
     public File y;
     public final Object z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a extends o.a<File> {
         void a(long j, long j2);
     }
@@ -283,7 +283,7 @@ public class c extends Request<File> {
             aVar = this.A;
         }
         if (aVar != null) {
-            aVar.a(o.c(this.x, oVar.f65081b));
+            aVar.a(o.c(this.x, oVar.f65767b));
         }
     }
 

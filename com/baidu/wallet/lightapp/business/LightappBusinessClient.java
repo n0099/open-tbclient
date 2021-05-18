@@ -33,6 +33,7 @@ import com.baidu.apollon.utils.ResUtils;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.mobstat.Config;
 import com.baidu.rtc.SdpPrefer;
+import com.baidu.tieba.service.AsInstallService;
 import com.baidu.wallet.BaiduWalletServiceController;
 import com.baidu.wallet.BaiduWalletServiceProviderMap;
 import com.baidu.wallet.analytics.Tracker;
@@ -195,10 +196,10 @@ public class LightappBusinessClient implements ILightappInvoker {
     public static final String WCP = "H5_PWD_WCP";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f25437b = 1;
+    public static int f24682b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f25438c = 1;
+    public static int f24683c = 1;
     public static int q = -1;
     public static int r = -1;
     public static int s = -1;
@@ -211,19 +212,19 @@ public class LightappBusinessClient implements ILightappInvoker {
     public String G;
 
     /* renamed from: e  reason: collision with root package name */
-    public Class<?> f25441e;
+    public Class<?> f24686e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Method f25442f;
+    public Method f24687f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Class<?> f25443g;
+    public Class<?> f24688g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Class<?> f25444h;
+    public Class<?> f24689h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Method f25445i;
+    public Method f24690i;
     public Class<?> j;
     public Class<?> k;
     public Method l;
@@ -233,10 +234,10 @@ public class LightappBusinessClient implements ILightappInvoker {
     public String p;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25439a = LightappBusinessClient.class.getSimpleName();
+    public String f24684a = LightappBusinessClient.class.getSimpleName();
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f25440d = false;
+    public boolean f24685d = false;
     public boolean w = false;
     public boolean x = false;
     public boolean y = false;
@@ -249,18 +250,18 @@ public class LightappBusinessClient implements ILightappInvoker {
     public class AnonymousClass12 implements RouterCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ILightappInvokerCallback f25452a;
+        public final /* synthetic */ ILightappInvokerCallback f24697a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f25453b;
+        public final /* synthetic */ String f24698b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Context f25454c;
+        public final /* synthetic */ Context f24699c;
 
         public AnonymousClass12(ILightappInvokerCallback iLightappInvokerCallback, String str, Context context) {
-            this.f25452a = iLightappInvokerCallback;
-            this.f25453b = str;
-            this.f25454c = context;
+            this.f24697a = iLightappInvokerCallback;
+            this.f24698b = str;
+            this.f24699c = context;
         }
 
         @Override // com.baidu.wallet.router.RouterCallback
@@ -285,7 +286,7 @@ public class LightappBusinessClient implements ILightappInvoker {
                                 AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
                                 LightAppCallIDPhotoModel lightAppCallIDPhotoModel2 = lightAppCallIDPhotoModel;
                                 lightAppCallIDPhotoModel2.cnt.back = str2;
-                                AnonymousClass12.this.f25452a.onResult(0, lightAppCallIDPhotoModel2.toJson());
+                                AnonymousClass12.this.f24697a.onResult(0, lightAppCallIDPhotoModel2.toJson());
                                 try {
                                     if (string != null) {
                                         File file = new File(string);
@@ -317,14 +318,14 @@ public class LightappBusinessClient implements ILightappInvoker {
                 int intValue = ((Integer) hashMap.get(RouterCallback.KEY_ERROR_CODE)).intValue();
                 String str = (String) hashMap.get("errMsg");
                 if (intValue == -1) {
-                    LightappUtils.onError(this.f25452a, this.f25453b, LightappConstants.ERRCODE_NO_PERMISSION, LightappBusinessClient.this.a(this.f25454c, "访问相机的权限"), "#callIDPotosFail");
+                    LightappUtils.onError(this.f24697a, this.f24698b, LightappConstants.ERRCODE_NO_PERMISSION, LightappBusinessClient.this.a(this.f24699c, "访问相机的权限"), "#callIDPotosFail");
                 } else if (-2 == intValue) {
-                    LightappUtils.onError(this.f25452a, this.f25453b, LightappConstants.ERRCODE_CANCEL, "取消", "#callIDPotosFail");
+                    LightappUtils.onError(this.f24697a, this.f24698b, LightappConstants.ERRCODE_CANCEL, "取消", "#callIDPotosFail");
                 }
             } else {
                 String str2 = (String) hashMap.get("errorMsg");
-                ILightappInvokerCallback iLightappInvokerCallback = this.f25452a;
-                String str3 = this.f25453b;
+                ILightappInvokerCallback iLightappInvokerCallback = this.f24697a;
+                String str3 = this.f24698b;
                 String num = Integer.toString(i2);
                 if (!TextUtils.isEmpty(str2)) {
                     str2 = LightappConstants.ROUTER_INVOKE_FAIL;
@@ -338,28 +339,28 @@ public class LightappBusinessClient implements ILightappInvoker {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f25536a;
+        public int f24781a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f25537b;
+        public int f24782b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f25538c;
+        public int f24783c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f25539d;
+        public int f24784d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ILightappInvokerCallback f25540e;
+        public ILightappInvokerCallback f24785e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f25541f;
+        public String f24786f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f25542g;
+        public String f24787g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f25543h;
+        public String f24788h;
 
         public a() {
         }
@@ -369,22 +370,22 @@ public class LightappBusinessClient implements ILightappInvoker {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f25545a;
+        public Context f24790a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f25546b;
+        public String f24791b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ILightappInvokerCallback f25547c;
+        public ILightappInvokerCallback f24792c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f25548d;
+        public String f24793d;
 
         public b(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
-            this.f25545a = context;
-            this.f25546b = str;
-            this.f25547c = iLightappInvokerCallback;
-            this.f25548d = str2;
+            this.f24790a = context;
+            this.f24791b = str;
+            this.f24792c = iLightappInvokerCallback;
+            this.f24793d = str2;
         }
     }
 
@@ -392,22 +393,22 @@ public class LightappBusinessClient implements ILightappInvoker {
     public static class c implements InvocationHandler {
 
         /* renamed from: a  reason: collision with root package name */
-        public ILightappInvokerCallback f25550a;
+        public ILightappInvokerCallback f24795a;
 
         public c(ILightappInvokerCallback iLightappInvokerCallback) {
-            this.f25550a = iLightappInvokerCallback;
+            this.f24795a = iLightappInvokerCallback;
         }
 
         @Override // java.lang.reflect.InvocationHandler
         public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-            if (this.f25550a != null) {
+            if (this.f24795a != null) {
                 if ("onResult".equals(method.getName())) {
                     if (objArr != null && objArr.length >= 2) {
-                        this.f25550a.onResult(((Integer) objArr[0]).intValue(), (String) objArr[1]);
+                        this.f24795a.onResult(((Integer) objArr[0]).intValue(), (String) objArr[1]);
                     }
                     return null;
                 }
-                return method.invoke(this.f25550a, objArr);
+                return method.invoke(this.f24795a, objArr);
             }
             return null;
         }
@@ -536,22 +537,22 @@ public class LightappBusinessClient implements ILightappInvoker {
                 public void onSuccess(int i2, String str3) {
                     if (!LightappBusinessClient.this.w) {
                         try {
-                            LightappBusinessClient.this.f25441e = Class.forName("com.baidu.walletfacesdk.LightInvokerImpl");
-                            LightappBusinessClient.this.f25443g = Class.forName("com.baidu.walletfacesdk.LightInvokerCallback");
-                            LightappBusinessClient.this.f25442f = LightappBusinessClient.this.f25441e.getDeclaredMethod(LightappConstants.METHOD_INVOKE_BD_WALLET_NATIVE, Context.class, String.class, Boolean.TYPE, LightappBusinessClient.this.f25443g);
+                            LightappBusinessClient.this.f24686e = Class.forName("com.baidu.walletfacesdk.LightInvokerImpl");
+                            LightappBusinessClient.this.f24688g = Class.forName("com.baidu.walletfacesdk.LightInvokerCallback");
+                            LightappBusinessClient.this.f24687f = LightappBusinessClient.this.f24686e.getDeclaredMethod(LightappConstants.METHOD_INVOKE_BD_WALLET_NATIVE, Context.class, String.class, Boolean.TYPE, LightappBusinessClient.this.f24688g);
                         } finally {
                             try {
                             } finally {
                             }
                         }
                     }
-                    if (LightappBusinessClient.this.f25441e != null && LightappBusinessClient.this.f25443g != null && LightappBusinessClient.this.f25442f != null) {
+                    if (LightappBusinessClient.this.f24686e != null && LightappBusinessClient.this.f24688g != null && LightappBusinessClient.this.f24687f != null) {
                         try {
-                            Object newProxyInstance = Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{LightappBusinessClient.this.f25443g}, new c(iLightappInvokerCallback));
+                            Object newProxyInstance = Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{LightappBusinessClient.this.f24688g}, new c(iLightappInvokerCallback));
                             boolean equals = "ONLINE".equals(DebugConfig.getInstance().getEnvironment());
                             JSONObject jSONObject = new JSONObject(str);
                             jSONObject.put("stoken", WalletLoginHelper.getInstance().getLoginStoken());
-                            LightappBusinessClient.this.f25442f.invoke(null, context, jSONObject.toString(), Boolean.valueOf(equals), newProxyInstance);
+                            LightappBusinessClient.this.f24687f.invoke(null, context, jSONObject.toString(), Boolean.valueOf(equals), newProxyInstance);
                             return;
                         } catch (Throwable unused) {
                             LightappUtils.onError(iLightappInvokerCallback, str2, LightappConstants.ERRCODE_INNER_ERROR, "reflect callNativeVoice fail!", "#callNativeVoiceFail");
@@ -606,19 +607,19 @@ public class LightappBusinessClient implements ILightappInvoker {
     private void k(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
         if (!this.x) {
             try {
-                this.f25444h = Class.forName("com.duxiaoman.wallet.facelivenesslib.DXMFaceLivenessManager");
+                this.f24689h = Class.forName("com.duxiaoman.wallet.facelivenesslib.DXMFaceLivenessManager");
                 Class<?> cls = Class.forName("com.duxiaoman.wallet.facelivenesslib.DXMFaceLivenessCallback");
                 this.j = cls;
-                this.f25445i = this.f25444h.getDeclaredMethod("startDetact", Context.class, String.class, cls);
+                this.f24690i = this.f24689h.getDeclaredMethod("startDetact", Context.class, String.class, cls);
             } finally {
                 try {
                 } finally {
                 }
             }
         }
-        if (this.f25444h != null && this.j != null && this.f25445i != null) {
+        if (this.f24689h != null && this.j != null && this.f24690i != null) {
             try {
-                this.f25445i.invoke(null, context, str, Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{this.j}, new c(iLightappInvokerCallback)));
+                this.f24690i.invoke(null, context, str, Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{this.j}, new c(iLightappInvokerCallback)));
                 return;
             } catch (Throwable unused) {
                 LightappUtils.onError(iLightappInvokerCallback, str2, LightappConstants.ERRCODE_INNER_ERROR, "reflect faceliveness fail!", "#callFaceLivenessFail");
@@ -833,12 +834,12 @@ public class LightappBusinessClient implements ILightappInvoker {
         try {
             if (!TextUtils.isEmpty(str2)) {
                 context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str2)));
-                LogUtil.i(this.f25439a, "Open in Browser Success");
+                LogUtil.i(this.f24684a, "Open in Browser Success");
                 if (iLightappInvokerCallback != null) {
                     iLightappInvokerCallback.onResult(0, "");
                 }
             } else if (iLightappInvokerCallback != null) {
-                LogUtil.i(this.f25439a, "Open in Browser fail");
+                LogUtil.i(this.f24684a, "Open in Browser fail");
                 iLightappInvokerCallback.onResult(1, "url为空");
             }
         } catch (Exception e2) {
@@ -866,8 +867,8 @@ public class LightappBusinessClient implements ILightappInvoker {
         setH5BackCb(iLightappInvokerCallback);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:26:0x00b2  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x00bb  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x00b1  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x00ba  */
     /* JADX WARN: Removed duplicated region for block: B:38:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -988,13 +989,13 @@ public class LightappBusinessClient implements ILightappInvoker {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(9:1|(2:2|3)|(6:8|9|10|11|12|(2:14|15)(1:17))|22|9|10|11|12|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0068, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0067, code lost:
         r4 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0069, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0068, code lost:
         r4.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x006e  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x006d  */
     /* JADX WARN: Removed duplicated region for block: B:26:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1075,8 +1076,8 @@ public class LightappBusinessClient implements ILightappInvoker {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0043 A[Catch: Exception -> 0x0097, TRY_ENTER, TryCatch #2 {Exception -> 0x0097, blocks: (B:20:0x0030, B:23:0x0043, B:25:0x0047, B:27:0x0051, B:29:0x0055, B:33:0x006f, B:34:0x0080), top: B:42:0x0030 }] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0047 A[Catch: Exception -> 0x0097, TryCatch #2 {Exception -> 0x0097, blocks: (B:20:0x0030, B:23:0x0043, B:25:0x0047, B:27:0x0051, B:29:0x0055, B:33:0x006f, B:34:0x0080), top: B:42:0x0030 }] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0042 A[Catch: Exception -> 0x0096, TRY_ENTER, TryCatch #3 {Exception -> 0x0096, blocks: (B:20:0x0030, B:23:0x0042, B:25:0x0046, B:27:0x0050, B:29:0x0054, B:33:0x006e, B:34:0x007f), top: B:44:0x0030 }] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0046 A[Catch: Exception -> 0x0096, TryCatch #3 {Exception -> 0x0096, blocks: (B:20:0x0030, B:23:0x0042, B:25:0x0046, B:27:0x0050, B:29:0x0054, B:33:0x006e, B:34:0x007f), top: B:44:0x0030 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1252,7 +1253,7 @@ public class LightappBusinessClient implements ILightappInvoker {
 
     public void callQRCodeScanner(final Context context, String str, final ILightappInvokerCallback iLightappInvokerCallback, final String str2) {
         PayStatisticsUtil.onEventWithValue("#callQRCodeScanner", CheckUtils.stripUrlParams(str2));
-        if (LightappUtils.parseJsonInt(str, "needScanResult") == f25438c) {
+        if (LightappUtils.parseJsonInt(str, "needScanResult") == f24683c) {
             LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_QRCODESCANNER).action("qrcodescanresult"), new RouterCallback() { // from class: com.baidu.wallet.lightapp.business.LightappBusinessClient.4
                 @Override // com.baidu.wallet.router.RouterCallback
                 public void onResult(int i2, HashMap hashMap) {
@@ -1451,7 +1452,7 @@ public class LightappBusinessClient implements ILightappInvoker {
             PayStatisticsUtil.onEventWithValue(StatServiceEvent.LIGHT_APP_EVENTID_BINDCARD, CheckUtils.stripUrlParams(str2));
         }
         String str4 = "";
-        this.f25440d = false;
+        this.f24685d = false;
         if (!TextUtils.isEmpty(str)) {
             try {
                 str = URLDecoder.decode(str, "gbk");
@@ -1466,7 +1467,7 @@ public class LightappBusinessClient implements ILightappInvoker {
                     e3.printStackTrace();
                 }
                 try {
-                    this.f25440d = ((Boolean) jSONObject.get("showDialog")).booleanValue();
+                    this.f24685d = ((Boolean) jSONObject.get("showDialog")).booleanValue();
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
@@ -1474,7 +1475,7 @@ public class LightappBusinessClient implements ILightappInvoker {
                 e5.printStackTrace();
             }
         }
-        LocalRouter.getInstance(context.getApplicationContext()).route(context, new RouterRequest().provider("dxmPay").action("enterDoInnerBind").data("showDialog", Boolean.valueOf(this.f25440d)).data("orderInfo", str4), new RouterCallback() { // from class: com.baidu.wallet.lightapp.business.LightappBusinessClient.21
+        LocalRouter.getInstance(context.getApplicationContext()).route(context, new RouterRequest().provider("dxmPay").action("enterDoInnerBind").data("showDialog", Boolean.valueOf(this.f24685d)).data("orderInfo", str4), new RouterCallback() { // from class: com.baidu.wallet.lightapp.business.LightappBusinessClient.21
             @Override // com.baidu.wallet.router.RouterCallback
             public void onResult(int i2, HashMap hashMap) {
                 if (i2 == 0) {
@@ -1563,7 +1564,7 @@ public class LightappBusinessClient implements ILightappInvoker {
 
     public void dopay(Context context, String str, final ILightappInvokerCallback iLightappInvokerCallback, final String str2) {
         PayStatisticsUtil.onEventWithValue(StatServiceEvent.LIGHT_APP_EVENTID_BD_DOPAY, CheckUtils.stripUrlParams(str2));
-        this.f25440d = false;
+        this.f24685d = false;
         String str3 = "";
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -1574,7 +1575,7 @@ public class LightappBusinessClient implements ILightappInvoker {
                     e2.printStackTrace();
                 }
                 try {
-                    this.f25440d = ((Boolean) jSONObject.get("showDialog")).booleanValue();
+                    this.f24685d = ((Boolean) jSONObject.get("showDialog")).booleanValue();
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
@@ -1582,7 +1583,7 @@ public class LightappBusinessClient implements ILightappInvoker {
                 e4.printStackTrace();
             }
         }
-        LocalRouter.getInstance(context.getApplicationContext()).route(context, new RouterRequest().provider("dxmPay").action("enterDoPayWithParams").data("orderInfo", str3).data("showDialog", Boolean.valueOf(this.f25440d)), new RouterCallback() { // from class: com.baidu.wallet.lightapp.business.LightappBusinessClient.20
+        LocalRouter.getInstance(context.getApplicationContext()).route(context, new RouterRequest().provider("dxmPay").action("enterDoPayWithParams").data("orderInfo", str3).data("showDialog", Boolean.valueOf(this.f24685d)), new RouterCallback() { // from class: com.baidu.wallet.lightapp.business.LightappBusinessClient.20
             @Override // com.baidu.wallet.router.RouterCallback
             public void onResult(int i2, HashMap hashMap) {
                 if (i2 == 0) {
@@ -1641,7 +1642,7 @@ public class LightappBusinessClient implements ILightappInvoker {
     public void getLoadTimeLine(ILightappInvokerCallback iLightappInvokerCallback) {
         if (iLightappInvokerCallback != null) {
             String loadTimeLine = this.B.getLoadTimeLine();
-            String str = this.f25439a;
+            String str = this.f24684a;
             LogUtil.d(str, "getLoadTimeLine result = " + loadTimeLine);
             iLightappInvokerCallback.onResult(0, loadTimeLine);
         }
@@ -1797,7 +1798,7 @@ public class LightappBusinessClient implements ILightappInvoker {
     public void getUserAgent(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
         PayStatisticsUtil.onEventWithValue(StatServiceEvent.LIGHT_APP_EVENTID_GET_UA, CheckUtils.stripUrlParams(str2));
         String ua = BussinessUtils.getUA(context);
-        if (LightappUtils.parseJsonInt(str, "base64") == f25437b) {
+        if (LightappUtils.parseJsonInt(str, "base64") == f24682b) {
             ua = Base64.encodeToString(ua.getBytes(), 2);
         }
         LightAppUserAgentModel lightAppUserAgentModel = new LightAppUserAgentModel(0);
@@ -2049,7 +2050,7 @@ public class LightappBusinessClient implements ILightappInvoker {
                 while (i3 < strArr.length) {
                     if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(strArr[i3])) {
                         if (bVar != null) {
-                            b(bVar.f25545a, bVar.f25546b, bVar.f25547c, bVar.f25548d);
+                            b(bVar.f24790a, bVar.f24791b, bVar.f24792c, bVar.f24793d);
                             return;
                         }
                         return;
@@ -2058,7 +2059,7 @@ public class LightappBusinessClient implements ILightappInvoker {
                 }
                 return;
             }
-            LightappUtils.onError(bVar != null ? bVar.f25547c : null, str, LightappConstants.ERRCODE_NO_PERMISSION, "无录音权限", "startRecordingFail");
+            LightappUtils.onError(bVar != null ? bVar.f24792c : null, str, LightappConstants.ERRCODE_NO_PERMISSION, "无录音权限", "startRecordingFail");
         } else if (243 == i2) {
             if (strArr != null && iArr != null && strArr.length != 0 && iArr.length != 0) {
                 while (i3 < strArr.length) {
@@ -2193,7 +2194,7 @@ public class LightappBusinessClient implements ILightappInvoker {
     }
 
     public void setAlubmPhotoData(int i2, JSONObject jSONObject) {
-        String str = this.f25439a;
+        String str = this.f24684a;
         LogUtil.d(str, "resultCode = " + i2 + " ; jsonObject = " + jSONObject.toString());
         a(MTD_CALL_NATIVE_PHOTO, i2, LightappUtils.assembleResult(i2, jSONObject));
     }
@@ -2318,17 +2319,17 @@ public class LightappBusinessClient implements ILightappInvoker {
         JSONArray jSONArray = new JSONArray();
         if (!this.w) {
             try {
-                this.f25441e = Class.forName("com.baidu.walletfacesdk.LightInvokerImpl");
+                this.f24686e = Class.forName("com.baidu.walletfacesdk.LightInvokerImpl");
                 Class<?> cls = Class.forName("com.baidu.walletfacesdk.LightInvokerCallback");
-                this.f25443g = cls;
-                this.f25442f = this.f25441e.getDeclaredMethod(LightappConstants.METHOD_INVOKE_BD_WALLET_NATIVE, Context.class, String.class, Boolean.TYPE, cls);
+                this.f24688g = cls;
+                this.f24687f = this.f24686e.getDeclaredMethod(LightappConstants.METHOD_INVOKE_BD_WALLET_NATIVE, Context.class, String.class, Boolean.TYPE, cls);
                 jSONArray.put("0");
             } finally {
                 try {
                 } finally {
                 }
             }
-        } else if (this.f25441e != null && this.f25443g != null && this.f25442f != null) {
+        } else if (this.f24686e != null && this.f24688g != null && this.f24687f != null) {
             jSONArray.put("0");
         }
         if (LocalRouter.getInstance(context).isProviderExisted("livenessidentifyauth")) {
@@ -2337,17 +2338,17 @@ public class LightappBusinessClient implements ILightappInvoker {
         if (Build.VERSION.SDK_INT >= 18) {
             if (!this.x) {
                 try {
-                    this.f25444h = Class.forName("com.duxiaoman.wallet.facelivenesslib.DXMFaceLivenessManager");
+                    this.f24689h = Class.forName("com.duxiaoman.wallet.facelivenesslib.DXMFaceLivenessManager");
                     Class<?> cls2 = Class.forName("com.duxiaoman.wallet.facelivenesslib.DXMFaceLivenessCallback");
                     this.j = cls2;
-                    this.f25445i = this.f25444h.getDeclaredMethod("startDetact", Context.class, String.class, cls2);
+                    this.f24690i = this.f24689h.getDeclaredMethod("startDetact", Context.class, String.class, cls2);
                     jSONArray.put("2");
                 } finally {
                     try {
                     } finally {
                     }
                 }
-            } else if (this.f25444h != null && this.j != null && this.f25445i != null) {
+            } else if (this.f24689h != null && this.j != null && this.f24690i != null) {
                 jSONArray.put("2");
             }
         }
@@ -2414,8 +2415,8 @@ public class LightappBusinessClient implements ILightappInvoker {
 
     private void c(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
         a aVar = new a();
-        aVar.f25540e = iLightappInvokerCallback;
-        aVar.f25542g = str2;
+        aVar.f24785e = iLightappInvokerCallback;
+        aVar.f24787g = str2;
         this.E.obtainMessage(2, aVar).sendToTarget();
     }
 
@@ -2423,9 +2424,9 @@ public class LightappBusinessClient implements ILightappInvoker {
     public void b(a aVar) {
         try {
             AudioRecorder.getInstance().end();
-            aVar.f25540e.onResult(0, "{\"result\":0}");
+            aVar.f24785e.onResult(0, "{\"result\":0}");
         } catch (Exception e2) {
-            LightappUtils.onError(aVar.f25540e, aVar.f25542g, LightappConstants.ERRCODE_INNER_ERROR, e2.getLocalizedMessage(), "endRecordingFail");
+            LightappUtils.onError(aVar.f24785e, aVar.f24787g, LightappConstants.ERRCODE_INNER_ERROR, e2.getLocalizedMessage(), "endRecordingFail");
         }
     }
 
@@ -2445,22 +2446,22 @@ public class LightappBusinessClient implements ILightappInvoker {
                 if (LightappJsClient.isJsFunNameValid(optString)) {
                     a aVar = new a();
                     if (!SdpPrefer.AUDIO_STEREO.equals(jSONObject.optString("channelType", "mono"))) {
-                        aVar.f25537b = 16;
+                        aVar.f24782b = 16;
                     } else {
-                        aVar.f25537b = 12;
+                        aVar.f24782b = 12;
                     }
                     int optInt = jSONObject.optInt("samplingAccuracy", 16);
-                    aVar.f25538c = optInt;
+                    aVar.f24783c = optInt;
                     if (8 != optInt) {
-                        aVar.f25538c = 2;
+                        aVar.f24783c = 2;
                     } else {
-                        aVar.f25538c = 3;
+                        aVar.f24783c = 3;
                     }
-                    aVar.f25536a = jSONObject.optInt("samplingRate", 8000);
-                    aVar.f25539d = jSONObject.optInt("maxChunkSize", 2048);
-                    aVar.f25541f = optString;
-                    aVar.f25540e = iLightappInvokerCallback;
-                    aVar.f25542g = str2;
+                    aVar.f24781a = jSONObject.optInt("samplingRate", 8000);
+                    aVar.f24784d = jSONObject.optInt("maxChunkSize", 2048);
+                    aVar.f24786f = optString;
+                    aVar.f24785e = iLightappInvokerCallback;
+                    aVar.f24787g = str2;
                     this.E.obtainMessage(1, aVar).sendToTarget();
                     return;
                 }
@@ -2498,19 +2499,19 @@ public class LightappBusinessClient implements ILightappInvoker {
         try {
             if (getActivity() != null) {
                 final AudioRecorder audioRecorder = AudioRecorder.getInstance();
-                if (audioRecorder.init(aVar.f25536a, aVar.f25537b, aVar.f25538c, aVar.f25539d)) {
-                    aVar.f25543h = UUID.randomUUID().toString();
+                if (audioRecorder.init(aVar.f24781a, aVar.f24782b, aVar.f24783c, aVar.f24784d)) {
+                    aVar.f24788h = UUID.randomUUID().toString();
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("result", 0);
-                    jSONObject.put("recordId", aVar.f25543h);
-                    aVar.f25540e.onResult(0, jSONObject.toString());
+                    jSONObject.put("recordId", aVar.f24788h);
+                    aVar.f24785e.onResult(0, jSONObject.toString());
                     final JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("recordId", aVar.f25543h);
+                    jSONObject2.put("recordId", aVar.f24788h);
                     jSONObject2.put("hasNext", 1);
                     audioRecorder.addObserver(new Observer() { // from class: com.baidu.wallet.lightapp.business.LightappBusinessClient.5
 
                         /* renamed from: a  reason: collision with root package name */
-                        public AudioVolume f25513a = new AudioVolume(4000);
+                        public AudioVolume f24758a = new AudioVolume(4000);
 
                         @Override // java.util.Observer
                         public void update(Observable observable, Object obj) {
@@ -2519,16 +2520,16 @@ public class LightappBusinessClient implements ILightappInvoker {
                             }
                             if (obj instanceof ByteBuffer) {
                                 ByteBuffer byteBuffer = (ByteBuffer) obj;
-                                this.f25513a.calAccumulatedVolume(byteBuffer, 2 == aVar.f25538c);
+                                this.f24758a.calAccumulatedVolume(byteBuffer, 2 == aVar.f24783c);
                                 try {
-                                    jSONObject2.put("volume", this.f25513a.getVolume());
-                                    LogUtil.d("volume", "update: " + this.f25513a);
+                                    jSONObject2.put("volume", this.f24758a.getVolume());
+                                    LogUtil.d("volume", "update: " + this.f24758a);
                                     jSONObject2.put("data", Base64.encodeToString(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining(), 2));
                                     LightappBusinessClient.this.getActivity().runOnUiThread(new Runnable() { // from class: com.baidu.wallet.lightapp.business.LightappBusinessClient.5.1
                                         @Override // java.lang.Runnable
                                         public void run() {
                                             try {
-                                                LightappBusinessClient.this.B.executeJsFunction(aVar.f25541f, jSONObject2.toString());
+                                                LightappBusinessClient.this.B.executeJsFunction(aVar.f24786f, jSONObject2.toString());
                                             } catch (Exception e2) {
                                                 LogUtil.e("audioData", "update error: ", e2);
                                             }
@@ -2547,7 +2548,7 @@ public class LightappBusinessClient implements ILightappInvoker {
                                             @Override // java.lang.Runnable
                                             public void run() {
                                                 try {
-                                                    LightappBusinessClient.this.B.executeJsFunction(aVar.f25541f, jSONObject2.toString());
+                                                    LightappBusinessClient.this.B.executeJsFunction(aVar.f24786f, jSONObject2.toString());
                                                 } catch (Exception e3) {
                                                     LogUtil.e("audioData", "update error: ", e3);
                                                 }
@@ -2568,7 +2569,7 @@ public class LightappBusinessClient implements ILightappInvoker {
             }
             throw new IllegalStateException("activity null");
         } catch (Exception e2) {
-            LightappUtils.onError(aVar.f25540e, aVar.f25542g, LightappConstants.ERRCODE_INNER_ERROR, e2.getLocalizedMessage(), "startRecordingFail");
+            LightappUtils.onError(aVar.f24785e, aVar.f24787g, LightappConstants.ERRCODE_INNER_ERROR, e2.getLocalizedMessage(), "startRecordingFail");
         }
     }
 
@@ -2657,7 +2658,7 @@ public class LightappBusinessClient implements ILightappInvoker {
             try {
                 intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                intent.setData(Uri.fromParts("package", context.getPackageName(), null));
+                intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, context.getPackageName(), null));
                 context.startActivity(intent);
             } catch (Exception unused) {
                 context.startActivity(new Intent("android.settings.SETTINGS"));

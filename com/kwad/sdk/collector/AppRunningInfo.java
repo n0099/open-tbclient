@@ -35,7 +35,7 @@ public class AppRunningInfo implements Serializable, Cloneable, Comparable<AppRu
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public AppRunningInfo m44clone() {
+    public AppRunningInfo m43clone() {
         AppRunningInfo appRunningInfo = new AppRunningInfo(this.granularity);
         appRunningInfo.setName(this.name);
         appRunningInfo.setLastRunningTime(this.lastRunningTime);

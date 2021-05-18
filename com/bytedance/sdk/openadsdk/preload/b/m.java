@@ -1,12 +1,12 @@
 package com.bytedance.sdk.openadsdk.preload.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class m<IN> implements b<IN> {
 
     /* renamed from: a  reason: collision with root package name */
-    public b<IN> f30782a;
+    public b<IN> f30027a;
 
     public m(b<IN> bVar) {
-        this.f30782a = bVar;
+        this.f30027a = bVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.b
@@ -16,11 +16,11 @@ public final class m<IN> implements b<IN> {
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.b
     public <O> O b(Class<? extends d<?, O>> cls) {
-        return (O) this.f30782a.b(cls);
+        return (O) this.f30027a.b(cls);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.b
     public <I> I a(Class<? extends d<I, ?>> cls) {
-        return (I) this.f30782a.a((Class<? extends d<Object, ?>>) cls);
+        return (I) this.f30027a.a((Class<? extends d<Object, ?>>) cls);
     }
 }

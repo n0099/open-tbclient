@@ -3,7 +3,8 @@ package d.a.a0;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public final class j {
-    public static final int MaxHeightScrollView_heightRatio = 0;
+    public static final int MaxHeightScrollView_maxHeightRatio = 0;
+    public static final int MaxHeightScrollView_minHeightRatio = 1;
     public static final int PopupWindow_android_popupAnimationStyle = 1;
     public static final int PopupWindow_android_popupBackground = 0;
     public static final int PopupWindow_overlapAnchor = 2;
@@ -32,7 +33,7 @@ public final class j {
     public static final int SwitchButton_kswThumbRangeRatio = 19;
     public static final int SwitchButton_kswThumbWidth = 20;
     public static final int SwitchButton_kswTintColor = 21;
-    public static final int[] MaxHeightScrollView = {R.attr.heightRatio};
+    public static final int[] MaxHeightScrollView = {R.attr.maxHeightRatio, R.attr.minHeightRatio};
     public static final int[] PopupWindow = {16843126, 16843465, R.attr.overlapAnchor, R.attr.popupAnimationStyle, R.attr.popupBackground};
     public static final int[] ProgressButton = {R.attr.textColor};
     public static final int[] SwitchButton = {R.attr.kswAnimationDuration, R.attr.kswBackColor, R.attr.kswBackDrawable, R.attr.kswBackRadius, R.attr.kswFadeBack, R.attr.kswTextAdjust, R.attr.kswTextExtra, R.attr.kswTextOff, R.attr.kswTextOn, R.attr.kswTextThumbInset, R.attr.kswThumbColor, R.attr.kswThumbDrawable, R.attr.kswThumbHeight, R.attr.kswThumbMargin, R.attr.kswThumbMarginBottom, R.attr.kswThumbMarginLeft, R.attr.kswThumbMarginRight, R.attr.kswThumbMarginTop, R.attr.kswThumbRadius, R.attr.kswThumbRangeRatio, R.attr.kswThumbWidth, R.attr.kswTintColor};

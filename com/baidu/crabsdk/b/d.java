@@ -17,31 +17,31 @@ import java.util.List;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b<List> f4822a = new b<>(com.baidu.crabsdk.a.f4784f);
+    public static b<List> f4676a = new b<>(com.baidu.crabsdk.a.f4638f);
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f4823b = 0.0f;
+    public static float f4677b = 0.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f4824c = 0.0f;
+    public static float f4678c = 0.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f4825d = 0.0f;
+    public static float f4679d = 0.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public static float f4826e = 0.0f;
+    public static float f4680e = 0.0f;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f4827f = "";
+    public static String f4681f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f4828g = 0;
+    public static long f4682g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f4829h = 0;
+    public static long f4683h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Rect f4830i = null;
+    public static Rect f4684i = null;
 
     public static List<View> a(View view) {
         ArrayList arrayList = new ArrayList();
@@ -50,15 +50,15 @@ public final class d {
             for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                 View childAt = viewGroup.getChildAt(i2);
                 if (childAt.getVisibility() == 0) {
-                    int i3 = (int) f4823b;
-                    int i4 = (int) f4824c;
-                    if (f4830i == null) {
-                        f4830i = new Rect();
+                    int i3 = (int) f4677b;
+                    int i4 = (int) f4678c;
+                    if (f4684i == null) {
+                        f4684i = new Rect();
                     }
-                    childAt.getDrawingRect(f4830i);
+                    childAt.getDrawingRect(f4684i);
                     int[] iArr = new int[2];
                     childAt.getLocationOnScreen(iArr);
-                    Rect rect = f4830i;
+                    Rect rect = f4684i;
                     rect.left = iArr[0];
                     rect.top = iArr[1];
                     rect.right += iArr[0];
@@ -100,57 +100,57 @@ public final class d {
                     arrayList.add("fling");
                     sb = new StringBuilder("from:(");
                 }
-                arrayList.add(f4827f);
-                f4822a.add(arrayList);
+                arrayList.add(f4681f);
+                f4676a.add(arrayList);
             }
             arrayList.add("scroll");
             sb = new StringBuilder("from:(");
-            sb.append(f4823b);
+            sb.append(f4677b);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(f4824c);
+            sb.append(f4678c);
             sb.append(") to:(");
-            sb.append(f4825d);
+            sb.append(f4679d);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            f2 = f4826e;
+            f2 = f4680e;
             sb.append(f2);
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             arrayList.add(sb.toString());
-            arrayList.add(f4827f);
-            f4822a.add(arrayList);
+            arrayList.add(f4681f);
+            f4676a.add(arrayList);
         } else {
             arrayList.add("longPressed");
             sb = new StringBuilder("(");
         }
-        sb.append(f4823b);
+        sb.append(f4677b);
         sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-        f2 = f4824c;
+        f2 = f4678c;
         sb.append(f2);
         sb.append(SmallTailInfo.EMOTION_SUFFIX);
         arrayList.add(sb.toString());
-        arrayList.add(f4827f);
-        f4822a.add(arrayList);
+        arrayList.add(f4681f);
+        f4676a.add(arrayList);
     }
 
     public static void c(MotionEvent motionEvent, Activity activity) {
         if (activity == null) {
             return;
         }
-        f4827f = activity.getClass().getName();
+        f4681f = activity.getClass().getName();
         int action = motionEvent.getAction();
         if (action == 0) {
-            f4823b = motionEvent.getX();
-            f4824c = motionEvent.getY();
-            f4828g = System.currentTimeMillis();
+            f4677b = motionEvent.getX();
+            f4678c = motionEvent.getY();
+            f4682g = System.currentTimeMillis();
         } else if (action != 1) {
         } else {
-            f4825d = motionEvent.getX();
-            f4826e = motionEvent.getY();
-            f4829h = System.currentTimeMillis();
-            if (Math.abs(f4826e - f4824c) > 30.0f) {
+            f4679d = motionEvent.getX();
+            f4680e = motionEvent.getY();
+            f4683h = System.currentTimeMillis();
+            if (Math.abs(f4680e - f4678c) > 30.0f) {
                 b(4, activity);
-            } else if (Math.abs(f4825d - f4823b) > 30.0f && Math.abs(f4826e - f4824c) < 30.0f) {
+            } else if (Math.abs(f4679d - f4677b) > 30.0f && Math.abs(f4680e - f4678c) < 30.0f) {
                 b(5, activity);
-            } else if (f4829h - f4828g > 300) {
+            } else if (f4683h - f4682g > 300) {
                 b(3, activity);
             } else {
                 b(1, activity);
@@ -160,10 +160,10 @@ public final class d {
 
     public static String d() {
         StringBuilder sb = new StringBuilder();
-        int size = f4822a.size();
+        int size = f4676a.size();
         int i2 = 0;
         while (i2 < size) {
-            List list = f4822a.get(i2);
+            List list = f4676a.get(i2);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }

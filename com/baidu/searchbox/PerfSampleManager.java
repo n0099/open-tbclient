@@ -6,7 +6,7 @@ import com.baidu.searchbox.anr.ubc.ANRPerfSampleCallback;
 import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
 import d.a.c0.a.a;
 import d.a.c0.a.b.d;
-import d.a.j0.y2.p;
+import d.a.k0.y2.p;
 import d.a.o.b.b;
 import java.util.ArrayList;
 import java.util.List;

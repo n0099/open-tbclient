@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f39324a;
+    public final g f38569a;
 
     public b(g gVar) {
-        this.f39324a = gVar;
+        this.f38569a = gVar;
     }
 
     public static void f(int i2) {
@@ -41,7 +41,7 @@ public class b {
     public void c(@NonNull Als.Area area, String str) {
         Als.c cVar = new Als.c(Als.Type.CLICK);
         cVar.i(Als.Page.NA_SPLASH);
-        cVar.j(this.f39324a.f39347d);
+        cVar.j(this.f38569a.f38592d);
         cVar.e(area);
         if (!TextUtils.isEmpty(str)) {
             cVar.h(str);
@@ -52,9 +52,9 @@ public class b {
     public void d(String str, long j) {
         Als.c cVar = new Als.c(Als.Type.CLOSE);
         cVar.i(Als.Page.NA_SPLASH);
-        cVar.j(this.f39324a.f39347d);
+        cVar.j(this.f38569a.f38592d);
         cVar.g(String.valueOf(j));
-        if (d.a.b0.a.b.a.f39288a.get().z()) {
+        if (d.a.b0.a.b.a.f38533a.get().z()) {
             cVar.f("1");
         } else {
             cVar.f("0");
@@ -66,7 +66,7 @@ public class b {
     public void e(String str, String str2) {
         Als.c cVar = new Als.c(Als.Type.DISCARD);
         cVar.i(Als.Page.NA_SPLASH);
-        cVar.j(this.f39324a.f39347d);
+        cVar.j(this.f38569a.f38592d);
         cVar.f("10");
         cVar.g(str);
         cVar.h(str2);
@@ -76,12 +76,12 @@ public class b {
     public void g() {
         Als.c cVar = new Als.c(Als.Type.SHOW);
         cVar.i(Als.Page.NA_SPLASH);
-        cVar.j(this.f39324a.f39347d);
+        cVar.j(this.f38569a.f38592d);
         Als.e(cVar);
     }
 
     public void h() {
-        String[] strArr = this.f39324a.q;
+        String[] strArr = this.f38569a.q;
         if (strArr == null) {
             return;
         }
@@ -98,7 +98,7 @@ public class b {
     }
 
     public void i() {
-        String[] strArr = this.f39324a.p;
+        String[] strArr = this.f38569a.p;
         if (strArr == null) {
             return;
         }

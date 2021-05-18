@@ -19,26 +19,27 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
 import d.a.c.e.m.b;
-import d.a.j0.v.b.d;
-import d.a.j0.v.b.e;
-import d.a.j0.v.b.f;
+import d.a.k0.v.b.d;
+import d.a.k0.v.b.e;
+import d.a.k0.v.b.f;
+import d.a.k0.v.e.c;
 /* loaded from: classes4.dex */
 public class FloatMyRecordCard extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f14971e;
+    public Context f14286e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14972f;
+    public int f14287f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f14973g;
+    public f f14288g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f14974h;
+    public d f14289h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f14975i;
+    public TextView f14290i;
     public BazhuHeadView j;
     public TextView k;
     public ImageView l;
@@ -53,11 +54,11 @@ public class FloatMyRecordCard extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (FloatMyRecordCard.this.f14974h == null || FloatMyRecordCard.this.f14974h.l() == 0) {
+            if (FloatMyRecordCard.this.f14289h == null || FloatMyRecordCard.this.f14289h.l() == 0) {
                 return;
             }
             long f2 = b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
-            long l = FloatMyRecordCard.this.f14974h.l();
+            long l = FloatMyRecordCard.this.f14289h.l();
             if (FloatMyRecordCard.this.getContext() instanceof Activity) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FloatMyRecordCard.this.getContext()).createNormalConfig(l, l == f2, false)));
             }
@@ -69,7 +70,7 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public final void b() {
-        this.f14975i = (TextView) findViewById(R.id.tv_voted_rank);
+        this.f14290i = (TextView) findViewById(R.id.tv_voted_rank);
         BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
         this.j = bazhuHeadView;
         if (bazhuHeadView.getHeadView() != null) {
@@ -82,7 +83,7 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public final void c() {
-        this.f14971e = getContext();
+        this.f14286e = getContext();
         setOrientation(0);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.float_my_record_card, (ViewGroup) this, true);
@@ -90,56 +91,56 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public void d(int i2) {
-        d dVar = this.f14974h;
+        d dVar = this.f14289h;
         if (dVar == null) {
             return;
         }
         if (dVar.i() > 3) {
-            SkinManager.setViewTextColor(this.f14975i, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f14290i, R.color.CAM_X0105, 1, i2);
         }
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1, i2);
-        setGrade(this.f14974h.d());
+        setGrade(this.f14289h.d());
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1, i2);
         this.n.c(i2);
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i2);
-        setGrade(this.f14974h.d());
+        setGrade(this.f14289h.d());
     }
 
     public void setData(f fVar) {
         d dVar;
         String str;
-        this.f14973g = fVar;
+        this.f14288g = fVar;
         if (fVar != null && fVar.a() != null) {
-            e a2 = this.f14973g.a();
+            e a2 = this.f14288g.a();
             if (a2 != null) {
-                this.f14972f = a2.g();
+                this.f14287f = a2.g();
             }
-            this.f14974h = this.f14973g.f();
+            this.f14289h = this.f14288g.f();
         }
-        if (this.f14973g != null && (dVar = this.f14974h) != null && this.f14972f == d.a.j0.v.e.d.f61621c) {
+        if (this.f14288g != null && (dVar = this.f14289h) != null && this.f14287f == c.f62345c) {
             int i2 = dVar.i();
             if (i2 < 10) {
-                this.f14975i.setText("0" + i2);
+                this.f14290i.setText("0" + i2);
             } else {
-                this.f14975i.setText("" + i2);
+                this.f14290i.setText("" + i2);
             }
             if (i2 == 2) {
-                this.f14975i.setTextColor(getResources().getColor(R.color.common_color_10263));
+                this.f14290i.setTextColor(getResources().getColor(R.color.common_color_10263));
             } else if (i2 == 3) {
-                this.f14975i.setTextColor(getResources().getColor(R.color.common_color_10266));
+                this.f14290i.setTextColor(getResources().getColor(R.color.common_color_10266));
             }
-            this.j.k(this.f14974h.g());
+            this.j.k(this.f14289h.g());
             this.j.setOnClickListener(this.o);
-            this.k.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f14974h.e(), 14, StringHelper.STRING_MORE));
-            setGrade(this.f14974h.d());
-            if (this.f14974h.c() < 1000) {
-                String str2 = "0000" + this.f14974h.c();
+            this.k.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f14289h.e(), 14, StringHelper.STRING_MORE));
+            setGrade(this.f14289h.d());
+            if (this.f14289h.c() < 1000) {
+                String str2 = "0000" + this.f14289h.c();
                 str = str2.substring(str2.length() - 4, str2.length());
             } else {
-                str = "" + this.f14974h.c();
+                str = "" + this.f14289h.c();
             }
             this.m.setText("NO." + str);
-            this.n.setMyRecordData(this.f14974h);
+            this.n.setMyRecordData(this.f14289h);
             return;
         }
         setVisibility(8);

@@ -1,18 +1,18 @@
 package com.sdk.base.framework.bean;
 
 import com.sdk.base.framework.f.c.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AInfo {
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36469c;
+    public int f35714c;
     public String md5;
     public String n;
     public String pk;
     public String v;
 
     public int getC() {
-        return this.f36469c;
+        return this.f35714c;
     }
 
     public String getMd5() {
@@ -32,7 +32,7 @@ public class AInfo {
     }
 
     public void setC(int i2) {
-        this.f36469c = i2;
+        this.f35714c = i2;
     }
 
     public void setMd5(String str) {

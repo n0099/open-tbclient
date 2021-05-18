@@ -52,7 +52,7 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
         public final Observer<? super R> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68285d;
+        public Disposable f68965d;
 
         public TargetObserver(Observer<? super R> observer) {
             this.actual = observer;
@@ -60,13 +60,13 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68285d.dispose();
+            this.f68965d.dispose();
             DisposableHelper.dispose(this);
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68285d.isDisposed();
+            return this.f68965d.isDisposed();
         }
 
         @Override // io.reactivex.Observer
@@ -88,8 +88,8 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68285d, disposable)) {
-                this.f68285d = disposable;
+            if (DisposableHelper.validate(this.f68965d, disposable)) {
+                this.f68965d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

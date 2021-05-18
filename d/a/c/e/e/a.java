@@ -14,36 +14,36 @@ import java.util.Calendar;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f39649d;
+    public static a f38894d;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f39650a;
+    public long f38895a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39651b;
+    public String f38896b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f39652c;
+    public long f38897c;
 
     public a() {
-        this.f39650a = 0L;
-        this.f39651b = null;
-        this.f39652c = 0L;
+        this.f38895a = 0L;
+        this.f38896b = null;
+        this.f38897c = 0L;
         SharedPreferences a2 = a();
-        this.f39650a = a2.getLong(f("c.tieba.baidu.com"), 0L);
-        this.f39651b = a2.getString(e("c.tieba.baidu.com"), null);
-        this.f39652c = a2.getLong(d("c.tieba.baidu.com"), 0L);
+        this.f38895a = a2.getLong(f("c.tieba.baidu.com"), 0L);
+        this.f38896b = a2.getString(e("c.tieba.baidu.com"), null);
+        this.f38897c = a2.getLong(d("c.tieba.baidu.com"), 0L);
     }
 
     public static final a c() {
-        if (f39649d == null) {
+        if (f38894d == null) {
             synchronized (a.class) {
-                if (f39649d == null) {
-                    f39649d = new a();
+                if (f38894d == null) {
+                    f38894d = new a();
                 }
             }
         }
-        return f39649d;
+        return f38894d;
     }
 
     public final SharedPreferences a() {
@@ -87,9 +87,9 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.f39650a;
-                    long j2 = this.f39652c;
-                    String str4 = this.f39651b;
+                    long j = this.f38895a;
+                    long j2 = this.f38897c;
+                    String str4 = this.f38896b;
                     if (currentTimeMillis - j > 43200000) {
                         h(host, str3, z, "12hour", z2);
                         return;
@@ -103,7 +103,7 @@ public class a {
                     } else if (System.currentTimeMillis() - j2 > VideoCloudSetting.HOUR_MILLISECOND) {
                         String b2 = TextUtils.isEmpty(str3) ? b(host) : str3;
                         if (TextUtils.equals(b2, str4) && str4 != null) {
-                            this.f39652c = System.currentTimeMillis();
+                            this.f38897c = System.currentTimeMillis();
                         } else {
                             h(host, b2, z, "ipchange", z2);
                         }
@@ -136,8 +136,8 @@ public class a {
         EditorHelper.putLong(a2, f(str), currentTimeMillis);
         EditorHelper.putString(a2, e(str), str2);
         EditorHelper.putLong(a2, d(str), currentTimeMillis2);
-        this.f39650a = currentTimeMillis;
-        this.f39652c = currentTimeMillis2;
-        this.f39651b = str2;
+        this.f38895a = currentTimeMillis;
+        this.f38897c = currentTimeMillis2;
+        this.f38896b = str2;
     }
 }

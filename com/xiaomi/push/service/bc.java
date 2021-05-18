@@ -10,7 +10,7 @@ import com.baidu.android.util.devices.RomUtils;
 public class bc {
 
     /* renamed from: a  reason: collision with root package name */
-    public static bc f38920a;
+    public static bc f38165a;
 
     /* renamed from: a  reason: collision with other field name */
     public int f920a = 0;
@@ -23,10 +23,10 @@ public class bc {
     }
 
     public static bc a(Context context) {
-        if (f38920a == null) {
-            f38920a = new bc(context);
+        if (f38165a == null) {
+            f38165a = new bc(context);
         }
-        return f38920a;
+        return f38165a;
     }
 
     @SuppressLint({"NewApi"})
@@ -49,12 +49,12 @@ public class bc {
 
     @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m596a() {
+    public Uri m595a() {
         return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m597a() {
+    public boolean m596a() {
         return com.xiaomi.push.ab.f100a.contains("xmsf") || com.xiaomi.push.ab.f100a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f100a.contains("miui");
     }
 }

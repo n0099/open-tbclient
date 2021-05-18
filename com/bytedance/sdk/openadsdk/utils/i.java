@@ -21,27 +21,27 @@ import java.net.NetworkInterface;
 import java.util.Collections;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f31041a = null;
+    public static String f30286a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f31042b = false;
+    public static volatile boolean f30287b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f31043c = true;
+    public static volatile boolean f30288c = true;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends BroadcastReceiver {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.SCREEN_ON".equals(intent.getAction())) {
-                boolean unused = i.f31043c = true;
+                boolean unused = i.f30288c = true;
                 u.c("DeviceUtils", "screen_on");
             } else if ("android.intent.action.SCREEN_OFF".equals(intent.getAction())) {
-                boolean unused2 = i.f31043c = false;
+                boolean unused2 = i.f30288c = false;
                 u.c("DeviceUtils", "screen_off");
             }
         }
@@ -52,13 +52,13 @@ public class i {
             try {
                 PowerManager powerManager = (PowerManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("power");
                 if (powerManager != null) {
-                    f31043c = powerManager.isScreenOn();
+                    f30288c = powerManager.isScreenOn();
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
         }
-        return f31043c;
+        return f30288c;
     }
 
     public static boolean c(Context context) {
@@ -99,7 +99,7 @@ public class i {
             jSONObject.put("screen_width", al.c(context));
             jSONObject.put("screen_height", al.d(context));
             jSONObject.put("oaid", y.a());
-            jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, m.f31045a);
+            jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, m.f30290a);
             jSONObject.put("applog_did", AppLogHelper.getInstance().getAppLogDid());
             jSONObject.put("sec_did", com.bytedance.sdk.openadsdk.core.s.a().b());
         } catch (Throwable unused) {
@@ -110,11 +110,11 @@ public class i {
     @NonNull
     public static String b() {
         String str;
-        if (!TextUtils.isEmpty(f31041a)) {
-            return f31041a;
+        if (!TextUtils.isEmpty(f30286a)) {
+            return f30286a;
         }
         String a2 = com.bytedance.sdk.openadsdk.core.i.a("sdk_local_mac_address", 172800000L);
-        f31041a = a2;
+        f30286a = a2;
         if (TextUtils.isEmpty(a2)) {
             TTCustomController e2 = com.bytedance.sdk.openadsdk.core.i.d().e();
             if (e2 != null && e2.isCanUseWifiState() && e2.isCanUseLocation()) {
@@ -126,20 +126,20 @@ public class i {
                 str = "DU:MM:YA:DD:RE:SS";
             }
             String str2 = TextUtils.isEmpty(str) ? "DU:MM:YA:DD:RE:SS" : str;
-            f31041a = str2;
+            f30286a = str2;
             com.bytedance.sdk.openadsdk.core.i.a("sdk_local_mac_address", str2);
         }
-        return f31041a;
+        return f30286a;
     }
 
     public static void a(Context context) {
-        if (f31042b) {
+        if (f30287b) {
             return;
         }
         try {
             PowerManager powerManager = (PowerManager) context.getSystemService("power");
             if (powerManager != null) {
-                f31043c = powerManager.isScreenOn();
+                f30288c = powerManager.isScreenOn();
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -149,7 +149,7 @@ public class i {
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         context.registerReceiver(aVar, intentFilter);
-        f31042b = true;
+        f30287b = true;
     }
 
     @SuppressLint({"NewApi"})

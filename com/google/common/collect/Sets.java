@@ -104,7 +104,7 @@ public final class Sets {
         public final NavigableSet<E> delegate;
 
         /* renamed from: e  reason: collision with root package name */
-        public transient UnmodifiableNavigableSet<E> f32072e;
+        public transient UnmodifiableNavigableSet<E> f31317e;
         public final SortedSet<E> unmodifiableDelegate;
 
         public UnmodifiableNavigableSet(NavigableSet<E> navigableSet) {
@@ -125,11 +125,11 @@ public final class Sets {
 
         @Override // java.util.NavigableSet
         public NavigableSet<E> descendingSet() {
-            UnmodifiableNavigableSet<E> unmodifiableNavigableSet = this.f32072e;
+            UnmodifiableNavigableSet<E> unmodifiableNavigableSet = this.f31317e;
             if (unmodifiableNavigableSet == null) {
                 UnmodifiableNavigableSet<E> unmodifiableNavigableSet2 = new UnmodifiableNavigableSet<>(this.delegate.descendingSet());
-                this.f32072e = unmodifiableNavigableSet2;
-                unmodifiableNavigableSet2.f32072e = this;
+                this.f31317e = unmodifiableNavigableSet2;
+                unmodifiableNavigableSet2.f31317e = this;
                 return unmodifiableNavigableSet2;
             }
             return unmodifiableNavigableSet;

@@ -2,13 +2,13 @@ package d.b.c.a.b;
 
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface q {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final q f64871a = new a();
+    public static final q f65557a = new a();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements q {
         @Override // d.b.c.a.b.q
         public void a(com.bytedance.sdk.a.b.s sVar, List<p> list) {

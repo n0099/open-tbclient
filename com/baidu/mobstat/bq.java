@@ -7,13 +7,13 @@ import android.text.TextUtils;
 public class bq extends bn {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9011a = "__Baidu_Stat_SDK_SendRem";
+    public static final String f8823a = "__Baidu_Stat_SDK_SendRem";
 
     /* renamed from: b  reason: collision with root package name */
-    public static bq f9012b = new bq();
+    public static bq f8824b = new bq();
 
     public static bq a() {
-        return f9012b;
+        return f8824b;
     }
 
     public int b(Context context) {
@@ -90,7 +90,7 @@ public class bq extends bn {
 
     @Override // com.baidu.mobstat.bn
     public SharedPreferences a(Context context) {
-        return context.getSharedPreferences(f9011a, 0);
+        return context.getSharedPreferences(f8823a, 0);
     }
 
     public void b(Context context, int i2) {

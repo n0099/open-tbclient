@@ -3,14 +3,14 @@ package com.baidu.tieba.personPolymeric.tab.data;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.squareup.wire.Wire;
-import d.a.i0.r.q.a2;
+import d.a.j0.r.q.a2;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetShoubaiThreadList.DataRes;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListResIdl;
 import tbclient.GetShoubaiThreadList.PageInfo;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessage {
     public long mCursor;
     public boolean mHasMore;
@@ -42,7 +42,7 @@ public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessa
         for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
             if (threadInfo != null) {
                 a2 a2Var = new a2();
-                a2Var.R2(threadInfo);
+                a2Var.T2(threadInfo);
                 this.mThreadDataList.add(a2Var);
             }
         }

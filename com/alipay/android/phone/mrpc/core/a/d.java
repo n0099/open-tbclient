@@ -2,7 +2,6 @@ package com.alipay.android.phone.mrpc.core.a;
 
 import com.alipay.android.phone.mrpc.core.RpcException;
 import com.alipay.sdk.util.l;
-import com.baidu.android.imsdk.db.TableDefine;
 import java.lang.reflect.Type;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -24,7 +23,7 @@ public final class d extends a {
             if (i2 == 1000) {
                 return this.f1600a == String.class ? jSONObject.optString("result") : com.alipay.a.a.e.a(jSONObject.optString("result"), this.f1600a);
             }
-            throw new RpcException(Integer.valueOf(i2), jSONObject.optString(TableDefine.MessageColumns.COLUME_TIPS));
+            throw new RpcException(Integer.valueOf(i2), jSONObject.optString("tips"));
         } catch (Exception e2) {
             StringBuilder sb2 = new StringBuilder("response  =");
             sb2.append(new String(this.f1601b));

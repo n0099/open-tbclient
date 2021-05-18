@@ -9,31 +9,31 @@ import com.baidu.mapapi.map.WearMapView;
 public class SwipeDismissView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public WearMapView.OnDismissCallback f7288a;
+    public WearMapView.OnDismissCallback f7104a;
 
     public SwipeDismissView(Context context, AttributeSet attributeSet, int i2, View view) {
         super(context, attributeSet, i2);
-        this.f7288a = null;
+        this.f7104a = null;
         a(context, view);
     }
 
     public SwipeDismissView(Context context, AttributeSet attributeSet, View view) {
         super(context, attributeSet);
-        this.f7288a = null;
+        this.f7104a = null;
         a(context, view);
     }
 
     public SwipeDismissView(Context context, View view) {
         super(context);
-        this.f7288a = null;
+        this.f7104a = null;
         a(context, view);
     }
 
     public void a(Context context, View view) {
-        setOnTouchListener(new SwipeDismissTouchListener(view, new Object(), new r(this)));
+        setOnTouchListener(new SwipeDismissTouchListener(view, new Object(), new s(this)));
     }
 
     public void setCallback(WearMapView.OnDismissCallback onDismissCallback) {
-        this.f7288a = onDismissCallback;
+        this.f7104a = onDismissCallback;
     }
 }

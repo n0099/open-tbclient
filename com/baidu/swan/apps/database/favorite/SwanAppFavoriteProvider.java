@@ -6,7 +6,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import d.a.h0.a.g0.c.b;
+import d.a.i0.a.g1.k.d;
+import d.a.i0.a.j0.b.b;
 /* loaded from: classes2.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
     public volatile b mProvider;
@@ -41,6 +42,7 @@ public class SwanAppFavoriteProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
+        d.a().b(getContext());
         return true;
     }
 

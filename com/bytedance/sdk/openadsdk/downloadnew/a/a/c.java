@@ -10,14 +10,14 @@ import d.o.a.a.a.a.p;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f29766a;
+    public final WeakReference<Context> f29011a;
 
     public c(Context context) {
-        this.f29766a = new WeakReference<>(context);
+        this.f29011a = new WeakReference<>(context);
     }
 
     @Override // d.o.a.a.a.a.g
@@ -82,17 +82,17 @@ public class c implements g {
         String valueOf;
         if (oVar != null && oVar.f()) {
             if (pVar != null) {
-                pVar.a(oVar.f65080a);
+                pVar.a(oVar.f65766a);
                 return;
             }
             return;
         }
-        boolean isEmpty = true ^ TextUtils.isEmpty(oVar != null && oVar.f65082c != null ? oVar.f65082c.getMessage() : null);
+        boolean isEmpty = true ^ TextUtils.isEmpty(oVar != null && oVar.f65768c != null ? oVar.f65768c.getMessage() : null);
         if (pVar != null) {
             if (isEmpty) {
-                valueOf = oVar.f65082c.getMessage();
+                valueOf = oVar.f65768c.getMessage();
             } else {
-                valueOf = oVar != null ? String.valueOf(oVar.f65087h) : "";
+                valueOf = oVar != null ? String.valueOf(oVar.f65773h) : "";
             }
             pVar.a(new Exception(valueOf));
         }

@@ -6,24 +6,24 @@ import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f40232b;
+    public static volatile c f39477b;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f40233a;
+    public b f39478a;
 
     public static c b() {
-        if (f40232b == null) {
+        if (f39477b == null) {
             synchronized (c.class) {
-                if (f40232b == null) {
-                    f40232b = new c();
+                if (f39477b == null) {
+                    f39477b = new c();
                 }
             }
         }
-        return f40232b;
+        return f39477b;
     }
 
     public void a(String str) {
-        b bVar = this.f40233a;
+        b bVar = this.f39478a;
         if (bVar != null) {
             bVar.a(str);
         }
@@ -31,7 +31,7 @@ public class c {
 
     public boolean c(String str) {
         b bVar;
-        if (!TextUtils.isEmpty(str) && (bVar = this.f40233a) != null) {
+        if (!TextUtils.isEmpty(str) && (bVar = this.f39478a) != null) {
             for (BdFileDownloadData bdFileDownloadData : bVar.b()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
@@ -42,22 +42,22 @@ public class c {
     }
 
     public void d(b bVar) {
-        this.f40233a = bVar;
+        this.f39478a = bVar;
     }
 
     public void e(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData == null || this.f40233a == null) {
+        if (bdFileDownloadData == null || this.f39478a == null) {
             return;
         }
         bdFileDownloadData.setCallback(aVar);
-        this.f40233a.c(bdFileDownloadData);
+        this.f39478a.c(bdFileDownloadData);
     }
 
     public void f(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData == null || this.f40233a == null) {
+        if (bdFileDownloadData == null || this.f39478a == null) {
             return;
         }
         bdFileDownloadData.setCallback(aVar);
-        this.f40233a.e(bdFileDownloadData, 1);
+        this.f39478a.e(bdFileDownloadData, 1);
     }
 }

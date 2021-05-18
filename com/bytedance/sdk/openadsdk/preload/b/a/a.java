@@ -2,14 +2,14 @@ package com.bytedance.sdk.openadsdk.preload.b.a;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Throwable> f30750a;
+    public List<Throwable> f29995a;
 
     public a(List<Throwable> list) {
-        this.f30750a = list;
+        this.f29995a = list;
         if (list == null || list.isEmpty()) {
             return;
         }

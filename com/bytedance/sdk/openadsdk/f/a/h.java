@@ -6,14 +6,14 @@ import java.lang.reflect.Type;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public l f29902a;
+    public l f29147a;
 
     public h(l lVar) {
-        this.f29902a = lVar;
+        this.f29147a = lVar;
     }
 
     public static h a(l lVar) {
@@ -24,7 +24,7 @@ public class h {
     public <T> T a(@NonNull String str, @NonNull Type type) throws JSONException {
         a(str);
         if (!type.equals(JSONObject.class) && (!(type instanceof Class) || !JSONObject.class.isAssignableFrom((Class) type))) {
-            return (T) this.f29902a.a(str, type);
+            return (T) this.f29147a.a(str, type);
         }
         return (T) new JSONObject(str);
     }
@@ -36,7 +36,7 @@ public class h {
             return StringUtil.EMPTY_ARRAY;
         }
         if (!(t instanceof JSONObject) && !(t instanceof JSONArray)) {
-            obj = this.f29902a.a(t);
+            obj = this.f29147a.a(t);
         } else {
             obj = t.toString();
         }

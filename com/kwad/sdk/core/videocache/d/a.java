@@ -12,7 +12,7 @@ import com.kwad.sdk.core.videocache.n;
 public class a extends SQLiteOpenHelper implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f33548a = {"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, "mime"};
+    public static final String[] f32793a = {"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, "mime"};
 
     public a(Context context) {
         super(context, "AndroidVideoCache.db", (SQLiteDatabase.CursorFactory) null, 1);
@@ -21,9 +21,9 @@ public class a extends SQLiteOpenHelper implements b {
 
     private ContentValues a(n nVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("url", nVar.f33594a);
-        contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(nVar.f33595b));
-        contentValues.put("mime", nVar.f33596c);
+        contentValues.put("url", nVar.f32839a);
+        contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(nVar.f32840b));
+        contentValues.put("mime", nVar.f32841c);
         return contentValues;
     }
 
@@ -38,7 +38,7 @@ public class a extends SQLiteOpenHelper implements b {
         j.a(str);
         n nVar = null;
         try {
-            cursor = getReadableDatabase().query("SourceInfo", f33548a, "url=?", new String[]{str}, null, null, null);
+            cursor = getReadableDatabase().query("SourceInfo", f32793a, "url=?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {

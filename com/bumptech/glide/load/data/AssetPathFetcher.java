@@ -7,7 +7,7 @@ import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.data.DataFetcher;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class AssetPathFetcher<T> implements DataFetcher<T> {
     public static final String TAG = "AssetPathFetcher";
     public final AssetManager assetManager;

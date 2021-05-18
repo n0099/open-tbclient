@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.core.s;
 import com.bytedance.sdk.openadsdk.utils.ak;
@@ -19,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, Map<String, Object> map) {
         if (a(str, lVar)) {
@@ -164,7 +165,7 @@ public class d {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("refer", str2);
+            jSONObject2.put(TiebaStatic.Params.REFER, str2);
             if (map != null) {
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
                     jSONObject2.put(entry.getKey(), entry.getValue());
@@ -223,7 +224,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static void a(String str, JSONObject jSONObject, com.bytedance.sdk.openadsdk.core.d.l lVar) {
             try {

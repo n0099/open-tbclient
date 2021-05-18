@@ -12,40 +12,40 @@ import com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout;
 public class PullToRefreshPinnedSectionListView extends PullToRefreshBase<PinnedSectionListView> implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public ListView f24573a;
+    public ListView f23818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoadingLayout f24574b;
+    public LoadingLayout f23819b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AbsListView.OnScrollListener f24575c;
+    public AbsListView.OnScrollListener f23820c;
 
     public PullToRefreshPinnedSectionListView(Context context) {
         this(context, null);
     }
 
     private boolean a() {
-        LoadingLayout loadingLayout = this.f24574b;
+        LoadingLayout loadingLayout = this.f23819b;
         return loadingLayout == null || loadingLayout.getState() != LoadingLayout.State.NO_MORE_DATA;
     }
 
     private boolean b() {
-        ListAdapter adapter = this.f24573a.getAdapter();
+        ListAdapter adapter = this.f23818a.getAdapter();
         if (adapter == null || adapter.isEmpty()) {
             return true;
         }
-        return (this.f24573a.getChildCount() > 0 ? this.f24573a.getChildAt(0).getTop() : 0) >= 0;
+        return (this.f23818a.getChildCount() > 0 ? this.f23818a.getChildAt(0).getTop() : 0) >= 0;
     }
 
     private boolean c() {
-        ListAdapter adapter = this.f24573a.getAdapter();
+        ListAdapter adapter = this.f23818a.getAdapter();
         if (adapter == null || adapter.isEmpty()) {
             return true;
         }
-        int lastVisiblePosition = this.f24573a.getLastVisiblePosition();
+        int lastVisiblePosition = this.f23818a.getLastVisiblePosition();
         if (lastVisiblePosition >= (adapter.getCount() - 1) - 1) {
-            View childAt = this.f24573a.getChildAt(Math.min(lastVisiblePosition - this.f24573a.getFirstVisiblePosition(), this.f24573a.getChildCount() - 1));
-            return childAt != null && childAt.getBottom() <= this.f24573a.getBottom();
+            View childAt = this.f23818a.getChildAt(Math.min(lastVisiblePosition - this.f23818a.getFirstVisiblePosition(), this.f23818a.getChildCount() - 1));
+            return childAt != null && childAt.getBottom() <= this.f23818a.getBottom();
         }
         return false;
     }
@@ -53,7 +53,7 @@ public class PullToRefreshPinnedSectionListView extends PullToRefreshBase<Pinned
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public LoadingLayout getFooterLoadingLayout() {
         if (isScrollLoadEnabled()) {
-            return this.f24574b;
+            return this.f23819b;
         }
         return super.getFooterLoadingLayout();
     }
@@ -71,7 +71,7 @@ public class PullToRefreshPinnedSectionListView extends PullToRefreshBase<Pinned
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public void onPullUpRefreshComplete() {
         super.onPullUpRefreshComplete();
-        LoadingLayout loadingLayout = this.f24574b;
+        LoadingLayout loadingLayout = this.f23819b;
         if (loadingLayout != null) {
             loadingLayout.setState(LoadingLayout.State.RESET);
         }
@@ -79,7 +79,7 @@ public class PullToRefreshPinnedSectionListView extends PullToRefreshBase<Pinned
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
-        AbsListView.OnScrollListener onScrollListener = this.f24575c;
+        AbsListView.OnScrollListener onScrollListener = this.f23820c;
         if (onScrollListener != null) {
             onScrollListener.onScroll(absListView, i2, i3, i4);
         }
@@ -90,14 +90,14 @@ public class PullToRefreshPinnedSectionListView extends PullToRefreshBase<Pinned
         if (isScrollLoadEnabled() && a() && ((i2 == 0 || i2 == 2) && isReadyForPullUp())) {
             startLoading();
         }
-        AbsListView.OnScrollListener onScrollListener = this.f24575c;
+        AbsListView.OnScrollListener onScrollListener = this.f23820c;
         if (onScrollListener != null) {
             onScrollListener.onScrollStateChanged(absListView, i2);
         }
     }
 
     public void setHasMoreData(boolean z) {
-        LoadingLayout loadingLayout = this.f24574b;
+        LoadingLayout loadingLayout = this.f23819b;
         if (loadingLayout != null) {
             loadingLayout.setState(z ? LoadingLayout.State.RESET : LoadingLayout.State.NO_MORE_DATA);
         }
@@ -108,7 +108,7 @@ public class PullToRefreshPinnedSectionListView extends PullToRefreshBase<Pinned
     }
 
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.f24575c = onScrollListener;
+        this.f23820c = onScrollListener;
     }
 
     public void setRefreshingText(String str) {
@@ -130,15 +130,15 @@ public class PullToRefreshPinnedSectionListView extends PullToRefreshBase<Pinned
         }
         super.setScrollLoadEnabled(z);
         if (z) {
-            if (this.f24574b == null) {
+            if (this.f23819b == null) {
                 FooterLoadingLayout footerLoadingLayout = new FooterLoadingLayout(getContext());
-                this.f24574b = footerLoadingLayout;
-                this.f24573a.addFooterView(footerLoadingLayout, null, false);
+                this.f23819b = footerLoadingLayout;
+                this.f23818a.addFooterView(footerLoadingLayout, null, false);
             }
-            this.f24574b.show(true);
+            this.f23819b.show(true);
             return;
         }
-        LoadingLayout loadingLayout = this.f24574b;
+        LoadingLayout loadingLayout = this.f23819b;
         if (loadingLayout != null) {
             loadingLayout.show(false);
         }
@@ -147,10 +147,10 @@ public class PullToRefreshPinnedSectionListView extends PullToRefreshBase<Pinned
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public void startLoading() {
         super.startLoading();
-        LoadingLayout loadingLayout = this.f24574b;
+        LoadingLayout loadingLayout = this.f23819b;
         if (loadingLayout != null) {
             loadingLayout.setState(LoadingLayout.State.REFRESHING);
-            this.f24574b.setVisibility(0);
+            this.f23819b.setVisibility(0);
         }
     }
 
@@ -163,7 +163,7 @@ public class PullToRefreshPinnedSectionListView extends PullToRefreshBase<Pinned
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public PinnedSectionListView createRefreshableView(Context context, AttributeSet attributeSet) {
         PinnedSectionListView pinnedSectionListView = new PinnedSectionListView(context);
-        this.f24573a = pinnedSectionListView;
+        this.f23818a = pinnedSectionListView;
         pinnedSectionListView.setOnScrollListener(this);
         return pinnedSectionListView;
     }

@@ -10,17 +10,17 @@ public abstract class c extends FrameLayout {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final d f33525a;
+    public final d f32770a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Timer f33526b;
+    public Timer f32771b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TimerTask f33527c;
+    public TimerTask f32772c;
 
     public c(Context context, @NonNull d dVar) {
         super(context);
-        this.f33525a = dVar;
+        this.f32770a = dVar;
     }
 
     public abstract void a(int i2);
@@ -34,11 +34,11 @@ public abstract class c extends FrameLayout {
 
     public void i() {
         j();
-        if (this.f33526b == null) {
-            this.f33526b = new Timer();
+        if (this.f32771b == null) {
+            this.f32771b = new Timer();
         }
-        if (this.f33527c == null) {
-            this.f33527c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
+        if (this.f32772c == null) {
+            this.f32772c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     c.this.post(new Runnable() { // from class: com.kwad.sdk.core.video.videoview.c.1.1
@@ -50,19 +50,19 @@ public abstract class c extends FrameLayout {
                 }
             };
         }
-        this.f33526b.schedule(this.f33527c, 0L, 1000L);
+        this.f32771b.schedule(this.f32772c, 0L, 1000L);
     }
 
     public void j() {
-        Timer timer = this.f33526b;
+        Timer timer = this.f32771b;
         if (timer != null) {
             timer.cancel();
-            this.f33526b = null;
+            this.f32771b = null;
         }
-        TimerTask timerTask = this.f33527c;
+        TimerTask timerTask = this.f32772c;
         if (timerTask != null) {
             timerTask.cancel();
-            this.f33527c = null;
+            this.f32772c = null;
         }
     }
 }

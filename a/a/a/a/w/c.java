@@ -3,7 +3,6 @@ package a.a.a.a.w;
 import a.a.a.a.u.e;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -79,7 +78,7 @@ public class c extends b {
             int optInt = jSONObject.optInt("interaction_type", -1);
             if (optInt != 3) {
                 if (optInt == 4 && (optJSONObject2 = jSONObject.optJSONObject("app")) != null) {
-                    str3 = optJSONObject2.optString(DpStatConstants.KEY_APP_NAME);
+                    str3 = optJSONObject2.optString("app_name");
                     str4 = optJSONObject2.optString("package_name");
                     str5 = optJSONObject2.optString("download_url");
                     optString = null;
@@ -87,7 +86,7 @@ public class c extends b {
                         str6 = str3;
                         str7 = str4;
                     } else {
-                        String optString5 = optJSONObject.optString(DpStatConstants.KEY_APP_NAME);
+                        String optString5 = optJSONObject.optString("app_name");
                         str7 = optJSONObject.optString("package_name");
                         str6 = optString5;
                     }

@@ -6,14 +6,14 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.e.b.f.u;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f66458b;
+    public static volatile a f67144b;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f66459a;
+    public String f67145a;
 
     public a() {
     }
@@ -24,15 +24,15 @@ public class a {
     }
 
     public static a l(Context context) {
-        if (f66458b == null) {
+        if (f67144b == null) {
             synchronized (a.class) {
-                if (f66458b == null) {
+                if (f67144b == null) {
                     d.y(context);
-                    f66458b = new a();
+                    f67144b = new a();
                 }
             }
         }
-        return f66458b;
+        return f67144b;
     }
 
     public static synchronized void q(b bVar) {
@@ -46,8 +46,8 @@ public class a {
             if (bVar == null) {
                 return;
             }
-            if (f66458b == null) {
-                f66458b = bVar.b();
+            if (f67144b == null) {
+                f67144b = bVar.b();
             } else if (!d.p()) {
                 d.G(bVar);
             } else if (z) {
@@ -72,7 +72,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f66459a = str;
+        this.f67145a = str;
     }
 
     @Deprecated
@@ -137,11 +137,11 @@ public class a {
 
     public File k() {
         File file = null;
-        if (TextUtils.isEmpty(this.f66459a)) {
+        if (TextUtils.isEmpty(this.f67145a)) {
             return null;
         }
         try {
-            File file2 = new File(this.f66459a);
+            File file2 = new File(this.f67145a);
             try {
                 if (!file2.exists()) {
                     file2.mkdirs();

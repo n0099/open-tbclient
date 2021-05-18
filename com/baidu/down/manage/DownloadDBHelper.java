@@ -10,13 +10,11 @@ import com.baidu.down.manage.DownloadConstants;
 public final class DownloadDBHelper extends SQLiteOpenHelper {
     public static final String TAG = "DaoMaster";
     public static DownloadDBHelper mInstance;
-    public final Context mCtx;
     public static final boolean DEBUG = DownloadConstants.mDebug;
-    public static int DATA_VERSION = 2;
+    public static int DATA_VERSION = 3;
 
     public DownloadDBHelper(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
         super(context, str, cursorFactory, i2);
-        this.mCtx = context;
     }
 
     private void addColumn(SQLiteDatabase sQLiteDatabase, String str, String str2) {
@@ -54,10 +52,33 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        sQLiteDatabase.beginTransaction();
+        try {
+            try {
+                sQLiteDatabase.execSQL(DownloadDao.DROP_TABLE_SQL);
+                sQLiteDatabase.execSQL(DownloadDao.CREATE_TABLE_SQL);
+                sQLiteDatabase.setTransactionSuccessful();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        } finally {
+            sQLiteDatabase.endTransaction();
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
-        if (i3 == 2) {
+        if (i3 <= i2) {
+            return;
+        }
+        int i4 = i2 + 1;
+        if (i4 == 2) {
             addColumn(sQLiteDatabase, DownloadConstants.DownloadColumns.COLUMN_DOWN_DIR, "TEXT");
             addColumn(sQLiteDatabase, DownloadConstants.DownloadColumns.COLUMN_FROM_PARAM, "TEXT");
+        } else if (i4 != 3) {
+            return;
         }
+        addColumn(sQLiteDatabase, DownloadConstants.DownloadColumns.COLUMN_REAL_URI, "TEXT");
     }
 }

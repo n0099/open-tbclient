@@ -17,40 +17,40 @@ import java.util.List;
 public abstract class a<CALLBACK extends Binder, INTERFACE extends IInterface> implements ServiceConnection, t {
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile INTERFACE f35204b;
+    public volatile INTERFACE f34449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Class<?> f35205c;
+    public final Class<?> f34450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<String, Object> f35206d = new HashMap<>();
+    public final HashMap<String, Object> f34451d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<Context> f35207e = new ArrayList();
+    public final List<Context> f34452e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayList<Runnable> f35208f = new ArrayList<>();
+    public final ArrayList<Runnable> f34453f = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public final CALLBACK f35203a = b();
+    public final CALLBACK f34448a = b();
 
     public a(Class<?> cls) {
-        this.f35205c = cls;
+        this.f34450c = cls;
     }
 
     private void a(boolean z) {
-        if (!z && this.f35204b != null) {
+        if (!z && this.f34449b != null) {
             try {
-                a((a<CALLBACK, INTERFACE>) this.f35204b, (INTERFACE) this.f35203a);
+                a((a<CALLBACK, INTERFACE>) this.f34449b, (INTERFACE) this.f34448a);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
         }
-        if (com.kwai.filedownloader.f.d.f35118a) {
-            com.kwai.filedownloader.f.d.c(this, "release connect resources %s", this.f35204b);
+        if (com.kwai.filedownloader.f.d.f34363a) {
+            com.kwai.filedownloader.f.d.c(this, "release connect resources %s", this.f34449b);
         }
-        this.f35204b = null;
-        com.kwai.filedownloader.f.a().b(new DownloadServiceConnectChangedEvent(z ? DownloadServiceConnectChangedEvent.ConnectStatus.lost : DownloadServiceConnectChangedEvent.ConnectStatus.disconnected, this.f35205c));
+        this.f34449b = null;
+        com.kwai.filedownloader.f.a().b(new DownloadServiceConnectChangedEvent(z ? DownloadServiceConnectChangedEvent.ConnectStatus.lost : DownloadServiceConnectChangedEvent.ConnectStatus.disconnected, this.f34450c));
     }
 
     @Override // com.kwai.filedownloader.t
@@ -62,15 +62,15 @@ public abstract class a<CALLBACK extends Binder, INTERFACE extends IInterface> i
         if (com.kwai.filedownloader.f.f.a(context)) {
             throw new IllegalStateException("Fatal-Exception: You can't bind the FileDownloadService in :filedownloader process.\n It's the invalid operation and is likely to cause unexpected problems.\n Maybe you want to use non-separate process mode for FileDownloader, More detail about non-separate mode, please move to wiki manually: https://github.com/lingochamp/FileDownloader/wiki/filedownloader.properties");
         }
-        if (com.kwai.filedownloader.f.d.f35118a) {
+        if (com.kwai.filedownloader.f.d.f34363a) {
             com.kwai.filedownloader.f.d.c(this, "bindStartByContext %s", context.getClass().getSimpleName());
         }
-        Intent intent = new Intent(context, this.f35205c);
-        if (runnable != null && !this.f35208f.contains(runnable)) {
-            this.f35208f.add(runnable);
+        Intent intent = new Intent(context, this.f34450c);
+        if (runnable != null && !this.f34453f.contains(runnable)) {
+            this.f34453f.add(runnable);
         }
-        if (!this.f35207e.contains(context)) {
-            this.f35207e.add(context);
+        if (!this.f34452e.contains(context)) {
+            this.f34452e.add(context);
         }
         context.bindService(intent, this, 1);
         context.startService(intent);
@@ -90,31 +90,31 @@ public abstract class a<CALLBACK extends Binder, INTERFACE extends IInterface> i
     }
 
     public INTERFACE d() {
-        return this.f35204b;
+        return this.f34449b;
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        this.f35204b = b(iBinder);
-        if (com.kwai.filedownloader.f.d.f35118a) {
-            com.kwai.filedownloader.f.d.c(this, "onServiceConnected %s %s", componentName, this.f35204b);
+        this.f34449b = b(iBinder);
+        if (com.kwai.filedownloader.f.d.f34363a) {
+            com.kwai.filedownloader.f.d.c(this, "onServiceConnected %s %s", componentName, this.f34449b);
         }
         try {
-            b(this.f35204b, this.f35203a);
+            b(this.f34449b, this.f34448a);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
-        this.f35208f.clear();
-        for (Runnable runnable : (List) this.f35208f.clone()) {
+        this.f34453f.clear();
+        for (Runnable runnable : (List) this.f34453f.clone()) {
             runnable.run();
         }
-        com.kwai.filedownloader.f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.connected, this.f35205c));
+        com.kwai.filedownloader.f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.connected, this.f34450c));
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        if (com.kwai.filedownloader.f.d.f35118a) {
-            com.kwai.filedownloader.f.d.c(this, "onServiceDisconnected %s %s", componentName, this.f35204b);
+        if (com.kwai.filedownloader.f.d.f34363a) {
+            com.kwai.filedownloader.f.d.c(this, "onServiceDisconnected %s %s", componentName, this.f34449b);
         }
         a(true);
     }

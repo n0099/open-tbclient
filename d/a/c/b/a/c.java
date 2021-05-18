@@ -3,5 +3,5 @@ package d.a.c.b.a;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f39403a = false;
+    public static boolean f38648a = false;
 }

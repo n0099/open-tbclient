@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f39366a = f.f39355b;
+    public static final boolean f38611a = f.f38600b;
 
     public static String a(int i2) {
         if (i2 != 0) {
@@ -71,7 +71,7 @@ public final class j {
                 try {
                     hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
                 } catch (IllegalArgumentException e2) {
-                    if (f39366a) {
+                    if (f38611a) {
                         e2.printStackTrace();
                     }
                 }
@@ -110,7 +110,7 @@ public final class j {
         if (uri == null) {
             return false;
         }
-        return TextUtils.equals(f.f39354a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
+        return TextUtils.equals(f.f38599a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
     }
 
     public static boolean g(String str) {

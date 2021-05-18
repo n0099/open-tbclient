@@ -9,6 +9,55 @@ import android.os.RemoteException;
 public interface IRemoteUBCService extends IInterface {
 
     /* loaded from: classes3.dex */
+    public static class Default implements IRemoteUBCService {
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return null;
+        }
+
+        @Override // com.baidu.swan.ubc.IRemoteUBCService
+        public void flowAddEvent(Flow flow, String str, String str2) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.ubc.IRemoteUBCService
+        public void flowAddEventWithTime(Flow flow, String str, String str2, long j) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.ubc.IRemoteUBCService
+        public void flowCancel(Flow flow) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.ubc.IRemoteUBCService
+        public void flowEnd(Flow flow) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.ubc.IRemoteUBCService
+        public void flowEndSlot(Flow flow, String str) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.ubc.IRemoteUBCService
+        public void flowSetValue(Flow flow, String str) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.ubc.IRemoteUBCService
+        public void flowSetValueWithDuration(Flow flow, String str) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.ubc.IRemoteUBCService
+        public void flowStartSlot(Flow flow, String str, String str2) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.ubc.IRemoteUBCService
+        public Flow ubcBeginFlow(String str, String str2, int i2) throws RemoteException {
+            return null;
+        }
+
+        @Override // com.baidu.swan.ubc.IRemoteUBCService
+        public void ubcOnEvent(String str, String str2, int i2) throws RemoteException {
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public static abstract class Stub extends Binder implements IRemoteUBCService {
         public static final String DESCRIPTOR = "com.baidu.swan.ubc.IRemoteUBCService";
         public static final int TRANSACTION_flowAddEvent = 3;
@@ -24,6 +73,7 @@ public interface IRemoteUBCService extends IInterface {
 
         /* loaded from: classes3.dex */
         public static class Proxy implements IRemoteUBCService {
+            public static IRemoteUBCService sDefaultImpl;
             public IBinder mRemote;
 
             public Proxy(IBinder iBinder) {
@@ -49,8 +99,11 @@ public interface IRemoteUBCService extends IInterface {
                     }
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.mRemote.transact(3, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().flowAddEvent(flow, str, str2);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -72,8 +125,11 @@ public interface IRemoteUBCService extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeLong(j);
-                    this.mRemote.transact(4, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().flowAddEventWithTime(flow, str, str2, j);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -92,8 +148,11 @@ public interface IRemoteUBCService extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.mRemote.transact(9, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(9, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().flowCancel(flow);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -112,8 +171,11 @@ public interface IRemoteUBCService extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.mRemote.transact(10, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(10, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().flowEnd(flow);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -133,8 +195,11 @@ public interface IRemoteUBCService extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeString(str);
-                    this.mRemote.transact(8, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(8, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().flowEndSlot(flow, str);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -154,8 +219,11 @@ public interface IRemoteUBCService extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeString(str);
-                    this.mRemote.transact(5, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().flowSetValue(flow, str);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -175,8 +243,11 @@ public interface IRemoteUBCService extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeString(str);
-                    this.mRemote.transact(6, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().flowSetValueWithDuration(flow, str);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -197,8 +268,11 @@ public interface IRemoteUBCService extends IInterface {
                     }
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.mRemote.transact(7, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(7, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().flowStartSlot(flow, str, str2);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -218,7 +292,9 @@ public interface IRemoteUBCService extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeInt(i2);
-                    this.mRemote.transact(2, obtain, obtain2, 0);
+                    if (!this.mRemote.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        return Stub.getDefaultImpl().ubcBeginFlow(str, str2, i2);
+                    }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? Flow.CREATOR.createFromParcel(obtain2) : null;
                 } finally {
@@ -236,8 +312,11 @@ public interface IRemoteUBCService extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeInt(i2);
-                    this.mRemote.transact(1, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().ubcOnEvent(str, str2, i2);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -258,6 +337,18 @@ public interface IRemoteUBCService extends IInterface {
                 return (IRemoteUBCService) queryLocalInterface;
             }
             return new Proxy(iBinder);
+        }
+
+        public static IRemoteUBCService getDefaultImpl() {
+            return Proxy.sDefaultImpl;
+        }
+
+        public static boolean setDefaultImpl(IRemoteUBCService iRemoteUBCService) {
+            if (Proxy.sDefaultImpl != null || iRemoteUBCService == null) {
+                return false;
+            }
+            Proxy.sDefaultImpl = iRemoteUBCService;
+            return true;
         }
 
         @Override // android.os.IInterface

@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.a.i0.r.q.a2;
-import d.a.i0.r.q.k1;
+import d.a.j0.r.q.a2;
+import d.a.j0.r.q.k1;
 /* loaded from: classes3.dex */
 public class PbActivityConfig extends IntentConfig {
     public static final int ACTIVITY_RESULT_DELETE = 1;
@@ -214,9 +214,9 @@ public class PbActivityConfig extends IntentConfig {
             return this;
         }
         Intent intent = getIntent();
-        intent.putExtra("thread_id", a2Var.w1());
-        if (a2Var.z1() != null && !StringUtils.isNull(a2Var.z1().E())) {
-            intent.putExtra(KEY_GOD_REPLY_ID, a2Var.z1().E());
+        intent.putExtra("thread_id", a2Var.x1());
+        if (a2Var.A1() != null && !StringUtils.isNull(a2Var.A1().E())) {
+            intent.putExtra(KEY_GOD_REPLY_ID, a2Var.A1().E());
         }
         intent.putExtra("is_good", a2Var.w0());
         intent.putExtra("is_top", a2Var.x0());
@@ -611,7 +611,7 @@ public class PbActivityConfig extends IntentConfig {
         if (intent != null && a2Var != null) {
             BaijiahaoData V = a2Var.V();
             if (V != null) {
-                intent.putExtra("key_is_from_dynamic", a2Var.y2());
+                intent.putExtra("key_is_from_dynamic", a2Var.A2());
                 intent.putExtra("key_ori_ugc_nid", V.oriUgcNid);
                 intent.putExtra("key_ori_ugc_tid", V.oriUgcTid);
                 intent.putExtra("key_ori_ugc_type", V.oriUgcType);

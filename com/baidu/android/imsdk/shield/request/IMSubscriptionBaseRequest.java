@@ -7,6 +7,7 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -89,7 +90,7 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
             jSONObject.put("device_type", 2);
             jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("uk", uk);
             if (this.mTopicList != null && this.mTopicList.size() > 0) {
                 JSONArray jSONArray = new JSONArray();

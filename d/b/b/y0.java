@@ -5,10 +5,10 @@ import d.b.a.b;
 public final class y0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f64410a;
+    public static int f65096a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.b.a.b f64411b;
+    public static d.b.a.b f65097b;
 
     static {
         a(2);
@@ -16,11 +16,11 @@ public final class y0 {
     }
 
     public static void a(int i2) {
-        f64410a = i2;
+        f65096a = i2;
     }
 
     public static void b(d.b.a.b bVar) {
-        f64411b = bVar;
+        f65097b = bVar;
     }
 
     public static void c(String str, String str2) {
@@ -28,8 +28,8 @@ public final class y0 {
     }
 
     public static void d(String str, String str2, Throwable th) {
-        d.b.a.b bVar = f64411b;
-        if (bVar == null || f64410a > 2) {
+        d.b.a.b bVar = f65097b;
+        if (bVar == null || f65096a > 2) {
             return;
         }
         bVar.a(str, str2, th);
@@ -40,8 +40,8 @@ public final class y0 {
     }
 
     public static void f(String str, String str2, Throwable th) {
-        d.b.a.b bVar = f64411b;
-        if (bVar == null || f64410a > 3) {
+        d.b.a.b bVar = f65097b;
+        if (bVar == null || f65096a > 3) {
             return;
         }
         bVar.b(str, str2, th);
@@ -52,8 +52,8 @@ public final class y0 {
     }
 
     public static void h(String str, String str2, Throwable th) {
-        d.b.a.b bVar = f64411b;
-        if (bVar == null || f64410a > 6) {
+        d.b.a.b bVar = f65097b;
+        if (bVar == null || f65096a > 6) {
             return;
         }
         bVar.c(str, str2, th);

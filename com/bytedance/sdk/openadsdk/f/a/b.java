@@ -1,14 +1,14 @@
 package com.bytedance.sdk.openadsdk.f.a;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class b<P, R> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29877a;
+    public String f29122a;
 
     public String a() {
-        return this.f29877a;
+        return this.f29122a;
     }
 
     @NonNull
@@ -17,6 +17,6 @@ public abstract class b<P, R> {
     }
 
     public void a(String str) {
-        this.f29877a = str;
+        this.f29122a = str;
     }
 }

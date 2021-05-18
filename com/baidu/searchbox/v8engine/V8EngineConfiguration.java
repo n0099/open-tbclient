@@ -35,6 +35,7 @@ public class V8EngineConfiguration {
 
     /* loaded from: classes2.dex */
     public static class CodeCacheSetting {
+        public long diskCodeCacheSizeThreshold = 31457280;
         public String id;
         public int maxCount;
         public ArrayList<String> pathList;

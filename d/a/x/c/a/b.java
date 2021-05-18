@@ -8,27 +8,27 @@ import com.baidu.pyramid.annotation.Inject;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f64148b = new b();
+    public static b f64835b = new b();
     @Inject
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.c0.a.b.c<IHostAppRuntime> f64149a;
+    public d.a.c0.a.b.c<IHostAppRuntime> f64836a;
 
     public b() {
         c();
     }
 
     public static b b() {
-        return f64148b;
+        return f64835b;
     }
 
     public Application a() {
-        return this.f64149a.get().getApplication();
+        return this.f64836a.get().getApplication();
     }
 
     public void c() {
         d.a.c0.a.b.a b2 = d.a.c0.a.b.a.b();
-        this.f64149a = b2;
+        this.f64836a = b2;
         b2.a(new IHostAppRuntime_HostAppRuntimeManager_Provider());
     }
 }

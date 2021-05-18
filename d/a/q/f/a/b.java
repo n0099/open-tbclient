@@ -11,31 +11,31 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: i  reason: collision with root package name */
-    public static b f63630i;
+    public static b f64267i;
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread f63631a;
+    public Thread f64268a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f63632b;
+    public AtomicInteger f64269b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f63633c;
+    public c f64270c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.q.f.a.k.b f63634d;
+    public d.a.q.f.a.k.b f64271d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, String> f63635e;
+    public HashMap<String, String> f64272e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, String> f63636f;
+    public HashMap<String, String> f64273f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j f63637g;
+    public j f64274g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f63638h;
+    public Context f64275h;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -46,10 +46,10 @@ public class b {
         public void run() {
             boolean z;
             b bVar = b.this;
-            bVar.f63633c = new g(bVar.f63638h);
-            if (b.this.f63637g != null) {
-                b.this.f63637g.a(b.this.f63633c.a());
-                z = b.this.f63637g.a();
+            bVar.f64270c = new g(bVar.f64275h);
+            if (b.this.f64274g != null) {
+                b.this.f64274g.a(b.this.f64270c.a());
+                z = b.this.f64274g.a();
             } else {
                 z = false;
             }
@@ -57,61 +57,61 @@ public class b {
                 b.this.m();
                 b.this.o();
             }
-            b.this.f63631a = null;
+            b.this.f64268a = null;
         }
     }
 
     /* renamed from: d.a.q.f.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1720b {
+    public static class C1783b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static C1720b f63640a;
+        public static C1783b f64277a;
 
-        public C1720b(Context context) {
+        public C1783b(Context context) {
             if (context == null) {
                 throw new NullPointerException("context should not be null");
             }
-            if (b.f63630i == null) {
+            if (b.f64267i == null) {
                 synchronized (b.class) {
-                    if (b.f63630i == null) {
-                        b unused = b.f63630i = new b(context.getApplicationContext(), null);
+                    if (b.f64267i == null) {
+                        b unused = b.f64267i = new b(context.getApplicationContext(), null);
                     }
                 }
             }
         }
 
-        public static C1720b c(Context context) {
-            if (f63640a == null) {
+        public static C1783b c(Context context) {
+            if (f64277a == null) {
                 synchronized (b.class) {
-                    if (f63640a == null) {
-                        f63640a = new C1720b(context);
+                    if (f64277a == null) {
+                        f64277a = new C1783b(context);
                     }
                 }
             }
-            return f63640a;
+            return f64277a;
         }
 
         public final void a() {
-            b.f63630i.f63635e = new HashMap();
-            b.f63630i.f63635e.put(BOSTokenRequest.CHARSET, "utf-8");
-            b.f63630i.f63635e.put("Content-type", "application/json");
-            b.f63630i.f63634d = new d.a.q.f.a.r.a();
+            b.f64267i.f64272e = new HashMap();
+            b.f64267i.f64272e.put(BOSTokenRequest.CHARSET, "utf-8");
+            b.f64267i.f64272e.put("Content-type", "application/json");
+            b.f64267i.f64271d = new d.a.q.f.a.r.a();
         }
 
         public b b() {
-            if (b.f63630i.f63634d == null) {
+            if (b.f64267i.f64271d == null) {
                 a();
             }
-            return b.f63630i;
+            return b.f64267i;
         }
     }
 
     public b(Context context) {
-        this.f63632b = new AtomicInteger(0);
+        this.f64269b = new AtomicInteger(0);
         new AtomicBoolean(false);
-        this.f63638h = context;
-        this.f63637g = new o(context);
+        this.f64275h = context;
+        this.f64274g = new o(context);
     }
 
     public /* synthetic */ b(Context context, d.a.q.f.a.a aVar) {
@@ -122,7 +122,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             throw new NullPointerException("url should not be empty");
         }
-        HashMap<String, String> hashMap = this.f63636f;
+        HashMap<String, String> hashMap = this.f64273f;
         return hashMap == null ? str : q.b(str, hashMap);
     }
 
@@ -133,20 +133,20 @@ public class b {
     public final boolean k() {
         d.a.q.f.a.k.c a2;
         String e2 = e("https://mbd.baidu.com/store");
-        d.a.q.f.a.k.b bVar = this.f63634d;
-        JSONObject a3 = n.a((bVar == null || (a2 = bVar.a()) == null) ? null : a2.a(e2, "POST", this.f63635e, this.f63633c.a()));
+        d.a.q.f.a.k.b bVar = this.f64271d;
+        JSONObject a3 = n.a((bVar == null || (a2 = bVar.a()) == null) ? null : a2.a(e2, "POST", this.f64272e, this.f64270c.a()));
         return a3 != null && a3.optInt("errno", -1) == 0;
     }
 
     public final void m() {
-        j jVar = this.f63637g;
+        j jVar = this.f64274g;
         if (jVar != null) {
-            jVar.b(this.f63633c.a());
+            jVar.b(this.f64270c.a());
         }
     }
 
     public final void o() {
-        AtomicInteger atomicInteger = this.f63632b;
+        AtomicInteger atomicInteger = this.f64269b;
         if (atomicInteger != null) {
             atomicInteger.set(2);
         }
@@ -154,15 +154,15 @@ public class b {
 
     public void t() {
         synchronized (b.class) {
-            if (this.f63632b.get() == 0) {
-                if (this.f63638h == null) {
+            if (this.f64269b.get() == 0) {
+                if (this.f64275h == null) {
                     throw new NullPointerException("context should not be null");
                 }
-                this.f63632b.set(1);
-                if (this.f63631a == null) {
-                    this.f63631a = new Thread(h());
+                this.f64269b.set(1);
+                if (this.f64268a == null) {
+                    this.f64268a = new Thread(h());
                 }
-                this.f63631a.start();
+                this.f64268a.start();
             }
         }
     }

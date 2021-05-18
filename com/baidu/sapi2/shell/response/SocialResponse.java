@@ -3,6 +3,7 @@ package com.baidu.sapi2.shell.response;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -26,7 +27,7 @@ public class SocialResponse extends SapiAccountResponse {
         socialResponse.errorCode = jSONObject.optInt("errno");
         socialResponse.errorMsg = jSONObject.optString("errmsg");
         socialResponse.livingUname = jSONObject.optString("livinguname");
-        socialResponse.socialType = SocialType.getSocialType(jSONObject.optInt("os_type"));
+        socialResponse.socialType = SocialType.getSocialType(jSONObject.optInt(SearchJsBridge.COOKIE_OS_TYPE));
         socialResponse.bduss = jSONObject.optString("bduss");
         socialResponse.socialPortraitUrl = jSONObject.optString("os_headurl");
         String optString = jSONObject.optString("incomplete_user");

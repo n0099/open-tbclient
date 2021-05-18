@@ -11,74 +11,74 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.n0.a.a;
+import d.a.k0.n0.a.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f15714a;
+    public Context f15029a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f15715b;
+    public ArrayList<a> f15030b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f15716c = null;
+    public View.OnClickListener f15031c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f15717d = null;
+    public View.OnClickListener f15032d = null;
 
     /* loaded from: classes4.dex */
     public static class FansViewHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f15718a;
+        public View f15033a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ClickableHeaderImageView f15719b;
+        public ClickableHeaderImageView f15034b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f15720c;
+        public TextView f15035c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f15721d;
+        public TextView f15036d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f15722e;
+        public View f15037e;
 
         public FansViewHolder(View view) {
             super(view);
-            this.f15718a = view.findViewById(R.id.container_forbidden_item);
+            this.f15033a = view.findViewById(R.id.container_forbidden_item);
             ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
-            this.f15719b = clickableHeaderImageView;
+            this.f15034b = clickableHeaderImageView;
             clickableHeaderImageView.setRadius(l.g(view.getContext(), R.dimen.ds90));
-            this.f15719b.setAutoChangeStyle(true);
-            this.f15719b.setClickable(false);
-            this.f15720c = (TextView) view.findViewById(R.id.view_fans_name);
-            this.f15721d = (TextView) view.findViewById(R.id.view_fans_remove);
-            this.f15722e = view.findViewById(R.id.line_divider);
+            this.f15034b.setAutoChangeStyle(true);
+            this.f15034b.setClickable(false);
+            this.f15035c = (TextView) view.findViewById(R.id.view_fans_name);
+            this.f15036d = (TextView) view.findViewById(R.id.view_fans_remove);
+            this.f15037e = view.findViewById(R.id.line_divider);
         }
     }
 
     public MyForbiddenFansListAdapter(Context context) {
-        this.f15714a = context;
+        this.f15029a = context;
     }
 
     public final void c(FansViewHolder fansViewHolder) {
-        SkinManager.setViewTextColor(fansViewHolder.f15720c, R.color.CAM_X0105);
-        SkinManager.setBackgroundColor(fansViewHolder.f15722e, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(fansViewHolder.f15721d, R.color.btn_color_remove);
-        SkinManager.setBackgroundResource(fansViewHolder.f15721d, R.drawable.btn_transparent_focus_border_bg);
+        SkinManager.setViewTextColor(fansViewHolder.f15035c, R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(fansViewHolder.f15037e, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(fansViewHolder.f15036d, R.color.btn_color_remove);
+        SkinManager.setBackgroundResource(fansViewHolder.f15036d, R.drawable.btn_transparent_focus_border_bg);
     }
 
     public boolean d(long j) {
-        if (j != 0 && !ListUtils.isEmpty(this.f15715b)) {
-            Iterator<a> it = this.f15715b.iterator();
+        if (j != 0 && !ListUtils.isEmpty(this.f15030b)) {
+            Iterator<a> it = this.f15030b.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next != null && next.f56880a == j) {
-                    this.f15715b.remove(next);
+                if (next != null && next.f57587a == j) {
+                    this.f15030b.remove(next);
                     return true;
                 }
             }
@@ -87,20 +87,20 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     }
 
     public ArrayList<a> e() {
-        return this.f15715b;
+        return this.f15030b;
     }
 
     public final a f(int i2) {
-        return (a) ListUtils.getItem(this.f15715b, i2);
+        return (a) ListUtils.getItem(this.f15030b, i2);
     }
 
     public boolean g() {
-        return ListUtils.isEmpty(this.f15715b);
+        return ListUtils.isEmpty(this.f15030b);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return ListUtils.getCount(this.f15715b);
+        return ListUtils.getCount(this.f15030b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -111,12 +111,12 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         if (fansViewHolder == null || (f2 = f(i2)) == null) {
             return;
         }
-        fansViewHolder.f15719b.V(f2.f56883d, 12, false);
-        fansViewHolder.f15720c.setText(f2.f56882c);
-        fansViewHolder.f15721d.setOnClickListener(this.f15716c);
-        fansViewHolder.f15721d.setTag(f2);
-        fansViewHolder.f15718a.setOnClickListener(this.f15717d);
-        fansViewHolder.f15718a.setTag(f2);
+        fansViewHolder.f15034b.V(f2.f57590d, 12, false);
+        fansViewHolder.f15035c.setText(f2.f57589c);
+        fansViewHolder.f15036d.setOnClickListener(this.f15031c);
+        fansViewHolder.f15036d.setTag(f2);
+        fansViewHolder.f15033a.setOnClickListener(this.f15032d);
+        fansViewHolder.f15033a.setTag(f2);
         c(fansViewHolder);
     }
 
@@ -124,18 +124,18 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: i */
     public FansViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
-        return new FansViewHolder(LayoutInflater.from(this.f15714a).inflate(R.layout.forbidden_fans_item, (ViewGroup) null));
+        return new FansViewHolder(LayoutInflater.from(this.f15029a).inflate(R.layout.forbidden_fans_item, (ViewGroup) null));
     }
 
     public void j(ArrayList<a> arrayList) {
-        this.f15715b = arrayList;
+        this.f15030b = arrayList;
     }
 
     public void k(View.OnClickListener onClickListener) {
-        this.f15717d = onClickListener;
+        this.f15032d = onClickListener;
     }
 
     public void l(View.OnClickListener onClickListener) {
-        this.f15716c = onClickListener;
+        this.f15031c = onClickListener;
     }
 }

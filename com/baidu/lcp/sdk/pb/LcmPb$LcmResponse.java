@@ -45,19 +45,19 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmResponse, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6616e;
+        public int f6440e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6617f;
+        public long f6441f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f6618g;
+        public int f6442g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Object f6619h = "";
+        public Object f6443h = "";
 
         /* renamed from: i  reason: collision with root package name */
-        public long f6620i;
+        public long f6444i;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -74,7 +74,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
 
         public boolean hasErrorCode() {
-            return (this.f6616e & 2) == 2;
+            return (this.f6440e & 2) == 2;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -107,38 +107,38 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         /* renamed from: n */
         public LcmPb$LcmResponse buildPartial() {
             LcmPb$LcmResponse lcmPb$LcmResponse = new LcmPb$LcmResponse(this);
-            int i2 = this.f6616e;
+            int i2 = this.f6440e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            lcmPb$LcmResponse.logId_ = this.f6617f;
+            lcmPb$LcmResponse.logId_ = this.f6441f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            lcmPb$LcmResponse.errorCode_ = this.f6618g;
+            lcmPb$LcmResponse.errorCode_ = this.f6442g;
             if ((i2 & 4) == 4) {
                 i3 |= 4;
             }
-            lcmPb$LcmResponse.errorMsg_ = this.f6619h;
+            lcmPb$LcmResponse.errorMsg_ = this.f6443h;
             if ((i2 & 8) == 8) {
                 i3 |= 8;
             }
-            lcmPb$LcmResponse.nextIntervalMs_ = this.f6620i;
+            lcmPb$LcmResponse.nextIntervalMs_ = this.f6444i;
             lcmPb$LcmResponse.bitField0_ = i3;
             return lcmPb$LcmResponse;
         }
 
         public b o() {
             super.clear();
-            this.f6617f = 0L;
-            int i2 = this.f6616e & (-2);
-            this.f6616e = i2;
-            this.f6618g = 0;
+            this.f6441f = 0L;
+            int i2 = this.f6440e & (-2);
+            this.f6440e = i2;
+            this.f6442g = 0;
             int i3 = i2 & (-3);
-            this.f6616e = i3;
-            this.f6619h = "";
+            this.f6440e = i3;
+            this.f6443h = "";
             int i4 = i3 & (-5);
-            this.f6616e = i4;
-            this.f6620i = 0L;
-            this.f6616e = i4 & (-9);
+            this.f6440e = i4;
+            this.f6444i = 0L;
+            this.f6440e = i4 & (-9);
             return this;
         }
 
@@ -159,11 +159,11 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
 
         public boolean s() {
-            return (this.f6616e & 4) == 4;
+            return (this.f6440e & 4) == 4;
         }
 
         public boolean t() {
-            return (this.f6616e & 1) == 1;
+            return (this.f6440e & 1) == 1;
         }
 
         public b u(LcmPb$LcmResponse lcmPb$LcmResponse) {
@@ -177,8 +177,8 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
                 w(lcmPb$LcmResponse.getErrorCode());
             }
             if (lcmPb$LcmResponse.hasErrorMsg()) {
-                this.f6616e |= 4;
-                this.f6619h = lcmPb$LcmResponse.errorMsg_;
+                this.f6440e |= 4;
+                this.f6443h = lcmPb$LcmResponse.errorMsg_;
             }
             if (lcmPb$LcmResponse.hasNextIntervalMs()) {
                 y(lcmPb$LcmResponse.getNextIntervalMs());
@@ -221,20 +221,20 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
 
         public b w(int i2) {
-            this.f6616e |= 2;
-            this.f6618g = i2;
+            this.f6440e |= 2;
+            this.f6442g = i2;
             return this;
         }
 
         public b x(long j) {
-            this.f6616e |= 1;
-            this.f6617f = j;
+            this.f6440e |= 1;
+            this.f6441f = j;
             return this;
         }
 
         public b y(long j) {
-            this.f6616e |= 8;
-            this.f6620i = j;
+            this.f6440e |= 8;
+            this.f6444i = j;
             return this;
         }
 

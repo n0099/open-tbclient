@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Writer f30518a = new Writer() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.f.1
+    public static final Writer f29763a = new Writer() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.f.1
         @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             throw new AssertionError();
@@ -28,48 +28,48 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public static final q f30519b = new q("closed");
+    public static final q f29764b = new q("closed");
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<com.bytedance.sdk.openadsdk.preload.a.l> f30520c;
+    public final List<com.bytedance.sdk.openadsdk.preload.a.l> f29765c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30521d;
+    public String f29766d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.a.l f30522e;
+    public com.bytedance.sdk.openadsdk.preload.a.l f29767e;
 
     public f() {
-        super(f30518a);
-        this.f30520c = new ArrayList();
-        this.f30522e = com.bytedance.sdk.openadsdk.preload.a.n.f30743a;
+        super(f29763a);
+        this.f29765c = new ArrayList();
+        this.f29767e = com.bytedance.sdk.openadsdk.preload.a.n.f29988a;
     }
 
     private com.bytedance.sdk.openadsdk.preload.a.l j() {
-        List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f30520c;
+        List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f29765c;
         return list.get(list.size() - 1);
     }
 
     public com.bytedance.sdk.openadsdk.preload.a.l a() {
-        if (this.f30520c.isEmpty()) {
-            return this.f30522e;
+        if (this.f29765c.isEmpty()) {
+            return this.f29767e;
         }
-        throw new IllegalStateException("Expected one JSON element but was " + this.f30520c);
+        throw new IllegalStateException("Expected one JSON element but was " + this.f29765c);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c b() throws IOException {
         com.bytedance.sdk.openadsdk.preload.a.i iVar = new com.bytedance.sdk.openadsdk.preload.a.i();
         a(iVar);
-        this.f30520c.add(iVar);
+        this.f29765c.add(iVar);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c c() throws IOException {
-        if (!this.f30520c.isEmpty() && this.f30521d == null) {
+        if (!this.f29765c.isEmpty() && this.f29766d == null) {
             if (j() instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
-                List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f30520c;
+                List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f29765c;
                 list.remove(list.size() - 1);
                 return this;
             }
@@ -80,8 +80,8 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.f30520c.isEmpty()) {
-            this.f30520c.add(f30519b);
+        if (this.f29765c.isEmpty()) {
+            this.f29765c.add(f29764b);
             return;
         }
         throw new IOException("Incomplete document");
@@ -91,15 +91,15 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
     public com.bytedance.sdk.openadsdk.preload.a.d.c d() throws IOException {
         o oVar = new o();
         a(oVar);
-        this.f30520c.add(oVar);
+        this.f29765c.add(oVar);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c e() throws IOException {
-        if (!this.f30520c.isEmpty() && this.f30521d == null) {
+        if (!this.f29765c.isEmpty() && this.f29766d == null) {
             if (j() instanceof o) {
-                List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f30520c;
+                List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f29765c;
                 list.remove(list.size() - 1);
                 return this;
             }
@@ -110,7 +110,7 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c f() throws IOException {
-        a(com.bytedance.sdk.openadsdk.preload.a.n.f30743a);
+        a(com.bytedance.sdk.openadsdk.preload.a.n.f29988a);
         return this;
     }
 
@@ -119,13 +119,13 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
     }
 
     private void a(com.bytedance.sdk.openadsdk.preload.a.l lVar) {
-        if (this.f30521d != null) {
+        if (this.f29766d != null) {
             if (!lVar.j() || i()) {
-                ((o) j()).a(this.f30521d, lVar);
+                ((o) j()).a(this.f29766d, lVar);
             }
-            this.f30521d = null;
-        } else if (this.f30520c.isEmpty()) {
-            this.f30522e = lVar;
+            this.f29766d = null;
+        } else if (this.f29765c.isEmpty()) {
+            this.f29767e = lVar;
         } else {
             com.bytedance.sdk.openadsdk.preload.a.l j = j();
             if (j instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
@@ -148,9 +148,9 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
     @Override // com.bytedance.sdk.openadsdk.preload.a.d.c
     public com.bytedance.sdk.openadsdk.preload.a.d.c a(String str) throws IOException {
         if (str != null) {
-            if (!this.f30520c.isEmpty() && this.f30521d == null) {
+            if (!this.f29765c.isEmpty() && this.f29766d == null) {
                 if (j() instanceof o) {
-                    this.f30521d = str;
+                    this.f29766d = str;
                     return this;
                 }
                 throw new IllegalStateException();

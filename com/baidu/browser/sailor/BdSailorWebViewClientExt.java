@@ -5,7 +5,6 @@ import android.view.View;
 import android.webkit.SslErrorHandler;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebViewClient;
-import d.a.h.b.b;
 /* loaded from: classes.dex */
 public class BdSailorWebViewClientExt implements INoProGuard {
     public static final BdSailorWebViewClientExt DEFAULT = new BdSailorWebViewClientExt();
@@ -14,6 +13,129 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public enum ENativeViewType {
         ERROR_PAGE_VEIEW,
         SAFE_PAGE_VIEW
+    }
+
+    /* loaded from: classes.dex */
+    public static class FirstScreenImageInfo implements INoProGuard {
+        public boolean bHaveImageInScreen;
+        public int nErrorOccurredCount;
+        public int nImageCount;
+        public long nMaxTimeStamp;
+        public int nPaintHeightForMaxImage;
+        public int nPaintWidthForMaxImage;
+        public int nPosXForMaxImage;
+        public int nPosYForMaxImage;
+        public long nTimeStampForMaxImage;
+        public String url;
+
+        public int getErrorOccurredCount() {
+            return this.nErrorOccurredCount;
+        }
+
+        public boolean getHaveImageInScreen() {
+            return this.bHaveImageInScreen;
+        }
+
+        public int getImageCount() {
+            return this.nImageCount;
+        }
+
+        public long getMaxTimeStamp() {
+            return this.nMaxTimeStamp;
+        }
+
+        public int getPaintHeightForMaxImage() {
+            return this.nPaintHeightForMaxImage;
+        }
+
+        public int getPaintWidthForMaxImage() {
+            return this.nPaintWidthForMaxImage;
+        }
+
+        public int getPosXForMaxImage() {
+            return this.nPosXForMaxImage;
+        }
+
+        public int getPosYForMaxImage() {
+            return this.nPosYForMaxImage;
+        }
+
+        public long getTimeStampForMaxImage() {
+            return this.nTimeStampForMaxImage;
+        }
+
+        public String getUrl() {
+            return this.url;
+        }
+
+        public void setErrorOccurredCount(int i2) {
+            this.nErrorOccurredCount = i2;
+        }
+
+        public void setHaveImageInScreen(boolean z) {
+            this.bHaveImageInScreen = z;
+        }
+
+        public void setImageCount(int i2) {
+            this.nImageCount = i2;
+        }
+
+        public void setMaxTimeStamp(long j) {
+            this.nMaxTimeStamp = j;
+        }
+
+        public void setPaintHeightForMaxImage(int i2) {
+            this.nPaintHeightForMaxImage = i2;
+        }
+
+        public void setPaintWidthForMaxImage(int i2) {
+            this.nPaintWidthForMaxImage = i2;
+        }
+
+        public void setPosXForMaxImage(int i2) {
+            this.nPosXForMaxImage = i2;
+        }
+
+        public void setPosYForMaxImage(int i2) {
+            this.nPosYForMaxImage = i2;
+        }
+
+        public void setTimeStampForMaxImage(long j) {
+            this.nTimeStampForMaxImage = j;
+        }
+
+        public void setUrl(String str) {
+            this.url = str;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class FirstScreenInfo implements INoProGuard {
+        public int diffDomcompleteAndFspTime;
+
+        public int getDiffDomcompleteAndFspTime() {
+            return this.diffDomcompleteAndFspTime;
+        }
+
+        public void setDiffDomcompleteAndFspTime(int i2) {
+            this.diffDomcompleteAndFspTime = i2;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class a implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BdSailorWebView f4281e;
+
+        public a(BdSailorWebViewClientExt bdSailorWebViewClientExt, BdSailorWebView bdSailorWebView) {
+            this.f4281e = bdSailorWebView;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            this.f4281e.showEmbeddedTitleBar(false);
+        }
     }
 
     public void antiHijackSignExt(BdSailorWebView bdSailorWebView, String str) {
@@ -54,7 +176,14 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public void onFirstPaintDidExt(BdSailorWebView bdSailorWebView, String str) {
     }
 
+    public void onFirstScreenImagePaint(BdSailorWebView bdSailorWebView, FirstScreenImageInfo firstScreenImageInfo) {
+    }
+
+    @Deprecated
     public void onFirstScreenPaintFinishedExt(BdSailorWebView bdSailorWebView, String str) {
+    }
+
+    public void onFirstScreenPaintFinishedExt(BdSailorWebView bdSailorWebView, String str, FirstScreenInfo firstScreenInfo) {
     }
 
     public void onFirstTextPaintExt(BdSailorWebView bdSailorWebView, String str) {
@@ -87,7 +216,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         if (bdSailorWebView == null || !bdSailorWebView.isAutoShowTitlebar()) {
             return;
         }
-        bdSailorWebView.post(new b(this, bdSailorWebView));
+        bdSailorWebView.post(new a(this, bdSailorWebView));
     }
 
     public void onGoPreloadForwardExt(BdSailorWebView bdSailorWebView) {

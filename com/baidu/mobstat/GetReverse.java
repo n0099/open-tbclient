@@ -5,12 +5,12 @@ import android.content.Context;
 public class GetReverse {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ICooperService f8675a;
+    public static ICooperService f8487a;
 
     public static ICooperService getCooperService(Context context) {
-        if (f8675a == null) {
-            f8675a = CooperService.instance();
+        if (f8487a == null) {
+            f8487a = CooperService.instance();
         }
-        return f8675a;
+        return f8487a;
     }
 }

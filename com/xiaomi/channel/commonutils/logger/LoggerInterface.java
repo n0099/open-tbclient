@@ -1,5 +1,5 @@
 package com.xiaomi.channel.commonutils.logger;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface LoggerInterface {
     void log(String str);
 

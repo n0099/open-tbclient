@@ -21,14 +21,14 @@ public final class TimedValue<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlin.time.TimedValue */
     /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: copy-RFiDyg4$default  reason: not valid java name */
-    public static /* synthetic */ TimedValue m1945copyRFiDyg4$default(TimedValue timedValue, Object obj, double d2, int i2, Object obj2) {
+    public static /* synthetic */ TimedValue m1944copyRFiDyg4$default(TimedValue timedValue, Object obj, double d2, int i2, Object obj2) {
         if ((i2 & 1) != 0) {
             obj = timedValue.value;
         }
         if ((i2 & 2) != 0) {
             d2 = timedValue.duration;
         }
-        return timedValue.m1947copyRFiDyg4(obj, d2);
+        return timedValue.m1946copyRFiDyg4(obj, d2);
     }
 
     public final T component1() {
@@ -36,12 +36,12 @@ public final class TimedValue<T> {
     }
 
     /* renamed from: component2-UwyO8pc  reason: not valid java name */
-    public final double m1946component2UwyO8pc() {
+    public final double m1945component2UwyO8pc() {
         return this.duration;
     }
 
     /* renamed from: copy-RFiDyg4  reason: not valid java name */
-    public final TimedValue<T> m1947copyRFiDyg4(T t, double d2) {
+    public final TimedValue<T> m1946copyRFiDyg4(T t, double d2) {
         return new TimedValue<>(t, d2);
     }
 
@@ -57,7 +57,7 @@ public final class TimedValue<T> {
     }
 
     /* renamed from: getDuration-UwyO8pc  reason: not valid java name */
-    public final double m1948getDurationUwyO8pc() {
+    public final double m1947getDurationUwyO8pc() {
         return this.duration;
     }
 
@@ -73,7 +73,7 @@ public final class TimedValue<T> {
     }
 
     public String toString() {
-        return "TimedValue(value=" + this.value + ", duration=" + Duration.m1932toStringimpl(this.duration) + SmallTailInfo.EMOTION_SUFFIX;
+        return "TimedValue(value=" + this.value + ", duration=" + Duration.m1931toStringimpl(this.duration) + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public /* synthetic */ TimedValue(Object obj, double d2, DefaultConstructorMarker defaultConstructorMarker) {

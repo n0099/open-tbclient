@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static void a(Context context, View view) {
         if (context == null || view == null) {

@@ -3,85 +3,85 @@ package d.a.c.e.j.a.j;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39751a;
+    public String f38996a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39754d;
+    public String f38999d;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f39756f;
+    public String f39001f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39757g;
+    public int f39002g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f39758h;
+    public long f39003h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39759i;
+    public int f39004i;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39752b = false;
+    public boolean f38997b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39753c = false;
+    public boolean f38998c = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39755e = 0;
+    public int f39000e = 0;
 
     public String a() {
-        return this.f39751a;
+        return this.f38996a;
     }
 
     public String b() {
-        return this.f39756f;
+        return this.f39001f;
     }
 
     public boolean c() {
-        return this.f39753c;
+        return this.f38998c;
     }
 
     public void d() {
-        this.f39754d = "";
+        this.f38999d = "";
     }
 
     public void e(boolean z) {
-        this.f39753c = z;
+        this.f38998c = z;
     }
 
     public void f(long j) {
-        this.f39758h = j;
+        this.f39003h = j;
     }
 
     public void g(String str) {
-        this.f39751a = str;
+        this.f38996a = str;
     }
 
     public void h(String str) {
-        this.f39754d = str;
+        this.f38999d = str;
     }
 
     public void i(boolean z) {
-        this.f39752b = z;
+        this.f38997b = z;
     }
 
     public void j(int i2) {
-        this.f39759i = i2;
+        this.f39004i = i2;
     }
 
     public void k(String str) {
-        this.f39756f = str;
+        this.f39001f = str;
     }
 
     public void l(int i2) {
-        this.f39755e = i2;
+        this.f39000e = i2;
     }
 
     public void m(int i2) {
-        this.f39757g = i2;
+        this.f39002g = i2;
     }
 
     public String toString() {
-        return "isFromNet_" + this.f39752b + "-statType_" + this.f39757g + "-dnsErr_" + this.f39754d + "-hasRetry_" + this.f39755e + "-cost_" + this.f39758h + "-ipIndex_" + this.f39759i + "-ipResult_" + this.f39751a;
+        return "isFromNet_" + this.f38997b + "-statType_" + this.f39002g + "-dnsErr_" + this.f38999d + "-hasRetry_" + this.f39000e + "-cost_" + this.f39003h + "-ipIndex_" + this.f39004i + "-ipResult_" + this.f38996a;
     }
 }

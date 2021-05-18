@@ -10,114 +10,114 @@ import java.net.SocketException;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f35058a;
+    public final int f34303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConnectTask f35059b;
+    public final ConnectTask f34304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f35060c;
+    public final f f34305c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f35061d;
+    public final String f34306d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f35062e;
+    public final boolean f34307e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f35063f;
+    public e f34308f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f35064g;
+    public volatile boolean f34309g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f35065h;
+    public final int f34310h;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ConnectTask.a f35066a = new ConnectTask.a();
+        public final ConnectTask.a f34311a = new ConnectTask.a();
 
         /* renamed from: b  reason: collision with root package name */
-        public f f35067b;
+        public f f34312b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f35068c;
+        public String f34313c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Boolean f35069d;
+        public Boolean f34314d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Integer f35070e;
+        public Integer f34315e;
 
         public a a(int i2) {
-            this.f35066a.a(i2);
+            this.f34311a.a(i2);
             return this;
         }
 
         public a a(com.kwai.filedownloader.d.b bVar) {
-            this.f35066a.a(bVar);
+            this.f34311a.a(bVar);
             return this;
         }
 
         public a a(com.kwai.filedownloader.download.a aVar) {
-            this.f35066a.a(aVar);
+            this.f34311a.a(aVar);
             return this;
         }
 
         public a a(f fVar) {
-            this.f35067b = fVar;
+            this.f34312b = fVar;
             return this;
         }
 
         public a a(Integer num) {
-            this.f35070e = num;
+            this.f34315e = num;
             return this;
         }
 
         public a a(String str) {
-            this.f35066a.a(str);
+            this.f34311a.a(str);
             return this;
         }
 
         public a a(boolean z) {
-            this.f35069d = Boolean.valueOf(z);
+            this.f34314d = Boolean.valueOf(z);
             return this;
         }
 
         public c a() {
-            if (this.f35067b == null || this.f35068c == null || this.f35069d == null || this.f35070e == null) {
-                throw new IllegalArgumentException(com.kwai.filedownloader.f.f.a("%s %s %B", this.f35067b, this.f35068c, this.f35069d));
+            if (this.f34312b == null || this.f34313c == null || this.f34314d == null || this.f34315e == null) {
+                throw new IllegalArgumentException(com.kwai.filedownloader.f.f.a("%s %s %B", this.f34312b, this.f34313c, this.f34314d));
             }
-            ConnectTask a2 = this.f35066a.a();
-            return new c(a2.f35018a, this.f35070e.intValue(), a2, this.f35067b, this.f35069d.booleanValue(), this.f35068c);
+            ConnectTask a2 = this.f34311a.a();
+            return new c(a2.f34263a, this.f34315e.intValue(), a2, this.f34312b, this.f34314d.booleanValue(), this.f34313c);
         }
 
         public a b(String str) {
-            this.f35066a.b(str);
+            this.f34311a.b(str);
             return this;
         }
 
         public a c(String str) {
-            this.f35068c = str;
+            this.f34313c = str;
             return this;
         }
     }
 
     public c(int i2, int i3, ConnectTask connectTask, f fVar, boolean z, String str) {
-        this.f35065h = i2;
-        this.f35058a = i3;
-        this.f35064g = false;
-        this.f35060c = fVar;
-        this.f35061d = str;
-        this.f35059b = connectTask;
-        this.f35062e = z;
+        this.f34310h = i2;
+        this.f34303a = i3;
+        this.f34309g = false;
+        this.f34305c = fVar;
+        this.f34306d = str;
+        this.f34304b = connectTask;
+        this.f34307e = z;
     }
 
     public void a() {
-        this.f35064g = true;
-        e eVar = this.f35063f;
+        this.f34309g = true;
+        e eVar = this.f34308f;
         if (eVar != null) {
             eVar.a();
         }
@@ -134,19 +134,19 @@ public class c implements Runnable {
         Exception e2;
         e.a aVar;
         Process.setThreadPriority(10);
-        long j = this.f35059b.e().f35048b;
+        long j = this.f34304b.e().f34293b;
         com.kwai.filedownloader.a.b bVar = null;
         boolean z2 = false;
-        while (!this.f35064g) {
+        while (!this.f34309g) {
             try {
                 try {
-                    bVar = this.f35059b.a();
+                    bVar = this.f34304b.a();
                     int e3 = bVar.e();
-                    if (com.kwai.filedownloader.f.d.f35118a) {
-                        com.kwai.filedownloader.f.d.c(this, "the connection[%d] for %d, is connected %s with requestHttpCode[%d]", Integer.valueOf(this.f35058a), Integer.valueOf(this.f35065h), this.f35059b.e(), Integer.valueOf(e3));
+                    if (com.kwai.filedownloader.f.d.f34363a) {
+                        com.kwai.filedownloader.f.d.c(this, "the connection[%d] for %d, is connected %s with requestHttpCode[%d]", Integer.valueOf(this.f34303a), Integer.valueOf(this.f34310h), this.f34304b.e(), Integer.valueOf(e3));
                     }
                     if (e3 != 206 && e3 != 200) {
-                        throw new SocketException(com.kwai.filedownloader.f.f.a("Connection failed with request[%s] response[%s] http-state[%d] on task[%d-%d], which is changed after verify connection, so please try again.", this.f35059b.d(), bVar.c(), Integer.valueOf(e3), Integer.valueOf(this.f35065h), Integer.valueOf(this.f35058a)));
+                        throw new SocketException(com.kwai.filedownloader.f.f.a("Connection failed with request[%s] response[%s] http-state[%d] on task[%d-%d], which is changed after verify connection, so please try again.", this.f34304b.d(), bVar.c(), Integer.valueOf(e3), Integer.valueOf(this.f34310h), Integer.valueOf(this.f34303a)));
                         break;
                     }
                 } catch (FileDownloadGiveUpRetryException | IOException | IllegalAccessException | IllegalArgumentException e4) {
@@ -163,14 +163,14 @@ public class c implements Runnable {
                 e2 = e6;
                 z = true;
                 try {
-                    if (this.f35060c.a(e2)) {
+                    if (this.f34305c.a(e2)) {
                         if (!z) {
-                            this.f35060c.a(e2, 0L);
-                        } else if (this.f35063f != null) {
-                            this.f35060c.a(e2, this.f35063f.f35083a - j);
+                            this.f34305c.a(e2, 0L);
+                        } else if (this.f34308f != null) {
+                            this.f34305c.a(e2, this.f34308f.f34328a - j);
                         } else {
                             com.kwai.filedownloader.f.d.d(this, "it is valid to retry and connection is valid but create fetch-data-task failed, so give up directly with %s", e2);
-                            this.f35060c.b(e2);
+                            this.f34305c.b(e2);
                             if (bVar == null) {
                                 return;
                             }
@@ -180,7 +180,7 @@ public class c implements Runnable {
                         }
                         z2 = z;
                     } else {
-                        this.f35060c.b(e2);
+                        this.f34305c.b(e2);
                         if (bVar == null) {
                             return;
                         }
@@ -192,18 +192,18 @@ public class c implements Runnable {
                     }
                 }
             }
-            if (this.f35064g) {
+            if (this.f34309g) {
                 if (bVar != null) {
                     bVar.f();
                     return;
                 }
                 return;
             }
-            e a2 = aVar.b(this.f35065h).a(this.f35058a).a(this.f35060c).a(this).a(this.f35062e).a(bVar).a(this.f35059b.e()).a(this.f35061d).a();
-            this.f35063f = a2;
+            e a2 = aVar.b(this.f34310h).a(this.f34303a).a(this.f34305c).a(this).a(this.f34307e).a(bVar).a(this.f34304b.e()).a(this.f34306d).a();
+            this.f34308f = a2;
             a2.b();
-            if (this.f35064g) {
-                this.f35063f.a();
+            if (this.f34309g) {
+                this.f34308f.a();
             }
             if (bVar == null) {
                 return;

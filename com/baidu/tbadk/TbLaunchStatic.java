@@ -19,11 +19,11 @@ import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 import com.baidu.tieba.wxapi.WXEntryActivity;
-import d.a.i0.r.d0.b;
-import d.a.j0.e1.c;
-import d.a.j0.e1.v.a.d;
-import d.a.j0.e1.v.a.e;
-import d.a.j0.e1.v.a.f;
+import d.a.j0.r.d0.b;
+import d.a.k0.e1.c;
+import d.a.k0.e1.v.a.d;
+import d.a.k0.e1.v.a.e;
+import d.a.k0.e1.v.a.f;
 /* loaded from: classes3.dex */
 public class TbLaunchStatic {
     public static String Tag = "tag";

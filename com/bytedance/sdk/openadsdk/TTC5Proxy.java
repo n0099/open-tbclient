@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk;
 import android.content.Context;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.component.b.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TTC5Proxy {
     public static void loadDraw(Context context, AdSlot adSlot, TTAdNative.DrawFeedAdListener drawFeedAdListener) {
         adSlot.setDurationSlotType(9);

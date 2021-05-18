@@ -3,24 +3,24 @@ package com.xiaomi.push;
 public class dj {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile dj f38266a;
+    public static volatile dj f37511a;
 
     /* renamed from: a  reason: collision with other field name */
     public di f235a;
 
     public static dj a() {
-        if (f38266a == null) {
+        if (f37511a == null) {
             synchronized (dj.class) {
-                if (f38266a == null) {
-                    f38266a = new dj();
+                if (f37511a == null) {
+                    f37511a = new dj();
                 }
             }
         }
-        return f38266a;
+        return f37511a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public di m234a() {
+    public di m233a() {
         return this.f235a;
     }
 

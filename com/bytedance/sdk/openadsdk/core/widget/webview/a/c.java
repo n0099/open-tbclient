@@ -15,17 +15,17 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f29564a;
+    public static volatile c f28809a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f29566c = new Object();
+    public Object f28811c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public LruCache<String, t> f29567d = new LruCache<String, t>(2000) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.c.1
+    public LruCache<String, t> f28812d = new LruCache<String, t>(2000) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.LruCache
         /* renamed from: a */
@@ -35,26 +35,26 @@ public class c {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f29565b = Collections.synchronizedSet(new HashSet());
+    public Set<String> f28810b = Collections.synchronizedSet(new HashSet());
 
     public static c a() {
-        if (f29564a == null) {
+        if (f28809a == null) {
             synchronized (c.class) {
-                if (f29564a == null) {
-                    f29564a = new c();
+                if (f28809a == null) {
+                    f28809a = new c();
                 }
             }
         }
-        return f29564a;
+        return f28809a;
     }
 
     private void c(String str) {
         LruCache<String, t> lruCache;
-        if (TextUtils.isEmpty(str) || (lruCache = this.f29567d) == null || lruCache.size() <= 0) {
+        if (TextUtils.isEmpty(str) || (lruCache = this.f28812d) == null || lruCache.size() <= 0) {
             return;
         }
-        synchronized (this.f29566c) {
-            this.f29567d.remove(str);
+        synchronized (this.f28811c) {
+            this.f28812d.remove(str);
         }
     }
 
@@ -102,8 +102,8 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f29566c) {
-            tVar = this.f29567d.get(String.valueOf(str));
+        synchronized (this.f28811c) {
+            tVar = this.f28812d.get(String.valueOf(str));
         }
         if (tVar != null) {
             return tVar;
@@ -118,10 +118,10 @@ public class c {
                     String string4 = a2.getString(a2.getColumnIndex("url"));
                     String string5 = a2.getString(a2.getColumnIndex("data"));
                     t a3 = new t().a(string).b(string2).c(string3).d(string4).e(string5).f(a2.getString(a2.getColumnIndex("version"))).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time"))));
-                    synchronized (this.f29566c) {
-                        this.f29567d.put(string2, a3);
+                    synchronized (this.f28811c) {
+                        this.f28812d.put(string2, a3);
                     }
-                    this.f29565b.add(string2);
+                    this.f28810b.add(string2);
                     return a3;
                 }
             } catch (Throwable th) {
@@ -160,10 +160,10 @@ public class c {
                     String string5 = a2.getString(a2.getColumnIndex("data"));
                     String string6 = a2.getString(a2.getColumnIndex("version"));
                     arrayList.add(new t().a(string).b(string2).c(string3).d(string4).e(string5).f(string6).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time")))));
-                    synchronized (this.f29566c) {
-                        this.f29567d.put(string2, arrayList.get(arrayList.size() - 1));
+                    synchronized (this.f28811c) {
+                        this.f28812d.put(string2, arrayList.get(arrayList.size() - 1));
                     }
-                    this.f29565b.add(string2);
+                    this.f28810b.add(string2);
                 } catch (Throwable th) {
                     try {
                         u.c("TmplDbHelper", "getTemplate error", th);
@@ -203,10 +203,10 @@ public class c {
         } else {
             com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", contentValues);
         }
-        synchronized (this.f29566c) {
-            this.f29567d.put(tVar.b(), tVar);
+        synchronized (this.f28811c) {
+            this.f28812d.put(tVar.b(), tVar);
         }
-        this.f29565b.add(tVar.b());
+        this.f28810b.add(tVar.b());
     }
 
     public void a(Set<String> set) {

@@ -1342,16 +1342,16 @@ public class SapiJsInterpreters {
             super();
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x0032, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:11:0x0033, code lost:
             if (r4.this$0.configuration.supportFaceLogin != false) goto L11;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x0034, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:12:0x0035, code lost:
             r0 = true;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:24:0x0060, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:24:0x0065, code lost:
             if (r4.this$0.jsCallBacks.invokeScAppCallback != null) goto L11;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:29:0x0075, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:29:0x007a, code lost:
             if (r4.this$0.configuration.supportFaceLogin != false) goto L11;
          */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter

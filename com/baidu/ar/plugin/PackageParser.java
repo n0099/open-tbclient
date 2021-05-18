@@ -34,58 +34,58 @@ public abstract class PackageParser {
         this.mContext = context;
     }
 
-    public static PackageParser newPluginParser(Context context) throws Exception {
+    public static PackageParser newPluginParser(Context context) {
         if (Build.VERSION.SDK_INT >= 22) {
             return new PackageParserAPI22(context);
         }
         return null;
     }
 
-    public abstract void collectCertificates(int i2) throws Exception;
+    public abstract void collectCertificates(int i2);
 
-    public abstract ActivityInfo generateActivityInfo(Object obj, int i2) throws Exception;
+    public abstract ActivityInfo generateActivityInfo(Object obj, int i2);
 
-    public abstract ApplicationInfo generateApplicationInfo(int i2) throws Exception;
+    public abstract ApplicationInfo generateApplicationInfo(int i2);
 
-    public abstract InstrumentationInfo generateInstrumentationInfo(Object obj, int i2) throws Exception;
+    public abstract InstrumentationInfo generateInstrumentationInfo(Object obj, int i2);
 
-    public abstract PackageInfo generatePackageInfo(int[] iArr, int i2, long j, long j2, HashSet<String> hashSet) throws Exception;
+    public abstract PackageInfo generatePackageInfo(int[] iArr, int i2, long j, long j2, HashSet<String> hashSet);
 
-    public abstract PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i2) throws Exception;
+    public abstract PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i2);
 
-    public abstract PermissionInfo generatePermissionInfo(Object obj, int i2) throws Exception;
+    public abstract PermissionInfo generatePermissionInfo(Object obj, int i2);
 
-    public abstract ProviderInfo generateProviderInfo(Object obj, int i2) throws Exception;
+    public abstract ProviderInfo generateProviderInfo(Object obj, int i2);
 
-    public ActivityInfo generateReceiverInfo(Object obj, int i2) throws Exception {
+    public ActivityInfo generateReceiverInfo(Object obj, int i2) {
         return generateActivityInfo(obj, i2);
     }
 
-    public abstract ServiceInfo generateServiceInfo(Object obj, int i2) throws Exception;
+    public abstract ServiceInfo generateServiceInfo(Object obj, int i2);
 
-    public abstract List getActivities() throws Exception;
+    public abstract List getActivities();
 
-    public abstract List getInstrumentations() throws Exception;
+    public abstract List getInstrumentations();
 
-    public abstract String getPackageName() throws Exception;
+    public abstract String getPackageName();
 
-    public abstract List getPermissionGroups() throws Exception;
+    public abstract List getPermissionGroups();
 
-    public abstract List getPermissions() throws Exception;
+    public abstract List getPermissions();
 
-    public abstract List getProviders() throws Exception;
+    public abstract List getProviders();
 
-    public abstract List getReceivers() throws Exception;
+    public abstract List getReceivers();
 
-    public abstract List getRequestedPermissions() throws Exception;
+    public abstract List getRequestedPermissions();
 
-    public abstract List getServices() throws Exception;
+    public abstract List getServices();
 
-    public abstract void parsePackage(File file, int i2) throws Exception;
+    public abstract void parsePackage(File file, int i2);
 
-    public abstract List<IntentFilter> readIntentFilterFromComponent(Object obj) throws Exception;
+    public abstract List<IntentFilter> readIntentFilterFromComponent(Object obj);
 
-    public abstract String readNameFromComponent(Object obj) throws Exception;
+    public abstract String readNameFromComponent(Object obj);
 
-    public abstract void writeSignature(Signature[] signatureArr) throws Exception;
+    public abstract void writeSignature(Signature[] signatureArr);
 }

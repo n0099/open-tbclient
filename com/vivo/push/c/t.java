@@ -11,7 +11,7 @@ import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class t extends ab {
     public t(com.vivo.push.y yVar) {
         super(yVar);
@@ -39,17 +39,17 @@ public final class t extends ab {
             return;
         }
         UPSNotificationMessage a2 = com.vivo.push.util.q.a(f2);
-        boolean equals = this.f37578a.getPackageName().equals(rVar.d());
+        boolean equals = this.f36823a.getPackageName().equals(rVar.d());
         if (equals) {
-            NotifyAdapterUtil.cancelNotify(this.f37578a);
+            NotifyAdapterUtil.cancelNotify(this.f36823a);
         }
         if (equals) {
             com.vivo.push.b.aa aaVar = new com.vivo.push.b.aa(1030L);
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("type", "2");
             hashMap.put("messageID", String.valueOf(rVar.e()));
-            hashMap.put(Constants.PARAM_PLATFORM, this.f37578a.getPackageName());
-            Context context = this.f37578a;
+            hashMap.put(Constants.PARAM_PLATFORM, this.f36823a.getPackageName());
+            Context context = this.f36823a;
             String b2 = com.vivo.push.util.z.b(context, context.getPackageName());
             if (!TextUtils.isEmpty(b2)) {
                 hashMap.put("remoteAppId", b2);
@@ -60,7 +60,7 @@ public final class t extends ab {
             int skipType = a2.getSkipType();
             boolean z = true;
             if (skipType == 1) {
-                new Thread(new y(this, this.f37578a, a2.getParams())).start();
+                new Thread(new y(this, this.f36823a, a2.getParams())).start();
                 com.vivo.push.w.b(new u(this, a2));
                 return;
             } else if (skipType == 2) {
@@ -74,7 +74,7 @@ public final class t extends ab {
                     intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     b(intent, a2.getParams());
                     try {
-                        this.f37578a.startActivity(intent);
+                        this.f36823a.startActivity(intent);
                     } catch (Exception unused) {
                         com.vivo.push.util.p.a("OnNotificationClickTask", "startActivity error : " + parse);
                     }
@@ -97,19 +97,19 @@ public final class t extends ab {
                 } catch (Exception e2) {
                     com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : " + skipContent2, e2);
                 }
-                if (!TextUtils.isEmpty(str) && !this.f37578a.getPackageName().equals(str)) {
-                    com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : local pkgName is " + this.f37578a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
+                if (!TextUtils.isEmpty(str) && !this.f36823a.getPackageName().equals(str)) {
+                    com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : local pkgName is " + this.f36823a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
                     return;
                 }
                 String packageName = parseUri.getComponent() == null ? null : parseUri.getComponent().getPackageName();
-                if (!TextUtils.isEmpty(packageName) && !this.f37578a.getPackageName().equals(packageName)) {
-                    com.vivo.push.util.p.a("OnNotificationClickTask", "open activity component error : local pkgName is " + this.f37578a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
+                if (!TextUtils.isEmpty(packageName) && !this.f36823a.getPackageName().equals(packageName)) {
+                    com.vivo.push.util.p.a("OnNotificationClickTask", "open activity component error : local pkgName is " + this.f36823a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
                     return;
                 }
-                parseUri.setPackage(this.f37578a.getPackageName());
+                parseUri.setPackage(this.f36823a.getPackageName());
                 parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 b(parseUri, a2.getParams());
-                this.f37578a.startActivity(parseUri);
+                this.f36823a.startActivity(parseUri);
                 com.vivo.push.w.b(new x(this, a2));
                 return;
             }

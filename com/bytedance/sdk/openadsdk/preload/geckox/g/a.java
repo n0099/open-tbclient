@@ -5,29 +5,29 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Lock> f30895a = new HashMap();
+    public static final Map<String, Lock> f30140a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public FileLock f30896b;
+    public FileLock f30141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30897c;
+    public String f30142c;
 
     public a(String str, FileLock fileLock) {
-        this.f30897c = str;
-        this.f30896b = fileLock;
+        this.f30142c = str;
+        this.f30141b = fileLock;
     }
 
     public static a a(String str) throws Exception {
-        synchronized (f30895a) {
-            Lock lock = f30895a.get(str);
+        synchronized (f30140a) {
+            Lock lock = f30140a.get(str);
             if (lock == null) {
                 lock = new ReentrantLock();
-                f30895a.put(str, lock);
+                f30140a.put(str, lock);
             }
             if (lock.tryLock()) {
                 try {
@@ -48,10 +48,10 @@ public class a {
     }
 
     public void a() {
-        synchronized (f30895a) {
-            this.f30896b.a();
-            this.f30896b.b();
-            f30895a.get(this.f30897c).unlock();
+        synchronized (f30140a) {
+            this.f30141b.a();
+            this.f30141b.b();
+            f30140a.get(this.f30142c).unlock();
         }
     }
 }

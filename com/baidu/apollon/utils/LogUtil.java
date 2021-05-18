@@ -15,35 +15,35 @@ public final class LogUtil {
     public static final boolean DEBUG;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4051a = "apollon_rest";
+    public static final String f4052a = "apollon_rest";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f4052b;
+    public static final boolean f4053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f4053c;
+    public static final boolean f4054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f4054d;
+    public static final boolean f4055d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f4055e;
+    public static final boolean f4056e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f4056f;
+    public static final boolean f4057f;
 
     static {
         boolean z = ApollonConstants.DEBUG;
         DEBUG = z;
-        f4052b = z;
-        f4053c = z;
-        f4054d = z;
-        f4055e = z;
-        f4056f = z;
+        f4053b = z;
+        f4054c = z;
+        f4055d = z;
+        f4056e = z;
+        f4057f = z;
     }
 
     public static void d(String str, String str2) {
-        if (f4053c) {
+        if (f4054c) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -56,7 +56,7 @@ public final class LogUtil {
     }
 
     public static void e(String str, String str2, Throwable th) {
-        if (f4056f) {
+        if (f4057f) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -89,7 +89,7 @@ public final class LogUtil {
     }
 
     public static void i(String str, String str2) {
-        if (f4054d) {
+        if (f4055d) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -115,7 +115,7 @@ public final class LogUtil {
 
     public static void saveLog(Context context, String str) {
         String absolutePath;
-        if (f4053c) {
+        if (f4054c) {
             String str2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS    ", Locale.ENGLISH).format(new Date()) + str + "\n";
             try {
                 File externalFilesDir = context.getExternalFilesDir(null);
@@ -159,7 +159,7 @@ public final class LogUtil {
     }
 
     public static void v(String str, String str2) {
-        if (f4052b) {
+        if (f4053b) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -172,7 +172,7 @@ public final class LogUtil {
     }
 
     public static void w(String str, String str2) {
-        if (f4055e) {
+        if (f4056e) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }

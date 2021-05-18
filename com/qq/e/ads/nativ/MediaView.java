@@ -12,10 +12,10 @@ import com.qq.e.comm.util.GDTLogger;
 public final class MediaView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f36079a;
+    public int f35324a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36080b;
+    public int f35325b;
 
     public MediaView(Context context) {
         super(context);
@@ -42,19 +42,19 @@ public final class MediaView extends FrameLayout {
 
     @Override // android.widget.FrameLayout, android.view.View
     public final void onMeasure(int i2, int i3) {
-        if ((SDKStatus.getSDKVersionCode() == 11 || SDKStatus.getSDKVersionCode() == 12) && this.f36079a > 0 && this.f36080b > 0) {
+        if ((SDKStatus.getSDKVersionCode() == 11 || SDKStatus.getSDKVersionCode() == 12) && this.f35324a > 0 && this.f35325b > 0) {
             int size = View.MeasureSpec.getSize(i2);
             int size2 = View.MeasureSpec.getSize(i3);
-            int i4 = this.f36080b;
+            int i4 = this.f35325b;
             int i5 = size * i4;
-            int i6 = this.f36079a;
+            int i6 = this.f35324a;
             if (i5 < i6 * size2 || size2 == 0) {
                 int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(size, 1073741824);
-                i3 = View.MeasureSpec.makeMeasureSpec((size * this.f36080b) / this.f36079a, 1073741824);
+                i3 = View.MeasureSpec.makeMeasureSpec((size * this.f35325b) / this.f35324a, 1073741824);
                 i2 = makeMeasureSpec;
             } else {
                 if (i4 * size > i6 * size2 || size == 0) {
-                    size = (this.f36079a * size2) / this.f36080b;
+                    size = (this.f35324a * size2) / this.f35325b;
                 }
                 i2 = View.MeasureSpec.makeMeasureSpec(size, 1073741824);
                 i3 = View.MeasureSpec.makeMeasureSpec(size2, 1073741824);
@@ -64,7 +64,7 @@ public final class MediaView extends FrameLayout {
     }
 
     public final void setRatio(int i2, int i3) {
-        this.f36079a = i2;
-        this.f36080b = i3;
+        this.f35324a = i2;
+        this.f35325b = i3;
     }
 }

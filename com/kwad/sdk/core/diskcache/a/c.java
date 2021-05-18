@@ -8,10 +8,10 @@ import java.nio.charset.Charset;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f32913a = Charset.forName("US-ASCII");
+    public static final Charset f32158a = Charset.forName("US-ASCII");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f32914b = Charset.forName("UTF-8");
+    public static final Charset f32159b = Charset.forName("UTF-8");
 
     public static void a(Closeable closeable) {
         if (closeable != null) {

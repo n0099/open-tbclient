@@ -7,16 +7,16 @@ import android.util.Pair;
 import android.widget.ImageView;
 import d.b.c.b.b.d;
 import d.b.c.b.d.q;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements d.h {
 
     /* renamed from: a  reason: collision with root package name */
-    public LruCache<String, Pair<Bitmap, byte[]>> f64933a = new C1766a(this, Long.valueOf(Runtime.getRuntime().maxMemory()).intValue() / 16);
+    public LruCache<String, Pair<Bitmap, byte[]>> f65619a = new C1830a(this, Long.valueOf(Runtime.getRuntime().maxMemory()).intValue() / 16);
 
     /* renamed from: d.b.c.b.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C1766a extends LruCache<String, Pair<Bitmap, byte[]>> {
-        public C1766a(a aVar, int i2) {
+    /* loaded from: classes6.dex */
+    public class C1830a extends LruCache<String, Pair<Bitmap, byte[]>> {
+        public C1830a(a aVar, int i2) {
             super(i2);
         }
 
@@ -39,7 +39,7 @@ public class a implements d.h {
     @Override // d.b.c.b.b.d.h
     public byte[] a(String str) {
         try {
-            Pair<Bitmap, byte[]> pair = this.f64933a.get(str);
+            Pair<Bitmap, byte[]> pair = this.f65619a.get(str);
             byte[] bArr = pair != null ? (byte[]) pair.second : new byte[0];
             return bArr == null ? new byte[0] : bArr;
         } catch (Throwable th) {
@@ -51,7 +51,7 @@ public class a implements d.h {
     @Override // d.b.c.b.b.d.h
     public Bitmap b(String str) {
         try {
-            Pair<Bitmap, byte[]> pair = this.f64933a.get(str);
+            Pair<Bitmap, byte[]> pair = this.f65619a.get(str);
             if (pair != null) {
                 return (Bitmap) pair.first;
             }
@@ -68,7 +68,7 @@ public class a implements d.h {
             return;
         }
         try {
-            this.f64933a.put(str, new Pair<>(bitmap, bArr));
+            this.f65619a.put(str, new Pair<>(bitmap, bArr));
         } catch (Throwable th) {
             q.b(th, "DefaultImageCache put bitmap error", new Object[0]);
         }

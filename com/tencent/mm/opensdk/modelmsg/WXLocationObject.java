@@ -2,7 +2,7 @@ package com.tencent.mm.opensdk.modelmsg;
 
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WXLocationObject implements WXMediaMessage.IMediaObject {
     public static final String TAG = "MicroMsg.SDK.WXLocationObject";
     public double lat;

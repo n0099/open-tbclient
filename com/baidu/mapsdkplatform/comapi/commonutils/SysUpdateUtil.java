@@ -11,23 +11,23 @@ import com.baidu.webkit.internal.ConectivityUtils;
 public class SysUpdateUtil implements SysUpdateObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a f7830a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
+    public static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a f7627a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f7831b = false;
+    public static boolean f7628b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7832c = "";
+    public static String f7629c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f7833d = 0;
+    public static int f7630d = 0;
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     public void init() {
-        com.baidu.mapsdkplatform.comjni.map.commonmemcache.a aVar = f7830a;
+        com.baidu.mapsdkplatform.comjni.map.commonmemcache.a aVar = f7627a;
         if (aVar != null) {
             aVar.a();
-            f7830a.b();
+            f7627a.b();
         }
     }
 
@@ -53,53 +53,53 @@ public class SysUpdateUtil implements SysUpdateObserver {
         String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
         if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
             AppEngine.SetProxyInfo(null, 0);
-            f7831b = false;
+            f7628b = false;
         } else if (!lowerCase.equals("mobile") && (!lowerCase.equals("wifi") || NetworkUtil.isWifiConnected(activeNetworkInfo))) {
         } else {
             String extraInfo = activeNetworkInfo.getExtraInfo();
-            f7831b = false;
+            f7628b = false;
             if (extraInfo != null) {
                 String lowerCase2 = extraInfo.toLowerCase();
                 if (lowerCase2.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase2.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase2.startsWith(ConectivityUtils.APN_3GWAP)) {
-                    f7832c = "10.0.0.172";
+                    f7629c = "10.0.0.172";
                 } else {
                     if (!lowerCase2.startsWith(ConectivityUtils.APN_CTWAP)) {
                         if (lowerCase2.startsWith(ConectivityUtils.APN_CMNET) || lowerCase2.startsWith(ConectivityUtils.APN_UNINET) || lowerCase2.startsWith(ConectivityUtils.APN_CTNET) || lowerCase2.startsWith(ConectivityUtils.APN_3GNET)) {
-                            f7831b = false;
+                            f7628b = false;
                         }
-                        if (f7831b) {
-                            AppEngine.SetProxyInfo(f7832c, f7833d);
+                        if (f7628b) {
+                            AppEngine.SetProxyInfo(f7629c, f7630d);
                             return;
                         } else {
                             AppEngine.SetProxyInfo(null, 0);
                             return;
                         }
                     }
-                    f7832c = "10.0.0.200";
+                    f7629c = "10.0.0.200";
                 }
             } else {
                 String defaultHost = Proxy.getDefaultHost();
                 int defaultPort = Proxy.getDefaultPort();
                 if (defaultHost != null && defaultHost.length() > 0) {
                     if ("10.0.0.172".equals(defaultHost.trim())) {
-                        f7832c = "10.0.0.172";
-                        f7833d = defaultPort;
-                        f7831b = true;
+                        f7629c = "10.0.0.172";
+                        f7630d = defaultPort;
+                        f7628b = true;
                     }
                 }
-                if (f7831b) {
+                if (f7628b) {
                 }
             }
-            f7833d = 80;
-            f7831b = true;
-            if (f7831b) {
+            f7630d = 80;
+            f7628b = true;
+            if (f7628b) {
             }
         }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     public void updatePhoneInfo() {
-        com.baidu.mapsdkplatform.comjni.map.commonmemcache.a aVar = f7830a;
+        com.baidu.mapsdkplatform.comjni.map.commonmemcache.a aVar = f7627a;
         if (aVar != null) {
             aVar.b();
         }

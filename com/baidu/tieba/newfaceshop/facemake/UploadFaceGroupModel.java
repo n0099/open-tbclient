@@ -14,18 +14,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
-import d.a.j0.y1.g.e;
+import d.a.k0.y1.g.e;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UploadFaceGroupModel extends FaceBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f19393e = new a(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+    public final HttpMessageListener f18681e = new a(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public a(int i2) {
             super(i2);
@@ -72,7 +72,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                             return;
                         }
                         if (lVar != null) {
-                            lVar.a(groupId, arrayList);
+                            lVar.b(groupId, arrayList);
                         }
                         e.l().u(true, httpResponsedMessage.getErrorString());
                         if (z) {
@@ -95,9 +95,9 @@ public class UploadFaceGroupModel extends FaceBaseModel {
     public UploadFaceGroupModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f19393e.setTag(getUniqueId());
-        this.f19393e.setSelfListener(true);
-        registerListener(this.f19393e);
+        this.f18681e.setTag(getUniqueId());
+        this.f18681e.setSelfListener(true);
+        registerListener(this.f18681e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -107,7 +107,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f19393e);
+        MessageManager.getInstance().unRegisterListener(this.f18681e);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
         return true;
     }
@@ -120,7 +120,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
 
     public final void t(e.l lVar, String str) {
         if (lVar != null) {
-            lVar.onFail(str);
+            lVar.a(str);
         }
         e.l().u(false, str);
     }

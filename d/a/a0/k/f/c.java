@@ -8,7 +8,7 @@ import java.nio.charset.Charset;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f39165a = Charset.forName("US-ASCII");
+    public static final Charset f38410a = Charset.forName("US-ASCII");
 
     static {
         Charset.forName("UTF-8");

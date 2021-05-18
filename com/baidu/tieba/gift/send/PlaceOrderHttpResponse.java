@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.send;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.j0.u0.d.a;
+import d.a.k0.u0.d.a;
 import tbclient.Error;
 import tbclient.PlaceOrder.PlaceOrderResIdl;
 /* loaded from: classes4.dex */

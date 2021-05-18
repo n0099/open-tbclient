@@ -7,25 +7,25 @@ import com.baidu.tbadk.core.util.SkinManager;
 public class FrsEmpertyItemViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f15751a;
+    public View f15066a;
 
     public FrsEmpertyItemViewHolder(View view) {
         super(view);
-        this.f15751a = view;
+        this.f15066a = view;
     }
 
     public void b(int i2) {
         if (i2 == 0) {
             return;
         }
-        SkinManager.setBackgroundResource(this.f15751a, i2);
+        SkinManager.setBackgroundResource(this.f15066a, i2);
     }
 
     public void c(int i2) {
         if (i2 < 0) {
-            this.f15751a.setMinimumHeight(0);
+            this.f15066a.setMinimumHeight(0);
         } else {
-            this.f15751a.setMinimumHeight(i2);
+            this.f15066a.setMinimumHeight(i2);
         }
     }
 }

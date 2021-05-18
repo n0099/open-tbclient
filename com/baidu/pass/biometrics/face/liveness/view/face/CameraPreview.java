@@ -33,61 +33,61 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     public static final /* synthetic */ boolean n = !CameraPreview.class.desiredAssertionStatus();
 
     /* renamed from: a  reason: collision with root package name */
-    public Camera f9602a;
+    public Camera f9223a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SurfaceHolder f9603b;
+    public SurfaceHolder f9224b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f9604c;
+    public Activity f9225c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9605d;
+    public int f9226d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f9606e;
+    public boolean f9227e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.C0115a f9607f;
+    public a.C0113a f9228f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Point f9608g;
+    public Point f9229g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f9609h;
+    public Path f9230h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f9610i;
+    public boolean f9231i;
     public boolean j;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f9611a;
+        public int f9232a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f9612b;
+        public int f9233b;
 
         public a(int i2, int i3) {
-            this.f9611a = i2;
-            this.f9612b = i3;
+            this.f9232a = i2;
+            this.f9233b = i3;
         }
     }
 
     public CameraPreview(Context context) {
         super(context);
-        this.f9606e = true;
-        this.f9610i = false;
+        this.f9227e = true;
+        this.f9231i = false;
         this.j = false;
         a(context);
     }
 
     private void a(Context context) {
-        this.f9604c = (Activity) context;
-        this.f9609h = new Path();
-        this.f9608g = new Point();
-        this.f9605d = getCameraID();
+        this.f9225c = (Activity) context;
+        this.f9230h = new Path();
+        this.f9229g = new Point();
+        this.f9226d = getCameraID();
     }
 
     private int getCameraID() {
@@ -103,7 +103,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
     private int getRotateAngle() {
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-        Camera.getCameraInfo(this.f9605d, cameraInfo);
+        Camera.getCameraInfo(this.f9226d, cameraInfo);
         int rotation = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getRotation();
         int i2 = 0;
         if (rotation != 0) {
@@ -123,15 +123,15 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
     public synchronized void b() {
         try {
-            if (this.f9602a != null) {
-                this.f9602a.setPreviewCallback(null);
-                this.f9602a.stopPreview();
-                this.f9602a.release();
-                this.f9602a = null;
+            if (this.f9223a != null) {
+                this.f9223a.setPreviewCallback(null);
+                this.f9223a.stopPreview();
+                this.f9223a.release();
+                this.f9223a = null;
             }
-            if (this.f9603b != null) {
-                this.f9603b.removeCallback(this);
-                this.f9603b = null;
+            if (this.f9224b != null) {
+                this.f9224b.removeCallback(this);
+                this.f9224b = null;
             }
             this.j = false;
         } catch (Exception e2) {
@@ -142,23 +142,23 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     public void c() {
         try {
             setVisibility(0);
-            if (this.f9602a == null) {
-                this.f9602a = Camera.open(this.f9605d);
+            if (this.f9223a == null) {
+                this.f9223a = Camera.open(this.f9226d);
             }
             SurfaceHolder holder = getHolder();
-            this.f9603b = holder;
+            this.f9224b = holder;
             holder.setFormat(-2);
-            this.f9603b.setType(3);
-            this.f9603b.addCallback(this);
-            this.f9602a.setPreviewDisplay(this.f9603b);
-            Camera.Parameters parameters = this.f9602a.getParameters();
-            a.C0115a a2 = a(this.f9604c, parameters);
-            parameters.setPreviewSize(a2.f9548a, a2.f9549b);
+            this.f9224b.setType(3);
+            this.f9224b.addCallback(this);
+            this.f9223a.setPreviewDisplay(this.f9224b);
+            Camera.Parameters parameters = this.f9223a.getParameters();
+            a.C0113a a2 = a(this.f9225c, parameters);
+            parameters.setPreviewSize(a2.f9169a, a2.f9170b);
             a(parameters, a2);
             parameters.setJpegQuality(100);
-            this.f9602a.setDisplayOrientation(getRotateAngle());
-            this.f9602a.setParameters(parameters);
-            this.f9602a.startPreview();
+            this.f9223a.setDisplayOrientation(getRotateAngle());
+            this.f9223a.setParameters(parameters);
+            this.f9223a.startPreview();
             this.j = true;
         } catch (IOException e2) {
             e2.printStackTrace();
@@ -168,9 +168,9 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     @Override // android.view.SurfaceView, android.view.View
     public void draw(Canvas canvas) {
         if (Build.VERSION.SDK_INT >= 26) {
-            canvas.clipPath(this.f9609h);
+            canvas.clipPath(this.f9230h);
         } else {
-            canvas.clipPath(this.f9609h, Region.Op.REPLACE);
+            canvas.clipPath(this.f9230h, Region.Op.REPLACE);
         }
         super.draw(canvas);
     }
@@ -181,15 +181,15 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     }
 
     public a getCameraSize() {
-        Camera camera = this.f9602a;
+        Camera camera = this.f9223a;
         if (camera != null) {
-            return com.baidu.pass.biometrics.face.liveness.view.face.a.a(this.f9604c, camera.getParameters());
+            return com.baidu.pass.biometrics.face.liveness.view.face.a.a(this.f9225c, camera.getParameters());
         }
         return null;
     }
 
     public Camera.Size getPreviewSize() {
-        Camera camera = this.f9602a;
+        Camera camera = this.f9223a;
         if (camera != null) {
             return camera.getParameters().getPreviewSize();
         }
@@ -201,22 +201,22 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         super.onMeasure(i2, i3);
         int size = View.MeasureSpec.getSize(i2);
         int size2 = View.MeasureSpec.getSize(i3);
-        Point point = this.f9608g;
+        Point point = this.f9229g;
         int i4 = size >> 1;
         point.x = i4;
         int i5 = size2 >> 1;
         point.y = i5;
         int min = Math.min(i4, i5);
-        this.f9609h.reset();
-        Path path = this.f9609h;
-        Point point2 = this.f9608g;
+        this.f9230h.reset();
+        Path path = this.f9230h;
+        Point point2 = this.f9229g;
         path.addCircle(point2.x, point2.y, min, Path.Direction.CCW);
         setMeasuredDimension(size, size2);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        Camera camera = this.f9602a;
+        Camera camera = this.f9223a;
         if (camera != null && this.j) {
             camera.autoFocus(null);
         }
@@ -224,7 +224,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     }
 
     public void setPreviewCallback(Camera.PreviewCallback previewCallback) {
-        Camera camera = this.f9602a;
+        Camera camera = this.f9223a;
         if (camera != null) {
             camera.setPreviewCallback(previewCallback);
         }
@@ -232,7 +232,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
-        if (this.f9603b.getSurface() != null && (getContext() instanceof Activity)) {
+        if (this.f9224b.getSurface() != null && (getContext() instanceof Activity)) {
             c();
         }
     }
@@ -247,10 +247,10 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     }
 
     @TargetApi(5)
-    public void a(Camera.Parameters parameters, a.C0115a c0115a) {
+    public void a(Camera.Parameters parameters, a.C0113a c0113a) {
         int i2;
         int i3;
-        float f2 = c0115a != null ? c0115a.f9548a / c0115a.f9549b : 0.0f;
+        float f2 = c0113a != null ? c0113a.f9169a / c0113a.f9170b : 0.0f;
         List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();
         if (supportedPictureSizes == null) {
             return;
@@ -282,59 +282,59 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
     public CameraPreview(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f9606e = true;
-        this.f9610i = false;
+        this.f9227e = true;
+        this.f9231i = false;
         this.j = false;
         a(context);
     }
 
     public CameraPreview(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f9606e = true;
-        this.f9610i = false;
+        this.f9227e = true;
+        this.f9231i = false;
         this.j = false;
         a(context);
     }
 
-    private a.C0115a b(Activity activity, Camera.Parameters parameters) {
-        a.C0115a c0115a = this.f9607f;
-        if (c0115a != null) {
-            return c0115a;
+    private a.C0113a b(Activity activity, Camera.Parameters parameters) {
+        a.C0113a c0113a = this.f9228f;
+        if (c0113a != null) {
+            return c0113a;
         }
-        List<a.C0115a> c2 = c(activity, parameters);
-        this.f9607f = new a.C0115a(640, 480);
+        List<a.C0113a> c2 = c(activity, parameters);
+        this.f9228f = new a.C0113a(640, 480);
         if (c2 != null && c2.size() != 0) {
             ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-            a.C0115a c0115a2 = new a.C0115a(300, 300);
-            float f2 = c0115a2.f9549b / c0115a2.f9548a;
-            a.C0115a c0115a3 = this.f9607f;
-            float f3 = c0115a3.f9548a / c0115a3.f9549b;
+            a.C0113a c0113a2 = new a.C0113a(300, 300);
+            float f2 = c0113a2.f9170b / c0113a2.f9169a;
+            a.C0113a c0113a3 = this.f9228f;
+            float f3 = c0113a3.f9169a / c0113a3.f9170b;
             for (int i2 = 0; i2 < c2.size(); i2++) {
-                a.C0115a c0115a4 = c2.get(i2);
-                float abs = Math.abs((c0115a4.f9548a / c0115a4.f9549b) - f2);
+                a.C0113a c0113a4 = c2.get(i2);
+                float abs = Math.abs((c0113a4.f9169a / c0113a4.f9170b) - f2);
                 if (abs < f3) {
-                    this.f9607f = c0115a4;
+                    this.f9228f = c0113a4;
                     f3 = abs;
                 }
             }
-            return this.f9607f;
+            return this.f9228f;
         }
-        return this.f9607f;
+        return this.f9228f;
     }
 
-    public a.C0115a a(Activity activity, Camera.Parameters parameters) {
+    public a.C0113a a(Activity activity, Camera.Parameters parameters) {
         return b(activity, parameters);
     }
 
     public boolean a() {
         if (getCameraNum() == 1) {
-            this.f9606e = false;
+            this.f9227e = false;
         }
-        return this.f9606e;
+        return this.f9227e;
     }
 
     public Bitmap a(byte[] bArr) {
-        Camera.Size previewSize = this.f9602a.getParameters().getPreviewSize();
+        Camera.Size previewSize = this.f9223a.getParameters().getPreviewSize();
         YuvImage yuvImage = new YuvImage(bArr, 17, previewSize.width, previewSize.height, null);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         yuvImage.compressToJpeg(new Rect(0, 0, previewSize.width, previewSize.height), 80, byteArrayOutputStream);
@@ -353,7 +353,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     }
 
     @TargetApi(5)
-    private List<a.C0115a> c(Activity activity, Camera.Parameters parameters) {
+    private List<a.C0113a> c(Activity activity, Camera.Parameters parameters) {
         List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
             return null;
@@ -361,7 +361,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         ArrayList arrayList = new ArrayList();
         for (int i2 = 0; i2 < supportedPreviewSizes.size(); i2++) {
             Camera.Size size = supportedPreviewSizes.get(i2);
-            arrayList.add(new a.C0115a(size.width, size.height));
+            arrayList.add(new a.C0113a(size.width, size.height));
         }
         return arrayList;
     }

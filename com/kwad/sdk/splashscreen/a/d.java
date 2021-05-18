@@ -8,10 +8,10 @@ import com.kwad.sdk.mvp.Presenter;
 public class d extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.c f34769a;
+    public com.kwad.sdk.splashscreen.c f34014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.c f34770b;
+    public com.kwad.sdk.core.download.b.c f34015b;
 
     public static String b(Context context) {
         try {
@@ -25,7 +25,7 @@ public class d extends Presenter {
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f34769a = (com.kwad.sdk.splashscreen.c) k();
+        this.f34014a = (com.kwad.sdk.splashscreen.c) k();
         com.kwad.sdk.core.download.b.c cVar = new com.kwad.sdk.core.download.b.c() { // from class: com.kwad.sdk.splashscreen.a.d.1
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
@@ -66,15 +66,15 @@ public class d extends Presenter {
             public void onProgressUpdate(int i2) {
             }
         };
-        this.f34770b = cVar;
-        this.f34769a.f34816f.a(cVar);
+        this.f34015b = cVar;
+        this.f34014a.f34061f.a(cVar);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
-        com.kwad.sdk.core.download.b.c cVar = this.f34770b;
+        com.kwad.sdk.core.download.b.c cVar = this.f34015b;
         if (cVar != null) {
-            this.f34769a.f34816f.b(cVar);
+            this.f34014a.f34061f.b(cVar);
         }
     }
 }

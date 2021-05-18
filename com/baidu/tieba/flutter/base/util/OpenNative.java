@@ -87,9 +87,9 @@ import com.google.gson.Gson;
 import com.heytap.mcssdk.mode.CommandMessage;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.i0.f0.h;
-import d.a.i0.l.a;
-import d.a.j0.j1.o.k.b;
+import d.a.j0.f0.h;
+import d.a.j0.l.a;
+import d.a.k0.j1.o.k.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -280,11 +280,11 @@ public class OpenNative {
         bVar.B(((Integer) map.get("index")).intValue());
         bVar.z((String) map.get("forum_name"));
         bVar.y((String) map.get("forum_id"));
-        bVar.P((String) map.get("thread_id"));
+        bVar.O((String) map.get("thread_id"));
         bVar.C(true);
-        bVar.K(str);
-        bVar.G(true);
-        bVar.I(true);
+        bVar.J(str);
+        bVar.F(true);
+        bVar.H(true);
         ImageViewerConfig v = bVar.v(context);
         v.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, false);
         v.getIntent().putExtra("from", "index");
@@ -389,6 +389,7 @@ public class OpenNative {
         personChangeData.setUserAge(d.a.c.e.m.b.d((String) map.get("age"), 0));
         personChangeData.setBirthdayTime(d.a.c.e.m.b.f((String) map.get("birthdayTime"), 0L));
         personChangeData.setBirthdayShowStatus(d.a.c.e.m.b.d((String) map.get("birthdayShowStatus"), 0));
+        personChangeData.setTiebaId((String) map.get("tiebaId"));
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(context, 101, personChangeData, Boolean.FALSE)));
     }
 
@@ -474,7 +475,7 @@ public class OpenNative {
     }
 
     public static void openNativeHotTopicList(Context context, Map<String, Object> map) {
-        if (TbadkApplication.getInst().getCurrentActivity() == null || d.a.i0.p0.b.b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext())) {
+        if (TbadkApplication.getInst().getCurrentActivity() == null || d.a.j0.p0.b.b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext())) {
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotRanklistActivityConfig(context).createNormalConfig("hottopic", "all")));
@@ -780,12 +781,12 @@ public class OpenNative {
         bVar.B(((Integer) map.get("index")).intValue());
         bVar.z(str3);
         bVar.y(str2);
-        bVar.P(str4);
+        bVar.O(str4);
         bVar.C(true);
-        bVar.K(str);
-        bVar.G(true);
+        bVar.J(str);
+        bVar.F(true);
         bVar.w(concurrentHashMap);
-        bVar.I(true);
+        bVar.H(true);
         ImageViewerConfig v = bVar.v(context);
         v.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, true);
         if (map.get("from") != null && (map.get("from") instanceof String)) {

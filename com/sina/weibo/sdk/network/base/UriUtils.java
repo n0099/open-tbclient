@@ -2,7 +2,7 @@ package com.sina.weibo.sdk.network.base;
 
 import android.net.Uri;
 import android.os.Bundle;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class UriUtils {
     public static Uri buildCompleteUri(Uri uri, Bundle bundle) {
         if (bundle == null || bundle.isEmpty()) {

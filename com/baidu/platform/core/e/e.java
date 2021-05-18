@@ -69,8 +69,8 @@ public class e extends com.baidu.platform.base.e {
         aVar.a(IAdRequestParam.SN, str5);
         aVar.a("en", str6);
         String str8 = "&" + aVar.a() + ("&start=" + name + "&end=" + name2);
-        this.f9730a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
-        this.f9730a.a("from", "android_map_sdk");
+        this.f9352a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
+        this.f9352a.a("from", "android_map_sdk");
     }
 
     @Override // com.baidu.platform.base.e

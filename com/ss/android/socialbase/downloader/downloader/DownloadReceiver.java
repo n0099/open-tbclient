@@ -7,11 +7,11 @@ import android.text.TextUtils;
 import com.ss.android.socialbase.downloader.notification.DownloadNotificationService;
 import d.o.a.e.b.c.a;
 import d.o.a.e.b.g.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DownloadReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36811a = DownloadReceiver.class.getSimpleName();
+    public static final String f36056a = DownloadReceiver.class.getSimpleName();
 
     private void a(Context context, String str) {
         if (d.f()) {
@@ -46,7 +46,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         }
         if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
             if (a.e()) {
-                a.c(f36811a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
+                a.c(f36056a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
             }
             a(context, action);
         } else if (action.equals("android.intent.action.MEDIA_UNMOUNTED") || action.equals("android.intent.action.MEDIA_REMOVED") || action.equals("android.intent.action.MEDIA_BAD_REMOVAL") || action.equals("android.intent.action.MEDIA_EJECT")) {

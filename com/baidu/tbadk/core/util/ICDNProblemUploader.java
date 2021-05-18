@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.a.i0.r.q.r;
+import d.a.j0.r.q.r;
 /* loaded from: classes3.dex */
 public abstract class ICDNProblemUploader {
     public static ICDNProblemUploader problemUploader;

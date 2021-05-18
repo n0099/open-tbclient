@@ -51,8 +51,8 @@ public class c extends d.a.d0.a.d.a {
 
     /* renamed from: d.a.d0.a.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0539c implements d.a.d0.a.e.a {
-        public C0539c() {
+    public class C0526c implements d.a.d0.a.e.a {
+        public C0526c() {
         }
 
         @Override // d.a.d0.a.e.a
@@ -81,19 +81,19 @@ public class c extends d.a.d0.a.d.a {
         if (imageView != null) {
             imageView.setScaleType(this.G == 17 ? ImageView.ScaleType.CENTER_CROP : ImageView.ScaleType.FIT_XY);
         }
-        this.O = this.f40565i.a(this.u, new C0539c());
+        this.O = this.f39810i.a(this.u, new C0526c());
     }
 
     @Override // d.a.d0.a.d.a, d.a.d0.a.g.b
     public void a() {
         super.a();
-        if (this.f40565i.c(this.u, MaterialLoader.MaterialCacheType.PICTURE)) {
+        if (this.f39810i.c(this.u, MaterialLoader.MaterialCacheType.PICTURE)) {
             M();
             E();
             return;
         }
         try {
-            MaterialLoader.k(this.f40557a).f(this.u, new a());
+            MaterialLoader.k(this.f39802a).f(this.u, new a());
         } catch (Exception e2) {
             D("StaticImage,Exception: " + e2.toString());
         }
@@ -157,17 +157,17 @@ public class c extends d.a.d0.a.d.a {
     @Override // d.a.d0.a.d.a
     public void y() {
         RelativeLayout.LayoutParams layoutParams;
-        if (this.f40558b != 2) {
+        if (this.f39803b != 2) {
             try {
                 layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-                ImageView imageView = new ImageView(this.f40557a);
+                ImageView imageView = new ImageView(this.f39802a);
                 this.N = imageView;
                 imageView.setVisibility(0);
                 this.N.setOnClickListener(new b());
                 this.N.setLayoutParams(layoutParams);
                 P();
             } catch (Exception e2) {
-                this.f40562f.c(d.a.d0.a.d.a.M, e2);
+                this.f39807f.c(d.a.d0.a.d.a.M, e2);
                 D(d.a.d0.a.d.a.M + " exception=" + Log.getStackTraceString(e2));
             }
             if (this.O == null) {
@@ -182,16 +182,16 @@ public class c extends d.a.d0.a.d.a {
             G();
             return;
         }
-        this.f40562f.a("XPureStaticImageAdContainer: ad state is stopped, so can not show ad");
+        this.f39807f.a("XPureStaticImageAdContainer: ad state is stopped, so can not show ad");
     }
 
     @Override // d.a.d0.a.d.a
     public void z() {
         AdView adView;
-        this.f40562f.j(d.a.d0.a.d.a.M, "doStopOnUIThread");
+        this.f39807f.j(d.a.d0.a.d.a.M, "doStopOnUIThread");
         ImageView imageView = this.N;
         if (imageView != null && (adView = this.l) != null && adView.indexOfChild(imageView) >= 0) {
-            this.f40562f.j(d.a.d0.a.d.a.M, "doStopOnUIThread release imageView");
+            this.f39807f.j(d.a.d0.a.d.a.M, "doStopOnUIThread release imageView");
             if (this.N.getDrawingCache() != null) {
                 this.N.getDrawingCache().recycle();
             }
@@ -201,7 +201,7 @@ public class c extends d.a.d0.a.d.a {
         if (bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        d.a.d0.a.k.b bVar = this.f40562f;
+        d.a.d0.a.k.b bVar = this.f39807f;
         String str = d.a.d0.a.d.a.M;
         bVar.j(str, "doStopOnUIThread release newBitmap->" + this.O.toString());
         this.O.recycle();

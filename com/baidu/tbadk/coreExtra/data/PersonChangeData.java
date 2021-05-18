@@ -10,6 +10,7 @@ public class PersonChangeData extends OrmObject implements Serializable {
     public long mAlaId;
     public int mBirthdayShowStatus;
     public long mBirthdayTime;
+    public String mTiebaId;
     public int mUserAge;
     public String mForumAge = "0.1";
     public String mIntro = null;
@@ -82,6 +83,10 @@ public class PersonChangeData extends OrmObject implements Serializable {
         return this.mUserAge;
     }
 
+    public String getmTiebaId() {
+        return this.mTiebaId;
+    }
+
     public void setAlaId(long j) {
         this.mAlaId = j;
     }
@@ -136,6 +141,10 @@ public class PersonChangeData extends OrmObject implements Serializable {
 
     public void setSex(int i2) {
         this.mSex = i2;
+    }
+
+    public void setTiebaId(String str) {
+        this.mTiebaId = str;
     }
 
     public void setUserAge(int i2) {

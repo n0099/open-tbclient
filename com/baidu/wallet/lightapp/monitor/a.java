@@ -33,36 +33,36 @@ import org.json.JSONException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public WhiteScreenConfig f25610a;
+    public WhiteScreenConfig f24855a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<C0255a> f25611b;
+    public List<C0242a> f24856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadPoolExecutor f25612c;
+    public ThreadPoolExecutor f24857c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f25613d;
+    public Handler f24858d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f25614e;
+    public boolean f24859e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25615f;
+    public String f24860f;
 
     /* renamed from: com.baidu.wallet.lightapp.monitor.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0255a {
+    public class C0242a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Bitmap f25633a;
+        public Bitmap f24878a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f25634b;
+        public boolean f24879b;
 
-        public C0255a() {
-            this.f25633a = null;
-            this.f25634b = false;
+        public C0242a() {
+            this.f24878a = null;
+            this.f24879b = false;
         }
     }
 
@@ -70,25 +70,25 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f25636a = new a();
+        public static a f24881a = new a();
     }
 
     public void b() {
-        this.f25613d.removeCallbacksAndMessages(null);
-        List<C0255a> list = this.f25611b;
+        this.f24858d.removeCallbacksAndMessages(null);
+        List<C0242a> list = this.f24856b;
         if (list != null) {
             list.clear();
         }
     }
 
     public a() {
-        this.f25611b = new CopyOnWriteArrayList();
-        this.f25613d = new Handler(Looper.getMainLooper());
+        this.f24856b = new CopyOnWriteArrayList();
+        this.f24858d = new Handler(Looper.getMainLooper());
     }
 
     private boolean b(Bitmap bitmap, Rect rect, boolean z, int i2) {
         Rect[] a2 = a(rect.width(), rect.height(), 3, 3);
-        Iterator<Integer> it = a(this.f25610a.wsc_simple_count, new int[0]).iterator();
+        Iterator<Integer> it = a(this.f24855a.wsc_simple_count, new int[0]).iterator();
         while (it.hasNext()) {
             Rect rect2 = a2[it.next().intValue()];
             for (int i3 = rect2.left + rect.left; i3 < rect2.right + rect.left; i3++) {
@@ -110,51 +110,51 @@ public class a {
     }
 
     public static a a() {
-        return b.f25636a;
+        return b.f24881a;
     }
 
     private void a(Context context) {
-        if (this.f25614e) {
+        if (this.f24859e) {
             return;
         }
         File externalFilesDir = context.getExternalFilesDir("");
         if (externalFilesDir != null) {
-            this.f25615f = externalFilesDir.getAbsolutePath();
+            this.f24860f = externalFilesDir.getAbsolutePath();
         } else {
-            this.f25615f = context.getFilesDir().getAbsolutePath();
+            this.f24860f = context.getFilesDir().getAbsolutePath();
         }
         String whiteScreenConfig = SdkInitResponse.getInstance().getWhiteScreenConfig(context);
         if (!TextUtils.isEmpty(whiteScreenConfig)) {
             try {
-                this.f25610a = (WhiteScreenConfig) JsonUtils.fromJson(whiteScreenConfig, WhiteScreenConfig.class);
+                this.f24855a = (WhiteScreenConfig) JsonUtils.fromJson(whiteScreenConfig, WhiteScreenConfig.class);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
         }
-        WhiteScreenConfig whiteScreenConfig2 = this.f25610a;
+        WhiteScreenConfig whiteScreenConfig2 = this.f24855a;
         if (whiteScreenConfig2 == null || !whiteScreenConfig2.isValid()) {
-            this.f25610a = new WhiteScreenConfig();
+            this.f24855a = new WhiteScreenConfig();
         }
-        WhiteScreenConfig whiteScreenConfig3 = this.f25610a;
+        WhiteScreenConfig whiteScreenConfig3 = this.f24855a;
         if (!whiteScreenConfig3.wsc_enable && !whiteScreenConfig3.wsc_view_enable) {
-            this.f25614e = true;
+            this.f24859e = true;
             return;
         }
         ThreadFactory threadFactory = new ThreadFactory() { // from class: com.baidu.wallet.lightapp.monitor.a.1
 
             /* renamed from: a  reason: collision with root package name */
-            public AtomicInteger f25616a = new AtomicInteger(1);
+            public AtomicInteger f24861a = new AtomicInteger(1);
 
             @Override // java.util.concurrent.ThreadFactory
             public Thread newThread(Runnable runnable) {
-                return new Thread(runnable, "WhiteScreenMoniter #" + this.f25616a.getAndIncrement());
+                return new Thread(runnable, "WhiteScreenMoniter #" + this.f24861a.getAndIncrement());
             }
         };
-        WhiteScreenConfig whiteScreenConfig4 = this.f25610a;
+        WhiteScreenConfig whiteScreenConfig4 = this.f24855a;
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(whiteScreenConfig4.wsc_core_task, whiteScreenConfig4.wsc_max_task, whiteScreenConfig4.wsc_alive_time, TimeUnit.SECONDS, new SynchronousQueue(), threadFactory, new ThreadPoolExecutor.DiscardPolicy());
-        this.f25612c = threadPoolExecutor;
+        this.f24857c = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);
-        this.f25614e = true;
+        this.f24859e = true;
     }
 
     public void a(View view, String str, boolean z) {
@@ -164,7 +164,7 @@ public class a {
     public void a(final View view, final String str, String str2, boolean z) {
         a(view.getContext());
         boolean z2 = view instanceof WebView;
-        WhiteScreenConfig whiteScreenConfig = this.f25610a;
+        WhiteScreenConfig whiteScreenConfig = this.f24855a;
         if (z2) {
             if (!whiteScreenConfig.wsc_enable) {
                 return;
@@ -173,15 +173,15 @@ public class a {
             return;
         }
         if (z2) {
-            this.f25613d.removeCallbacksAndMessages(null);
+            this.f24858d.removeCallbacksAndMessages(null);
             Runnable runnable = new Runnable() { // from class: com.baidu.wallet.lightapp.monitor.a.2
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.a((WebView) view, str);
                 }
             };
-            Handler handler = this.f25613d;
-            WhiteScreenConfig whiteScreenConfig2 = this.f25610a;
+            Handler handler = this.f24858d;
+            WhiteScreenConfig whiteScreenConfig2 = this.f24855a;
             handler.postDelayed(runnable, z ? whiteScreenConfig2.wsc_delay_time : whiteScreenConfig2.wsc_wait_time);
             return;
         }
@@ -194,11 +194,11 @@ public class a {
         try {
             final Bitmap createBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.RGB_565);
             view.draw(new Canvas(createBitmap));
-            this.f25612c.execute(new Runnable() { // from class: com.baidu.wallet.lightapp.monitor.a.3
+            this.f24857c.execute(new Runnable() { // from class: com.baidu.wallet.lightapp.monitor.a.3
                 @Override // java.lang.Runnable
                 public void run() {
                     a aVar = a.this;
-                    ArrayList a2 = aVar.a(aVar.f25610a.wsc_area_detect, 4, 0);
+                    ArrayList a2 = aVar.a(aVar.f24855a.wsc_area_detect, 4, 0);
                     boolean a3 = a.this.a(createBitmap, a2);
                     String str3 = "" + (System.currentTimeMillis() - currentTimeMillis);
                     DXMSdkSAUtils.onEventWithValues("White_View_Detected", Arrays.asList(str, "" + a3, str2, a.this.a(a2), str3));
@@ -223,11 +223,11 @@ public class a {
         final String url = webView.getUrl();
         try {
             final Bitmap a2 = a(webView);
-            this.f25612c.execute(new Runnable() { // from class: com.baidu.wallet.lightapp.monitor.a.4
+            this.f24857c.execute(new Runnable() { // from class: com.baidu.wallet.lightapp.monitor.a.4
                 @Override // java.lang.Runnable
                 public void run() {
                     a aVar = a.this;
-                    ArrayList a3 = aVar.a(aVar.f25610a.wsc_area_detect, 4, 0);
+                    ArrayList a3 = aVar.a(aVar.f24855a.wsc_area_detect, 4, 0);
                     boolean a4 = a.this.a(a2, a3);
                     String str2 = "" + (System.currentTimeMillis() - currentTimeMillis);
                     DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_WHITE_SCREEN, Arrays.asList(CheckUtils.stripUrlParams(url), "" + a4, str, a.this.a(a3), str2));
@@ -291,7 +291,7 @@ public class a {
         Rect[] a2 = a(bitmap.getWidth(), bitmap.getHeight(), 3, 3);
         boolean z = false;
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            if (i2 < this.f25610a.wsc_general_detect) {
+            if (i2 < this.f24855a.wsc_general_detect) {
                 z = a(bitmap, a2[arrayList.get(i2).intValue()], false, pixel);
             } else {
                 z = b(bitmap, a2[arrayList.get(i2).intValue()], false, pixel);
@@ -337,22 +337,22 @@ public class a {
     }
 
     private synchronized Bitmap a(int i2, int i3) {
-        if (this.f25611b != null && this.f25611b.size() > 0) {
-            for (C0255a c0255a : this.f25611b) {
-                if (c0255a.f25633a != null && !c0255a.f25633a.isRecycled() && !c0255a.f25634b && c0255a.f25633a.getWidth() == i2 && c0255a.f25633a.getHeight() == i3) {
-                    c0255a.f25634b = true;
+        if (this.f24856b != null && this.f24856b.size() > 0) {
+            for (C0242a c0242a : this.f24856b) {
+                if (c0242a.f24878a != null && !c0242a.f24878a.isRecycled() && !c0242a.f24879b && c0242a.f24878a.getWidth() == i2 && c0242a.f24878a.getHeight() == i3) {
+                    c0242a.f24879b = true;
                     LogUtil.d("WhiteScreenMonitor", "Bitmap Recycled");
-                    return c0255a.f25633a;
+                    return c0242a.f24878a;
                 }
             }
         }
-        if (this.f25611b.size() < this.f25610a.wsc_core_cache) {
-            C0255a c0255a2 = new C0255a();
-            c0255a2.f25633a = Bitmap.createBitmap(i2, i3, Bitmap.Config.RGB_565);
-            c0255a2.f25634b = true;
-            this.f25611b.add(c0255a2);
+        if (this.f24856b.size() < this.f24855a.wsc_core_cache) {
+            C0242a c0242a2 = new C0242a();
+            c0242a2.f24878a = Bitmap.createBitmap(i2, i3, Bitmap.Config.RGB_565);
+            c0242a2.f24879b = true;
+            this.f24856b.add(c0242a2);
             LogUtil.d("WhiteScreenMonitor", "Bitmap created");
-            return c0255a2.f25633a;
+            return c0242a2.f24878a;
         }
         LogUtil.d("WhiteScreenMonitor", "Bitmap new");
         return Bitmap.createBitmap(i2, i3, Bitmap.Config.RGB_565);
@@ -360,10 +360,10 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(Bitmap bitmap) {
-        if (this.f25611b != null && this.f25611b.size() > 0) {
-            for (C0255a c0255a : this.f25611b) {
-                if (c0255a.f25633a == bitmap && !c0255a.f25633a.isRecycled() && c0255a.f25634b) {
-                    c0255a.f25634b = false;
+        if (this.f24856b != null && this.f24856b.size() > 0) {
+            for (C0242a c0242a : this.f24856b) {
+                if (c0242a.f24878a == bitmap && !c0242a.f24878a.isRecycled() && c0242a.f24879b) {
+                    c0242a.f24879b = false;
                     LogUtil.d("WhiteScreenMonitor", "Bitmap Released");
                     return;
                 }

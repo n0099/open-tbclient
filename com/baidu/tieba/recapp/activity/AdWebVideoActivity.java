@@ -18,9 +18,9 @@ import com.baidu.tieba.ad.browser.newstyle.TBAdWebView;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.baidu.tieba.recapp.view.WebViewContainer;
 import d.a.c.e.p.l;
-import d.a.j0.s2.e0.b.e;
+import d.a.k0.s2.f0.b.f;
 import tbclient.VideoInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class AdWebVideoActivity extends AdWebViewActivity {
     public static b STATISTIC_DATA = null;
     public static final String TAG = "NewWebVideoActivity: ";
@@ -31,13 +31,13 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public int mVideoDuration;
     public int mVideoHeight;
     public float mVideoRatio;
-    public e mVideoTailFrame;
+    public f mVideoTailFrame;
     public String mVideoUrl;
     public DistributeVideoView mVideoView;
     public WebViewContainer mWebContainer;
     public int mWebViewTopMargin;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements WebViewContainer.OnScrollChangedCallback {
         public a() {
         }
@@ -57,17 +57,17 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public AdvertAppInfo f20933a;
+        public AdvertAppInfo f20215a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f20934b;
+        public int f20216b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f20935c;
+        public String f20217c;
     }
 
     private void configWebviewParams(int i2) {
@@ -90,9 +90,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public static void setStaticInfo(AdvertAppInfo advertAppInfo, int i2, String str) {
         b bVar = new b();
         STATISTIC_DATA = bVar;
-        bVar.f20933a = advertAppInfo;
-        bVar.f20935c = str;
-        bVar.f20934b = i2;
+        bVar.f20215a = advertAppInfo;
+        bVar.f20217c = str;
+        bVar.f20216b = i2;
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
@@ -110,7 +110,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             if (this.mGoodsStyle == 14) {
                 Integer valueOf = Integer.valueOf(l.k(getActivity()));
                 builder.video_height = valueOf;
-                builder.video_width = Integer.valueOf(d.a.j0.s2.e0.c.a.c(valueOf.intValue()));
+                builder.video_width = Integer.valueOf(d.a.k0.s2.f0.c.a.c(valueOf.intValue()));
             } else {
                 Integer valueOf2 = Integer.valueOf(l.k(getActivity()));
                 builder.video_width = valueOf2;
@@ -129,9 +129,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             int intValue2 = build.video_height.intValue();
             this.mVideoHeight = intValue2;
             this.mPausePos = intValue2 / 2;
-            e eVar = this.mVideoTailFrame;
-            if (eVar != null) {
-                this.mVideoView.setVideoTailFrameData(eVar);
+            f fVar = this.mVideoTailFrame;
+            if (fVar != null) {
+                this.mVideoView.setVideoTailFrameData(fVar);
             }
             this.mVideoView.setPageContext(getPageContext());
             this.mVideoView.setData(build, 2, getPageContext());
@@ -139,10 +139,10 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             this.mVideoView.initVideoViewLayout(this.mGoodsStyle == 14);
             b bVar = STATISTIC_DATA;
             if (bVar != null) {
-                this.mVideoView.updateTailFrameView(bVar.f20933a);
+                this.mVideoView.updateTailFrameView(bVar.f20215a);
                 DistributeVideoView distributeVideoView = this.mVideoView;
                 b bVar2 = STATISTIC_DATA;
-                distributeVideoView.setStatisticInfo(bVar2.f20933a, bVar2.f20934b, bVar2.f20935c);
+                distributeVideoView.setStatisticInfo(bVar2.f20215a, bVar2.f20216b, bVar2.f20217c);
             } else {
                 this.mVideoView.updateTailFrameView(null);
             }
@@ -165,9 +165,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             this.mGoodsStyle = intent.getIntExtra(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
             String stringExtra = intent.getStringExtra(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
             if (!TextUtils.isEmpty(stringExtra)) {
-                e eVar = new e();
-                this.mVideoTailFrame = eVar;
-                eVar.c(stringExtra);
+                f fVar = new f();
+                this.mVideoTailFrame = fVar;
+                fVar.c(stringExtra);
             }
         } else if (bundle != null) {
             this.mVideoUrl = bundle.getString("video_url");

@@ -19,38 +19,38 @@ import java.util.concurrent.Executors;
 public class a implements d.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f63046f;
+    public static a f51031f;
 
     /* renamed from: a  reason: collision with root package name */
-    public bv f63047a;
+    public bv f51032a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.k.b.c.c f63048b;
+    public d.a.k.b.c.c f51033b;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f63050d;
+    public ExecutorService f51035d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f63051e = new Handler(Looper.getMainLooper());
+    public Handler f51036e = new Handler(Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, d> f63049c = new LinkedHashMap();
+    public Map<String, d> f51034c = new LinkedHashMap();
 
     /* renamed from: d.a.k.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC1697a implements Runnable {
+    public class RunnableC1165a implements Runnable {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f63053f;
+        public final /* synthetic */ String f51038f;
 
-        public RunnableC1697a(String str) {
-            this.f63053f = str;
+        public RunnableC1165a(String str) {
+            this.f51038f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f63049c.containsKey(this.f63053f)) {
-                a.this.f63049c.remove(this.f63053f);
+            if (a.this.f51034c.containsKey(this.f51038f)) {
+                a.this.f51034c.remove(this.f51038f);
             }
         }
     }
@@ -62,7 +62,7 @@ public class a implements d.a {
 
         @Override // java.lang.Runnable
         public void run() {
-            for (d dVar : a.this.f63049c.values()) {
+            for (d dVar : a.this.f51034c.values()) {
                 if (dVar != null && dVar.isRunning()) {
                     dVar.pause();
                 }
@@ -77,7 +77,7 @@ public class a implements d.a {
 
         @Override // java.lang.Runnable
         public void run() {
-            for (d dVar : a.this.f63049c.values()) {
+            for (d dVar : a.this.f51034c.values()) {
                 if (dVar != null && dVar.isRunning()) {
                     dVar.cancel();
                 }
@@ -90,34 +90,34 @@ public class a implements d.a {
     }
 
     public static a i() {
-        if (f63046f == null) {
+        if (f51031f == null) {
             synchronized (a.class) {
-                if (f63046f == null) {
-                    f63046f = new a();
+                if (f51031f == null) {
+                    f51031f = new a();
                 }
             }
         }
-        return f63046f;
+        return f51031f;
     }
 
     @Override // d.a.k.b.c.d.a
     public void a(String str, d dVar) {
-        this.f63051e.post(new RunnableC1697a(str));
+        this.f51036e.post(new RunnableC1165a(str));
     }
 
     public void c(String str) {
         String e2 = e(str);
-        if (this.f63049c.containsKey(e2)) {
-            d dVar = this.f63049c.get(e2);
+        if (this.f51034c.containsKey(e2)) {
+            d dVar = this.f51034c.get(e2);
             if (dVar != null) {
                 dVar.cancel();
             }
-            this.f63049c.remove(e2);
+            this.f51034c.remove(e2);
         }
     }
 
     public void d() {
-        this.f63051e.post(new c());
+        this.f51036e.post(new c());
     }
 
     public final String e(String str) {
@@ -132,8 +132,8 @@ public class a implements d.a {
         if (k(e2)) {
             return;
         }
-        shuoy shuoyVar = new shuoy(bVar, new ac(this.f63048b, aVar), this.f63050d, e2, this.f63047a, this);
-        this.f63049c.put(e2, shuoyVar);
+        shuoy shuoyVar = new shuoy(bVar, new ac(this.f51033b, aVar), this.f51035d, e2, this.f51032a, this);
+        this.f51034c.put(e2, shuoyVar);
         shuoyVar.start();
     }
 
@@ -144,8 +144,8 @@ public class a implements d.a {
             return;
         }
         Log.d("RtcDownSo", "real start down ...");
-        shuoy shuoyVar = new shuoy(bVar, new ac(cVar, aVar), this.f63050d, e2, this.f63047a, this);
-        this.f63049c.put(e2, shuoyVar);
+        shuoy shuoyVar = new shuoy(bVar, new ac(cVar, aVar), this.f51035d, e2, this.f51032a, this);
+        this.f51034c.put(e2, shuoyVar);
         shuoyVar.start();
     }
 
@@ -166,14 +166,14 @@ public class a implements d.a {
         if (i2 > i3) {
             throw new IllegalArgumentException("thread num must < max thread num");
         }
-        this.f63047a = bvVar;
-        this.f63050d = Executors.newFixedThreadPool(i3);
-        this.f63048b = new trw(this.f63051e);
+        this.f51032a = bvVar;
+        this.f51035d = Executors.newFixedThreadPool(i3);
+        this.f51033b = new trw(this.f51036e);
     }
 
     public final boolean k(String str) {
         d dVar;
-        if (!this.f63049c.containsKey(str) || (dVar = this.f63049c.get(str)) == null) {
+        if (!this.f51034c.containsKey(str) || (dVar = this.f51034c.get(str)) == null) {
             return false;
         }
         if (dVar.isRunning()) {
@@ -187,7 +187,7 @@ public class a implements d.a {
     public boolean l(String str) {
         d dVar;
         String e2 = e(str);
-        if (!this.f63049c.containsKey(e2) || (dVar = this.f63049c.get(e2)) == null) {
+        if (!this.f51034c.containsKey(e2) || (dVar = this.f51034c.get(e2)) == null) {
             return false;
         }
         return dVar.isRunning();
@@ -195,16 +195,16 @@ public class a implements d.a {
 
     public void m(String str) {
         String e2 = e(str);
-        if (this.f63049c.containsKey(e2)) {
-            d dVar = this.f63049c.get(e2);
+        if (this.f51034c.containsKey(e2)) {
+            d dVar = this.f51034c.get(e2);
             if (dVar != null && dVar.isRunning()) {
                 dVar.pause();
             }
-            this.f63049c.remove(e2);
+            this.f51034c.remove(e2);
         }
     }
 
     public void n() {
-        this.f63051e.post(new b());
+        this.f51036e.post(new b());
     }
 }

@@ -1,7 +1,7 @@
 package com.bytedance.sdk.adnet.err;
 
 import d.b.c.b.d.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e extends VAdError {
     public e(k kVar) {
         super(kVar);

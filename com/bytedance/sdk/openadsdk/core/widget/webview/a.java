@@ -8,35 +8,35 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<Context> f29546a;
+    public WeakReference<Context> f28791a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f29547b = true;
+    public boolean f28792b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29548c = true;
+    public boolean f28793c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f29549d = true;
+    public boolean f28794d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f29550e = true;
+    public boolean f28795e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f29551f = true;
+    public boolean f28796f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29552g = true;
+    public boolean f28797g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29553h = true;
+    public boolean f28798h = true;
 
     public a(Context context) {
-        this.f29546a = new WeakReference<>(context);
+        this.f28791a = new WeakReference<>(context);
     }
 
     public static a a(Context context) {
@@ -44,7 +44,7 @@ public class a {
     }
 
     public a b(boolean z) {
-        this.f29548c = z;
+        this.f28793c = z;
         return this;
     }
 
@@ -59,14 +59,14 @@ public class a {
     }
 
     public a a(boolean z) {
-        this.f29553h = z;
+        this.f28798h = z;
         return this;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:37:0x0078 -> B:44:0x007b). Please submit an issue!!! */
     @SuppressLint({"SetJavaScriptEnabled"})
     public void a(WebView webView) {
-        if (webView == null || this.f29546a.get() == null) {
+        if (webView == null || this.f28791a.get() == null) {
             return;
         }
         b(webView);
@@ -81,7 +81,7 @@ public class a {
             e2.printStackTrace();
         }
         try {
-            if (this.f29548c) {
+            if (this.f28793c) {
                 settings.setSupportZoom(true);
                 settings.setBuiltInZoomControls(true);
             } else {
@@ -91,18 +91,18 @@ public class a {
             th.printStackTrace();
         }
         settings.setLoadWithOverviewMode(true);
-        settings.setUseWideViewPort(this.f29549d);
-        settings.setDomStorageEnabled(this.f29550e);
-        settings.setAllowFileAccess(this.f29551f);
-        settings.setBlockNetworkImage(true ^ this.f29552g);
+        settings.setUseWideViewPort(this.f28794d);
+        settings.setDomStorageEnabled(this.f28795e);
+        settings.setAllowFileAccess(this.f28796f);
+        settings.setBlockNetworkImage(true ^ this.f28797g);
         settings.setDisplayZoomControls(false);
         if (Build.VERSION.SDK_INT < 28) {
-            this.f29553h = false;
+            this.f28798h = false;
         }
         try {
-            if (Build.VERSION.SDK_INT >= 11 && !this.f29553h) {
+            if (Build.VERSION.SDK_INT >= 11 && !this.f28798h) {
                 webView.setLayerType(0, null);
-            } else if (Build.VERSION.SDK_INT >= 16 && this.f29553h) {
+            } else if (Build.VERSION.SDK_INT >= 16 && this.f28798h) {
                 webView.setLayerType(2, null);
             }
         } catch (Throwable th2) {

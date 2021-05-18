@@ -62,8 +62,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.view.SortSwitchButton;
-import d.a.j0.g1.d;
-import d.a.j0.q0.f2.a.c;
+import d.a.k0.g1.d;
+import d.a.k0.q0.f2.a.c;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -80,11 +80,11 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public HeadImageView alaUserPhotoView;
     public Map<String, ImageUrlData> assistUrls;
     public String cacheAlaTag;
-    public d.a.j0.g1.k.d editorController;
+    public d.a.k0.g1.k.d editorController;
     public String fromForumId;
     public SortSwitchButton hostAllSwitch;
-    public d.a.j0.g1.k.a mAdBannerProxy;
-    public d.a.j0.b0.e mAlaTipController;
+    public d.a.k0.g1.k.a mAdBannerProxy;
+    public d.a.k0.b0.e mAlaTipController;
     public View mBackLogo;
     public int mCardType;
     public ImageView mClose;
@@ -93,17 +93,17 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public String mFid;
     public String mFname;
     public String mFrom;
-    public d.a.j0.g1.c mFunAdPageProvider;
-    public d.a.j0.g1.d mGetImageHelper;
+    public d.a.k0.g1.c mFunAdPageProvider;
+    public d.a.k0.g1.d mGetImageHelper;
     public ArrayList<String> mImageUrls;
-    public d.a.j0.g1.i mImageViewerStatisticController;
+    public d.a.k0.g1.i mImageViewerStatisticController;
     public boolean mIsClick;
-    public d.a.j0.g1.j mMoreDialogController;
+    public d.a.k0.g1.j mMoreDialogController;
     public NavigationBar mNavigationBar;
     public String mNid;
-    public d.a.j0.b0.e mPictureTipController;
+    public d.a.k0.b0.e mPictureTipController;
     public String mPostId;
-    public d.a.j0.q0.f2.a.c mProfessionController;
+    public d.a.k0.q0.f2.a.c mProfessionController;
     public String mRecomAbTag;
     public String mRecomExtra;
     public String mRecomSource;
@@ -122,8 +122,8 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public boolean alaLiveIsLive = false;
     public int mIndex = -1;
     public int mCount = -1;
-    public d.a.j0.g1.a mApPageProvier = null;
-    public boolean isFunAdABTest = d.a.i0.b.d.D();
+    public d.a.k0.g1.a mApPageProvier = null;
+    public boolean isFunAdABTest = d.a.j0.b.d.D();
     public boolean mIsNavigationBarVisibilitySaved = false;
     public boolean mSavedNavigationBarVisibility = false;
     public int currentPosition = 0;
@@ -207,7 +207,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            if (d.a.i0.b.d.v()) {
+            if (d.a.j0.b.d.v()) {
                 if (ImageViewerActivity.this.mMoreDialogController != null) {
                     ImageViewerActivity.this.mMoreDialogController.y();
                 }
@@ -321,7 +321,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 return;
             }
             if (alaInfo.isChushou) {
-                ImageViewerActivity.this.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(d.a.i0.a.f.f47853a + "://" + d.a.i0.a.f.f47854b + d.a.i0.a.f.k + "?" + d.a.i0.a.f.E + "=" + alaInfo.thirdLiveType + "&" + d.a.i0.a.f.F + "=" + alaInfo.thirdRoomId)));
+                ImageViewerActivity.this.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(d.a.j0.a.f.f48687a + "://" + d.a.j0.a.f.f48688b + d.a.j0.a.f.k + "?" + d.a.j0.a.f.E + "=" + alaInfo.thirdLiveType + "&" + d.a.j0.a.f.F + "=" + alaInfo.thirdRoomId)));
             } else if (alaInfo.live_id > 0) {
                 AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                 alaLiveInfoCoreData.liveID = alaInfo.live_id;
@@ -357,7 +357,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f18405e;
+        public final /* synthetic */ String f17720e;
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
@@ -371,7 +371,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
 
         public i(String str) {
-            this.f18405e = str;
+            this.f17720e = str;
         }
 
         @Override // java.lang.Runnable
@@ -381,38 +381,38 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     ImageViewerActivity.this.dismissAlaTip();
                     return;
                 }
-                ImageViewerActivity.this.mAlaTipController.h0(this.f18405e);
+                ImageViewerActivity.this.mAlaTipController.l0(this.f17720e);
                 ImageViewerActivity.this.cacheAlaTag = null;
                 return;
             }
             ImageViewerActivity imageViewerActivity = ImageViewerActivity.this;
-            imageViewerActivity.mAlaTipController = new d.a.j0.b0.e(imageViewerActivity.getPageContext(), ImageViewerActivity.this.alaUserPhotoAnimView);
-            ImageViewerActivity.this.mAlaTipController.c0(R.drawable.bg_tip_blue_up);
-            ImageViewerActivity.this.mAlaTipController.N(32);
-            ImageViewerActivity.this.mAlaTipController.d0(true);
-            ImageViewerActivity.this.mAlaTipController.V(1);
-            ImageViewerActivity.this.mAlaTipController.f0(0);
-            ImageViewerActivity.this.mAlaTipController.M(3000);
-            ImageViewerActivity.this.mAlaTipController.L(new a());
+            imageViewerActivity.mAlaTipController = new d.a.k0.b0.e(imageViewerActivity.getPageContext(), ImageViewerActivity.this.alaUserPhotoAnimView);
+            ImageViewerActivity.this.mAlaTipController.g0(R.drawable.bg_tip_blue_up);
+            ImageViewerActivity.this.mAlaTipController.O(32);
+            ImageViewerActivity.this.mAlaTipController.h0(true);
+            ImageViewerActivity.this.mAlaTipController.W(1);
+            ImageViewerActivity.this.mAlaTipController.j0(0);
+            ImageViewerActivity.this.mAlaTipController.N(3000);
+            ImageViewerActivity.this.mAlaTipController.M(new a());
             if (ImageViewerActivity.this.alaUserPhotoLayout == null || ImageViewerActivity.this.alaUserPhotoLayout.getVisibility() == 0) {
-                ImageViewerActivity.this.mAlaTipController.h0(this.f18405e);
+                ImageViewerActivity.this.mAlaTipController.l0(this.f17720e);
                 return;
             }
-            ImageViewerActivity.this.cacheAlaTag = this.f18405e;
+            ImageViewerActivity.this.cacheAlaTag = this.f17720e;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class j extends d.a.i0.k0.b {
+    public class j extends d.a.j0.k0.b {
         public j() {
         }
 
-        @Override // d.a.i0.k0.b
+        @Override // d.a.j0.k0.b
         public int getMaxCost() {
-            return d.a.i0.k0.e.b().c();
+            return d.a.j0.k0.e.b().c();
         }
 
-        @Override // d.a.i0.k0.b
+        @Override // d.a.j0.k0.b
         public boolean isCurrentPageCanBeAddToSourceTrace() {
             return false;
         }
@@ -446,7 +446,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeData agreeData;
             AgreeData agreeData2;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.j0.d3.h0.e) || ImageViewerActivity.this.assistUrls == null || (agreeData = ((d.a.j0.d3.h0.e) customResponsedMessage.getData()).f53077b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.k0.d3.h0.e) || ImageViewerActivity.this.assistUrls == null || (agreeData = ((d.a.k0.d3.h0.e) customResponsedMessage.getData()).f53784b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
                 return;
             }
             for (ImageUrlData imageUrlData : ImageViewerActivity.this.assistUrls.values()) {
@@ -476,7 +476,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeData agreeData;
             AgreeData agreeData2;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.j0.d3.h0.e) || ImageViewerActivity.this.assistUrls == null || (agreeData = ((d.a.j0.d3.h0.e) customResponsedMessage.getData()).f53077b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.k0.d3.h0.e) || ImageViewerActivity.this.assistUrls == null || (agreeData = ((d.a.k0.d3.h0.e) customResponsedMessage.getData()).f53784b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
                 return;
             }
             for (ImageUrlData imageUrlData : ImageViewerActivity.this.assistUrls.values()) {
@@ -504,15 +504,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.a.i0.t.m mVar;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.i0.t.m) || (mVar = (d.a.i0.t.m) customResponsedMessage.getData()) == null || StringUtils.isNull(mVar.f49905a)) {
+            d.a.j0.t.m mVar;
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.j0.t.m) || (mVar = (d.a.j0.t.m) customResponsedMessage.getData()) == null || StringUtils.isNull(mVar.f50724a)) {
                 return;
             }
-            d.a.i0.p0.b.i(mVar);
-            if (StringUtils.isNull(mVar.f49907c)) {
-                UrlManager.getInstance().dealOneLink(ImageViewerActivity.this.getPageContext(), new String[]{mVar.f49905a});
+            d.a.j0.p0.b.i(mVar);
+            if (StringUtils.isNull(mVar.f50726c)) {
+                UrlManager.getInstance().dealOneLink(ImageViewerActivity.this.getPageContext(), new String[]{mVar.f50724a});
             } else {
-                UrlManager.getInstance().dealOneLink(ImageViewerActivity.this.getPageContext(), new String[]{mVar.f49905a, mVar.f49907c});
+                UrlManager.getInstance().dealOneLink(ImageViewerActivity.this.getPageContext(), new String[]{mVar.f50724a, mVar.f50726c});
             }
         }
     }
@@ -579,11 +579,11 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             public a() {
             }
 
-            @Override // d.a.j0.q0.f2.a.c.d
+            @Override // d.a.k0.q0.f2.a.c.d
             public void a(boolean z, int i2) {
             }
 
-            @Override // d.a.j0.q0.f2.a.c.d
+            @Override // d.a.k0.q0.f2.a.c.d
             public void b(boolean z) {
                 if (!z || ImageViewerActivity.this.editorController == null || ImageViewerActivity.this.mViewpager.getCurrentUrlDragImageView() == null) {
                     return;
@@ -591,7 +591,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 ImageViewerActivity.this.editorController.u(ImageViewerActivity.this.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData(), ImageViewerActivity.this.mGetImageHelper);
             }
 
-            @Override // d.a.j0.q0.f2.a.c.d
+            @Override // d.a.k0.q0.f2.a.c.d
             public void c(boolean z) {
             }
         }
@@ -604,10 +604,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TiebaStatic.log(new StatisticItem("c13857").param("obj_type", "3").param("post_id", ImageViewerActivity.this.mTid).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", ImageViewerActivity.this.mFid));
-            if (d.a.i0.f0.f.a(ImageViewerActivity.this)) {
+            if (d.a.j0.f0.f.a(ImageViewerActivity.this)) {
                 if (ImageViewerActivity.this.mProfessionController == null) {
                     ImageViewerActivity imageViewerActivity = ImageViewerActivity.this;
-                    imageViewerActivity.mProfessionController = new d.a.j0.q0.f2.a.c(imageViewerActivity.getPageContext());
+                    imageViewerActivity.mProfessionController = new d.a.k0.q0.f2.a.c(imageViewerActivity.getPageContext());
                     ImageViewerActivity.this.mProfessionController.j(new a());
                 }
                 ImageViewerActivity.this.mProfessionController.k(((ImageViewerActivity.this.mViewpager == null || ImageViewerActivity.this.mViewpager.getCurrentUrlDragImageView() == null || ImageViewerActivity.this.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData() == null) ? 1 : ImageViewerActivity.this.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData().isFirstPost) ^ 1);
@@ -632,7 +632,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public r() {
         }
 
-        @Override // d.a.j0.g1.d.b
+        @Override // d.a.k0.g1.d.b
         public void a(ArrayList<String> arrayList, int i2, int i3, boolean z, String str, boolean z2, AdvertAppInfo advertAppInfo, boolean z3) {
             if (ImageViewerActivity.this.mViewpager == null) {
                 return;
@@ -669,12 +669,12 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     ImageViewerActivity.this.mFunAdPageProvider.s(Y, i3, ImageViewerActivity.this.mIndex, ImageViewerActivity.this.mTid, ImageViewerActivity.this.mFid);
                 }
             } else if (advertAppInfo != null && arrayList != null && ImageViewerActivity.this.mApPageProvier != null) {
-                AdvertAppInfo.t4.set(true);
-                int E4 = advertAppInfo.E4();
-                if (E4 == 0) {
+                AdvertAppInfo.Y3.set(true);
+                int G4 = advertAppInfo.G4();
+                if (G4 == 0) {
                     ImageViewerActivity.this.mApPageProvier.h(advertAppInfo, arrayList.size());
                 } else {
-                    ImageViewerActivity.this.reportAdDiscardLog(advertAppInfo, E4);
+                    ImageViewerActivity.this.reportAdDiscardLog(advertAppInfo, G4);
                 }
             }
             ImageViewerActivity.this.mViewpager.setNextTitle(str);
@@ -709,7 +709,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             imageViewerActivity2.triggerBannerAd(imageViewerActivity2.mViewpager.getCurrentItem());
         }
 
-        @Override // d.a.j0.g1.d.b
+        @Override // d.a.k0.g1.d.b
         public void b(int i2, String str) {
             ImageViewerActivity.this.mIsClick = false;
             if (ImageViewerActivity.this.hostAllSwitch != null) {
@@ -732,15 +732,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
 
         public final void c(ArrayList<String> arrayList, AdvertAppInfo advertAppInfo) {
             if (ImageViewerActivity.this.mApPageProvier != null && advertAppInfo != null && arrayList != null) {
-                int E4 = advertAppInfo.E4();
-                if (E4 != 0) {
-                    ImageViewerActivity.this.reportAdDiscardLog(advertAppInfo, E4);
+                int G4 = advertAppInfo.G4();
+                if (G4 != 0) {
+                    ImageViewerActivity.this.reportAdDiscardLog(advertAppInfo, G4);
                     return;
                 }
                 ImageViewerActivity.this.mApPageProvier.h(advertAppInfo, arrayList.size());
                 if (ImageViewerActivity.this.mApPageProvier.d()) {
                     ImageViewerActivity.this.setAddSize(1);
-                    TiebaStatic.log(d.a.j0.c3.a.h("a008", "common_fill", true, 1));
+                    TiebaStatic.log(d.a.k0.c3.a.h("a008", "common_fill", true, 1));
                     return;
                 }
                 ImageViewerActivity.this.setAddSize(0);
@@ -802,7 +802,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 if (ImageViewerActivity.this.hostAllSwitch != null) {
                     ImageViewerActivity.this.hostAllSwitch.setEnabled(false);
                 }
-                String a2 = d.a.j0.g1.b.a((String) ListUtils.getItem(ImageViewerActivity.this.mImageUrls, ImageViewerActivity.this.mIndex));
+                String a2 = d.a.k0.g1.b.a((String) ListUtils.getItem(ImageViewerActivity.this.mImageUrls, ImageViewerActivity.this.mIndex));
                 ImageViewerActivity imageViewerActivity = ImageViewerActivity.this;
                 imageViewerActivity.initImageHelper(a2, !imageViewerActivity.mIsSeeHost, true);
                 TiebaStatic.log(new StatisticItem("c13857").param("obj_type", ImageViewerActivity.this.mIsSeeHost ? 7 : 8).param("post_id", ImageViewerActivity.this.mTid).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", ImageViewerActivity.this.mFid));
@@ -815,24 +815,24 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean checkIsAdvertPage() {
-        d.a.j0.g1.a aVar;
-        d.a.j0.g1.c cVar;
+        d.a.k0.g1.a aVar;
+        d.a.k0.g1.c cVar;
         return this.isFunAdABTest ? this.mIsShowAp && (cVar = this.mFunAdPageProvider) != null && cVar.m() && this.mViewpager.getItemNum() != 1 && this.mIndex == this.mViewpager.getItemNum() - 1 : this.mIsShowAp && (aVar = this.mApPageProvier) != null && aVar.d() && this.mViewpager.getItemNum() != 1 && this.mIndex == this.mViewpager.getItemNum() - 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dismissAlaTip() {
-        d.a.j0.b0.e eVar = this.mAlaTipController;
+        d.a.k0.b0.e eVar = this.mAlaTipController;
         if (eVar != null) {
-            eVar.H();
+            eVar.I();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dissmissPictureTip() {
-        d.a.j0.b0.e eVar = this.mPictureTipController;
+        d.a.k0.b0.e eVar = this.mPictureTipController;
         if (eVar != null) {
-            eVar.H();
+            eVar.I();
         }
     }
 
@@ -916,11 +916,11 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         String str3;
         Map<String, ImageUrlData> map;
         ImageUrlData imageUrlData;
-        this.mImageViewerStatisticController = new d.a.j0.g1.i();
-        boolean e2 = d.a.i0.f0.f.e();
-        String b2 = d.a.i0.f0.f.b();
-        String d2 = d.a.i0.f0.f.d();
-        String c2 = d.a.i0.f0.f.c();
+        this.mImageViewerStatisticController = new d.a.k0.g1.i();
+        boolean e2 = d.a.j0.f0.f.e();
+        String b2 = d.a.j0.f0.f.b();
+        String d2 = d.a.j0.f0.f.d();
+        String c2 = d.a.j0.f0.f.c();
         if (bundle != null) {
             this.mIsBJHThread = bundle.getBoolean(ImageViewerConfig.IS_BJH);
             this.mImageUrls = bundle.getStringArrayList("url");
@@ -1023,10 +1023,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 str3 = c2;
             }
         }
-        d.a.i0.f0.f.h(z);
-        d.a.i0.f0.f.g(str);
-        d.a.i0.f0.f.i(str3);
-        d.a.i0.f0.f.j(str2);
+        d.a.j0.f0.f.h(z);
+        d.a.j0.f0.f.g(str);
+        d.a.j0.f0.f.i(str3);
+        d.a.j0.f0.f.j(str2);
         this.mImageViewerStatisticController.d(bundle, getIntent());
         this.mCount = ListUtils.getCount(this.mImageUrls);
         if (this.mSourceImageRectInScreen != null) {
@@ -1035,7 +1035,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 imageUrlData.setSourceImageRectInScreen(this.mSourceImageRectInScreen);
             }
         }
-        this.mDragPicId = this.mIsBJHThread ? null : d.a.j0.g1.b.a((String) ListUtils.getItem(this.mImageUrls, this.mIndex));
+        this.mDragPicId = this.mIsBJHThread ? null : d.a.k0.g1.b.a((String) ListUtils.getItem(this.mImageUrls, this.mIndex));
         if (this.mIsSeeHost) {
             TiebaStatic.log(new StatisticItem("c13337").param("obj_type", "2"));
         } else {
@@ -1045,7 +1045,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
 
     private void initEditor() {
         this.replyToolRoot = (LinearLayout) findViewById(R.id.image_viewer_reply_root);
-        d.a.j0.g1.k.d dVar = new d.a.j0.g1.k.d(getPageContext(), this.replyToolRoot);
+        d.a.k0.g1.k.d dVar = new d.a.k0.g1.k.d(getPageContext(), this.replyToolRoot);
         this.editorController = dVar;
         dVar.r(this.fromForumId);
         this.editorController.s(this.mSkinType);
@@ -1064,11 +1064,11 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         this.alaUserPhotoView.setPlaceHolder(1);
         if (this.mIsShowHost) {
             ArrayList arrayList = new ArrayList(2);
-            d.a.j0.d3.h0.r rVar = new d.a.j0.d3.h0.r();
+            d.a.k0.d3.h0.r rVar = new d.a.k0.d3.h0.r();
             rVar.c(0);
             rVar.d(getString(R.string.all));
             arrayList.add(rVar);
-            d.a.j0.d3.h0.r rVar2 = new d.a.j0.d3.h0.r();
+            d.a.k0.d3.h0.r rVar2 = new d.a.k0.d3.h0.r();
             rVar2.c(1);
             rVar2.d(getString(R.string.host_name));
             arrayList.add(rVar2);
@@ -1087,7 +1087,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initImageHelper(String str, boolean z, boolean z2) {
-        d.a.j0.g1.d dVar = new d.a.j0.g1.d(this.mImageUrls, this.assistUrls, this.mFid, this.mFname, this.mTid, this.mNid, str, this.mUserId, this.mFrom, this.mThreadType, z2, this.mCardType, this.mRecomSource, this.mRecomAbTag, this.mRecomWeight, this.mRecomExtra);
+        d.a.k0.g1.d dVar = new d.a.k0.g1.d(this.mImageUrls, this.assistUrls, this.mFid, this.mFname, this.mTid, this.mNid, str, this.mUserId, this.mFrom, this.mThreadType, z2, this.mCardType, this.mRecomSource, this.mRecomAbTag, this.mRecomWeight, this.mRecomExtra);
         this.mGetImageHelper = dVar;
         dVar.h0(this.mSourceImageRectInScreen);
         this.mGetImageHelper.f0(this.mIsOrdinal);
@@ -1114,9 +1114,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         this.mTitleView.setGravity(17);
         this.mTitleView.setTextColor(ContextCompat.getColor(this, R.color.CAM_X0101));
         this.mTitleView.setTextSize(0, d.a.c.e.p.l.g(this, R.dimen.tbds44));
-        d.a.i0.r.u.c.d(this.mTitleView).t(R.array.S_O_X001);
+        d.a.j0.r.u.c.d(this.mTitleView).t(R.array.S_O_X001);
         this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.mTitleView, (View.OnClickListener) null);
-        if (d.a.j0.g1.b.b((String) ListUtils.getItem(this.mImageUrls, this.mIndex))) {
+        if (d.a.k0.g1.b.b((String) ListUtils.getItem(this.mImageUrls, this.mIndex))) {
             this.mNavigationBar.setVisibility(0);
         }
     }
@@ -1134,14 +1134,14 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
 
     private void initUi() {
         initNavigationBar();
-        this.mMoreDialogController = new d.a.j0.g1.j(this);
+        this.mMoreDialogController = new d.a.k0.g1.j(this);
         initViewPager();
         this.mMoreDialogController.v(this.mViewpager);
         updateNavigationTitle();
         showGuideTip();
         initStatusBarView();
         initEditor();
-        d.a.j0.g1.i iVar = this.mImageViewerStatisticController;
+        d.a.k0.g1.i iVar = this.mImageViewerStatisticController;
         ArrayList<String> arrayList = this.mImageUrls;
         int i2 = this.mIndex;
         iVar.c(arrayList, i2, i2);
@@ -1168,12 +1168,12 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         this.mViewpager.setCurrentItem(calCurrentIndex(), false);
         this.mViewpager.setOnScrollOutListener(this.mScrollOutListener);
         if (this.isFunAdABTest) {
-            d.a.j0.g1.c cVar = new d.a.j0.g1.c(this, this.mIsShowAp);
+            d.a.k0.g1.c cVar = new d.a.k0.g1.c(this, this.mIsShowAp);
             this.mFunAdPageProvider = cVar;
             cVar.u(this.mDragToExitListener);
             this.mViewpager.k(this.mFunAdPageProvider);
         } else {
-            d.a.j0.g1.a aVar = new d.a.j0.g1.a(this.mIsCdn, this.mIsShowAp, getPageContext(), this.mFid, this.mTid);
+            d.a.k0.g1.a aVar = new d.a.k0.g1.a(this.mIsCdn, this.mIsShowAp, getPageContext(), this.mFid, this.mTid);
             this.mApPageProvier = aVar;
             aVar.g(this.mDragToExitListener);
             this.mViewpager.k(this.mApPageProvier);
@@ -1198,9 +1198,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reportAdDiscardLog(AdvertAppInfo advertAppInfo, int i2) {
-        d.a.j0.s2.h0.c b2 = d.a.j0.s2.h0.h.b(advertAppInfo, 5, 0);
-        b2.k(i2);
-        d.a.j0.s2.h0.e.b().d(b2);
+        d.a.k0.s2.i0.c b2 = d.a.k0.s2.i0.g.b(advertAppInfo, 5, 0);
+        b2.j(i2);
+        d.a.k0.s2.i0.e.b().d(b2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1230,16 +1230,16 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             return;
         }
         if (this.mPictureTipController == null) {
-            d.a.j0.b0.e eVar = new d.a.j0.b0.e(getPageContext(), this.hostAllSwitch);
+            d.a.k0.b0.e eVar = new d.a.k0.b0.e(getPageContext(), this.hostAllSwitch);
             this.mPictureTipController = eVar;
-            eVar.c0(R.drawable.pic_sign_tip);
-            this.mPictureTipController.N(48);
-            this.mPictureTipController.d0(true);
-            this.mPictureTipController.M(5000);
-            this.mPictureTipController.f0(-d.a.c.e.p.l.g(getPageContext().getPageActivity(), R.dimen.tbds26));
-            this.mPictureTipController.L(new a());
+            eVar.g0(R.drawable.pic_sign_tip);
+            this.mPictureTipController.O(48);
+            this.mPictureTipController.h0(true);
+            this.mPictureTipController.N(5000);
+            this.mPictureTipController.j0(-d.a.c.e.p.l.g(getPageContext().getPageActivity(), R.dimen.tbds26));
+            this.mPictureTipController.M(new a());
         }
-        this.mPictureTipController.i0(getPageContext().getString(R.string.click_look_all_picture), "key_large_image_tip_count");
+        this.mPictureTipController.m0(getPageContext().getString(R.string.click_look_all_picture), "key_large_image_tip_count");
     }
 
     private void startLoadPortrait(TbImageView tbImageView, @NonNull String str) {
@@ -1272,14 +1272,14 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     /* JADX INFO: Access modifiers changed from: private */
     public void triggerBannerAd(int i2) {
         if (this.mAdBannerProxy == null) {
-            AdvertAppInfo.t4.set(true);
-            this.mAdBannerProxy = new d.a.j0.g1.k.a((ViewStub) findViewById(R.id.ad_banner_view_stub), getPageContext());
+            AdvertAppInfo.Y3.set(true);
+            this.mAdBannerProxy = new d.a.k0.g1.k.a((ViewStub) findViewById(R.id.ad_banner_view_stub), getPageContext());
         }
         this.mAdBannerProxy.c(this.mViewpager, this.mIsSeeHost, i2, checkIsAdvertPage(), i2 < this.mImageUrls.size() ? this.mImageUrls.get(i2) : "", this.mCount, this.mFid, this.mFname, this.mTid);
     }
 
     private void updateAlaLiveLayout(int i2) {
-        d.a.j0.g1.d dVar = this.mGetImageHelper;
+        d.a.k0.g1.d dVar = this.mGetImageHelper;
         if (dVar != null) {
             ArrayList<AlaInfoData> T = dVar.T();
             if (T != null && T.size() > 0) {
@@ -1340,7 +1340,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         if (this.mIsShowHost && !this.mIsFromAiApp && (sortSwitchButton = this.hostAllSwitch) != null) {
             sortSwitchButton.u(this.mIsSeeHost ? 1 : 0);
         }
-        d.a.i0.r.u.c.d(this.mTitleView).t(R.array.S_O_X001);
+        d.a.j0.r.u.c.d(this.mTitleView).t(R.array.S_O_X001);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1373,7 +1373,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 2);
-        if (d.a.i0.z0.l.a()) {
+        if (d.a.j0.z0.l.a()) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c13377").param("obj_type", "4"));
@@ -1388,7 +1388,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         return this.assistUrls;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "a008";
     }
@@ -1406,8 +1406,8 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.a.i0.k0.d getPageStayDurationItem() {
-        d.a.i0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
+    public d.a.j0.k0.d getPageStayDurationItem() {
+        d.a.j0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
             pageStayDurationItem.q(d.a.c.e.m.b.f(this.mFid, 0L));
             pageStayDurationItem.y(d.a.c.e.m.b.f(this.mTid, 0L));
@@ -1418,8 +1418,8 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         return pageStayDurationItem;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
-    public d.a.i0.k0.b getPageStayFilter() {
+    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
+    public d.a.j0.k0.b getPageStayFilter() {
         return new j();
     }
 
@@ -1458,11 +1458,11 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         this.skinTypeRecord = i2;
         UtilHelper.changeStatusBarIconAndTextColor(true, this);
         handleUserAlaLiveSkinType(i2);
-        d.a.j0.g1.j jVar = this.mMoreDialogController;
+        d.a.k0.g1.j jVar = this.mMoreDialogController;
         if (jVar != null) {
             jVar.x();
         }
-        d.a.j0.g1.k.d dVar = this.editorController;
+        d.a.k0.g1.k.d dVar = this.editorController;
         if (dVar != null) {
             dVar.m(this.mSkinType);
         }
@@ -1481,7 +1481,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             setUseStyleImmersiveSticky(false);
         }
         super.onCreate(bundle);
-        d.a.i0.f0.h.f().g(TbadkCoreApplication.getInst());
+        d.a.j0.f0.h.f().g(TbadkCoreApplication.getInst());
         this.skinTypeRecord = TbadkCoreApplication.getInst().getSkinType();
         setSwipeBackEnabled(false);
         TbadkCoreApplication.getInst().addRemoteActivity(this);
@@ -1497,7 +1497,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         this.mVoiceManager = voiceManager;
         voiceManager.onCreate(getPageContext());
         if (Build.VERSION.SDK_INT >= 28 && (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this))) {
-            d.a.j0.p3.c.b(1, getWindow().getAttributes(), getWindow());
+            d.a.k0.p3.c.b(1, getWindow().getAttributes(), getWindow());
         }
         if (!TbSingleton.getInstance().hasDownloadEmotion() && d.a.c.e.p.j.H() && TbadkCoreApplication.isLogin()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2004611));
@@ -1511,15 +1511,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         String str2;
         MessageManager.getInstance().unRegisterListener(this.mToHotTopicListener);
         TbadkCoreApplication.getInst().delRemoteActivity(this);
-        d.a.i0.a0.c.k().r();
-        d.a.j0.g1.i iVar = this.mImageViewerStatisticController;
+        d.a.j0.a0.c.k().r();
+        d.a.k0.g1.i iVar = this.mImageViewerStatisticController;
         ArrayList<String> arrayList = this.mImageUrls;
         int i2 = this.mIndex;
         iVar.c(arrayList, i2, i2);
         this.mImageViewerStatisticController.g();
-        d.a.j0.g1.a aVar = this.mApPageProvier;
+        d.a.k0.g1.a aVar = this.mApPageProvier;
         String c2 = aVar != null ? aVar.c() : "";
-        d.a.j0.g1.d dVar = this.mGetImageHelper;
+        d.a.k0.g1.d dVar = this.mGetImageHelper;
         if (dVar != null) {
             str = dVar.U();
             str2 = this.mGetImageHelper.X();
@@ -1528,7 +1528,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             str2 = null;
         }
         this.mImageViewerStatisticController.j(this.mViewpager.getPageCount(), c2, this.mFid, this.mTid, str, str2);
-        d.a.j0.g1.j jVar = this.mMoreDialogController;
+        d.a.k0.g1.j jVar = this.mMoreDialogController;
         if (jVar != null) {
             jVar.A();
         }
@@ -1538,23 +1538,23 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         if (voiceManager != null) {
             voiceManager.onDestory(getPageContext());
         }
-        d.a.i0.v.d.j().h(13);
+        d.a.j0.v.d.j().h(13);
         TbadkCoreApplication.getInst().setSkinTypeValue(this.skinTypeRecord);
         dissmissPictureTip();
         dismissAlaTip();
-        d.a.j0.g1.a aVar2 = this.mApPageProvier;
+        d.a.k0.g1.a aVar2 = this.mApPageProvier;
         if (aVar2 != null) {
             aVar2.f();
         }
-        d.a.j0.g1.k.a aVar3 = this.mAdBannerProxy;
+        d.a.k0.g1.k.a aVar3 = this.mAdBannerProxy;
         if (aVar3 != null) {
             aVar3.b();
         }
-        d.a.j0.g1.c cVar = this.mFunAdPageProvider;
+        d.a.k0.g1.c cVar = this.mFunAdPageProvider;
         if (cVar != null) {
             cVar.r();
         }
-        d.a.i0.f0.h.i(new PrePageKeyEvent(getCurrentPageKey()));
+        d.a.j0.f0.h.i(new PrePageKeyEvent(getCurrentPageKey()));
         super.onDestroy();
     }
 
@@ -1577,7 +1577,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         BdUniqueId uniqueId = getUniqueId();
         long f2 = d.a.c.e.m.b.f(this.mTid, 0L);
         if (uniqueId != null && f2 > 0) {
-            d.a.i0.a.r.f(uniqueId.getId(), f2);
+            d.a.j0.a.s.f(uniqueId.getId(), f2);
         }
         VoiceManager voiceManager = this.mVoiceManager;
         if (voiceManager != null) {
@@ -1590,11 +1590,11 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public void onResume() {
         super.onResume();
         this.mViewpager.x();
-        this.mIsLogin = d.a.i0.f0.f.e();
+        this.mIsLogin = d.a.j0.f0.f.e();
         BdUniqueId uniqueId = getUniqueId();
         long f2 = d.a.c.e.m.b.f(this.mTid, 0L);
         if (uniqueId != null && f2 > 0) {
-            d.a.i0.a.r.j(d.a.i0.a.b.a0, uniqueId.getId(), f2);
+            d.a.j0.a.s.j(d.a.j0.a.b.a0, uniqueId.getId(), f2);
         }
         VoiceManager voiceManager = this.mVoiceManager;
         if (voiceManager != null) {
@@ -1653,10 +1653,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         bundle.putBoolean(ImageViewerConfig.IS_IDENTIFY_IMAGE, this.mIsIdentifyImage);
         bundle.putBoolean(ImageViewerConfig.IS_FROM_AI_APP, this.mIsFromAiApp);
         bundle.putBoolean(ImageViewerConfig.IS_GODREPLY_IMAGE, this.mIsGodreplyImage);
-        bundle.putBoolean(ImageViewerConfig.IS_LOGIN, d.a.i0.f0.f.e());
-        bundle.putString(ImageViewerConfig.ACCOUNT_BDUSS, d.a.i0.f0.f.b());
-        bundle.putString(ImageViewerConfig.ACCOUNT_STOKEN, d.a.i0.f0.f.c());
-        bundle.putString(ImageViewerConfig.ACCOUNT_TBS, d.a.i0.f0.f.d());
+        bundle.putBoolean(ImageViewerConfig.IS_LOGIN, d.a.j0.f0.f.e());
+        bundle.putString(ImageViewerConfig.ACCOUNT_BDUSS, d.a.j0.f0.f.b());
+        bundle.putString(ImageViewerConfig.ACCOUNT_STOKEN, d.a.j0.f0.f.c());
+        bundle.putString(ImageViewerConfig.ACCOUNT_TBS, d.a.j0.f0.f.d());
         bundle.putString("from_forum_id", this.fromForumId);
         bundle.putInt("skin_type", this.mSkinType);
         bundle.putBoolean(ImageViewerConfig.IS_VIDEO_WORKS_INFO, this.mIsVideoWorksInfo);

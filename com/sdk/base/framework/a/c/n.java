@@ -1,5 +1,5 @@
 package com.sdk.base.framework.a.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class n extends k<Runnable> implements Runnable {
     public n(int i2, Runnable runnable) {
         super(i2, runnable);
@@ -7,6 +7,6 @@ public final class n extends k<Runnable> implements Runnable {
 
     @Override // java.lang.Runnable
     public final void run() {
-        ((Runnable) this.f36410b).run();
+        ((Runnable) this.f35655b).run();
     }
 }

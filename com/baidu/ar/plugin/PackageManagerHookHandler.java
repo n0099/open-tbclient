@@ -17,7 +17,7 @@ public class PackageManagerHookHandler implements InvocationHandler {
     }
 
     @Override // java.lang.reflect.InvocationHandler
-    public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
+    public Object invoke(Object obj, Method method, Object[] objArr) {
         if (method.getName().equals("getPackageInfo") && objArr[0] == XRSessionAnchor.apkinfo) {
             PackageInfo packageInfo = new PackageInfo();
             packageInfo.packageName = XRSessionAnchor.apkinfo;

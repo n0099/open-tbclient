@@ -666,7 +666,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public FieldSet<FieldDescriptorType> m41clone() {
+    public FieldSet<FieldDescriptorType> m40clone() {
         FieldSet<FieldDescriptorType> newFieldSet = newFieldSet();
         for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
             Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i2);

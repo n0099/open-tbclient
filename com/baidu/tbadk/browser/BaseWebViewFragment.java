@@ -13,38 +13,38 @@ import java.net.URL;
 public class BaseWebViewFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12673e;
+    public String f12017e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12674f;
+    public String f12018f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12675g;
+    public String f12019g;
 
-    public ShareItem E0(String str, String str2, String str3, String str4) {
+    public ShareItem D0(String str, String str2, String str3, String str4) {
         ShareItem shareItem = new ShareItem();
-        if (StringUtils.isNull(this.f12675g, true)) {
+        if (StringUtils.isNull(this.f12019g, true)) {
             shareItem.r = getResources().getString(R.string.share_from_tieba);
         } else {
-            shareItem.r = this.f12675g;
+            shareItem.r = this.f12019g;
         }
-        shareItem.t = this.f12673e;
-        if (StringUtils.isNull(this.f12674f, true)) {
-            shareItem.s = this.f12673e;
+        shareItem.t = this.f12017e;
+        if (StringUtils.isNull(this.f12018f, true)) {
+            shareItem.s = this.f12017e;
         } else {
-            String F0 = F0("<meta name=\"description\" content=\"", "\"");
-            if (StringUtils.isNull(F0, true)) {
-                shareItem.s = this.f12673e;
+            String E0 = E0("<meta name=\"description\" content=\"", "\"");
+            if (StringUtils.isNull(E0, true)) {
+                shareItem.s = this.f12017e;
             } else {
-                shareItem.s = F0;
+                shareItem.s = E0;
             }
-            String F02 = F0("<img src=\"", "\"");
-            if (!StringUtils.isNull(F02, true)) {
-                shareItem.v = Uri.parse(F02);
+            String E02 = E0("<img src=\"", "\"");
+            if (!StringUtils.isNull(E02, true)) {
+                shareItem.v = Uri.parse(E02);
             }
-            String F03 = F0("<meta name=\"shareurl\" content=\"", "\"");
-            if (!StringUtils.isNull(F03, true)) {
-                shareItem.t = F03;
+            String E03 = E0("<meta name=\"shareurl\" content=\"", "\"");
+            if (!StringUtils.isNull(E03, true)) {
+                shareItem.t = E03;
             }
         }
         if (!TextUtils.isEmpty(str)) {
@@ -62,13 +62,13 @@ public class BaseWebViewFragment extends BaseFragment {
         return shareItem;
     }
 
-    public final String F0(String str, String str2) {
+    public final String E0(String str, String str2) {
         int indexOf;
-        if (StringUtils.isNull(str, true) || StringUtils.isNull(str2, true) || (indexOf = this.f12674f.indexOf(str)) < 0) {
+        if (StringUtils.isNull(str, true) || StringUtils.isNull(str2, true) || (indexOf = this.f12018f.indexOf(str)) < 0) {
             return null;
         }
         int length = indexOf + str.length();
-        String str3 = this.f12674f;
+        String str3 = this.f12018f;
         String substring = str3.substring(length, str3.length());
         int indexOf2 = substring.indexOf(str2);
         if (indexOf2 < 0) {
@@ -77,23 +77,23 @@ public class BaseWebViewFragment extends BaseFragment {
         return substring.substring(0, indexOf2);
     }
 
-    public boolean G0(String str) {
-        return K0(str, "blank");
+    public boolean F0(String str) {
+        return J0(str, "blank");
+    }
+
+    public boolean G0() {
+        return J0(this.f12017e, "nomenu");
     }
 
     public boolean H0() {
-        return K0(this.f12673e, "nomenu");
+        return J0(this.f12017e, "nonavigationbar");
     }
 
     public boolean I0() {
-        return K0(this.f12673e, "nonavigationbar");
+        return J0(this.f12017e, "noshare");
     }
 
-    public boolean J0() {
-        return K0(this.f12673e, "noshare");
-    }
-
-    public boolean K0(String str, String str2) {
+    public boolean J0(String str, String str2) {
         String[] split;
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             try {
@@ -118,19 +118,19 @@ public class BaseWebViewFragment extends BaseFragment {
         return true;
     }
 
-    public final String L0(String str) {
+    public final String K0(String str) {
         return (str == null || str.startsWith("http://") || str.startsWith("https://")) ? str : "http://".concat(str);
     }
 
-    public void M0(String str) {
+    public void L0(String str) {
         if (!StringUtils.isNull(str) && str.startsWith(NewUrlSchemaHelper.Jump.JUMP_TO_TBWEBVIEW)) {
-            this.f12673e = str;
+            this.f12017e = str;
         } else {
-            this.f12673e = L0(str);
+            this.f12017e = K0(str);
         }
     }
 
-    public void N0(String str) {
-        this.f12675g = str;
+    public void M0(String str) {
+        this.f12019g = str;
     }
 }

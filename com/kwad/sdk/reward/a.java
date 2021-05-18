@@ -19,33 +19,33 @@ public class a extends com.kwad.sdk.core.e.b {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f34317b;
+    public com.kwad.sdk.reward.a.b f33562b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public KsVideoPlayConfig f34318c;
+    public KsVideoPlayConfig f33563c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f34319d;
+    public JSONObject f33564d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34320e;
+    public int f33565e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f34321f;
+    public AdTemplate f33566f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Activity f34322g;
+    public Activity f33567g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public AdBaseFrameLayout f34323h;
+    public AdBaseFrameLayout f33568h;
     @NonNull
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f34324i;
+    public com.kwad.sdk.reward.c.a f33569i;
     @Nullable
     public com.kwad.sdk.core.download.b.b j;
     @NonNull
@@ -60,7 +60,7 @@ public class a extends com.kwad.sdk.core.e.b {
     public boolean r;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<com.kwad.sdk.reward.a.a> f34316a = new ArrayList();
+    public List<com.kwad.sdk.reward.a.a> f33561a = new ArrayList();
     public Set<com.kwad.sdk.reward.a.f> u = new HashSet();
     public Set<com.kwad.sdk.reward.a.e> o = new HashSet();
     public Set<com.kwad.sdk.reward.a.d> p = new HashSet();
@@ -80,9 +80,9 @@ public class a extends com.kwad.sdk.core.e.b {
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        this.f34316a.clear();
+        this.f33561a.clear();
         this.u.clear();
-        this.f34324i.h();
+        this.f33569i.h();
         com.kwad.sdk.core.download.b.b bVar = this.j;
         if (bVar != null) {
             bVar.g();
@@ -117,7 +117,7 @@ public class a extends com.kwad.sdk.core.e.b {
             d();
             return;
         }
-        Activity activity = this.f34322g;
+        Activity activity = this.f33567g;
         if (activity != null) {
             activity.runOnUiThread(new Runnable() { // from class: com.kwad.sdk.reward.a.1
                 @Override // java.lang.Runnable

@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.a.j0.e1.f.e;
-import d.a.j0.f1.a.e.a;
+import d.a.k0.e1.f.e;
+import d.a.k0.f1.a.e.a;
 /* loaded from: classes4.dex */
 public class MsgReplyCardView extends e {
     public LinearLayout t;
@@ -26,7 +26,7 @@ public class MsgReplyCardView extends e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MsgReplyCardView.this.f53441b.onItemViewClick(view, 14, MsgReplyCardView.this.f53445f, 0L);
+            MsgReplyCardView.this.f54148b.onItemViewClick(view, 14, MsgReplyCardView.this.f54152f, 0L);
         }
     }
 
@@ -35,35 +35,35 @@ public class MsgReplyCardView extends e {
         K();
     }
 
-    public final String G(a.C1254a c1254a, String str) {
+    public final String G(a.C1326a c1326a, String str) {
         String J;
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
             J = this.mContext.getString(R.string.me);
         } else {
-            J = J(c1254a.f54093a);
+            J = J(c1326a.f54800a);
         }
-        if (c1254a.f54100h == 1) {
+        if (c1326a.f54807h == 1) {
             sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_comment), J));
-            sb.append(c1254a.f54095c);
+            sb.append(c1326a.f54802c);
         } else {
             sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_thread), J));
-            sb.append(c1254a.f54099g);
+            sb.append(c1326a.f54806g);
         }
         return sb.toString();
     }
 
-    public final String H(a.C1254a c1254a, String str) {
+    public final String H(a.C1326a c1326a, String str) {
         String string;
         String J;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = J(c1254a.f54093a);
+            string = J(c1326a.f54800a);
             J = this.mContext.getString(R.string.you);
         } else {
             string = this.mContext.getString(R.string.you);
-            J = J(c1254a.f54093a);
+            J = J(c1326a.f54800a);
         }
-        return String.format(this.mContext.getString(R.string.add_friend_card_title), string, I(c1254a.f54100h), J);
+        return String.format(this.mContext.getString(R.string.add_friend_card_title), string, I(c1326a.f54807h), J);
     }
 
     public final String I(int i2) {
@@ -96,12 +96,12 @@ public class MsgReplyCardView extends e {
         if (chatMessage == null) {
             return;
         }
-        a.C1254a a2 = d.a.j0.f1.a.e.a.a(chatMessage.getContent());
+        a.C1326a a2 = d.a.k0.f1.a.e.a.a(chatMessage.getContent());
         String valueOf = String.valueOf(chatMessage.getUserId());
         this.u.setText(H(a2, valueOf));
-        this.v.setText(a2.f54094b);
+        this.v.setText(a2.f54801b);
         this.w.setText(G(a2, valueOf));
         TextView textView = this.x;
-        textView.setText(a2.f54096d + this.mContext.getString(R.string.forum));
+        textView.setText(a2.f54803d + this.mContext.getString(R.string.forum));
     }
 }

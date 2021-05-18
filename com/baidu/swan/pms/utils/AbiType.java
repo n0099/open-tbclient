@@ -1,5 +1,6 @@
 package com.baidu.swan.pms.utils;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.text.TextUtils;
@@ -7,7 +8,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import d.a.h0.l.f;
+import d.a.i0.n.c;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +52,7 @@ public final class AbiType {
         AbiType abiType4 = new AbiType("X86_64", 4, "x86_64", abiType3, ARMEABI_V7A, ARMEABI);
         X86_64 = abiType4;
         $VALUES = new AbiType[]{ARMEABI, ARMEABI_V7A, ARM64_V8A, X86, abiType4};
-        DEBUG = f.f47117a;
+        DEBUG = c.f47808a;
         sIndex = new HashMap();
     }
 
@@ -78,6 +79,7 @@ public final class AbiType {
         return findById(str, null);
     }
 
+    @SuppressLint({"ObsoleteSdkInt"})
     public static String getRuntimeAbiTypeStr() {
         if (Build.VERSION.SDK_INT < 21) {
             return Build.CPU_ABI;

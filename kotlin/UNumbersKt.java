@@ -11,7 +11,7 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: countLeadingZeroBits-7apg3OU  reason: not valid java name */
-    public static final int m855countLeadingZeroBits7apg3OU(byte b2) {
+    public static final int m854countLeadingZeroBits7apg3OU(byte b2) {
         return Integer.numberOfLeadingZeros(b2 & 255) - 24;
     }
 
@@ -20,7 +20,7 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: countLeadingZeroBits-VKZWuLQ  reason: not valid java name */
-    public static final int m856countLeadingZeroBitsVKZWuLQ(long j) {
+    public static final int m855countLeadingZeroBitsVKZWuLQ(long j) {
         return Long.numberOfLeadingZeros(j);
     }
 
@@ -29,7 +29,7 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: countLeadingZeroBits-WZ4Q5Ns  reason: not valid java name */
-    public static final int m857countLeadingZeroBitsWZ4Q5Ns(int i2) {
+    public static final int m856countLeadingZeroBitsWZ4Q5Ns(int i2) {
         return Integer.numberOfLeadingZeros(i2);
     }
 
@@ -38,7 +38,7 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: countLeadingZeroBits-xj2QHRw  reason: not valid java name */
-    public static final int m858countLeadingZeroBitsxj2QHRw(short s) {
+    public static final int m857countLeadingZeroBitsxj2QHRw(short s) {
         return Integer.numberOfLeadingZeros(s & UShort.MAX_VALUE) - 16;
     }
 
@@ -47,8 +47,8 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: countOneBits-7apg3OU  reason: not valid java name */
-    public static final int m859countOneBits7apg3OU(byte b2) {
-        return Integer.bitCount(UInt.m722constructorimpl(b2 & 255));
+    public static final int m858countOneBits7apg3OU(byte b2) {
+        return Integer.bitCount(UInt.m721constructorimpl(b2 & 255));
     }
 
     @SinceKotlin(version = "1.4")
@@ -56,7 +56,7 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: countOneBits-VKZWuLQ  reason: not valid java name */
-    public static final int m860countOneBitsVKZWuLQ(long j) {
+    public static final int m859countOneBitsVKZWuLQ(long j) {
         return Long.bitCount(j);
     }
 
@@ -65,7 +65,7 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: countOneBits-WZ4Q5Ns  reason: not valid java name */
-    public static final int m861countOneBitsWZ4Q5Ns(int i2) {
+    public static final int m860countOneBitsWZ4Q5Ns(int i2) {
         return Integer.bitCount(i2);
     }
 
@@ -74,8 +74,8 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: countOneBits-xj2QHRw  reason: not valid java name */
-    public static final int m862countOneBitsxj2QHRw(short s) {
-        return Integer.bitCount(UInt.m722constructorimpl(s & UShort.MAX_VALUE));
+    public static final int m861countOneBitsxj2QHRw(short s) {
+        return Integer.bitCount(UInt.m721constructorimpl(s & UShort.MAX_VALUE));
     }
 
     @SinceKotlin(version = "1.4")
@@ -83,7 +83,7 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: countTrailingZeroBits-7apg3OU  reason: not valid java name */
-    public static final int m863countTrailingZeroBits7apg3OU(byte b2) {
+    public static final int m862countTrailingZeroBits7apg3OU(byte b2) {
         return Integer.numberOfTrailingZeros(b2 | 256);
     }
 
@@ -92,7 +92,7 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: countTrailingZeroBits-VKZWuLQ  reason: not valid java name */
-    public static final int m864countTrailingZeroBitsVKZWuLQ(long j) {
+    public static final int m863countTrailingZeroBitsVKZWuLQ(long j) {
         return Long.numberOfTrailingZeros(j);
     }
 
@@ -101,7 +101,7 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: countTrailingZeroBits-WZ4Q5Ns  reason: not valid java name */
-    public static final int m865countTrailingZeroBitsWZ4Q5Ns(int i2) {
+    public static final int m864countTrailingZeroBitsWZ4Q5Ns(int i2) {
         return Integer.numberOfTrailingZeros(i2);
     }
 
@@ -110,7 +110,7 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: countTrailingZeroBits-xj2QHRw  reason: not valid java name */
-    public static final int m866countTrailingZeroBitsxj2QHRw(short s) {
+    public static final int m865countTrailingZeroBitsxj2QHRw(short s) {
         return Integer.numberOfTrailingZeros(s | UShort.MIN_VALUE);
     }
 
@@ -119,8 +119,8 @@ public final class UNumbersKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: rotateLeft-JSWoG40  reason: not valid java name */
-    public static final long m867rotateLeftJSWoG40(long j, int i2) {
-        return ULong.m792constructorimpl(Long.rotateLeft(j, i2));
+    public static final long m866rotateLeftJSWoG40(long j, int i2) {
+        return ULong.m791constructorimpl(Long.rotateLeft(j, i2));
     }
 
     @SinceKotlin(version = "1.3")
@@ -128,8 +128,8 @@ public final class UNumbersKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: rotateLeft-LxnNnR4  reason: not valid java name */
-    public static final byte m868rotateLeftLxnNnR4(byte b2, int i2) {
-        return UByte.m654constructorimpl(NumbersKt__NumbersKt.rotateLeft(b2, i2));
+    public static final byte m867rotateLeftLxnNnR4(byte b2, int i2) {
+        return UByte.m653constructorimpl(NumbersKt__NumbersKt.rotateLeft(b2, i2));
     }
 
     @SinceKotlin(version = "1.3")
@@ -137,8 +137,8 @@ public final class UNumbersKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: rotateLeft-V7xB4Y4  reason: not valid java name */
-    public static final int m869rotateLeftV7xB4Y4(int i2, int i3) {
-        return UInt.m722constructorimpl(Integer.rotateLeft(i2, i3));
+    public static final int m868rotateLeftV7xB4Y4(int i2, int i3) {
+        return UInt.m721constructorimpl(Integer.rotateLeft(i2, i3));
     }
 
     @SinceKotlin(version = "1.3")
@@ -146,8 +146,8 @@ public final class UNumbersKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: rotateLeft-olVBNx4  reason: not valid java name */
-    public static final short m870rotateLeftolVBNx4(short s, int i2) {
-        return UShort.m890constructorimpl(NumbersKt__NumbersKt.rotateLeft(s, i2));
+    public static final short m869rotateLeftolVBNx4(short s, int i2) {
+        return UShort.m889constructorimpl(NumbersKt__NumbersKt.rotateLeft(s, i2));
     }
 
     @SinceKotlin(version = "1.3")
@@ -155,8 +155,8 @@ public final class UNumbersKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: rotateRight-JSWoG40  reason: not valid java name */
-    public static final long m871rotateRightJSWoG40(long j, int i2) {
-        return ULong.m792constructorimpl(Long.rotateRight(j, i2));
+    public static final long m870rotateRightJSWoG40(long j, int i2) {
+        return ULong.m791constructorimpl(Long.rotateRight(j, i2));
     }
 
     @SinceKotlin(version = "1.3")
@@ -164,8 +164,8 @@ public final class UNumbersKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: rotateRight-LxnNnR4  reason: not valid java name */
-    public static final byte m872rotateRightLxnNnR4(byte b2, int i2) {
-        return UByte.m654constructorimpl(NumbersKt__NumbersKt.rotateRight(b2, i2));
+    public static final byte m871rotateRightLxnNnR4(byte b2, int i2) {
+        return UByte.m653constructorimpl(NumbersKt__NumbersKt.rotateRight(b2, i2));
     }
 
     @SinceKotlin(version = "1.3")
@@ -173,8 +173,8 @@ public final class UNumbersKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: rotateRight-V7xB4Y4  reason: not valid java name */
-    public static final int m873rotateRightV7xB4Y4(int i2, int i3) {
-        return UInt.m722constructorimpl(Integer.rotateRight(i2, i3));
+    public static final int m872rotateRightV7xB4Y4(int i2, int i3) {
+        return UInt.m721constructorimpl(Integer.rotateRight(i2, i3));
     }
 
     @SinceKotlin(version = "1.3")
@@ -182,8 +182,8 @@ public final class UNumbersKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: rotateRight-olVBNx4  reason: not valid java name */
-    public static final short m874rotateRightolVBNx4(short s, int i2) {
-        return UShort.m890constructorimpl(NumbersKt__NumbersKt.rotateRight(s, i2));
+    public static final short m873rotateRightolVBNx4(short s, int i2) {
+        return UShort.m889constructorimpl(NumbersKt__NumbersKt.rotateRight(s, i2));
     }
 
     @SinceKotlin(version = "1.4")
@@ -191,8 +191,8 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: takeHighestOneBit-7apg3OU  reason: not valid java name */
-    public static final byte m875takeHighestOneBit7apg3OU(byte b2) {
-        return UByte.m654constructorimpl((byte) Integer.highestOneBit(b2 & 255));
+    public static final byte m874takeHighestOneBit7apg3OU(byte b2) {
+        return UByte.m653constructorimpl((byte) Integer.highestOneBit(b2 & 255));
     }
 
     @SinceKotlin(version = "1.4")
@@ -200,8 +200,8 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: takeHighestOneBit-VKZWuLQ  reason: not valid java name */
-    public static final long m876takeHighestOneBitVKZWuLQ(long j) {
-        return ULong.m792constructorimpl(Long.highestOneBit(j));
+    public static final long m875takeHighestOneBitVKZWuLQ(long j) {
+        return ULong.m791constructorimpl(Long.highestOneBit(j));
     }
 
     @SinceKotlin(version = "1.4")
@@ -209,8 +209,8 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: takeHighestOneBit-WZ4Q5Ns  reason: not valid java name */
-    public static final int m877takeHighestOneBitWZ4Q5Ns(int i2) {
-        return UInt.m722constructorimpl(Integer.highestOneBit(i2));
+    public static final int m876takeHighestOneBitWZ4Q5Ns(int i2) {
+        return UInt.m721constructorimpl(Integer.highestOneBit(i2));
     }
 
     @SinceKotlin(version = "1.4")
@@ -218,8 +218,8 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: takeHighestOneBit-xj2QHRw  reason: not valid java name */
-    public static final short m878takeHighestOneBitxj2QHRw(short s) {
-        return UShort.m890constructorimpl((short) Integer.highestOneBit(s & UShort.MAX_VALUE));
+    public static final short m877takeHighestOneBitxj2QHRw(short s) {
+        return UShort.m889constructorimpl((short) Integer.highestOneBit(s & UShort.MAX_VALUE));
     }
 
     @SinceKotlin(version = "1.4")
@@ -227,8 +227,8 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: takeLowestOneBit-7apg3OU  reason: not valid java name */
-    public static final byte m879takeLowestOneBit7apg3OU(byte b2) {
-        return UByte.m654constructorimpl((byte) Integer.lowestOneBit(b2 & 255));
+    public static final byte m878takeLowestOneBit7apg3OU(byte b2) {
+        return UByte.m653constructorimpl((byte) Integer.lowestOneBit(b2 & 255));
     }
 
     @SinceKotlin(version = "1.4")
@@ -236,8 +236,8 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: takeLowestOneBit-VKZWuLQ  reason: not valid java name */
-    public static final long m880takeLowestOneBitVKZWuLQ(long j) {
-        return ULong.m792constructorimpl(Long.lowestOneBit(j));
+    public static final long m879takeLowestOneBitVKZWuLQ(long j) {
+        return ULong.m791constructorimpl(Long.lowestOneBit(j));
     }
 
     @SinceKotlin(version = "1.4")
@@ -245,8 +245,8 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: takeLowestOneBit-WZ4Q5Ns  reason: not valid java name */
-    public static final int m881takeLowestOneBitWZ4Q5Ns(int i2) {
-        return UInt.m722constructorimpl(Integer.lowestOneBit(i2));
+    public static final int m880takeLowestOneBitWZ4Q5Ns(int i2) {
+        return UInt.m721constructorimpl(Integer.lowestOneBit(i2));
     }
 
     @SinceKotlin(version = "1.4")
@@ -254,7 +254,7 @@ public final class UNumbersKt {
     @InlineOnly
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     /* renamed from: takeLowestOneBit-xj2QHRw  reason: not valid java name */
-    public static final short m882takeLowestOneBitxj2QHRw(short s) {
-        return UShort.m890constructorimpl((short) Integer.lowestOneBit(s & UShort.MAX_VALUE));
+    public static final short m881takeLowestOneBitxj2QHRw(short s) {
+        return UShort.m889constructorimpl((short) Integer.lowestOneBit(s & UShort.MAX_VALUE));
     }
 }

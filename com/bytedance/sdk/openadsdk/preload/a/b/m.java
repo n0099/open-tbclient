@@ -5,7 +5,7 @@ import java.io.ObjectStreamClass;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class m {
     public static m a() {
         try {

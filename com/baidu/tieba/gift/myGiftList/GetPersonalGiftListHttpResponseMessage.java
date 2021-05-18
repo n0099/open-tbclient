@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.myGiftList;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.j0.u0.c.a;
+import d.a.k0.u0.c.a;
 import tbclient.Error;
 import tbclient.GetMyGift.GetMyGiftResIdl;
 /* loaded from: classes4.dex */

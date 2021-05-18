@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.core.nativeexpress;
 import android.content.Context;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o extends k {
     public o(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, AdSlot adSlot) {
         super(context, lVar, adSlot);
@@ -12,13 +12,13 @@ public class o extends k {
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.k
     public void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, AdSlot adSlot) {
         NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(context, lVar, adSlot, "embeded_ad");
-        this.f29100a = nativeExpressVideoView;
-        a(nativeExpressVideoView, this.f29102c);
+        this.f28345a = nativeExpressVideoView;
+        a(nativeExpressVideoView, this.f28347c);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public com.bytedance.sdk.openadsdk.multipro.b.a getVideoModel() {
-        NativeExpressView nativeExpressView = this.f29100a;
+        NativeExpressView nativeExpressView = this.f28345a;
         if (nativeExpressView != null) {
             return ((NativeExpressVideoView) nativeExpressView).getVideoModel();
         }
@@ -27,7 +27,7 @@ public class o extends k {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
-        NativeExpressView nativeExpressView = this.f29100a;
+        NativeExpressView nativeExpressView = this.f28345a;
         if (nativeExpressView != null) {
             nativeExpressView.setVideoAdListener(expressVideoAdListener);
         }

@@ -21,36 +21,36 @@ import java.util.Map;
 public class b extends com.kwad.sdk.core.video.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final MediaPlayer f33477a;
+    public final MediaPlayer f32722a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f33478b;
+    public final a f32723b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f33479c;
+    public String f32724c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaDataSource f33480d;
+    public MediaDataSource f32725d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f33481e;
+    public final Object f32726e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f33482f;
+    public boolean f32727f;
 
     /* loaded from: classes6.dex */
     public static class a implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnTimedTextListener, MediaPlayer.OnVideoSizeChangedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<b> f33483a;
+        public final WeakReference<b> f32728a;
 
         public a(b bVar) {
-            this.f33483a = new WeakReference<>(bVar);
+            this.f32728a = new WeakReference<>(bVar);
         }
 
         @Override // android.media.MediaPlayer.OnBufferingUpdateListener
         public void onBufferingUpdate(MediaPlayer mediaPlayer, int i2) {
-            b bVar = this.f33483a.get();
+            b bVar = this.f32728a.get();
             if (bVar != null) {
                 bVar.a(i2);
             }
@@ -58,7 +58,7 @@ public class b extends com.kwad.sdk.core.video.a.a {
 
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
-            b bVar = this.f33483a.get();
+            b bVar = this.f32728a.get();
             if (bVar != null) {
                 bVar.c();
             }
@@ -66,19 +66,19 @@ public class b extends com.kwad.sdk.core.video.a.a {
 
         @Override // android.media.MediaPlayer.OnErrorListener
         public boolean onError(MediaPlayer mediaPlayer, int i2, int i3) {
-            b bVar = this.f33483a.get();
+            b bVar = this.f32728a.get();
             return bVar != null && bVar.b(i2, i3);
         }
 
         @Override // android.media.MediaPlayer.OnInfoListener
         public boolean onInfo(MediaPlayer mediaPlayer, int i2, int i3) {
-            b bVar = this.f33483a.get();
+            b bVar = this.f32728a.get();
             return bVar != null && bVar.c(i2, i3);
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
-            b bVar = this.f33483a.get();
+            b bVar = this.f32728a.get();
             if (bVar != null) {
                 bVar.b();
             }
@@ -86,7 +86,7 @@ public class b extends com.kwad.sdk.core.video.a.a {
 
         @Override // android.media.MediaPlayer.OnSeekCompleteListener
         public void onSeekComplete(MediaPlayer mediaPlayer) {
-            b bVar = this.f33483a.get();
+            b bVar = this.f32728a.get();
             if (bVar != null) {
                 bVar.d();
             }
@@ -94,7 +94,7 @@ public class b extends com.kwad.sdk.core.video.a.a {
 
         @Override // android.media.MediaPlayer.OnTimedTextListener
         public void onTimedText(MediaPlayer mediaPlayer, TimedText timedText) {
-            b bVar = this.f33483a.get();
+            b bVar = this.f32728a.get();
             if (bVar != null) {
                 bVar.a(timedText);
             }
@@ -102,7 +102,7 @@ public class b extends com.kwad.sdk.core.video.a.a {
 
         @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
         public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i2, int i3) {
-            b bVar = this.f33483a.get();
+            b bVar = this.f32728a.get();
             if (bVar != null) {
                 bVar.a(i2, i3);
             }
@@ -112,79 +112,79 @@ public class b extends com.kwad.sdk.core.video.a.a {
     public b() {
         MediaPlayer mediaPlayer;
         Object obj = new Object();
-        this.f33481e = obj;
+        this.f32726e = obj;
         synchronized (obj) {
             mediaPlayer = new MediaPlayer();
-            this.f33477a = mediaPlayer;
+            this.f32722a = mediaPlayer;
         }
         mediaPlayer.setAudioStreamType(3);
-        this.f33478b = new a(this);
+        this.f32723b = new a(this);
         p();
     }
 
     private void o() {
-        MediaDataSource mediaDataSource = this.f33480d;
+        MediaDataSource mediaDataSource = this.f32725d;
         if (mediaDataSource != null) {
             try {
                 mediaDataSource.close();
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            this.f33480d = null;
+            this.f32725d = null;
         }
     }
 
     private void p() {
-        this.f33477a.setOnPreparedListener(this.f33478b);
-        this.f33477a.setOnBufferingUpdateListener(this.f33478b);
-        this.f33477a.setOnCompletionListener(this.f33478b);
-        this.f33477a.setOnSeekCompleteListener(this.f33478b);
-        this.f33477a.setOnVideoSizeChangedListener(this.f33478b);
-        this.f33477a.setOnErrorListener(this.f33478b);
-        this.f33477a.setOnInfoListener(this.f33478b);
-        this.f33477a.setOnTimedTextListener(this.f33478b);
+        this.f32722a.setOnPreparedListener(this.f32723b);
+        this.f32722a.setOnBufferingUpdateListener(this.f32723b);
+        this.f32722a.setOnCompletionListener(this.f32723b);
+        this.f32722a.setOnSeekCompleteListener(this.f32723b);
+        this.f32722a.setOnVideoSizeChangedListener(this.f32723b);
+        this.f32722a.setOnErrorListener(this.f32723b);
+        this.f32722a.setOnInfoListener(this.f32723b);
+        this.f32722a.setOnTimedTextListener(this.f32723b);
     }
 
     private void q() {
-        this.f33477a.setOnPreparedListener(null);
-        this.f33477a.setOnBufferingUpdateListener(null);
-        this.f33477a.setOnCompletionListener(null);
-        this.f33477a.setOnSeekCompleteListener(null);
-        this.f33477a.setOnVideoSizeChangedListener(null);
-        this.f33477a.setOnErrorListener(null);
-        this.f33477a.setOnInfoListener(null);
-        this.f33477a.setOnTimedTextListener(null);
+        this.f32722a.setOnPreparedListener(null);
+        this.f32722a.setOnBufferingUpdateListener(null);
+        this.f32722a.setOnCompletionListener(null);
+        this.f32722a.setOnSeekCompleteListener(null);
+        this.f32722a.setOnVideoSizeChangedListener(null);
+        this.f32722a.setOnErrorListener(null);
+        this.f32722a.setOnInfoListener(null);
+        this.f32722a.setOnTimedTextListener(null);
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(float f2, float f3) {
-        this.f33477a.setVolume(f2, f3);
+        this.f32722a.setVolume(f2, f3);
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(long j) {
         if (Build.VERSION.SDK_INT >= 26) {
-            this.f33477a.seekTo((int) j, 3);
+            this.f32722a.seekTo((int) j, 3);
         } else {
-            this.f33477a.seekTo((int) j);
+            this.f32722a.seekTo((int) j);
         }
     }
 
     @TargetApi(14)
     public void a(Context context, Uri uri, Map<String, String> map) {
-        this.f33477a.setDataSource(context, uri, map);
+        this.f32722a.setDataSource(context, uri, map);
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     @TargetApi(14)
     public void a(Surface surface) {
-        this.f33477a.setSurface(surface);
+        this.f32722a.setSurface(surface);
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(@NonNull com.kwad.sdk.contentalliance.detail.video.c cVar) {
-        if (!cVar.f32787e) {
-            a(cVar.f32783a);
+        if (!cVar.f32032e) {
+            a(cVar.f32028a);
             return;
         }
         HashMap hashMap = new HashMap();
@@ -192,60 +192,60 @@ public class b extends com.kwad.sdk.core.video.a.a {
         hashMap.put(Util.ACCEPT_RANGES, "bytes");
         hashMap.put("Status", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE206);
         hashMap.put("Cache-control", "no-cache");
-        a(KsAdSDKImpl.get().getContext(), Uri.parse(cVar.f32783a), hashMap);
+        a(KsAdSDKImpl.get().getContext(), Uri.parse(cVar.f32028a), hashMap);
     }
 
     public void a(String str) {
-        this.f33479c = str;
+        this.f32724c = str;
         Uri parse = Uri.parse(str);
         String scheme = parse.getScheme();
         if (TextUtils.isEmpty(scheme) || !scheme.equalsIgnoreCase("file")) {
-            this.f33477a.setDataSource(str);
+            this.f32722a.setDataSource(str);
         } else {
-            this.f33477a.setDataSource(parse.getPath());
+            this.f32722a.setDataSource(parse.getPath());
         }
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(boolean z) {
-        this.f33477a.setLooping(z);
+        this.f32722a.setLooping(z);
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void b(int i2) {
-        this.f33477a.setAudioStreamType(i2);
+        this.f32722a.setAudioStreamType(i2);
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public boolean e() {
-        this.f33477a.prepareAsync();
+        this.f32722a.prepareAsync();
         return true;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void f() {
-        this.f33477a.start();
+        this.f32722a.start();
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void g() {
-        this.f33477a.pause();
+        this.f32722a.pause();
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public int h() {
-        return this.f33477a.getVideoWidth();
+        return this.f32722a.getVideoWidth();
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public int i() {
-        return this.f33477a.getVideoHeight();
+        return this.f32722a.getVideoHeight();
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public long j() {
         try {
-            return this.f33477a.getCurrentPosition();
+            return this.f32722a.getCurrentPosition();
         } catch (IllegalStateException unused) {
             return 0L;
         }
@@ -254,7 +254,7 @@ public class b extends com.kwad.sdk.core.video.a.a {
     @Override // com.kwad.sdk.core.video.a.c
     public long k() {
         try {
-            return this.f33477a.getDuration();
+            return this.f32722a.getDuration();
         } catch (IllegalStateException unused) {
             return 0L;
         }
@@ -263,8 +263,8 @@ public class b extends com.kwad.sdk.core.video.a.a {
     @Override // com.kwad.sdk.core.video.a.c
     public void l() {
         try {
-            this.f33482f = true;
-            this.f33477a.release();
+            this.f32727f = true;
+            this.f32722a.release();
             o();
             a();
             q();
@@ -276,7 +276,7 @@ public class b extends com.kwad.sdk.core.video.a.a {
     @Override // com.kwad.sdk.core.video.a.c
     public void m() {
         try {
-            this.f33477a.reset();
+            this.f32722a.reset();
         } catch (IllegalStateException unused) {
         }
         o();

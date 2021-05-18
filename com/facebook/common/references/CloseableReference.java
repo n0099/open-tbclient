@@ -61,7 +61,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
     @Nullable
     public synchronized CloseableReference<T> cloneOrNull() {
         if (isValid()) {
-            return m35clone();
+            return m34clone();
         }
         return null;
     }
@@ -134,7 +134,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public synchronized CloseableReference<T> m35clone() {
+    public synchronized CloseableReference<T> m34clone() {
         Preconditions.checkState(isValid());
         return new CloseableReference<>(this.mSharedReference, this.mLeakHandler);
     }

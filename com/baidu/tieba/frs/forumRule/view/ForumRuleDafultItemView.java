@@ -12,20 +12,20 @@ import com.baidu.tieba.R;
 public class ForumRuleDafultItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f16163e;
+    public Context f15478e;
 
     public ForumRuleDafultItemView(Context context) {
         this(context, null);
     }
 
     public final void a(String str, String str2) {
-        EMTextView eMTextView = new EMTextView(this.f16163e);
+        EMTextView eMTextView = new EMTextView(this.f15478e);
         eMTextView.setText(str);
         addView(eMTextView);
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) eMTextView.getLayoutParams();
         marginLayoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X008);
         eMTextView.setLayoutParams(marginLayoutParams);
-        EMTextView eMTextView2 = new EMTextView(this.f16163e);
+        EMTextView eMTextView2 = new EMTextView(this.f15478e);
         eMTextView2.setText(str2);
         addView(eMTextView2);
         ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) eMTextView2.getLayoutParams();
@@ -34,10 +34,10 @@ public class ForumRuleDafultItemView extends LinearLayout {
     }
 
     public final void b() {
-        a(this.f16163e.getResources().getString(R.string.forum_rule_defalt_one_title), this.f16163e.getResources().getString(R.string.forum_rule_defalt_one_content));
-        a(this.f16163e.getResources().getString(R.string.forum_rule_defalt_two_title), this.f16163e.getResources().getString(R.string.forum_rule_defalt_two_content));
-        a(this.f16163e.getResources().getString(R.string.forum_rule_defalt_three_title), this.f16163e.getResources().getString(R.string.forum_rule_defalt_three_content));
-        a(this.f16163e.getResources().getString(R.string.forum_rule_defalt_four_title), this.f16163e.getResources().getString(R.string.forum_rule_defalt_four_content));
+        a(this.f15478e.getResources().getString(R.string.forum_rule_defalt_one_title), this.f15478e.getResources().getString(R.string.forum_rule_defalt_one_content));
+        a(this.f15478e.getResources().getString(R.string.forum_rule_defalt_two_title), this.f15478e.getResources().getString(R.string.forum_rule_defalt_two_content));
+        a(this.f15478e.getResources().getString(R.string.forum_rule_defalt_three_title), this.f15478e.getResources().getString(R.string.forum_rule_defalt_three_content));
+        a(this.f15478e.getResources().getString(R.string.forum_rule_defalt_four_title), this.f15478e.getResources().getString(R.string.forum_rule_defalt_four_content));
     }
 
     public ForumRuleDafultItemView(Context context, @Nullable AttributeSet attributeSet) {
@@ -46,7 +46,7 @@ public class ForumRuleDafultItemView extends LinearLayout {
 
     public ForumRuleDafultItemView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f16163e = context;
+        this.f15478e = context;
         setOrientation(1);
         b();
     }

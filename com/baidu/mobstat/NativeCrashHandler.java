@@ -6,21 +6,21 @@ import java.io.File;
 public final class NativeCrashHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f8715a = false;
+    public static boolean f8527a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f8716b;
+    public static Context f8528b;
 
     static {
         try {
             System.loadLibrary("crash_analysis");
-            f8715a = true;
+            f8527a = true;
         } catch (Throwable unused) {
         }
     }
 
     public static void doNativeCrash() {
-        if (f8715a) {
+        if (f8527a) {
             try {
                 nativeException();
             } catch (Throwable unused) {
@@ -32,8 +32,8 @@ public final class NativeCrashHandler {
         if (context == null) {
             return;
         }
-        f8716b = context;
-        if (f8715a) {
+        f8528b = context;
+        if (f8527a) {
             File cacheDir = context.getCacheDir();
             if (cacheDir.exists() && cacheDir.isDirectory()) {
                 try {
@@ -53,11 +53,11 @@ public final class NativeCrashHandler {
     public static native void nativeUnint();
 
     public static void onCrashCallbackFromNative(String str) {
-        ExceptionAnalysis.getInstance().saveCrashInfo(f8716b, System.currentTimeMillis(), str, "NativeException", 1, 0);
+        ExceptionAnalysis.getInstance().saveCrashInfo(f8528b, System.currentTimeMillis(), str, "NativeException", 1, 0);
     }
 
     public static void process(String str) {
-        if (str == null || str.length() == 0 || !f8715a) {
+        if (str == null || str.length() == 0 || !f8527a) {
             return;
         }
         File file = new File(str);
@@ -70,7 +70,7 @@ public final class NativeCrashHandler {
     }
 
     public static void uninit() {
-        if (f8715a) {
+        if (f8527a) {
             try {
                 nativeUnint();
             } catch (Throwable unused) {

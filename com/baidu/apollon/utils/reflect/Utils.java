@@ -12,16 +12,16 @@ import java.util.regex.Pattern;
 public class Utils {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f4089c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
+    public static final String f4090c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object[] f4087a = new Object[0];
+    public static final Object[] f4088a = new Object[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Class<?>[] f4088b = new Class[0];
+    public static final Class<?>[] f4089b = new Class[0];
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f4090d = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
+    public static final Pattern f4091d = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
 
     public static boolean a(Object[] objArr, Object[] objArr2) {
         if (objArr != null || objArr2 == null || objArr2.length <= 0) {
@@ -34,7 +34,7 @@ public class Utils {
     }
 
     public static Object[] b(Object[] objArr) {
-        return (objArr == null || objArr.length == 0) ? f4087a : objArr;
+        return (objArr == null || objArr.length == 0) ? f4088a : objArr;
     }
 
     public static List<Class<?>> getAllInterfaces(Class<?> cls) {
@@ -90,7 +90,7 @@ public class Utils {
     }
 
     public static boolean validateJavaIdentifier(String str) {
-        return f4090d.matcher(str).matches();
+        return f4091d.matcher(str).matches();
     }
 
     public static Class<?>[] a(Object... objArr) {
@@ -98,7 +98,7 @@ public class Utils {
             return null;
         }
         if (objArr.length == 0) {
-            return f4088b;
+            return f4089b;
         }
         Class<?>[] clsArr = new Class[objArr.length];
         for (int i2 = 0; i2 < objArr.length; i2++) {
@@ -108,7 +108,7 @@ public class Utils {
     }
 
     public static Class<?>[] a(Class<?>[] clsArr) {
-        return (clsArr == null || clsArr.length == 0) ? f4088b : clsArr;
+        return (clsArr == null || clsArr.length == 0) ? f4089b : clsArr;
     }
 
     public static void a(Class<?> cls, HashSet<Class<?>> hashSet) {

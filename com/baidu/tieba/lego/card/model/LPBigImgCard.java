@@ -4,9 +4,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import d.a.c.e.p.l;
-import d.a.j0.j1.o.i.a;
-import d.a.j0.j1.o.k.b;
-import d.a.j0.j1.o.k.d;
+import d.a.k0.j1.o.i.a;
+import d.a.k0.j1.o.k.b;
+import d.a.k0.j1.o.k.d;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
@@ -103,7 +103,7 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.j0.j1.o.i.a
+    @Override // d.a.k0.j1.o.i.a
     public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
         if (lPBigImgCard == null || tbPageContext == null) {
             return;

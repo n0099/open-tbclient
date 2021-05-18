@@ -9,7 +9,7 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import d.a.c.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbLandscapeListView extends BdTypeListView {
     public final int N;
     public boolean O;
@@ -23,7 +23,7 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean W;
     public boolean a0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements Handler.Callback {
         public a() {
         }
@@ -37,7 +37,7 @@ public class PbLandscapeListView extends BdTypeListView {
                     return false;
                 }
                 if (PbLandscapeListView.this.S != null) {
-                    PbLandscapeListView.this.S.a(dVar.f19858a, dVar.f19859b, dVar.f19860c, dVar.f19862e, dVar.f19861d, dVar.f19863f);
+                    PbLandscapeListView.this.S.a(dVar.f19146a, dVar.f19147b, dVar.f19148c, dVar.f19150e, dVar.f19149d, dVar.f19151f);
                     return true;
                 }
                 return true;
@@ -46,36 +46,36 @@ public class PbLandscapeListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void onLayout();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void a(int i2, int i3, float f2, float f3, float f4, float f5);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f19858a;
+        public int f19146a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f19859b;
+        public int f19147b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f19860c;
+        public float f19148c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f19861d;
+        public float f19149d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f19862e;
+        public float f19150e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f19863f;
+        public float f19151f;
     }
 
     public PbLandscapeListView(Context context) {
@@ -101,12 +101,12 @@ public class PbLandscapeListView extends BdTypeListView {
         Message message = new Message();
         message.what = 0;
         d dVar = new d();
-        dVar.f19858a = i2;
-        dVar.f19859b = i3;
-        dVar.f19860c = f2;
-        dVar.f19861d = f3;
-        dVar.f19862e = f4;
-        dVar.f19863f = f5;
+        dVar.f19146a = i2;
+        dVar.f19147b = i3;
+        dVar.f19148c = f2;
+        dVar.f19149d = f3;
+        dVar.f19150e = f4;
+        dVar.f19151f = f5;
         message.obj = dVar;
         this.U.sendMessageDelayed(message, 60L);
     }

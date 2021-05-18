@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
 import com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryModel;
 import com.baidu.tieba.themeCenter.card.category.PersonalCardItemView;
 import com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel;
-import d.a.j0.j3.h.e;
+import d.a.k0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCategoryActivity> {
     public PersonalCardCategoryModel mModel;
     public SetPersonalCardModel mSetCardModel;
-    public d.a.j0.j3.g.a.c mView;
+    public d.a.k0.j3.g.a.c mView;
     public PersonalCardItemView.b mCardViewController = new a();
     public PersonalCardCategoryModel.b mDataCallback = new b();
     public SetPersonalCardModel.b mSetCardCallback = new c();
@@ -27,11 +27,11 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         }
 
         @Override // com.baidu.tieba.themeCenter.card.category.PersonalCardItemView.b
-        public void a(d.a.j0.j3.a aVar) {
+        public void a(d.a.k0.j3.a aVar) {
             if (aVar == null) {
                 return;
             }
-            if (aVar.a() == d.a.j0.j3.a.k) {
+            if (aVar.a() == d.a.k0.j3.a.k) {
                 if (aVar.g() == 1 || PersonalCardCategoryActivity.this.mSetCardModel == null) {
                     return;
                 }
@@ -48,7 +48,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         }
 
         @Override // com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryModel.b
-        public void a(int i2, String str, e eVar, List<d.a.j0.j3.g.a.a> list, boolean z) {
+        public void a(int i2, String str, e eVar, List<d.a.k0.j3.g.a.a> list, boolean z) {
             PersonalCardCategoryActivity personalCardCategoryActivity = PersonalCardCategoryActivity.this;
             personalCardCategoryActivity.hideLoadingView(personalCardCategoryActivity.mView.c());
             if (i2 != 0) {
@@ -84,16 +84,16 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "b012";
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.a.i0.k0.d getPageStayDurationItem() {
-        d.a.i0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
+    public d.a.j0.k0.d getPageStayDurationItem() {
+        d.a.j0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f48564a = true;
+            pageStayDurationItem.f49392a = true;
         }
         return pageStayDurationItem;
     }
@@ -101,7 +101,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        d.a.j0.j3.g.a.c cVar = this.mView;
+        d.a.k0.j3.g.a.c cVar = this.mView;
         if (cVar != null) {
             cVar.d();
         }
@@ -110,7 +110,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        d.a.j0.j3.g.a.c cVar = new d.a.j0.j3.g.a.c(this);
+        d.a.k0.j3.g.a.c cVar = new d.a.k0.j3.g.a.c(this);
         this.mView = cVar;
         cVar.h(this.mScrollToBottomListener);
         this.mView.g(this.mCardViewController);
@@ -139,7 +139,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        d.a.j0.j3.g.a.c cVar;
+        d.a.k0.j3.g.a.c cVar;
         if (this.mModel == null || (cVar = this.mView) == null) {
             return;
         }

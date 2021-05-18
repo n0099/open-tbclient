@@ -5,14 +5,14 @@ import android.content.Context;
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f38122a = "0123456789ABCDEF".toCharArray();
+    public static final char[] f37367a = "0123456789ABCDEF".toCharArray();
 
     public static String a(byte[] bArr, int i2, int i3) {
         StringBuilder sb = new StringBuilder(i3 * 2);
         for (int i4 = 0; i4 < i3; i4++) {
             int i5 = bArr[i2 + i4] & 255;
-            sb.append(f38122a[i5 >> 4]);
-            sb.append(f38122a[i5 & 15]);
+            sb.append(f37367a[i5 >> 4]);
+            sb.append(f37367a[i5 & 15]);
         }
         return sb.toString();
     }

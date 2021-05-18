@@ -6,18 +6,18 @@ import d.n.a.g;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class e<E extends g> extends ProtoAdapter<E> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<E> f65795a;
+    public final Class<E> f66481a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f65796b;
+    public Method f66482b;
 
     public e(Class<E> cls) {
         super(FieldEncoding.VARINT, cls);
-        this.f65795a = cls;
+        this.f66481a = cls;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public final class e<E extends g> extends ProtoAdapter<E> {
             if (e2 != null) {
                 return e2;
             }
-            throw new ProtoAdapter.EnumConstantNotFoundException(l, this.f65795a);
+            throw new ProtoAdapter.EnumConstantNotFoundException(l, this.f66481a);
         } catch (IllegalAccessException | InvocationTargetException e3) {
             throw new AssertionError(e3);
         }
@@ -51,13 +51,13 @@ public final class e<E extends g> extends ProtoAdapter<E> {
     }
 
     public final Method d() {
-        Method method = this.f65796b;
+        Method method = this.f66482b;
         if (method != null) {
             return method;
         }
         try {
-            Method method2 = this.f65795a.getMethod("fromValue", Integer.TYPE);
-            this.f65796b = method2;
+            Method method2 = this.f66481a.getMethod("fromValue", Integer.TYPE);
+            this.f66482b = method2;
             return method2;
         } catch (NoSuchMethodException e2) {
             throw new AssertionError(e2);
@@ -65,10 +65,10 @@ public final class e<E extends g> extends ProtoAdapter<E> {
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof e) && ((e) obj).f65795a == this.f65795a;
+        return (obj instanceof e) && ((e) obj).f66481a == this.f66481a;
     }
 
     public int hashCode() {
-        return this.f65795a.hashCode();
+        return this.f66481a.hashCode();
     }
 }

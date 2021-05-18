@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.background;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.i0.z0.w;
+import d.a.j0.z0.w;
 import tbclient.GetBgByCategory.DataReq;
 import tbclient.GetBgByCategory.GetBgByCategoryReqIdl;
 /* loaded from: classes5.dex */

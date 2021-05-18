@@ -1,8 +1,8 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import d.a.i0.g0.b.h;
-import d.a.i0.g0.b.i;
+import d.a.j0.g0.b.h;
+import d.a.j0.g0.b.i;
 /* loaded from: classes3.dex */
 public class MvcSocketMessage<T extends i, D extends h> extends TbSocketMessage {
     public boolean isNeedCache;

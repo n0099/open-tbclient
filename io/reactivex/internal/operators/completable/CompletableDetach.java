@@ -16,7 +16,7 @@ public final class CompletableDetach extends Completable {
         public CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68236d;
+        public Disposable f68916d;
 
         public DetachCompletableObserver(CompletableObserver completableObserver) {
             this.actual = completableObserver;
@@ -25,18 +25,18 @@ public final class CompletableDetach extends Completable {
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             this.actual = null;
-            this.f68236d.dispose();
-            this.f68236d = DisposableHelper.DISPOSED;
+            this.f68916d.dispose();
+            this.f68916d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68236d.isDisposed();
+            return this.f68916d.isDisposed();
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
-            this.f68236d = DisposableHelper.DISPOSED;
+            this.f68916d = DisposableHelper.DISPOSED;
             CompletableObserver completableObserver = this.actual;
             if (completableObserver != null) {
                 this.actual = null;
@@ -46,7 +46,7 @@ public final class CompletableDetach extends Completable {
 
         @Override // io.reactivex.CompletableObserver
         public void onError(Throwable th) {
-            this.f68236d = DisposableHelper.DISPOSED;
+            this.f68916d = DisposableHelper.DISPOSED;
             CompletableObserver completableObserver = this.actual;
             if (completableObserver != null) {
                 this.actual = null;
@@ -56,8 +56,8 @@ public final class CompletableDetach extends Completable {
 
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68236d, disposable)) {
-                this.f68236d = disposable;
+            if (DisposableHelper.validate(this.f68916d, disposable)) {
+                this.f68916d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

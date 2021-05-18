@@ -14,14 +14,14 @@ import java.util.Map;
 public class d extends ExtractorProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.cyberplayer.sdk.remote.a f5092a;
+    public com.baidu.cyberplayer.sdk.remote.a f4946a;
 
     public d(com.baidu.cyberplayer.sdk.remote.a aVar) {
-        this.f5092a = aVar;
+        this.f4946a = aVar;
     }
 
     public static ExtractorProvider a() {
-        com.baidu.cyberplayer.sdk.remote.a a2 = a.AbstractBinderC0072a.a(g.a().b());
+        com.baidu.cyberplayer.sdk.remote.a a2 = a.AbstractBinderC0071a.a(g.a().b());
         if (a2 != null) {
             return new d(a2);
         }
@@ -29,7 +29,7 @@ public class d extends ExtractorProvider {
     }
 
     private void a(Uri uri, Map<String, String> map) {
-        com.baidu.cyberplayer.sdk.remote.a aVar = this.f5092a;
+        com.baidu.cyberplayer.sdk.remote.a aVar = this.f4946a;
         if (aVar == null) {
             return;
         }
@@ -42,7 +42,7 @@ public class d extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public Bundle getMediaMeta() {
-        com.baidu.cyberplayer.sdk.remote.a aVar = this.f5092a;
+        com.baidu.cyberplayer.sdk.remote.a aVar = this.f4946a;
         if (aVar == null) {
             return null;
         }
@@ -57,7 +57,7 @@ public class d extends ExtractorProvider {
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void release() {
         CyberLog.i("RemoteExtractorProxy", "release");
-        com.baidu.cyberplayer.sdk.remote.a aVar = this.f5092a;
+        com.baidu.cyberplayer.sdk.remote.a aVar = this.f4946a;
         if (aVar == null) {
             return;
         }
@@ -68,7 +68,7 @@ public class d extends ExtractorProvider {
                 e2.printStackTrace();
             }
         } finally {
-            this.f5092a = null;
+            this.f4946a = null;
         }
     }
 
@@ -93,7 +93,7 @@ public class d extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setOption(int i2, String str, long j) {
-        com.baidu.cyberplayer.sdk.remote.a aVar = this.f5092a;
+        com.baidu.cyberplayer.sdk.remote.a aVar = this.f4946a;
         if (aVar == null) {
             return;
         }

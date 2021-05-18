@@ -201,7 +201,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             return false;
         }
         try {
-            b.f63947a = z;
+            b.f64634a = z;
         } catch (Throwable unused) {
             LogUtils.e(BaseManager.TAG, "LCPConstants.LOG_DEBUG not found");
         }
@@ -417,8 +417,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        d.a.r.a.f63831e = a.d(applicationContext);
-        if (d.a.r.a.f63831e) {
+        d.a.r.a.f64518e = a.d(applicationContext);
+        if (d.a.r.a.f64518e) {
             try {
                 b.c(applicationContext, i2 != 0);
                 b.d(applicationContext, i2);
@@ -442,7 +442,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 }
                 try {
                     BIMManager.initIMServiceImpl(context2);
-                    d.a.r.a.f63829c.removeCallbacks(BIMManager.checkIMLoginState);
+                    d.a.r.a.f64516c.removeCallbacks(BIMManager.checkIMLoginState);
                     if (z) {
                         BIMManager.postCheckRunnable();
                     }
@@ -696,7 +696,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public static void postCheckRunnable() {
         try {
             LogUtils.i("BIMManager", "postCheckRunnable after 30s");
-            d.a.r.a.f63829c.postDelayed(checkIMLoginState, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+            d.a.r.a.f64516c.postDelayed(checkIMLoginState, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
         } catch (Exception e2) {
             LogUtils.e(BaseManager.TAG, "postCheckRunnable exception ", e2);
         }
@@ -848,7 +848,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (d.a.r.a.f63831e) {
+        if (d.a.r.a.f64518e) {
             return;
         }
         AccountManagerImpl.getInstance(context);

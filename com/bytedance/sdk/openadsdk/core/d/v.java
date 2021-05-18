@@ -2,35 +2,35 @@ package com.bytedance.sdk.openadsdk.core.d;
 
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28791a;
+    public int f28036a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28792b;
+    public int f28037b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f28793c;
+    public long f28038c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f28794d;
+    public double f28039d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28795e;
+    public String f28040e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f28796f;
+    public String f28041f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28797g;
+    public String f28042g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f28798h;
+    public String f28043h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f28799i;
+    public String f28044i;
     public String j;
     public int k;
     public int l = 0;
@@ -41,29 +41,29 @@ public class v {
     }
 
     public int b() {
-        return this.f28791a;
+        return this.f28036a;
     }
 
     public int c() {
-        return this.f28792b;
+        return this.f28037b;
     }
 
     public long d() {
-        return this.f28793c;
+        return this.f28038c;
     }
 
     public double e() {
-        return this.f28794d;
+        return this.f28039d;
     }
 
     public String f() {
-        return this.f28795e;
+        return this.f28040e;
     }
 
     public int[] g() {
         try {
-            int indexOf = this.f28795e.indexOf("x");
-            return new int[]{Integer.parseInt(this.f28795e.substring(0, indexOf).trim()), Integer.parseInt(this.f28795e.substring(indexOf + 1).trim())};
+            int indexOf = this.f28040e.indexOf("x");
+            return new int[]{Integer.parseInt(this.f28040e.substring(0, indexOf).trim()), Integer.parseInt(this.f28040e.substring(indexOf + 1).trim())};
         } catch (Throwable th) {
             com.bytedance.sdk.openadsdk.utils.u.c("VideoInfo", "getWidthAndHeight error", th);
             return null;
@@ -71,19 +71,19 @@ public class v {
     }
 
     public String h() {
-        return this.f28796f;
+        return this.f28041f;
     }
 
     public String i() {
-        return this.f28797g;
+        return this.f28042g;
     }
 
     public String j() {
-        return this.f28798h;
+        return this.f28043h;
     }
 
     public String k() {
-        return this.f28799i;
+        return this.f28044i;
     }
 
     public String l() {
@@ -124,19 +124,19 @@ public class v {
     }
 
     public void b(int i2) {
-        this.f28791a = i2;
+        this.f28036a = i2;
     }
 
     public void c(int i2) {
-        this.f28792b = i2;
+        this.f28037b = i2;
     }
 
     public void d(String str) {
-        this.f28798h = str;
+        this.f28043h = str;
     }
 
     public void e(String str) {
-        this.f28799i = str;
+        this.f28044i = str;
     }
 
     public void f(String str) {
@@ -144,15 +144,15 @@ public class v {
     }
 
     public void a(long j) {
-        this.f28793c = j;
+        this.f28038c = j;
     }
 
     public void b(String str) {
-        this.f28796f = str;
+        this.f28041f = str;
     }
 
     public void c(String str) {
-        this.f28797g = str;
+        this.f28042g = str;
     }
 
     public void d(int i2) {
@@ -164,11 +164,11 @@ public class v {
     }
 
     public void a(double d2) {
-        this.f28794d = d2;
+        this.f28039d = d2;
     }
 
     public void a(String str) {
-        this.f28795e = str;
+        this.f28040e = str;
     }
 
     public static int[] a(l lVar) {

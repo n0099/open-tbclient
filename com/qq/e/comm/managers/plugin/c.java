@@ -1,5 +1,5 @@
 package com.qq.e.comm.managers.plugin;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class c extends Exception {
     public c(String str) {
         super(str);

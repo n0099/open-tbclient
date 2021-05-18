@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import java.util.List;
 /* loaded from: classes.dex */
 public class LinearLayoutManager extends RecyclerView.LayoutManager implements ItemTouchHelper.ViewDropHandler, RecyclerView.SmoothScroller.ScrollVectorProvider {
@@ -909,7 +910,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         }
         if (this.mOrientationHelper.getDecoratedStart(getChildAt(i2)) < this.mOrientationHelper.getStartAfterPadding()) {
             i4 = 16644;
-            i5 = 16388;
+            i5 = ZeusMonitorType.MONITOR_TYPE_RENDERER_CRASHED;
         } else {
             i4 = 4161;
             i5 = 4097;

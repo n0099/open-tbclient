@@ -3,9 +3,9 @@ package d.a.c.e.r;
 public class p extends r {
 
     /* renamed from: a  reason: collision with root package name */
-    public Exception f40088a;
+    public Exception f39333a;
 
     public p(Exception exc) {
-        this.f40088a = exc;
+        this.f39333a = exc;
     }
 }

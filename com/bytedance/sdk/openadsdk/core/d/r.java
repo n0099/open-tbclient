@@ -1,29 +1,29 @@
 package com.bytedance.sdk.openadsdk.core.d;
 
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f28763a;
+    public long f28008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f28764b;
+    public long f28009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f28765c;
+    public long f28010c;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f28767e;
+    public long f28012e;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28769g;
+    public int f28014g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f28770h;
+    public String f28015h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28771i;
+    public int f28016i;
     public int j;
     public long k;
     public long l;
@@ -43,21 +43,21 @@ public class r {
     public long z;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f28766d = false;
+    public boolean f28011d = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28768f = true;
+    public boolean f28013f = true;
 
     public int a() {
-        return this.f28769g;
+        return this.f28014g;
     }
 
     public String b() {
-        return this.f28770h;
+        return this.f28015h;
     }
 
     public int c() {
-        return this.f28771i;
+        return this.f28016i;
     }
 
     public int d() {
@@ -125,19 +125,19 @@ public class r {
     }
 
     public long t() {
-        return this.f28763a;
+        return this.f28008a;
     }
 
     public long u() {
-        return this.f28764b;
+        return this.f28009b;
     }
 
     public long v() {
-        return this.f28765c;
+        return this.f28010c;
     }
 
     public boolean w() {
-        return this.f28766d;
+        return this.f28011d;
     }
 
     public long x() {
@@ -145,19 +145,19 @@ public class r {
     }
 
     public long y() {
-        return this.f28767e;
+        return this.f28012e;
     }
 
     public boolean z() {
-        return this.f28768f;
+        return this.f28013f;
     }
 
     public void a(int i2) {
-        this.f28769g = i2;
+        this.f28014g = i2;
     }
 
     public void b(int i2) {
-        this.f28771i = i2;
+        this.f28016i = i2;
     }
 
     public void c(int i2) {
@@ -197,15 +197,15 @@ public class r {
     }
 
     public void l(long j) {
-        this.f28763a = j;
+        this.f28008a = j;
     }
 
     public void m(long j) {
-        this.f28764b = j;
+        this.f28009b = j;
     }
 
     public void n(long j) {
-        this.f28765c = j;
+        this.f28010c = j;
     }
 
     public void o(long j) {
@@ -213,11 +213,11 @@ public class r {
     }
 
     public void p(long j) {
-        this.f28767e = j;
+        this.f28012e = j;
     }
 
     public void a(String str) {
-        this.f28770h = str;
+        this.f28015h = str;
     }
 
     public void b(long j) {
@@ -245,7 +245,7 @@ public class r {
     }
 
     public void b(boolean z) {
-        this.f28768f = z;
+        this.f28013f = z;
     }
 
     public void a(JSONObject jSONObject) {
@@ -253,6 +253,6 @@ public class r {
     }
 
     public void a(boolean z) {
-        this.f28766d = z;
+        this.f28011d = z;
     }
 }

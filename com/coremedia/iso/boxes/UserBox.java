@@ -8,9 +8,9 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class UserBox extends AbstractBox {
     public static final String TYPE = "uuid";
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_2 = null;
     public byte[] data;
 
     static {

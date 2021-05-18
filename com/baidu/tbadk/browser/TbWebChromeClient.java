@@ -18,8 +18,8 @@ import com.baidu.mobads.container.components.countly.XAdRemoteSDKCountly;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import d.a.c.e.m.g;
 import d.a.c.e.p.k;
-import d.a.i0.s.c.y;
-import d.a.j0.d3.l0.c;
+import d.a.j0.s.c.y;
+import d.a.k0.d3.l0.c;
 /* loaded from: classes3.dex */
 public class TbWebChromeClient extends WebChromeClient {
     public c callback;
@@ -84,8 +84,8 @@ public class TbWebChromeClient extends WebChromeClient {
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         c cVar;
         if (!y.a(str) && str2.startsWith("tiebaapp")) {
-            d.a.j0.d3.l0.d.c cVar2 = new d.a.j0.d3.l0.d.c();
-            cVar2.s(d.a.j0.d3.l0.d.g.b(str2));
+            d.a.k0.d3.l0.d.c cVar2 = new d.a.k0.d3.l0.d.c();
+            cVar2.s(d.a.k0.d3.l0.d.g.b(str2));
             cVar2.t(301);
             callJsMethod(webView, cVar2.c(), cVar2.d());
         }
@@ -94,6 +94,17 @@ public class TbWebChromeClient extends WebChromeClient {
         }
         jsPromptResult.cancel();
         return true;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i2) {
+        TbWebViewActivity tbWebViewActivity;
+        super.onProgressChanged(webView, i2);
+        if (i2 < 80 || (tbWebViewActivity = this.mActivity) == null) {
+            return;
+        }
+        tbWebViewActivity.hideProgressBar();
+        this.mActivity.stopLoadTimer();
     }
 
     @Override // android.webkit.WebChromeClient

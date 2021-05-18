@@ -7,11 +7,11 @@ import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a<E> extends v<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f30502a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.a.1
+    public static final w f29747a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.a.1
         @Override // com.bytedance.sdk.openadsdk.preload.a.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
             Type b2 = aVar.b();
@@ -24,14 +24,14 @@ public final class a<E> extends v<Object> {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<E> f30503b;
+    public final Class<E> f29748b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final v<E> f30504c;
+    public final v<E> f29749c;
 
     public a(com.bytedance.sdk.openadsdk.preload.a.f fVar, v<E> vVar, Class<E> cls) {
-        this.f30504c = new m(fVar, vVar, cls);
-        this.f30503b = cls;
+        this.f29749c = new m(fVar, vVar, cls);
+        this.f29748b = cls;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.bytedance.sdk.openadsdk.preload.a.v<E> */
@@ -45,7 +45,7 @@ public final class a<E> extends v<Object> {
         cVar.b();
         int length = Array.getLength(obj);
         for (int i2 = 0; i2 < length; i2++) {
-            this.f30504c.a(cVar, Array.get(obj, i2));
+            this.f29749c.a(cVar, Array.get(obj, i2));
         }
         cVar.c();
     }
@@ -59,11 +59,11 @@ public final class a<E> extends v<Object> {
         ArrayList arrayList = new ArrayList();
         aVar.a();
         while (aVar.e()) {
-            arrayList.add(this.f30504c.b(aVar));
+            arrayList.add(this.f29749c.b(aVar));
         }
         aVar.b();
         int size = arrayList.size();
-        Object newInstance = Array.newInstance((Class<?>) this.f30503b, size);
+        Object newInstance = Array.newInstance((Class<?>) this.f29748b, size);
         for (int i2 = 0; i2 < size; i2++) {
             Array.set(newInstance, i2, arrayList.get(i2));
         }

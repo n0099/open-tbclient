@@ -8,23 +8,23 @@ import java.util.Map;
 public class bw extends fm {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f38947a;
+    public final /* synthetic */ XMPushService f38192a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bw(XMPushService xMPushService, Map map, int i2, String str, fp fpVar) {
         super(map, i2, str, fpVar);
-        this.f38947a = xMPushService;
+        this.f38192a = xMPushService;
     }
 
     @Override // com.xiaomi.push.fm
     /* renamed from: a */
-    public byte[] mo316a() {
+    public byte[] mo315a() {
         try {
             du.b bVar = new du.b();
-            bVar.a(bi.a().m603a());
-            return bVar.m269a();
+            bVar.a(bi.a().m602a());
+            return bVar.m268a();
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("getOBBString err: " + e2.toString());
+            com.xiaomi.channel.commonutils.logger.b.m57a("getOBBString err: " + e2.toString());
             return null;
         }
     }

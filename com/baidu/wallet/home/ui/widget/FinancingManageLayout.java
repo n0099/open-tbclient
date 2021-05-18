@@ -19,22 +19,22 @@ import java.util.List;
 public class FinancingManageLayout extends BaseItemLayout implements ViewPager.OnPageChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f25012a;
+    public LinearLayout f24257a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<BaseItemView> f25013b;
+    public List<BaseItemView> f24258b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<GridLayout> f25014c;
+    public List<GridLayout> f24259c;
 
     /* renamed from: e  reason: collision with root package name */
-    public HomeLayoutOneTipView f25015e;
+    public HomeLayoutOneTipView f24260e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewPager f25016f;
+    public ViewPager f24261f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PagerAdapter f25017g;
+    public PagerAdapter f24262g;
 
     /* loaded from: classes5.dex */
     public class MyPagerAdapter extends PagerAdapter implements NoProguard {
@@ -43,18 +43,18 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(View view, int i2, Object obj) {
-            ((ViewPager) view).removeView((View) FinancingManageLayout.this.f25014c.get(i2 % FinancingManageLayout.this.f25014c.size()));
+            ((ViewPager) view).removeView((View) FinancingManageLayout.this.f24259c.get(i2 % FinancingManageLayout.this.f24259c.size()));
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return FinancingManageLayout.this.f25014c.size();
+            return FinancingManageLayout.this.f24259c.size();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public Object instantiateItem(View view, int i2) {
-            ((ViewPager) view).addView((View) FinancingManageLayout.this.f25014c.get(i2 % FinancingManageLayout.this.f25014c.size()), 0);
-            return FinancingManageLayout.this.f25014c.get(i2 % FinancingManageLayout.this.f25014c.size());
+            ((ViewPager) view).addView((View) FinancingManageLayout.this.f24259c.get(i2 % FinancingManageLayout.this.f24259c.size()), 0);
+            return FinancingManageLayout.this.f24259c.get(i2 % FinancingManageLayout.this.f24259c.size());
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -65,25 +65,25 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
 
     public FinancingManageLayout(Context context) {
         super(context);
-        this.f25013b = new ArrayList();
-        this.f25014c = new ArrayList();
+        this.f24258b = new ArrayList();
+        this.f24259c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f25013b;
+        return this.f24258b;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_finance_manager_layout"), this);
-        this.f25016f = (ViewPager) findViewById(ResUtils.id(getContext(), "view_pager"));
-        this.f25015e = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
-        this.f25012a = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_home_banner_indicators"));
-        this.f25017g = new MyPagerAdapter();
-        this.f25016f.setPageMargin(DisplayUtils.dip2px(getContext(), 9.0f));
-        this.f25016f.setAdapter(this.f25017g);
-        this.f25016f.setOnPageChangeListener(this);
+        this.f24261f = (ViewPager) findViewById(ResUtils.id(getContext(), "view_pager"));
+        this.f24260e = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
+        this.f24257a = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_home_banner_indicators"));
+        this.f24262g = new MyPagerAdapter();
+        this.f24261f.setPageMargin(DisplayUtils.dip2px(getContext(), 9.0f));
+        this.f24261f.setAdapter(this.f24262g);
+        this.f24261f.setOnPageChangeListener(this);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -104,9 +104,9 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i2) {
         int i3 = 0;
-        while (i3 < this.f25014c.size()) {
-            if (this.f25012a.getChildAt(i3) != null) {
-                this.f25012a.getChildAt(i3).setSelected(i3 == i2);
+        while (i3 < this.f24259c.size()) {
+            if (this.f24257a.getChildAt(i3) != null) {
+                this.f24257a.getChildAt(i3).setSelected(i3 == i2);
             }
             i3++;
         }
@@ -114,7 +114,7 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
-        this.f25015e.setData(this.mConfigData, getWalletInterface());
+        this.f24260e.setData(this.mConfigData, getWalletInterface());
         HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
         int length = (dataItemArr.length / 3) + (dataItemArr.length % 3 == 0 ? 0 : 1);
         GridLayout gridLayout = null;
@@ -125,7 +125,7 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
             if (!z) {
                 z = financeItemView.showValue1();
             }
-            this.f25013b.add(financeItemView);
+            this.f24258b.add(financeItemView);
             if (i2 % 3 == 0) {
                 gridLayout = new GridLayout(getContext());
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
@@ -135,40 +135,40 @@ public class FinancingManageLayout extends BaseItemLayout implements ViewPager.O
                 gridLayout.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_whiteColor"));
                 gridLayout.setHorizontalSpacing(DisplayUtils.dip2px(getContext(), 9.0f));
                 gridLayout.setColumnCount(length == 1 ? dataItemArr.length : 3);
-                this.f25014c.add(gridLayout);
+                this.f24259c.add(gridLayout);
             }
             if (gridLayout != null) {
                 gridLayout.addView(financeItemView);
             }
         }
         if (z) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f25016f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f24261f.getLayoutParams();
             layoutParams2.height += DisplayUtils.dip2px(getContext(), 21.0f);
-            this.f25016f.setLayoutParams(layoutParams2);
-            this.f25016f.requestLayout();
+            this.f24261f.setLayoutParams(layoutParams2);
+            this.f24261f.requestLayout();
         }
         int drawable = ResUtils.drawable(getContext(), "wallet_base_indicator_selector");
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 7.0f), DisplayUtils.dip2px(getContext(), 2.0f));
-        if (this.f25014c.size() > 1) {
+        if (this.f24259c.size() > 1) {
             int i3 = 0;
-            while (i3 < this.f25014c.size()) {
+            while (i3 < this.f24259c.size()) {
                 View view = new View(getContext());
                 view.setBackgroundResource(drawable);
                 view.setSelected(i3 == 0);
-                this.f25012a.addView(view, layoutParams3);
+                this.f24257a.addView(view, layoutParams3);
                 layoutParams3.leftMargin = DisplayUtils.dip2px(getContext(), 6.0f);
                 i3++;
             }
-            this.f25012a.setVisibility(0);
+            this.f24257a.setVisibility(0);
         } else {
-            this.f25012a.setVisibility(8);
+            this.f24257a.setVisibility(8);
         }
-        this.f25017g.notifyDataSetChanged();
+        this.f24262g.notifyDataSetChanged();
     }
 
     public FinancingManageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f25013b = new ArrayList();
-        this.f25014c = new ArrayList();
+        this.f24258b = new ArrayList();
+        this.f24259c = new ArrayList();
     }
 }

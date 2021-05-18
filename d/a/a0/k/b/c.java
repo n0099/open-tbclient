@@ -14,7 +14,7 @@ public final class c {
         if (cVar != null) {
             cVar.e("channel", "cashiersdk");
             cVar.e("deviceType", "ANDROID");
-            cVar.e(CommandMessage.SDK_VERSION, "2.7.4");
+            cVar.e(CommandMessage.SDK_VERSION, "2.7.6");
             cVar.e("appVersion", d());
             cVar.e("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         }

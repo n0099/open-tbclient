@@ -4,70 +4,70 @@ import android.graphics.Bitmap;
 import com.bytedance.sdk.openadsdk.utils.f;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f30081a;
+    public byte[] f29326a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f30082b;
+    public Bitmap f29327b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d.b.c.b.d.a> f30083c;
+    public List<d.b.c.b.d.a> f29328c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f30084d;
+    public Map<String, String> f29329d;
 
     public d(byte[] bArr) {
-        this.f30081a = null;
-        this.f30082b = null;
-        this.f30083c = null;
-        this.f30084d = null;
-        this.f30081a = bArr;
+        this.f29326a = null;
+        this.f29327b = null;
+        this.f29328c = null;
+        this.f29329d = null;
+        this.f29326a = bArr;
     }
 
     public Bitmap a() {
-        return this.f30082b;
+        return this.f29327b;
     }
 
     public byte[] b() {
-        if (this.f30081a == null) {
-            this.f30081a = f.b(this.f30082b);
+        if (this.f29326a == null) {
+            this.f29326a = f.b(this.f29327b);
         }
-        return this.f30081a;
+        return this.f29326a;
     }
 
     public boolean c() {
-        if (this.f30082b != null) {
+        if (this.f29327b != null) {
             return true;
         }
-        byte[] bArr = this.f30081a;
+        byte[] bArr = this.f29326a;
         return bArr != null && bArr.length > 0;
     }
 
     public boolean d() {
-        byte[] bArr = this.f30081a;
+        byte[] bArr = this.f29326a;
         return bArr != null && bArr.length >= 3 && bArr[0] == 71 && bArr[1] == 73 && bArr[2] == 70;
     }
 
     public Map<String, String> e() {
-        return this.f30084d;
+        return this.f29329d;
     }
 
     public void a(List<d.b.c.b.d.a> list) {
-        this.f30083c = list;
+        this.f29328c = list;
     }
 
     public void a(Map<String, String> map) {
-        this.f30084d = map;
+        this.f29329d = map;
     }
 
     public d(Bitmap bitmap) {
-        this.f30081a = null;
-        this.f30082b = null;
-        this.f30083c = null;
-        this.f30084d = null;
-        this.f30082b = bitmap;
+        this.f29326a = null;
+        this.f29327b = null;
+        this.f29328c = null;
+        this.f29329d = null;
+        this.f29327b = bitmap;
     }
 }

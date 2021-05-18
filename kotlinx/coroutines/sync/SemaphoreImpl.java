@@ -87,7 +87,7 @@ public final class SemaphoreImpl extends SegmentQueue<SemaphoreSegment> implemen
         }
         Unit unit = Unit.INSTANCE;
         Result.Companion companion = Result.Companion;
-        orCreateCancellableContinuation.resumeWith(Result.m636constructorimpl(unit));
+        orCreateCancellableContinuation.resumeWith(Result.m635constructorimpl(unit));
         result = orCreateCancellableContinuation.getResult();
         if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
         }
@@ -139,7 +139,7 @@ public final class SemaphoreImpl extends SegmentQueue<SemaphoreSegment> implemen
                 if (andSet != symbol2) {
                     Unit unit = Unit.INSTANCE;
                     Result.Companion companion = Result.Companion;
-                    ((CancellableContinuation) andSet).resumeWith(Result.m636constructorimpl(unit));
+                    ((CancellableContinuation) andSet).resumeWith(Result.m635constructorimpl(unit));
                     return;
                 }
             }

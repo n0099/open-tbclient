@@ -13,12 +13,12 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: d.o.a.d.n.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class RunnableC1810a implements Runnable {
+    /* loaded from: classes7.dex */
+    public static class RunnableC1874a implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
             d.o.a.e.a.h.c.i();
@@ -26,13 +26,13 @@ public class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b implements InvocationHandler {
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f66259e;
+        public Object f66945e;
 
-        public /* synthetic */ b(Object obj, RunnableC1810a runnableC1810a) {
+        public /* synthetic */ b(Object obj, RunnableC1874a runnableC1874a) {
             this(obj);
         }
 
@@ -44,11 +44,11 @@ public class a {
                 }
             } catch (Throwable unused) {
             }
-            return method.invoke(this.f66259e, objArr);
+            return method.invoke(this.f66945e, objArr);
         }
 
         public b(Object obj) {
-            this.f66259e = obj;
+            this.f66945e = obj;
         }
     }
 
@@ -70,13 +70,13 @@ public class a {
         if (n.s().optInt("hook", 0) != 1) {
             return;
         }
-        d.o.a.d.i.a().c(new RunnableC1810a(), 10000L);
+        d.o.a.d.i.a().c(new RunnableC1874a(), 10000L);
     }
 
     public static void d(Object[] objArr) {
         if (n.s().optInt("hook", 0) == 1 && (objArr[1] instanceof String) && (objArr[2] instanceof Intent)) {
             Intent intent = (Intent) objArr[2];
-            if ("android.intent.action.VIEW".equals(intent.getAction()) && d.o.a.e.b.d.c.f66449a.equals(intent.getType())) {
+            if ("android.intent.action.VIEW".equals(intent.getAction()) && d.o.a.e.b.d.c.f67135a.equals(intent.getType())) {
                 if (d.o.a.e.a.h.c.e()) {
                     String optString = n.s().optString("hook_vivo_arg", "com.android.settings");
                     if (StringUtil.NULL_STRING.equals(optString)) {
@@ -85,21 +85,21 @@ public class a {
                     objArr[1] = optString;
                 } else if (d.o.a.e.a.h.c.f()) {
                     JSONObject s = n.s();
-                    String optString2 = s.optString("hook_kllk_arg1", "com." + d.o.a.e.b.d.c.f66451c + ".market");
+                    String optString2 = s.optString("hook_kllk_arg1", "com." + d.o.a.e.b.d.c.f67137c + ".market");
                     if (!StringUtil.NULL_STRING.equals(optString2)) {
                         objArr[1] = optString2;
                     }
                     String optString3 = n.s().optString("hook_kllk_arg2", "com.android.browser");
                     JSONObject s2 = n.s();
-                    String optString4 = s2.optString("hook_kllk_arg3", "m.store." + d.o.a.e.b.d.c.f66451c + "mobile.com");
+                    String optString4 = s2.optString("hook_kllk_arg3", "m.store." + d.o.a.e.b.d.c.f67137c + "mobile.com");
                     StringBuilder sb = new StringBuilder();
-                    sb.append(d.o.a.e.b.d.c.f66451c);
+                    sb.append(d.o.a.e.b.d.c.f67137c);
                     sb.append("_extra_pkg_name");
                     intent.putExtra(sb.toString(), optString3);
                     intent.putExtra("refererHost", optString4);
                     if (n.s().optInt("hook_kllk_arg4", 0) == 1) {
                         Intent intent2 = new Intent();
-                        intent2.putExtra(d.o.a.e.b.d.c.f66451c + "_extra_pkg_name", optString3);
+                        intent2.putExtra(d.o.a.e.b.d.c.f67137c + "_extra_pkg_name", optString3);
                         intent2.putExtra("refererHost", optString4);
                         intent.putExtra("android.intent.extra.INTENT", intent2);
                     }

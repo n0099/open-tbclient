@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Collections;
 /* loaded from: classes.dex */
 public class ShapeFillParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", Config.OS, "fillEnabled", r.f7975a, "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", Config.OS, "fillEnabled", r.f7772a, "hd");
 
     public static ShapeFill parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         AnimatableIntegerValue animatableIntegerValue = null;

@@ -1,5 +1,6 @@
 package io.reactivex.parallel;
 
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import io.reactivex.Flowable;
 import io.reactivex.Scheduler;
 import io.reactivex.annotations.BackpressureKind;
@@ -271,7 +272,7 @@ public abstract class ParallelFlowable<T> {
     @NonNull
     public final <R> ParallelFlowable<R> concatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ParallelConcatMap(this, function, i2, ErrorMode.IMMEDIATE));
     }
 
@@ -279,7 +280,7 @@ public abstract class ParallelFlowable<T> {
     @NonNull
     public final <R> ParallelFlowable<R> concatMapDelayError(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, int i2, boolean z) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ParallelConcatMap(this, function, i2, z ? ErrorMode.END : ErrorMode.BOUNDARY));
     }
 
@@ -293,7 +294,7 @@ public abstract class ParallelFlowable<T> {
     @NonNull
     public final ParallelFlowable<T> runOn(@NonNull Scheduler scheduler, int i2) {
         ObjectHelper.requireNonNull(scheduler, "scheduler");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ParallelRunOn(this, scheduler, i2));
     }
 
@@ -302,7 +303,7 @@ public abstract class ParallelFlowable<T> {
     @CheckReturnValue
     @NonNull
     public final Flowable<T> sequential(int i2) {
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ParallelJoin(this, i2, false));
     }
 
@@ -311,7 +312,7 @@ public abstract class ParallelFlowable<T> {
     @CheckReturnValue
     @NonNull
     public final Flowable<T> sequentialDelayError(int i2) {
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ParallelJoin(this, i2, true));
     }
 
@@ -336,7 +337,7 @@ public abstract class ParallelFlowable<T> {
     public static <T> ParallelFlowable<T> from(@NonNull Publisher<? extends T> publisher, int i2, int i3) {
         ObjectHelper.requireNonNull(publisher, "source");
         ObjectHelper.verifyPositive(i2, "parallelism");
-        ObjectHelper.verifyPositive(i3, "prefetch");
+        ObjectHelper.verifyPositive(i3, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ParallelFromPublisher(publisher, i2, i3));
     }
 
@@ -376,7 +377,7 @@ public abstract class ParallelFlowable<T> {
     public final <R> ParallelFlowable<R> flatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, boolean z, int i2, int i3) {
         ObjectHelper.requireNonNull(function, "mapper is null");
         ObjectHelper.verifyPositive(i2, "maxConcurrency");
-        ObjectHelper.verifyPositive(i3, "prefetch");
+        ObjectHelper.verifyPositive(i3, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ParallelFlatMap(this, function, z, i2, i3));
     }
 

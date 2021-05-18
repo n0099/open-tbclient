@@ -647,7 +647,7 @@ public class bj {
     public static String b(String str) {
         String a2 = ay.a().a(str);
         if (TextUtils.isEmpty(a2)) {
-            a2 = au.a().a(str, au.a.f8891a);
+            a2 = au.a().a(str, au.a.f8703a);
         }
         return a2 == null ? "" : a2;
     }
@@ -949,7 +949,7 @@ public class bj {
     }
 
     public static String a(String str) {
-        String a2 = au.a().a(str, au.a.f8892b);
+        String a2 = au.a().a(str, au.a.f8704b);
         return a2 == null ? "" : a2;
     }
 

@@ -15,7 +15,6 @@ import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import com.baidu.adp.R;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.util.ArrayList;
 import java.util.List;
@@ -173,10 +172,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.f2271a = 0.0f;
             this.f2273c = 0 - HorizontalTranslateLayout.this.f2267h;
             this.f2274d = HorizontalTranslateLayout.this.f2267h;
-            HorizontalTranslateLayout.this.s.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
+            HorizontalTranslateLayout.this.s.removeMessages(-104);
             BdLog.d("Animator@animateTopOpen " + this.f2273c);
             BdLog.d("Animator@animateTopOpen " + f2);
-            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, this.f2276f);
+            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(-104, this.f2276f);
         }
 
         public void c(float f2) {
@@ -214,8 +213,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.f2274d = HorizontalTranslateLayout.this.f2267h;
             BdLog.d("Animator@animateBottomOpen " + this.f2273c);
             BdLog.d("Animator@animateBottomOpen " + f2);
-            HorizontalTranslateLayout.this.s.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL);
-            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, this.f2276f);
+            HorizontalTranslateLayout.this.s.removeMessages(-105);
+            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(-105, this.f2276f);
         }
 
         public final void e() {
@@ -261,7 +260,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             }
             HorizontalTranslateLayout.this.f2267h = (int) (d.a.c.j.h.a(f3, f2, false) + this.f2274d);
             HorizontalTranslateLayout.this.invalidate();
-            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, this.f2276f);
+            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(-104, this.f2276f);
         }
 
         public void h() {
@@ -300,7 +299,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             }
             HorizontalTranslateLayout.this.f2267h = (int) (d.a.c.j.h.a(f3, f2, false) + this.f2274d);
             HorizontalTranslateLayout.this.invalidate();
-            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, this.f2276f);
+            HorizontalTranslateLayout.this.s.sendEmptyMessageAtTime(-105, this.f2276f);
         }
     }
 
@@ -558,9 +557,9 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.o = x;
             this.p = y;
             this.s.removeMessages(-100);
-            this.s.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
+            this.s.removeMessages(-104);
             this.s.removeMessages(-101);
-            this.s.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL);
+            this.s.removeMessages(-105);
         } else if (action == 2) {
             BdLog.d("HorizontalTranslateLayout@interceptInterceptTouchEvent");
             motionEvent.offsetLocation(-this.f2267h, 0.0f);

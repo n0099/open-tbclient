@@ -2,7 +2,7 @@ package com.baidu.tieba.im.forum.broadcast.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.i0.z0.w;
+import d.a.j0.z0.w;
 import java.util.List;
 import tbclient.CommonReq;
 import tbclient.GetForumBroadcastList.DataReq;
@@ -17,7 +17,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public List<Long> bcastIds;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f17932common;
+    public CommonReq f17247common;
     public long forumId;
     public long lastId;
     public int needCount;
@@ -30,7 +30,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f68615common = this.f17932common;
+        builder.f69295common = this.f17247common;
         builder.query_type = Integer.valueOf(this.queryType);
         builder.forum_id = Long.valueOf(this.forumId);
         builder.need_cnt = Integer.valueOf(this.needCount);
@@ -46,6 +46,6 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f17932common = commonReq;
+        this.f17247common = commonReq;
     }
 }

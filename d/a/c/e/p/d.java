@@ -11,13 +11,13 @@ import java.io.ByteArrayOutputStream;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f39945c;
+    public static d f39190c;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile SparseArray<Bitmap> f39946a = new SparseArray<>();
+    public volatile SparseArray<Bitmap> f39191a = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f39947b;
+    public Context f39192b;
 
     public d() {
         Bitmap.Config config = Bitmap.Config.RGB_565;
@@ -26,10 +26,10 @@ public class d {
     public static synchronized d d() {
         d dVar;
         synchronized (d.class) {
-            if (f39945c == null) {
-                f39945c = new d();
+            if (f39190c == null) {
+                f39190c = new d();
             }
-            dVar = f39945c;
+            dVar = f39190c;
         }
         return dVar;
     }
@@ -41,7 +41,7 @@ public class d {
     }
 
     public synchronized void b() {
-        this.f39946a.clear();
+        this.f39191a.clear();
     }
 
     public Bitmap c(String str) {
@@ -58,7 +58,7 @@ public class d {
     }
 
     public void f(Context context) {
-        this.f39947b = context;
+        this.f39192b = context;
     }
 
     public Bitmap g(Bitmap bitmap, int i2, int i3) {

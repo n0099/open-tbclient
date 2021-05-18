@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.j0.a1.g.j.i;
+import d.a.k0.a1.g.j.i;
 import java.util.List;
 import tbclient.Error;
 import tbclient.Personalized.DataRes;
@@ -37,10 +37,10 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        i.f50952a = false;
+        i.f51651a = false;
         if (i.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
             this.resultData = i.b();
-            i.f50952a = true;
+            i.f51651a = true;
             i.a();
             return;
         }

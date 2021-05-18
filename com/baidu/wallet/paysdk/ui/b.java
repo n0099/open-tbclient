@@ -22,7 +22,7 @@ public class b {
         bdActionBar.setRightImgZone2OnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.b.1
 
             /* renamed from: e  reason: collision with root package name */
-            public LoginBackListenerProxy f26817e;
+            public LoginBackListenerProxy f26062e;
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -32,11 +32,11 @@ public class b {
                 if (!TextUtils.isEmpty(str4)) {
                     PayStatisticsUtil.onEvent(str4);
                 }
-                this.f26817e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.paysdk.ui.b.1.1
+                this.f26062e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.paysdk.ui.b.1.1
                     @Override // com.baidu.wallet.api.ILoginBackListener
                     public void onFail(int i2, String str5) {
                         if (i2 == 603) {
-                            WalletLoginHelper.getInstance().onlyLogin(AnonymousClass1.this.f26817e);
+                            WalletLoginHelper.getInstance().onlyLogin(AnonymousClass1.this.f26062e);
                         }
                     }
 
@@ -50,7 +50,7 @@ public class b {
                         baiduWalletDelegate.openH5Module(context, str, str3, true, false);
                     }
                 });
-                WalletLoginHelper.getInstance().login(this.f26817e);
+                WalletLoginHelper.getInstance().login(this.f26062e);
             }
         });
     }

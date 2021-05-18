@@ -6,7 +6,7 @@ import com.bytedance.sdk.openadsdk.preload.a.t;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class l {
     public static com.bytedance.sdk.openadsdk.preload.a.l a(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws p {
         boolean z;
@@ -23,7 +23,7 @@ public final class l {
             } catch (EOFException e3) {
                 e = e3;
                 if (z) {
-                    return com.bytedance.sdk.openadsdk.preload.a.n.f30743a;
+                    return com.bytedance.sdk.openadsdk.preload.a.n.f29988a;
                 }
                 throw new t(e);
             }
@@ -36,40 +36,40 @@ public final class l {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends Writer {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Appendable f30673a;
+        public final Appendable f29918a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final C0329a f30674b = new C0329a();
+        public final C0316a f29919b = new C0316a();
 
         /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.l$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static class C0329a implements CharSequence {
+        /* loaded from: classes6.dex */
+        public static class C0316a implements CharSequence {
 
             /* renamed from: a  reason: collision with root package name */
-            public char[] f30675a;
+            public char[] f29920a;
 
             @Override // java.lang.CharSequence
             public char charAt(int i2) {
-                return this.f30675a[i2];
+                return this.f29920a[i2];
             }
 
             @Override // java.lang.CharSequence
             public int length() {
-                return this.f30675a.length;
+                return this.f29920a.length;
             }
 
             @Override // java.lang.CharSequence
             public CharSequence subSequence(int i2, int i3) {
-                return new String(this.f30675a, i2, i3 - i2);
+                return new String(this.f29920a, i2, i3 - i2);
             }
         }
 
         public a(Appendable appendable) {
-            this.f30673a = appendable;
+            this.f29918a = appendable;
         }
 
         @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
@@ -82,14 +82,14 @@ public final class l {
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i2, int i3) throws IOException {
-            C0329a c0329a = this.f30674b;
-            c0329a.f30675a = cArr;
-            this.f30673a.append(c0329a, i2, i3 + i2);
+            C0316a c0316a = this.f29919b;
+            c0316a.f29920a = cArr;
+            this.f29918a.append(c0316a, i2, i3 + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i2) throws IOException {
-            this.f30673a.append((char) i2);
+            this.f29918a.append((char) i2);
         }
     }
 

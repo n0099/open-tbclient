@@ -3,31 +3,31 @@ package com.xiaomi.push;
 public class dz {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38334a;
+    public int f37579a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f307a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38335b;
+    public String f37580b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38336c;
+    public String f37581c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38337d;
+    public String f37582d;
 
     public int a() {
-        return this.f38334a;
+        return this.f37579a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m267a() {
+    public String m266a() {
         return this.f307a;
     }
 
     public void a(int i2) {
-        this.f38334a = i2;
+        this.f37579a = i2;
     }
 
     public void a(String str) {
@@ -35,26 +35,26 @@ public class dz {
     }
 
     public String b() {
-        return this.f38335b;
+        return this.f37580b;
     }
 
     public void b(String str) {
-        this.f38335b = str;
+        this.f37580b = str;
     }
 
     public String c() {
-        return this.f38336c;
+        return this.f37581c;
     }
 
     public void c(String str) {
-        this.f38336c = str;
+        this.f37581c = str;
     }
 
     public String d() {
-        return this.f38337d;
+        return this.f37582d;
     }
 
     public void d(String str) {
-        this.f38337d = str;
+        this.f37582d = str;
     }
 }

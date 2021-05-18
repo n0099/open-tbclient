@@ -21,13 +21,13 @@ import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.j.e.n;
 import d.a.c.j.e.w;
-import d.a.j0.f1.b.o.a;
-import d.a.j0.f1.b.o.b;
+import d.a.k0.f1.b.o.a;
+import d.a.k0.f1.b.o.b;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AgreeMeActivity extends BaseActivity implements BdListView.p {
-    public d.a.j0.f1.b.o.a mMainView;
-    public d.a.j0.f1.b.o.b mModel;
+    public d.a.k0.f1.b.o.a mMainView;
+    public d.a.k0.f1.b.o.b mModel;
     public int mSkinType = 3;
     public a.e mViewCallback = new a();
     public b.c mModelCallback = new b();
@@ -38,14 +38,14 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         public a() {
         }
 
-        @Override // d.a.j0.f1.b.o.a.e
+        @Override // d.a.k0.f1.b.o.a.e
         public void a() {
             if (AgreeMeActivity.this.mModel != null) {
                 AgreeMeActivity.this.mModel.j();
             }
         }
 
-        @Override // d.a.j0.f1.b.o.a.e
+        @Override // d.a.k0.f1.b.o.a.e
         public void b() {
             if (AgreeMeActivity.this.mModel != null) {
                 AgreeMeActivity.this.mModel.g();
@@ -58,23 +58,23 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         public b() {
         }
 
-        @Override // d.a.j0.f1.b.o.b.c
+        @Override // d.a.k0.f1.b.o.b.c
         public void a(ArrayList<n> arrayList) {
             if (AgreeMeActivity.this.mMainView != null) {
-                AgreeMeActivity.this.mMainView.k(AgreeMeActivity.this.mModel.f54221f, arrayList);
+                AgreeMeActivity.this.mMainView.k(AgreeMeActivity.this.mModel.f54928f, arrayList);
                 AgreeMeActivity agreeMeActivity = AgreeMeActivity.this;
                 agreeMeActivity.hideLoadingView(agreeMeActivity.mMainView.d());
                 AgreeMeActivity agreeMeActivity2 = AgreeMeActivity.this;
                 agreeMeActivity2.hideNetRefreshView(agreeMeActivity2.mMainView.f());
-                if (AgreeMeActivity.this.mMainView.f54209f != null) {
-                    AgreeMeActivity.this.mMainView.f54209f.setVisibility(0);
+                if (AgreeMeActivity.this.mMainView.f54916f != null) {
+                    AgreeMeActivity.this.mMainView.f54916f.setVisibility(0);
                 }
             }
         }
 
-        @Override // d.a.j0.f1.b.o.b.c
+        @Override // d.a.k0.f1.b.o.b.c
         public void onFailed(String str) {
-            d.a.i0.s.d.b.g0().Y(0);
+            d.a.j0.s.d.b.g0().Y(0);
             if (AgreeMeActivity.this.mMainView == null) {
                 return;
             }
@@ -85,8 +85,8 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
                 AgreeMeActivity agreeMeActivity2 = AgreeMeActivity.this;
                 agreeMeActivity2.showNetRefreshView(agreeMeActivity2.mMainView.f(), AgreeMeActivity.this.getResources().getString(R.string.refresh_view_title_text), null, AgreeMeActivity.this.getResources().getString(R.string.refresh_view_button_text), true, AgreeMeActivity.this.getNetRefreshListener());
                 AgreeMeActivity.this.setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
-                if (AgreeMeActivity.this.mMainView.f54209f != null) {
-                    AgreeMeActivity.this.mMainView.f54209f.setVisibility(8);
+                if (AgreeMeActivity.this.mMainView.f54916f != null) {
+                    AgreeMeActivity.this.mMainView.f54916f.setVisibility(8);
                     return;
                 }
                 return;
@@ -104,16 +104,16 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
 
         @Override // d.a.c.j.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
-            if (nVar instanceof d.a.j0.f1.b.p.a) {
-                d.a.j0.f1.b.p.a aVar = (d.a.j0.f1.b.p.a) nVar;
-                if (aVar.getType() == d.a.j0.f1.b.p.a.x) {
+            if (nVar instanceof d.a.k0.f1.b.p.a) {
+                d.a.k0.f1.b.p.a aVar = (d.a.k0.f1.b.p.a) nVar;
+                if (aVar.getType() == d.a.k0.f1.b.p.a.x) {
                     AgreeMeActivity.this.jumpPb(aVar);
                 } else {
                     AgreeMeActivity.this.jumpToSubPb(aVar);
                 }
                 if (aVar.w() != null) {
                     StatisticItem param = new StatisticItem(aVar.w()).param("obj_locate", 1);
-                    if (aVar.getType() == d.a.j0.f1.b.p.a.y) {
+                    if (aVar.getType() == d.a.k0.f1.b.p.a.y) {
                         param.param("obj_type", 2);
                     } else {
                         param.param("obj_type", 1);
@@ -133,7 +133,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jumpPb(d.a.j0.f1.b.p.a aVar) {
+    public void jumpPb(d.a.k0.f1.b.p.a aVar) {
         if (aVar == null) {
             return;
         }
@@ -153,7 +153,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jumpToSubPb(d.a.j0.f1.b.p.a aVar) {
+    public void jumpToSubPb(d.a.k0.f1.b.p.a aVar) {
         if (aVar == null) {
             return;
         }
@@ -177,7 +177,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig2));
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "a079";
     }
@@ -186,7 +186,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     public void onChangeSkinType(int i2) {
         if (this.mSkinType != i2) {
             this.mSkinType = i2;
-            d.a.j0.f1.b.o.a aVar = this.mMainView;
+            d.a.k0.f1.b.o.a aVar = this.mMainView;
             if (aVar != null) {
                 aVar.c(i2);
             }
@@ -198,11 +198,11 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         super.onCreate(bundle);
         View inflate = getLayoutInflater().inflate(R.layout.agree_me_activity, (ViewGroup) null);
         setContentView(inflate);
-        d.a.j0.f1.b.o.a aVar = new d.a.j0.f1.b.o.a(getPageContext(), inflate);
+        d.a.k0.f1.b.o.a aVar = new d.a.k0.f1.b.o.a(getPageContext(), inflate);
         this.mMainView = aVar;
         aVar.j(this.mViewCallback);
         this.mMainView.i(this.mItemClickListener);
-        this.mModel = new d.a.j0.f1.b.o.b(getPageContext(), this.mModelCallback);
+        this.mModel = new d.a.k0.f1.b.o.b(getPageContext(), this.mModelCallback);
         showLoadingView(this.mMainView.d());
         this.mMainView.l(false);
         this.mModel.d();
@@ -211,7 +211,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.a.j0.f1.b.o.a aVar = this.mMainView;
+        d.a.k0.f1.b.o.a aVar = this.mMainView;
         if (aVar != null) {
             aVar.h();
         }
@@ -219,7 +219,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        d.a.j0.f1.b.o.a aVar;
+        d.a.k0.f1.b.o.a aVar;
         if (!j.z() || this.mModel == null || (aVar = this.mMainView) == null) {
             return;
         }
@@ -230,7 +230,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        d.a.j0.f1.b.o.b bVar = this.mModel;
+        d.a.k0.f1.b.o.b bVar = this.mModel;
         if (bVar != null) {
             bVar.g();
         }

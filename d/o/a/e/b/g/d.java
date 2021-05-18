@@ -25,7 +25,7 @@ import okhttp3.Dns;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static volatile d.o.a.e.b.f.e A;
     public static volatile d.o.a.e.b.o.h E;
@@ -45,31 +45,31 @@ public class d {
     public static volatile boolean W;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile Context f66475a;
+    public static volatile Context f67161a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile j f66476b;
+    public static volatile j f67162b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile k f66477c;
+    public static volatile k f67163c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile i f66478d;
+    public static volatile i f67164d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile d.o.a.e.b.f.i f66479e;
+    public static volatile d.o.a.e.b.f.i f67165e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile d.o.a.e.b.m.a f66480f;
+    public static volatile d.o.a.e.b.m.a f67166f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile o f66481g;
+    public static volatile o f67167g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile o f66482h;
+    public static volatile o f67168h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile d.o.a.e.b.o.a f66483i;
+    public static volatile d.o.a.e.b.o.a f67169i;
     public static volatile d.o.a.e.b.o.j j;
     public static volatile d.o.a.e.b.o.a k;
     public static volatile d.o.a.e.b.o.j l;
@@ -95,7 +95,7 @@ public class d {
     public static final int J = Runtime.getRuntime().availableProcessors() + 1;
     public static final int K = (Runtime.getRuntime().availableProcessors() * 2) + 1;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
@@ -106,7 +106,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b implements d.o.a.e.b.o.h {
         @Override // d.o.a.e.b.o.h
         public List<InetAddress> a(String str) throws UnknownHostException {
@@ -114,7 +114,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c implements d.o.a.e.b.e.c {
         @Override // d.o.a.e.b.e.c
         public void a(int i2, String str, JSONObject jSONObject) {
@@ -194,7 +194,7 @@ public class d {
 
     public static void D(d.o.a.e.b.f.i iVar) {
         if (iVar != null) {
-            f66479e = iVar;
+            f67165e = iVar;
         }
     }
 
@@ -249,23 +249,23 @@ public class d {
             }
             boolean z2 = C;
             g0(bVar);
-            if (f66476b == null) {
-                f66476b = new d.o.a.e.b.m.d();
+            if (f67162b == null) {
+                f67162b = new d.o.a.e.b.m.d();
             }
-            if (f66481g == null) {
-                f66481g = new d.o.a.e.b.m.h();
+            if (f67167g == null) {
+                f67167g = new d.o.a.e.b.m.h();
             }
-            if (f66482h == null) {
-                f66482h = new d.o.a.e.b.m.m();
+            if (f67168h == null) {
+                f67168h = new d.o.a.e.b.m.m();
             }
-            if (f66477c == null) {
-                f66477c = new d.o.a.e.b.m.i();
+            if (f67163c == null) {
+                f67163c = new d.o.a.e.b.m.i();
             }
-            if (f66480f == null) {
-                f66480f = new d.o.a.e.b.m.e();
+            if (f67166f == null) {
+                f67166f = new d.o.a.e.b.m.e();
             }
-            if (f66478d == null) {
-                f66478d = new d.o.a.e.b.m.c();
+            if (f67164d == null) {
+                f67164d = new d.o.a.e.b.m.c();
             }
             if (v == null) {
                 v = new d.o.a.e.b.m.b();
@@ -321,61 +321,61 @@ public class d {
 
     public static void I(i iVar) {
         if (iVar != null) {
-            f66478d = iVar;
+            f67164d = iVar;
         }
     }
 
     public static j I0() {
-        if (f66476b == null) {
+        if (f67162b == null) {
             synchronized (d.class) {
-                if (f66476b == null) {
-                    f66476b = new d.o.a.e.b.m.d();
+                if (f67162b == null) {
+                    f67162b = new d.o.a.e.b.m.d();
                 }
             }
         }
-        return f66476b;
+        return f67162b;
     }
 
     public static void J(j jVar) {
         if (jVar != null) {
-            f66476b = jVar;
+            f67162b = jVar;
         }
     }
 
     public static o J0() {
-        if (f66481g == null) {
+        if (f67167g == null) {
             synchronized (d.class) {
-                if (f66481g == null) {
-                    f66481g = new d.o.a.e.b.m.h();
+                if (f67167g == null) {
+                    f67167g = new d.o.a.e.b.m.h();
                 }
             }
         }
-        return f66481g;
+        return f67167g;
     }
 
     public static void K(k kVar) {
         if (kVar != null) {
-            f66477c = kVar;
+            f67163c = kVar;
         }
     }
 
     public static o K0() {
-        if (f66482h == null) {
+        if (f67168h == null) {
             synchronized (d.class) {
-                if (f66482h == null) {
-                    f66482h = new d.o.a.e.b.m.m();
+                if (f67168h == null) {
+                    f67168h = new d.o.a.e.b.m.m();
                 }
             }
         }
-        return f66482h;
+        return f67168h;
     }
 
     public static synchronized void L(l lVar) {
         synchronized (d.class) {
             if (lVar != null) {
                 m = lVar;
-                if (f66476b instanceof d.o.a.e.b.m.d) {
-                    ((d.o.a.e.b.m.d) f66476b).k();
+                if (f67162b instanceof d.o.a.e.b.m.d) {
+                    ((d.o.a.e.b.m.d) f67162b).k();
                 }
             }
         }
@@ -396,9 +396,9 @@ public class d {
 
     public static void O(d.o.a.e.b.o.a aVar) {
         if (aVar != null) {
-            f66483i = aVar;
+            f67169i = aVar;
         }
-        O = f66483i != null;
+        O = f67169i != null;
     }
 
     public static void P(d.o.a.e.b.o.j jVar) {
@@ -437,14 +437,14 @@ public class d {
     }
 
     public static void U(JSONObject jSONObject) {
-        if (jSONObject == null || !TextUtils.isEmpty(d.o.a.e.b.d.c.f66451c)) {
+        if (jSONObject == null || !TextUtils.isEmpty(d.o.a.e.b.d.c.f67137c)) {
             return;
         }
-        d.o.a.e.b.d.c.f66451c = jSONObject.optString("kllk");
-        if (TextUtils.isEmpty(d.o.a.e.b.d.c.f66451c)) {
+        d.o.a.e.b.d.c.f67137c = jSONObject.optString("kllk");
+        if (TextUtils.isEmpty(d.o.a.e.b.d.c.f67137c)) {
             return;
         }
-        d.o.a.e.b.d.c.f66450b = d.o.a.e.b.d.c.f66451c.toUpperCase();
+        d.o.a.e.b.d.c.f67136b = d.o.a.e.b.d.c.f67137c.toUpperCase();
     }
 
     public static void V(boolean z2) {
@@ -527,14 +527,14 @@ public class d {
     }
 
     public static k b() {
-        if (f66477c == null) {
+        if (f67163c == null) {
             synchronized (d.class) {
-                if (f66477c == null) {
-                    f66477c = new d.o.a.e.b.m.i();
+                if (f67163c == null) {
+                    f67163c = new d.o.a.e.b.m.i();
                 }
             }
         }
-        return f66477c;
+        return f67163c;
     }
 
     public static void b0(d.o.a.e.b.n.a aVar, int i2) {
@@ -548,14 +548,14 @@ public class d {
     }
 
     public static d.o.a.e.b.m.a c() {
-        if (f66480f == null) {
+        if (f67166f == null) {
             synchronized (d.class) {
-                if (f66480f == null) {
-                    f66480f = new d.o.a.e.b.m.e();
+                if (f67166f == null) {
+                    f67166f = new d.o.a.e.b.m.e();
                 }
             }
         }
-        return f66480f;
+        return f67166f;
     }
 
     public static void c0(Runnable runnable) {
@@ -591,7 +591,7 @@ public class d {
             U(a2);
             return a2;
         }
-        return d.o.a.e.b.d.c.f66455g;
+        return d.o.a.e.b.d.c.f67141g;
     }
 
     public static void e0(ExecutorService executorService) {
@@ -701,14 +701,14 @@ public class d {
     }
 
     public static i h() {
-        if (f66478d == null) {
+        if (f67164d == null) {
             synchronized (d.class) {
-                if (f66478d == null) {
-                    f66478d = new d.o.a.e.b.m.c();
+                if (f67164d == null) {
+                    f67164d = new d.o.a.e.b.m.c();
                 }
             }
         }
-        return f66478d;
+        return f67164d;
     }
 
     public static void h0(ExecutorService executorService) {
@@ -718,7 +718,7 @@ public class d {
     }
 
     public static d.o.a.e.b.f.i i() {
-        return f66479e;
+        return f67165e;
     }
 
     public static synchronized boolean i0() {
@@ -741,7 +741,7 @@ public class d {
     }
 
     public static d.o.a.e.b.o.a j0() {
-        return f66483i;
+        return f67169i;
     }
 
     public static r k() {
@@ -764,7 +764,7 @@ public class d {
     public static synchronized Context l() {
         Context context;
         synchronized (d.class) {
-            context = f66475a;
+            context = f67161a;
         }
         return context;
     }
@@ -831,7 +831,7 @@ public class d {
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            f66475a.registerReceiver(w, intentFilter);
+            f67161a.registerReceiver(w, intentFilter);
             H = true;
         } catch (Throwable th) {
             th.printStackTrace();
@@ -1033,9 +1033,9 @@ public class d {
     public static synchronized void y(Context context) {
         synchronized (d.class) {
             if (context != null) {
-                if (f66475a == null) {
-                    f66475a = context.getApplicationContext();
-                    d.o.a.e.b.a.a.c().e(f66475a);
+                if (f67161a == null) {
+                    f67161a = context.getApplicationContext();
+                    d.o.a.e.b.a.a.c().e(f67161a);
                 }
             }
         }

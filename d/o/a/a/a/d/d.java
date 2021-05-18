@@ -1,39 +1,40 @@
 package d.o.a.a.a.d;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f65844a;
+    public String f66530a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f65845b;
+    public final String f66531b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f65846c;
+    public final String f66532c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f65847d;
+    public final boolean f66533d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f65848e;
+    public final long f66534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f65849f;
+    public final String f66535f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f65850g;
+    public final long f66536g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final JSONObject f65851h;
+    public final JSONObject f66537h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final JSONObject f65852i;
+    public final JSONObject f66538i;
     public final List<String> j;
     public final int k;
     public final Object l;
@@ -41,32 +42,32 @@ public class d {
     public final String n;
     public final JSONObject o;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f65853a;
+        public String f66539a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f65854b;
+        public String f66540b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f65855c;
+        public String f66541c;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f65857e;
+        public long f66543e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f65858f;
+        public String f66544f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f65859g;
+        public long f66545g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f65860h;
+        public JSONObject f66546h;
 
         /* renamed from: i  reason: collision with root package name */
-        public JSONObject f65861i;
+        public JSONObject f66547i;
         public Map<String, Object> j;
         public List<String> k;
         public int l;
@@ -76,7 +77,7 @@ public class d {
         public JSONObject q;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f65856d = false;
+        public boolean f66542d = false;
         public boolean o = false;
 
         public a a(int i2) {
@@ -85,7 +86,7 @@ public class d {
         }
 
         public a b(long j) {
-            this.f65857e = j;
+            this.f66543e = j;
             return this;
         }
 
@@ -95,7 +96,7 @@ public class d {
         }
 
         public a d(String str) {
-            this.f65854b = str;
+            this.f66540b = str;
             return this;
         }
 
@@ -105,7 +106,7 @@ public class d {
         }
 
         public a f(JSONObject jSONObject) {
-            this.f65860h = jSONObject;
+            this.f66546h = jSONObject;
             return this;
         }
 
@@ -115,89 +116,89 @@ public class d {
         }
 
         public d h() {
-            if (TextUtils.isEmpty(this.f65853a)) {
-                this.f65853a = "umeng";
+            if (TextUtils.isEmpty(this.f66539a)) {
+                this.f66539a = "umeng";
             }
             JSONObject jSONObject = new JSONObject();
-            if (this.f65860h == null) {
-                this.f65860h = new JSONObject();
+            if (this.f66546h == null) {
+                this.f66546h = new JSONObject();
             }
             try {
                 if (this.j != null && !this.j.isEmpty()) {
                     for (Map.Entry<String, Object> entry : this.j.entrySet()) {
-                        if (!this.f65860h.has(entry.getKey())) {
-                            this.f65860h.putOpt(entry.getKey(), entry.getValue());
+                        if (!this.f66546h.has(entry.getKey())) {
+                            this.f66546h.putOpt(entry.getKey(), entry.getValue());
                         }
                     }
                 }
                 if (this.o) {
-                    this.p = this.f65855c;
+                    this.p = this.f66541c;
                     this.q = new JSONObject();
-                    Iterator<String> keys = this.f65860h.keys();
+                    Iterator<String> keys = this.f66546h.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        this.q.put(next, this.f65860h.get(next));
+                        this.q.put(next, this.f66546h.get(next));
                     }
-                    this.q.put("category", this.f65853a);
-                    this.q.put("tag", this.f65854b);
-                    this.q.put("value", this.f65857e);
-                    this.q.put("ext_value", this.f65859g);
+                    this.q.put("category", this.f66539a);
+                    this.q.put("tag", this.f66540b);
+                    this.q.put("value", this.f66543e);
+                    this.q.put("ext_value", this.f66545g);
                     if (!TextUtils.isEmpty(this.n)) {
-                        this.q.put("refer", this.n);
+                        this.q.put(TiebaStatic.Params.REFER, this.n);
                     }
-                    if (this.f65861i != null) {
-                        this.q = d.o.a.a.a.e.a.d(this.f65861i, this.q);
+                    if (this.f66547i != null) {
+                        this.q = d.o.a.a.a.e.a.d(this.f66547i, this.q);
                     }
-                    if (this.f65856d) {
-                        if (!this.q.has("log_extra") && !TextUtils.isEmpty(this.f65858f)) {
-                            this.q.put("log_extra", this.f65858f);
+                    if (this.f66542d) {
+                        if (!this.q.has("log_extra") && !TextUtils.isEmpty(this.f66544f)) {
+                            this.q.put("log_extra", this.f66544f);
                         }
                         this.q.put("is_ad_event", "1");
                     }
                 }
-                if (this.f65856d) {
-                    jSONObject.put("ad_extra_data", this.f65860h.toString());
-                    if (!jSONObject.has("log_extra") && !TextUtils.isEmpty(this.f65858f)) {
-                        jSONObject.put("log_extra", this.f65858f);
+                if (this.f66542d) {
+                    jSONObject.put("ad_extra_data", this.f66546h.toString());
+                    if (!jSONObject.has("log_extra") && !TextUtils.isEmpty(this.f66544f)) {
+                        jSONObject.put("log_extra", this.f66544f);
                     }
                     jSONObject.put("is_ad_event", "1");
                 } else {
-                    jSONObject.put("extra", this.f65860h);
+                    jSONObject.put("extra", this.f66546h);
                 }
                 if (!TextUtils.isEmpty(this.n)) {
-                    jSONObject.putOpt("refer", this.n);
+                    jSONObject.putOpt(TiebaStatic.Params.REFER, this.n);
                 }
-                if (this.f65861i != null) {
-                    jSONObject = d.o.a.a.a.e.a.d(this.f65861i, jSONObject);
+                if (this.f66547i != null) {
+                    jSONObject = d.o.a.a.a.e.a.d(this.f66547i, jSONObject);
                 }
-                this.f65860h = jSONObject;
+                this.f66546h = jSONObject;
             } catch (Exception unused) {
             }
             return new d(this);
         }
 
         public a j(long j) {
-            this.f65859g = j;
+            this.f66545g = j;
             return this;
         }
 
         public a k(String str) {
-            this.f65855c = str;
+            this.f66541c = str;
             return this;
         }
 
         public a l(JSONObject jSONObject) {
-            this.f65861i = jSONObject;
+            this.f66547i = jSONObject;
             return this;
         }
 
         public a m(boolean z) {
-            this.f65856d = z;
+            this.f66542d = z;
             return this;
         }
 
         public a o(String str) {
-            this.f65858f = str;
+            this.f66544f = str;
             return this;
         }
 
@@ -208,15 +209,15 @@ public class d {
     }
 
     public d(a aVar) {
-        this.f65844a = aVar.f65853a;
-        this.f65845b = aVar.f65854b;
-        this.f65846c = aVar.f65855c;
-        this.f65847d = aVar.f65856d;
-        this.f65848e = aVar.f65857e;
-        this.f65849f = aVar.f65858f;
-        this.f65850g = aVar.f65859g;
-        this.f65851h = aVar.f65860h;
-        this.f65852i = aVar.f65861i;
+        this.f66530a = aVar.f66539a;
+        this.f66531b = aVar.f66540b;
+        this.f66532c = aVar.f66541c;
+        this.f66533d = aVar.f66542d;
+        this.f66534e = aVar.f66543e;
+        this.f66535f = aVar.f66544f;
+        this.f66536g = aVar.f66545g;
+        this.f66537h = aVar.f66546h;
+        this.f66538i = aVar.f66547i;
         this.j = aVar.k;
         this.k = aVar.l;
         this.l = aVar.m;
@@ -227,19 +228,19 @@ public class d {
     }
 
     public String a() {
-        return this.f65845b;
+        return this.f66531b;
     }
 
     public String b() {
-        return this.f65846c;
+        return this.f66532c;
     }
 
     public boolean c() {
-        return this.f65847d;
+        return this.f66533d;
     }
 
     public JSONObject d() {
-        return this.f65851h;
+        return this.f66537h;
     }
 
     public boolean e() {
@@ -249,23 +250,23 @@ public class d {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("category: ");
-        sb.append(this.f65844a);
+        sb.append(this.f66530a);
         sb.append("\ttag: ");
-        sb.append(this.f65845b);
+        sb.append(this.f66531b);
         sb.append("\tlabel: ");
-        sb.append(this.f65846c);
+        sb.append(this.f66532c);
         sb.append("\nisAd: ");
-        sb.append(this.f65847d);
+        sb.append(this.f66533d);
         sb.append("\tadId: ");
-        sb.append(this.f65848e);
+        sb.append(this.f66534e);
         sb.append("\tlogExtra: ");
-        sb.append(this.f65849f);
+        sb.append(this.f66535f);
         sb.append("\textValue: ");
-        sb.append(this.f65850g);
+        sb.append(this.f66536g);
         sb.append("\nextJson: ");
-        sb.append(this.f65851h);
+        sb.append(this.f66537h);
         sb.append("\nparamsJson: ");
-        sb.append(this.f65852i);
+        sb.append(this.f66538i);
         sb.append("\nclickTrackUrl: ");
         List<String> list = this.j;
         sb.append(list != null ? list.toString() : "");

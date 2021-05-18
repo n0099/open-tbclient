@@ -22,35 +22,35 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29431a;
+    public Context f28676a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f29432b;
+    public TextView f28677b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f29433c;
+    public TextView f28678c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f29434d;
+    public TextView f28679d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f29435e;
+    public TextView f28680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f29436f;
+    public TextView f28681f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ListView f29437g;
+    public ListView f28682g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f29438h;
+    public Button f28683h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC0312a f29439i;
+    public InterfaceC0299a f28684i;
     public String j;
     public String k;
     public String l;
@@ -63,8 +63,8 @@ public class a extends AlertDialog {
     public List<c> s;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0312a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0299a {
         void a(Dialog dialog);
 
         void b(Dialog dialog);
@@ -72,23 +72,23 @@ public class a extends AlertDialog {
         void c(Dialog dialog);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends ArrayAdapter<c> {
 
         /* renamed from: com.bytedance.sdk.openadsdk.core.widget.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0313a {
+        /* loaded from: classes6.dex */
+        public class C0300a {
 
             /* renamed from: a  reason: collision with root package name */
-            public TextView f29444a;
+            public TextView f28689a;
 
             /* renamed from: b  reason: collision with root package name */
-            public TextView f29445b;
+            public TextView f28690b;
 
             /* renamed from: c  reason: collision with root package name */
-            public ImageView f29446c;
+            public ImageView f28691c;
 
-            public C0313a() {
+            public C0300a() {
             }
         }
 
@@ -99,48 +99,48 @@ public class a extends AlertDialog {
         @Override // android.widget.ArrayAdapter, android.widget.Adapter
         @NonNull
         public View getView(int i2, @Nullable View view, @NonNull ViewGroup viewGroup) {
-            C0313a c0313a;
+            C0300a c0300a;
             c item = getItem(i2);
             if (view == null) {
-                view = LayoutInflater.from(getContext()).inflate(ad.f(a.this.f29431a, "tt_app_detail_listview_item"), viewGroup, false);
-                c0313a = new C0313a();
-                c0313a.f29444a = (TextView) view.findViewById(ad.e(a.this.f29431a, "tt_item_title_tv"));
-                c0313a.f29445b = (TextView) view.findViewById(ad.e(a.this.f29431a, "tt_item_desc_tv"));
-                c0313a.f29446c = (ImageView) view.findViewById(ad.e(a.this.f29431a, "tt_item_select_img"));
-                view.setTag(c0313a);
+                view = LayoutInflater.from(getContext()).inflate(ad.f(a.this.f28676a, "tt_app_detail_listview_item"), viewGroup, false);
+                c0300a = new C0300a();
+                c0300a.f28689a = (TextView) view.findViewById(ad.e(a.this.f28676a, "tt_item_title_tv"));
+                c0300a.f28690b = (TextView) view.findViewById(ad.e(a.this.f28676a, "tt_item_desc_tv"));
+                c0300a.f28691c = (ImageView) view.findViewById(ad.e(a.this.f28676a, "tt_item_select_img"));
+                view.setTag(c0300a);
             } else {
-                c0313a = (C0313a) view.getTag();
+                c0300a = (C0300a) view.getTag();
             }
-            c0313a.f29446c.setVisibility(0);
+            c0300a.f28691c.setVisibility(0);
             if ("补充中，可于应用官网查看".equals(item.a())) {
-                c0313a.f29446c.setVisibility(4);
+                c0300a.f28691c.setVisibility(4);
             }
-            c0313a.f29444a.setText(item.a());
-            c0313a.f29445b.setText(item.b());
+            c0300a.f28689a.setText(item.a());
+            c0300a.f28690b.setText(item.b());
             return view;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f29449b;
+        public String f28694b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f29450c;
+        public String f28695c;
 
         public c(String str, String str2) {
-            this.f29449b = str;
-            this.f29450c = str2;
+            this.f28694b = str;
+            this.f28695c = str2;
         }
 
         public String a() {
-            return this.f29449b;
+            return this.f28694b;
         }
 
         public String b() {
-            return this.f29450c;
+            return this.f28695c;
         }
     }
 
@@ -151,67 +151,67 @@ public class a extends AlertDialog {
         this.m = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
         this.r = false;
         this.s = new ArrayList();
-        this.f29431a = context;
+        this.f28676a = context;
         if (context == null) {
-            this.f29431a = p.a();
+            this.f28676a = p.a();
         }
         this.n = str;
     }
 
     private void c() {
-        if (this.f29432b != null) {
-            this.f29432b.setText(String.format(ad.a(this.f29431a, "tt_open_app_detail_developer"), this.j));
+        if (this.f28677b != null) {
+            this.f28677b.setText(String.format(ad.a(this.f28676a, "tt_open_app_detail_developer"), this.j));
         }
-        if (this.f29433c != null) {
-            this.f29433c.setText(String.format(ad.a(this.f29431a, "tt_open_app_version"), this.k));
+        if (this.f28678c != null) {
+            this.f28678c.setText(String.format(ad.a(this.f28676a, "tt_open_app_version"), this.k));
         }
         String str = this.m;
         if (str != null) {
-            this.f29434d.setText(str);
+            this.f28679d.setText(str);
         }
-        if (this.f29436f != null) {
-            this.f29436f.setText(String.format(ad.a(this.f29431a, "tt_open_app_name"), this.l));
+        if (this.f28681f != null) {
+            this.f28681f.setText(String.format(ad.a(this.f28676a, "tt_open_app_name"), this.l));
         }
     }
 
     public void b() {
-        View inflate = getLayoutInflater().inflate(ad.f(this.f29431a, "tt_app_detail_full_dialog_list_head"), (ViewGroup) null);
+        View inflate = getLayoutInflater().inflate(ad.f(this.f28676a, "tt_app_detail_full_dialog_list_head"), (ViewGroup) null);
         this.p = inflate;
-        this.f29432b = (TextView) inflate.findViewById(ad.e(this.f29431a, "tt_app_developer_tv"));
-        this.f29434d = (TextView) this.p.findViewById(ad.e(this.f29431a, "tt_app_privacy_url_tv"));
-        this.q = (TextView) this.p.findViewById(ad.e(this.f29431a, "tt_app_privacy_tv"));
-        this.f29436f = (TextView) this.p.findViewById(ad.e(this.f29431a, "tt_app_name_tv"));
-        this.f29433c = (TextView) this.p.findViewById(ad.e(this.f29431a, "tt_app_version_tv"));
-        this.f29438h = (Button) findViewById(ad.e(this.f29431a, "tt_download_app_btn"));
-        this.f29437g = (ListView) findViewById(ad.e(this.f29431a, "tt_privacy_list"));
-        this.f29435e = (TextView) findViewById(ad.e(this.f29431a, "tt_app_detail_back_tv"));
-        this.f29437g.addHeaderView(this.p);
+        this.f28677b = (TextView) inflate.findViewById(ad.e(this.f28676a, "tt_app_developer_tv"));
+        this.f28679d = (TextView) this.p.findViewById(ad.e(this.f28676a, "tt_app_privacy_url_tv"));
+        this.q = (TextView) this.p.findViewById(ad.e(this.f28676a, "tt_app_privacy_tv"));
+        this.f28681f = (TextView) this.p.findViewById(ad.e(this.f28676a, "tt_app_name_tv"));
+        this.f28678c = (TextView) this.p.findViewById(ad.e(this.f28676a, "tt_app_version_tv"));
+        this.f28683h = (Button) findViewById(ad.e(this.f28676a, "tt_download_app_btn"));
+        this.f28682g = (ListView) findViewById(ad.e(this.f28676a, "tt_privacy_list"));
+        this.f28680e = (TextView) findViewById(ad.e(this.f28676a, "tt_app_detail_back_tv"));
+        this.f28682g.addHeaderView(this.p);
         if (this.r) {
-            this.f29438h.setVisibility(0);
-            this.f29438h.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.a.1
+            this.f28683h.setVisibility(0);
+            this.f28683h.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (a.this.f29439i != null) {
-                        a.this.f29439i.a(a.this);
+                    if (a.this.f28684i != null) {
+                        a.this.f28684i.a(a.this);
                     }
                 }
             });
         } else {
-            this.f29438h.setVisibility(8);
+            this.f28683h.setVisibility(8);
         }
-        this.f29435e.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.a.2
+        this.f28680e.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.f29439i != null) {
-                    a.this.f29439i.b(a.this);
+                if (a.this.f28684i != null) {
+                    a.this.f28684i.b(a.this);
                 }
             }
         });
-        this.f29434d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.a.3
+        this.f28679d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.f29439i != null) {
-                    a.this.f29439i.c(a.this);
+                if (a.this.f28684i != null) {
+                    a.this.f28684i.c(a.this);
                 }
             }
         });
@@ -219,22 +219,22 @@ public class a extends AlertDialog {
         if (list == null || list.size() <= 0) {
             return;
         }
-        Context context = this.f29431a;
-        this.f29437g.setAdapter((ListAdapter) new b(context, ad.f(context, "tt_app_detail_listview_item"), this.s));
+        Context context = this.f28676a;
+        this.f28682g.setAdapter((ListAdapter) new b(context, ad.f(context, "tt_app_detail_listview_item"), this.s));
     }
 
     @Override // android.app.Dialog
     public void onBackPressed() {
-        InterfaceC0312a interfaceC0312a = this.f29439i;
-        if (interfaceC0312a != null) {
-            interfaceC0312a.b(this);
+        InterfaceC0299a interfaceC0299a = this.f28684i;
+        if (interfaceC0299a != null) {
+            interfaceC0299a.b(this);
         }
     }
 
     @Override // android.app.AlertDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(ad.f(this.f29431a, "tt_app_detail_full_dialog"));
+        setContentView(ad.f(this.f28676a, "tt_app_detail_full_dialog"));
         a();
         b();
     }
@@ -245,8 +245,8 @@ public class a extends AlertDialog {
         c();
     }
 
-    public a a(InterfaceC0312a interfaceC0312a) {
-        this.f29439i = interfaceC0312a;
+    public a a(InterfaceC0299a interfaceC0299a) {
+        this.f28684i = interfaceC0299a;
         return this;
     }
 

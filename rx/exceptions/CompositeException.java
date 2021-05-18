@@ -39,20 +39,20 @@ public final class CompositeException extends RuntimeException {
     public static final class b extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintStream f68333a;
+        public final PrintStream f69013a;
 
         public b(PrintStream printStream) {
-            this.f68333a = printStream;
+            this.f69013a = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public Object a() {
-            return this.f68333a;
+            return this.f69013a;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public void b(Object obj) {
-            this.f68333a.println(obj);
+            this.f69013a.println(obj);
         }
     }
 
@@ -60,20 +60,20 @@ public final class CompositeException extends RuntimeException {
     public static final class c extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintWriter f68334a;
+        public final PrintWriter f69014a;
 
         public c(PrintWriter printWriter) {
-            this.f68334a = printWriter;
+            this.f69014a = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public Object a() {
-            return this.f68334a;
+            return this.f69014a;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public void b(Object obj) {
-            this.f68334a.println(obj);
+            this.f69014a.println(obj);
         }
     }
 

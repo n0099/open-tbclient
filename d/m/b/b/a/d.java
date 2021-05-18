@@ -10,13 +10,13 @@ import android.view.WindowManager;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f65764a;
+    public static int f66450a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f65765b;
+    public static int f66451b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f65766c;
+    public static int f66452c;
 
     public static String a(Context context) {
         try {
@@ -25,7 +25,7 @@ public class d {
             d(context);
         } catch (Throwable unused) {
         }
-        return "" + f65766c + "[<!>]" + f65764a + "*" + f65765b + "[<!>]";
+        return "" + f66452c + "[<!>]" + f66450a + "*" + f66451b + "[<!>]";
     }
 
     public static void b(Context context) {
@@ -35,17 +35,17 @@ public class d {
             Point point = new Point();
             if (Build.VERSION.SDK_INT >= 17) {
                 defaultDisplay.getRealSize(point);
-                f65764a = point.x;
+                f66450a = point.x;
             } else if (Build.VERSION.SDK_INT < 13) {
-                f65764a = defaultDisplay.getWidth();
+                f66450a = defaultDisplay.getWidth();
                 height = defaultDisplay.getHeight();
-                f65765b = height;
+                f66451b = height;
             } else {
                 defaultDisplay.getSize(point);
-                f65764a = point.x;
+                f66450a = point.x;
             }
             height = point.y;
-            f65765b = height;
+            f66451b = height;
         } catch (Throwable unused) {
         }
     }
@@ -58,7 +58,7 @@ public class d {
             new DisplayMetrics();
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
             float f2 = displayMetrics.density;
-            f65766c = displayMetrics.densityDpi;
+            f66452c = displayMetrics.densityDpi;
         } catch (Throwable unused) {
         }
     }

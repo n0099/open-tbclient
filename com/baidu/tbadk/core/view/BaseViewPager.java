@@ -9,7 +9,7 @@ import com.baidu.tbadk.widget.TbViewPager;
 public class BaseViewPager extends TbViewPager implements GestureDetector.OnGestureListener {
 
     /* renamed from: i  reason: collision with root package name */
-    public GestureDetector f12938i;
+    public GestureDetector f12274i;
     public a j;
     public a k;
     public boolean l;
@@ -21,7 +21,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     public BaseViewPager(Context context) {
         super(context);
-        this.f12938i = null;
+        this.f12274i = null;
         this.j = null;
         this.k = null;
         this.l = false;
@@ -29,7 +29,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
     }
 
     private void b() {
-        this.f12938i = new GestureDetector(this);
+        this.f12274i = new GestureDetector(this);
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
@@ -86,8 +86,8 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.f12938i != null && getAdapter() != null && getAdapter().getCount() != 0 && (getCurrentItem() == 0 || getAdapter().getCount() == getCurrentItem() + 1)) {
-            this.f12938i.onTouchEvent(motionEvent);
+        if (this.f12274i != null && getAdapter() != null && getAdapter().getCount() != 0 && (getCurrentItem() == 0 || getAdapter().getCount() == getCurrentItem() + 1)) {
+            this.f12274i.onTouchEvent(motionEvent);
             return super.onTouchEvent(motionEvent);
         }
         return super.onTouchEvent(motionEvent);
@@ -103,7 +103,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     public BaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12938i = null;
+        this.f12274i = null;
         this.j = null;
         this.k = null;
         this.l = false;

@@ -7,21 +7,21 @@ import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30395a;
+    public Context f29640a;
 
     public g(Context context) {
-        this.f30395a = context;
+        this.f29640a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.m.f
     public synchronized List<e> a() {
         LinkedList linkedList;
         linkedList = new LinkedList();
-        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f30395a, "trackurl", null, null, null, null, null, null);
+        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29640a, "trackurl", null, null, null, null, null, null);
         if (a2 != null) {
             while (a2.moveToNext()) {
                 linkedList.add(new e(a2.getString(a2.getColumnIndex("id")), a2.getString(a2.getColumnIndex("url")), a2.getInt(a2.getColumnIndex("replaceholder")) > 0, a2.getInt(a2.getColumnIndex(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM))));
@@ -40,12 +40,12 @@ public class g implements f {
         contentValues.put("url", eVar.b());
         contentValues.put("replaceholder", Integer.valueOf(eVar.c() ? 1 : 0));
         contentValues.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, Integer.valueOf(eVar.d()));
-        com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f30395a, "trackurl", contentValues, "id=?", new String[]{eVar.a()});
+        com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29640a, "trackurl", contentValues, "id=?", new String[]{eVar.a()});
     }
 
     @Override // com.bytedance.sdk.openadsdk.m.f
     public synchronized void c(e eVar) {
-        com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f30395a, "trackurl", "id=?", new String[]{eVar.a()});
+        com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29640a, "trackurl", "id=?", new String[]{eVar.a()});
     }
 
     public static String b() {
@@ -59,6 +59,6 @@ public class g implements f {
         contentValues.put("url", eVar.b());
         contentValues.put("replaceholder", Integer.valueOf(eVar.c() ? 1 : 0));
         contentValues.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, Integer.valueOf(eVar.d()));
-        com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f30395a, "trackurl", contentValues);
+        com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29640a, "trackurl", contentValues);
     }
 }

@@ -15,13 +15,13 @@ public class NHCreditGroup extends BaseItemLayout {
     public static final int ITEM_LIMIT = 12;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f25172a;
+    public List<BaseItemView> f24417a;
     public LinearLayout mList;
     public NHTitleView mTitle;
 
     public NHCreditGroup(Context context) {
         super(context);
-        this.f25172a = new ArrayList();
+        this.f24417a = new ArrayList();
     }
 
     private void a() {
@@ -34,13 +34,13 @@ public class NHCreditGroup extends BaseItemLayout {
             NHCreditItem nHCreditItem = new NHCreditItem(getContext());
             nHCreditItem.setData(dataItemArr[i2], getWalletInterface());
             this.mList.addView(nHCreditItem);
-            this.f25172a.add(nHCreditItem);
+            this.f24417a.add(nHCreditItem);
         }
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f25172a;
+        return this.f24417a;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -66,6 +66,6 @@ public class NHCreditGroup extends BaseItemLayout {
 
     public NHCreditGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f25172a = new ArrayList();
+        this.f24417a = new ArrayList();
     }
 }

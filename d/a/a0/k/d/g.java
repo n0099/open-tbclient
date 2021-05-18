@@ -9,27 +9,27 @@ import java.io.IOException;
 public class g implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f39133e;
+    public Context f38378e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f39134f;
+    public Handler f38379f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f39135g;
+    public String f38380g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f39136h;
+    public ImageView f38381h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39137i;
+    public int f38382i;
     public int j;
 
     public g(Context context, Handler handler, String str, ImageView imageView, int i2, int i3) {
-        this.f39133e = context.getApplicationContext();
-        this.f39134f = handler;
-        this.f39135g = str;
-        this.f39136h = imageView;
-        this.f39137i = i2;
+        this.f38378e = context.getApplicationContext();
+        this.f38379f = handler;
+        this.f38380g = str;
+        this.f38381h = imageView;
+        this.f38382i = i2;
         this.j = i3;
     }
 
@@ -42,7 +42,7 @@ public class g implements Runnable {
         Bitmap bitmap;
         Bitmap bitmap2;
         try {
-            bitmap = a.c(this.f39133e).a(str, i2, i3);
+            bitmap = a.c(this.f38378e).a(str, i2, i3);
         } catch (IOException e2) {
             e = e2;
             bitmap = null;
@@ -59,16 +59,16 @@ public class g implements Runnable {
             a.b().a(str, bitmap);
             return bitmap;
         }
-        a.c(this.f39133e).c(str);
-        bitmap2 = a.c(this.f39133e).a(str, i2, i3);
+        a.c(this.f38378e).c(str);
+        bitmap2 = a.c(this.f38378e).a(str, i2, i3);
         return bitmap2 != null ? d.b(str) : bitmap2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap a2 = a(this.f39135g, this.f39137i, this.j);
-        if (this.f39134f != null) {
-            this.f39134f.obtainMessage(1, new f(this.f39136h, this.f39135g, a2)).sendToTarget();
+        Bitmap a2 = a(this.f38380g, this.f38382i, this.j);
+        if (this.f38379f != null) {
+            this.f38379f.obtainMessage(1, new f(this.f38381h, this.f38380g, a2)).sendToTarget();
         }
     }
 }

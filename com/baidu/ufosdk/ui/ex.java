@@ -7,10 +7,10 @@ import org.json.JSONArray;
 public final class ex implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ev f23658a;
+    public final /* synthetic */ ev f22903a;
 
     public ex(ev evVar) {
-        this.f23658a = evVar;
+        this.f22903a = evVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,14 +18,14 @@ public final class ex implements Runnable {
         int i2;
         int i3;
         ArrayList arrayList;
-        i2 = this.f23658a.f23655i;
+        i2 = this.f22903a.f22900i;
         JSONArray jSONArray = null;
-        String trim = i2 != -1 ? this.f23658a.f23648b.getText().toString().trim() : null;
-        i3 = this.f23658a.f23654h;
+        String trim = i2 != -1 ? this.f22903a.f22893b.getText().toString().trim() : null;
+        i3 = this.f22903a.f22899h;
         if (i3 != -1) {
-            arrayList = this.f23658a.m;
+            arrayList = this.f22903a.m;
             jSONArray = new JSONArray((Collection) arrayList);
         }
-        ev.a(this.f23658a, trim, jSONArray);
+        ev.a(this.f22903a, trim, jSONArray);
     }
 }

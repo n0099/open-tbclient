@@ -6,7 +6,7 @@ import d.a.s.a.e.c;
 public abstract class a implements c.b, c.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f63936a;
+    public Context f64623a;
 
     @Override // d.a.s.a.e.c.b
     public String getMethod() {

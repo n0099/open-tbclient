@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import d.r.b.a.a.f.c.a;
 import d.r.b.a.a.f.d.d;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpProtocolAdapter implements a {
     public final String TAG = "HttpProtocolAdapter";
 

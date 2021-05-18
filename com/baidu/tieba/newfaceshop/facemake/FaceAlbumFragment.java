@@ -20,63 +20,63 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.FaceData;
 import d.a.c.e.p.l;
-import d.a.i0.e.d;
-import d.a.j0.y1.g.f;
-import d.a.j0.y1.g.g;
+import d.a.j0.e.d;
+import d.a.k0.y1.g.f;
+import d.a.k0.y1.g.g;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScrollListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.i0.e.b f19347e;
+    public d.a.j0.e.b f18635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GridView f19348f;
+    public GridView f18636f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f19349g;
+    public g f18637g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<ImageFileInfo> f19350h;
+    public List<ImageFileInfo> f18638h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f19351i;
+    public f f18639i;
     public NoDataView j;
     public BaseFragmentActivity k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements d {
         public a() {
         }
 
-        @Override // d.a.i0.e.d
-        public void a(List<d.a.i0.e.a> list, List<ImageFileInfo> list2, String str) {
+        @Override // d.a.j0.e.d
+        public void a(List<d.a.j0.e.a> list, List<ImageFileInfo> list2, String str) {
             if (!ListUtils.isEmpty(list2)) {
-                FaceAlbumFragment.this.f19350h.addAll(list2);
-                FaceAlbumFragment.this.f19349g.notifyDataSetChanged();
+                FaceAlbumFragment.this.f18638h.addAll(list2);
+                FaceAlbumFragment.this.f18637g.notifyDataSetChanged();
                 return;
             }
-            FaceAlbumFragment.this.f19348f.setVisibility(8);
+            FaceAlbumFragment.this.f18636f.setVisibility(8);
             FaceAlbumFragment.this.j.setVisibility(0);
         }
 
-        @Override // d.a.i0.e.d
+        @Override // d.a.j0.e.d
         public void onPreLoad() {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements d.a.i0.a0.b {
+    /* loaded from: classes4.dex */
+    public class b implements d.a.j0.a0.b {
         public b() {
         }
 
-        @Override // d.a.i0.a0.b
+        @Override // d.a.j0.a0.b
         public void a(d.a.c.j.d.a aVar, String str, boolean z) {
-            TbImageView tbImageView = (TbImageView) FaceAlbumFragment.this.f19348f.findViewWithTag(str);
+            TbImageView tbImageView = (TbImageView) FaceAlbumFragment.this.f18636f.findViewWithTag(str);
             if (tbImageView == null || aVar == null) {
                 return;
             }
@@ -84,24 +84,24 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         }
     }
 
-    public LinkedHashMap<String, ImageFileInfo> I0() {
-        g gVar = this.f19349g;
+    public LinkedHashMap<String, ImageFileInfo> H0() {
+        g gVar = this.f18637g;
         if (gVar != null) {
             return gVar.f();
         }
         return null;
     }
 
-    public final void J0() {
+    public final void I0() {
         Serializable serializable;
         ImageFileInfo imageFileInfo;
-        this.f19350h = new ArrayList();
-        this.f19347e = new d.a.i0.e.b(getActivity());
-        g gVar = new g(this.k, this.f19350h);
-        this.f19349g = gVar;
-        gVar.j(this.f19351i);
-        this.f19348f.setAdapter((ListAdapter) this.f19349g);
-        this.f19348f.setOnScrollListener(this);
+        this.f18638h = new ArrayList();
+        this.f18635e = new d.a.j0.e.b(getActivity());
+        g gVar = new g(this.k, this.f18638h);
+        this.f18637g = gVar;
+        gVar.j(this.f18639i);
+        this.f18636f.setAdapter((ListAdapter) this.f18637g);
+        this.f18636f.setOnScrollListener(this);
         if (getArguments() == null || (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) == null || !(serializable instanceof ArrayList)) {
             return;
         }
@@ -113,36 +113,36 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
                 linkedHashMap.put(imageFileInfo.getFilePath(), faceData.imageFileInfo);
             }
         }
-        this.f19349g.e(linkedHashMap);
+        this.f18637g.e(linkedHashMap);
+    }
+
+    public final void J0() {
+        this.f18635e.i(d.a.j0.e.a.f49255f, new a());
     }
 
     public final void K0() {
-        this.f19347e.i(d.a.i0.e.a.f48427f, new a());
-    }
-
-    public final void L0() {
-        g gVar = this.f19349g;
+        g gVar = this.f18637g;
         if (gVar == null || gVar.g() == null) {
             return;
         }
-        int childCount = this.f19348f.getChildCount();
-        int firstVisiblePosition = this.f19348f.getFirstVisiblePosition();
+        int childCount = this.f18636f.getChildCount();
+        int firstVisiblePosition = this.f18636f.getFirstVisiblePosition();
         for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = this.f19348f.getChildAt(i2);
+            View childAt = this.f18636f.getChildAt(i2);
             if (childAt != null) {
                 TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.image);
-                ImageFileInfo item = this.f19349g.getItem(firstVisiblePosition + i2);
+                ImageFileInfo item = this.f18637g.getItem(firstVisiblePosition + i2);
                 if (item != null && tbImageView != null) {
                     tbImageView.setTag(item.toCachedKey(false));
-                    this.f19349g.g().e(item, new b(), false, false);
+                    this.f18637g.g().e(item, new b(), false, false);
                 }
             }
         }
     }
 
-    public void M0(f fVar) {
-        this.f19351i = fVar;
-        g gVar = this.f19349g;
+    public void L0(f fVar) {
+        this.f18639i = fVar;
+        g gVar = this.f18637g;
         if (gVar != null) {
             gVar.j(fVar);
         }
@@ -157,16 +157,16 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         this.j = a2;
         a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.j.setVisibility(8);
-        this.f19348f = (GridView) inflate.findViewById(R.id.grid_view);
+        this.f18636f = (GridView) inflate.findViewById(R.id.grid_view);
+        I0();
         J0();
-        K0();
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        d.a.i0.e.b bVar = this.f19347e;
+        d.a.j0.e.b bVar = this.f18635e;
         if (bVar != null) {
             bVar.d();
         }
@@ -176,10 +176,10 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public void onScrollStateChanged(AbsListView absListView, int i2) {
         super.onScrollStateChanged(absListView, i2);
         if (i2 == 2) {
-            this.f19349g.l(true);
-        } else if (this.f19349g.i()) {
-            this.f19349g.l(false);
-            L0();
+            this.f18637g.l(true);
+        } else if (this.f18637g.i()) {
+            this.f18637g.l(false);
+            K0();
         }
     }
 }

@@ -8,26 +8,26 @@ import org.json.JSONObject;
 public class r implements d.r.b.a.a.j.d.f.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67335a;
+    public String f68021a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67336b;
+    public long f68022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67337c;
+    public int f68023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67338d;
+    public int f68024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f67339e;
+    public boolean f68025e;
 
     public r(String str, long j, int i2, int i3, boolean z) {
-        this.f67335a = str;
-        this.f67336b = j;
-        this.f67337c = i2;
-        this.f67338d = i3;
-        this.f67339e = z;
+        this.f68021a = str;
+        this.f68022b = j;
+        this.f68023c = i2;
+        this.f68024d = i3;
+        this.f68025e = z;
     }
 
     @Override // d.r.b.a.a.j.d.f.b
@@ -35,11 +35,11 @@ public class r implements d.r.b.a.a.j.d.f.b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("cmd", 1005);
-            jSONObject.put(IAdRequestParam.SEQ, this.f67335a);
-            jSONObject.put("uid", this.f67336b);
-            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f67337c);
-            jSONObject.put("usedChannel", this.f67338d);
-            jSONObject.put("returnYb", this.f67339e);
+            jSONObject.put(IAdRequestParam.SEQ, this.f68021a);
+            jSONObject.put("uid", this.f68022b);
+            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f68023c);
+            jSONObject.put("usedChannel", this.f68024d);
+            jSONObject.put("returnYb", this.f68025e);
             return jSONObject.toString();
         } catch (JSONException e2) {
             d.r.b.a.a.f.d.d.d("GetUserAccountRequest", "constructPSCIMessageRequest error.", e2);

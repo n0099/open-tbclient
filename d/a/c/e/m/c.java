@@ -12,24 +12,24 @@ import java.io.InputStream;
 public class c extends Resources {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ColorStateList f39810c = ColorStateList.valueOf(-16777216);
+    public static final ColorStateList f39055c = ColorStateList.valueOf(-16777216);
 
     /* renamed from: a  reason: collision with root package name */
-    public Resources f39811a;
+    public Resources f39056a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39812b;
+    public boolean f39057b;
 
     public c(Resources resources) {
         super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
-        this.f39811a = resources;
-        this.f39812b = false;
+        this.f39056a = resources;
+        this.f39057b = false;
     }
 
     public final void a(String str, int i2) {
         String str2;
         try {
-            str2 = this.f39811a.getResourceEntryName(i2);
+            str2 = this.f39056a.getResourceEntryName(i2);
         } catch (Exception unused) {
             str2 = null;
         }
@@ -47,14 +47,14 @@ public class c extends Resources {
     public int getColor(int i2) throws Resources.NotFoundException {
         for (int i3 = 0; i3 < 3; i3++) {
             try {
-                return this.f39811a.getColor(i2);
+                return this.f39056a.getColor(i2);
             } catch (OutOfMemoryError e2) {
-                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39812b)) {
+                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39057b)) {
                     throw e2;
                 }
                 BdBaseApplication.getInst().onAppMemoryLow();
             } catch (RuntimeException e3) {
-                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39812b)) {
+                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39057b)) {
                     throw e3;
                 }
                 BdBaseApplication.getInst().onAppMemoryLow();
@@ -68,35 +68,35 @@ public class c extends Resources {
     public ColorStateList getColorStateList(int i2) throws Resources.NotFoundException {
         for (int i3 = 0; i3 < 3; i3++) {
             try {
-                return this.f39811a.getColorStateList(i2);
+                return this.f39056a.getColorStateList(i2);
             } catch (OutOfMemoryError e2) {
-                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39812b)) {
+                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39057b)) {
                     throw e2;
                 }
                 BdBaseApplication.getInst().onAppMemoryLow();
             } catch (RuntimeException e3) {
-                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39812b)) {
+                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39057b)) {
                     throw e3;
                 }
                 BdBaseApplication.getInst().onAppMemoryLow();
             }
         }
         a("colorstatelist", i2);
-        return f39810c;
+        return f39055c;
     }
 
     @Override // android.content.res.Resources
     public Drawable getDrawable(int i2) throws Resources.NotFoundException {
         for (int i3 = 0; i3 < 3; i3++) {
             try {
-                return this.f39811a.getDrawable(i2);
+                return this.f39056a.getDrawable(i2);
             } catch (OutOfMemoryError e2) {
-                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39812b)) {
+                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39057b)) {
                     throw e2;
                 }
                 BdBaseApplication.getInst().onAppMemoryLow();
             } catch (RuntimeException e3) {
-                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39812b)) {
+                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39057b)) {
                     throw e3;
                 }
                 BdBaseApplication.getInst().onAppMemoryLow();
@@ -110,14 +110,14 @@ public class c extends Resources {
     public String getString(int i2) throws Resources.NotFoundException {
         for (int i3 = 0; i3 < 3; i3++) {
             try {
-                return this.f39811a.getString(i2);
+                return this.f39056a.getString(i2);
             } catch (OutOfMemoryError e2) {
-                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39812b)) {
+                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39057b)) {
                     throw e2;
                 }
                 BdBaseApplication.getInst().onAppMemoryLow();
             } catch (RuntimeException e3) {
-                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39812b)) {
+                if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f39057b)) {
                     throw e3;
                 }
                 BdBaseApplication.getInst().onAppMemoryLow();
@@ -129,11 +129,11 @@ public class c extends Resources {
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i2) throws Resources.NotFoundException {
-        return this.f39811a.openRawResource(i2);
+        return this.f39056a.openRawResource(i2);
     }
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i2, TypedValue typedValue) throws Resources.NotFoundException {
-        return this.f39811a.openRawResource(i2, typedValue);
+        return this.f39056a.openRawResource(i2, typedValue);
     }
 }

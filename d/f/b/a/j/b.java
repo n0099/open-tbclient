@@ -12,10 +12,10 @@ import java.util.regex.Pattern;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f65448a;
+    public static int f66134a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f65449b;
+    public static long f66135b;
 
     /* loaded from: classes6.dex */
     public class a implements FileFilter {
@@ -32,20 +32,20 @@ public class b {
     }
 
     public static int b() {
-        if (f65448a == 0) {
+        if (f66134a == 0) {
             try {
-                f65448a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
+                f66134a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
             } catch (Exception e2) {
                 Log.e("PerformanceUtils", "getNumCores exception", e2);
-                f65448a = 1;
+                f66134a = 1;
             }
         }
-        return f65448a;
+        return f66134a;
     }
 
     public static long c() {
         FileReader fileReader;
-        if (f65449b == 0) {
+        if (f66135b == 0) {
             FileReader fileReader2 = null;
             try {
                 try {
@@ -73,8 +73,8 @@ public class b {
                 if (fileReader2 != null) {
                     fileReader2.close();
                 }
-                f65449b = r3;
-                return f65449b;
+                f66135b = r3;
+                return f66135b;
             } catch (Throwable th2) {
                 th = th2;
                 fileReader2 = fileReader;
@@ -87,8 +87,8 @@ public class b {
                 }
                 throw th;
             }
-            f65449b = r3;
+            f66135b = r3;
         }
-        return f65449b;
+        return f66135b;
     }
 }

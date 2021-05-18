@@ -72,8 +72,8 @@ public class OneKeyLoginSdkCall {
     }
 
     public void getMobileOauthToken(SapiConfiguration sapiConfiguration, final TokenListener tokenListener) {
-        a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0549a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
-            @Override // d.a.g0.a.InterfaceC0549a
+        a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0536a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+            @Override // d.a.g0.a.InterfaceC0536a
             public void onFinish(String str) {
                 Log.d(OneKeyLoginSdkCall.TAG, "getMobileOauthToken onFinish result=" + str);
                 OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
@@ -132,8 +132,8 @@ public class OneKeyLoginSdkCall {
     }
 
     public void getToken(final SapiConfiguration sapiConfiguration, final TokenListener tokenListener) {
-        a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0549a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
-            @Override // d.a.g0.a.InterfaceC0549a
+        a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0536a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+            @Override // d.a.g0.a.InterfaceC0536a
             public void onFinish(String str) {
                 Log.d(OneKeyLoginSdkCall.TAG, "SSOManager login onFinish result=" + str);
                 OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
@@ -240,8 +240,8 @@ public class OneKeyLoginSdkCall {
                 return;
             }
             final String networkClass = SapiUtils.getNetworkClass(sapiConfiguration.context);
-            a.c().g(sapiConfiguration.context, i2, new a.InterfaceC0549a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
-                @Override // d.a.g0.a.InterfaceC0549a
+            a.c().g(sapiConfiguration.context, i2, new a.InterfaceC0536a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                @Override // d.a.g0.a.InterfaceC0536a
                 public void onFinish(String str2) {
                     Log.d(OneKeyLoginSdkCall.TAG, "SSOManager preLogin onFinish result=" + str2);
                     final OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str2);

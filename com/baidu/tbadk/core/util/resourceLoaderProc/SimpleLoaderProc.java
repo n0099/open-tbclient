@@ -59,6 +59,10 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
                 this.mSuggestWidth = l.e(TbadkCoreApplication.getInst().getApp(), 430.0f);
             }
             this.mSuggestHeight = (int) (this.mSuggestWidth * 0.43f);
+        } else if (i2 == 46) {
+            int i4 = (k * 2) / 3;
+            this.mSuggestWidth = i4;
+            this.mSuggestHeight = (i4 * 4) / 3;
         } else {
             this.mSuggestWidth = k;
             this.mSuggestHeight = i3;
@@ -117,13 +121,13 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         cVar.setSdCard(false);
         cVar.setSavedCache(true);
         cVar.setGif(booleanValue3);
-        cVar.d(this.mIsNeedFormat);
+        cVar.f(this.mIsNeedFormat);
         d.g().a(cVar);
         b bVar = (b) objArr[3];
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f39786a = diskCancelWorker;
+            bVar.f39031a = diskCancelWorker;
         }
     }
 }

@@ -1,9 +1,12 @@
 package com.baidu.android.imrtc.utils;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Looper;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 /* loaded from: classes.dex */
 public class RtcUtility {
     public static final String KEY_APPID = "appid";
@@ -24,6 +27,25 @@ public class RtcUtility {
         return readLongData(context, "appid", -1L);
     }
 
+    public static int getAppState(Context context) {
+        String str = "empty";
+        while (true) {
+            int i2 = 0;
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                if (runningAppProcessInfo.processName.equals(context.getPackageName())) {
+                    str = runningAppProcessInfo.processName;
+                    int i3 = runningAppProcessInfo.importance;
+                    if (i3 != 400 && i3 == 100) {
+                        break;
+                    }
+                    i2 = 1;
+                }
+            }
+            LogUtils.d("Utility", "process = " + str + "   background = " + i2);
+            return i2;
+        }
+    }
+
     public static String getAppVersionName(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
@@ -38,7 +60,13 @@ public class RtcUtility {
     }
 
     public static String getCuid(Context context) {
-        return readStringData(context, "cuid", "");
+        String readStringData = readStringData(context, "cuid", "");
+        if (TextUtils.isEmpty(readStringData) || readStringData.equals(Constants.KEY_DEVICE_ID)) {
+            String deviceId = com.baidu.android.imsdk.utils.Utility.getDeviceId(context);
+            setCuid(context, deviceId);
+            return deviceId;
+        }
+        return readStringData;
     }
 
     public static long getIMUK(Context context) {

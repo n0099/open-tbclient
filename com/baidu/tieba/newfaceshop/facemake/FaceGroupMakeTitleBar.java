@@ -12,19 +12,19 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FaceGroupMakeTitleBar extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f19368e;
+    public TextView f18656e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f19369f;
+    public TextView f18657f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f19370g;
+    public ImageView f18658g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -42,32 +42,32 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
 
     public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.face_group_make_title_bar, (ViewGroup) this, true);
-        this.f19368e = (TextView) findViewById(R.id.tv_title);
-        this.f19369f = (TextView) findViewById(R.id.tv_right);
-        this.f19370g = (ImageView) findViewById(R.id.iv_close);
-        SkinManager.setViewTextColor(this.f19368e, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f19369f, R.color.common_color_10140);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f19370g, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);
-        this.f19370g.setOnClickListener(new a());
+        this.f18656e = (TextView) findViewById(R.id.tv_title);
+        this.f18657f = (TextView) findViewById(R.id.tv_right);
+        this.f18658g = (ImageView) findViewById(R.id.iv_close);
+        SkinManager.setViewTextColor(this.f18656e, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f18657f, R.color.common_color_10140);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18658g, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);
+        this.f18658g.setOnClickListener(new a());
     }
 
     public void setCloseListener(View.OnClickListener onClickListener) {
-        ImageView imageView = this.f19370g;
+        ImageView imageView = this.f18658g;
         if (imageView != null) {
             imageView.setOnClickListener(onClickListener);
         }
     }
 
     public void setRightListener(View.OnClickListener onClickListener) {
-        this.f19369f.setOnClickListener(onClickListener);
+        this.f18657f.setOnClickListener(onClickListener);
     }
 
     public void setRightText(String str) {
-        this.f19369f.setText(str);
+        this.f18657f.setText(str);
     }
 
     public void setTitle(String str) {
-        this.f19368e.setText(str);
+        this.f18656e.setText(str);
     }
 
     public FaceGroupMakeTitleBar(Context context, AttributeSet attributeSet) {

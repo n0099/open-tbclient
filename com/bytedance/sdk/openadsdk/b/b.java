@@ -9,25 +9,25 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.Callable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class b implements com.bytedance.sdk.openadsdk.b.a {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Callable<Void> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f28046b;
+        public final File f27291b;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() throws Exception {
-            b.this.b(this.f28046b);
+            b.this.b(this.f27291b);
             return null;
         }
 
         public a(File file) {
-            this.f28046b = file;
+            this.f27291b = file;
         }
     }
 

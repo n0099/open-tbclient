@@ -11,33 +11,33 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import java.text.DecimalFormat;
 import tbclient.VideoInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PbVideoWifiTipLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f20717e;
+    public TextView f20005e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20718f;
+    public TextView f20006f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20719g;
+    public TextView f20007g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20720h;
+    public TextView f20008h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f20721i;
+    public TextView f20009i;
     public View.OnClickListener j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.i0.l.a.u(true, PbVideoWifiTipLayout.this.getContext(), PbVideoWifiTipLayout.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+            d.a.j0.l.a.u(true, PbVideoWifiTipLayout.this.getContext(), PbVideoWifiTipLayout.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             if (PbVideoWifiTipLayout.this.j != null) {
                 PbVideoWifiTipLayout.this.j.onClick(view);
             }
@@ -51,21 +51,21 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     public final void b() {
         LinearLayout.inflate(getContext(), R.layout.layout_video_wifi_tip, this);
-        this.f20717e = (TextView) findViewById(R.id.tv_video_duration);
-        this.f20718f = (TextView) findViewById(R.id.tv_video_data);
-        this.f20719g = (TextView) findViewById(R.id.tv_play);
-        this.f20720h = (TextView) findViewById(R.id.tv_divider);
+        this.f20005e = (TextView) findViewById(R.id.tv_video_duration);
+        this.f20006f = (TextView) findViewById(R.id.tv_video_data);
+        this.f20007g = (TextView) findViewById(R.id.tv_play);
+        this.f20008h = (TextView) findViewById(R.id.tv_divider);
         TextView textView = (TextView) findViewById(R.id.tv_open_free_data);
-        this.f20721i = textView;
+        this.f20009i = textView;
         textView.setOnClickListener(new a());
     }
 
     public TextView getTvOpenFreeData() {
-        return this.f20721i;
+        return this.f20009i;
     }
 
     public TextView getTvPlay() {
-        return this.f20719g;
+        return this.f20007g;
     }
 
     public void setData(VideoInfo videoInfo) {
@@ -80,23 +80,23 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     }
 
     public void setOnPlayClickListener(View.OnClickListener onClickListener) {
-        this.f20719g.setOnClickListener(onClickListener);
+        this.f20007g.setOnClickListener(onClickListener);
     }
 
     public void setData(int i2, int i3) {
         if (i2 > 0) {
-            this.f20717e.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
+            this.f20005e.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
         } else {
-            this.f20717e.setVisibility(8);
-            this.f20720h.setVisibility(8);
+            this.f20005e.setVisibility(8);
+            this.f20008h.setVisibility(8);
         }
         if (i3 > 0) {
-            this.f20718f.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT).format(i3 / 1048576.0f)));
+            this.f20006f.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT).format(i3 / 1048576.0f)));
         } else {
-            this.f20718f.setVisibility(8);
-            this.f20720h.setVisibility(8);
+            this.f20006f.setVisibility(8);
+            this.f20008h.setVisibility(8);
         }
-        this.f20721i.setVisibility(0);
+        this.f20009i.setVisibility(0);
     }
 
     public PbVideoWifiTipLayout(Context context, AttributeSet attributeSet) {

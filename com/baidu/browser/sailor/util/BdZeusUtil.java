@@ -276,8 +276,8 @@ public final class BdZeusUtil implements INoProGuard {
         StringBuilder sb = new StringBuilder(str);
         String zeusVersionByUpdate = WebKitVersionBlink.getZeusVersionByUpdate();
         String sdkVersionName = WebKitFactory.getSdkVersionName();
-        Log.w("sdk in=" + zeusVersionByUpdate);
-        Log.w("sdk out=" + sdkVersionName);
+        Log.w("sdk in=".concat(String.valueOf(zeusVersionByUpdate)));
+        Log.w("sdk out=".concat(String.valueOf(sdkVersionName)));
         appendUrlParam(sb, "zeus_ver", zeusVersionByUpdate);
         sb.append("&");
         if (!TextUtils.isEmpty(sdkVersionName)) {

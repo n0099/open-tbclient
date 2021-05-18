@@ -3,7 +3,7 @@ package com.baidu.tbadk.game;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
 import d.a.c.e.m.b;
-import d.a.i0.g0.b.a;
+import d.a.j0.g0.b.a;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.GameInfo;

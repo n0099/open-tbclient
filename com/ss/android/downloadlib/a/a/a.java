@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class a implements Parcelable {
     public static int a(Parcel parcel, int i2) {
         parcel.writeInt(i2 | SupportMenu.CATEGORY_MASK);

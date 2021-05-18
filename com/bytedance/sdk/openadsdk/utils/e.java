@@ -5,11 +5,11 @@ import android.content.pm.Signature;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, ArrayList<String>> f31024a = new HashMap<>();
+    public static HashMap<String, ArrayList<String>> f30269a = new HashMap<>();
 
     public static ArrayList<String> a(Context context, String str) {
         Signature[] b2;
@@ -19,8 +19,8 @@ public class e {
             if (packageName == null) {
                 return null;
             }
-            if (f31024a.get(str) != null) {
-                return f31024a.get(str);
+            if (f30269a.get(str) != null) {
+                return f30269a.get(str);
             }
             arrayList = new ArrayList<>();
             try {
@@ -38,7 +38,7 @@ public class e {
             } catch (Exception e2) {
                 u.b(e2.toString());
             }
-            f31024a.put(str, arrayList);
+            f30269a.put(str, arrayList);
         }
         return arrayList;
     }

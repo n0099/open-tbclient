@@ -6,7 +6,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class b extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f67443c = "b";
+    public static final String f68129c = "b";
 
     @Override // d.r.b.a.a.m.c.b.a
     public String d() {
@@ -32,13 +32,13 @@ public final class b extends a {
     public boolean f(String str, String str2, int i2) {
         boolean z;
         if (str == null) {
-            d.r.b.a.a.m.c.d.d.a(f67443c, "url == null");
+            d.r.b.a.a.m.c.d.d.a(f68129c, "url == null");
             return false;
         } else if (str2 == null) {
-            d.r.b.a.a.m.c.d.d.a(f67443c, "content == null");
+            d.r.b.a.a.m.c.d.d.a(f68129c, "content == null");
             return false;
         } else {
-            d.r.b.a.a.m.c.d.d.d(f67443c, "hiido service address is " + str);
+            d.r.b.a.a.m.c.d.d.d(f68129c, "hiido service address is " + str);
             int i3 = i2;
             ?? r7 = str;
             while (true) {
@@ -46,7 +46,7 @@ public final class b extends a {
                     try {
                         Intrinsics.throwNpe();
                     } catch (Throwable th) {
-                        d.r.b.a.a.m.c.d.d.b(f67443c, "sendContent exception", th);
+                        d.r.b.a.a.m.c.d.d.b(f68129c, "sendContent exception", th);
                         z = r7;
                     }
                 }
@@ -54,11 +54,11 @@ public final class b extends a {
                     Intrinsics.throwNpe();
                 }
                 if (a(r7, str2)) {
-                    d.r.b.a.a.m.c.d.d.d(f67443c, "Successfully sent " + str2 + " to " + ((String) r7));
+                    d.r.b.a.a.m.c.d.d.d(f68129c, "Successfully sent " + str2 + " to " + ((String) r7));
                     r7 = 1;
                     return true;
                 }
-                d.r.b.a.a.m.c.d.d.d(f67443c, "Failed to sent " + str2 + " to " + ((String) r7));
+                d.r.b.a.a.m.c.d.d.d(f68129c, "Failed to sent " + str2 + " to " + ((String) r7));
                 z = r7;
                 int i4 = i3 - 1;
                 if (i3 <= 0) {

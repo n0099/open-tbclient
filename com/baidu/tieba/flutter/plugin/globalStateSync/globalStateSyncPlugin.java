@@ -19,14 +19,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.flutter.plugin.globalStateSync.GlobalStateSyncAuto;
 import d.a.c.e.p.k;
-import d.a.i0.b.d;
-import d.a.i0.b.e;
-import d.a.i0.b.f.s;
-import d.a.i0.c1.b.c;
-import d.a.i0.r.d0.b;
-import d.a.i0.s.b.a;
-import d.a.i0.z0.m0;
-import d.a.j0.m0.a.b.g;
+import d.a.j0.b.d;
+import d.a.j0.b.e;
+import d.a.j0.b.f.s;
+import d.a.j0.c1.b.c;
+import d.a.j0.r.d0.b;
+import d.a.j0.s.b.a;
+import d.a.j0.z0.m0;
+import d.a.k0.m0.a.b.g;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.Map;
@@ -119,11 +119,11 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     }
 
     public static String getExperimentID() {
-        e b2 = d.b(s.f48027c);
-        if (b2 == null || k.isEmpty(b2.f47978a)) {
+        e b2 = d.b(s.f48855c);
+        if (b2 == null || k.isEmpty(b2.f48806a)) {
             return "";
         }
-        String str = b2.f47978a;
+        String str = b2.f48806a;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != 1688589) {
@@ -187,7 +187,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         }
         hashMap.put("isVideoAutoPlay", Boolean.valueOf(m0.d()));
         hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
-        hashMap.put(TiebaStatic.Params.CUID_GALAXY2, TbadkCoreApplication.getInst().getCuidGalaxy2());
+        hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         hashMap.put("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
         hashMap.put(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
         hashMap.put("z_id", TbadkCoreApplication.getInst().getZid());

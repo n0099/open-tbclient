@@ -192,6 +192,7 @@ public class BinaryTaskMng {
         TaskMsg taskMsg = new TaskMsg();
         taskMsg.status = 1002;
         taskMsg._id = abstractTask.mDownloadId;
+        taskMsg.url = abstractTask.getDefaultUrl();
         taskMsg.uKey = abstractTask.mUri + abstractTask.mDownloadId;
         taskMsg.filePath = abstractTask.mFilePath;
         taskMsg.fileSize = abstractTask.mTotalLength;
@@ -332,6 +333,7 @@ public class BinaryTaskMng {
         AbstractTask abstractTask = this.mAllTaskMap.get(str);
         abstractTask.setPriority(fileMsg.mPriority);
         taskPriorityQueueOffer(abstractTask);
+        abstractTask.mRealUrl = fileMsg.mRealUrl;
         abstractTask.mIntercepters = fileMsg.mIntercepters;
         if (abstractTask.mFileDir.equals(fileMsg.mSavePath)) {
             return;
@@ -567,7 +569,10 @@ public class BinaryTaskMng {
 
     public void notifyUi(Object obj) {
         for (TaskObserverInterface taskObserverInterface : this.mObserverList) {
-            taskObserverInterface.onUpdate(obj);
+            try {
+                taskObserverInterface.onUpdate(obj);
+            } catch (Exception unused) {
+            }
         }
     }
 
@@ -647,9 +652,6 @@ public class BinaryTaskMng {
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void setDownloadBufferSize(int i2) {
-    }
-
     public synchronized void setHttpDNSCacheInfo(HttpDNSCacheInfo httpDNSCacheInfo) {
         this.mHttpDNSCacheInfo = httpDNSCacheInfo;
     }
@@ -671,9 +673,6 @@ public class BinaryTaskMng {
                 this.mInfoTypeList.add(split[i2]);
             }
         }
-    }
-
-    public void setMaxDownloadBufferCount(int i2) {
     }
 
     public void setMaxDownloadThread(int i2) {
@@ -768,5 +767,38 @@ public class BinaryTaskMng {
         obtainMessage.what = 3;
         obtainMessage.obj = abstractTask;
         this.mHandler.sendMessageAtFrontOfQueue(obtainMessage);
+    }
+
+    public void updateTaskPrioirty(long j, int i2) {
+        Iterator<AbstractTask> it = this.mAllTaskMap.values().iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            AbstractTask next = it.next();
+            if (next.mDownloadId == j) {
+                next.setPriority(i2);
+                break;
+            }
+        }
+        Iterator<AbstractTask> it2 = this.mCurTaskList.iterator();
+        while (true) {
+            if (!it2.hasNext()) {
+                break;
+            }
+            AbstractTask next2 = it2.next();
+            if (next2.mDownloadId == j) {
+                next2.setPriority(i2);
+                break;
+            }
+        }
+        Iterator<AbstractTask> it3 = this.mTaskPriorityQueue.iterator();
+        while (it3.hasNext()) {
+            AbstractTask next3 = it3.next();
+            if (next3.mDownloadId == j) {
+                next3.setPriority(i2);
+                return;
+            }
+        }
     }
 }

@@ -4,32 +4,32 @@ import androidx.annotation.NonNull;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class k implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final i f66567a;
+    public final i f67253a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.o.a.e.b.n.c f66568b;
+    public final d.o.a.e.b.n.c f67254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f66569c;
+    public final e f67255c;
 
     public k(DownloadInfo downloadInfo, b bVar, i iVar) throws BaseException {
-        this.f66567a = iVar;
-        this.f66568b = c(downloadInfo, iVar);
-        this.f66569c = new h(bVar, this);
+        this.f67253a = iVar;
+        this.f67254b = c(downloadInfo, iVar);
+        this.f67255c = new h(bVar, this);
     }
 
     public e a() {
-        return this.f66569c;
+        return this.f67255c;
     }
 
     @Override // d.o.a.e.b.i.e
     public void b(@NonNull a aVar) throws IOException {
-        this.f66568b.a(aVar.f66524a, 0, aVar.f66526c);
-        this.f66567a.f(aVar.f66526c);
+        this.f67254b.a(aVar.f67210a, 0, aVar.f67212c);
+        this.f67253a.f(aVar.f67212c);
     }
 
     public final d.o.a.e.b.n.c c(DownloadInfo downloadInfo, i iVar) throws BaseException {
@@ -43,18 +43,18 @@ public class k implements e {
     }
 
     public void d() throws IOException {
-        this.f66568b.o();
+        this.f67254b.o();
     }
 
     public void e() throws IOException {
-        this.f66568b.q();
+        this.f67254b.q();
     }
 
     public void f() {
-        d.o.a.e.b.l.e.C(this.f66568b);
+        d.o.a.e.b.l.e.C(this.f67254b);
     }
 
     public i g() {
-        return this.f66567a;
+        return this.f67253a;
     }
 }

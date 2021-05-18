@@ -1,208 +1,137 @@
 package com.baidu.location.c;
 
-import android.app.Service;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.IBinder;
-import android.os.Looper;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.Process;
-import android.util.Log;
-import com.baidu.location.LLSInterface;
-import com.baidu.location.a.h;
-import com.baidu.location.a.j;
-import com.baidu.location.a.l;
-import com.baidu.location.a.n;
-import com.baidu.location.a.p;
-import com.baidu.location.a.v;
-import com.baidu.location.a.w;
-import com.baidu.location.a.x;
-import com.baidu.location.b.e;
-import com.baidu.location.b.i;
-import com.baidu.location.d.b;
-import com.baidu.location.f;
-import java.lang.ref.WeakReference;
+import java.util.Locale;
 /* loaded from: classes2.dex */
-public class a extends Service implements LLSInterface {
+public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HandlerC0093a f6928a;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static long f6929f;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Looper f6931c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public HandlerThread f6932d;
+    public int f6699a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Messenger f6930b = null;
+    public int f6700b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f6701c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f6702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f6933e = false;
+    public int f6703e;
 
-    /* renamed from: com.baidu.location.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class HandlerC0093a extends Handler {
+    /* renamed from: f  reason: collision with root package name */
+    public int f6704f;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<a> f6934a;
+    /* renamed from: g  reason: collision with root package name */
+    public long f6705g;
 
-        public HandlerC0093a(Looper looper, a aVar) {
-            super(looper);
-            this.f6934a = new WeakReference<>(aVar);
+    /* renamed from: h  reason: collision with root package name */
+    public int f6706h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public char f6707i;
+    public int j;
+    public String k;
+    public boolean l;
+
+    public a() {
+        this.f6699a = -1;
+        this.f6700b = -1;
+        this.f6701c = -1;
+        this.f6702d = -1;
+        this.f6703e = Integer.MAX_VALUE;
+        this.f6704f = Integer.MAX_VALUE;
+        this.f6705g = 0L;
+        this.f6706h = -1;
+        this.f6707i = '0';
+        this.j = Integer.MAX_VALUE;
+        this.k = null;
+        this.l = false;
+        this.f6705g = System.currentTimeMillis();
+    }
+
+    public a(int i2, int i3, int i4, int i5, int i6, char c2, int i7) {
+        this.f6699a = -1;
+        this.f6700b = -1;
+        this.f6701c = -1;
+        this.f6702d = -1;
+        this.f6703e = Integer.MAX_VALUE;
+        this.f6704f = Integer.MAX_VALUE;
+        this.f6705g = 0L;
+        this.f6706h = -1;
+        this.f6707i = '0';
+        this.j = Integer.MAX_VALUE;
+        this.k = null;
+        this.l = false;
+        this.f6699a = i2;
+        this.f6700b = i3;
+        this.f6701c = i4;
+        this.f6702d = i5;
+        this.f6706h = i6;
+        this.f6707i = c2;
+        this.f6705g = System.currentTimeMillis();
+        this.j = i7;
+    }
+
+    public a(a aVar) {
+        this(aVar.f6699a, aVar.f6700b, aVar.f6701c, aVar.f6702d, aVar.f6706h, aVar.f6707i, aVar.j);
+        this.f6705g = aVar.f6705g;
+    }
+
+    public boolean a() {
+        long currentTimeMillis = System.currentTimeMillis();
+        long j = this.f6705g;
+        return currentTimeMillis - j > 0 && currentTimeMillis - j < 3000;
+    }
+
+    public boolean a(a aVar) {
+        return this.f6699a == aVar.f6699a && this.f6700b == aVar.f6700b && this.f6702d == aVar.f6702d && this.f6701c == aVar.f6701c;
+    }
+
+    public boolean b() {
+        return this.f6699a > -1 && this.f6700b > 0;
+    }
+
+    public boolean c() {
+        return this.f6699a == -1 && this.f6700b == -1 && this.f6702d == -1 && this.f6701c == -1;
+    }
+
+    public boolean d() {
+        return this.f6699a > -1 && this.f6700b > -1 && this.f6702d == -1 && this.f6701c == -1;
+    }
+
+    public boolean e() {
+        return this.f6699a > -1 && this.f6700b > -1 && this.f6702d > -1 && this.f6701c > -1;
+    }
+
+    public void f() {
+        this.l = true;
+    }
+
+    public String g() {
+        StringBuffer stringBuffer = new StringBuffer(128);
+        stringBuffer.append("&nw=");
+        stringBuffer.append(this.f6707i);
+        stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.f6701c), Integer.valueOf(this.f6702d), Integer.valueOf(this.f6699a), Integer.valueOf(this.f6700b), Integer.valueOf(this.f6706h)));
+        if (this.j != Integer.MAX_VALUE) {
+            stringBuffer.append("&cl_cs=");
+            stringBuffer.append(this.j);
         }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            a aVar = this.f6934a.get();
-            if (aVar == null) {
-                return;
-            }
-            if (f.isServing) {
-                int i2 = message.what;
-                if (i2 == 11) {
-                    aVar.a(message);
-                } else if (i2 == 12) {
-                    aVar.b(message);
-                } else if (i2 == 15) {
-                    aVar.c(message);
-                } else if (i2 == 22) {
-                    l.c().b(message);
-                } else if (i2 == 41) {
-                    l.c().h();
-                } else if (i2 == 401) {
-                    try {
-                        message.getData();
-                    } catch (Exception unused) {
-                    }
-                } else if (i2 == 405) {
-                    byte[] byteArray = message.getData().getByteArray("errorid");
-                    if (byteArray != null && byteArray.length > 0) {
-                        new String(byteArray);
-                    }
-                } else if (i2 == 406) {
-                    h.a().e();
-                }
-            }
-            if (message.what == 1) {
-                aVar.b();
-            }
-            if (message.what == 0) {
-                aVar.a();
-            }
-            super.handleMessage(message);
+        if (this.l) {
+            stringBuffer.append("&newcl=1");
         }
+        return stringBuffer.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        j.a().a(f.getServiceContext());
-        b.a();
-        x.a().e();
-        n.a().b();
-        h.a().b();
-        e.a().b();
-        com.baidu.location.b.b.a().b();
-        l.c().d();
-        i.a().c();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Message message) {
-        Log.d("baidu_location_service", "baidu location service register ...");
-        com.baidu.location.a.a.a().a(message);
-        p.b().c();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        i.a().d();
-        e.a().e();
-        x.a().f();
-        com.baidu.location.b.b.a().c();
-        l.c().e();
-        h.a().c();
-        w.d();
-        com.baidu.location.a.a.a().b();
-        n.a().c();
-        Log.d("baidu_location_service", "baidu location service has stoped ...");
-        if (this.f6933e) {
-            return;
+    public String h() {
+        StringBuffer stringBuffer = new StringBuffer(128);
+        stringBuffer.append("&nw2=");
+        stringBuffer.append(this.f6707i);
+        stringBuffer.append(String.format(Locale.CHINA, "&cl2=%d|%d|%d|%d&cl_s2=%d", Integer.valueOf(this.f6701c), Integer.valueOf(this.f6702d), Integer.valueOf(this.f6699a), Integer.valueOf(this.f6700b), Integer.valueOf(this.f6706h)));
+        if (this.j != Integer.MAX_VALUE) {
+            stringBuffer.append("&cl_cs2=");
+            stringBuffer.append(this.j);
         }
-        Process.killProcess(Process.myPid());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(Message message) {
-        com.baidu.location.a.a.a().b(message);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(Message message) {
-        com.baidu.location.a.a.a().c(message);
-    }
-
-    @Override // com.baidu.location.LLSInterface
-    public double getVersion() {
-        return 7.630000114440918d;
-    }
-
-    @Override // android.app.Service, com.baidu.location.LLSInterface
-    public IBinder onBind(Intent intent) {
-        Bundle extras = intent.getExtras();
-        if (extras != null) {
-            b.f6947g = extras.getString("key");
-            b.f6946f = extras.getString("sign");
-            this.f6933e = extras.getBoolean("kill_process");
-            extras.getBoolean("cache_exception");
-        }
-        return this.f6930b.getBinder();
-    }
-
-    @Override // com.baidu.location.LLSInterface
-    public void onCreate(Context context) {
-        f6929f = System.currentTimeMillis();
-        HandlerThread a2 = v.a();
-        this.f6932d = a2;
-        Looper looper = a2.getLooper();
-        this.f6931c = looper;
-        f6928a = looper == null ? new HandlerC0093a(Looper.getMainLooper(), this) : new HandlerC0093a(this.f6931c, this);
-        this.f6930b = new Messenger(f6928a);
-        f6928a.sendEmptyMessage(0);
-        Log.d("baidu_location_service", "baidu location service start1 ...20181022..." + Process.myPid());
-    }
-
-    @Override // android.app.Service, com.baidu.location.LLSInterface
-    public void onDestroy() {
-        try {
-            f6928a.sendEmptyMessage(1);
-        } catch (Exception unused) {
-            Log.d("baidu_location_service", "baidu location service stop exception...");
-            b();
-            Process.killProcess(Process.myPid());
-        }
-        Log.d("baidu_location_service", "baidu location service stop ...");
-    }
-
-    @Override // android.app.Service, com.baidu.location.LLSInterface
-    public int onStartCommand(Intent intent, int i2, int i3) {
-        return 1;
-    }
-
-    @Override // android.app.Service, com.baidu.location.LLSInterface
-    public void onTaskRemoved(Intent intent) {
-        Log.d("baidu_location_service", "baidu location service remove task...");
-    }
-
-    @Override // com.baidu.location.LLSInterface
-    public boolean onUnBind(Intent intent) {
-        return false;
+        return stringBuffer.toString();
     }
 }

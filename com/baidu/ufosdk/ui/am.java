@@ -5,15 +5,15 @@ import android.view.View;
 public final class am implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f23464a;
+    public final /* synthetic */ FeedbackFacePageActivity f22709a;
 
     public am(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.f23464a = feedbackFacePageActivity;
+        this.f22709a = feedbackFacePageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.f23464a.u = true;
-        this.f23464a.c();
+        this.f22709a.u = true;
+        this.f22709a.c();
     }
 }

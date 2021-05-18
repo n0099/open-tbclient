@@ -9,14 +9,14 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.R;
 import d.a.c.e.m.b;
-import d.a.i0.k0.d;
+import d.a.j0.k0.d;
 /* loaded from: classes4.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
     public VideoAggregationFragment mFragment;
     public String mFrom;
     public String mId;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom) ? "a023" : "";
     }
@@ -60,7 +60,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (TextUtils.isEmpty(this.mId)) {
             finish();
         }
-        this.mFragment = VideoAggregationFragment.I0(this.mId, this.mFrom, stringExtra, stringExtra2);
+        this.mFragment = VideoAggregationFragment.H0(this.mId, this.mFrom, stringExtra, stringExtra2);
         getSupportFragmentManager().beginTransaction().replace(R.id.container, this.mFragment).commit();
     }
 
@@ -68,7 +68,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         VideoAggregationFragment videoAggregationFragment;
         if (keyEvent != null && (videoAggregationFragment = this.mFragment) != null) {
-            if (videoAggregationFragment.M0(i2)) {
+            if (videoAggregationFragment.L0(i2)) {
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);

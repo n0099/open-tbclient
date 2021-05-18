@@ -13,31 +13,31 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class RimFaceResultPageTipView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f6368a;
+    public TextView f6222a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f6369b;
+    public TextView f6223b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f6370c;
+    public ImageView f6224c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f6371d;
+    public TextView f6225d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f6372e;
+    public TextView f6226e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f6373f;
+    public TextView f6227f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f6374g;
+    public LinearLayout f6228g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f6375h;
+    public ImageView f6229h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f6376i;
+    public a f6230i;
     public b j;
 
     /* loaded from: classes2.dex */
@@ -58,81 +58,81 @@ public class RimFaceResultPageTipView extends LinearLayout {
     }
 
     public void resetView() {
-        this.f6370c.setVisibility(4);
-        this.f6371d.setVisibility(4);
-        this.f6372e.setVisibility(4);
-        this.f6375h.setVisibility(4);
-        this.f6374g.setVisibility(4);
-        this.f6368a.setVisibility(4);
-        this.f6369b.setVisibility(4);
+        this.f6224c.setVisibility(4);
+        this.f6225d.setVisibility(4);
+        this.f6226e.setVisibility(4);
+        this.f6229h.setVisibility(4);
+        this.f6228g.setVisibility(4);
+        this.f6222a.setVisibility(4);
+        this.f6223b.setVisibility(4);
         this.j = null;
-        this.f6376i = null;
+        this.f6230i = null;
     }
 
     public void setOnClickListener(a aVar) {
-        this.f6376i = aVar;
+        this.f6230i = aVar;
     }
 
     public void setOnCloseListener(b bVar) {
         this.j = bVar;
-        this.f6375h.setVisibility(0);
+        this.f6229h.setVisibility(0);
     }
 
     public void setResultPageCancelText(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f6368a.setVisibility(0);
-        this.f6368a.setText(str);
+        this.f6222a.setVisibility(0);
+        this.f6222a.setText(str);
     }
 
     public void setResultPageConfirmText(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f6369b.setVisibility(0);
-        this.f6369b.setText(str);
+        this.f6223b.setVisibility(0);
+        this.f6223b.setText(str);
     }
 
     public void setResultPageImg(int i2) {
-        this.f6370c.setVisibility(0);
-        this.f6370c.setBackgroundResource(i2);
+        this.f6224c.setVisibility(0);
+        this.f6224c.setBackgroundResource(i2);
     }
 
     public void setResultPageNextTitle(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f6372e.setTextSize(13.0f);
-        this.f6372e.setTextColor(getResources().getColor(R.color.rim_base_text_666666));
-        this.f6372e.setText(str);
-        this.f6372e.setVisibility(0);
+        this.f6226e.setTextSize(13.0f);
+        this.f6226e.setTextColor(getResources().getColor(R.color.rim_base_text_666666));
+        this.f6226e.setText(str);
+        this.f6226e.setVisibility(0);
     }
 
     public void setResultPageNextTitleBold(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f6372e.setTextSize(18.0f);
-        this.f6372e.setTextColor(getResources().getColor(R.color.rim_base_text_333333));
-        this.f6372e.setText(str);
-        this.f6372e.setVisibility(0);
+        this.f6226e.setTextSize(18.0f);
+        this.f6226e.setTextColor(getResources().getColor(R.color.rim_base_text_333333));
+        this.f6226e.setText(str);
+        this.f6226e.setVisibility(0);
     }
 
     public void setResultPageRiskTipVisiable(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f6373f.setText(str);
-        this.f6374g.setVisibility(0);
+        this.f6227f.setText(str);
+        this.f6228g.setVisibility(0);
     }
 
     public void setResultPageTitle(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f6371d.setText(str);
-        this.f6371d.setVisibility(0);
+        this.f6225d.setText(str);
+        this.f6225d.setVisibility(0);
     }
 
     @Override // android.view.View
@@ -142,15 +142,15 @@ public class RimFaceResultPageTipView extends LinearLayout {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.rim_face_risk_warning_tips_page, this);
-        this.f6370c = (ImageView) findViewById(R.id.rim_face_result_page_img);
-        this.f6375h = (ImageView) findViewById(R.id.rim_face_result_page_close_img);
-        this.f6371d = (TextView) findViewById(R.id.rim_face_result_tips_title);
-        this.f6372e = (TextView) findViewById(R.id.rim_face_result_tips_next_title);
-        this.f6373f = (TextView) findViewById(R.id.rim_face_result_page_tip_msg);
-        this.f6374g = (LinearLayout) findViewById(R.id.layout_result_page_show_risk_tip);
-        this.f6369b = (TextView) findViewById(R.id.rim_face_result_page_confirm);
-        this.f6368a = (TextView) findViewById(R.id.rim_face_result_page_cancel);
-        this.f6375h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.1
+        this.f6224c = (ImageView) findViewById(R.id.rim_face_result_page_img);
+        this.f6229h = (ImageView) findViewById(R.id.rim_face_result_page_close_img);
+        this.f6225d = (TextView) findViewById(R.id.rim_face_result_tips_title);
+        this.f6226e = (TextView) findViewById(R.id.rim_face_result_tips_next_title);
+        this.f6227f = (TextView) findViewById(R.id.rim_face_result_page_tip_msg);
+        this.f6228g = (LinearLayout) findViewById(R.id.layout_result_page_show_risk_tip);
+        this.f6223b = (TextView) findViewById(R.id.rim_face_result_page_confirm);
+        this.f6222a = (TextView) findViewById(R.id.rim_face_result_page_cancel);
+        this.f6229h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (RimFaceResultPageTipView.this.j != null) {
@@ -158,19 +158,19 @@ public class RimFaceResultPageTipView extends LinearLayout {
                 }
             }
         });
-        this.f6369b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.2
+        this.f6223b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (RimFaceResultPageTipView.this.f6376i != null) {
-                    RimFaceResultPageTipView.this.f6376i.a();
+                if (RimFaceResultPageTipView.this.f6230i != null) {
+                    RimFaceResultPageTipView.this.f6230i.a();
                 }
             }
         });
-        this.f6368a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.3
+        this.f6222a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (RimFaceResultPageTipView.this.f6376i != null) {
-                    RimFaceResultPageTipView.this.f6376i.b();
+                if (RimFaceResultPageTipView.this.f6230i != null) {
+                    RimFaceResultPageTipView.this.f6230i.b();
                 }
             }
         });

@@ -5,10 +5,10 @@ import android.content.Context;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Context f39353a = d.a.b0.a.b.a.f39288a.get().o();
+    public static final Context f38598a = d.a.b0.a.b.a.f38533a.get().o();
 
     public static Context a() {
-        return f39353a;
+        return f38598a;
     }
 
     public static String b() {

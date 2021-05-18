@@ -9,32 +9,32 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class l {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Comparator<String> f64833b = new a();
+    public static final Comparator<String> f65519b = new a();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, l> f64834c = new TreeMap(f64833b);
+    public static final Map<String, l> f65520c = new TreeMap(f65519b);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final l f64835d;
+    public static final l f65521d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final l f64836e;
+    public static final l f65522e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final l f64837f;
+    public static final l f65523f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final l f64838g;
+    public static final l f65524g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final l f64839h;
+    public static final l f65525h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final l f64840i;
+    public static final l f65526i;
     public static final l j;
     public static final l k;
     public static final l l;
@@ -46,9 +46,9 @@ public final class l {
     public static final l r;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f64841a;
+    public final String f65527a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Comparator<String> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -79,7 +79,7 @@ public final class l {
         b("SSL_RSA_WITH_RC4_128_SHA", 5);
         b("SSL_RSA_EXPORT_WITH_DES40_CBC_SHA", 8);
         b("SSL_RSA_WITH_DES_CBC_SHA", 9);
-        f64835d = b("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
+        f65521d = b("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
         b("SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA", 17);
         b("SSL_DHE_DSS_WITH_DES_CBC_SHA", 18);
         b("SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA", 19);
@@ -101,11 +101,11 @@ public final class l {
         b("TLS_KRB5_EXPORT_WITH_RC4_40_SHA", 40);
         b("TLS_KRB5_EXPORT_WITH_DES_CBC_40_MD5", 41);
         b("TLS_KRB5_EXPORT_WITH_RC4_40_MD5", 43);
-        f64836e = b("TLS_RSA_WITH_AES_128_CBC_SHA", 47);
+        f65522e = b("TLS_RSA_WITH_AES_128_CBC_SHA", 47);
         b("TLS_DHE_DSS_WITH_AES_128_CBC_SHA", 50);
         b("TLS_DHE_RSA_WITH_AES_128_CBC_SHA", 51);
         b("TLS_DH_anon_WITH_AES_128_CBC_SHA", 52);
-        f64837f = b("TLS_RSA_WITH_AES_256_CBC_SHA", 53);
+        f65523f = b("TLS_RSA_WITH_AES_256_CBC_SHA", 53);
         b("TLS_DHE_DSS_WITH_AES_256_CBC_SHA", 56);
         b("TLS_DHE_RSA_WITH_AES_256_CBC_SHA", 57);
         b("TLS_DH_anon_WITH_AES_256_CBC_SHA", 58);
@@ -129,8 +129,8 @@ public final class l {
         b("TLS_PSK_WITH_AES_128_CBC_SHA", PbFullScreenEditorActivity.REPLY_MAX_SIZE);
         b("TLS_PSK_WITH_AES_256_CBC_SHA", 141);
         b("TLS_RSA_WITH_SEED_CBC_SHA", 150);
-        f64838g = b("TLS_RSA_WITH_AES_128_GCM_SHA256", 156);
-        f64839h = b("TLS_RSA_WITH_AES_256_GCM_SHA384", 157);
+        f65524g = b("TLS_RSA_WITH_AES_128_GCM_SHA256", 156);
+        f65525h = b("TLS_RSA_WITH_AES_256_GCM_SHA384", 157);
         b("TLS_DHE_RSA_WITH_AES_128_GCM_SHA256", 158);
         b("TLS_DHE_RSA_WITH_AES_256_GCM_SHA384", Opcodes.IF_ICMPEQ);
         b("TLS_DHE_DSS_WITH_AES_128_GCM_SHA256", 162);
@@ -147,7 +147,7 @@ public final class l {
         b("TLS_ECDHE_ECDSA_WITH_NULL_SHA", WalletHomeBeanFactory.BEAN_ID_HOMETAB);
         b("TLS_ECDHE_ECDSA_WITH_RC4_128_SHA", 49159);
         b("TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA", 49160);
-        f64840i = b("TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA", 49161);
+        f65526i = b("TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA", 49161);
         j = b("TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA", 49162);
         b("TLS_ECDH_RSA_WITH_NULL_SHA", 49163);
         b("TLS_ECDH_RSA_WITH_RC4_128_SHA", 49164);
@@ -188,7 +188,7 @@ public final class l {
 
     public l(String str) {
         if (str != null) {
-            this.f64841a = str;
+            this.f65527a = str;
             return;
         }
         throw null;
@@ -197,10 +197,10 @@ public final class l {
     public static synchronized l a(String str) {
         l lVar;
         synchronized (l.class) {
-            lVar = f64834c.get(str);
+            lVar = f65520c.get(str);
             if (lVar == null) {
                 lVar = new l(str);
-                f64834c.put(str, lVar);
+                f65520c.put(str, lVar);
             }
         }
         return lVar;
@@ -219,6 +219,6 @@ public final class l {
     }
 
     public String toString() {
-        return this.f64841a;
+        return this.f65527a;
     }
 }

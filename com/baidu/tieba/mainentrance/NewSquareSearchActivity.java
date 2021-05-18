@@ -27,7 +27,6 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.mainentrance.HotForumModel;
 import com.baidu.tieba.mainentrance.searchSuggestList.SearchListHttpResMessage;
 import com.baidu.tieba.mainentrance.searchSuggestList.SearchListSocketResMessage;
-import com.baidu.tieba.mainentrance.view.SquareSearchViewController;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import java.util.List;
@@ -39,7 +38,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     public HotForumModel mHotForumModel;
     public HotSearchInfoData mHotSearchInfo;
     public HotSearchInfoData mTransmitHotSearchInfo;
-    public SquareSearchViewController mViewController;
+    public d.a.k0.o1.i.e mViewController;
     public boolean hasRemindSearchResultForNet = false;
     public boolean mIsFromEnterForum = false;
     public d.a.c.c.g.a mSearchSuggestListListener = new a(CmdConfigHttp.CMD_SEARCH_LIST, 309438);
@@ -77,8 +76,8 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                 } else {
                     list = null;
                 }
-                NewSquareSearchActivity.this.mViewController.D(list2);
-                NewSquareSearchActivity.this.mViewController.E(list);
+                NewSquareSearchActivity.this.mViewController.A(list2);
+                NewSquareSearchActivity.this.mViewController.B(list);
             }
         }
     }
@@ -106,7 +105,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
 
         @Override // java.lang.Runnable
         public void run() {
-            l.K(NewSquareSearchActivity.this.getPageContext().getPageActivity(), NewSquareSearchActivity.this.mViewController.r());
+            l.K(NewSquareSearchActivity.this.getPageContext().getPageActivity(), NewSquareSearchActivity.this.mViewController.p());
         }
     }
 
@@ -209,13 +208,17 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     private void loadHotSearch() {
         HotSearchInfoData hotSearchInfoData = this.mTransmitHotSearchInfo;
         if (hotSearchInfoData != null && !TextUtils.isEmpty(hotSearchInfoData.s()) && !TextUtils.isEmpty(this.mTransmitHotSearchInfo.getName())) {
-            this.mViewController.C(this.mTransmitHotSearchInfo);
+            this.mViewController.z(this.mTransmitHotSearchInfo);
             return;
         }
-        HotSearchInfoData hotSearchInfoData2 = (HotSearchInfoData) OrmObject.objectWithJsonStr(d.a.i0.r.d0.b.j().p("hot_search_info", ""), HotSearchInfoData.class);
-        this.mHotSearchInfo = hotSearchInfoData2;
+        try {
+            this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(d.a.j0.r.d0.b.j().p("hot_search_info", ""), HotSearchInfoData.class);
+        } catch (Exception e2) {
+            BdLog.e(e2);
+        }
+        HotSearchInfoData hotSearchInfoData2 = this.mHotSearchInfo;
         if (hotSearchInfoData2 != null && !TextUtils.isEmpty(hotSearchInfoData2.s()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
-            this.mViewController.C(this.mHotSearchInfo);
+            this.mViewController.z(this.mHotSearchInfo);
         } else {
             this.mHotForumModel.D();
         }
@@ -242,20 +245,20 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            d.a.i0.r.a0.b.e(getPageContext().getPageActivity(), 1);
+            d.a.j0.r.a0.b.e(getPageContext().getPageActivity(), 1);
         } else {
-            d.a.i0.r.a0.b.e(getPageContext().getPageActivity(), 2);
+            d.a.j0.r.a0.b.e(getPageContext().getPageActivity(), 2);
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "a026";
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
-        this.mViewController.v(i2);
+        this.mViewController.s(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -267,7 +270,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         addGlobalLayoutListener();
         registerListener(this.mSearchSuggestListListener);
         registerListener(this.mCreateBarListener);
-        this.mViewController = new SquareSearchViewController(this, this.mIsFromEnterForum);
+        this.mViewController = new d.a.k0.o1.i.e(this, this.mIsFromEnterForum);
         this.mHotForumModel = new HotForumModel(getPageContext(), this);
         loadHotSearch();
     }
@@ -275,9 +278,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        SquareSearchViewController squareSearchViewController = this.mViewController;
-        if (squareSearchViewController != null) {
-            squareSearchViewController.w();
+        d.a.k0.o1.i.e eVar = this.mViewController;
+        if (eVar != null) {
+            eVar.t();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921504, null));
         TbPageExtraHelper.u(getCurrentPageKey());
@@ -288,18 +291,18 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void onHotForumDataSuccess(List<d.a.j0.o1.b> list, List<d.a.j0.o1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public void onHotForumDataSuccess(List<d.a.k0.o1.b> list, List<d.a.k0.o1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
         updateHotSearchCache(hotSearchInfoData);
-        this.mViewController.C(this.mHotSearchInfo);
+        this.mViewController.z(this.mHotSearchInfo);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         if (i2 == 4) {
-            BaseWebView s = this.mViewController.s();
-            if (i2 == 4 && s != null && s.canGoBack()) {
-                this.mViewController.y();
-                s.goBack();
+            BaseWebView q = this.mViewController.q();
+            if (i2 == 4 && q != null && q.canGoBack()) {
+                this.mViewController.v();
+                q.goBack();
                 return true;
             }
             d.a.c.e.m.e.a().postDelayed(new d(), 200L);
@@ -317,9 +320,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        SquareSearchViewController squareSearchViewController = this.mViewController;
-        if (squareSearchViewController != null) {
-            squareSearchViewController.x();
+        d.a.k0.o1.i.e eVar = this.mViewController;
+        if (eVar != null) {
+            eVar.u();
         }
         registerGetShareContentTask();
     }

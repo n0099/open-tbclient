@@ -6,33 +6,33 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class h implements Closeable {
     public static final Logger k = Logger.getLogger(c.class.getName());
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.b.c.a.a.d f64699e;
+    public final d.b.c.a.a.d f65385e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f64700f;
+    public final boolean f65386f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.b.c.a.a.c f64701g;
+    public final d.b.c.a.a.c f65387g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f64702h;
+    public int f65388h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f64703i;
-    public final b.C1760b j;
+    public boolean f65389i;
+    public final b.C1824b j;
 
     public h(d.b.c.a.a.d dVar, boolean z) {
-        this.f64699e = dVar;
-        this.f64700f = z;
+        this.f65385e = dVar;
+        this.f65386f = z;
         d.b.c.a.a.c cVar = new d.b.c.a.a.c();
-        this.f64701g = cVar;
-        this.j = new b.C1760b(cVar);
-        this.f64702h = 16384;
+        this.f65387g = cVar;
+        this.j = new b.C1824b(cVar);
+        this.f65388h = 16384;
     }
 
     public static void u(d.b.c.a.a.d dVar, int i2) throws IOException {
@@ -42,8 +42,8 @@ public final class h implements Closeable {
     }
 
     public synchronized void A() throws IOException {
-        if (!this.f64703i) {
-            this.f64699e.flush();
+        if (!this.f65389i) {
+            this.f65385e.flush();
         } else {
             throw new IOException("closed");
         }
@@ -51,49 +51,49 @@ public final class h implements Closeable {
 
     public final void B(int i2, long j) throws IOException {
         while (j > 0) {
-            int min = (int) Math.min(this.f64702h, j);
+            int min = (int) Math.min(this.f65388h, j);
             long j2 = min;
             j -= j2;
             p(i2, min, (byte) 9, j == 0 ? (byte) 4 : (byte) 0);
-            this.f64699e.b(this.f64701g, j2);
+            this.f65385e.b(this.f65387g, j2);
         }
     }
 
     public synchronized void C(l lVar) throws IOException {
-        if (!this.f64703i) {
+        if (!this.f65389i) {
             int i2 = 0;
             p(0, lVar.e() * 6, (byte) 4, (byte) 0);
             while (i2 < 10) {
                 if (lVar.d(i2)) {
-                    this.f64699e.h(i2 == 4 ? 3 : i2 == 7 ? 4 : i2);
-                    this.f64699e.g(lVar.f(i2));
+                    this.f65385e.h(i2 == 4 ? 3 : i2 == 7 ? 4 : i2);
+                    this.f65385e.g(lVar.f(i2));
                 }
                 i2++;
             }
-            this.f64699e.flush();
+            this.f65385e.flush();
         } else {
             throw new IOException("closed");
         }
     }
 
     public int D() {
-        return this.f64702h;
+        return this.f65388h;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() throws IOException {
-        this.f64703i = true;
-        this.f64699e.close();
+        this.f65389i = true;
+        this.f65385e.close();
     }
 
     public synchronized void n() throws IOException {
-        if (!this.f64703i) {
-            if (this.f64700f) {
+        if (!this.f65389i) {
+            if (this.f65386f) {
                 if (k.isLoggable(Level.FINE)) {
-                    k.fine(d.b.c.a.b.a.e.j(">> CONNECTION %s", c.f64610a.e()));
+                    k.fine(d.b.c.a.b.a.e.j(">> CONNECTION %s", c.f65296a.e()));
                 }
-                this.f64699e.c(c.f64610a.h());
-                this.f64699e.flush();
+                this.f65385e.c(c.f65296a.h());
+                this.f65385e.flush();
                 return;
             }
             return;
@@ -104,7 +104,7 @@ public final class h implements Closeable {
     public void o(int i2, byte b2, d.b.c.a.a.c cVar, int i3) throws IOException {
         p(i2, i3, (byte) 0, b2);
         if (i3 > 0) {
-            this.f64699e.b(cVar, i3);
+            this.f65385e.b(cVar, i3);
         }
     }
 
@@ -112,7 +112,7 @@ public final class h implements Closeable {
         if (k.isLoggable(Level.FINE)) {
             k.fine(c.c(false, i2, i3, b2, b3));
         }
-        int i4 = this.f64702h;
+        int i4 = this.f65388h;
         if (i3 > i4) {
             c.a("FRAME_SIZE_ERROR length > %d: %d", Integer.valueOf(i4), Integer.valueOf(i3));
             throw null;
@@ -120,23 +120,23 @@ public final class h implements Closeable {
             c.a("reserved bit set: %s", Integer.valueOf(i2));
             throw null;
         } else {
-            u(this.f64699e, i3);
-            this.f64699e.i(b2 & 255);
-            this.f64699e.i(b3 & 255);
-            this.f64699e.g(i2 & Integer.MAX_VALUE);
+            u(this.f65385e, i3);
+            this.f65385e.i(b2 & 255);
+            this.f65385e.i(b3 & 255);
+            this.f65385e.g(i2 & Integer.MAX_VALUE);
         }
     }
 
     public synchronized void q(int i2, int i3, List<a> list) throws IOException {
-        if (!this.f64703i) {
+        if (!this.f65389i) {
             this.j.f(list);
-            long v = this.f64701g.v();
-            int min = (int) Math.min(this.f64702h - 4, v);
+            long v = this.f65387g.v();
+            int min = (int) Math.min(this.f65388h - 4, v);
             long j = min;
             int i4 = (v > j ? 1 : (v == j ? 0 : -1));
             p(i2, min + 4, (byte) 5, i4 == 0 ? (byte) 4 : (byte) 0);
-            this.f64699e.g(i3 & Integer.MAX_VALUE);
-            this.f64699e.b(this.f64701g, j);
+            this.f65385e.g(i3 & Integer.MAX_VALUE);
+            this.f65385e.b(this.f65387g, j);
             if (i4 > 0) {
                 B(i2, v - j);
             }
@@ -146,13 +146,13 @@ public final class h implements Closeable {
     }
 
     public synchronized void r(int i2, long j) throws IOException {
-        if (this.f64703i) {
+        if (this.f65389i) {
             throw new IOException("closed");
         }
         if (j != 0 && j <= 2147483647L) {
             p(i2, 4, (byte) 8, (byte) 0);
-            this.f64699e.g((int) j);
-            this.f64699e.flush();
+            this.f65385e.g((int) j);
+            this.f65385e.flush();
         } else {
             c.a("windowSizeIncrement == 0 || windowSizeIncrement > 0x7fffffffL: %s", Long.valueOf(j));
             throw null;
@@ -160,11 +160,11 @@ public final class h implements Closeable {
     }
 
     public synchronized void s(int i2, com.bytedance.sdk.a.b.a.e.b bVar) throws IOException {
-        if (!this.f64703i) {
-            if (bVar.f27684g != -1) {
+        if (!this.f65389i) {
+            if (bVar.f26929g != -1) {
                 p(i2, 4, (byte) 3, (byte) 0);
-                this.f64699e.g(bVar.f27684g);
-                this.f64699e.flush();
+                this.f65385e.g(bVar.f26929g);
+                this.f65385e.flush();
             } else {
                 throw new IllegalArgumentException();
             }
@@ -174,15 +174,15 @@ public final class h implements Closeable {
     }
 
     public synchronized void t(int i2, com.bytedance.sdk.a.b.a.e.b bVar, byte[] bArr) throws IOException {
-        if (!this.f64703i) {
-            if (bVar.f27684g != -1) {
+        if (!this.f65389i) {
+            if (bVar.f26929g != -1) {
                 p(0, bArr.length + 8, (byte) 7, (byte) 0);
-                this.f64699e.g(i2);
-                this.f64699e.g(bVar.f27684g);
+                this.f65385e.g(i2);
+                this.f65385e.g(bVar.f26929g);
                 if (bArr.length > 0) {
-                    this.f64699e.c(bArr);
+                    this.f65385e.c(bArr);
                 }
-                this.f64699e.flush();
+                this.f65385e.flush();
             } else {
                 c.a("errorCode.httpCode == -1", new Object[0]);
                 throw null;
@@ -193,31 +193,31 @@ public final class h implements Closeable {
     }
 
     public synchronized void v(l lVar) throws IOException {
-        if (!this.f64703i) {
-            this.f64702h = lVar.j(this.f64702h);
+        if (!this.f65389i) {
+            this.f65388h = lVar.j(this.f65388h);
             if (lVar.g() != -1) {
                 this.j.b(lVar.g());
             }
             p(0, 0, (byte) 4, (byte) 1);
-            this.f64699e.flush();
+            this.f65385e.flush();
         } else {
             throw new IOException("closed");
         }
     }
 
     public synchronized void w(boolean z, int i2, int i3) throws IOException {
-        if (!this.f64703i) {
+        if (!this.f65389i) {
             p(0, 8, (byte) 6, z ? (byte) 1 : (byte) 0);
-            this.f64699e.g(i2);
-            this.f64699e.g(i3);
-            this.f64699e.flush();
+            this.f65385e.g(i2);
+            this.f65385e.g(i3);
+            this.f65385e.flush();
         } else {
             throw new IOException("closed");
         }
     }
 
     public synchronized void x(boolean z, int i2, int i3, List<a> list) throws IOException {
-        if (!this.f64703i) {
+        if (!this.f65389i) {
             z(z, i2, list);
         } else {
             throw new IOException("closed");
@@ -225,7 +225,7 @@ public final class h implements Closeable {
     }
 
     public synchronized void y(boolean z, int i2, d.b.c.a.a.c cVar, int i3) throws IOException {
-        if (!this.f64703i) {
+        if (!this.f65389i) {
             o(i2, z ? (byte) 1 : (byte) 0, cVar, i3);
         } else {
             throw new IOException("closed");
@@ -233,10 +233,10 @@ public final class h implements Closeable {
     }
 
     public void z(boolean z, int i2, List<a> list) throws IOException {
-        if (!this.f64703i) {
+        if (!this.f65389i) {
             this.j.f(list);
-            long v = this.f64701g.v();
-            int min = (int) Math.min(this.f64702h, v);
+            long v = this.f65387g.v();
+            int min = (int) Math.min(this.f65388h, v);
             long j = min;
             int i3 = (v > j ? 1 : (v == j ? 0 : -1));
             byte b2 = i3 == 0 ? (byte) 4 : (byte) 0;
@@ -244,7 +244,7 @@ public final class h implements Closeable {
                 b2 = (byte) (b2 | 1);
             }
             p(i2, min, (byte) 1, b2);
-            this.f64699e.b(this.f64701g, j);
+            this.f65385e.b(this.f65387g, j);
             if (i3 > 0) {
                 B(i2, v - j);
                 return;

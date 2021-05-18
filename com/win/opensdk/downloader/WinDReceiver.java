@@ -16,7 +16,7 @@ import com.win.opensdk.y0;
 import com.win.opensdk.z;
 import java.io.File;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WinDReceiver extends BroadcastReceiver {
     public final void a(Context context, Info info) {
         try {
@@ -52,7 +52,7 @@ public class WinDReceiver extends BroadcastReceiver {
                 if (z) {
                     w0 a2 = x0.a(context);
                     try {
-                        a2.f37984b = x0.a("wie", new y0(info));
+                        a2.f37229b = x0.a("wie", new y0(info));
                         a2.a("co", 200);
                     } catch (JSONException unused) {
                     }
@@ -82,7 +82,7 @@ public class WinDReceiver extends BroadcastReceiver {
                 y0 y0Var = new y0(info);
                 String open = info.getOpen();
                 try {
-                    a2.f37984b = x0.a("wiop", y0Var);
+                    a2.f37229b = x0.a("wiop", y0Var);
                     a2.a("msg", x0.a(open));
                 } catch (JSONException unused) {
                 }

@@ -9,7 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 public class CustomViewPager extends TbViewPager {
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13710i;
+    public boolean f13046i;
     public int j;
     public boolean k;
     public int l;
@@ -58,7 +58,7 @@ public class CustomViewPager extends TbViewPager {
 
     public CustomViewPager(Context context) {
         super(context);
-        this.f13710i = true;
+        this.f13046i = true;
         this.j = 0;
         this.k = false;
         this.l = -1;
@@ -83,7 +83,7 @@ public class CustomViewPager extends TbViewPager {
 
     @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.f13710i) {
+        if (this.f13046i) {
             if (getCurrentItem() != 0) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -98,7 +98,7 @@ public class CustomViewPager extends TbViewPager {
 
     @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.f13710i) {
+        if (this.f13046i) {
             return super.onTouchEvent(motionEvent);
         }
         return false;
@@ -110,12 +110,12 @@ public class CustomViewPager extends TbViewPager {
     }
 
     public void setScrollable(boolean z) {
-        this.f13710i = z;
+        this.f13046i = z;
     }
 
     public CustomViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13710i = true;
+        this.f13046i = true;
         this.j = 0;
         this.k = false;
         this.l = -1;

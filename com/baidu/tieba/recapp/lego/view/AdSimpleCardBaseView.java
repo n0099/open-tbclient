@@ -18,11 +18,10 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.AdCloseView;
 import com.bumptech.glide.load.engine.GlideException;
 import d.a.c.e.p.j;
-import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.j0.s2.x;
+import d.a.k0.s2.y;
 import tbclient.AdCloseInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public View r;
     public ViewStub s;
@@ -33,7 +32,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public LinearLayout x;
     public AdCloseView y;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -44,22 +43,18 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public AdCard f21011e;
+        public AdCard f20260e;
 
         public b(AdCard adCard) {
-            this.f21011e = adCard;
+            this.f20260e = adCard;
         }
 
         public final void a(AdvertAppInfo advertAppInfo) {
-            String scheme = this.f21011e.getScheme();
-            if (k.isEmpty(scheme) && advertAppInfo != null) {
-                scheme = advertAppInfo.H3;
-            }
-            int d2 = x.d(AdSimpleCardBaseView.this.m.getPageActivity(), scheme, AdSimpleCardBaseView.this.p(advertAppInfo), advertAppInfo.T3);
+            int d2 = y.d(AdSimpleCardBaseView.this.m.getPageActivity(), this.f20260e.getScheme(), this.f20260e.getDownloadId(), this.f20260e.getExtInfo());
             if (AdSimpleCardBaseView.this.o != null) {
                 AdSimpleCardBaseView.this.o.a(d2, null);
             }
@@ -71,7 +66,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                 AdSimpleCardBaseView.this.m.showToast(R.string.neterror);
                 return;
             }
-            AdCard adCard = this.f21011e;
+            AdCard adCard = this.f20260e;
             if (adCard == null) {
                 return;
             }
@@ -83,7 +78,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         super(tbPageContext);
     }
 
-    public final void P(View view) {
+    public final void N(View view) {
         if (view == null || view.getVisibility() != 0) {
             return;
         }
@@ -96,15 +91,14 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         this.w.addView(view);
     }
 
-    public abstract void Q(AdCard adCard);
+    public abstract void O(AdCard adCard);
 
-    public final void R(AdvertAppInfo advertAppInfo) {
-        AdvertAppInfo.a aVar;
+    public final void P(AdvertAppInfo advertAppInfo, AdCard adCard) {
         AdCloseInfo adCloseInfo;
-        if (advertAppInfo != null && (aVar = advertAppInfo.U3) != null && (adCloseInfo = aVar.r) != null && adCloseInfo.support_close.intValue() > 0) {
+        if (adCard != null && (adCloseInfo = adCard.closeInfo) != null && adCloseInfo.support_close.intValue() > 0) {
             this.y.setVisibility(0);
             this.y.setPage(getBusinessType());
-            this.y.setData(advertAppInfo);
+            this.y.setData(advertAppInfo, adCard.closeInfo);
             l.c(this.m.getPageActivity(), this.x, 40, 40, 40, 120);
             this.x.setOnClickListener(new a());
             return;
@@ -112,12 +106,12 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         this.y.setVisibility(8);
     }
 
-    public abstract void S(View view);
+    public abstract void Q(View view);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: T */
-    public void x(AdCard adCard, int i2) {
+    /* renamed from: R */
+    public void w(AdCard adCard, int i2) {
         this.y.onChangeSkinType();
         SkinManager.setViewTextColor(this.u, R.color.CAM_X0105, 1, i2);
         SkinManager.setViewTextColor(this.v, R.color.CAM_X0109, 1, i2);
@@ -125,8 +119,8 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: V */
-    public void y(AdCard adCard) {
+    /* renamed from: S */
+    public void x(AdCard adCard) {
         if (adCard == null) {
             return;
         }
@@ -143,10 +137,10 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
             str2 = str2 + GlideException.IndentedAppendable.INDENT;
         }
         this.v.setText(str2 + "广告");
-        P(this.x);
-        x(adCard, TbadkCoreApplication.getInst().getSkinType());
-        Q(adCard);
-        R(adCard.getAdvertAppInfo());
+        N(this.x);
+        w(adCard, TbadkCoreApplication.getInst().getSkinType());
+        O(adCard);
+        P(adCard.getAdvertAppInfo(), adCard);
     }
 
     public abstract int getCustomLayout();
@@ -154,7 +148,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public abstract int getLayout();
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View u() {
+    public View t() {
         View inflate = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
         this.r = inflate;
         ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.ad_custom_view_stub);
@@ -162,7 +156,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         viewStub.setLayoutResource(getCustomLayout());
         View inflate2 = this.s.inflate();
         this.t = inflate2;
-        S(inflate2);
+        Q(inflate2);
         this.u = (TextView) this.r.findViewById(R.id.ad_title);
         this.v = (TextView) this.r.findViewById(R.id.advert_app_name);
         this.w = (FrameLayout) this.r.findViewById(R.id.btn_pb_card_bottom_op_more_container);

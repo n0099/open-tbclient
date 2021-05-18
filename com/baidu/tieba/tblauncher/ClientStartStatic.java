@@ -23,7 +23,7 @@ public class ClientStartStatic {
     public static class a extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f21772a;
+        public long f21016a;
 
         public a(int i2) {
             super(i2);
@@ -35,10 +35,10 @@ public class ClientStartStatic {
             Boolean data;
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    this.f21772a = SystemClock.elapsedRealtime();
+                    this.f21016a = SystemClock.elapsedRealtime();
                     return;
                 }
-                if (SystemClock.elapsedRealtime() - this.f21772a > StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
+                if (SystemClock.elapsedRealtime() - this.f21016a > StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
                     new b(null).execute(new Void[0]);
                 }
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));

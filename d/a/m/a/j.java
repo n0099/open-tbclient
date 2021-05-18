@@ -6,20 +6,20 @@ import com.baidu.crabsdk.a.n;
 public final class j implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ n f63312e;
+    public final /* synthetic */ n f63851e;
 
     public j(n nVar) {
-        this.f63312e = nVar;
+        this.f63851e = nVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Runnable runnable;
-        this.f63312e.b();
-        if (this.f63312e.f4807a.get()) {
+        this.f63851e.b();
+        if (this.f63851e.f4661a.get()) {
             Handler a2 = com.baidu.crabsdk.a.j.a();
-            runnable = this.f63312e.f4809c;
-            a2.postDelayed(runnable, this.f63312e.f4808b);
+            runnable = this.f63851e.f4663c;
+            a2.postDelayed(runnable, this.f63851e.f4662b);
         }
     }
 }

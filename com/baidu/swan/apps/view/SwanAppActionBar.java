@@ -13,55 +13,57 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.ColorInt;
-import d.a.h0.a.e;
-import d.a.h0.a.f;
-import d.a.h0.a.g;
-import d.a.h0.a.i2.h0;
-import d.a.h0.a.j;
+import d.a.i0.a.e;
+import d.a.i0.a.f;
+import d.a.i0.a.g;
+import d.a.i0.a.j;
+import d.a.i0.a.v2.n0;
 /* loaded from: classes3.dex */
 public class SwanAppActionBar extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f12228e;
+    public View f11434e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12229f;
+    public TextView f11435f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12230g;
+    public TextView f11436g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f12231h;
+    public View f11437h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ProgressBar f12232i;
-    public TextView j;
-    public String k;
-    public int l;
-    public float m;
-    public float n;
+    public ImageView f11438i;
+    public View j;
+    public ProgressBar k;
+    public TextView l;
+    public String m;
+    public int n;
     public float o;
-    public View p;
-    public ImageView q;
-    public ImageView r;
-    public View s;
+    public float p;
+    public float q;
+    public View r;
+    public ImageView s;
     public ImageView t;
-    public c u;
-    public boolean v;
+    public View u;
+    public ImageView v;
+    public c w;
+    public boolean x;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GestureDetector f12233e;
+        public final /* synthetic */ GestureDetector f11439e;
 
         public a(GestureDetector gestureDetector) {
-            this.f12233e = gestureDetector;
+            this.f11439e = gestureDetector;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            return this.f12233e.onTouchEvent(motionEvent);
+            return this.f11439e.onTouchEvent(motionEvent);
         }
     }
 
@@ -72,15 +74,15 @@ public class SwanAppActionBar extends RelativeLayout {
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
         public boolean onDoubleTap(MotionEvent motionEvent) {
-            if (SwanAppActionBar.this.u != null) {
-                SwanAppActionBar.this.u.a(SwanAppActionBar.this);
+            if (SwanAppActionBar.this.w != null) {
+                SwanAppActionBar.this.w.a(SwanAppActionBar.this);
             }
             return super.onDoubleTap(motionEvent);
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onDown(MotionEvent motionEvent) {
-            return !SwanAppActionBar.this.v;
+            return !SwanAppActionBar.this.x;
         }
 
         public /* synthetic */ b(SwanAppActionBar swanAppActionBar, a aVar) {
@@ -99,23 +101,25 @@ public class SwanAppActionBar extends RelativeLayout {
     }
 
     private void setFrontColorBlack(boolean z) {
-        setTitleColor(d.a.h0.a.c.aiapps_black_text);
+        setTitleColor(-16777216);
         setLeftBackViewSrc(e.aiapps_action_bar_back_black_selector);
+        setLeftFloatBackViewSrc(e.aiapps_action_bar_back_black_selector);
         setLeftHomeViewSrc(e.aiapps_action_bar_home_black_selector);
         setRightMenuImageSrc(z ? e.aiapps_action_bar_single_menu_black_selector : e.aiapps_action_bar_menu_black_selector);
         setRightExitImageSrc(e.aiapps_action_bar_exit_black_selector);
-        setRightLineSrc(d.a.h0.a.c.aiapps_action_bar_menu_line_color);
-        setRightZoneBgSrc(z ? d.a.h0.a.c.aiapps_transparent : e.aiapps_action_bar_right_menu_bg);
+        setRightLineSrc(d.a.i0.a.c.aiapps_action_bar_menu_line_color);
+        setRightZoneBgSrc(z ? d.a.i0.a.c.aiapps_transparent : e.aiapps_action_bar_right_menu_bg);
     }
 
     private void setFrontColorWhite(boolean z) {
-        setTitleColor(d.a.h0.a.c.aiapps_white_text);
+        setTitleColor(-1);
         setLeftBackViewSrc(e.aiapps_action_bar_back_white_selector);
+        setLeftFloatBackViewSrc(e.aiapps_action_bar_back_white_selector);
         setLeftHomeViewSrc(e.aiapps_action_bar_home_white_selector);
         setRightMenuImageSrc(z ? e.aiapps_action_bar_single_menu_white_selector : e.aiapps_action_bar_menu_white_selector);
         setRightExitImageSrc(e.aiapps_action_bar_exit_white_selector);
-        setRightLineSrc(d.a.h0.a.c.aiapps_action_bar_menu_line_white);
-        setRightZoneBgSrc(z ? d.a.h0.a.c.aiapps_transparent : e.aiapps_action_bar_right_menu_bg_solid);
+        setRightLineSrc(d.a.i0.a.c.aiapps_action_bar_menu_line_white);
+        setRightZoneBgSrc(z ? d.a.i0.a.c.aiapps_transparent : e.aiapps_action_bar_right_menu_bg_solid);
     }
 
     public final Drawable c(int i2) {
@@ -126,32 +130,34 @@ public class SwanAppActionBar extends RelativeLayout {
 
     public final void d() {
         LayoutInflater.from(getContext()).inflate(g.aiapps_action_bar, this);
-        this.f12228e = findViewById(f.titlebar_left_zone);
+        this.f11434e = findViewById(f.titlebar_left_zone);
         TextView textView = (TextView) findViewById(f.left_first_view);
-        this.f12229f = textView;
-        textView.setCompoundDrawables(c(e.aiapps_action_bar_back_selector), null, null, null);
-        this.f12229f.setTextColor(getResources().getColorStateList(d.a.h0.a.c.swan_app_action_bar_operation_btn_selector));
-        this.f12230g = (TextView) findViewById(f.left_second_view);
-        this.f12231h = findViewById(f.titlebar_center_zone);
-        this.f12232i = (ProgressBar) findViewById(f.aiapps_nav_loading_progressbar);
-        this.j = (TextView) findViewById(f.title_text_center);
-        float f2 = this.m;
+        this.f11435f = textView;
+        textView.setCompoundDrawables(c(e.aiapps_action_bar_back_black_selector), null, null, null);
+        this.f11435f.setTextColor(getResources().getColorStateList(d.a.i0.a.c.swan_app_action_bar_operation_btn_selector));
+        this.f11436g = (TextView) findViewById(f.left_second_view);
+        this.f11437h = findViewById(f.titlebar_left_float_zone);
+        this.f11438i = (ImageView) findViewById(f.left_float_back_view);
+        this.j = findViewById(f.titlebar_center_zone);
+        this.k = (ProgressBar) findViewById(f.aiapps_nav_loading_progressbar);
+        this.l = (TextView) findViewById(f.title_text_center);
+        float f2 = this.o;
         if (f2 != -1.0f) {
-            float f3 = this.n;
+            float f3 = this.p;
             if (f3 != -1.0f) {
-                float f4 = this.o;
+                float f4 = this.q;
                 if (f4 != -1.0f) {
-                    this.f12229f.setShadowLayer(f4, f2, f3, this.l);
+                    this.f11435f.setShadowLayer(f4, f2, f3, this.n);
                 }
             }
         }
-        this.p = findViewById(f.titlebar_right_menu);
-        this.q = (ImageView) findViewById(f.titlebar_right_menu_img);
-        this.r = (ImageView) findViewById(f.titlebar_right_menu_red_dot);
-        this.s = findViewById(f.titlebar_right_menu_line);
-        this.t = (ImageView) findViewById(f.titlebar_right_menu_exit);
-        setTitle(this.k);
-        setTitleColor(d.a.h0.a.c.aiapps_black_text);
+        this.r = findViewById(f.titlebar_right_menu);
+        this.s = (ImageView) findViewById(f.titlebar_right_menu_img);
+        this.t = (ImageView) findViewById(f.titlebar_right_menu_red_dot);
+        this.u = findViewById(f.titlebar_right_menu_line);
+        this.v = (ImageView) findViewById(f.titlebar_right_menu_exit);
+        setTitle(this.m);
+        setTitleColor(-16777216);
         setRightMenuImageSrc(e.aiapps_action_bar_menu_normal_selector);
         setOnTouchListener(new a(new GestureDetector(getContext(), new b(this, null))));
     }
@@ -162,11 +168,11 @@ public class SwanAppActionBar extends RelativeLayout {
         }
         TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, j.SwanAppActionBar, 0, 0);
         try {
-            this.k = obtainStyledAttributes.getString(j.SwanAppActionBar_titleText);
-            this.l = obtainStyledAttributes.getColor(j.SwanAppActionBar_titleTxtShadowColor, -16777216);
-            this.m = obtainStyledAttributes.getFloat(j.SwanAppActionBar_titleTxtShadowDx, -1.0f);
-            this.n = obtainStyledAttributes.getFloat(j.SwanAppActionBar_titleTxtShadowDy, -1.0f);
-            this.o = obtainStyledAttributes.getFloat(j.SwanAppActionBar_titleTxtShadowRadius, -1.0f);
+            this.m = obtainStyledAttributes.getString(j.SwanAppActionBar_titleText);
+            this.n = obtainStyledAttributes.getColor(j.SwanAppActionBar_titleTxtShadowColor, -16777216);
+            this.o = obtainStyledAttributes.getFloat(j.SwanAppActionBar_titleTxtShadowDx, -1.0f);
+            this.p = obtainStyledAttributes.getFloat(j.SwanAppActionBar_titleTxtShadowDy, -1.0f);
+            this.q = obtainStyledAttributes.getFloat(j.SwanAppActionBar_titleTxtShadowRadius, -1.0f);
         } finally {
             obtainStyledAttributes.recycle();
         }
@@ -186,42 +192,43 @@ public class SwanAppActionBar extends RelativeLayout {
     }
 
     public void g(boolean z) {
-        ProgressBar progressBar = this.f12232i;
+        ProgressBar progressBar = this.k;
         if (progressBar != null) {
             if (z && progressBar.getVisibility() == 8) {
-                this.f12232i.setVisibility(0);
-            } else if (z || this.f12232i.getVisibility() != 0) {
+                this.k.setVisibility(0);
+            } else if (z || this.k.getVisibility() != 0) {
             } else {
-                this.f12232i.setVisibility(8);
+                this.k.setVisibility(8);
             }
         }
     }
 
     public TextView getCenterTitleView() {
-        return this.j;
+        return this.l;
     }
 
     public View getRightMenu() {
-        return this.p;
+        return this.r;
     }
 
-    public void setActionBarCustom(boolean z) {
-        this.v = z;
+    public void setActionBarCustom(boolean z, boolean z2) {
+        this.x = z;
         int i2 = z ? 8 : 0;
         setLeftZoneVisibility(i2);
         setCenterZoneVisibility(i2);
+        setLeftFloatZoneVisibility(z2 ? 0 : 8);
     }
 
     public void setCenterZoneVisibility(int i2) {
-        this.f12231h.setVisibility(i2);
+        this.j.setVisibility(i2);
     }
 
     public void setLeftBackViewClickListener(View.OnClickListener onClickListener) {
-        this.f12229f.setOnClickListener(onClickListener);
+        this.f11435f.setOnClickListener(onClickListener);
     }
 
     public void setLeftBackViewMinWidth(int i2) {
-        this.f12229f.setMinimumWidth(i2);
+        this.f11435f.setMinimumWidth(i2);
     }
 
     public void setLeftBackViewSrc(int i2) {
@@ -229,19 +236,31 @@ public class SwanAppActionBar extends RelativeLayout {
         if (drawable != null) {
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
-        this.f12229f.setCompoundDrawables(drawable, null, null, null);
-        this.f12229f.setSelected(false);
+        this.f11435f.setCompoundDrawables(drawable, null, null, null);
+        this.f11435f.setSelected(false);
     }
 
     public void setLeftBackViewVisibility(boolean z) {
-        TextView textView = this.f12229f;
+        TextView textView = this.f11435f;
         if (textView != null) {
             textView.setVisibility(z ? 0 : 8);
         }
     }
 
+    public void setLeftFloatBackViewClickListener(View.OnClickListener onClickListener) {
+        this.f11438i.setOnClickListener(onClickListener);
+    }
+
+    public void setLeftFloatBackViewSrc(int i2) {
+        this.f11438i.setImageResource(i2);
+    }
+
+    public void setLeftFloatZoneVisibility(int i2) {
+        this.f11437h.setVisibility(i2);
+    }
+
     public void setLeftHomeViewClickListener(View.OnClickListener onClickListener) {
-        this.f12230g.setOnClickListener(onClickListener);
+        this.f11436g.setOnClickListener(onClickListener);
     }
 
     public void setLeftHomeViewSrc(int i2) {
@@ -249,85 +268,85 @@ public class SwanAppActionBar extends RelativeLayout {
         if (drawable != null) {
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
-        this.f12230g.setCompoundDrawables(drawable, null, null, null);
-        this.f12230g.setSelected(false);
+        this.f11436g.setCompoundDrawables(drawable, null, null, null);
+        this.f11436g.setSelected(false);
     }
 
     public void setLeftHomeViewVisibility(int i2) {
-        this.f12230g.setVisibility(i2);
+        this.f11436g.setVisibility(i2);
     }
 
     public void setLeftZoneVisibility(int i2) {
-        this.f12228e.setVisibility(i2);
+        this.f11434e.setVisibility(i2);
     }
 
     public void setOnDoubleClickListener(c cVar) {
-        this.u = cVar;
+        this.w = cVar;
     }
 
     public void setRightExitImageSrc(int i2) {
-        this.t.setImageDrawable(getResources().getDrawable(i2));
+        this.v.setImageDrawable(getResources().getDrawable(i2));
     }
 
     public void setRightExitOnClickListener(View.OnClickListener onClickListener) {
-        this.t.setOnClickListener(onClickListener);
+        this.v.setOnClickListener(onClickListener);
     }
 
     public void setRightExitViewVisibility(boolean z) {
         if (z) {
-            this.t.setVisibility(0);
-            this.s.setVisibility(0);
+            this.v.setVisibility(0);
+            this.u.setVisibility(0);
             return;
         }
-        this.t.setVisibility(8);
-        this.s.setVisibility(8);
-        ((RelativeLayout.LayoutParams) this.p.getLayoutParams()).setMargins(0, 0, h0.e(getContext(), 4.6f), 0);
+        this.v.setVisibility(8);
+        this.u.setVisibility(8);
+        ((RelativeLayout.LayoutParams) this.r.getLayoutParams()).setMargins(0, 0, n0.f(getContext(), 4.6f), 0);
     }
 
     public void setRightLineSrc(int i2) {
-        this.s.setBackgroundResource(i2);
+        this.u.setBackgroundResource(i2);
     }
 
     public void setRightMenuAlpha(float f2) {
         if (f2 < 0.0f || f2 > 1.0f) {
             return;
         }
-        this.p.setAlpha(f2);
+        this.r.setAlpha(f2);
     }
 
     public void setRightMenuEnable(boolean z) {
-        this.q.setEnabled(z);
         this.s.setEnabled(z);
-        this.t.setEnabled(z);
+        this.u.setEnabled(z);
+        this.v.setEnabled(z);
     }
 
     public void setRightMenuImageSrc(int i2) {
-        this.q.setImageDrawable(getResources().getDrawable(i2));
+        this.s.setImageDrawable(getResources().getDrawable(i2));
     }
 
     public void setRightMenuOnClickListener(View.OnClickListener onClickListener) {
-        this.q.setOnClickListener(onClickListener);
+        this.s.setOnClickListener(onClickListener);
     }
 
     public void setRightRedDotVisibility(boolean z) {
-        this.r.setVisibility(z ? 0 : 8);
+        this.t.setVisibility(z ? 0 : 8);
     }
 
     public void setRightZoneBgSrc(int i2) {
-        this.p.setBackgroundResource(i2);
+        this.r.setBackgroundResource(i2);
     }
 
     public void setRightZoneVisibility(boolean z) {
-        this.p.setVisibility(z ? 0 : 8);
+        this.r.setVisibility(z ? 0 : 8);
     }
 
     public void setTitle(String str) {
-        this.k = str;
-        this.j.setText(str);
+        this.m = str;
+        this.l.setText(str);
     }
 
-    public void setTitleColor(int i2) {
-        this.j.setTextColor(getResources().getColor(i2));
+    public void setTitleColor(@ColorInt int i2) {
+        this.l.setTextColor(i2);
     }
 
     public SwanAppActionBar(Context context, AttributeSet attributeSet) {

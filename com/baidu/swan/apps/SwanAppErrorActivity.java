@@ -7,24 +7,28 @@ import android.util.Log;
 import android.view.ViewGroup;
 import android.view.Window;
 import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
-import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-import d.a.h0.a.a;
-import d.a.h0.a.e0.l.d;
-import d.a.h0.a.f;
-import d.a.h0.a.g;
-import d.a.h0.a.i2.k0;
-import d.a.h0.a.k;
-import d.a.h0.a.y0.e.b;
-import d.a.h0.m.a.a.m;
-/* loaded from: classes.dex */
+import d.a.i0.a.a;
+import d.a.i0.a.f;
+import d.a.i0.a.f1.e.b;
+import d.a.i0.a.g;
+import d.a.i0.a.h0.g.e;
+import d.a.i0.a.k;
+import d.a.i0.a.v1.c.f.c;
+import d.a.i0.a.v2.q0;
+import d.a.i0.o.a.a.n;
+/* loaded from: classes2.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
-    public static final boolean DEBUG = k.f43101a;
+    public static final boolean DEBUG = k.f43025a;
     public static final int INVALID_ANIM = 0;
     public static final String KEY_ERROR_FORBIDDEN_INFO = "swan_error_forbidden_info";
+    public static final String KEY_ERROR_MENU_NOTICE_COUNT = "swan_error_menu_notice_count";
+    public static final String KEY_ERROR_MENU_PRIVACY_COUNT = "swan_error_menu_privacy_count";
     public static final String KEY_SWAN_ERROR_TYPE = "swan_error_type";
+    public static final int SHOW_MENU_NOTICE_DEFAULT = 0;
     public static final String TAG = "SwanAppErrorActivity";
     public static final String TYPE_APP_FORBIDDEN = "type_app_forbidden";
+    public static final String TYPE_LOAD_V8_FAILED = "type_load_v8_failed";
     public static final String TYPE_NEED_UPDATE_SDK = "type_need_update_sdk";
     public static final String TYPE_NETWORK_ERROR = "type_network_error";
     public static final String TYPE_NORMAL = "type_normal";
@@ -32,15 +36,17 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public String mErrorType;
     public ForbiddenInfo mForbiddenInfo;
     public b mLaunchInfo;
-    public d.a.h0.a.x1.b mSkinDecorator = null;
+    public int mMenuNoticeCount;
+    public int mMenuPrivateCount;
+    public d.a.i0.a.g2.b mSkinDecorator = null;
     public int mEnterAnimWhenFinishing = 0;
     public int mExitAnimWhenFinishing = 0;
 
     private void loadFragment() {
-        d dVar;
-        m a2 = getSupportFragmentManager().a();
+        e eVar;
+        n a2 = getSupportFragmentManager().a();
         if (getIntent() != null) {
-            dVar = d.D2(this.mErrorType, this.mForbiddenInfo);
+            eVar = e.R2(this.mErrorType, this.mForbiddenInfo, this.mMenuNoticeCount, this.mMenuPrivateCount);
         } else if (this.mLaunchInfo == null) {
             if (DEBUG) {
                 Log.e(TAG, "launchInfo is null,error");
@@ -48,14 +54,10 @@ public class SwanAppErrorActivity extends FragmentActivity {
             }
             return;
         } else {
-            dVar = new d();
+            eVar = new e();
         }
-        a2.a(f.ai_apps_error_layout, dVar);
-        a2.c();
-    }
-
-    private void onErrorForSearchUBC() {
-        d.a.h0.a.z1.l.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
+        a2.a(f.ai_apps_error_layout, eVar);
+        a2.d();
     }
 
     private void parseIntent(Intent intent) {
@@ -63,10 +65,12 @@ public class SwanAppErrorActivity extends FragmentActivity {
         if (intent == null) {
             return;
         }
-        this.mLaunchInfo = b.V0(intent);
+        this.mLaunchInfo = b.b1(intent);
         this.mForbiddenInfo = (ForbiddenInfo) intent.getParcelableExtra(KEY_ERROR_FORBIDDEN_INFO);
-        if (TextUtils.isEmpty(this.mLaunchInfo.G()) && (forbiddenInfo = this.mForbiddenInfo) != null) {
-            this.mLaunchInfo.q0(forbiddenInfo.appId);
+        this.mMenuNoticeCount = intent.getIntExtra(KEY_ERROR_MENU_NOTICE_COUNT, 0);
+        this.mMenuPrivateCount = intent.getIntExtra(KEY_ERROR_MENU_PRIVACY_COUNT, 0);
+        if (TextUtils.isEmpty(this.mLaunchInfo.H()) && (forbiddenInfo = this.mForbiddenInfo) != null) {
+            this.mLaunchInfo.u0(forbiddenInfo.appId);
         }
         this.mErrorType = intent.getStringExtra(KEY_SWAN_ERROR_TYPE);
     }
@@ -91,20 +95,23 @@ public class SwanAppErrorActivity extends FragmentActivity {
         startExitActivityAnim();
     }
 
+    public ForbiddenInfo getForbiddenInfo() {
+        return this.mForbiddenInfo;
+    }
+
     public b getLaunchInfo() {
         return this.mLaunchInfo;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.a.h0.m.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.a.i0.o.a.a.f, android.app.Activity
     public void onCreate(Bundle bundle) {
         setPendingTransition(a.aiapps_hold, a.aiapps_slide_out_to_bottom);
-        int V = k0.V(this);
+        int Z = q0.Z(this);
         super.onCreate(bundle);
-        k0.h(this, V);
+        q0.g(this, Z);
         setContentView(g.aiapps_error_activity);
         parseIntent(getIntent());
         loadFragment();
-        onErrorForSearchUBC();
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
@@ -124,7 +131,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
             return;
         }
         if (this.mSkinDecorator == null) {
-            this.mSkinDecorator = new d.a.h0.a.x1.b();
+            this.mSkinDecorator = new d.a.i0.a.g2.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
@@ -137,6 +144,19 @@ public class SwanAppErrorActivity extends FragmentActivity {
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        onNightModeCoverChanged(d.a.h0.a.w0.a.z().a());
+        updateCurrentNightMode();
+    }
+
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
+    public void onStart() {
+        c i2;
+        super.onStart();
+        if (TextUtils.equals(this.mErrorType, TYPE_APP_FORBIDDEN) && (i2 = d.a.i0.a.v1.c.f.e.k().i(this.mForbiddenInfo.appId)) != null && i2.C()) {
+            d.a.i0.a.c2.f.g0.a.g(this.mForbiddenInfo.appId);
+        }
+    }
+
+    public void updateCurrentNightMode() {
+        onNightModeCoverChanged(d.a.i0.a.c1.a.H().a());
     }
 }

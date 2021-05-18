@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.newfaceshop.message.BazhuInfoResponseMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BarInformationModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f19311e;
+    public final HttpMessageListener f18599e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public a(BarInformationModel barInformationModel, int i2) {
             super(i2);
@@ -42,18 +42,18 @@ public class BarInformationModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void success(BazhuInfoData bazhuInfoData);
     }
 
     public BarInformationModel(TbPageContext<BaseActivity> tbPageContext) {
         super(tbPageContext);
-        this.f19311e = new a(this, CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
+        this.f18599e = new a(this, CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
         registerTask();
-        this.f19311e.setTag(getUniqueId());
-        this.f19311e.setSelfListener(true);
-        registerListener(this.f19311e);
+        this.f18599e.setTag(getUniqueId());
+        this.f18599e.setSelfListener(true);
+        registerListener(this.f18599e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

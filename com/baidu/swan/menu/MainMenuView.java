@@ -10,21 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import d.a.h0.i.g;
-import d.a.h0.i.o;
+import d.a.i0.k.g;
+import d.a.i0.k.o;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MainMenuView extends BaseMenuView {
-    public LinearLayout k;
+    public LinearLayout j;
+    public View k;
     public View l;
-    public View m;
-    public RecyclerView n;
-    public MenuContentAdapter o;
-    public RecyclerView p;
-    public MenuContentAdapter q;
-    public List<List<o>> r;
-    public View s;
-    public boolean t;
+    public RecyclerView m;
+    public MenuContentAdapter n;
+    public RecyclerView o;
+    public MenuContentAdapter p;
+    public List<List<o>> q;
+    public View r;
+    public boolean s;
 
     public MainMenuView(@NonNull Context context) {
         this(context, null);
@@ -32,74 +32,74 @@ public class MainMenuView extends BaseMenuView {
 
     private void setMenuHeader(View view) {
         View view2;
-        if (view == null || view == (view2 = this.l)) {
+        if (view == null || view == (view2 = this.k)) {
             return;
         }
         if (view2 != null) {
-            this.k.removeView(view2);
+            this.j.removeView(view2);
         }
-        this.l = view;
-        this.k.addView(view, 0);
+        this.k = view;
+        this.j.addView(view, 0);
     }
 
     @Override // com.baidu.swan.menu.BaseMenuView
     public boolean b() {
-        List<List<o>> list = this.r;
+        List<List<o>> list = this.q;
         return list != null && list.size() > 1;
     }
 
     public final void d(int i2) {
-        this.m.setVisibility(0);
-        this.p.setVisibility(0);
-        if (this.o == null) {
+        this.l.setVisibility(0);
+        this.o.setVisibility(0);
+        if (this.n == null) {
             MenuContentAdapter menuContentAdapter = new MenuContentAdapter(getContext());
-            this.o = menuContentAdapter;
-            this.n.setAdapter(menuContentAdapter);
+            this.n = menuContentAdapter;
+            this.m.setAdapter(menuContentAdapter);
         }
-        this.o.f(this.r.subList(0, 1), this.t, i2);
-        if (this.q == null) {
+        this.n.f(this.q.subList(0, 1), this.s, i2);
+        if (this.p == null) {
             MenuContentAdapter menuContentAdapter2 = new MenuContentAdapter(getContext());
-            this.q = menuContentAdapter2;
-            this.p.setAdapter(menuContentAdapter2);
+            this.p = menuContentAdapter2;
+            this.o.setAdapter(menuContentAdapter2);
         }
-        this.q.f(this.r.subList(1, 2), this.t, i2);
+        this.p.f(this.q.subList(1, 2), this.s, i2);
     }
 
     public final void e(int i2) {
-        this.m.setVisibility(8);
-        this.p.setVisibility(8);
-        if (this.o == null) {
+        this.l.setVisibility(8);
+        this.o.setVisibility(8);
+        if (this.n == null) {
             MenuContentAdapter menuContentAdapter = new MenuContentAdapter(getContext());
-            this.o = menuContentAdapter;
-            this.n.setAdapter(menuContentAdapter);
+            this.n = menuContentAdapter;
+            this.m.setAdapter(menuContentAdapter);
         }
-        this.o.f(this.r, this.t, i2);
+        this.n.f(this.q, this.s, i2);
     }
 
     public void f() {
-        MenuContentAdapter menuContentAdapter = this.o;
+        MenuContentAdapter menuContentAdapter = this.n;
         if (menuContentAdapter != null) {
             menuContentAdapter.notifyDataSetChanged();
         }
-        MenuContentAdapter menuContentAdapter2 = this.q;
+        MenuContentAdapter menuContentAdapter2 = this.p;
         if (menuContentAdapter2 != null) {
             menuContentAdapter2.notifyDataSetChanged();
         }
     }
 
     public void g() {
-        RecyclerView recyclerView = this.n;
+        RecyclerView recyclerView = this.m;
         if (recyclerView != null) {
             recyclerView.scrollToPosition(0);
         }
-        if (this.p != null) {
-            this.n.scrollToPosition(0);
+        if (this.o != null) {
+            this.m.scrollToPosition(0);
         }
     }
 
     @Nullable
     public View getCoverView() {
-        return this.s;
+        return this.r;
     }
 
     public void h(List<List<o>> list, View view, boolean z, int i2) {
@@ -109,8 +109,8 @@ public class MainMenuView extends BaseMenuView {
     }
 
     public final void i(List<List<o>> list, boolean z, int i2) {
-        this.r = list;
-        this.t = z;
+        this.q = list;
+        this.s = z;
         if (z && list.size() > 1) {
             d(i2);
         } else {
@@ -119,7 +119,7 @@ public class MainMenuView extends BaseMenuView {
     }
 
     public void setCoverView(View view) {
-        this.s = view;
+        this.r = view;
     }
 
     public MainMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -129,27 +129,27 @@ public class MainMenuView extends BaseMenuView {
     public MainMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i2) {
         super(context, attributeSet, i2);
         LinearLayout linearLayout = new LinearLayout(context, attributeSet, i2);
-        this.k = linearLayout;
+        this.j = linearLayout;
         linearLayout.setOrientation(1);
         RecyclerView recyclerView = new RecyclerView(context, attributeSet, i2);
-        this.n = recyclerView;
+        this.m = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.n.setPadding(0, (int) this.f12551e.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
-        this.k.addView(this.n, layoutParams);
+        this.m.setPadding(0, (int) this.f11893e.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
+        this.j.addView(this.m, layoutParams);
         View view = new View(context);
-        this.m = view;
+        this.l = view;
         view.setVisibility(8);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, 1);
         int dimensionPixelSize = getResources().getDimensionPixelSize(g.main_menu_divider_margin);
         layoutParams2.leftMargin = dimensionPixelSize;
         layoutParams2.rightMargin = dimensionPixelSize;
-        this.k.addView(this.m, layoutParams2);
+        this.j.addView(this.l, layoutParams2);
         RecyclerView recyclerView2 = new RecyclerView(context, attributeSet, i2);
-        this.p = recyclerView2;
+        this.o = recyclerView2;
         recyclerView2.setVisibility(8);
-        this.p.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-        this.k.addView(this.p, new LinearLayout.LayoutParams(-1, -2));
-        c(this.k, new FrameLayout.LayoutParams(-1, -2));
+        this.o.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+        this.j.addView(this.o, new LinearLayout.LayoutParams(-1, -2));
+        c(this.j, new FrameLayout.LayoutParams(-1, -2));
     }
 }

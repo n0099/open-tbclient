@@ -8,10 +8,10 @@ import android.widget.ImageView;
 public final class f implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f23381a;
+    public final /* synthetic */ ScreenCapEditActivity f22626a;
 
     public f(ScreenCapEditActivity screenCapEditActivity) {
-        this.f23381a = screenCapEditActivity;
+        this.f22626a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,12 +19,12 @@ public final class f implements View.OnClickListener {
         ImageView imageView;
         Bitmap bitmap;
         Handler handler;
-        imageView = this.f23381a.f23364e;
+        imageView = this.f22626a.f22609e;
         if (imageView != null) {
-            bitmap = this.f23381a.f23366g;
+            bitmap = this.f22626a.f22611g;
             if (bitmap != null) {
-                this.f23381a.a(true);
-                handler = this.f23381a.N;
+                this.f22626a.a(true);
+                handler = this.f22626a.N;
                 handler.obtainMessage(0).sendToTarget();
             }
         }

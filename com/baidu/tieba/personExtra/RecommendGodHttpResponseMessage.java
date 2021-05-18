@@ -3,10 +3,10 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.a.j0.i2.e.q;
+import d.a.k0.i2.e.q;
 import tbclient.Error;
 import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RecommendGodHttpResponseMessage extends HttpResponsedMessage {
     public q recommendGodData;
 

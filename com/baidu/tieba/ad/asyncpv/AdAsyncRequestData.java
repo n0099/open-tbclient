@@ -10,12 +10,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbPatternsCompat;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import d.a.c.e.p.j;
-import d.a.j0.j1.o.k.a;
+import d.a.k0.j1.o.k.a;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,10 +42,10 @@ public class AdAsyncRequestData extends HttpMessage {
     }
 
     private void addCommonParams() {
-        addParam(HttpRequest.CLIENT_VERSION, TbConfig.getVersion());
+        addParam("_client_version", TbConfig.getVersion());
         addParam("uid", TbadkCoreApplication.getCurrentAccount());
         addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-        addParam(TiebaStatic.Params.CUID_GALAXY2, TbadkCoreApplication.getInst().getCuidGalaxy2());
+        addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
         addParam("model", Build.MODEL);
         addParam(HttpRequest.CLIENT_TYPE, "2");

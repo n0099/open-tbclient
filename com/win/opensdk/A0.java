@@ -1,14 +1,14 @@
 package com.win.opensdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class A0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37606a;
+    public String f36851a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f37607b;
+    public long f36852b;
 
     public String toString() {
-        return this.f37606a + ":" + this.f37607b;
+        return this.f36851a + ":" + this.f36852b;
     }
 }

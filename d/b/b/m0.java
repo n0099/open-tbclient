@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 public class m0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f64337a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f65023a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String a(byte[] bArr) {
         if (bArr != null) {
@@ -23,7 +23,7 @@ public class m0 {
                 for (int i6 = 0; i6 < i3; i6++) {
                     int i7 = bArr[i6 + i2] & 255;
                     int i8 = i5 + 1;
-                    char[] cArr2 = f64337a;
+                    char[] cArr2 = f65023a;
                     cArr[i5] = cArr2[i7 >> 4];
                     i5 = i8 + 1;
                     cArr[i8] = cArr2[i7 & 15];

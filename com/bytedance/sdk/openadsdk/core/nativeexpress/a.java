@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.core.nativeexpress;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface a {
     void a(int i2, com.bytedance.sdk.openadsdk.core.d.j jVar);
 }

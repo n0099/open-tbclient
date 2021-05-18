@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.a.j0.f1.b.q.a;
+import d.a.k0.f1.b.q.a;
 /* loaded from: classes4.dex */
 public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a> {
     public TbPageContext t;
@@ -44,7 +44,7 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a>
         return new MsgCommonItemAdapter.MsgViewHolder<>(aVar.a(), aVar);
     }
 
-    public void r0(View.OnClickListener onClickListener) {
+    public void s0(View.OnClickListener onClickListener) {
         this.u = onClickListener;
     }
 }

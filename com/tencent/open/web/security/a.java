@@ -4,17 +4,17 @@ import android.view.KeyEvent;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import com.tencent.open.a.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends InputConnectionWrapper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37327a = null;
+    public static String f36572a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f37328b = false;
+    public static boolean f36573b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f37329c = false;
+    public static boolean f36574c = false;
 
     public a(InputConnection inputConnection, boolean z) {
         super(inputConnection, z);
@@ -22,8 +22,8 @@ public class a extends InputConnectionWrapper {
 
     @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
     public boolean commitText(CharSequence charSequence, int i2) {
-        f37329c = true;
-        f37327a = charSequence.toString();
+        f36574c = true;
+        f36572a = charSequence.toString();
         f.a("openSDK_LOG.CaptureInputConnection", "-->commitText: " + charSequence.toString());
         return super.commitText(charSequence, i2);
     }
@@ -32,18 +32,18 @@ public class a extends InputConnectionWrapper {
     public boolean sendKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0) {
             f.c("openSDK_LOG.CaptureInputConnection", "sendKeyEvent");
-            f37327a = String.valueOf((char) keyEvent.getUnicodeChar());
-            f37329c = true;
-            f.b("openSDK_LOG.CaptureInputConnection", "s: " + f37327a);
+            f36572a = String.valueOf((char) keyEvent.getUnicodeChar());
+            f36574c = true;
+            f.b("openSDK_LOG.CaptureInputConnection", "s: " + f36572a);
         }
-        f.b("openSDK_LOG.CaptureInputConnection", "-->sendKeyEvent: " + f37327a);
+        f.b("openSDK_LOG.CaptureInputConnection", "-->sendKeyEvent: " + f36572a);
         return super.sendKeyEvent(keyEvent);
     }
 
     @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
     public boolean setComposingText(CharSequence charSequence, int i2) {
-        f37329c = true;
-        f37327a = charSequence.toString();
+        f36574c = true;
+        f36572a = charSequence.toString();
         f.a("openSDK_LOG.CaptureInputConnection", "-->setComposingText: " + charSequence.toString());
         return super.setComposingText(charSequence, i2);
     }

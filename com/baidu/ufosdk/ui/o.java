@@ -7,10 +7,10 @@ import java.util.List;
 public final class o implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23697a;
+    public final /* synthetic */ FeedbackEditActivity f22942a;
 
     public o(FeedbackEditActivity feedbackEditActivity) {
-        this.f23697a = feedbackEditActivity;
+        this.f22942a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,23 +19,23 @@ public final class o implements View.OnClickListener {
         List list;
         HashMap hashMap;
         List list2;
-        z = this.f23697a.v;
+        z = this.f22942a.v;
         if (z) {
             return;
         }
-        list = this.f23697a.q;
+        list = this.f22942a.q;
         if (list.size() <= 0) {
-            FeedbackEditActivity.s(this.f23697a);
+            FeedbackEditActivity.s(this.f22942a);
             return;
         }
         com.baidu.ufosdk.f.c.a("picShotLayout1--> to browse picture!");
-        hashMap = this.f23697a.r;
+        hashMap = this.f22942a.r;
         String str = (String) hashMap.get("0");
         if (str != null && str.length() != 0) {
-            FeedbackEditActivity.a(this.f23697a, str, 0);
+            FeedbackEditActivity.a(this.f22942a, str, 0);
             return;
         }
-        FeedbackEditActivity feedbackEditActivity = this.f23697a;
+        FeedbackEditActivity feedbackEditActivity = this.f22942a;
         list2 = feedbackEditActivity.q;
         feedbackEditActivity.a((byte[]) list2.get(0), false, 0);
     }

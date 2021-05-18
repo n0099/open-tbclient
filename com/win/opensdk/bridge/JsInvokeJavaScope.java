@@ -5,7 +5,7 @@ import android.widget.Toast;
 import com.win.opensdk.bridge.core.JsCallback;
 import com.win.opensdk.f1;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class JsInvokeJavaScope {
     public static void finish(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         f1.a("hcl", "hcl", null);

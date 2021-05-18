@@ -14,6 +14,7 @@ public class Download {
     public String mKeyByUser;
     public String mSize;
     public String mUrl = "";
+    public String mRealUrl = "";
     public String mFileName = "";
     public String mSavedPathForUser = "";
     public String mMimetype = "";
@@ -96,10 +97,6 @@ public class Download {
             throw new IllegalArgumentException("header may not contain ':'");
         }
         throw new NullPointerException("header cannot be null");
-    }
-
-    public Boolean getAutoPause() {
-        return Boolean.valueOf(hasControlFlag(2L));
     }
 
     public Long getControlFlag() {
@@ -188,6 +185,10 @@ public class Download {
         return this.mDownDir;
     }
 
+    public String getRealUrl() {
+        return this.mRealUrl;
+    }
+
     public String getRedownloadReason() {
         return this.mRedownloadReason;
     }
@@ -218,6 +219,10 @@ public class Download {
 
     public String getUrl() {
         return this.mUrl;
+    }
+
+    public Boolean isAutoPause() {
+        return Boolean.valueOf(hasControlFlag(2L));
     }
 
     public boolean isCheckConentType() {
@@ -302,6 +307,10 @@ public class Download {
 
     public void setProgressmap(String str) {
         this.mProgressmap = str;
+    }
+
+    public void setRealUrl(String str) {
+        this.mRealUrl = str;
     }
 
     public void setRedownloadReason(String str) {

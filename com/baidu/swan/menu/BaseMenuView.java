@@ -9,37 +9,36 @@ import android.widget.TextView;
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import d.a.h0.i.f;
-import d.a.h0.i.g;
-import d.a.h0.i.h;
-import d.a.h0.i.i;
-import d.a.h0.i.j;
+import d.a.i0.k.f;
+import d.a.i0.k.g;
+import d.a.i0.k.h;
+import d.a.i0.k.i;
+import d.a.i0.k.j;
 /* loaded from: classes3.dex */
 public abstract class BaseMenuView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12551e;
+    public Context f11893e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f12552f;
+    public View f11894f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12553g;
+    public TextView f11895g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f12554h;
+    public View f11896h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f12555i;
-    public final int j;
+    public final int f11897i;
 
     public BaseMenuView(@NonNull Context context) {
         this(context, null);
     }
 
     public void a(int i2) {
-        this.f12552f.getLayoutParams().height = i2 + this.j;
-        this.f12552f.requestLayout();
+        this.f11894f.getLayoutParams().height = i2 + this.f11897i;
+        this.f11894f.requestLayout();
     }
 
     public abstract boolean b();
@@ -50,33 +49,31 @@ public abstract class BaseMenuView extends FrameLayout {
         }
         int height = view.getHeight();
         if (height != 0) {
-            this.f12552f.getLayoutParams().height = height + this.j;
+            this.f11894f.getLayoutParams().height = height + this.f11897i;
         }
-        this.f12555i = view;
-        layoutParams.bottomMargin = this.j;
+        this.f11896h = view;
+        layoutParams.bottomMargin = this.f11897i;
         addView(view, layoutParams);
     }
 
     public View getBgView() {
-        return this.f12552f;
+        return this.f11894f;
     }
 
     public View getContentView() {
-        return this.f12555i;
+        return this.f11896h;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.f12553g.setOnClickListener(onClickListener);
+        this.f11895g.setOnClickListener(onClickListener);
     }
 
     public void setMode() {
         Resources resources = getResources();
-        this.f12552f.setBackground(resources.getDrawable(h.swan_common_menu_content_bg));
-        this.f12554h.setBackgroundColor(resources.getColor(f.aiapp_menu_split_line_day));
-        this.f12553g.setBackgroundColor(resources.getColor(f.aiapp_menu_cancel_text_color_bg));
-        this.f12553g.setTextColor(resources.getColorStateList(f.aiapp_menu_cancel_text_color_day));
-        this.f12554h.setAlpha(1.0f);
-        this.f12553g.setAlpha(1.0f);
+        this.f11894f.setBackground(resources.getDrawable(h.swan_app_menu_content_bg));
+        this.f11895g.setBackgroundColor(resources.getColor(f.aiapp_menu_cancel_text_color_bg));
+        this.f11895g.setTextColor(resources.getColorStateList(f.aiapp_menu_cancel_text_color_day));
+        this.f11895g.setAlpha(1.0f);
     }
 
     public BaseMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -85,12 +82,10 @@ public abstract class BaseMenuView extends FrameLayout {
 
     public BaseMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i2) {
         super(context, attributeSet, i2);
-        this.f12551e = context;
+        this.f11893e = context;
         View inflate = FrameLayout.inflate(context, j.aiapp_menu_base_view_layout, this);
-        this.f12552f = inflate.findViewById(i.background);
-        this.f12553g = (TextView) inflate.findViewById(i.cancel);
-        this.f12554h = inflate.findViewById(i.divider);
-        Resources resources = context.getResources();
-        this.j = ((int) resources.getDimension(g.aiapp_menu_divider_height)) + ((int) resources.getDimension(g.aiapp_menu_cancel_btn_height));
+        this.f11894f = inflate.findViewById(i.background);
+        this.f11895g = (TextView) inflate.findViewById(i.cancel);
+        this.f11897i = (int) context.getResources().getDimension(g.aiapp_menu_cancel_btn_height);
     }
 }

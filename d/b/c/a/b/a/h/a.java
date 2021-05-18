@@ -1,33 +1,33 @@
 package d.b.c.a.b.a.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final com.bytedance.sdk.a.a.f f64582d = com.bytedance.sdk.a.a.f.a(":");
+    public static final com.bytedance.sdk.a.a.f f65268d = com.bytedance.sdk.a.a.f.a(":");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final com.bytedance.sdk.a.a.f f64583e = com.bytedance.sdk.a.a.f.a(":status");
+    public static final com.bytedance.sdk.a.a.f f65269e = com.bytedance.sdk.a.a.f.a(":status");
 
     /* renamed from: f  reason: collision with root package name */
-    public static final com.bytedance.sdk.a.a.f f64584f = com.bytedance.sdk.a.a.f.a(":method");
+    public static final com.bytedance.sdk.a.a.f f65270f = com.bytedance.sdk.a.a.f.a(":method");
 
     /* renamed from: g  reason: collision with root package name */
-    public static final com.bytedance.sdk.a.a.f f64585g = com.bytedance.sdk.a.a.f.a(":path");
+    public static final com.bytedance.sdk.a.a.f f65271g = com.bytedance.sdk.a.a.f.a(":path");
 
     /* renamed from: h  reason: collision with root package name */
-    public static final com.bytedance.sdk.a.a.f f64586h = com.bytedance.sdk.a.a.f.a(":scheme");
+    public static final com.bytedance.sdk.a.a.f f65272h = com.bytedance.sdk.a.a.f.a(":scheme");
 
     /* renamed from: i  reason: collision with root package name */
-    public static final com.bytedance.sdk.a.a.f f64587i = com.bytedance.sdk.a.a.f.a(":authority");
+    public static final com.bytedance.sdk.a.a.f f65273i = com.bytedance.sdk.a.a.f.a(":authority");
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.a.a.f f64588a;
+    public final com.bytedance.sdk.a.a.f f65274a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.a.a.f f64589b;
+    public final com.bytedance.sdk.a.a.f f65275b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f64590c;
+    public final int f65276c;
 
     public a(String str, String str2) {
         this(com.bytedance.sdk.a.a.f.a(str), com.bytedance.sdk.a.a.f.a(str2));
@@ -36,17 +36,17 @@ public final class a {
     public boolean equals(Object obj) {
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return this.f64588a.equals(aVar.f64588a) && this.f64589b.equals(aVar.f64589b);
+            return this.f65274a.equals(aVar.f65274a) && this.f65275b.equals(aVar.f65275b);
         }
         return false;
     }
 
     public int hashCode() {
-        return ((527 + this.f64588a.hashCode()) * 31) + this.f64589b.hashCode();
+        return ((527 + this.f65274a.hashCode()) * 31) + this.f65275b.hashCode();
     }
 
     public String toString() {
-        return d.b.c.a.b.a.e.j("%s: %s", this.f64588a.a(), this.f64589b.a());
+        return d.b.c.a.b.a.e.j("%s: %s", this.f65274a.a(), this.f65275b.a());
     }
 
     public a(com.bytedance.sdk.a.a.f fVar, String str) {
@@ -54,8 +54,8 @@ public final class a {
     }
 
     public a(com.bytedance.sdk.a.a.f fVar, com.bytedance.sdk.a.a.f fVar2) {
-        this.f64588a = fVar;
-        this.f64589b = fVar2;
-        this.f64590c = fVar.g() + 32 + fVar2.g();
+        this.f65274a = fVar;
+        this.f65275b = fVar2;
+        this.f65276c = fVar.g() + 32 + fVar2.g();
     }
 }

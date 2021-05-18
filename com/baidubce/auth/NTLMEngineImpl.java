@@ -3,6 +3,7 @@ package com.baidubce.auth;
 import android.util.Base64;
 import androidx.core.view.DisplayCompat;
 import com.baidu.mobads.container.widget.player.PlayerEvent;
+import com.baidu.webkit.internal.RC4;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.security.Key;
@@ -478,8 +479,8 @@ public final class NTLMEngineImpl {
 
     public static byte[] RC4(byte[] bArr, byte[] bArr2) throws NTLMEngineException {
         try {
-            Cipher cipher = Cipher.getInstance("RC4");
-            cipher.init(1, new SecretKeySpec(bArr2, "RC4"));
+            Cipher cipher = Cipher.getInstance(RC4.LOGTAG);
+            cipher.init(1, new SecretKeySpec(bArr2, RC4.LOGTAG));
             return cipher.doFinal(bArr);
         } catch (Exception e2) {
             throw new NTLMEngineException(e2.getMessage(), e2);

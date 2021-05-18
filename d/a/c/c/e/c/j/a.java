@@ -5,52 +5,52 @@ import java.nio.ByteBuffer;
 public class a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static byte f39448g = 4;
+    public static byte f38693g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public static byte f39449h = Byte.MIN_VALUE;
+    public static byte f38694h = Byte.MIN_VALUE;
 
     /* renamed from: i  reason: collision with root package name */
-    public static byte f39450i = 64;
+    public static byte f38695i = 64;
     public static byte j = 8;
     public static byte k = 4;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39454d;
+    public int f38699d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39455e;
+    public int f38700e;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f39451a = false;
+    public boolean f38696a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39452b = false;
+    public boolean f38697b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39453c = false;
+    public boolean f38698c = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f39456f = false;
+    public boolean f38701f = false;
 
     public static a a(byte[] bArr) {
         ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, f());
         a aVar = new a();
         byte b2 = wrap.get();
-        if ((f39449h & b2) != 0) {
-            aVar.f39451a = true;
+        if ((f38694h & b2) != 0) {
+            aVar.f38696a = true;
         }
-        if ((f39450i & b2) != 0) {
-            aVar.f39452b = true;
+        if ((f38695i & b2) != 0) {
+            aVar.f38697b = true;
         }
         if ((j & b2) != 0) {
-            aVar.f39453c = true;
+            aVar.f38698c = true;
         }
         if ((b2 & k) != 0) {
-            aVar.f39456f = true;
+            aVar.f38701f = true;
         }
-        aVar.f39454d = wrap.getInt();
-        aVar.f39455e = wrap.getInt();
+        aVar.f38699d = wrap.getInt();
+        aVar.f38700e = wrap.getInt();
         return aVar;
     }
 
@@ -60,9 +60,9 @@ public class a {
 
     public static byte[] i(boolean z, boolean z2, int i2, int i3, byte[] bArr, boolean z3) {
         ByteBuffer allocate = ByteBuffer.allocate(f() + (bArr != null ? bArr.length : 0));
-        byte b2 = z ? (byte) (f39449h | 0) : (byte) 0;
+        byte b2 = z ? (byte) (f38694h | 0) : (byte) 0;
         if (z2) {
-            b2 = (byte) (f39450i | b2);
+            b2 = (byte) (f38695i | b2);
         }
         byte b3 = (byte) (j | b2);
         if (z3) {
@@ -79,26 +79,26 @@ public class a {
     }
 
     public int b() {
-        return this.f39454d;
+        return this.f38699d;
     }
 
     public boolean c() {
-        return this.f39452b;
+        return this.f38697b;
     }
 
     public boolean d() {
-        return this.f39451a;
+        return this.f38696a;
     }
 
     public boolean e() {
-        return this.f39456f;
+        return this.f38701f;
     }
 
     public boolean g() {
-        return this.f39453c;
+        return this.f38698c;
     }
 
     public int h() {
-        return this.f39455e;
+        return this.f38700e;
     }
 }

@@ -13,18 +13,18 @@ import com.baidu.tbadk.core.atomData.NativeEmotionManagerActivityConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.y1.g.e;
+import d.a.k0.y1.g.e;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CreateNewEmotionFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.j0.y1.h.f.a f19395e;
+    public d.a.k0.y1.h.f.a f18683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f19396f = new a(2921040);
+    public CustomMessageListener f18684f = new a(2921040);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public a(int i2) {
             super(i2);
@@ -37,55 +37,55 @@ public class CreateNewEmotionFragment extends BaseFragment {
                 return;
             }
             HashMap hashMap = (HashMap) customResponsedMessage.getData();
-            if (CreateNewEmotionFragment.this.f19395e == null) {
+            if (CreateNewEmotionFragment.this.f18683e == null) {
                 return;
             }
             if (hashMap == null || hashMap.isEmpty()) {
-                if (CreateNewEmotionFragment.this.f19395e != null) {
-                    CreateNewEmotionFragment.this.f19395e.i();
+                if (CreateNewEmotionFragment.this.f18683e != null) {
+                    CreateNewEmotionFragment.this.f18683e.i();
                 }
             } else if (!hashMap.containsKey("upload_result")) {
-                if (CreateNewEmotionFragment.this.f19395e != null) {
-                    CreateNewEmotionFragment.this.f19395e.i();
+                if (CreateNewEmotionFragment.this.f18683e != null) {
+                    CreateNewEmotionFragment.this.f18683e.i();
                 }
             } else if (hashMap.get("upload_result") == null || !(hashMap.get("upload_result") instanceof Boolean)) {
-                if (CreateNewEmotionFragment.this.f19395e != null) {
-                    CreateNewEmotionFragment.this.f19395e.i();
+                if (CreateNewEmotionFragment.this.f18683e != null) {
+                    CreateNewEmotionFragment.this.f18683e.i();
                 }
             } else if (!((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                if (CreateNewEmotionFragment.this.f19395e != null) {
+                if (CreateNewEmotionFragment.this.f18683e != null) {
                     String str = (String) hashMap.get("upload_msg");
                     if (!TextUtils.isEmpty(str)) {
                         l.J(CreateNewEmotionFragment.this.getActivity(), str);
                     } else {
                         l.J(CreateNewEmotionFragment.this.getActivity(), CreateNewEmotionFragment.this.getString(R.string.emotion_error_default_net_tip));
                     }
-                    CreateNewEmotionFragment.this.f19395e.l();
+                    CreateNewEmotionFragment.this.f18683e.l();
                 }
             } else {
                 BdToast.c(CreateNewEmotionFragment.this.getPageContext().getPageActivity(), CreateNewEmotionFragment.this.getPageContext().getPageActivity().getText(R.string.face_group_upload_success)).q();
-                if (CreateNewEmotionFragment.this.f19395e != null) {
-                    CreateNewEmotionFragment.this.f19395e.i();
+                if (CreateNewEmotionFragment.this.f18683e != null) {
+                    CreateNewEmotionFragment.this.f18683e.i();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921054));
             }
         }
     }
 
-    public final void F0() {
-        if (this.f19395e == null) {
+    public final void E0() {
+        if (this.f18683e == null) {
             return;
         }
         if (e.l().r()) {
-            this.f19395e.j();
+            this.f18683e.j();
         } else if (e.l().k() == null) {
-            this.f19395e.i();
+            this.f18683e.i();
         } else {
-            this.f19395e.m(getString(R.string.emotion_draft_tip));
+            this.f18683e.m(getString(R.string.emotion_draft_tip));
         }
     }
 
-    public final int G0() {
+    public final int F0() {
         Bundle arguments = getArguments();
         if (arguments != null) {
             return arguments.getInt(NativeEmotionManagerActivityConfig.KEY, 0);
@@ -96,7 +96,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        d.a.j0.y1.h.f.a aVar = this.f19395e;
+        d.a.k0.y1.h.f.a aVar = this.f18683e;
         if (aVar != null) {
             aVar.g(i2);
         }
@@ -104,16 +104,16 @@ public class CreateNewEmotionFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        registerListener(this.f19396f);
-        d.a.j0.y1.h.f.a aVar = new d.a.j0.y1.h.f.a(getPageContext(), G0());
-        this.f19395e = aVar;
+        registerListener(this.f18684f);
+        d.a.k0.y1.h.f.a aVar = new d.a.k0.y1.h.f.a(getPageContext(), F0());
+        this.f18683e = aVar;
         return aVar.f();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        d.a.j0.y1.h.f.a aVar = this.f19395e;
+        d.a.k0.y1.h.f.a aVar = this.f18683e;
         if (aVar != null) {
             aVar.h();
         }
@@ -122,6 +122,6 @@ public class CreateNewEmotionFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        F0();
+        E0();
     }
 }

@@ -1,7 +1,9 @@
 package com.baidu.webkit.internal.monitor;
 
 import android.text.TextUtils;
+import com.baidu.webkit.internal.Base64;
 import com.baidu.webkit.internal.INoProGuard;
+import com.baidu.webkit.internal.RC4;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.daemon.ZeusThreadPoolUtil;
 import com.baidu.webkit.net.BdNet;
@@ -9,6 +11,7 @@ import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
+import java.io.IOException;
 import java.util.HashMap;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
@@ -60,7 +63,7 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
                     bdNetTask.wait();
                 }
             } catch (Exception e2) {
-                Log.d(LOG_TAG, "upload error " + e2);
+                Log.d(LOG_TAG, "upload error ".concat(String.valueOf(e2)));
             }
         }
     }
@@ -124,16 +127,77 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
         upload(str, str2, str3, true);
     }
 
-    public void upload(String str, String str2, String str3, boolean z) {
+    public void upload(final String str, final String str2, final String str3, final boolean z) {
         if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
             Log.i(LOG_TAG, "upload closed by isSFSwitchEnabled");
             return;
         }
-        d dVar = new d(this, str2, str, str3, z);
+        Runnable runnable = new Runnable() { // from class: com.baidu.webkit.internal.monitor.SessionMonitorNetWorker.2
+            @Override // java.lang.Runnable
+            public final void run() {
+                if (TextUtils.isEmpty(str2)) {
+                    return;
+                }
+                if (WebSettingsGlobalBlink.isSessionDataEnable()) {
+                    Log.i(SessionMonitorNetWorker.LOG_TAG, "aContent=" + str2);
+                    String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support");
+                    if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals("false")) {
+                        try {
+                            if (!WebSettingsGlobalBlink.getLogsdkEnabled() && !WebSettingsGlobalBlink.getDoubleLogEnabled()) {
+                                SessionMonitorNetWorker.this.sendStatisticsDataToServer(RC4.kernelEncrypt(RC4.kernelGzipCompress(str2.getBytes())), str3, z);
+                            }
+                            if (!SessionMonitorNetWorker.mLogSdkInit) {
+                                Log.i(SessionMonitorNetWorker.LOG_TAG, "BdLogSDK.init1");
+                                com.baidu.webkit.logsdk.a.a(WebKitFactory.getContext(), new c());
+                                boolean unused = SessionMonitorNetWorker.mLogSdkInit = true;
+                            }
+                            com.baidu.webkit.logsdk.a.a(str, str2);
+                            if (WebSettingsGlobalBlink.getDoubleLogEnabled()) {
+                                SessionMonitorNetWorker.this.sendStatisticsDataToServer(RC4.kernelEncrypt(RC4.kernelGzipCompress(str2.getBytes())), str3, z);
+                            }
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                    } else if (WebSettingsGlobalBlink.useLogSdk()) {
+                        if (!SessionMonitorNetWorker.mLogSdkInit) {
+                            Log.i(SessionMonitorNetWorker.LOG_TAG, "BdLogSDK.init2");
+                            com.baidu.webkit.logsdk.a.a(WebKitFactory.getContext(), new c());
+                            boolean unused2 = SessionMonitorNetWorker.mLogSdkInit = true;
+                        }
+                        com.baidu.webkit.logsdk.a.a(str, str2);
+                    } else {
+                        SessionMonitorNetWorker.this.sendStatisticsDataToServer(RC4.kernelEncrypt(Base64.encode(str2.getBytes(), false)), str3, z);
+                    }
+                }
+                if (WebSettingsGlobalBlink.useT5Log()) {
+                    SessionMonitorNetWorker.this.sendStatisticsDataToServer(RC4.kernelEncrypt(Base64.encode(str2.getBytes(), false)), str3, z);
+                }
+            }
+        };
         if (z) {
-            ZeusThreadPoolUtil.executeIgnoreZeus(dVar);
+            ZeusThreadPoolUtil.executeIgnoreZeus(runnable);
         } else {
-            dVar.run();
+            runnable.run();
+        }
+    }
+
+    public void uploadFromFile(String str, final byte[] bArr, final String str2) {
+        if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
+            Log.i(LOG_TAG, "upload closed by isSFSwitchEnabled");
+        } else {
+            ZeusThreadPoolUtil.executeIgnoreZeus(new Runnable() { // from class: com.baidu.webkit.internal.monitor.SessionMonitorNetWorker.1
+                @Override // java.lang.Runnable
+                public final void run() {
+                    byte[] bArr2 = bArr;
+                    if (bArr2 == null || bArr2.length == 0 || !WebSettingsGlobalBlink.isSessionDataEnable()) {
+                        return;
+                    }
+                    String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support");
+                    if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals("false")) {
+                        SessionMonitorNetWorker.this.sendStatisticsDataToServer(bArr, str2, true);
+                    }
+                }
+            });
         }
     }
 }

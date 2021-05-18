@@ -8,7 +8,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
 import d.a.c.j.d.a;
-import d.a.i0.a0.c;
+import d.a.j0.a0.c;
 /* loaded from: classes3.dex */
 public class PicManager {
     public static PicManager instance;

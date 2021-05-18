@@ -19,31 +19,31 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
     public static BdUniqueId j = BdUniqueId.gen();
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f15903a;
+    public ViewGroup f15218a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f15904b;
+    public View f15219b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f15905c;
+    public LinearLayout f15220c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15906d;
+    public TextView f15221d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f15907e;
+    public ImageView f15222e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15908f;
+    public int f15223f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f15909g;
+    public Rect f15224g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15910h;
+    public int f15225h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f15911i;
+    public CustomMessageListener f15226i;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -77,45 +77,45 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
 
     public FrsNoListItemViewHolder(View view, ViewGroup viewGroup) {
         super(view);
-        this.f15909g = new Rect();
-        this.f15911i = new a(2921397);
-        this.f15904b = view;
-        this.f15903a = viewGroup;
-        this.f15905c = (LinearLayout) view.findViewById(R.id.container);
-        this.f15907e = (ImageView) view.findViewById(R.id.emotion_view);
-        this.f15906d = (TextView) view.findViewById(R.id.no_data_tips);
-        SkinManager.setImageResource(this.f15907e, R.drawable.new_pic_emotion_06);
-        this.f15911i.setTag(j);
-        MessageManager.getInstance().registerListener(this.f15911i);
+        this.f15224g = new Rect();
+        this.f15226i = new a(2921397);
+        this.f15219b = view;
+        this.f15218a = viewGroup;
+        this.f15220c = (LinearLayout) view.findViewById(R.id.container);
+        this.f15222e = (ImageView) view.findViewById(R.id.emotion_view);
+        this.f15221d = (TextView) view.findViewById(R.id.no_data_tips);
+        SkinManager.setImageResource(this.f15222e, R.drawable.new_pic_emotion_06);
+        this.f15226i.setTag(j);
+        MessageManager.getInstance().registerListener(this.f15226i);
         e();
     }
 
     public final void d(int i2) {
-        if (this.f15904b == null || this.f15903a == null) {
+        if (this.f15219b == null || this.f15218a == null) {
             return;
         }
-        if (this.f15908f <= 0) {
-            this.f15908f = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+        if (this.f15223f <= 0) {
+            this.f15223f = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
         }
-        if (i2 == Integer.MAX_VALUE && this.f15910h == Integer.MAX_VALUE) {
+        if (i2 == Integer.MAX_VALUE && this.f15225h == Integer.MAX_VALUE) {
             return;
         }
-        this.f15910h = i2;
-        if (this.f15903a.getLocalVisibleRect(this.f15909g)) {
-            int i3 = this.f15909g.bottom;
-            int abs = Math.abs(this.f15905c.getTop());
-            int abs2 = i3 - Math.abs(this.f15905c.getBottom());
-            ViewGroup.LayoutParams layoutParams = this.f15905c.getLayoutParams();
+        this.f15225h = i2;
+        if (this.f15218a.getLocalVisibleRect(this.f15224g)) {
+            int i3 = this.f15224g.bottom;
+            int abs = Math.abs(this.f15220c.getTop());
+            int abs2 = i3 - Math.abs(this.f15220c.getBottom());
+            ViewGroup.LayoutParams layoutParams = this.f15220c.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                int i4 = this.f15908f;
+                int i4 = this.f15223f;
                 if (abs < i4) {
                     marginLayoutParams.topMargin = i4;
-                    this.f15905c.setLayoutParams(marginLayoutParams);
+                    this.f15220c.setLayoutParams(marginLayoutParams);
                 } else if (abs == i4) {
                     if (abs2 > i4) {
                         marginLayoutParams.topMargin = i4 + ((abs2 - i4) / 2);
-                        this.f15905c.setLayoutParams(marginLayoutParams);
+                        this.f15220c.setLayoutParams(marginLayoutParams);
                     }
                 } else if (abs > i4) {
                     if (abs2 < i4) {
@@ -125,14 +125,14 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
                     } else if (abs2 > i4) {
                         marginLayoutParams.topMargin = (abs + abs2) / 2;
                     }
-                    this.f15905c.setLayoutParams(marginLayoutParams);
+                    this.f15220c.setLayoutParams(marginLayoutParams);
                 }
             }
         }
     }
 
     public final void e() {
-        View view = this.f15904b;
+        View view = this.f15219b;
         if (view == null) {
             return;
         }
@@ -143,6 +143,6 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         if (view == null) {
             return false;
         }
-        return view.getGlobalVisibleRect(this.f15909g);
+        return view.getGlobalVisibleRect(this.f15224g);
     }
 }

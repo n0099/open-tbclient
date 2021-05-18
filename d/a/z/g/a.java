@@ -21,6 +21,4 @@ public interface a {
     void g(Bundle bundle);
 
     void h(String str);
-
-    void i(Activity activity, JSONObject jSONObject, d.a.z.e.a aVar);
 }

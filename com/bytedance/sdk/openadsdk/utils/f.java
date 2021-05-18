@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.Nullable;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0027, code lost:
         if (r1 == null) goto L15;

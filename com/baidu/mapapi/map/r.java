@@ -1,38 +1,27 @@
 package com.baidu.mapapi.map;
 
+import android.animation.ValueAnimator;
 import android.view.View;
-import com.baidu.mapapi.map.SwipeDismissTouchListener;
-import com.baidu.mapapi.map.WearMapView;
+import android.view.ViewGroup;
 /* loaded from: classes2.dex */
-public class r implements SwipeDismissTouchListener.DismissCallbacks {
+public class r implements ValueAnimator.AnimatorUpdateListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissView f7386a;
+    public final /* synthetic */ ViewGroup.LayoutParams f7203a;
 
-    public r(SwipeDismissView swipeDismissView) {
-        this.f7386a = swipeDismissView;
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ SwipeDismissTouchListener f7204b;
+
+    public r(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams) {
+        this.f7204b = swipeDismissTouchListener;
+        this.f7203a = layoutParams;
     }
 
-    @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
-    public boolean canDismiss(Object obj) {
-        return true;
-    }
-
-    @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
-    public void onDismiss(View view, Object obj) {
-        WearMapView.OnDismissCallback onDismissCallback = this.f7386a.f7288a;
-        if (onDismissCallback == null) {
-            return;
-        }
-        onDismissCallback.onDismiss();
-    }
-
-    @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
-    public void onNotify() {
-        WearMapView.OnDismissCallback onDismissCallback = this.f7386a.f7288a;
-        if (onDismissCallback == null) {
-            return;
-        }
-        onDismissCallback.onNotify();
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        View view;
+        this.f7203a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+        view = this.f7204b.f7099e;
+        view.setLayoutParams(this.f7203a);
     }
 }

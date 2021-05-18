@@ -14,26 +14,26 @@ public abstract class Optional<T> implements Serializable {
     public static class a implements Iterable<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterable f31622e;
+        public final /* synthetic */ Iterable f30867e;
 
         /* renamed from: com.google.common.base.Optional$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0347a extends AbstractIterator<T> {
+        public class C0334a extends AbstractIterator<T> {
 
             /* renamed from: g  reason: collision with root package name */
-            public final Iterator<? extends Optional<? extends T>> f31623g;
+            public final Iterator<? extends Optional<? extends T>> f30868g;
 
             /* JADX DEBUG: Type inference failed for r1v4. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator<? extends com.google.common.base.Optional<? extends T>> */
-            public C0347a() {
-                Iterator it = a.this.f31622e.iterator();
+            public C0334a() {
+                Iterator it = a.this.f30867e.iterator();
                 n.p(it);
-                this.f31623g = (Iterator<T>) it;
+                this.f30868g = (Iterator<T>) it;
             }
 
             @Override // com.google.common.base.AbstractIterator
             public T a() {
-                while (this.f31623g.hasNext()) {
-                    Optional<? extends T> next = this.f31623g.next();
+                while (this.f30868g.hasNext()) {
+                    Optional<? extends T> next = this.f30868g.next();
                     if (next.isPresent()) {
                         return next.get();
                     }
@@ -43,12 +43,12 @@ public abstract class Optional<T> implements Serializable {
         }
 
         public a(Iterable iterable) {
-            this.f31622e = iterable;
+            this.f30867e = iterable;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
-            return new C0347a();
+            return new C0334a();
         }
     }
 

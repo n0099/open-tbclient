@@ -1,54 +1,35 @@
 package com.baidu.mapapi.map;
 
-import android.util.Log;
-import java.util.HashSet;
+import android.view.View;
+import com.baidu.mapsdkplatform.comapi.map.ab;
+import com.baidu.mapsdkplatform.comapi.map.ac;
 /* loaded from: classes2.dex */
-public class v implements Runnable {
+public class v implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f7390a;
+    public final /* synthetic */ TextureMapView f7208a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f7391b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f7392c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f7393d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ TileOverlay f7394e;
-
-    public v(TileOverlay tileOverlay, int i2, int i3, int i4, String str) {
-        this.f7394e = tileOverlay;
-        this.f7390a = i2;
-        this.f7391b = i3;
-        this.f7392c = i4;
-        this.f7393d = str;
+    public v(TextureMapView textureMapView) {
+        this.f7208a = textureMapView;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TileProvider tileProvider;
-        String str;
-        String str2;
-        HashSet hashSet;
-        tileProvider = this.f7394e.f7328g;
-        Tile tile = ((FileTileProvider) tileProvider).getTile(this.f7390a, this.f7391b, this.f7392c);
-        if (tile == null) {
-            str = TileOverlay.f7322b;
-            str2 = "FileTile pic is null";
-        } else if (tile.width == 256 && tile.height == 256) {
-            this.f7394e.a(this.f7390a + "_" + this.f7391b + "_" + this.f7392c, tile);
-            hashSet = this.f7394e.f7327e;
-            hashSet.remove(this.f7393d);
-        } else {
-            str = TileOverlay.f7322b;
-            str2 = "FileTile pic must be 256 * 256";
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ac acVar;
+        ac acVar2;
+        ac acVar3;
+        acVar = this.f7208a.f7128b;
+        float f2 = acVar.b().f7718a;
+        acVar2 = this.f7208a.f7128b;
+        ab E = acVar2.b().E();
+        float f3 = E.f7671a + 1.0f;
+        E.f7671a = f3;
+        if (f3 <= f2) {
+            f2 = f3;
         }
-        Log.e(str, str2);
-        hashSet = this.f7394e.f7327e;
-        hashSet.remove(this.f7393d);
+        E.f7671a = f2;
+        BaiduMap.mapStatusReason |= 16;
+        acVar3 = this.f7208a.f7128b;
+        acVar3.b().a(E, 300);
     }
 }

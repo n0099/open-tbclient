@@ -18,22 +18,22 @@ import java.util.Arrays;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f25336a;
+    public int f24581a;
 
     /* renamed from: com.baidu.wallet.lightapp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0249a {
+    public static class C0236a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f25337a = new a();
+        public static a f24582a = new a();
     }
 
     public static a a() {
-        return C0249a.f25337a;
+        return C0236a.f24582a;
     }
 
     public a() {
-        this.f25336a = -1;
+        this.f24581a = -1;
     }
 
     public void a(Context context) {

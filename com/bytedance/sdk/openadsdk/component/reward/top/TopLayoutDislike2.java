@@ -13,73 +13,73 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.utils.ad;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike2> {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f28368a;
+    public View f27613a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f28369b;
+    public ImageView f27614b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f28370c;
+    public TextView f27615c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f28371d;
+    public boolean f27616d;
 
     /* renamed from: e  reason: collision with root package name */
-    public l f28372e;
+    public l f27617e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28373f;
+    public boolean f27618f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f28374g;
+    public b f27619g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CharSequence f28375h;
+    public CharSequence f27620h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CharSequence f28376i;
+    public CharSequence f27621i;
 
     public TopLayoutDislike2(@NonNull Context context) {
         this(context, null);
     }
 
     private void d() {
-        View view = this.f28368a;
+        View view = this.f27613a;
         if (view != null) {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (TopLayoutDislike2.this.f28374g != null) {
-                        TopLayoutDislike2.this.f28374g.c(view2);
+                    if (TopLayoutDislike2.this.f27619g != null) {
+                        TopLayoutDislike2.this.f27619g.c(view2);
                     }
                 }
             });
         }
-        ImageView imageView = this.f28369b;
+        ImageView imageView = this.f27614b;
         if (imageView != null) {
             imageView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     TopLayoutDislike2 topLayoutDislike2 = TopLayoutDislike2.this;
-                    topLayoutDislike2.f28373f = !topLayoutDislike2.f28373f;
-                    TopLayoutDislike2.this.f28369b.setImageResource(TopLayoutDislike2.this.f28373f ? ad.d(TopLayoutDislike2.this.getContext(), "tt_mute") : ad.d(TopLayoutDislike2.this.getContext(), "tt_unmute"));
-                    if (TopLayoutDislike2.this.f28374g != null) {
-                        TopLayoutDislike2.this.f28374g.b(view2);
+                    topLayoutDislike2.f27618f = !topLayoutDislike2.f27618f;
+                    TopLayoutDislike2.this.f27614b.setImageResource(TopLayoutDislike2.this.f27618f ? ad.d(TopLayoutDislike2.this.getContext(), "tt_mute") : ad.d(TopLayoutDislike2.this.getContext(), "tt_unmute"));
+                    if (TopLayoutDislike2.this.f27619g != null) {
+                        TopLayoutDislike2.this.f27619g.b(view2);
                     }
                 }
             });
         }
-        TextView textView = this.f28370c;
+        TextView textView = this.f27615c;
         if (textView != null) {
             textView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (TopLayoutDislike2.this.f28374g != null) {
-                        TopLayoutDislike2.this.f28374g.a(view2);
+                    if (TopLayoutDislike2.this.f27619g != null) {
+                        TopLayoutDislike2.this.f27619g.a(view2);
                     }
                 }
             });
@@ -88,7 +88,7 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setListener(b bVar) {
-        this.f28374g = bVar;
+        this.f27619g = bVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
@@ -97,7 +97,7 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowDislike(boolean z) {
-        View view = this.f28368a;
+        View view = this.f27613a;
         if (view != null) {
             view.setVisibility(z ? 0 : 8);
         }
@@ -105,21 +105,21 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowSkip(boolean z) {
-        TextView textView = this.f28370c;
+        TextView textView = this.f27615c;
         if (textView != null) {
             if (!z) {
                 textView.setText("");
             }
-            if (this.f28370c.getVisibility() == 4) {
+            if (this.f27615c.getVisibility() == 4) {
                 return;
             }
-            this.f28370c.setVisibility(z ? 0 : 8);
+            this.f27615c.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowSound(boolean z) {
-        ImageView imageView = this.f28369b;
+        ImageView imageView = this.f27614b;
         if (imageView != null) {
             imageView.setVisibility(z ? 0 : 8);
         }
@@ -127,23 +127,23 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setSkipEnable(boolean z) {
-        TextView textView = this.f28370c;
+        TextView textView = this.f27615c;
         if (textView != null) {
             textView.setEnabled(z);
-            this.f28370c.setClickable(z);
+            this.f27615c.setClickable(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setSoundMute(boolean z) {
         int d2;
-        this.f28373f = z;
+        this.f27618f = z;
         if (z) {
             d2 = ad.d(getContext(), "tt_mute");
         } else {
             d2 = ad.d(getContext(), "tt_unmute");
         }
-        this.f28369b.setImageResource(d2);
+        this.f27614b.setImageResource(d2);
     }
 
     public TopLayoutDislike2(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -152,7 +152,7 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void b() {
-        ImageView imageView = this.f28369b;
+        ImageView imageView = this.f27614b;
         if (imageView != null) {
             imageView.performClick();
         }
@@ -160,28 +160,28 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void c() {
-        this.f28370c.setWidth(20);
-        this.f28370c.setVisibility(4);
+        this.f27615c.setWidth(20);
+        this.f27615c.setVisibility(4);
     }
 
     public TopLayoutDislike2(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f28375h = "";
-        this.f28376i = "";
+        this.f27620h = "";
+        this.f27621i = "";
     }
 
     public TopLayoutDislike2 a(boolean z, @NonNull l lVar) {
-        this.f28371d = z;
-        this.f28372e = lVar;
+        this.f27616d = z;
+        this.f27617e = lVar;
         LayoutInflater.from(getContext()).inflate(ad.f(getContext(), "tt_top_reward_dislike_2"), (ViewGroup) this, true);
-        this.f28368a = findViewById(ad.e(getContext(), "tt_top_dislike"));
-        this.f28369b = (ImageView) findViewById(ad.e(getContext(), "tt_top_mute"));
+        this.f27613a = findViewById(ad.e(getContext(), "tt_top_dislike"));
+        this.f27614b = (ImageView) findViewById(ad.e(getContext(), "tt_top_mute"));
         TextView textView = (TextView) findViewById(ad.e(getContext(), "tt_top_skip"));
-        this.f28370c = textView;
+        this.f27615c = textView;
         textView.setVisibility(0);
-        this.f28370c.setText("");
-        this.f28370c.setEnabled(false);
-        this.f28370c.setClickable(false);
+        this.f27615c.setText("");
+        this.f27615c.setEnabled(false);
+        this.f27615c.setClickable(false);
         d();
         return this;
     }
@@ -189,23 +189,23 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void a(CharSequence charSequence, CharSequence charSequence2) {
         if (!TextUtils.isEmpty(charSequence)) {
-            this.f28375h = charSequence;
+            this.f27620h = charSequence;
         }
         if (!TextUtils.isEmpty(charSequence2)) {
-            this.f28376i = charSequence2;
+            this.f27621i = charSequence2;
         }
-        if (this.f28370c != null) {
-            CharSequence charSequence3 = this.f28375h;
-            if (!TextUtils.isEmpty(this.f28376i)) {
-                charSequence3 = ((Object) charSequence3) + " | " + ((Object) this.f28376i);
+        if (this.f27615c != null) {
+            CharSequence charSequence3 = this.f27620h;
+            if (!TextUtils.isEmpty(this.f27621i)) {
+                charSequence3 = ((Object) charSequence3) + " | " + ((Object) this.f27621i);
             }
-            this.f28370c.setText(charSequence3);
+            this.f27615c.setText(charSequence3);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void a() {
-        TextView textView = this.f28370c;
+        TextView textView = this.f27615c;
         if (textView != null) {
             textView.performClick();
         }

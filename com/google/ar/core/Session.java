@@ -1,7 +1,6 @@
 package com.google.ar.core;
 
 import android.content.Context;
-import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.google.ar.core.exceptions.AnchorNotSupportedForHostingException;
 import com.google.ar.core.exceptions.CameraNotAvailableException;
 import com.google.ar.core.exceptions.CloudAnchorsNotConfiguredException;
@@ -29,10 +28,10 @@ import java.nio.ByteOrder;
 public class Session {
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.g.b.a.g f31580b = new d.g.b.a.g();
+    public final d.g.b.a.g f30825b = new d.g.b.a.g();
 
     /* renamed from: a  reason: collision with root package name */
-    public long f31579a = 0;
+    public long f30824a = 0;
 
     /* loaded from: classes6.dex */
     public enum Feature {
@@ -52,7 +51,7 @@ public class Session {
         
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f31583b = 0;
+        public final int f30828b = 0;
 
         a(int i2) {
         }
@@ -84,8 +83,8 @@ public class Session {
         UNAVAILABLE_ARCORE_NOT_INSTALLED(-100, UnavailableArcoreNotInstalledException.class),
         UNAVAILABLE_DEVICE_NOT_COMPATIBLE(-101, UnavailableDeviceNotCompatibleException.class),
         UNAVAILABLE_APK_TOO_OLD(-103, UnavailableApkTooOldException.class),
-        UNAVAILABLE_SDK_TOO_OLD(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, UnavailableSdkTooOldException.class),
-        UNAVAILABLE_USER_DECLINED_INSTALLATION(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, UnavailableUserDeclinedInstallationException.class);
+        UNAVAILABLE_SDK_TOO_OLD(-104, UnavailableSdkTooOldException.class),
+        UNAVAILABLE_USER_DECLINED_INSTALLATION(-105, UnavailableUserDeclinedInstallationException.class);
         
         public final int j;
         public final Class<? extends Exception> k;
@@ -121,7 +120,7 @@ public class Session {
 
     public static native long nativeCreateSessionForSharedCamera(Context context);
 
-    public static native long nativeCreateSessionWithFeatures(Context context, int[] iArr) throws UnavailableArcoreNotInstalledException, UnavailableApkTooOldException, UnavailableSdkTooOldException, UnavailableDeviceNotCompatibleException;
+    public static native long nativeCreateSessionWithFeatures(Context context, int[] iArr);
 
     private native void nativeDestroySession(long j);
 
@@ -149,11 +148,11 @@ public class Session {
 
     private native void nativeUpdate(long j, long j2);
 
-    public void finalize() throws Throwable {
-        long j = this.f31579a;
+    public void finalize() {
+        long j = this.f30824a;
         if (j != 0) {
             nativeDestroySession(j);
-            this.f31579a = 0L;
+            this.f30824a = 0L;
         }
         super.finalize();
     }
@@ -166,56 +165,56 @@ public class Session {
     public static abstract class c {
 
         /* renamed from: g  reason: collision with root package name */
-        public static final c f31598g;
+        public static final c f30843g;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ c[] f31599i;
+        public static final /* synthetic */ c[] f30844i;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f31600b;
+        public final int f30845b;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Class<?> f31601h;
+        public final Class<?> f30846h;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final c f31594c = new ad("BASE_TRACKABLE", 0, 1095893248, d.g.b.a.b.class);
+        public static final c f30839c = new ad("BASE_TRACKABLE", 0, 1095893248, d.g.b.a.b.class);
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f31593a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
+        public static final c f30838a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
 
         /* renamed from: d  reason: collision with root package name */
-        public static final c f31595d = new af("PLANE", 2, 1095893249, Plane.class);
+        public static final c f30840d = new af("PLANE", 2, 1095893249, Plane.class);
 
         /* renamed from: e  reason: collision with root package name */
-        public static final c f31596e = new ag("POINT", 3, 1095893250, Point.class);
+        public static final c f30841e = new ag("POINT", 3, 1095893250, Point.class);
 
         /* renamed from: f  reason: collision with root package name */
-        public static final c f31597f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
+        public static final c f30842f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
 
         static {
             ai aiVar = new ai("FACE", 5, 1095893253, AugmentedFace.class);
-            f31598g = aiVar;
-            f31599i = new c[]{f31594c, f31593a, f31595d, f31596e, f31597f, aiVar};
+            f30843g = aiVar;
+            f30844i = new c[]{f30839c, f30838a, f30840d, f30841e, f30842f, aiVar};
         }
 
         public c(String str, int i2, int i3, Class cls) {
-            this.f31600b = i3;
-            this.f31601h = cls;
+            this.f30845b = i3;
+            this.f30846h = cls;
         }
 
         public static c a(Class<? extends d.g.b.a.b> cls) {
             c[] values;
             for (c cVar : values()) {
-                Class<?> cls2 = cVar.f31601h;
+                Class<?> cls2 = cVar.f30846h;
                 if (cls2 != null && cls2.equals(cls)) {
                     return cVar;
                 }
             }
-            return f31593a;
+            return f30838a;
         }
 
         public static c[] values() {
-            return (c[]) f31599i.clone();
+            return (c[]) f30844i.clone();
         }
 
         public abstract d.g.b.a.b a(long j, Session session);

@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ai f38123a;
+    public static volatile ai f37368a;
 
     /* renamed from: a  reason: collision with other field name */
     public SharedPreferences f103a;
@@ -28,17 +28,17 @@ public class ai {
     /* loaded from: classes7.dex */
     public static abstract class a implements Runnable {
         /* renamed from: a */
-        public abstract String mo172a();
+        public abstract String mo171a();
     }
 
     /* loaded from: classes7.dex */
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public a f38124a;
+        public a f37369a;
 
         public b(a aVar) {
-            this.f38124a = aVar;
+            this.f37369a = aVar;
         }
 
         public void a() {
@@ -50,7 +50,7 @@ public class ai {
         @Override // java.lang.Runnable
         public void run() {
             a();
-            this.f38124a.run();
+            this.f37369a.run();
             b();
         }
     }
@@ -60,14 +60,14 @@ public class ai {
     }
 
     public static ai a(Context context) {
-        if (f38123a == null) {
+        if (f37368a == null) {
             synchronized (ai.class) {
-                if (f38123a == null) {
-                    f38123a = new ai(context);
+                if (f37368a == null) {
+                    f37368a = new ai(context);
                 }
             }
         }
-        return f38123a;
+        return f37368a;
     }
 
     public static String a(String str) {
@@ -77,7 +77,7 @@ public class ai {
     private ScheduledFuture a(a aVar) {
         ScheduledFuture scheduledFuture;
         synchronized (this.f104a) {
-            scheduledFuture = this.f105a.get(aVar.mo172a());
+            scheduledFuture = this.f105a.get(aVar.mo171a());
         }
         return scheduledFuture;
     }
@@ -91,7 +91,7 @@ public class ai {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m130a(a aVar) {
+    public boolean m129a(a aVar) {
         return b(aVar, 0);
     }
 
@@ -107,7 +107,7 @@ public class ai {
         if (aVar == null || a(aVar) != null) {
             return false;
         }
-        String a2 = a(aVar.mo172a());
+        String a2 = a(aVar.mo171a());
         aj ajVar = new aj(this, aVar, z, a2);
         if (!z) {
             long abs = Math.abs(System.currentTimeMillis() - this.f103a.getLong(a2, 0L)) / 1000;
@@ -118,7 +118,7 @@ public class ai {
         try {
             ScheduledFuture<?> scheduleAtFixedRate = this.f106a.scheduleAtFixedRate(ajVar, i3, i2, TimeUnit.SECONDS);
             synchronized (this.f104a) {
-                this.f105a.put(aVar.mo172a(), scheduleAtFixedRate);
+                this.f105a.put(aVar.mo171a(), scheduleAtFixedRate);
             }
             return true;
         } catch (Exception e2) {
@@ -128,7 +128,7 @@ public class ai {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m131a(String str) {
+    public boolean m130a(String str) {
         synchronized (this.f104a) {
             ScheduledFuture scheduledFuture = this.f105a.get(str);
             if (scheduledFuture == null) {
@@ -145,7 +145,7 @@ public class ai {
         }
         ScheduledFuture<?> schedule = this.f106a.schedule(new ak(this, aVar), i2, TimeUnit.SECONDS);
         synchronized (this.f104a) {
-            this.f105a.put(aVar.mo172a(), schedule);
+            this.f105a.put(aVar.mo171a(), schedule);
         }
         return true;
     }

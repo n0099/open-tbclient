@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.component.container.view;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,61 +11,62 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ScrollView;
 import androidx.annotation.NonNull;
-import d.a.h0.a.a0.b.b;
-import d.a.h0.a.a0.g.a;
-import d.a.h0.a.c0.c;
-import d.a.h0.a.k;
+import d.a.i0.a.c0.b.b;
+import d.a.i0.a.c0.g.a;
+import d.a.i0.a.e0.d;
+import d.a.i0.a.k;
 /* loaded from: classes2.dex */
 public class SwanAppComponentContainerView extends FrameLayout {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f11626i = k.f43101a;
+    public static final boolean f10772i = k.f43025a;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f11627e;
+    public View f10773e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f11628f;
+    public b f10774f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Path f11629g;
+    public Path f10775g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ScrollView f11630h;
+    public ScrollView f10776h;
 
     public SwanAppComponentContainerView(@NonNull Context context) {
         super(context);
     }
 
+    @SuppressLint({"ObsoleteSdkInt"})
     public final void a(Canvas canvas) {
         Path path;
-        if (Build.VERSION.SDK_INT < 21 || (path = this.f11629g) == null || this.f11627e == null) {
+        if (Build.VERSION.SDK_INT < 21 || (path = this.f10775g) == null || this.f10773e == null) {
             return;
         }
-        b bVar = this.f11628f;
-        if (bVar instanceof d.a.h0.a.a0.c.e.c.b) {
-            d.a.h0.a.a0.c.e.c.b bVar2 = (d.a.h0.a.a0.c.e.c.b) bVar;
+        b bVar = this.f10774f;
+        if (bVar instanceof d.a.i0.a.c0.c.e.c.b) {
+            d.a.i0.a.c0.c.e.c.b bVar2 = (d.a.i0.a.c0.c.e.c.b) bVar;
             if (bVar2.r > 0) {
                 path.reset();
-                Path path2 = this.f11629g;
-                float left = this.f11627e.getLeft();
-                float top = this.f11627e.getTop();
-                float right = this.f11627e.getRight();
-                float bottom = this.f11627e.getBottom();
+                Path path2 = this.f10775g;
+                float left = this.f10773e.getLeft();
+                float top = this.f10773e.getTop();
+                float right = this.f10773e.getRight();
+                float bottom = this.f10773e.getBottom();
                 int i2 = bVar2.r;
                 path2.addRoundRect(left, top, right, bottom, i2, i2, Path.Direction.CW);
-                if (f11626i) {
+                if (f10772i) {
                     Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + bVar2.r);
                 }
                 canvas.save();
-                canvas.clipPath(this.f11629g);
+                canvas.clipPath(this.f10775g);
                 canvas.restore();
             }
         }
     }
 
     public ScrollView getScrollView() {
-        return this.f11630h;
+        return this.f10776h;
     }
 
     @Override // android.view.View
@@ -75,7 +77,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
     }
 
     public void setHidden(boolean z) {
-        View view = this.f11630h;
+        View view = this.f10776h;
         if (view == null) {
             view = this;
         }
@@ -83,11 +85,11 @@ public class SwanAppComponentContainerView extends FrameLayout {
     }
 
     public void setModel(@NonNull b bVar) {
-        this.f11628f = bVar;
+        this.f10774f = bVar;
     }
 
     public void setScrollView(ScrollView scrollView) {
-        this.f11630h = scrollView;
+        this.f10776h = scrollView;
     }
 
     public void setTargetView(@NonNull View view) {
@@ -95,18 +97,18 @@ public class SwanAppComponentContainerView extends FrameLayout {
     }
 
     public void setTargetView(@NonNull View view, int i2) {
-        if (this.f11627e == view) {
-            c.l("Component-ContainerView", "repeat setTargetView with the same view");
+        if (this.f10773e == view) {
+            d.l("Component-ContainerView", "repeat setTargetView with the same view");
             return;
         }
-        if (this.f11629g == null) {
-            this.f11629g = new Path();
+        if (this.f10775g == null) {
+            this.f10775g = new Path();
         }
-        if (this.f11627e != null) {
+        if (this.f10773e != null) {
             a.a("Component-ContainerView", "repeat setTargetView with the different view");
-            removeView(this.f11627e);
+            removeView(this.f10773e);
         }
-        this.f11627e = view;
+        this.f10773e = view;
         addView(view, i2, generateDefaultLayoutParams());
     }
 }

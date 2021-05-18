@@ -15,16 +15,16 @@ public abstract class UIntIterator implements Iterator<UInt>, KMappedMarker {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // java.util.Iterator
     public /* bridge */ /* synthetic */ UInt next() {
-        return UInt.m716boximpl(m1064nextpVg5ArA());
+        return UInt.m715boximpl(m1063nextpVg5ArA());
     }
 
     /* renamed from: next-pVg5ArA  reason: not valid java name */
-    public final int m1064nextpVg5ArA() {
-        return mo783nextUIntpVg5ArA();
+    public final int m1063nextpVg5ArA() {
+        return mo782nextUIntpVg5ArA();
     }
 
     /* renamed from: nextUInt-pVg5ArA */
-    public abstract int mo783nextUIntpVg5ArA();
+    public abstract int mo782nextUIntpVg5ArA();
 
     @Override // java.util.Iterator
     public void remove() {

@@ -19,19 +19,19 @@ import org.xml.sax.SAXException;
 public class SVG {
 
     /* renamed from: a  reason: collision with root package name */
-    public d0 f31160a = null;
+    public d0 f30405a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.c.a.d f31161b = null;
+    public d.c.a.d f30406b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f31162c = 96.0f;
+    public float f30407c = 96.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public CSSParser.e f31163d = new CSSParser.e();
+    public CSSParser.e f30408d = new CSSParser.e();
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, j0> f31164e = new HashMap();
+    public Map<String, j0> f30409e = new HashMap();
 
     /* loaded from: classes6.dex */
     public enum GradientSpread {
@@ -60,19 +60,19 @@ public class SVG {
         public VectorEffect P;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f31165e = 0;
+        public long f30410e = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public m0 f31166f;
+        public m0 f30411f;
 
         /* renamed from: g  reason: collision with root package name */
-        public FillRule f31167g;
+        public FillRule f30412g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Float f31168h;
+        public Float f30413h;
 
         /* renamed from: i  reason: collision with root package name */
-        public m0 f31169i;
+        public m0 f30414i;
         public Float j;
         public o k;
         public LineCaps l;
@@ -148,12 +148,12 @@ public class SVG {
 
         public static Style b() {
             Style style = new Style();
-            style.f31165e = -1L;
-            style.f31166f = f.f31182f;
-            style.f31167g = FillRule.NonZero;
+            style.f30410e = -1L;
+            style.f30411f = f.f30427f;
+            style.f30412g = FillRule.NonZero;
             Float valueOf = Float.valueOf(1.0f);
-            style.f31168h = valueOf;
-            style.f31169i = null;
+            style.f30413h = valueOf;
+            style.f30414i = null;
             style.j = valueOf;
             style.k = new o(1.0f);
             style.l = LineCaps.Butt;
@@ -162,7 +162,7 @@ public class SVG {
             style.o = null;
             style.p = new o(0.0f);
             style.q = valueOf;
-            style.r = f.f31182f;
+            style.r = f.f30427f;
             style.s = null;
             style.t = new o(12.0f, Unit.pt);
             style.u = 400;
@@ -178,7 +178,7 @@ public class SVG {
             style.D = null;
             style.E = bool;
             style.F = bool;
-            style.G = f.f31182f;
+            style.G = f.f30427f;
             style.H = valueOf;
             style.I = null;
             style.J = FillRule.NonZero;
@@ -201,7 +201,7 @@ public class SVG {
             this.A = null;
             this.I = null;
             this.q = Float.valueOf(1.0f);
-            this.G = f.f31182f;
+            this.G = f.f30427f;
             this.H = Float.valueOf(1.0f);
             this.K = null;
             this.L = null;
@@ -241,45 +241,45 @@ public class SVG {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31170a;
+        public static final /* synthetic */ int[] f30415a;
 
         static {
             int[] iArr = new int[Unit.values().length];
-            f31170a = iArr;
+            f30415a = iArr;
             try {
                 iArr[Unit.px.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31170a[Unit.em.ordinal()] = 2;
+                f30415a[Unit.em.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f31170a[Unit.ex.ordinal()] = 3;
+                f30415a[Unit.ex.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f31170a[Unit.in.ordinal()] = 4;
+                f30415a[Unit.in.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f31170a[Unit.cm.ordinal()] = 5;
+                f30415a[Unit.cm.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f31170a[Unit.mm.ordinal()] = 6;
+                f30415a[Unit.mm.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f31170a[Unit.pt.ordinal()] = 7;
+                f30415a[Unit.pt.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f31170a[Unit.pc.ordinal()] = 8;
+                f30415a[Unit.pc.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f31170a[Unit.percent.ordinal()] = 9;
+                f30415a[Unit.percent.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
         }
@@ -299,23 +299,23 @@ public class SVG {
     public static class a1 extends l0 implements v0 {
 
         /* renamed from: c  reason: collision with root package name */
-        public String f31171c;
+        public String f30416c;
 
         /* renamed from: d  reason: collision with root package name */
-        public z0 f31172d;
+        public z0 f30417d;
 
         public a1(String str) {
-            this.f31171c = str;
+            this.f30416c = str;
         }
 
         @Override // com.caverock.androidsvg.SVG.v0
         public z0 c() {
-            return this.f31172d;
+            return this.f30417d;
         }
 
         @Override // com.caverock.androidsvg.SVG.l0
         public String toString() {
-            return a1.class.getSimpleName() + " '" + this.f31171c + "'";
+            return a1.class.getSimpleName() + " '" + this.f30416c + "'";
         }
     }
 
@@ -323,22 +323,22 @@ public class SVG {
     public static class b implements Cloneable {
 
         /* renamed from: e  reason: collision with root package name */
-        public float f31173e;
+        public float f30418e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f31174f;
+        public float f30419f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f31175g;
+        public float f30420g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f31176h;
+        public float f30421h;
 
         public b(float f2, float f3, float f4, float f5) {
-            this.f31173e = f2;
-            this.f31174f = f3;
-            this.f31175g = f4;
-            this.f31176h = f5;
+            this.f30418e = f2;
+            this.f30419f = f3;
+            this.f30420g = f4;
+            this.f30421h = f5;
         }
 
         public static b a(float f2, float f3, float f4, float f5) {
@@ -346,32 +346,32 @@ public class SVG {
         }
 
         public float b() {
-            return this.f31173e + this.f31175g;
+            return this.f30418e + this.f30420g;
         }
 
         public float c() {
-            return this.f31174f + this.f31176h;
+            return this.f30419f + this.f30421h;
         }
 
         public void d(b bVar) {
-            float f2 = bVar.f31173e;
-            if (f2 < this.f31173e) {
-                this.f31173e = f2;
+            float f2 = bVar.f30418e;
+            if (f2 < this.f30418e) {
+                this.f30418e = f2;
             }
-            float f3 = bVar.f31174f;
-            if (f3 < this.f31174f) {
-                this.f31174f = f3;
+            float f3 = bVar.f30419f;
+            if (f3 < this.f30419f) {
+                this.f30419f = f3;
             }
             if (bVar.b() > b()) {
-                this.f31175g = bVar.b() - this.f31173e;
+                this.f30420g = bVar.b() - this.f30418e;
             }
             if (bVar.c() > c()) {
-                this.f31176h = bVar.c() - this.f31174f;
+                this.f30421h = bVar.c() - this.f30419f;
             }
         }
 
         public String toString() {
-            return "[" + this.f31173e + " " + this.f31174f + " " + this.f31175g + " " + this.f31176h + "]";
+            return "[" + this.f30418e + " " + this.f30419f + " " + this.f30420g + " " + this.f30421h + "]";
         }
     }
 
@@ -400,22 +400,22 @@ public class SVG {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public o f31177a;
+        public o f30422a;
 
         /* renamed from: b  reason: collision with root package name */
-        public o f31178b;
+        public o f30423b;
 
         /* renamed from: c  reason: collision with root package name */
-        public o f31179c;
+        public o f30424c;
 
         /* renamed from: d  reason: collision with root package name */
-        public o f31180d;
+        public o f30425d;
 
         public c(o oVar, o oVar2, o oVar3, o oVar4) {
-            this.f31177a = oVar;
-            this.f31178b = oVar2;
-            this.f31179c = oVar3;
-            this.f31180d = oVar4;
+            this.f30422a = oVar;
+            this.f30423b = oVar2;
+            this.f30424c = oVar3;
+            this.f30425d = oVar4;
         }
     }
 
@@ -423,7 +423,7 @@ public class SVG {
     public static class c0 extends j0 implements h0 {
 
         /* renamed from: h  reason: collision with root package name */
-        public Float f31181h;
+        public Float f30426h;
 
         @Override // com.caverock.androidsvg.SVG.h0
         public List<l0> getChildren() {
@@ -487,17 +487,17 @@ public class SVG {
     public static class f extends m0 {
 
         /* renamed from: f  reason: collision with root package name */
-        public static final f f31182f = new f(0);
+        public static final f f30427f = new f(0);
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31183e;
+        public int f30428e;
 
         public f(int i2) {
-            this.f31183e = i2;
+            this.f30428e = i2;
         }
 
         public String toString() {
-            return String.format("#%06x", Integer.valueOf(this.f31183e));
+            return String.format("#%06x", Integer.valueOf(this.f30428e));
         }
     }
 
@@ -505,7 +505,7 @@ public class SVG {
     public static class f0 extends i0 implements h0, e0 {
 
         /* renamed from: i  reason: collision with root package name */
-        public List<l0> f31184i = new ArrayList();
+        public List<l0> f30429i = new ArrayList();
         public Set<String> j = null;
         public String k = null;
         public Set<String> l = null;
@@ -542,7 +542,7 @@ public class SVG {
 
         @Override // com.caverock.androidsvg.SVG.h0
         public List<l0> getChildren() {
-            return this.f31184i;
+            return this.f30429i;
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
@@ -552,7 +552,7 @@ public class SVG {
 
         @Override // com.caverock.androidsvg.SVG.h0
         public void i(l0 l0Var) throws SAXException {
-            this.f31184i.add(l0Var);
+            this.f30429i.add(l0Var);
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
@@ -575,10 +575,10 @@ public class SVG {
     public static class g extends m0 {
 
         /* renamed from: e  reason: collision with root package name */
-        public static g f31185e = new g();
+        public static g f30430e = new g();
 
         public static g b() {
-            return f31185e;
+            return f30430e;
         }
     }
 
@@ -586,7 +586,7 @@ public class SVG {
     public static class g0 extends i0 implements e0 {
 
         /* renamed from: i  reason: collision with root package name */
-        public Set<String> f31186i = null;
+        public Set<String> f30431i = null;
         public String j = null;
         public Set<String> k = null;
         public Set<String> l = null;
@@ -619,12 +619,12 @@ public class SVG {
 
         @Override // com.caverock.androidsvg.SVG.e0
         public void g(Set<String> set) {
-            this.f31186i = set;
+            this.f30431i = set;
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
         public Set<String> h() {
-            return this.f31186i;
+            return this.f30431i;
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
@@ -666,30 +666,30 @@ public class SVG {
     public static class i0 extends j0 {
 
         /* renamed from: h  reason: collision with root package name */
-        public b f31187h = null;
+        public b f30432h = null;
     }
 
     /* loaded from: classes6.dex */
     public static class j extends j0 implements h0 {
 
         /* renamed from: h  reason: collision with root package name */
-        public List<l0> f31188h = new ArrayList();
+        public List<l0> f30433h = new ArrayList();
 
         /* renamed from: i  reason: collision with root package name */
-        public Boolean f31189i;
+        public Boolean f30434i;
         public Matrix j;
         public GradientSpread k;
         public String l;
 
         @Override // com.caverock.androidsvg.SVG.h0
         public List<l0> getChildren() {
-            return this.f31188h;
+            return this.f30433h;
         }
 
         @Override // com.caverock.androidsvg.SVG.h0
         public void i(l0 l0Var) throws SAXException {
             if (l0Var instanceof c0) {
-                this.f31188h.add(l0Var);
+                this.f30433h.add(l0Var);
                 return;
             }
             throw new SAXException("Gradient elements cannot contain " + l0Var + " elements.");
@@ -700,19 +700,19 @@ public class SVG {
     public static class j0 extends l0 {
 
         /* renamed from: c  reason: collision with root package name */
-        public String f31190c = null;
+        public String f30435c = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public Boolean f31191d = null;
+        public Boolean f30436d = null;
 
         /* renamed from: e  reason: collision with root package name */
-        public Style f31192e = null;
+        public Style f30437e = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public Style f31193f = null;
+        public Style f30438f = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public List<String> f31194g = null;
+        public List<String> f30439g = null;
     }
 
     /* loaded from: classes6.dex */
@@ -747,10 +747,10 @@ public class SVG {
     public static class l0 {
 
         /* renamed from: a  reason: collision with root package name */
-        public SVG f31195a;
+        public SVG f30440a;
 
         /* renamed from: b  reason: collision with root package name */
-        public h0 f31196b;
+        public h0 f30441b;
 
         public String toString() {
             return getClass().getSimpleName();
@@ -859,18 +859,18 @@ public class SVG {
     public static class t extends m0 {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f31199e;
+        public String f30444e;
 
         /* renamed from: f  reason: collision with root package name */
-        public m0 f31200f;
+        public m0 f30445f;
 
         public t(String str, m0 m0Var) {
-            this.f31199e = str;
-            this.f31200f = m0Var;
+            this.f30444e = str;
+            this.f30445f = m0Var;
         }
 
         public String toString() {
-            return this.f31199e + " " + this.f31200f;
+            return this.f30444e + " " + this.f30445f;
         }
     }
 
@@ -908,34 +908,34 @@ public class SVG {
     public static class v implements w {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f31201a;
+        public byte[] f30446a;
 
         /* renamed from: c  reason: collision with root package name */
-        public float[] f31203c;
+        public float[] f30448c;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31202b = 0;
+        public int f30447b = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f31204d = 0;
+        public int f30449d = 0;
 
         public v() {
-            this.f31201a = null;
-            this.f31203c = null;
-            this.f31201a = new byte[8];
-            this.f31203c = new float[16];
+            this.f30446a = null;
+            this.f30448c = null;
+            this.f30446a = new byte[8];
+            this.f30448c = new float[16];
         }
 
         @Override // com.caverock.androidsvg.SVG.w
         public void a(float f2, float f3) {
             f((byte) 0);
             g(2);
-            float[] fArr = this.f31203c;
-            int i2 = this.f31204d;
+            float[] fArr = this.f30448c;
+            int i2 = this.f30449d;
             int i3 = i2 + 1;
-            this.f31204d = i3;
+            this.f30449d = i3;
             fArr[i2] = f2;
-            this.f31204d = i3 + 1;
+            this.f30449d = i3 + 1;
             fArr[i3] = f3;
         }
 
@@ -943,12 +943,12 @@ public class SVG {
         public void b(float f2, float f3) {
             f((byte) 1);
             g(2);
-            float[] fArr = this.f31203c;
-            int i2 = this.f31204d;
+            float[] fArr = this.f30448c;
+            int i2 = this.f30449d;
             int i3 = i2 + 1;
-            this.f31204d = i3;
+            this.f30449d = i3;
             fArr[i2] = f2;
-            this.f31204d = i3 + 1;
+            this.f30449d = i3 + 1;
             fArr[i3] = f3;
         }
 
@@ -956,18 +956,18 @@ public class SVG {
         public void c(float f2, float f3, float f4, float f5) {
             f((byte) 3);
             g(4);
-            float[] fArr = this.f31203c;
-            int i2 = this.f31204d;
+            float[] fArr = this.f30448c;
+            int i2 = this.f30449d;
             int i3 = i2 + 1;
-            this.f31204d = i3;
+            this.f30449d = i3;
             fArr[i2] = f2;
             int i4 = i3 + 1;
-            this.f31204d = i4;
+            this.f30449d = i4;
             fArr[i3] = f3;
             int i5 = i4 + 1;
-            this.f31204d = i5;
+            this.f30449d = i5;
             fArr[i4] = f4;
-            this.f31204d = i5 + 1;
+            this.f30449d = i5 + 1;
             fArr[i5] = f5;
         }
 
@@ -980,24 +980,24 @@ public class SVG {
         public void d(float f2, float f3, float f4, float f5, float f6, float f7) {
             f((byte) 2);
             g(6);
-            float[] fArr = this.f31203c;
-            int i2 = this.f31204d;
+            float[] fArr = this.f30448c;
+            int i2 = this.f30449d;
             int i3 = i2 + 1;
-            this.f31204d = i3;
+            this.f30449d = i3;
             fArr[i2] = f2;
             int i4 = i3 + 1;
-            this.f31204d = i4;
+            this.f30449d = i4;
             fArr[i3] = f3;
             int i5 = i4 + 1;
-            this.f31204d = i5;
+            this.f30449d = i5;
             fArr[i4] = f4;
             int i6 = i5 + 1;
-            this.f31204d = i6;
+            this.f30449d = i6;
             fArr[i5] = f5;
             int i7 = i6 + 1;
-            this.f31204d = i7;
+            this.f30449d = i7;
             fArr[i6] = f6;
-            this.f31204d = i7 + 1;
+            this.f30449d = i7 + 1;
             fArr[i7] = f7;
         }
 
@@ -1005,60 +1005,60 @@ public class SVG {
         public void e(float f2, float f3, float f4, boolean z, boolean z2, float f5, float f6) {
             f((byte) ((z ? 2 : 0) | 4 | (z2 ? 1 : 0)));
             g(5);
-            float[] fArr = this.f31203c;
-            int i2 = this.f31204d;
+            float[] fArr = this.f30448c;
+            int i2 = this.f30449d;
             int i3 = i2 + 1;
-            this.f31204d = i3;
+            this.f30449d = i3;
             fArr[i2] = f2;
             int i4 = i3 + 1;
-            this.f31204d = i4;
+            this.f30449d = i4;
             fArr[i3] = f3;
             int i5 = i4 + 1;
-            this.f31204d = i5;
+            this.f30449d = i5;
             fArr[i4] = f4;
             int i6 = i5 + 1;
-            this.f31204d = i6;
+            this.f30449d = i6;
             fArr[i5] = f5;
-            this.f31204d = i6 + 1;
+            this.f30449d = i6 + 1;
             fArr[i6] = f6;
         }
 
         public final void f(byte b2) {
-            int i2 = this.f31202b;
-            byte[] bArr = this.f31201a;
+            int i2 = this.f30447b;
+            byte[] bArr = this.f30446a;
             if (i2 == bArr.length) {
                 byte[] bArr2 = new byte[bArr.length * 2];
                 System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
-                this.f31201a = bArr2;
+                this.f30446a = bArr2;
             }
-            byte[] bArr3 = this.f31201a;
-            int i3 = this.f31202b;
-            this.f31202b = i3 + 1;
+            byte[] bArr3 = this.f30446a;
+            int i3 = this.f30447b;
+            this.f30447b = i3 + 1;
             bArr3[i3] = b2;
         }
 
         public final void g(int i2) {
-            float[] fArr = this.f31203c;
-            if (fArr.length < this.f31204d + i2) {
+            float[] fArr = this.f30448c;
+            if (fArr.length < this.f30449d + i2) {
                 float[] fArr2 = new float[fArr.length * 2];
                 System.arraycopy(fArr, 0, fArr2, 0, fArr.length);
-                this.f31203c = fArr2;
+                this.f30448c = fArr2;
             }
         }
 
         public void h(w wVar) {
             int i2;
             int i3 = 0;
-            for (int i4 = 0; i4 < this.f31202b; i4++) {
-                byte b2 = this.f31201a[i4];
+            for (int i4 = 0; i4 < this.f30447b; i4++) {
+                byte b2 = this.f30446a[i4];
                 if (b2 == 0) {
-                    float[] fArr = this.f31203c;
+                    float[] fArr = this.f30448c;
                     int i5 = i3 + 1;
                     i2 = i5 + 1;
                     wVar.a(fArr[i3], fArr[i5]);
                 } else if (b2 != 1) {
                     if (b2 == 2) {
-                        float[] fArr2 = this.f31203c;
+                        float[] fArr2 = this.f30448c;
                         int i6 = i3 + 1;
                         float f2 = fArr2[i3];
                         int i7 = i6 + 1;
@@ -1072,7 +1072,7 @@ public class SVG {
                         i3 = i10 + 1;
                         wVar.d(f2, f3, f4, f5, f6, fArr2[i10]);
                     } else if (b2 == 3) {
-                        float[] fArr3 = this.f31203c;
+                        float[] fArr3 = this.f30448c;
                         int i11 = i3 + 1;
                         int i12 = i11 + 1;
                         int i13 = i12 + 1;
@@ -1081,7 +1081,7 @@ public class SVG {
                     } else if (b2 != 8) {
                         boolean z = (b2 & 2) != 0;
                         boolean z2 = (b2 & 1) != 0;
-                        float[] fArr4 = this.f31203c;
+                        float[] fArr4 = this.f30448c;
                         int i14 = i3 + 1;
                         float f7 = fArr4[i3];
                         int i15 = i14 + 1;
@@ -1095,7 +1095,7 @@ public class SVG {
                         wVar.close();
                     }
                 } else {
-                    float[] fArr5 = this.f31203c;
+                    float[] fArr5 = this.f30448c;
                     int i18 = i3 + 1;
                     i2 = i18 + 1;
                     wVar.b(fArr5[i3], fArr5[i18]);
@@ -1105,7 +1105,7 @@ public class SVG {
         }
 
         public boolean i() {
-            return this.f31202b == 0;
+            return this.f30447b == 0;
         }
     }
 
@@ -1134,7 +1134,7 @@ public class SVG {
         @Override // com.caverock.androidsvg.SVG.f0, com.caverock.androidsvg.SVG.h0
         public void i(l0 l0Var) throws SAXException {
             if (l0Var instanceof v0) {
-                this.f31184i.add(l0Var);
+                this.f30429i.add(l0Var);
                 return;
             }
             throw new SAXException("Text content elements cannot contain " + l0Var + " elements.");
@@ -1227,23 +1227,23 @@ public class SVG {
     }
 
     public void a(CSSParser.e eVar) {
-        this.f31163d.b(eVar);
+        this.f30408d.b(eVar);
     }
 
     public List<CSSParser.d> b() {
-        return this.f31163d.c();
+        return this.f30408d.c();
     }
 
     public final j0 c(h0 h0Var, String str) {
         j0 c2;
         j0 j0Var = (j0) h0Var;
-        if (str.equals(j0Var.f31190c)) {
+        if (str.equals(j0Var.f30435c)) {
             return j0Var;
         }
         for (l0 l0Var : h0Var.getChildren()) {
             if (l0Var instanceof j0) {
                 j0 j0Var2 = (j0) l0Var;
-                if (str.equals(j0Var2.f31190c)) {
+                if (str.equals(j0Var2.f30435c)) {
                     return j0Var2;
                 }
                 if ((l0Var instanceof h0) && (c2 = c((h0) l0Var, str)) != null) {
@@ -1258,41 +1258,41 @@ public class SVG {
         if (str == null || str.length() == 0) {
             return null;
         }
-        if (str.equals(this.f31160a.f31190c)) {
-            return this.f31160a;
+        if (str.equals(this.f30405a.f30435c)) {
+            return this.f30405a;
         }
-        if (this.f31164e.containsKey(str)) {
-            return this.f31164e.get(str);
+        if (this.f30409e.containsKey(str)) {
+            return this.f30409e.get(str);
         }
-        j0 c2 = c(this.f31160a, str);
-        this.f31164e.put(str, c2);
+        j0 c2 = c(this.f30405a, str);
+        this.f30409e.put(str, c2);
         return c2;
     }
 
     public d.c.a.d e() {
-        return this.f31161b;
+        return this.f30406b;
     }
 
     public d0 j() {
-        return this.f31160a;
+        return this.f30405a;
     }
 
     public boolean k() {
-        return !this.f31163d.d();
+        return !this.f30408d.d();
     }
 
     public Picture l() {
         float c2;
-        o oVar = this.f31160a.r;
+        o oVar = this.f30405a.r;
         if (oVar != null) {
-            float c3 = oVar.c(this.f31162c);
-            d0 d0Var = this.f31160a;
+            float c3 = oVar.c(this.f30407c);
+            d0 d0Var = this.f30405a;
             b bVar = d0Var.o;
             if (bVar != null) {
-                c2 = (bVar.f31176h * c3) / bVar.f31175g;
+                c2 = (bVar.f30421h * c3) / bVar.f30420g;
             } else {
                 o oVar2 = d0Var.s;
-                c2 = oVar2 != null ? oVar2.c(this.f31162c) : c3;
+                c2 = oVar2 != null ? oVar2.c(this.f30407c) : c3;
             }
             return m((int) Math.ceil(c3), (int) Math.ceil(c2));
         }
@@ -1301,7 +1301,7 @@ public class SVG {
 
     public Picture m(int i2, int i3) {
         Picture picture = new Picture();
-        new d.c.a.c(picture.beginRecording(i2, i3), new b(0.0f, 0.0f, i2, i3), this.f31162c).G0(this, null, null, false);
+        new d.c.a.c(picture.beginRecording(i2, i3), new b(0.0f, 0.0f, i2, i3), this.f30407c).G0(this, null, null, false);
         picture.endRecording();
         return picture;
     }
@@ -1317,7 +1317,7 @@ public class SVG {
     }
 
     public void p(d0 d0Var) {
-        this.f31160a = d0Var;
+        this.f30405a = d0Var;
     }
 
     public void q(String str) {
@@ -1327,124 +1327,124 @@ public class SVG {
     public static class o implements Cloneable {
 
         /* renamed from: e  reason: collision with root package name */
-        public float f31197e;
+        public float f30442e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Unit f31198f;
+        public Unit f30443f;
 
         public o(float f2, Unit unit) {
-            this.f31197e = 0.0f;
-            this.f31198f = Unit.px;
-            this.f31197e = f2;
-            this.f31198f = unit;
+            this.f30442e = 0.0f;
+            this.f30443f = Unit.px;
+            this.f30442e = f2;
+            this.f30443f = unit;
         }
 
         public float b() {
-            return this.f31197e;
+            return this.f30442e;
         }
 
         public float c(float f2) {
-            int i2 = a.f31170a[this.f31198f.ordinal()];
+            int i2 = a.f30415a[this.f30443f.ordinal()];
             if (i2 != 1) {
                 switch (i2) {
                     case 4:
-                        return this.f31197e * f2;
+                        return this.f30442e * f2;
                     case 5:
-                        return (this.f31197e * f2) / 2.54f;
+                        return (this.f30442e * f2) / 2.54f;
                     case 6:
-                        return (this.f31197e * f2) / 25.4f;
+                        return (this.f30442e * f2) / 25.4f;
                     case 7:
-                        return (this.f31197e * f2) / 72.0f;
+                        return (this.f30442e * f2) / 72.0f;
                     case 8:
-                        return (this.f31197e * f2) / 6.0f;
+                        return (this.f30442e * f2) / 6.0f;
                     default:
-                        return this.f31197e;
+                        return this.f30442e;
                 }
             }
-            return this.f31197e;
+            return this.f30442e;
         }
 
         public float d(d.c.a.c cVar) {
-            if (this.f31198f == Unit.percent) {
+            if (this.f30443f == Unit.percent) {
                 b W = cVar.W();
                 if (W == null) {
-                    return this.f31197e;
+                    return this.f30442e;
                 }
-                float f2 = W.f31175g;
-                float f3 = W.f31176h;
+                float f2 = W.f30420g;
+                float f3 = W.f30421h;
                 if (f2 == f3) {
-                    return (this.f31197e * f2) / 100.0f;
+                    return (this.f30442e * f2) / 100.0f;
                 }
-                return (this.f31197e * ((float) (Math.sqrt((f2 * f2) + (f3 * f3)) / 1.414213562373095d))) / 100.0f;
+                return (this.f30442e * ((float) (Math.sqrt((f2 * f2) + (f3 * f3)) / 1.414213562373095d))) / 100.0f;
             }
             return f(cVar);
         }
 
         public float e(d.c.a.c cVar, float f2) {
-            if (this.f31198f == Unit.percent) {
-                return (this.f31197e * f2) / 100.0f;
+            if (this.f30443f == Unit.percent) {
+                return (this.f30442e * f2) / 100.0f;
             }
             return f(cVar);
         }
 
         public float f(d.c.a.c cVar) {
-            switch (a.f31170a[this.f31198f.ordinal()]) {
+            switch (a.f30415a[this.f30443f.ordinal()]) {
                 case 1:
-                    return this.f31197e;
+                    return this.f30442e;
                 case 2:
-                    return this.f31197e * cVar.U();
+                    return this.f30442e * cVar.U();
                 case 3:
-                    return this.f31197e * cVar.V();
+                    return this.f30442e * cVar.V();
                 case 4:
-                    return this.f31197e * cVar.X();
+                    return this.f30442e * cVar.X();
                 case 5:
-                    return (this.f31197e * cVar.X()) / 2.54f;
+                    return (this.f30442e * cVar.X()) / 2.54f;
                 case 6:
-                    return (this.f31197e * cVar.X()) / 25.4f;
+                    return (this.f30442e * cVar.X()) / 25.4f;
                 case 7:
-                    return (this.f31197e * cVar.X()) / 72.0f;
+                    return (this.f30442e * cVar.X()) / 72.0f;
                 case 8:
-                    return (this.f31197e * cVar.X()) / 6.0f;
+                    return (this.f30442e * cVar.X()) / 6.0f;
                 case 9:
                     b W = cVar.W();
                     if (W == null) {
-                        return this.f31197e;
+                        return this.f30442e;
                     }
-                    return (this.f31197e * W.f31175g) / 100.0f;
+                    return (this.f30442e * W.f30420g) / 100.0f;
                 default:
-                    return this.f31197e;
+                    return this.f30442e;
             }
         }
 
         public float g(d.c.a.c cVar) {
-            if (this.f31198f == Unit.percent) {
+            if (this.f30443f == Unit.percent) {
                 b W = cVar.W();
                 if (W == null) {
-                    return this.f31197e;
+                    return this.f30442e;
                 }
-                return (this.f31197e * W.f31176h) / 100.0f;
+                return (this.f30442e * W.f30421h) / 100.0f;
             }
             return f(cVar);
         }
 
         public boolean h() {
-            return this.f31197e < 0.0f;
+            return this.f30442e < 0.0f;
         }
 
         public boolean i() {
-            return this.f31197e == 0.0f;
+            return this.f30442e == 0.0f;
         }
 
         public String toString() {
-            return String.valueOf(this.f31197e) + this.f31198f;
+            return String.valueOf(this.f30442e) + this.f30443f;
         }
 
         public o(float f2) {
-            this.f31197e = 0.0f;
+            this.f30442e = 0.0f;
             Unit unit = Unit.px;
-            this.f31198f = unit;
-            this.f31197e = f2;
-            this.f31198f = unit;
+            this.f30443f = unit;
+            this.f30442e = f2;
+            this.f30443f = unit;
         }
     }
 }

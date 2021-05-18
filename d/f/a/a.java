@@ -7,24 +7,24 @@ import android.util.Log;
 import com.github.anrwatchdog.ANRError;
 /* loaded from: classes6.dex */
 public class a extends Thread {
-    public static final f p = new C1778a();
+    public static final f p = new C1842a();
     public static final e q = new b();
     public static final g r = new c();
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f65402i;
+    public final int f66088i;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f65398e = p;
+    public f f66084e = p;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f65399f = q;
+    public e f66085f = q;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f65400g = r;
+    public g f66086g = r;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f65401h = new Handler(Looper.getMainLooper());
+    public final Handler f66087h = new Handler(Looper.getMainLooper());
     public String j = "";
     public boolean k = false;
     public boolean l = true;
@@ -34,7 +34,7 @@ public class a extends Thread {
 
     /* renamed from: d.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1778a implements f {
+    public static class C1842a implements f {
         @Override // d.f.a.a.f
         public void onAppNotResponding(ANRError aNRError) {
             throw aNRError;
@@ -85,14 +85,14 @@ public class a extends Thread {
     }
 
     public a(int i2) {
-        this.f65402i = i2;
+        this.f66088i = i2;
     }
 
     public a c(f fVar) {
         if (fVar == null) {
-            this.f65398e = p;
+            this.f66084e = p;
         } else {
-            this.f65398e = fVar;
+            this.f66084e = fVar;
         }
         return this;
     }
@@ -106,12 +106,12 @@ public class a extends Thread {
     public void run() {
         ANRError NewMainOnly;
         setName("|ANR-WatchDog|");
-        long j = this.f65402i;
+        long j = this.f66088i;
         while (!isInterrupted()) {
             boolean z = this.m == 0;
             this.m += j;
             if (z) {
-                this.f65401h.post(this.o);
+                this.f66087h.post(this.o);
             }
             try {
                 Thread.sleep(j);
@@ -120,21 +120,21 @@ public class a extends Thread {
                         Log.w("ANRWatchdog", "An ANR was detected but ignored because the debugger is connected (you can prevent this with setIgnoreDebugger(true))");
                         this.n = true;
                     } else {
-                        j = this.f65399f.a(this.m);
+                        j = this.f66085f.a(this.m);
                         if (j <= 0) {
                             if (this.j != null) {
                                 NewMainOnly = ANRError.New(this.m, this.j, this.k);
                             } else {
                                 NewMainOnly = ANRError.NewMainOnly(this.m);
                             }
-                            this.f65398e.onAppNotResponding(NewMainOnly);
-                            j = this.f65402i;
+                            this.f66084e.onAppNotResponding(NewMainOnly);
+                            j = this.f66088i;
                             this.n = true;
                         }
                     }
                 }
             } catch (InterruptedException e2) {
-                this.f65400g.a(e2);
+                this.f66086g.a(e2);
                 return;
             }
         }

@@ -8,19 +8,19 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f64224a;
+    public static volatile c f64910a;
 
-    public static synchronized c f() {
+    public static synchronized c e() {
         c cVar;
         synchronized (c.class) {
-            if (f64224a == null) {
+            if (f64910a == null) {
                 synchronized (c.class) {
-                    if (f64224a == null) {
-                        f64224a = new c();
+                    if (f64910a == null) {
+                        f64910a = new c();
                     }
                 }
             }
-            cVar = f64224a;
+            cVar = f64910a;
         }
         return cVar;
     }
@@ -41,15 +41,7 @@ public class c {
         return true;
     }
 
-    public boolean c(Activity activity, JSONObject jSONObject, d.a.z.e.a aVar) {
-        if (jSONObject == null) {
-            return false;
-        }
-        b.a().i(activity, jSONObject, aVar);
-        return true;
-    }
-
-    public boolean d(Context context, JSONObject jSONObject) {
+    public boolean c(Context context, JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
@@ -57,7 +49,7 @@ public class c {
         return true;
     }
 
-    public boolean e(Context context, JSONObject jSONObject, d.a.z.e.a aVar) {
+    public boolean d(Context context, JSONObject jSONObject, d.a.z.e.a aVar) {
         if (jSONObject == null) {
             return false;
         }

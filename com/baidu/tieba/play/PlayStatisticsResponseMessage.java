@@ -3,7 +3,7 @@ package com.baidu.tieba.play;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PlayStatisticsResponseMessage extends JsonHttpResponsedMessage {
     public PlayStatisticsResponseMessage(int i2) {
         super(i2);

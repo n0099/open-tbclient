@@ -63,10 +63,10 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     public static final int FLAG_PAY_SKD = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f26560a;
+    public f f25805a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f26561b;
+    public long f25806b;
 
     public static String a(LinkedList<BaseActivity> linkedList) {
         StringBuilder sb = new StringBuilder();
@@ -112,10 +112,10 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     }
 
     public f getBindCardFlagDelegate() {
-        if (this.f26560a == null) {
-            this.f26560a = new f(this);
+        if (this.f25805a == null) {
+            this.f25805a = new f(this);
         }
-        return this.f26560a;
+        return this.f25805a;
     }
 
     public ArrayList<String> getCancelPayEventValue(String str) {
@@ -141,7 +141,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
 
     @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.f26561b = System.currentTimeMillis();
+        this.f25806b = System.currentTimeMillis();
         d.d.a.a.a.g(this, StatConfig.getInstance(this));
         d.d.a.a.a.x(new SensorsSyncHttpImpl());
         super.onCreate(bundle);

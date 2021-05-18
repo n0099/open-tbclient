@@ -12,19 +12,19 @@ import org.json.JSONObject;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5497a = "LogSender";
+    public static final String f5351a = "LogSender";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5498b = 10000;
+    public static final int f5352b = 10000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5499c = 10001;
+    public static final int f5353c = 10001;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static l f5500a = new l(null);
+        public static l f5354a = new l(null);
     }
 
     public /* synthetic */ l(m mVar) {
@@ -32,7 +32,7 @@ public class l {
     }
 
     public static l a() {
-        return a.f5500a;
+        return a.f5354a;
     }
 
     public void a(String str) {
@@ -43,7 +43,7 @@ public class l {
         StringBuilder sb = new StringBuilder();
         sb.append("=====sendLogData=====");
         sb.append(str);
-        LogUtil.d(f5497a, sb.toString() == "normal_log" ? "normal" : "crash");
+        LogUtil.d(f5351a, sb.toString() == "normal_log" ? "normal" : "crash");
         if ((str.equals(b.o) && f.a().c()) || (appContext = RimStatisticsUtil.getAppContext()) == null || !com.baidu.fsg.base.statistics.a.a(appContext)) {
             return;
         }
@@ -85,7 +85,7 @@ public class l {
     private JSONArray a(h[] hVarArr) {
         JSONArray jSONArray = new JSONArray();
         for (h hVar : hVarArr) {
-            LogUtil.d(f5497a, hVar.a().toString());
+            LogUtil.d(f5351a, hVar.a().toString());
             jSONArray.put(hVar.a());
         }
         return jSONArray;

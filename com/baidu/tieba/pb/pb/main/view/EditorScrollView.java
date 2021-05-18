@@ -6,25 +6,25 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class EditorScrollView extends ScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f19995e;
+    public View f19283e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19996f;
+    public boolean f19284f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19997g;
+    public int f19285g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewTreeObserver.OnScrollChangedListener f19998h;
+    public ViewTreeObserver.OnScrollChangedListener f19286h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f19999i;
+    public a f19287i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
 
@@ -35,14 +35,14 @@ public class EditorScrollView extends ScrollView {
 
     public EditorScrollView(Context context) {
         super(context);
-        this.f19997g = 50;
+        this.f19285g = 50;
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
         if (getChildCount() > 0) {
-            this.f19995e = getChildAt(0);
+            this.f19283e = getChildAt(0);
         }
     }
 
@@ -56,20 +56,20 @@ public class EditorScrollView extends ScrollView {
         a aVar;
         a aVar2;
         super.onScrollChanged(i2, i3, i4, i5);
-        a aVar3 = this.f19999i;
+        a aVar3 = this.f19287i;
         if (aVar3 != null) {
             aVar3.c(this, i2, i3, i4, i5);
         }
-        if (getHeight() + i3 >= this.f19995e.getHeight() && (aVar2 = this.f19999i) != null) {
+        if (getHeight() + i3 >= this.f19283e.getHeight() && (aVar2 = this.f19287i) != null) {
             aVar2.a();
         }
-        if ((i3 == 0 || getHeight() + i3 > this.f19995e.getHeight()) && (aVar = this.f19999i) != null) {
+        if ((i3 == 0 || getHeight() + i3 > this.f19283e.getHeight()) && (aVar = this.f19287i) != null) {
             aVar.b();
         }
-        if (this.f19998h == null || !this.f19996f || Math.abs(i4 - i3) < this.f19997g) {
+        if (this.f19286h == null || !this.f19284f || Math.abs(i4 - i3) < this.f19285g) {
             return;
         }
-        this.f19998h.onScrollChanged();
+        this.f19286h.onScrollChanged();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x000d, code lost:
@@ -86,28 +86,28 @@ public class EditorScrollView extends ScrollView {
                 if (action != 2) {
                 }
             }
-            this.f19996f = false;
+            this.f19284f = false;
             return super.onTouchEvent(motionEvent);
         }
-        this.f19996f = true;
+        this.f19284f = true;
         return super.onTouchEvent(motionEvent);
     }
 
     public void setListener(ViewTreeObserver.OnScrollChangedListener onScrollChangedListener) {
-        this.f19998h = onScrollChangedListener;
+        this.f19286h = onScrollChangedListener;
     }
 
     public void setOnScrollChangedListener(a aVar) {
-        this.f19999i = aVar;
+        this.f19287i = aVar;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19997g = 50;
+        this.f19285g = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f19997g = 50;
+        this.f19285g = 50;
     }
 }

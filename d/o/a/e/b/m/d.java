@@ -14,32 +14,32 @@ import d.o.a.e.b.k.g;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d implements d.o.a.e.b.g.j {
 
     /* renamed from: f  reason: collision with root package name */
-    public s f66656f;
+    public s f67342f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f66657g;
+    public volatile boolean f67343g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f66658h;
+    public volatile boolean f67344h;
     public d.o.a.e.b.k.g j;
 
     /* renamed from: i  reason: collision with root package name */
-    public g.a f66659i = new a();
+    public g.a f67345i = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public final k f66655e = new k();
+    public final k f67341e = new k();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements g.a {
 
         /* renamed from: d.o.a.e.b.m.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC1823a implements Runnable {
-            public RunnableC1823a() {
+        /* loaded from: classes7.dex */
+        public class RunnableC1887a implements Runnable {
+            public RunnableC1887a() {
             }
 
             @Override // java.lang.Runnable
@@ -58,24 +58,24 @@ public class d implements d.o.a.e.b.g.j {
         @Override // d.o.a.e.b.k.g.a
         public void a(Message message) {
             if (message.what == 1) {
-                d.o.a.e.b.g.d.w0().execute(new RunnableC1823a());
+                d.o.a.e.b.g.d.w0().execute(new RunnableC1887a());
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements f.d {
         public b() {
         }
 
         @Override // com.ss.android.socialbase.downloader.b.f.d
         public void a() {
-            d.this.f66656f = new com.ss.android.socialbase.downloader.b.e();
+            d.this.f67342f = new com.ss.android.socialbase.downloader.b.e();
             Log.e("DefaultDownloadCache", "rebind error,use backup sqlDownloadCache");
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements d.o.a.e.b.b.b {
         public c() {
         }
@@ -92,37 +92,37 @@ public class d implements d.o.a.e.b.g.j {
         this.j = null;
         if (d.o.a.e.b.j.a.r().l("fix_sigbus_downloader_db")) {
             if (d.o.a.e.b.l.e.D()) {
-                this.f66656f = new com.ss.android.socialbase.downloader.b.e();
+                this.f67342f = new com.ss.android.socialbase.downloader.b.e();
             } else {
                 com.ss.android.socialbase.downloader.b.f fVar = new com.ss.android.socialbase.downloader.b.f();
                 fVar.n(new b());
-                this.f66656f = fVar;
+                this.f67342f = fVar;
             }
         } else {
-            this.f66656f = new com.ss.android.socialbase.downloader.b.e();
+            this.f67342f = new com.ss.android.socialbase.downloader.b.e();
         }
-        this.f66657g = false;
-        this.j = new d.o.a.e.b.k.g(Looper.getMainLooper(), this.f66659i);
+        this.f67343g = false;
+        this.j = new d.o.a.e.b.k.g(Looper.getMainLooper(), this.f67345i);
         j();
     }
 
     @Override // d.o.a.e.b.g.j
     public DownloadInfo b(int i2) {
-        return this.f66655e.b(i2);
+        return this.f67341e.b(i2);
     }
 
     @Override // d.o.a.e.b.g.j
     public boolean c() {
-        return this.f66657g;
+        return this.f67343g;
     }
 
     @Override // d.o.a.e.b.g.j
     public boolean d() {
-        if (this.f66657g) {
+        if (this.f67343g) {
             return true;
         }
         synchronized (this) {
-            if (!this.f66657g) {
+            if (!this.f67343g) {
                 d.o.a.e.b.c.a.i("DefaultDownloadCache", "ensureDownloadCacheSyncSuccess: waiting start!!!!");
                 try {
                     wait(5000L);
@@ -132,16 +132,16 @@ public class d implements d.o.a.e.b.g.j {
                 d.o.a.e.b.c.a.i("DefaultDownloadCache", "ensureDownloadCacheSyncSuccess: waiting end!!!!");
             }
         }
-        return this.f66657g;
+        return this.f67343g;
     }
 
     public k e() {
-        return this.f66655e;
+        return this.f67341e;
     }
 
     @Override // d.o.a.e.b.g.j
     public DownloadInfo g(int i2) {
-        DownloadInfo g2 = this.f66655e.g(i2);
+        DownloadInfo g2 = this.f67341e.g(i2);
         h(g2);
         return g2;
     }
@@ -151,12 +151,12 @@ public class d implements d.o.a.e.b.g.j {
     }
 
     public s i() {
-        return this.f66656f;
+        return this.f67342f;
     }
 
     public void j() {
         d.o.a.e.b.g.d.z(com.ss.android.socialbase.downloader.constants.d.SYNC_START);
-        this.f66656f.a(this.f66655e.a(), this.f66655e.e(), new c());
+        this.f67342f.a(this.f67341e.a(), this.f67341e.e(), new c());
     }
 
     public void k() {
@@ -173,12 +173,12 @@ public class d implements d.o.a.e.b.g.j {
         List<String> list;
         ArrayList arrayList;
         DownloadInfo downloadInfo;
-        if (this.f66657g) {
-            if (this.f66658h) {
+        if (this.f67343g) {
+            if (this.f67344h) {
                 d.o.a.e.b.c.a.g("DefaultDownloadCache", "resumeUnCompleteTask: has resumed, return!!!");
                 return;
             }
-            this.f66658h = true;
+            this.f67344h = true;
             if (d.o.a.e.b.l.e.D()) {
                 d.o.a.e.b.g.l H0 = d.o.a.e.b.g.d.H0();
                 if (H0 != null) {
@@ -188,7 +188,7 @@ public class d implements d.o.a.e.b.g.j {
                     list = null;
                     arrayList = null;
                 }
-                SparseArray<DownloadInfo> a2 = this.f66655e.a();
+                SparseArray<DownloadInfo> a2 = this.f67341e.a();
                 if (a2 == null) {
                     return;
                 }
@@ -218,30 +218,30 @@ public class d implements d.o.a.e.b.g.j {
 
     public final void m() {
         synchronized (this) {
-            this.f66657g = true;
+            this.f67343g = true;
             notifyAll();
         }
     }
 
     @Override // d.o.a.e.b.g.j
     public List<d.o.a.e.b.i.i> n(int i2) {
-        List<d.o.a.e.b.i.i> n = this.f66655e.n(i2);
-        return (n == null || n.size() == 0) ? this.f66656f.n(i2) : n;
+        List<d.o.a.e.b.i.i> n = this.f67341e.n(i2);
+        return (n == null || n.size() == 0) ? this.f67342f.n(i2) : n;
     }
 
     @Override // d.o.a.e.b.g.j
     public List<DownloadInfo> a(String str) {
-        return this.f66655e.a(str);
+        return this.f67341e.a(str);
     }
 
     @Override // d.o.a.e.b.g.j
     public List<DownloadInfo> b(String str) {
-        return this.f66655e.b(str);
+        return this.f67341e.b(str);
     }
 
     @Override // d.o.a.e.b.g.j
     public List<DownloadInfo> c(String str) {
-        return this.f66655e.c(str);
+        return this.f67341e.c(str);
     }
 
     @Override // d.o.a.e.b.g.j
@@ -252,15 +252,15 @@ public class d implements d.o.a.e.b.g.j {
                 if (a2 != null) {
                     a2.n(i2);
                 } else {
-                    this.f66656f.e(i2);
+                    this.f67342f.e(i2);
                 }
             } else {
-                this.f66656f.e(i2);
+                this.f67342f.e(i2);
             }
         } catch (SQLiteException e2) {
             e2.printStackTrace();
         }
-        return this.f66655e.e(i2);
+        return this.f67341e.e(i2);
     }
 
     @Override // d.o.a.e.b.g.j
@@ -270,42 +270,42 @@ public class d implements d.o.a.e.b.g.j {
             if (a2 != null) {
                 a2.p(i2);
             } else {
-                this.f66656f.f(i2);
+                this.f67342f.f(i2);
             }
         } else {
-            this.f66656f.f(i2);
+            this.f67342f.f(i2);
         }
-        return this.f66655e.f(i2);
+        return this.f67341e.f(i2);
     }
 
     @Override // d.o.a.e.b.g.j
     public DownloadInfo h(int i2) {
-        DownloadInfo h2 = this.f66655e.h(i2);
+        DownloadInfo h2 = this.f67341e.h(i2);
         h(h2);
         return h2;
     }
 
     @Override // d.o.a.e.b.g.j
     public DownloadInfo i(int i2) {
-        DownloadInfo i3 = this.f66655e.i(i2);
+        DownloadInfo i3 = this.f67341e.i(i2);
         h(i3);
         return i3;
     }
 
     @Override // d.o.a.e.b.g.j
     public void a(com.ss.android.socialbase.downloader.model.b bVar) {
-        this.f66655e.a(bVar);
+        this.f67341e.a(bVar);
         if (d.o.a.e.b.l.e.b0()) {
             d.o.a.e.b.g.m a2 = l.a(true);
             if (a2 != null) {
                 a2.a(bVar);
                 return;
             } else {
-                this.f66656f.a(bVar);
+                this.f67342f.a(bVar);
                 return;
             }
         }
-        this.f66656f.a(bVar);
+        this.f67342f.a(bVar);
     }
 
     @Override // d.o.a.e.b.g.j
@@ -316,16 +316,16 @@ public class d implements d.o.a.e.b.g.j {
                 a2.a(bVar);
                 return;
             } else {
-                this.f66656f.a(bVar);
+                this.f67342f.a(bVar);
                 return;
             }
         }
-        this.f66656f.a(bVar);
+        this.f67342f.a(bVar);
     }
 
     @Override // d.o.a.e.b.g.j
     public List<com.ss.android.socialbase.downloader.model.b> c(int i2) {
-        return this.f66655e.c(i2);
+        return this.f67341e.c(i2);
     }
 
     public final void g(DownloadInfo downloadInfo, boolean z) {
@@ -333,41 +333,41 @@ public class d implements d.o.a.e.b.g.j {
             return;
         }
         if (!d.o.a.e.b.l.e.b0()) {
-            this.f66656f.a(downloadInfo);
+            this.f67342f.a(downloadInfo);
         } else if (z) {
             d.o.a.e.b.g.m a2 = l.a(true);
             if (a2 != null) {
                 a2.c(downloadInfo);
             } else {
-                this.f66656f.a(downloadInfo);
+                this.f67342f.a(downloadInfo);
             }
         }
     }
 
     @Override // d.o.a.e.b.g.j
     public DownloadInfo j(int i2) {
-        DownloadInfo j = this.f66655e.j(i2);
+        DownloadInfo j = this.f67341e.j(i2);
         h(j);
         return j;
     }
 
     @Override // d.o.a.e.b.g.j
     public DownloadInfo c(int i2, long j) {
-        DownloadInfo c2 = this.f66655e.c(i2, j);
+        DownloadInfo c2 = this.f67341e.c(i2, j);
         b(i2, (List<com.ss.android.socialbase.downloader.model.b>) null);
         return c2;
     }
 
     @Override // d.o.a.e.b.g.j
     public void m(int i2) {
-        this.f66655e.m(i2);
-        this.f66656f.m(i2);
+        this.f67341e.m(i2);
+        this.f67342f.m(i2);
     }
 
     @Override // d.o.a.e.b.g.j
     public void b() {
         try {
-            this.f66655e.b();
+            this.f67341e.b();
         } catch (SQLiteException e2) {
             e2.printStackTrace();
         }
@@ -377,48 +377,48 @@ public class d implements d.o.a.e.b.g.j {
                 a2.f();
                 return;
             } else {
-                this.f66656f.b();
+                this.f67342f.b();
                 return;
             }
         }
-        this.f66656f.b();
+        this.f67342f.b();
     }
 
     @Override // d.o.a.e.b.g.j
     public void a(int i2, int i3, long j) {
-        this.f66655e.a(i2, i3, j);
+        this.f67341e.a(i2, i3, j);
         if (d.o.a.e.b.l.e.b0()) {
             d.o.a.e.b.g.m a2 = l.a(true);
             if (a2 != null) {
                 a2.a(i2, i3, j);
                 return;
             } else {
-                this.f66656f.a(i2, i3, j);
+                this.f67342f.a(i2, i3, j);
                 return;
             }
         }
-        this.f66656f.a(i2, i3, j);
+        this.f67342f.a(i2, i3, j);
     }
 
     @Override // d.o.a.e.b.g.j
     public List<DownloadInfo> d(String str) {
-        return this.f66655e.d(str);
+        return this.f67341e.d(str);
     }
 
     @Override // d.o.a.e.b.g.j
     public void d(int i2) {
-        this.f66655e.d(i2);
+        this.f67341e.d(i2);
         if (d.o.a.e.b.l.e.b0()) {
             d.o.a.e.b.g.m a2 = l.a(true);
             if (a2 != null) {
                 a2.o(i2);
                 return;
             } else {
-                this.f66656f.d(i2);
+                this.f67342f.d(i2);
                 return;
             }
         }
-        this.f66656f.d(i2);
+        this.f67342f.d(i2);
     }
 
     @Override // d.o.a.e.b.g.j
@@ -429,16 +429,16 @@ public class d implements d.o.a.e.b.g.j {
                 a2.a(i2, i3, i4, j);
                 return;
             } else {
-                this.f66656f.a(i2, i3, i4, j);
+                this.f67342f.a(i2, i3, i4, j);
                 return;
             }
         }
-        this.f66656f.a(i2, i3, i4, j);
+        this.f67342f.a(i2, i3, i4, j);
     }
 
     @Override // d.o.a.e.b.g.j
     public DownloadInfo b(int i2, long j) {
-        DownloadInfo b2 = this.f66655e.b(i2, j);
+        DownloadInfo b2 = this.f67341e.b(i2, j);
         b(i2, (List<com.ss.android.socialbase.downloader.model.b>) null);
         return b2;
     }
@@ -448,15 +448,15 @@ public class d implements d.o.a.e.b.g.j {
         if (downloadInfo == null) {
             return;
         }
-        this.f66655e.a(downloadInfo);
+        this.f67341e.a(downloadInfo);
     }
 
     @Override // d.o.a.e.b.g.j
     public void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
         try {
-            a(this.f66655e.b(i2));
+            a(this.f67341e.b(i2));
             if (list == null) {
-                list = this.f66655e.c(i2);
+                list = this.f67341e.c(i2);
             }
             if (d.o.a.e.b.l.e.b0()) {
                 d.o.a.e.b.g.m a2 = l.a(true);
@@ -464,11 +464,11 @@ public class d implements d.o.a.e.b.g.j {
                     a2.b(i2, list);
                     return;
                 } else {
-                    this.f66656f.b(i2, list);
+                    this.f67342f.b(i2, list);
                     return;
                 }
             }
-            this.f66656f.b(i2, list);
+            this.f67342f.b(i2, list);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -476,7 +476,7 @@ public class d implements d.o.a.e.b.g.j {
 
     @Override // d.o.a.e.b.g.j
     public DownloadInfo d(int i2, long j) {
-        DownloadInfo d2 = this.f66655e.d(i2, j);
+        DownloadInfo d2 = this.f67341e.d(i2, j);
         b(i2, (List<com.ss.android.socialbase.downloader.model.b>) null);
         return d2;
     }
@@ -489,16 +489,16 @@ public class d implements d.o.a.e.b.g.j {
                 a2.a(i2, i3, i4, i5);
                 return;
             } else {
-                this.f66656f.a(i2, i3, i4, i5);
+                this.f67342f.a(i2, i3, i4, i5);
                 return;
             }
         }
-        this.f66656f.a(i2, i3, i4, i5);
+        this.f67342f.a(i2, i3, i4, i5);
     }
 
     @Override // d.o.a.e.b.g.j
     public DownloadInfo a(int i2, int i3) {
-        DownloadInfo a2 = this.f66655e.a(i2, i3);
+        DownloadInfo a2 = this.f67341e.a(i2, i3);
         h(a2);
         return a2;
     }
@@ -508,24 +508,24 @@ public class d implements d.o.a.e.b.g.j {
         if (downloadInfo == null) {
             return false;
         }
-        boolean a2 = this.f66655e.a(downloadInfo);
+        boolean a2 = this.f67341e.a(downloadInfo);
         h(downloadInfo);
         return a2;
     }
 
     @Override // d.o.a.e.b.g.j
     public DownloadInfo a(int i2, long j, String str, String str2) {
-        DownloadInfo a2 = this.f66655e.a(i2, j, str, str2);
+        DownloadInfo a2 = this.f67341e.a(i2, j, str, str2);
         h(a2);
         return a2;
     }
 
     @Override // d.o.a.e.b.g.j
     public Map<Long, d.o.a.e.b.i.i> l(int i2) {
-        Map<Long, d.o.a.e.b.i.i> l = this.f66655e.l(i2);
+        Map<Long, d.o.a.e.b.i.i> l = this.f67341e.l(i2);
         if (l == null || l.isEmpty()) {
-            Map<Long, d.o.a.e.b.i.i> l2 = this.f66656f.l(i2);
-            this.f66655e.a(i2, l2);
+            Map<Long, d.o.a.e.b.i.i> l2 = this.f67342f.l(i2);
+            this.f67341e.a(i2, l2);
             return l2;
         }
         return l;
@@ -533,7 +533,7 @@ public class d implements d.o.a.e.b.g.j {
 
     @Override // d.o.a.e.b.g.j
     public DownloadInfo a(int i2, long j) {
-        DownloadInfo a2 = this.f66655e.a(i2, j);
+        DownloadInfo a2 = this.f67341e.a(i2, j);
         g(a2, false);
         return a2;
     }
@@ -543,16 +543,16 @@ public class d implements d.o.a.e.b.g.j {
         if (list == null || list.size() == 0) {
             return;
         }
-        this.f66655e.a(i2, list);
+        this.f67341e.a(i2, list);
         if (d.o.a.e.b.l.e.n0()) {
-            this.f66656f.b(i2, list);
+            this.f67342f.b(i2, list);
         }
     }
 
     @Override // d.o.a.e.b.g.j
     public boolean a(int i2, Map<Long, d.o.a.e.b.i.i> map) {
-        this.f66655e.a(i2, map);
-        this.f66656f.a(i2, map);
+        this.f67341e.a(i2, map);
+        this.f67342f.a(i2, map);
         return false;
     }
 }

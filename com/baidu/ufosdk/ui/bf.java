@@ -5,25 +5,25 @@ import android.view.View;
 public final class bf implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23485a;
+    public final /* synthetic */ FeedbackInputActivity f22730a;
 
     public bf(FeedbackInputActivity feedbackInputActivity) {
-        this.f23485a = feedbackInputActivity;
+        this.f22730a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         try {
-            if (!com.baidu.ufosdk.b.d.c(this.f23485a.getApplicationContext())) {
+            if (!com.baidu.ufosdk.b.d.c(this.f22730a.getApplicationContext())) {
                 com.baidu.ufosdk.f.c.b("Network is not avaiable!");
                 return;
             }
-            this.f23485a.f23416b.setVisibility(8);
-            this.f23485a.k.setVisibility(0);
-            if (this.f23485a.f23419e == null || this.f23485a.f23419e.length() <= 0) {
+            this.f22730a.f22661b.setVisibility(8);
+            this.f22730a.k.setVisibility(0);
+            if (this.f22730a.f22664e == null || this.f22730a.f22664e.length() <= 0) {
                 return;
             }
-            this.f23485a.l.execute(new bg(this));
+            this.f22730a.l.execute(new bg(this));
         } catch (Exception e2) {
             e2.printStackTrace();
         }

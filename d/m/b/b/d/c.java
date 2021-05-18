@@ -5,16 +5,16 @@ import android.content.Context;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f65776a;
+    public static b f66462a;
 
     public static b a(Context context, String str, int i2, a aVar) {
-        if (f65776a == null) {
+        if (f66462a == null) {
             synchronized (c.class) {
-                if (f65776a == null) {
-                    f65776a = com.pgl.sys.ces.b.a(context, str, i2, aVar);
+                if (f66462a == null) {
+                    f66462a = com.pgl.sys.ces.b.a(context, str, i2, aVar);
                 }
             }
         }
-        return f65776a;
+        return f66462a;
     }
 }

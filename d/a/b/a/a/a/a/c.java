@@ -3,30 +3,29 @@ package d.a.b.a.a.a.a;
 import android.content.Context;
 import com.baidu.ad.magic.flute.a.a.n;
 import com.baidu.ad.magic.flute.a.a.q;
-import com.baidu.sapi2.result.OneKeyLoginResult;
 /* loaded from: classes.dex */
 public class c {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f39262d = a.a(24);
+    public static final int f38507d = a.a(24);
 
     /* renamed from: a  reason: collision with root package name */
-    public h f39263a;
+    public h f38508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f39264b = new e();
+    public e f38509b = new e();
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f39265c;
+    public Context f38510c;
 
     public c(Context context) {
-        this.f39265c = context;
-        this.f39263a = new h(context);
+        this.f38510c = context;
+        this.f38508a = new h(context);
     }
 
     public final int b(Object obj, Object obj2) {
         try {
-            return this.f39263a.a(obj, obj2);
+            return this.f38508a.a(obj, obj2);
         } catch (q e2) {
             throw e2;
         } catch (Throwable th) {
@@ -37,18 +36,18 @@ public class c {
     public i c(String str) {
         int i2 = -103;
         try {
-            Object b2 = this.f39263a.b(this.f39265c);
+            Object b2 = this.f38508a.b(this.f38510c);
             if (b2 == null) {
                 e = new NullPointerException("gpm null error");
             } else {
                 try {
-                    return g(b2, str) == 1 ? i.a(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CHECK_SIGN_FAIL) : d(f(b2, str));
+                    return g(b2, str) == 1 ? i.a(-108) : d(f(b2, str));
                 } catch (com.baidu.ad.magic.flute.a.a.g e2) {
                     e = e2;
                     i2 = -100;
                 } catch (n e3) {
                     e = e3;
-                    i2 = OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS;
+                    i2 = -104;
                 } catch (q e4) {
                     e = e4;
                     i2 = -2;
@@ -66,16 +65,16 @@ public class c {
         }
         com.baidu.ad.magic.flute.a.a.c a2 = com.baidu.ad.magic.flute.a.a.c.a(bArr);
         if (a2 == null) {
-            return i.b(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL, null);
+            return i.b(-106, null);
         }
         long[] b2 = a2.b();
-        return (b2 == null || b2.length == 0) ? i.b(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_EXECUTE_JS_FAIL, null) : i.c(d.a.b.a.a.e.a.b(b2[0]));
+        return (b2 == null || b2.length == 0) ? i.b(-107, null) : i.c(d.a.b.a.a.e.a.b(b2[0]));
     }
 
     public final Object e(String str, int i2) {
         try {
-            Class cls = this.f39263a.f39274c;
-            return k.b(cls, new Object[]{str, this.f39264b.f39266a + i2});
+            Class cls = this.f38508a.f38519c;
+            return k.b(cls, new Object[]{str, this.f38509b.f38511a + i2});
         } catch (Exception e2) {
             e2.printStackTrace();
             throw new com.baidu.ad.magic.flute.a.a.g("");
@@ -84,7 +83,7 @@ public class c {
 
     public final byte[] f(Object obj, String str) {
         g gVar = new g();
-        for (int i2 = 0; i2 < f39262d; i2++) {
+        for (int i2 = 0; i2 < f38507d; i2++) {
             gVar.b(f.a(b(obj, e(str, i2))));
         }
         return gVar.a().b();
@@ -97,7 +96,7 @@ public class c {
 
     public final Object h(String str) {
         try {
-            return k.b(this.f39263a.f39274c, new Object[]{str, this.f39264b.f39267b});
+            return k.b(this.f38508a.f38519c, new Object[]{str, this.f38509b.f38512b});
         } catch (Exception e2) {
             e2.printStackTrace();
             throw new com.baidu.ad.magic.flute.a.a.g("");

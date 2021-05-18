@@ -6,32 +6,32 @@ import android.os.Environment;
 public class h extends i<g> implements g {
 
     /* renamed from: c  reason: collision with root package name */
-    public static h f35605c;
+    public static h f34850c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f35606d;
+    public boolean f34851d;
 
     public h(g gVar) {
         super(gVar);
-        this.f35606d = false;
+        this.f34851d = false;
     }
 
     public static h b() {
-        if (f35605c == null) {
+        if (f34850c == null) {
             synchronized (h.class) {
-                if (f35605c == null) {
-                    f35605c = new h(new b());
+                if (f34850c == null) {
+                    f34850c = new h(new b());
                 }
             }
         }
-        return f35605c;
+        return f34850c;
     }
 
     public void a(Context context) {
-        if (this.f35606d) {
+        if (this.f34851d) {
             return;
         }
-        this.f35606d = true;
+        this.f34851d = true;
         b((context.getApplicationInfo().flags & 2) != 0);
         a(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
     }

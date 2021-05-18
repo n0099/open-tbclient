@@ -9,38 +9,38 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30974a = false;
+    public static boolean f30219a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f30975b = false;
+    public static boolean f30220b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CharSequence f30976c = "sony";
+    public static final CharSequence f30221c = "sony";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final CharSequence f30977d = "amigo";
+    public static final CharSequence f30222d = "amigo";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CharSequence f30978e = "funtouch";
+    public static final CharSequence f30223e = "funtouch";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f30979f = null;
+    public static String f30224f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f30980g = Integer.MAX_VALUE;
+    public static int f30225g = Integer.MAX_VALUE;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Callable<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30982a;
+        public String f30227a;
 
         public a(String str) {
-            this.f30982a = str;
+            this.f30227a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -48,7 +48,7 @@ public class ae {
         /* renamed from: a */
         public String call() throws Exception {
             long currentTimeMillis = System.currentTimeMillis();
-            String c2 = ae.c(this.f30982a);
+            String c2 = ae.c(this.f30227a);
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             u.b("RomUtils", "property:" + c2 + ",getSystemProperty use time :" + currentTimeMillis2);
             if (!TextUtils.isEmpty(c2)) {
@@ -68,17 +68,17 @@ public class ae {
     }
 
     public static String a() {
-        if (!TextUtils.isEmpty(f30979f)) {
-            return f30979f;
+        if (!TextUtils.isEmpty(f30224f)) {
+            return f30224f;
         }
         String a2 = com.bytedance.sdk.openadsdk.core.i.a("sdk_local_rom_info", 604800000L);
-        f30979f = a2;
+        f30224f = a2;
         if (TextUtils.isEmpty(a2)) {
             String u = u();
-            f30979f = u;
+            f30224f = u;
             com.bytedance.sdk.openadsdk.core.i.a("sdk_local_rom_info", u);
         }
-        return f30979f;
+        return f30224f;
     }
 
     public static String c() {
@@ -95,18 +95,18 @@ public class ae {
     }
 
     public static boolean e() {
-        if (!f30975b) {
+        if (!f30220b) {
             try {
                 if (Class.forName("miui.os.Build") != null) {
-                    f30974a = true;
-                    f30975b = true;
+                    f30219a = true;
+                    f30220b = true;
                     return true;
                 }
             } catch (Exception unused) {
             }
-            f30975b = true;
+            f30220b = true;
         }
-        return f30974a;
+        return f30219a;
     }
 
     public static String f() {
@@ -115,11 +115,11 @@ public class ae {
 
     public static boolean g() {
         String d2 = d("ro.vivo.os.build.display.id");
-        return !TextUtils.isEmpty(d2) && d2.toLowerCase().contains(f30978e);
+        return !TextUtils.isEmpty(d2) && d2.toLowerCase().contains(f30223e);
     }
 
     public static boolean h() {
-        return !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase().contains(f30977d);
+        return !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase().contains(f30222d);
     }
 
     public static String i() {
@@ -177,16 +177,16 @@ public class ae {
     }
 
     public static boolean r() {
-        if (f30980g == Integer.MAX_VALUE) {
+        if (f30225g == Integer.MAX_VALUE) {
             String str = Build.MANUFACTURER;
             String m = ak.m("kllk");
             if (!TextUtils.isEmpty(str) && str.toLowerCase().contains(m)) {
-                f30980g = 1;
+                f30225g = 1;
             } else {
-                f30980g = 0;
+                f30225g = 0;
             }
         }
-        return f30980g == 1;
+        return f30225g == 1;
     }
 
     public static String s() {

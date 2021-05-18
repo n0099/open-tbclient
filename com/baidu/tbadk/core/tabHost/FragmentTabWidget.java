@@ -22,19 +22,19 @@ public class FragmentTabWidget extends LinearLayout {
     public View E;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f12917e;
+    public final Rect f12253e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Rect f12918f;
+    public final Rect f12254f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Rect f12919g;
+    public final Rect f12255g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12920h;
+    public int f12256h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12921i;
+    public int f12257i;
     public int j;
     public b k;
     public d l;
@@ -62,15 +62,15 @@ public class FragmentTabWidget extends LinearLayout {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f12922e;
+        public final int f12258e;
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            FragmentTabWidget.this.k.onTabSelectionChanged(this.f12922e, true);
+            FragmentTabWidget.this.k.onTabSelectionChanged(this.f12258e, true);
         }
 
         public c(int i2) {
-            this.f12922e = i2;
+            this.f12258e = i2;
         }
     }
 
@@ -81,10 +81,10 @@ public class FragmentTabWidget extends LinearLayout {
 
     public FragmentTabWidget(Context context) {
         super(context);
-        this.f12917e = new Rect();
-        this.f12918f = new Rect();
-        this.f12919g = new Rect();
-        this.f12920h = 0;
+        this.f12253e = new Rect();
+        this.f12254f = new Rect();
+        this.f12255g = new Rect();
+        this.f12256h = 0;
         this.j = -1;
         this.n = new Paint();
         this.r = 0;
@@ -128,25 +128,25 @@ public class FragmentTabWidget extends LinearLayout {
             if (childAt != null && (childAt instanceof TbFragmentTabIndicator)) {
                 View contentTv = ((TbFragmentTabIndicator) childAt).getContentTv();
                 if (contentTv != null) {
-                    this.f12917e.set(childAt.getLeft() + contentTv.getLeft(), i8, childAt.getLeft() + contentTv.getRight(), this.w);
+                    this.f12253e.set(childAt.getLeft() + contentTv.getLeft(), i8, childAt.getLeft() + contentTv.getRight(), this.w);
                 } else {
-                    Rect rect = this.f12917e;
+                    Rect rect = this.f12253e;
                     int i10 = this.m;
                     int i11 = this.x;
                     int i12 = this.r;
                     rect.set(((i11 / 2) + i10) - (i12 / 2), i8, i10 + (i11 / 2) + (i12 / 2), this.w);
                 }
             } else {
-                Rect rect2 = this.f12917e;
+                Rect rect2 = this.f12253e;
                 int i13 = this.m;
                 int i14 = this.x;
                 int i15 = this.r;
                 rect2.set(((i14 / 2) + i13) - (i15 / 2), i8, i13 + (i14 / 2) + (i15 / 2), this.w);
             }
         } else if (i9 != 0) {
-            this.f12917e.set(((i3 / 2) + i6) - (i9 / 2), i8, i6 + (i3 / 2) + (i9 / 2), i7);
+            this.f12253e.set(((i3 / 2) + i6) - (i9 / 2), i8, i6 + (i3 / 2) + (i9 / 2), i7);
         } else {
-            this.f12917e.set(i6 + i4, i8, i6 + i4 + dimensionPixelSize, i7);
+            this.f12253e.set(i6 + i4, i8, i6 + i4 + dimensionPixelSize, i7);
         }
         postInvalidateDelayed(16L);
     }
@@ -172,14 +172,14 @@ public class FragmentTabWidget extends LinearLayout {
         super.draw(canvas);
         this.n.setColor(this.s);
         if (this.D) {
-            canvas.drawRect(this.f12918f, this.n);
+            canvas.drawRect(this.f12254f, this.n);
         }
         if (this.z) {
-            canvas.drawRect(this.f12919g, this.n);
+            canvas.drawRect(this.f12255g, this.n);
         }
         if (this.y) {
             this.n.setColor(this.t);
-            canvas.drawRoundRect(new RectF(this.f12917e), 10.0f, 10.0f, this.n);
+            canvas.drawRoundRect(new RectF(this.f12253e), 10.0f, 10.0f, this.n);
         }
     }
 
@@ -209,12 +209,12 @@ public class FragmentTabWidget extends LinearLayout {
         this.q = l.e(getContext(), 2.0f);
         this.B = getResources().getDimensionPixelSize(R.dimen.ds10);
         setWillNotDraw(false);
-        this.f12921i = R.color.common_color_10274;
+        this.f12257i = R.color.common_color_10274;
     }
 
     public void g(int i2) {
-        int i3 = this.f12921i;
-        if (i3 != 0 && this.f12920h == 0) {
+        int i3 = this.f12257i;
+        if (i3 != 0 && this.f12256h == 0) {
             SkinManager.setBackgroundColor(this, i3);
         }
         this.t = SkinManager.getColor(R.color.CAM_X0105);
@@ -257,8 +257,8 @@ public class FragmentTabWidget extends LinearLayout {
         int i8 = this.w;
         int i9 = this.o;
         int i10 = i8 - i9;
-        this.f12918f.set(0, i10, this.v, i9 + i10);
-        this.f12919g.set(0, 0, this.v, this.p);
+        this.f12254f.set(0, i10, this.v, i9 + i10);
+        this.f12255g.set(0, 0, this.v, this.p);
     }
 
     @Override // android.view.View
@@ -275,11 +275,11 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void setBackGroundDrawableResId(int i2) {
-        this.f12921i = i2;
+        this.f12257i = i2;
     }
 
     public void setBackGroundStyle(int i2) {
-        this.f12920h = i2;
+        this.f12256h = i2;
     }
 
     public void setCurrentTab(int i2, boolean z, boolean z2) {
@@ -350,10 +350,10 @@ public class FragmentTabWidget extends LinearLayout {
 
     public FragmentTabWidget(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12917e = new Rect();
-        this.f12918f = new Rect();
-        this.f12919g = new Rect();
-        this.f12920h = 0;
+        this.f12253e = new Rect();
+        this.f12254f = new Rect();
+        this.f12255g = new Rect();
+        this.f12256h = 0;
         this.j = -1;
         this.n = new Paint();
         this.r = 0;

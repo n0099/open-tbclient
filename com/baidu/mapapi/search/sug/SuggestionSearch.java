@@ -6,10 +6,10 @@ import com.baidu.mapapi.search.core.l;
 public class SuggestionSearch extends l {
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7637b = false;
+    public boolean f7454b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.platform.core.f.a f7636a = new com.baidu.platform.core.f.b();
+    public com.baidu.platform.core.f.a f7453a = new com.baidu.platform.core.f.b();
 
     public static SuggestionSearch newInstance() {
         BMapManager.init();
@@ -17,32 +17,32 @@ public class SuggestionSearch extends l {
     }
 
     public void destroy() {
-        if (this.f7637b) {
+        if (this.f7454b) {
             return;
         }
-        this.f7637b = true;
-        this.f7636a.a();
+        this.f7454b = true;
+        this.f7453a.a();
         BMapManager.destroy();
     }
 
     public boolean requestSuggestion(SuggestionSearchOption suggestionSearchOption) {
-        com.baidu.platform.core.f.a aVar = this.f7636a;
+        com.baidu.platform.core.f.a aVar = this.f7453a;
         if (aVar != null) {
             if (suggestionSearchOption == null || suggestionSearchOption.mKeyword == null || suggestionSearchOption.mCity == null) {
-                throw new IllegalArgumentException("option or keyword or city can not be null");
+                throw new IllegalArgumentException("BDMapSDKException: option or keyword or city can not be null");
             }
             return aVar.a(suggestionSearchOption);
         }
-        throw new IllegalStateException("suggestionsearch is null, please call newInstance() first.");
+        throw new IllegalStateException("BDMapSDKException: suggestionsearch is null, please call newInstance() first.");
     }
 
     public void setOnGetSuggestionResultListener(OnGetSuggestionResultListener onGetSuggestionResultListener) {
-        com.baidu.platform.core.f.a aVar = this.f7636a;
+        com.baidu.platform.core.f.a aVar = this.f7453a;
         if (aVar == null) {
-            throw new IllegalStateException("suggestionsearch is null, please call newInstance() first.");
+            throw new IllegalStateException("BDMapSDKException: suggestionsearch is null, please call newInstance() first.");
         }
         if (onGetSuggestionResultListener == null) {
-            throw new IllegalArgumentException("listener can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: listener can not be null");
         }
         aVar.a(onGetSuggestionResultListener);
     }

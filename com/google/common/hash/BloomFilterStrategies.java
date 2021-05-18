@@ -96,15 +96,15 @@ public enum BloomFilterStrategies implements BloomFilter.Strategy {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicLongArray f32165a;
+        public final AtomicLongArray f31410a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final i f32166b;
+        public final i f31411b;
 
         public a(long j) {
             n.e(j > 0, "data length is zero!");
-            this.f32165a = new AtomicLongArray(Ints.c(LongMath.a(j, 64L, RoundingMode.CEILING)));
-            this.f32166b = LongAddables.a();
+            this.f31410a = new AtomicLongArray(Ints.c(LongMath.a(j, 64L, RoundingMode.CEILING)));
+            this.f31411b = LongAddables.a();
         }
 
         public static long[] g(AtomicLongArray atomicLongArray) {
@@ -117,48 +117,48 @@ public enum BloomFilterStrategies implements BloomFilter.Strategy {
         }
 
         public long a() {
-            return this.f32166b.sum();
+            return this.f31411b.sum();
         }
 
         public long b() {
-            return this.f32165a.length() * 64;
+            return this.f31410a.length() * 64;
         }
 
         public a c() {
-            return new a(g(this.f32165a));
+            return new a(g(this.f31410a));
         }
 
         public boolean d(long j) {
-            return ((1 << ((int) j)) & this.f32165a.get((int) (j >>> 6))) != 0;
+            return ((1 << ((int) j)) & this.f31410a.get((int) (j >>> 6))) != 0;
         }
 
         public void e(a aVar) {
             long j;
             long j2;
             boolean z;
-            n.g(this.f32165a.length() == aVar.f32165a.length(), "BitArrays must be of equal length (%s != %s)", this.f32165a.length(), aVar.f32165a.length());
-            for (int i2 = 0; i2 < this.f32165a.length(); i2++) {
-                long j3 = aVar.f32165a.get(i2);
+            n.g(this.f31410a.length() == aVar.f31410a.length(), "BitArrays must be of equal length (%s != %s)", this.f31410a.length(), aVar.f31410a.length());
+            for (int i2 = 0; i2 < this.f31410a.length(); i2++) {
+                long j3 = aVar.f31410a.get(i2);
                 while (true) {
-                    j = this.f32165a.get(i2);
+                    j = this.f31410a.get(i2);
                     j2 = j | j3;
                     if (j == j2) {
                         z = false;
                         break;
-                    } else if (this.f32165a.compareAndSet(i2, j, j2)) {
+                    } else if (this.f31410a.compareAndSet(i2, j, j2)) {
                         z = true;
                         break;
                     }
                 }
                 if (z) {
-                    this.f32166b.add(Long.bitCount(j2) - Long.bitCount(j));
+                    this.f31411b.add(Long.bitCount(j2) - Long.bitCount(j));
                 }
             }
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
-                return Arrays.equals(g(this.f32165a), g(((a) obj).f32165a));
+                return Arrays.equals(g(this.f31410a), g(((a) obj).f31410a));
             }
             return false;
         }
@@ -172,29 +172,29 @@ public enum BloomFilterStrategies implements BloomFilter.Strategy {
             int i2 = (int) (j >>> 6);
             long j4 = 1 << ((int) j);
             do {
-                j2 = this.f32165a.get(i2);
+                j2 = this.f31410a.get(i2);
                 j3 = j2 | j4;
                 if (j2 == j3) {
                     return false;
                 }
-            } while (!this.f32165a.compareAndSet(i2, j2, j3));
-            this.f32166b.increment();
+            } while (!this.f31410a.compareAndSet(i2, j2, j3));
+            this.f31411b.increment();
             return true;
         }
 
         public int hashCode() {
-            return Arrays.hashCode(g(this.f32165a));
+            return Arrays.hashCode(g(this.f31410a));
         }
 
         public a(long[] jArr) {
             n.e(jArr.length > 0, "data length is zero!");
-            this.f32165a = new AtomicLongArray(jArr);
-            this.f32166b = LongAddables.a();
+            this.f31410a = new AtomicLongArray(jArr);
+            this.f31411b = LongAddables.a();
             long j = 0;
             for (long j2 : jArr) {
                 j += Long.bitCount(j2);
             }
-            this.f32166b.add(j);
+            this.f31411b.add(j);
         }
     }
 }

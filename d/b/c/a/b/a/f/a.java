@@ -17,75 +17,75 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.net.ProtocolException;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
-public final class a implements e.InterfaceC1758e {
+/* loaded from: classes6.dex */
+public final class a implements e.InterfaceC1822e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final y f64562a;
+    public final y f65248a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.b.c.a.b.a.c.f f64563b;
+    public final d.b.c.a.b.a.c.f f65249b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.b.c.a.a.e f64564c;
+    public final d.b.c.a.a.e f65250c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.b.c.a.a.d f64565d;
+    public final d.b.c.a.a.d f65251d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64566e = 0;
+    public int f65252e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f64567f = PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
+    public long f65253f = PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public abstract class b implements q {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h f64568e;
+        public final h f65254e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f64569f;
+        public boolean f65255f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f64570g;
+        public long f65256g;
 
         public b() {
-            this.f64568e = new h(a.this.f64564c.a());
-            this.f64570g = 0L;
+            this.f65254e = new h(a.this.f65250c.a());
+            this.f65256g = 0L;
         }
 
         @Override // d.b.c.a.a.q
         public r a() {
-            return this.f64568e;
+            return this.f65254e;
         }
 
         public final void c(boolean z, IOException iOException) throws IOException {
             a aVar = a.this;
-            int i2 = aVar.f64566e;
+            int i2 = aVar.f65252e;
             if (i2 == 6) {
                 return;
             }
             if (i2 == 5) {
-                aVar.f(this.f64568e);
+                aVar.f(this.f65254e);
                 a aVar2 = a.this;
-                aVar2.f64566e = 6;
-                d.b.c.a.b.a.c.f fVar = aVar2.f64563b;
+                aVar2.f65252e = 6;
+                d.b.c.a.b.a.c.f fVar = aVar2.f65249b;
                 if (fVar != null) {
-                    fVar.i(!z, aVar2, this.f64570g, iOException);
+                    fVar.i(!z, aVar2, this.f65256g, iOException);
                     return;
                 }
                 return;
             }
-            throw new IllegalStateException("state: " + a.this.f64566e);
+            throw new IllegalStateException("state: " + a.this.f65252e);
         }
 
         @Override // d.b.c.a.a.q
         public long a(d.b.c.a.a.c cVar, long j) throws IOException {
             try {
-                long a2 = a.this.f64564c.a(cVar, j);
+                long a2 = a.this.f65250c.a(cVar, j);
                 if (a2 > 0) {
-                    this.f64570g += a2;
+                    this.f65256g += a2;
                 }
                 return a2;
             } catch (IOException e2) {
@@ -95,63 +95,63 @@ public final class a implements e.InterfaceC1758e {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public final class c implements p {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h f64572e;
+        public final h f65258e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f64573f;
+        public boolean f65259f;
 
         public c() {
-            this.f64572e = new h(a.this.f64565d.a());
+            this.f65258e = new h(a.this.f65251d.a());
         }
 
         @Override // d.b.c.a.a.p
         public r a() {
-            return this.f64572e;
+            return this.f65258e;
         }
 
         @Override // d.b.c.a.a.p
         public void b(d.b.c.a.a.c cVar, long j) throws IOException {
-            if (this.f64573f) {
+            if (this.f65259f) {
                 throw new IllegalStateException("closed");
             }
             if (j == 0) {
                 return;
             }
-            a.this.f64565d.h(j);
-            a.this.f64565d.b(Part.CRLF);
-            a.this.f64565d.b(cVar, j);
-            a.this.f64565d.b(Part.CRLF);
+            a.this.f65251d.h(j);
+            a.this.f65251d.b(Part.CRLF);
+            a.this.f65251d.b(cVar, j);
+            a.this.f65251d.b(Part.CRLF);
         }
 
         @Override // d.b.c.a.a.p, java.io.Closeable, java.lang.AutoCloseable
         public synchronized void close() throws IOException {
-            if (this.f64573f) {
+            if (this.f65259f) {
                 return;
             }
-            this.f64573f = true;
-            a.this.f64565d.b("0\r\n\r\n");
-            a.this.f(this.f64572e);
-            a.this.f64566e = 3;
+            this.f65259f = true;
+            a.this.f65251d.b("0\r\n\r\n");
+            a.this.f(this.f65258e);
+            a.this.f65252e = 3;
         }
 
         @Override // d.b.c.a.a.p, java.io.Flushable
         public synchronized void flush() throws IOException {
-            if (this.f64573f) {
+            if (this.f65259f) {
                 return;
             }
-            a.this.f64565d.flush();
+            a.this.f65251d.flush();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d extends b {
 
         /* renamed from: i  reason: collision with root package name */
-        public final s f64575i;
+        public final s f65261i;
         public long j;
         public boolean k;
 
@@ -159,13 +159,13 @@ public final class a implements e.InterfaceC1758e {
             super();
             this.j = -1L;
             this.k = true;
-            this.f64575i = sVar;
+            this.f65261i = sVar;
         }
 
         @Override // d.b.c.a.b.a.f.a.b, d.b.c.a.a.q
         public long a(d.b.c.a.a.c cVar, long j) throws IOException {
             if (j >= 0) {
-                if (!this.f64569f) {
+                if (!this.f65255f) {
                     if (this.k) {
                         long j2 = this.j;
                         if (j2 == 0 || j2 == -1) {
@@ -192,26 +192,26 @@ public final class a implements e.InterfaceC1758e {
 
         @Override // d.b.c.a.a.q, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (this.f64569f) {
+            if (this.f65255f) {
                 return;
             }
             if (this.k && !d.b.c.a.b.a.e.s(this, 100, TimeUnit.MILLISECONDS)) {
                 c(false, null);
             }
-            this.f64569f = true;
+            this.f65255f = true;
         }
 
         public final void n() throws IOException {
             if (this.j != -1) {
-                a.this.f64564c.p();
+                a.this.f65250c.p();
             }
             try {
-                this.j = a.this.f64564c.m();
-                String trim = a.this.f64564c.p().trim();
+                this.j = a.this.f65250c.m();
+                String trim = a.this.f65250c.p().trim();
                 if (this.j >= 0 && (trim.isEmpty() || trim.startsWith(";"))) {
                     if (this.j == 0) {
                         this.k = false;
-                        e.g.f(a.this.f64562a.i(), this.f64575i, a.this.i());
+                        e.g.f(a.this.f65248a.i(), this.f65261i, a.this.i());
                         c(true, null);
                         return;
                     }
@@ -224,51 +224,51 @@ public final class a implements e.InterfaceC1758e {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public final class e implements p {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h f64576e;
+        public final h f65262e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f64577f;
+        public boolean f65263f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f64578g;
+        public long f65264g;
 
         public e(long j) {
-            this.f64576e = new h(a.this.f64565d.a());
-            this.f64578g = j;
+            this.f65262e = new h(a.this.f65251d.a());
+            this.f65264g = j;
         }
 
         @Override // d.b.c.a.a.p
         public r a() {
-            return this.f64576e;
+            return this.f65262e;
         }
 
         @Override // d.b.c.a.a.p
         public void b(d.b.c.a.a.c cVar, long j) throws IOException {
-            if (!this.f64577f) {
+            if (!this.f65263f) {
                 d.b.c.a.b.a.e.p(cVar.v(), 0L, j);
-                if (j <= this.f64578g) {
-                    a.this.f64565d.b(cVar, j);
-                    this.f64578g -= j;
+                if (j <= this.f65264g) {
+                    a.this.f65251d.b(cVar, j);
+                    this.f65264g -= j;
                     return;
                 }
-                throw new ProtocolException("expected " + this.f64578g + " bytes but received " + j);
+                throw new ProtocolException("expected " + this.f65264g + " bytes but received " + j);
             }
             throw new IllegalStateException("closed");
         }
 
         @Override // d.b.c.a.a.p, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (this.f64577f) {
+            if (this.f65263f) {
                 return;
             }
-            this.f64577f = true;
-            if (this.f64578g <= 0) {
-                a.this.f(this.f64576e);
-                a.this.f64566e = 3;
+            this.f65263f = true;
+            if (this.f65264g <= 0) {
+                a.this.f(this.f65262e);
+                a.this.f65252e = 3;
                 return;
             }
             throw new ProtocolException("unexpected end of stream");
@@ -276,22 +276,22 @@ public final class a implements e.InterfaceC1758e {
 
         @Override // d.b.c.a.a.p, java.io.Flushable
         public void flush() throws IOException {
-            if (this.f64577f) {
+            if (this.f65263f) {
                 return;
             }
-            a.this.f64565d.flush();
+            a.this.f65251d.flush();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class f extends b {
 
         /* renamed from: i  reason: collision with root package name */
-        public long f64580i;
+        public long f65266i;
 
         public f(a aVar, long j) throws IOException {
             super();
-            this.f64580i = j;
+            this.f65266i = j;
             if (j == 0) {
                 c(true, null);
             }
@@ -300,15 +300,15 @@ public final class a implements e.InterfaceC1758e {
         @Override // d.b.c.a.b.a.f.a.b, d.b.c.a.a.q
         public long a(d.b.c.a.a.c cVar, long j) throws IOException {
             if (j >= 0) {
-                if (!this.f64569f) {
-                    long j2 = this.f64580i;
+                if (!this.f65255f) {
+                    long j2 = this.f65266i;
                     if (j2 == 0) {
                         return -1L;
                     }
                     long a2 = super.a(cVar, Math.min(j2, j));
                     if (a2 != -1) {
-                        long j3 = this.f64580i - a2;
-                        this.f64580i = j3;
+                        long j3 = this.f65266i - a2;
+                        this.f65266i = j3;
                         if (j3 == 0) {
                             c(true, null);
                         }
@@ -325,21 +325,21 @@ public final class a implements e.InterfaceC1758e {
 
         @Override // d.b.c.a.a.q, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (this.f64569f) {
+            if (this.f65255f) {
                 return;
             }
-            if (this.f64580i != 0 && !d.b.c.a.b.a.e.s(this, 100, TimeUnit.MILLISECONDS)) {
+            if (this.f65266i != 0 && !d.b.c.a.b.a.e.s(this, 100, TimeUnit.MILLISECONDS)) {
                 c(false, null);
             }
-            this.f64569f = true;
+            this.f65255f = true;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class g extends b {
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f64581i;
+        public boolean f65267i;
 
         public g(a aVar) {
             super();
@@ -348,13 +348,13 @@ public final class a implements e.InterfaceC1758e {
         @Override // d.b.c.a.b.a.f.a.b, d.b.c.a.a.q
         public long a(d.b.c.a.a.c cVar, long j) throws IOException {
             if (j >= 0) {
-                if (!this.f64569f) {
-                    if (this.f64581i) {
+                if (!this.f65255f) {
+                    if (this.f65267i) {
                         return -1L;
                     }
                     long a2 = super.a(cVar, j);
                     if (a2 == -1) {
-                        this.f64581i = true;
+                        this.f65267i = true;
                         c(true, null);
                         return -1L;
                     }
@@ -367,32 +367,32 @@ public final class a implements e.InterfaceC1758e {
 
         @Override // d.b.c.a.a.q, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (this.f64569f) {
+            if (this.f65255f) {
                 return;
             }
-            if (!this.f64581i) {
+            if (!this.f65267i) {
                 c(false, null);
             }
-            this.f64569f = true;
+            this.f65255f = true;
         }
     }
 
     public a(y yVar, d.b.c.a.b.a.c.f fVar, d.b.c.a.a.e eVar, d.b.c.a.a.d dVar) {
-        this.f64562a = yVar;
-        this.f64563b = fVar;
-        this.f64564c = eVar;
-        this.f64565d = dVar;
+        this.f65248a = yVar;
+        this.f65249b = fVar;
+        this.f65250c = eVar;
+        this.f65251d = dVar;
     }
 
-    @Override // d.b.c.a.b.a.e.InterfaceC1758e
+    @Override // d.b.c.a.b.a.e.InterfaceC1822e
     public void a(a0 a0Var) throws IOException {
-        g(a0Var.d(), e.k.b(a0Var, this.f64563b.j().a().b().type()));
+        g(a0Var.d(), e.k.b(a0Var, this.f65249b.j().a().b().type()));
     }
 
-    @Override // d.b.c.a.b.a.e.InterfaceC1758e
+    @Override // d.b.c.a.b.a.e.InterfaceC1822e
     public d.b.c.a.b.d b(d.b.c.a.b.c cVar) throws IOException {
-        d.b.c.a.b.a.c.f fVar = this.f64563b;
-        fVar.f64519f.t(fVar.f64518e);
+        d.b.c.a.b.a.c.f fVar = this.f65249b;
+        fVar.f65205f.t(fVar.f65204e);
         String o = cVar.o("Content-Type");
         if (!e.g.h(cVar)) {
             return new e.j(o, 0L, k.b(h(0L)));
@@ -407,7 +407,7 @@ public final class a implements e.InterfaceC1758e {
         return new e.j(o, -1L, k.b(k()));
     }
 
-    @Override // d.b.c.a.b.a.e.InterfaceC1758e
+    @Override // d.b.c.a.b.a.e.InterfaceC1822e
     public p c(a0 a0Var, long j) {
         if ("chunked".equalsIgnoreCase(a0Var.b("Transfer-Encoding"))) {
             return j();
@@ -419,48 +419,48 @@ public final class a implements e.InterfaceC1758e {
     }
 
     public p d(long j) {
-        if (this.f64566e == 1) {
-            this.f64566e = 2;
+        if (this.f65252e == 1) {
+            this.f65252e = 2;
             return new e(j);
         }
-        throw new IllegalStateException("state: " + this.f64566e);
+        throw new IllegalStateException("state: " + this.f65252e);
     }
 
     public q e(s sVar) throws IOException {
-        if (this.f64566e == 4) {
-            this.f64566e = 5;
+        if (this.f65252e == 4) {
+            this.f65252e = 5;
             return new d(sVar);
         }
-        throw new IllegalStateException("state: " + this.f64566e);
+        throw new IllegalStateException("state: " + this.f65252e);
     }
 
     public void f(h hVar) {
         r j = hVar.j();
-        hVar.i(r.f64468d);
+        hVar.i(r.f65154d);
         j.g();
         j.f();
     }
 
     public void g(v vVar, String str) throws IOException {
-        if (this.f64566e == 0) {
-            this.f64565d.b(str).b(Part.CRLF);
+        if (this.f65252e == 0) {
+            this.f65251d.b(str).b(Part.CRLF);
             int a2 = vVar.a();
             for (int i2 = 0; i2 < a2; i2++) {
-                this.f64565d.b(vVar.b(i2)).b(": ").b(vVar.e(i2)).b(Part.CRLF);
+                this.f65251d.b(vVar.b(i2)).b(": ").b(vVar.e(i2)).b(Part.CRLF);
             }
-            this.f64565d.b(Part.CRLF);
-            this.f64566e = 1;
+            this.f65251d.b(Part.CRLF);
+            this.f65252e = 1;
             return;
         }
-        throw new IllegalStateException("state: " + this.f64566e);
+        throw new IllegalStateException("state: " + this.f65252e);
     }
 
     public q h(long j) throws IOException {
-        if (this.f64566e == 4) {
-            this.f64566e = 5;
+        if (this.f65252e == 4) {
+            this.f65252e = 5;
             return new f(this, j);
         }
-        throw new IllegalStateException("state: " + this.f64566e);
+        throw new IllegalStateException("state: " + this.f65252e);
     }
 
     public v i() throws IOException {
@@ -468,7 +468,7 @@ public final class a implements e.InterfaceC1758e {
         while (true) {
             String l = l();
             if (l.length() != 0) {
-                d.b.c.a.b.a.b.f64489a.f(aVar, l);
+                d.b.c.a.b.a.b.f65175a.f(aVar, l);
             } else {
                 return aVar.c();
             }
@@ -476,64 +476,64 @@ public final class a implements e.InterfaceC1758e {
     }
 
     public p j() {
-        if (this.f64566e == 1) {
-            this.f64566e = 2;
+        if (this.f65252e == 1) {
+            this.f65252e = 2;
             return new c();
         }
-        throw new IllegalStateException("state: " + this.f64566e);
+        throw new IllegalStateException("state: " + this.f65252e);
     }
 
     public q k() throws IOException {
-        if (this.f64566e == 4) {
-            d.b.c.a.b.a.c.f fVar = this.f64563b;
+        if (this.f65252e == 4) {
+            d.b.c.a.b.a.c.f fVar = this.f65249b;
             if (fVar != null) {
-                this.f64566e = 5;
+                this.f65252e = 5;
                 fVar.m();
                 return new g(this);
             }
             throw new IllegalStateException("streamAllocation == null");
         }
-        throw new IllegalStateException("state: " + this.f64566e);
+        throw new IllegalStateException("state: " + this.f65252e);
     }
 
     public final String l() throws IOException {
-        String e2 = this.f64564c.e(this.f64567f);
-        this.f64567f -= e2.length();
+        String e2 = this.f65250c.e(this.f65253f);
+        this.f65253f -= e2.length();
         return e2;
     }
 
-    @Override // d.b.c.a.b.a.e.InterfaceC1758e
+    @Override // d.b.c.a.b.a.e.InterfaceC1822e
     public void a() throws IOException {
-        this.f64565d.flush();
+        this.f65251d.flush();
     }
 
-    @Override // d.b.c.a.b.a.e.InterfaceC1758e
+    @Override // d.b.c.a.b.a.e.InterfaceC1822e
     public c.a a(boolean z) throws IOException {
-        int i2 = this.f64566e;
+        int i2 = this.f65252e;
         if (i2 != 1 && i2 != 3) {
-            throw new IllegalStateException("state: " + this.f64566e);
+            throw new IllegalStateException("state: " + this.f65252e);
         }
         try {
             e.m b2 = e.m.b(l());
             c.a aVar = new c.a();
-            aVar.g(b2.f64559a);
-            aVar.a(b2.f64560b);
-            aVar.i(b2.f64561c);
+            aVar.g(b2.f65245a);
+            aVar.a(b2.f65246b);
+            aVar.i(b2.f65247c);
             aVar.f(i());
-            if (z && b2.f64560b == 100) {
+            if (z && b2.f65246b == 100) {
                 return null;
             }
-            this.f64566e = 4;
+            this.f65252e = 4;
             return aVar;
         } catch (EOFException e2) {
-            IOException iOException = new IOException("unexpected end of stream on " + this.f64563b);
+            IOException iOException = new IOException("unexpected end of stream on " + this.f65249b);
             iOException.initCause(e2);
             throw iOException;
         }
     }
 
-    @Override // d.b.c.a.b.a.e.InterfaceC1758e
+    @Override // d.b.c.a.b.a.e.InterfaceC1822e
     public void b() throws IOException {
-        this.f64565d.flush();
+        this.f65251d.flush();
     }
 }

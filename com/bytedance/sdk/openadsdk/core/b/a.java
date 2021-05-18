@@ -7,57 +7,57 @@ import com.bytedance.sdk.openadsdk.core.p;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f28574a;
+    public static volatile a f27819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f28575b;
+    public static volatile boolean f27820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile long f28576c;
+    public static volatile long f27821c;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f28578e;
+    public Handler f27823e;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Queue<C0302a> f28577d = new LinkedList();
+    public final Queue<C0289a> f27822d = new LinkedList();
 
     /* renamed from: f  reason: collision with root package name */
-    public final h f28579f = p.h();
+    public final h f27824f = p.h();
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0302a {
+    /* loaded from: classes6.dex */
+    public static class C0289a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f28581a;
+        public final long f27826a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f28582b;
+        public final String f27827b;
 
-        public C0302a(long j, String str) {
-            this.f28581a = j;
-            this.f28582b = str;
+        public C0289a(long j, String str) {
+            this.f27826a = j;
+            this.f27827b = str;
         }
     }
 
     private synchronized boolean b(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        int k = this.f28579f.k();
-        long j = this.f28579f.j();
-        if (this.f28577d.size() > 0 && this.f28577d.size() >= k) {
-            long abs = Math.abs(currentTimeMillis - this.f28577d.peek().f28581a);
+        int k = this.f27824f.k();
+        long j = this.f27824f.j();
+        if (this.f27822d.size() > 0 && this.f27822d.size() >= k) {
+            long abs = Math.abs(currentTimeMillis - this.f27822d.peek().f27826a);
             if (abs <= j) {
                 b(j - abs);
                 return true;
             }
-            this.f28577d.poll();
-            this.f28577d.offer(new C0302a(currentTimeMillis, str));
+            this.f27822d.poll();
+            this.f27822d.offer(new C0289a(currentTimeMillis, str));
         } else {
-            this.f28577d.offer(new C0302a(currentTimeMillis, str));
+            this.f27822d.offer(new C0289a(currentTimeMillis, str));
         }
         return false;
     }
@@ -65,11 +65,11 @@ public class a {
     public synchronized String c() {
         String str;
         HashMap hashMap = new HashMap();
-        for (C0302a c0302a : this.f28577d) {
-            if (hashMap.containsKey(c0302a.f28582b)) {
-                hashMap.put(c0302a.f28582b, Integer.valueOf(((Integer) hashMap.get(c0302a.f28582b)).intValue() + 1));
+        for (C0289a c0289a : this.f27822d) {
+            if (hashMap.containsKey(c0289a.f27827b)) {
+                hashMap.put(c0289a.f27827b, Integer.valueOf(((Integer) hashMap.get(c0289a.f27827b)).intValue() + 1));
             } else {
-                hashMap.put(c0302a.f28582b, 1);
+                hashMap.put(c0289a.f27827b, 1);
             }
         }
         int i2 = Integer.MIN_VALUE;
@@ -85,31 +85,31 @@ public class a {
     }
 
     public static a a() {
-        if (f28574a == null) {
+        if (f27819a == null) {
             synchronized (a.class) {
-                if (f28574a == null) {
-                    f28574a = new a();
+                if (f27819a == null) {
+                    f27819a = new a();
                 }
             }
         }
-        return f28574a;
+        return f27819a;
     }
 
     public synchronized boolean a(String str) {
         if (b(str)) {
             a(true);
-            a(f28576c);
+            a(f27821c);
         } else {
             a(false);
         }
-        return f28575b;
+        return f27820b;
     }
 
     private synchronized void a(long j) {
-        if (this.f28578e == null) {
-            this.f28578e = new Handler(Looper.getMainLooper());
+        if (this.f27823e == null) {
+            this.f27823e = new Handler(Looper.getMainLooper());
         }
-        this.f28578e.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.b.a.1
+        this.f27823e.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.b.a.1
             @Override // java.lang.Runnable
             public void run() {
                 a.this.a(false);
@@ -118,15 +118,15 @@ public class a {
     }
 
     public synchronized boolean b() {
-        return f28575b;
+        return f27820b;
     }
 
     private synchronized void b(long j) {
-        f28576c = j;
+        f27821c = j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(boolean z) {
-        f28575b = z;
+        f27820b = z;
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import d.a.c.c.g.c;
-import d.a.j0.e1.f.j.d;
+import d.a.k0.e1.f.j.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryActivity> implements BdListView.p {
@@ -28,8 +28,8 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
 
         /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0194a implements Runnable {
-            public RunnableC0194a() {
+        public class RunnableC0181a implements Runnable {
+            public RunnableC0181a() {
             }
 
             @Override // java.lang.Runnable
@@ -79,7 +79,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 if (responseHistoryMessage.getMsg().size() == 0) {
                     OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
                 } else {
-                    new Handler().post(new RunnableC0194a());
+                    new Handler().post(new RunnableC0181a());
                 }
             }
         }
@@ -116,7 +116,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
             i2 = 0;
         } else {
             List<ResponseHistoryMessage.a> list2 = this.mDataList;
-            i2 = list2.get(list2.size() - 1).f17888d;
+            i2 = list2.get(list2.size() - 1).f17203d;
         }
         this.isRefreshing = true;
         MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), i2));

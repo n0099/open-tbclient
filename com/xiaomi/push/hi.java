@@ -16,7 +16,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
     public static final jg f474a = new jg("ClientUploadData");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f38557a = new iy("", (byte) 15, 1);
+    public static final iy f37802a = new iy("", (byte) 15, 1);
 
     public int a() {
         List<hj> list = this.f475a;
@@ -32,11 +32,11 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
     public int compareTo(hi hiVar) {
         int a2;
         if (hi.class.equals(hiVar.getClass())) {
-            int compareTo = Boolean.valueOf(m361a()).compareTo(Boolean.valueOf(hiVar.m361a()));
+            int compareTo = Boolean.valueOf(m360a()).compareTo(Boolean.valueOf(hiVar.m360a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m361a() || (a2 = ir.a(this.f475a, hiVar.f475a)) == 0) {
+            if (!m360a() || (a2 = ir.a(this.f475a, hiVar.f475a)) == 0) {
                 return 0;
             }
             return a2;
@@ -45,7 +45,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m360a() {
+    public void m359a() {
         if (this.f475a != null) {
             return;
         }
@@ -61,19 +61,19 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.iq
     public void a(jb jbVar) {
-        jbVar.m512a();
+        jbVar.m511a();
         while (true) {
-            iy m508a = jbVar.m508a();
-            byte b2 = m508a.f38795a;
+            iy m507a = jbVar.m507a();
+            byte b2 = m507a.f38040a;
             if (b2 == 0) {
                 jbVar.f();
-                m360a();
+                m359a();
                 return;
             }
-            if (m508a.f807a == 1 && b2 == 15) {
-                iz m509a = jbVar.m509a();
-                this.f475a = new ArrayList(m509a.f808a);
-                for (int i2 = 0; i2 < m509a.f808a; i2++) {
+            if (m507a.f807a == 1 && b2 == 15) {
+                iz m508a = jbVar.m508a();
+                this.f475a = new ArrayList(m508a.f808a);
+                for (int i2 = 0; i2 < m508a.f808a; i2++) {
                     hj hjVar = new hj();
                     hjVar.a(jbVar);
                     this.f475a.add(hjVar);
@@ -87,29 +87,29 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m361a() {
+    public boolean m360a() {
         return this.f475a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m362a(hi hiVar) {
+    public boolean m361a(hi hiVar) {
         if (hiVar == null) {
             return false;
         }
-        boolean m361a = m361a();
-        boolean m361a2 = hiVar.m361a();
-        if (m361a || m361a2) {
-            return m361a && m361a2 && this.f475a.equals(hiVar.f475a);
+        boolean m360a = m360a();
+        boolean m360a2 = hiVar.m360a();
+        if (m360a || m360a2) {
+            return m360a && m360a2 && this.f475a.equals(hiVar.f475a);
         }
         return true;
     }
 
     @Override // com.xiaomi.push.iq
     public void b(jb jbVar) {
-        m360a();
+        m359a();
         jbVar.a(f474a);
         if (this.f475a != null) {
-            jbVar.a(f38557a);
+            jbVar.a(f37802a);
             jbVar.a(new iz(StandardMessageCodec.LIST, this.f475a.size()));
             for (hj hjVar : this.f475a) {
                 hjVar.b(jbVar);
@@ -118,12 +118,12 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         jbVar.c();
-        jbVar.m516a();
+        jbVar.m515a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hi)) {
-            return m362a((hi) obj);
+            return m361a((hi) obj);
         }
         return false;
     }

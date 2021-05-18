@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tieba.R;
 import d.a.c.a.f;
 import d.a.c.e.m.g;
-import d.a.i0.r.s.h;
-import d.a.i0.r.s.j;
-import d.a.i0.r.s.l;
+import d.a.j0.r.s.h;
+import d.a.j0.r.s.j;
+import d.a.j0.r.s.l;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NewMyFansUserLikeButton extends FollowUserButton {
@@ -29,26 +29,26 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f19180e;
+        public final /* synthetic */ View.OnClickListener f18468e;
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.NewMyFansUserLikeButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0204a implements l.d {
+        public class C0191a implements l.d {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f19182a;
+            public final /* synthetic */ View f18470a;
 
-            public C0204a(View view) {
-                this.f19182a = view;
+            public C0191a(View view) {
+                this.f18470a = view;
             }
 
-            @Override // d.a.i0.r.s.l.d
+            @Override // d.a.j0.r.s.l.d
             public void onClick() {
-                View.OnClickListener onClickListener = a.this.f19180e;
+                View.OnClickListener onClickListener = a.this.f18468e;
                 if (onClickListener == null) {
                     return;
                 }
-                onClickListener.onClick(this.f19182a);
+                onClickListener.onClick(this.f18470a);
                 if (NewMyFansUserLikeButton.this.A != 1) {
                     if (NewMyFansUserLikeButton.this.A == 2) {
                         TiebaStatic.log(new StatisticItem("C12603").param("obj_param1", NewMyFansUserLikeButton.this.z));
@@ -65,7 +65,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
             public b() {
             }
 
-            @Override // d.a.i0.r.s.l.c
+            @Override // d.a.j0.r.s.l.c
             public void onClick() {
                 if (NewMyFansUserLikeButton.this.y == null) {
                     return;
@@ -75,7 +75,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
         }
 
         public a(View.OnClickListener onClickListener) {
-            this.f19180e = onClickListener;
+            this.f18468e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
@@ -94,7 +94,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                         lVar.q(NewMyFansUserLikeButton.this.x.getString(R.string.confirm_unlike));
                         ArrayList arrayList = new ArrayList();
                         h hVar = new h(NewMyFansUserLikeButton.this.x.getString(R.string.confirm), lVar);
-                        hVar.m(new C0204a(view));
+                        hVar.m(new C0191a(view));
                         arrayList.add(hVar);
                         lVar.m(new b());
                         lVar.k(arrayList);
@@ -106,7 +106,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 }
                 return;
             }
-            this.f19180e.onClick(view);
+            this.f18468e.onClick(view);
         }
     }
 
@@ -118,12 +118,12 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
         this.B = false;
     }
 
-    @Override // com.baidu.tbadk.core.view.FollowUserButton, d.a.i0.r.f0.q.b
+    @Override // com.baidu.tbadk.core.view.FollowUserButton, d.a.j0.r.f0.q.b
     public void c(View.OnClickListener onClickListener) {
         setOnClickListener(new a(onClickListener));
     }
 
-    @Override // com.baidu.tbadk.core.view.FollowUserButton, d.a.i0.r.f0.q.b
+    @Override // com.baidu.tbadk.core.view.FollowUserButton, d.a.j0.r.f0.q.b
     public void e(boolean z, int i2) {
         super.e(z, i2);
         this.B = z;

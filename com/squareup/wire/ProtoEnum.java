@@ -1,5 +1,5 @@
 package com.squareup.wire;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface ProtoEnum {
     int getValue();
 }

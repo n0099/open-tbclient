@@ -26,7 +26,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68277d;
+        public Disposable f68957d;
         public final boolean delayErrors;
         public volatile boolean disposed;
         public final Function<? super T, ? extends CompletableSource> mapper;
@@ -80,7 +80,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             this.disposed = true;
-            this.f68277d.dispose();
+            this.f68957d.dispose();
             this.set.dispose();
         }
 
@@ -96,7 +96,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68277d.isDisposed();
+            return this.f68957d.isDisposed();
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -148,15 +148,15 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
                 completableSource.subscribe(innerObserver);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
-                this.f68277d.dispose();
+                this.f68957d.dispose();
                 onError(th);
             }
         }
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68277d, disposable)) {
-                this.f68277d = disposable;
+            if (DisposableHelper.validate(this.f68957d, disposable)) {
+                this.f68957d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

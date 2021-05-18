@@ -2,10 +2,10 @@ package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
-import d.a.i0.z0.w;
+import d.a.j0.z0.w;
 import tbclient.GetLockWindowTid.DataReq;
 import tbclient.GetLockWindowTid.GetLockWindowTidReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PullTidReqNetMessage extends NetMessage {
     public PullTidReqNetMessage(int i2, int i3) {
         super(i2, i3);

@@ -19,7 +19,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import d.a.c.e.p.l;
-import d.a.i0.m.f;
+import d.a.j0.m.f;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
@@ -32,15 +32,15 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
     public class a extends GridLayoutManager.SpanSizeLookup {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f17275a;
+        public final /* synthetic */ List f16590a;
 
         public a(List list) {
-            this.f17275a = list;
+            this.f16590a = list;
         }
 
         @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
         public int getSpanSize(int i2) {
-            return i2 == this.f17275a.size() ? 2 : 1;
+            return i2 == this.f16590a.size() ? 2 : 1;
         }
     }
 
@@ -50,7 +50,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.i0.m.f
+        @Override // d.a.j0.m.f
         /* renamed from: b */
         public void c(View view, SpecialColumnItemData specialColumnItemData, int i2, long j) {
             if (specialColumnItemData == null) {
@@ -58,7 +58,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.i0.m.f
+        @Override // d.a.j0.m.f
         /* renamed from: d */
         public void a(View view, SpecialColumnItemData specialColumnItemData, int i2, long j) {
             if (specialColumnItemData == null) {

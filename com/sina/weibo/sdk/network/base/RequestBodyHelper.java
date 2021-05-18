@@ -14,7 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RequestBodyHelper {
     public static final String DEFAULT_CHARSET = "UTF-8";
     public static final String OCTET_STREAM = "application/octet-stream";

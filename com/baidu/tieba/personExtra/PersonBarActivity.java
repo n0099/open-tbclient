@@ -3,8 +3,8 @@ package com.baidu.tieba.personExtra;
 import android.os.Bundle;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import d.a.j0.h2.c;
-/* loaded from: classes4.dex */
+import d.a.k0.h2.c;
+/* loaded from: classes5.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
     public PersonBarAdapter mAdapter = null;
     public PersonBarModel mModel = null;
@@ -76,13 +76,13 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i2) {
         BaseFragment baseFragment;
-        c i1;
+        c h1;
         super.onPageSelected(i2);
         PersonBarAdapter personBarAdapter = this.mAdapter;
-        if (personBarAdapter == null || personBarAdapter.getItem(i2) == null || (baseFragment = (BaseFragment) this.mAdapter.getItem(i2)) == null || !(baseFragment instanceof PersonBarFragment) || (i1 = ((PersonBarFragment) baseFragment).i1()) == null) {
+        if (personBarAdapter == null || personBarAdapter.getItem(i2) == null || (baseFragment = (BaseFragment) this.mAdapter.getItem(i2)) == null || !(baseFragment instanceof PersonBarFragment) || (h1 = ((PersonBarFragment) baseFragment).h1()) == null) {
             return;
         }
-        i1.f(false);
-        i1.notifyDataSetChanged();
+        h1.f(false);
+        h1.notifyDataSetChanged();
     }
 }

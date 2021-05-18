@@ -9,13 +9,15 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.ubc.OpenStatisticIPCManager;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import d.a.h0.a.e0.p.i;
-import d.a.h0.a.e0.u.b;
-import d.a.h0.a.i2.p;
-import d.a.h0.a.j0.e;
-import d.a.h0.a.k;
-import d.a.h0.l.c;
-import d.a.h0.l.l.k.h;
+import d.a.c0.b.a.e;
+import d.a.i0.a.a2.d;
+import d.a.i0.a.h0.m.i;
+import d.a.i0.a.h0.s.b;
+import d.a.i0.a.k;
+import d.a.i0.a.n0.f;
+import d.a.i0.a.v2.q;
+import d.a.i0.n.i.m.h;
+import d.a.i0.r.p;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanAppInitHelper {
@@ -28,32 +30,44 @@ public class SwanAppInitHelper {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f12289e;
+        public final /* synthetic */ boolean f11565e;
 
         public a(boolean z) {
-            this.f12289e = z;
+            this.f11565e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f12289e) {
-                c.i(new h(0), new i(null), new d.a.h0.g.n.b.a(null));
+            if (this.f11565e) {
+                d.a.i0.n.b.k(new h(0), new i(null), d.a.i0.a.c1.b.i().p(null));
             }
         }
     }
 
     /* loaded from: classes3.dex */
     public static class b implements b.c {
-        @Override // d.a.h0.a.e0.u.b.c
+
+        /* loaded from: classes3.dex */
+        public class a implements Runnable {
+            public a(b bVar) {
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                f.c().e(null);
+            }
+        }
+
+        @Override // d.a.i0.a.h0.s.b.c
         public void a() {
-            e.c().e(null);
+            d.i().post(new a(this));
         }
     }
 
     public static void asyncUpdateSwanAppCore() {
-        boolean c2 = d.a.h0.l.q.a.c(0);
+        boolean c2 = d.a.i0.n.n.a.c(0);
         if (c2) {
-            p.k(new a(c2), "asyncUpdateSwanAppCore by PMS");
+            q.j(new a(c2), "asyncUpdateSwanAppCore by PMS");
         }
     }
 
@@ -61,15 +75,22 @@ public class SwanAppInitHelper {
         sIsDelayInit = z;
     }
 
-    public static void doWebViewInit(Context context) {
+    public static void doWebViewInit(Context context, b.c... cVarArr) {
         if (ProcessUtils.isMainProcess()) {
-            d.a.h0.a.e0.u.b.h(context).e(new b());
+            d.a.i0.a.h0.s.b.g(context).e(new b());
         }
-        d.a.h0.a.e0.u.b.h(context).k(ProcessUtils.isMainProcess());
+        if (cVarArr != null && cVarArr.length > 0) {
+            for (b.c cVar : cVarArr) {
+                if (cVar != null) {
+                    d.a.i0.a.h0.s.b.g(context).e(cVar);
+                }
+            }
+        }
+        d.a.i0.a.h0.s.b.g(context).j(ProcessUtils.isMainProcess());
     }
 
     public static boolean entranceOK() {
-        return !sOnlyInitForLollipopAndAbove || d.a.h0.a.i2.c.f();
+        return !sOnlyInitForLollipopAndAbove || d.a.i0.a.v2.d.f();
     }
 
     public static void initConfig() {
@@ -86,7 +107,7 @@ public class SwanAppInitHelper {
 
     public static void initRuntimeContext(Application application) {
         AppRuntimeInit.onApplicationattachBaseContext(application);
-        d.a.c0.b.a.e.b(application);
+        e.b(application);
     }
 
     public static void initStatisticsModule(Application application) {
@@ -101,22 +122,22 @@ public class SwanAppInitHelper {
             Fresco.initialize(application);
         }
         if (ProcessUtils.isMainProcess()) {
-            d.a.h0.d.g.a.d(application).i();
+            d.a.i0.e.k.b.d(application).i();
         }
         initWebView(application);
         if (ProcessUtils.isMainProcess()) {
             asyncUpdateSwanAppCore();
-            if (k.f43101a) {
-                d.a.h0.a.h2.a.b(0, 1);
+            if (k.f43025a) {
+                d.a.i0.a.t2.a.d(0, 1);
             }
         }
     }
 
     public static void initWebView(Context context) {
-        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), d.a.h0.a.w0.a.b0().c(), false);
-        if (d.a.h0.a.w0.a.b0().b()) {
-            doWebViewInit(context);
-        }
+        boolean d2 = d.a.i0.a.c1.a.n0().d();
+        WebViewFactory.setAbTestInterface(new DefaultSailorAbTest());
+        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), d2, false);
+        doWebViewInit(context, new b.c[0]);
     }
 
     public static boolean isDelayInit() {
@@ -128,7 +149,7 @@ public class SwanAppInitHelper {
     }
 
     public static void onTerminate() {
-        d.a.h0.a.e0.u.b.h(AppRuntime.getAppContext()).n();
+        d.a.i0.a.h0.s.b.g(AppRuntime.getAppContext()).m();
     }
 
     public static void onlyInitForLollipopAndAbove(boolean z) {
@@ -136,7 +157,7 @@ public class SwanAppInitHelper {
     }
 
     public static void uploadLastData() {
-        d.a.h0.n.p b2 = d.a.h0.n.p.b();
+        p b2 = p.b();
         b2.h();
         b2.i();
     }
@@ -151,6 +172,8 @@ public class SwanAppInitHelper {
         if (entranceOK() && !isDelayInit() && isProcessNeedInit()) {
             initStatisticsModule(application);
             initSwanAppModule(application);
+            d.a.i0.e.f.a().a(application);
+            d.a.i0.e.f.b().a(application, z, z2);
         }
     }
 }

@@ -9,8 +9,8 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public abstract class AbstractFullBox extends AbstractBox implements FullBox {
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
     public int flags;
     public int version;
 

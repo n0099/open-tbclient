@@ -17,33 +17,33 @@ import java.util.Map;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CyberPlayerCoreProvider f5068a = null;
+    public static CyberPlayerCoreProvider f4922a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5069b = "com.baidu.media.duplayer";
+    public static String f4923b = "com.baidu.media.duplayer";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5070c = f5069b + ".CyberVRRenderProviderImpl";
+    public static final String f4924c = f4923b + ".CyberVRRenderProviderImpl";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5071d = f5069b + ".MediaInstanceManagerImpl";
+    public static final String f4925d = f4923b + ".MediaInstanceManagerImpl";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5072e = f5069b + ".CyberPlayerCoreImpl";
+    public static final String f4926e = f4923b + ".CyberPlayerCoreImpl";
 
     /* renamed from: f  reason: collision with root package name */
-    public static Class<?> f5073f;
+    public static Class<?> f4927f;
 
     public static int a(String str, int i2, int i3, int i4, Map<String, String> map) {
         if (a(1)) {
-            return f5068a.getDevicePlayQualityScore(str, i2, i3, i4, map);
+            return f4922a.getDevicePlayQualityScore(str, i2, i3, i4, map);
         }
         return -1;
     }
 
     public static CyberVRRenderProvider a(Context context) {
         Class<?> cls;
-        if (f5068a == null || (cls = f5073f) == null) {
+        if (f4922a == null || (cls = f4927f) == null) {
             return null;
         }
         try {
@@ -57,49 +57,49 @@ public class d {
 
     public static PlayerProvider a(int i2, CyberPlayerManager.HttpDNS httpDNS) {
         if (a(1)) {
-            return f5068a.createCyberPlayer(i2, httpDNS);
+            return f4922a.createCyberPlayer(i2, httpDNS);
         }
         return null;
     }
 
     public static CaptureManagerProvider a(Context context, int i2, int i3, int i4, int i5, int i6) {
         if (a(33)) {
-            return f5068a.createCaptureManager(context, i2, i3, i4, i5, i6);
+            return f4922a.createCaptureManager(context, i2, i3, i4, i5, i6);
         }
         return null;
     }
 
     public static RTCVideoViewProvider a(Context context, AttributeSet attributeSet) {
         if (a(33)) {
-            return f5068a.createRTCVideoView(context, attributeSet);
+            return f4922a.createRTCVideoView(context, attributeSet);
         }
         return null;
     }
 
     public static String a() {
-        CyberPlayerCoreProvider cyberPlayerCoreProvider = f5068a;
+        CyberPlayerCoreProvider cyberPlayerCoreProvider = f4922a;
         return cyberPlayerCoreProvider != null ? cyberPlayerCoreProvider.getCoreVersion() : "";
     }
 
     public static synchronized void a(Context context, ClassLoader classLoader, String str) throws Exception {
         synchronized (d.class) {
-            if (f5068a == null) {
+            if (f4922a == null) {
                 try {
-                    CyberPlayerCoreProvider cyberPlayerCoreProvider = (CyberPlayerCoreProvider) Class.forName(f5072e, true, classLoader).newInstance();
-                    f5068a = cyberPlayerCoreProvider;
+                    CyberPlayerCoreProvider cyberPlayerCoreProvider = (CyberPlayerCoreProvider) Class.forName(f4926e, true, classLoader).newInstance();
+                    f4922a = cyberPlayerCoreProvider;
                     cyberPlayerCoreProvider.init(context, str);
-                    if (f5068a != null) {
-                        CyberClassLoader.addNativeLibraryDirectories(classLoader, f5068a.getLibsSearchPath());
+                    if (f4922a != null) {
+                        CyberClassLoader.addNativeLibraryDirectories(classLoader, f4922a.getLibsSearchPath());
                         try {
-                            f5073f = Class.forName(f5070c, false, context.getClassLoader());
+                            f4927f = Class.forName(f4924c, false, context.getClassLoader());
                         } catch (Exception e2) {
                             e2.printStackTrace();
-                            f5073f = null;
+                            f4927f = null;
                         }
                     }
                 } catch (Exception e3) {
                     e3.printStackTrace();
-                    f5068a = null;
+                    f4922a = null;
                     throw e3;
                 }
             }
@@ -108,7 +108,7 @@ public class d {
 
     public static void a(String str) {
         if (a(1)) {
-            f5068a.stopPrefetch(str);
+            f4922a.stopPrefetch(str);
         }
     }
 
@@ -120,23 +120,23 @@ public class d {
                 str6 = "dumedia/7.12.2.56";
             } else if (str2.indexOf("dumedia") != -1) {
                 str5 = str2;
-                f5068a.prefetch(str, str5, str3, i2, i3, i4, httpDNS, str4);
+                f4922a.prefetch(str, str5, str3, i2, i3, i4, httpDNS, str4);
             } else {
                 str6 = str2 + " dumedia/" + SDKVersion.VERSION;
             }
             str5 = str6;
-            f5068a.prefetch(str, str5, str3, i2, i3, i4, httpDNS, str4);
+            f4922a.prefetch(str, str5, str3, i2, i3, i4, httpDNS, str4);
         }
     }
 
     public static void a(boolean z) {
         if (a(33)) {
-            f5068a.setRTCVerbose(z);
+            f4922a.setRTCVerbose(z);
         }
     }
 
     public static boolean a(int i2) {
-        CyberPlayerCoreProvider cyberPlayerCoreProvider = f5068a;
+        CyberPlayerCoreProvider cyberPlayerCoreProvider = f4922a;
         if (cyberPlayerCoreProvider != null) {
             return cyberPlayerCoreProvider.isLoaded(i2);
         }
@@ -144,7 +144,7 @@ public class d {
     }
 
     public static boolean a(int i2, Map<String, String> map) throws FileNotFoundException {
-        CyberPlayerCoreProvider cyberPlayerCoreProvider = f5068a;
+        CyberPlayerCoreProvider cyberPlayerCoreProvider = f4922a;
         if (cyberPlayerCoreProvider != null) {
             cyberPlayerCoreProvider.loadlibs(i2, map);
         }
@@ -153,7 +153,7 @@ public class d {
 
     public static boolean a(byte[] bArr, int i2, byte[] bArr2) {
         if (a(1)) {
-            f5068a.duplayerEncrypt(bArr, i2, bArr2);
+            f4922a.duplayerEncrypt(bArr, i2, bArr2);
             return true;
         }
         return false;
@@ -161,14 +161,14 @@ public class d {
 
     public static ExtractorProvider b() {
         if (a(1)) {
-            return f5068a.createCyberExtractor();
+            return f4922a.createCyberExtractor();
         }
         return null;
     }
 
     public static void b(boolean z) {
         if (a(33)) {
-            f5068a.enableRTCCaptureDebug(z);
+            f4922a.enableRTCCaptureDebug(z);
         }
     }
 
@@ -177,7 +177,7 @@ public class d {
         if (a2 >= 0) {
             return a2 == 1;
         } else if (a(1)) {
-            return f5068a.hasCacheFile(str);
+            return f4922a.hasCacheFile(str);
         } else {
             return false;
         }
@@ -185,51 +185,51 @@ public class d {
 
     public static MediaInstanceManagerProvider c() {
         if (a(1)) {
-            return f5068a.createInstanceManager();
+            return f4922a.createInstanceManager();
         }
         return null;
     }
 
     public static CyberAudioRecorder d() {
         if (a(5)) {
-            return f5068a.createCyberAudioRecorder();
+            return f4922a.createCyberAudioRecorder();
         }
         return null;
     }
 
     public static RTCRoomProvider e() {
         if (a(33)) {
-            return f5068a.createRTCRoom();
+            return f4922a.createRTCRoom();
         }
         return null;
     }
 
     public static void f() {
         if (a(1)) {
-            f5068a.forceCleanFilecache();
+            f4922a.forceCleanFilecache();
         }
     }
 
     public static boolean g() {
-        return f5068a != null;
+        return f4922a != null;
     }
 
     public static void h() {
         if (a(1)) {
-            f5068a.updateCfg();
+            f4922a.updateCfg();
         }
     }
 
     public static long i() {
         if (a(1)) {
-            return f5068a.caculateFolderSize();
+            return f4922a.caculateFolderSize();
         }
         return 0L;
     }
 
     public static HashMap<Integer, Long> j() {
         if (a(1)) {
-            return f5068a.getSystemInfraInfo();
+            return f4922a.getSystemInfraInfo();
         }
         return null;
     }

@@ -10,13 +10,13 @@ import java.io.RandomAccessFile;
 public class b implements com.kwai.filedownloader.e.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final BufferedOutputStream f35101a;
+    public final BufferedOutputStream f34346a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FileDescriptor f35102b;
+    public final FileDescriptor f34347b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final RandomAccessFile f35103c;
+    public final RandomAccessFile f34348c;
 
     /* loaded from: classes6.dex */
     public static class a implements c.e {
@@ -33,35 +33,35 @@ public class b implements com.kwai.filedownloader.e.a {
 
     public b(File file) {
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-        this.f35103c = randomAccessFile;
-        this.f35102b = randomAccessFile.getFD();
-        this.f35101a = new BufferedOutputStream(new FileOutputStream(this.f35103c.getFD()));
+        this.f34348c = randomAccessFile;
+        this.f34347b = randomAccessFile.getFD();
+        this.f34346a = new BufferedOutputStream(new FileOutputStream(this.f34348c.getFD()));
     }
 
     @Override // com.kwai.filedownloader.e.a
     public void a() {
-        this.f35101a.flush();
-        this.f35102b.sync();
+        this.f34346a.flush();
+        this.f34347b.sync();
     }
 
     @Override // com.kwai.filedownloader.e.a
     public void a(long j) {
-        this.f35103c.seek(j);
+        this.f34348c.seek(j);
     }
 
     @Override // com.kwai.filedownloader.e.a
     public void a(byte[] bArr, int i2, int i3) {
-        this.f35101a.write(bArr, i2, i3);
+        this.f34346a.write(bArr, i2, i3);
     }
 
     @Override // com.kwai.filedownloader.e.a
     public void b() {
-        this.f35101a.close();
-        this.f35103c.close();
+        this.f34346a.close();
+        this.f34348c.close();
     }
 
     @Override // com.kwai.filedownloader.e.a
     public void b(long j) {
-        this.f35103c.setLength(j);
+        this.f34348c.setLength(j);
     }
 }

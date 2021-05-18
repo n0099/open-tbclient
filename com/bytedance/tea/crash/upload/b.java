@@ -24,16 +24,16 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f31125a = false;
+    public static boolean f30370a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.b.d.b.n.b f31126b;
+    public static d.b.d.b.n.b f30371b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         NONE(0),
         GZIP(1),
@@ -41,16 +41,16 @@ public class b {
         
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f31131d;
+        public final int f30376d;
 
         a(int i2) {
-            this.f31131d = i2;
+            this.f30376d = i2;
         }
     }
 
     /* renamed from: com.bytedance.tea.crash.upload.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public enum EnumC0336b {
+    /* loaded from: classes6.dex */
+    public enum EnumC0323b {
         NONE(0),
         MOBILE(1),
         MOBILE_2G(2),
@@ -60,10 +60,10 @@ public class b {
         
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f31139g;
+        public final int f30384g;
 
-        EnumC0336b(int i2) {
-            this.f31139g = i2;
+        EnumC0323b(int i2) {
+            this.f30384g = i2;
         }
     }
 
@@ -157,8 +157,8 @@ public class b {
         HttpURLConnection httpURLConnection = null;
         GZIPInputStream gZIPInputStream2 = null;
         try {
-            if (f31126b != null) {
-                str = f31126b.a(str, bArr);
+            if (f30371b != null) {
+                str = f30371b.a(str, bArr);
             }
             LinkedList<Pair> linkedList = new LinkedList();
             if (z2) {

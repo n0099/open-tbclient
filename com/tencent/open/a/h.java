@@ -3,11 +3,11 @@ package com.tencent.open.a;
 import android.text.format.Time;
 import android.util.Log;
 import com.baidu.android.common.others.IStringUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f37203a = new h();
+    public static final h f36448a = new h();
 
     public final String a(int i2) {
         return i2 != 1 ? i2 != 2 ? i2 != 4 ? i2 != 8 ? i2 != 16 ? i2 != 32 ? "-" : "A" : "E" : "W" : "I" : "D" : "V";

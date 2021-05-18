@@ -32,32 +32,32 @@ import java.util.ArrayList;
 public class b implements j {
 
     /* renamed from: a  reason: collision with root package name */
-    public t f25894a;
+    public t f25139a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.beans.h f25895b;
+    public com.baidu.wallet.paysdk.beans.h f25140b;
 
     /* renamed from: c  reason: collision with root package name */
-    public aa f25896c;
+    public aa f25141c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BindCardBaseActivity f25897d;
+    public BindCardBaseActivity f25142d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BindFastRequest f25898e;
+    public BindFastRequest f25143e;
     public int r = 4;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f25899f = false;
+    public boolean f25144f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f25900g = false;
+    public boolean f25145g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f25901h = false;
+    public boolean f25146h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f25902i = false;
+    public boolean f25147i = false;
     public boolean j = false;
     public boolean k = false;
     public boolean l = false;
@@ -68,8 +68,8 @@ public class b implements j {
     public GetCardInfoResponse.CertificateTypeInfo s = null;
 
     public CharSequence A() {
-        String string = ResUtils.getString(this.f25897d, "wallet_base_string_safeguard_entry");
-        int indexOf = string.indexOf(ResUtils.getString(this.f25897d, "wallet_base_string_safeguard_click"));
+        String string = ResUtils.getString(this.f25142d, "wallet_base_string_safeguard_entry");
+        int indexOf = string.indexOf(ResUtils.getString(this.f25142d, "wallet_base_string_safeguard_click"));
         int length = string.length();
         if (-1 == indexOf) {
             return string;
@@ -85,7 +85,7 @@ public class b implements j {
                 textPaint.setUnderlineText(false);
             }
         };
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ResUtils.getColor(this.f25897d, "wallet_base_color_clickable"));
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ResUtils.getColor(this.f25142d, "wallet_base_color_clickable"));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(string);
         spannableStringBuilder.setSpan(clickableSpan, indexOf, length, 17);
         spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, length, 17);
@@ -93,7 +93,7 @@ public class b implements j {
     }
 
     public void B() {
-        String[] stringArray = ResUtils.getStringArray(this.f25897d, "wallet_base_safeguard_tips");
+        String[] stringArray = ResUtils.getStringArray(this.f25142d, "wallet_base_safeguard_tips");
         if (stringArray == null || 2 > stringArray.length) {
             return;
         }
@@ -103,7 +103,7 @@ public class b implements j {
             sb.append(stringArray[i2]);
         }
         String str2 = stringArray[stringArray.length - 1];
-        final PromptTipDialog promptTipDialog = new PromptTipDialog(this.f25897d);
+        final PromptTipDialog promptTipDialog = new PromptTipDialog(this.f25142d);
         promptTipDialog.setTitleMessage(str);
         promptTipDialog.setMessage(sb.toString());
         promptTipDialog.setButtonMessage(str2);
@@ -142,7 +142,7 @@ public class b implements j {
 
     @Override // com.baidu.wallet.paysdk.b.j
     public void a(BindFastRequest bindFastRequest) {
-        this.f25898e = bindFastRequest;
+        this.f25143e = bindFastRequest;
     }
 
     public void a(String... strArr) {
@@ -168,28 +168,28 @@ public class b implements j {
 
     @Override // com.baidu.wallet.paysdk.b.j
     public void c(String... strArr) {
-        if (this.f25895b == null) {
-            this.f25895b = (com.baidu.wallet.paysdk.beans.h) PayBeanFactory.getInstance().getBean((Context) this.f25897d, 5, BindCardBaseActivity.BEAN_TAG);
+        if (this.f25140b == null) {
+            this.f25140b = (com.baidu.wallet.paysdk.beans.h) PayBeanFactory.getInstance().getBean((Context) this.f25142d, 5, BindCardBaseActivity.BEAN_TAG);
         }
-        this.f25895b.setResponseCallback(this.f25897d);
+        this.f25140b.setResponseCallback(this.f25142d);
         StatisticManager.onEventStart(StatServiceEvent.TIME_SMS);
         PayStatisticsUtil.onEventStart(StatServiceEvent.CARD_CHECK);
         PayStatisticsUtil.onEvent(StatServiceEvent.GET_SMS_CODE);
         b(strArr);
-        this.f25895b.a(this.f25898e);
-        this.f25895b.execBean();
+        this.f25140b.a(this.f25143e);
+        this.f25140b.execBean();
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
     public void d(String... strArr) {
-        if (this.f25894a == null) {
-            this.f25894a = (t) PayBeanFactory.getInstance().getBean((Context) this.f25897d, 4, BindCardBaseActivity.BEAN_TAG);
+        if (this.f25139a == null) {
+            this.f25139a = (t) PayBeanFactory.getInstance().getBean((Context) this.f25142d, 4, BindCardBaseActivity.BEAN_TAG);
         }
-        this.f25894a.a(this.f25898e);
-        this.f25894a.setResponseCallback(this.f25897d);
+        this.f25139a.a(this.f25143e);
+        this.f25139a.setResponseCallback(this.f25142d);
         a(strArr);
         PayStatisticsUtil.onEventStart(StatServiceEvent.GET_CARD_INFO);
-        this.f25894a.execBean();
+        this.f25139a.execBean();
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
@@ -204,8 +204,8 @@ public class b implements j {
 
     @Override // com.baidu.wallet.paysdk.b.j
     public void f() {
-        if (this.f25894a != null) {
-            BeanManager.getInstance().removeBean(this.f25894a);
+        if (this.f25139a != null) {
+            BeanManager.getInstance().removeBean(this.f25139a);
         }
     }
 
@@ -226,22 +226,22 @@ public class b implements j {
 
     @Override // com.baidu.wallet.paysdk.b.j
     public boolean j() {
-        return this.f25900g;
+        return this.f25145g;
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
     public boolean k() {
-        return this.f25899f || this.m;
+        return this.f25144f || this.m;
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
     public boolean l() {
-        return this.f25901h || this.l;
+        return this.f25146h || this.l;
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
     public boolean m() {
-        return this.f25902i || this.o;
+        return this.f25147i || this.o;
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
@@ -255,7 +255,7 @@ public class b implements j {
 
     @Override // com.baidu.wallet.paysdk.b.j
     public String p() {
-        return ResUtils.getString(this.f25897d, "ebpay_card_tip");
+        return ResUtils.getString(this.f25142d, "ebpay_card_tip");
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
@@ -268,41 +268,41 @@ public class b implements j {
         int i2;
         ErrorContentResponse errorContentResponse;
         if ((this instanceof g) || (this instanceof h)) {
-            BindFastRequest bindFastRequest = this.f25898e;
+            BindFastRequest bindFastRequest = this.f25143e;
             if (bindFastRequest != null && (errorContentResponse = bindFastRequest.mCardInfoUpdateContent) != null) {
                 this.m = errorContentResponse.isNeedValidCode();
-                this.l = this.f25898e.mCardInfoUpdateContent.isNeedValidDate();
-                this.n = this.f25898e.mCardInfoUpdateContent.isNeedPhoneNum();
-                this.o = this.f25898e.mCardInfoUpdateContent.isNeedId();
-                this.p = this.f25898e.mCardInfoUpdateContent.isNeedType();
-                ErrorContentResponse errorContentResponse2 = this.f25898e.mCardInfoUpdateContent;
+                this.l = this.f25143e.mCardInfoUpdateContent.isNeedValidDate();
+                this.n = this.f25143e.mCardInfoUpdateContent.isNeedPhoneNum();
+                this.o = this.f25143e.mCardInfoUpdateContent.isNeedId();
+                this.p = this.f25143e.mCardInfoUpdateContent.isNeedType();
+                ErrorContentResponse errorContentResponse2 = this.f25143e.mCardInfoUpdateContent;
                 GetCardInfoResponse.CardItemRequired cardItemRequired = errorContentResponse2.card_item_required;
                 if (cardItemRequired != null) {
-                    this.f25899f = this.f25899f || errorContentResponse2.needUpdate(cardItemRequired.valid_code);
-                    this.f25901h = this.f25901h || this.f25898e.mCardInfoUpdateContent.needUpdate(cardItemRequired.valid_date);
-                    this.f25900g = this.f25900g || this.f25898e.mCardInfoUpdateContent.needUpdate(cardItemRequired.true_name);
-                    this.k = this.k || this.f25898e.mCardInfoUpdateContent.needUpdate(cardItemRequired.certificate_type);
-                    this.f25902i = this.f25902i || this.f25898e.mCardInfoUpdateContent.needUpdate(cardItemRequired.certificate_code);
-                    this.j = this.j || this.f25898e.mCardInfoUpdateContent.needUpdate(cardItemRequired.mobile);
+                    this.f25144f = this.f25144f || errorContentResponse2.needUpdate(cardItemRequired.valid_code);
+                    this.f25146h = this.f25146h || this.f25143e.mCardInfoUpdateContent.needUpdate(cardItemRequired.valid_date);
+                    this.f25145g = this.f25145g || this.f25143e.mCardInfoUpdateContent.needUpdate(cardItemRequired.true_name);
+                    this.k = this.k || this.f25143e.mCardInfoUpdateContent.needUpdate(cardItemRequired.certificate_type);
+                    this.f25147i = this.f25147i || this.f25143e.mCardInfoUpdateContent.needUpdate(cardItemRequired.certificate_code);
+                    this.j = this.j || this.f25143e.mCardInfoUpdateContent.needUpdate(cardItemRequired.mobile);
                 }
             }
-            BindCardBaseActivity bindCardBaseActivity = this.f25897d;
+            BindCardBaseActivity bindCardBaseActivity = this.f25142d;
             if (bindCardBaseActivity != null) {
                 if (bindCardBaseActivity.isShowWithHalfScreeen()) {
-                    BindCardImplActivity bindCardImplActivity = (BindCardImplActivity) this.f25897d;
+                    BindCardImplActivity bindCardImplActivity = (BindCardImplActivity) this.f25142d;
                     BankCvv2InfoView bankCvv2InfoView = bindCardImplActivity.mBankCvv2InfoView;
                     BankUserInfoView bankUserInfoView = bindCardImplActivity.mBankUserInfoView;
-                    if (this.f25899f) {
+                    if (this.f25144f) {
                         bankCvv2InfoView.getCvv2InputView().getEditableText().toString();
                         i2 = 1;
                     } else {
                         i2 = 0;
                     }
-                    if (this.f25901h) {
+                    if (this.f25146h) {
                         i2++;
                         bankCvv2InfoView.getDateInputView().getEditableText().toString();
                     }
-                    if (this.f25902i) {
+                    if (this.f25147i) {
                         i2++;
                         bankUserInfoView.getIdEditText().getEditableText().toString();
                     }
@@ -310,23 +310,23 @@ public class b implements j {
                         i2++;
                         bankUserInfoView.getMobileEditText().getEditableText().toString();
                     }
-                    if (2 < i2 || this.f25900g) {
+                    if (2 < i2 || this.f25145g) {
                         Intent intent = new Intent();
-                        intent.putExtra("halfScreen", this.f25900g ? 0 : i2);
+                        intent.putExtra("halfScreen", this.f25145g ? 0 : i2);
                         intent.putExtra("reasonForChangeCardItem", 2);
                         bindCardImplActivity.updateUiMode(intent);
                     }
                 }
-                this.f25897d.updateBankTitleInfo(null, true);
-                this.f25897d.updateCvv2Info(this.m, this.l, this.n);
-                this.f25897d.updateCardElement(k(), l(), j(), m(), n());
+                this.f25142d.updateBankTitleInfo(null, true);
+                this.f25142d.updateCvv2Info(this.m, this.l, this.n);
+                this.f25142d.updateCardElement(k(), l(), j(), m(), n());
             }
         }
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
     public boolean s() {
-        BindFastRequest bindFastRequest = this.f25898e;
+        BindFastRequest bindFastRequest = this.f25143e;
         return (bindFastRequest == null || bindFastRequest.mCardInfoUpdateContent == null) ? false : true;
     }
 
@@ -351,13 +351,13 @@ public class b implements j {
 
     @Override // com.baidu.wallet.paysdk.b.j
     public GetCardInfoResponse.CertificateTypeInfo[] v() {
-        BindFastRequest bindFastRequest = this.f25898e;
+        BindFastRequest bindFastRequest = this.f25143e;
         if (bindFastRequest != null) {
-            if (bindFastRequest.getmBankInfo() != null && this.f25898e.getmBankInfo().channel_info != null) {
-                return this.f25898e.getmBankInfo().channel_info.certificate_type_info;
+            if (bindFastRequest.getmBankInfo() != null && this.f25143e.getmBankInfo().channel_info != null) {
+                return this.f25143e.getmBankInfo().channel_info.certificate_type_info;
             }
-            if (this.f25898e.getmBondCard() != null) {
-                return this.f25898e.getmBondCard().certificate_type_info;
+            if (this.f25143e.getmBondCard() != null) {
+                return this.f25143e.getmBondCard().certificate_type_info;
             }
             return null;
         }
@@ -411,34 +411,34 @@ public class b implements j {
     @Override // com.baidu.wallet.paysdk.b.j
     public void a(String str) {
         LogUtil.d(j.q, "执行查询银行卡的归属银行");
-        if (this.f25896c == null) {
-            this.f25896c = (aa) PayBeanFactory.getInstance().getBean((Context) this.f25897d, 7, BindCardBaseActivity.BEAN_TAG);
+        if (this.f25141c == null) {
+            this.f25141c = (aa) PayBeanFactory.getInstance().getBean((Context) this.f25142d, 7, BindCardBaseActivity.BEAN_TAG);
         }
-        this.f25896c.setResponseCallback(this.f25897d);
-        this.f25896c.a(str);
+        this.f25141c.setResponseCallback(this.f25142d);
+        this.f25141c.a(str);
         PayStatisticsUtil.onEventStart(StatServiceEvent.CARD_BIN);
-        this.f25896c.execBean();
+        this.f25141c.execBean();
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
     public void a(BindCardBaseActivity bindCardBaseActivity) {
-        this.f25897d = bindCardBaseActivity;
+        this.f25142d = bindCardBaseActivity;
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
     public String[] a(int i2) {
         String[] strArr = new String[2];
-        String string = ResUtils.getString(this.f25897d, "bd_wallet_bind_card_first");
+        String string = ResUtils.getString(this.f25142d, "bd_wallet_bind_card_first");
         if (i2 == 0) {
-            string = ResUtils.getString(this.f25897d, "bd_wallet_bind_card_first");
+            string = ResUtils.getString(this.f25142d, "bd_wallet_bind_card_first");
         } else if (i2 == 1) {
-            string = ResUtils.getString(this.f25897d, "bd_wallet_bind_card_second");
+            string = ResUtils.getString(this.f25142d, "bd_wallet_bind_card_second");
         }
-        String string2 = ResUtils.getString(this.f25897d, "ebpay_pay_checkcard");
+        String string2 = ResUtils.getString(this.f25142d, "ebpay_pay_checkcard");
         if (i2 == 0) {
-            string2 = ResUtils.getString(this.f25897d, "ebpay_pay_checkcard");
+            string2 = ResUtils.getString(this.f25142d, "ebpay_pay_checkcard");
         } else if (i2 == 1) {
-            string2 = ResUtils.getString(this.f25897d, "ebpay_pay_next");
+            string2 = ResUtils.getString(this.f25142d, "ebpay_pay_next");
         }
         strArr[0] = string;
         strArr[1] = string2;

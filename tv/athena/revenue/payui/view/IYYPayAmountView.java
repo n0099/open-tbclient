@@ -9,11 +9,11 @@ import i.a.a.e.j.b;
 import i.a.a.e.m.a;
 import java.util.List;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IYYPayAmountView extends a {
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Callback {
         void onFail(int i2, String str);
 
@@ -23,7 +23,7 @@ public interface IYYPayAmountView extends a {
     }
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ViewParams {
         public String currencyName;
         public int defaultAmount;

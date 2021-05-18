@@ -34,30 +34,30 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f32665a;
+    public View f31910a;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f32667c;
+    public AdBaseFrameLayout f31912c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameLayout f32668d;
+    public FrameLayout f31913d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebView f32669e;
+    public WebView f31914e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public JSONObject f32670f;
+    public JSONObject f31915f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f32671g;
+    public int f31916g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdTemplate f32672h;
+    public AdTemplate f31917h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f32673i;
+    public com.kwad.sdk.core.download.b.b f31918i;
     @Nullable
     public a.b j;
     public g k;
@@ -66,7 +66,7 @@ public class c {
     public int m = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f32666b = false;
+    public boolean f31911b = false;
     public h.a o = new h.a() { // from class: com.kwad.sdk.c.c.2
         @Override // com.kwad.sdk.core.webview.jshandler.h.a
         public void a() {
@@ -85,12 +85,12 @@ public class c {
     }
 
     public c(@Nullable JSONObject jSONObject) {
-        this.f32670f = jSONObject;
+        this.f31915f = jSONObject;
     }
 
     private void a(g gVar) {
         gVar.a(new d());
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.l, this.f32673i, this.j));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.l, this.f31918i, this.j));
         gVar.a(new e(this.l));
         gVar.a(new f(this.l));
         gVar.a(new com.kwad.sdk.core.webview.jshandler.c(this.l));
@@ -98,31 +98,31 @@ public class c {
         m mVar = new m();
         this.n = mVar;
         gVar.a(mVar);
-        gVar.a(new n(this.l, this.f32673i));
+        gVar.a(new n(this.l, this.f31918i));
         gVar.a(new h(this.o));
         gVar.a(new j(this.l));
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
     private void h() {
-        this.f32668d.removeAllViews();
-        this.f32668d.setVisibility(4);
-        this.f32665a = an.a((ViewGroup) this.f32668d, b(), true);
-        WebView webView = (WebView) this.f32668d.findViewById(R.id.ksad_web_card_webView);
-        this.f32669e = webView;
+        this.f31913d.removeAllViews();
+        this.f31913d.setVisibility(4);
+        this.f31910a = an.a((ViewGroup) this.f31913d, b(), true);
+        WebView webView = (WebView) this.f31913d.findViewById(R.id.ksad_web_card_webView);
+        this.f31914e = webView;
         webView.setBackgroundColor(0);
-        this.f32669e.getBackground().setAlpha(0);
-        this.f32669e.setWebViewClient(new WebViewClient() { // from class: com.kwad.sdk.c.c.1
+        this.f31914e.getBackground().setAlpha(0);
+        this.f31914e.setWebViewClient(new WebViewClient() { // from class: com.kwad.sdk.c.c.1
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView2, String str) {
                 super.onPageFinished(webView2, str);
-                c.this.f32666b = true;
+                c.this.f31911b = true;
             }
 
             @Override // android.webkit.WebViewClient
             public void onReceivedError(WebView webView2, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
                 super.onReceivedError(webView2, webResourceRequest, webResourceError);
-                c.this.f32666b = false;
+                c.this.f31911b = false;
             }
         });
     }
@@ -130,24 +130,24 @@ public class c {
     private void i() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
         this.l = aVar;
-        aVar.f33622b = this.f32672h;
-        aVar.f33621a = this.f32671g;
-        aVar.f33623c = this.f32667c;
-        aVar.f33625e = this.f32668d;
-        aVar.f33626f = this.f32669e;
-        aVar.f33624d = this.f32670f;
+        aVar.f32867b = this.f31917h;
+        aVar.f32866a = this.f31916g;
+        aVar.f32868c = this.f31912c;
+        aVar.f32870e = this.f31913d;
+        aVar.f32871f = this.f31914e;
+        aVar.f32869d = this.f31915f;
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void j() {
         k();
-        WebSettings a2 = aq.a(this.f32669e);
+        WebSettings a2 = aq.a(this.f31914e);
         a2.setAllowContentAccess(false);
         a2.setAllowFileAccess(true);
-        g gVar = new g(this.f32669e);
+        g gVar = new g(this.f31914e);
         this.k = gVar;
         a(gVar);
-        this.f32669e.addJavascriptInterface(this.k, "KwaiAd");
+        this.f31914e.addJavascriptInterface(this.k, "KwaiAd");
     }
 
     private void k() {
@@ -181,11 +181,11 @@ public class c {
     }
 
     public void a(FrameLayout frameLayout, AdBaseFrameLayout adBaseFrameLayout, AdTemplate adTemplate, com.kwad.sdk.core.download.b.b bVar, int i2) {
-        this.f32673i = bVar;
-        this.f32667c = adBaseFrameLayout;
-        this.f32668d = frameLayout;
-        this.f32671g = i2;
-        this.f32672h = adTemplate;
+        this.f31918i = bVar;
+        this.f31912c = adBaseFrameLayout;
+        this.f31913d = frameLayout;
+        this.f31916g = i2;
+        this.f31917h = adTemplate;
         h();
         i();
     }
@@ -203,19 +203,19 @@ public class c {
     }
 
     public void c() {
-        this.f32668d.setVisibility(4);
+        this.f31913d.setVisibility(4);
         this.m = -1;
-        String a2 = a(this.f32672h);
+        String a2 = a(this.f31917h);
         if (TextUtils.isEmpty(a2)) {
             return;
         }
         j();
-        this.f32669e.loadUrl(a2);
+        this.f31914e.loadUrl(a2);
     }
 
     public boolean d() {
         if (!a()) {
-            FrameLayout frameLayout = this.f32668d;
+            FrameLayout frameLayout = this.f31913d;
             if (frameLayout != null) {
                 frameLayout.setVisibility(4);
             }
@@ -226,7 +226,7 @@ public class c {
         if (mVar != null) {
             mVar.c();
         }
-        FrameLayout frameLayout2 = this.f32668d;
+        FrameLayout frameLayout2 = this.f31913d;
         if (frameLayout2 != null) {
             frameLayout2.setVisibility(0);
         }
@@ -239,12 +239,12 @@ public class c {
     }
 
     public void e() {
-        if (an.a((View) this.f32669e, 50, false)) {
+        if (an.a((View) this.f31914e, 50, false)) {
             m mVar = this.n;
             if (mVar != null) {
                 mVar.e();
             }
-            this.f32668d.setVisibility(4);
+            this.f31913d.setVisibility(4);
             m mVar2 = this.n;
             if (mVar2 != null) {
                 mVar2.f();

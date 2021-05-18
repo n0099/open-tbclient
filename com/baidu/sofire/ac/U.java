@@ -149,19 +149,19 @@ public class U extends Thread {
             }
             if (!sMonitorNetworkWhenUpgradeNoNet) {
                 IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                MyReceiver myReceiver = d.f11246g;
+                MyReceiver myReceiver = d.f10313g;
                 if (myReceiver == null) {
-                    d.f11246g = new MyReceiver().a();
+                    d.f10313g = new MyReceiver().a();
                 } else {
                     myReceiver.a();
                 }
-                d.a(this.context, d.f11246g, intentFilter);
+                d.a(this.context, d.f10313g, intentFilter);
                 sMonitorNetworkWhenUpgradeNoNet = true;
             }
         }
         long currentTimeMillis = System.currentTimeMillis();
         e eVar = this.preference;
-        long j = eVar.f11221a.getLong("pu_ap_fd", 0L);
+        long j = eVar.f10288a.getLong("pu_ap_fd", 0L);
         if (j == 0) {
             j = System.currentTimeMillis();
             eVar.d();
@@ -457,12 +457,12 @@ public class U extends Thread {
                         return;
                     }
                     IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    if (d.f11246g == null) {
-                        d.f11246g = new MyReceiver().a();
+                    if (d.f10313g == null) {
+                        d.f10313g = new MyReceiver().a();
                     } else {
-                        d.f11246g.a();
+                        d.f10313g.a();
                     }
-                    d.a(this.context, d.f11246g, intentFilter);
+                    d.a(this.context, d.f10313g, intentFilter);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                 }
             } catch (Throwable unused3) {
@@ -534,7 +534,7 @@ public class U extends Thread {
         try {
             try {
                 try {
-                    long j = this.preference.f11221a.getLong("slruct", 0L);
+                    long j = this.preference.f10288a.getLong("slruct", 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
                     if (i2 > 0 && currentTimeMillis - j > 86400000) {
@@ -733,8 +733,8 @@ public class U extends Thread {
                 intent.putExtra("from", 6);
                 PendingIntent service = PendingIntent.getService(context, 1000, intent, 134217728);
                 long currentTimeMillis = ((System.currentTimeMillis() + s) - 600000) + ((long) (1200000.0d * Math.random()));
-                eVar.f11223c.putLong("npuct", currentTimeMillis);
-                eVar.f11223c.commit();
+                eVar.f10290c.putLong("npuct", currentTimeMillis);
+                eVar.f10290c.commit();
                 StringBuilder sb = new StringBuilder("b=false,");
                 sb.append(currentTimeMillis);
                 sb.append(",");
@@ -760,15 +760,15 @@ public class U extends Thread {
             boolean z3 = "com.baidu.input_huawei".equals(this.context.getPackageName()) ? !new e(this.context).y() : false;
             if (d.g(this.context) && !z3) {
                 sLastCheckTime = System.currentTimeMillis();
-                if (d.f11246g != null && (sMonitorNetworkWhenUpgradeNoNet || d.f11240a)) {
+                if (d.f10313g != null && (sMonitorNetworkWhenUpgradeNoNet || d.f10307a)) {
                     try {
-                        this.context.getApplicationContext().unregisterReceiver(d.f11246g);
+                        this.context.getApplicationContext().unregisterReceiver(d.f10313g);
                     } catch (Throwable unused2) {
                         d.a();
                     }
                 }
                 sMonitorNetworkWhenUpgradeNoNet = false;
-                d.f11240a = false;
+                d.f10307a = false;
                 if (this.mFrom != 1) {
                     this.mWholeJson = d.p(this.context);
                 }
@@ -779,16 +779,16 @@ public class U extends Thread {
                         sRetryPingTimesCount++;
                     }
                     IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    if (d.f11246g == null) {
-                        d.f11246g = new MyReceiver().a();
+                    if (d.f10313g == null) {
+                        d.f10313g = new MyReceiver().a();
                     } else {
-                        d.f11246g.a();
+                        d.f10313g.a();
                     }
-                    d.a(this.context, d.f11246g, intentFilter);
+                    d.a(this.context, d.f10313g, intentFilter);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                     if (this.mEndReason == 0) {
-                        if (d.f11243d != 0) {
-                            this.mEndReason = d.f11243d;
+                        if (d.f10310d != 0) {
+                            this.mEndReason = d.f10310d;
                         } else {
                             this.mEndReason = 4;
                         }
@@ -800,16 +800,16 @@ public class U extends Thread {
                 this.loadedPluginDB.d();
                 if (!sPidRegister) {
                     e eVar2 = this.preference;
-                    eVar2.f11223c.putInt("pdcg", this.preference.f11221a.getInt("pdcg", 0) + 1);
-                    eVar2.f11223c.commit();
+                    eVar2.f10290c.putInt("pdcg", this.preference.f10288a.getInt("pdcg", 0) + 1);
+                    eVar2.f10290c.commit();
                     e eVar3 = this.preference;
                     long currentTimeMillis2 = System.currentTimeMillis();
                     try {
                         if (currentTimeMillis2 == 0) {
-                            eVar3.f11223c.putString("pdcgts", "");
-                            eVar3.f11223c.commit();
+                            eVar3.f10290c.putString("pdcgts", "");
+                            eVar3.f10290c.commit();
                         } else {
-                            String string = eVar3.f11221a.getString("pdcgts", "");
+                            String string = eVar3.f10288a.getString("pdcgts", "");
                             if (TextUtils.isEmpty(string)) {
                                 str3 = String.valueOf(currentTimeMillis2);
                             } else if (string.split("_").length < 20) {
@@ -817,8 +817,8 @@ public class U extends Thread {
                             }
                             new StringBuilder().append(str3);
                             com.baidu.sofire.b.a();
-                            eVar3.f11223c.putString("pdcgts", str3);
-                            eVar3.f11223c.commit();
+                            eVar3.f10290c.putString("pdcgts", str3);
+                            eVar3.f10290c.commit();
                         }
                     } catch (Throwable unused3) {
                         d.a();
@@ -826,8 +826,8 @@ public class U extends Thread {
                     sPidRegister = true;
                 }
                 e eVar4 = this.preference;
-                eVar4.f11223c.putInt("rtqe", this.preference.f11221a.getInt("rtqe", 0) + 1);
-                eVar4.f11223c.commit();
+                eVar4.f10290c.putInt("rtqe", this.preference.f10288a.getInt("rtqe", 0) + 1);
+                eVar4.f10290c.commit();
                 List<ApkInfo> a2 = this.loadedPluginDB.a();
                 new StringBuilder("a=").append(a2);
                 com.baidu.sofire.b.a();
@@ -870,16 +870,16 @@ public class U extends Thread {
                         boolean z4 = optJSONObject4.optInt(Config.OS) == 1;
                         JSONObject jSONObject = optJSONObject3;
                         boolean z5 = optJSONObject4.optInt("d") == 1;
-                        int optInt2 = optJSONObject4.optInt(r.f7975a);
+                        int optInt2 = optJSONObject4.optInt(r.f7772a);
                         if (z4) {
                             it = keys;
                             e eVar5 = this.preference;
                             arrayList = arrayList6;
                             arrayList2 = arrayList7;
                             str = optString4;
-                            if (optInt2 > eVar5.f11221a.getInt("opi", 0)) {
-                                eVar5.f11223c.putInt("opi", optInt2);
-                                eVar5.f11223c.commit();
+                            if (optInt2 > eVar5.f10288a.getInt("opi", 0)) {
+                                eVar5.f10290c.putInt("opi", optInt2);
+                                eVar5.f10290c.commit();
                             }
                         } else {
                             arrayList = arrayList6;
@@ -1072,7 +1072,7 @@ public class U extends Thread {
                             }
                             if (indexOf < 0) {
                                 ApkInfo apkInfo3 = a2.get(indexOf);
-                                if (d.b(apkInfo.versionName, apkInfo3.versionName) && (c.f11150d == null || ((c.f11150d != null && !c.f11150d.contains(Integer.valueOf(apkInfo.key))) || z2))) {
+                                if (d.b(apkInfo.versionName, apkInfo3.versionName) && (c.f10217d == null || ((c.f10217d != null && !c.f10217d.contains(Integer.valueOf(apkInfo.key))) || z2))) {
                                     if (apkInfo3.priority != apkInfo.priority) {
                                         this.loadedPluginDB.c(apkInfo.key, apkInfo.priority);
                                     }
@@ -1124,8 +1124,8 @@ public class U extends Thread {
                 ArrayList arrayList10 = arrayList7;
                 ArrayList arrayList11 = arrayList8;
                 ArrayList arrayList12 = arrayList6;
-                if (c.f11150d != null) {
-                    c.f11150d.clear();
+                if (c.f10217d != null) {
+                    c.f10217d.clear();
                 }
                 new StringBuilder().append(a2);
                 com.baidu.sofire.b.a();
@@ -1236,10 +1236,10 @@ public class U extends Thread {
                 com.baidu.sofire.b.a();
                 sMonitorNetworkWhenUpgradeNoNet = true;
                 IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                if (d.f11246g == null) {
-                    d.f11246g = new MyReceiver().a();
+                if (d.f10313g == null) {
+                    d.f10313g = new MyReceiver().a();
                 }
-                d.a(this.context, d.f11246g, intentFilter2);
+                d.a(this.context, d.f10313g, intentFilter2);
             }
             if (this.mEndReason == 0) {
                 this.mEndReason = 3;

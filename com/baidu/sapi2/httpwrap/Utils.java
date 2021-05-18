@@ -4,6 +4,7 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
@@ -22,7 +23,7 @@ public class Utils {
             hashMap.put("appid", confignation.appId);
             hashMap.put("tpl", confignation.tpl);
             hashMap.put("app_version", SapiUtils.getVersionName(confignation.context));
-            hashMap.put("sdk_version", isAccountManager.getVersionName());
+            hashMap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, isAccountManager.getVersionName());
             hashMap.put("sdkversion", isAccountManager.getVersionName());
         }
         return hashMap;

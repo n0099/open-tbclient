@@ -19,16 +19,16 @@ import java.util.List;
 public class PhoneNumberSelectDialog extends BaseDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public ListView f25603a;
+    public ListView f24848a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f25604b;
+    public Context f24849b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f25605c;
+    public a f24850c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<ContactInfo.Phone> f25606d;
+    public List<ContactInfo.Phone> f24851d;
 
     /* loaded from: classes5.dex */
     public class a extends BaseAdapter {
@@ -37,15 +37,15 @@ public class PhoneNumberSelectDialog extends BaseDialog {
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (PhoneNumberSelectDialog.this.f25606d == null) {
+            if (PhoneNumberSelectDialog.this.f24851d == null) {
                 return 0;
             }
-            return PhoneNumberSelectDialog.this.f25606d.size();
+            return PhoneNumberSelectDialog.this.f24851d.size();
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i2) {
-            return PhoneNumberSelectDialog.this.f25606d.get(i2);
+            return PhoneNumberSelectDialog.this.f24851d.get(i2);
         }
 
         @Override // android.widget.Adapter
@@ -55,16 +55,16 @@ public class PhoneNumberSelectDialog extends BaseDialog {
 
         @Override // android.widget.Adapter
         public View getView(final int i2, View view, ViewGroup viewGroup) {
-            View inflate = LayoutInflater.from(PhoneNumberSelectDialog.this.f25604b).inflate(ResUtils.layout(PhoneNumberSelectDialog.this.f25604b, "wallet_langbridge_contact_phone_item"), (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(ResUtils.id(PhoneNumberSelectDialog.this.f25604b, "wallet_base_type"));
-            textView.setText(((ContactInfo.Phone) PhoneNumberSelectDialog.this.f25606d.get(i2)).getTypeName() + ZeusCrashHandler.NAME_SEPERATOR + ((ContactInfo.Phone) PhoneNumberSelectDialog.this.f25606d.get(i2)).number);
+            View inflate = LayoutInflater.from(PhoneNumberSelectDialog.this.f24849b).inflate(ResUtils.layout(PhoneNumberSelectDialog.this.f24849b, "wallet_langbridge_contact_phone_item"), (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(ResUtils.id(PhoneNumberSelectDialog.this.f24849b, "wallet_base_type"));
+            textView.setText(((ContactInfo.Phone) PhoneNumberSelectDialog.this.f24851d.get(i2)).getTypeName() + ZeusCrashHandler.NAME_SEPERATOR + ((ContactInfo.Phone) PhoneNumberSelectDialog.this.f24851d.get(i2)).number);
             textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.lightapp.business.view.PhoneNumberSelectDialog.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     EventBus eventBus = EventBus.getInstance();
                     EventBus eventBus2 = EventBus.getInstance();
                     eventBus2.getClass();
-                    eventBus.post(new EventBus.Event("read_contact", ((ContactInfo.Phone) PhoneNumberSelectDialog.this.f25606d.get(i2)).number));
+                    eventBus.post(new EventBus.Event("read_contact", ((ContactInfo.Phone) PhoneNumberSelectDialog.this.f24851d.get(i2)).number));
                     PhoneNumberSelectDialog.this.dismiss();
                 }
             });
@@ -74,7 +74,7 @@ public class PhoneNumberSelectDialog extends BaseDialog {
 
     public PhoneNumberSelectDialog(Context context) {
         super(context);
-        this.f25604b = context;
+        this.f24849b = context;
     }
 
     @Override // android.app.Dialog
@@ -86,19 +86,19 @@ public class PhoneNumberSelectDialog extends BaseDialog {
     @Override // com.baidu.wallet.base.widget.BaseDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        View inflate = LayoutInflater.from(this.f25604b).inflate(ResUtils.layout(this.f25604b, "wallet_langbridge_contact_phone"), (ViewGroup) null);
-        this.f25603a = (ListView) inflate.findViewById(ResUtils.id(this.f25604b, "wallet_base_lv"));
+        View inflate = LayoutInflater.from(this.f24849b).inflate(ResUtils.layout(this.f24849b, "wallet_langbridge_contact_phone"), (ViewGroup) null);
+        this.f24848a = (ListView) inflate.findViewById(ResUtils.id(this.f24849b, "wallet_base_lv"));
         a aVar = new a();
-        this.f25605c = aVar;
-        this.f25603a.setAdapter((ListAdapter) aVar);
+        this.f24850c = aVar;
+        this.f24848a.setAdapter((ListAdapter) aVar);
         addContentView(inflate);
-        getNegativeBtn().setTextColor(this.f25604b.getResources().getColor(ResUtils.color(this.f25604b, "wallet_base_mainColor")));
+        getNegativeBtn().setTextColor(this.f24849b.getResources().getColor(ResUtils.color(this.f24849b, "wallet_base_mainColor")));
         showCloseBtn(false);
-        setTitleText(ResUtils.string(this.f25604b, "wallet_lightapp_contact_please_select_phone"));
+        setTitleText(ResUtils.string(this.f24849b, "wallet_lightapp_contact_please_select_phone"));
         hidePositiveButton();
     }
 
     public void setPhones(List<ContactInfo.Phone> list) {
-        this.f25606d = list;
+        this.f24851d = list;
     }
 }

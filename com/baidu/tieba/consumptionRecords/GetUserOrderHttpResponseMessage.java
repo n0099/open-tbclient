@@ -1,8 +1,8 @@
 package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.j0.a0.a;
-import d.a.j0.a0.b;
+import d.a.k0.a0.a;
+import d.a.k0.a0.b;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;

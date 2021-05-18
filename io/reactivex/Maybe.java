@@ -1,5 +1,6 @@
 package io.reactivex;
 
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import io.reactivex.annotations.BackpressureKind;
 import io.reactivex.annotations.BackpressureSupport;
 import io.reactivex.annotations.CheckReturnValue;
@@ -1264,7 +1265,7 @@ public abstract class Maybe<T> implements MaybeSource<T> {
     @CheckReturnValue
     public static <T> Flowable<T> concat(Publisher<? extends MaybeSource<? extends T>> publisher, int i2) {
         ObjectHelper.requireNonNull(publisher, "sources is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new FlowableConcatMapPublisher(publisher, MaybeToPublisher.instance(), i2, ErrorMode.IMMEDIATE));
     }
 

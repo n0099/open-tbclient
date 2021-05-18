@@ -44,7 +44,7 @@ public final class j {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("recordId", System.currentTimeMillis() + UUID.randomUUID().toString());
-            jSONObject.put("appKey", com.baidu.crabsdk.a.f4782d);
+            jSONObject.put("appKey", com.baidu.crabsdk.a.f4636d);
             jSONObject.put("phoneTime", System.currentTimeMillis());
             jSONObject.put("networkInfo", o.a());
             jSONObject.put("uname", t.g());
@@ -65,7 +65,7 @@ public final class j {
             jSONObject.put("curPage", a.i());
             jSONObject.put("locale", i.b());
             jSONObject.put("cuid", h.c());
-            jSONObject.put("channel", com.baidu.crabsdk.a.f4780b);
+            jSONObject.put("channel", com.baidu.crabsdk.a.f4634b);
             jSONObject.put("cpuabi", Build.CPU_ABI);
             jSONObject.put("romVN", str);
             jSONObject.put("launcherVN", str2);

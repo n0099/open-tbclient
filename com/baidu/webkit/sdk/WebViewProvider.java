@@ -150,6 +150,8 @@ public interface WebViewProvider {
 
     void addNoStatePrefetch(String str, String str2);
 
+    void addWebMessageListener(WebMessageListener webMessageListener, String str, String[] strArr);
+
     void addZeusPluginFactory(ZeusPluginFactory zeusPluginFactory);
 
     boolean canGoBack();
@@ -171,6 +173,8 @@ public interface WebViewProvider {
     Picture capturePicture(int i2, int i3, boolean z);
 
     void clearCache(boolean z);
+
+    boolean clearDiskJsCodeCache(String str);
 
     void clearFormData();
 
@@ -332,7 +336,7 @@ public interface WebViewProvider {
 
     void loadUrl(String str, Map<String, String> map, boolean z);
 
-    void notifyPageLeave();
+    void notifyUkmPageLeave();
 
     void notifyUnsafeInvolved(int i2, String str);
 

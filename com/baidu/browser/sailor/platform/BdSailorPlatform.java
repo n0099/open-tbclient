@@ -10,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.text.TextUtils;
 import android.webkit.ValueCallback;
 import com.baidu.browser.core.BdCore;
@@ -28,7 +29,6 @@ import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.dumper.CrashCallback;
-import d.a.h.b.d.b;
 import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
@@ -47,9 +47,9 @@ public final class BdSailorPlatform implements INoProGuard {
     public static BdSailorPlatform sInstance;
     public Context mContext;
     public Handler mHandler;
-    public a mNetworkChangedReciever;
+    public b mNetworkChangedReciever;
     public HashMap<String, com.baidu.browser.sailor.feature.a> mSailorFeatureMap;
-    public d.a.h.b.d.c.a mSailorStatic;
+    public d.a.h.b.b.b.a mSailorStatic;
     public BdWebkitManager mWebkitMgr;
     public String mWorkspace;
     public boolean mNeedFix = true;
@@ -61,11 +61,38 @@ public final class BdSailorPlatform implements INoProGuard {
     public boolean mIsNeedUpdateKernel = true;
 
     /* loaded from: classes.dex */
-    public class a extends BroadcastReceiver {
-        public a() {
+    public class a extends Handler {
+        public a(Looper looper) {
+            super(looper);
         }
 
-        public /* synthetic */ a(BdSailorPlatform bdSailorPlatform, byte b2) {
+        @Override // android.os.Handler
+        public final void handleMessage(Message message) {
+            if (message.what == 1 && BdSailorPlatform.this.mContext != null) {
+                BdSailorPlatform bdSailorPlatform = BdSailorPlatform.this;
+                if (bdSailorPlatform.isAppOnForeground(bdSailorPlatform.mContext)) {
+                    return;
+                }
+                try {
+                    Log.d(BdSailorPlatform.TAG, "do pause");
+                    BdSailorPlatform.this.mWebkitTimerPaused = d.a.h.b.d.a.a().c();
+                    CookieSyncManager createInstance = CookieSyncManager.createInstance(BdSailorPlatform.this.mContext);
+                    if (createInstance != null) {
+                        createInstance.stopSync();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b extends BroadcastReceiver {
+        public b() {
+        }
+
+        public /* synthetic */ b(BdSailorPlatform bdSailorPlatform, byte b2) {
             this();
         }
 
@@ -81,7 +108,7 @@ public final class BdSailorPlatform implements INoProGuard {
 
     public BdSailorPlatform() {
         Log.d(TAG, "BdSailorPlatform");
-        this.mSailorStatic = new d.a.h.b.d.c.a();
+        this.mSailorStatic = new d.a.h.b.b.b.a();
         this.mWebkitMgr = new BdWebkitManager();
         this.mSailorFeatureMap = new HashMap<>(4);
     }
@@ -120,7 +147,7 @@ public final class BdSailorPlatform implements INoProGuard {
         return bdSailorPlatform;
     }
 
-    public static d.a.h.b.d.c.a getStatic() {
+    public static d.a.h.b.b.b.a getStatic() {
         return getInstance().mSailorStatic;
     }
 
@@ -226,7 +253,7 @@ public final class BdSailorPlatform implements INoProGuard {
 
     private void registerReceiver() {
         if (getAppContext() != null && this.mNetworkChangedReciever == null) {
-            this.mNetworkChangedReciever = new a(this, (byte) 0);
+            this.mNetworkChangedReciever = new b(this, (byte) 0);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
             getAppContext().registerReceiver(this.mNetworkChangedReciever, intentFilter);
@@ -256,10 +283,10 @@ public final class BdSailorPlatform implements INoProGuard {
     }
 
     public final void clearCache(boolean z) {
-        d.a.h.b.f.a a2 = d.a.h.b.f.a.a();
+        d.a.h.b.d.a a2 = d.a.h.b.d.a.a();
         try {
             a2.e();
-            a2.f41068b.clearCache(z);
+            a2.f40308b.clearCache(z);
         } catch (Exception e2) {
             Log.printStackTrace(e2);
         }
@@ -273,8 +300,8 @@ public final class BdSailorPlatform implements INoProGuard {
                 this.mHandler.removeMessages(1);
                 this.mHandler = null;
             }
-            d.a.h.b.d.a.a.a();
-            d.a.h.b.f.a.b();
+            d.a.h.b.b.a.a.a();
+            d.a.h.b.d.a.b();
             WebKitFactory.destroy();
             this.mContext = null;
         } catch (Exception e2) {
@@ -342,7 +369,7 @@ public final class BdSailorPlatform implements INoProGuard {
                 initFeature(context);
                 BdCore.b().c(context, false);
                 if (this.mHandler == null) {
-                    this.mHandler = new b(this, Looper.getMainLooper());
+                    this.mHandler = new a(Looper.getMainLooper());
                 }
                 return z;
             }
@@ -367,11 +394,11 @@ public final class BdSailorPlatform implements INoProGuard {
             bdWebkitManager.initWebkit(str, z, cls);
         }
         long currentTimeMillis = System.currentTimeMillis();
-        d.a.h.b.f.a a2 = d.a.h.b.f.a.a();
+        d.a.h.b.d.a a2 = d.a.h.b.d.a.a();
         Context appContext = getAppContext();
-        if (a2.f41067a == null) {
-            a2.f41067a = appContext.getApplicationContext();
-            Log.d(d.a.h.b.f.a.f41065d, "in BdWebViewSingleton, init");
+        if (a2.f40307a == null) {
+            a2.f40307a = appContext.getApplicationContext();
+            Log.d(d.a.h.b.d.a.f40305d, "in BdWebViewSingleton, init");
         }
         this.mIsWebkitInited = true;
         long currentTimeMillis2 = System.currentTimeMillis();
@@ -447,7 +474,7 @@ public final class BdSailorPlatform implements INoProGuard {
                 this.mHandler.removeMessages(1);
                 if (this.mWebkitTimerPaused) {
                     Log.d(TAG, "do resume");
-                    d.a.h.b.f.a.a().d();
+                    d.a.h.b.d.a.a().d();
                     CookieSyncManager createInstance = CookieSyncManager.createInstance(this.mContext);
                     if (createInstance != null) {
                         createInstance.startSync();

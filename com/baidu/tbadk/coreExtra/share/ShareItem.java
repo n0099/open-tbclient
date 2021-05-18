@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import d.a.c.e.p.k;
-import d.a.i0.r.q.a2;
+import d.a.j0.r.q.a2;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -59,31 +59,31 @@ public class ShareItem {
     public int y;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13351a = false;
+    public boolean f12687a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13352b = false;
+    public boolean f12688b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13353c = false;
+    public boolean f12689c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13354d = false;
+    public boolean f12690d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13355e = false;
+    public boolean f12691e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13356f = false;
+    public boolean f12692f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13357g = false;
+    public boolean f12693g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13358h = false;
+    public boolean f12694h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13359i = false;
+    public boolean f12695i = false;
     public boolean j = false;
     public boolean k = false;
     public boolean l = false;
@@ -297,18 +297,18 @@ public class ShareItem {
                 }
                 forwardInfo.showText = a2Var.r1.c();
                 OriginalThreadInfo originalThreadInfo = a2Var.r1;
-                forwardInfo.showPicUrl = originalThreadInfo.f12798c;
-                forwardInfo.showType = originalThreadInfo.f12796a;
+                forwardInfo.showPicUrl = originalThreadInfo.f12134c;
+                forwardInfo.showType = originalThreadInfo.f12132a;
                 forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                forwardInfo.originalTid = originalThreadInfo.f12801f;
+                forwardInfo.originalTid = originalThreadInfo.f12137f;
                 if (i2 == 1) {
                     if (postData != null && postData.K() != null) {
                         str = postData.K().toString();
                     } else if (a2Var.C() != null) {
                         str = a2Var.D().toString();
                     }
-                } else if (a2Var.G2() != null) {
-                    str = a2Var.G2().toString();
+                } else if (a2Var.I2() != null) {
+                    str = a2Var.I2().toString();
                 }
                 if (!TextUtils.isEmpty(str)) {
                     forwardInfo.transmitOriginThreadComment = str;
@@ -329,10 +329,10 @@ public class ShareItem {
                 OriginalThreadInfo i3 = OriginalThreadInfo.i(a2Var);
                 if (i3 != null) {
                     forwardInfo.showText = i3.c();
-                    forwardInfo.showPicUrl = i3.f12798c;
-                    forwardInfo.showType = i3.f12796a;
+                    forwardInfo.showPicUrl = i3.f12134c;
+                    forwardInfo.showType = i3.f12132a;
                 }
-                forwardInfo.originalTid = a2Var.w1();
+                forwardInfo.originalTid = a2Var.x1();
             }
             if (i2 == 1) {
                 OriginalThreadInfo originalThreadInfo2 = a2Var.r1;
@@ -365,8 +365,8 @@ public class ShareItem {
             }
             if (a2Var.V() != null) {
                 if (a2Var.V().oriUgcType == 2) {
-                    if (a2Var.u1() != null) {
-                        forwardInfo.video_duration = String.valueOf(a2Var.u1().video_duration);
+                    if (a2Var.v1() != null) {
+                        forwardInfo.video_duration = String.valueOf(a2Var.v1().video_duration);
                     }
                 } else if ((a2Var.V().oriUgcType == 3 || a2Var.V().oriUgcType == 4) && a2Var.T() != null && !TextUtils.isEmpty(a2Var.T().getPortrait())) {
                     if (a2Var.T().getPortrait().startsWith("http")) {

@@ -24,31 +24,31 @@ public class e implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public Uri f5174a;
+    public Uri f5028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f5175b;
+    public Map<String, String> f5029b;
 
     public e(Uri uri, Map<String, String> map) {
-        this.f5174a = uri;
-        this.f5175b = map;
+        this.f5028a = uri;
+        this.f5029b = map;
     }
 
     public e(Parcel parcel) {
-        this.f5174a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
-        this.f5175b = new HashMap();
+        this.f5028a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
+        this.f5029b = new HashMap();
         int readInt = parcel.readInt();
         for (int i2 = 0; i2 < readInt; i2++) {
-            this.f5175b.put(parcel.readString(), parcel.readString());
+            this.f5029b.put(parcel.readString(), parcel.readString());
         }
     }
 
     public Uri a() {
-        return this.f5174a;
+        return this.f5028a;
     }
 
     public Map<String, String> b() {
-        return this.f5175b;
+        return this.f5029b;
     }
 
     @Override // android.os.Parcelable
@@ -58,14 +58,14 @@ public class e implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeParcelable(this.f5174a, i2);
-        Map<String, String> map = this.f5175b;
+        parcel.writeParcelable(this.f5028a, i2);
+        Map<String, String> map = this.f5029b;
         if (map == null || map.size() <= 0) {
             parcel.writeInt(0);
             return;
         }
-        parcel.writeInt(this.f5175b.size());
-        for (Map.Entry<String, String> entry : this.f5175b.entrySet()) {
+        parcel.writeInt(this.f5029b.size());
+        for (Map.Entry<String, String> entry : this.f5029b.entrySet()) {
             parcel.writeString(entry.getKey());
             parcel.writeString(entry.getValue());
         }

@@ -11,13 +11,13 @@ public interface l<T> {
     public static class b<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39632a;
+        public String f38877a;
 
         /* renamed from: b  reason: collision with root package name */
-        public T f39633b;
+        public T f38878b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f39634c;
+        public long f38879c;
     }
 
     /* loaded from: classes.dex */

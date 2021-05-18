@@ -42,6 +42,9 @@ public class AdResponseInfo implements Parcelable {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
+            this.mAdsNum = jSONObject.optInt("n", 0);
+            this.mRequestId = jSONObject.optString(IAdRequestParam.REQ_ID);
+            this.mErrorCode = jSONObject.optString("error_code", "");
             JSONArray jSONArray = jSONObject.getJSONArray("ad");
             if (jSONArray != null) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -52,9 +55,6 @@ public class AdResponseInfo implements Parcelable {
                     }
                 }
             }
-            this.mAdsNum = jSONObject.optInt("n", 0);
-            this.mRequestId = jSONObject.optString(IAdRequestParam.REQ_ID);
-            this.mErrorCode = jSONObject.optString("error_code", "");
         } catch (Exception unused2) {
             this.mAdInstanceList = new ArrayList<>();
         }

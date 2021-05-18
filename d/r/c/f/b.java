@@ -6,14 +6,14 @@ import com.yy.open.deviceidentifiertest.VirtualDevice;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f67480a;
+    public static String f68166a;
 
     public static String a(Context context) {
         try {
-            if (f67480a == null) {
-                f67480a = new VirtualDevice().getDeviceID(context);
+            if (f68166a == null) {
+                f68166a = new VirtualDevice().getDeviceID(context);
             }
-            return f67480a;
+            return f68166a;
         } catch (Throwable th) {
             th.printStackTrace();
             return null;

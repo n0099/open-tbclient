@@ -10,49 +10,49 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.a.c.a.j;
-import d.a.i0.m.f;
-import d.a.i0.r.q.l;
+import d.a.j0.m.f;
+import d.a.j0.r.q.l;
 /* loaded from: classes4.dex */
 public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f17307e;
+    public TbPageContext<?> f16622e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AutoBannerLayout f17308f;
+    public AutoBannerLayout f16623f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GridIconLayout f17309g;
+    public GridIconLayout f16624g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f17310h;
+    public f f16625h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.i0.r.w.b.d<l> f17311i;
+    public d.a.j0.r.w.b.d<l> f16626i;
 
     /* loaded from: classes4.dex */
-    public class a implements d.a.i0.m.c {
+    public class a implements d.a.j0.m.c {
         public a() {
         }
 
-        @Override // d.a.i0.m.c
+        @Override // d.a.j0.m.c
         public void a(View view, boolean z, Object obj) {
-            if (!z || HomePageTabFeedHeaderView.this.f17308f == null) {
+            if (!z || HomePageTabFeedHeaderView.this.f16623f == null) {
                 return;
             }
-            HomePageTabFeedHeaderView.this.f17308f.d();
+            HomePageTabFeedHeaderView.this.f16623f.d();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements d.a.i0.m.c {
+    public class b implements d.a.j0.m.c {
         public b() {
         }
 
-        @Override // d.a.i0.m.c
+        @Override // d.a.j0.m.c
         public void a(View view, boolean z, Object obj) {
             if (z) {
-                d.a.j0.a1.i.b.b("c13751");
+                d.a.k0.a1.i.b.b("c13751");
             }
         }
     }
@@ -63,60 +63,60 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.i0.m.f
+        @Override // d.a.j0.m.f
         /* renamed from: b */
         public void c(View view, l lVar, int i2, long j) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.i0.m.f
+        @Override // d.a.j0.m.f
         /* renamed from: d */
         public void a(View view, l lVar, int i2, long j) {
-            d.a.j0.a1.i.b.a("c13751", lVar, i2 + 1);
+            d.a.k0.a1.i.b.a("c13751", lVar, i2 + 1);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements d.a.i0.r.w.b.d<l> {
+    public class d implements d.a.j0.r.w.b.d<l> {
         public d() {
         }
 
-        @Override // d.a.i0.r.w.b.d
+        @Override // d.a.j0.r.w.b.d
         public void b(int i2, String str) {
             l lVar = new l();
             lVar.g(str);
-            d.a.j0.a1.i.b.a("c13750", lVar, i2);
+            d.a.k0.a1.i.b.a("c13750", lVar, i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.i0.r.w.b.d
+        @Override // d.a.j0.r.w.b.d
         /* renamed from: c */
         public void a(int i2, l lVar) {
-            d.a.j0.a1.i.b.c("c13750", lVar, i2);
+            d.a.k0.a1.i.b.c("c13750", lVar, i2);
         }
     }
 
     public HomePageTabFeedHeaderView(Context context) {
         super(context);
-        this.f17310h = new c();
-        this.f17311i = new d();
+        this.f16625h = new c();
+        this.f16626i = new d();
         b();
     }
 
     public void b() {
         setOrientation(1);
         setDescendantFocusability(262144);
-        this.f17307e = (TbPageContext) j.a(getContext());
+        this.f16622e = (TbPageContext) j.a(getContext());
     }
 
     public void c(int i2) {
-        AutoBannerLayout autoBannerLayout = this.f17308f;
+        AutoBannerLayout autoBannerLayout = this.f16623f;
         if (autoBannerLayout != null) {
-            autoBannerLayout.onChangeSkinType(this.f17307e, i2);
+            autoBannerLayout.onChangeSkinType(this.f16622e, i2);
         }
-        GridIconLayout gridIconLayout = this.f17309g;
+        GridIconLayout gridIconLayout = this.f16624g;
         if (gridIconLayout != null) {
-            gridIconLayout.onChangeSkinType(this.f17307e, i2);
+            gridIconLayout.onChangeSkinType(this.f16622e, i2);
         }
         SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
     }
@@ -130,47 +130,47 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         super.onWindowVisibilityChanged(i2);
     }
 
-    public void setData(d.a.j0.a1.i.e.c cVar) {
+    public void setData(d.a.k0.a1.i.e.c cVar) {
         if (cVar == null) {
             return;
         }
         setPadding(0, d.a.c.e.p.l.g(getContext(), R.dimen.tbds44), 0, d.a.c.e.p.l.g(getContext(), R.dimen.tbds60));
-        if (this.f17308f == null) {
+        if (this.f16623f == null) {
             AutoBannerLayout autoBannerLayout = new AutoBannerLayout(getContext());
-            this.f17308f = autoBannerLayout;
+            this.f16623f = autoBannerLayout;
             autoBannerLayout.setMarqueenTime(3000L);
-            this.f17308f.setOnCoverViewCallback(this.f17311i);
-            this.f17308f.setBannerHeight(d.a.c.e.p.l.g(getContext(), R.dimen.tbds328));
+            this.f16623f.setOnCoverViewCallback(this.f16626i);
+            this.f16623f.setBannerHeight(d.a.c.e.p.l.g(getContext(), R.dimen.tbds328));
             int g2 = d.a.c.e.p.l.g(getContext(), R.dimen.tbds44);
-            this.f17308f.setPadding(g2, 0, g2, 0);
-            addView(this.f17308f);
-            this.f17308f.setIWindowChangedListener(new a());
+            this.f16623f.setPadding(g2, 0, g2, 0);
+            addView(this.f16623f);
+            this.f16623f.setIWindowChangedListener(new a());
         }
-        this.f17308f.a(cVar.f51040d);
-        if (this.f17309g == null) {
+        this.f16623f.a(cVar.f51739d);
+        if (this.f16624g == null) {
             GridIconLayout gridIconLayout = new GridIconLayout(getContext());
-            this.f17309g = gridIconLayout;
-            gridIconLayout.setOnItemCoverListener(this.f17310h);
-            addView(this.f17309g);
-            this.f17309g.setIWindowChangedListener(new b());
-            this.f17309g.setPadding(0, d.a.c.e.p.l.g(getContext(), R.dimen.tbds61), 0, 0);
-            this.f17309g.setVerticalSpace(d.a.c.e.p.l.g(getContext(), R.dimen.tbds61));
-            this.f17309g.setMaxItem(10);
+            this.f16624g = gridIconLayout;
+            gridIconLayout.setOnItemCoverListener(this.f16625h);
+            addView(this.f16624g);
+            this.f16624g.setIWindowChangedListener(new b());
+            this.f16624g.setPadding(0, d.a.c.e.p.l.g(getContext(), R.dimen.tbds61), 0, 0);
+            this.f16624g.setVerticalSpace(d.a.c.e.p.l.g(getContext(), R.dimen.tbds61));
+            this.f16624g.setMaxItem(10);
         }
-        this.f17309g.a(cVar.f51041e);
+        this.f16624g.a(cVar.f51740e);
     }
 
     public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f17310h = new c();
-        this.f17311i = new d();
+        this.f16625h = new c();
+        this.f16626i = new d();
         b();
     }
 
     public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f17310h = new c();
-        this.f17311i = new d();
+        this.f16625h = new c();
+        this.f16626i = new d();
         b();
     }
 }

@@ -11,26 +11,26 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialConcernResponse;
 import d.a.c.j.e.n;
-import d.a.j0.t.d.f.c.d;
-import d.a.j0.t.d.f.c.e;
-import d.a.j0.t.d.f.c.f;
-import d.a.j0.t.d.f.c.g;
+import d.a.k0.t.d.f.c.d;
+import d.a.k0.t.d.f.c.e;
+import d.a.k0.t.d.f.c.f;
+import d.a.k0.t.d.f.c.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SpecialConcernTabModel extends BdBaseModel {
 
     /* renamed from: f  reason: collision with root package name */
-    public b f14610f;
+    public b f13925f;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14609e = 1;
+    public int f13924e = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f14612h = new a(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB);
+    public HttpMessageListener f13927h = new a(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB);
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f14611g = new ArrayList();
+    public List<n> f13926g = new ArrayList();
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -44,45 +44,45 @@ public class SpecialConcernTabModel extends BdBaseModel {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021094 && (httpResponsedMessage instanceof AlaSpecialConcernResponse)) {
                 AlaSpecialConcernResponse alaSpecialConcernResponse = (AlaSpecialConcernResponse) httpResponsedMessage;
                 if (alaSpecialConcernResponse.isSuccess()) {
-                    if (SpecialConcernTabModel.this.f14609e == 1) {
-                        SpecialConcernTabModel.this.f14611g.clear();
+                    if (SpecialConcernTabModel.this.f13924e == 1) {
+                        SpecialConcernTabModel.this.f13926g.clear();
                     }
                     boolean z = alaSpecialConcernResponse.hasMore;
                     if (ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
-                        if (SpecialConcernTabModel.this.f14609e == 1) {
-                            SpecialConcernTabModel.this.f14611g.add(new e());
+                        if (SpecialConcernTabModel.this.f13924e == 1) {
+                            SpecialConcernTabModel.this.f13926g.add(new e());
                         }
                     } else {
                         for (d dVar : alaSpecialConcernResponse.followList) {
                             f fVar = new f();
-                            fVar.f60714e = dVar.f60709a;
-                            fVar.f60715f = dVar.f60710b;
-                            fVar.f60716g = false;
-                            SpecialConcernTabModel.this.f14611g.add(fVar);
+                            fVar.f61438e = dVar.f61433a;
+                            fVar.f61439f = dVar.f61434b;
+                            fVar.f61440g = false;
+                            SpecialConcernTabModel.this.f13926g.add(fVar);
                         }
                     }
                     if (!ListUtils.isEmpty(alaSpecialConcernResponse.recommendList)) {
                         g gVar = new g();
                         if (!ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
-                            gVar.f60718e = false;
+                            gVar.f61442e = false;
                         } else {
-                            gVar.f60718e = true;
+                            gVar.f61442e = true;
                         }
-                        SpecialConcernTabModel.this.f14611g.add(gVar);
+                        SpecialConcernTabModel.this.f13926g.add(gVar);
                         for (d dVar2 : alaSpecialConcernResponse.recommendList) {
                             f fVar2 = new f();
-                            fVar2.f60714e = dVar2.f60709a;
-                            fVar2.f60715f = dVar2.f60710b;
-                            fVar2.f60716g = true;
-                            SpecialConcernTabModel.this.f14611g.add(fVar2);
+                            fVar2.f61438e = dVar2.f61433a;
+                            fVar2.f61439f = dVar2.f61434b;
+                            fVar2.f61440g = true;
+                            SpecialConcernTabModel.this.f13926g.add(fVar2);
                         }
                     }
                     SpecialConcernTabModel.t(SpecialConcernTabModel.this);
-                    if (SpecialConcernTabModel.this.f14610f != null) {
-                        SpecialConcernTabModel.this.f14610f.b(SpecialConcernTabModel.this.f14611g, z, alaSpecialConcernResponse.totalFollowCount);
+                    if (SpecialConcernTabModel.this.f13925f != null) {
+                        SpecialConcernTabModel.this.f13925f.b(SpecialConcernTabModel.this.f13926g, z, alaSpecialConcernResponse.totalFollowCount);
                     }
-                } else if (SpecialConcernTabModel.this.f14610f != null) {
-                    SpecialConcernTabModel.this.f14610f.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (SpecialConcernTabModel.this.f13925f != null) {
+                    SpecialConcernTabModel.this.f13925f.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -96,12 +96,12 @@ public class SpecialConcernTabModel extends BdBaseModel {
     }
 
     public SpecialConcernTabModel(TbPageContext tbPageContext) {
-        MessageManager.getInstance().registerListener(this.f14612h);
+        MessageManager.getInstance().registerListener(this.f13927h);
     }
 
     public static /* synthetic */ int t(SpecialConcernTabModel specialConcernTabModel) {
-        int i2 = specialConcernTabModel.f14609e;
-        specialConcernTabModel.f14609e = i2 + 1;
+        int i2 = specialConcernTabModel.f13924e;
+        specialConcernTabModel.f13924e = i2 + 1;
         return i2;
     }
 
@@ -116,7 +116,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.f14612h);
+        MessageManager.getInstance().unRegisterListener(this.f13927h);
     }
 
     public final void w(int i2) {
@@ -126,15 +126,15 @@ public class SpecialConcernTabModel extends BdBaseModel {
     }
 
     public void x() {
-        w(this.f14609e + 1);
+        w(this.f13924e + 1);
     }
 
     public void y() {
-        this.f14609e = 1;
+        this.f13924e = 1;
         w(1);
     }
 
     public void z(b bVar) {
-        this.f14610f = bVar;
+        this.f13925f = bVar;
     }
 }

@@ -7,27 +7,27 @@ import com.baidu.pyramid.annotation.Inject;
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f64156b = new f();
+    public static f f64843b = new f();
     @Inject
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.c0.a.b.c<IStatisticManager> f64157a;
+    public d.a.c0.a.b.c<IStatisticManager> f64844a;
 
     public f() {
         c();
     }
 
     public static f a() {
-        return f64156b;
+        return f64843b;
     }
 
     public IStatisticManager b() {
-        return this.f64157a.get();
+        return this.f64844a.get();
     }
 
     public void c() {
         d.a.c0.a.b.a b2 = d.a.c0.a.b.a.b();
-        this.f64157a = b2;
+        this.f64844a = b2;
         b2.a(new IStatisticManager_StatisticManager_Provider());
     }
 }

@@ -12,25 +12,25 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class gj {
 
     /* renamed from: a  reason: collision with root package name */
-    public static gj f38501a;
+    public static gj f37746a;
 
     /* renamed from: a  reason: collision with other field name */
     public Map<String, Object> f435a = new ConcurrentHashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Object> f38502b = new ConcurrentHashMap();
+    public Map<String, Object> f37747b = new ConcurrentHashMap();
 
     public gj() {
-        m339a();
+        m338a();
     }
 
     public static synchronized gj a() {
         gj gjVar;
         synchronized (gj.class) {
-            if (f38501a == null) {
-                f38501a = new gj();
+            if (f37746a == null) {
+                f37746a = new gj();
             }
-            gjVar = f38501a;
+            gjVar = f37746a;
         }
         return gjVar;
     }
@@ -49,7 +49,7 @@ public class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m337a() {
+    private ClassLoader[] m336a() {
         ClassLoader[] classLoaderArr = {gj.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (int i2 = 0; i2 < 2; i2++) {
@@ -62,7 +62,7 @@ public class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m338a(String str, String str2) {
+    public Object m337a(String str, String str2) {
         return this.f435a.get(a(str, str2));
     }
 
@@ -72,13 +72,13 @@ public class gj {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void m339a() {
+    public void m338a() {
         Map<String, Object> map;
         Object obj;
         Map<String, Object> map2;
         Object obj2;
         try {
-            for (ClassLoader classLoader : m337a()) {
+            for (ClassLoader classLoader : m336a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                 while (resources.hasMoreElements()) {
                     InputStream openStream = resources.nextElement().openStream();
@@ -99,14 +99,14 @@ public class gj {
                                 newPullParser.next();
                                 String nextText3 = newPullParser.nextText();
                                 String a2 = a(nextText, nextText2);
-                                if (!this.f38502b.containsKey(a2)) {
+                                if (!this.f37747b.containsKey(a2)) {
                                     try {
                                         Class<?> cls = Class.forName(nextText3);
                                         if (gh.class.isAssignableFrom(cls)) {
-                                            map2 = this.f38502b;
+                                            map2 = this.f37747b;
                                             obj2 = cls.newInstance();
                                         } else if (ga.class.isAssignableFrom(cls)) {
-                                            map2 = this.f38502b;
+                                            map2 = this.f37747b;
                                             obj2 = cls;
                                         }
                                         map2.put(a2, obj2);

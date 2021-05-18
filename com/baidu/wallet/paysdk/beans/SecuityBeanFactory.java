@@ -12,11 +12,11 @@ public final class SecuityBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static SecuityBeanFactory f25931a = new SecuityBeanFactory();
+        public static SecuityBeanFactory f25176a = new SecuityBeanFactory();
     }
 
     public static SecuityBeanFactory getInstance() {
-        return a.f25931a;
+        return a.f25176a;
     }
 
     public SecuityBeanFactory() {

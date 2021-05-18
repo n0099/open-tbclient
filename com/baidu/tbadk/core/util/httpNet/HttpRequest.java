@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.INetWorkCore;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import d.a.c.e.p.j;
-import d.a.i0.f0.f;
-import d.a.i0.r.d0.b;
-import d.a.i0.r.l.c;
-import d.a.i0.r.l.e;
-import d.a.i0.s.b.a;
+import d.a.j0.f0.f;
+import d.a.j0.r.d0.b;
+import d.a.j0.r.l.c;
+import d.a.j0.r.l.e;
+import d.a.j0.s.b.a;
 /* loaded from: classes3.dex */
 public class HttpRequest {
     public static final String BDUSS = "BDUSS";
@@ -77,7 +77,7 @@ public class HttpRequest {
         if (!TbadkCoreApplication.getInst().isOfficial()) {
             iNetWorkCore.addPostData("apid", "sw");
         }
-        iNetWorkCore.addPostData(CLIENT_VERSION, TbConfig.getVersion());
+        iNetWorkCore.addPostData("_client_version", TbConfig.getVersion());
         if (TbadkCoreApplication.getInst().getImei() != null) {
             iNetWorkCore.addPostData(PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
         }
@@ -122,7 +122,7 @@ public class HttpRequest {
             }
         }
         iNetWorkCore.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
-        iNetWorkCore.addPostData(TiebaStatic.Params.CUID_GALAXY2, TbadkCoreApplication.getInst().getCuidGalaxy2());
+        iNetWorkCore.addPostData("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         iNetWorkCore.addPostData("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
         iNetWorkCore.addPostData(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
         iNetWorkCore.addPostData("timestamp", Long.toString(System.currentTimeMillis()));

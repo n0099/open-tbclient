@@ -3,13 +3,13 @@ package com.xiaomi.push;
 public final class jg {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f38806a;
+    public final String f38051a;
 
     public jg() {
         this("");
     }
 
     public jg(String str) {
-        this.f38806a = str;
+        this.f38051a = str;
     }
 }

@@ -6,13 +6,14 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.AdExtParam;
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.a.j0.r.a.f.d;
-import d.a.j0.r.a.i.c;
+import d.a.k0.r.a.f.d;
+import d.a.k0.r.a.i.c;
 /* loaded from: classes4.dex */
 public class SplashHttpRequest extends HttpMessage {
     public static final TbHttpMessageTask mTask;
@@ -33,9 +34,9 @@ public class SplashHttpRequest extends HttpMessage {
         addParam("pid", adInfo.placeId);
         addParam("ver", c.b(context));
         addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-        addParam("mod", d.c());
+        addParam(SearchJsBridge.COOKIE_MOD, d.c());
         addParam("ot", 2);
-        addParam("ov", d.d());
+        addParam(SearchJsBridge.COOKIE_OV, d.d());
         addParam(CommandMessage.SDK_VERSION, "1.1.4");
         addParam("nt", d.b(context).intValue());
         addParam(Config.EXCEPTION_CRASH_TYPE, 2);

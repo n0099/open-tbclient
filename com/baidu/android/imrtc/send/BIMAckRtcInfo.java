@@ -8,6 +8,7 @@ import org.json.JSONObject;
 public class BIMAckRtcInfo extends BIMRtcInfo {
     public static final String TAG = "BIMAckRtcInfo";
     public long mAckSeqId;
+    public int mAppState;
     public long mImUK;
     public int mSyncAction;
 
@@ -30,6 +31,10 @@ public class BIMAckRtcInfo extends BIMRtcInfo {
         return this.mSyncAction;
     }
 
+    public int getmAppState() {
+        return this.mAppState;
+    }
+
     public void setAckSeqId(long j) {
         this.mAckSeqId = j;
     }
@@ -42,6 +47,10 @@ public class BIMAckRtcInfo extends BIMRtcInfo {
         this.mSyncAction = i2;
     }
 
+    public void setmAppState(int i2) {
+        this.mAppState = i2;
+    }
+
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
     public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
@@ -51,6 +60,7 @@ public class BIMAckRtcInfo extends BIMRtcInfo {
             bIMAckRtcInfo.setAckSeqId(jSONObject.optLong("ack_seqid"));
             bIMAckRtcInfo.setSyncAction(jSONObject.optInt("ack_action"));
             bIMAckRtcInfo.setImUK(jSONObject.optLong("uk"));
+            bIMAckRtcInfo.setmAppState(jSONObject.optInt("app_stats"));
         } catch (Exception e2) {
             LogUtils.e(TAG, "BIMAckRtcInfo toRtcInfo Exception ", e2);
         }
@@ -65,6 +75,7 @@ public class BIMAckRtcInfo extends BIMRtcInfo {
             jSONObject.put("ack_seqid", this.mAckSeqId);
             jSONObject.put("ack_action", this.mSyncAction);
             jSONObject.put("uk", this.mImUK);
+            jSONObject.put("app_stats", this.mAppState);
             return jSONObject.toString();
         } catch (Exception e2) {
             LogUtils.e(TAG, "BIMAckRtcInfo Exception ", e2);

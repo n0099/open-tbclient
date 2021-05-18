@@ -21,48 +21,48 @@ import org.apache.http.protocol.HTTP;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39760d;
+    public static String f39005d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f39761e;
+    public static String f39006e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f39762f;
+    public static String f39007f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f39763g;
+    public static boolean f39008g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f39764h;
+    public static String f39009h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f39765i;
+    public static String f39010i;
     public static String j;
     public static String k;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f39766a;
+    public e f39011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f39767b;
+    public c f39012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f39768c;
+    public long f39013c;
 
     public a() {
         i();
     }
 
     public static void n(String str) {
-        f39760d = str;
+        f39005d = str;
     }
 
     public static void o(String str) {
-        f39764h = str;
+        f39009h = str;
     }
 
     public static void p(String str) {
-        f39765i = str;
+        f39010i = str;
     }
 
     public static void q(String str) {
@@ -74,15 +74,15 @@ public class a {
     }
 
     public static void s(boolean z) {
-        f39763g = z;
+        f39008g = z;
     }
 
     public static void t(String str) {
-        f39762f = str;
+        f39007f = str;
     }
 
     public static void u(String str) {
-        f39761e = str;
+        f39006e = str;
     }
 
     public final void a(e eVar) {
@@ -93,33 +93,33 @@ public class a {
         if (eVar == null) {
             return;
         }
-        if (!TextUtils.isEmpty(f39760d)) {
-            eVar.b().a("Cookie", f39760d);
+        if (!TextUtils.isEmpty(f39005d)) {
+            eVar.b().a("Cookie", f39005d);
         } else {
             eVar.b().a("Cookie", "");
         }
-        if (!TextUtils.isEmpty(f39762f)) {
-            eVar.b().a("client_user_token", f39762f);
+        if (!TextUtils.isEmpty(f39007f)) {
+            eVar.b().a("client_user_token", f39007f);
         }
-        if (!TextUtils.isEmpty(f39761e)) {
-            eVar.b().a("User-Agent", f39761e);
+        if (!TextUtils.isEmpty(f39006e)) {
+            eVar.b().a("User-Agent", f39006e);
         }
         if (z) {
             eVar.b().a("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
         } else {
             eVar.b().a("Accept-Encoding", "");
         }
-        if (f39763g) {
+        if (f39008g) {
             eVar.b().a(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
         } else {
             eVar.b().a(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
         }
-        eVar.b().a("client_logid", String.valueOf(this.f39768c));
-        if (!TextUtils.isEmpty(f39764h)) {
-            eVar.b().a("cuid", f39764h);
+        eVar.b().a("client_logid", String.valueOf(this.f39013c));
+        if (!TextUtils.isEmpty(f39009h)) {
+            eVar.b().a("cuid", f39009h);
         }
-        if (!TextUtils.isEmpty(f39765i)) {
-            eVar.b().a(TiebaStatic.Params.CUID_GALAXY2, f39765i);
+        if (!TextUtils.isEmpty(f39010i)) {
+            eVar.b().a("cuid_galaxy2", f39010i);
         }
         if (!TextUtils.isEmpty(j)) {
             eVar.b().a("c3_aid", j);
@@ -131,7 +131,7 @@ public class a {
     }
 
     public void c() {
-        c cVar = this.f39767b;
+        c cVar = this.f39012b;
         if (cVar != null) {
             cVar.b();
         }
@@ -139,21 +139,21 @@ public class a {
 
     public boolean d(String str, String str2, boolean z, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList, h hVar, boolean z2, boolean z3, boolean z4) {
         e eVar = new e();
-        this.f39766a = eVar;
+        this.f39011a = eVar;
         a(eVar);
-        this.f39766a.b().s(str);
-        this.f39766a.b().o(z4);
-        c cVar = new c(this.f39766a);
-        this.f39767b = cVar;
+        this.f39011a.b().s(str);
+        this.f39011a.b().o(z4);
+        c cVar = new c(this.f39011a);
+        this.f39012b = cVar;
         return cVar.c(str2, hVar, i2, i3, i4, i5, z2, z3);
     }
 
     public e e() {
-        return this.f39766a;
+        return this.f39011a;
     }
 
     public c f() {
-        return this.f39767b;
+        return this.f39012b;
     }
 
     public g g(String str, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList) throws Exception {
@@ -162,22 +162,22 @@ public class a {
 
     public g h(String str, boolean z, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList) throws Exception {
         e eVar = new e();
-        this.f39766a = eVar;
+        this.f39011a = eVar;
         b(eVar, z);
-        this.f39766a.b().s(str);
-        c cVar = new c(this.f39766a);
-        this.f39767b = cVar;
+        this.f39011a.b().s(str);
+        c cVar = new c(this.f39011a);
+        this.f39012b = cVar;
         cVar.e(i2, i4, i5);
-        return this.f39766a.c();
+        return this.f39011a.c();
     }
 
     public void i() {
         System.setProperty("http.keepAlive", "false");
-        this.f39768c = BdStatisticsManager.getInstance().getClientLogId();
+        this.f39013c = BdStatisticsManager.getInstance().getClientLogId();
     }
 
     public boolean j() {
-        c cVar = this.f39767b;
+        c cVar = this.f39012b;
         if (cVar != null) {
             return cVar.l();
         }
@@ -186,59 +186,59 @@ public class a {
 
     public g k(String str, List<BasicNameValuePair> list, boolean z, int i2, int i3, LinkedList<BasicNameValuePair> linkedList) throws Exception {
         e eVar = new e();
-        this.f39766a = eVar;
+        this.f39011a = eVar;
         b(eVar, z);
-        this.f39766a.b().s(str);
+        this.f39011a.b().s(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.f39766a.b().d(basicNameValuePair);
+                this.f39011a.b().d(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.f39766a.b().a(next.getName(), next.getValue());
+                this.f39011a.b().a(next.getName(), next.getValue());
             }
         }
-        c cVar = new c(this.f39766a);
-        this.f39767b = cVar;
+        c cVar = new c(this.f39011a);
+        this.f39012b = cVar;
         cVar.n(i2, i3, -1);
-        return this.f39766a.c();
+        return this.f39011a.c();
     }
 
     public g l(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i2, int i3, LinkedList<BasicNameValuePair> linkedList) throws Exception {
         e eVar = new e();
-        this.f39766a = eVar;
+        this.f39011a = eVar;
         b(eVar, z);
-        this.f39766a.b().s(str);
+        this.f39011a.b().s(str);
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.f39766a.b().a(next.getName(), next.getValue());
+                this.f39011a.b().a(next.getName(), next.getValue());
             }
         }
         if (arrayList != null) {
             Iterator<BasicNameValuePair> it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 BasicNameValuePair next2 = it2.next();
-                this.f39766a.b().b(next2.getName(), next2.getValue());
+                this.f39011a.b().b(next2.getName(), next2.getValue());
             }
         }
         if (hashMap != null) {
             for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                this.f39766a.b().c(entry.getKey(), entry.getValue());
+                this.f39011a.b().c(entry.getKey(), entry.getValue());
             }
         }
-        c cVar = new c(this.f39766a);
-        this.f39767b = cVar;
+        c cVar = new c(this.f39011a);
+        this.f39012b = cVar;
         cVar.n(i2, i3, -1);
-        return this.f39766a.c();
+        return this.f39011a.c();
     }
 
     public void m() {
-        c cVar = this.f39767b;
+        c cVar = this.f39012b;
         if (cVar != null) {
             cVar.q();
         }

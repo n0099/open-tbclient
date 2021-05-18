@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-import d.a.i.u0.a;
+import d.a.i.v0.a;
 /* loaded from: classes.dex */
-public class w extends d.a.i.a<d.a.i0.r.q.a> {
+public class w extends d.a.i.a<d.a.j0.r.q.a> {
     public MultiImgLayout j;
-    public d.a.i0.r.q.a k;
+    public d.a.j0.r.q.a k;
     public int l;
     public String m;
 
@@ -21,12 +21,12 @@ public class w extends d.a.i.a<d.a.i0.r.q.a> {
         public a() {
         }
 
-        @Override // d.a.i.u0.a.b
-        public boolean a(a.C1011a c1011a) {
+        @Override // d.a.i.v0.a.b
+        public boolean a(a.C0549a c0549a) {
             if (w.this.k != null && w.this.k.m() != null) {
-                d.a.j0.x.m.a(w.this.k.m().o0());
-                d.a.j0.x.m.l(w.this.j.f4548e, w.this.k.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.a.j0.x.m.l(w.this.j.f4549f, w.this.k.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.a.k0.x.m.a(w.this.k.m().o0());
+                d.a.k0.x.m.l(w.this.j.f4399e, w.this.k.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.a.k0.x.m.l(w.this.j.f4400f, w.this.k.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }
@@ -49,7 +49,7 @@ public class w extends d.a.i.a<d.a.i0.r.q.a> {
     }
 
     @Override // d.a.i.a
-    public void l(d.a.j0.x.b0<d.a.i0.r.q.a> b0Var) {
+    public void l(d.a.k0.x.b0<d.a.j0.r.q.a> b0Var) {
         this.j.setSubClickListener(b0Var);
     }
 
@@ -57,7 +57,7 @@ public class w extends d.a.i.a<d.a.i0.r.q.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         if (this.l != i2) {
             SkinManager.setBackgroundResource(g(), R.drawable.addresslist_item_bg);
-            this.j.f4551h.b();
+            this.j.f4402h.b();
         }
         this.l = i2;
     }
@@ -65,7 +65,7 @@ public class w extends d.a.i.a<d.a.i0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: q */
-    public void a(d.a.i0.r.q.a aVar) {
+    public void a(d.a.j0.r.q.a aVar) {
         this.k = aVar;
         this.j.setFrom(this.m);
         this.j.a(aVar);

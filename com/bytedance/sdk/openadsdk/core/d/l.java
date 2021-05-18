@@ -2,9 +2,9 @@ package com.bytedance.sdk.openadsdk.core.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.FilterWord;
@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class l {
     public boolean A;
     public boolean B;
@@ -34,7 +34,7 @@ public class l {
     public JSONObject Y;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28719a;
+    public String f27964a;
     public int aa;
     public q af;
     public n ag;
@@ -42,22 +42,22 @@ public class l {
     public String ai;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28720b;
+    public int f27965b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f28721c;
+    public k f27966c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f28722d;
+    public k f27967d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28723e;
+    public String f27968e;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28725g;
+    public String f27970g;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f28727i;
+    public String f27972i;
     public String l;
     public String m;
     public String n;
@@ -72,10 +72,10 @@ public class l {
     public boolean z;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28724f = -1;
+    public int f27969f = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<k> f28726h = new ArrayList();
+    public List<k> f27971h = new ArrayList();
     public List<String> j = new ArrayList();
     public List<String> k = new ArrayList();
     public String o = "0";
@@ -98,84 +98,84 @@ public class l {
     public int ad = 0;
     public int ae = 1;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f28728a;
+        public String f27973a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f28729b;
+        public String f27974b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f28730c;
+        public String f27975c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f28731d;
+        public String f27976d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f28732e;
+        public String f27977e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f28733f;
+        public String f27978f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f28734g;
+        public String f27979g;
 
         public String a() {
-            return this.f28733f;
+            return this.f27978f;
         }
 
         public String b() {
-            return this.f28728a;
+            return this.f27973a;
         }
 
         public String c() {
-            return this.f28729b;
+            return this.f27974b;
         }
 
         public String d() {
-            return this.f28730c;
+            return this.f27975c;
         }
 
         public String e() {
-            return this.f28731d;
+            return this.f27976d;
         }
 
         public String f() {
-            return this.f28732e;
+            return this.f27977e;
         }
 
         public String g() {
-            return this.f28734g;
+            return this.f27979g;
         }
 
         public void a(String str) {
-            this.f28733f = str;
+            this.f27978f = str;
         }
 
         public void b(String str) {
-            this.f28728a = str;
+            this.f27973a = str;
         }
 
         public void c(String str) {
-            this.f28729b = str;
+            this.f27974b = str;
         }
 
         public void d(String str) {
-            this.f28730c = str;
+            this.f27975c = str;
         }
 
         public void e(String str) {
-            this.f28731d = str;
+            this.f27976d = str;
         }
 
         public void f(String str) {
-            this.f28732e = str;
+            this.f27977e = str;
         }
 
         public void g(String str) {
-            this.f28734g = str;
+            this.f27979g = str;
         }
     }
 
@@ -335,7 +335,7 @@ public class l {
     }
 
     public int Z() {
-        return this.f28720b;
+        return this.f27965b;
     }
 
     public String aA() {
@@ -359,7 +359,7 @@ public class l {
     }
 
     public String aF() {
-        return this.f28719a;
+        return this.f27964a;
     }
 
     public int aG() {
@@ -367,11 +367,11 @@ public class l {
     }
 
     public boolean aH() {
-        if (this.f28726h.isEmpty()) {
+        if (this.f27971h.isEmpty()) {
             return false;
         }
-        if (this.r != 4 || this.f28726h.size() >= 3) {
-            for (k kVar : this.f28726h) {
+        if (this.r != 4 || this.f27971h.size() >= 3) {
+            for (k kVar : this.f27971h) {
                 if (!kVar.e()) {
                     return false;
                 }
@@ -447,12 +447,12 @@ public class l {
             e o = o();
             if (o != null) {
                 JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("click_upper_content_area", o.f28659a);
-                jSONObject5.put("click_upper_non_content_area", o.f28660b);
-                jSONObject5.put("click_lower_content_area", o.f28661c);
-                jSONObject5.put("click_lower_non_content_area", o.f28662d);
-                jSONObject5.put("click_button_area", o.f28663e);
-                jSONObject5.put("click_video_area", o.f28664f);
+                jSONObject5.put("click_upper_content_area", o.f27904a);
+                jSONObject5.put("click_upper_non_content_area", o.f27905b);
+                jSONObject5.put("click_lower_content_area", o.f27906c);
+                jSONObject5.put("click_lower_non_content_area", o.f27907d);
+                jSONObject5.put("click_button_area", o.f27908e);
+                jSONObject5.put("click_video_area", o.f27909f);
                 jSONObject.put("click_area", jSONObject5);
             }
             AdSlot p = p();
@@ -494,14 +494,14 @@ public class l {
             jSONObject.put("image_mode", aq());
             jSONObject.put("is_playable", C());
             jSONObject.put("intercept_flag", v());
-            jSONObject.put("button_text", al());
+            jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, al());
             jSONObject.put("ad_logo", m());
             jSONObject.put("video_adaptation", l());
             jSONObject.put("feed_video_opentype", k());
             b an = an();
             if (an != null) {
                 JSONObject jSONObject7 = new JSONObject();
-                jSONObject7.put(DpStatConstants.KEY_APP_NAME, an.c());
+                jSONObject7.put("app_name", an.c());
                 jSONObject7.put("package_name", an.d());
                 jSONObject7.put("download_url", an.b());
                 jSONObject7.put("score", an.e());
@@ -534,7 +534,7 @@ public class l {
                 jSONObject.put("personalization_prompts", as.toJson());
             }
             jSONObject.put("count_down", au());
-            jSONObject.put("expiration_time", at());
+            jSONObject.put(GameGuideConfigInfo.KEY_EXPIRATION_TIME, at());
             v X = X();
             if (X != null) {
                 jSONObject.put("video", X.m());
@@ -606,7 +606,7 @@ public class l {
                 jSONObject14.put("permissions", V.e());
                 jSONObject14.put("privacy_policy_url", V.d());
                 jSONObject14.put("package_name", V.f());
-                jSONObject14.put(DpStatConstants.KEY_APP_NAME, V.g());
+                jSONObject14.put("app_name", V.g());
                 jSONObject.put("app_manage", jSONObject14);
             }
         } catch (Exception unused) {
@@ -615,31 +615,31 @@ public class l {
     }
 
     public k aa() {
-        return this.f28721c;
+        return this.f27966c;
     }
 
     public k ab() {
-        return this.f28722d;
+        return this.f27967d;
     }
 
     public String ac() {
-        return this.f28723e;
+        return this.f27968e;
     }
 
     public int ad() {
-        return this.f28724f;
+        return this.f27969f;
     }
 
     public String ae() {
-        return this.f28725g;
+        return this.f27970g;
     }
 
     public List<k> af() {
-        return this.f28726h;
+        return this.f27971h;
     }
 
     public String ag() {
-        return this.f28727i;
+        return this.f27972i;
     }
 
     public List<String> ah() {
@@ -898,11 +898,11 @@ public class l {
     }
 
     public void n(int i2) {
-        this.f28720b = i2;
+        this.f27965b = i2;
     }
 
     public void o(int i2) {
-        this.f28724f = i2;
+        this.f27969f = i2;
     }
 
     public void p(int i2) {
@@ -950,7 +950,7 @@ public class l {
     }
 
     public void f(String str) {
-        this.f28723e = str;
+        this.f27968e = str;
     }
 
     public void g(int i2) {
@@ -958,7 +958,7 @@ public class l {
     }
 
     public void h(String str) {
-        this.f28727i = str;
+        this.f27972i = str;
     }
 
     public void i(String str) {
@@ -986,7 +986,7 @@ public class l {
     }
 
     public void o(String str) {
-        this.f28719a = str;
+        this.f27964a = str;
     }
 
     public static boolean b(l lVar) {
@@ -1011,7 +1011,7 @@ public class l {
     }
 
     public void c(k kVar) {
-        this.f28726h.add(kVar);
+        this.f27971h.add(kVar);
     }
 
     public void d(boolean z) {
@@ -1019,7 +1019,7 @@ public class l {
     }
 
     public void g(String str) {
-        this.f28725g = str;
+        this.f27970g = str;
     }
 
     public static boolean d(l lVar) {
@@ -1056,7 +1056,7 @@ public class l {
         if (jSONObject == null) {
             return;
         }
-        this.f28720b = 4;
+        this.f27965b = 4;
         this.o = jSONObject.optString("id");
         this.s = jSONObject.optString("source");
         b bVar = new b();
@@ -1075,7 +1075,7 @@ public class l {
     }
 
     public void b(k kVar) {
-        this.f28722d = kVar;
+        this.f27967d = kVar;
     }
 
     public void a(a aVar) {
@@ -1142,7 +1142,7 @@ public class l {
     }
 
     public void a(k kVar) {
-        this.f28721c = kVar;
+        this.f27966c = kVar;
     }
 
     public void a(b bVar) {

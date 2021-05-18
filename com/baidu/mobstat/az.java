@@ -16,44 +16,44 @@ public class az {
     public static volatile boolean l = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8931a;
+    public Context f8743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f8932b;
+    public Activity f8744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f8933c;
+    public volatile boolean f8745c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f8934d;
+    public volatile boolean f8746d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile String f8935e;
+    public volatile String f8747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f8936f;
+    public long f8748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f8937g;
+    public long f8749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f8938h;
+    public String f8750h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PointF f8939i;
+    public PointF f8751i;
     public bf j = bf.a();
 
     private void e() {
-        if (bw.s(this.f8931a) && !this.f8933c) {
-            if (!this.f8934d) {
-                this.f8935e = bo.a(this.f8931a, "mtj_autoTracker.js");
-                this.f8934d = true;
+        if (bw.s(this.f8743a) && !this.f8745c) {
+            if (!this.f8746d) {
+                this.f8747e = bo.a(this.f8743a, "mtj_autoTracker.js");
+                this.f8746d = true;
             }
-            if (this.f8936f == 0) {
-                this.f8936f = bq.a().n(this.f8931a);
-                this.f8937g = bq.a().o(this.f8931a);
+            if (this.f8748f == 0) {
+                this.f8748f = bq.a().n(this.f8743a);
+                this.f8749g = bq.a().o(this.f8743a);
             }
-            if (!(this.f8934d && TextUtils.isEmpty(this.f8935e)) && System.currentTimeMillis() - this.f8936f <= this.f8937g) {
+            if (!(this.f8746d && TextUtils.isEmpty(this.f8747e)) && System.currentTimeMillis() - this.f8748f <= this.f8749g) {
                 return;
             }
             f();
@@ -64,14 +64,14 @@ public class az {
         Thread thread = new Thread(new Runnable() { // from class: com.baidu.mobstat.az.2
             @Override // java.lang.Runnable
             public void run() {
-                if (az.this.f8933c) {
+                if (az.this.f8745c) {
                     return;
                 }
-                boolean a2 = bg.a(az.this.f8931a, az.this.f8938h, 1, false);
-                az.this.f8933c = true;
+                boolean a2 = bg.a(az.this.f8743a, az.this.f8750h, 1, false);
+                az.this.f8745c = true;
                 if (a2) {
                     az azVar = az.this;
-                    azVar.f8935e = bo.a(azVar.f8931a, "mtj_autoTracker.js");
+                    azVar.f8747e = bo.a(azVar.f8743a, "mtj_autoTracker.js");
                 }
             }
         });
@@ -92,7 +92,7 @@ public class az {
     }
 
     public void b(String str) {
-        this.f8938h = str;
+        this.f8750h = str;
     }
 
     private void c(Activity activity) {
@@ -108,10 +108,10 @@ public class az {
                     return;
                 }
                 az.a(true);
-                if (az.this.f8939i == null) {
-                    az.this.f8939i = new PointF();
+                if (az.this.f8751i == null) {
+                    az.this.f8751i = new PointF();
                 }
-                az.this.f8939i.set(motionEvent.getRawX(), motionEvent.getRawY());
+                az.this.f8751i.set(motionEvent.getRawX(), motionEvent.getRawY());
             }
 
             @Override // com.baidu.mobstat.al.a
@@ -122,13 +122,13 @@ public class az {
     }
 
     public PointF b() {
-        return this.f8939i;
+        return this.f8751i;
     }
 
     public void b(Activity activity) {
         if (d()) {
-            d(this.f8932b);
-            this.f8932b = null;
+            d(this.f8744b);
+            this.f8744b = null;
             a(activity, false);
         }
     }
@@ -138,7 +138,7 @@ public class az {
     }
 
     private boolean d() {
-        return !TextUtils.isEmpty(this.f8938h);
+        return !TextUtils.isEmpty(this.f8750h);
     }
 
     public void a(String str) {
@@ -156,14 +156,14 @@ public class az {
         if (blVar == null) {
             return;
         }
-        blVar.a(this.f8932b, webView, str, (JSONObject) null, false);
+        blVar.a(this.f8744b, webView, str, (JSONObject) null, false);
     }
 
     public void a(Activity activity) {
         if (d()) {
             a(true);
-            this.f8931a = activity.getApplicationContext();
-            this.f8932b = activity;
+            this.f8743a = activity.getApplicationContext();
+            this.f8744b = activity;
             e();
             c(activity);
             a(activity, true);
@@ -189,9 +189,9 @@ public class az {
     }
 
     public void a(WebView webView, String str, bl blVar) {
-        if (TextUtils.isEmpty(this.f8935e)) {
-            this.f8935e = bo.a(this.f8931a, "mtj_autoTracker.js");
+        if (TextUtils.isEmpty(this.f8747e)) {
+            this.f8747e = bo.a(this.f8743a, "mtj_autoTracker.js");
         }
-        b(webView, this.f8935e, blVar);
+        b(webView, this.f8747e, blVar);
     }
 }

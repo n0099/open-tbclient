@@ -8,21 +8,21 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b1 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f37833a;
+    public final /* synthetic */ Context f37078a;
 
     public b1(c1 c1Var, Context context) {
-        this.f37833a = context;
+        this.f37078a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String str;
         String userAgentString;
-        Context context = this.f37833a;
+        Context context = this.f37078a;
         try {
             if (Build.VERSION.SDK_INT >= 28) {
                 try {
@@ -45,16 +45,16 @@ public class b1 implements Runnable {
                 } catch (Exception unused2) {
                 }
             }
-            x1.f38002a = System.getProperty("http.agent");
+            x1.f37247a = System.getProperty("http.agent");
             if (Build.VERSION.SDK_INT >= 17) {
                 userAgentString = WebSettings.getDefaultUserAgent(context);
             } else if (Looper.myLooper() != Looper.getMainLooper()) {
-                v1.f37961a.post(new w1(context));
+                v1.f37206a.post(new w1(context));
                 return;
             } else {
                 userAgentString = new WebView(context).getSettings().getUserAgentString();
             }
-            x1.f38002a = userAgentString;
+            x1.f37247a = userAgentString;
         } catch (Exception unused3) {
         }
     }

@@ -12,13 +12,13 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.j.e.n;
-import d.a.i0.r.f0.f;
-import d.a.j0.v0.c.b;
+import d.a.j0.r.f0.f;
+import d.a.k0.v0.c.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class GodSquareActivity extends BaseActivity<GodSquareActivity> implements f.g, BdListView.p {
-    public d.a.j0.v0.c.b mModel;
-    public d.a.j0.v0.a mView;
+    public d.a.k0.v0.c.b mModel;
+    public d.a.k0.v0.a mView;
     public boolean mHasMore = true;
     public boolean needRefreshView = false;
     public b.c mCallBack = new a();
@@ -30,14 +30,14 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public a() {
         }
 
-        @Override // d.a.j0.v0.c.b.c
+        @Override // d.a.k0.v0.c.b.c
         public void a(List<n> list, boolean z, boolean z2, String str) {
             GodSquareActivity.this.mHasMore = z2;
             GodSquareActivity.this.mView.a().A(0L);
             GodSquareActivity.this.mView.b();
             if (ListUtils.isEmpty(list)) {
                 GodSquareActivity.this.mView.d();
-                if (ListUtils.isEmpty(GodSquareActivity.this.mModel.f61643e)) {
+                if (ListUtils.isEmpty(GodSquareActivity.this.mModel.f62367e)) {
                     GodSquareActivity.this.mView.k(str);
                     return;
                 }
@@ -50,10 +50,10 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             }
             GodSquareActivity.this.mView.c();
             if (z) {
-                GodSquareActivity.this.mModel.f61643e = list;
-                GodSquareActivity.this.mView.m(GodSquareActivity.this.mModel.f61643e);
+                GodSquareActivity.this.mModel.f62367e = list;
+                GodSquareActivity.this.mView.m(GodSquareActivity.this.mModel.f62367e);
             } else {
-                GodSquareActivity.this.mModel.f61643e.addAll(list);
+                GodSquareActivity.this.mModel.f62367e.addAll(list);
                 GodSquareActivity.this.mView.g();
             }
             if (z2) {
@@ -75,10 +75,10 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f13332c)) {
+                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f12668c)) {
                     return;
                 }
-                if (GodSquareActivity.this.mModel.g(d.a.c.e.m.b.f(updateAttentionMessage.getData().f13332c, 0L))) {
+                if (GodSquareActivity.this.mModel.g(d.a.c.e.m.b.f(updateAttentionMessage.getData().f12668c, 0L))) {
                     GodSquareActivity.this.needRefreshView = true;
                 }
             }
@@ -93,7 +93,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
             if (z) {
-                if (ListUtils.isEmpty(GodSquareActivity.this.mModel.f61643e)) {
+                if (ListUtils.isEmpty(GodSquareActivity.this.mModel.f62367e)) {
                     GodSquareActivity.this.loadFirstTime();
                 } else {
                     GodSquareActivity.this.mView.l();
@@ -108,7 +108,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         this.mModel.l();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "a009";
     }
@@ -122,15 +122,15 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        d.a.j0.v0.a aVar = new d.a.j0.v0.a(this);
+        d.a.k0.v0.a aVar = new d.a.k0.v0.a(this);
         this.mView = aVar;
         aVar.i(this.mNetworkChangeListener);
-        this.mModel = new d.a.j0.v0.c.b(this.mCallBack, this);
+        this.mModel = new d.a.k0.v0.c.b(this.mCallBack, this);
         registerListener(this.mAttentionListener);
         loadFirstTime();
     }
 
-    @Override // d.a.i0.r.f0.f.g
+    @Override // d.a.j0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
         this.needRefreshView = false;
         this.mModel.l();

@@ -3,12 +3,12 @@ package g.a.b.b;
 public abstract class a extends d implements g.a.a.b {
 
     /* renamed from: i  reason: collision with root package name */
-    public Class[] f67549i;
+    public Class[] f68235i;
     public Class[] j;
 
     public a(int i2, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
         super(i2, str, cls);
-        this.f67549i = clsArr;
+        this.f68235i = clsArr;
         this.j = clsArr2;
     }
 
@@ -20,9 +20,9 @@ public abstract class a extends d implements g.a.a.b {
     }
 
     public Class[] m() {
-        if (this.f67549i == null) {
-            this.f67549i = e(3);
+        if (this.f68235i == null) {
+            this.f68235i = e(3);
         }
-        return this.f67549i;
+        return this.f68235i;
     }
 }

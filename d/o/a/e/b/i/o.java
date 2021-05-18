@@ -5,48 +5,48 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f66577a;
+    public final String f67263a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f66578b;
+    public final String f67264b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f66579c;
+    public final String f67265c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f66580d;
+    public final boolean f67266d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<l> f66581e;
+    public final List<l> f67267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f66582f;
+    public int f67268f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f66583g;
+    public boolean f67269g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f66584h;
+    public int f67270h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f66585i;
+    public String f67271i;
     public final AtomicLong j;
 
     public o(String str, boolean z) {
-        this.f66581e = new ArrayList();
+        this.f67267e = new ArrayList();
         this.j = new AtomicLong();
-        this.f66577a = str;
-        this.f66580d = z;
-        this.f66578b = null;
-        this.f66579c = null;
+        this.f67263a = str;
+        this.f67266d = z;
+        this.f67264b = null;
+        this.f67265c = null;
     }
 
     public synchronized int a() {
-        return this.f66581e.size();
+        return this.f67267e.size();
     }
 
     public final String b(String str) {
@@ -70,12 +70,12 @@ public class o {
     }
 
     public synchronized void d(l lVar) {
-        this.f66581e.add(lVar);
+        this.f67267e.add(lVar);
     }
 
     public synchronized void e() {
-        this.f66582f++;
-        this.f66583g = true;
+        this.f67268f++;
+        this.f67269g = true;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -90,53 +90,53 @@ public class o {
 
     public synchronized void f(l lVar) {
         try {
-            this.f66581e.remove(lVar);
+            this.f67267e.remove(lVar);
         } catch (Throwable unused) {
         }
     }
 
     public synchronized void g() {
-        this.f66583g = false;
+        this.f67269g = false;
     }
 
     public synchronized boolean h() {
-        return this.f66583g;
+        return this.f67269g;
     }
 
     public int hashCode() {
-        if (this.f66584h == 0) {
-            this.f66584h = i().hashCode();
+        if (this.f67270h == 0) {
+            this.f67270h = i().hashCode();
         }
-        return this.f66584h;
+        return this.f67270h;
     }
 
     public final String i() {
-        if (this.f66585i == null) {
+        if (this.f67271i == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f66577a);
+            sb.append(this.f67263a);
             sb.append("_");
-            String str = this.f66578b;
+            String str = this.f67264b;
             if (str == null) {
                 str = "";
             }
             sb.append(str);
             sb.append("_");
-            sb.append(this.f66580d);
-            this.f66585i = sb.toString();
+            sb.append(this.f67266d);
+            this.f67271i = sb.toString();
         }
-        return this.f66585i;
+        return this.f67271i;
     }
 
     public String toString() {
-        return "UrlRecord{url='" + this.f66577a + "', ip='" + this.f66578b + "', ipFamily='" + this.f66579c + "', isMainUrl=" + this.f66580d + ", failedTimes=" + this.f66582f + ", isCurrentFailed=" + this.f66583g + '}';
+        return "UrlRecord{url='" + this.f67263a + "', ip='" + this.f67264b + "', ipFamily='" + this.f67265c + "', isMainUrl=" + this.f67266d + ", failedTimes=" + this.f67268f + ", isCurrentFailed=" + this.f67269g + '}';
     }
 
     public o(String str, String str2) {
-        this.f66581e = new ArrayList();
+        this.f67267e = new ArrayList();
         this.j = new AtomicLong();
-        this.f66577a = str;
-        this.f66580d = false;
-        this.f66578b = str2;
-        this.f66579c = b(str2);
+        this.f67263a = str;
+        this.f67266d = false;
+        this.f67264b = str2;
+        this.f67265c = b(str2);
     }
 }

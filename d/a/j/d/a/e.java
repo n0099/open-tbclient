@@ -9,57 +9,57 @@ import javax.crypto.ShortBufferException;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f50282a;
+    public byte[] f48503a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50283b;
+    public int f48504b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50284c;
+    public int f48505c;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50286e;
+    public int f48507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public i f50287f;
+    public i f48508f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f50288g;
+    public f f48509g;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50285d = 0;
+    public int f48506d = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50289h = 1;
+    public int f48510h = 1;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f50290i = false;
+    public boolean f48511i = false;
 
     public e(b bVar, int i2) {
-        this.f50282a = null;
-        this.f50283b = 0;
-        this.f50284c = 0;
-        this.f50286e = 0;
-        this.f50287f = null;
-        this.f50288g = null;
-        this.f50283b = i2;
-        this.f50284c = i2;
-        this.f50286e = i2;
-        this.f50282a = new byte[i2 * 2];
-        this.f50288g = new d(bVar);
-        this.f50287f = new h(this.f50283b);
+        this.f48503a = null;
+        this.f48504b = 0;
+        this.f48505c = 0;
+        this.f48507e = 0;
+        this.f48508f = null;
+        this.f48509g = null;
+        this.f48504b = i2;
+        this.f48505c = i2;
+        this.f48507e = i2;
+        this.f48503a = new byte[i2 * 2];
+        this.f48509g = new d(bVar);
+        this.f48508f = new h(this.f48504b);
     }
 
     public int a(int i2) {
-        int i3 = this.f50285d + i2;
-        i iVar = this.f50287f;
-        if (iVar == null || this.f50290i) {
+        int i3 = this.f48506d + i2;
+        i iVar = this.f48508f;
+        if (iVar == null || this.f48511i) {
             return i3;
         }
-        int i4 = this.f50284c;
-        int i5 = this.f50283b;
+        int i4 = this.f48505c;
+        int i5 = this.f48504b;
         if (i4 != i5) {
-            int i6 = this.f50286e;
+            int i6 = this.f48507e;
             return i3 < i6 ? i6 : (i3 + i5) - ((i3 - i6) % i5);
         }
         return i3 + iVar.a(i3);
@@ -69,25 +69,25 @@ public final class e {
         if (bArr == null || i4 == 0) {
             return 0;
         }
-        int i5 = this.f50289h;
-        if (i5 == 2 || i5 == 3 || i4 % this.f50284c == 0 || i5 == 6) {
-            if (this.f50290i) {
-                this.f50288g.h(bArr, i2, i4, bArr2, i3);
+        int i5 = this.f48510h;
+        if (i5 == 2 || i5 == 3 || i4 % this.f48505c == 0 || i5 == 6) {
+            if (this.f48511i) {
+                this.f48509g.h(bArr, i2, i4, bArr2, i3);
             } else {
-                this.f50288g.f(bArr, i2, i4, bArr2, i3);
+                this.f48509g.f(bArr, i2, i4, bArr2, i3);
             }
             return i4;
-        } else if (this.f50287f != null) {
-            throw new IllegalBlockSizeException("Input length (with padding) not multiple of " + this.f50284c + " bytes");
+        } else if (this.f48508f != null) {
+            throw new IllegalBlockSizeException("Input length (with padding) not multiple of " + this.f48505c + " bytes");
         } else {
-            throw new IllegalBlockSizeException("Input length not multiple of " + this.f50284c + " bytes");
+            throw new IllegalBlockSizeException("Input length not multiple of " + this.f48505c + " bytes");
         }
     }
 
     public void c(int i2, byte[] bArr, byte[] bArr2, SecureRandom secureRandom) {
         boolean z = i2 == 2 || i2 == 4;
-        this.f50290i = z;
-        if (this.f50289h == 0) {
+        this.f48511i = z;
+        if (this.f48510h == 0) {
             if (bArr2 != null) {
                 throw new InvalidAlgorithmParameterException("ECB mode cannot use IV");
             }
@@ -96,14 +96,14 @@ public final class e {
                 throw new InvalidAlgorithmParameterException("Parameters missing");
             }
             if (secureRandom == null) {
-                secureRandom = c.f50277b;
+                secureRandom = c.f48498b;
             }
-            bArr2 = new byte[this.f50283b];
+            bArr2 = new byte[this.f48504b];
             secureRandom.nextBytes(bArr2);
         }
-        this.f50285d = 0;
-        this.f50286e = this.f50283b;
-        this.f50288g.a(this.f50290i, "", bArr, bArr2);
+        this.f48506d = 0;
+        this.f48507e = this.f48504b;
+        this.f48509g.a(this.f48511i, "", bArr, bArr2);
     }
 
     public int d(byte[] bArr, int i2, int i3, byte[] bArr2, int i4) {
@@ -112,55 +112,55 @@ public final class e {
         int i5;
         i iVar;
         int b2;
-        int i6 = this.f50285d + i3;
-        int i7 = this.f50284c;
-        int i8 = this.f50283b;
+        int i6 = this.f48506d + i3;
+        int i7 = this.f48505c;
+        int i8 = this.f48504b;
         if (i7 != i8) {
-            int i9 = this.f50286e;
+            int i9 = this.f48507e;
             a2 = i6 < i9 ? i9 - i6 : i8 - ((i6 - i9) % i8);
         } else {
-            i iVar2 = this.f50287f;
+            i iVar2 = this.f48508f;
             a2 = iVar2 != null ? iVar2.a(i6) : 0;
         }
-        if (a2 > 0 && a2 != this.f50283b && this.f50287f != null && this.f50290i) {
-            throw new IllegalBlockSizeException("Input length must be multiple of " + this.f50283b + " when decrypting with padded cipher");
+        if (a2 > 0 && a2 != this.f48504b && this.f48508f != null && this.f48511i) {
+            throw new IllegalBlockSizeException("Input length must be multiple of " + this.f48504b + " when decrypting with padded cipher");
         }
-        int i10 = (this.f50290i || this.f50287f == null) ? i6 : i6 + a2;
+        int i10 = (this.f48511i || this.f48508f == null) ? i6 : i6 + a2;
         if (bArr2 != null) {
             int length = bArr2.length - i4;
-            if (((!this.f50290i || this.f50287f == null) && length < i10) || (this.f50290i && length < i10 - this.f50283b)) {
+            if (((!this.f48511i || this.f48508f == null) && length < i10) || (this.f48511i && length < i10 - this.f48504b)) {
                 throw new ShortBufferException("Output buffer too short: " + length + " bytes given, " + i10 + " bytes needed");
             }
-            if (this.f50285d == 0 && (this.f50290i || this.f50287f == null)) {
+            if (this.f48506d == 0 && (this.f48511i || this.f48508f == null)) {
                 bArr3 = bArr;
                 i5 = i2;
             } else {
                 byte[] bArr4 = new byte[i10];
-                int i11 = this.f50285d;
+                int i11 = this.f48506d;
                 if (i11 != 0) {
-                    System.arraycopy(this.f50282a, 0, bArr4, 0, i11);
+                    System.arraycopy(this.f48503a, 0, bArr4, 0, i11);
                 }
                 if (i3 != 0) {
-                    System.arraycopy(bArr, i2, bArr4, this.f50285d, i3);
+                    System.arraycopy(bArr, i2, bArr4, this.f48506d, i3);
                 }
-                if (!this.f50290i && (iVar = this.f50287f) != null) {
+                if (!this.f48511i && (iVar = this.f48508f) != null) {
                     iVar.a(bArr4, i6, a2);
                 }
                 bArr3 = bArr4;
                 i5 = 0;
             }
-            if (this.f50290i) {
+            if (this.f48511i) {
                 if (length < i10) {
-                    this.f50288g.e();
+                    this.f48509g.e();
                 }
                 byte[] bArr5 = new byte[i6];
                 b2 = b(bArr3, i5, bArr5, 0, i6);
-                i iVar3 = this.f50287f;
+                i iVar3 = this.f48508f;
                 if (iVar3 != null && (b2 = iVar3.b(bArr5, 0, b2)) < 0) {
                     throw new BadPaddingException("Given final block not properly padded");
                 }
                 if (bArr2.length - i4 < b2) {
-                    this.f50288g.g();
+                    this.f48509g.g();
                     throw new ShortBufferException("Output buffer too short: " + (bArr2.length - i4) + " bytes given, " + b2 + " bytes needed");
                 }
                 for (int i12 = 0; i12 < b2; i12++) {
@@ -169,10 +169,10 @@ public final class e {
             } else {
                 b2 = b(bArr3, i5, bArr2, i4, i10);
             }
-            this.f50285d = 0;
-            this.f50286e = this.f50283b;
-            if (this.f50289h != 0) {
-                this.f50288g.c();
+            this.f48506d = 0;
+            this.f48507e = this.f48504b;
+            if (this.f48510h != 0) {
+                this.f48509g.c();
             }
             return b2;
         }

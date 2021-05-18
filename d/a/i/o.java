@@ -10,11 +10,11 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.layout.GridImageLayout;
 import com.baidu.tieba.R;
 import d.a.i.a;
-import d.a.i.u0.a;
+import d.a.i.v0.a;
 /* loaded from: classes.dex */
 public class o extends h {
     public NewGridImageLayout l;
-    public d.a.i0.r.q.a m;
+    public d.a.j0.r.q.a m;
     public int n;
     public String o;
     public int p;
@@ -27,9 +27,9 @@ public class o extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o oVar = o.this;
-            a.InterfaceC1009a interfaceC1009a = oVar.f47693i;
-            if (interfaceC1009a != null) {
-                interfaceC1009a.a(oVar.m);
+            a.InterfaceC0547a interfaceC0547a = oVar.f40319i;
+            if (interfaceC0547a != null) {
+                interfaceC0547a.a(oVar.m);
             }
         }
     }
@@ -39,12 +39,12 @@ public class o extends h {
         public b() {
         }
 
-        @Override // d.a.i.u0.a.b
-        public boolean a(a.C1011a c1011a) {
+        @Override // d.a.i.v0.a.b
+        public boolean a(a.C0549a c0549a) {
             if (o.this.m != null && o.this.m.m() != null && !o.this.f().booleanValue()) {
-                d.a.j0.x.m.a(o.this.m.m().o0());
-                d.a.j0.x.m.l(o.this.l.f4626f, o.this.m.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.a.j0.x.m.l(o.this.l.f4627g, o.this.m.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.a.k0.x.m.a(o.this.m.m().o0());
+                d.a.k0.x.m.l(o.this.l.f4477f, o.this.m.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.a.k0.x.m.l(o.this.l.f4478g, o.this.m.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }
@@ -56,8 +56,8 @@ public class o extends h {
         this.l = new NewGridImageLayout(context);
     }
 
-    public void A(a.InterfaceC1009a interfaceC1009a) {
-        this.f47693i = interfaceC1009a;
+    public void A(a.InterfaceC0547a interfaceC0547a) {
+        this.f40319i = interfaceC0547a;
     }
 
     public void B(boolean z) {
@@ -101,7 +101,7 @@ public class o extends h {
     }
 
     @Override // d.a.i.a
-    public void l(d.a.j0.x.b0<d.a.i0.r.q.a> b0Var) {
+    public void l(d.a.k0.x.b0<d.a.j0.r.q.a> b0Var) {
         this.l.setSubClickListener(b0Var);
     }
 
@@ -120,7 +120,7 @@ public class o extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: u */
-    public void a(d.a.i0.r.q.a aVar) {
+    public void a(d.a.j0.r.q.a aVar) {
         this.m = aVar;
         this.l.setFrom(this.o);
         this.l.setFromForPb(this.p);

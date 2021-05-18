@@ -7,14 +7,14 @@ import android.text.TextUtils;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30969a;
+    public static String f30214a;
 
     public static String a(Context context) {
-        String str = f30969a;
+        String str = f30214a;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
@@ -24,7 +24,7 @@ public class ab {
                             u.b("Process", "processName = " + runningAppProcessInfo.processName);
                         }
                         String str2 = runningAppProcessInfo.processName;
-                        f30969a = str2;
+                        f30214a = str2;
                         return str2;
                     }
                 }
@@ -32,7 +32,7 @@ public class ab {
                 e2.printStackTrace();
             }
             String a2 = a();
-            f30969a = a2;
+            f30214a = a2;
             return a2;
         }
         return str;

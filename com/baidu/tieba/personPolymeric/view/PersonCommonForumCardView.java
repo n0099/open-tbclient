@@ -7,14 +7,14 @@ import com.baidu.tbadk.widget.layout.FlowLayout;
 import com.baidu.tieba.R;
 import d.a.c.e.k.b;
 import d.a.c.e.p.l;
-import d.a.j0.i2.e.f;
+import d.a.k0.i2.e.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonCommonForumCardView extends FlowLayout {
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f20693i;
+    public Context f19981i;
     public List<f> j;
     public List<PersonCommonForumItemView> k;
     public b<PersonCommonForumItemView> l;
@@ -22,7 +22,7 @@ public class PersonCommonForumCardView extends FlowLayout {
     public PersonCommonForumCardView(Context context) {
         super(context);
         this.k = new ArrayList();
-        this.f20693i = context;
+        this.f19981i = context;
     }
 
     public final void i() {
@@ -33,7 +33,7 @@ public class PersonCommonForumCardView extends FlowLayout {
             if (fVar != null) {
                 PersonCommonForumItemView b2 = this.l.b();
                 b2.setData(fVar);
-                addView(b2, new ViewGroup.LayoutParams(((l.k(this.f20693i) - l.g(this.f20693i, R.dimen.tbds88)) - l.g(this.f20693i, R.dimen.tbds96)) / 2, -2));
+                addView(b2, new ViewGroup.LayoutParams(((l.k(this.f19981i) - l.g(this.f19981i, R.dimen.tbds88)) - l.g(this.f19981i, R.dimen.tbds96)) / 2, -2));
                 this.k.add(b2);
             }
         }

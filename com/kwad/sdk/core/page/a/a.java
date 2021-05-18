@@ -12,7 +12,7 @@ import com.kwad.sdk.mvp.Presenter;
 public class a extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f33261a;
+    public int f32506a;
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
@@ -20,36 +20,36 @@ public class a extends Presenter {
         final e eVar = (e) k();
         KsAdVideoPlayConfig build = new KsAdVideoPlayConfig.Builder().videoSoundEnable(true).build();
         k kVar = (k) i();
-        kVar.a(eVar.f33307c);
+        kVar.a(eVar.f32552c);
         kVar.a(build);
         kVar.setVisibility(0);
         kVar.setOnEndBtnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.kwad.sdk.core.response.b.a.v(c.g(eVar.f33307c))) {
-                    com.kwad.sdk.core.download.b.b bVar = eVar.f33305a;
+                if (com.kwad.sdk.core.response.b.a.v(c.g(eVar.f32552c))) {
+                    com.kwad.sdk.core.download.b.b bVar = eVar.f32550a;
                     if (bVar != null) {
                         bVar.a((Context) a.this.j(), false);
                         return;
                     }
                     return;
                 }
-                RecyclerView recyclerView = eVar.f33306b;
-                if (recyclerView == null || recyclerView.getAdapter() == null || eVar.f33306b.getAdapter().getItemCount() <= 1) {
+                RecyclerView recyclerView = eVar.f32551b;
+                if (recyclerView == null || recyclerView.getAdapter() == null || eVar.f32551b.getAdapter().getItemCount() <= 1) {
                     return;
                 }
-                eVar.f33306b.scrollToPosition(1);
+                eVar.f32551b.scrollToPosition(1);
             }
         });
         kVar.setWindowFullScreenListener(new k.a() { // from class: com.kwad.sdk.core.page.a.a.2
             @Override // com.kwad.sdk.feed.widget.k.a
             public void a() {
-                a.this.f33261a = eVar.f33306b.computeVerticalScrollOffset();
+                a.this.f32506a = eVar.f32551b.computeVerticalScrollOffset();
             }
 
             @Override // com.kwad.sdk.feed.widget.k.a
             public void b() {
-                eVar.f33306b.scrollToPosition(a.this.f33261a);
+                eVar.f32551b.scrollToPosition(a.this.f32506a);
             }
         });
     }

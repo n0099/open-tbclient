@@ -15,11 +15,11 @@ public final class BankSignFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BankSignFactory f25921a = new BankSignFactory();
+        public static BankSignFactory f25166a = new BankSignFactory();
     }
 
     public static BankSignFactory getInstance() {
-        return a.f25921a;
+        return a.f25166a;
     }
 
     public BankSignFactory() {

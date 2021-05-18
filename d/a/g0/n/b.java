@@ -8,20 +8,20 @@ import d.a.g0.n.a;
 public final class b implements d.a.g0.m.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f40988a;
+    public a f40233a;
 
     @Override // d.a.g0.m.b
     public final String a() {
-        return this.f40988a.a();
+        return this.f40233a.a();
     }
 
     @Override // d.a.g0.m.b
     public final void a(Context context, c cVar) {
         a aVar = new a(context, cVar);
-        this.f40988a = aVar;
-        aVar.f40985c = new a.ServiceConnectionC0557a();
+        this.f40233a = aVar;
+        aVar.f40230c = new a.ServiceConnectionC0544a();
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
         intent.setPackage("com.huawei.hwid");
-        aVar.f40983a.bindService(intent, aVar.f40985c, 1);
+        aVar.f40228a.bindService(intent, aVar.f40230c, 1);
     }
 }

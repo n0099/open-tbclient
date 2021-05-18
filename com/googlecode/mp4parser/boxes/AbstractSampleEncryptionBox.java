@@ -21,12 +21,12 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_5 = null;
     public int algorithmId;
     public List<CencSampleAuxiliaryDataFormat> entries;
     public int ivSize;

@@ -3,23 +3,23 @@ package d.r.b.a.a.m.c.a;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f67420a = "";
+    public static String f68106a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f67421b = "";
+    public static String f68107b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f67422c = "";
+    public static String f68108c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f67423d = "";
+    public static String f68109d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f67424e = "2";
+    public static String f68110e = "2";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f67425f = "";
+    public static String f68111f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f67426g = "";
+    public static String f68112g = "";
 }

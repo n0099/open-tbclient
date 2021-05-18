@@ -7,37 +7,37 @@ import java.util.HashMap;
 public final class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f23337a;
+    public final /* synthetic */ String f22582a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f23338b;
+    public final /* synthetic */ String f22583b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ n f23339c;
+    public final /* synthetic */ n f22584c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f23340d;
+    public final /* synthetic */ a f22585d;
 
     public b(a aVar, String str, String str2, n nVar) {
-        this.f23340d = aVar;
-        this.f23337a = str;
-        this.f23338b = str2;
-        this.f23339c = nVar;
+        this.f22585d = aVar;
+        this.f22582a = str;
+        this.f22583b = str2;
+        this.f22584c = nVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         HashMap hashMap;
         try {
-            Bitmap a2 = a.a(this.f23337a);
+            Bitmap a2 = a.a(this.f22582a);
             if (a2 == null) {
-                this.f23339c.obtainMessage(0, null).sendToTarget();
+                this.f22584c.obtainMessage(0, null).sendToTarget();
                 return;
             }
-            hashMap = a.f23335b;
-            hashMap.put(this.f23338b, new SoftReference(a2));
-            f.a().a(a2, this.f23338b);
-            this.f23339c.obtainMessage(0, a2).sendToTarget();
+            hashMap = a.f22580b;
+            hashMap.put(this.f22583b, new SoftReference(a2));
+            f.a().a(a2, this.f22583b);
+            this.f22584c.obtainMessage(0, a2).sendToTarget();
         } catch (Exception e2) {
             e2.printStackTrace();
         } catch (OutOfMemoryError e3) {

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import d.o.a.a.a.c.c;
 import d.o.a.a.a.c.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface d {
     boolean a(Context context, long j, String str, e eVar, int i2);
 

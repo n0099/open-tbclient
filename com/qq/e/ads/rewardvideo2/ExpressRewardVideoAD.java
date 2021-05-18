@@ -30,50 +30,50 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
     public static final int EVENT_VIDEO_CACHED = 101;
 
     /* renamed from: a  reason: collision with root package name */
-    public RVADI2 f36179a;
+    public RVADI2 f35424a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36180b;
+    public boolean f35425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f36181c = true;
+    public boolean f35426c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public ServerSideVerificationOptions f36182d;
+    public ServerSideVerificationOptions f35427d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ExpressRewardVideoAdListener f36183e;
+    public ExpressRewardVideoAdListener f35428e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DownloadConfirmListener f36184f;
+    public DownloadConfirmListener f35429f;
 
     /* loaded from: classes6.dex */
     public static class AdListenerAdapter implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public ExpressRewardVideoAdListener f36185a;
+        public ExpressRewardVideoAdListener f35430a;
 
         public AdListenerAdapter(ExpressRewardVideoAdListener expressRewardVideoAdListener) {
-            this.f36185a = expressRewardVideoAdListener;
+            this.f35430a = expressRewardVideoAdListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
         public void onADEvent(ADEvent aDEvent) {
-            if (this.f36185a == null || aDEvent == null) {
+            if (this.f35430a == null || aDEvent == null) {
                 return;
             }
             switch (aDEvent.getType()) {
                 case 100:
-                    this.f36185a.onAdLoaded();
+                    this.f35430a.onAdLoaded();
                     return;
                 case 101:
-                    this.f36185a.onVideoCached();
+                    this.f35430a.onVideoCached();
                     return;
                 case 102:
-                    this.f36185a.onShow();
+                    this.f35430a.onShow();
                     return;
                 case 103:
-                    this.f36185a.onExpose();
+                    this.f35430a.onExpose();
                     return;
                 case 104:
                     if (aDEvent.getParas().length <= 0 || !(aDEvent.getParas()[0] instanceof String)) {
@@ -81,22 +81,22 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put(ServerSideVerificationOptions.TRANS_ID, aDEvent.getParas()[0]);
-                    this.f36185a.onReward(hashMap);
+                    this.f35430a.onReward(hashMap);
                     return;
                 case 105:
-                    this.f36185a.onClick();
+                    this.f35430a.onClick();
                     return;
                 case 106:
-                    this.f36185a.onClose();
+                    this.f35430a.onClose();
                     return;
                 case 107:
                     if (aDEvent.getParas().length <= 0 || !(aDEvent.getParas()[0] instanceof Integer)) {
                         return;
                     }
-                    this.f36185a.onError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
+                    this.f35430a.onError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
                     return;
                 case 108:
-                    this.f36185a.onVideoComplete();
+                    this.f35430a.onVideoComplete();
                     return;
                 default:
                     return;
@@ -105,7 +105,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
     }
 
     public ExpressRewardVideoAD(Context context, String str, ExpressRewardVideoAdListener expressRewardVideoAdListener) {
-        this.f36183e = expressRewardVideoAdListener;
+        this.f35428e = expressRewardVideoAdListener;
         if (GDTADManager.getInstance().isInitialized()) {
             a(context, GDTADManager.getInstance().getAppStatus().getAPPID(), str);
             return;
@@ -115,19 +115,19 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
     }
 
     public ExpressRewardVideoAD(Context context, String str, String str2, ExpressRewardVideoAdListener expressRewardVideoAdListener) {
-        this.f36183e = expressRewardVideoAdListener;
+        this.f35428e = expressRewardVideoAdListener;
         a(context, str, str2);
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.qq.e.ads.LiteAbstractAD
     public final /* synthetic */ RVADI2 a(Context context, POFactory pOFactory, String str, String str2) {
-        return pOFactory.getExpressRewardVideoADDelegate(context, str, str2, new AdListenerAdapter(this.f36183e));
+        return pOFactory.getExpressRewardVideoADDelegate(context, str, str2, new AdListenerAdapter(this.f35428e));
     }
 
     @Override // com.qq.e.ads.LiteAbstractAD
     public final void a(int i2) {
-        ExpressRewardVideoAdListener expressRewardVideoAdListener = this.f36183e;
+        ExpressRewardVideoAdListener expressRewardVideoAdListener = this.f35428e;
         if (expressRewardVideoAdListener != null) {
             expressRewardVideoAdListener.onError(AdErrorConvertor.formatErrorCode(i2));
         }
@@ -137,12 +137,12 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
     @Override // com.qq.e.ads.LiteAbstractAD
     public final /* synthetic */ void a(RVADI2 rvadi2) {
         RVADI2 rvadi22 = rvadi2;
-        this.f36179a = rvadi22;
-        rvadi22.setVolumeOn(this.f36181c);
-        this.f36179a.setServerSideVerificationOptions(this.f36182d);
-        if (this.f36180b) {
-            this.f36179a.loadAD();
-            this.f36180b = false;
+        this.f35424a = rvadi22;
+        rvadi22.setVolumeOn(this.f35426c);
+        this.f35424a.setServerSideVerificationOptions(this.f35427d);
+        if (this.f35425b) {
+            this.f35424a.loadAD();
+            this.f35425b = false;
         }
     }
 
@@ -154,7 +154,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
         if (SystemClock.elapsedRealtime() > getExpireTimestamp()) {
             return VideoAdValidity.OVERDUE;
         }
-        RVADI2 rvadi2 = this.f36179a;
+        RVADI2 rvadi2 = this.f35424a;
         if (rvadi2 != null) {
             z = rvadi2.isVideoCached();
         } else {
@@ -165,7 +165,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
     }
 
     public void destroy() {
-        RVADI2 rvadi2 = this.f36179a;
+        RVADI2 rvadi2 = this.f35424a;
         if (rvadi2 != null) {
             rvadi2.destroy();
         }
@@ -173,7 +173,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public String getApkInfoUrl() {
-        RVADI2 rvadi2 = this.f36179a;
+        RVADI2 rvadi2 = this.f35424a;
         if (rvadi2 != null) {
             return rvadi2.getApkInfoUrl();
         }
@@ -181,7 +181,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
     }
 
     public String getECPMLevel() {
-        RVADI2 rvadi2 = this.f36179a;
+        RVADI2 rvadi2 = this.f35424a;
         if (rvadi2 != null) {
             return rvadi2.getECPMLevel();
         }
@@ -190,7 +190,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
     }
 
     public long getExpireTimestamp() {
-        RVADI2 rvadi2 = this.f36179a;
+        RVADI2 rvadi2 = this.f35424a;
         if (rvadi2 != null) {
             return rvadi2.getExpireTimestamp();
         }
@@ -199,7 +199,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
     }
 
     public int getVideoDuration() {
-        RVADI2 rvadi2 = this.f36179a;
+        RVADI2 rvadi2 = this.f35424a;
         if (rvadi2 != null) {
             return rvadi2.getVideoDuration();
         }
@@ -208,7 +208,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
     }
 
     public boolean hasShown() {
-        RVADI2 rvadi2 = this.f36179a;
+        RVADI2 rvadi2 = this.f35424a;
         if (rvadi2 != null) {
             return rvadi2.hasShown();
         }
@@ -217,17 +217,17 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
     }
 
     public void loadAD() {
-        RVADI2 rvadi2 = this.f36179a;
+        RVADI2 rvadi2 = this.f35424a;
         if (rvadi2 != null) {
             rvadi2.loadAD();
         } else {
-            this.f36180b = true;
+            this.f35425b = true;
         }
     }
 
     @Override // com.qq.e.comm.compliance.DownloadConfirmListener
     public void onDownloadConfirm(Activity activity, int i2, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
-        DownloadConfirmListener downloadConfirmListener = this.f36184f;
+        DownloadConfirmListener downloadConfirmListener = this.f35429f;
         if (downloadConfirmListener != null) {
             downloadConfirmListener.onDownloadConfirm(activity, i2, str, downloadConfirmCallBack);
         }
@@ -235,33 +235,33 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> implements ApkD
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
-        this.f36184f = downloadConfirmListener;
-        RVADI2 rvadi2 = this.f36179a;
+        this.f35429f = downloadConfirmListener;
+        RVADI2 rvadi2 = this.f35424a;
         if (rvadi2 != null) {
             rvadi2.setDownloadConfirmListener(this);
         }
     }
 
     public void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions) {
-        RVADI2 rvadi2 = this.f36179a;
+        RVADI2 rvadi2 = this.f35424a;
         if (rvadi2 != null) {
             rvadi2.setServerSideVerificationOptions(serverSideVerificationOptions);
         } else {
-            this.f36182d = serverSideVerificationOptions;
+            this.f35427d = serverSideVerificationOptions;
         }
     }
 
     public void setVolumeOn(boolean z) {
-        RVADI2 rvadi2 = this.f36179a;
+        RVADI2 rvadi2 = this.f35424a;
         if (rvadi2 != null) {
             rvadi2.setVolumeOn(z);
         } else {
-            this.f36181c = z;
+            this.f35426c = z;
         }
     }
 
     public void showAD(Activity activity) {
-        RVADI2 rvadi2 = this.f36179a;
+        RVADI2 rvadi2 = this.f35424a;
         if (rvadi2 != null) {
             rvadi2.showAD(activity);
         } else {

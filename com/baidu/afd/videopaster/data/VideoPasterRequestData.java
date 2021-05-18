@@ -14,7 +14,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbPatternsCompat;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
@@ -62,10 +61,10 @@ public class VideoPasterRequestData extends HttpMessage {
     }
 
     private void addCommonParams() {
-        addParam(HttpRequest.CLIENT_VERSION, TbConfig.getVersion());
+        addParam("_client_version", TbConfig.getVersion());
         addParam("uid", TbadkCoreApplication.getCurrentAccount());
         addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-        addParam(TiebaStatic.Params.CUID_GALAXY2, TbadkCoreApplication.getInst().getCuidGalaxy2());
+        addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
         addParam("model", Build.MODEL);
         addParam(HttpRequest.CLIENT_TYPE, "2");

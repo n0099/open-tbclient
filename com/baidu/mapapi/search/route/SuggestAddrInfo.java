@@ -10,33 +10,33 @@ public class SuggestAddrInfo implements Parcelable {
     public static final Parcelable.Creator<SuggestAddrInfo> CREATOR = new n();
 
     /* renamed from: a  reason: collision with root package name */
-    public List<PoiInfo> f7603a;
+    public List<PoiInfo> f7420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<PoiInfo> f7604b;
+    public List<PoiInfo> f7421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<List<PoiInfo>> f7605c;
+    public List<List<PoiInfo>> f7422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<CityInfo> f7606d;
+    public List<CityInfo> f7423d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<CityInfo> f7607e;
+    public List<CityInfo> f7424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<List<CityInfo>> f7608f;
+    public List<List<CityInfo>> f7425f;
 
     public SuggestAddrInfo() {
     }
 
     public SuggestAddrInfo(Parcel parcel) {
-        this.f7603a = parcel.readArrayList(PoiInfo.class.getClassLoader());
-        this.f7604b = parcel.readArrayList(PoiInfo.class.getClassLoader());
-        this.f7605c = parcel.readArrayList(PoiInfo.class.getClassLoader());
-        this.f7606d = parcel.readArrayList(CityInfo.class.getClassLoader());
-        this.f7607e = parcel.readArrayList(CityInfo.class.getClassLoader());
-        this.f7608f = parcel.readArrayList(CityInfo.class.getClassLoader());
+        this.f7420a = parcel.readArrayList(PoiInfo.class.getClassLoader());
+        this.f7421b = parcel.readArrayList(PoiInfo.class.getClassLoader());
+        this.f7422c = parcel.readArrayList(PoiInfo.class.getClassLoader());
+        this.f7423d = parcel.readArrayList(CityInfo.class.getClassLoader());
+        this.f7424e = parcel.readArrayList(CityInfo.class.getClassLoader());
+        this.f7425f = parcel.readArrayList(CityInfo.class.getClassLoader());
     }
 
     @Override // android.os.Parcelable
@@ -45,60 +45,60 @@ public class SuggestAddrInfo implements Parcelable {
     }
 
     public List<CityInfo> getSuggestEndCity() {
-        return this.f7607e;
+        return this.f7424e;
     }
 
     public List<PoiInfo> getSuggestEndNode() {
-        return this.f7604b;
+        return this.f7421b;
     }
 
     public List<CityInfo> getSuggestStartCity() {
-        return this.f7606d;
+        return this.f7423d;
     }
 
     public List<PoiInfo> getSuggestStartNode() {
-        return this.f7603a;
+        return this.f7420a;
     }
 
     public List<List<CityInfo>> getSuggestWpCity() {
-        return this.f7608f;
+        return this.f7425f;
     }
 
     public List<List<PoiInfo>> getSuggestWpNode() {
-        return this.f7605c;
+        return this.f7422c;
     }
 
     public void setSuggestEndCity(List<CityInfo> list) {
-        this.f7607e = list;
+        this.f7424e = list;
     }
 
     public void setSuggestEndNode(List<PoiInfo> list) {
-        this.f7604b = list;
+        this.f7421b = list;
     }
 
     public void setSuggestStartCity(List<CityInfo> list) {
-        this.f7606d = list;
+        this.f7423d = list;
     }
 
     public void setSuggestStartNode(List<PoiInfo> list) {
-        this.f7603a = list;
+        this.f7420a = list;
     }
 
     public void setSuggestWpCity(List<List<CityInfo>> list) {
-        this.f7608f = list;
+        this.f7425f = list;
     }
 
     public void setSuggestWpNode(List<List<PoiInfo>> list) {
-        this.f7605c = list;
+        this.f7422c = list;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeList(this.f7603a);
-        parcel.writeList(this.f7604b);
-        parcel.writeList(this.f7605c);
-        parcel.writeList(this.f7606d);
-        parcel.writeList(this.f7607e);
-        parcel.writeList(this.f7608f);
+        parcel.writeList(this.f7420a);
+        parcel.writeList(this.f7421b);
+        parcel.writeList(this.f7422c);
+        parcel.writeList(this.f7423d);
+        parcel.writeList(this.f7424e);
+        parcel.writeList(this.f7425f);
     }
 }

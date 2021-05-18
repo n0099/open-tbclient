@@ -39,6 +39,11 @@ public class BinaryReqTask extends AbstractTask {
         }
 
         @Override // com.baidu.down.loopj.android.http.BinaryHttpResponseHandler
+        public void handleRedirectUrl(String str) {
+            BinaryReqTask.this.mRealUrl = str;
+        }
+
+        @Override // com.baidu.down.loopj.android.http.BinaryHttpResponseHandler
         public void onDownload(ByteArrayInfo byteArrayInfo) {
             BinaryReqTask binaryReqTask = BinaryReqTask.this;
             int i2 = binaryReqTask.mStatus;
@@ -252,6 +257,7 @@ public class BinaryReqTask extends AbstractTask {
         boolean booleanValue = fileMsg.mNeedMuti.booleanValue();
         this.mNeedMuti = booleanValue;
         this.mKeepNameAndPath = fileMsg.mKeepNameAndPath;
+        this.mRealUrl = fileMsg.mRealUrl;
         int i2 = fileMsg.mMaxThread;
         this.mMaxThread = i2;
         if (booleanValue && i2 < 2) {
@@ -369,6 +375,9 @@ public class BinaryReqTask extends AbstractTask {
 
     @Override // com.baidu.down.request.task.AbstractTask
     public String getDefaultUrl() {
+        if (!TextUtils.isEmpty(this.mRealUrl)) {
+            return this.mRealUrl;
+        }
         return this.mUri;
     }
 

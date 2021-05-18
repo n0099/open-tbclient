@@ -14,38 +14,38 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
     public static final Parcelable.Creator<DrivingRouteLine> CREATOR = new d();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7542b;
+    public boolean f7359b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<RouteNode> f7543c;
+    public List<RouteNode> f7360c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7544d;
+    public int f7361d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7545e;
+    public int f7362e;
 
     /* loaded from: classes2.dex */
     public static class DrivingStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<DrivingStep> CREATOR = new e();
 
         /* renamed from: d  reason: collision with root package name */
-        public List<LatLng> f7546d;
+        public List<LatLng> f7363d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int[] f7547e;
+        public int[] f7364e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f7548f;
+        public int f7365f;
 
         /* renamed from: g  reason: collision with root package name */
-        public RouteNode f7549g;
+        public RouteNode f7366g;
 
         /* renamed from: h  reason: collision with root package name */
-        public RouteNode f7550h;
+        public RouteNode f7367h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f7551i;
+        public String f7368i;
         public String j;
         public String k;
         public String l;
@@ -56,16 +56,16 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
 
         public DrivingStep(Parcel parcel) {
             super(parcel);
-            this.f7548f = parcel.readInt();
-            this.f7549g = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f7550h = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f7551i = parcel.readString();
+            this.f7365f = parcel.readInt();
+            this.f7366g = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f7367h = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f7368i = parcel.readString();
             this.j = parcel.readString();
             this.k = parcel.readString();
             this.l = parcel.readString();
             this.m = parcel.readInt();
-            this.f7546d = parcel.createTypedArrayList(LatLng.CREATOR);
-            this.f7547e = parcel.createIntArray();
+            this.f7363d = parcel.createTypedArrayList(LatLng.CREATOR);
+            this.f7364e = parcel.createIntArray();
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
@@ -74,11 +74,11 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
         }
 
         public int getDirection() {
-            return this.f7548f;
+            return this.f7365f;
         }
 
         public RouteNode getEntrance() {
-            return this.f7549g;
+            return this.f7366g;
         }
 
         public String getEntranceInstructions() {
@@ -86,7 +86,7 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
         }
 
         public RouteNode getExit() {
-            return this.f7550h;
+            return this.f7367h;
         }
 
         public String getExitInstructions() {
@@ -102,23 +102,23 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
         }
 
         public int[] getTrafficList() {
-            return this.f7547e;
+            return this.f7364e;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
         public List<LatLng> getWayPoints() {
             if (this.mWayPoints == null) {
-                this.mWayPoints = CoordUtil.decodeLocationList(this.f7551i);
+                this.mWayPoints = CoordUtil.decodeLocationList(this.f7368i);
             }
-            return this.f7546d;
+            return this.f7363d;
         }
 
         public void setDirection(int i2) {
-            this.f7548f = i2;
+            this.f7365f = i2;
         }
 
         public void setEntrance(RouteNode routeNode) {
-            this.f7549g = routeNode;
+            this.f7366g = routeNode;
         }
 
         public void setEntranceInstructions(String str) {
@@ -126,7 +126,7 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
         }
 
         public void setExit(RouteNode routeNode) {
-            this.f7550h = routeNode;
+            this.f7367h = routeNode;
         }
 
         public void setExitInstructions(String str) {
@@ -142,30 +142,30 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
         }
 
         public void setPathList(List<LatLng> list) {
-            this.f7546d = list;
+            this.f7363d = list;
         }
 
         public void setPathString(String str) {
-            this.f7551i = str;
+            this.f7368i = str;
         }
 
         public void setTrafficList(int[] iArr) {
-            this.f7547e = iArr;
+            this.f7364e = iArr;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
             super.writeToParcel(parcel, i2);
-            parcel.writeInt(this.f7548f);
-            parcel.writeParcelable(this.f7549g, 1);
-            parcel.writeParcelable(this.f7550h, 1);
-            parcel.writeString(this.f7551i);
+            parcel.writeInt(this.f7365f);
+            parcel.writeParcelable(this.f7366g, 1);
+            parcel.writeParcelable(this.f7367h, 1);
+            parcel.writeString(this.f7368i);
             parcel.writeString(this.j);
             parcel.writeString(this.k);
             parcel.writeString(this.l);
             parcel.writeInt(this.m);
-            parcel.writeTypedList(this.f7546d);
-            parcel.writeIntArray(this.f7547e);
+            parcel.writeTypedList(this.f7363d);
+            parcel.writeIntArray(this.f7364e);
         }
     }
 
@@ -174,12 +174,12 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
 
     public DrivingRouteLine(Parcel parcel) {
         super(parcel);
-        this.f7542b = parcel.readByte() != 0;
+        this.f7359b = parcel.readByte() != 0;
         ArrayList arrayList = new ArrayList();
-        this.f7543c = arrayList;
+        this.f7360c = arrayList;
         parcel.readList(arrayList, RouteNode.class.getClassLoader());
-        this.f7544d = parcel.readInt();
-        this.f7545e = parcel.readInt();
+        this.f7361d = parcel.readInt();
+        this.f7362e = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
@@ -188,45 +188,45 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
     }
 
     public int getCongestionDistance() {
-        return this.f7544d;
+        return this.f7361d;
     }
 
     public int getLightNum() {
-        return this.f7545e;
+        return this.f7362e;
     }
 
     public List<RouteNode> getWayPoints() {
-        return this.f7543c;
+        return this.f7360c;
     }
 
     @Deprecated
     public boolean isSupportTraffic() {
-        return this.f7542b;
+        return this.f7359b;
     }
 
     public void setCongestionDistance(int i2) {
-        this.f7544d = i2;
+        this.f7361d = i2;
     }
 
     public void setLightNum(int i2) {
-        this.f7545e = i2;
+        this.f7362e = i2;
     }
 
     public void setSupportTraffic(boolean z) {
-        this.f7542b = z;
+        this.f7359b = z;
     }
 
     public void setWayPoints(List<RouteNode> list) {
-        this.f7543c = list;
+        this.f7360c = list;
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         super.setType(RouteLine.TYPE.DRIVESTEP);
         super.writeToParcel(parcel, i2);
-        parcel.writeByte(this.f7542b ? (byte) 1 : (byte) 0);
-        parcel.writeList(this.f7543c);
-        parcel.writeInt(this.f7544d);
-        parcel.writeInt(this.f7545e);
+        parcel.writeByte(this.f7359b ? (byte) 1 : (byte) 0);
+        parcel.writeList(this.f7360c);
+        parcel.writeInt(this.f7361d);
+        parcel.writeInt(this.f7362e);
     }
 }

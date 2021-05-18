@@ -9,76 +9,76 @@ import java.util.concurrent.Executors;
 public class l implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5840a = "ThreadPoolService";
+    public static final String f5694a = "ThreadPoolService";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5841d = 0;
+    public static final int f5695d = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f5842b;
+    public ExecutorService f5696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f5843c;
+    public ExecutorService f5697c;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f5844e;
+    public Handler f5698e;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static l f5846a = new l();
+        public static l f5700a = new l();
     }
 
     public static l a() {
-        return a.f5846a;
+        return a.f5700a;
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void b(k kVar) {
-        d.a(f5840a, "runInUiThread()", kVar.f5838a);
-        this.f5844e.sendMessage(this.f5844e.obtainMessage(0, kVar));
+        d.a(f5694a, "runInUiThread()", kVar.f5692a);
+        this.f5698e.sendMessage(this.f5698e.obtainMessage(0, kVar));
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void c(k kVar) {
-        d.a(f5840a, "runImport()", kVar.f5838a);
-        this.f5842b.submit(kVar);
+        d.a(f5694a, "runImport()", kVar.f5692a);
+        this.f5696b.submit(kVar);
     }
 
     public l() {
-        this.f5844e = new Handler(Looper.getMainLooper()) { // from class: com.baidu.fsg.face.base.d.l.1
+        this.f5698e = new Handler(Looper.getMainLooper()) { // from class: com.baidu.fsg.face.base.d.l.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 Runnable runnable;
-                if (message.what == 0 && (runnable = ((k) message.obj).f5839b) != null) {
+                if (message.what == 0 && (runnable = ((k) message.obj).f5693b) != null) {
                     runnable.run();
                 }
             }
         };
-        this.f5843c = Executors.newScheduledThreadPool(6);
-        this.f5842b = Executors.newScheduledThreadPool(3);
+        this.f5697c = Executors.newScheduledThreadPool(6);
+        this.f5696b = Executors.newScheduledThreadPool(3);
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void a(k kVar) {
-        this.f5843c.submit(kVar);
+        this.f5697c.submit(kVar);
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void a(k kVar, long j) {
-        d.a(f5840a, "runDelay()", kVar.f5838a, Long.valueOf(j));
-        this.f5843c.submit(kVar, Long.valueOf(j));
+        d.a(f5694a, "runDelay()", kVar.f5692a, Long.valueOf(j));
+        this.f5697c.submit(kVar, Long.valueOf(j));
     }
 
     public void c(k kVar, long j) {
-        d.a(f5840a, "runDelayImport()", kVar.f5838a, Long.valueOf(j));
-        this.f5842b.submit(kVar, Long.valueOf(j));
+        d.a(f5694a, "runDelayImport()", kVar.f5692a, Long.valueOf(j));
+        this.f5696b.submit(kVar, Long.valueOf(j));
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void b(k kVar, long j) {
-        d.a(f5840a, "runInUiThreadDelay()", kVar.f5838a, Long.valueOf(j));
-        this.f5844e.sendMessageDelayed(this.f5844e.obtainMessage(0, kVar), j);
+        d.a(f5694a, "runInUiThreadDelay()", kVar.f5692a, Long.valueOf(j));
+        this.f5698e.sendMessageDelayed(this.f5698e.obtainMessage(0, kVar), j);
     }
 }

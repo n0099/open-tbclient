@@ -7,7 +7,7 @@ import android.os.IBinder;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import d.a.i0.p0.c.a;
+import d.a.j0.p0.c.a;
 /* loaded from: classes3.dex */
 public class GameCenterDownloadService extends Service {
     @Override // android.app.Service

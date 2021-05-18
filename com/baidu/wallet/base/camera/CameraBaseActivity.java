@@ -109,7 +109,7 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
     public Camera.AutoFocusCallback autoFocusCallback = new Camera.AutoFocusCallback() { // from class: com.baidu.wallet.base.camera.CameraBaseActivity.7
 
         /* renamed from: b  reason: collision with root package name */
-        public int f23955b;
+        public int f23200b;
 
         @Override // android.hardware.Camera.AutoFocusCallback
         public void onAutoFocus(boolean z, Camera camera) {
@@ -122,12 +122,12 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
             }
             com.baidu.wallet.base.camera.internal.b d2 = cameraBaseActivity.mPreviewCb.d();
             if (z) {
-                this.f23955b = 0;
+                this.f23200b = 0;
                 CameraBaseActivity.this.takePictureWithoutAutoFocus(d2);
                 return;
             }
-            int i2 = this.f23955b + 1;
-            this.f23955b = i2;
+            int i2 = this.f23200b + 1;
+            this.f23200b = i2;
             if (i2 <= 1) {
                 d2.a(CameraBaseActivity.this.autoFocusCallback, DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
             } else {
@@ -140,18 +140,18 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
     public class b implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f23966b;
+        public boolean f23211b;
 
         public b() {
         }
 
         public void a(boolean z) {
-            this.f23966b = z;
+            this.f23211b = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CameraBaseActivity.this.updateFlashLightUi(this.f23966b);
+            CameraBaseActivity.this.updateFlashLightUi(this.f23211b);
         }
     }
 
@@ -159,15 +159,15 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
     public static class c extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<CameraBaseActivity> f23967a;
+        public WeakReference<CameraBaseActivity> f23212a;
 
         public c(CameraBaseActivity cameraBaseActivity) {
-            this.f23967a = new WeakReference<>(cameraBaseActivity);
+            this.f23212a = new WeakReference<>(cameraBaseActivity);
         }
 
         private boolean a() {
             a[] aVarArr;
-            CameraBaseActivity cameraBaseActivity = this.f23967a.get();
+            CameraBaseActivity cameraBaseActivity = this.f23212a.get();
             if (cameraBaseActivity == null) {
                 return false;
             }
@@ -183,7 +183,7 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            CameraBaseActivity cameraBaseActivity = this.f23967a.get();
+            CameraBaseActivity cameraBaseActivity = this.f23212a.get();
             if (cameraBaseActivity == null) {
                 return;
             }
@@ -755,59 +755,59 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
     public class a implements Runnable {
 
         /* renamed from: c  reason: collision with root package name */
-        public byte[] f23959c;
+        public byte[] f23204c;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f23961e;
+        public int f23206e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f23962f;
+        public int f23207f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Rect f23963g;
+        public Rect f23208g;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f23958b = a.class.getSimpleName();
+        public final String f23203b = a.class.getSimpleName();
 
         /* renamed from: d  reason: collision with root package name */
-        public byte[] f23960d = null;
+        public byte[] f23205d = null;
 
         /* renamed from: h  reason: collision with root package name */
-        public final AtomicBoolean f23964h = new AtomicBoolean(false);
+        public final AtomicBoolean f23209h = new AtomicBoolean(false);
 
         public a() {
         }
 
         public void a(byte[] bArr, int i2, int i3, Rect rect) {
-            this.f23959c = bArr;
-            this.f23961e = i2;
-            this.f23962f = i3;
-            this.f23963g = rect;
+            this.f23204c = bArr;
+            this.f23206e = i2;
+            this.f23207f = i3;
+            this.f23208g = rect;
             int recycledBufSize = CameraBaseActivity.this.mImageProcessor.getRecycledBufSize(rect.width(), rect.height());
-            byte[] bArr2 = this.f23960d;
+            byte[] bArr2 = this.f23205d;
             if (bArr2 == null || bArr2.length != recycledBufSize) {
-                this.f23960d = new byte[recycledBufSize];
+                this.f23205d = new byte[recycledBufSize];
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (CameraBaseActivity.this.mDone.get()) {
-                this.f23964h.set(false);
-            } else if (!this.f23964h.compareAndSet(false, true)) {
-                LogUtil.e(this.f23958b, "internal error", null);
+                this.f23209h.set(false);
+            } else if (!this.f23209h.compareAndSet(false, true)) {
+                LogUtil.e(this.f23203b, "internal error", null);
             } else {
-                Object[] processImage = CameraBaseActivity.this.mImageProcessor.processImage(this.f23959c, this.f23961e, this.f23962f, this.f23963g, this.f23960d);
+                Object[] processImage = CameraBaseActivity.this.mImageProcessor.processImage(this.f23204c, this.f23206e, this.f23207f, this.f23208g, this.f23205d);
                 if (processImage != null && CameraBaseActivity.this.mDone.compareAndSet(false, true)) {
                     CameraBaseActivity.this.pauseCamera();
                     CameraBaseActivity.this.onProcessImageOk(processImage);
                 }
-                this.f23964h.set(false);
+                this.f23209h.set(false);
             }
         }
 
         public boolean a() {
-            return this.f23964h.get();
+            return this.f23209h.get();
         }
     }
 }

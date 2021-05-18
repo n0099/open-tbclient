@@ -3,20 +3,20 @@ package d.a.c.e.d;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39621a;
+    public String f38866a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39622b;
+    public String f38867b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39623c;
+    public int f38868c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39624d;
+    public String f38869d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39625e;
+    public int f38870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f39626f;
+    public long f38871f;
 }

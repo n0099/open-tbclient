@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import d.a.h0.a.k;
+import d.a.i0.a.k;
 /* loaded from: classes3.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public String agreeText;
@@ -13,7 +13,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     public int loginMode;
     public String serviceAgreement;
     public boolean supportQuickLogin;
-    public static final boolean DEBUG = k.f43101a;
+    public static final boolean DEBUG = k.f43025a;
     public static final Parcelable.Creator<QuickLoginInfo> CREATOR = new a();
 
     /* loaded from: classes3.dex */
@@ -38,7 +38,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     }
 
     @Nullable
-    public static QuickLoginInfo a(d.a.h0.b.m.g.a aVar) {
+    public static QuickLoginInfo a(d.a.i0.b.n.g.a aVar) {
         if (aVar == null) {
             return null;
         }

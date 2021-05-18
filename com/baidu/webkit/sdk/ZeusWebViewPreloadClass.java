@@ -78,10 +78,10 @@ public class ZeusWebViewPreloadClass {
         } else {
             try {
                 if (new File(savingClassesFilePath).exists()) {
-                    Log.i(LOG_TAG, "isSavingClassesFileExist path exist: " + savingClassesFilePath);
+                    Log.i(LOG_TAG, "isSavingClassesFileExist path exist: ".concat(String.valueOf(savingClassesFilePath)));
                     return true;
                 }
-                Log.i(LOG_TAG, "isSavingClassesFileExist path not exist: " + savingClassesFilePath);
+                Log.i(LOG_TAG, "isSavingClassesFileExist path not exist: ".concat(String.valueOf(savingClassesFilePath)));
                 return false;
             } catch (Exception e2) {
                 str = "isSavingClassesFileExist path: " + savingClassesFilePath + ", hit error=" + e2.getMessage();
@@ -124,7 +124,7 @@ public class ZeusWebViewPreloadClass {
                 try {
                     File file = new File(savingClassesFilePath);
                     if (file.exists()) {
-                        Log.i(LOG_TAG, "deleteSavingClassesFile path exist: " + savingClassesFilePath);
+                        Log.i(LOG_TAG, "deleteSavingClassesFile path exist: ".concat(String.valueOf(savingClassesFilePath)));
                         file.delete();
                     }
                 } catch (Exception e2) {

@@ -6,13 +6,13 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface u extends IInterface {
     void a(List<String> list) throws RemoteException;
 
     boolean a() throws RemoteException;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements u {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
@@ -26,11 +26,11 @@ public interface u extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof u)) {
                 return (u) queryLocalInterface;
             }
-            return new C0457a(iBinder);
+            return new C0444a(iBinder);
         }
 
         public static u b() {
-            return C0457a.f36807a;
+            return C0444a.f36052a;
         }
 
         @Override // android.os.IInterface
@@ -61,17 +61,17 @@ public interface u extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.u$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C0457a implements u {
+        /* loaded from: classes7.dex */
+        public static class C0444a implements u {
 
             /* renamed from: a  reason: collision with root package name */
-            public static u f36807a;
+            public static u f36052a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f36808b;
+            public IBinder f36053b;
 
-            public C0457a(IBinder iBinder) {
-                this.f36808b = iBinder;
+            public C0444a(IBinder iBinder) {
+                this.f36053b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.u
@@ -81,7 +81,7 @@ public interface u extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
                     obtain.writeStringList(list);
-                    if (!this.f36808b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f36053b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                         a.b().a(list);
                     } else {
                         obtain2.readException();
@@ -94,7 +94,7 @@ public interface u extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f36808b;
+                return this.f36053b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.u
@@ -103,7 +103,7 @@ public interface u extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
-                    if (!this.f36808b.transact(2, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f36053b.transact(2, obtain, obtain2, 0) && a.b() != null) {
                         return a.b().a();
                     }
                     obtain2.readException();

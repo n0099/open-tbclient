@@ -4,23 +4,23 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractResponse implements Response {
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpURLConnection f36329a;
+    public final HttpURLConnection f35574a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36330b;
+    public int f35575b;
 
     public AbstractResponse(HttpURLConnection httpURLConnection) {
-        this.f36330b = 0;
+        this.f35575b = 0;
         if (httpURLConnection == null) {
             throw new AssertionError("AbstractResponse parameter is null");
         }
-        this.f36329a = httpURLConnection;
+        this.f35574a = httpURLConnection;
         try {
-            this.f36330b = httpURLConnection.getResponseCode();
+            this.f35575b = httpURLConnection.getResponseCode();
         } catch (IOException e2) {
             throw new AssertionError(e2);
         }
@@ -28,7 +28,7 @@ public abstract class AbstractResponse implements Response {
 
     @Override // com.qq.e.comm.net.rr.Response
     public void close() throws IllegalStateException, IOException {
-        this.f36329a.disconnect();
+        this.f35574a.disconnect();
     }
 
     @Override // com.qq.e.comm.net.rr.Response
@@ -51,12 +51,12 @@ public abstract class AbstractResponse implements Response {
 
     @Override // com.qq.e.comm.net.rr.Response
     public int getStatusCode() {
-        return this.f36330b;
+        return this.f35575b;
     }
 
     @Override // com.qq.e.comm.net.rr.Response
     public InputStream getStreamContent() throws IllegalStateException, IOException {
-        return this.f36329a.getInputStream();
+        return this.f35574a.getInputStream();
     }
 
     @Override // com.qq.e.comm.net.rr.Response
@@ -75,7 +75,7 @@ public abstract class AbstractResponse implements Response {
             return "";
         }
         try {
-            str2 = this.f36329a.getContentEncoding();
+            str2 = this.f35574a.getContentEncoding();
         } catch (Throwable unused) {
         }
         if (str2 != null) {

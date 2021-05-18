@@ -1,316 +1,238 @@
 package d.a.j0.a0;
 
-import android.content.ClipboardManager;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.graphics.Bitmap;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.wallet.CurrencyHelper;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
-import d.a.c.e.p.l;
-import d.a.i0.b1.d;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class c extends BaseAdapter {
-
-    /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d.a.j0.a0.a> f50381e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f50382f;
+/* loaded from: classes3.dex */
+public class c {
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50383g;
+    public static c f48784g = new c();
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnLongClickListener {
+    /* renamed from: a  reason: collision with root package name */
+    public d.a.c.e.k.a<String, d.a.c.j.d.a> f48785a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.j0.a0.a f50384e;
+    /* renamed from: b  reason: collision with root package name */
+    public d.a.c.e.k.a<String, d.a.c.j.d.a> f48786b;
 
-        public a(d.a.j0.a0.a aVar) {
-            this.f50384e = aVar;
+    /* renamed from: c  reason: collision with root package name */
+    public d.a.c.e.k.a<String, Bitmap> f48787c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public d.a.c.e.k.a<String, d.a.c.j.d.a> f48788d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d.a.c.e.k.b<d.a.j0.b1.i.a.a> f48789e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d.a.j0.b1.i.c.b f48790f;
+
+    /* loaded from: classes3.dex */
+    public class a extends d.a.c.e.k.a<String, d.a.c.j.d.a> {
+        public a(c cVar, int i2) {
+            super(i2);
         }
 
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view) {
-            String h2 = this.f50384e.h();
-            if (StringUtils.isNull(h2)) {
-                return false;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.c.e.k.a
+        /* renamed from: o */
+        public void b(boolean z, String str, d.a.c.j.d.a aVar, d.a.c.j.d.a aVar2) {
+            if (aVar != null) {
+                aVar.x();
             }
-            ClipboardManager clipboardManager = (ClipboardManager) c.this.f50382f.getPageActivity().getSystemService("clipboard");
-            clipboardManager.setText(h2);
-            if (clipboardManager.getText() != null) {
-                l.L(c.this.f50382f.getPageActivity(), R.string.copy_to_clip);
-                return false;
-            }
-            return false;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.j0.a0.a f50386e;
-
-        public b(d.a.j0.a0.a aVar) {
-            this.f50386e = aVar;
+    /* loaded from: classes3.dex */
+    public class b extends d.a.c.e.k.a<String, d.a.c.j.d.a> {
+        public b(c cVar, int i2) {
+            super(i2);
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            UrlManager.getInstance().dealOneLink(c.this.f50382f, new String[]{this.f50386e.c()});
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.c.e.k.a
+        /* renamed from: o */
+        public void b(boolean z, String str, d.a.c.j.d.a aVar, d.a.c.j.d.a aVar2) {
+            if (aVar != null) {
+                BdLog.isDebugMode();
+                aVar.x();
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016308, str));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.c.e.k.a
+        /* renamed from: p */
+        public int m(String str, d.a.c.j.d.a aVar) {
+            if (aVar != null) {
+                return aVar.B();
+            }
+            return 0;
         }
     }
 
     /* renamed from: d.a.j0.a0.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1094c {
+    /* loaded from: classes3.dex */
+    public class C1093c extends d.a.c.e.k.a<String, Bitmap> {
+        public C1093c(c cVar, int i2) {
+            super(i2);
+        }
 
-        /* renamed from: a  reason: collision with root package name */
-        public TextView f50388a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TbImageView f50389b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public TextView f50390c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f50391d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public TextView f50392e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public TextView f50393f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public TextView f50394g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public View f50395h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public TextView f50396i;
-        public TextView j;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.c.e.k.a
+        /* renamed from: o */
+        public void b(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
+            if (bitmap != null) {
+                bitmap.recycle();
+            }
+        }
     }
 
-    public c(TbPageContext<?> tbPageContext, int i2) {
-        this.f50382f = tbPageContext;
-        this.f50383g = i2;
+    public c() {
+        this.f48785a = null;
+        this.f48786b = null;
+        this.f48787c = null;
+        this.f48788d = null;
+        this.f48785a = new a(this, 0);
+        this.f48786b = new b(this, 0);
+        this.f48787c = new C1093c(this, 0);
+        this.f48788d = new d.a.c.e.k.a<>(Integer.MAX_VALUE);
     }
 
-    public final SpannableString b(int i2, long j, ForegroundColorSpan foregroundColorSpan, ForegroundColorSpan foregroundColorSpan2, AbsoluteSizeSpan absoluteSizeSpan, int i3) {
-        String string = this.f50382f.getString(i2);
-        String formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i3, j);
-        String str = string + "    [icon]" + formatOverBaiwanNum;
-        SpannableString spannableString = new SpannableString(str);
-        UtilHelper.setSpan(spannableString, str, str, foregroundColorSpan);
-        Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i3);
-        int g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds24);
-        moneyIcon.setBounds(0, 0, g2, g2);
-        d dVar = new d(moneyIcon);
-        dVar.b(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
-        dVar.c(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
-        UtilHelper.setSpan(spannableString, str, "[icon]", dVar);
-        UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, foregroundColorSpan2);
-        UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, absoluteSizeSpan);
-        return spannableString;
+    public static c k() {
+        return f48784g;
     }
 
-    public final SpannableString c(int i2, long j, ForegroundColorSpan foregroundColorSpan, ForegroundColorSpan foregroundColorSpan2) {
-        String string = this.f50382f.getString(i2);
-        String long2String = StringHelper.long2String(j, "yyyy-MM-dd HH:mm");
-        String str = string + "    " + long2String;
-        SpannableString spannableString = new SpannableString(str);
-        UtilHelper.setSpan(spannableString, str, str, foregroundColorSpan);
-        UtilHelper.setSpan(spannableString, str, long2String, foregroundColorSpan2);
-        return spannableString;
-    }
-
-    public final SpannableString d(int i2, String str, ForegroundColorSpan foregroundColorSpan, ForegroundColorSpan foregroundColorSpan2) {
-        String str2 = this.f50382f.getString(i2) + "    " + str;
-        SpannableString spannableString = new SpannableString(str2);
-        UtilHelper.setSpan(spannableString, str2, str2, foregroundColorSpan);
-        UtilHelper.setSpan(spannableString, str2, str, foregroundColorSpan2);
-        return spannableString;
-    }
-
-    public final void e(C1094c c1094c, d.a.j0.a0.a aVar) {
-        SpannableString spannableString;
-        SpannableString spannableString2;
-        SpannableString spannableString3;
-        SpannableString spannableString4;
-        String l;
-        int i2;
-        int i3;
-        if (c1094c == null || aVar == null) {
+    public void a(String str, Bitmap bitmap) {
+        if (StringUtils.isNull(str) || bitmap == null) {
             return;
         }
-        c1094c.f50394g.setText(this.f50382f.getString(R.string.order_id) + "    ");
-        c1094c.f50388a.setText(aVar.h());
-        c1094c.f50388a.setOnLongClickListener(new a(aVar));
-        if (aVar.k() == 1) {
-            c1094c.f50389b.V(String.valueOf(R.drawable.icon_payment_success), 24, false);
-            SkinManager.setViewTextColor(c1094c.f50389b, R.color.CAM_X0305, 1);
-        } else {
-            c1094c.f50389b.V(String.valueOf(R.drawable.icon_payment_fail), 24, false);
-            SkinManager.setViewTextColor(c1094c.f50389b, R.color.CAM_X0109, 1);
-        }
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109));
-        ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0105));
-        new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
-        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(24, true);
-        int i4 = this.f50383g;
-        if (i4 == 1) {
-            SpannableString d2 = d(R.string.buy_product, aVar.l(), foregroundColorSpan, foregroundColorSpan2);
-            spannableString3 = b(R.string.consumption_t_bean, aVar.m(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan, aVar.e());
-            spannableString = c(R.string.buy_time, aVar.d(), foregroundColorSpan, foregroundColorSpan2);
-            spannableString4 = d2;
-            spannableString2 = null;
-        } else if (i4 == 2) {
-            SpannableString d3 = d(R.string.get_with_product, aVar.l(), foregroundColorSpan, foregroundColorSpan2);
-            spannableString3 = b(CurrencySwitchUtil.isYyIsConvert(aVar.e()) ? R.string.get_y_bean : R.string.get_t_bean, aVar.m(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan, aVar.e());
-            spannableString = c(R.string.buy_time, aVar.d(), foregroundColorSpan, foregroundColorSpan2);
-            String str = "" + aVar.j();
-            String str2 = this.f50382f.getString(R.string.alternative_account) + "    " + str;
-            SpannableString spannableString5 = new SpannableString(str2);
-            UtilHelper.setSpan(spannableString5, str2, str2, foregroundColorSpan);
-            UtilHelper.setSpan(spannableString5, str2, str, foregroundColorSpan2);
-            spannableString2 = spannableString5;
-            spannableString4 = d3;
-        } else if (i4 == 3) {
-            String string = this.f50382f.getString(R.string.recharge_product);
-            if (CurrencySwitchUtil.isYyIsConvert(aVar.e())) {
-                l = String.format(this.f50382f.getString(R.string.ydou_rmb), g(Double.valueOf(aVar.i())));
-            } else {
-                l = aVar.l();
-            }
-            String str3 = string + "    " + l;
-            spannableString4 = new SpannableString(str3);
-            UtilHelper.setSpan(spannableString4, str3, str3, foregroundColorSpan);
-            UtilHelper.setSpan(spannableString4, str3, l, foregroundColorSpan2);
-            String str4 = ("" + aVar.g()) + this.f50382f.getString(R.string.recharge_use_money);
-            String str5 = this.f50382f.getString(R.string.recharge_money) + "    " + str4;
-            SpannableString spannableString6 = new SpannableString(str5);
-            UtilHelper.setSpan(spannableString6, str5, str5, foregroundColorSpan);
-            UtilHelper.setSpan(spannableString6, str5, str4, foregroundColorSpan2);
-            UtilHelper.setSpan(spannableString6, str5, str4, absoluteSizeSpan);
-            spannableString3 = spannableString6;
-            SpannableString c2 = c(R.string.recharge_time, aVar.f(), foregroundColorSpan, foregroundColorSpan2);
-            String str6 = "" + aVar.j();
-            String str7 = this.f50382f.getString(R.string.recharge_account) + "    " + str6;
-            spannableString2 = new SpannableString(str7);
-            UtilHelper.setSpan(spannableString2, str7, str7, foregroundColorSpan);
-            UtilHelper.setSpan(spannableString2, str7, str6, foregroundColorSpan2);
-            spannableString = c2;
-        } else {
-            spannableString = null;
-            spannableString2 = null;
-            spannableString3 = null;
-            spannableString4 = null;
-        }
-        c1094c.f50390c.setText(spannableString4);
-        c1094c.f50391d.setText(spannableString3);
-        c1094c.f50392e.setText(spannableString);
-        if (!StringUtils.isNull(aVar.j()) && ((i3 = this.f50383g) == 3 || i3 == 2)) {
-            c1094c.f50393f.setVisibility(0);
-            c1094c.f50393f.setText(spannableString2);
-        } else {
-            c1094c.f50393f.setVisibility(8);
-        }
-        if (!StringUtils.isNull(aVar.b())) {
-            c1094c.f50396i.setText(aVar.b());
-            if (!StringUtils.isNull(aVar.a())) {
-                c1094c.j.setText(aVar.a());
-                i2 = 0;
-                c1094c.j.setVisibility(0);
-            } else {
-                i2 = 0;
-                c1094c.j.setVisibility(8);
-            }
-            c1094c.j.setOnClickListener(new b(aVar));
-            c1094c.f50395h.setVisibility(i2);
-            return;
-        }
-        c1094c.f50395h.setVisibility(8);
+        this.f48787c.h(str, bitmap);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: f */
-    public d.a.j0.a0.a getItem(int i2) {
-        ArrayList<d.a.j0.a0.a> arrayList = this.f50381e;
-        if (arrayList == null || arrayList.size() <= 0 || i2 < 0 || i2 >= getCount()) {
+    public void b(String str, d.a.c.j.d.a aVar) {
+        c(str, aVar, false);
+    }
+
+    public void c(String str, d.a.c.j.d.a aVar, boolean z) {
+        d.a.c.e.k.a<String, d.a.c.j.d.a> aVar2;
+        if (aVar == null || (aVar2 = this.f48785a) == null) {
+            return;
+        }
+        aVar2.h(str, aVar);
+    }
+
+    public void d(String str, d.a.c.j.d.a aVar) {
+        e(str, aVar, false);
+    }
+
+    public void e(String str, d.a.c.j.d.a aVar, boolean z) {
+        if (aVar == null || this.f48786b == null) {
+            return;
+        }
+        BdLog.isDebugMode();
+        this.f48786b.h(str, aVar);
+    }
+
+    public void f(String str, d.a.c.j.d.a aVar) {
+        d.a.c.e.k.a<String, d.a.c.j.d.a> aVar2;
+        if (aVar == null || (aVar2 = this.f48788d) == null) {
+            return;
+        }
+        aVar2.h(str, aVar);
+    }
+
+    public void g(String str) {
+        this.f48785a.i(str);
+    }
+
+    public void h(String str) {
+        this.f48786b.i(str);
+    }
+
+    public boolean i(int i2) {
+        return this.f48786b.e(i2);
+    }
+
+    public Bitmap j(String str) {
+        if (StringUtils.isNull(str)) {
             return null;
         }
-        return this.f50381e.get(i2);
+        return this.f48787c.f(str);
     }
 
-    public final String g(Double d2) {
-        if (d2.doubleValue() == d2.intValue()) {
-            return d2.intValue() + "";
+    public d.a.c.j.d.a l(String str) {
+        return this.f48785a.f(str);
+    }
+
+    public d.a.c.j.d.a m(String str) {
+        return this.f48786b.f(str);
+    }
+
+    public int n() {
+        return this.f48786b.g();
+    }
+
+    public d.a.c.j.d.a o(String str) {
+        if (StringUtils.isNull(str)) {
+            return null;
         }
-        return d2 + "";
+        return this.f48788d.f(str);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        ArrayList<d.a.j0.a0.a> arrayList = this.f50381e;
-        if (arrayList == null) {
-            return 0;
+    public d.a.c.e.k.b<d.a.j0.b1.i.a.a> p(int i2) {
+        d.a.j0.b1.i.c.b bVar;
+        if (this.f48789e != null && (bVar = this.f48790f) != null) {
+            if (bVar.g() == i2) {
+                return this.f48789e;
+            }
+            this.f48790f.j(i2);
+            this.f48789e.c();
         }
-        return arrayList.size();
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i2) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
-        C1094c c1094c;
-        d.a.j0.a0.a item = getItem(i2);
-        if (view != null) {
-            c1094c = (C1094c) view.getTag();
-        } else {
-            view = LayoutInflater.from(this.f50382f.getPageActivity()).inflate(R.layout.records_item_layout, viewGroup, false);
-            c1094c = new C1094c();
-            c1094c.f50388a = (TextView) view.findViewById(R.id.order_id_textview);
-            c1094c.f50389b = (TbImageView) view.findViewById(R.id.order_status_textview);
-            c1094c.f50390c = (TextView) view.findViewById(R.id.order_title_textview);
-            c1094c.f50391d = (TextView) view.findViewById(R.id.order_price_textview);
-            c1094c.f50394g = (TextView) view.findViewById(R.id.order_id_tip);
-            c1094c.f50393f = (TextView) view.findViewById(R.id.order_account_textview);
-            c1094c.f50392e = (TextView) view.findViewById(R.id.order_time_textview);
-            c1094c.f50395h = view.findViewById(R.id.order_activity_content);
-            c1094c.f50396i = (TextView) view.findViewById(R.id.activity_desc_textview);
-            c1094c.j = (TextView) view.findViewById(R.id.activity_button_textview);
-            view.setTag(c1094c);
+        if (this.f48790f == null) {
+            this.f48790f = new d.a.j0.b1.i.c.b(i2);
         }
-        e(c1094c, item);
-        this.f50382f.getLayoutMode().j(view);
-        return view;
+        if (this.f48789e == null) {
+            this.f48789e = new d.a.c.e.k.b<>(this.f48790f, 6, 0);
+        }
+        return this.f48789e;
     }
 
-    public void h(ArrayList<d.a.j0.a0.a> arrayList) {
-        this.f50381e = arrayList;
+    public void q(int i2, int i3) {
+        t(i2);
+        u(i3);
+        s(60);
+    }
+
+    public void r() {
+        d.a.c.e.k.b<d.a.j0.b1.i.a.a> bVar = this.f48789e;
+        if (bVar != null) {
+            bVar.g(0);
+            this.f48789e.f(0);
+            this.f48789e.c();
+            this.f48789e = null;
+        }
+    }
+
+    public void s(int i2) {
+        this.f48787c.k(i2);
+    }
+
+    public void t(int i2) {
+        this.f48785a.k(i2);
+    }
+
+    public String toString() {
+        return "pic:" + this.f48786b.toString() + "  photo:" + this.f48785a.toString();
+    }
+
+    public void u(int i2) {
+        this.f48786b.k(i2);
+    }
+
+    public String v() {
+        return this.f48786b.l() + "/" + this.f48786b.g() + "/" + this.f48786b.d() + "_" + this.f48785a.l() + "/" + this.f48785a.g() + "/" + this.f48785a.d();
     }
 }

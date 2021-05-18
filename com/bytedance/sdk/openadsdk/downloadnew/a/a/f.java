@@ -16,14 +16,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f implements d.o.a.e.b.o.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f29790a;
+    public final WeakReference<Context> f29035a;
 
     public f(Context context) {
-        this.f29790a = new WeakReference<>(context);
+        this.f29035a = new WeakReference<>(context);
     }
 
     @Nullable

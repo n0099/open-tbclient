@@ -7,26 +7,26 @@ import java.util.ArrayList;
 public final class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f23444c;
+    public Context f22689c;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f23446e;
+    public d f22691e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23447f = 0;
+    public int f22692f = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList f23442a = new ArrayList();
+    public ArrayList f22687a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList f23443b = new ArrayList();
+    public ArrayList f22688b = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList f23445d = new ArrayList();
+    public ArrayList f22690d = new ArrayList();
 
     public a(ArrayList arrayList, Context context, d dVar) {
-        this.f23444c = context;
-        this.f23446e = dVar;
+        this.f22689c = context;
+        this.f22691e = dVar;
         a(arrayList);
     }
 
@@ -34,21 +34,21 @@ public final class a {
         int i2 = 0;
         while (i2 < arrayList.size()) {
             int i3 = i2 + 1;
-            (i3 % 2 == 1 ? this.f23442a : this.f23443b).add(arrayList.get(i2));
+            (i3 % 2 == 1 ? this.f22687a : this.f22688b).add(arrayList.get(i2));
             i2 = i3;
         }
     }
 
     public final LinearLayout a() {
-        LinearLayout linearLayout = new LinearLayout(this.f23444c);
+        LinearLayout linearLayout = new LinearLayout(this.f22689c);
         linearLayout.setOrientation(1);
         linearLayout.setBackgroundColor(-1);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23444c, 15.0f), com.baidu.ufosdk.f.i.a(this.f23444c, 2.0f), com.baidu.ufosdk.f.i.a(this.f23444c, 15.0f), com.baidu.ufosdk.f.i.a(this.f23444c, 14.0f));
-        for (int i2 = 0; i2 < this.f23442a.size(); i2++) {
-            e eVar = new e(this.f23444c);
+        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f22689c, 15.0f), com.baidu.ufosdk.f.i.a(this.f22689c, 2.0f), com.baidu.ufosdk.f.i.a(this.f22689c, 15.0f), com.baidu.ufosdk.f.i.a(this.f22689c, 14.0f));
+        for (int i2 = 0; i2 < this.f22687a.size(); i2++) {
+            e eVar = new e(this.f22689c);
             eVar.a();
-            eVar.a((String) this.f23442a.get(i2));
+            eVar.a((String) this.f22687a.get(i2));
             eVar.a(com.baidu.ufosdk.b.U);
             linearLayout.addView(eVar, layoutParams);
             eVar.setOnClickListener(new b(this, eVar));
@@ -57,15 +57,15 @@ public final class a {
     }
 
     public final LinearLayout b() {
-        LinearLayout linearLayout = new LinearLayout(this.f23444c);
+        LinearLayout linearLayout = new LinearLayout(this.f22689c);
         linearLayout.setOrientation(1);
         linearLayout.setBackgroundColor(-1);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23444c, 5.0f), com.baidu.ufosdk.f.i.a(this.f23444c, 2.0f), com.baidu.ufosdk.f.i.a(this.f23444c, 15.0f), com.baidu.ufosdk.f.i.a(this.f23444c, 14.0f));
-        for (int i2 = 0; i2 < this.f23443b.size(); i2++) {
-            e eVar = new e(this.f23444c);
+        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f22689c, 5.0f), com.baidu.ufosdk.f.i.a(this.f22689c, 2.0f), com.baidu.ufosdk.f.i.a(this.f22689c, 15.0f), com.baidu.ufosdk.f.i.a(this.f22689c, 14.0f));
+        for (int i2 = 0; i2 < this.f22688b.size(); i2++) {
+            e eVar = new e(this.f22689c);
             eVar.a();
-            eVar.a((String) this.f23443b.get(i2));
+            eVar.a((String) this.f22688b.get(i2));
             eVar.a(com.baidu.ufosdk.b.U);
             linearLayout.addView(eVar, layoutParams);
             eVar.setOnClickListener(new c(this, eVar));
@@ -74,6 +74,6 @@ public final class a {
     }
 
     public final ArrayList c() {
-        return this.f23445d;
+        return this.f22690d;
     }
 }

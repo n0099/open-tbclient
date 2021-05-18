@@ -3,25 +3,25 @@ package d.a.t.e;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile int f63974b;
+    public static volatile int f64661b;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f63975a = 0;
+    public int f64662a = 0;
 
     public static synchronized b a() {
         b bVar;
         synchronized (b.class) {
-            if (f63974b < 1000000) {
-                f63974b = 1000000;
+            if (f64661b < 1000000) {
+                f64661b = 1000000;
             }
             bVar = new b();
-            bVar.f63975a = f63974b;
-            f63974b++;
+            bVar.f64662a = f64661b;
+            f64661b++;
         }
         return bVar;
     }
 
     public int b() {
-        return this.f63975a;
+        return this.f64662a;
     }
 }

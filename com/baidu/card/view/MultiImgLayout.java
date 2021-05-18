@@ -21,33 +21,33 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import d.a.c.e.p.l;
 import d.a.i.p;
-import d.a.i0.b1.j.d;
-import d.a.i0.r.k;
-import d.a.i0.r.q.a2;
-import d.a.j0.x.b0;
+import d.a.j0.b1.j.d;
+import d.a.j0.r.k;
+import d.a.j0.r.q.a2;
+import d.a.k0.x.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MultiImgLayout extends LinearLayout implements p<d.a.i0.r.q.a> {
+public class MultiImgLayout extends LinearLayout implements p<d.a.j0.r.q.a> {
     public static final int n;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f4548e;
+    public TextView f4399e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f4549f;
+    public TextView f4400f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PlayVoiceBntNew f4550g;
+    public PlayVoiceBntNew f4401g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ConstrainImageGroup f4551h;
+    public ConstrainImageGroup f4402h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f4552i;
+    public String f4403i;
     public boolean j;
-    public b0<d.a.i0.r.q.a> k;
-    public d.a.i0.r.q.a l;
+    public b0<d.a.j0.r.q.a> k;
+    public d.a.j0.r.q.a l;
     public boolean m;
 
     /* loaded from: classes.dex */
@@ -57,7 +57,7 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.i0.r.q.a> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.a.i0.r.q.a> subClickListener = MultiImgLayout.this.getSubClickListener();
+            b0<d.a.j0.r.q.a> subClickListener = MultiImgLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("2");
                 subClickListener.a(view, MultiImgLayout.this.l);
@@ -69,31 +69,31 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.i0.r.q.a> {
     public class b implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f4554a;
+        public final /* synthetic */ LinkedList f4405a;
 
         public b(LinkedList linkedList) {
-            this.f4554a = linkedList;
+            this.f4405a = linkedList;
         }
 
-        @Override // d.a.i0.b1.j.d
+        @Override // d.a.j0.b1.j.d
         public void a(View view, int i2, boolean z) {
             if (MultiImgLayout.this.k == null || !MultiImgLayout.this.k.c(view, MultiImgLayout.this.l, "")) {
-                b0<d.a.i0.r.q.a> subClickListener = MultiImgLayout.this.getSubClickListener();
+                b0<d.a.j0.r.q.a> subClickListener = MultiImgLayout.this.getSubClickListener();
                 if (subClickListener != null) {
                     view.setTag("1");
                     MultiImgLayout.this.l.objType = 2;
-                    subClickListener.f62441a = Boolean.valueOf(z);
+                    subClickListener.f63165a = Boolean.valueOf(z);
                     subClickListener.a(view, MultiImgLayout.this.l);
                     MultiImgLayout.this.l.objType = 1;
                 }
                 if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().q) {
-                    ThreadCardUtils.startImageViewer(view, MultiImgLayout.this.j, this.f4554a, i2, MultiImgLayout.this.l.m(), MultiImgLayout.this.f4552i);
-                } else if ("frs".equals(MultiImgLayout.this.f4552i)) {
+                    ThreadCardUtils.startImageViewer(view, MultiImgLayout.this.j, this.f4405a, i2, MultiImgLayout.this.l.m(), MultiImgLayout.this.f4403i);
+                } else if ("frs".equals(MultiImgLayout.this.f4403i)) {
                     ThreadCardUtils.jumpToPB(MultiImgLayout.this.l, view.getContext(), 3, false);
-                } else if ("index".equals(MultiImgLayout.this.f4552i)) {
+                } else if ("index".equals(MultiImgLayout.this.f4403i)) {
                     ThreadCardUtils.jumpToPB(MultiImgLayout.this.l, view.getContext(), 2, false);
                 } else {
-                    ThreadCardUtils.startImageViewer(view, MultiImgLayout.this.j, this.f4554a, i2, MultiImgLayout.this.l.m(), MultiImgLayout.this.f4552i);
+                    ThreadCardUtils.startImageViewer(view, MultiImgLayout.this.j, this.f4405a, i2, MultiImgLayout.this.l.m(), MultiImgLayout.this.f4403i);
                 }
             }
         }
@@ -111,8 +111,8 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.i0.r.q.a> {
     }
 
     private void setImageData(a2 a2Var) {
-        this.f4551h.setFromCDN(this.j);
-        this.f4551h.setSinglePicUseStyleV10(true);
+        this.f4402h.setFromCDN(this.j);
+        this.f4402h.setSinglePicUseStyleV10(true);
         ArrayList<MediaData> K0 = a2Var.K0();
         if (k.c().g() && ListUtils.getCount(K0) != 0) {
             LinkedList linkedList = new LinkedList();
@@ -123,65 +123,65 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.i0.r.q.a> {
                 }
             }
             if (ListUtils.getCount(linkedList) > 0) {
-                this.f4551h.setVisibility(0);
-                this.f4551h.setFromCDN(this.j);
-                this.f4551h.setImageClickListener(new b(linkedList));
-                this.f4551h.setImageMediaList(linkedList);
+                this.f4402h.setVisibility(0);
+                this.f4402h.setFromCDN(this.j);
+                this.f4402h.setImageClickListener(new b(linkedList));
+                this.f4402h.setImageMediaList(linkedList);
                 return;
             }
-            this.f4551h.setVisibility(8);
+            this.f4402h.setVisibility(8);
             return;
         }
-        this.f4551h.setVisibility(8);
+        this.f4402h.setVisibility(8);
     }
 
     private void setVoiceData(a2 a2Var) {
-        ArrayList<VoiceData$VoiceModel> H1 = a2Var.H1();
-        if (ListUtils.isEmpty(H1)) {
-            this.f4550g.setVisibility(8);
+        ArrayList<VoiceData$VoiceModel> I1 = a2Var.I1();
+        if (ListUtils.isEmpty(I1)) {
+            this.f4401g.setVisibility(8);
             return;
         }
-        this.f4550g.setVisibility(0);
-        VoiceData$VoiceModel voiceData$VoiceModel = H1.get(0);
-        this.f4550g.setVoiceModel(voiceData$VoiceModel);
-        this.f4550g.setTag(voiceData$VoiceModel);
-        this.f4550g.b();
+        this.f4401g.setVisibility(0);
+        VoiceData$VoiceModel voiceData$VoiceModel = I1.get(0);
+        this.f4401g.setVoiceModel(voiceData$VoiceModel);
+        this.f4401g.setTag(voiceData$VoiceModel);
+        this.f4401g.b();
         if (voiceData$VoiceModel != null) {
-            this.f4550g.j(voiceData$VoiceModel.voice_status.intValue());
+            this.f4401g.j(voiceData$VoiceModel.voice_status.intValue());
         }
-        this.f4550g.l();
+        this.f4401g.l();
     }
 
     public final void f() {
         LayoutInflater.from(getContext()).inflate(R.layout.multi_image_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4549f = (TextView) findViewById(R.id.thread_card_abstract);
-        this.f4548e = (TextView) findViewById(R.id.thread_card_title);
+        this.f4400f = (TextView) findViewById(R.id.thread_card_abstract);
+        this.f4399e = (TextView) findViewById(R.id.thread_card_title);
         PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
-        this.f4550g = playVoiceBntNew;
+        this.f4401g = playVoiceBntNew;
         playVoiceBntNew.setAfterClickListener(new a());
-        this.f4551h = (ConstrainImageGroup) findViewById(R.id.thread_card_img_group);
-        this.f4551h.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002));
-        d.a.i0.b1.j.a aVar = new d.a.i0.b1.j.a(3);
+        this.f4402h = (ConstrainImageGroup) findViewById(R.id.thread_card_img_group);
+        this.f4402h.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002));
+        d.a.j0.b1.j.a aVar = new d.a.j0.b1.j.a(3);
         aVar.d(1.0d);
-        this.f4551h.setImageProcessor(aVar);
+        this.f4402h.setImageProcessor(aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: g */
-    public void a(d.a.i0.r.q.a aVar) {
+    public void a(d.a.j0.r.q.a aVar) {
         this.l = aVar;
         a2 m = aVar.m();
-        ThreadCardUtils.setTitle(this.f4548e, m, this.m);
-        ThreadCardUtils.setAbstract(this.f4549f, this.f4548e, m, n, this.m);
-        TextView textView = this.f4548e;
+        ThreadCardUtils.setTitle(this.f4399e, m, this.m);
+        ThreadCardUtils.setAbstract(this.f4400f, this.f4399e, m, n, this.m);
+        TextView textView = this.f4399e;
         boolean z = false;
         boolean z2 = textView == null || textView.getVisibility() != 0;
-        TextView textView2 = this.f4549f;
+        TextView textView2 = this.f4400f;
         boolean z3 = textView2 == null || textView2.getVisibility() != 0;
-        ConstrainImageGroup constrainImageGroup = this.f4551h;
+        ConstrainImageGroup constrainImageGroup = this.f4402h;
         if (z2 && z3) {
             z = true;
         }
@@ -190,26 +190,26 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.i0.r.q.a> {
         setVoiceData(m);
     }
 
-    public b0<d.a.i0.r.q.a> getSubClickListener() {
+    public b0<d.a.j0.r.q.a> getSubClickListener() {
         return this.k;
     }
 
     public void setConstrainImagePool(d.a.c.e.k.b<TbImageView> bVar) {
-        ConstrainImageGroup constrainImageGroup = this.f4551h;
+        ConstrainImageGroup constrainImageGroup = this.f4402h;
         if (constrainImageGroup != null) {
             constrainImageGroup.setImageViewPool(bVar);
         }
     }
 
     public void setConstrainLayoutPool(d.a.c.e.k.b<ConstrainImageLayout> bVar) {
-        ConstrainImageGroup constrainImageGroup = this.f4551h;
+        ConstrainImageGroup constrainImageGroup = this.f4402h;
         if (constrainImageGroup != null) {
             constrainImageGroup.setConstrainLayoutPool(bVar);
         }
     }
 
     public void setFrom(String str) {
-        this.f4552i = str;
+        this.f4403i = str;
     }
 
     public void setFromCDN(boolean z) {
@@ -231,17 +231,17 @@ public class MultiImgLayout extends LinearLayout implements p<d.a.i0.r.q.a> {
     }
 
     public void setPreloadSizeReadyCallback(d.a.c.j.c.b bVar) {
-        this.f4551h.setPreloadSizeReadyCallback(bVar);
+        this.f4402h.setPreloadSizeReadyCallback(bVar);
     }
 
     public void setSingleImageRatio(double d2) {
-        ConstrainImageGroup constrainImageGroup = this.f4551h;
+        ConstrainImageGroup constrainImageGroup = this.f4402h;
         if (constrainImageGroup != null) {
             constrainImageGroup.setSingleImageRatio(d2);
         }
     }
 
-    public void setSubClickListener(b0<d.a.i0.r.q.a> b0Var) {
+    public void setSubClickListener(b0<d.a.j0.r.q.a> b0Var) {
         this.k = b0Var;
     }
 

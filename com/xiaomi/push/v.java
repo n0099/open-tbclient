@@ -7,7 +7,7 @@ import java.io.IOException;
 public abstract class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39003a;
+    public Context f38248a;
 
     /* renamed from: a  reason: collision with other field name */
     public File f987a;
@@ -16,7 +16,7 @@ public abstract class v implements Runnable {
     public Runnable f988a;
 
     public v(Context context, File file) {
-        this.f39003a = context;
+        this.f38248a = context;
         this.f987a = file;
     }
 
@@ -37,13 +37,13 @@ public abstract class v implements Runnable {
         try {
             try {
                 if (this.f987a == null) {
-                    this.f987a = new File(this.f39003a.getFilesDir(), "default_locker");
+                    this.f987a = new File(this.f38248a.getFilesDir(), "default_locker");
                 }
-                uVar = u.a(this.f39003a, this.f987a);
+                uVar = u.a(this.f38248a, this.f987a);
                 if (this.f988a != null) {
                     this.f988a.run();
                 }
-                a(this.f39003a);
+                a(this.f38248a);
                 if (uVar == null) {
                     return;
                 }

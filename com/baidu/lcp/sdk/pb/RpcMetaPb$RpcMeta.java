@@ -59,21 +59,21 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcMeta, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6628e;
+        public int f6452e;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f6631h;
+        public int f6455h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f6632i;
+        public long f6456i;
         public int j;
         public int n;
 
         /* renamed from: f  reason: collision with root package name */
-        public RpcMetaPb$RpcRequestMeta f6629f = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
+        public RpcMetaPb$RpcRequestMeta f6453f = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
 
         /* renamed from: g  reason: collision with root package name */
-        public RpcMetaPb$RpcResponseMeta f6630g = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
+        public RpcMetaPb$RpcResponseMeta f6454g = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
         public RpcMetaPb$ChunkInfo k = RpcMetaPb$ChunkInfo.getDefaultInstance();
         public ByteString l = ByteString.EMPTY;
         public RpcMetaPb$RpcNotifyMeta m = RpcMetaPb$RpcNotifyMeta.getDefaultInstance();
@@ -87,20 +87,20 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         }
 
         public b A(int i2) {
-            this.f6628e |= 256;
+            this.f6452e |= 256;
             this.n = i2;
             return this;
         }
 
         public b B(int i2) {
-            this.f6628e |= 16;
+            this.f6452e |= 16;
             this.j = i2;
             return this;
         }
 
         public b C(ByteString byteString) {
             if (byteString != null) {
-                this.f6628e |= 64;
+                this.f6452e |= 64;
                 this.l = byteString;
                 return this;
             }
@@ -108,21 +108,21 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         }
 
         public b D(int i2) {
-            this.f6628e |= 4;
-            this.f6631h = i2;
+            this.f6452e |= 4;
+            this.f6455h = i2;
             return this;
         }
 
         public b E(long j) {
-            this.f6628e |= 8;
-            this.f6632i = j;
+            this.f6452e |= 8;
+            this.f6456i = j;
             return this;
         }
 
         public b F(RpcMetaPb$RpcRequestMeta rpcMetaPb$RpcRequestMeta) {
             if (rpcMetaPb$RpcRequestMeta != null) {
-                this.f6629f = rpcMetaPb$RpcRequestMeta;
-                this.f6628e |= 1;
+                this.f6453f = rpcMetaPb$RpcRequestMeta;
+                this.f6452e |= 1;
                 return this;
             }
             throw null;
@@ -164,21 +164,21 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         /* renamed from: n */
         public RpcMetaPb$RpcMeta buildPartial() {
             RpcMetaPb$RpcMeta rpcMetaPb$RpcMeta = new RpcMetaPb$RpcMeta(this);
-            int i2 = this.f6628e;
+            int i2 = this.f6452e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            rpcMetaPb$RpcMeta.request = this.f6629f;
+            rpcMetaPb$RpcMeta.request = this.f6453f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            rpcMetaPb$RpcMeta.response = this.f6630g;
+            rpcMetaPb$RpcMeta.response = this.f6454g;
             if ((i2 & 4) == 4) {
                 i3 |= 4;
             }
-            rpcMetaPb$RpcMeta.compressType = this.f6631h;
+            rpcMetaPb$RpcMeta.compressType = this.f6455h;
             if ((i2 & 8) == 8) {
                 i3 |= 8;
             }
-            rpcMetaPb$RpcMeta.correlationId = this.f6632i;
+            rpcMetaPb$RpcMeta.correlationId = this.f6456i;
             if ((i2 & 16) == 16) {
                 i3 |= 16;
             }
@@ -205,29 +205,29 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
 
         public b o() {
             super.clear();
-            this.f6629f = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
-            this.f6628e &= -2;
-            this.f6630g = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
-            int i2 = this.f6628e & (-3);
-            this.f6628e = i2;
-            this.f6631h = 0;
+            this.f6453f = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
+            this.f6452e &= -2;
+            this.f6454g = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
+            int i2 = this.f6452e & (-3);
+            this.f6452e = i2;
+            this.f6455h = 0;
             int i3 = i2 & (-5);
-            this.f6628e = i3;
-            this.f6632i = 0L;
+            this.f6452e = i3;
+            this.f6456i = 0L;
             int i4 = i3 & (-9);
-            this.f6628e = i4;
+            this.f6452e = i4;
             this.j = 0;
-            this.f6628e = i4 & (-17);
+            this.f6452e = i4 & (-17);
             this.k = RpcMetaPb$ChunkInfo.getDefaultInstance();
-            int i5 = this.f6628e & (-33);
-            this.f6628e = i5;
+            int i5 = this.f6452e & (-33);
+            this.f6452e = i5;
             this.l = ByteString.EMPTY;
-            this.f6628e = i5 & (-65);
+            this.f6452e = i5 & (-65);
             this.m = RpcMetaPb$RpcNotifyMeta.getDefaultInstance();
-            int i6 = this.f6628e & (-129);
-            this.f6628e = i6;
+            int i6 = this.f6452e & (-129);
+            this.f6452e = i6;
             this.n = 0;
-            this.f6628e = i6 & (-257);
+            this.f6452e = i6 & (-257);
             return this;
         }
 
@@ -252,18 +252,18 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         }
 
         public boolean t() {
-            return (this.f6628e & 32) == 32;
+            return (this.f6452e & 32) == 32;
         }
 
         public b u(RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo) {
-            if ((this.f6628e & 32) == 32 && this.k != RpcMetaPb$ChunkInfo.getDefaultInstance()) {
+            if ((this.f6452e & 32) == 32 && this.k != RpcMetaPb$ChunkInfo.getDefaultInstance()) {
                 RpcMetaPb$ChunkInfo.b newBuilder = RpcMetaPb$ChunkInfo.newBuilder(this.k);
                 newBuilder.u(rpcMetaPb$ChunkInfo);
                 this.k = newBuilder.buildPartial();
             } else {
                 this.k = rpcMetaPb$ChunkInfo;
             }
-            this.f6628e |= 32;
+            this.f6452e |= 32;
             return this;
         }
 
@@ -336,38 +336,38 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         }
 
         public b x(RpcMetaPb$RpcNotifyMeta rpcMetaPb$RpcNotifyMeta) {
-            if ((this.f6628e & 128) == 128 && this.m != RpcMetaPb$RpcNotifyMeta.getDefaultInstance()) {
+            if ((this.f6452e & 128) == 128 && this.m != RpcMetaPb$RpcNotifyMeta.getDefaultInstance()) {
                 RpcMetaPb$RpcNotifyMeta.b newBuilder = RpcMetaPb$RpcNotifyMeta.newBuilder(this.m);
                 newBuilder.s(rpcMetaPb$RpcNotifyMeta);
                 this.m = newBuilder.buildPartial();
             } else {
                 this.m = rpcMetaPb$RpcNotifyMeta;
             }
-            this.f6628e |= 128;
+            this.f6452e |= 128;
             return this;
         }
 
         public b y(RpcMetaPb$RpcRequestMeta rpcMetaPb$RpcRequestMeta) {
-            if ((this.f6628e & 1) == 1 && this.f6629f != RpcMetaPb$RpcRequestMeta.getDefaultInstance()) {
-                RpcMetaPb$RpcRequestMeta.b newBuilder = RpcMetaPb$RpcRequestMeta.newBuilder(this.f6629f);
+            if ((this.f6452e & 1) == 1 && this.f6453f != RpcMetaPb$RpcRequestMeta.getDefaultInstance()) {
+                RpcMetaPb$RpcRequestMeta.b newBuilder = RpcMetaPb$RpcRequestMeta.newBuilder(this.f6453f);
                 newBuilder.s(rpcMetaPb$RpcRequestMeta);
-                this.f6629f = newBuilder.buildPartial();
+                this.f6453f = newBuilder.buildPartial();
             } else {
-                this.f6629f = rpcMetaPb$RpcRequestMeta;
+                this.f6453f = rpcMetaPb$RpcRequestMeta;
             }
-            this.f6628e |= 1;
+            this.f6452e |= 1;
             return this;
         }
 
         public b z(RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta) {
-            if ((this.f6628e & 2) == 2 && this.f6630g != RpcMetaPb$RpcResponseMeta.getDefaultInstance()) {
-                RpcMetaPb$RpcResponseMeta.b newBuilder = RpcMetaPb$RpcResponseMeta.newBuilder(this.f6630g);
+            if ((this.f6452e & 2) == 2 && this.f6454g != RpcMetaPb$RpcResponseMeta.getDefaultInstance()) {
+                RpcMetaPb$RpcResponseMeta.b newBuilder = RpcMetaPb$RpcResponseMeta.newBuilder(this.f6454g);
                 newBuilder.s(rpcMetaPb$RpcResponseMeta);
-                this.f6630g = newBuilder.buildPartial();
+                this.f6454g = newBuilder.buildPartial();
             } else {
-                this.f6630g = rpcMetaPb$RpcResponseMeta;
+                this.f6454g = rpcMetaPb$RpcResponseMeta;
             }
-            this.f6628e |= 2;
+            this.f6452e |= 2;
             return this;
         }
 

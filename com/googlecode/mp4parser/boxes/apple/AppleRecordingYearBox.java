@@ -13,8 +13,8 @@ import java.util.Date;
 import java.util.TimeZone;
 /* loaded from: classes6.dex */
 public class AppleRecordingYearBox extends AppleDataBox {
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
     public Date date;
     public DateFormat df;
 

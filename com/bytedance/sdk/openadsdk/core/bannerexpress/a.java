@@ -13,43 +13,43 @@ import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
 import com.bytedance.sdk.openadsdk.utils.al;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f28587a;
+    public final Context f27832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NativeExpressView f28588b;
+    public NativeExpressView f27833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NativeExpressView f28589c;
+    public NativeExpressView f27834c;
 
     /* renamed from: d  reason: collision with root package name */
-    public l f28590d;
+    public l f27835d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdSlot f28591e;
+    public AdSlot f27836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TTNativeExpressAd.ExpressAdInteractionListener f28592f;
+    public TTNativeExpressAd.ExpressAdInteractionListener f27837f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TTNativeExpressAd.ExpressVideoAdListener f28593g;
+    public TTNativeExpressAd.ExpressVideoAdListener f27838g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28594h;
+    public int f27839h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f28595i;
+    public boolean f27840i;
     public String j;
 
     public a(@NonNull Context context, l lVar, AdSlot adSlot) {
         super(context);
         this.j = "banner_ad";
-        this.f28587a = context;
-        this.f28590d = lVar;
-        this.f28591e = adSlot;
+        this.f27832a = context;
+        this.f27835d = lVar;
+        this.f27836e = adSlot;
         a();
     }
 
@@ -63,7 +63,7 @@ public class a extends FrameLayout {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 a aVar = a.this;
-                aVar.f28595i = false;
+                aVar.f27840i = false;
                 aVar.g();
             }
 
@@ -80,40 +80,40 @@ public class a extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        NativeExpressView nativeExpressView = this.f28588b;
-        this.f28588b = this.f28589c;
-        this.f28589c = nativeExpressView;
+        NativeExpressView nativeExpressView = this.f27833b;
+        this.f27833b = this.f27834c;
+        this.f27834c = nativeExpressView;
         if (nativeExpressView != null) {
             removeView(nativeExpressView);
-            this.f28589c.k();
-            this.f28589c = null;
+            this.f27834c.k();
+            this.f27834c = null;
         }
     }
 
     public void c() {
-        NativeExpressView nativeExpressView = this.f28589c;
+        NativeExpressView nativeExpressView = this.f27834c;
         if (nativeExpressView != null) {
             nativeExpressView.h();
         }
     }
 
     public void d() {
-        NativeExpressView nativeExpressView = this.f28588b;
+        NativeExpressView nativeExpressView = this.f27833b;
         if (nativeExpressView != null) {
             removeView(nativeExpressView);
-            this.f28588b.k();
-            this.f28588b = null;
+            this.f27833b.k();
+            this.f27833b = null;
         }
-        NativeExpressView nativeExpressView2 = this.f28589c;
+        NativeExpressView nativeExpressView2 = this.f27834c;
         if (nativeExpressView2 != null) {
             removeView(nativeExpressView2);
-            this.f28589c.k();
-            this.f28589c = null;
+            this.f27834c.k();
+            this.f27834c = null;
         }
     }
 
     public void e() {
-        NativeExpressView nativeExpressView = this.f28588b;
+        NativeExpressView nativeExpressView = this.f27833b;
         if (nativeExpressView != null) {
             nativeExpressView.h();
         }
@@ -121,37 +121,37 @@ public class a extends FrameLayout {
 
     public void f() {
         try {
-            if (this.f28595i || this.f28589c == null) {
+            if (this.f27840i || this.f27834c == null) {
                 return;
             }
             AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.play(a(this.f28588b)).with(b(this.f28589c));
-            animatorSet.setDuration(this.f28594h).start();
-            al.a((View) this.f28589c, 0);
-            this.f28595i = true;
+            animatorSet.play(a(this.f27833b)).with(b(this.f27834c));
+            animatorSet.setDuration(this.f27839h).start();
+            al.a((View) this.f27834c, 0);
+            this.f27840i = true;
         } catch (Throwable unused) {
         }
     }
 
     public NativeExpressView getCurView() {
-        return this.f28588b;
+        return this.f27833b;
     }
 
     public NativeExpressView getNextView() {
-        return this.f28589c;
+        return this.f27834c;
     }
 
     public void setDuration(int i2) {
-        this.f28594h = i2;
+        this.f27839h = i2;
     }
 
     public void setExpressInteractionListener(TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener) {
-        this.f28592f = expressAdInteractionListener;
-        this.f28588b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.2
+        this.f27837f = expressAdInteractionListener;
+        this.f27833b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.2
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onAdClicked(View view, int i2) {
                 a aVar = a.this;
-                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = aVar.f28592f;
+                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = aVar.f27837f;
                 if (expressAdInteractionListener2 != null) {
                     expressAdInteractionListener2.onAdClicked(aVar, i2);
                 }
@@ -164,7 +164,7 @@ public class a extends FrameLayout {
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onRenderFail(View view, String str, int i2) {
                 a aVar = a.this;
-                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = aVar.f28592f;
+                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = aVar.f27837f;
                 if (expressAdInteractionListener2 != null) {
                     expressAdInteractionListener2.onRenderFail(aVar, str, i2);
                 }
@@ -176,7 +176,7 @@ public class a extends FrameLayout {
                     a.this.a(f2, f3);
                 }
                 a aVar = a.this;
-                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = aVar.f28592f;
+                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = aVar.f27837f;
                 if (expressAdInteractionListener2 != null) {
                     expressAdInteractionListener2.onRenderSuccess(aVar, f2, f3);
                 }
@@ -185,23 +185,23 @@ public class a extends FrameLayout {
     }
 
     public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
-        this.f28593g = expressVideoAdListener;
+        this.f27838g = expressVideoAdListener;
     }
 
     public void a() {
-        NativeExpressView nativeExpressView = new NativeExpressView(this.f28587a, this.f28590d, this.f28591e, this.j);
-        this.f28588b = nativeExpressView;
+        NativeExpressView nativeExpressView = new NativeExpressView(this.f27832a, this.f27835d, this.f27836e, this.j);
+        this.f27833b = nativeExpressView;
         addView(nativeExpressView, new ViewGroup.LayoutParams(-1, -1));
     }
 
     public void a(l lVar, AdSlot adSlot) {
-        NativeExpressView nativeExpressView = new NativeExpressView(this.f28587a, lVar, adSlot, this.j);
-        this.f28589c = nativeExpressView;
+        NativeExpressView nativeExpressView = new NativeExpressView(this.f27832a, lVar, adSlot, this.j);
+        this.f27834c = nativeExpressView;
         nativeExpressView.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.1
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onAdClicked(View view, int i2) {
                 a aVar = a.this;
-                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = aVar.f28592f;
+                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = aVar.f27837f;
                 if (expressAdInteractionListener != null) {
                     expressAdInteractionListener.onAdClicked(aVar, i2);
                 }
@@ -221,17 +221,17 @@ public class a extends FrameLayout {
                 a.this.f();
             }
         });
-        al.a((View) this.f28589c, 8);
-        addView(this.f28589c, new ViewGroup.LayoutParams(-1, -1));
+        al.a((View) this.f27834c, 8);
+        addView(this.f27834c, new ViewGroup.LayoutParams(-1, -1));
     }
 
     public boolean b() {
-        return this.f28589c != null;
+        return this.f27834c != null;
     }
 
     public void a(float f2, float f3) {
-        int a2 = (int) al.a(this.f28587a, f2);
-        int a3 = (int) al.a(this.f28587a, f3);
+        int a2 = (int) al.a(this.f27832a, f2);
+        int a3 = (int) al.a(this.f27832a, f3);
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(a2, a3);

@@ -2,9 +2,9 @@ package com.baidu.tieba.pb.pb.main.adapter;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.j0.d2.h.b;
+import d.a.k0.d2.h.b;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbAdCardGiftItemResponseMessage extends JsonHttpResponsedMessage {
     public b mData;
 

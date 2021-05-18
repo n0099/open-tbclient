@@ -13,23 +13,23 @@ import androidx.annotation.Nullable;
 public class TrapezoidButton extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f14982e;
+    public Paint f14297e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f14983f;
+    public Path f14298f;
 
     public TrapezoidButton(Context context) {
         this(context, null);
     }
 
     public final void a() {
-        this.f14983f = new Path();
+        this.f14298f = new Path();
         Paint paint = new Paint();
-        this.f14982e = paint;
+        this.f14297e = paint;
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.f14982e.setColor(-1);
-        this.f14982e.setStyle(Paint.Style.FILL);
-        this.f14982e.setAntiAlias(true);
+        this.f14297e.setColor(-1);
+        this.f14297e.setStyle(Paint.Style.FILL);
+        this.f14297e.setAntiAlias(true);
         setLayerType(1, null);
     }
 
@@ -38,13 +38,13 @@ public class TrapezoidButton extends LinearLayout {
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
         super.dispatchDraw(canvas);
         int height = canvas.getHeight();
-        this.f14983f.reset();
-        this.f14983f.moveTo(0.0f, 0.0f);
+        this.f14298f.reset();
+        this.f14298f.moveTo(0.0f, 0.0f);
         float f2 = height;
-        this.f14983f.lineTo(0.0f, f2);
-        this.f14983f.lineTo(f2 * 0.45f, 0.0f);
-        this.f14983f.close();
-        canvas.drawPath(this.f14983f, this.f14982e);
+        this.f14298f.lineTo(0.0f, f2);
+        this.f14298f.lineTo(f2 * 0.45f, 0.0f);
+        this.f14298f.close();
+        canvas.drawPath(this.f14298f, this.f14297e);
         canvas.restoreToCount(saveLayer);
     }
 

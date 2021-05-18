@@ -27,11 +27,14 @@ public class BIMRtcInfo implements Parcelable {
     public int mAction;
     public String mCuid;
     public String mObj;
-    public String mRtcExt = "";
+    public String mRtcExt;
     public String mRtcRoomId;
     public long mSeq;
+    public String mSource;
 
     public BIMRtcInfo() {
+        this.mRtcExt = "";
+        this.mSource = "";
     }
 
     @Override // android.os.Parcelable
@@ -59,6 +62,10 @@ public class BIMRtcInfo implements Parcelable {
         return this.mSeq;
     }
 
+    public String getSource() {
+        return this.mSource;
+    }
+
     public void setAction(int i2) {
         this.mAction = i2;
     }
@@ -77,6 +84,10 @@ public class BIMRtcInfo implements Parcelable {
 
     public void setSeq(long j) {
         this.mSeq = j;
+    }
+
+    public void setSource(String str) {
+        this.mSource = str;
     }
 
     @NonNull
@@ -128,16 +139,22 @@ public class BIMRtcInfo implements Parcelable {
         parcel.writeString(this.mRtcRoomId);
         parcel.writeLong(this.mSeq);
         parcel.writeString(this.mObj);
+        parcel.writeString(this.mSource);
     }
 
     public BIMRtcInfo(String str) {
+        this.mRtcExt = "";
+        this.mSource = "";
         this.mRtcRoomId = str;
     }
 
     public BIMRtcInfo(Parcel parcel) {
+        this.mRtcExt = "";
+        this.mSource = "";
         this.mAction = parcel.readInt();
         this.mRtcRoomId = parcel.readString();
         this.mSeq = parcel.readLong();
         this.mObj = parcel.readString();
+        this.mSource = parcel.readString();
     }
 }

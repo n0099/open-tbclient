@@ -33,47 +33,47 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37314a = "";
+    public static String f36559a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37315b = "";
+    public static String f36560b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f37316c = "";
+    public static String f36561c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f37317d = "";
+    public static String f36562d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f37318e = -1;
+    public static int f36563e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f37319f = null;
+    public static String f36564f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f37320g = "0123456789ABCDEF";
+    public static String f36565g = "0123456789ABCDEF";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f37321a;
+        public String f36566a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f37322b;
+        public long f36567b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f37323c;
+        public long f36568c;
 
         public a(String str, int i2) {
-            this.f37321a = str;
-            this.f37322b = i2;
+            this.f36566a = str;
+            this.f36567b = i2;
             if (str != null) {
-                this.f37323c = str.length();
+                this.f36568c = str.length();
             }
         }
     }
@@ -190,7 +190,7 @@ public class j {
             return "";
         }
         String d2 = d(context, str);
-        f37316c = d2;
+        f36561c = d2;
         return d2;
     }
 
@@ -228,7 +228,7 @@ public class j {
                 return "";
             }
             String str = lastKnownLocation.getLatitude() + "*" + lastKnownLocation.getLongitude();
-            f37319f = str;
+            f36564f = str;
             return str;
         } catch (Exception e2) {
             com.tencent.open.a.f.b("openSDK_LOG.Util", "getLocation>>>", e2);
@@ -281,7 +281,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f37314a;
+        return f36559a;
     }
 
     public static boolean d(Context context) {
@@ -322,10 +322,10 @@ public class j {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f37315b = str2;
-            f37314a = str2.substring(0, str2.lastIndexOf(46));
-            f37317d = f37315b.substring(f37315b.lastIndexOf(46) + 1, f37315b.length());
-            f37318e = packageInfo.versionCode;
+            f36560b = str2;
+            f36559a = str2.substring(0, str2.lastIndexOf(46));
+            f36562d = f36560b.substring(f36560b.lastIndexOf(46) + 1, f36560b.length());
+            f36563e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -357,7 +357,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f37315b;
+        return f36560b;
     }
 
     public static boolean f(Context context, String str) {

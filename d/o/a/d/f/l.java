@@ -10,7 +10,7 @@ import d.o.a.e.b.c.a;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class l {
     public static int a(@NonNull c.f fVar, boolean z, d.o.a.e.a.i iVar) {
         int i2;
@@ -34,15 +34,15 @@ public class l {
         c2.I0(System.currentTimeMillis());
         c2.M0(0L);
         d.o.a.e.b.j.a g2 = d.o.a.e.b.j.a.g(iVar.R());
-        if (!g(iVar, g2, a2) && fVar.f66030b.k()) {
-            String H = fVar.f66030b.H();
+        if (!g(iVar, g2, a2) && fVar.f66716b.k()) {
+            String H = fVar.f66716b.H();
             if (TextUtils.isEmpty(H)) {
                 H = g2.t("download_start_toast_text");
             }
             if (TextUtils.isEmpty(H)) {
                 H = z ? "已开始下载，可在\"我的\"里查看管理" : "已开始下载";
             }
-            n.n().a(2, iVar.S(), fVar.f66030b, H, null, 0);
+            n.n().a(2, iVar.S(), fVar.f66716b, H, null, 0);
         }
         return a2;
     }
@@ -91,11 +91,11 @@ public class l {
     }
 
     public static d.o.a.b.a.c.b c(c.f fVar, int i2) {
-        d.o.a.b.a.c.b bVar = new d.o.a.b.a.c.b(fVar.f66030b, fVar.f66031c, fVar.f66032d, i2);
+        d.o.a.b.a.c.b bVar = new d.o.a.b.a.c.b(fVar.f66716b, fVar.f66717c, fVar.f66718d, i2);
         boolean z = true;
         if (d.o.a.e.b.j.a.d(i2).b("download_event_opt", 1) > 1) {
             try {
-                String v = fVar.f66030b.v();
+                String v = fVar.f66716b.v();
                 if (!TextUtils.isEmpty(v)) {
                     if (n.a().getPackageManager().getPackageInfo(v, 0) == null) {
                         z = false;
@@ -198,19 +198,19 @@ public class l {
                             case 1:
                             case 2:
                             case 3:
-                                if (d.o.a.e.a.c.b(optJSONObject, aVar).f66287b == 0) {
+                                if (d.o.a.e.a.c.b(optJSONObject, aVar).f66973b == 0) {
                                     break;
                                 } else {
                                     continue;
                                 }
                             case 4:
-                                if (d.o.a.e.a.c.H(optJSONObject).f66287b == 0) {
+                                if (d.o.a.e.a.c.H(optJSONObject).f66973b == 0) {
                                     break;
                                 } else {
                                     continue;
                                 }
                             case 5:
-                                if (d.o.a.e.a.c.z(optJSONObject, aVar).f66287b == 0) {
+                                if (d.o.a.e.a.c.z(optJSONObject, aVar).f66973b == 0) {
                                     break;
                                 } else {
                                     continue;

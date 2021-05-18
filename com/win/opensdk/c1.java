@@ -3,25 +3,25 @@ package com.win.opensdk;
 import android.content.Context;
 import android.text.TextUtils;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static c1 f37849a;
+    public static c1 f37094a;
 
     public static c1 a() {
-        if (f37849a == null) {
+        if (f37094a == null) {
             synchronized (c1.class) {
-                if (f37849a == null) {
-                    f37849a = new c1();
+                if (f37094a == null) {
+                    f37094a = new c1();
                 }
             }
         }
-        return f37849a;
+        return f37094a;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0053, code lost:
-        if (((r6 / 60) / 60) >= r10.f37630a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L7;
+        if (((r6 / 60) / 60) >= r10.f36875a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L7;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -36,7 +36,7 @@ public class c1 {
         }
         u1.a(new b1(this, context));
         D0 a2 = D0.a(context);
-        long h2 = s1.h(a2.f37630a);
+        long h2 = s1.h(a2.f36875a);
         boolean z = true;
         if (h2 > 0) {
             try {
@@ -50,7 +50,7 @@ public class c1 {
             }
         }
         if (z) {
-            a2.f37631b = System.currentTimeMillis();
+            a2.f36876b = System.currentTimeMillis();
             u1.a(new C0(a2));
         }
         z.c(context);

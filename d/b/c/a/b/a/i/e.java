@@ -12,14 +12,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f64742a = a();
+    public static final e f65428a = a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Logger f64743b = Logger.getLogger(y.class.getName());
+    public static final Logger f65429b = Logger.getLogger(y.class.getName());
 
     public static e a() {
         e a2 = a.a();
@@ -47,7 +47,7 @@ public class e {
     }
 
     public static e j() {
-        return f64742a;
+        return f65428a;
     }
 
     public static byte[] n(List<w> list) {
@@ -68,7 +68,7 @@ public class e {
     }
 
     public Object c(String str) {
-        if (f64743b.isLoggable(Level.FINE)) {
+        if (f65429b.isLoggable(Level.FINE)) {
             return new Throwable(str);
         }
         return null;
@@ -79,7 +79,7 @@ public class e {
     }
 
     public void f(int i2, String str, Throwable th) {
-        f64743b.log(i2 == 5 ? Level.WARNING : Level.INFO, str, th);
+        f65429b.log(i2 == 5 ? Level.WARNING : Level.INFO, str, th);
     }
 
     public void g(String str, Object obj) {

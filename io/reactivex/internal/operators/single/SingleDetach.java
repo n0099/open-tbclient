@@ -16,7 +16,7 @@ public final class SingleDetach<T> extends Single<T> {
         public SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68294d;
+        public Disposable f68974d;
 
         public DetachSingleObserver(SingleObserver<? super T> singleObserver) {
             this.actual = singleObserver;
@@ -25,18 +25,18 @@ public final class SingleDetach<T> extends Single<T> {
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             this.actual = null;
-            this.f68294d.dispose();
-            this.f68294d = DisposableHelper.DISPOSED;
+            this.f68974d.dispose();
+            this.f68974d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68294d.isDisposed();
+            return this.f68974d.isDisposed();
         }
 
         @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
-            this.f68294d = DisposableHelper.DISPOSED;
+            this.f68974d = DisposableHelper.DISPOSED;
             SingleObserver<? super T> singleObserver = this.actual;
             if (singleObserver != null) {
                 this.actual = null;
@@ -46,15 +46,15 @@ public final class SingleDetach<T> extends Single<T> {
 
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68294d, disposable)) {
-                this.f68294d = disposable;
+            if (DisposableHelper.validate(this.f68974d, disposable)) {
+                this.f68974d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
 
         @Override // io.reactivex.SingleObserver
         public void onSuccess(T t) {
-            this.f68294d = DisposableHelper.DISPOSED;
+            this.f68974d = DisposableHelper.DISPOSED;
             SingleObserver<? super T> singleObserver = this.actual;
             if (singleObserver != null) {
                 this.actual = null;

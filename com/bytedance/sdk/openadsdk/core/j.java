@@ -4,53 +4,53 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import com.bytedance.sdk.openadsdk.utils.ak;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f28998a;
+    public final Context f28243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.core.d.l f28999b;
+    public final com.bytedance.sdk.openadsdk.core.d.l f28244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a f29000c;
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a f28245c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.nativeexpress.e f29001d;
+    public com.bytedance.sdk.openadsdk.core.nativeexpress.e f28246d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.nativeexpress.d f29002e;
+    public com.bytedance.sdk.openadsdk.core.nativeexpress.d f28247e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f29003f;
+    public View f28248f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f29004g;
+    public String f28249g;
 
     public j(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, View view, String str) {
-        this.f29004g = "rewarded_video";
-        this.f28999b = lVar;
-        this.f28998a = context;
-        this.f29003f = view;
+        this.f28249g = "rewarded_video";
+        this.f28244b = lVar;
+        this.f28243a = context;
+        this.f28248f = view;
         if (TextUtils.isEmpty(str)) {
-            this.f29004g = ak.b(ak.c(lVar.ap()));
+            this.f28249g = ak.b(ak.c(lVar.ap()));
         } else {
-            this.f29004g = str;
+            this.f28249g = str;
         }
-        if (this.f28999b.Z() == 4) {
-            this.f29000c = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f28998a, this.f28999b, this.f29004g);
+        if (this.f28244b.Z() == 4) {
+            this.f28245c = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f28243a, this.f28244b, this.f28249g);
         }
-        String str2 = this.f29004g;
+        String str2 = this.f28249g;
         com.bytedance.sdk.openadsdk.core.nativeexpress.e eVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.e(context, lVar, str2, ak.a(str2));
-        this.f29001d = eVar;
-        eVar.a(this.f29003f);
-        this.f29001d.a(this.f29000c);
-        String str3 = this.f29004g;
+        this.f28246d = eVar;
+        eVar.a(this.f28248f);
+        this.f28246d.a(this.f28245c);
+        String str3 = this.f28249g;
         com.bytedance.sdk.openadsdk.core.nativeexpress.d dVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.d(context, lVar, str3, ak.a(str3));
-        this.f29002e = dVar;
-        dVar.a(this.f29003f);
-        this.f29002e.a(this.f29000c);
+        this.f28247e = dVar;
+        dVar.a(this.f28248f);
+        this.f28247e.a(this.f28245c);
     }
 
     public void a(int i2, com.bytedance.sdk.openadsdk.core.d.j jVar) {
@@ -58,22 +58,22 @@ public class j {
         if (i2 == -1 || jVar == null) {
             return;
         }
-        int i3 = jVar.f28697a;
-        int i4 = jVar.f28698b;
-        int i5 = jVar.f28699c;
-        int i6 = jVar.f28700d;
+        int i3 = jVar.f27942a;
+        int i4 = jVar.f27943b;
+        int i5 = jVar.f27944c;
+        int i6 = jVar.f27945d;
         if (i2 != 1) {
-            if (i2 == 2 && (dVar = this.f29002e) != null) {
+            if (i2 == 2 && (dVar = this.f28247e) != null) {
                 dVar.a(jVar);
-                this.f29002e.a(this.f29003f, i3, i4, i5, i6);
+                this.f28247e.a(this.f28248f, i3, i4, i5, i6);
                 return;
             }
             return;
         }
-        com.bytedance.sdk.openadsdk.core.nativeexpress.e eVar = this.f29001d;
+        com.bytedance.sdk.openadsdk.core.nativeexpress.e eVar = this.f28246d;
         if (eVar != null) {
             eVar.a(jVar);
-            this.f29001d.a(this.f29003f, i3, i4, i5, i6);
+            this.f28246d.a(this.f28248f, i3, i4, i5, i6);
         }
     }
 }

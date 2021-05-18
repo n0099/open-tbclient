@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import d.a.j0.l;
+import d.a.k0.l;
 /* loaded from: classes5.dex */
 public class AsInstallService extends BdBaseService {
     public static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
@@ -94,7 +94,7 @@ public class AsInstallService extends BdBaseService {
         }
         this.mReceiver = new b(this, null);
         IntentFilter intentFilter = new IntentFilter(PackageChangedReceiver.ACTION_INSTALL);
-        intentFilter.addDataScheme("package");
+        intentFilter.addDataScheme(SCHEME_PACKAGE_ADDED);
         registerReceiver(this.mReceiver, intentFilter);
         Handler handler = new Handler();
         this.mHandler = handler;

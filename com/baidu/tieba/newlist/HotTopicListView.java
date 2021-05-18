@@ -25,11 +25,11 @@ import com.google.android.material.appbar.AppBarLayout;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.j.e.n;
-import d.a.i0.d0.g;
-import d.a.i0.d0.h;
+import d.a.j0.d0.g;
+import d.a.j0.d0.h;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotTopicListView extends RelativeLayout {
     public static int F = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds250);
     public boolean A;
@@ -39,19 +39,19 @@ public class HotTopicListView extends RelativeLayout {
     public PullRefreshFrameLayout.h E;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19515e;
+    public int f18803e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f19516f;
+    public TbPageContext<?> f18804f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.j0.a2.b f19517g;
+    public d.a.k0.a2.b f18805g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f19518h;
+    public View f18806h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NavigationBar f19519i;
+    public NavigationBar f18807i;
     public ViewGroup j;
     public PullRefreshFrameLayout k;
     public AppBarLayout l;
@@ -60,7 +60,7 @@ public class HotTopicListView extends RelativeLayout {
     public ImageView o;
     public View p;
     public BdTypeRecyclerView q;
-    public d.a.j0.a2.c.a r;
+    public d.a.k0.a2.c.a r;
     public ViewGroup s;
     public int t;
     public int u;
@@ -70,7 +70,7 @@ public class HotTopicListView extends RelativeLayout {
     public boolean y;
     public ValueAnimator z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements AppBarLayout.OnOffsetChangedListener {
         public a() {
         }
@@ -81,61 +81,61 @@ public class HotTopicListView extends RelativeLayout {
                 HotTopicListView.this.k.setInterceptScrollDown(i2 == 0);
             }
             if (i2 + HotTopicListView.F < 0) {
-                HotTopicListView.this.f19518h.setVisibility(0);
-                HotTopicListView.this.f19519i.setCenterTextTitle(HotTopicListView.this.f19519i.getContext().getString(R.string.hot_topic_rank_list_head));
+                HotTopicListView.this.f18806h.setVisibility(0);
+                HotTopicListView.this.f18807i.setCenterTextTitle(HotTopicListView.this.f18807i.getContext().getString(R.string.hot_topic_rank_list_head));
                 return;
             }
-            HotTopicListView.this.f19518h.setVisibility(8);
-            HotTopicListView.this.f19519i.setCenterTextTitle(null);
+            HotTopicListView.this.f18806h.setVisibility(8);
+            HotTopicListView.this.f18807i.setCenterTextTitle(null);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements PullRefreshFrameLayout.i {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements ValueAnimator.AnimatorUpdateListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f19522e;
+            public final /* synthetic */ int f18810e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f19523f;
+            public final /* synthetic */ int f18811f;
 
             public a(int i2, int i3) {
-                this.f19522e = i2;
-                this.f19523f = i3;
+                this.f18810e = i2;
+                this.f18811f = i3;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                HotTopicListView.this.setHeight((int) (this.f19522e - (valueAnimator.getAnimatedFraction() * this.f19523f)));
+                HotTopicListView.this.setHeight((int) (this.f18810e - (valueAnimator.getAnimatedFraction() * this.f18811f)));
             }
         }
 
         /* renamed from: com.baidu.tieba.newlist.HotTopicListView$b$b  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0208b implements ValueAnimator.AnimatorUpdateListener {
+        /* loaded from: classes4.dex */
+        public class C0195b implements ValueAnimator.AnimatorUpdateListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f19525e;
+            public final /* synthetic */ int f18813e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f19526f;
+            public final /* synthetic */ int f18814f;
 
-            public C0208b(int i2, int i3) {
-                this.f19525e = i2;
-                this.f19526f = i3;
+            public C0195b(int i2, int i3) {
+                this.f18813e = i2;
+                this.f18814f = i3;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 int i2;
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (HotTopicListView.this.m == null || (i2 = this.f19525e) <= 0) {
+                if (HotTopicListView.this.m == null || (i2 = this.f18813e) <= 0) {
                     return;
                 }
-                HotTopicListView.this.setHeight((int) (i2 - (floatValue * this.f19526f)));
+                HotTopicListView.this.setHeight((int) (i2 - (floatValue * this.f18814f)));
             }
         }
 
@@ -148,7 +148,7 @@ public class HotTopicListView extends RelativeLayout {
             if (i2 > 0) {
                 HotTopicListView.this.z = ValueAnimator.ofFloat(0.0f, 1.0f);
                 HotTopicListView.this.z.setDuration(300L);
-                HotTopicListView.this.z.addUpdateListener(new C0208b(HotTopicListView.this.t, i2));
+                HotTopicListView.this.z.addUpdateListener(new C0195b(HotTopicListView.this.t, i2));
                 HotTopicListView.this.z.start();
             }
         }
@@ -167,7 +167,7 @@ public class HotTopicListView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements Runnable {
         public c() {
         }
@@ -180,7 +180,7 @@ public class HotTopicListView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements PullRefreshFrameLayout.h {
         public d() {
         }
@@ -191,7 +191,7 @@ public class HotTopicListView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements Runnable {
         public e() {
         }
@@ -206,31 +206,31 @@ public class HotTopicListView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements View.OnClickListener {
         public f() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!j.A() || HotTopicListView.this.f19517g == null) {
+            if (!j.A() || HotTopicListView.this.f18805g == null) {
                 return;
             }
-            HotTopicListView.this.f19517g.loadData();
+            HotTopicListView.this.f18805g.loadData();
         }
     }
 
-    public HotTopicListView(TbPageContext<?> tbPageContext, d.a.j0.a2.b bVar, Bundle bundle) {
+    public HotTopicListView(TbPageContext<?> tbPageContext, d.a.k0.a2.b bVar, Bundle bundle) {
         super(tbPageContext.getPageActivity());
-        this.f19515e = 3;
+        this.f18803e = 3;
         this.y = false;
         this.A = false;
         this.B = new a();
         this.C = new b();
         this.D = new c();
         this.E = new d();
-        this.f19516f = tbPageContext;
-        this.f19517g = bVar;
+        this.f18804f = tbPageContext;
+        this.f18805g = bVar;
         t(bundle);
         v();
     }
@@ -286,7 +286,7 @@ public class HotTopicListView extends RelativeLayout {
     public final void q() {
         d.a.c.e.m.e.a().postDelayed(this.D, 5000L);
         this.y = true;
-        this.f19517g.loadData();
+        this.f18805g.loadData();
     }
 
     public void r() {
@@ -312,9 +312,9 @@ public class HotTopicListView extends RelativeLayout {
 
     public final void t(Bundle bundle) {
         LayoutInflater.from(getContext()).inflate(R.layout.activity_hot_topic_list_layout, (ViewGroup) this, true);
-        this.f19518h = findViewById(R.id.topBgView);
+        this.f18806h = findViewById(R.id.topBgView);
         NavigationBar navigationBar = (NavigationBar) findViewById(R.id.viewNavigationBar);
-        this.f19519i = navigationBar;
+        this.f18807i = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.p = findViewById(R.id.header_round_corner_layout);
         this.m = findViewById(R.id.headerContainerLayout);
@@ -338,14 +338,14 @@ public class HotTopicListView extends RelativeLayout {
         this.q.setFadingEdgeLength(0);
         this.q.setOverScrollMode(2);
         this.q.setPadding(0, l.g(getContext(), R.dimen.tbds16), 0, l.g(getContext(), R.dimen.tbds16));
-        this.r = new d.a.j0.a2.c.a(this.f19516f, this.q);
+        this.r = new d.a.k0.a2.c.a(this.f18804f, this.q);
         this.s = (ViewGroup) findViewById(R.id.contentContainer);
         View findViewById = findViewById(R.id.statusBarViewHolder);
         ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
         layoutParams.height = UtilHelper.getStatusBarHeight();
         findViewById.setLayoutParams(layoutParams);
         this.j = (ViewGroup) findViewById(R.id.contentRootLayout);
-        PbListView pbListView = new PbListView(this.f19516f.getPageActivity());
+        PbListView pbListView = new PbListView(this.f18804f.getPageActivity());
         this.v = pbListView;
         pbListView.a();
         this.v.o(R.color.CAM_X0205);
@@ -356,9 +356,9 @@ public class HotTopicListView extends RelativeLayout {
             return;
         }
         this.A = true;
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f19519i.findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SkinManager.setViewTextColor(this.f19519i.getCenterText(), R.color.CAM_X0101);
-        d.a.j0.a2.b bVar = this.f19517g;
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f18807i.findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SkinManager.setViewTextColor(this.f18807i.getCenterText(), R.color.CAM_X0101);
+        d.a.k0.a2.b bVar = this.f18805g;
         if (bVar instanceof Activity) {
             UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) bVar);
         }
@@ -366,10 +366,10 @@ public class HotTopicListView extends RelativeLayout {
 
     public void v() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f19515e) {
+        if (skinType == this.f18803e) {
             return;
         }
-        SkinManager.setBackgroundColor(this.f19518h, R.color.pic_huati_toplist_base_color);
+        SkinManager.setBackgroundColor(this.f18806h, R.color.pic_huati_toplist_base_color);
         SkinManager.setImageResource(this.n, R.drawable.pic_huati_toplist_base);
         SkinManager.setImageResource(this.o, R.drawable.pic_huati_toplist_upper);
         SkinManager.setBackgroundResource(this.p, R.drawable.bg_header_round_corner);
@@ -379,7 +379,7 @@ public class HotTopicListView extends RelativeLayout {
             this.v.o(R.color.CAM_X0205);
         }
         this.r.b();
-        this.f19515e = skinType;
+        this.f18803e = skinType;
     }
 
     public void w() {
@@ -418,7 +418,7 @@ public class HotTopicListView extends RelativeLayout {
                 this.x = new h(getContext(), new f());
             }
             this.m.setVisibility(8);
-            this.x.j(this.f19516f.getResources().getDimensionPixelSize(R.dimen.ds360));
+            this.x.j(this.f18804f.getResources().getDimensionPixelSize(R.dimen.ds360));
             this.x.attachView(this.j, z);
             this.x.o();
         }

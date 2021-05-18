@@ -8,15 +8,15 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CopyOnWriteArrayList<IRLogDelegate> f66993a = new CopyOnWriteArrayList<>();
+    public static CopyOnWriteArrayList<IRLogDelegate> f67679a = new CopyOnWriteArrayList<>();
 
     public static void a(IRLogDelegate iRLogDelegate) {
-        f66993a.add(iRLogDelegate);
+        f67679a.add(iRLogDelegate);
     }
 
     public static void b(Object obj, String str) {
-        if (!f66993a.isEmpty()) {
-            Iterator<IRLogDelegate> it = f66993a.iterator();
+        if (!f67679a.isEmpty()) {
+            Iterator<IRLogDelegate> it = f67679a.iterator();
             while (it.hasNext()) {
                 it.next().debug(obj, str);
             }
@@ -32,8 +32,8 @@ public class d {
     }
 
     public static void c(Object obj, String str, Object... objArr) {
-        if (!f66993a.isEmpty()) {
-            Iterator<IRLogDelegate> it = f66993a.iterator();
+        if (!f67679a.isEmpty()) {
+            Iterator<IRLogDelegate> it = f67679a.iterator();
             while (it.hasNext()) {
                 it.next().debug(obj, str, objArr);
             }
@@ -52,8 +52,8 @@ public class d {
     }
 
     public static void d(Object obj, String str, Throwable th) {
-        if (!f66993a.isEmpty()) {
-            Iterator<IRLogDelegate> it = f66993a.iterator();
+        if (!f67679a.isEmpty()) {
+            Iterator<IRLogDelegate> it = f67679a.iterator();
             while (it.hasNext()) {
                 it.next().error(obj, str, th);
             }
@@ -68,8 +68,8 @@ public class d {
     }
 
     public static void e(Object obj, String str, Object... objArr) {
-        if (!f66993a.isEmpty()) {
-            Iterator<IRLogDelegate> it = f66993a.iterator();
+        if (!f67679a.isEmpty()) {
+            Iterator<IRLogDelegate> it = f67679a.iterator();
             while (it.hasNext()) {
                 it.next().error(obj, str, objArr);
             }
@@ -86,8 +86,8 @@ public class d {
     }
 
     public static void f(Object obj, String str) {
-        if (!f66993a.isEmpty()) {
-            Iterator<IRLogDelegate> it = f66993a.iterator();
+        if (!f67679a.isEmpty()) {
+            Iterator<IRLogDelegate> it = f67679a.iterator();
             while (it.hasNext()) {
                 it.next().info(obj, str);
             }
@@ -97,8 +97,8 @@ public class d {
     }
 
     public static void g(Object obj, String str, Object... objArr) {
-        if (!f66993a.isEmpty()) {
-            Iterator<IRLogDelegate> it = f66993a.iterator();
+        if (!f67679a.isEmpty()) {
+            Iterator<IRLogDelegate> it = f67679a.iterator();
             while (it.hasNext()) {
                 it.next().info(obj, str, objArr);
             }
@@ -111,8 +111,8 @@ public class d {
     }
 
     public static void h(Object obj, String str) {
-        if (!f66993a.isEmpty()) {
-            Iterator<IRLogDelegate> it = f66993a.iterator();
+        if (!f67679a.isEmpty()) {
+            Iterator<IRLogDelegate> it = f67679a.iterator();
             while (it.hasNext()) {
                 it.next().warn(obj, str);
             }

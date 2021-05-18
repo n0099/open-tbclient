@@ -4,15 +4,13 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import d.a.h0.a.k;
-import d.a.h0.e.a.l.i.c;
+import d.a.i0.f.i.k.f.d;
 /* loaded from: classes3.dex */
 public class AdDownloadService extends Service {
     public a mBinder = new a();
-    public c mDownloadManager;
+    public d mDownloadManager;
 
     /* loaded from: classes3.dex */
     public class a extends Binder {
@@ -20,22 +18,37 @@ public class AdDownloadService extends Service {
         }
 
         public void a(DownloadInfo downloadInfo) {
+            if (downloadInfo == null || AdDownloadService.this.mDownloadManager == null) {
+                return;
+            }
             AdDownloadService.this.mDownloadManager.b(downloadInfo);
         }
 
         public DownloadInfo b(String str) {
-            return AdDownloadService.this.mDownloadManager.g(str);
+            if (AdDownloadService.this.mDownloadManager != null) {
+                return AdDownloadService.this.mDownloadManager.g(str);
+            }
+            return null;
         }
 
         public void c(DownloadInfo downloadInfo) {
+            if (downloadInfo == null || AdDownloadService.this.mDownloadManager == null) {
+                return;
+            }
             AdDownloadService.this.mDownloadManager.d(downloadInfo);
         }
 
         public void d(DownloadInfo downloadInfo) {
+            if (downloadInfo == null || AdDownloadService.this.mDownloadManager == null) {
+                return;
+            }
             AdDownloadService.this.mDownloadManager.a(downloadInfo);
         }
 
         public void e(DownloadInfo downloadInfo) {
+            if (downloadInfo == null || AdDownloadService.this.mDownloadManager == null) {
+                return;
+            }
             AdDownloadService.this.mDownloadManager.c(downloadInfo);
         }
     }
@@ -47,18 +60,15 @@ public class AdDownloadService extends Service {
 
     @Override // android.app.Service
     public void onCreate() {
-        if (k.f43101a) {
-            Log.d("AdDownload", "service create");
-        }
-        this.mDownloadManager = d.a.h0.e.a.l.g.a.m(AppRuntime.getAppContext(), null);
+        this.mDownloadManager = d.a.i0.f.i.k.d.a.m(AppRuntime.getAppContext(), null);
         super.onCreate();
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        c cVar = this.mDownloadManager;
-        if (cVar != null) {
-            cVar.destroy();
+        d dVar = this.mDownloadManager;
+        if (dVar != null) {
+            dVar.destroy();
             this.mDownloadManager = null;
         }
         super.onDestroy();

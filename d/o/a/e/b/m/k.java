@@ -6,20 +6,20 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class k implements d.o.a.e.b.g.j {
 
     /* renamed from: e  reason: collision with root package name */
-    public final SparseArray<DownloadInfo> f66671e = new SparseArray<>();
+    public final SparseArray<DownloadInfo> f67357e = new SparseArray<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f66672f = new SparseArray<>();
+    public final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f67358f = new SparseArray<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseArray<Map<Long, d.o.a.e.b.i.i>> f66673g = new SparseArray<>();
+    public final SparseArray<Map<Long, d.o.a.e.b.i.i>> f67359g = new SparseArray<>();
 
     public SparseArray<DownloadInfo> a() {
-        return this.f66671e;
+        return this.f67357e;
     }
 
     @Override // d.o.a.e.b.g.j
@@ -29,9 +29,9 @@ public class k implements d.o.a.e.b.g.j {
     @Override // d.o.a.e.b.g.j
     public DownloadInfo b(int i2) {
         DownloadInfo downloadInfo;
-        synchronized (this.f66671e) {
+        synchronized (this.f67357e) {
             try {
-                downloadInfo = this.f66671e.get(i2);
+                downloadInfo = this.f67357e.get(i2);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 downloadInfo = null;
@@ -53,13 +53,13 @@ public class k implements d.o.a.e.b.g.j {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f66671e) {
-            if (this.f66671e.size() == 0) {
+        synchronized (this.f67357e) {
+            if (this.f67357e.size() == 0) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < this.f66671e.size(); i2++) {
-                DownloadInfo downloadInfo = this.f66671e.get(this.f66671e.keyAt(i2));
+            for (int i2 = 0; i2 < this.f67357e.size(); i2++) {
+                DownloadInfo downloadInfo = this.f67357e.get(this.f67357e.keyAt(i2));
                 if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.m0()) && downloadInfo.m0().equals(str) && downloadInfo.H0() == -3) {
                     arrayList.add(downloadInfo);
                 }
@@ -78,13 +78,13 @@ public class k implements d.o.a.e.b.g.j {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f66671e) {
-            if (this.f66671e.size() == 0) {
+        synchronized (this.f67357e) {
+            if (this.f67357e.size() == 0) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < this.f66671e.size(); i2++) {
-                DownloadInfo downloadInfo = this.f66671e.get(this.f66671e.keyAt(i2));
+            for (int i2 = 0; i2 < this.f67357e.size(); i2++) {
+                DownloadInfo downloadInfo = this.f67357e.get(this.f67357e.keyAt(i2));
                 if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.m0()) && downloadInfo.m0().equals(str) && d.o.a.e.b.d.a.g(downloadInfo.H0())) {
                     arrayList.add(downloadInfo);
                 }
@@ -99,7 +99,7 @@ public class k implements d.o.a.e.b.g.j {
     }
 
     public SparseArray<List<com.ss.android.socialbase.downloader.model.b>> e() {
-        return this.f66672f;
+        return this.f67358f;
     }
 
     @Override // d.o.a.e.b.g.j
@@ -149,17 +149,17 @@ public class k implements d.o.a.e.b.g.j {
 
     @Override // d.o.a.e.b.g.j
     public Map<Long, d.o.a.e.b.i.i> l(int i2) {
-        return this.f66673g.get(i2);
+        return this.f67359g.get(i2);
     }
 
     @Override // d.o.a.e.b.g.j
     public void m(int i2) {
-        this.f66673g.remove(i2);
+        this.f67359g.remove(i2);
     }
 
     @Override // d.o.a.e.b.g.j
     public List<d.o.a.e.b.i.i> n(int i2) {
-        Map<Long, d.o.a.e.b.i.i> map = this.f66673g.get(i2);
+        Map<Long, d.o.a.e.b.i.i> map = this.f67359g.get(i2);
         if (map == null || map.isEmpty()) {
             return null;
         }
@@ -169,11 +169,11 @@ public class k implements d.o.a.e.b.g.j {
     @Override // d.o.a.e.b.g.j
     public List<DownloadInfo> a(String str) {
         ArrayList arrayList = new ArrayList();
-        synchronized (this.f66671e) {
+        synchronized (this.f67357e) {
             try {
-                int size = this.f66671e.size();
+                int size = this.f67357e.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    DownloadInfo valueAt = this.f66671e.valueAt(i2);
+                    DownloadInfo valueAt = this.f67357e.valueAt(i2);
                     if (str != null && str.equals(valueAt.T0())) {
                         arrayList.add(valueAt);
                     }
@@ -187,8 +187,8 @@ public class k implements d.o.a.e.b.g.j {
 
     @Override // d.o.a.e.b.g.j
     public boolean e(int i2) {
-        synchronized (this.f66671e) {
-            this.f66671e.remove(i2);
+        synchronized (this.f67357e) {
+            this.f67357e.remove(i2);
         }
         return true;
     }
@@ -198,13 +198,13 @@ public class k implements d.o.a.e.b.g.j {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f66671e) {
-            if (this.f66671e.size() == 0) {
+        synchronized (this.f67357e) {
+            if (this.f67357e.size() == 0) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < this.f66671e.size(); i2++) {
-                DownloadInfo downloadInfo = this.f66671e.get(this.f66671e.keyAt(i2));
+            for (int i2 = 0; i2 < this.f67357e.size(); i2++) {
+                DownloadInfo downloadInfo = this.f67357e.get(this.f67357e.keyAt(i2));
                 if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.m0()) && downloadInfo.m0().equals(str) && d.o.a.e.b.d.a.c(downloadInfo.H0())) {
                     arrayList.add(downloadInfo);
                 }
@@ -216,22 +216,22 @@ public class k implements d.o.a.e.b.g.j {
     @Override // d.o.a.e.b.g.j
     public synchronized void a(com.ss.android.socialbase.downloader.model.b bVar) {
         int x = bVar.x();
-        List<com.ss.android.socialbase.downloader.model.b> list = this.f66672f.get(x);
+        List<com.ss.android.socialbase.downloader.model.b> list = this.f67358f.get(x);
         if (list == null) {
             list = new ArrayList<>();
-            this.f66672f.put(x, list);
+            this.f67358f.put(x, list);
         }
         list.add(bVar);
     }
 
     @Override // d.o.a.e.b.g.j
     public List<com.ss.android.socialbase.downloader.model.b> c(int i2) {
-        return this.f66672f.get(i2);
+        return this.f67358f.get(i2);
     }
 
     @Override // d.o.a.e.b.g.j
     public synchronized void d(int i2) {
-        this.f66672f.remove(i2);
+        this.f67358f.remove(i2);
     }
 
     @Override // d.o.a.e.b.g.j
@@ -294,9 +294,9 @@ public class k implements d.o.a.e.b.g.j {
 
     @Override // d.o.a.e.b.g.j
     public void b() {
-        synchronized (this.f66671e) {
-            this.f66671e.clear();
-            this.f66672f.clear();
+        synchronized (this.f67357e) {
+            this.f67357e.clear();
+            this.f67358f.clear();
         }
     }
 
@@ -331,11 +331,11 @@ public class k implements d.o.a.e.b.g.j {
         if (downloadInfo == null) {
             return true;
         }
-        synchronized (this.f66671e) {
-            if (this.f66671e.get(downloadInfo.c0()) == null) {
+        synchronized (this.f67357e) {
+            if (this.f67357e.get(downloadInfo.c0()) == null) {
                 z = false;
             }
-            this.f66671e.put(downloadInfo.c0(), downloadInfo);
+            this.f67357e.put(downloadInfo.c0(), downloadInfo);
         }
         return z;
     }
@@ -386,7 +386,7 @@ public class k implements d.o.a.e.b.g.j {
 
     @Override // d.o.a.e.b.g.j
     public boolean a(int i2, Map<Long, d.o.a.e.b.i.i> map) {
-        this.f66673g.put(i2, map);
+        this.f67359g.put(i2, map);
         return false;
     }
 }

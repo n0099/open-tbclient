@@ -1,5 +1,6 @@
 package io.reactivex;
 
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import io.reactivex.annotations.BackpressureKind;
 import io.reactivex.annotations.BackpressureSupport;
@@ -1690,7 +1691,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @CheckReturnValue
     public static <T> Observable<T> switchOnNextDelayError(ObservableSource<? extends ObservableSource<? extends T>> observableSource, int i2) {
         ObjectHelper.requireNonNull(observableSource, "sources is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ObservableSwitchMap(observableSource, Functions.identity(), i2, true));
     }
 
@@ -1733,7 +1734,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @CheckReturnValue
     public final <R> Observable<R> concatMap(Function<? super T, ? extends ObservableSource<? extends R>> function, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         if (this instanceof ScalarCallable) {
             Object call = ((ScalarCallable) this).call();
             if (call == null) {
@@ -1764,7 +1765,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @CheckReturnValue
     public final <R> Observable<R> concatMapDelayError(Function<? super T, ? extends ObservableSource<? extends R>> function, int i2, boolean z) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         if (this instanceof ScalarCallable) {
             Object call = ((ScalarCallable) this).call();
             if (call == null) {
@@ -1780,7 +1781,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     public final <R> Observable<R> concatMapEager(Function<? super T, ? extends ObservableSource<? extends R>> function, int i2, int i3) {
         ObjectHelper.requireNonNull(function, "mapper is null");
         ObjectHelper.verifyPositive(i2, "maxConcurrency");
-        ObjectHelper.verifyPositive(i3, "prefetch");
+        ObjectHelper.verifyPositive(i3, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ObservableConcatMapEager(this, function, ErrorMode.IMMEDIATE, i2, i3));
     }
 
@@ -1789,7 +1790,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     public final <R> Observable<R> concatMapEagerDelayError(Function<? super T, ? extends ObservableSource<? extends R>> function, int i2, int i3, boolean z) {
         ObjectHelper.requireNonNull(function, "mapper is null");
         ObjectHelper.verifyPositive(i2, "maxConcurrency");
-        ObjectHelper.verifyPositive(i3, "prefetch");
+        ObjectHelper.verifyPositive(i3, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ObservableConcatMapEager(this, function, z ? ErrorMode.END : ErrorMode.BOUNDARY, i2, i3));
     }
 
@@ -1798,7 +1799,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @Experimental
     public final <R> Observable<R> concatMapMaybe(Function<? super T, ? extends MaybeSource<? extends R>> function, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ObservableConcatMapMaybe(this, function, ErrorMode.IMMEDIATE, i2));
     }
 
@@ -1814,7 +1815,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @Experimental
     public final <R> Observable<R> concatMapSingle(Function<? super T, ? extends SingleSource<? extends R>> function, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ObservableConcatMapSingle(this, function, ErrorMode.IMMEDIATE, i2));
     }
 
@@ -2134,7 +2135,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @Experimental
     public final Completable concatMapCompletableDelayError(Function<? super T, ? extends CompletableSource> function, boolean z, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ObservableConcatMapCompletable(this, function, z ? ErrorMode.END : ErrorMode.BOUNDARY, i2));
     }
 
@@ -2142,7 +2143,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @CheckReturnValue
     public final <U> Observable<U> concatMapIterable(Function<? super T, ? extends Iterable<? extends U>> function, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return (Observable<U>) concatMap(ObservableInternalHelper.flatMapIntoIterable(function), i2);
     }
 
@@ -2151,7 +2152,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @Experimental
     public final <R> Observable<R> concatMapMaybeDelayError(Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ObservableConcatMapMaybe(this, function, z ? ErrorMode.END : ErrorMode.BOUNDARY, i2));
     }
 
@@ -2160,7 +2161,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @Experimental
     public final <R> Observable<R> concatMapSingleDelayError(Function<? super T, ? extends SingleSource<? extends R>> function, boolean z, int i2) {
         ObjectHelper.requireNonNull(function, "mapper is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ObservableConcatMapSingle(this, function, z ? ErrorMode.END : ErrorMode.BOUNDARY, i2));
     }
 
@@ -2356,7 +2357,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @CheckReturnValue
     public static <T> Observable<T> concat(ObservableSource<? extends ObservableSource<? extends T>> observableSource, int i2) {
         ObjectHelper.requireNonNull(observableSource, "sources is null");
-        ObjectHelper.verifyPositive(i2, "prefetch");
+        ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
         return RxJavaPlugins.onAssembly(new ObservableConcatMap(observableSource, Functions.identity(), i2, ErrorMode.IMMEDIATE));
     }
 

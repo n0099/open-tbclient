@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class BuilderAdapter<B extends Message.Builder> {
     public static final Comparator<Field> ORDER_BY_FIELD_NAME = new Comparator<Field>() { // from class: com.squareup.wire.BuilderAdapter.1
         /* JADX DEBUG: Method merged with bridge method */

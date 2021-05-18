@@ -1,6 +1,8 @@
 package com.baidu.webkit.logsdk.upload;
 
+import com.baidu.webkit.internal.RC4;
 import com.baidu.webkit.logsdk.d;
+import com.baidu.webkit.logsdk.d.c;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
@@ -22,7 +24,7 @@ public class BdLogNetRequest implements INetListener {
     }
 
     public static void requestConfig(String str, d dVar) {
-        com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "requestConfig, url1: " + str);
+        c.e("BdLogSDK", "requestConfig, url1: ".concat(String.valueOf(str)));
         BdNet bdNet = new BdNet(WebKitFactory.getContext());
         bdNet.setEventListener(new BdLogNetRequest(dVar, true));
         BdNetTask bdNetTask = new BdNetTask();
@@ -33,7 +35,7 @@ public class BdLogNetRequest implements INetListener {
 
     public static void uploadLog(String str, JSONObject jSONObject, File file, d dVar) {
         byte[] bytes = jSONObject.toString().getBytes();
-        com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "uploadLog " + jSONObject.toString());
+        c.e("BdLogSDK", "uploadLog " + jSONObject.toString());
         try {
             HashMap hashMap = new HashMap();
             BdNet bdNet = new BdNet(WebKitFactory.getContext());
@@ -47,7 +49,7 @@ public class BdLogNetRequest implements INetListener {
                 hashMap.put("Kernel-Status", "0");
             }
             bdNetTask.setHeaders(hashMap);
-            bdNetTask.setContent(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(bytes)));
+            bdNetTask.setContent(RC4.kernelEncrypt(RC4.kernelGzipCompress(bytes)));
             bdNet.start(bdNetTask, false);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -57,18 +59,18 @@ public class BdLogNetRequest implements INetListener {
 
     @Override // com.baidu.webkit.net.INetListener
     public void onNetDownloadComplete(BdNet bdNet) {
-        com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "onNetDownloadComplete  ");
+        c.e("BdLogSDK", "onNetDownloadComplete  ");
     }
 
     @Override // com.baidu.webkit.net.INetListener
     public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i2) {
-        com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "onNetDownloadError  " + bdNetTask.getUrl());
+        c.e("BdLogSDK", "onNetDownloadError  " + bdNetTask.getUrl());
         this.mCallback.a(null);
     }
 
     @Override // com.baidu.webkit.net.INetListener
     public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i2) {
-        com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "onNetReceiveData  " + i2);
+        c.e("BdLogSDK", "onNetReceiveData  ".concat(String.valueOf(i2)));
         if (this.mData == null) {
             this.mData = new ByteArrayOutputStream();
         }
@@ -94,13 +96,13 @@ public class BdLogNetRequest implements INetListener {
 
     @Override // com.baidu.webkit.net.INetListener
     public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
-        com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "onNetTaskComplete  " + bdNetTask.getUrl());
+        c.e("BdLogSDK", "onNetTaskComplete  " + bdNetTask.getUrl());
         if (this.mIsConfig) {
-            com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "onNetTaskComplete1  " + bdNetTask.getUrl());
+            c.e("BdLogSDK", "onNetTaskComplete1  " + bdNetTask.getUrl());
             this.mCallback.a(this.mData.toByteArray());
             return;
         }
-        com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "onNetTaskComplete2  " + bdNetTask.getUrl());
+        c.e("BdLogSDK", "onNetTaskComplete2  " + bdNetTask.getUrl());
         this.mCallback.a(new String("OK").getBytes());
     }
 

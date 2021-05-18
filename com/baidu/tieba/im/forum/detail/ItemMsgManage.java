@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.R;
-import d.a.i0.z0.n;
-import d.a.j0.e1.t.d;
+import d.a.j0.z0.n;
+import d.a.k0.e1.t.d;
 import tbclient.GetForumDetail.ManagerApplyInfo;
 import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.PriManagerApplyInfo;
@@ -23,19 +23,19 @@ import tbclient.RecommendForumInfo;
 public class ItemMsgManage extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public SettingTextSwitchView f17996e;
+    public SettingTextSwitchView f17311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f17997f;
+    public RelativeLayout f17312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f17998g;
+    public RelativeLayout f17313g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f17999h;
+    public RelativeLayout f17314h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f18000i;
+    public RelativeLayout f17315i;
     public TextView j;
     public RelativeLayout k;
     public RelativeLayout l;
@@ -47,7 +47,7 @@ public class ItemMsgManage extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.i0.z0.n
+        @Override // d.a.j0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             if (bool == null) {
@@ -68,18 +68,18 @@ public class ItemMsgManage extends LinearLayout {
         }
         int intValue = recommendForumInfo.forum_type.intValue();
         if (intValue == 0) {
-            this.f17996e.setVisibility(8);
-            this.f17997f.setVisibility(8);
-            this.f17998g.setVisibility(8);
+            this.f17311e.setVisibility(8);
+            this.f17312f.setVisibility(8);
+            this.f17313g.setVisibility(8);
         } else if (intValue == 1) {
             setVisibility(0);
-            this.f17996e.setVisibility(0);
-            this.f17997f.setVisibility(0);
-            this.f17998g.setVisibility(0);
+            this.f17311e.setVisibility(0);
+            this.f17312f.setVisibility(0);
+            this.f17313g.setVisibility(0);
         } else if (intValue == 2) {
-            this.f17998g.setVisibility(8);
-            this.f17997f.setVisibility(0);
-            this.f17996e.setVisibility(0);
+            this.f17313g.setVisibility(8);
+            this.f17312f.setVisibility(0);
+            this.f17311e.setVisibility(0);
             setVisibility(0);
         }
     }
@@ -88,12 +88,12 @@ public class ItemMsgManage extends LinearLayout {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.forum_detail_msg_manage, (ViewGroup) this, true);
         SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.bar_notify);
-        this.f17996e = settingTextSwitchView;
+        this.f17311e = settingTextSwitchView;
         settingTextSwitchView.setTextLeftMargin(R.dimen.ds20);
-        this.f17997f = (RelativeLayout) findViewById(R.id.bar_info_clean_lay);
-        this.f17998g = (RelativeLayout) findViewById(R.id.bar_info_history_lay);
-        this.f17999h = (RelativeLayout) findViewById(R.id.bar_info_member_lay);
-        this.f18000i = (RelativeLayout) findViewById(R.id.bar_info_manager_lay);
+        this.f17312f = (RelativeLayout) findViewById(R.id.bar_info_clean_lay);
+        this.f17313g = (RelativeLayout) findViewById(R.id.bar_info_history_lay);
+        this.f17314h = (RelativeLayout) findViewById(R.id.bar_info_member_lay);
+        this.f17315i = (RelativeLayout) findViewById(R.id.bar_info_manager_lay);
         this.j = (TextView) findViewById(R.id.bar_info_member_status);
         this.k = (RelativeLayout) findViewById(R.id.bar_info_complaint_lay);
         this.l = (RelativeLayout) findViewById(R.id.bar_manager_apply_lay);
@@ -104,7 +104,7 @@ public class ItemMsgManage extends LinearLayout {
     public void b(ForumDetailActivity forumDetailActivity, int i2) {
         forumDetailActivity.getLayoutMode().k(i2 == 1);
         forumDetailActivity.getLayoutMode().j(this);
-        this.f17996e.d(i2);
+        this.f17311e.d(i2);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo, boolean z, boolean z2, ManagerApplyInfo managerApplyInfo, PriManagerApplyInfo priManagerApplyInfo, ManagerElectionTab managerElectionTab) {
@@ -115,12 +115,12 @@ public class ItemMsgManage extends LinearLayout {
         } else {
             this.k.setVisibility(z2 ? 0 : 8);
             if (recommendForumInfo.is_like.intValue() == 0) {
-                this.f17996e.setVisibility(8);
-                this.f17997f.setVisibility(8);
-                this.f17998g.setVisibility(8);
+                this.f17311e.setVisibility(8);
+                this.f17312f.setVisibility(8);
+                this.f17313g.setVisibility(8);
                 this.k.setVisibility(8);
             }
-            this.f18000i.setVisibility(z ? 0 : 8);
+            this.f17315i.setVisibility(z ? 0 : 8);
             findViewById(R.id.bar_info_manager_divider).setVisibility(z ? 0 : 8);
             if (managerElectionTab != null) {
                 if (managerElectionTab.is_new_strategy.intValue() == 1) {
@@ -157,24 +157,24 @@ public class ItemMsgManage extends LinearLayout {
     }
 
     public void setMsgOnClickListener(View.OnClickListener onClickListener) {
-        this.f17997f.setOnClickListener(onClickListener);
-        this.f17998g.setOnClickListener(onClickListener);
-        this.f17999h.setOnClickListener(onClickListener);
-        this.f18000i.setOnClickListener(onClickListener);
+        this.f17312f.setOnClickListener(onClickListener);
+        this.f17313g.setOnClickListener(onClickListener);
+        this.f17314h.setOnClickListener(onClickListener);
+        this.f17315i.setOnClickListener(onClickListener);
         this.k.setOnClickListener(onClickListener);
         this.l.setOnClickListener(onClickListener);
     }
 
     public void setSwitch(boolean z) {
         if (z) {
-            this.f17996e.getSwitchView().k();
+            this.f17311e.getSwitchView().k();
         } else {
-            this.f17996e.getSwitchView().h();
+            this.f17311e.getSwitchView().h();
         }
     }
 
     public void setSwitchChangeListener(BdSwitchView.b bVar) {
-        this.f17996e.setSwitchStateChangeListener(bVar);
+        this.f17311e.setSwitchStateChangeListener(bVar);
     }
 
     @Override // android.view.View

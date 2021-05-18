@@ -29,6 +29,7 @@ import com.baidu.apollon.utils.NetworkUtils;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.sapi2.openbduss.PASSMethodCallTransfer;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.wallet.api.ILightappInvoker;
 import com.baidu.wallet.api.ILightappInvokerCallback;
@@ -99,34 +100,34 @@ public class LightappJsNativeClient implements ILightappInvoker {
     public static final String VIEW_CALENDAR_EVENT = "viewCalendarEvent";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f25294c = 1;
+    public static int f24539c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f25295d = 2;
+    public static int f24540d = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f25296e = 1;
+    public static int f24541e = 1;
     public com.baidu.wallet.lightapp.multipage.a k;
     public String l;
     public ILightappInvokerCallback s;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25297a = LightappJsNativeClient.class.getSimpleName();
+    public String f24542a = LightappJsNativeClient.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, ILightappInvokerCallback> f25298b = new HashMap<>();
+    public final HashMap<String, ILightappInvokerCallback> f24543b = new HashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f25299f = "访问相机的权限";
+    public final String f24544f = "访问相机的权限";
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f25300g = "读写存储卡的权限";
+    public final String f24545g = "读写存储卡的权限";
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f25301h = "访问通信录的权限";
+    public final String f24546h = "访问通信录的权限";
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f25302i = "获取地理位置的权限";
+    public final String f24547i = "获取地理位置的权限";
     public final String j = "没有";
     public int m = -1;
     public int n = -1;
@@ -141,61 +142,61 @@ public class LightappJsNativeClient implements ILightappInvoker {
     public static class a implements LocationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ILightappInvokerCallback f25324a;
+        public final ILightappInvokerCallback f24569a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f25325b;
+        public final String f24570b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final LocationManager f25326c;
+        public final LocationManager f24571c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final ArrayList<String> f25327d;
+        public final ArrayList<String> f24572d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final LightAppNewLocationModel f25328e;
+        public final LightAppNewLocationModel f24573e;
 
         public a(ILightappInvokerCallback iLightappInvokerCallback, String str, LocationManager locationManager, ArrayList<String> arrayList, LightAppNewLocationModel lightAppNewLocationModel) {
-            this.f25324a = iLightappInvokerCallback;
-            this.f25325b = str;
-            this.f25326c = locationManager;
-            this.f25327d = arrayList;
-            this.f25328e = lightAppNewLocationModel;
+            this.f24569a = iLightappInvokerCallback;
+            this.f24570b = str;
+            this.f24571c = locationManager;
+            this.f24572d = arrayList;
+            this.f24573e = lightAppNewLocationModel;
         }
 
         @Override // android.location.LocationListener
         public void onLocationChanged(Location location) {
             if (location != null) {
-                LightAppNewLocationModel lightAppNewLocationModel = this.f25328e;
+                LightAppNewLocationModel lightAppNewLocationModel = this.f24573e;
                 lightAppNewLocationModel.result = 0;
                 lightAppNewLocationModel.cnt.data.latitude = location.getLatitude();
-                this.f25328e.cnt.data.longitude = location.getLongitude();
-                String json = this.f25328e.toJson();
-                this.f25324a.onResult(0, json);
+                this.f24573e.cnt.data.longitude = location.getLongitude();
+                String json = this.f24573e.toJson();
+                this.f24569a.onResult(0, json);
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(this.f25325b);
+                arrayList.add(this.f24570b);
                 arrayList.add(Base64Utils.encodeToString(json.getBytes()));
                 DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_OK, arrayList);
                 PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_OK, arrayList);
             } else {
-                PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f25327d);
+                PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f24572d);
                 LightAppErrorModel lightAppErrorModel = new LightAppErrorModel(1);
                 LightAppErrorModel.Data data = lightAppErrorModel.cnt;
                 data.errCode = LightappConstants.ERRCODE_INNER_ERROR;
                 data.des = "定位失败";
-                this.f25324a.onResult(1, lightAppErrorModel.toJson());
+                this.f24569a.onResult(1, lightAppErrorModel.toJson());
             }
-            this.f25326c.removeUpdates(this);
+            this.f24571c.removeUpdates(this);
         }
 
         @Override // android.location.LocationListener
         public void onProviderDisabled(String str) {
-            PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f25327d);
+            PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f24572d);
             LightAppErrorModel lightAppErrorModel = new LightAppErrorModel(1);
             LightAppErrorModel.Data data = lightAppErrorModel.cnt;
             data.errCode = LightappConstants.ERRCODE_INNER_ERROR;
             data.des = "定位失败";
-            this.f25324a.onResult(1, lightAppErrorModel.toJson());
+            this.f24569a.onResult(1, lightAppErrorModel.toJson());
         }
 
         @Override // android.location.LocationListener
@@ -227,7 +228,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
     private void g(JSONObject jSONObject, String str) {
         String optString = jSONObject.optString("title");
         if (TextUtils.isEmpty(optString)) {
-            LightappUtils.onError(this.f25298b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, "标题不能为空", "#insertCalendarEventFail");
+            LightappUtils.onError(this.f24543b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, "标题不能为空", "#insertCalendarEventFail");
             return;
         }
         Long valueOf = Long.valueOf(jSONObject.optLong("beginTime"));
@@ -239,7 +240,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 return;
             }
             Toast.makeText(this.k.getActivity(), ResUtils.string(this.k.getActivity(), "insert_calendar_not_available"), 1).show();
-            LightappUtils.onError(this.f25298b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INTENT_NOT_AVAILABLE, ResUtils.getString(this.k.getContext(), "insert_calendar_not_available"), LightAppStatEvent.LIGHT_APP_INSERT_CALENDAR_NOT_AVAILABLE);
+            LightappUtils.onError(this.f24543b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INTENT_NOT_AVAILABLE, ResUtils.getString(this.k.getContext(), "insert_calendar_not_available"), LightAppStatEvent.LIGHT_APP_INSERT_CALENDAR_NOT_AVAILABLE);
             return;
         }
         String str2 = valueOf.longValue() < 0 ? "开始时间必须大于零" : "";
@@ -249,7 +250,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
         if (valueOf2.longValue() < valueOf.longValue()) {
             str2 = str2 + "结束时间必须大于开始时间";
         }
-        LightappUtils.onError(this.f25298b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, str2, "#insertCalendarEventFail");
+        LightappUtils.onError(this.f24543b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, str2, "#insertCalendarEventFail");
     }
 
     public static Set<String> getSupportMethodList(Context context) {
@@ -280,7 +281,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
         long optLong = jSONObject.optLong("beginTime");
         int i2 = (optLong > 0L ? 1 : (optLong == 0L ? 0 : -1));
         if (i2 < 0) {
-            LightappUtils.onError(this.f25298b.get(VIEW_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, "时间必须大于零", "#viewCalendarEventFail");
+            LightappUtils.onError(this.f24543b.get(VIEW_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, "时间必须大于零", "#viewCalendarEventFail");
             return;
         }
         if (i2 == 0) {
@@ -293,12 +294,12 @@ public class LightappJsNativeClient implements ILightappInvoker {
         if (this.k.getActivity() != null && data.resolveActivity(this.k.getActivity().getPackageManager()) != null) {
             this.k.getActivity().startActivity(data);
         } else {
-            LightappUtils.onError(this.f25298b.get(VIEW_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INTENT_NOT_AVAILABLE, ResUtils.getString(this.k.getContext(), "view_calendar_not_available"), LightAppStatEvent.LIGHT_APP_VIEW_CALENDAR_NOT_AVAILABLE);
+            LightappUtils.onError(this.f24543b.get(VIEW_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INTENT_NOT_AVAILABLE, ResUtils.getString(this.k.getContext(), "view_calendar_not_available"), LightAppStatEvent.LIGHT_APP_VIEW_CALENDAR_NOT_AVAILABLE);
         }
     }
 
     private void i(JSONObject jSONObject, String str) {
-        ILightappInvokerCallback iLightappInvokerCallback = this.f25298b.get(ADJUST_SCREEN_BRIGHTNESS);
+        ILightappInvokerCallback iLightappInvokerCallback = this.f24543b.get(ADJUST_SCREEN_BRIGHTNESS);
         if (this.k.getActivity() == null) {
             iLightappInvokerCallback.onResult(1, LightappUtils.assembleFailResultWithErrCode(LightappConstants.ERRCODE_INNER_ERROR, "内部错误"));
             return;
@@ -375,7 +376,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
     }
 
     public void handleInsertEventDone(boolean z) {
-        ILightappInvokerCallback iLightappInvokerCallback = this.f25298b.get(INSERT_CALENDAR_EVENT);
+        ILightappInvokerCallback iLightappInvokerCallback = this.f24543b.get(INSERT_CALENDAR_EVENT);
         if (iLightappInvokerCallback != null) {
             if (z) {
                 iLightappInvokerCallback.onResult(0, LightappUtils.assembleResult(0, new JSONObject()));
@@ -398,7 +399,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
             if (TextUtils.isEmpty(string)) {
                 return;
             }
-            this.f25298b.put(string, iLightappInvokerCallback);
+            this.f24543b.put(string, iLightappInvokerCallback);
             String string2 = jSONObject.getString(LightappConstants.LIGHT_APP_NATIVE_INVOKER_FROM_URL);
             if (!JavascriptInterfaceManager.verifyPermission(new URL(string2), string)) {
                 ArrayList arrayList = new ArrayList();
@@ -487,7 +488,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
             ContactSelectModel.SelectedContact selectedContact = contactSelectModel.cnt.selected;
             selectedContact.name = str3;
             selectedContact.phone = str4;
-            if (this.m == f25295d) {
+            if (this.m == f24540d) {
                 PhoneContactsMananger.a(this.k.getContext()).a(new PhoneContactsMananger.d() { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.1
                     @Override // com.baidu.wallet.lightapp.base.contacts.PhoneContactsMananger.d
                     public void a(List<ContactSelectModel.AllContact> list, int i3) {
@@ -496,7 +497,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
                         } else {
                             contactSelectModel.cnt.all = list;
                         }
-                        if (LightappJsNativeClient.this.o != LightappJsNativeClient.f25296e) {
+                        if (LightappJsNativeClient.this.o != LightappJsNativeClient.f24541e) {
                             LightappJsNativeClient.this.a("selectPhonefromAdressBook", 0, contactSelectModel.toJson());
                             return;
                         }
@@ -515,7 +516,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 } else {
                     PhoneContactsMananger.a(this.k.getContext()).a(1000, false);
                 }
-            } else if (this.o == f25296e) {
+            } else if (this.o == f24541e) {
                 LightAppContactSelectModelBase64 lightAppContactSelectModelBase64 = new LightAppContactSelectModelBase64();
                 lightAppContactSelectModelBase64.result = contactSelectModel.result;
                 ContactSelectModel.Data data2 = contactSelectModel.cnt;
@@ -626,7 +627,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
     }
 
     private void f(JSONObject jSONObject, String str) {
-        ILightappInvokerCallback iLightappInvokerCallback = this.f25298b.get(SCREEN_CAPTURE_SETTINGS);
+        ILightappInvokerCallback iLightappInvokerCallback = this.f24543b.get(SCREEN_CAPTURE_SETTINGS);
         final boolean optBoolean = jSONObject.optBoolean("prevent", false);
         if (this.k.getActivity() != null) {
             LightappUtils.runOnUiThread(new Runnable() { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.7
@@ -874,11 +875,11 @@ public class LightappJsNativeClient implements ILightappInvoker {
     public void a(String str, int i2, String str2) {
         ILightappInvokerCallback iLightappInvokerCallback;
         try {
-            if (this.f25298b == null || (iLightappInvokerCallback = this.f25298b.get(str)) == null) {
+            if (this.f24543b == null || (iLightappInvokerCallback = this.f24543b.get(str)) == null) {
                 return;
             }
             iLightappInvokerCallback.onResult(i2, str2);
-            this.f25298b.remove(str);
+            this.f24543b.remove(str);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -896,7 +897,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 this.m = LightappUtils.parseJsonInt(str, "type");
                 this.n = LightappUtils.parseJsonInt(str, "maxNum");
                 this.o = LightappUtils.parseJsonInt(str, "base64");
-                if (this.m != f25294c && this.m != f25295d) {
+                if (this.m != f24539c && this.m != f24540d) {
                     throw new InvalidParameterException("参数非法");
                 }
                 ArrayList arrayList = new ArrayList();
@@ -912,17 +913,17 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 } else {
                     a(str2);
                 }
-            } catch (JSONException e2) {
+            } catch (Exception e2) {
                 e2.printStackTrace();
-                throw new InvalidParameterException("参数格式非法");
+                ContactSelectModel contactSelectModel = new ContactSelectModel(1);
+                ContactSelectModel.Data data = contactSelectModel.cnt;
+                data.errCode = LightappConstants.ERRCODE_INVALID_PARAMETER;
+                data.des = e2.getLocalizedMessage();
+                iLightappInvokerCallback.onResult(1, contactSelectModel.toJson());
             }
-        } catch (Exception e3) {
+        } catch (JSONException e3) {
             e3.printStackTrace();
-            ContactSelectModel contactSelectModel = new ContactSelectModel(1);
-            ContactSelectModel.Data data = contactSelectModel.cnt;
-            data.errCode = LightappConstants.ERRCODE_INVALID_PARAMETER;
-            data.des = e3.getLocalizedMessage();
-            iLightappInvokerCallback.onResult(1, contactSelectModel.toJson());
+            throw new InvalidParameterException("参数格式非法");
         }
     }
 
@@ -947,7 +948,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
 
     private void b(JSONObject jSONObject, String str) {
         String optString = jSONObject.optString("url", "");
-        boolean equalsIgnoreCase = jSONObject.optString("root", "no").equalsIgnoreCase("yes");
+        boolean equalsIgnoreCase = jSONObject.optString(PrefetchEvent.EVENT_DATA_ROOT_PATH, "no").equalsIgnoreCase("yes");
         if (TextUtils.isEmpty(optString)) {
             return;
         }

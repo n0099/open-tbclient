@@ -5,7 +5,7 @@ import com.baidu.ala.refresh.AlaAutoRefreshFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public abstract class AlaSquareBaseFragment extends AlaAutoRefreshFragment {
-    public abstract void E0();
+    public abstract void D0();
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
@@ -16,6 +16,6 @@ public abstract class AlaSquareBaseFragment extends AlaAutoRefreshFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         super.onNetRefreshButtonClicked();
-        E0();
+        D0();
     }
 }

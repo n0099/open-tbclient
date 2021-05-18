@@ -14,10 +14,10 @@ import d.a.d0.a.k.h;
 public class CircleTextProgressbar extends AbsCountDownView {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11058h;
+    public int f10095h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11059i;
+    public int f10096i;
     public ColorStateList j;
     public int k;
     public int l;
@@ -40,17 +40,17 @@ public class CircleTextProgressbar extends AbsCountDownView {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f11060a;
+        public static final /* synthetic */ int[] f10097a;
 
         static {
             int[] iArr = new int[ProgressType.values().length];
-            f11060a = iArr;
+            f10097a = iArr;
             try {
                 iArr[ProgressType.COUNT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f11060a[ProgressType.COUNT_BACK.ordinal()] = 2;
+                f10097a[ProgressType.COUNT_BACK.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -73,7 +73,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
 
     @Override // com.baidu.sdk.container.widget.AbsCountDownView
     public void d() {
-        int i2 = a.f11060a[this.r.ordinal()];
+        int i2 = a.f10097a[this.r.ordinal()];
         if (i2 == 1) {
             this.q++;
         } else if (i2 == 2) {
@@ -81,7 +81,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
         }
         int i3 = this.q;
         if (i3 >= 0 && i3 <= this.p) {
-            AbsCountDownView.b bVar = this.f11041f;
+            AbsCountDownView.b bVar = this.f10078f;
             if (bVar != null) {
                 bVar.onProgress(i3);
             }
@@ -89,7 +89,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
             return;
         }
         this.q = i(this.q);
-        AbsCountDownView.b bVar2 = this.f11041f;
+        AbsCountDownView.b bVar2 = this.f10078f;
         if (bVar2 != null) {
             bVar2.onEnd();
         }
@@ -124,7 +124,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
     }
 
     public final void g() {
-        int i2 = a.f11060a[this.r.ordinal()];
+        int i2 = a.f10097a[this.r.ordinal()];
         if (i2 == 1) {
             this.q = 0;
         } else if (i2 != 2) {
@@ -171,11 +171,11 @@ public class CircleTextProgressbar extends AbsCountDownView {
         getDrawingRect(this.t);
         float width = (this.t.height() > this.t.width() ? this.t.width() : this.t.height()) / 2;
         this.n.setStyle(Paint.Style.FILL);
-        this.n.setColor(this.f11058h);
+        this.n.setColor(this.f10095h);
         this.n.setAlpha(127);
-        canvas.drawCircle(this.t.centerX(), this.t.centerY(), width - this.f11059i, this.n);
+        canvas.drawCircle(this.t.centerX(), this.t.centerY(), width - this.f10096i, this.n);
         this.n.setStyle(Paint.Style.STROKE);
-        this.n.setColor(this.f11058h);
+        this.n.setColor(this.f10095h);
         this.n.setStrokeWidth(this.m);
         this.n.setStrokeCap(Paint.Cap.ROUND);
         this.n.setAlpha(204);
@@ -203,12 +203,12 @@ public class CircleTextProgressbar extends AbsCountDownView {
     }
 
     public void setOutLineColor(int i2) {
-        this.f11058h = i2;
+        this.f10095h = i2;
         invalidate();
     }
 
     public void setOutLineWidth(int i2) {
-        this.f11059i = i2;
+        this.f10096i = i2;
         invalidate();
     }
 
@@ -250,8 +250,8 @@ public class CircleTextProgressbar extends AbsCountDownView {
 
     public CircleTextProgressbar(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11058h = -16777216;
-        this.f11059i = 2;
+        this.f10095h = -16777216;
+        this.f10096i = 2;
         this.j = ColorStateList.valueOf(0);
         this.l = -16776961;
         this.m = 8;

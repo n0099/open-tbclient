@@ -1,19 +1,26 @@
 package d.a.j0.a1;
 
-import android.content.Context;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-import com.baidu.tbadk.core.view.FollowUserButton;
-/* loaded from: classes4.dex */
-public abstract class a<T, V extends TypeAdapter.ViewHolder> extends d.a.c.j.e.a<T, V> {
-    public FollowUserButton.a m;
-
-    public a(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+/* loaded from: classes3.dex */
+public class a {
+    public static String a(String str) {
+        int i2;
+        if (StringUtils.isNull(str)) {
+            return null;
+        }
+        int indexOf = str.indexOf("(");
+        int indexOf2 = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
+        if (indexOf == -1 || indexOf2 == -1 || (i2 = indexOf + 1) >= indexOf2) {
+            return null;
+        }
+        return str.substring(i2, indexOf2);
     }
 
-    public void e0(FollowUserButton.a aVar) {
-        this.m = aVar;
+    public static boolean b(String str) {
+        if (StringUtils.isNull(str)) {
+            return false;
+        }
+        return str.equals("4") || str.equals("5");
     }
 }

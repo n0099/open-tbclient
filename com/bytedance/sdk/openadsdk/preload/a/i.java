@@ -3,76 +3,76 @@ package com.bytedance.sdk.openadsdk.preload.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i extends l implements Iterable<l> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<l> f30742a = new ArrayList();
+    public final List<l> f29987a = new ArrayList();
 
     public void a(l lVar) {
         if (lVar == null) {
-            lVar = n.f30743a;
+            lVar = n.f29988a;
         }
-        this.f30742a.add(lVar);
+        this.f29987a.add(lVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public String b() {
-        if (this.f30742a.size() == 1) {
-            return this.f30742a.get(0).b();
+        if (this.f29987a.size() == 1) {
+            return this.f29987a.get(0).b();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public double c() {
-        if (this.f30742a.size() == 1) {
-            return this.f30742a.get(0).c();
+        if (this.f29987a.size() == 1) {
+            return this.f29987a.get(0).c();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public long d() {
-        if (this.f30742a.size() == 1) {
-            return this.f30742a.get(0).d();
+        if (this.f29987a.size() == 1) {
+            return this.f29987a.get(0).d();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public int e() {
-        if (this.f30742a.size() == 1) {
-            return this.f30742a.get(0).e();
+        if (this.f29987a.size() == 1) {
+            return this.f29987a.get(0).e();
         }
         throw new IllegalStateException();
     }
 
     public boolean equals(Object obj) {
-        return obj == this || ((obj instanceof i) && ((i) obj).f30742a.equals(this.f30742a));
+        return obj == this || ((obj instanceof i) && ((i) obj).f29987a.equals(this.f29987a));
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public boolean f() {
-        if (this.f30742a.size() == 1) {
-            return this.f30742a.get(0).f();
+        if (this.f29987a.size() == 1) {
+            return this.f29987a.get(0).f();
         }
         throw new IllegalStateException();
     }
 
     public int hashCode() {
-        return this.f30742a.hashCode();
+        return this.f29987a.hashCode();
     }
 
     @Override // java.lang.Iterable
     public Iterator<l> iterator() {
-        return this.f30742a.iterator();
+        return this.f29987a.iterator();
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public Number a() {
-        if (this.f30742a.size() == 1) {
-            return this.f30742a.get(0).a();
+        if (this.f29987a.size() == 1) {
+            return this.f29987a.get(0).a();
         }
         throw new IllegalStateException();
     }

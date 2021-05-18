@@ -3,31 +3,31 @@ package com.baidu.mapsdkplatform.comapi.synchronization.data;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8103a;
+    public String f7900a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8104b;
+    public String f7901b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8105c;
+    public String f7902c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f8106d;
+    public b f7903d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f8107e;
+    public int f7904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f8108f;
+    public int f7905f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f8109g;
+    public a f7906g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f8110h;
+    public String f7907h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f8111i;
+    public String f7908i;
     public int j;
 
     /* loaded from: classes2.dex */
@@ -45,72 +45,72 @@ public final class f {
     }
 
     public f() {
-        this.f8106d = b.DRIVING;
-        this.f8108f = 15;
-        this.f8109g = a.BD09LL;
-        this.f8106d = b.DRIVING;
-        this.f8109g = a.BD09LL;
-        this.f8108f = 15;
+        this.f7903d = b.DRIVING;
+        this.f7905f = 15;
+        this.f7906g = a.BD09LL;
+        this.f7903d = b.DRIVING;
+        this.f7906g = a.BD09LL;
+        this.f7905f = 15;
     }
 
     public String a() {
-        return this.f8103a;
+        return this.f7900a;
     }
 
     public void a(int i2) {
-        this.f8107e = i2;
+        this.f7904e = i2;
     }
 
     public void a(String str) {
-        this.f8103a = str;
+        this.f7900a = str;
     }
 
     public String b() {
-        return this.f8104b;
+        return this.f7901b;
     }
 
     public void b(String str) {
-        this.f8104b = str;
+        this.f7901b = str;
     }
 
     public String c() {
-        return this.f8105c;
+        return this.f7902c;
     }
 
     public void c(String str) {
-        this.f8105c = str;
+        this.f7902c = str;
     }
 
     public String d() {
-        return this.f8110h;
+        return this.f7907h;
     }
 
     public void d(String str) {
-        this.f8110h = str;
+        this.f7907h = str;
     }
 
     public String e() {
-        return this.f8111i;
+        return this.f7908i;
     }
 
     public void e(String str) {
-        this.f8111i = str;
+        this.f7908i = str;
     }
 
     public a f() {
-        return this.f8109g;
+        return this.f7906g;
     }
 
     public b g() {
-        return this.f8106d;
+        return this.f7903d;
     }
 
     public int h() {
-        return this.f8107e;
+        return this.f7904e;
     }
 
     public int i() {
-        return this.f8108f;
+        return this.f7905f;
     }
 
     public int j() {

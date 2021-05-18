@@ -6,14 +6,14 @@ import java.io.IOException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final BufferedSink f65794a;
+    public final BufferedSink f66480a;
 
     public d(BufferedSink bufferedSink) {
-        this.f65794a = bufferedSink;
+        this.f66480a = bufferedSink;
     }
 
     public static int a(int i2) {
@@ -113,15 +113,15 @@ public final class d {
     }
 
     public void k(ByteString byteString) throws IOException {
-        this.f65794a.write(byteString);
+        this.f66480a.write(byteString);
     }
 
     public void l(int i2) throws IOException {
-        this.f65794a.writeIntLe(i2);
+        this.f66480a.writeIntLe(i2);
     }
 
     public void m(long j) throws IOException {
-        this.f65794a.writeLongLe(j);
+        this.f66480a.writeLongLe(j);
     }
 
     public void n(int i2) throws IOException {
@@ -133,7 +133,7 @@ public final class d {
     }
 
     public void o(String str) throws IOException {
-        this.f65794a.writeUtf8(str);
+        this.f66480a.writeUtf8(str);
     }
 
     public void p(int i2, FieldEncoding fieldEncoding) throws IOException {
@@ -142,17 +142,17 @@ public final class d {
 
     public void q(int i2) throws IOException {
         while ((i2 & com.alipay.sdk.encrypt.a.f1872g) != 0) {
-            this.f65794a.writeByte((i2 & 127) | 128);
+            this.f66480a.writeByte((i2 & 127) | 128);
             i2 >>>= 7;
         }
-        this.f65794a.writeByte(i2);
+        this.f66480a.writeByte(i2);
     }
 
     public void r(long j) throws IOException {
         while (((-128) & j) != 0) {
-            this.f65794a.writeByte((((int) j) & 127) | 128);
+            this.f66480a.writeByte((((int) j) & 127) | 128);
             j >>>= 7;
         }
-        this.f65794a.writeByte((int) j);
+        this.f66480a.writeByte((int) j);
     }
 }

@@ -3,12 +3,12 @@ package tv.athena.revenue.payui.model;
 import androidx.annotation.Keep;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PayUIKitConfig {
     public MiddleRevenueConfig revenueConfig;
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class PayUIKitConfigBuilder {
         public MiddleRevenueConfig revenueConfig;
 

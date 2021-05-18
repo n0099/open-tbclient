@@ -12,6 +12,8 @@ import android.util.DisplayMetrics;
 import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.tieba.service.AsInstallService;
+import com.baidu.webkit.logsdk.d.c;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -24,31 +26,31 @@ public final class a {
     public static String n;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27459a;
+    public String f26704a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27460b;
+    public int f26705b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27461c;
+    public int f26706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27462d;
+    public int f26707d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27463e;
+    public String f26708e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27464f;
+    public int f26709f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27465g;
+    public String f26710g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f27466h;
+    public String f26711h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f27467i;
+    public String f26712i;
     public String j;
     public String k;
     public String l;
@@ -67,15 +69,9 @@ public final class a {
     }
 
     private String a(Context context, com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f27465g)) {
-            if (this.f27460b == 0) {
-                d(context);
-            }
-            int i2 = this.f27460b;
-            if (this.f27461c == 0) {
-                d(context);
-            }
-            int i3 = this.f27461c;
+        if (TextUtils.isEmpty(this.f26710g)) {
+            int e2 = e(context);
+            int f2 = f(context);
             String str = Build.MANUFACTURER;
             if (TextUtils.isEmpty(str)) {
                 str = "NULL";
@@ -86,35 +82,35 @@ public final class a {
             if (TextUtils.isEmpty(str4)) {
                 str4 = XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
             }
-            String f2 = f(context);
+            String h2 = h(context);
             String str5 = TextUtils.isEmpty(null) ? "j2" : null;
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("bd_");
-            stringBuffer.append(i2);
-            stringBuffer.append("_");
-            stringBuffer.append(i3);
-            stringBuffer.append("_");
-            stringBuffer.append(str.replace("_", "-") + "*@*" + str3.replace("_", "-") + "*@*" + str4.replace("_", "-"));
+            stringBuffer.append(e2);
             stringBuffer.append("_");
             stringBuffer.append(f2);
             stringBuffer.append("_");
+            stringBuffer.append(str.replace("_", "-") + "*@*" + str3.replace("_", "-") + "*@*" + str4.replace("_", "-"));
+            stringBuffer.append("_");
+            stringBuffer.append(h2);
+            stringBuffer.append("_");
             stringBuffer.append(str5);
-            this.f27465g = bVar.a(stringBuffer.toString().replace(".", "-"));
+            this.f26710g = bVar.a(stringBuffer.toString().replace(".", "-"));
         }
-        if (TextUtils.isEmpty(this.f27465g)) {
+        if (TextUtils.isEmpty(this.f26710g)) {
             throw new RuntimeException("BdLogBase: get ua null!");
         }
-        return this.f27465g;
+        return this.f26710g;
     }
 
     private String a(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f27459a)) {
-            this.f27459a = bVar.e();
+        if (TextUtils.isEmpty(this.f26704a)) {
+            this.f26704a = bVar.e();
         }
-        if (TextUtils.isEmpty(this.f27459a)) {
+        if (TextUtils.isEmpty(this.f26704a)) {
             throw new RuntimeException("BdLogBase: get cuid null!");
         }
-        return this.f27459a;
+        return this.f26704a;
     }
 
     private String b() {
@@ -160,19 +156,19 @@ public final class a {
             }
             return "unknown";
         } catch (Exception e2) {
-            com.baidu.webkit.logsdk.d.c.a(e2);
+            c.a(e2);
             return "exception";
         }
     }
 
     private String b(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f27466h)) {
-            this.f27466h = bVar.c();
+        if (TextUtils.isEmpty(this.f26711h)) {
+            this.f26711h = bVar.c();
         }
-        if (TextUtils.isEmpty(this.f27466h)) {
+        if (TextUtils.isEmpty(this.f26711h)) {
             throw new RuntimeException("BdLogBase: get from null!");
         }
-        return this.f27466h;
+        return this.f26711h;
     }
 
     private String c() {
@@ -183,13 +179,13 @@ public final class a {
     }
 
     private String c(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f27467i)) {
-            this.f27467i = bVar.d();
+        if (TextUtils.isEmpty(this.f26712i)) {
+            this.f26712i = bVar.d();
         }
-        if (TextUtils.isEmpty(this.f27467i)) {
+        if (TextUtils.isEmpty(this.f26712i)) {
             throw new RuntimeException("BdLogBase: get Cfrom null!");
         }
-        return this.f27467i;
+        return this.f26712i;
     }
 
     public static boolean c(Context context) {
@@ -214,19 +210,19 @@ public final class a {
     private void d(Context context) {
         try {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            this.f27460b = displayMetrics.widthPixels;
-            this.f27461c = displayMetrics.heightPixels;
-            this.f27462d = displayMetrics.densityDpi;
+            this.f26705b = displayMetrics.widthPixels;
+            this.f26706c = displayMetrics.heightPixels;
+            this.f26707d = displayMetrics.densityDpi;
         } catch (Exception e2) {
-            com.baidu.webkit.logsdk.d.c.a(e2);
+            c.a(e2);
         }
     }
 
     private int e(Context context) {
-        if (this.f27462d == 0) {
+        if (this.f26705b == 0) {
             d(context);
         }
-        return this.f27462d;
+        return this.f26705b;
     }
 
     public static String e() {
@@ -244,46 +240,67 @@ public final class a {
         }
     }
 
+    private int f(Context context) {
+        if (this.f26706c == 0) {
+            d(context);
+        }
+        return this.f26706c;
+    }
+
     public static String f() {
         return "00100000";
     }
 
-    private String f(Context context) {
+    private int g(Context context) {
+        if (this.f26707d == 0) {
+            d(context);
+        }
+        return this.f26707d;
+    }
+
+    private String h(Context context) {
         try {
-            if (TextUtils.isEmpty(this.f27463e)) {
+            if (TextUtils.isEmpty(this.f26708e)) {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                this.f27463e = packageInfo.versionName;
-                this.f27463e = this.f27463e.substring(0, this.f27463e.length() - 1) + "1";
-                this.f27464f = packageInfo.versionCode;
-                com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "mVersionName = " + this.f27463e);
+                this.f26708e = packageInfo.versionName;
+                this.f26708e = this.f26708e.substring(0, this.f26708e.length() - 1) + "1";
+                this.f26709f = packageInfo.versionCode;
+                c.e("BdLogSDK", "mVersionName = " + this.f26708e);
             }
-            return this.f27463e;
+            return this.f26708e;
         } catch (Exception e2) {
-            com.baidu.webkit.logsdk.d.c.a(e2);
+            c.a(e2);
             return "1.0.0.0";
         }
     }
 
-    private int g(Context context) {
+    private int i(Context context) {
         try {
-            if (this.f27464f <= 0) {
+            if (this.f26709f <= 0) {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                this.f27463e = packageInfo.versionName;
-                this.f27463e = this.f27463e.substring(0, this.f27463e.length() - 1) + "1";
-                this.f27464f = packageInfo.versionCode;
-                com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "mVersionName = " + this.f27463e);
+                this.f26708e = packageInfo.versionName;
+                this.f26708e = this.f26708e.substring(0, this.f26708e.length() - 1) + "1";
+                this.f26709f = packageInfo.versionCode;
+                c.e("BdLogSDK", "mVersionName = " + this.f26708e);
             }
         } catch (Exception e2) {
-            com.baidu.webkit.logsdk.d.c.a(e2);
+            c.a(e2);
         }
-        return this.f27464f;
+        return this.f26709f;
     }
 
-    private String h(Context context) {
+    private String j(Context context) {
         if (TextUtils.isEmpty(this.m)) {
             this.m = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperatorName();
         }
         return this.m;
+    }
+
+    public static String k(Context context) {
+        if (TextUtils.isEmpty(null)) {
+            return b(context);
+        }
+        return null;
     }
 
     public final int a(String str, Context context) {
@@ -312,20 +329,20 @@ public final class a {
                 }
                 return ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
             }
-            return e(context);
+            return g(context);
         }
-        return g(context);
+        return i(context);
     }
 
     public final String a(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("imsi", d());
-            jSONObject.put("package", context.getPackageName());
-            jSONObject.put("version_code", g(context));
-            jSONObject.put("display_density", e(context));
+            jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, context.getPackageName());
+            jSONObject.put("version_code", i(context));
+            jSONObject.put("display_density", g(context));
             jSONObject.put(PmsConstant.Statistic.STATISTIC_NETWORK, ((TelephonyManager) context.getSystemService("phone")).getNetworkType());
-            jSONObject.put("operator", h(context));
+            jSONObject.put("operator", j(context));
             jSONObject.put("build_display", Build.DISPLAY);
             String e2 = e();
             if (!TextUtils.isEmpty(e2)) {
@@ -337,7 +354,7 @@ public final class a {
                 jSONObject.put("zeusVersion", (Object) null);
             }
         } catch (Exception e3) {
-            com.baidu.webkit.logsdk.d.c.a(e3);
+            c.a(e3);
         }
         return jSONObject.toString();
     }
@@ -432,7 +449,7 @@ public final class a {
                 }
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.webkit.logsdk.d.c.a(e);
+                c.a(e);
                 str3 = a(c3);
                 if (!TextUtils.isEmpty(str3)) {
                 }
@@ -492,7 +509,7 @@ public final class a {
             }
         } catch (Exception e5) {
             e = e5;
-            com.baidu.webkit.logsdk.d.c.a(e);
+            c.a(e);
             encode4 = URLEncoder.encode(c(c3), "UTF-8");
             if (!TextUtils.isEmpty(encode4)) {
             }
@@ -554,7 +571,7 @@ public final class a {
                 sb.append(encode);
             }
         } catch (Exception e6) {
-            com.baidu.webkit.logsdk.d.c.a(e6);
+            c.a(e6);
         }
         sb.append("ctv=2");
         try {
@@ -564,7 +581,7 @@ public final class a {
                 sb.append(c2);
             }
         } catch (Exception e7) {
-            com.baidu.webkit.logsdk.d.c.a(e7);
+            c.a(e7);
         }
         String f222 = f();
         sb.append("&st=");
@@ -623,7 +640,7 @@ public final class a {
                 c2 = 65535;
                 break;
             case -807062458:
-                if (str.equals("package")) {
+                if (str.equals(AsInstallService.SCHEME_PACKAGE_ADDED)) {
                     c2 = '\r';
                     break;
                 }
@@ -817,16 +834,13 @@ public final class a {
             case 14:
                 return d();
             case 15:
-                return h(context);
+                return j(context);
             case 16:
                 return Build.DISPLAY;
             case 17:
                 return e();
             case 18:
-                if (TextUtils.isEmpty(null)) {
-                    return b(context);
-                }
-                return null;
+                return k(context);
             case 19:
             case 20:
             case 21:
@@ -837,19 +851,19 @@ public final class a {
     }
 
     public final String b(Context context, String str) {
-        com.baidu.webkit.logsdk.b.c c2 = b.a().e().c(str);
-        if ("full".equals(c2.f27500a)) {
+        com.baidu.webkit.logsdk.b.c d2 = b.a().e().d(str);
+        if ("full".equals(d2.f26745a)) {
             return a(context);
         }
-        HashSet<String> hashSet = c2.f27502c;
+        HashSet<String> hashSet = d2.f26747c;
         JSONObject jSONObject = new JSONObject();
         if (hashSet != null) {
             try {
-                com.baidu.webkit.logsdk.b c3 = b.a().c();
+                com.baidu.webkit.logsdk.b c2 = b.a().c();
                 Iterator<String> it = hashSet.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    String a2 = a(next, context, c3);
+                    String a2 = a(next, context, c2);
                     if (TextUtils.isEmpty(a2)) {
                         int a3 = a(next, context);
                         if (a3 > 0) {
@@ -860,7 +874,7 @@ public final class a {
                     }
                 }
             } catch (Exception e2) {
-                com.baidu.webkit.logsdk.d.c.a(e2);
+                c.a(e2);
             }
         }
         return jSONObject.toString();

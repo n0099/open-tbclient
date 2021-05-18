@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.lib.util.BdLog;
-import d.a.i0.p0.c.a;
+import d.a.j0.p0.c.a;
 /* loaded from: classes3.dex */
 public class GameCenterAppMonitorReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver

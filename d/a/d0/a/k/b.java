@@ -5,25 +5,25 @@ import android.util.Log;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f40616a;
+    public static final int f39861a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f40617b;
+    public static volatile b f39862b;
 
     static {
-        f40616a = e.f40619b ? 2 : 4;
-        f40617b = null;
+        f39861a = e.f39864b ? 2 : 4;
+        f39862b = null;
     }
 
     public static b i() {
-        if (f40617b == null) {
+        if (f39862b == null) {
             synchronized (b.class) {
-                if (f40617b == null) {
-                    f40617b = new b();
+                if (f39862b == null) {
+                    f39862b = new b();
                 }
             }
         }
-        return f40617b;
+        return f39862b;
     }
 
     public int a(String str) {
@@ -105,7 +105,7 @@ public class b {
     }
 
     public boolean l(String str, int i2) {
-        return i2 >= f40616a;
+        return i2 >= f39861a;
     }
 
     public final String m(Object[] objArr) {

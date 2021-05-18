@@ -26,11 +26,11 @@ import com.baidu.tieba.ala.alasquare.special_forum.model.SpecialRecommendTabMode
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.j.e.n;
-import d.a.i0.d0.h;
-import d.a.i0.r.f0.f;
-import d.a.i0.r.f0.g;
-import d.a.i0.r.q.a2;
-import d.a.j0.t.d.f.b.e;
+import d.a.j0.d0.h;
+import d.a.j0.r.f0.f;
+import d.a.j0.r.f0.g;
+import d.a.j0.r.q.a2;
+import d.a.k0.t.d.f.b.e;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,10 +38,10 @@ import java.util.List;
 public class RecommendTabFragment extends SpecialForumTabBaseFragment {
 
     /* renamed from: h  reason: collision with root package name */
-    public View f14639h;
+    public View f13954h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdTypeListView f14640i;
+    public BdTypeListView f13955i;
     public PbListView j;
     public g k;
     public h l;
@@ -62,9 +62,9 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         @Override // com.baidu.tieba.ala.alasquare.special_forum.model.SpecialRecommendTabModel.b
         public void a(int i2, String str) {
             RecommendTabFragment recommendTabFragment = RecommendTabFragment.this;
-            recommendTabFragment.hideLoadingView(recommendTabFragment.f14639h);
-            RecommendTabFragment.this.U0();
-            RecommendTabFragment.this.a1();
+            recommendTabFragment.hideLoadingView(recommendTabFragment.f13954h);
+            RecommendTabFragment.this.T0();
+            RecommendTabFragment.this.Z0();
         }
 
         @Override // com.baidu.tieba.ala.alasquare.special_forum.model.SpecialRecommendTabModel.b
@@ -72,17 +72,17 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
             RecommendTabFragment.this.o = z;
             RecommendTabFragment.this.q = true;
             if (!ListUtils.isEmpty(list)) {
-                RecommendTabFragment.this.f14640i.setData(list);
+                RecommendTabFragment.this.f13955i.setData(list);
             }
             if (!RecommendTabFragment.this.o) {
-                RecommendTabFragment.this.b1();
+                RecommendTabFragment.this.a1();
             } else {
-                RecommendTabFragment.this.Z0();
+                RecommendTabFragment.this.Y0();
             }
-            RecommendTabFragment.this.Y0(false);
+            RecommendTabFragment.this.X0(false);
             RecommendTabFragment recommendTabFragment = RecommendTabFragment.this;
-            recommendTabFragment.hideLoadingView(recommendTabFragment.f14639h);
-            RecommendTabFragment.this.V0();
+            recommendTabFragment.hideLoadingView(recommendTabFragment.f13954h);
+            RecommendTabFragment.this.U0();
         }
     }
 
@@ -94,7 +94,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             if (!l.D()) {
-                RecommendTabFragment.this.U0();
+                RecommendTabFragment.this.T0();
             } else if (RecommendTabFragment.this.o) {
                 RecommendTabFragment.this.n.E();
             }
@@ -106,12 +106,12 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         public c() {
         }
 
-        @Override // d.a.i0.r.f0.f.g
+        @Override // d.a.j0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (j.z()) {
                 RecommendTabFragment.this.n.F();
             } else {
-                RecommendTabFragment.this.Y0(false);
+                RecommendTabFragment.this.X0(false);
             }
         }
     }
@@ -120,46 +120,46 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     public class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public e f14644a;
+        public e f13959a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a.j0.t.d.f.b.d f14645b;
+        public d.a.k0.t.d.f.b.d f13960b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<d.a.c.j.e.a> f14646c = new LinkedList();
+        public List<d.a.c.j.e.a> f13961c = new LinkedList();
 
         /* loaded from: classes4.dex */
-        public class a implements d.a.j0.t.d.g.d.f {
+        public class a implements d.a.k0.t.d.g.d.f {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ RecommendTabFragment f14648a;
+            public final /* synthetic */ RecommendTabFragment f13963a;
 
             public a(RecommendTabFragment recommendTabFragment) {
-                this.f14648a = recommendTabFragment;
+                this.f13963a = recommendTabFragment;
             }
 
-            @Override // d.a.j0.t.d.g.d.f
+            @Override // d.a.k0.t.d.g.d.f
             public void a(int i2, String str, a2 a2Var) {
                 d dVar = d.this;
                 dVar.c(RecommendTabFragment.this.getPageContext(), a2Var, str);
                 if (a2Var != null) {
-                    TiebaStatic.log(new StatisticItem("c12900").param("tid", a2Var.w1()));
+                    TiebaStatic.log(new StatisticItem("c12900").param("tid", a2Var.x1()));
                 }
             }
 
-            @Override // d.a.j0.t.d.g.d.f
-            public void b(d.a.j0.t.d.g.b.c cVar) {
+            @Override // d.a.k0.t.d.g.d.f
+            public void b(d.a.k0.t.d.g.b.c cVar) {
             }
         }
 
         public d() {
-            this.f14645b = new d.a.j0.t.d.f.b.d(RecommendTabFragment.this.getPageContext());
+            this.f13960b = new d.a.k0.t.d.f.b.d(RecommendTabFragment.this.getPageContext());
             e eVar = new e(RecommendTabFragment.this.getPageContext());
-            this.f14644a = eVar;
+            this.f13959a = eVar;
             eVar.g0(2);
-            this.f14646c.add(this.f14645b);
-            this.f14646c.add(this.f14644a);
-            this.f14644a.h0(new a(RecommendTabFragment.this));
+            this.f13961c.add(this.f13960b);
+            this.f13961c.add(this.f13959a);
+            this.f13959a.h0(new a(RecommendTabFragment.this));
         }
 
         public final void c(TbPageContext<?> tbPageContext, a2 a2Var, String str) {
@@ -199,54 +199,54 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         }
     }
 
-    public static RecommendTabFragment W0(int i2) {
+    public static RecommendTabFragment V0(int i2) {
         return new RecommendTabFragment();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment
-    public void G0() {
-        BdTypeListView bdTypeListView = this.f14640i;
+    public void F0() {
+        BdTypeListView bdTypeListView = this.f13955i;
         if (bdTypeListView != null) {
             bdTypeListView.getAdapter2().notifyDataSetChanged();
         }
     }
 
-    public final void U0() {
-        this.f14640i.setNextPage(this.j);
+    public final void T0() {
+        this.f13955i.setNextPage(this.j);
         this.j.r(l.g(getContext(), R.dimen.tbds182));
         this.j.k(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
     }
 
-    public final void V0() {
+    public final void U0() {
         h hVar;
-        BdTypeListView bdTypeListView = this.f14640i;
+        BdTypeListView bdTypeListView = this.f13955i;
         if (bdTypeListView != null && (hVar = this.l) != null) {
             bdTypeListView.removeHeaderView(hVar.b());
         }
         this.p = false;
     }
 
-    public final void X0() {
+    public final void W0() {
         this.q = false;
         this.n.F();
-        showLoadingView(this.f14639h, false, getResources().getDimensionPixelSize(R.dimen.ds230));
+        showLoadingView(this.f13954h, false, getResources().getDimensionPixelSize(R.dimen.ds230));
     }
 
-    public void Y0(boolean z) {
+    public void X0(boolean z) {
         if (z) {
             return;
         }
-        this.f14640i.z();
+        this.f13955i.z();
     }
 
-    public final void Z0() {
-        this.f14640i.setNextPage(this.j);
+    public final void Y0() {
+        this.f13955i.setNextPage(this.j);
         this.j.r(l.g(getContext(), R.dimen.tbds182));
         this.j.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.j.O();
     }
 
-    public final void a1() {
+    public final void Z0() {
         if (this.l == null) {
             h hVar = new h(getPageContext().getContext(), getNetRefreshListener());
             this.l = hVar;
@@ -258,13 +258,13 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         this.l.l(getPageContext().getResources().getString(R.string.square_sub_list_no_data));
         this.l.onChangeSkinType();
         if (!this.p) {
-            this.f14640i.x(this.l.b(), 0);
+            this.f13955i.x(this.l.b(), 0);
         }
         this.p = true;
     }
 
-    public final void b1() {
-        this.f14640i.setNextPage(this.j);
+    public final void a1() {
+        this.f13955i.setNextPage(this.j);
         this.j.r(l.g(getContext(), R.dimen.tbds182));
         this.j.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.j.A(getResources().getString(R.string.list_no_more));
@@ -283,7 +283,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
             pbListView.C(SkinManager.getColor(R.color.CAM_X0107));
             this.j.d(i2);
         }
-        SkinManager.setBackgroundColor(this.f14640i, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.f13955i, R.color.CAM_X0201);
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -298,19 +298,19 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.f14639h == null) {
+        if (this.f13954h == null) {
             View inflate = layoutInflater.inflate(R.layout.special_bar_recommend_tab, viewGroup, false);
-            this.f14639h = inflate;
+            this.f13954h = inflate;
             BdTypeListView bdTypeListView = (BdTypeListView) inflate.findViewById(R.id.content_thread);
-            this.f14640i = bdTypeListView;
+            this.f13955i = bdTypeListView;
             bdTypeListView.setFadingEdgeLength(0);
-            this.f14640i.setOverScrollMode(2);
-            this.f14640i.setScrollable(this);
-            this.f14640i.setOnSrollToBottomListener(this.s);
+            this.f13955i.setOverScrollMode(2);
+            this.f13955i.setScrollable(this);
+            this.f13955i.setOnSrollToBottomListener(this.s);
             g gVar = new g(getPageContext());
             this.k = gVar;
             gVar.a(this.t);
-            this.f14640i.setPullRefresh(this.k);
+            this.f13955i.setPullRefresh(this.k);
             PbListView pbListView = new PbListView(getContext());
             this.j = pbListView;
             pbListView.a();
@@ -323,45 +323,45 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
             this.j.b().setLayoutParams(new AbsListView.LayoutParams(-1, -2));
             d dVar = new d();
             this.m = dVar;
-            this.f14640i.a(dVar.f14646c);
+            this.f13955i.a(dVar.f13961c);
         }
-        if (this.f14639h.getParent() != null) {
-            ((ViewGroup) this.f14639h.getParent()).removeView(this.f14639h);
+        if (this.f13954h.getParent() != null) {
+            ((ViewGroup) this.f13954h.getParent()).removeView(this.f13954h);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return this.f14639h;
+        return this.f13954h;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.f14640i.setOnSrollToBottomListener(null);
-        this.f14640i.setScrollable(null);
+        this.f13955i.setOnSrollToBottomListener(null);
+        this.f13955i.setScrollable(null);
         this.n.onDestroy();
-        hideLoadingView(this.f14639h);
+        hideLoadingView(this.f13954h);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         super.onNetRefreshButtonClicked();
-        X0();
+        W0();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary() && !this.q) {
-            X0();
+            W0();
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment
     public void t() {
         super.t();
-        BdTypeListView bdTypeListView = this.f14640i;
+        BdTypeListView bdTypeListView = this.f13955i;
         if (bdTypeListView != null) {
             bdTypeListView.smoothScrollToPosition(0);
-            this.f14640i.F();
+            this.f13955i.F();
         }
     }
 }

@@ -15,7 +15,7 @@ import com.kwad.sdk.R;
 public class b extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f33330a;
+    public a f32575a;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -31,7 +31,7 @@ public class b extends Dialog {
         if (context instanceof Activity) {
             setOwnerActivity((Activity) context);
         }
-        this.f33330a = aVar;
+        this.f32575a = aVar;
     }
 
     private View a() {
@@ -39,7 +39,7 @@ public class b extends Dialog {
         inflate.findViewById(R.id.ksad_exit_intercept_dialog_layout).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.f33330a.c(b.this);
+                b.this.f32575a.c(b.this);
             }
         });
         inflate.findViewById(R.id.ksad_exit_intercept_content_layout).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.2
@@ -50,13 +50,13 @@ public class b extends Dialog {
         inflate.findViewById(R.id.ksad_web_exit_intercept_positive_btn).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.f33330a.a(b.this);
+                b.this.f32575a.a(b.this);
             }
         });
         inflate.findViewById(R.id.ksad_web_exit_intercept_negative_btn).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.f33330a.b(b.this);
+                b.this.f32575a.b(b.this);
             }
         });
         return inflate;

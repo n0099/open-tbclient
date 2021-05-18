@@ -6,54 +6,54 @@ import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28828a;
+    public int f28073a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28829b;
+    public String f28074b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f28830c;
+    public d f28075c;
 
     public e(@NonNull c cVar) {
-        this.f28828a = cVar.a();
-        this.f28829b = cVar.b();
-        this.f28830c = cVar.c();
+        this.f28073a = cVar.a();
+        this.f28074b = cVar.b();
+        this.f28075c = cVar.c();
     }
 
     public int a() {
-        return (int) this.f28830c.c();
+        return (int) this.f28075c.c();
     }
 
     public int b() {
-        return (int) this.f28830c.f();
+        return (int) this.f28075c.f();
     }
 
     public int c() {
-        return (int) this.f28830c.d();
+        return (int) this.f28075c.d();
     }
 
     public int d() {
-        return (int) this.f28830c.e();
+        return (int) this.f28075c.e();
     }
 
     public float e() {
-        return this.f28830c.g();
+        return this.f28075c.g();
     }
 
     public String f() {
-        return this.f28828a == 0 ? this.f28829b : "";
+        return this.f28073a == 0 ? this.f28074b : "";
     }
 
     public int g() {
-        return a(this.f28830c.j());
+        return a(this.f28075c.j());
     }
 
     public int h() {
-        String i2 = this.f28830c.i();
+        String i2 = this.f28075c.i();
         if (CustomDialogData.POS_LEFT.equals(i2)) {
             return 2;
         }
@@ -64,35 +64,35 @@ public class e {
     }
 
     public String i() {
-        return this.f28828a == 2 ? this.f28829b : "";
+        return this.f28073a == 2 ? this.f28074b : "";
     }
 
     public String j() {
-        return this.f28828a == 1 ? this.f28829b : "";
+        return this.f28073a == 1 ? this.f28074b : "";
     }
 
     public int k() {
-        return this.f28830c.h();
+        return this.f28075c.h();
     }
 
     public float l() {
-        return this.f28830c.a();
+        return this.f28075c.a();
     }
 
     public int m() {
-        return a(this.f28830c.l());
+        return a(this.f28075c.l());
     }
 
     public float n() {
-        return this.f28830c.b();
+        return this.f28075c.b();
     }
 
     public boolean o() {
-        return this.f28830c.o();
+        return this.f28075c.o();
     }
 
     public int p() {
-        String m = this.f28830c.m();
+        String m = this.f28075c.m();
         if (!TextUtils.isEmpty(m) && !m.equals("none")) {
             if (m.equals("normal")) {
                 return 1;
@@ -103,7 +103,7 @@ public class e {
             if (m.equals("video")) {
                 return 4;
             }
-            if ("slide".equals(this.f28830c.n())) {
+            if ("slide".equals(this.f28075c.n())) {
                 return 2;
             }
         }
@@ -111,7 +111,7 @@ public class e {
     }
 
     public int q() {
-        return a(this.f28830c.k());
+        return a(this.f28075c.k());
     }
 
     private int a(String str) {

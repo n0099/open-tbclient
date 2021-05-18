@@ -8,37 +8,37 @@ import org.apache.http.HttpStatus;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<Integer, Integer> f64138b;
+    public static Map<Integer, Integer> f64825b;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64139a = 4;
+    public int f64826a = 4;
 
     static {
         HashMap hashMap = new HashMap();
-        f64138b = hashMap;
+        f64825b = hashMap;
         hashMap.put(2, 256);
-        f64138b.put(4, 8);
-        f64138b.put(8, 286);
-        f64138b.put(16, Integer.valueOf((int) QRScanCodeActivity.DIALOG_ALIPAY_JD_WX_COPY));
-        f64138b.put(32, 326);
-        f64138b.put(64, Integer.valueOf((int) HttpStatus.SC_UNPROCESSABLE_ENTITY));
-        f64138b.put(128, 326);
-        f64138b.put(256, 20);
+        f64825b.put(4, 8);
+        f64825b.put(8, 286);
+        f64825b.put(16, Integer.valueOf((int) QRScanCodeActivity.DIALOG_ALIPAY_JD_WX_COPY));
+        f64825b.put(32, 326);
+        f64825b.put(64, Integer.valueOf((int) HttpStatus.SC_UNPROCESSABLE_ENTITY));
+        f64825b.put(128, 326);
+        f64825b.put(256, 20);
     }
 
     public int a() {
-        return this.f64139a;
+        return this.f64826a;
     }
 
     public int b(int i2) {
-        int i3 = this.f64139a;
+        int i3 = this.f64826a;
         if (i3 == i2) {
             return 0;
         }
-        if (i2 != (f64138b.get(Integer.valueOf(i3)).intValue() & i2)) {
+        if (i2 != (f64825b.get(Integer.valueOf(i3)).intValue() & i2)) {
             return -1;
         }
-        this.f64139a = i2;
+        this.f64826a = i2;
         return 1;
     }
 }

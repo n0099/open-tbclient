@@ -11,12 +11,14 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
 public final class ZeusClassLoader extends BaseDexClassLoader {
+    public static String ANDROIDX = "androidx.";
     public static String ANDROID_SUPPORT_V4 = "zeus.support.v4.";
     public static String BAIDU_MONITOR = "com.baidu.monitor.";
     public static String COM_BAIDU_BLINK = "com.baidu.blink.";
     public static String COM_BAIDU_CYBERPLAYER = "com.baidu.cyberplayer.";
     public static String COM_BAIDU_DUMPER = "com.baidu.dumper.";
     public static String COM_BAIDU_ZEUS = "com.baidu.zeus.";
+    public static String DESUGAR_RUNTIME = "com.google.devtools.build.android.desugar.runtime.";
     public static Class DexPathListClass = null;
     public static Class ElementClass = null;
     public static String ORG_CHROMIUM = "org.chromium.";
@@ -69,7 +71,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
             ensureReflectionInited();
             for (Field field : DexPathListClass.getDeclaredFields()) {
                 String name = field.getName();
-                Log.d(TAG, "f.getName=" + name);
+                Log.d(TAG, "f.getName=".concat(String.valueOf(name)));
                 if ("JAR_SUFFIX".equals(name) || "ZIP_SUFFIX".equals(name) || "APK_SUFFIX".equals(name)) {
                     return true;
                 }
@@ -125,7 +127,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
     public final Class<?> loadClass(String str) throws ClassNotFoundException {
         try {
             long currentTimeMillis = System.currentTimeMillis();
-            if (str != null && (str.startsWith(ORG_CHROMIUM) || str.startsWith(COM_BAIDU_BLINK) || str.startsWith(COM_BAIDU_CYBERPLAYER) || str.startsWith(COM_BAIDU_ZEUS) || str.startsWith(COM_BAIDU_DUMPER) || str.startsWith(ANDROID_SUPPORT_V4) || str.startsWith(BAIDU_MONITOR))) {
+            if (str != null && (str.startsWith(ORG_CHROMIUM) || str.startsWith(COM_BAIDU_BLINK) || str.startsWith(COM_BAIDU_CYBERPLAYER) || str.startsWith(COM_BAIDU_ZEUS) || str.startsWith(COM_BAIDU_DUMPER) || str.startsWith(ANDROID_SUPPORT_V4) || str.startsWith(BAIDU_MONITOR) || str.startsWith(ANDROIDX) || str.startsWith(DESUGAR_RUNTIME))) {
                 Class<?> findLoadedClass = findLoadedClass(str);
                 if (findLoadedClass != null) {
                     ZeusPerformanceTiming.sumLoadClassTime(System.currentTimeMillis() - currentTimeMillis);
@@ -139,7 +141,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
                 }
             }
         } catch (Throwable unused) {
-            Log.e(TAG, "loadClass error. aClassName=" + str);
+            Log.e(TAG, "loadClass error. aClassName=".concat(String.valueOf(str)));
         }
         return super.loadClass(str);
     }

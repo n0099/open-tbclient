@@ -15,13 +15,13 @@ import com.baidu.tieba.R;
 public class BlueCheckRadioButton extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12939e;
+    public Context f12275e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12940f;
+    public TextView f12276f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RadioButton f12941g;
+    public RadioButton f12277g;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -30,29 +30,29 @@ public class BlueCheckRadioButton extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (BlueCheckRadioButton.this.f12941g != null) {
-                BlueCheckRadioButton.this.f12941g.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
-                BlueCheckRadioButton.this.f12941g.toggle();
+            if (BlueCheckRadioButton.this.f12277g != null) {
+                BlueCheckRadioButton.this.f12277g.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
+                BlueCheckRadioButton.this.f12277g.toggle();
             }
         }
     }
 
     public BlueCheckRadioButton(Context context) {
         super(context);
-        this.f12939e = context;
+        this.f12275e = context;
         b();
     }
 
     public final void b() {
-        LayoutInflater.from(this.f12939e).inflate(R.layout.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-        this.f12940f = (TextView) findViewById(R.id.custom_check_radio_button_tv);
-        this.f12941g = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
+        LayoutInflater.from(this.f12275e).inflate(R.layout.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
+        this.f12276f = (TextView) findViewById(R.id.custom_check_radio_button_tv);
+        this.f12277g = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
         c();
         setOnClickListener(new a());
     }
 
     public void c() {
-        TextView textView = this.f12940f;
+        TextView textView = this.f12276f;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, "CAM_X0302");
         }
@@ -60,15 +60,15 @@ public class BlueCheckRadioButton extends RelativeLayout {
 
     @Override // android.view.View
     public Object getTag() {
-        return this.f12941g.getTag();
+        return this.f12277g.getTag();
     }
 
     public void setChecked(boolean z) {
-        this.f12941g.setChecked(z);
+        this.f12277g.setChecked(z);
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        RadioButton radioButton = this.f12941g;
+        RadioButton radioButton = this.f12277g;
         if (radioButton != null) {
             radioButton.setOnCheckedChangeListener(onCheckedChangeListener);
         }
@@ -76,14 +76,14 @@ public class BlueCheckRadioButton extends RelativeLayout {
 
     @Override // android.view.View
     public void setTag(Object obj) {
-        RadioButton radioButton = this.f12941g;
+        RadioButton radioButton = this.f12277g;
         if (radioButton != null) {
             radioButton.setTag(obj);
         }
     }
 
     public void setText(String str) {
-        TextView textView = this.f12940f;
+        TextView textView = this.f12276f;
         if (textView != null) {
             textView.setText(str);
         }
@@ -91,7 +91,7 @@ public class BlueCheckRadioButton extends RelativeLayout {
 
     public BlueCheckRadioButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12939e = context;
+        this.f12275e = context;
         b();
     }
 }

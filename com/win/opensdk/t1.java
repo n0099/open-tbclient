@@ -2,14 +2,14 @@ package com.win.opensdk;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class t1 implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicInteger f37950a = new AtomicInteger(1);
+    public final AtomicInteger f37195a = new AtomicInteger(1);
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        return new Thread(runnable, "T#" + this.f37950a.getAndIncrement());
+        return new Thread(runnable, "T#" + this.f37195a.getAndIncrement());
     }
 }

@@ -34,40 +34,40 @@ import com.baidu.sapi2.utils.enums.SocialType;
 public class ThirdPartyService implements AbstractThirdPartyService {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f10563b = 500;
+    public static final long f9600b = 500;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThirdLoginCallback f10564c = null;
+    public static ThirdLoginCallback f9601c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f10565d = false;
+    public static boolean f9602d = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f10566a = 0;
+    public long f9603a = 0;
 
     public ThirdPartyService() {
         CoreViewRouter.getInstance().setThirdPartyService(this);
     }
 
     public static ThirdLoginCallback getThirdLoginCallback() {
-        return f10564c;
+        return f9601c;
     }
 
     public static void releaseThirdLoginCallback() {
-        f10564c = null;
+        f9601c = null;
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void handleWXLoginResp(Activity activity, String str, String str2, int i2) {
-        if (f10565d) {
+        if (f9602d) {
             if (i2 == 0) {
                 String urlWeixinBind = ParamsUtil.getUrlWeixinBind(SapiAccountManager.getInstance().getConfignation(), str2, str, false);
-                f10564c.onAuthSuccess();
-                a.a().a(urlWeixinBind, f10564c);
+                f9601c.onAuthSuccess();
+                a.a().a(urlWeixinBind, f9601c);
             } else {
-                f10564c.onAuthFailure(i2, OAuthResult.ERROR_MSG_UNKNOWN);
+                f9601c.onAuthFailure(i2, OAuthResult.ERROR_MSG_UNKNOWN);
             }
-            f10565d = false;
+            f9602d = false;
             return;
         }
         Intent intent = new Intent(activity, WXLoginActivity.class);
@@ -95,7 +95,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadWechatLogin(Context context, int i2) {
-        f10565d = true;
+        f9602d = true;
         Intent intent = new Intent(context, WXLoginActivity.class);
         intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
         if (!(context instanceof Activity)) {
@@ -136,7 +136,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void socialBind(Activity activity, SocialType socialType, int i2, String str) {
         if (socialType == SocialType.WEIXIN) {
-            f10565d = false;
+            f9602d = false;
             Intent intent = new Intent(activity, WXLoginActivity.class);
             intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
             intent.putExtra(AccountCenterActivity.EXTRA_WEIIXIN_BIND_URL, str);
@@ -146,7 +146,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i2, ThirdLoginCallback thirdLoginCallback) {
-        f10564c = thirdLoginCallback;
+        f9601c = thirdLoginCallback;
         loadThirdPartyLogin(context, socialType, i2, null, false);
     }
 
@@ -158,10 +158,10 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i2, String str, boolean z) {
         Intent intent;
-        if (System.currentTimeMillis() - this.f10566a < 500) {
+        if (System.currentTimeMillis() - this.f9603a < 500) {
             return;
         }
-        this.f10566a = System.currentTimeMillis();
+        this.f9603a = System.currentTimeMillis();
         SapiStatUtil.statThirdLoginEnter(socialType);
         boolean z2 = context instanceof Activity;
         if (socialType == SocialType.SINA_WEIBO_SSO) {
@@ -169,7 +169,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
         } else if (socialType == SocialType.HUAWEI) {
             intent = new Intent(context, HuaweiSSOLoginActivity.class);
         } else if (socialType == SocialType.WEIXIN) {
-            f10565d = false;
+            f9602d = false;
             intent = new Intent(context, WXLoginActivity.class);
         } else if (socialType == SocialType.QQ_SSO) {
             intent = new Intent(context, QQSSOLoginActivity.class);

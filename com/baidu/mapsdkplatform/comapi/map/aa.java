@@ -6,9 +6,9 @@ public enum aa {
     
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f7873c;
+    public final int f7670c;
 
     aa(int i2) {
-        this.f7873c = i2;
+        this.f7670c = i2;
     }
 }

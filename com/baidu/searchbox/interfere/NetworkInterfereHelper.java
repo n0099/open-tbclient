@@ -3,13 +3,13 @@ package com.baidu.searchbox.interfere;
 public class NetworkInterfereHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f11081a = false;
+    public static boolean f10118a = false;
 
     public static boolean isPeakTime() {
-        return f11081a;
+        return f10118a;
     }
 
     public static void setPeakTime(boolean z) {
-        f11081a = z;
+        f10118a = z;
     }
 }

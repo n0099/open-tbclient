@@ -2,10 +2,10 @@ package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.i0.z0.w;
+import d.a.j0.z0.w;
 import tbclient.ThreadPublish.DataReq;
 import tbclient.ThreadPublish.ThreadPublishReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadPublishReqMessage extends NetMessage {
     public long fid;
     public long tid;

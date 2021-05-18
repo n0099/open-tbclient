@@ -5,7 +5,7 @@ import h.k;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f68040a = new a();
+    public static final a f68720a = new a();
 
     /* loaded from: classes7.dex */
     public static final class a implements k {
@@ -28,6 +28,6 @@ public final class e {
     }
 
     public static k c() {
-        return f68040a;
+        return f68720a;
     }
 }

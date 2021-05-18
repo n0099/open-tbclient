@@ -3,7 +3,6 @@ package com.heytap.mcssdk.utils;
 import android.content.Context;
 import android.content.Intent;
 import com.heytap.mcssdk.PushManager;
-import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.MessageStat;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -42,7 +41,7 @@ public class StatUtil {
             intent.setAction(PushManager.getReceiveSdkAction(context));
             intent.setPackage(PushManager.getMcsPackageName(context));
             intent.putExtra("appPackage", context.getPackageName());
-            intent.putExtra("type", CommandMessage.COMMAND_STATISTIC);
+            intent.putExtra("type", 12291);
             intent.putExtra("count", list.size());
             ArrayList<String> arrayList = new ArrayList<>();
             for (MessageStat messageStat : list) {

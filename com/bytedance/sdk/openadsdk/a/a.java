@@ -6,7 +6,7 @@ import com.bytedance.sdk.openadsdk.core.k;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.x;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static String a() {
         return "open_news";

@@ -10,52 +10,52 @@ import org.json.JSONObject;
 public class ao {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8819a;
+    public String f8631a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8820b;
+    public String f8632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8821c;
+    public String f8633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f8822d;
+    public long f8634d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f8823e;
+    public long f8635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f8824f;
+    public float f8636f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f8825g;
+    public float f8637g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f8826h;
+    public float f8638h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f8827i;
+    public float f8639i;
     public String j;
     public boolean k;
     public String l;
 
     public ao(String str, String str2, String str3, long j, long j2, float f2, float f3, float f4, float f5, String str4, boolean z, String str5) {
-        this.f8819a = str;
-        this.f8820b = str2;
-        this.f8821c = str3;
-        this.f8822d = j;
-        this.f8823e = j2;
-        this.f8824f = f2;
-        this.f8825g = f3;
-        this.f8826h = f4;
-        this.f8827i = f5;
+        this.f8631a = str;
+        this.f8632b = str2;
+        this.f8633c = str3;
+        this.f8634d = j;
+        this.f8635e = j2;
+        this.f8636f = f2;
+        this.f8637g = f3;
+        this.f8638h = f4;
+        this.f8639i = f5;
         this.j = str4;
         this.k = z;
         this.l = str5;
     }
 
     public String a() {
-        return this.f8819a;
+        return this.f8631a;
     }
 
     public String b() {
@@ -69,9 +69,9 @@ public class ao {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("n", str);
-            jSONObject.put("t", this.f8820b);
-            jSONObject.put("d", this.f8822d);
-            long j2 = this.f8823e - j;
+            jSONObject.put("t", this.f8632b);
+            jSONObject.put("d", this.f8634d);
+            long j2 = this.f8635e - j;
             if (j2 <= 0) {
                 j2 = 0;
             }
@@ -81,10 +81,10 @@ public class ao {
             DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
             decimalFormatSymbols.setDecimalSeparator(IStringUtil.EXTENSION_SEPARATOR);
             decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
-            jSONObject.put(Config.SESSTION_ACTIVITY_X_VIEW_HEIGHT, decimalFormat.format(this.f8824f));
-            jSONObject.put(Config.SESSTION_ACTIVITY_Y_VIEW_HEIGHT, decimalFormat.format(this.f8825g));
-            jSONObject.put(Config.SESSTION_ACTIVITY_X_TOTAL_HEIGHT, decimalFormat.format(this.f8826h));
-            jSONObject.put(Config.SESSTION_ACTIVITY_Y_TOTAL_HEIGHT, decimalFormat.format(this.f8827i));
+            jSONObject.put(Config.SESSTION_ACTIVITY_X_VIEW_HEIGHT, decimalFormat.format(this.f8636f));
+            jSONObject.put(Config.SESSTION_ACTIVITY_Y_VIEW_HEIGHT, decimalFormat.format(this.f8637g));
+            jSONObject.put(Config.SESSTION_ACTIVITY_X_TOTAL_HEIGHT, decimalFormat.format(this.f8638h));
+            jSONObject.put(Config.SESSTION_ACTIVITY_Y_TOTAL_HEIGHT, decimalFormat.format(this.f8639i));
             jSONObject.put("h5", 0);
             jSONObject.put("sign", this.l);
             return jSONObject;

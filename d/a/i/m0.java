@@ -1,178 +1,59 @@
 package d.a.i;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout;
-import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-import d.a.i.u0.a;
-import java.util.List;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public class m0 extends d.a.i.a<d.a.i0.r.q.a> {
-    public int j;
-    public int k;
-    public ThreadCommentAndPraiseInfoLayout l;
-    public d.a.i0.r.q.a m;
+public class m0 {
 
-    /* loaded from: classes.dex */
-    public class a implements View.OnClickListener {
-        public a() {
-        }
+    /* renamed from: i  reason: collision with root package name */
+    public static final int f40357i = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+    public static final int j = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+    public static final int k = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+    public static final int l = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+    public static final int m = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+    public static final int n = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds0);
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (m0.this.d() != null) {
-                m0.this.d().a(view, m0.this.m);
-            }
-        }
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f40358a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f40359b = l;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f40360c = n;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f40361d = f40357i;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f40362e = 0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f40363f = j;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f40364g = k;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f40365h = R.color.CAM_X0205;
+
+    public void a(int i2) {
+        this.f40362e = i2;
     }
 
-    /* loaded from: classes.dex */
-    public class b implements a.b {
-        public b() {
-        }
-
-        @Override // d.a.i.u0.a.b
-        public boolean a(a.C1011a c1011a) {
-            if (c1011a.c() instanceof Boolean) {
-                if (!((Boolean) c1011a.c()).booleanValue()) {
-                    if ((m0.this.j & 128) <= 0) {
-                        m0.this.j &= -5;
-                        m0.this.j |= 64;
-                    }
-                } else {
-                    m0 m0Var = m0.this;
-                    m0Var.j = m0Var.k;
-                }
-                m0.this.l.setShowFlag(m0.this.j);
-                return false;
-            }
-            return false;
-        }
-    }
-
-    public m0(Context context) {
-        super(context);
-        this.j = 11;
-        this.k = 11;
-        ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout = new ThreadCardBottomOpSegmentLayout(context);
-        this.l = threadCardBottomOpSegmentLayout;
-        threadCardBottomOpSegmentLayout.setReplyTimeVisible(false);
-        this.l.setShowPraiseNum(true);
-        this.l.setNeedAddPraiseIcon(true);
-        this.l.setNeedAddReplyIcon(true);
-        this.l.setShareVisible(true);
-        this.l.setForumAfterClickListener(new a());
-    }
-
-    public void A(int i2) {
-        this.l.setShareReportFrom(i2);
-    }
-
-    public void B(String str) {
-        this.l.setStType(str);
-    }
-
-    public void D(String str) {
-        this.l.setTabName(str);
-    }
-
-    @Override // d.a.i.a
     public void b(int i2) {
-        int i3 = i2 | this.j;
-        this.j = i3;
-        this.l.setShowFlag(i3);
-        this.k = this.j;
+        this.f40363f = i2;
     }
 
-    @Override // d.a.i.a
     public void c(int i2) {
-        int i3 = (~i2) & this.j;
-        this.j = i3;
-        this.l.setShowFlag(i3);
-        this.k = this.j;
+        this.f40364g = i2;
     }
 
-    @Override // d.a.i.a
-    public View g() {
-        return this.l;
+    public void d(int i2) {
+        this.f40359b = i2;
     }
 
-    @Override // d.a.i.a
-    public void h() {
-        this.f47689e.m(4, new b());
-    }
-
-    @Override // d.a.i.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        this.l.onChangeSkinType();
-    }
-
-    public final void t() {
-        boolean z = false;
-        k(this.l, 0);
-        d.a.i.a f2 = this.f47689e.f();
-        if (f2 == null) {
-            return;
-        }
-        ViewGroup viewGroup = (ViewGroup) f2.g();
-        int childCount = viewGroup.getChildCount();
-        int i2 = 0;
-        while (true) {
-            if (i2 >= childCount) {
-                z = true;
-                break;
-            } else if (!(viewGroup.getChildAt(i2) instanceof TextView) && viewGroup.getChildAt(i2).getVisibility() == 0) {
-                break;
-            } else {
-                i2++;
-            }
-        }
-        if (z) {
-            List<h> h2 = this.f47689e.h();
-            if (ListUtils.isEmpty(h2)) {
-                return;
-            }
-            for (h hVar : h2) {
-                if (hVar != null && hVar.g() != null && hVar.g().getVisibility() == 0) {
-                    return;
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.i.p
-    /* renamed from: u */
-    public void a(d.a.i0.r.q.a aVar) {
-        this.m = aVar;
-        this.l.setData(aVar.m());
-        t();
-    }
-
-    public void v(d.a.i0.r.q.e eVar) {
-        this.l.setAgreeStatisticData(eVar);
-    }
-
-    public void w(int i2) {
-        this.l.setFrom(i2);
-    }
-
-    public void x(int i2) {
-        this.l.R = i2;
-    }
-
-    public void y(int i2) {
-        this.l.setGameId(i2);
-    }
-
-    public void z(ThreadCommentAndPraiseInfoLayout.i iVar) {
-        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.l;
-        if (threadCommentAndPraiseInfoLayout != null) {
-            threadCommentAndPraiseInfoLayout.setOnCommentClickCallback(iVar);
-        }
+    public void e(int i2) {
+        this.f40361d = i2;
     }
 }

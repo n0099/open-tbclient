@@ -2,9 +2,9 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.a.j0.d2.h.e;
+import d.a.k0.d2.h.e;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     public Context context;
     public boolean markCache;

@@ -3,14 +3,14 @@ package com.google.ar.core;
 public class TrackableBase implements d.g.b.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f31602a;
+    public final long f30847a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Session f31603b;
+    public final Session f30848b;
 
     public TrackableBase(long j, Session session) {
-        this.f31603b = session;
-        this.f31602a = j;
+        this.f30848b = session;
+        this.f30847a = j;
     }
 
     private native long nativeCreateAnchor(long j, long j2, d.g.b.a.a aVar);
@@ -24,11 +24,11 @@ public class TrackableBase implements d.g.b.a.b {
     public static native void nativeReleaseTrackable(long j);
 
     public boolean equals(Object obj) {
-        return obj != null && obj.getClass() == getClass() && ((TrackableBase) obj).f31602a == this.f31602a;
+        return obj != null && obj.getClass() == getClass() && ((TrackableBase) obj).f30847a == this.f30847a;
     }
 
-    public void finalize() throws Throwable {
-        long j = this.f31602a;
+    public void finalize() {
+        long j = this.f30847a;
         if (j != 0) {
             nativeReleaseTrackable(j);
         }
@@ -36,6 +36,6 @@ public class TrackableBase implements d.g.b.a.b {
     }
 
     public int hashCode() {
-        return Long.valueOf(this.f31602a).hashCode();
+        return Long.valueOf(this.f30847a).hashCode();
     }
 }

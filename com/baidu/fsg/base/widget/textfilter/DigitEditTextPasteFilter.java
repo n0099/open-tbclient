@@ -5,7 +5,7 @@ import java.util.List;
 public class DigitEditTextPasteFilter implements IEditTextPasteFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5707a = "DigitEditTextPasteFilter";
+    public static final String f5561a = "DigitEditTextPasteFilter";
 
     @Override // com.baidu.fsg.base.widget.textfilter.IEditTextPasteFilter
     public String intercept(String str) {

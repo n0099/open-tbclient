@@ -3,10 +3,10 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
-import d.a.h0.a.c;
-import d.a.h0.a.e;
-import d.a.h0.a.i2.h0;
-import d.a.h0.a.w0.a;
+import d.a.i0.a.c;
+import d.a.i0.a.c1.a;
+import d.a.i0.a.e;
+import d.a.i0.a.v2.n0;
 /* loaded from: classes3.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public boolean r;
@@ -21,21 +21,21 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
             return;
         }
         this.r = true;
-        this.s = a.z().a();
+        this.s = a.H().a();
         j();
         setTextSize(1, 11.0f);
-        setCompoundDrawablePadding(h0.e(getContext(), 5.0f));
+        setCompoundDrawablePadding(n0.f(getContext(), 5.0f));
         b(0);
     }
 
     public void j() {
         setBackground(getResources().getDrawable(e.aiapps_pull_refresh_success_tip_bg));
         setTextColor(getResources().getColor(c.aiapps_pull_refresh_result_text_color));
-        c(getResources().getDrawable(e.aiapps_pull_refresh_success_tip_icon), 0, h0.e(getContext(), 11.0f), h0.e(getContext(), 11.0f));
+        c(getResources().getDrawable(e.aiapps_pull_refresh_success_tip_icon), 0, n0.f(getContext(), 11.0f), n0.f(getContext(), 11.0f));
     }
 
     public void k() {
-        boolean a2 = a.z().a();
+        boolean a2 = a.H().a();
         if (this.s != a2) {
             j();
             this.s = a2;

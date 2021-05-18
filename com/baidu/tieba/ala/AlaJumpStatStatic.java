@@ -10,7 +10,7 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import d.a.i0.m0.l;
+import d.a.j0.m0.l;
 /* loaded from: classes4.dex */
 public class AlaJumpStatStatic {
 

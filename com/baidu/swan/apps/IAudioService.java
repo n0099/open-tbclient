@@ -6,10 +6,60 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.swan.apps.IAudioListener;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface IAudioService extends IInterface {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
+    public static class Default implements IAudioService {
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return null;
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public int getDuration() throws RemoteException {
+            return 0;
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public boolean isPlaying() throws RemoteException {
+            return false;
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void pause() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void play() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void registerListener(IAudioListener iAudioListener) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void release() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void seek(int i2) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void setParams(String str) throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void stop() throws RemoteException {
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void unregisterListener(IAudioListener iAudioListener) throws RemoteException {
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public static abstract class Stub extends Binder implements IAudioService {
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IAudioService";
         public static final int TRANSACTION_getDuration = 2;
@@ -23,8 +73,9 @@ public interface IAudioService extends IInterface {
         public static final int TRANSACTION_stop = 5;
         public static final int TRANSACTION_unregisterListener = 10;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes2.dex */
         public static class Proxy implements IAudioService {
+            public static IAudioService sDefaultImpl;
             public IBinder mRemote;
 
             public Proxy(IBinder iBinder) {
@@ -42,7 +93,9 @@ public interface IAudioService extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(2, obtain, obtain2, 0);
+                    if (!this.mRemote.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        return Stub.getDefaultImpl().getDuration();
+                    }
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {
@@ -61,7 +114,9 @@ public interface IAudioService extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(7, obtain, obtain2, 0);
+                    if (!this.mRemote.transact(7, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        return Stub.getDefaultImpl().isPlaying();
+                    }
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -76,8 +131,11 @@ public interface IAudioService extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(4, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().pause();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -90,8 +148,11 @@ public interface IAudioService extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(3, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().play();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -105,8 +166,11 @@ public interface IAudioService extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeStrongBinder(iAudioListener != null ? iAudioListener.asBinder() : null);
-                    this.mRemote.transact(9, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(9, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().registerListener(iAudioListener);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -119,8 +183,11 @@ public interface IAudioService extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(8, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(8, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().release();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -134,8 +201,11 @@ public interface IAudioService extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeInt(i2);
-                    this.mRemote.transact(6, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().seek(i2);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -149,8 +219,11 @@ public interface IAudioService extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
-                    this.mRemote.transact(1, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().setParams(str);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -163,8 +236,11 @@ public interface IAudioService extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(5, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().stop();
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -178,8 +254,11 @@ public interface IAudioService extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeStrongBinder(iAudioListener != null ? iAudioListener.asBinder() : null);
-                    this.mRemote.transact(10, obtain, obtain2, 0);
-                    obtain2.readException();
+                    if (!this.mRemote.transact(10, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().unregisterListener(iAudioListener);
+                    } else {
+                        obtain2.readException();
+                    }
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -200,6 +279,18 @@ public interface IAudioService extends IInterface {
                 return (IAudioService) queryLocalInterface;
             }
             return new Proxy(iBinder);
+        }
+
+        public static IAudioService getDefaultImpl() {
+            return Proxy.sDefaultImpl;
+        }
+
+        public static boolean setDefaultImpl(IAudioService iAudioService) {
+            if (Proxy.sDefaultImpl != null || iAudioService == null) {
+                return false;
+            }
+            Proxy.sDefaultImpl = iAudioService;
+            return true;
         }
 
         @Override // android.os.IInterface

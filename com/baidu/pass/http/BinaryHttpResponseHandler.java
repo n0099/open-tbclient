@@ -6,18 +6,18 @@ import java.util.HashMap;
 public class BinaryHttpResponseHandler extends HttpResponseHandler implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String[] f9646a;
+    public String[] f9267a;
 
     public BinaryHttpResponseHandler(Looper looper) {
         super(looper);
-        this.f9646a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
+        this.f9267a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
     }
 
     @Override // com.baidu.pass.http.HttpResponseHandler
     public void a(int i2, HashMap<String, String> hashMap, byte[] bArr) {
         if (hashMap != null && hashMap.get("Content-Type") != null) {
             String str = hashMap.get("Content-Type");
-            String[] strArr = this.f9646a;
+            String[] strArr = this.f9267a;
             int length = strArr.length;
             boolean z = false;
             int i3 = 0;
@@ -60,8 +60,8 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
 
     public BinaryHttpResponseHandler(Looper looper, String[] strArr, boolean z) {
         super(looper);
-        this.f9646a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
-        this.f9646a = strArr;
+        this.f9267a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
+        this.f9267a = strArr;
         this.executCallbackInChildThread = z;
     }
 }

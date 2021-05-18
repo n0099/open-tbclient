@@ -1,6 +1,8 @@
 package com.baidu.tbadk.core.util;
 
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class ListUtils {
     public static <T> boolean add(List<T> list, T t) {
@@ -23,6 +25,19 @@ public class ListUtils {
             return;
         }
         list.clear();
+    }
+
+    public static <T> ArrayList<T> convertJSONArrayToList(ArrayList<T> arrayList, JSONArray jSONArray) {
+        if (arrayList == null) {
+            arrayList = new ArrayList<>();
+        }
+        if (jSONArray != null) {
+            int length = jSONArray.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                arrayList.add(jSONArray.opt(i2));
+            }
+        }
+        return arrayList;
     }
 
     public static <T> boolean equalList(List<T> list, List<T> list2) {

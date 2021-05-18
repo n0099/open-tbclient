@@ -8,10 +8,10 @@ import java.util.TimerTask;
 public final class aw extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ av f23474a;
+    public final /* synthetic */ av f22719a;
 
     public aw(av avVar) {
-        this.f23474a = avVar;
+        this.f22719a = avVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -22,13 +22,13 @@ public final class aw extends TimerTask {
         Timer timer3;
         Message message = new Message();
         message.what = 3;
-        handler = this.f23474a.f23473a.v;
+        handler = this.f22719a.f22718a.v;
         handler.sendMessage(message);
-        timer = this.f23474a.f23473a.p;
+        timer = this.f22719a.f22718a.p;
         if (timer != null) {
-            timer2 = this.f23474a.f23473a.p;
+            timer2 = this.f22719a.f22718a.p;
             timer2.cancel();
-            timer3 = this.f23474a.f23473a.p;
+            timer3 = this.f22719a.f22718a.p;
             timer3.purge();
         }
     }

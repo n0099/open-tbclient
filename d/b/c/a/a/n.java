@@ -3,73 +3,73 @@ package d.b.c.a.a;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f64459a;
+    public final byte[] f65145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64460b;
+    public int f65146b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64461c;
+    public int f65147c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64462d;
+    public boolean f65148d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f64463e;
+    public boolean f65149e;
 
     /* renamed from: f  reason: collision with root package name */
-    public n f64464f;
+    public n f65150f;
 
     /* renamed from: g  reason: collision with root package name */
-    public n f64465g;
+    public n f65151g;
 
     public n() {
-        this.f64459a = new byte[8192];
-        this.f64463e = true;
-        this.f64462d = false;
+        this.f65145a = new byte[8192];
+        this.f65149e = true;
+        this.f65148d = false;
     }
 
     public final n a() {
-        this.f64462d = true;
-        return new n(this.f64459a, this.f64460b, this.f64461c, true, false);
+        this.f65148d = true;
+        return new n(this.f65145a, this.f65146b, this.f65147c, true, false);
     }
 
     public final n b(int i2) {
         n a2;
-        if (i2 > 0 && i2 <= this.f64461c - this.f64460b) {
+        if (i2 > 0 && i2 <= this.f65147c - this.f65146b) {
             if (i2 >= 1024) {
                 a2 = a();
             } else {
                 a2 = o.a();
-                System.arraycopy(this.f64459a, this.f64460b, a2.f64459a, 0, i2);
+                System.arraycopy(this.f65145a, this.f65146b, a2.f65145a, 0, i2);
             }
-            a2.f64461c = a2.f64460b + i2;
-            this.f64460b += i2;
-            this.f64465g.c(a2);
+            a2.f65147c = a2.f65146b + i2;
+            this.f65146b += i2;
+            this.f65151g.c(a2);
             return a2;
         }
         throw new IllegalArgumentException();
     }
 
     public final n c(n nVar) {
-        nVar.f64465g = this;
-        nVar.f64464f = this.f64464f;
-        this.f64464f.f64465g = nVar;
-        this.f64464f = nVar;
+        nVar.f65151g = this;
+        nVar.f65150f = this.f65150f;
+        this.f65150f.f65151g = nVar;
+        this.f65150f = nVar;
         return nVar;
     }
 
     public final void d(n nVar, int i2) {
-        if (nVar.f64463e) {
-            int i3 = nVar.f64461c;
+        if (nVar.f65149e) {
+            int i3 = nVar.f65147c;
             if (i3 + i2 > 8192) {
-                if (!nVar.f64462d) {
-                    int i4 = nVar.f64460b;
+                if (!nVar.f65148d) {
+                    int i4 = nVar.f65146b;
                     if ((i3 + i2) - i4 <= 8192) {
-                        byte[] bArr = nVar.f64459a;
+                        byte[] bArr = nVar.f65145a;
                         System.arraycopy(bArr, i4, bArr, 0, i3 - i4);
-                        nVar.f64461c -= nVar.f64460b;
-                        nVar.f64460b = 0;
+                        nVar.f65147c -= nVar.f65146b;
+                        nVar.f65146b = 0;
                     } else {
                         throw new IllegalArgumentException();
                     }
@@ -77,36 +77,36 @@ public final class n {
                     throw new IllegalArgumentException();
                 }
             }
-            System.arraycopy(this.f64459a, this.f64460b, nVar.f64459a, nVar.f64461c, i2);
-            nVar.f64461c += i2;
-            this.f64460b += i2;
+            System.arraycopy(this.f65145a, this.f65146b, nVar.f65145a, nVar.f65147c, i2);
+            nVar.f65147c += i2;
+            this.f65146b += i2;
             return;
         }
         throw new IllegalArgumentException();
     }
 
     public final n e() {
-        n nVar = this.f64464f;
+        n nVar = this.f65150f;
         if (nVar == this) {
             nVar = null;
         }
-        n nVar2 = this.f64465g;
-        nVar2.f64464f = this.f64464f;
-        this.f64464f.f64465g = nVar2;
-        this.f64464f = null;
-        this.f64465g = null;
+        n nVar2 = this.f65151g;
+        nVar2.f65150f = this.f65150f;
+        this.f65150f.f65151g = nVar2;
+        this.f65150f = null;
+        this.f65151g = null;
         return nVar;
     }
 
     public final void f() {
-        n nVar = this.f64465g;
+        n nVar = this.f65151g;
         if (nVar != this) {
-            if (nVar.f64463e) {
-                int i2 = this.f64461c - this.f64460b;
-                if (i2 > (8192 - nVar.f64461c) + (nVar.f64462d ? 0 : nVar.f64460b)) {
+            if (nVar.f65149e) {
+                int i2 = this.f65147c - this.f65146b;
+                if (i2 > (8192 - nVar.f65147c) + (nVar.f65148d ? 0 : nVar.f65146b)) {
                     return;
                 }
-                d(this.f64465g, i2);
+                d(this.f65151g, i2);
                 e();
                 o.b(this);
                 return;
@@ -117,10 +117,10 @@ public final class n {
     }
 
     public n(byte[] bArr, int i2, int i3, boolean z, boolean z2) {
-        this.f64459a = bArr;
-        this.f64460b = i2;
-        this.f64461c = i3;
-        this.f64462d = z;
-        this.f64463e = z2;
+        this.f65145a = bArr;
+        this.f65146b = i2;
+        this.f65147c = i3;
+        this.f65148d = z;
+        this.f65149e = z2;
     }
 }

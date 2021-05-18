@@ -12,28 +12,28 @@ import java.util.zip.GZIPInputStream;
 public class f implements com.baidu.fsg.base.restnet.rest.e {
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f5366a;
+    public InputStream f5220a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5367b;
+    public int f5221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5368c;
+    public String f5222c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<String>> f5369d;
+    public Map<String, List<String>> f5223d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.fsg.base.restnet.http.a f5370e;
+    public com.baidu.fsg.base.restnet.http.a f5224e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f5371f;
+    public InputStream f5225f;
 
     public f(InputStream inputStream, int i2, String str, Map<String, List<String>> map) {
-        this.f5366a = inputStream;
-        this.f5367b = i2;
-        this.f5368c = str;
-        this.f5369d = map;
+        this.f5220a = inputStream;
+        this.f5221b = i2;
+        this.f5222c = str;
+        this.f5223d = map;
     }
 
     private boolean g() {
@@ -43,28 +43,28 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public int a() throws IOException {
-        return this.f5367b;
+        return this.f5221b;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public String b() throws IOException {
-        return this.f5368c;
+        return this.f5222c;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public InputStream c() throws IOException {
         if (g()) {
-            return a(this.f5366a);
+            return a(this.f5220a);
         }
-        return this.f5366a;
+        return this.f5220a;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public com.baidu.fsg.base.restnet.http.a d() {
-        if (this.f5370e == null) {
-            this.f5370e = new com.baidu.fsg.base.restnet.http.a(this.f5369d, false);
+        if (this.f5224e == null) {
+            this.f5224e = new com.baidu.fsg.base.restnet.http.a(this.f5223d, false);
         }
-        return this.f5370e;
+        return this.f5224e;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
@@ -74,7 +74,7 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public void f() {
-        InputStream inputStream = this.f5371f;
+        InputStream inputStream = this.f5225f;
         if (inputStream != null) {
             try {
                 inputStream.close();
@@ -82,7 +82,7 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
                 e2.printStackTrace();
             }
         }
-        InputStream inputStream2 = this.f5366a;
+        InputStream inputStream2 = this.f5220a;
         if (inputStream2 != null) {
             try {
                 inputStream2.close();
@@ -93,9 +93,9 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
     }
 
     private InputStream a(InputStream inputStream) throws IOException {
-        if (this.f5371f == null) {
-            this.f5371f = new GZIPInputStream(inputStream);
+        if (this.f5225f == null) {
+            this.f5225f = new GZIPInputStream(inputStream);
         }
-        return this.f5371f;
+        return this.f5225f;
     }
 }

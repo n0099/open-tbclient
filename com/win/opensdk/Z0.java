@@ -4,25 +4,25 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class Z0 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ byte[] f37816a;
+    public final /* synthetic */ byte[] f37061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f37817b;
+    public final /* synthetic */ String f37062b;
 
     public Z0(byte[] bArr, String str) {
-        this.f37816a = bArr;
-        this.f37817b = str;
+        this.f37061a = bArr;
+        this.f37062b = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         FileOutputStream fileOutputStream;
-        byte[] bArr = this.f37816a;
-        String str = this.f37817b;
+        byte[] bArr = this.f37061a;
+        String str = this.f37062b;
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
         File file = new File(str);
         String substring = str.substring(0, str.lastIndexOf("/"));

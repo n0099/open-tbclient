@@ -10,7 +10,7 @@ import android.os.PowerManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.swan.games.utils.so.SoUtils;
+import com.baidu.swan.apps.so.SoUtils;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.tencent.connect.common.Constants;
 import java.util.Arrays;
@@ -22,33 +22,33 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40961a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static String f40206a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40962b = null;
+    public static String f40207b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40963c = null;
+    public static String f40208c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f40964d = 60000;
+    public static long f40209d = 60000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f40965e = 0;
+    public static long f40210e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f40966f = 0;
+    public static long f40211f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f40967g = 0;
+    public static long f40212g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f40968h = false;
+    public static boolean f40213h = false;
 
     static {
-        long j = f40964d * 60;
-        f40965e = j;
-        f40966f = j * 24;
+        long j = f40209d * 60;
+        f40210e = j;
+        f40211f = j * 24;
     }
 
     public static String a() {
@@ -65,21 +65,21 @@ public class c {
 
     public static String b(Context context) {
         try {
-            if (!TextUtils.isEmpty(f40963c)) {
-                return f40963c;
+            if (!TextUtils.isEmpty(f40208c)) {
+                return f40208c;
             }
             String o = d.a.g0.b.a.g(context).o();
-            f40963c = o;
+            f40208c = o;
             if (!TextUtils.isEmpty(o)) {
-                return f40963c;
+                return f40208c;
             }
             String str = new String(f());
-            f40963c = str;
+            f40208c = str;
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
-            d.a.g0.b.a.g(context).r(f40963c);
-            return f40963c;
+            d.a.g0.b.a.g(context).r(f40208c);
+            return f40208c;
         } catch (Throwable th) {
             d(th);
             return "";
@@ -101,7 +101,7 @@ public class c {
             jSONObject2.put("5", str);
             jSONObject2.put("6", System.currentTimeMillis());
             jSONObject2.put("7", "");
-            jSONObject2.put("8", d.a.g0.a.f40743b);
+            jSONObject2.put("8", d.a.g0.a.f39988b);
             jSONObject2.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
             jSONObject2.put("10", "1.0.5");
             jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "");
@@ -133,7 +133,7 @@ public class c {
     public static byte[] f() {
         char[] cArr = new char[16];
         try {
-            char[] charArray = f40961a.toCharArray();
+            char[] charArray = f40206a.toCharArray();
             for (int i2 = 0; i2 < 16; i2++) {
                 int nextInt = new Random().nextInt(62);
                 if (nextInt >= 0 && nextInt < charArray.length) {
@@ -217,23 +217,23 @@ public class c {
 
     public static String l(Context context) {
         try {
-            if (!TextUtils.isEmpty(f40962b)) {
-                return f40962b;
+            if (!TextUtils.isEmpty(f40207b)) {
+                return f40207b;
             }
             String j0 = d.a.g0.b.a.g(context).j0();
-            f40962b = j0;
+            f40207b = j0;
             if (!TextUtils.isEmpty(j0)) {
-                return f40962b;
+                return f40207b;
             }
             Signature signature = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures[0];
             if (signature != null) {
                 String d2 = g.d(signature.toByteArray());
-                f40962b = d2;
+                f40207b = d2;
                 if (TextUtils.isEmpty(d2)) {
                     return "";
                 }
-                d.a.g0.b.a.g(context).U(f40962b);
-                return f40962b;
+                d.a.g0.b.a.g(context).U(f40207b);
+                return f40207b;
             }
             return "";
         } catch (Throwable th) {
@@ -284,12 +284,12 @@ public class c {
 
     public static boolean o(Context context) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - f40967g < 1000) {
-            return f40968h;
+        if (currentTimeMillis - f40212g < 1000) {
+            return f40213h;
         }
         boolean z = s(context) && n(context);
-        f40968h = z;
-        f40967g = currentTimeMillis;
+        f40213h = z;
+        f40212g = currentTimeMillis;
         return z;
     }
 

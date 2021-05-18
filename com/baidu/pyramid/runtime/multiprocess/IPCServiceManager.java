@@ -19,16 +19,16 @@ import org.json.JSONObject;
 public class IPCServiceManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile IPCServiceManagerAidl f10463a;
+    public static volatile IPCServiceManagerAidl f9500a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f10464b = new b(null);
+    public static final b f9501b = new b(null);
 
     /* renamed from: c  reason: collision with root package name */
-    public static IPCServiceManagerAidlImpl f10465c;
+    public static IPCServiceManagerAidlImpl f9502c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ContentProviderClient f10466d;
+    public static ContentProviderClient f9503d;
 
     /* loaded from: classes2.dex */
     public static class IPCServiceManagerAidlImpl extends IPCServiceManagerAidl.Stub {
@@ -59,15 +59,15 @@ public class IPCServiceManager {
     public static class a extends f {
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f10467h;
+        public final /* synthetic */ String f9504h;
 
         public a(String str) {
-            this.f10467h = str;
+            this.f9504h = str;
         }
 
         @Override // d.a.c0.b.a.f
         public IBinder c() throws RemoteException {
-            return IPCServiceManager.g().getService(this.f10467h);
+            return IPCServiceManager.g().getService(this.f9504h);
         }
     }
 
@@ -75,7 +75,7 @@ public class IPCServiceManager {
     public static class b extends f {
 
         /* renamed from: h  reason: collision with root package name */
-        public static final Uri f10468h = Uri.parse("content://" + ServerProvider.getCoreProviderAuthority() + "/ipc_manager/method/get_service_handler");
+        public static final Uri f9505h = Uri.parse("content://" + ServerProvider.getCoreProviderAuthority() + "/ipc_manager/method/get_service_handler");
 
         public b() {
         }
@@ -143,7 +143,7 @@ public class IPCServiceManager {
                     bundle = h(acquireUnstableContentProviderClient, jSONObject);
                 }
                 if (bundle != null) {
-                    IPCServiceManager.f10466d = acquireUnstableContentProviderClient;
+                    IPCServiceManager.f9503d = acquireUnstableContentProviderClient;
                     break;
                 }
                 try {
@@ -172,7 +172,7 @@ public class IPCServiceManager {
 
         public final Bundle h(ContentProviderClient contentProviderClient, JSONObject jSONObject) {
             try {
-                return contentProviderClient.query(f10468h, null, null, null, null).getExtras();
+                return contentProviderClient.query(f9505h, null, null, null, null).getExtras();
             } catch (Exception e2) {
                 try {
                     jSONObject.put("useProviderClientQuery", g.a(e2));
@@ -186,9 +186,9 @@ public class IPCServiceManager {
         public final Bundle i(ContentResolver contentResolver, JSONObject jSONObject) {
             Bundle bundle = null;
             for (int i2 = 0; i2 < 2; i2++) {
-                bundle = d(contentResolver, f10468h, jSONObject);
+                bundle = d(contentResolver, f9505h, jSONObject);
                 if (bundle == null) {
-                    bundle = e(contentResolver, f10468h, jSONObject);
+                    bundle = e(contentResolver, f9505h, jSONObject);
                 }
                 if (bundle != null) {
                     break;
@@ -226,10 +226,10 @@ public class IPCServiceManager {
     }
 
     public static IPCServiceManagerAidlImpl e() {
-        if (f10465c == null) {
-            f10465c = new IPCServiceManagerAidlImpl(null);
+        if (f9502c == null) {
+            f9502c = new IPCServiceManagerAidlImpl(null);
         }
-        return f10465c;
+        return f9502c;
     }
 
     public static IBinder f(String str, boolean z) {
@@ -246,12 +246,12 @@ public class IPCServiceManager {
     }
 
     public static IPCServiceManagerAidl g() {
-        IPCServiceManagerAidl iPCServiceManagerAidl = f10463a;
+        IPCServiceManagerAidl iPCServiceManagerAidl = f9500a;
         if (iPCServiceManagerAidl != null) {
             return iPCServiceManagerAidl;
         }
-        IPCServiceManagerAidl asInterface = IPCServiceManagerAidl.Stub.asInterface(f10464b);
-        f10463a = asInterface;
+        IPCServiceManagerAidl asInterface = IPCServiceManagerAidl.Stub.asInterface(f9501b);
+        f9500a = asInterface;
         return asInterface;
     }
 

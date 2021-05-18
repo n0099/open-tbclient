@@ -11,26 +11,26 @@ import com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView;
 public class b implements DragSortListView.i {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f27028a;
+    public Bitmap f26273a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f27029b;
+    public ImageView f26274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27030c = -16777216;
+    public int f26275c = -16777216;
 
     /* renamed from: d  reason: collision with root package name */
-    public ListView f27031d;
+    public ListView f26276d;
 
     public b(ListView listView) {
-        this.f27031d = listView;
+        this.f26276d = listView;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.i
     public void a(View view) {
         ((ImageView) view).setImageDrawable(null);
-        this.f27028a.recycle();
-        this.f27028a = null;
+        this.f26273a.recycle();
+        this.f26273a = null;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.i
@@ -39,26 +39,26 @@ public class b implements DragSortListView.i {
 
     @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.i
     public View d(int i2) {
-        ListView listView = this.f27031d;
-        View childAt = listView.getChildAt((i2 + listView.getHeaderViewsCount()) - this.f27031d.getFirstVisiblePosition());
+        ListView listView = this.f26276d;
+        View childAt = listView.getChildAt((i2 + listView.getHeaderViewsCount()) - this.f26276d.getFirstVisiblePosition());
         if (childAt == null) {
             return null;
         }
         childAt.setPressed(false);
         childAt.setDrawingCacheEnabled(true);
-        this.f27028a = Bitmap.createBitmap(childAt.getDrawingCache());
+        this.f26273a = Bitmap.createBitmap(childAt.getDrawingCache());
         childAt.setDrawingCacheEnabled(false);
-        if (this.f27029b == null) {
-            this.f27029b = new ImageView(this.f27031d.getContext());
+        if (this.f26274b == null) {
+            this.f26274b = new ImageView(this.f26276d.getContext());
         }
-        this.f27029b.setBackgroundColor(this.f27030c);
-        this.f27029b.setPadding(0, 0, 0, 0);
-        this.f27029b.setImageBitmap(this.f27028a);
-        this.f27029b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
-        return this.f27029b;
+        this.f26274b.setBackgroundColor(this.f26275c);
+        this.f26274b.setPadding(0, 0, 0, 0);
+        this.f26274b.setImageBitmap(this.f26273a);
+        this.f26274b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+        return this.f26274b;
     }
 
     public void e(int i2) {
-        this.f27030c = i2;
+        this.f26275c = i2;
     }
 }

@@ -30,10 +30,10 @@ import com.baidu.tieba.im.message.chat.SystemMessage;
 import com.baidu.tieba.im.message.chat.YYMessage;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import d.a.c.e.p.k;
-import d.a.i0.r.q.x0;
-import d.a.j0.e1.o.a;
-import d.a.j0.e1.w.b;
-import d.a.j0.e1.w.c;
+import d.a.j0.r.q.x0;
+import d.a.k0.e1.o.a;
+import d.a.k0.e1.w.b;
+import d.a.k0.e1.w.c;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -148,23 +148,23 @@ public class MessageUtils {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null && l != null) {
                     groupMsgData.getGroupInfo().setGroupId(l.longValue());
                 }
-                if (d.a.j0.e1.o.c.e().c(chatMessage.getMsgId())) {
+                if (d.a.k0.e1.o.c.e().c(chatMessage.getMsgId())) {
                     return;
                 }
-                long d2 = d.a.j0.e1.o.c.e().d();
+                long d2 = d.a.k0.e1.o.c.e().d();
                 Long l2 = msgInfo.groupId;
                 if (l2 == null) {
                     return;
                 }
-                if (d2 != 0 && l2.longValue() != d.a.j0.e1.o.c.e().d()) {
+                if (d2 != 0 && l2.longValue() != d.a.k0.e1.o.c.e().d()) {
                     return;
                 }
-                Long f3 = d.a.j0.e1.o.c.e().f();
+                Long f3 = d.a.k0.e1.o.c.e().f();
                 if (f3 != null && msgInfo.msgId != null && f3.longValue() >= msgInfo.msgId.longValue()) {
                     return;
                 }
                 chatMessage.setIsPushForOperateAccount(true);
-                d.a.j0.e1.o.c.e().a(msgInfo.groupId.longValue(), chatMessage.getMsgId());
+                d.a.k0.e1.o.c.e().a(msgInfo.groupId.longValue(), chatMessage.getMsgId());
             }
             if (j != 0) {
                 if (linkedList.size() == 0) {
@@ -227,11 +227,11 @@ public class MessageUtils {
     }
 
     public static void createGroupChatMessage(int i2, String str, long j) {
-        createGroupChatMessage(d.a.j0.e1.k.b.o().t(String.valueOf(j), 1), i2, str, j);
+        createGroupChatMessage(d.a.k0.e1.k.b.o().t(String.valueOf(j), 1), i2, str, j);
     }
 
     public static void createPersonalChatMessage(int i2, String str, long j, String str2, String str3, String str4) {
-        createPersonalChatMessage(d.a.j0.e1.k.b.o().t(String.valueOf(j), 2), i2, str, j, str2, str3, str4);
+        createPersonalChatMessage(d.a.k0.e1.k.b.o().t(String.valueOf(j), 2), i2, str, j, str2, str3, str4);
     }
 
     public static void generatePushData(List<GroupMsgData> list, int i2, List<MsgInfo> list2, Long l) {
@@ -532,7 +532,7 @@ public class MessageUtils {
 
     public static void sendHasReadMessage(String str, int i2) {
         ImMessageCenterPojo i3;
-        if (StringUtils.isNull(str) || i2 != 2 || (i3 = d.a.j0.e1.k.b.o().i(str, 2)) == null) {
+        if (StringUtils.isNull(str) || i2 != 2 || (i3 = d.a.k0.e1.k.b.o().i(str, 2)) == null) {
             return;
         }
         long pulled_msgId = i3.getPulled_msgId();
@@ -590,7 +590,7 @@ public class MessageUtils {
         msgLocalData.setRetry(0L);
         msgLocalData.setUpload_offset(null);
         groupChatMessage.setLocalData(msgLocalData);
-        d.a.j0.e1.s.a.j().t(groupChatMessage);
+        d.a.k0.e1.s.a.j().t(groupChatMessage);
     }
 
     public static void createPersonalChatMessage(long j, int i2, String str, long j2, String str2, String str3, String str4) {
@@ -631,7 +631,7 @@ public class MessageUtils {
         msgLocalData.setRetry(0L);
         msgLocalData.setUpload_offset(null);
         personalChatMessage.setLocalData(msgLocalData);
-        d.a.j0.e1.s.a.j().t(personalChatMessage);
+        d.a.k0.e1.s.a.j().t(personalChatMessage);
     }
 
     public static NewpushGroupRepair makeNewpushGroupRepair(long j, int i2, long j2, long j3, long j4) {

@@ -11,32 +11,32 @@ import java.util.concurrent.ExecutorService;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public a.C1722a f63737a;
+    public a.C1785a f64374a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f63738b;
+    public b f64375b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63739c;
+    public String f64376c;
 
     /* renamed from: d.a.q.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC1723a implements Runnable {
+    public class RunnableC1786a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f63740e;
+        public final /* synthetic */ d f64377e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f63741f;
+        public final /* synthetic */ String f64378f;
 
-        public RunnableC1723a(a aVar, d dVar, String str) {
-            this.f63740e = dVar;
-            this.f63741f = str;
+        public RunnableC1786a(a aVar, d dVar, String str) {
+            this.f64377e = dVar;
+            this.f64378f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f63740e.a(this.f63741f, null);
+            this.f64377e.a(this.f64378f, null);
         }
     }
 
@@ -44,26 +44,26 @@ public abstract class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f63742a;
+        public Context f64379a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a.q.g.d.a f63743b;
+        public d.a.q.g.d.a f64380b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TrustSubjectManager.d f63744c;
+        public TrustSubjectManager.d f64381c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ExecutorService f63745d;
+        public ExecutorService f64382d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ExecutorService f63746e;
+        public ExecutorService f64383e;
     }
 
     /* loaded from: classes2.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f63747a = false;
+        public boolean f64384a = false;
     }
 
     /* loaded from: classes2.dex */
@@ -74,7 +74,7 @@ public abstract class a {
     }
 
     public a(String str) {
-        this.f63739c = str;
+        this.f64376c = str;
     }
 
     public static String b(String str, String str2) {
@@ -92,8 +92,8 @@ public abstract class a {
     }
 
     public final void a(b bVar) {
-        this.f63738b = bVar;
-        this.f63737a = bVar.f63743b.d().f("ids");
+        this.f64375b = bVar;
+        this.f64374a = bVar.f64380b.d().f("ids");
     }
 
     public abstract String c();
@@ -103,12 +103,12 @@ public abstract class a {
     }
 
     public String e() {
-        return this.f63739c;
+        return this.f64376c;
     }
 
     public abstract void f(c cVar);
 
     public void g(d<String> dVar) {
-        this.f63738b.f63745d.submit(new RunnableC1723a(this, dVar, c()));
+        this.f64375b.f64382d.submit(new RunnableC1786a(this, dVar, c()));
     }
 }

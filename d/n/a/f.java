@@ -12,23 +12,23 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<M> f65797a;
+    public final Class<M> f66483a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<B> f65798b;
+    public final Class<B> f66484b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<Integer, a<M, B>> f65799c;
+    public final Map<Integer, a<M, B>> f66485c;
 
     public f(Class<M> cls, Class<B> cls2, Map<Integer, a<M, B>> map) {
         super(FieldEncoding.LENGTH_DELIMITED, cls);
-        this.f65797a = cls;
-        this.f65798b = cls2;
-        this.f65799c = map;
+        this.f66483a = cls;
+        this.f66484b = cls2;
+        this.f66485c = map;
     }
 
     public static <M extends Message<M, B>, B extends Message.a<M, B>> f<M, B> a(Class<M> cls) {
@@ -62,7 +62,7 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
         while (true) {
             int f3 = cVar.f();
             if (f3 != -1) {
-                a<M, B> aVar = this.f65799c.get(Integer.valueOf(f3));
+                a<M, B> aVar = this.f66485c.get(Integer.valueOf(f3));
                 if (aVar != null) {
                     try {
                         if (aVar.f()) {
@@ -89,10 +89,10 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
     @Override // com.squareup.wire2.ProtoAdapter
     /* renamed from: c */
     public void encode(d dVar, M m) throws IOException {
-        for (a<M, B> aVar : this.f65799c.values()) {
+        for (a<M, B> aVar : this.f66485c.values()) {
             Object b2 = aVar.b(m);
             if (b2 != null) {
-                aVar.a().encodeWithTag(dVar, aVar.f65779c, b2);
+                aVar.a().encodeWithTag(dVar, aVar.f66465c, b2);
             }
         }
         dVar.k(m.unknownFields());
@@ -107,10 +107,10 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
             return i2;
         }
         int i3 = 0;
-        for (a<M, B> aVar : this.f65799c.values()) {
+        for (a<M, B> aVar : this.f66485c.values()) {
             Object b2 = aVar.b(m);
             if (b2 != null) {
-                i3 += aVar.a().encodedSizeWithTag(aVar.f65779c, b2);
+                i3 += aVar.a().encodedSizeWithTag(aVar.f66465c, b2);
             }
         }
         int size = i3 + m.unknownFields().size();
@@ -119,12 +119,12 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof f) && ((f) obj).f65797a == this.f65797a;
+        return (obj instanceof f) && ((f) obj).f66483a == this.f66483a;
     }
 
     public B f() {
         try {
-            return this.f65798b.newInstance();
+            return this.f66484b.newInstance();
         } catch (IllegalAccessException | InstantiationException e2) {
             throw new AssertionError(e2);
         }
@@ -135,13 +135,13 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
     /* renamed from: g */
     public M redact(M m) {
         Message.a<M, B> newBuilder = m.newBuilder();
-        for (a<M, B> aVar : this.f65799c.values()) {
-            if (aVar.f65782f && aVar.f65777a == WireField.Label.REQUIRED) {
-                throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", aVar.f65778b, this.javaType.getName()));
+        for (a<M, B> aVar : this.f66485c.values()) {
+            if (aVar.f66468f && aVar.f66463a == WireField.Label.REQUIRED) {
+                throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", aVar.f66464b, this.javaType.getName()));
             }
             boolean isAssignableFrom = Message.class.isAssignableFrom(aVar.i().javaType);
-            if (!aVar.f65782f && (!isAssignableFrom || aVar.f65777a.isRepeated())) {
-                if (isAssignableFrom && aVar.f65777a.isRepeated()) {
+            if (!aVar.f66468f && (!isAssignableFrom || aVar.f66463a.isRepeated())) {
+                if (isAssignableFrom && aVar.f66463a.isRepeated()) {
                     d.n.a.h.a.k((List) aVar.e(newBuilder), aVar.i());
                 }
             } else {
@@ -160,24 +160,24 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
     /* renamed from: h */
     public String toString(M m) {
         StringBuilder sb = new StringBuilder();
-        for (a<M, B> aVar : this.f65799c.values()) {
+        for (a<M, B> aVar : this.f66485c.values()) {
             Object b2 = aVar.b(m);
             if (b2 != null) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(aVar.f65778b);
+                sb.append(aVar.f66464b);
                 sb.append(com.alipay.sdk.encrypt.a.f1873h);
-                if (aVar.f65782f) {
+                if (aVar.f66468f) {
                     b2 = "██";
                 }
                 sb.append(b2);
             }
         }
-        sb.replace(0, 2, this.f65797a.getSimpleName() + '{');
+        sb.replace(0, 2, this.f66483a.getSimpleName() + '{');
         sb.append('}');
         return sb.toString();
     }
 
     public int hashCode() {
-        return this.f65797a.hashCode();
+        return this.f66483a.hashCode();
     }
 }

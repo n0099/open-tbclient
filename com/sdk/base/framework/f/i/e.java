@@ -4,14 +4,14 @@ import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.sdk.base.framework.c.f;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36537a = "com.sdk.base.framework.f.i.e";
+    public static final String f35782a = "com.sdk.base.framework.f.i.e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f36538b = f.f36488b;
+    public static boolean f35783b = f.f35733b;
 
     public static String a(String str) {
         if (com.sdk.base.framework.a.a.c.a(str).booleanValue()) {
@@ -31,7 +31,7 @@ public class e extends com.sdk.base.framework.f.a {
             }
             return sb.toString();
         } catch (Exception e2) {
-            com.sdk.base.framework.f.a.a(f36537a, LightappBusinessClient.MTD_ENCRYPT, e2.getMessage(), f36538b);
+            com.sdk.base.framework.f.a.a(f35782a, LightappBusinessClient.MTD_ENCRYPT, e2.getMessage(), f35783b);
             return null;
         }
     }

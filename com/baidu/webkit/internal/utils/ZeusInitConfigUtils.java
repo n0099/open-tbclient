@@ -10,6 +10,7 @@ public class ZeusInitConfigUtils {
     public static final String KEY_ENGINE_CLOUDSETTINGS_TIME = "engineCloudSettingsTime";
     public static final String NAME_CLOUDDATA = "zeus_init_config";
     public static final String PREF_KEY_NO_ZEUS_UNDER_5 = "no_zeus_under_5";
+    public static final String PREF_KEY_SDK_VERSION = "sdk_version";
     public static SharedPreferences mSharePrefs;
 
     public static String get(String str, String str2) {

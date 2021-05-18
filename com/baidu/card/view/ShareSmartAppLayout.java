@@ -9,17 +9,17 @@ import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
 import d.a.i.p;
-import d.a.i0.r.q.a;
-import d.a.i0.r.q.a2;
-import d.a.j0.x.b0;
+import d.a.j0.r.q.a;
+import d.a.j0.r.q.a2;
+import d.a.k0.x.b0;
 /* loaded from: classes.dex */
 public class ShareSmartAppLayout extends LinearLayout implements p<a> {
 
     /* renamed from: e  reason: collision with root package name */
-    public AppletsCellView f4655e;
+    public AppletsCellView f4509e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b0<a> f4656f;
+    public b0<a> f4510f;
 
     public ShareSmartAppLayout(Context context) {
         this(context, null);
@@ -29,7 +29,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
         LayoutInflater.from(getContext()).inflate(R.layout.share_smart_app_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4655e = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
+        this.f4509e = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,23 +39,23 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
         if (aVar != null && aVar.m() != null && aVar.m().j1() != null) {
             setVisibility(0);
             a2 m = aVar.m();
-            this.f4655e.setData(m.j1());
-            this.f4655e.setForumId(String.valueOf(m.c0()));
-            this.f4655e.setFrom("frs_card");
+            this.f4509e.setData(m.j1());
+            this.f4509e.setForumId(String.valueOf(m.c0()));
+            this.f4509e.setFrom("frs_card");
             return;
         }
         setVisibility(8);
     }
 
     public b0<a> getSubClickListener() {
-        return this.f4656f;
+        return this.f4510f;
     }
 
     public void setFromCDN(boolean z) {
     }
 
     public void setSubClickListener(b0<a> b0Var) {
-        this.f4656f = b0Var;
+        this.f4510f = b0Var;
     }
 
     public ShareSmartAppLayout(Context context, @Nullable AttributeSet attributeSet) {

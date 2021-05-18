@@ -148,6 +148,10 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
     public final WebViewFactoryProvider.SettingsStatics getSettingsStatics() {
         return new WebViewFactoryProvider.SettingsStatics() { // from class: com.baidu.webkit.sdk.system.WebViewSystemFactoryProvider.2
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public void addPreConnectPrefixes(String str) {
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean canUseFreeFlow() {
                 return false;
             }
@@ -281,6 +285,16 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public boolean getInNovelSiteList(String str) {
+                return false;
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public boolean getInVideoSiteList(String str) {
+                return false;
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean getIpv6Env() {
                 return false;
             }
@@ -293,6 +307,11 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public Context getKernelContext() {
                 return null;
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public int getLevelInfo(String str) {
+                return -1;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -448,6 +467,11 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getSessionUploadUrl() {
                 return null;
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public int getSiteTypeInfo(String str) {
+                return -1;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -718,6 +742,10 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public void setInPageJudgeWhiteList(boolean z, boolean z2) {
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setIpv6First(boolean z) {
             }
 
@@ -884,6 +912,10 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public boolean shouldAccessNetworkOverSpdy(String str) {
                 return false;
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public void updateFixAdblockLevelInfo(String str, int i2, int i3) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics

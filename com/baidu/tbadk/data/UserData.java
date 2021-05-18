@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import d.a.c.j.e.n;
-import d.a.i0.r.q.g2;
-import d.a.i0.t.o;
+import d.a.j0.r.q.g2;
+import d.a.j0.t.o;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,6 +76,7 @@ public class UserData extends MetaData {
     public List<MyLikeForum> mLikeForum;
     public List<n> mPhotoAlbum;
     public long mTDouNum;
+    public String mTiebaUid;
     public int managerLevel;
     public int markCount;
     public MembershipUserInfo membershipInfo;
@@ -332,6 +333,10 @@ public class UserData extends MetaData {
         return this.visitorNum;
     }
 
+    public String getmTiebaUid() {
+        return this.mTiebaUid;
+    }
+
     public boolean isBawu() {
         int i2 = this.managerLevel;
         return i2 == 1 || i2 == 2;
@@ -527,6 +532,7 @@ public class UserData extends MetaData {
         }
         this.bawuThrones = user.bawu_thrones;
         this.showPbPrivateFlag = user.show_pb_private_flag.intValue();
+        this.mTiebaUid = user.tieba_uid;
     }
 
     public void setBDUSS(String str) {
@@ -606,7 +612,7 @@ public class UserData extends MetaData {
         this.mLikeForum = list;
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, d.a.i0.r.f0.q.a
+    @Override // com.baidu.tbadk.data.MetaData, d.a.j0.r.f0.q.a
     public void setLikeStatus(int i2) {
         super.setLikeStatus(i2);
         this.have_attention = i2;
@@ -654,6 +660,10 @@ public class UserData extends MetaData {
 
     public void setUserType(int i2) {
         this.userType = i2;
+    }
+
+    public void setmTiebaUid(String str) {
+        this.mTiebaUid = str;
     }
 
     public boolean showPbPrivate() {
@@ -812,6 +822,7 @@ public class UserData extends MetaData {
                 this.mBirthdayInfo = g2Var;
                 g2Var.a(optJSONObject10);
             }
+            this.mTiebaUid = jSONObject.optString("tieba_uid");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

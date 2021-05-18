@@ -1,5 +1,5 @@
 package d.b.d.b.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface b {
     void a(long j, Thread thread, Throwable th);
 

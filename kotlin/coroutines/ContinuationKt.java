@@ -30,7 +30,7 @@ public final class ContinuationKt {
 
             @Override // kotlin.coroutines.Continuation
             public void resumeWith(Object obj) {
-                function1.invoke(Result.m635boximpl(obj));
+                function1.invoke(Result.m634boximpl(obj));
             }
         };
     }
@@ -55,14 +55,14 @@ public final class ContinuationKt {
     @InlineOnly
     public static final <T> void resume(Continuation<? super T> continuation, T t) {
         Result.Companion companion = Result.Companion;
-        continuation.resumeWith(Result.m636constructorimpl(t));
+        continuation.resumeWith(Result.m635constructorimpl(t));
     }
 
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <T> void resumeWithException(Continuation<? super T> continuation, Throwable th) {
         Result.Companion companion = Result.Companion;
-        continuation.resumeWith(Result.m636constructorimpl(ResultKt.createFailure(th)));
+        continuation.resumeWith(Result.m635constructorimpl(ResultKt.createFailure(th)));
     }
 
     @SinceKotlin(version = "1.3")
@@ -72,7 +72,7 @@ public final class ContinuationKt {
         Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(IntrinsicsKt__IntrinsicsJvmKt.createCoroutineUnintercepted(startCoroutine, completion));
         Unit unit = Unit.INSTANCE;
         Result.Companion companion = Result.Companion;
-        intercepted.resumeWith(Result.m636constructorimpl(unit));
+        intercepted.resumeWith(Result.m635constructorimpl(unit));
     }
 
     @SinceKotlin(version = "1.3")
@@ -103,6 +103,6 @@ public final class ContinuationKt {
         Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(IntrinsicsKt__IntrinsicsJvmKt.createCoroutineUnintercepted(startCoroutine, r, completion));
         Unit unit = Unit.INSTANCE;
         Result.Companion companion = Result.Companion;
-        intercepted.resumeWith(Result.m636constructorimpl(unit));
+        intercepted.resumeWith(Result.m635constructorimpl(unit));
     }
 }

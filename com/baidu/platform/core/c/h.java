@@ -5,21 +5,21 @@ import com.baidu.platform.base.SearchType;
 public /* synthetic */ class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f10344a;
+    public static final /* synthetic */ int[] f9380a;
 
     static {
         int[] iArr = new int[SearchType.values().length];
-        f10344a = iArr;
+        f9380a = iArr;
         try {
             iArr[SearchType.POI_NEAR_BY_SEARCH.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f10344a[SearchType.POI_IN_CITY_SEARCH.ordinal()] = 2;
+            f9380a[SearchType.POI_IN_CITY_SEARCH.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f10344a[SearchType.POI_IN_BOUND_SEARCH.ordinal()] = 3;
+            f9380a[SearchType.POI_IN_BOUND_SEARCH.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
     }

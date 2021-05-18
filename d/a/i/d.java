@@ -6,10 +6,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class d extends d.a.i.a<d.a.i0.r.q.a> {
+public class d extends d.a.i.a<d.a.j0.r.q.a> {
     public CardUserInfoLayout j;
     public int k;
-    public d.a.i0.r.q.a l;
+    public d.a.j0.r.q.a l;
     public b m;
 
     /* loaded from: classes.dex */
@@ -30,7 +30,7 @@ public class d extends d.a.i.a<d.a.i0.r.q.a> {
 
     /* loaded from: classes.dex */
     public interface b {
-        void a(d.a.i0.r.q.a aVar, View view);
+        void a(d.a.j0.r.q.a aVar, View view);
     }
 
     public d(Context context) {
@@ -69,7 +69,7 @@ public class d extends d.a.i.a<d.a.i0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: q */
-    public void a(d.a.i0.r.q.a aVar) {
+    public void a(d.a.j0.r.q.a aVar) {
         this.l = aVar;
         this.j.setData(aVar.m());
     }

@@ -6,20 +6,20 @@ import com.baidu.crabsdk.lite.sender.e;
 public final class a implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ String f63316e;
+    public final /* synthetic */ String f63855e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ Context f63317f;
+    public final /* synthetic */ Context f63856f;
 
     public a(String str, Context context) {
-        this.f63316e = str;
-        this.f63317f = context;
+        this.f63855e = str;
+        this.f63856f = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            e.d(this.f63316e, this.f63317f);
+            e.d(this.f63855e, this.f63856f);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

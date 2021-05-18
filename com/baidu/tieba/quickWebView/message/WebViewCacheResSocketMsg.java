@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.j0.q2.e.a;
+import d.a.k0.q2.e.a;
 import java.util.HashMap;
 import java.util.Map;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
 import tbclient.GetWebviewCacheInfo.Offpack;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
     public Map<String, a> mModuleInfos;
 

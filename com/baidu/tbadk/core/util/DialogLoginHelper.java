@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.util;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.a.i0.b.d;
-import d.a.i0.r.q.r0;
+import d.a.j0.b.d;
+import d.a.j0.r.q.r0;
 /* loaded from: classes3.dex */
 public class DialogLoginHelper {
     public static final String DIALOG_TYPE_ONE_KEY = "yijiandenglu";

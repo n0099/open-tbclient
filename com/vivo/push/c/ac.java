@@ -2,7 +2,7 @@ package com.vivo.push.c;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ac extends ab {
     public ac(com.vivo.push.y yVar) {
         super(yVar);

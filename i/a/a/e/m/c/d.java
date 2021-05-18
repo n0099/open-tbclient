@@ -16,109 +16,109 @@ import i.a.a.e.f;
 import i.a.a.e.l.e;
 import kotlin.jvm.internal.Intrinsics;
 import tv.athena.revenue.payui.view.dialog.DialogListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f68203a = "PayCommonDialog";
+    public static final String f68883a = "PayCommonDialog";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f68204b = new d();
+    public static final d f68884b = new d();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a implements DialogInterface.OnDismissListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogListener f68205e;
+        public final /* synthetic */ DialogListener f68885e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Dialog f68206f;
+        public final /* synthetic */ Dialog f68886f;
 
         public a(DialogListener dialogListener, Dialog dialog) {
-            this.f68205e = dialogListener;
-            this.f68206f = dialog;
+            this.f68885e = dialogListener;
+            this.f68886f = dialog;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public final void onDismiss(DialogInterface dialogInterface) {
-            DialogListener dialogListener = this.f68205e;
+            DialogListener dialogListener = this.f68885e;
             if (dialogListener != null) {
                 dialogListener.a(DialogListener.ClickArea.ON_DIALOG_DISMISS);
             }
-            d.f68204b.a(this.f68206f);
+            d.f68884b.a(this.f68886f);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class b implements DialogInterface.OnCancelListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogListener f68207e;
+        public final /* synthetic */ DialogListener f68887e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Dialog f68208f;
+        public final /* synthetic */ Dialog f68888f;
 
         public b(DialogListener dialogListener, Dialog dialog) {
-            this.f68207e = dialogListener;
-            this.f68208f = dialog;
+            this.f68887e = dialogListener;
+            this.f68888f = dialog;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public final void onCancel(DialogInterface dialogInterface) {
-            DialogListener dialogListener = this.f68207e;
+            DialogListener dialogListener = this.f68887e;
             if (dialogListener != null) {
                 dialogListener.a(DialogListener.ClickArea.ON_DIALOG_CANCEL);
             }
-            d.f68204b.a(this.f68208f);
+            d.f68884b.a(this.f68888f);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogListener f68209e;
+        public final /* synthetic */ DialogListener f68889e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Dialog f68210f;
+        public final /* synthetic */ Dialog f68890f;
 
         public c(DialogListener dialogListener, Dialog dialog) {
-            this.f68209e = dialogListener;
-            this.f68210f = dialog;
+            this.f68889e = dialogListener;
+            this.f68890f = dialog;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
-            DialogListener dialogListener = this.f68209e;
+            DialogListener dialogListener = this.f68889e;
             if (dialogListener != null) {
                 dialogListener.a(DialogListener.ClickArea.EMPTY_AREA);
             }
-            this.f68210f.dismiss();
+            this.f68890f.dismiss();
         }
     }
 
     /* renamed from: i.a.a.e.m.c.d$d  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class View$OnClickListenerC1879d implements View.OnClickListener {
+    /* loaded from: classes8.dex */
+    public static final class View$OnClickListenerC1942d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogListener f68211e;
+        public final /* synthetic */ DialogListener f68891e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Dialog f68212f;
+        public final /* synthetic */ Dialog f68892f;
 
-        public View$OnClickListenerC1879d(DialogListener dialogListener, Dialog dialog) {
-            this.f68211e = dialogListener;
-            this.f68212f = dialog;
+        public View$OnClickListenerC1942d(DialogListener dialogListener, Dialog dialog) {
+            this.f68891e = dialogListener;
+            this.f68892f = dialog;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
-            DialogListener dialogListener = this.f68211e;
+            DialogListener dialogListener = this.f68891e;
             if (dialogListener != null) {
                 dialogListener.a(DialogListener.ClickArea.BUTTOM_AREA);
             }
-            this.f68212f.dismiss();
+            this.f68892f.dismiss();
         }
     }
 
@@ -142,13 +142,13 @@ public final class d {
         if (objectAnimator != null) {
             objectAnimator.cancel();
             imageView.setTag(null);
-            d.r.b.a.a.f.d.d.b(f68203a, "hideDialogLoading->oldRotateAnimator.cancel()");
+            d.r.b.a.a.f.d.d.b(f68883a, "hideDialogLoading->oldRotateAnimator.cancel()");
         }
     }
 
     public final Dialog b(Context context, String str, View view, DialogListener dialogListener) {
-        if (!e.f68162a.a(context)) {
-            d.r.b.a.a.f.d.d.f(f68203a, "showSimpleNumberInputDialog ActivityInvalid....");
+        if (!e.f68842a.a(context)) {
+            d.r.b.a.a.f.d.d.f(f68883a, "showSimpleNumberInputDialog ActivityInvalid....");
             return null;
         }
         Dialog dialog = new Dialog(context, f.YY_Pay_Common_Dialg);
@@ -168,7 +168,7 @@ public final class d {
         window.setWindowAnimations(f.YY_Dialog_Window_Anim);
         window.setContentView(i.a.a.e.d.yy_dialog_pay_common);
         window.findViewById(i.a.a.e.c.rl_root).setOnClickListener(new c(dialogListener, dialog));
-        ((Button) window.findViewById(i.a.a.e.c.btn_close)).setOnClickListener(new View$OnClickListenerC1879d(dialogListener, dialog));
+        ((Button) window.findViewById(i.a.a.e.c.btn_close)).setOnClickListener(new View$OnClickListenerC1942d(dialogListener, dialog));
         ((TextView) window.findViewById(i.a.a.e.c.tv_title)).setText(str);
         ((ViewGroup) window.findViewById(i.a.a.e.c.container)).addView(view);
         return dialog;
@@ -193,7 +193,7 @@ public final class d {
         if (objectAnimator != null) {
             objectAnimator.cancel();
             imageView.setTag(null);
-            d.r.b.a.a.f.d.d.b(f68203a, "showDialogLoading->oldRotateAnimator.cancel()");
+            d.r.b.a.a.f.d.d.b(f68883a, "showDialogLoading->oldRotateAnimator.cancel()");
         }
         viewGroup.setVisibility(0);
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "rotation", 0.0f, 360.0f);
@@ -203,6 +203,6 @@ public final class d {
         ofFloat.setRepeatCount(-1);
         ofFloat.start();
         imageView.setTag(ofFloat);
-        d.r.b.a.a.f.d.d.b(f68203a, "showDialogLoading->mRotateAnimator.start()");
+        d.r.b.a.a.f.d.d.b(f68883a, "showDialogLoading->mRotateAnimator.start()");
     }
 }

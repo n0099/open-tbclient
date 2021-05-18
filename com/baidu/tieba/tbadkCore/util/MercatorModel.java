@@ -8,6 +8,7 @@ import com.baidu.loc.str.BDLocManager;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -19,58 +20,58 @@ import org.json.JSONObject;
 public class MercatorModel {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f21693a;
+    public boolean f20937a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a.c f21694b;
+    public final a.c f20938b;
 
     /* loaded from: classes5.dex */
     public static class MercatorData extends OrmObject {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f21695e;
+        public String f20939e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f21696f;
+        public String f20940f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f21697g;
+        public String f20941g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f21698h;
+        public int f20942h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f21699i;
+        public long f20943i;
 
         public MercatorData() {
         }
 
         public int s() {
-            return this.f21698h;
+            return this.f20942h;
         }
 
         public String t() {
-            return this.f21696f;
+            return this.f20940f;
         }
 
         public String u() {
-            return this.f21695e;
+            return this.f20939e;
         }
 
         public String v() {
-            return this.f21697g;
+            return this.f20941g;
         }
 
         public long w() {
-            return this.f21699i;
+            return this.f20943i;
         }
 
         public MercatorData(String str, String str2, String str3, int i2, long j) {
-            this.f21695e = str;
-            this.f21696f = str2;
-            this.f21697g = str3;
-            this.f21698h = i2;
-            this.f21699i = j;
+            this.f20939e = str;
+            this.f20940f = str2;
+            this.f20941g = str3;
+            this.f20942h = i2;
+            this.f20943i = j;
         }
     }
 
@@ -86,7 +87,7 @@ public class MercatorModel {
             if (jSONObject == null) {
                 return;
             }
-            MercatorModel.g(new MercatorData(jSONObject.optString("mercator_lon"), jSONObject.optString("mercator_lat"), jSONObject.optString("mercator_radius"), jSONObject.optInt("mercator_city"), jSONObject.optLong("mercator_time")));
+            MercatorModel.g(new MercatorData(jSONObject.optString(SearchJsBridge.COOKIE_MERCATOR_LON), jSONObject.optString(SearchJsBridge.COOKIE_MERCATOR_LAT), jSONObject.optString(SearchJsBridge.COOKIE_MERCATOR_RADIUS), jSONObject.optInt(SearchJsBridge.COOKIE_MERCATOR_CITY), jSONObject.optLong(SearchJsBridge.COOKIE_MERCATOR_TIME)));
         }
     }
 
@@ -98,19 +99,19 @@ public class MercatorModel {
         @Override // d.a.c.e.i.a.c
         public void onLocationGeted(int i2, String str, Address address) {
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            if (i2 != 0 || address == null || inst == null || MercatorModel.this.f21693a) {
+            if (i2 != 0 || address == null || inst == null || MercatorModel.this.f20937a) {
                 return;
             }
-            MercatorModel.this.f21693a = true;
+            MercatorModel.this.f20937a = true;
             String valueOf = String.valueOf(address.getLatitude());
             String valueOf2 = String.valueOf(address.getLongitude());
             String locString = BDLocManager.getInstance(inst).getLocString();
             String version = TbConfig.getVersion();
             String cuid = TbadkCoreApplication.getInst().getCuid();
             String clientIP = UtilHelper.getClientIP();
-            d.a.j0.s2.f0.a.e().i(valueOf);
-            d.a.j0.s2.f0.a.e().j(valueOf2);
-            d.a.j0.s2.f0.a.e().k(System.currentTimeMillis());
+            d.a.k0.s2.g0.a.e().i(valueOf);
+            d.a.k0.s2.g0.a.e().j(valueOf2);
+            d.a.k0.s2.g0.a.e().k(System.currentTimeMillis());
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MERCATOR);
             httpMessage.addParam("cuid", cuid);
             httpMessage.addParam("cip", clientIP);
@@ -119,7 +120,7 @@ public class MercatorModel {
             httpMessage.addParam("longitude", valueOf2);
             httpMessage.addParam("latitude", valueOf);
             MessageManager.getInstance().sendMessage(httpMessage);
-            MercatorModel.this.f21693a = false;
+            MercatorModel.this.f20937a = false;
         }
     }
 
@@ -127,7 +128,7 @@ public class MercatorModel {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final MercatorModel f21701a = new MercatorModel(null);
+        public static final MercatorModel f20945a = new MercatorModel(null);
     }
 
     public /* synthetic */ MercatorModel(a aVar) {
@@ -135,26 +136,26 @@ public class MercatorModel {
     }
 
     public static MercatorModel d() {
-        return b.f21701a;
+        return b.f20945a;
     }
 
     public static void g(MercatorData mercatorData) {
         TbSingleton.getInstance().setMercatorData(mercatorData);
-        d.a.i0.r.d0.b.j().x("key_mercator_location", OrmObject.jsonStrWithObject(mercatorData));
+        d.a.j0.r.d0.b.j().x("key_mercator_location", OrmObject.jsonStrWithObject(mercatorData));
     }
 
     public MercatorData e() {
         MercatorData mercatorData = TbSingleton.getInstance().getMercatorData();
-        return mercatorData == null ? (MercatorData) OrmObject.objectWithJsonStr(d.a.i0.r.d0.b.j().p("key_mercator_location", null), MercatorData.class) : mercatorData;
+        return mercatorData == null ? (MercatorData) OrmObject.objectWithJsonStr(d.a.j0.r.d0.b.j().p("key_mercator_location", null), MercatorData.class) : mercatorData;
     }
 
     public void f() {
-        d.a.c.e.i.a.l().i(true, this.f21694b);
+        d.a.c.e.i.a.l().i(true, this.f20938b);
     }
 
     public MercatorModel() {
-        this.f21693a = false;
-        this.f21694b = new a();
+        this.f20937a = false;
+        this.f20938b = new a();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MERCATOR, TbConfig.SERVER_ADDRESS + TbConfig.MERCATOR_LOCATION_URL);
         tbHttpMessageTask.setResponsedClass(MercatorLocationResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.SurfaceHolder;
+import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import javax.annotation.Nullable;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -55,7 +56,7 @@ public class EglBase10 implements EglBase {
         if (context == null || context.eglContext != EGL10.EGL_NO_CONTEXT) {
             EGLContext eGLContext = context == null ? EGL10.EGL_NO_CONTEXT : context.eglContext;
             synchronized (EglBase.lock) {
-                eglCreateContext = this.egl.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, new int[]{EGL_CONTEXT_CLIENT_VERSION, 2, 12344});
+                eglCreateContext = this.egl.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, new int[]{EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER});
             }
             if (eglCreateContext != EGL10.EGL_NO_CONTEXT) {
                 return eglCreateContext;
@@ -73,7 +74,7 @@ public class EglBase10 implements EglBase {
         if (this.eglSurface != EGL10.EGL_NO_SURFACE) {
             throw new RuntimeException("Already has an EGLSurface");
         }
-        EGLSurface eglCreateWindowSurface = this.egl.eglCreateWindowSurface(this.eglDisplay, this.eglConfig, obj, new int[]{12344});
+        EGLSurface eglCreateWindowSurface = this.egl.eglCreateWindowSurface(this.eglDisplay, this.eglConfig, obj, new int[]{ZeusMonitorType.MONITOR_TYPE_AD_FILTER});
         this.eglSurface = eglCreateWindowSurface;
         if (eglCreateWindowSurface != EGL10.EGL_NO_SURFACE) {
             return;
@@ -119,7 +120,7 @@ public class EglBase10 implements EglBase {
         if (this.eglSurface != EGL10.EGL_NO_SURFACE) {
             throw new RuntimeException("Already has an EGLSurface");
         }
-        EGLSurface eglCreatePbufferSurface = this.egl.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i2, 12374, i3, 12344});
+        EGLSurface eglCreatePbufferSurface = this.egl.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i2, 12374, i3, ZeusMonitorType.MONITOR_TYPE_AD_FILTER});
         this.eglSurface = eglCreatePbufferSurface;
         if (eglCreatePbufferSurface != EGL10.EGL_NO_SURFACE) {
             return;

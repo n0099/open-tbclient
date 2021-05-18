@@ -11,39 +11,39 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.switchs.FaceFeedbackEnableSwitch;
 import com.baidu.tieba.R;
-import d.a.j0.b2.d.c;
-/* loaded from: classes3.dex */
+import d.a.k0.b2.d.c;
+/* loaded from: classes4.dex */
 public class RemindActivity extends BaseActivity<RemindActivity> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: com.baidu.tieba.passaccount.app.RemindActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0209a implements c.e {
-            public C0209a() {
+        /* loaded from: classes4.dex */
+        public class C0196a implements c.e {
+            public C0196a() {
             }
 
-            @Override // d.a.j0.b2.d.c.e
+            @Override // d.a.k0.b2.d.c.e
             public void a(boolean z, String str) {
-                d.a.j0.b2.d.b.f().d(z, str);
+                d.a.k0.b2.d.b.f().d(z, str);
                 RemindActivity.this.finishActivity(true);
             }
 
-            @Override // d.a.j0.b2.d.c.e
+            @Override // d.a.k0.b2.d.c.e
             public void b(boolean z, boolean z2, String str) {
-                d.a.j0.b2.d.b.f().d(z2, str);
+                d.a.k0.b2.d.b.f().d(z2, str);
                 RemindActivity.this.finishActivity(true);
             }
 
-            @Override // d.a.j0.b2.d.c.e
+            @Override // d.a.k0.b2.d.c.e
             public void c() {
-                d.a.j0.b2.d.b.f().d(false, null);
+                d.a.k0.b2.d.b.f().d(false, null);
             }
 
-            @Override // d.a.j0.b2.d.c.e
+            @Override // d.a.k0.b2.d.c.e
             public void onFail() {
-                d.a.j0.b2.d.b.f().d(false, null);
+                d.a.k0.b2.d.b.f().d(false, null);
             }
         }
 
@@ -52,11 +52,11 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.i().g(RemindActivity.this, new C0209a());
+            c.i().g(RemindActivity.this, new C0196a());
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -77,7 +77,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         if (z) {
             return;
         }
-        d.a.j0.b2.d.b.f().a(null);
+        d.a.k0.b2.d.b.f().a(null);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

@@ -17,31 +17,31 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f66977a = "";
+    public static String f67663a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f66978b = "";
+    public static String f67664b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f66979c = "";
+    public static String f67665c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f66980d = "";
+    public static String f67666d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f66981e = "";
+    public static String f67667e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f66982f = "";
+    public static String f67668f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f66983g = "";
+    public static String f67669g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f66984h = "";
+    public static String f67670h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public static List<JSONObject> f66985i = new LinkedList();
+    public static List<JSONObject> f67671i = new LinkedList();
     public static int j = 30;
     public static int k = 30;
     public static int l = 5;
@@ -49,34 +49,34 @@ public class a {
 
     /* renamed from: d.r.b.a.a.f.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class RunnableC1832a implements Runnable {
+    public static class RunnableC1896a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f66986e;
+        public final /* synthetic */ String f67672e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f66987f;
+        public final /* synthetic */ String f67673f;
 
-        public RunnableC1832a(String str, String str2) {
-            this.f66986e = str;
-            this.f66987f = str2;
+        public RunnableC1896a(String str, String str2) {
+            this.f67672e = str;
+            this.f67673f = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("tag", this.f66986e);
-                jSONObject.put("uid", a.f66977a);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, a.f66978b);
-                jSONObject.put("device", a.f66979c);
-                jSONObject.put(IAdRequestParam.OS, a.f66980d);
-                jSONObject.put("appName", a.f66981e);
-                jSONObject.put("clientVer", a.f66982f);
-                jSONObject.put(CommandMessage.SDK_VERSION, a.f66984h);
-                jSONObject.put("deviceId", a.f66983g);
+                jSONObject.put("tag", this.f67672e);
+                jSONObject.put("uid", a.f67663a);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, a.f67664b);
+                jSONObject.put("device", a.f67665c);
+                jSONObject.put(IAdRequestParam.OS, a.f67666d);
+                jSONObject.put("appName", a.f67667e);
+                jSONObject.put("clientVer", a.f67668f);
+                jSONObject.put(CommandMessage.SDK_VERSION, a.f67670h);
+                jSONObject.put("deviceId", a.f67669g);
                 jSONObject.put("timestamp", System.currentTimeMillis());
-                jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, this.f66987f);
+                jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, this.f67673f);
                 a.b(jSONObject, false);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -97,10 +97,10 @@ public class a {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.r.b.a.a.f.d.c f66988e;
+        public final /* synthetic */ d.r.b.a.a.f.d.c f67674e;
 
         public c(d.r.b.a.a.f.d.c cVar) {
-            this.f66988e = cVar;
+            this.f67674e = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -110,7 +110,7 @@ public class a {
                 jSONObject.put("project", "yylive-lpfmmobileturnover");
                 jSONObject.put("region", "cn-shenzhen");
                 jSONObject.put("logStore", "turnover");
-                jSONObject.put("content", this.f66988e.f66991b);
+                jSONObject.put("content", this.f67674e.f67677b);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -121,12 +121,12 @@ public class a {
                     int i2 = new JSONObject(a2).getInt("code");
                     Log.d("CloudLogUtil", "sendLog code=" + i2);
                     if (i2 != 1000) {
-                        if (this.f66988e.f66992c.get() > 3) {
+                        if (this.f67674e.f67678c.get() > 3) {
                             r3 = false;
                         }
-                        Log.d("CloudLogUtil", "sendLog->2 isRetry=" + r3 + " retryCount=" + this.f66988e.f66992c);
+                        Log.d("CloudLogUtil", "sendLog->2 isRetry=" + r3 + " retryCount=" + this.f67674e.f67678c);
                         if (r3) {
-                            a.d(this.f66988e);
+                            a.d(this.f67674e);
                             return;
                         }
                         return;
@@ -136,10 +136,10 @@ public class a {
                     return;
                 }
             }
-            r3 = this.f66988e.f66992c.get() <= 3;
-            Log.d("CloudLogUtil", "sendLog->1 isRetry=" + r3 + " retryCount=" + this.f66988e.f66992c);
+            r3 = this.f67674e.f67678c.get() <= 3;
+            Log.d("CloudLogUtil", "sendLog->1 isRetry=" + r3 + " retryCount=" + this.f67674e.f67678c);
             if (r3) {
-                a.d(this.f66988e);
+                a.d(this.f67674e);
             }
         }
     }
@@ -148,22 +148,22 @@ public class a {
     public static class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.r.b.a.a.f.d.c f66989e;
+        public final /* synthetic */ d.r.b.a.a.f.d.c f67675e;
 
         public d(d.r.b.a.a.f.d.c cVar) {
-            this.f66989e = cVar;
+            this.f67675e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.c(this.f66989e);
+            a.c(this.f67675e);
         }
     }
 
     public static synchronized void a(String str, String str2) {
         synchronized (a.class) {
             Log.d("CloudLogUtil", "addLogContent startLogLoop:" + m);
-            f.a().c().execute(new RunnableC1832a(str, str2));
+            f.a().c().execute(new RunnableC1896a(str, str2));
             f();
         }
     }
@@ -176,27 +176,27 @@ public class a {
         boolean z2;
         synchronized (a.class) {
             if (jSONObject != null) {
-                f66985i.add(jSONObject);
+                f67671i.add(jSONObject);
             }
-            if (f66985i.size() < j && (!z || f66985i.size() <= 0)) {
+            if (f67671i.size() < j && (!z || f67671i.size() <= 0)) {
                 z2 = false;
-                Log.d("CloudLogUtil", "addLogContent waiting size:" + f66985i.size() + " upload:" + z2 + " force:" + z);
+                Log.d("CloudLogUtil", "addLogContent waiting size:" + f67671i.size() + " upload:" + z2 + " force:" + z);
                 if (z2) {
                     JSONArray jSONArray = new JSONArray();
                     ArrayList arrayList = new ArrayList();
-                    for (JSONObject jSONObject2 : f66985i) {
+                    for (JSONObject jSONObject2 : f67671i) {
                         jSONArray.put(jSONObject2);
                         arrayList.add(jSONObject2);
                     }
-                    f66985i.clear();
+                    f67671i.clear();
                     d.r.b.a.a.f.d.c cVar = new d.r.b.a.a.f.d.c();
-                    cVar.f66991b = jSONArray;
-                    cVar.f66990a = arrayList;
+                    cVar.f67677b = jSONArray;
+                    cVar.f67676a = arrayList;
                     e(cVar);
                 }
             }
             z2 = true;
-            Log.d("CloudLogUtil", "addLogContent waiting size:" + f66985i.size() + " upload:" + z2 + " force:" + z);
+            Log.d("CloudLogUtil", "addLogContent waiting size:" + f67671i.size() + " upload:" + z2 + " force:" + z);
             if (z2) {
             }
         }
@@ -205,8 +205,8 @@ public class a {
     public static synchronized void c(d.r.b.a.a.f.d.c cVar) {
         synchronized (a.class) {
             if (cVar != null) {
-                if (cVar.f66990a != null && cVar.f66991b != null) {
-                    int andIncrement = cVar.f66992c.getAndIncrement();
+                if (cVar.f67676a != null && cVar.f67677b != null) {
+                    int andIncrement = cVar.f67678c.getAndIncrement();
                     Log.d("CloudLogUtil", "doRetrySendLog retryTime:" + andIncrement);
                     e(cVar);
                 }
@@ -217,7 +217,7 @@ public class a {
     public static synchronized void d(d.r.b.a.a.f.d.c cVar) {
         synchronized (a.class) {
             Log.d("CloudLogUtil", "delayToRetrySendLog");
-            if (cVar != null && cVar.f66990a != null && cVar.f66991b != null) {
+            if (cVar != null && cVar.f67676a != null && cVar.f67677b != null) {
                 f.a().c().schedule(new d(cVar), 5L, TimeUnit.SECONDS);
             }
         }

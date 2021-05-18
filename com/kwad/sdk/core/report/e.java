@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f33410a = false;
+    public static boolean f32655a = false;
 
     public static void a() {
         g.a(new a(10101L));
@@ -36,10 +36,10 @@ public class e {
     }
 
     public static void a(Context context) {
-        if (f33410a) {
+        if (f32655a) {
             return;
         }
-        f33410a = true;
+        f32655a = true;
         a aVar = new a(8L);
         aVar.ao = com.kwad.sdk.collector.e.a(context);
         g.a(aVar);
@@ -50,7 +50,7 @@ public class e {
         aVar.ai = z;
         aVar.ak = str;
         if (ksScene instanceof SceneImpl) {
-            aVar.f33365b = (SceneImpl) ksScene;
+            aVar.f32610b = (SceneImpl) ksScene;
         }
         g.a(aVar);
     }
@@ -62,7 +62,7 @@ public class e {
     public static void a(AdTemplate adTemplate, int i2) {
         a aVar = new a(10108L);
         aVar.aa = i2;
-        aVar.f33364a = adTemplate;
+        aVar.f32609a = adTemplate;
         g.a(aVar);
     }
 
@@ -83,7 +83,7 @@ public class e {
 
     public static void a(AdTemplate adTemplate, int i2, String str) {
         a aVar = new a(10109L);
-        aVar.f33364a = adTemplate;
+        aVar.f32609a = adTemplate;
         aVar.aa = i2;
         aVar.ac = str;
         g.a(aVar);
@@ -97,8 +97,8 @@ public class e {
 
     public static void a(@NonNull AdTemplate adTemplate, long j, long j2, int i2) {
         a aVar = new a(10203L, adTemplate);
-        aVar.f33368e = j;
-        aVar.f33372i = j2;
+        aVar.f32613e = j;
+        aVar.f32617i = j2;
         aVar.j = i2;
         g.a(aVar);
     }
@@ -174,7 +174,7 @@ public class e {
 
     public static void b(AdTemplate adTemplate, long j) {
         a aVar = new a(10206L);
-        aVar.f33364a = adTemplate;
+        aVar.f32609a = adTemplate;
         aVar.am = j;
         g.a(aVar);
     }
@@ -199,7 +199,7 @@ public class e {
     public static void c(AdTemplate adTemplate, long j) {
         a aVar = new a(10207L);
         aVar.an = j;
-        aVar.f33364a = adTemplate;
+        aVar.f32609a = adTemplate;
         g.a(aVar);
     }
 

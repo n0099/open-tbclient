@@ -17,13 +17,13 @@ import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39948a = "baidu";
+    public static String f39193a = "baidu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f39949b = Environment.getExternalStorageDirectory();
+    public static final File f39194b = Environment.getExternalStorageDirectory();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char f39950c = File.separatorChar;
+    public static final char f39195c = File.separatorChar;
 
     public static int A(String str) {
         int lastIndexOf;
@@ -54,7 +54,7 @@ public class f {
     }
 
     public static boolean D() {
-        return f39950c == '\\';
+        return f39195c == '\\';
     }
 
     public static void E(OutputStream outputStream) throws IOException {
@@ -89,7 +89,7 @@ public class f {
 
     public static boolean d() {
         try {
-            StatFs statFs = new StatFs(f39949b.getPath());
+            StatFs statFs = new StatFs(f39194b.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
         } catch (Exception unused) {
             return false;
@@ -421,9 +421,9 @@ public class f {
 
     public static String v(String str, String str2) {
         if (str != null) {
-            return f39949b + "/" + f39948a + "/" + str + "/" + str2;
+            return f39194b + "/" + f39193a + "/" + str + "/" + str2;
         }
-        return f39949b + "/" + f39948a + "/" + str2;
+        return f39194b + "/" + f39193a + "/" + str2;
     }
 
     public static long w(File file) {
@@ -464,9 +464,9 @@ public class f {
 
     public static String y(String str) {
         if (str != null) {
-            return f39949b + "/" + f39948a + "/" + str + "/";
+            return f39194b + "/" + f39193a + "/" + str + "/";
         }
-        return f39949b + "/" + f39948a + "/";
+        return f39194b + "/" + f39193a + "/";
     }
 
     public static int z() {

@@ -7,10 +7,10 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.core.util.FileHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         HTML(SapiWebView.DATA_MIME_TYPE),
         CSS("text/css"),
@@ -19,14 +19,14 @@ public class e {
         
 
         /* renamed from: e  reason: collision with root package name */
-        public String f29583e;
+        public String f28828e;
 
         a(String str) {
-            this.f29583e = str;
+            this.f28828e = str;
         }
 
         public String a() {
-            return this.f29583e;
+            return this.f28828e;
         }
     }
 

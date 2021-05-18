@@ -25,7 +25,7 @@ public final class ObservableTakeLastTimed<T> extends AbstractObservableWithUpst
         public final long count;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68291d;
+        public Disposable f68971d;
         public final boolean delayError;
         public Throwable error;
         public final SpscLinkedArrayQueue<Object> queue;
@@ -49,7 +49,7 @@ public final class ObservableTakeLastTimed<T> extends AbstractObservableWithUpst
                 return;
             }
             this.cancelled = true;
-            this.f68291d.dispose();
+            this.f68971d.dispose();
             if (compareAndSet(false, true)) {
                 this.queue.clear();
             }
@@ -122,8 +122,8 @@ public final class ObservableTakeLastTimed<T> extends AbstractObservableWithUpst
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68291d, disposable)) {
-                this.f68291d = disposable;
+            if (DisposableHelper.validate(this.f68971d, disposable)) {
+                this.f68971d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

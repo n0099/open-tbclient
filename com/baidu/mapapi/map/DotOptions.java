@@ -6,91 +6,91 @@ import com.baidu.mapapi.model.LatLng;
 public final class DotOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7115a;
+    public int f6927a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f7117c;
+    public Bundle f6929c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LatLng f7118d;
+    public LatLng f6930d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7119e = -16777216;
+    public int f6931e = -16777216;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7120f = 5;
+    public int f6932f = 5;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7116b = true;
+    public boolean f6928b = true;
 
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Dot dot = new Dot();
-        dot.x = this.f7116b;
-        dot.w = this.f7115a;
-        dot.y = this.f7117c;
-        dot.f7113b = this.f7119e;
-        dot.f7112a = this.f7118d;
-        dot.f7114c = this.f7120f;
+        dot.A = this.f6928b;
+        dot.z = this.f6927a;
+        dot.B = this.f6929c;
+        dot.f6925b = this.f6931e;
+        dot.f6924a = this.f6930d;
+        dot.f6926c = this.f6932f;
         return dot;
     }
 
     public DotOptions center(LatLng latLng) {
         if (latLng != null) {
-            this.f7118d = latLng;
+            this.f6930d = latLng;
             return this;
         }
-        throw new IllegalArgumentException("dot center can not be null");
+        throw new IllegalArgumentException("BDMapSDKException: dot center can not be null");
     }
 
     public DotOptions color(int i2) {
-        this.f7119e = i2;
+        this.f6931e = i2;
         return this;
     }
 
     public DotOptions extraInfo(Bundle bundle) {
-        this.f7117c = bundle;
+        this.f6929c = bundle;
         return this;
     }
 
     public LatLng getCenter() {
-        return this.f7118d;
+        return this.f6930d;
     }
 
     public int getColor() {
-        return this.f7119e;
+        return this.f6931e;
     }
 
     public Bundle getExtraInfo() {
-        return this.f7117c;
+        return this.f6929c;
     }
 
     public int getRadius() {
-        return this.f7120f;
+        return this.f6932f;
     }
 
     public int getZIndex() {
-        return this.f7115a;
+        return this.f6927a;
     }
 
     public boolean isVisible() {
-        return this.f7116b;
+        return this.f6928b;
     }
 
     public DotOptions radius(int i2) {
         if (i2 > 0) {
-            this.f7120f = i2;
+            this.f6932f = i2;
         }
         return this;
     }
 
     public DotOptions visible(boolean z) {
-        this.f7116b = z;
+        this.f6928b = z;
         return this;
     }
 
     public DotOptions zIndex(int i2) {
-        this.f7115a = i2;
+        this.f6927a = i2;
         return this;
     }
 }

@@ -11,36 +11,36 @@ import com.baidu.cyberplayer.sdk.rtc.RTCVideoViewProvider;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CyberMediaExtProvider f64136a;
+    public static CyberMediaExtProvider f64823a;
 
     public static CaptureManagerProvider a(Context context, int i2, int i3, int i4, int i5, int i6) {
-        CaptureManagerProvider createCaptureManagerProvider = d() ? f64136a.createCaptureManagerProvider(context, i2, i3, i4, i5, i6) : null;
+        CaptureManagerProvider createCaptureManagerProvider = d() ? f64823a.createCaptureManagerProvider(context, i2, i3, i4, i5, i6) : null;
         CyberLog.i("CyberExtRTCInvoker", "createCaptureManager provider = " + createCaptureManagerProvider + " isExtJarLoader = " + d());
         return createCaptureManagerProvider;
     }
 
     public static RTCVideoViewProvider b(Context context, AttributeSet attributeSet) {
-        RTCVideoViewProvider createRTCVideoView = d() ? f64136a.createRTCVideoView(context, attributeSet) : null;
+        RTCVideoViewProvider createRTCVideoView = d() ? f64823a.createRTCVideoView(context, attributeSet) : null;
         CyberLog.i("CyberExtRTCInvoker", "createRTCVideoView provider = " + createRTCVideoView + " isExtJarLoader = " + d());
         return createRTCVideoView;
     }
 
     public static void c(boolean z) {
         if (d()) {
-            f64136a.setRTCVerbose(z);
+            f64823a.setRTCVerbose(z);
         }
     }
 
     public static boolean d() {
-        return f64136a != null;
+        return f64823a != null;
     }
 
     public static boolean e(ClassLoader classLoader) {
         if (classLoader != null && !d()) {
             try {
-                f64136a = (CyberMediaExtProvider) Class.forName("com.baidu.cybermedia.ext.rtc.CyberMediaExtProviderImpl", true, classLoader).newInstance();
+                f64823a = (CyberMediaExtProvider) Class.forName("com.baidu.cybermedia.ext.rtc.CyberMediaExtProviderImpl", true, classLoader).newInstance();
             } catch (Exception unused) {
-                f64136a = null;
+                f64823a = null;
                 CyberLog.e("CyberExtRTCInvoker", "CyberMediaExtProviderImpl not found");
             }
         }
@@ -48,14 +48,14 @@ public class a {
     }
 
     public static RTCRoomProvider f() {
-        RTCRoomProvider createRtcRoom = d() ? f64136a.createRtcRoom() : null;
+        RTCRoomProvider createRtcRoom = d() ? f64823a.createRtcRoom() : null;
         CyberLog.i("CyberExtRTCInvoker", "createRtcRoom provider = " + createRtcRoom + " isExtJarLoader = " + d());
         return createRtcRoom;
     }
 
     public static void g(boolean z) {
         if (d()) {
-            f64136a.enableRTCCaptureDebug(z);
+            f64823a.enableRTCCaptureDebug(z);
         }
     }
 }

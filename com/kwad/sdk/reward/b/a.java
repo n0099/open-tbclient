@@ -10,29 +10,30 @@ import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.fsg.base.activity.BaseActivity;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tieba.service.AsInstallService;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.utils.ao;
 /* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.reward.d implements ao.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f34327b;
+    public Handler f33572b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f34328c;
+    public AdInfo f33573c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f34329d;
+    public com.kwad.sdk.reward.c.a f33574d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f34330e = new BroadcastReceiver() { // from class: com.kwad.sdk.reward.b.a.1
+    public BroadcastReceiver f33575e = new BroadcastReceiver() { // from class: com.kwad.sdk.reward.b.a.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             String schemeSpecificPart = (!TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction()) || intent.getData() == null) ? null : intent.getData().getSchemeSpecificPart();
             if (TextUtils.isEmpty(schemeSpecificPart)) {
                 return;
             }
-            Message obtainMessage = a.this.f34327b.obtainMessage(BaseActivity.DIALOG_LOADING);
+            Message obtainMessage = a.this.f33572b.obtainMessage(BaseActivity.DIALOG_LOADING);
             obtainMessage.obj = schemeSpecificPart;
             obtainMessage.sendToTarget();
         }
@@ -41,36 +42,36 @@ public class a extends com.kwad.sdk.reward.d implements ao.a {
     private void e() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-        intentFilter.addDataScheme("package");
-        ((com.kwad.sdk.reward.d) this).f34594a.f34322g.registerReceiver(this.f34330e, intentFilter);
+        intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
+        ((com.kwad.sdk.reward.d) this).f33839a.f33567g.registerReceiver(this.f33575e, intentFilter);
     }
 
     private void m() {
-        Activity activity = ((com.kwad.sdk.reward.d) this).f34594a.f34322g;
+        Activity activity = ((com.kwad.sdk.reward.d) this).f33839a.f33567g;
         if (activity != null) {
-            activity.unregisterReceiver(this.f34330e);
+            activity.unregisterReceiver(this.f33575e);
         }
     }
 
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f34328c = com.kwad.sdk.core.response.b.c.g(((com.kwad.sdk.reward.d) this).f34594a.f34321f);
-        this.f34329d = ((com.kwad.sdk.reward.d) this).f34594a.f34324i;
-        this.f34327b = new ao(this);
+        this.f33573c = com.kwad.sdk.core.response.b.c.g(((com.kwad.sdk.reward.d) this).f33839a.f33566f);
+        this.f33574d = ((com.kwad.sdk.reward.d) this).f33839a.f33569i;
+        this.f33572b = new ao(this);
         e();
     }
 
     @Override // com.kwad.sdk.utils.ao.a
     public void a(Message message) {
         Object obj;
-        if (message.what == 242 && (obj = message.obj) != null && obj.equals(this.f34328c.adBaseInfo.appPackageName)) {
-            com.kwad.sdk.reward.a.b bVar = ((com.kwad.sdk.reward.d) this).f34594a.f34317b;
+        if (message.what == 242 && (obj = message.obj) != null && obj.equals(this.f33573c.adBaseInfo.appPackageName)) {
+            com.kwad.sdk.reward.a.b bVar = ((com.kwad.sdk.reward.d) this).f33839a.f33562b;
             if (bVar != null) {
                 bVar.e();
             }
-            this.f34329d.h();
-            ((com.kwad.sdk.reward.d) this).f34594a.b();
+            this.f33574d.h();
+            ((com.kwad.sdk.reward.d) this).f33839a.b();
         }
     }
 

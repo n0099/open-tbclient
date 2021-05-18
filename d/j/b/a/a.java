@@ -3,38 +3,38 @@ package d.j.b.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f65658a;
+    public long f66344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f65659b;
+    public String f66345b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f65660c;
+    public String f66346c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f65661d;
+    public int f66347d;
 
     public a(String str) {
-        this.f65660c = str;
+        this.f66346c = str;
     }
 
     public void a(int i2) {
-        this.f65661d = i2;
+        this.f66347d = i2;
     }
 
     public void b(long j) {
-        this.f65658a = j;
+        this.f66344a = j;
     }
 
     public void c(String str) {
-        this.f65659b = str;
+        this.f66345b = str;
     }
 
     public boolean d() {
-        return this.f65658a > System.currentTimeMillis();
+        return this.f66344a > System.currentTimeMillis();
     }
 
     public void e() {
-        this.f65658a = 0L;
+        this.f66344a = 0L;
     }
 }

@@ -30,37 +30,37 @@ import d.r.b.a.a.j.d.e.z;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f67387a = "ProtocolEncoder";
+    public final String f68073a = "ProtocolEncoder";
 
     /* loaded from: classes7.dex */
     public static final class a extends d.r.b.a.a.f.e.a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f67388b;
+        public final /* synthetic */ int f68074b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f67389c;
+        public final /* synthetic */ int f68075c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f67390d;
+        public final /* synthetic */ String f68076d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f67391e;
+        public final /* synthetic */ String f68077e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f67392f;
+        public final /* synthetic */ b f68078f;
 
         public a(int i2, int i3, String str, String str2, b bVar) {
-            this.f67388b = i2;
-            this.f67389c = i3;
-            this.f67390d = str;
-            this.f67391e = str2;
-            this.f67392f = bVar;
+            this.f68074b = i2;
+            this.f68075c = i3;
+            this.f68076d = str;
+            this.f68077e = str2;
+            this.f68078f = bVar;
         }
 
         @Override // d.r.b.a.a.f.e.a
         public void a() {
-            this.f66994a = new d.r.b.a.a.f.e.c(this.f67388b, this.f67389c, 0, this.f67390d, this.f67391e, this.f67392f.getProtocol());
+            this.f67680a = new d.r.b.a.a.f.e.c(this.f68074b, this.f68075c, 0, this.f68076d, this.f68077e, this.f68078f.getProtocol());
         }
     }
 
@@ -123,7 +123,7 @@ public final class c {
         } else {
             z = true;
         }
-        String str3 = this.f67387a;
+        String str3 = this.f68073a;
         d.r.b.a.a.f.d.d.b(str3, "getParamsToken isTokenUpdate:" + z + " paramsToken:" + str2);
         return str2;
     }

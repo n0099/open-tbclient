@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class b extends d.a.s.a.e.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public a f63937b;
+    public a f64624b;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -24,8 +24,8 @@ public class b extends d.a.s.a.e.a {
     }
 
     public b(Context context, a aVar) {
-        this.f63936a = context;
-        this.f63937b = aVar;
+        this.f64623a = context;
+        this.f64624b = aVar;
     }
 
     @Override // d.a.s.a.e.c.b
@@ -35,12 +35,12 @@ public class b extends d.a.s.a.e.a {
 
     @Override // d.a.s.a.e.c.b
     public String getHost() {
-        int a2 = d.a.s.a.g.b.a(this.f63936a);
+        int a2 = d.a.s.a.g.b.a(this.f64623a);
         if (a2 == 1) {
             return "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token";
         } else if (a2 == 2) {
             return "http://bjyz-migrate-big-mem-xyq-02.epc.baidu.com:8911/rest/5.0/generate_lcm_token";
-        } else if (d.a.s.a.g.b.b(this.f63936a)) {
+        } else if (d.a.s.a.g.b.b(this.f64623a)) {
             return "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token";
         } else {
             return "https://pim.baidu.com/rest/5.0/generate_lcm_token";
@@ -55,7 +55,7 @@ public class b extends d.a.s.a.e.a {
     @Override // d.a.s.a.e.c.b
     public byte[] getRequestParameter() {
         try {
-            JSONObject jSONObject = (JSONObject) d.a.s.a.g.a.c(this.f63936a, true);
+            JSONObject jSONObject = (JSONObject) d.a.s.a.g.a.c(this.f64623a, true);
             return jSONObject != null ? jSONObject.toString().getBytes() : new byte[0];
         } catch (Exception unused) {
             return new byte[0];
@@ -64,7 +64,7 @@ public class b extends d.a.s.a.e.a {
 
     @Override // d.a.s.a.e.c.d
     public void onFailure(int i2, String str) {
-        this.f63937b.onFailure(i2, str);
+        this.f64624b.onFailure(i2, str);
     }
 
     @Override // d.a.s.a.e.c.d
@@ -76,29 +76,29 @@ public class b extends d.a.s.a.e.a {
             int optInt = jSONObject2.optInt("error_code", -1);
             String optString = jSONObject2.optString("error_msg", "");
             if (optInt == 0) {
-                e.r(this.f63936a, jSONObject2.optBoolean("bddns_enable", false));
+                e.r(this.f64623a, jSONObject2.optBoolean("bddns_enable", false));
                 String optString2 = jSONObject2.optString("token");
                 JSONArray jSONArray = jSONObject2.getJSONArray(WebSocketRequest.PARAM_KEY_PROTOCOLS);
                 if (!TextUtils.isEmpty(optString2) && jSONArray != null && jSONArray.length() >= 1) {
-                    e.x(this.f63936a, jSONArray.length());
+                    e.x(this.f64623a, jSONArray.length());
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         JSONObject jSONObject3 = (JSONObject) jSONArray.get(i2);
-                        e.w(this.f63936a, jSONObject3.optString("protocol") + ":" + jSONObject3.optString("domain") + ":" + jSONObject3.optString(ClientCookie.PORT_ATTR), i2);
+                        e.w(this.f64623a, jSONObject3.optString("protocol") + ":" + jSONObject3.optString("domain") + ":" + jSONObject3.optString(ClientCookie.PORT_ATTR), i2);
                     }
-                    e.t(this.f63936a, jSONObject2.optInt("ipv6_strategy", 3));
-                    this.f63937b.a(optString2);
-                    e.z(this.f63936a, optString2);
+                    e.t(this.f64623a, jSONObject2.optInt("ipv6_strategy", 3));
+                    this.f64624b.a(optString2);
+                    e.z(this.f64623a, optString2);
                     try {
                         String optString3 = jSONObject2.optString("client_log_config", "");
                         if (TextUtils.isEmpty(optString3)) {
                             return;
                         }
                         JSONObject jSONObject4 = new JSONObject(optString3);
-                        d.a.s.a.a.d.s(this.f63936a, jSONObject4.optInt("client_upload_log_switch", 0));
+                        d.a.s.a.a.d.s(this.f64623a, jSONObject4.optInt("client_upload_log_switch", 0));
                         JSONArray jSONArray2 = jSONObject4.getJSONArray("realtime_log_switch");
                         if (jSONArray2 != null && jSONArray2.length() > 0) {
                             for (int i3 = 0; i3 < jSONArray2.length() && (jSONObject = jSONArray2.getJSONObject(i3)) != null; i3++) {
-                                d.a.s.a.a.d.p(this.f63936a, jSONObject.optInt("id", 0), jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0));
+                                d.a.s.a.a.d.p(this.f64623a, jSONObject.optInt("id", 0), jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0));
                             }
                             return;
                         }
@@ -108,12 +108,12 @@ public class b extends d.a.s.a.e.a {
                         return;
                     }
                 }
-                this.f63937b.onFailure(10002, "token or protocol is empty");
+                this.f64624b.onFailure(10002, "token or protocol is empty");
                 return;
             }
-            this.f63937b.onFailure(optInt, optString);
+            this.f64624b.onFailure(optInt, optString);
         } catch (JSONException e2) {
-            a aVar = this.f63937b;
+            a aVar = this.f64624b;
             aVar.onFailure(10001, "parse response exception ：" + e2);
         }
     }

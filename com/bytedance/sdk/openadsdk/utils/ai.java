@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.utils;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ai {
     public static Method a(String str, String str2, Class<?>... clsArr) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {

@@ -10,27 +10,27 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.v.b.d;
-import d.a.j0.v.b.f;
+import d.a.k0.v.b.d;
+import d.a.k0.v.b.f;
 /* loaded from: classes4.dex */
 public class VotedAreaLayout extends CardBasicLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f14969h;
+    public Context f14284h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f14970i;
+    public TextView f14285i;
 
     public VotedAreaLayout(Context context) {
         this(context, null);
     }
 
     public final void a() {
-        this.f14970i = (TextView) findViewById(R.id.vote_num);
+        this.f14285i = (TextView) findViewById(R.id.vote_num);
     }
 
     public void b() {
-        this.f14969h = getContext();
+        this.f14284h = getContext();
         setClipChildren(false);
         setClipToPadding(false);
         setOrientation(0);
@@ -44,16 +44,16 @@ public class VotedAreaLayout extends CardBasicLayout {
     }
 
     public void c(int i2) {
-        SkinManager.setViewTextColor(this.f14970i, R.color.CAM_X0105, 1, i2);
+        SkinManager.setViewTextColor(this.f14285i, R.color.CAM_X0105, 1, i2);
         SkinManager.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i2);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i2, f fVar) {
         super.setData(i2, fVar);
-        if (this.f14960f != null && this.f14961g != null && this.f14959e >= 0) {
-            TextView textView = this.f14970i;
-            textView.setText(StringHelper.numFormatOverWan(this.f14961g.m()) + "票");
+        if (this.f14275f != null && this.f14276g != null && this.f14274e >= 0) {
+            TextView textView = this.f14285i;
+            textView.setText(StringHelper.numFormatOverWan(this.f14276g.m()) + "票");
             c(TbadkCoreApplication.getInst().getSkinType());
             return;
         }
@@ -62,9 +62,9 @@ public class VotedAreaLayout extends CardBasicLayout {
 
     public void setMyRecordData(d dVar) {
         if (dVar != null) {
-            this.f14961g = dVar;
-            TextView textView = this.f14970i;
-            textView.setText(StringHelper.numFormatOverWan(this.f14961g.m()) + "票");
+            this.f14276g = dVar;
+            TextView textView = this.f14285i;
+            textView.setText(StringHelper.numFormatOverWan(this.f14276g.m()) + "票");
         }
     }
 

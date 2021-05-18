@@ -15,64 +15,64 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile c f40799f;
+    public static volatile c f40044f;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40801b;
+    public boolean f40046b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.sso.g.h f40802c;
+    public com.baidu.sso.g.h f40047c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f40803d;
+    public Context f40048d;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<Integer, i> f40800a = new HashMap();
+    public Map<Integer, i> f40045a = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40804e = -1;
+    public int f40049e = -1;
 
     /* loaded from: classes2.dex */
-    public class a implements a.InterfaceC0549a {
+    public class a implements a.InterfaceC0536a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f40805a;
+        public final /* synthetic */ i f40050a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f40806b;
+        public final /* synthetic */ Context f40051b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f40807c;
+        public final /* synthetic */ int f40052c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ long f40808d;
+        public final /* synthetic */ long f40053d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC0549a f40809e;
+        public final /* synthetic */ a.InterfaceC0536a f40054e;
 
-        public a(c cVar, i iVar, Context context, int i2, long j, a.InterfaceC0549a interfaceC0549a) {
-            this.f40805a = iVar;
-            this.f40806b = context;
-            this.f40807c = i2;
-            this.f40808d = j;
-            this.f40809e = interfaceC0549a;
+        public a(c cVar, i iVar, Context context, int i2, long j, a.InterfaceC0536a interfaceC0536a) {
+            this.f40050a = iVar;
+            this.f40051b = context;
+            this.f40052c = i2;
+            this.f40053d = j;
+            this.f40054e = interfaceC0536a;
         }
 
-        @Override // d.a.g0.a.InterfaceC0549a
+        @Override // d.a.g0.a.InterfaceC0536a
         public void onFinish(String str) {
             try {
                 if (new JSONObject(str).optInt("0", -1) == 0) {
-                    this.f40805a.h(this.f40806b, this.f40807c, this.f40808d);
+                    this.f40050a.h(this.f40051b, this.f40052c, this.f40053d);
                     return;
                 }
-                if (this.f40809e != null) {
-                    this.f40809e.onFinish(str);
+                if (this.f40054e != null) {
+                    this.f40054e.onFinish(str);
                 }
                 d.a.g0.c.a.c().d(false);
             } catch (Throwable unused) {
-                a.InterfaceC0549a interfaceC0549a = this.f40809e;
-                if (interfaceC0549a != null) {
-                    interfaceC0549a.onFinish(str);
+                a.InterfaceC0536a interfaceC0536a = this.f40054e;
+                if (interfaceC0536a != null) {
+                    interfaceC0536a.onFinish(str);
                 }
                 d.a.g0.c.a.c().d(false);
             }
@@ -80,46 +80,46 @@ public class c {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements a.InterfaceC0549a {
+    public class b implements a.InterfaceC0536a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f40810a;
+        public final /* synthetic */ i f40055a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f40811b;
+        public final /* synthetic */ Context f40056b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f40812c;
+        public final /* synthetic */ int f40057c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ long f40813d;
+        public final /* synthetic */ long f40058d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC0549a f40814e;
+        public final /* synthetic */ a.InterfaceC0536a f40059e;
 
-        public b(c cVar, i iVar, Context context, int i2, long j, a.InterfaceC0549a interfaceC0549a) {
-            this.f40810a = iVar;
-            this.f40811b = context;
-            this.f40812c = i2;
-            this.f40813d = j;
-            this.f40814e = interfaceC0549a;
+        public b(c cVar, i iVar, Context context, int i2, long j, a.InterfaceC0536a interfaceC0536a) {
+            this.f40055a = iVar;
+            this.f40056b = context;
+            this.f40057c = i2;
+            this.f40058d = j;
+            this.f40059e = interfaceC0536a;
         }
 
-        @Override // d.a.g0.a.InterfaceC0549a
+        @Override // d.a.g0.a.InterfaceC0536a
         public void onFinish(String str) {
             try {
                 if (new JSONObject(str).optInt("0", -1) == 0) {
-                    this.f40810a.o(this.f40811b, this.f40812c, this.f40813d);
+                    this.f40055a.o(this.f40056b, this.f40057c, this.f40058d);
                     return;
                 }
-                if (this.f40814e != null) {
-                    this.f40814e.onFinish(str);
+                if (this.f40059e != null) {
+                    this.f40059e.onFinish(str);
                 }
                 d.a.g0.c.a.c().m(false);
             } catch (Throwable unused) {
-                a.InterfaceC0549a interfaceC0549a = this.f40814e;
-                if (interfaceC0549a != null) {
-                    interfaceC0549a.onFinish(str);
+                a.InterfaceC0536a interfaceC0536a = this.f40059e;
+                if (interfaceC0536a != null) {
+                    interfaceC0536a.onFinish(str);
                 }
                 d.a.g0.c.a.c().m(false);
             }
@@ -127,56 +127,56 @@ public class c {
     }
 
     public static c i() {
-        if (f40799f == null) {
+        if (f40044f == null) {
             synchronized (c.class) {
-                if (f40799f == null) {
-                    f40799f = new c();
+                if (f40044f == null) {
+                    f40044f = new c();
                 }
             }
         }
-        return f40799f;
+        return f40044f;
     }
 
     public int a() {
-        return this.f40804e;
+        return this.f40049e;
     }
 
     public final int b(int i2, int i3) {
-        if (this.f40800a.size() == 1) {
-            return Integer.valueOf(this.f40800a.get(this.f40800a.keySet().iterator().next()).f40875c).intValue();
+        if (this.f40045a.size() == 1) {
+            return Integer.valueOf(this.f40045a.get(this.f40045a.keySet().iterator().next()).f40120c).intValue();
         }
-        return (this.f40800a.size() != 2 || i3 >= 4 || i3 <= 0) ? i2 : i3;
+        return (this.f40045a.size() != 2 || i3 >= 4 || i3 <= 0) ? i2 : i3;
     }
 
     public void c(int i2, int i3, int i4, int i5, String str, d.a.g0.e.b bVar, boolean z) {
         if (bVar == null) {
             return;
         }
-        Pair<Boolean, a.InterfaceC0549a> b2 = d.a.g0.c.a.c().b(i2);
+        Pair<Boolean, a.InterfaceC0536a> b2 = d.a.g0.c.a.c().b(i2);
         if (((Boolean) b2.first).booleanValue()) {
             d.a().b(i2);
-            d.a.g0.e.a.b((a.InterfaceC0549a) b2.second, new h(i3, i4, i5, str), bVar.f40795a, z);
+            d.a.g0.e.a.b((a.InterfaceC0536a) b2.second, new h(i3, i4, i5, str), bVar.f40040a, z);
             if (i3 == 1) {
-                bVar.f40796b = 1;
+                bVar.f40041b = 1;
             }
             if (z) {
-                int i6 = bVar.f40795a;
+                int i6 = bVar.f40040a;
                 if (i6 == 1) {
-                    d.a.g0.h.d.e(this.f40803d, i5, bVar.f40796b, i4, str);
+                    d.a.g0.h.d.e(this.f40048d, i5, bVar.f40041b, i4, str);
                 } else if (i6 == 3) {
-                    d.a.g0.h.d.c(this.f40803d, i5, bVar.f40796b, i4, str);
+                    d.a.g0.h.d.c(this.f40048d, i5, bVar.f40041b, i4, str);
                 } else if (i6 == 2) {
                     if (i3 == 3 && i4 == 2019) {
-                        d.a.g0.b.a.g(this.f40803d).y(System.currentTimeMillis());
-                        d.a.g0.b.a.g(this.f40803d).j(i4);
+                        d.a.g0.b.a.g(this.f40048d).y(System.currentTimeMillis());
+                        d.a.g0.b.a.g(this.f40048d).j(i4);
                     }
-                    d.a.g0.h.d.b(this.f40803d, i5, i3, i4, bVar.f40797c, bVar.f40798d);
+                    d.a.g0.h.d.b(this.f40048d, i5, i3, i4, bVar.f40042c, bVar.f40043d);
                 } else {
                     if (i3 == 3 && i4 == 2019) {
-                        d.a.g0.b.a.g(this.f40803d).I(System.currentTimeMillis());
-                        d.a.g0.b.a.g(this.f40803d).p(i4);
+                        d.a.g0.b.a.g(this.f40048d).I(System.currentTimeMillis());
+                        d.a.g0.b.a.g(this.f40048d).p(i4);
                     }
-                    d.a.g0.h.d.d(this.f40803d, i5, i3, i4, bVar.f40797c, bVar.f40798d);
+                    d.a.g0.h.d.d(this.f40048d, i5, i3, i4, bVar.f40042c, bVar.f40043d);
                 }
             }
         }
@@ -184,32 +184,32 @@ public class c {
 
     public synchronized void d(Context context) {
         try {
-            if (this.f40801b) {
+            if (this.f40046b) {
                 return;
             }
-            this.f40803d = context.getApplicationContext();
-            d.a.g0.m.a.b().a(this.f40803d, null);
+            this.f40048d = context.getApplicationContext();
+            d.a.g0.m.a.b().a(this.f40048d, null);
             boolean z = false;
-            if (!d.a.g0.b.c.b(this.f40803d).f() && d.a.g0.l.c.k(this.f40803d) == 0) {
+            if (!d.a.g0.b.c.b(this.f40048d).f() && d.a.g0.l.c.k(this.f40048d) == 0) {
                 z = true;
             }
-            g(this.f40803d, z);
-            d.a.g0.l.c.m(this.f40803d);
-            this.f40800a.put(1, new e(this.f40803d));
-            this.f40800a.put(3, new f(this.f40803d));
-            this.f40800a.put(2, new g(this.f40803d));
-            this.f40801b = true;
+            g(this.f40048d, z);
+            d.a.g0.l.c.m(this.f40048d);
+            this.f40045a.put(1, new e(this.f40048d));
+            this.f40045a.put(3, new f(this.f40048d));
+            this.f40045a.put(2, new g(this.f40048d));
+            this.f40046b = true;
         }
     }
 
-    public void e(Context context, int i2, Pair<Integer, Integer> pair, long j, a.InterfaceC0549a interfaceC0549a) {
-        int a2 = d.a.g0.c.a.c().a(interfaceC0549a);
+    public void e(Context context, int i2, Pair<Integer, Integer> pair, long j, a.InterfaceC0536a interfaceC0536a) {
+        int a2 = d.a.g0.c.a.c().a(interfaceC0536a);
         try {
             Message message = new Message();
             message.what = a2;
             message.arg1 = -1;
             message.arg2 = 1;
-            this.f40804e = -1;
+            this.f40049e = -1;
             d.a().c(message, j);
             if (pair == null) {
                 pair = k.b(context);
@@ -219,21 +219,21 @@ public class c {
             int intValue3 = ((Integer) pair.second).intValue();
             if (h(a2, intValue2, intValue, 1)) {
                 int b2 = b(intValue2, i2);
-                this.f40804e = b2;
+                this.f40049e = b2;
                 if (!d.a.g0.c.a.c().i(false, true)) {
                     d.a.g0.e.b bVar = new d.a.g0.e.b();
-                    bVar.f40795a = 1;
+                    bVar.f40040a = 1;
                     c(a2, 3, 998, b2, "is doing auth prelogin.", bVar, false);
                 } else if (b2 != 1 && b2 != 2 && b2 != 3) {
                     d.a.g0.e.b bVar2 = new d.a.g0.e.b();
-                    bVar2.f40795a = 1;
+                    bVar2.f40040a = 1;
                     c(a2, 3, 2004, b2, "has no op.", bVar2, true);
                 } else {
-                    d.a.g0.b.c.b(this.f40803d).d();
-                    i iVar = this.f40800a.get(Integer.valueOf(b2));
+                    d.a.g0.b.c.b(this.f40048d).d();
+                    i iVar = this.f40045a.get(Integer.valueOf(b2));
                     if (iVar == null) {
                         d.a.g0.e.b bVar3 = new d.a.g0.e.b();
-                        bVar3.f40795a = 1;
+                        bVar3.f40040a = 1;
                         c(a2, 3, 2002, b2, "not support current operator", bVar3, true);
                         return;
                     }
@@ -244,31 +244,31 @@ public class c {
             }
         } catch (Throwable unused) {
             d.a.g0.e.b bVar4 = new d.a.g0.e.b();
-            bVar4.f40795a = 1;
+            bVar4.f40040a = 1;
             c(a2, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, -1, "auth login unknown error.", bVar4, true);
         }
     }
 
-    public void f(Context context, long j, a.InterfaceC0549a interfaceC0549a) {
-        int a2 = d.a.g0.c.a.c().a(interfaceC0549a);
+    public void f(Context context, long j, a.InterfaceC0536a interfaceC0536a) {
+        int a2 = d.a.g0.c.a.c().a(interfaceC0536a);
         Pair<Integer, Integer> b2 = k.b(context);
         int intValue = ((Integer) b2.first).intValue();
         int intValue2 = ((Integer) b2.second).intValue();
         if (h(a2, intValue2, intValue, 2)) {
             if (intValue2 != 1 && intValue2 != 2 && intValue2 != 3) {
                 d.a.g0.e.b bVar = new d.a.g0.e.b();
-                bVar.f40795a = 2;
+                bVar.f40040a = 2;
                 c(a2, 3, 2004, intValue2, "has no op.", bVar, true);
                 return;
             }
-            i iVar = this.f40800a.get(Integer.valueOf(intValue2));
+            i iVar = this.f40045a.get(Integer.valueOf(intValue2));
             if (iVar == null) {
                 d.a.g0.e.b bVar2 = new d.a.g0.e.b();
-                bVar2.f40795a = 2;
+                bVar2.f40040a = 2;
                 c(a2, 3, 2002, intValue2, "not support current operator", bVar2, true);
             } else if (!d.a.g0.c.a.c().e(false, true)) {
                 d.a.g0.e.b bVar3 = new d.a.g0.e.b();
-                bVar3.f40795a = 2;
+                bVar3.f40040a = 2;
                 c(a2, 3, 998, intValue2, "is doing auth login.", bVar3, false);
             } else {
                 d.a.g0.h.d.a(context, intValue2, 2, i.q);
@@ -288,19 +288,19 @@ public class c {
                             } catch (Throwable th) {
                                 d.a.g0.l.c.d(th);
                                 d.a.g0.e.b bVar4 = new d.a.g0.e.b();
-                                bVar4.f40795a = 2;
+                                bVar4.f40040a = 2;
                                 c(a2, 3, 2019, intValue2, "auth out time", bVar4, true);
                                 return;
                             }
                         } else {
                             d.a.g0.e.b bVar5 = new d.a.g0.e.b();
-                            bVar5.f40795a = 2;
+                            bVar5.f40040a = 2;
                             c(a2, 3, 2019, intValue2, "auth out time", bVar5, true);
                             return;
                         }
                     }
                 } else {
-                    e(context, 0, b2, j, new a(this, iVar, context, a2, j, interfaceC0549a));
+                    e(context, 0, b2, j, new a(this, iVar, context, a2, j, interfaceC0536a));
                 }
             }
         }
@@ -309,13 +309,13 @@ public class c {
     public synchronized void g(Context context, boolean z) {
         try {
             l(context);
-            this.f40802c = new com.baidu.sso.g.h();
+            this.f40047c = new com.baidu.sso.g.h();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("sso_action_t_m");
             if (z) {
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
             }
-            context.registerReceiver(this.f40802c, intentFilter);
+            context.registerReceiver(this.f40047c, intentFilter);
         } catch (Throwable th) {
             d.a.g0.l.c.d(th);
         }
@@ -323,14 +323,14 @@ public class c {
 
     public final boolean h(int i2, int i3, int i4, int i5) {
         d.a.g0.e.b bVar = new d.a.g0.e.b();
-        bVar.f40795a = i5;
-        if (!this.f40801b) {
+        bVar.f40040a = i5;
+        if (!this.f40046b) {
             c(i2, 3, 2001, i3, "has no init.", bVar, false);
             return false;
-        } else if (TextUtils.isEmpty(d.a.g0.a.f40743b) && TextUtils.isEmpty(d.a.g0.a.f40744c)) {
+        } else if (TextUtils.isEmpty(d.a.g0.a.f39988b) && TextUtils.isEmpty(d.a.g0.a.f39989c)) {
             c(i2, 3, 2007, i3, "has no key.", bVar, false);
             return false;
-        } else if (this.f40800a.isEmpty()) {
+        } else if (this.f40045a.isEmpty()) {
             c(i2, 3, 2002, i3, "has no sdk.", bVar, false);
             return false;
         } else if (i4 == 0) {
@@ -341,14 +341,14 @@ public class c {
         }
     }
 
-    public void j(Context context, int i2, Pair<Integer, Integer> pair, long j, a.InterfaceC0549a interfaceC0549a) {
-        int a2 = d.a.g0.c.a.c().a(interfaceC0549a);
+    public void j(Context context, int i2, Pair<Integer, Integer> pair, long j, a.InterfaceC0536a interfaceC0536a) {
+        int a2 = d.a.g0.c.a.c().a(interfaceC0536a);
         try {
             Message message = new Message();
             message.what = a2;
             message.arg1 = -1;
             message.arg2 = 3;
-            this.f40804e = -1;
+            this.f40049e = -1;
             d.a().c(message, j);
             if (pair == null) {
                 pair = k.b(context);
@@ -358,21 +358,21 @@ public class c {
             int intValue3 = ((Integer) pair.second).intValue();
             if (h(a2, intValue2, intValue, 3)) {
                 int b2 = b(intValue2, i2);
-                this.f40804e = b2;
+                this.f40049e = b2;
                 if (!d.a.g0.c.a.c().l(false, true)) {
                     d.a.g0.e.b bVar = new d.a.g0.e.b();
-                    bVar.f40795a = 3;
+                    bVar.f40040a = 3;
                     c(a2, 3, 998, b2, "is doing auth prelogin.", bVar, false);
                 } else if (b2 != 1 && b2 != 2 && b2 != 3) {
                     d.a.g0.e.b bVar2 = new d.a.g0.e.b();
-                    bVar2.f40795a = 3;
+                    bVar2.f40040a = 3;
                     c(a2, 3, 2004, b2, "has no op.", bVar2, true);
                 } else {
-                    d.a.g0.b.c.b(this.f40803d).d();
-                    i iVar = this.f40800a.get(Integer.valueOf(b2));
+                    d.a.g0.b.c.b(this.f40048d).d();
+                    i iVar = this.f40045a.get(Integer.valueOf(b2));
                     if (iVar == null) {
                         d.a.g0.e.b bVar3 = new d.a.g0.e.b();
-                        bVar3.f40795a = 3;
+                        bVar3.f40040a = 3;
                         c(a2, 3, 2002, b2, "not support current operator", bVar3, true);
                         return;
                     }
@@ -383,31 +383,31 @@ public class c {
             }
         } catch (Throwable unused) {
             d.a.g0.e.b bVar4 = new d.a.g0.e.b();
-            bVar4.f40795a = 3;
+            bVar4.f40040a = 3;
             c(a2, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, -1, "auth login unknown error.", bVar4, true);
         }
     }
 
-    public void k(Context context, long j, a.InterfaceC0549a interfaceC0549a) {
-        int a2 = d.a.g0.c.a.c().a(interfaceC0549a);
+    public void k(Context context, long j, a.InterfaceC0536a interfaceC0536a) {
+        int a2 = d.a.g0.c.a.c().a(interfaceC0536a);
         Pair<Integer, Integer> b2 = k.b(context);
         int intValue = ((Integer) b2.first).intValue();
         int intValue2 = ((Integer) b2.second).intValue();
         if (h(a2, intValue2, intValue, 4)) {
             if (intValue2 != 1 && intValue2 != 2 && intValue2 != 3) {
                 d.a.g0.e.b bVar = new d.a.g0.e.b();
-                bVar.f40795a = 4;
+                bVar.f40040a = 4;
                 c(a2, 3, 2004, intValue2, "has no op.", bVar, true);
                 return;
             }
-            i iVar = this.f40800a.get(Integer.valueOf(intValue2));
+            i iVar = this.f40045a.get(Integer.valueOf(intValue2));
             if (iVar == null) {
                 d.a.g0.e.b bVar2 = new d.a.g0.e.b();
-                bVar2.f40795a = 4;
+                bVar2.f40040a = 4;
                 c(a2, 3, 2002, intValue2, "not support current operator", bVar2, true);
             } else if (!d.a.g0.c.a.c().n(false, true)) {
                 d.a.g0.e.b bVar3 = new d.a.g0.e.b();
-                bVar3.f40795a = 4;
+                bVar3.f40040a = 4;
                 c(a2, 3, 998, intValue2, "is doing auth verify.", bVar3, false);
             } else {
                 d.a.g0.h.d.a(context, intValue2, 4, i.r);
@@ -427,19 +427,19 @@ public class c {
                             } catch (Throwable th) {
                                 d.a.g0.l.c.d(th);
                                 d.a.g0.e.b bVar4 = new d.a.g0.e.b();
-                                bVar4.f40795a = 4;
+                                bVar4.f40040a = 4;
                                 c(a2, 3, 2019, intValue2, "auth out time", bVar4, true);
                                 return;
                             }
                         } else {
                             d.a.g0.e.b bVar5 = new d.a.g0.e.b();
-                            bVar5.f40795a = 4;
+                            bVar5.f40040a = 4;
                             c(a2, 3, 2019, intValue2, "auth out time", bVar5, true);
                             return;
                         }
                     }
                 } else {
-                    j(context, 0, b2, j, new b(this, iVar, context, a2, j, interfaceC0549a));
+                    j(context, 0, b2, j, new b(this, iVar, context, a2, j, interfaceC0536a));
                 }
             }
         }
@@ -447,10 +447,10 @@ public class c {
 
     public final void l(Context context) {
         try {
-            if (this.f40802c != null) {
-                context.unregisterReceiver(this.f40802c);
+            if (this.f40047c != null) {
+                context.unregisterReceiver(this.f40047c);
             }
-            this.f40802c = null;
+            this.f40047c = null;
         } catch (Throwable th) {
             d.a.g0.l.c.d(th);
         }

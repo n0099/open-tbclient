@@ -19,15 +19,15 @@ public class e extends i {
     public class a implements TokenListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f40818a;
+        public final /* synthetic */ int f40063a;
 
         public a(int i2) {
-            this.f40818a = i2;
+            this.f40063a = i2;
         }
 
         @Override // com.cmic.sso.sdk.auth.TokenListener
         public void onGetTokenComplete(JSONObject jSONObject) {
-            e.this.y(jSONObject, this.f40818a);
+            e.this.y(jSONObject, this.f40063a);
         }
     }
 
@@ -35,15 +35,15 @@ public class e extends i {
     public class b implements TokenListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f40820a;
+        public final /* synthetic */ int f40065a;
 
         public b(int i2) {
-            this.f40820a = i2;
+            this.f40065a = i2;
         }
 
         @Override // com.cmic.sso.sdk.auth.TokenListener
         public void onGetTokenComplete(JSONObject jSONObject) {
-            e.this.B(jSONObject, this.f40820a);
+            e.this.B(jSONObject, this.f40065a);
         }
     }
 
@@ -51,38 +51,38 @@ public class e extends i {
     public class c extends d.a.g0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f40822f;
+        public final /* synthetic */ JSONObject f40067f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f40823g;
+        public final /* synthetic */ int f40068g;
 
         public c(JSONObject jSONObject, int i2) {
-            this.f40822f = jSONObject;
-            this.f40823g = i2;
+            this.f40067f = jSONObject;
+            this.f40068g = i2;
         }
 
         @Override // d.a.g0.k.c
         public void b() {
             try {
-                int optInt = this.f40822f.optInt(MiPushCommandMessage.KEY_RESULT_CODE, -1);
-                String optString = this.f40822f.optString("authTypeDes", "");
+                int optInt = this.f40067f.optInt(MiPushCommandMessage.KEY_RESULT_CODE, -1);
+                String optString = this.f40067f.optString("authTypeDes", "");
                 if (optInt == 103000) {
-                    if (!d.a.g0.b.c.f40763c) {
+                    if (!d.a.g0.b.c.f40008c) {
                         e.this.u = System.currentTimeMillis();
-                        e.this.f40880h = this.f40822f.optString("token", "");
-                        e.this.d(this.f40823g, 0, 0, e.this.f40875c, "preVerify success", 3);
+                        e.this.f40125h = this.f40067f.optString("token", "");
+                        e.this.d(this.f40068g, 0, 0, e.this.f40120c, "preVerify success", 3);
                         return;
                     }
-                    e.this.d(this.f40823g, 1, 999, e.this.f40875c, "device has risk.", 3);
-                } else if (optInt == 105312 && e.this.f40875c != e.this.f40876d) {
+                    e.this.d(this.f40068g, 1, 999, e.this.f40120c, "device has risk.", 3);
+                } else if (optInt == 105312 && e.this.f40120c != e.this.f40121d) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("pre verify");
                     sb.append(" error, wrong sim operator");
-                    e.this.d(this.f40823g, 3, 2002, e.this.f40875c, sb.toString(), 3);
+                    e.this.d(this.f40068g, 3, 2002, e.this.f40120c, sb.toString(), 3);
                 } else {
                     e eVar = e.this;
-                    int i2 = this.f40823g;
-                    int i3 = e.this.f40875c;
+                    int i2 = this.f40068g;
+                    int i3 = e.this.f40120c;
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("pre verify");
                     sb2.append(" error.");
@@ -92,8 +92,8 @@ public class e extends i {
             } catch (Throwable th) {
                 d.a.g0.l.c.d(th);
                 e eVar2 = e.this;
-                int i4 = this.f40823g;
-                int i5 = eVar2.f40875c;
+                int i4 = this.f40068g;
+                int i5 = eVar2.f40120c;
                 eVar2.d(i4, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, i5, "cm on handle pre verify unknown error.", 3);
             }
         }
@@ -103,40 +103,40 @@ public class e extends i {
     public class d extends d.a.g0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f40825f;
+        public final /* synthetic */ JSONObject f40070f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f40826g;
+        public final /* synthetic */ int f40071g;
 
         public d(JSONObject jSONObject, int i2) {
-            this.f40825f = jSONObject;
-            this.f40826g = i2;
+            this.f40070f = jSONObject;
+            this.f40071g = i2;
         }
 
         @Override // d.a.g0.k.c
         public void b() {
             try {
-                int optInt = this.f40825f.optInt(MiPushCommandMessage.KEY_RESULT_CODE, -1);
-                String optString = this.f40825f.optString("desc", "");
+                int optInt = this.f40070f.optInt(MiPushCommandMessage.KEY_RESULT_CODE, -1);
+                String optString = this.f40070f.optString("desc", "");
                 if (optInt == 103000) {
-                    if (!d.a.g0.b.c.f40763c) {
+                    if (!d.a.g0.b.c.f40008c) {
                         e.this.t = System.currentTimeMillis();
-                        e.this.f40879g = this.f40825f.optString("securityphone", "");
+                        e.this.f40124g = this.f40070f.optString("securityphone", "");
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, e.this.f40879g);
-                        e.this.d(this.f40826g, 0, 0, e.this.f40875c, jSONObject.toString(), 1);
+                        jSONObject.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, e.this.f40124g);
+                        e.this.d(this.f40071g, 0, 0, e.this.f40120c, jSONObject.toString(), 1);
                         return;
                     }
-                    e.this.d(this.f40826g, 1, 999, e.this.f40875c, "device has risk.", 1);
-                } else if (optInt == 105312 && e.this.f40875c != e.this.f40876d) {
+                    e.this.d(this.f40071g, 1, 999, e.this.f40120c, "device has risk.", 1);
+                } else if (optInt == 105312 && e.this.f40120c != e.this.f40121d) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("pre login");
                     sb.append(" error, wrong sim operator");
-                    e.this.d(this.f40826g, 3, 2002, e.this.f40875c, sb.toString(), 1);
+                    e.this.d(this.f40071g, 3, 2002, e.this.f40120c, sb.toString(), 1);
                 } else {
                     e eVar = e.this;
-                    int i2 = this.f40826g;
-                    int i3 = e.this.f40875c;
+                    int i2 = this.f40071g;
+                    int i3 = e.this.f40120c;
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("pre login");
                     sb2.append(" error.");
@@ -146,8 +146,8 @@ public class e extends i {
             } catch (Throwable th) {
                 d.a.g0.l.c.d(th);
                 e eVar2 = e.this;
-                int i4 = this.f40826g;
-                int i5 = eVar2.f40875c;
+                int i4 = this.f40071g;
+                int i5 = eVar2.f40120c;
                 eVar2.d(i4, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, i5, "cm on handle pre login unknown error.", 1);
             }
         }
@@ -155,32 +155,32 @@ public class e extends i {
 
     /* renamed from: d.a.g0.e.e$e  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0552e extends d.a.g0.k.c {
+    public class C0539e extends d.a.g0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f40828f;
+        public final /* synthetic */ JSONObject f40073f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f40829g;
+        public final /* synthetic */ int f40074g;
 
-        public C0552e(JSONObject jSONObject, int i2) {
-            this.f40828f = jSONObject;
-            this.f40829g = i2;
+        public C0539e(JSONObject jSONObject, int i2) {
+            this.f40073f = jSONObject;
+            this.f40074g = i2;
         }
 
         @Override // d.a.g0.k.c
         public void b() {
             try {
-                int optInt = this.f40828f.has(MiPushCommandMessage.KEY_RESULT_CODE) ? this.f40828f.optInt(MiPushCommandMessage.KEY_RESULT_CODE, -1) : -1;
+                int optInt = this.f40073f.has(MiPushCommandMessage.KEY_RESULT_CODE) ? this.f40073f.optInt(MiPushCommandMessage.KEY_RESULT_CODE, -1) : -1;
                 if (optInt == 103000) {
-                    e.this.f40877e = this.f40828f.optString("token");
-                    e.this.a(this.f40829g);
+                    e.this.f40122e = this.f40073f.optString("token");
+                    e.this.a(this.f40074g);
                     return;
                 }
-                String optString = this.f40828f.optString("resultDesc", "");
+                String optString = this.f40073f.optString("resultDesc", "");
                 e eVar = e.this;
-                int i2 = this.f40829g;
-                int i3 = e.this.f40875c;
+                int i2 = this.f40074g;
+                int i3 = e.this.f40120c;
                 StringBuilder sb = new StringBuilder();
                 sb.append("error:");
                 sb.append(optString);
@@ -188,7 +188,7 @@ public class e extends i {
             } catch (Throwable th) {
                 d.a.g0.l.c.d(th);
                 e eVar2 = e.this;
-                eVar2.c(this.f40829g, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, eVar2.f40875c, "cm on handle login unknown error.");
+                eVar2.c(this.f40074g, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, eVar2.f40120c, "cm on handle login unknown error.");
             }
         }
     }
@@ -197,20 +197,20 @@ public class e extends i {
     public class f extends d.a.g0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f40831f;
+        public final /* synthetic */ int f40076f;
 
         public f(int i2) {
-            this.f40831f = i2;
+            this.f40076f = i2;
         }
 
         @Override // d.a.g0.k.c
         public void b() {
             try {
-                e.this.f(this.f40831f, e.this.f40875c, e.this.f40880h);
+                e.this.f(this.f40076f, e.this.f40120c, e.this.f40125h);
             } catch (Throwable th) {
                 d.a.g0.l.c.d(th);
                 e eVar = e.this;
-                eVar.l(this.f40831f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, eVar.f40875c, "cm on handle verify unknown error.");
+                eVar.l(this.f40076f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, eVar.f40120c, "cm on handle verify unknown error.");
             }
         }
     }
@@ -219,15 +219,15 @@ public class e extends i {
     public class g implements TokenListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f40833a;
+        public final /* synthetic */ int f40078a;
 
         public g(int i2) {
-            this.f40833a = i2;
+            this.f40078a = i2;
         }
 
         @Override // com.cmic.sso.sdk.auth.TokenListener
         public void onGetTokenComplete(JSONObject jSONObject) {
-            e.this.v(jSONObject, this.f40833a);
+            e.this.v(jSONObject, this.f40078a);
         }
     }
 
@@ -236,7 +236,7 @@ public class e extends i {
         this.t = 0L;
         this.u = 0L;
         this.v = false;
-        this.f40875c = 1;
+        this.f40120c = 1;
     }
 
     public final void B(JSONObject jSONObject, int i2) {
@@ -246,20 +246,20 @@ public class e extends i {
     @Override // d.a.g0.e.i
     public void g(Context context, int i2) {
         super.g(context, i2);
-        if (!d.a.g0.b.a.g(this.f40873a).c()) {
-            d(i2, 3, 997, this.f40875c, "pre login error. sdk stop run.", 1);
+        if (!d.a.g0.b.a.g(this.f40118a).c()) {
+            d(i2, 3, 997, this.f40120c, "pre login error. sdk stop run.", 1);
         } else if (!q()) {
-            d(i2, 3, 2006, this.f40875c, "pre login error. cm has not valid config.", 1);
-        } else if (d.a.g0.b.a.g(this.f40873a).m0()) {
+            d(i2, 3, 2006, this.f40120c, "pre login error. cm has not valid config.", 1);
+        } else if (d.a.g0.b.a.g(this.f40118a).m0()) {
             if (!this.v) {
-                AuthnHelper authnHelper = AuthnHelper.getInstance(this.f40873a);
+                AuthnHelper authnHelper = AuthnHelper.getInstance(this.f40118a);
                 this.s = authnHelper;
                 authnHelper.setOverTime(8000L);
                 this.v = true;
             }
             this.s.getPhoneInfo(i.k, i.l, new a(i2));
         } else {
-            d(i2, 3, 994, this.f40875c, "pre login error. cm sdk stop run.", 1);
+            d(i2, 3, 994, this.f40120c, "pre login error. cm sdk stop run.", 1);
         }
     }
 
@@ -278,20 +278,20 @@ public class e extends i {
     @Override // d.a.g0.e.i
     public void n(Context context, int i2) {
         super.n(context, i2);
-        if (!d.a.g0.b.a.g(this.f40873a).c()) {
-            d(i2, 3, 997, this.f40875c, "pre verify error. sdk stop run.", 3);
+        if (!d.a.g0.b.a.g(this.f40118a).c()) {
+            d(i2, 3, 997, this.f40120c, "pre verify error. sdk stop run.", 3);
         } else if (!q()) {
-            d(i2, 3, 2006, this.f40875c, "pre verify error. cm has not valid config.", 3);
-        } else if (d.a.g0.b.a.g(this.f40873a).m0()) {
+            d(i2, 3, 2006, this.f40120c, "pre verify error. cm has not valid config.", 3);
+        } else if (d.a.g0.b.a.g(this.f40118a).m0()) {
             if (!this.v) {
-                AuthnHelper authnHelper = AuthnHelper.getInstance(this.f40873a);
+                AuthnHelper authnHelper = AuthnHelper.getInstance(this.f40118a);
                 this.s = authnHelper;
                 authnHelper.setOverTime(8000L);
                 this.v = true;
             }
             this.s.mobileAuth(i.k, i.l, new b(i2));
         } else {
-            d(i2, 3, 994, this.f40875c, "pre verify error. cm sdk stop run.", 3);
+            d(i2, 3, 994, this.f40120c, "pre verify error. cm sdk stop run.", 3);
         }
     }
 
@@ -309,17 +309,17 @@ public class e extends i {
 
     @Override // d.a.g0.e.i
     public void r() {
-        this.f40877e = null;
+        this.f40122e = null;
     }
 
     @Override // d.a.g0.e.i
     public void s() {
-        this.f40880h = null;
+        this.f40125h = null;
         this.u = 0L;
     }
 
     public final void v(JSONObject jSONObject, int i2) {
-        d.a.g0.k.e.c().b(new C0552e(jSONObject, i2));
+        d.a.g0.k.e.c().b(new C0539e(jSONObject, i2));
     }
 
     public final void y(JSONObject jSONObject, int i2) {

@@ -8,21 +8,21 @@ public class a {
 
     /* renamed from: d.a.l.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C1701a extends d {
+    public static class C1762a extends d {
     }
 
     @Inject(force = false)
     public static c a() {
-        return d.a.j0.y2.f.a();
+        return d.a.k0.y2.f.a();
     }
 
     @Inject(force = false)
     public static d b() {
-        return new C1701a();
+        return new C1762a();
     }
 
     @Inject(force = false)
     public static e c() {
-        return d.a.j0.y2.h.a();
+        return d.a.k0.y2.h.a();
     }
 }

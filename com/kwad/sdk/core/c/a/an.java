@@ -9,8 +9,8 @@ public class an implements com.kwad.sdk.core.c<com.kwad.sdk.core.g.a.g> {
         if (jSONObject == null) {
             return;
         }
-        gVar.f33071a = jSONObject.optString("feedAdH5Version");
-        gVar.f33072b = jSONObject.optString("feedAdH5Url");
+        gVar.f32316a = jSONObject.optString("feedAdH5Version");
+        gVar.f32317b = jSONObject.optString("feedAdH5Url");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,8 +19,8 @@ public class an implements com.kwad.sdk.core.c<com.kwad.sdk.core.g.a.g> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "feedAdH5Version", gVar.f33071a);
-        com.kwad.sdk.utils.o.a(jSONObject, "feedAdH5Url", gVar.f33072b);
+        com.kwad.sdk.utils.o.a(jSONObject, "feedAdH5Version", gVar.f32316a);
+        com.kwad.sdk.utils.o.a(jSONObject, "feedAdH5Url", gVar.f32317b);
         return jSONObject;
     }
 }

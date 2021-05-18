@@ -28,7 +28,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
         public void onCancel() {
             Log.d(YYSSOLoginActivity.q, "YY授权登录 已取消");
             YYSSOLoginActivity yYSSOLoginActivity = YYSSOLoginActivity.this;
-            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f10791g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
+            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f9828g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
         }
 
         @Override // d.r.c.b
@@ -47,14 +47,14 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                 return;
             }
             YYSSOLoginActivity yYSSOLoginActivity = YYSSOLoginActivity.this;
-            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f10791g, -1, "未知错误");
+            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f9828g, -1, "未知错误");
         }
 
         @Override // d.r.c.b
         public void onError(d dVar) {
-            Log.d(YYSSOLoginActivity.q, "onError " + dVar.f67460a + " " + dVar.f67461b);
+            Log.d(YYSSOLoginActivity.q, "onError " + dVar.f68146a + " " + dVar.f68147b);
             YYSSOLoginActivity yYSSOLoginActivity = YYSSOLoginActivity.this;
-            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f10791g, dVar.f67460a, dVar.f67461b);
+            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f9828g, dVar.f68146a, dVar.f68147b);
         }
     }
 
@@ -80,7 +80,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             b2.a(this, this.p);
             return;
         }
-        a(((BaseSSOLoginActivity) this).f10791g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
+        a(((BaseSSOLoginActivity) this).f9828g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
     }
 
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity

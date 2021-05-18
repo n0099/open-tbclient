@@ -12,7 +12,7 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LinkProxyActivity extends Activity {
     /* JADX WARN: Removed duplicated region for block: B:45:0x00d2 A[Catch: Exception -> 0x00e8, TryCatch #2 {Exception -> 0x00e8, blocks: (B:25:0x0095, B:27:0x009b, B:29:0x00a7, B:31:0x00ad, B:33:0x00b5, B:36:0x00bc, B:38:0x00c4, B:40:0x00c8, B:45:0x00d2, B:46:0x00d6), top: B:57:0x0095 }] */
     /* JADX WARN: Removed duplicated region for block: B:46:0x00d6 A[Catch: Exception -> 0x00e8, TRY_LEAVE, TryCatch #2 {Exception -> 0x00e8, blocks: (B:25:0x0095, B:27:0x009b, B:29:0x00a7, B:31:0x00ad, B:33:0x00b5, B:36:0x00bc, B:38:0x00c4, B:40:0x00c8, B:45:0x00d2, B:46:0x00d6), top: B:57:0x0095 }] */

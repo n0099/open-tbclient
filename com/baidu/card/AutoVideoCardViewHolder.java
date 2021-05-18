@@ -1,101 +1,101 @@
 package com.baidu.card;
 
 import android.view.View;
-import d.a.i.k0;
-import d.a.i.s0;
-import d.a.i0.r.q.a;
-import d.a.j0.j2.e;
-import d.a.j0.j2.o;
+import d.a.i.l0;
+import d.a.i.t0;
+import d.a.j0.r.q.a;
+import d.a.k0.j2.e;
+import d.a.k0.j2.o;
 /* loaded from: classes.dex */
 public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T> implements e {
-    public s0 n;
+    public t0 n;
 
-    public AutoVideoCardViewHolder(k0<T> k0Var) {
-        super(k0Var);
+    public AutoVideoCardViewHolder(l0<T> l0Var) {
+        super(l0Var);
         this.n = null;
-        if (k0Var.f() instanceof s0) {
-            this.n = (s0) k0Var.f();
+        if (l0Var.f() instanceof t0) {
+            this.n = (t0) l0Var.f();
         }
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public boolean C() {
-        s0 s0Var = this.n;
-        if (s0Var == null) {
+        t0 t0Var = this.n;
+        if (t0Var == null) {
             return false;
         }
-        return s0Var.C();
+        return t0Var.C();
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public int getCurrentPosition() {
-        s0 s0Var = this.n;
-        if (s0Var == null) {
+        t0 t0Var = this.n;
+        if (t0Var == null) {
             return 0;
         }
-        return s0Var.getCurrentPosition();
+        return t0Var.getCurrentPosition();
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public String getPlayUrl() {
-        s0 s0Var = this.n;
-        if (s0Var == null) {
+        t0 t0Var = this.n;
+        if (t0Var == null) {
             return null;
         }
-        return s0Var.getPlayUrl();
+        return t0Var.getPlayUrl();
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public View getVideoContainer() {
-        s0 s0Var = this.n;
-        if (s0Var == null) {
+        t0 t0Var = this.n;
+        if (t0Var == null) {
             return null;
         }
-        return s0Var.getVideoContainer();
+        return t0Var.getVideoContainer();
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public boolean isPlayStarted() {
-        s0 s0Var = this.n;
-        if (s0Var == null) {
+        t0 t0Var = this.n;
+        if (t0Var == null) {
             return false;
         }
-        return s0Var.isPlayStarted();
+        return t0Var.isPlayStarted();
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public boolean isPlaying() {
-        s0 s0Var = this.n;
-        if (s0Var == null) {
+        t0 t0Var = this.n;
+        if (t0Var == null) {
             return false;
         }
-        return s0Var.isPlaying();
+        return t0Var.isPlaying();
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public void startPlay() {
-        s0 s0Var = this.n;
-        if (s0Var != null) {
-            s0Var.startPlay();
+        t0 t0Var = this.n;
+        if (t0Var != null) {
+            t0Var.startPlay();
         }
     }
 
-    @Override // d.a.j0.j2.e
+    @Override // d.a.k0.j2.e
     public void stopPlay() {
-        s0 s0Var = this.n;
-        if (s0Var != null) {
-            s0Var.stopPlay();
+        t0 t0Var = this.n;
+        if (t0Var != null) {
+            t0Var.stopPlay();
         }
     }
 
-    public s0 t() {
+    public t0 t() {
         return this.n;
     }
 
     public void u(o oVar) {
-        s0 s0Var = this.n;
-        if (s0Var != null) {
-            s0Var.z(oVar);
+        t0 t0Var = this.n;
+        if (t0Var != null) {
+            t0Var.z(oVar);
         }
     }
 }

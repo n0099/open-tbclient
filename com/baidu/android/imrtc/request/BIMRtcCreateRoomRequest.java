@@ -4,11 +4,12 @@ import android.content.Context;
 import com.baidu.android.imrtc.request.BIMRtcTokenListener;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
-import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -20,6 +21,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     public static final String TAG = "BIMRtcCreateRoomRequest";
     public static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     public BIMRtcTokenListener mListener;
+    public String mResourceId;
     public String mSource;
 
     public BIMRtcCreateRoomRequest(Context context, String str, BIMRtcTokenListener bIMRtcTokenListener) {
@@ -69,44 +71,31 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
 
     @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
     public byte[] getRequestParameter() {
-        String str = TAG;
         try {
             long appId = RtcUtility.getAppId(this.mContext);
             String cuid = RtcUtility.getCuid(this.mContext);
-            long j = RtcConstants.RTC_VERSION;
             long uk = Utility.getUK(this.mContext);
-            String str2 = "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext);
             long currentTimeMillis = System.currentTimeMillis();
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("appid", appId);
+            jSONObject.put("shoubai_uk", IMJni.transBDUID(Utility.readUid(this.mContext)));
+            jSONObject.put("uk", uk);
+            jSONObject.put("rtc_device_id", cuid);
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put("signal_sdk_version", 103010L);
+            jSONObject.put("unique_key", "" + currentTimeMillis);
+            jSONObject.put("source", this.mSource);
+            jSONObject.put(TiebaStatic.Params.RESOURCE_ID, this.mResourceId);
+            jSONObject.put("ts", currentTimeMillis);
+            jSONObject.put("sign", getMd5("imrtc:" + appId + currentTimeMillis + uk));
             StringBuilder sb = new StringBuilder();
-            sb.append("");
-            try {
-                sb.append(Utility.getBuid(this.mContext));
-                jSONObject.put("shoubai_uk", IMJni.transBDUID(sb.toString()));
-                jSONObject.put("uk", uk);
-                jSONObject.put("rtc_device_id", cuid);
-                jSONObject.put("sdk_version", str2);
-                jSONObject.put("signal_sdk_version", j);
-                jSONObject.put("unique_key", "" + currentTimeMillis);
-                jSONObject.put("source", this.mSource);
-                jSONObject.put("ts", currentTimeMillis);
-                jSONObject.put("sign", getMd5("imrtc:" + appId + currentTimeMillis + uk));
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append("RtcGetTokenRequest msg :");
-                sb2.append(jSONObject.toString());
-                String sb3 = sb2.toString();
-                str = TAG;
-                LogUtils.d(str, sb3);
-                return jSONObject.toString().getBytes();
-            } catch (Exception e2) {
-                e = e2;
-                str = TAG;
-                LogUtils.e(str, "RtcGetTokenRequest exception :", e);
-                return new byte[0];
-            }
-        } catch (Exception e3) {
-            e = e3;
+            sb.append("RtcGetTokenRequest msg :");
+            sb.append(jSONObject.toString());
+            LogUtils.d(TAG, sb.toString());
+            return jSONObject.toString().getBytes();
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "RtcGetTokenRequest exception :", e2);
+            return new byte[0];
         }
     }
 
@@ -184,5 +173,12 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
     public boolean shouldAbort() {
         return false;
+    }
+
+    public BIMRtcCreateRoomRequest(Context context, String str, String str2, BIMRtcTokenListener bIMRtcTokenListener) {
+        this.mContext = context;
+        this.mListener = bIMRtcTokenListener;
+        this.mSource = str;
+        this.mResourceId = str2;
     }
 }

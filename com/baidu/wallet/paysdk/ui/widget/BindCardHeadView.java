@@ -16,19 +16,19 @@ import com.baidu.apollon.utils.ResUtils;
 public class BindCardHeadView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f26861a;
+    public ImageView f26106a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f26862b;
+    public TextView f26107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f26863c;
+    public TextView f26108c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f26864d;
+    public View f26109d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f26865e;
+    public View f26110e;
 
     public BindCardHeadView(Context context) {
         super(context);
@@ -37,40 +37,40 @@ public class BindCardHeadView extends LinearLayout {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_bind_card_head_view"), this);
-        this.f26861a = (ImageView) findViewById(ResUtils.id(getContext(), "bind_card_img"));
-        this.f26862b = (TextView) findViewById(ResUtils.id(getContext(), "bind_card_title"));
-        this.f26863c = (TextView) findViewById(ResUtils.id(getContext(), "bind_card_subtitle"));
-        this.f26864d = findViewById(ResUtils.id(getContext(), "bind_card_line"));
-        this.f26865e = findViewById(ResUtils.id(getContext(), "bind_card_head_bottom_margin"));
+        this.f26106a = (ImageView) findViewById(ResUtils.id(getContext(), "bind_card_img"));
+        this.f26107b = (TextView) findViewById(ResUtils.id(getContext(), "bind_card_title"));
+        this.f26108c = (TextView) findViewById(ResUtils.id(getContext(), "bind_card_subtitle"));
+        this.f26109d = findViewById(ResUtils.id(getContext(), "bind_card_line"));
+        this.f26110e = findViewById(ResUtils.id(getContext(), "bind_card_head_bottom_margin"));
     }
 
     public void setImageSrcId(int i2) {
-        this.f26861a.setImageResource(i2);
+        this.f26106a.setImageResource(i2);
     }
 
     public void setLineVisiable(boolean z) {
-        this.f26864d.setVisibility(z ? 0 : 8);
-        this.f26865e.setVisibility(z ? 8 : 0);
+        this.f26109d.setVisibility(z ? 0 : 8);
+        this.f26110e.setVisibility(z ? 8 : 0);
     }
 
     public void setSubTitle(CharSequence charSequence) {
-        this.f26863c.setText(charSequence);
+        this.f26108c.setText(charSequence);
     }
 
     public void setSubTitleVisibility(int i2) {
-        this.f26863c.setVisibility(i2);
+        this.f26108c.setVisibility(i2);
     }
 
     public void setTitle(CharSequence charSequence) {
-        this.f26862b.setText(charSequence);
+        this.f26107b.setText(charSequence);
         if (charSequence instanceof Spannable) {
-            this.f26862b.setMovementMethod(LinkMovementMethod.getInstance());
+            this.f26107b.setMovementMethod(LinkMovementMethod.getInstance());
         }
     }
 
     public void setTitleVisiable(boolean z) {
-        this.f26862b.setVisibility(z ? 0 : 8);
-        this.f26863c.setVisibility(z ? 0 : 8);
+        this.f26107b.setVisibility(z ? 0 : 8);
+        this.f26108c.setVisibility(z ? 0 : 8);
     }
 
     public BindCardHeadView(Context context, AttributeSet attributeSet) {

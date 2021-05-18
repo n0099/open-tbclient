@@ -7,25 +7,25 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tieba.R;
-import d.a.i0.r.q.a2;
+import d.a.j0.r.q.a2;
 /* loaded from: classes.dex */
 public class j extends c implements p<a2>, q {
 
     /* renamed from: i  reason: collision with root package name */
-    public FollowUserDecorView f47711i;
+    public FollowUserDecorView f40336i;
     public boolean j = true;
     public int k = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds166);
     public int l = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
 
     public j(TbPageContext tbPageContext, boolean z) {
         FollowUserDecorView followUserDecorView = new FollowUserDecorView(tbPageContext.getPageActivity());
-        this.f47711i = followUserDecorView;
+        this.f40336i = followUserDecorView;
         followUserDecorView.setUseNewStyle(z);
         h(-1);
         m(z);
     }
 
-    public void k(d.a.i0.r.q.a aVar, boolean z) {
+    public void k(d.a.j0.r.q.a aVar, boolean z) {
         this.j = z;
         s(0);
         o(true);
@@ -48,7 +48,7 @@ public class j extends c implements p<a2>, q {
             layoutParams.topMargin = l(R.dimen.tbds52);
         }
         i(layoutParams);
-        g(this.f47711i);
+        g(this.f40336i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,39 +57,39 @@ public class j extends c implements p<a2>, q {
     public void a(a2 a2Var) {
         if (a2Var != null && a2Var.T() != null) {
             p(l(this.j ? R.dimen.tbds120 : R.dimen.tbds44));
-            this.f47711i.setVisibility(0);
-            this.f47711i.setData(a2Var);
-            this.f47711i.setTag(a2Var);
+            this.f40336i.setVisibility(0);
+            this.f40336i.setData(a2Var);
+            this.f40336i.setTag(a2Var);
             return;
         }
-        this.f47711i.setVisibility(8);
+        this.f40336i.setVisibility(8);
     }
 
     public void o(boolean z) {
-        this.f47711i.setClickableUnLike(z);
+        this.f40336i.setClickableUnLike(z);
     }
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        this.f47711i.r(i2);
+        this.f40336i.r(i2);
     }
 
     public void p(int i2) {
         if (d() != null) {
             d().rightMargin = i2;
         }
-        this.f47711i.setLayoutParams(d());
+        this.f40336i.setLayoutParams(d());
     }
 
     public void q(FollowUserButton.a aVar) {
-        this.f47711i.setOnClickEvent(aVar);
+        this.f40336i.setOnClickEvent(aVar);
     }
 
     public void r(BdUniqueId bdUniqueId) {
-        this.f47711i.setPageUniqueId(bdUniqueId);
+        this.f40336i.setPageUniqueId(bdUniqueId);
     }
 
     public void s(int i2) {
-        this.f47711i.setSvgIconResId(i2);
+        this.f40336i.setSvgIconResId(i2);
     }
 }

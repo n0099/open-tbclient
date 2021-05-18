@@ -8,33 +8,33 @@ import rx.internal.util.atomic.LinkedQueueNode;
 public abstract class b<E> extends AbstractQueue<E> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<LinkedQueueNode<E>> f67965e = new AtomicReference<>();
+    public final AtomicReference<LinkedQueueNode<E>> f68645e = new AtomicReference<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicReference<LinkedQueueNode<E>> f67966f = new AtomicReference<>();
+    public final AtomicReference<LinkedQueueNode<E>> f68646f = new AtomicReference<>();
 
     public final LinkedQueueNode<E> b() {
-        return this.f67966f.get();
+        return this.f68646f.get();
     }
 
     public final LinkedQueueNode<E> c() {
-        return this.f67965e.get();
+        return this.f68645e.get();
     }
 
     public final LinkedQueueNode<E> d() {
-        return this.f67966f.get();
+        return this.f68646f.get();
     }
 
     public final LinkedQueueNode<E> e() {
-        return this.f67965e.get();
+        return this.f68645e.get();
     }
 
     public final void f(LinkedQueueNode<E> linkedQueueNode) {
-        this.f67966f.lazySet(linkedQueueNode);
+        this.f68646f.lazySet(linkedQueueNode);
     }
 
     public final void g(LinkedQueueNode<E> linkedQueueNode) {
-        this.f67965e.lazySet(linkedQueueNode);
+        this.f68645e.lazySet(linkedQueueNode);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection

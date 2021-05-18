@@ -11,7 +11,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.a.j0.d3.c;
+import d.a.k0.d3.c;
 /* loaded from: classes3.dex */
 public class WebPManager {
 
@@ -193,5 +193,23 @@ public class WebPManager {
             resourceStateType = ResourceStateType.NORMAL;
         }
         imageView.setImageDrawable(getPureDrawable(i2, SkinManager.getColor(i3), resourceStateType));
+    }
+
+    public static Drawable getMaskDrawable(int i2, boolean z) {
+        Drawable drawable;
+        if (z) {
+            drawable = SkinManager.getDrawable(i2);
+        } else {
+            drawable = SkinManager.getDrawable(0, i2);
+        }
+        if (drawable == null) {
+            return null;
+        }
+        Drawable mutate = drawable.mutate();
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (z && skinType != 0) {
+            mutate.setColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
+        }
+        return mutate;
     }
 }

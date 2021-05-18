@@ -20,7 +20,7 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68286d;
+        public Disposable f68966d;
         public boolean done;
         public final BiFunction<T, T, T> reducer;
         public T value;
@@ -32,12 +32,12 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68286d.dispose();
+            this.f68966d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68286d.isDisposed();
+            return this.f68966d.isDisposed();
         }
 
         @Override // io.reactivex.Observer
@@ -80,15 +80,15 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
                 this.value = (T) ObjectHelper.requireNonNull(this.reducer.apply(t2, t), "The reducer returned a null value");
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
-                this.f68286d.dispose();
+                this.f68966d.dispose();
                 onError(th);
             }
         }
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68286d, disposable)) {
-                this.f68286d = disposable;
+            if (DisposableHelper.validate(this.f68966d, disposable)) {
+                this.f68966d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

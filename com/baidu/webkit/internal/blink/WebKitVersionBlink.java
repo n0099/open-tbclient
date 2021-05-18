@@ -11,6 +11,9 @@ public class WebKitVersionBlink implements INoProGuard {
     public static String getVersionName() {
         if (WebViewFactory.hasProvider()) {
             try {
+                if (WebViewFactory.isOptimizedPackageInfoEnabled() && WebKitFactory.getCurEngine() == 1) {
+                    return WebViewFactory.getZeusVersionName();
+                }
                 WebViewFactory.getLoadedPackageInfo();
                 return WebViewFactory.getLoadedPackageInfo().versionName;
             } catch (Throwable th) {
@@ -24,6 +27,9 @@ public class WebKitVersionBlink implements INoProGuard {
     public static String getZeusVersionByUpdate() {
         if (WebViewFactory.hasProvider() && WebKitFactory.getCurEngine() == 1) {
             try {
+                if (WebViewFactory.isOptimizedPackageInfoEnabled()) {
+                    return WebViewFactory.getZeusVersionName();
+                }
                 WebViewFactory.getLoadedPackageInfo();
                 return WebViewFactory.getLoadedPackageInfo().versionName;
             } catch (Throwable th) {

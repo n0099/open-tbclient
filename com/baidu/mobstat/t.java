@@ -28,9 +28,9 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f8756a = false;
-                acVar.f8757b = "M";
-                acVar.f8758c = false;
+                acVar.f8568a = false;
+                acVar.f8569b = "M";
+                acVar.f8570c = false;
                 a2.a(applicationContext, acVar.a());
             }
         }
@@ -42,9 +42,9 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f8756a = false;
-                acVar.f8757b = "R";
-                acVar.f8758c = false;
+                acVar.f8568a = false;
+                acVar.f8569b = "R";
+                acVar.f8570c = false;
                 a2.a(applicationContext, acVar.a());
             }
         }
@@ -56,9 +56,9 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f8756a = false;
-                acVar.f8757b = "E";
-                acVar.f8758c = false;
+                acVar.f8568a = false;
+                acVar.f8569b = "E";
+                acVar.f8570c = false;
                 a2.a(applicationContext, acVar.a());
             }
         }
@@ -66,12 +66,12 @@ public enum t {
     
 
     /* renamed from: e  reason: collision with root package name */
-    public int f9147e;
+    public int f8959e;
 
     public static t a(int i2) {
         t[] values;
         for (t tVar : values()) {
-            if (tVar.f9147e == i2) {
+            if (tVar.f8959e == i2) {
                 return tVar;
             }
         }
@@ -108,10 +108,10 @@ public enum t {
 
     @Override // java.lang.Enum
     public String toString() {
-        return String.valueOf(this.f9147e);
+        return String.valueOf(this.f8959e);
     }
 
     t(int i2) {
-        this.f9147e = i2;
+        this.f8959e = i2;
     }
 }

@@ -16,16 +16,16 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 import com.vivo.push.PushClientConstants;
-import d.a.i0.e0.c;
-import d.a.i0.e0.d;
+import d.a.j0.e0.c;
+import d.a.j0.e0.d;
 /* loaded from: classes4.dex */
-public class ImMessageCenterDelegateStatic extends d.a.i0.e0.b {
+public class ImMessageCenterDelegateStatic extends d.a.j0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f18229a;
+    public MessageRedDotView f17544a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f18230b;
+    public CustomMessageListener f17545b;
 
     /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
@@ -77,23 +77,23 @@ public class ImMessageCenterDelegateStatic extends d.a.i0.e0.b {
     }
 
     public final void b(boolean z, int i2) {
-        MessageRedDotView messageRedDotView = this.f18229a;
+        MessageRedDotView messageRedDotView = this.f17544a;
         if (messageRedDotView == null) {
             return;
         }
         if (z) {
             messageRedDotView.setThreeDotMode(2);
-            this.f18229a.f(i2);
-            this.f18229a.setVisibility(0);
+            this.f17544a.f(i2);
+            this.f17544a.setVisibility(0);
             if (TbSingleton.getInstance().isShowVivoBadge()) {
-                c(this.f18229a.getContext(), i2);
+                c(this.f17544a.getContext(), i2);
                 return;
             }
             return;
         }
         messageRedDotView.setVisibility(8);
         if (TbSingleton.getInstance().isShowVivoBadge()) {
-            c(this.f18229a.getContext(), 0);
+            c(this.f17544a.getContext(), 0);
         }
     }
 
@@ -107,49 +107,49 @@ public class ImMessageCenterDelegateStatic extends d.a.i0.e0.b {
         context.sendBroadcast(intent);
     }
 
-    @Override // d.a.i0.e0.b
+    @Override // d.a.j0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f48462a = new MessageCenterFragment();
-        cVar.f48466e = 3;
-        cVar.f48463b = R.string.my_message;
-        cVar.f48467f = R.raw.lottie_tab_msg;
-        cVar.f48470i = c.l;
-        cVar.f48469h = d.a.i0.e0.e.c.d().c("message");
+        cVar.f49290a = new MessageCenterFragment();
+        cVar.f49294e = 3;
+        cVar.f49291b = R.string.my_message;
+        cVar.f49295f = R.raw.lottie_tab_msg;
+        cVar.f49298i = c.l;
+        cVar.f49297h = d.a.j0.e0.e.c.d().c("message");
         return cVar;
     }
 
-    @Override // d.a.i0.e0.b
+    @Override // d.a.j0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.f18229a = new MessageRedDotView(context);
+        this.f17544a = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
         TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
-        aVar.f13628f = tbFragmentTabIndicator;
-        aVar.f13623a = this.f18229a;
-        aVar.f13624b = true;
+        aVar.f12964f = tbFragmentTabIndicator;
+        aVar.f12959a = this.f17544a;
+        aVar.f12960b = true;
         tbFragmentTabIndicator.b("msg", aVar);
-        this.f18229a.setVisibility(4);
+        this.f17544a.setVisibility(4);
         if (!TbSingleton.getInstance().isShowVivoBadge()) {
-            c(this.f18229a.getContext(), 0);
+            c(this.f17544a.getContext(), 0);
         }
         return this.mIndicator;
     }
 
-    @Override // d.a.i0.e0.b
+    @Override // d.a.j0.e0.b
     public boolean isAvailable() {
         return MainTabActivityConfig.IMMESSAGE_CENTER_DELEGATE_AVAIBLE;
     }
 
-    @Override // d.a.i0.e0.b
+    @Override // d.a.j0.e0.b
     public void onAdd() {
-        this.f18230b = new b(2921002);
-        MessageManager.getInstance().registerListener(this.f18230b);
+        this.f17545b = new b(2921002);
+        MessageManager.getInstance().registerListener(this.f17545b);
     }
 
-    @Override // d.a.i0.e0.b
+    @Override // d.a.j0.e0.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.f18230b);
+        MessageManager.getInstance().unRegisterListener(this.f17545b);
     }
 }

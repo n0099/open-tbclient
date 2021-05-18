@@ -10,9 +10,9 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class XmlBox extends AbstractFullBox {
     public static final String TYPE = "xml ";
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_2 = null;
     public String xml;
 
     static {

@@ -22,23 +22,23 @@ import java.util.List;
 import tv.athena.revenue.payui.controller.IYYPayCallback;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.widget.NoScrollGridView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f68883e;
+    public Activity f69565e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f68884f;
+    public Button f69566f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f68885g;
+    public TextView f69567g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f68886h;
+    public TextView f69568h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f68887i;
+    public TextView f69569i;
     public NoScrollGridView j;
     public i.a.a.e.m.b.a k;
     public QueryCurrencyReqParams l;
@@ -49,7 +49,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     public IYYPayAmountView.Callback q;
     public String r;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements AdapterView.OnItemClickListener {
         public a() {
         }
@@ -66,7 +66,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -77,7 +77,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -86,7 +86,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         public void onClick(View view) {
             if (YYPayAmountView.this.o != null) {
                 if (YYPayAmountView.this.q != null) {
-                    YYPayAmountView.this.q.showInputNumberDialog(YYPayAmountView.this.f68883e, YYPayAmountView.this.o);
+                    YYPayAmountView.this.q.showInputNumberDialog(YYPayAmountView.this.f69565e, YYPayAmountView.this.o);
                     return;
                 }
                 return;
@@ -95,7 +95,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d implements IResult<ProductListResult> {
         public d() {
         }
@@ -110,12 +110,12 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         public void onFail(int i2, String str, d.r.b.a.a.f.b bVar) {
             d.r.b.a.a.f.d.d.e("YYPayAmountView", "refreshView()->queryProductList->onFail->code:" + i2 + " failReason:" + str, new Object[0]);
-            if (e.f68162a.a(YYPayAmountView.this.f68883e)) {
+            if (e.f68842a.a(YYPayAmountView.this.f69565e)) {
                 String str2 = "请求服务失败 code:" + i2 + " failReason:" + str;
                 if (i2 == -500) {
                     str2 = "网络不给力，请稍后重试";
                 }
-                Toast.makeText(YYPayAmountView.this.f68883e, str2, 1).show();
+                Toast.makeText(YYPayAmountView.this.f69565e, str2, 1).show();
             }
             if (YYPayAmountView.this.q != null) {
                 YYPayAmountView.this.q.onFail(i2, str);
@@ -127,7 +127,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         super(activity);
         this.n = new ArrayList();
         this.r = "Y币";
-        this.f68883e = activity;
+        this.f69565e = activity;
         this.m = cVar;
         this.l = aVar.a();
         k(activity);
@@ -158,9 +158,9 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
 
     public final void k(Activity activity) {
         LayoutInflater.from(activity).inflate(i.a.a.e.d.yy_layout_pay_amount_view, (ViewGroup) this, true);
-        this.f68886h = (TextView) findViewById(i.a.a.e.c.tv_total_src_amount);
-        this.f68887i = (TextView) findViewById(i.a.a.e.c.tv_gain_dest_amount);
-        i.a.a.e.m.b.a aVar = new i.a.a.e.m.b.a(this.f68883e, this.n);
+        this.f69568h = (TextView) findViewById(i.a.a.e.c.tv_total_src_amount);
+        this.f69569i = (TextView) findViewById(i.a.a.e.c.tv_gain_dest_amount);
+        i.a.a.e.m.b.a aVar = new i.a.a.e.m.b.a(this.f69565e, this.n);
         this.k = aVar;
         aVar.b(this.r);
         NoScrollGridView noScrollGridView = (NoScrollGridView) findViewById(i.a.a.e.c.grid_recharge_amount);
@@ -169,10 +169,10 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         this.j.setAdapter((ListAdapter) this.k);
         this.j.setOnItemClickListener(new a());
         Button button = (Button) findViewById(i.a.a.e.c.btn_confirm_recharge);
-        this.f68884f = button;
+        this.f69566f = button;
         button.setOnClickListener(new b());
         TextView textView = (TextView) findViewById(i.a.a.e.c.et_input_text);
-        this.f68885g = textView;
+        this.f69567g = textView;
         textView.setOnClickListener(new c());
     }
 
@@ -188,7 +188,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                 this.n.clear();
                 for (int i2 = 0; i2 < productInfoList.size(); i2++) {
                     j jVar = productInfoList.get(i2);
-                    d.r.b.a.a.f.d.d.f("YYPayAmountView", "productInfo-> destAmount=" + jVar.f67109g + ", symbol=" + jVar.f67108f);
+                    d.r.b.a.a.f.d.d.f("YYPayAmountView", "productInfo-> destAmount=" + jVar.f67795g + ", symbol=" + jVar.f67794f);
                     this.n.add(new i.a.a.e.j.b(jVar));
                 }
                 this.j.setNumColumns(j(this.k.getCount()));
@@ -205,7 +205,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                 this.k.c(0);
                 this.k.notifyDataSetChanged();
                 m(this.k.getItem(0));
-                i.a.a.e.j.c.f68151a = productListResult.getPaysSettingInfo();
+                i.a.a.e.j.c.f68831a = productListResult.getPaysSettingInfo();
                 return;
             }
             d.r.b.a.a.f.d.d.e("YYPayAmountView", "productInfoList null", new Object[0]);
@@ -213,15 +213,15 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     }
 
     public final void m(i.a.a.e.j.b bVar) {
-        if (this.f68887i == null || this.f68886h == null || bVar == null) {
+        if (this.f69569i == null || this.f69568h == null || bVar == null) {
             return;
         }
         Double b2 = bVar.b();
         double a2 = bVar.a();
         if (b2 != null) {
-            this.f68886h.setText(String.format("¥%s", i.a.a.e.l.d.a(b2.doubleValue())));
+            this.f69568h.setText(String.format("¥%s", i.a.a.e.l.d.a(b2.doubleValue())));
         }
-        this.f68887i.setText(i.a.a.e.l.d.a(a2) + this.r);
+        this.f69569i.setText(i.a.a.e.l.d.a(a2) + this.r);
     }
 
     @Override // tv.athena.revenue.payui.view.IYYPayAmountView

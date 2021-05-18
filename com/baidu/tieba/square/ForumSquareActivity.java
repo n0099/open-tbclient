@@ -2,13 +2,13 @@ package com.baidu.tieba.square;
 
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
-import d.a.j0.a3.a;
-import d.a.j0.a3.b;
+import d.a.k0.a3.a;
+import d.a.k0.a3.b;
 /* loaded from: classes5.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public a mDelegate;
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "a073";
     }
@@ -20,7 +20,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        b bVar = this.mDelegate.f51212d;
+        b bVar = this.mDelegate.f51911d;
         if (bVar != null) {
             bVar.a(i2);
         }
@@ -32,7 +32,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         a aVar = new a(this, getPageContext());
         this.mDelegate = aVar;
         aVar.j(getIntent());
-        setContentView(this.mDelegate.f51212d.d());
+        setContentView(this.mDelegate.f51911d.d());
         this.mDelegate.m();
     }
 

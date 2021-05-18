@@ -6,40 +6,40 @@ import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class f implements d.o.a.e.b.o.j {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements d.o.a.e.b.o.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Response f66664a;
+        public final /* synthetic */ Response f67350a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Call f66665b;
+        public final /* synthetic */ Call f67351b;
 
         public a(f fVar, Response response, Call call) {
-            this.f66664a = response;
-            this.f66665b = call;
+            this.f67350a = response;
+            this.f67351b = call;
         }
 
         @Override // d.o.a.e.b.o.i
         public String a(String str) {
-            return this.f66664a.header(str);
+            return this.f67350a.header(str);
         }
 
         @Override // d.o.a.e.b.o.i
         public int b() throws IOException {
-            return this.f66664a.code();
+            return this.f67350a.code();
         }
 
         @Override // d.o.a.e.b.o.i
         public void c() {
-            Call call = this.f66665b;
+            Call call = this.f67351b;
             if (call == null || call.isCanceled()) {
                 return;
             }
-            this.f66665b.cancel();
+            this.f67351b.cancel();
         }
     }
 

@@ -6,8 +6,8 @@ import h.k;
 /* loaded from: classes7.dex */
 public abstract class h {
     @Deprecated
-    public <T> h.d<T> a(h.d<T> dVar) {
-        return dVar;
+    public <T> h.c<T> a(h.c<T> cVar) {
+        return cVar;
     }
 
     @Deprecated

@@ -7,19 +7,19 @@ import java.util.Iterator;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f65595a = 0;
+    public long f66281a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f65596b = 0.0d;
+    public double f66282b = 0.0d;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f65597c = 0.0d;
+    public double f66283c = 0.0d;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f65598d = Double.NaN;
+    public double f66284d = Double.NaN;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f65599e = Double.NaN;
+    public double f66285e = Double.NaN;
 
     public static double g(double d2, double d3) {
         if (Doubles.f(d2)) {
@@ -32,31 +32,31 @@ public final class f {
     }
 
     public void a(double d2) {
-        long j = this.f65595a;
+        long j = this.f66281a;
         if (j == 0) {
-            this.f65595a = 1L;
-            this.f65596b = d2;
-            this.f65598d = d2;
-            this.f65599e = d2;
+            this.f66281a = 1L;
+            this.f66282b = d2;
+            this.f66284d = d2;
+            this.f66285e = d2;
             if (Doubles.f(d2)) {
                 return;
             }
-            this.f65597c = Double.NaN;
+            this.f66283c = Double.NaN;
             return;
         }
-        this.f65595a = j + 1;
-        if (Doubles.f(d2) && Doubles.f(this.f65596b)) {
-            double d3 = this.f65596b;
+        this.f66281a = j + 1;
+        if (Doubles.f(d2) && Doubles.f(this.f66282b)) {
+            double d3 = this.f66282b;
             double d4 = d2 - d3;
-            double d5 = d3 + (d4 / this.f65595a);
-            this.f65596b = d5;
-            this.f65597c += d4 * (d2 - d5);
+            double d5 = d3 + (d4 / this.f66281a);
+            this.f66282b = d5;
+            this.f66283c += d4 * (d2 - d5);
         } else {
-            this.f65596b = g(this.f65596b, d2);
-            this.f65597c = Double.NaN;
+            this.f66282b = g(this.f66282b, d2);
+            this.f66283c = Double.NaN;
         }
-        this.f65598d = Math.min(this.f65598d, d2);
-        this.f65599e = Math.max(this.f65599e, d2);
+        this.f66284d = Math.min(this.f66284d, d2);
+        this.f66285e = Math.max(this.f66285e, d2);
     }
 
     public void b(Iterable<? extends Number> iterable) {
@@ -90,6 +90,6 @@ public final class f {
     }
 
     public Stats h() {
-        return new Stats(this.f65595a, this.f65596b, this.f65597c, this.f65598d, this.f65599e);
+        return new Stats(this.f66281a, this.f66282b, this.f66283c, this.f66284d, this.f66285e);
     }
 }

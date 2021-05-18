@@ -13,10 +13,10 @@ import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.Scroller;
 import com.baidu.tieba.R;
-import d.a.j0.d3.k0.d;
+import d.a.k0.d3.k0.d;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.c, View.OnLongClickListener {
+public class DragHorizonScrollView extends ViewGroup implements d, d.a.k0.d3.k0.c, View.OnLongClickListener {
     public boolean A;
     public View B;
     public int C;
@@ -30,19 +30,19 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
     public Runnable K;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseAdapter f21629e;
+    public BaseAdapter f20873e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21630f;
+    public View f20874f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21631g;
+    public int f20875g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.j0.d3.k0.a f21632h;
+    public d.a.k0.d3.k0.a f20876h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f21633i;
+    public int f20877i;
     public int j;
     public int k;
     public int l;
@@ -69,7 +69,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
         @Override // java.lang.Runnable
         public void run() {
             int max;
-            if (DragHorizonScrollView.this.f21633i == 0) {
+            if (DragHorizonScrollView.this.f20877i == 0) {
                 DragHorizonScrollView.this.p.forceFinished(true);
                 return;
             }
@@ -181,25 +181,25 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
         childAt.offsetLeftAndRight(left2);
     }
 
-    @Override // d.a.j0.d3.k0.d
+    @Override // d.a.k0.d3.k0.d
     public void a(Rect rect) {
         View childAt;
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
-            if (i2 != this.f21631g && (childAt = getChildAt(i2)) != this.B) {
+            if (i2 != this.f20875g && (childAt = getChildAt(i2)) != this.B) {
                 childAt.getHitRect(this.q);
                 if (this.q.contains((rect.left + rect.right) / 2, (rect.top + rect.bottom) / 2)) {
-                    int i3 = this.f21631g;
+                    int i3 = this.f20875g;
                     A(i3, i2);
                     z(i3, i2);
-                    this.f21631g = i2;
+                    this.f20875g = i2;
                     return;
                 }
             }
         }
     }
 
-    @Override // d.a.j0.d3.k0.d
+    @Override // d.a.k0.d3.k0.d
     public void b() {
         if (this.u) {
             return;
@@ -210,7 +210,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
         invalidate();
     }
 
-    @Override // d.a.j0.d3.k0.d
+    @Override // d.a.k0.d3.k0.d
     public void c() {
         if (!this.o.isFinished()) {
             this.o.forceFinished(true);
@@ -221,11 +221,11 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
 
     @Override // android.view.View
     public void computeScroll() {
-        d.a.j0.d3.k0.a aVar;
+        d.a.k0.d3.k0.a aVar;
         if (this.o.computeScrollOffset()) {
             scrollTo(this.o.getCurrX(), 0);
             postInvalidateDelayed(16L);
-            if ((this.u || this.v) && (aVar = this.f21632h) != null) {
+            if ((this.u || this.v) && (aVar = this.f20876h) != null) {
                 aVar.i();
                 return;
             }
@@ -235,7 +235,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
         this.v = false;
     }
 
-    @Override // d.a.j0.d3.k0.d
+    @Override // d.a.k0.d3.k0.d
     public void d() {
         if (this.v) {
             return;
@@ -248,13 +248,13 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
         invalidate();
     }
 
-    @Override // d.a.j0.d3.k0.d
+    @Override // d.a.k0.d3.k0.d
     public void e() {
         y();
     }
 
     public BaseAdapter getAdapter() {
-        return this.f21629e;
+        return this.f20873e;
     }
 
     public int getMaxItemNum() {
@@ -328,7 +328,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
         int paddingLeft = getPaddingLeft() + this.x;
         if (this.I) {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds32);
-            if (this.f21633i > 0) {
+            if (this.f20877i > 0) {
                 View v = v(0);
                 t(v, this.j, this.k);
                 paddingLeft = ((getMeasuredWidth() - v.getMeasuredWidth()) + dimensionPixelSize) / 2;
@@ -345,7 +345,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
                 paddingLeft = ((getMeasuredWidth() - this.B.getMeasuredWidth()) + dimensionPixelSize) / 2;
             }
         }
-        for (int i7 = 0; i7 < this.f21633i; i7++) {
+        for (int i7 = 0; i7 < this.f20877i; i7++) {
             View v2 = v(i7);
             if (v2 != null && v2.getVisibility() != 8) {
                 ViewGroup.LayoutParams layoutParams2 = v2.getLayoutParams();
@@ -377,7 +377,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
             int paddingTop2 = getPaddingTop();
             int measuredWidth4 = this.B.getMeasuredWidth() + paddingLeft;
             this.B.layout(paddingLeft, paddingTop2, measuredWidth4, this.B.getMeasuredHeight() + paddingTop2);
-            if (this.f21633i == this.z) {
+            if (this.f20877i == this.z) {
                 paddingLeft = measuredWidth4 - this.B.getMeasuredWidth();
                 this.D = false;
             } else {
@@ -407,9 +407,9 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
                 getChildAt(i2).clearAnimation();
             }
         }
-        this.f21632h.h(view, null);
-        this.f21630f = view;
-        this.f21631g = indexOfChild(view);
+        this.f20876h.h(view, null);
+        this.f20874f = view;
+        this.f20875g = indexOfChild(view);
         return true;
     }
 
@@ -421,11 +421,11 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
         int mode2 = View.MeasureSpec.getMode(i3);
         int size = View.MeasureSpec.getSize(i2);
         int size2 = View.MeasureSpec.getSize(i3);
-        BaseAdapter baseAdapter = this.f21629e;
+        BaseAdapter baseAdapter = this.f20873e;
         int count = baseAdapter == null ? 0 : baseAdapter.getCount();
-        this.f21633i = count;
+        this.f20877i = count;
         int min = Math.min(this.z, count);
-        this.f21633i = min;
+        this.f20877i = min;
         if (min <= 0 || !(mode == 0 || mode2 == 0)) {
             i4 = 0;
             i5 = 0;
@@ -523,7 +523,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
             this.l -= measuredWidth;
             this.D = true;
         }
-        this.f21633i--;
+        this.f20877i--;
         removeViewInLayout(view);
         this.E.add(view);
         int childCount = getChildCount();
@@ -552,8 +552,8 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
     }
 
     public final void r(Context context) {
-        this.f21630f = null;
-        this.f21631g = -1;
+        this.f20874f = null;
+        this.f20875g = -1;
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
         this.n = viewConfiguration.getScaledTouchSlop();
         this.s = viewConfiguration.getScaledMinimumFlingVelocity();
@@ -569,7 +569,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
     }
 
     public void setAdapter(BaseAdapter baseAdapter, boolean z) {
-        this.f21629e = baseAdapter;
+        this.f20873e = baseAdapter;
         this.o.forceFinished(true);
         this.p.forceFinished(true);
         if (!this.A && z) {
@@ -586,9 +586,9 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
         this.I = z;
     }
 
-    @Override // d.a.j0.d3.k0.c
-    public void setDragController(d.a.j0.d3.k0.a aVar) {
-        this.f21632h = aVar;
+    @Override // d.a.k0.d3.k0.c
+    public void setDragController(d.a.k0.d3.k0.a aVar) {
+        this.f20876h = aVar;
     }
 
     public void setMaxItemNum(int i2) {
@@ -622,7 +622,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
 
     public final int[] u(int i2, int i3, int i4, int i5) {
         int[] iArr = new int[2];
-        if (this.f21629e == null) {
+        if (this.f20873e == null) {
             iArr[0] = getPaddingLeft() + getPaddingRight();
             iArr[1] = getPaddingTop() + getPaddingBottom();
             return iArr;
@@ -630,7 +630,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
         int paddingLeft = getPaddingLeft() + getPaddingRight();
         int paddingTop = getPaddingTop() + getPaddingBottom();
         if (i3 == -1) {
-            i3 = this.f21633i - 1;
+            i3 = this.f20877i - 1;
         }
         while (i2 <= i3) {
             View v = v(i2);
@@ -648,7 +648,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
 
     public final View v(int i2) {
         View remove = this.E.size() > 0 ? this.E.remove(0) : null;
-        View view = this.f21629e.getView(i2, remove, this);
+        View view = this.f20873e.getView(i2, remove, this);
         if (view != remove) {
             this.E.add(remove);
         }
@@ -677,12 +677,12 @@ public class DragHorizonScrollView extends ViewGroup implements d, d.a.j0.d3.k0.
         removeCallbacks(this.K);
         this.o.forceFinished(true);
         this.p.forceFinished(true);
-        View view = this.f21630f;
+        View view = this.f20874f;
         if (view != null) {
             view.setVisibility(0);
-            this.f21630f = null;
+            this.f20874f = null;
         }
-        this.f21631g = -1;
+        this.f20875g = -1;
         this.u = false;
         this.v = false;
         int childCount = getChildCount();

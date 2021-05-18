@@ -113,7 +113,7 @@ public class ArBridge {
         }
     }
 
-    public void finalize() throws Throwable {
+    public void finalize() {
         super.finalize();
         synchronized (this) {
             if (this.mIsInitNative) {

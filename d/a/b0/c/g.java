@@ -8,22 +8,22 @@ import org.json.JSONObject;
 public class g implements Cloneable {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39356e;
+    public String f38601e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Uri f39357f;
+    public Uri f38602f;
 
     /* renamed from: h  reason: collision with root package name */
-    public String[] f39359h;
+    public String[] f38604h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HashMap<String, String> f39360i;
+    public HashMap<String, String> f38605i;
     public g k;
     public JSONObject m;
     public String n;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39358g = -1;
+    public int f38603g = -1;
     public boolean j = false;
     public boolean l = false;
 
@@ -32,18 +32,18 @@ public class g implements Cloneable {
     }
 
     public g(Uri uri, String str) {
-        this.f39356e = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
-        this.f39356e = str;
-        this.f39357f = uri;
-        this.f39359h = j.c(uri);
-        this.f39360i = j.b(uri.toString());
+        this.f38601e = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.f38601e = str;
+        this.f38602f = uri;
+        this.f38604h = j.c(uri);
+        this.f38605i = j.b(uri.toString());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: b */
     public g clone() {
-        Uri uri = this.f39357f;
-        g gVar = new g(uri, this.f39356e, j.c(uri), (HashMap) this.f39360i.clone());
+        Uri uri = this.f38602f;
+        g gVar = new g(uri, this.f38601e, j.c(uri), (HashMap) this.f38605i.clone());
         gVar.k = this;
         gVar.l = this.l;
         gVar.n = this.n;
@@ -52,27 +52,27 @@ public class g implements Cloneable {
 
     public String c() {
         String path;
-        Uri uri = this.f39357f;
+        Uri uri = this.f38602f;
         if (uri != null) {
-            if (j.d(uri) && (path = this.f39357f.getPath()) != null && path.length() > 1) {
-                return this.f39357f.getPath().substring(1);
+            if (j.d(uri) && (path = this.f38602f.getPath()) != null && path.length() > 1) {
+                return this.f38602f.getPath().substring(1);
             }
-            return this.f39357f.getHost() + this.f39357f.getPath();
+            return this.f38602f.getHost() + this.f38602f.getPath();
         }
         return "";
     }
 
     public HashMap<String, String> d() {
-        return this.f39360i;
+        return this.f38605i;
     }
 
     public String e(boolean z) {
-        if (this.f39359h != null) {
+        if (this.f38604h != null) {
             if (z) {
-                this.f39358g++;
+                this.f38603g++;
             }
-            int i2 = this.f39358g;
-            String[] strArr = this.f39359h;
+            int i2 = this.f38603g;
+            String[] strArr = this.f38604h;
             if (i2 < strArr.length) {
                 return strArr[i2];
             }
@@ -82,7 +82,7 @@ public class g implements Cloneable {
     }
 
     public Uri f() {
-        return this.f39357f;
+        return this.f38602f;
     }
 
     public boolean g() {
@@ -90,13 +90,13 @@ public class g implements Cloneable {
     }
 
     public void h(String str, String str2) {
-        Uri uri = this.f39357f;
+        Uri uri = this.f38602f;
         if (uri == null || str == null || str2 == null) {
             return;
         }
         Uri parse = Uri.parse(uri.toString().replace(str, str2));
-        this.f39357f = parse;
-        this.f39359h = j.c(parse);
+        this.f38602f = parse;
+        this.f38604h = j.c(parse);
     }
 
     public void i(boolean z) {
@@ -104,10 +104,10 @@ public class g implements Cloneable {
     }
 
     public g(Uri uri, String str, String[] strArr, HashMap<String, String> hashMap) {
-        this.f39356e = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
-        this.f39357f = uri;
-        this.f39356e = str;
-        this.f39359h = strArr;
-        this.f39360i = hashMap;
+        this.f38601e = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.f38602f = uri;
+        this.f38601e = str;
+        this.f38604h = strArr;
+        this.f38605i = hashMap;
     }
 }

@@ -7,21 +7,21 @@ import com.baidu.apollon.restnet.http.HttpStatus;
 public class f<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3861a = "f";
+    public static final String f3862a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f3862b;
+    public final Class<T> f3863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AbstractHttpMessageConverter<?> f3863c;
+    public final AbstractHttpMessageConverter<?> f3864c;
 
     public f(Class<T> cls, AbstractHttpMessageConverter<?> abstractHttpMessageConverter) {
         if (cls == null) {
             throw new IllegalArgumentException("'responseType' must not be null");
         }
         if (abstractHttpMessageConverter != null) {
-            this.f3862b = cls;
-            this.f3863c = abstractHttpMessageConverter;
+            this.f3863b = cls;
+            this.f3864c = abstractHttpMessageConverter;
             return;
         }
         throw new IllegalArgumentException("'messageConverters' must not be empty");
@@ -34,15 +34,15 @@ public class f<T> {
 
     public T a(e eVar) throws Exception {
         if (b(eVar)) {
-            if (eVar.d().i() == null && Log.isLoggable(f3861a, 3)) {
-                Log.d(f3861a, "No Content-Type header found, defaulting to application/octet-stream");
+            if (eVar.d().i() == null && Log.isLoggable(f3862a, 3)) {
+                Log.d(f3862a, "No Content-Type header found, defaulting to application/octet-stream");
             }
-            return (T) this.f3863c.a(this.f3862b, eVar);
+            return (T) this.f3864c.a(this.f3863b, eVar);
         }
         return null;
     }
 
     public String a() {
-        return this.f3863c.a();
+        return this.f3864c.a();
     }
 }

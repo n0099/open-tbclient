@@ -14,28 +14,28 @@ import d.r.b.a.a.i.c.h;
 import i.a.a.e.c;
 import java.text.DecimalFormat;
 import tv.athena.revenue.payui.view.IYYPayResultView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class YYPayResultView extends LinearLayout implements IYYPayResultView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f68892e;
+    public int f69574e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f68893f;
+    public int f69575f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f68894g;
+    public TextView f69576g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f68895h;
+    public ImageView f69577h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f68896i;
+    public TextView f69578i;
     public Button j;
     public IYYPayResultView.a k;
     public IYYPayResultView.b l;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -49,14 +49,14 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            i.a.a.e.k.a.b(YYPayResultView.this.f68892e, YYPayResultView.this.f68893f, "failpagecallnum");
+            i.a.a.e.k.a.b(YYPayResultView.this.f69574e, YYPayResultView.this.f69575f, "failpagecallnum");
         }
     }
 
@@ -66,15 +66,15 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             d.e("YYPayResultView", "YYPayResultView construct error viewParams null", new Object[0]);
         }
         LayoutInflater.from(context).inflate(i.a.a.e.d.yy_layout_pay_result_view, (ViewGroup) this, true);
-        this.f68894g = (TextView) findViewById(c.tv_result);
+        this.f69576g = (TextView) findViewById(c.tv_result);
         this.j = (Button) findViewById(c.btn_confirm);
-        this.f68892e = i2;
-        this.f68893f = i3;
-        this.f68895h = (ImageView) findViewById(c.img_result);
-        this.f68896i = (TextView) findViewById(c.tv_hint);
-        f(cVar.f68880a);
+        this.f69574e = i2;
+        this.f69575f = i3;
+        this.f69577h = (ImageView) findViewById(c.img_result);
+        this.f69578i = (TextView) findViewById(c.tv_hint);
+        f(cVar.f69562a);
         this.j.setOnClickListener(new a());
-        this.f68896i.setOnClickListener(new b());
+        this.f69578i.setOnClickListener(new b());
     }
 
     public final void e() {
@@ -82,12 +82,12 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         if (bVar == null) {
             return;
         }
-        IYYPayResultView.Result result = bVar.f68878a;
+        IYYPayResultView.Result result = bVar.f69560a;
         if (result == IYYPayResultView.Result.PAY_SUUCESS) {
-            i.a.a.e.k.a.b(this.f68892e, this.f68893f, "successpageclose");
+            i.a.a.e.k.a.b(this.f69574e, this.f69575f, "successpageclose");
             d.h("YYPayResultView", "successpageclose");
         } else if (result == IYYPayResultView.Result.PAY_FAIL) {
-            i.a.a.e.k.a.b(this.f68892e, this.f68893f, "failpageclose");
+            i.a.a.e.k.a.b(this.f69574e, this.f69575f, "failpageclose");
             d.h("YYPayResultView", "failpageclose");
         }
     }
@@ -99,11 +99,11 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             return;
         }
         this.l = bVar;
-        IYYPayResultView.Result result = bVar.f68878a;
+        IYYPayResultView.Result result = bVar.f69560a;
         if (result == IYYPayResultView.Result.PAY_LOADING) {
-            this.f68894g.setText("支付中");
+            this.f69576g.setText("支付中");
         } else if (result == IYYPayResultView.Result.PAY_SUUCESS) {
-            CurrencyChargeMessage currencyChargeMessage = bVar.f68879b;
+            CurrencyChargeMessage currencyChargeMessage = bVar.f69561b;
             String str3 = null;
             if (currencyChargeMessage != null && currencyChargeMessage.amount > 0) {
                 str3 = new DecimalFormat("#.##").format(((float) currencyChargeMessage.currencyAmount) / 100.0f);
@@ -113,32 +113,32 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             } else {
                 str2 = "充值成功";
             }
-            this.f68894g.setText(str2);
-            h hVar = i.a.a.e.j.c.f68151a;
-            this.f68896i.setText((hVar == null || (r7 = hVar.f67099d) == null) ? "" : "");
-            this.f68895h.setImageResource(i.a.a.e.b.yy_pay_success_icon);
-            i.a.a.e.k.a.b(this.f68892e, this.f68893f, "successpageshow");
+            this.f69576g.setText(str2);
+            h hVar = i.a.a.e.j.c.f68831a;
+            this.f69578i.setText((hVar == null || (r7 = hVar.f67785d) == null) ? "" : "");
+            this.f69577h.setImageResource(i.a.a.e.b.yy_pay_success_icon);
+            i.a.a.e.k.a.b(this.f69574e, this.f69575f, "successpageshow");
             d.h("YYPayResultView", "successpageshow");
         } else if (result == IYYPayResultView.Result.PAY_FAIL) {
-            this.f68894g.setText("充值失败");
-            h hVar2 = i.a.a.e.j.c.f68151a;
+            this.f69576g.setText("充值失败");
+            h hVar2 = i.a.a.e.j.c.f68831a;
             if (hVar2 != null) {
-                String str4 = hVar2.f67097b;
+                String str4 = hVar2.f67783b;
                 if (str4 != null && !str4.isEmpty()) {
-                    String str5 = i.a.a.e.j.c.f68151a.f67097b;
+                    String str5 = i.a.a.e.j.c.f68831a.f67783b;
                 }
-                String str6 = i.a.a.e.j.c.f68151a.f67098c;
+                String str6 = i.a.a.e.j.c.f68831a.f67784c;
                 if (str6 != null && !str6.isEmpty()) {
-                    str = i.a.a.e.j.c.f68151a.f67098c;
-                    this.f68896i.setText(str);
-                    this.f68895h.setImageResource(i.a.a.e.b.yy_pay_fail_icon);
-                    i.a.a.e.k.a.b(this.f68892e, this.f68893f, "failpageshow");
+                    str = i.a.a.e.j.c.f68831a.f67784c;
+                    this.f69578i.setText(str);
+                    this.f69577h.setImageResource(i.a.a.e.b.yy_pay_fail_icon);
+                    i.a.a.e.k.a.b(this.f69574e, this.f69575f, "failpageshow");
                 }
             }
             str = "如有问题可以联系客服 ";
-            this.f68896i.setText(str);
-            this.f68895h.setImageResource(i.a.a.e.b.yy_pay_fail_icon);
-            i.a.a.e.k.a.b(this.f68892e, this.f68893f, "failpageshow");
+            this.f69578i.setText(str);
+            this.f69577h.setImageResource(i.a.a.e.b.yy_pay_fail_icon);
+            i.a.a.e.k.a.b(this.f69574e, this.f69575f, "failpageshow");
         }
     }
 

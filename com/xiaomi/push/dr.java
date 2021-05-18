@@ -11,18 +11,18 @@ public class dr extends dq {
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hh mo172a() {
+    public hh mo171a() {
         return hh.Storage;
     }
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo172a() {
+    public String mo171a() {
         return Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR;
     }
 
     @Override // com.xiaomi.push.dq
     public String b() {
-        return "ram:" + i.m423a() + ",rom:" + i.m427b() + FieldBuilder.SE + "ramOriginal:" + i.m429c() + ",romOriginal:" + i.d();
+        return "ram:" + i.m422a() + ",rom:" + i.m426b() + FieldBuilder.SE + "ramOriginal:" + i.m428c() + ",romOriginal:" + i.d();
     }
 }

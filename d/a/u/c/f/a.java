@@ -14,40 +14,40 @@ import java.nio.ByteBuffer;
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f64059f = "a";
+    public static final String f64746f = "a";
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f64060a;
+    public HandlerThread f64747a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f64061b;
+    public Handler f64748b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.u.c.g.a f64062c;
+    public d.a.u.c.g.a f64749c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f64063d;
+    public e f64750d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f64064e = false;
+    public volatile boolean f64751e = false;
 
     /* renamed from: d.a.u.c.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C1745a {
+    public class C1809a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ByteBuffer f64065a;
+        public ByteBuffer f64752a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f64066b;
+        public int f64753b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f64067c;
+        public long f64754c;
 
-        public C1745a(a aVar, ByteBuffer byteBuffer, int i2, long j) {
-            this.f64065a = byteBuffer;
-            this.f64066b = i2;
-            this.f64067c = j;
+        public C1809a(a aVar, ByteBuffer byteBuffer, int i2, long j) {
+            this.f64752a = byteBuffer;
+            this.f64753b = i2;
+            this.f64754c = j;
         }
     }
 
@@ -67,8 +67,8 @@ public class a {
                     a.this.l();
                     return;
                 case 1003:
-                    C1745a c1745a = (C1745a) message.obj;
-                    a.this.h(c1745a.f64065a, c1745a.f64066b, c1745a.f64067c);
+                    C1809a c1809a = (C1809a) message.obj;
+                    a.this.h(c1809a.f64752a, c1809a.f64753b, c1809a.f64754c);
                     return;
                 case 1004:
                     a.this.m();
@@ -89,62 +89,62 @@ public class a {
         if (byteBuffer == null || i2 <= 0) {
             return;
         }
-        C1745a c1745a = new C1745a(this, byteBuffer, i2, j);
-        if (this.f64061b == null || !this.f64064e) {
+        C1809a c1809a = new C1809a(this, byteBuffer, i2, j);
+        if (this.f64748b == null || !this.f64751e) {
             return;
         }
-        Handler handler = this.f64061b;
-        handler.sendMessage(handler.obtainMessage(1003, c1745a));
+        Handler handler = this.f64748b;
+        handler.sendMessage(handler.obtainMessage(1003, c1809a));
     }
 
     public final void h(ByteBuffer byteBuffer, int i2, long j) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.f64062c.a(false, byteBuffer, i2, j);
+            this.f64749c.a(false, byteBuffer, i2, j);
         }
     }
 
     public final void i() {
-        Handler handler = this.f64061b;
+        Handler handler = this.f64748b;
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
-            this.f64061b = null;
+            this.f64748b = null;
         }
-        HandlerThread handlerThread = this.f64060a;
+        HandlerThread handlerThread = this.f64747a;
         if (handlerThread != null) {
             handlerThread.quit();
-            this.f64060a = null;
+            this.f64747a = null;
         }
     }
 
     public final void j() {
         if (Build.VERSION.SDK_INT >= 18) {
-            d.a.u.c.g.a aVar = this.f64062c;
+            d.a.u.c.g.a aVar = this.f64749c;
             if (aVar != null) {
                 aVar.i();
-                this.f64062c.e();
+                this.f64749c.e();
             }
-            this.f64062c = null;
-            this.f64063d = null;
+            this.f64749c = null;
+            this.f64750d = null;
         }
     }
 
     public final void k(d dVar) {
         d.a.u.c.g.a aVar;
-        if (Build.VERSION.SDK_INT < 18 || (aVar = this.f64062c) == null) {
+        if (Build.VERSION.SDK_INT < 18 || (aVar = this.f64749c) == null) {
             return;
         }
-        aVar.k(dVar, this.f64063d);
+        aVar.k(dVar, this.f64750d);
     }
 
     public final void l() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.f64062c.h();
+            this.f64749c.h();
         }
     }
 
     public final void m() {
         d.a.u.c.g.a aVar;
-        if (Build.VERSION.SDK_INT < 18 || (aVar = this.f64062c) == null) {
+        if (Build.VERSION.SDK_INT < 18 || (aVar = this.f64749c) == null) {
             return;
         }
         aVar.a(true, null, 0, 0L);
@@ -152,64 +152,64 @@ public class a {
 
     public final void n(e eVar, c cVar) {
         HandlerThread handlerThread = new HandlerThread("AudioRecorderThread");
-        this.f64060a = handlerThread;
+        this.f64747a = handlerThread;
         handlerThread.start();
-        this.f64061b = new b(this.f64060a.getLooper());
+        this.f64748b = new b(this.f64747a.getLooper());
         try {
-            this.f64062c = new d.a.u.c.g.a();
+            this.f64749c = new d.a.u.c.g.a();
         } catch (VerifyError unused) {
-            Log.e(f64059f, "initRecorder verifyError");
-            if (this.f64062c == null) {
+            Log.e(f64746f, "initRecorder verifyError");
+            if (this.f64749c == null) {
                 return;
             }
         }
-        this.f64063d = eVar;
+        this.f64750d = eVar;
         if (Build.VERSION.SDK_INT >= 18) {
-            this.f64062c.f(cVar);
+            this.f64749c.f(cVar);
         }
     }
 
     public boolean o() {
-        HandlerThread handlerThread = this.f64060a;
+        HandlerThread handlerThread = this.f64747a;
         return handlerThread != null && handlerThread.isAlive();
     }
 
     public void p() {
-        Handler handler = this.f64061b;
+        Handler handler = this.f64748b;
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
-            Handler handler2 = this.f64061b;
+            Handler handler2 = this.f64748b;
             handler2.sendMessage(handler2.obtainMessage(1005));
-            Handler handler3 = this.f64061b;
+            Handler handler3 = this.f64748b;
             handler3.sendMessage(handler3.obtainMessage(1006));
         }
     }
 
     public boolean q(d dVar, e eVar, c cVar) {
         if (o()) {
-            Log.e(f64059f, "setupRecorder error! As last audio recorder thread is alive!");
+            Log.e(f64746f, "setupRecorder error! As last audio recorder thread is alive!");
             return false;
         }
         n(eVar, cVar);
-        Handler handler = this.f64061b;
+        Handler handler = this.f64748b;
         handler.sendMessage(handler.obtainMessage(1001, dVar));
-        this.f64064e = true;
+        this.f64751e = true;
         return true;
     }
 
     public void r() {
-        Handler handler = this.f64061b;
+        Handler handler = this.f64748b;
         if (handler != null) {
             handler.sendMessage(handler.obtainMessage(1002));
         }
     }
 
     public void s() {
-        if (this.f64061b == null || !this.f64064e) {
+        if (this.f64748b == null || !this.f64751e) {
             return;
         }
-        this.f64064e = false;
-        Handler handler = this.f64061b;
+        this.f64751e = false;
+        Handler handler = this.f64748b;
         handler.sendMessage(handler.obtainMessage(1004));
     }
 }

@@ -7,7 +7,7 @@ import java.security.MessageDigest;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f40974a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "a", "b", "c", "d", "e", "f"};
+    public static final String[] f40219a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "a", "b", "c", "d", "e", "f"};
 
     /* JADX WARN: Code restructure failed: missing block: B:0:?, code lost:
         r3 = r3;
@@ -20,7 +20,7 @@ public final class g {
         if (b2 < 0) {
             i2 = b2 + 256;
         }
-        return f40974a[i2 / 16] + f40974a[i2 % 16];
+        return f40219a[i2 / 16] + f40219a[i2 % 16];
     }
 
     public static String b(String str) {

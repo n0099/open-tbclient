@@ -3,35 +3,35 @@ package com.bytedance.sdk.openadsdk.core.h;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28940a;
+    public String f28185a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28941b = 1;
+    public int f28186b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28942c = 1;
+    public int f28187c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28943d = 2;
+    public int f28188d = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28944e = 1;
+    public int f28189e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28945f = 100;
+    public int f28190f = 100;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28946g = 0;
+    public int f28191g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28947h = 2;
+    public int f28192h = 2;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28948i = 1;
+    public int f28193i = 1;
     public int j = 3;
     public int k = -1;
     public int l = -1;
@@ -114,42 +114,42 @@ public class a {
     }
 
     public a n(int i2) {
-        this.f28941b = i2;
+        this.f28186b = i2;
         return this;
     }
 
     public a o(int i2) {
-        this.f28942c = i2;
+        this.f28187c = i2;
         return this;
     }
 
     public a p(int i2) {
-        this.f28943d = i2;
+        this.f28188d = i2;
         return this;
     }
 
     public a q(int i2) {
-        this.f28944e = i2;
+        this.f28189e = i2;
         return this;
     }
 
     public a r(int i2) {
-        this.f28945f = i2;
+        this.f28190f = i2;
         return this;
     }
 
     public a s(int i2) {
-        this.f28946g = i2;
+        this.f28191g = i2;
         return this;
     }
 
     public a t(int i2) {
-        this.f28947h = i2;
+        this.f28192h = i2;
         return this;
     }
 
     public a u(int i2) {
-        this.f28948i = i2;
+        this.f28193i = i2;
         return this;
     }
 
@@ -169,7 +169,7 @@ public class a {
     }
 
     public a a(String str) {
-        this.f28940a = str;
+        this.f28185a = str;
         return this;
     }
 

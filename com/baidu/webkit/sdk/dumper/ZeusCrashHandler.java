@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Process;
 import android.telephony.TelephonyManager;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.DumperService;
@@ -48,7 +49,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: com.baidu.webkit.sdk.dumper.ZeusCrashHandler$5  reason: invalid class name */
     /* loaded from: classes5.dex */
-    public /* synthetic */ class AnonymousClass5 {
+    public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo;
 
         static {
@@ -112,7 +113,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
 
     /* loaded from: classes5.dex */
     public enum ExtraInfo {
-        CUID("CUID"),
+        CUID(SearchJsBridge.CUID),
         EMULATOR("Emulator"),
         START_TIME("StartTime"),
         CRASH_TIME("CrashTime"),
@@ -403,7 +404,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             int waitFor = exec.waitFor();
             thread.join();
             thread2.join();
-            Log.d(TAG, "dumpExtraLogcatInfo exitCode=" + waitFor);
+            Log.d(TAG, "dumpExtraLogcatInfo exitCode=".concat(String.valueOf(waitFor)));
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }

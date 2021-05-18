@@ -24,7 +24,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class DiskLruCache implements Closeable {
     public static final long ANY_SEQUENCE_NUMBER = -1;
     public static final String CLEAN = "CLEAN";
@@ -67,7 +67,7 @@ public final class DiskLruCache implements Closeable {
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class DiskLruCacheThreadFactory implements ThreadFactory {
         public DiskLruCacheThreadFactory() {
         }
@@ -81,7 +81,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public final class Editor {
         public boolean committed;
         public final Entry entry;
@@ -172,7 +172,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public final class Entry {
         public File[] cleanFiles;
         public Editor currentEditor;
@@ -237,7 +237,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public final class Value {
         public final File[] files;
         public final String key;

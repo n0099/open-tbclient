@@ -8,7 +8,7 @@ import android.content.pm.Signature;
 import com.sina.weibo.sdk.ApiUtils;
 import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SecurityHelper {
     public static boolean checkResponseAppLegal(Context context, WbAppInfo wbAppInfo, Intent intent) {
         if ((wbAppInfo == null || wbAppInfo.getSupportVersion() > 10352) && wbAppInfo != null) {

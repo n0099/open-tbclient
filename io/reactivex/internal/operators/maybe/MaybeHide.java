@@ -12,7 +12,7 @@ public final class MaybeHide<T> extends AbstractMaybeWithUpstream<T, T> {
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68258d;
+        public Disposable f68938d;
 
         public HideMaybeObserver(MaybeObserver<? super T> maybeObserver) {
             this.actual = maybeObserver;
@@ -20,13 +20,13 @@ public final class MaybeHide<T> extends AbstractMaybeWithUpstream<T, T> {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68258d.dispose();
-            this.f68258d = DisposableHelper.DISPOSED;
+            this.f68938d.dispose();
+            this.f68938d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68258d.isDisposed();
+            return this.f68938d.isDisposed();
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -41,8 +41,8 @@ public final class MaybeHide<T> extends AbstractMaybeWithUpstream<T, T> {
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68258d, disposable)) {
-                this.f68258d = disposable;
+            if (DisposableHelper.validate(this.f68938d, disposable)) {
+                this.f68938d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

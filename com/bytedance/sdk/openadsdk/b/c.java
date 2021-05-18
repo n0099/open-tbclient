@@ -5,24 +5,24 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28047a;
+    public int f27292a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28048b;
+    public int f27293b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f28049c;
+    public volatile boolean f27294c;
 
     public c(int i2, int i3) {
-        this.f28047a = 15;
-        this.f28048b = 3;
+        this.f27292a = 15;
+        this.f27293b = 3;
         if (i2 > 0) {
-            this.f28047a = i2;
-            this.f28048b = i3;
+            this.f27292a = i2;
+            this.f27293b = i3;
             return;
         }
         throw new IllegalArgumentException("Max count must be positive number!");
@@ -79,7 +79,7 @@ public class c extends b {
                             u.f("splashLoadAd", "Error deleting file " + file2 + " for trimming cache");
                         }
                         if (a(file2, b2, size)) {
-                            u.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + size + " 最大值存储上限个数 maxCount " + this.f28047a + " 最小个数 " + this.f28048b);
+                            u.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + size + " 最大值存储上限个数 maxCount " + this.f27292a + " 最小个数 " + this.f27293b);
                             return;
                         }
                     }
@@ -91,31 +91,31 @@ public class c extends b {
 
     @Override // com.bytedance.sdk.openadsdk.b.b
     public boolean a(long j, int i2) {
-        return i2 <= this.f28047a;
+        return i2 <= this.f27292a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.b.b
     public boolean a(File file, long j, int i2) {
-        return i2 <= this.f28048b;
+        return i2 <= this.f27293b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.b.b
     public void a(List<File> list) {
-        if (this.f28049c) {
+        if (this.f27294c) {
             d(list);
-            this.f28049c = false;
+            this.f27294c = false;
             return;
         }
         c(list);
     }
 
     public c(int i2, int i3, boolean z) {
-        this.f28047a = 15;
-        this.f28048b = 3;
+        this.f27292a = 15;
+        this.f27293b = 3;
         if (i2 > 0) {
-            this.f28047a = i2;
-            this.f28048b = i3;
-            this.f28049c = z;
+            this.f27292a = i2;
+            this.f27293b = i3;
+            this.f27294c = z;
             return;
         }
         throw new IllegalArgumentException("Max count must be positive number!");

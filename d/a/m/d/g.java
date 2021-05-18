@@ -9,10 +9,10 @@ import java.net.URL;
 public final class g implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Context f63331e;
+    public final /* synthetic */ Context f63870e;
 
     public g(Context context) {
-        this.f63331e = context;
+        this.f63870e = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x00a2 A[Catch: Exception -> 0x009e, TRY_LEAVE, TryCatch #1 {Exception -> 0x009e, blocks: (B:32:0x009a, B:36:0x00a2), top: B:53:0x009a, outer: #2 }] */

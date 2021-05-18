@@ -10,11 +10,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -22,32 +20,32 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import d.a.j0.d3.v;
-import d.a.j0.j1.o.a;
-import d.a.j0.j1.o.c;
-import d.a.j0.j1.o.k.b;
-import d.a.j0.j1.o.l.e;
-import d.a.j0.x.m;
-import d.a.j0.x.t;
+import d.a.k0.d3.v;
+import d.a.k0.j1.o.a;
+import d.a.k0.j1.o.c;
+import d.a.k0.j1.o.k.b;
+import d.a.k0.j1.o.l.e;
+import d.a.k0.x.m;
+import d.a.k0.x.t;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends LinearLayout implements e<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18681e;
+    public String f17996e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18682f;
+    public int f17997f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18683g;
+    public int f17998g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f18684h;
+    public View f17999h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f18685i;
+    public View f18000i;
     public View j;
     public View k;
     public ImageView l;
@@ -65,12 +63,9 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         setOrientation(1);
     }
 
-    public void A() {
-    }
-
-    public final void B(View view, int i2, int i3, int i4) {
+    public final void A(View view, int i2, int i3, int i4) {
         if (!b.a(i2) && !b.a(i3)) {
-            if (v()) {
+            if (u()) {
                 i2 = i3;
             }
             view.setBackgroundColor(i2);
@@ -79,9 +74,9 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         SkinManager.setBackgroundColor(view, i4);
     }
 
-    public final void F(TextView textView, int i2, int i3, int i4) {
+    public final void B(TextView textView, int i2, int i3, int i4) {
         if (!b.a(i2) && !b.a(i3)) {
-            if (v()) {
+            if (u()) {
                 i2 = i3;
             }
             textView.setTextColor(i2);
@@ -90,11 +85,11 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         SkinManager.setViewTextColor(textView, i4);
     }
 
-    public final void G() {
-        this.f18684h.setVisibility(0);
+    public final void F() {
+        this.f17999h.setVisibility(0);
     }
 
-    public final void H(TextView textView, boolean z, String str, String str2) {
+    public final void G(TextView textView, boolean z, String str, String str2) {
         if (z) {
             textView.setEnabled(false);
             SkinManager.setViewTextColor(textView, R.color.CAM_X0109, 1);
@@ -112,7 +107,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         textView.setPadding(getResources().getDimensionPixelSize(R.dimen.ds18), 0, getResources().getDimensionPixelSize(R.dimen.ds10), 0);
     }
 
-    public final void I(int i2) {
+    public final void H(int i2) {
         if (i2 == -1 || i2 == 0) {
             this.l.setVisibility(8);
         } else if (i2 == 1) {
@@ -129,17 +124,17 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    @Override // d.a.j0.j1.o.l.e
+    @Override // d.a.k0.j1.o.l.e
     public void e() {
     }
 
-    @Override // d.a.j0.j1.o.l.e
+    @Override // d.a.k0.j1.o.l.e
     public void f() {
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.lego.card.view.BaseLegoCardView<T extends com.baidu.tieba.lego.card.model.BaseLegoCardInfo> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.a.j0.j1.o.l.e
+    @Override // d.a.k0.j1.o.l.e
     public final void g(Object obj) {
         ICardInfo updateCard;
         ICardInfo iCardInfo = (ICardInfo) obj;
@@ -147,44 +142,44 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             return;
         }
         BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) updateCard;
-        w(baseLegoCardInfo);
+        v(baseLegoCardInfo);
         if (this.p) {
-            r();
+            q();
         }
         if (this.n != TbadkCoreApplication.getInst().getSkinType()) {
             this.n = TbadkCoreApplication.getInst().getSkinType();
             m();
-            x(baseLegoCardInfo, this.n);
+            w(baseLegoCardInfo, this.n);
         }
-        G();
-        y(baseLegoCardInfo);
+        F();
+        x(baseLegoCardInfo);
         l(baseLegoCardInfo);
     }
 
     public final int getBusinessType() {
-        return this.f18682f;
+        return this.f17997f;
     }
 
     public final int getStatPosition() {
-        return this.f18683g + 1;
+        return this.f17998g + 1;
     }
 
-    @Override // d.a.j0.j1.o.l.e
+    @Override // d.a.k0.j1.o.l.e
     public void h() {
     }
 
-    @Override // d.a.j0.j1.o.l.e
+    @Override // d.a.k0.j1.o.l.e
     public void i() {
     }
 
-    @Override // d.a.j0.j1.o.l.e
+    @Override // d.a.k0.j1.o.l.e
     public void k(BdUniqueId bdUniqueId) {
     }
 
     public final void l(T t) {
-        this.f18685i.setVisibility(t.isShowCover() ? 0 : 8);
+        this.f18000i.setVisibility(t.isShowCover() ? 0 : 8);
         int showSpace = t.getShowSpace();
-        I(showSpace != 0 ? -1 : t.getShowLine());
+        H(showSpace != 0 ? -1 : t.getShowLine());
         if (showSpace == 0) {
             this.j.setVisibility(8);
             this.k.setVisibility(8);
@@ -204,7 +199,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void m() {
         SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
         SkinManager.setImageResource(this.l, R.color.CAM_X0204);
-        int i2 = this.f18682f;
+        int i2 = this.f17997f;
         if (i2 == 1) {
             this.j.setBackgroundColor(getResources().getColor(17170445));
             this.k.setBackgroundColor(getResources().getColor(17170445));
@@ -246,7 +241,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             SpannableString spannableString = new SpannableString(sb.toString());
             for (int i7 = 0; i7 < arrayList.size(); i7++) {
                 int intValue = ((Integer) arrayList.get(i7)).intValue();
-                spannableString.setSpan(new ForegroundColorSpan(v() ? i3 : i2), intValue, list.get(i7).length() + intValue, 33);
+                spannableString.setSpan(new ForegroundColorSpan(u() ? i3 : i2), intValue, list.get(i7).length() + intValue, 33);
             }
             return spannableString;
         }
@@ -257,72 +252,36 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         return (S) view.findViewById(i2);
     }
 
-    public String p(@NonNull AdvertAppInfo advertAppInfo) {
-        return advertAppInfo.D4() ? "" : TextUtils.isEmpty(advertAppInfo.J3) ? advertAppInfo.E3 : advertAppInfo.J3;
-    }
-
-    public final void q(T t) {
+    public final void p(T t) {
         t.b().d(true);
-        z(t);
+        y(t);
     }
 
-    public final void r() {
-        t();
-        A();
+    public final void q() {
+        s();
+        z();
         this.p = false;
     }
 
-    public final ViewGroup.LayoutParams s() {
+    public final ViewGroup.LayoutParams r() {
         return new ViewGroup.LayoutParams(-1, -2);
     }
 
-    @Override // d.a.j0.j1.o.l.e
-    public final void setAfterClickSchemeListener(a aVar) {
-        this.o = aVar;
-    }
-
-    @Override // d.a.j0.j1.o.l.e
-    public final void setBusinessType(int i2) {
-        this.f18682f = i2;
-    }
-
-    public final void setCardOnClickListener(View.OnClickListener onClickListener) {
-        setOnClickListener(onClickListener);
-    }
-
-    public final void setCardOnLongLickListener(View.OnLongClickListener onLongClickListener) {
-        setOnLongClickListener(onLongClickListener);
-    }
-
-    @Override // d.a.j0.j1.o.l.e
-    public void setDownloadAppCallback(c cVar) {
-        this.q = cVar;
-    }
-
-    @Override // d.a.j0.j1.o.l.e
-    public final void setFromCDN(boolean z) {
-    }
-
-    @Override // d.a.j0.j1.o.l.e
-    public final void setPosition(int i2) {
-        this.f18683g = i2;
-    }
-
-    public final void t() {
+    public final void s() {
         FrameLayout frameLayout = new FrameLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        if (this.f18682f == 4) {
+        if (this.f17997f == 4) {
             layoutParams.setMargins(0, 0, 0, 0);
         } else {
             layoutParams.setMargins(0, getResources().getDimensionPixelSize(R.dimen.M_H_X003), 0, 0);
         }
-        View u = u();
-        this.f18684h = u;
-        frameLayout.addView(u, s());
+        View t = t();
+        this.f17999h = t;
+        frameLayout.addView(t, r());
         View view = new View(getContext());
-        this.f18685i = view;
+        this.f18000i = view;
         SkinManager.setBackgroundColor(view, R.color.common_color_10205);
-        frameLayout.addView(this.f18685i, new ViewGroup.LayoutParams(-1, -1));
+        frameLayout.addView(this.f18000i, new ViewGroup.LayoutParams(-1, -1));
         this.l = new ImageView(getContext());
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds1));
         SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
@@ -330,7 +289,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         this.j = new View(getContext());
         this.k = new View(getContext());
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds16));
-        int i2 = this.f18682f;
+        int i2 = this.f17997f;
         if (i2 != 1) {
             if (i2 == 2) {
                 SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
@@ -373,13 +332,45 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         addView(this.k, layoutParams3);
     }
 
-    public abstract View u();
+    @Override // d.a.k0.j1.o.l.e
+    public final void setAfterClickSchemeListener(a aVar) {
+        this.o = aVar;
+    }
 
-    public final boolean v() {
+    @Override // d.a.k0.j1.o.l.e
+    public final void setBusinessType(int i2) {
+        this.f17997f = i2;
+    }
+
+    public final void setCardOnClickListener(View.OnClickListener onClickListener) {
+        setOnClickListener(onClickListener);
+    }
+
+    public final void setCardOnLongLickListener(View.OnLongClickListener onLongClickListener) {
+        setOnLongClickListener(onLongClickListener);
+    }
+
+    @Override // d.a.k0.j1.o.l.e
+    public void setDownloadAppCallback(c cVar) {
+        this.q = cVar;
+    }
+
+    @Override // d.a.k0.j1.o.l.e
+    public final void setFromCDN(boolean z) {
+    }
+
+    @Override // d.a.k0.j1.o.l.e
+    public final void setPosition(int i2) {
+        this.f17998g = i2;
+    }
+
+    public abstract View t();
+
+    public final boolean u() {
         return 1 == TbadkCoreApplication.getInst().getSkinType();
     }
 
-    public final void w(T t) {
+    public final void v(T t) {
         if (t == null || TextUtils.isEmpty(t.getShowKey()) || TextUtils.isEmpty(t.getShowExtra())) {
             return;
         }
@@ -395,15 +386,18 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         t.b().a(statisticItem);
     }
 
-    public abstract void x(T t, int i2);
+    public abstract void w(T t, int i2);
 
-    public abstract void y(T t);
+    public abstract void x(T t);
 
-    public void z(T t) {
+    public void y(T t) {
         int c2 = v.c(this.m, t.getScheme());
         a aVar = this.o;
         if (aVar != null) {
             aVar.a(c2, null);
         }
+    }
+
+    public void z() {
     }
 }

@@ -9,22 +9,22 @@ import java.util.ArrayList;
 public final class Arc extends Overlay {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f7064f = "Arc";
+    public static final String f6875f = "Arc";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7065a;
+    public int f6876a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7066b;
+    public int f6877b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f7067c;
+    public LatLng f6878c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LatLng f7068d;
+    public LatLng f6879d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LatLng f7069e;
+    public LatLng f6880e;
 
     public Arc() {
         this.type = com.baidu.mapsdkplatform.comapi.map.h.arc;
@@ -35,59 +35,59 @@ public final class Arc extends Overlay {
         super.a(bundle);
         ArrayList arrayList = new ArrayList();
         arrayList.clear();
-        arrayList.add(this.f7067c);
-        arrayList.add(this.f7068d);
-        arrayList.add(this.f7069e);
+        arrayList.add(this.f6878c);
+        arrayList.add(this.f6879d);
+        arrayList.add(this.f6880e);
         GeoPoint ll2mc = CoordUtil.ll2mc((LatLng) arrayList.get(0));
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-        bundle.putInt("width", this.f7066b);
+        bundle.putInt("width", this.f6877b);
         Overlay.a(arrayList, bundle);
-        Overlay.a(this.f7065a, bundle);
+        Overlay.a(this.f6876a, bundle);
         return bundle;
     }
 
     public int getColor() {
-        return this.f7065a;
+        return this.f6876a;
     }
 
     public LatLng getEndPoint() {
-        return this.f7069e;
+        return this.f6880e;
     }
 
     public LatLng getMiddlePoint() {
-        return this.f7068d;
+        return this.f6879d;
     }
 
     public LatLng getStartPoint() {
-        return this.f7067c;
+        return this.f6878c;
     }
 
     public int getWidth() {
-        return this.f7066b;
+        return this.f6877b;
     }
 
     public void setColor(int i2) {
-        this.f7065a = i2;
+        this.f6876a = i2;
         this.listener.b(this);
     }
 
     public void setPoints(LatLng latLng, LatLng latLng2, LatLng latLng3) {
         if (latLng == null || latLng2 == null || latLng3 == null) {
-            throw new IllegalArgumentException("start and middle and end points can not be null");
+            throw new IllegalArgumentException("BDMapSDKException:start and middle and end points can not be null");
         }
         if (latLng == latLng2 || latLng == latLng3 || latLng2 == latLng3) {
-            throw new IllegalArgumentException("start and middle and end points can not be same");
+            throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be same");
         }
-        this.f7067c = latLng;
-        this.f7068d = latLng2;
-        this.f7069e = latLng3;
+        this.f6878c = latLng;
+        this.f6879d = latLng2;
+        this.f6880e = latLng3;
         this.listener.b(this);
     }
 
     public void setWidth(int i2) {
         if (i2 > 0) {
-            this.f7066b = i2;
+            this.f6877b = i2;
             this.listener.b(this);
         }
     }

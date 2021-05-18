@@ -1,225 +1,242 @@
 package d.a.i0.r;
+
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48767a;
+    public Context f48184a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f48768b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f48769c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f48770d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f48771e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f48772f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f48773g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f48774h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f48775i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public int u;
-    public StringBuffer v = new StringBuffer();
-
-    public void A(int i2) {
-        this.p = i2;
+    public b(Context context) {
+        this.f48184a = context;
     }
 
-    public void B(int i2) {
-        this.q = i2;
+    public final boolean a(u uVar) {
+        File[] listFiles;
+        File file = new File(this.f48184a.getFilesDir() + File.separator + "ubcdir", "proc");
+        if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
+            return false;
+        }
+        for (File file2 : listFiles) {
+            BufferedReader bufferedReader = null;
+            try {
+                try {
+                    BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
+                    long j = Long.MAX_VALUE;
+                    long j2 = 0;
+                    int i2 = 0;
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
+                            if (jSONObject.has("abtest")) {
+                                uVar.f48310f = "1";
+                            }
+                            long j3 = jSONObject.getLong("timestamp");
+                            if (j3 > 0) {
+                                if (j3 < j) {
+                                    j = j3;
+                                }
+                                if (j3 > j2) {
+                                    j2 = j3;
+                                }
+                            }
+                            uVar.a(jSONObject);
+                            i2++;
+                            if (i2 >= 10) {
+                                break;
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            bufferedReader = bufferedReader2;
+                            e.printStackTrace();
+                            d.a.i0.t.d.d(bufferedReader);
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader = bufferedReader2;
+                            d.a.i0.t.d.d(bufferedReader);
+                            throw th;
+                        }
+                    }
+                    uVar.g(j, j2);
+                    d.a.i0.t.d.d(bufferedReader2);
+                } catch (Exception e3) {
+                    e = e3;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        }
+        return true;
     }
 
-    public void C(int i2) {
-        this.r = i2;
+    public void b(boolean z) {
+        File[] listFiles;
+        File file = new File(this.f48184a.getFilesDir(), "ubcdir");
+        if (file.exists()) {
+            File file2 = new File(file, z ? "filereal" : "filedata");
+            if (file2.exists()) {
+                file2.delete();
+            }
+            File file3 = new File(file, "proc");
+            if (!file3.exists() || !file3.isDirectory() || (listFiles = file3.listFiles()) == null || listFiles.length == 0) {
+                return;
+            }
+            for (File file4 : listFiles) {
+                if (file4.isFile()) {
+                    file4.delete();
+                }
+            }
+        }
     }
 
-    public void D(int i2) {
-        this.s = i2;
+    public boolean c(u uVar, boolean z) {
+        File file = new File(this.f48184a.getFilesDir(), "ubcdir");
+        if (!file.exists()) {
+            file.mkdir();
+        }
+        boolean a2 = !z ? a(uVar) : false;
+        File file2 = new File(file, z ? "filereal" : "filedata");
+        if (file2.exists()) {
+            BufferedReader bufferedReader = null;
+            try {
+                BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
+                long j = Long.MAX_VALUE;
+                long j2 = 0;
+                while (true) {
+                    try {
+                        String readLine = bufferedReader2.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
+                        if (jSONObject.has("abtest")) {
+                            uVar.f48310f = "1";
+                        }
+                        long j3 = jSONObject.getLong("timestamp");
+                        if (j3 > 0) {
+                            if (j3 < j) {
+                                j = j3;
+                            }
+                            if (j3 > j2) {
+                                j2 = j3;
+                            }
+                        }
+                        uVar.a(jSONObject);
+                        a2 = true;
+                    } catch (Exception unused) {
+                        bufferedReader = bufferedReader2;
+                        d.a.i0.t.d.d(bufferedReader);
+                        return a2;
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedReader = bufferedReader2;
+                        d.a.i0.t.d.d(bufferedReader);
+                        throw th;
+                    }
+                }
+                uVar.g(j, j2);
+                d.a.i0.t.d.d(bufferedReader2);
+            } catch (Exception unused2) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        }
+        return a2;
     }
 
-    public void E(int i2) {
-        this.n = i2;
-    }
-
-    public void F(int i2) {
-        this.o = i2;
-    }
-
-    public void G(String str) {
-        this.f48767a = str;
-    }
-
-    public void H(int i2) {
-        this.f48774h = i2;
-    }
-
-    public void I(int i2) {
-        this.f48775i = i2;
-    }
-
-    public void J(int i2) {
-        this.t = i2;
-    }
-
-    public void K(int i2) {
-        this.u = i2;
-    }
-
-    public void L(int i2) {
-        this.j = i2;
-    }
-
-    public void M(int i2) {
-        this.k = i2;
-    }
-
-    public void N(int i2) {
-        this.f48772f = i2;
-    }
-
-    public void O(int i2) {
-        this.f48773g = i2;
-    }
-
-    public void P(int i2) {
-        this.f48770d = i2;
-    }
-
-    public void Q(int i2) {
-        this.f48771e = i2;
-    }
-
-    public void R(String str) {
-    }
-
-    public void a(String str) {
-        StringBuffer stringBuffer = this.v;
-        stringBuffer.append(str);
-        stringBuffer.append(" || ");
-    }
-
-    public int b() {
-        return this.f48768b;
-    }
-
-    public int c() {
-        return this.f48769c;
-    }
-
-    public int d() {
-        return this.l;
-    }
-
-    public int e() {
-        return this.m;
-    }
-
-    public int f() {
-        return this.p;
-    }
-
-    public int g() {
-        return this.q;
-    }
-
-    public int h() {
-        return this.r;
-    }
-
-    public int i() {
-        return this.s;
-    }
-
-    public int j() {
-        return this.n;
-    }
-
-    public int k() {
-        return this.o;
-    }
-
-    public String l() {
-        return this.f48767a;
-    }
-
-    public int m() {
-        return this.f48774h;
-    }
-
-    public int n() {
-        return this.f48775i;
-    }
-
-    public int o() {
-        return this.t;
-    }
-
-    public int p() {
-        return this.u;
-    }
-
-    public int q() {
-        return this.j;
-    }
-
-    public int r() {
-        return this.k;
-    }
-
-    public int s() {
-        return this.f48772f;
-    }
-
-    public int t() {
-        return this.f48773g;
-    }
-
-    public String toString() {
-        return "BDLayoutInfo [TAG=" + this.v.toString() + "]";
-    }
-
-    public int u() {
-        return this.f48770d;
-    }
-
-    public int v() {
-        return this.f48771e;
-    }
-
-    public void w(int i2) {
-        this.f48768b = i2;
-    }
-
-    public void x(int i2) {
-        this.f48769c = i2;
-    }
-
-    public void y(int i2) {
-        this.l = i2;
-    }
-
-    public void z(int i2) {
-        this.m = i2;
+    public void d(i iVar, boolean z) {
+        File file;
+        FileOutputStream fileOutputStream;
+        File file2 = new File(this.f48184a.getFilesDir(), "ubcdir");
+        if (!file2.exists()) {
+            file2.mkdirs();
+        }
+        if (!TextUtils.isEmpty(iVar.k)) {
+            File file3 = new File(file2, "proc");
+            if (!file3.exists()) {
+                file3.mkdirs();
+            }
+            file = new File(file3, iVar.k);
+        } else {
+            file = new File(file2, z ? "filereal" : "filedata");
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            if (iVar.f48226e != null) {
+                JSONObject jSONObject2 = iVar.f48226e;
+                if (jSONObject2.has("bizId")) {
+                    try {
+                        JSONObject jSONObject3 = jSONObject2.getJSONObject("content");
+                        JSONObject jSONObject4 = jSONObject2.getJSONObject(DI.APP_INFO_NAME);
+                        if (jSONObject3 != null && jSONObject4 != null) {
+                            jSONObject3.put(DI.APP_INFO_NAME, jSONObject4);
+                            jSONObject2.remove(DI.APP_INFO_NAME);
+                        }
+                        jSONObject = jSONObject2;
+                    } catch (JSONException unused) {
+                        jSONObject = jSONObject2;
+                    }
+                } else {
+                    jSONObject.put("content", jSONObject2);
+                }
+            } else if (!TextUtils.isEmpty(iVar.f48225d)) {
+                jSONObject.put("content", iVar.f48225d);
+            }
+            jSONObject.put("bizId", iVar.f48222a);
+            jSONObject.put("timestamp", iVar.f48227f);
+            jSONObject.put("eventType", "0");
+            if (!TextUtils.isEmpty(iVar.f48229h)) {
+                jSONObject.put("abtest", iVar.f48229h);
+            }
+            if (!TextUtils.isEmpty(iVar.f48230i)) {
+                jSONObject.put("c", iVar.f48230i);
+            }
+            if (iVar.j) {
+                jSONObject.put("of", "1");
+            }
+            jSONObject.put(Constant.ID_TYPE, d.g().j(iVar.f48222a));
+        } catch (JSONException unused2) {
+        }
+        byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
+        FileOutputStream fileOutputStream2 = null;
+        try {
+            try {
+                fileOutputStream = new FileOutputStream(file, true);
+            } catch (Exception e2) {
+                e = e2;
+            }
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            fileOutputStream.write(encode);
+            fileOutputStream.write("\n".getBytes());
+            fileOutputStream.flush();
+            d.a.i0.t.d.d(fileOutputStream);
+        } catch (Exception e3) {
+            e = e3;
+            fileOutputStream2 = fileOutputStream;
+            e.printStackTrace();
+            d.a.i0.t.d.d(fileOutputStream2);
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream2 = fileOutputStream;
+            d.a.i0.t.d.d(fileOutputStream2);
+            throw th;
+        }
     }
 }

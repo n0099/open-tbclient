@@ -30,17 +30,17 @@ public final class AlipayProxy extends d.r.b.a.a.i.e.a {
     public static final class a implements d.r.b.a.a.i.d.b {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ IPayCallback f39056b;
+        public final /* synthetic */ IPayCallback f38301b;
 
         public a(IPayCallback iPayCallback) {
-            this.f39056b = iPayCallback;
+            this.f38301b = iPayCallback;
         }
 
         @Override // d.r.b.a.a.i.d.b
-        public void onFail(String str) {
+        public void a(String str) {
             String str2 = AlipayProxy.this.TAG;
             d.e(str2, "onFail failReasonn:" + str, new Object[0]);
-            IPayCallback iPayCallback = this.f39056b;
+            IPayCallback iPayCallback = this.f38301b;
             if (iPayCallback != null) {
                 iPayCallback.onFail(-1, "Proxy 支付异常", null);
             }
@@ -48,7 +48,7 @@ public final class AlipayProxy extends d.r.b.a.a.i.e.a {
 
         @Override // d.r.b.a.a.i.d.b
         public void onSuccess(String str) {
-            AlipayProxy.this.onProxyPayResult(str, this.f39056b);
+            AlipayProxy.this.onProxyPayResult(str, this.f38301b);
         }
     }
 
@@ -56,17 +56,17 @@ public final class AlipayProxy extends d.r.b.a.a.i.e.a {
     public static final class b implements d.r.b.a.a.i.d.b {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ IPayCallback f39058b;
+        public final /* synthetic */ IPayCallback f38303b;
 
         public b(IPayCallback iPayCallback) {
-            this.f39058b = iPayCallback;
+            this.f38303b = iPayCallback;
         }
 
         @Override // d.r.b.a.a.i.d.b
-        public void onFail(String str) {
+        public void a(String str) {
             String str2 = AlipayProxy.this.TAG;
             d.e(str2, "onFail failReasonn:" + str, new Object[0]);
-            IPayCallback iPayCallback = this.f39058b;
+            IPayCallback iPayCallback = this.f38303b;
             if (iPayCallback != null) {
                 iPayCallback.onFail(-1, "Proxy 支付异常", null);
             }
@@ -74,7 +74,7 @@ public final class AlipayProxy extends d.r.b.a.a.i.e.a {
 
         @Override // d.r.b.a.a.i.d.b
         public void onSuccess(String str) {
-            AlipayProxy.this.onProxyPayResult(str, this.f39058b);
+            AlipayProxy.this.onProxyPayResult(str, this.f38303b);
         }
     }
 

@@ -5,9 +5,9 @@ import android.view.View;
 import com.baidu.card.view.CardForumHeadLayout;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class m extends d.a.i.a<d.a.i0.r.q.a> {
+public class m extends d.a.i.a<d.a.j0.r.q.a> {
     public CardForumHeadLayout j;
-    public d.a.i0.r.q.a k;
+    public d.a.j0.r.q.a k;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -45,7 +45,7 @@ public class m extends d.a.i.a<d.a.i0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: p */
-    public void a(d.a.i0.r.q.a aVar) {
+    public void a(d.a.j0.r.q.a aVar) {
         CardForumHeadLayout cardForumHeadLayout = this.j;
         if (cardForumHeadLayout == null || aVar == null) {
             return;

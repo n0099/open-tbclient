@@ -4,15 +4,14 @@ import android.content.ContentProvider;
 import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
 import android.content.ContentValues;
-import android.content.OperationApplicationException;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import d.a.h0.l.f;
-import d.a.h0.l.i.e.b;
+import d.a.i0.n.c;
+import d.a.i0.n.g.e.b;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PMSDBProviderProxy extends ContentProvider {
@@ -21,11 +20,12 @@ public class PMSDBProviderProxy extends ContentProvider {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, SGET]}, finally: {[INVOKE, SGET, INVOKE, IF] complete} */
     @Override // android.content.ContentProvider
-    public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
+    @NonNull
+    public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> arrayList) {
         SQLiteDatabase writableDatabase = getProvider().b().getWritableDatabase();
         try {
             try {
-                if (f.f47117a) {
+                if (c.f47808a) {
                     Log.e(TAG, "applyBatch beginTransaction");
                 }
                 writableDatabase.beginTransaction();
@@ -33,7 +33,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                 for (ContentProviderResult contentProviderResult : applyBatch) {
                     if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
                         writableDatabase.endTransaction();
-                        if (f.f47117a) {
+                        if (c.f47808a) {
                             Log.e(TAG, "applyBatch endTransaction");
                         }
                         return applyBatch;
@@ -41,24 +41,23 @@ public class PMSDBProviderProxy extends ContentProvider {
                 }
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-                if (f.f47117a) {
+                if (c.f47808a) {
                     Log.e(TAG, "applyBatch endTransaction");
                 }
                 return applyBatch;
             } catch (Exception e2) {
-                if (f.f47117a) {
+                if (c.f47808a) {
                     Log.e(TAG, "applyBatch Exception:" + e2.getMessage());
                 }
                 writableDatabase.endTransaction();
-                if (f.f47117a) {
+                if (c.f47808a) {
                     Log.e(TAG, "applyBatch endTransaction");
-                    return null;
                 }
-                return null;
+                return new ContentProviderResult[0];
             }
         } catch (Throwable th) {
             writableDatabase.endTransaction();
-            if (f.f47117a) {
+            if (c.f47808a) {
                 Log.e(TAG, "applyBatch endTransaction");
             }
             throw th;
@@ -106,6 +105,6 @@ public class PMSDBProviderProxy extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return getProvider().g(uri, contentValues, str, strArr);
+        return getProvider().h(uri, contentValues, str, strArr);
     }
 }

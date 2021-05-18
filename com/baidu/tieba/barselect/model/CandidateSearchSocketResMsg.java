@@ -2,7 +2,7 @@ package com.baidu.tieba.barselect.model;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.j0.v.b.a;
+import d.a.k0.v.b.a;
 import tbclient.Error;
 import tbclient.Search.SearchResIdl;
 /* loaded from: classes4.dex */
@@ -32,7 +32,7 @@ public class CandidateSearchSocketResMsg extends TbSocketReponsedMessage {
             if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                 return;
             }
-            this.candidateData.f61553a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
+            this.candidateData.f62277a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
         }
     }
 }

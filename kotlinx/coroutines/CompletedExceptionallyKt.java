@@ -16,25 +16,25 @@ public final class CompletedExceptionallyKt {
             if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
                 th = StackTraceRecoveryKt.access$recoverFromStackFrame(th, (CoroutineStackFrame) continuation);
             }
-            return Result.m636constructorimpl(ResultKt.createFailure(th));
+            return Result.m635constructorimpl(ResultKt.createFailure(th));
         }
         Result.Companion companion2 = Result.Companion;
-        return Result.m636constructorimpl(obj);
+        return Result.m635constructorimpl(obj);
     }
 
     public static final <T> Object toState(Object obj) {
-        Throwable m639exceptionOrNullimpl = Result.m639exceptionOrNullimpl(obj);
-        return m639exceptionOrNullimpl == null ? obj : new CompletedExceptionally(m639exceptionOrNullimpl, false, 2, null);
+        Throwable m638exceptionOrNullimpl = Result.m638exceptionOrNullimpl(obj);
+        return m638exceptionOrNullimpl == null ? obj : new CompletedExceptionally(m638exceptionOrNullimpl, false, 2, null);
     }
 
     public static final <T> Object toState(Object obj, CancellableContinuation<?> cancellableContinuation) {
-        Throwable m639exceptionOrNullimpl = Result.m639exceptionOrNullimpl(obj);
-        if (m639exceptionOrNullimpl == null) {
+        Throwable m638exceptionOrNullimpl = Result.m638exceptionOrNullimpl(obj);
+        if (m638exceptionOrNullimpl == null) {
             return obj;
         }
         if (DebugKt.getRECOVER_STACK_TRACES() && (cancellableContinuation instanceof CoroutineStackFrame)) {
-            m639exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m639exceptionOrNullimpl, (CoroutineStackFrame) cancellableContinuation);
+            m638exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m638exceptionOrNullimpl, (CoroutineStackFrame) cancellableContinuation);
         }
-        return new CompletedExceptionally(m639exceptionOrNullimpl, false, 2, null);
+        return new CompletedExceptionally(m638exceptionOrNullimpl, false, 2, null);
     }
 }

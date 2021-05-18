@@ -10,13 +10,13 @@ import java.util.HashMap;
 public final class g {
 
     /* renamed from: b  reason: collision with root package name */
-    public static g f41024b;
+    public static g f40269b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, d.a.h.a.k.e<String, Integer>> f41025c = new HashMap<>();
+    public static HashMap<String, d.a.h.a.k.e<String, Integer>> f40270c = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f41026a;
+    public Context f40271a;
 
     public g() {
         new LongSparseArray();
@@ -28,10 +28,10 @@ public final class g {
     public static synchronized g c() {
         g gVar;
         synchronized (g.class) {
-            if (f41024b == null) {
-                f41024b = new g();
+            if (f40269b == null) {
+                f40269b = new g();
             }
-            gVar = f41024b;
+            gVar = f40269b;
         }
         return gVar;
     }
@@ -39,10 +39,10 @@ public final class g {
     @Deprecated
     public static int d(String str, String str2) {
         a(str2, str);
-        d.a.h.a.k.e<String, Integer> eVar = f41025c.get(str);
+        d.a.h.a.k.e<String, Integer> eVar = f40270c.get(str);
         if (eVar == null) {
             eVar = new d.a.h.a.k.e<>(100);
-            f41025c.put(str, eVar);
+            f40270c.put(str, eVar);
         }
         Integer c2 = eVar.c(str2);
         if (c2 == null) {
@@ -62,10 +62,10 @@ public final class g {
     }
 
     public final Context b() {
-        if (this.f41026a == null) {
-            this.f41026a = BdCore.b().a();
+        if (this.f40271a == null) {
+            this.f40271a = BdCore.b().a();
         }
-        Context context = this.f41026a;
+        Context context = this.f40271a;
         if (context != null) {
             return context;
         }

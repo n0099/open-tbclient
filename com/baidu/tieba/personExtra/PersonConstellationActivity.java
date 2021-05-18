@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.i0.b1.o.a.d.e;
+import d.a.j0.b1.o.a.d.e;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonConstellationActivity extends BaseActivity {
     public static final String ACTIVITY_INTENT_BIRTHDAY = "constellation_birthday";
     public static final String ACTIVITY_INTENT_SHOW_STATUS = "constellation_show_status";
@@ -36,12 +36,12 @@ public class PersonConstellationActivity extends BaseActivity {
     public TextView mShowStatusLabel;
     public TextView mShowStatusTipView;
     public BdSwitchView mSwitchView;
-    public d.a.i0.b1.o.a.f.b mTimePickerView;
+    public d.a.j0.b1.o.a.f.b mTimePickerView;
     public BdSwitchView.b mSwitchChangeListener = new a();
     public View.OnClickListener mClickListener = new b();
     public e mTimeSelectListener = new d();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements BdSwitchView.b {
         public a() {
         }
@@ -56,7 +56,7 @@ public class PersonConstellationActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -75,10 +75,10 @@ public class PersonConstellationActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements d.a.i0.b1.o.a.d.a {
+    /* loaded from: classes5.dex */
+    public class c implements d.a.j0.b1.o.a.d.a {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements View.OnClickListener {
             public a() {
             }
@@ -91,7 +91,7 @@ public class PersonConstellationActivity extends BaseActivity {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class b implements View.OnClickListener {
             public b() {
             }
@@ -108,7 +108,7 @@ public class PersonConstellationActivity extends BaseActivity {
         public c() {
         }
 
-        @Override // d.a.i0.b1.o.a.d.a
+        @Override // d.a.j0.b1.o.a.d.a
         public void a(View view) {
             SkinManager.setBackgroundResource(view, R.drawable.person_birthday_select_top_bg);
             TextView textView = (TextView) view.findViewById(R.id.person_constellation_cancle);
@@ -120,12 +120,12 @@ public class PersonConstellationActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements e {
         public d() {
         }
 
-        @Override // d.a.i0.b1.o.a.d.e
+        @Override // d.a.j0.b1.o.a.d.e
         public void a(Date date, View view) {
             if (date == null) {
                 return;
@@ -243,7 +243,7 @@ public class PersonConstellationActivity extends BaseActivity {
 
     public void showTimePicker() {
         if (this.mTimePickerView == null) {
-            d.a.i0.b1.o.a.b.a aVar = new d.a.i0.b1.o.a.b.a(getActivity(), this.mTimeSelectListener);
+            d.a.j0.b1.o.a.b.a aVar = new d.a.j0.b1.o.a.b.a(getActivity(), this.mTimeSelectListener);
             aVar.k(R.layout.person_birthday_select_layout, new c());
             aVar.f(18);
             aVar.p(new boolean[]{true, true, true, false, false, false});

@@ -12,31 +12,31 @@ public class b extends a implements c {
     public static final String k = "b";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f63992a;
+    public int f64679a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63993b = "uniform mat4 uMVPMatrix;  // MVP 的变换矩阵（整体变形）\nuniform mat4 uTexMatrix;  // Texture 的变换矩阵 （只对texture变形）\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
+    public String f64680b = "uniform mat4 uMVPMatrix;  // MVP 的变换矩阵（整体变形）\nuniform mat4 uTexMatrix;  // Texture 的变换矩阵 （只对texture变形）\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63994c = "#extension GL_OES_EGL_image_external : require\nprecision mediump float; // 指定默认精度\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES uTexture;\nvoid main() {\n    gl_FragColor = texture2D(uTexture, vTextureCoord);\n}\n";
+    public String f64681c = "#extension GL_OES_EGL_image_external : require\nprecision mediump float; // 指定默认精度\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES uTexture;\nvoid main() {\n    gl_FragColor = texture2D(uTexture, vTextureCoord);\n}\n";
 
     /* renamed from: d  reason: collision with root package name */
-    public d f63995d;
+    public d f64682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.u.b.f.c f63996e;
+    public d.a.u.b.f.c f64683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f63997f;
+    public int f64684f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f63998g;
+    public int f64685g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f63999h;
+    public int f64686h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f64000i;
+    public int f64687i;
     public int j;
 
     public b() {
@@ -45,14 +45,14 @@ public class b extends a implements c {
 
     @Override // d.a.u.b.e.c
     public void a(d.a.u.b.f.a aVar, d.a.u.b.g.b bVar) {
-        d dVar = this.f63995d;
+        d dVar = this.f64682d;
         if (dVar != null && dVar.g()) {
             l();
-            d(this.f63995d);
+            d(this.f64682d);
             c(aVar, bVar);
             g(aVar, bVar);
             j();
-            k(this.f63995d);
+            k(this.f64682d);
             f();
             return;
         }
@@ -61,10 +61,10 @@ public class b extends a implements c {
 
     @Override // d.a.u.b.e.c
     public void b(d dVar, d.a.u.b.f.c cVar) {
-        this.f63995d = dVar;
-        this.f63996e = cVar;
-        e(this.f63993b, this.f63994c);
-        if (this.f63992a != -1) {
+        this.f64682d = dVar;
+        this.f64683e = cVar;
+        e(this.f64680b, this.f64681c);
+        if (this.f64679a != -1) {
             h();
             return;
         }
@@ -72,12 +72,12 @@ public class b extends a implements c {
     }
 
     public void c(d.a.u.b.f.a aVar, d.a.u.b.g.b bVar) {
-        GLES20.glUniformMatrix4fv(this.f63998g, 1, false, bVar.c(), 0);
-        GLES20.glUniformMatrix4fv(this.f63999h, 1, false, bVar.d(), 0);
-        GLES20.glEnableVertexAttribArray(this.f63997f);
-        GLES20.glVertexAttribPointer(this.f63997f, aVar.a(), (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, aVar.f(), (Buffer) aVar.d());
-        GLES20.glEnableVertexAttribArray(this.f64000i);
-        GLES20.glVertexAttribPointer(this.f64000i, aVar.a(), (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, aVar.c(), (Buffer) aVar.b());
+        GLES20.glUniformMatrix4fv(this.f64685g, 1, false, bVar.c(), 0);
+        GLES20.glUniformMatrix4fv(this.f64686h, 1, false, bVar.d(), 0);
+        GLES20.glEnableVertexAttribArray(this.f64684f);
+        GLES20.glVertexAttribPointer(this.f64684f, aVar.a(), (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, aVar.f(), (Buffer) aVar.d());
+        GLES20.glEnableVertexAttribArray(this.f64687i);
+        GLES20.glVertexAttribPointer(this.f64687i, aVar.a(), (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, aVar.c(), (Buffer) aVar.b());
     }
 
     public void d(d dVar) {
@@ -87,10 +87,10 @@ public class b extends a implements c {
     }
 
     public void e(String str, String str2) {
-        if (this.f63995d.e() != 36197) {
+        if (this.f64682d.e() != 36197) {
             str2 = str2.replaceFirst("#extension GL_OES_EGL_image_external : require", "").replace("samplerExternalOES", "sampler2D");
         }
-        this.f63992a = d.a.u.b.h.a.c(str, str2);
+        this.f64679a = d.a.u.b.h.a.c(str, str2);
     }
 
     public void f() {
@@ -113,21 +113,21 @@ public class b extends a implements c {
     }
 
     public void h() {
-        this.j = GLES20.glGetUniformLocation(this.f63992a, "uTexture");
-        this.f63997f = GLES20.glGetAttribLocation(this.f63992a, "aPosition");
-        this.f63998g = GLES20.glGetUniformLocation(this.f63992a, "uMVPMatrix");
-        this.f63999h = GLES20.glGetUniformLocation(this.f63992a, "uTexMatrix");
-        this.f64000i = GLES20.glGetAttribLocation(this.f63992a, "aTextureCoord");
+        this.j = GLES20.glGetUniformLocation(this.f64679a, "uTexture");
+        this.f64684f = GLES20.glGetAttribLocation(this.f64679a, "aPosition");
+        this.f64685g = GLES20.glGetUniformLocation(this.f64679a, "uMVPMatrix");
+        this.f64686h = GLES20.glGetUniformLocation(this.f64679a, "uTexMatrix");
+        this.f64687i = GLES20.glGetAttribLocation(this.f64679a, "aTextureCoord");
     }
 
     public void i() {
-        GLES20.glDeleteProgram(this.f63992a);
-        this.f63992a = -1;
+        GLES20.glDeleteProgram(this.f64679a);
+        this.f64679a = -1;
     }
 
     public void j() {
-        GLES20.glDisableVertexAttribArray(this.f63997f);
-        GLES20.glDisableVertexAttribArray(this.f64000i);
+        GLES20.glDisableVertexAttribArray(this.f64684f);
+        GLES20.glDisableVertexAttribArray(this.f64687i);
     }
 
     public void k(d dVar) {
@@ -135,7 +135,7 @@ public class b extends a implements c {
     }
 
     public void l() {
-        GLES20.glUseProgram(this.f63992a);
+        GLES20.glUseProgram(this.f64679a);
     }
 
     @Override // d.a.u.b.e.c

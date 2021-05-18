@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.squareup.wire.Wire;
 import d.a.c.j.e.n;
-import d.a.j0.a1.j.b.c.a;
-import d.a.j0.a1.j.b.c.c;
+import d.a.k0.a1.j.b.c.a;
+import d.a.k0.a1.j.b.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicList.DataRes;
@@ -43,17 +43,17 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
         for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
             if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
                 a aVar = new a();
-                aVar.S = i3;
+                aVar.T = i3;
                 aVar.a0(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f51132e = R.dimen.tbds1;
-                cVar.f51133f = R.color.CAM_X0203;
+                cVar.f51831e = R.dimen.tbds1;
+                cVar.f51832f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i3++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f51132e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f51831e = 0;
     }
 }

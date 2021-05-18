@@ -11,16 +11,16 @@ import com.baidu.tieba.R;
 public class TbCheckBox extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13096e;
+    public int f12432e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13097f;
+    public int f12433f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13098g;
+    public boolean f12434g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f13099h;
+    public b f12435h;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -48,25 +48,25 @@ public class TbCheckBox extends ImageView {
 
     public TbCheckBox(Context context) {
         super(context);
-        this.f13096e = R.drawable.icon_set_list_ok_s;
-        this.f13097f = R.drawable.icon_set_list_ok_n;
+        this.f12432e = R.drawable.icon_set_list_ok_s;
+        this.f12433f = R.drawable.icon_set_list_ok_n;
         c();
     }
 
     public void b() {
         if (e()) {
-            if (this.f13098g) {
-                setImageDrawable(WebPManager.getPureDrawable(this.f13096e, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+            if (this.f12434g) {
+                setImageDrawable(WebPManager.getPureDrawable(this.f12432e, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
             } else {
-                SkinManager.setImageResource(this, this.f13096e);
+                SkinManager.setImageResource(this, this.f12432e);
             }
             setContentDescription(getResources().getString(R.string.check_box_checked));
             return;
         }
-        if (this.f13098g) {
-            setImageDrawable(WebPManager.getPureDrawable(this.f13097f, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+        if (this.f12434g) {
+            setImageDrawable(WebPManager.getPureDrawable(this.f12433f, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
         } else {
-            SkinManager.setImageResource(this, this.f13097f);
+            SkinManager.setImageResource(this, this.f12433f);
         }
         setContentDescription(getResources().getString(R.string.check_box_not_checked));
     }
@@ -89,12 +89,12 @@ public class TbCheckBox extends ImageView {
     }
 
     public void setBackgroundDrawableId(int i2, int i3) {
-        this.f13096e = i2;
-        this.f13097f = i3;
+        this.f12432e = i2;
+        this.f12433f = i3;
     }
 
     public void setBackgroundDrawableIdIsWebP(boolean z) {
-        this.f13098g = z;
+        this.f12434g = z;
     }
 
     public void setChecked(boolean z) {
@@ -103,14 +103,14 @@ public class TbCheckBox extends ImageView {
             ((c) tag).setChecked(z);
         }
         b();
-        b bVar = this.f13099h;
+        b bVar = this.f12435h;
         if (bVar != null) {
             bVar.a(this, z, getTag());
         }
     }
 
     public void setStatedChangedListener(b bVar) {
-        this.f13099h = bVar;
+        this.f12435h = bVar;
     }
 
     public void setTagData(c cVar) {
@@ -120,8 +120,8 @@ public class TbCheckBox extends ImageView {
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13096e = R.drawable.icon_set_list_ok_s;
-        this.f13097f = R.drawable.icon_set_list_ok_n;
+        this.f12432e = R.drawable.icon_set_list_ok_s;
+        this.f12433f = R.drawable.icon_set_list_ok_n;
         c();
     }
 }

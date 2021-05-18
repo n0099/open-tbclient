@@ -5,16 +5,16 @@ import android.graphics.Bitmap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f40600a;
+    public Bitmap f39845a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40601b;
+    public int f39846b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f40602c = null;
+    public c f39847c = null;
 
     public c(Bitmap bitmap, int i2) {
-        this.f40600a = bitmap;
-        this.f40601b = i2;
+        this.f39845a = bitmap;
+        this.f39846b = i2;
     }
 }

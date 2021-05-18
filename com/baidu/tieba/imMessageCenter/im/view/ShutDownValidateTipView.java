@@ -17,19 +17,19 @@ import java.util.ArrayList;
 public class ShutDownValidateTipView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f18319e;
+    public TextView f17634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f18320f;
+    public ImageView f17635f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18321g;
+    public TextView f17636g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18322h;
+    public TextView f17637h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f18323i;
+    public boolean f17638i;
     public ArrayList<c> j;
 
     /* loaded from: classes4.dex */
@@ -82,24 +82,24 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void a(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.f18320f = (ImageView) findViewById(R.id.no_network_icon);
-        this.f18321g = (TextView) findViewById(R.id.no_network_guide1);
-        this.f18322h = (TextView) findViewById(R.id.no_network_guide2);
-        this.f18319e = (TextView) findViewById(R.id.no_network_showmore);
+        this.f17635f = (ImageView) findViewById(R.id.no_network_icon);
+        this.f17636g = (TextView) findViewById(R.id.no_network_guide1);
+        this.f17637h = (TextView) findViewById(R.id.no_network_guide2);
+        this.f17634e = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void b(int i2) {
-        SkinManager.setImageResource(this.f18320f, R.drawable.icon_error);
+        SkinManager.setImageResource(this.f17635f, R.drawable.icon_error);
         SkinManager.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i2 != 1 && i2 != 4) {
-            this.f18321g.setTextColor(-14277082);
-            this.f18322h.setTextColor(-5065030);
-            this.f18319e.setTextColor(-14277082);
+            this.f17636g.setTextColor(-14277082);
+            this.f17637h.setTextColor(-5065030);
+            this.f17634e.setTextColor(-14277082);
             return;
         }
-        this.f18321g.setTextColor(-10523526);
-        this.f18322h.setTextColor(-8682095);
-        this.f18319e.setTextColor(-10523526);
+        this.f17636g.setTextColor(-10523526);
+        this.f17637h.setTextColor(-8682095);
+        this.f17634e.setTextColor(-10523526);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -114,7 +114,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        TextView textView = this.f18319e;
+        TextView textView = this.f17634e;
         if (textView == null) {
             return;
         }
@@ -122,10 +122,10 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void setVisible(boolean z) {
-        if (z == this.f18323i) {
+        if (z == this.f17638i) {
             return;
         }
-        this.f18323i = z;
+        this.f17638i = z;
         if (z) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setFillAfter(true);

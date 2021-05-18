@@ -9,7 +9,7 @@ import java.util.zip.Checksum;
 public final class Hashing {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f32170a = (int) System.currentTimeMillis();
+    public static final int f31415a = (int) System.currentTimeMillis();
 
     /* loaded from: classes6.dex */
     public enum ChecksumType implements g<Checksum> {

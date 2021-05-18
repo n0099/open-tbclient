@@ -5,7 +5,7 @@ import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface UBVI extends ApkDownloadComplianceInterface {
     public static final Map<String, String> ext = new HashMap();
 

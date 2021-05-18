@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static long a(JSONObject jSONObject, String str) {
         if (jSONObject == null) {

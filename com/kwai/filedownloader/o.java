@@ -11,7 +11,7 @@ import com.kwai.filedownloader.services.FileDownloadServiceProxy;
 public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownloader.c.b> {
 
     /* loaded from: classes6.dex */
-    public static class a extends a.AbstractBinderC0405a {
+    public static class a extends a.AbstractBinderC0392a {
         @Override // com.kwai.filedownloader.c.a
         public void a(MessageSnapshot messageSnapshot) {
             com.kwai.filedownloader.message.e.a().a(messageSnapshot);

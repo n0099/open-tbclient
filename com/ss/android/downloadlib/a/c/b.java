@@ -2,29 +2,29 @@ package com.ss.android.downloadlib.a.c;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b implements Parcelable {
     public static final Parcelable.Creator<b> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f36595a;
+    public int f35840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36596b;
+    public int f35841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36597c;
+    public String f35842c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36598d;
+    public int f35843d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36599e;
+    public String f35844e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f36600f;
+    public String f35845f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Parcelable.Creator<b> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -42,9 +42,9 @@ public class b implements Parcelable {
     }
 
     public b() {
-        this.f36597c = "";
-        this.f36599e = "";
-        this.f36600f = "";
+        this.f35842c = "";
+        this.f35844e = "";
+        this.f35845f = "";
     }
 
     @Override // android.os.Parcelable
@@ -58,12 +58,12 @@ public class b implements Parcelable {
         }
         if (obj != null && b.class == obj.getClass()) {
             b bVar = (b) obj;
-            if (this.f36595a == bVar.f36595a && this.f36596b == bVar.f36596b) {
-                String str = this.f36597c;
+            if (this.f35840a == bVar.f35840a && this.f35841b == bVar.f35841b) {
+                String str = this.f35842c;
                 if (str != null) {
-                    return str.equals(bVar.f36597c);
+                    return str.equals(bVar.f35842c);
                 }
-                if (bVar.f36597c == null) {
+                if (bVar.f35842c == null) {
                     return true;
                 }
             }
@@ -72,8 +72,8 @@ public class b implements Parcelable {
     }
 
     public int hashCode() {
-        int i2 = ((this.f36595a * 31) + this.f36596b) * 31;
-        String str = this.f36597c;
+        int i2 = ((this.f35840a * 31) + this.f35841b) * 31;
+        String str = this.f35842c;
         return i2 + (str != null ? str.hashCode() : 0);
     }
 
@@ -83,23 +83,23 @@ public class b implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f36595a);
-        parcel.writeInt(this.f36596b);
-        parcel.writeString(this.f36597c);
-        parcel.writeString(this.f36599e);
-        parcel.writeString(this.f36600f);
-        parcel.writeInt(this.f36598d);
+        parcel.writeInt(this.f35840a);
+        parcel.writeInt(this.f35841b);
+        parcel.writeString(this.f35842c);
+        parcel.writeString(this.f35844e);
+        parcel.writeString(this.f35845f);
+        parcel.writeInt(this.f35843d);
     }
 
     public b(Parcel parcel) {
-        this.f36597c = "";
-        this.f36599e = "";
-        this.f36600f = "";
-        this.f36595a = parcel.readInt();
-        this.f36596b = parcel.readInt();
-        this.f36597c = parcel.readString();
-        this.f36599e = parcel.readString();
-        this.f36600f = parcel.readString();
-        this.f36598d = parcel.readInt();
+        this.f35842c = "";
+        this.f35844e = "";
+        this.f35845f = "";
+        this.f35840a = parcel.readInt();
+        this.f35841b = parcel.readInt();
+        this.f35842c = parcel.readString();
+        this.f35844e = parcel.readString();
+        this.f35845f = parcel.readString();
+        this.f35843d = parcel.readInt();
     }
 }

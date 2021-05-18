@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PM {
     public static final Map<Class<?>, String> n = new HashMap<Class<?>, String>() { // from class: com.qq.e.comm.managers.plugin.PM.2
         {
@@ -22,34 +22,34 @@ public class PM {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f36249b;
+    public final Context f35494b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36250c;
+    public String f35495c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f36251d;
+    public File f35496d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36252e;
+    public int f35497e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DexClassLoader f36253f;
+    public DexClassLoader f35498f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RandomAccessFile f36254g;
+    public RandomAccessFile f35499g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FileLock f36255h;
+    public FileLock f35500h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f36256i;
-    public a.InterfaceC0431a j;
+    public boolean f35501i;
+    public a.InterfaceC0418a j;
     public POFactory k;
     public int l;
 
     /* renamed from: a  reason: collision with root package name */
-    public ExecutorService f36248a = Executors.newSingleThreadExecutor();
+    public ExecutorService f35493a = Executors.newSingleThreadExecutor();
     public a.b m = new a.b() { // from class: com.qq.e.comm.managers.plugin.PM.1
         @Override // com.qq.e.comm.managers.plugin.PM.a.b
         public final void a() {
@@ -62,18 +62,18 @@ public class PM {
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
 
         /* renamed from: com.qq.e.comm.managers.plugin.PM$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public interface InterfaceC0431a {
+        /* loaded from: classes7.dex */
+        public interface InterfaceC0418a {
             void onLoadFail();
 
             void onLoadSuccess();
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public interface b {
             void a();
 
@@ -81,11 +81,11 @@ public class PM {
         }
     }
 
-    public PM(Context context, a.InterfaceC0431a interfaceC0431a) {
-        this.f36249b = context.getApplicationContext();
-        this.j = interfaceC0431a;
+    public PM(Context context, a.InterfaceC0418a interfaceC0418a) {
+        this.f35494b = context.getApplicationContext();
+        this.j = interfaceC0418a;
         long currentTimeMillis = System.currentTimeMillis();
-        this.f36256i = d();
+        this.f35501i = d();
         if (b()) {
             a();
         }
@@ -94,15 +94,15 @@ public class PM {
 
     private void a() {
         StringBuilder sb = new StringBuilder("PluginFile:\t");
-        File file = this.f36251d;
+        File file = this.f35496d;
         sb.append(file == null ? StringUtil.NULL_STRING : file.getAbsolutePath());
         GDTLogger.d(sb.toString());
-        if (this.f36250c == null || this.f36251d == null) {
-            this.f36253f = null;
+        if (this.f35495c == null || this.f35496d == null) {
+            this.f35498f = null;
             return;
         }
         try {
-            this.f36253f = new DexClassLoader(this.f36251d.getAbsolutePath(), d.a(this.f36249b).getAbsolutePath(), null, getClass().getClassLoader());
+            this.f35498f = new DexClassLoader(this.f35496d.getAbsolutePath(), d.a(this.f35494b).getAbsolutePath(), null, getClass().getClassLoader());
             e();
         } catch (Throwable th) {
             GDTLogger.e("exception while init plugin class loader", th);
@@ -112,7 +112,7 @@ public class PM {
 
     public static /* synthetic */ void a(PM pm) {
         try {
-            if (pm.f36253f == null && pm.c()) {
+            if (pm.f35498f == null && pm.c()) {
                 pm.a();
             }
         } catch (Exception e2) {
@@ -134,11 +134,11 @@ public class PM {
         try {
             GDTLogger.d("TimeStap_BEFORE_PLUGIN_INIT:" + System.currentTimeMillis());
             if (!c()) {
-                if (this.f36256i) {
-                    if (com.qq.e.comm.managers.plugin.a.a(this.f36249b, d.b(this.f36249b), d.e(this.f36249b))) {
-                        this.f36250c = Sig.ASSET_PLUGIN_SIG;
-                        this.f36251d = d.b(this.f36249b);
-                        this.f36252e = 1203;
+                if (this.f35501i) {
+                    if (com.qq.e.comm.managers.plugin.a.a(this.f35494b, d.b(this.f35494b), d.e(this.f35494b))) {
+                        this.f35495c = Sig.ASSET_PLUGIN_SIG;
+                        this.f35496d = d.b(this.f35494b);
+                        this.f35497e = 1203;
                         z = true;
                     } else {
                         GDTLogger.e("Fail to prepair Defult plugin ");
@@ -163,22 +163,22 @@ public class PM {
     }
 
     private boolean c() {
-        if (this.f36256i) {
-            com.qq.e.comm.managers.plugin.a aVar = new com.qq.e.comm.managers.plugin.a(d.d(this.f36249b), d.g(this.f36249b));
+        if (this.f35501i) {
+            com.qq.e.comm.managers.plugin.a aVar = new com.qq.e.comm.managers.plugin.a(d.d(this.f35494b), d.g(this.f35494b));
             if (aVar.a()) {
-                boolean a2 = aVar.a(d.b(this.f36249b), d.e(this.f36249b));
+                boolean a2 = aVar.a(d.b(this.f35494b), d.e(this.f35494b));
                 GDTLogger.d("NextExist,Updated=" + a2);
             }
         }
-        com.qq.e.comm.managers.plugin.a aVar2 = new com.qq.e.comm.managers.plugin.a(d.b(this.f36249b), d.e(this.f36249b));
+        com.qq.e.comm.managers.plugin.a aVar2 = new com.qq.e.comm.managers.plugin.a(d.b(this.f35494b), d.e(this.f35494b));
         if (aVar2.a()) {
             if (aVar2.b() >= 1203) {
-                this.f36250c = aVar2.c();
-                this.f36252e = aVar2.b();
-                this.f36251d = d.b(this.f36249b);
+                this.f35495c = aVar2.c();
+                this.f35497e = aVar2.b();
+                this.f35496d = d.b(this.f35494b);
                 return true;
             }
-            GDTLogger.d("last updated plugin version =" + this.f36252e + ";asset plugin version=1203");
+            GDTLogger.d("last updated plugin version =" + this.f35497e + ";asset plugin version=1203");
             return false;
         }
         return false;
@@ -186,18 +186,18 @@ public class PM {
 
     private boolean d() {
         try {
-            File h2 = d.h(this.f36249b);
+            File h2 = d.h(this.f35494b);
             if (!h2.exists()) {
                 h2.createNewFile();
                 com.qq.e.comm.util.StringUtil.writeTo("lock", h2);
             }
             if (h2.exists()) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(h2, "rw");
-                this.f36254g = randomAccessFile;
+                this.f35499g = randomAccessFile;
                 FileLock tryLock = randomAccessFile.getChannel().tryLock();
-                this.f36255h = tryLock;
+                this.f35500h = tryLock;
                 if (tryLock != null) {
-                    this.f36254g.writeByte(37);
+                    this.f35499g.writeByte(37);
                     return true;
                 }
                 return false;
@@ -209,23 +209,23 @@ public class PM {
     }
 
     private void e() {
-        a.InterfaceC0431a interfaceC0431a = this.j;
-        if (interfaceC0431a != null) {
-            interfaceC0431a.onLoadSuccess();
+        a.InterfaceC0418a interfaceC0418a = this.j;
+        if (interfaceC0418a != null) {
+            interfaceC0418a.onLoadSuccess();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        a.InterfaceC0431a interfaceC0431a = this.j;
-        if (interfaceC0431a != null) {
-            interfaceC0431a.onLoadFail();
+        a.InterfaceC0418a interfaceC0418a = this.j;
+        if (interfaceC0418a != null) {
+            interfaceC0418a.onLoadFail();
         }
     }
 
     public <T> T getFactory(Class<T> cls) throws c {
         GDTLogger.d("GetFactoryInstaceforInterface:" + cls);
-        ClassLoader classLoader = Sig.ASSET_PLUGIN_SIG == null ? PM.class.getClassLoader() : this.f36253f;
+        ClassLoader classLoader = Sig.ASSET_PLUGIN_SIG == null ? PM.class.getClassLoader() : this.f35498f;
         StringBuilder sb = new StringBuilder("PluginClassLoader is parent");
         sb.append(PM.class.getClassLoader() == classLoader);
         GDTLogger.d(sb.toString());
@@ -251,7 +251,7 @@ public class PM {
     }
 
     public String getLocalSig() {
-        return this.f36250c;
+        return this.f35495c;
     }
 
     public POFactory getPOFactory() throws c {
@@ -262,12 +262,12 @@ public class PM {
     }
 
     public int getPluginVersion() {
-        return this.f36252e;
+        return this.f35497e;
     }
 
     public void update(String str, String str2) {
-        if (this.f36256i) {
-            b bVar = new b(this.f36249b, this.f36248a);
+        if (this.f35501i) {
+            b bVar = new b(this.f35494b, this.f35493a);
             bVar.a(this.m);
             bVar.a(str, str2);
         }

@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
 import com.squareup.wire.Wire;
 import d.a.c.j.e.n;
-import d.a.i0.r.q.a2;
-import d.a.i0.r.q.n0;
-import d.a.j0.s2.f0.a;
-import d.a.j0.s2.h0.b;
+import d.a.j0.r.q.a2;
+import d.a.j0.r.q.n0;
+import d.a.k0.s2.g0.a;
+import d.a.k0.s2.i0.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -80,9 +80,9 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                 ThreadInfo threadInfo = list2.get(i4);
                 a2 a2Var = new a2();
                 SpecHotTopicHelper.setSpecTopicIcon(j, a2Var);
-                a2Var.q4(this.userMap);
-                a2Var.R2(threadInfo);
-                a2Var.V2();
+                a2Var.s4(this.userMap);
+                a2Var.T2(threadInfo);
+                a2Var.X2();
                 a2Var.D1 = z;
                 if (!TextUtils.isEmpty(a2Var.E0())) {
                     n0 n0Var = new n0();

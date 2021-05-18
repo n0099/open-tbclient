@@ -15,19 +15,19 @@ import com.baidu.tieba.R;
 public class UserDefineConfirmBottomView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21767e;
+    public Context f21011e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f21768f;
+    public RelativeLayout f21012f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f21769g;
+    public LinearLayout f21013g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21770h;
+    public TextView f21014h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f21771i;
+    public TextView f21015i;
     public TextView j;
     public View.OnClickListener k;
     public String l;
@@ -38,53 +38,53 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     }
 
     public final void a(Context context) {
-        this.f21767e = context;
+        this.f21011e = context;
         LayoutInflater.from(context).inflate(R.layout.user_define_confirm_bottom_view, (ViewGroup) this, true);
         setOrientation(1);
-        this.f21768f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
-        this.f21769g = (LinearLayout) findViewById(R.id.big_tbean_root);
-        this.f21770h = (TextView) findViewById(R.id.big_tbean_toast_tv);
-        this.f21771i = (TextView) findViewById(R.id.big_tbean_jump_tv);
+        this.f21012f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
+        this.f21013g = (LinearLayout) findViewById(R.id.big_tbean_root);
+        this.f21014h = (TextView) findViewById(R.id.big_tbean_toast_tv);
+        this.f21015i = (TextView) findViewById(R.id.big_tbean_jump_tv);
         this.j = (TextView) findViewById(R.id.user_define_confirm_tv);
-        this.f21768f.setOnClickListener(null);
+        this.f21012f.setOnClickListener(null);
     }
 
     public void b(boolean z) {
         if (z) {
-            this.f21769g.setVisibility(0);
+            this.f21013g.setVisibility(0);
         } else {
-            this.f21769g.setVisibility(4);
+            this.f21013g.setVisibility(4);
         }
     }
 
     public void setBigTbeanToastText(int i2) {
-        String format = String.format(this.f21767e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i2));
+        String format = String.format(this.f21011e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i2));
         this.l = format;
-        this.f21770h.setText(format);
+        this.f21014h.setText(format);
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
         this.k = onClickListener;
-        this.f21771i.setOnClickListener(onClickListener);
+        this.f21015i.setOnClickListener(onClickListener);
         this.j.setOnClickListener(this.k);
     }
 
     public void setPayEnabled(boolean z) {
         if (z) {
-            this.f21770h.setText(this.l);
-            this.f21770h.setGravity(3);
+            this.f21014h.setText(this.l);
+            this.f21014h.setGravity(3);
             b(true);
             this.j.setEnabled(true);
-            this.f21769g.setVisibility(0);
-            this.f21771i.setVisibility(0);
+            this.f21013g.setVisibility(0);
+            this.f21015i.setVisibility(0);
             return;
         }
-        this.f21770h.setText(R.string.user_define_max_money);
-        this.f21770h.setGravity(17);
+        this.f21014h.setText(R.string.user_define_max_money);
+        this.f21014h.setGravity(17);
         this.j.setEnabled(false);
         b(false);
-        this.f21769g.setVisibility(0);
-        this.f21771i.setVisibility(8);
+        this.f21013g.setVisibility(0);
+        this.f21015i.setVisibility(8);
     }
 
     public UserDefineConfirmBottomView(Context context, @Nullable AttributeSet attributeSet) {

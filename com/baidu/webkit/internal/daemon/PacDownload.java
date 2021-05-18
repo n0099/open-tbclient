@@ -35,7 +35,7 @@ public class PacDownload implements IResourceTask, INetListener {
         if (z) {
             str = str + "&mianliu=true";
         }
-        Log.w(LOG_TAG, "get url " + str);
+        Log.w(LOG_TAG, "get url ".concat(String.valueOf(str)));
         return str;
     }
 
@@ -46,7 +46,7 @@ public class PacDownload implements IResourceTask, INetListener {
                 Log.w(LOG_TAG, "restoreLastData null");
                 return;
             }
-            Log.w(LOG_TAG, "restoreLastData  " + str);
+            Log.w(LOG_TAG, "restoreLastData  ".concat(String.valueOf(str)));
             WebSettingsGlobalBlink.setPacData(str);
         } catch (Throwable th) {
             th.printStackTrace();
@@ -60,7 +60,7 @@ public class PacDownload implements IResourceTask, INetListener {
                 Log.w(LOG_TAG, "restoreLastDataFreeFLow null");
                 return;
             }
-            Log.w(LOG_TAG, "restoreLastDataFreeFLow  " + str);
+            Log.w(LOG_TAG, "restoreLastDataFreeFLow  ".concat(String.valueOf(str)));
             WebSettingsGlobalBlink.setPacDataFreeFlow(str);
         } catch (Throwable th) {
             th.printStackTrace();
@@ -218,9 +218,9 @@ public class PacDownload implements IResourceTask, INetListener {
             if (getFreeFlowEnabled()) {
                 if (this.mHeader != null) {
                     String str2 = this.mHeader.get("Last-Modified");
-                    Log.w(LOG_TAG, "lastModify freeflow  " + str2);
+                    Log.w(LOG_TAG, "lastModify freeflow  ".concat(String.valueOf(str2)));
                     if (str2 != null) {
-                        Log.w(LOG_TAG, "lastModify1 " + str2);
+                        Log.w(LOG_TAG, "lastModify1 ".concat(String.valueOf(str2)));
                         CfgFileUtils.set(CfgFileUtils.KEY_PAC_FREE_FLOW_LASTMODIFY, str2);
                     }
                 }
@@ -231,9 +231,9 @@ public class PacDownload implements IResourceTask, INetListener {
             }
             if (this.mHeader != null) {
                 String str3 = this.mHeader.get("Last-Modified");
-                Log.w(LOG_TAG, "lastModify " + str3);
+                Log.w(LOG_TAG, "lastModify ".concat(String.valueOf(str3)));
                 if (str3 != null) {
-                    Log.w(LOG_TAG, "lastModify1 " + str3);
+                    Log.w(LOG_TAG, "lastModify1 ".concat(String.valueOf(str3)));
                     CfgFileUtils.set(CfgFileUtils.KEY_PAC_LASTMODIFY, str3);
                 }
             }
@@ -260,7 +260,7 @@ public class PacDownload implements IResourceTask, INetListener {
 
     @Override // com.baidu.webkit.internal.resource.IResourceTask
     public void onResourceReady(String str, IResourceTask.ResultType resultType) {
-        Log.w(LOG_TAG, "onResourceReady1 " + resultType);
+        Log.w(LOG_TAG, "onResourceReady1 ".concat(String.valueOf(resultType)));
         if (str != null) {
             Log.w(LOG_TAG, "onResourceReady2 " + str.length());
             if (getFreeFlowEnabled()) {

@@ -5,7 +5,7 @@ import android.os.Bundle;
 public class JNIBaseMap {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8219a;
+    public long f8031a;
 
     public static native int MapProc(long j, int i2, int i3, int i4);
 
@@ -31,7 +31,7 @@ public class JNIBaseMap {
 
     public native float GetZoomToBound(long j, Bundle bundle);
 
-    public native boolean Init(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, int i2, int i3, int i4, int i5, int i6, int i7, int i8);
+    public native boolean Init(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, int i2, String str8, int i3, int i4, int i5, int i6, int i7, int i8, int i9);
 
     public native boolean IsBaseIndoorMapMode(long j);
 

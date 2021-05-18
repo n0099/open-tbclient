@@ -9,10 +9,10 @@ import java.util.concurrent.Future;
 public abstract class a<R extends g> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f33211a = Executors.newFixedThreadPool(5);
+    public static final ExecutorService f32456a = Executors.newFixedThreadPool(5);
 
     /* renamed from: b  reason: collision with root package name */
-    public Future<?> f33212b;
+    public Future<?> f32457b;
 
     public abstract void a(R r, c cVar);
 
@@ -21,7 +21,7 @@ public abstract class a<R extends g> {
 
     public void c() {
         try {
-            this.f33212b = f33211a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
+            this.f32457b = f32456a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.d();

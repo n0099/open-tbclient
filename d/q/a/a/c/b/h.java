@@ -8,10 +8,10 @@ import android.text.TextUtils;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ f f66909a;
+    public /* synthetic */ f f67595a;
 
     public h(f fVar) {
-        this.f66909a = fVar;
+        this.f67595a = fVar;
     }
 
     public final String a() {
@@ -28,16 +28,16 @@ public final class h {
         }
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
-        f2 = this.f66909a.f(str2);
+        f2 = this.f67595a.f(str2);
         if (TextUtils.isEmpty(f2)) {
             return "";
         }
         obtain.writeInterfaceToken(f2);
         if (Build.VERSION.SDK_INT >= 23) {
-            context = f.f66905c;
+            context = f.f67591c;
             obtain.writeString(context.getPackageName());
         }
-        c2 = this.f66909a.c(str2, str, obtain, obtain2);
+        c2 = this.f67595a.c(str2, str, obtain, obtain2);
         if (c2 != null) {
             try {
                 obtain2.readException();

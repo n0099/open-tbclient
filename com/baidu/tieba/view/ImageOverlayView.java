@@ -17,19 +17,19 @@ import java.util.List;
 public class ImageOverlayView extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22469e;
+    public int f21714e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22470f;
+    public int f21715f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22471g;
+    public int f21716g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22472h;
+    public int f21717h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f22473i;
+    public int f21718i;
     public int j;
     public int k;
     public a l;
@@ -49,20 +49,20 @@ public class ImageOverlayView extends ViewGroup {
     }
 
     public void a(int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.f22469e = i2;
-        this.f22470f = i2;
-        this.f22471g = i3;
-        this.f22472h = i4;
-        this.f22473i = i5;
+        this.f21714e = i2;
+        this.f21715f = i2;
+        this.f21716g = i3;
+        this.f21717h = i4;
+        this.f21718i = i5;
         this.j = i6;
         this.k = i7;
         b();
     }
 
     public final void b() {
-        for (int i2 = 0; i2 < this.f22469e; i2++) {
+        for (int i2 = 0; i2 < this.f21714e; i2++) {
             HeadImageView headImageView = new HeadImageView(getContext());
-            headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f22471g, this.f22472h));
+            headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f21716g, this.f21717h));
             headImageView.setIsRound(true);
             headImageView.setBorderSurroundContent(true);
             headImageView.setDrawBorder(true);
@@ -96,11 +96,11 @@ public class ImageOverlayView extends ViewGroup {
         View childAt;
         super.dispatchDraw(canvas);
         this.o.setColor(SkinManager.getColor(this.j));
-        this.o.setStrokeWidth(this.f22473i);
+        this.o.setStrokeWidth(this.f21718i);
         int i2 = this.r;
         if (i2 == 0) {
-            for (int i3 = 1; i3 < this.f22470f && i3 < getChildCount() && (childAt = getChildAt(i3)) != null; i3++) {
-                float f2 = this.f22473i * 0.5f;
+            for (int i3 = 1; i3 < this.f21715f && i3 < getChildCount() && (childAt = getChildAt(i3)) != null; i3++) {
+                float f2 = this.f21718i * 0.5f;
                 if (childAt instanceof HeadImageView) {
                     this.q.set(childAt.getLeft() - f2, childAt.getTop() - f2, childAt.getRight() + f2, childAt.getBottom() + f2);
                     canvas.drawArc(this.q, -90.0f, 180.0f, false, this.o);
@@ -112,13 +112,13 @@ public class ImageOverlayView extends ViewGroup {
                 i4 = this.j;
             }
             this.p = i4;
-            float f3 = this.f22473i * 0.5f;
-            float f4 = this.f22471g / 2.0f;
+            float f3 = this.f21718i * 0.5f;
+            float f4 = this.f21716g / 2.0f;
             float acos = ((float) ((Math.acos((((f4 * 2.0f) - this.k) / 2.0f) / f4) / 3.141592653589793d) * 180.0d)) - 180.0f;
             float abs = Math.abs(2.0f * acos);
             int i5 = 0;
-            int i6 = this.n ? 0 : this.f22470f - 1;
-            while (i5 < this.f22470f) {
+            int i6 = this.n ? 0 : this.f21715f - 1;
+            while (i5 < this.f21715f) {
                 View childAt2 = getChildAt(i5);
                 if (childAt2 instanceof HeadImageView) {
                     this.q.set(childAt2.getLeft() - f3, childAt2.getTop() - f3, childAt2.getRight() + f3, childAt2.getBottom() + f3);
@@ -142,33 +142,33 @@ public class ImageOverlayView extends ViewGroup {
         View childAt;
         View childAt2;
         if (this.n) {
-            paddingLeft = getPaddingLeft() + this.f22473i;
+            paddingLeft = getPaddingLeft() + this.f21718i;
             paddingTop = getPaddingTop();
-            i6 = this.f22473i;
+            i6 = this.f21718i;
         } else {
-            paddingLeft = getPaddingLeft() + ((this.f22470f - 1) * (this.f22471g - this.k)) + this.f22473i;
+            paddingLeft = getPaddingLeft() + ((this.f21715f - 1) * (this.f21716g - this.k)) + this.f21718i;
             paddingTop = getPaddingTop();
-            i6 = this.f22473i;
+            i6 = this.f21718i;
         }
         int i7 = paddingTop + i6;
         int i8 = 0;
         while (true) {
-            int i9 = this.f22470f;
+            int i9 = this.f21715f;
             if (i8 < i9) {
                 if (i8 >= getChildCount() || (childAt2 = getChildAt(i8)) == null) {
                     return;
                 }
                 childAt2.setVisibility(0);
                 if (this.n) {
-                    childAt2.layout(paddingLeft, i7, this.f22471g + paddingLeft, this.f22472h + i7);
-                    paddingLeft += this.f22471g - this.k;
+                    childAt2.layout(paddingLeft, i7, this.f21716g + paddingLeft, this.f21717h + i7);
+                    paddingLeft += this.f21716g - this.k;
                 } else {
-                    childAt2.layout(paddingLeft, i7, this.f22471g + paddingLeft, this.f22472h + i7);
-                    paddingLeft -= this.f22471g - this.k;
+                    childAt2.layout(paddingLeft, i7, this.f21716g + paddingLeft, this.f21717h + i7);
+                    paddingLeft -= this.f21716g - this.k;
                 }
                 i8++;
             } else {
-                while (i9 < this.f22469e && i9 < getChildCount() && (childAt = getChildAt(i9)) != null) {
+                while (i9 < this.f21714e && i9 < getChildCount() && (childAt = getChildAt(i9)) != null) {
                     childAt.setVisibility(8);
                     i9++;
                 }
@@ -179,25 +179,25 @@ public class ImageOverlayView extends ViewGroup {
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
-        int i4 = this.f22473i;
+        int i4 = this.f21718i;
         if (this.r == 1) {
             i4 *= 2;
         }
         int paddingLeft = getPaddingLeft() + getPaddingRight() + i4;
-        int i5 = this.f22470f;
-        setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f22471g * i5)) - ((i5 - 1) * this.k), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f22472h + (this.f22473i * 2), i3));
+        int i5 = this.f21715f;
+        setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f21716g * i5)) - ((i5 - 1) * this.k), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f21717h + (this.f21718i * 2), i3));
     }
 
     public void setData(List<String> list) {
         String str;
-        this.f22470f = Math.min(this.f22469e, ListUtils.getCount(list));
-        for (int i2 = 0; i2 < this.f22470f; i2++) {
+        this.f21715f = Math.min(this.f21714e, ListUtils.getCount(list));
+        for (int i2 = 0; i2 < this.f21715f; i2++) {
             HeadImageView headImageView = (HeadImageView) getChildAt(i2);
             if (headImageView != null && (str = (String) ListUtils.getItem(list, (list.size() - i2) - 1)) != null) {
                 if (this.m == 12) {
-                    headImageView.R(str, 12, this.f22471g, this.f22472h, false);
+                    headImageView.R(str, 12, this.f21716g, this.f21717h, false);
                 } else {
-                    headImageView.R(str, 10, this.f22471g, this.f22472h, false);
+                    headImageView.R(str, 10, this.f21716g, this.f21717h, false);
                 }
             }
         }

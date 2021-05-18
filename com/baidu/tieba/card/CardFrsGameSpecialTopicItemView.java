@@ -21,19 +21,19 @@ import d.a.c.a.j;
 public class CardFrsGameSpecialTopicItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f15026e;
+    public RelativeLayout f14341e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f15027f;
+    public TbImageView f14342f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15028g;
+    public TextView f14343g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15029h;
+    public TextView f14344h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f15030i;
+    public TextView f14345i;
     public View j;
     public View k;
     public String l;
@@ -61,18 +61,18 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
 
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-        this.f15026e = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
-        this.f15027f = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
-        this.f15028g = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
-        this.f15029h = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
-        this.f15030i = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
+        this.f14341e = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
+        this.f14342f = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
+        this.f14343g = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
+        this.f14344h = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
+        this.f14345i = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
         this.j = findViewById(R.id.divider_line_1);
         this.k = findViewById(R.id.divider_line_2);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f15026e.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f14341e.getLayoutParams();
         layoutParams.width = (dimensionPixelSize * 21) / 9;
         layoutParams.height = dimensionPixelSize;
-        this.f15026e.setLayoutParams(layoutParams);
+        this.f14341e.setLayoutParams(layoutParams);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -87,25 +87,25 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
         this.m = i2;
         SkinManager.setBackgroundResource(this.j, R.color.CAM_X0205);
         SkinManager.setBackgroundResource(this.k, R.color.CAM_X0205);
-        SkinManager.setViewTextColor(this.f15028g, R.color.CAM_X0101, 1);
-        SkinManager.setViewTextColor(this.f15029h, R.color.CAM_X0101, 1);
-        SkinManager.setViewTextColor(this.f15030i, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f14343g, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f14344h, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f14345i, R.color.CAM_X0101, 1);
     }
 
     public TextView getSpecialTopicDscView() {
-        return this.f15029h;
+        return this.f14344h;
     }
 
     public TextView getSpecialTopicNameView() {
-        return this.f15028g;
+        return this.f14343g;
     }
 
     public TbImageView getSpecialTopicPicView() {
-        return this.f15027f;
+        return this.f14342f;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
-        return this.f15030i;
+        return this.f14345i;
     }
 
     public void setForumId(String str) {

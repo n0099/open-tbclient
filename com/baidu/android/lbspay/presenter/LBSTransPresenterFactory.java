@@ -9,11 +9,11 @@ public class LBSTransPresenterFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSTransPresenterFactory f2646a = new LBSTransPresenterFactory();
+        public static LBSTransPresenterFactory f2647a = new LBSTransPresenterFactory();
     }
 
     public static LBSTransPresenterFactory getInstance() {
-        return a.f2646a;
+        return a.f2647a;
     }
 
     public LBSTransPresenter getTransPresenter(LBSTransActivity lBSTransActivity, String str) {

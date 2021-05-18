@@ -15,10 +15,10 @@ import javax.crypto.spec.IvParameterSpec;
 public final class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40720b = a();
+    public static String f39965b = a();
 
     /* renamed from: a  reason: collision with root package name */
-    public static Pattern f40719a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
+    public static Pattern f39964a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
 
     public static String a() {
         try {
@@ -58,7 +58,7 @@ public final class e {
     }
 
     public static boolean e(String str) {
-        return f40719a.matcher(str).matches();
+        return f39964a.matcher(str).matches();
     }
 
     public static String f(String str, byte[] bArr) {
@@ -106,11 +106,11 @@ public final class e {
     }
 
     public static String k(String str) {
-        return b(f40720b, str.getBytes());
+        return b(f39965b, str.getBytes());
     }
 
     public static String l(String str) {
-        return f(f40720b, Base64.decode(str, 0));
+        return f(f39965b, Base64.decode(str, 0));
     }
 
     public static Key m(String str) {

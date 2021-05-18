@@ -22,65 +22,65 @@ public class HybridADSetting implements Parcelable {
     public static final int TYPE_REWARD_VIDEO = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f36051a;
+    public int f35296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36052b;
+    public int f35297b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36053c;
+    public int f35298c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36054d;
+    public int f35299d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36055e;
+    public int f35300e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f36056f;
+    public String f35301f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f36057g;
+    public String f35302g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f36058h;
+    public String f35303h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f36059i;
+    public int f35304i;
     public int j;
 
     public HybridADSetting() {
-        this.f36051a = 1;
-        this.f36052b = 44;
-        this.f36053c = -1;
-        this.f36054d = -14013133;
-        this.f36055e = 16;
-        this.f36059i = -1776153;
+        this.f35296a = 1;
+        this.f35297b = 44;
+        this.f35298c = -1;
+        this.f35299d = -14013133;
+        this.f35300e = 16;
+        this.f35304i = -1776153;
         this.j = 16;
     }
 
     public HybridADSetting(Parcel parcel) {
-        this.f36051a = 1;
-        this.f36052b = 44;
-        this.f36053c = -1;
-        this.f36054d = -14013133;
-        this.f36055e = 16;
-        this.f36059i = -1776153;
+        this.f35296a = 1;
+        this.f35297b = 44;
+        this.f35298c = -1;
+        this.f35299d = -14013133;
+        this.f35300e = 16;
+        this.f35304i = -1776153;
         this.j = 16;
-        this.f36051a = parcel.readInt();
-        this.f36052b = parcel.readInt();
-        this.f36053c = parcel.readInt();
-        this.f36054d = parcel.readInt();
-        this.f36055e = parcel.readInt();
-        this.f36056f = parcel.readString();
-        this.f36057g = parcel.readString();
-        this.f36058h = parcel.readString();
-        this.f36059i = parcel.readInt();
+        this.f35296a = parcel.readInt();
+        this.f35297b = parcel.readInt();
+        this.f35298c = parcel.readInt();
+        this.f35299d = parcel.readInt();
+        this.f35300e = parcel.readInt();
+        this.f35301f = parcel.readString();
+        this.f35302g = parcel.readString();
+        this.f35303h = parcel.readString();
+        this.f35304i = parcel.readInt();
         this.j = parcel.readInt();
     }
 
     public HybridADSetting backButtonImage(String str) {
-        this.f36057g = str;
+        this.f35302g = str;
         return this;
     }
 
@@ -90,7 +90,7 @@ public class HybridADSetting implements Parcelable {
     }
 
     public HybridADSetting closeButtonImage(String str) {
-        this.f36058h = str;
+        this.f35303h = str;
         return this;
     }
 
@@ -100,7 +100,7 @@ public class HybridADSetting implements Parcelable {
     }
 
     public String getBackButtonImage() {
-        return this.f36057g;
+        return this.f35302g;
     }
 
     public int getBackSeparatorLength() {
@@ -108,83 +108,83 @@ public class HybridADSetting implements Parcelable {
     }
 
     public String getCloseButtonImage() {
-        return this.f36058h;
+        return this.f35303h;
     }
 
     public int getSeparatorColor() {
-        return this.f36059i;
+        return this.f35304i;
     }
 
     public String getTitle() {
-        return this.f36056f;
+        return this.f35301f;
     }
 
     public int getTitleBarColor() {
-        return this.f36053c;
+        return this.f35298c;
     }
 
     public int getTitleBarHeight() {
-        return this.f36052b;
+        return this.f35297b;
     }
 
     public int getTitleColor() {
-        return this.f36054d;
+        return this.f35299d;
     }
 
     public int getTitleSize() {
-        return this.f36055e;
+        return this.f35300e;
     }
 
     public int getType() {
-        return this.f36051a;
+        return this.f35296a;
     }
 
     public HybridADSetting separatorColor(int i2) {
-        this.f36059i = i2;
+        this.f35304i = i2;
         return this;
     }
 
     public HybridADSetting title(String str) {
-        this.f36056f = str;
+        this.f35301f = str;
         return this;
     }
 
     public HybridADSetting titleBarColor(int i2) {
-        this.f36053c = i2;
+        this.f35298c = i2;
         return this;
     }
 
     public HybridADSetting titleBarHeight(int i2) {
-        this.f36052b = i2;
+        this.f35297b = i2;
         return this;
     }
 
     public HybridADSetting titleColor(int i2) {
-        this.f36054d = i2;
+        this.f35299d = i2;
         return this;
     }
 
     public HybridADSetting titleSize(int i2) {
-        this.f36055e = i2;
+        this.f35300e = i2;
         return this;
     }
 
     public HybridADSetting type(int i2) {
-        this.f36051a = i2;
+        this.f35296a = i2;
         return this;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f36051a);
-        parcel.writeInt(this.f36052b);
-        parcel.writeInt(this.f36053c);
-        parcel.writeInt(this.f36054d);
-        parcel.writeInt(this.f36055e);
-        parcel.writeString(this.f36056f);
-        parcel.writeString(this.f36057g);
-        parcel.writeString(this.f36058h);
-        parcel.writeInt(this.f36059i);
+        parcel.writeInt(this.f35296a);
+        parcel.writeInt(this.f35297b);
+        parcel.writeInt(this.f35298c);
+        parcel.writeInt(this.f35299d);
+        parcel.writeInt(this.f35300e);
+        parcel.writeString(this.f35301f);
+        parcel.writeString(this.f35302g);
+        parcel.writeString(this.f35303h);
+        parcel.writeInt(this.f35304i);
         parcel.writeInt(this.j);
     }
 }

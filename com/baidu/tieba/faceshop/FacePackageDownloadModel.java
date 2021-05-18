@@ -13,31 +13,31 @@ import d.a.c.e.p.l;
 public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f15478e;
+    public a f14793e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FacePackageDownloadData f15479f;
+    public FacePackageDownloadData f14794f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15480g;
+    public int f14795g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15481h;
+    public int f14796h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f15482i;
+    public float f14797i;
 
     /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f15483a;
+        public NetWork f14798a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f15484b;
+        public String f14799b;
 
         public a(String str) {
-            this.f15484b = str;
+            this.f14799b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -45,27 +45,27 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         /* renamed from: b */
         public FacePackageDownloadData doInBackground(Object... objArr) {
             try {
-                if (this.f15484b != null && this.f15484b.length() > 0) {
+                if (this.f14799b != null && this.f14799b.length() > 0) {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_DOWNLOAD_URL);
-                    this.f15483a = netWork;
-                    netWork.addPostData("pid", this.f15484b);
-                    this.f15483a.addPostData("scr_w", String.valueOf(FacePackageDownloadModel.this.f15480g));
-                    this.f15483a.addPostData("scr_h", String.valueOf(FacePackageDownloadModel.this.f15481h));
-                    this.f15483a.addPostData("scr_dip", String.valueOf(FacePackageDownloadModel.this.f15482i));
-                    String postNetData = this.f15483a.postNetData();
-                    FacePackageDownloadModel.this.f15479f = (FacePackageDownloadData) OrmObject.objectWithJsonStr(postNetData, FacePackageDownloadData.class);
+                    this.f14798a = netWork;
+                    netWork.addPostData("pid", this.f14799b);
+                    this.f14798a.addPostData("scr_w", String.valueOf(FacePackageDownloadModel.this.f14795g));
+                    this.f14798a.addPostData("scr_h", String.valueOf(FacePackageDownloadModel.this.f14796h));
+                    this.f14798a.addPostData("scr_dip", String.valueOf(FacePackageDownloadModel.this.f14797i));
+                    String postNetData = this.f14798a.postNetData();
+                    FacePackageDownloadModel.this.f14794f = (FacePackageDownloadData) OrmObject.objectWithJsonStr(postNetData, FacePackageDownloadData.class);
                 }
             } catch (Exception e2) {
                 BdLog.detailException(e2);
             }
-            return FacePackageDownloadModel.this.f15479f;
+            return FacePackageDownloadModel.this.f14794f;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(FacePackageDownloadData facePackageDownloadData) {
-            FacePackageDownloadModel.this.f15478e = null;
+            FacePackageDownloadModel.this.f14793e = null;
             FacePackageDownloadModel.this.mLoadDataCallBack.c(facePackageDownloadData);
             super.onPostExecute(facePackageDownloadData);
         }
@@ -73,25 +73,25 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            NetWork netWork = this.f15483a;
+            NetWork netWork = this.f14798a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
-                this.f15483a = null;
+                this.f14798a = null;
             }
-            FacePackageDownloadModel.this.f15478e = null;
+            FacePackageDownloadModel.this.f14793e = null;
         }
     }
 
     public FacePackageDownloadModel(Context context) {
         super(null);
-        this.f15479f = null;
-        this.f15480g = 0;
-        this.f15481h = 0;
-        this.f15478e = null;
+        this.f14794f = null;
+        this.f14795g = 0;
+        this.f14796h = 0;
+        this.f14793e = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.f15480g = l.k(inst);
-        this.f15481h = l.i(inst);
-        this.f15482i = inst.getResources().getDisplayMetrics().density;
+        this.f14795g = l.k(inst);
+        this.f14796h = l.i(inst);
+        this.f14797i = inst.getResources().getDisplayMetrics().density;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -101,7 +101,7 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        a aVar = this.f15478e;
+        a aVar = this.f14793e;
         if (aVar != null) {
             aVar.cancel();
             return false;
@@ -110,11 +110,11 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
     }
 
     public void z(String str) {
-        if (this.f15478e == null) {
+        if (this.f14793e == null) {
             a aVar = new a(str);
-            this.f15478e = aVar;
+            this.f14793e = aVar;
             aVar.setPriority(3);
-            this.f15478e.execute(new Object[0]);
+            this.f14793e.execute(new Object[0]);
         }
     }
 }

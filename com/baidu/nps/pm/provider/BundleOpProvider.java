@@ -114,9 +114,9 @@ public class BundleOpProvider extends ContentProvider {
         ArrayList arrayList = new ArrayList();
         arrayList.add(bundleInfo);
         a.d b2 = a.c().b(arrayList);
-        int i2 = b2.f64198a;
+        int i2 = b2.f64885a;
         if (i2 == 0) {
-            for (IBundleInfo iBundleInfo : b2.f64199b) {
+            for (IBundleInfo iBundleInfo : b2.f64886b) {
                 BundleInfo bundleInfo2 = BundleInfo.toBundleInfo(iBundleInfo);
                 bundleInfo2.setType(1);
                 d.a.x.g.a.a.c(getContext()).i(null, BundleInfo.toContentValues(bundleInfo2), null, null);
@@ -124,7 +124,7 @@ public class BundleOpProvider extends ContentProvider {
             i2 = 0;
         }
         bundle.putInt(Constant.TAG.RET_CODE, i2);
-        IBundleInfo iBundleInfo2 = b2.f64199b.isEmpty() ? null : b2.f64199b.get(0);
+        IBundleInfo iBundleInfo2 = b2.f64886b.isEmpty() ? null : b2.f64886b.get(0);
         if (iBundleInfo2 != null) {
             bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(iBundleInfo2));
         }
@@ -587,9 +587,9 @@ public class BundleOpProvider extends ContentProvider {
         ArrayList arrayList = new ArrayList();
         ArrayList<IBundleInfo> arrayList2 = new ArrayList();
         a.d b2 = a.c().b(arrayList);
-        int i2 = b2.f64198a;
+        int i2 = b2.f64885a;
         if (i2 == 0) {
-            for (IBundleInfo iBundleInfo : b2.f64199b) {
+            for (IBundleInfo iBundleInfo : b2.f64886b) {
                 BundleInfo bundleInfo = BundleInfo.toBundleInfo(iBundleInfo);
                 bundleInfo.setType(1);
                 d.a.x.g.a.a.c(getContext()).i(null, BundleInfo.toContentValues(bundleInfo), null, null);

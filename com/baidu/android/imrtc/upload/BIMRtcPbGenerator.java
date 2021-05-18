@@ -7,7 +7,6 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.android.imrtc.utils.LogUtils;
-import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.upload.action.track.Request;
@@ -101,7 +100,7 @@ public final class BIMRtcPbGenerator {
             if (actionList.size() <= 0) {
                 return null;
             }
-            return IMPushPb.PushImClient.newBuilder().setCommon(getIMCommon(context)).setSdkName(SDK_NAME).setSdkVersion(RtcConstants.RTC_VERSION).addAllActions(actionList).build().toByteArray();
+            return IMPushPb.PushImClient.newBuilder().setCommon(getIMCommon(context)).setSdkName(SDK_NAME).setSdkVersion(103010L).addAllActions(actionList).build().toByteArray();
         } catch (Exception unused) {
             return null;
         }

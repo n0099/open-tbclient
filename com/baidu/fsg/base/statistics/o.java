@@ -12,17 +12,17 @@ import java.util.List;
 public class o extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5506a;
+    public String f5360a;
 
     public o(Context context, String str) {
         super(context);
-        this.f5506a = str;
+        this.f5360a = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        String encodeToString = Base64.encodeToString(this.f5506a.getBytes(), 2);
+        String encodeToString = Base64.encodeToString(this.f5360a.getBytes(), 2);
         arrayList.add(new RestNameValuePair("datetime", System.currentTimeMillis() + ""));
         arrayList.add(new RestNameValuePair(TbConfig.TMP_LOG_DIR_NAME, encodeToString));
         return arrayList;

@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.model.SystemHelpSettingModel;
-import d.a.i0.r.s.a;
-import d.a.j0.v2.c.h;
+import d.a.j0.r.s.a;
+import d.a.k0.v2.c.h;
 /* loaded from: classes5.dex */
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.b {
-    public d.a.i0.r.s.a mBdAlertDialog;
+    public d.a.j0.r.s.a mBdAlertDialog;
     public h mView = null;
     public SystemHelpSettingModel mModel = null;
 
@@ -65,8 +65,8 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public c() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -76,8 +76,8 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public d() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             SystemHelpSettingActivity systemHelpSettingActivity = SystemHelpSettingActivity.this;
             systemHelpSettingActivity.showLoadingDialog(systemHelpSettingActivity.getPageContext().getString(R.string.deleting));
             SystemHelpSettingActivity.this.mModel.w();
@@ -90,8 +90,8 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public e() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -101,8 +101,8 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public f() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             aVar.dismiss();
             SystemHelpSettingActivity systemHelpSettingActivity = SystemHelpSettingActivity.this;
             systemHelpSettingActivity.showLoadingDialog(systemHelpSettingActivity.getPageContext().getString(R.string.deleting));
@@ -131,9 +131,9 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
             }
         } else if (view == this.mView.k()) {
             if (BdSwitchView.SwitchState.ON == switchState) {
-                d.a.i0.r.d0.b.j().t("prefs_save_paled_video", true);
+                d.a.j0.r.d0.b.j().t("prefs_save_paled_video", true);
             } else {
-                d.a.i0.r.d0.b.j().t("prefs_save_paled_video", false);
+                d.a.j0.r.d0.b.j().t("prefs_save_paled_video", false);
             }
         }
     }
@@ -156,14 +156,14 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                 if (TextUtils.isEmpty(this.mView.e().getTip())) {
                     showToast(R.string.no_cache_delete);
                 } else {
-                    this.mBdAlertDialog = new d.a.i0.r.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_all_cache).setPositiveButton(R.string.alert_yes_button, new d()).setNegativeButton(R.string.cancel, new c()).create(getPageContext()).show();
+                    this.mBdAlertDialog = new d.a.j0.r.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_all_cache).setPositiveButton(R.string.alert_yes_button, new d()).setNegativeButton(R.string.cancel, new c()).create(getPageContext()).show();
                 }
             }
         } else if (view == this.mView.f()) {
             if (this.mModel == null) {
                 return;
             }
-            this.mBdAlertDialog = new d.a.i0.r.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_cache).setPositiveButton(R.string.alert_yes_button, new f()).setNegativeButton(R.string.cancel, new e()).create(getPageContext()).show();
+            this.mBdAlertDialog = new d.a.j0.r.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_cache).setPositiveButton(R.string.alert_yes_button, new f()).setNegativeButton(R.string.cancel, new e()).create(getPageContext()).show();
         } else if (view == this.mView.j()) {
             sendMessage(new CustomMessage(2002001, new PluginCenterActivityConfig(getPageContext().getPageActivity())));
         } else if (view == this.mView.g() && TbadkCoreApplication.getInst().isMainProcess(false)) {
@@ -181,7 +181,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         } else {
             this.mView.h().f();
         }
-        if (d.a.i0.r.d0.b.j().g("prefs_save_paled_video", true)) {
+        if (d.a.j0.r.d0.b.j().g("prefs_save_paled_video", true)) {
             this.mView.k().i();
         } else {
             this.mView.k().f();
@@ -194,7 +194,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        d.a.i0.r.s.a aVar = this.mBdAlertDialog;
+        d.a.j0.r.s.a aVar = this.mBdAlertDialog;
         if (aVar != null && aVar.isShowing()) {
             this.mBdAlertDialog.dismiss();
         }

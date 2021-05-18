@@ -9,13 +9,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NewFaceSyncDownloadModel extends FaceBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f19346e = new a(this, CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
+    public final HttpMessageListener f18634e = new a(this, CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public a(NewFaceSyncDownloadModel newFaceSyncDownloadModel, int i2) {
             super(i2);
@@ -26,9 +26,9 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Object extra;
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003351 && (httpResponsedMessage instanceof GetCloudFaceGroupMessage)) {
-                d.a.j0.y1.e.a aVar = null;
-                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof d.a.j0.y1.e.a)) {
-                    aVar = (d.a.j0.y1.e.a) extra;
+                d.a.k0.y1.e.a aVar = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof d.a.k0.y1.e.a)) {
+                    aVar = (d.a.k0.y1.e.a) extra;
                 }
                 if (aVar != null) {
                     aVar.a((GetCloudFaceGroupMessage) httpResponsedMessage);
@@ -40,9 +40,9 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
     public NewFaceSyncDownloadModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f19346e.setTag(getUniqueId());
-        this.f19346e.setSelfListener(true);
-        registerListener(this.f19346e);
+        this.f18634e.setTag(getUniqueId());
+        this.f18634e.setSelfListener(true);
+        registerListener(this.f18634e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -62,7 +62,7 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void s(d.a.j0.y1.e.a aVar) {
+    public void s(d.a.k0.y1.e.a aVar) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
         httpMessage.setExtra(aVar);
         sendMessage(httpMessage);

@@ -1,65 +1,86 @@
 package d.a.i0.n;
 
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import d.a.i0.n.h.f;
+import d.a.i0.n.i.a;
+import d.a.i0.n.i.g;
+import d.a.i0.n.j.i.j;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a {
+public interface a {
+    void A(d.a.i0.n.j.h.a aVar);
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f48710a = 300;
+    String B();
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f48711b = 5000;
+    int C(String str, int i2);
 
-    /* renamed from: c  reason: collision with root package name */
-    public int f48712c = 10000;
+    void D(j jVar);
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f48713d = 1500;
+    String E();
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f48714e = 3000;
+    String F(int i2);
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f48715f = 6000;
+    void G(String str, String str2, String str3, int i2, JSONObject jSONObject, boolean z);
 
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f48716g = true;
+    g H();
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            int optInt = jSONObject.optInt("wifiSlow", -1);
-            if (optInt > 0) {
-                this.f48710a = optInt;
-            }
-            int optInt2 = jSONObject.optInt("threeGSlow", -1);
-            if (optInt2 > 0) {
-                this.f48711b = optInt2;
-            }
-            int optInt3 = jSONObject.optInt("twoGSlow", -1);
-            if (optInt3 > 0) {
-                this.f48712c = optInt3;
-            }
-            int optInt4 = jSONObject.optInt("wifiLog", -1);
-            if (optInt4 > 0) {
-                this.f48713d = optInt4;
-            }
-            int optInt5 = jSONObject.optInt("threeGLog", -1);
-            if (optInt5 > 0) {
-                this.f48714e = optInt5;
-            }
-            int optInt6 = jSONObject.optInt("twoGLog", -1);
-            if (optInt6 > 0) {
-                this.f48715f = optInt6;
-            }
-            boolean z = true;
-            if (jSONObject.optInt("mobile_cdn_switch", 1) != 1) {
-                z = false;
-            }
-            this.f48716g = z;
-        } catch (Exception unused) {
-        }
-    }
+    boolean I(String str, boolean z);
+
+    float a();
+
+    String b();
+
+    String c();
+
+    void d(byte[] bArr);
+
+    String e();
+
+    boolean f();
+
+    CookieManager g();
+
+    String h();
+
+    String i();
+
+    boolean isDebug();
+
+    d.a.i0.t.b j();
+
+    long k(int i2);
+
+    void l(JSONArray jSONArray, String str, String str2);
+
+    void m(String str, String str2, a.c cVar);
+
+    g n();
+
+    boolean o(boolean z, @NonNull JSONArray jSONArray);
+
+    void p(String str, JSONObject jSONObject, f fVar, List<d.a.i0.n.h.g> list);
+
+    String q();
+
+    void r(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
+
+    void s(d.a.i0.n.j.k.a aVar, d.a.i0.n.o.f fVar);
+
+    String t();
+
+    String u(int i2);
+
+    String v();
+
+    long w(int i2);
+
+    void x(String str, String str2);
+
+    d.a.i0.n.i.j.b y();
+
+    void z();
 }

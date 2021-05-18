@@ -7,7 +7,7 @@ import d.b.c.b.b.h;
 import d.b.c.b.d.g;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static void a(Context context, String str, long j) {
         h hVar = new h(1, aj.b("https://i.snssdk.com/api/ad/union/sdk/stats/"), a(str, j), null);

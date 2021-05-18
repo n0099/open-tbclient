@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import d.o.a.d.f.n;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static double a(int i2) {
         return d.o.a.e.b.j.a.d(i2).a("clean_min_install_size", 0.0d);

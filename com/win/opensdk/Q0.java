@@ -8,41 +8,41 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Q0 {
 
     /* renamed from: a */
-    public static String f37743a = "https://pp.xdplt.com/";
+    public static String f36988a = "https://pp.xdplt.com/";
 
     /* renamed from: b */
-    public static final String f37744b = f37743a + "behavior?";
+    public static final String f36989b = f36988a + "behavior?";
 
     /* renamed from: c */
-    public static final String f37745c = f37743a + "report?";
+    public static final String f36990c = f36988a + "report?";
 
     /* renamed from: d */
-    public static String f37746d = "https://cd.xdplt.com/";
+    public static String f36991d = "https://cd.xdplt.com/";
 
     /* renamed from: e */
-    public static String f37747e = "jy/da?";
+    public static String f36992e = "jy/da?";
 
     /* renamed from: f */
-    public static String f37748f = "?";
+    public static String f36993f = "?";
 
     /* renamed from: g */
-    public static String f37749g = "jy/da?";
+    public static String f36994g = "jy/da?";
 
     /* renamed from: h */
-    public static String f37750h = "jy/da?";
+    public static String f36995h = "jy/da?";
 
     /* renamed from: i */
-    public static String f37751i = "jy/da?";
+    public static String f36996i = "jy/da?";
 
     public static /* synthetic */ void a(P0 p0) {
         String str;
         if (p0 != null) {
-            str = p0.f37719c;
-            if (TextUtils.isEmpty(str) || p0.f37717a == null || TextUtils.isEmpty(p0.f37718b)) {
+            str = p0.f36964c;
+            if (TextUtils.isEmpty(str) || p0.f36962a == null || TextUtils.isEmpty(p0.f36963b)) {
                 return;
             }
             u1.a(new O0(p0));
@@ -54,8 +54,8 @@ public class Q0 {
             try {
                 if (jSONObject.length() != 0) {
                     w wVar = new w();
-                    wVar.f37982c = jSONObject.optString("traceid", "");
-                    wVar.f37981b = jSONObject.optString("pid", "");
+                    wVar.f37227c = jSONObject.optString("traceid", "");
+                    wVar.f37226b = jSONObject.optString("pid", "");
                     jSONObject.optString("bt", "");
                     JSONArray optJSONArray = jSONObject.optJSONArray("list");
                     ArrayList arrayList = new ArrayList();
@@ -64,7 +64,7 @@ public class Q0 {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                             if (optJSONObject != null && optJSONObject.length() > 0) {
                                 Info info = new Info();
-                                info.setTraceid(wVar.f37982c);
+                                info.setTraceid(wVar.f37227c);
                                 info.setPid(wVar.a());
                                 info.setId(optJSONObject.optString("id", ""));
                                 info.setLoad(optJSONObject.optString("load", ""));
@@ -120,7 +120,7 @@ public class Q0 {
                             }
                         }
                     }
-                    wVar.f37980a = arrayList;
+                    wVar.f37225a = arrayList;
                     return wVar;
                 }
             } catch (Exception unused) {
@@ -130,8 +130,8 @@ public class Q0 {
     }
 
     public static /* synthetic */ void a(P0 p0, HashMap hashMap) {
-        if (p0.f37718b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
-            hashMap.put("lo_timeout", String.valueOf(s1.d(p0.f37717a)));
+        if (p0.f36963b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
+            hashMap.put("lo_timeout", String.valueOf(s1.d(p0.f36962a)));
         }
     }
 }

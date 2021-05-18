@@ -35,8 +35,7 @@ public final class BdSailorSettings implements INoProGuard {
             e2.printStackTrace();
             return false;
         } catch (Throwable th) {
-            String str2 = Log.LOG_TAG;
-            Log.e(str2, "getStaticWebSeting error:" + th);
+            Log.e(Log.LOG_TAG, "getStaticWebSeting error:".concat(String.valueOf(th)));
             return false;
         }
     }
@@ -44,13 +43,12 @@ public final class BdSailorSettings implements INoProGuard {
     private void setStaticWebSeting(String str, boolean z) {
         try {
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().setStaticWebSeting(str, new Boolean(z));
+                WebViewFactory.getProvider().setStaticWebSeting(str, Boolean.valueOf(z));
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
         } catch (Throwable th) {
-            String str2 = Log.LOG_TAG;
-            Log.e(str2, "setDefaultEnableJsPromptSailor error:" + th);
+            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
         }
     }
 
@@ -61,8 +59,7 @@ public final class BdSailorSettings implements INoProGuard {
             e2.printStackTrace();
             return "";
         } catch (Throwable th) {
-            String str = Log.LOG_TAG;
-            Log.e(str, "getStaticWebSeting error:" + th);
+            Log.e(Log.LOG_TAG, "getStaticWebSeting error:".concat(String.valueOf(th)));
             return "";
         }
     }
@@ -201,8 +198,7 @@ public final class BdSailorSettings implements INoProGuard {
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
         } catch (Throwable th) {
-            String str = Log.LOG_TAG;
-            Log.e(str, "setDefaultEnableJsPromptSailor error:" + th);
+            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
         }
     }
 

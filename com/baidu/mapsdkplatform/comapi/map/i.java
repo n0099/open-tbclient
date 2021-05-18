@@ -18,10 +18,10 @@ import java.util.Arrays;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f7943a;
+    public static int f7740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f7944b = BMapManager.getContext();
+    public static Context f7741b = BMapManager.getContext();
 
     static {
         if (!com.baidu.mapapi.VersionInfo.getApiVersion().equals(VersionInfo.getApiVersion())) {
@@ -36,29 +36,19 @@ public class i {
     }
 
     public static void a() {
-        if (f7943a == 0) {
-            if (f7944b == null) {
-                throw new IllegalStateException("you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
+        if (f7740a == 0) {
+            if (f7741b == null) {
+                throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
             }
             VMsg.init();
-            AppEngine.InitEngine(f7944b);
+            AppEngine.InitEngine(f7741b);
             AppEngine.StartSocketProc();
-            NetworkUtil.updateNetworkProxy(f7944b);
+            NetworkUtil.updateNetworkProxy(f7741b);
         }
-        f7943a++;
+        f7740a++;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x00e5 A[Catch: Exception -> 0x015e, TryCatch #0 {Exception -> 0x015e, blocks: (B:10:0x006a, B:12:0x009f, B:14:0x00b6, B:16:0x00d6, B:21:0x00e5, B:23:0x00eb, B:24:0x00ee, B:26:0x011c, B:27:0x011f, B:29:0x013f), top: B:43:0x006a }] */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0145 A[LOOP:0: B:31:0x0143->B:32:0x0145, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0151 A[LOOP:1: B:34:0x0151->B:35:0x0153, LOOP_START, PHI: r9 
-      PHI: (r9v3 int) = (r9v2 int), (r9v4 int) binds: [B:33:0x014f, B:35:0x0153] A[DONT_GENERATE, DONT_INLINE]] */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x015d A[ORIG_RETURN, RETURN] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static void a(Context context) {
-        boolean z;
-        int i2;
         if (context == null) {
             return;
         }
@@ -68,13 +58,12 @@ public class i {
                 file.mkdirs();
             }
             context.getAssets();
-            String[] strArr = {"cfg/a/mode_1/map.sdkrs", "cfg/a/mode_1/reduct.sdkrs", "cfg/a/mode_1/traffic.sdkrs", "cfg/a/mode_1/map.sty", "cfg/a/mode_1/reduct.sty", "cfg/a/mode_1/traffic.sty", "cfg/idrres/ResPackIndoorMap.sdkrs", "cfg/idrres/DVIndoor.cfg", "cfg/idrres/baseindoormap.sty", "cfg/a/DVDirectory.cfg", "cfg/a/DVHotcity.cfg", "cfg/a/DVHotMap.cfg", "cfg/a/DVSDirectory.cfg", "cfg/a/DVVersion.cfg", "cfg/a/CustomIndex"};
-            String[] strArr2 = {"cfg/a/CustomIndex"};
-            String[] strArr3 = {"cfg/a/mode_1/map.rs", "cfg/a/mode_1/reduct.rs", "cfg/a/mode_1/traffic.rs", "cfg/a/mode_1/map.sty", "cfg/a/mode_1/reduct.sty", "cfg/a/mode_1/traffic.sty", "cfg/idrres/ResPackIndoorMap.rs", "cfg/idrres/DVIndoor.cfg", "cfg/idrres/baseindoormap.sty", "cfg/a/DVDirectory.cfg", "cfg/a/DVHotcity.cfg", "cfg/a/DVHotMap.cfg", "cfg/a/DVSDirectory.cfg", "cfg/a/DVVersion.cfg", "cfg/a/CustomIndex"};
-            String[] strArr4 = {"cfg/a/CustomIndex"};
+            String[] strArr = {"cfg/a/mode_1/map.sdkrs", "cfg/a/mode_1/reduct.sdkrs", "cfg/a/mode_1/traffic.sdkrs", "cfg/a/mode_1/map.sty", "cfg/a/mode_1/reduct.sty", "cfg/a/mode_1/traffic.sty", "cfg/idrres/ResPackIndoorMap.sdkrs", "cfg/idrres/DVIndoor.cfg", "cfg/idrres/baseindoormap.sty", "cfg/a/DVDirectory.cfg", "cfg/a/DVHotcity.cfg", "cfg/a/DVHotMap.cfg", "cfg/a/DVSDirectory.cfg", "cfg/a/DVVersion.cfg"};
+            String[] strArr2 = {"cfg/a/mode_1/map.rs", "cfg/a/mode_1/reduct.rs", "cfg/a/mode_1/traffic.rs", "cfg/a/mode_1/map.sty", "cfg/a/mode_1/reduct.sty", "cfg/a/mode_1/traffic.sty", "cfg/idrres/ResPackIndoorMap.rs", "cfg/idrres/DVIndoor.cfg", "cfg/idrres/baseindoormap.sty", "cfg/a/DVDirectory.cfg", "cfg/a/DVHotcity.cfg", "cfg/a/DVHotMap.cfg", "cfg/a/DVSDirectory.cfg", "cfg/a/DVVersion.cfg"};
             try {
                 File file2 = new File(SysOSUtil.getModuleFileName() + "/ver.dat");
-                byte[] bArr = {5, 2, 1, 0, 0, 0};
+                boolean z = true;
+                byte[] bArr = {5, 4, 4, 0, 0, 0};
                 if (file2.exists()) {
                     FileInputStream fileInputStream = new FileInputStream(file2);
                     byte[] bArr2 = new byte[fileInputStream.available()];
@@ -84,42 +73,30 @@ public class i {
                         File file3 = new File(SysOSUtil.getModuleFileName() + "/cfg/a/mode_1/map.sty");
                         if (file3.exists() && file3.length() > 0) {
                             z = false;
-                            if (z) {
-                                if (file2.exists()) {
-                                    file2.delete();
-                                }
-                                file2.createNewFile();
-                                FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                                fileOutputStream.write(bArr);
-                                fileOutputStream.close();
-                                File file4 = new File(SysOSUtil.getModuleFileName() + "/cfg/a/mode_1");
-                                if (!file4.exists()) {
-                                    file4.mkdirs();
-                                }
-                                File file5 = new File(SysOSUtil.getModuleFileName() + "/cfg/idrres");
-                                if (!file5.exists()) {
-                                    file5.mkdirs();
-                                }
-                            }
-                            for (i2 = 0; i2 < 1; i2++) {
-                                com.baidu.mapsdkplatform.comapi.commonutils.a.a(strArr2[i2], strArr4[i2], context);
-                            }
-                            if (z) {
-                                return;
-                            }
-                            for (int i3 = 0; i3 < 15; i3++) {
-                                com.baidu.mapsdkplatform.comapi.commonutils.a.a(strArr[i3], strArr3[i3], context);
-                            }
-                            return;
                         }
                     }
                 }
-                z = true;
                 if (z) {
-                }
-                while (i2 < 1) {
+                    if (file2.exists()) {
+                        file2.delete();
+                    }
+                    file2.createNewFile();
+                    FileOutputStream fileOutputStream = new FileOutputStream(file2);
+                    fileOutputStream.write(bArr);
+                    fileOutputStream.close();
+                    File file4 = new File(SysOSUtil.getModuleFileName() + "/cfg/a/mode_1");
+                    if (!file4.exists()) {
+                        file4.mkdirs();
+                    }
+                    File file5 = new File(SysOSUtil.getModuleFileName() + "/cfg/idrres");
+                    if (!file5.exists()) {
+                        file5.mkdirs();
+                    }
                 }
                 if (z) {
+                    for (int i2 = 0; i2 < 14; i2++) {
+                        com.baidu.mapsdkplatform.comapi.commonutils.a.a(strArr[i2], strArr2[i2], context);
+                    }
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -130,12 +107,12 @@ public class i {
     }
 
     public static void a(boolean z) {
-        e.l(z);
+        e.m(z);
     }
 
     public static void b() {
-        int i2 = f7943a - 1;
-        f7943a = i2;
+        int i2 = f7740a - 1;
+        f7740a = i2;
         if (i2 == 0) {
             AppEngine.UnInitEngine();
             VMsg.destroy();

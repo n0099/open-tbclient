@@ -15,13 +15,13 @@ import java.util.concurrent.ScheduledExecutorService;
 public class f extends c<PushSwitchStatus> {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f35854a;
+    public boolean f35099a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35855b;
+    public String f35100b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35856c;
+    public int f35101c;
     public Map<String, Boolean> m;
 
     public f(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
@@ -35,90 +35,90 @@ public class f extends c<PushSwitchStatus> {
 
     public f(Context context, String str, String str2, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         super(context, str, str2, aVar, scheduledExecutorService);
-        this.f35856c = 0;
+        this.f35101c = 0;
         this.m = new HashMap();
     }
 
     public f(Context context, String str, String str2, String str3, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, str, str2, aVar, scheduledExecutorService);
-        this.f35855b = str3;
+        this.f35100b = str3;
     }
 
     private void c(boolean z) {
-        com.meizu.cloud.pushsdk.util.b.a(this.f35842e, !TextUtils.isEmpty(this.f35845h) ? this.f35845h : this.f35842e.getPackageName(), z);
+        com.meizu.cloud.pushsdk.util.b.a(this.f35087e, !TextUtils.isEmpty(this.f35090h) ? this.f35090h : this.f35087e.getPackageName(), z);
     }
 
     private void d(boolean z) {
-        com.meizu.cloud.pushsdk.util.b.b(this.f35842e, !TextUtils.isEmpty(this.f35845h) ? this.f35845h : this.f35842e.getPackageName(), z);
+        com.meizu.cloud.pushsdk.util.b.b(this.f35087e, !TextUtils.isEmpty(this.f35090h) ? this.f35090h : this.f35087e.getPackageName(), z);
     }
 
     private void e(boolean z) {
-        com.meizu.cloud.pushsdk.util.b.a(this.f35842e, !TextUtils.isEmpty(this.f35845h) ? this.f35845h : this.f35842e.getPackageName(), z);
-        com.meizu.cloud.pushsdk.util.b.b(this.f35842e, !TextUtils.isEmpty(this.f35845h) ? this.f35845h : this.f35842e.getPackageName(), z);
+        com.meizu.cloud.pushsdk.util.b.a(this.f35087e, !TextUtils.isEmpty(this.f35090h) ? this.f35090h : this.f35087e.getPackageName(), z);
+        com.meizu.cloud.pushsdk.util.b.b(this.f35087e, !TextUtils.isEmpty(this.f35090h) ? this.f35090h : this.f35087e.getPackageName(), z);
     }
 
     private void f(boolean z) {
         Map<String, Boolean> map = this.m;
-        map.put(this.f35845h + "_" + this.f35856c, Boolean.valueOf(z));
+        map.put(this.f35090h + "_" + this.f35101c, Boolean.valueOf(z));
     }
 
     private boolean p() {
-        return com.meizu.cloud.pushsdk.util.b.e(this.f35842e, !TextUtils.isEmpty(this.f35845h) ? this.f35845h : this.f35842e.getPackageName());
+        return com.meizu.cloud.pushsdk.util.b.e(this.f35087e, !TextUtils.isEmpty(this.f35090h) ? this.f35090h : this.f35087e.getPackageName());
     }
 
     private boolean q() {
-        return com.meizu.cloud.pushsdk.util.b.f(this.f35842e, !TextUtils.isEmpty(this.f35845h) ? this.f35845h : this.f35842e.getPackageName());
+        return com.meizu.cloud.pushsdk.util.b.f(this.f35087e, !TextUtils.isEmpty(this.f35090h) ? this.f35090h : this.f35087e.getPackageName());
     }
 
     private boolean r() {
-        return com.meizu.cloud.pushsdk.util.b.h(this.f35842e, !TextUtils.isEmpty(this.f35845h) ? this.f35845h : this.f35842e.getPackageName());
+        return com.meizu.cloud.pushsdk.util.b.h(this.f35087e, !TextUtils.isEmpty(this.f35090h) ? this.f35090h : this.f35087e.getPackageName());
     }
 
     private boolean s() {
-        return com.meizu.cloud.pushsdk.util.b.i(this.f35842e, !TextUtils.isEmpty(this.f35845h) ? this.f35845h : this.f35842e.getPackageName());
+        return com.meizu.cloud.pushsdk.util.b.i(this.f35087e, !TextUtils.isEmpty(this.f35090h) ? this.f35090h : this.f35087e.getPackageName());
     }
 
     private boolean t() {
         Map<String, Boolean> map = this.m;
-        Boolean bool = map.get(this.f35845h + "_" + this.f35856c);
+        Boolean bool = map.get(this.f35090h + "_" + this.f35101c);
         boolean booleanValue = bool != null ? bool.booleanValue() : true;
-        d.j.a.a.a.b("Strategy", "isSyncPushStatus " + this.f35845h + " switch type->" + this.f35856c + " flag->" + booleanValue);
+        d.j.a.a.a.b("Strategy", "isSyncPushStatus " + this.f35090h + " switch type->" + this.f35101c + " flag->" + booleanValue);
         return booleanValue;
     }
 
     public void a(int i2) {
-        this.f35856c = i2;
+        this.f35101c = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public void a(PushSwitchStatus pushSwitchStatus) {
-        PlatformMessageSender.a(this.f35842e, !TextUtils.isEmpty(this.f35845h) ? this.f35845h : this.f35842e.getPackageName(), pushSwitchStatus);
+        PlatformMessageSender.a(this.f35087e, !TextUtils.isEmpty(this.f35090h) ? this.f35090h : this.f35087e.getPackageName(), pushSwitchStatus);
     }
 
     public void a(String str) {
-        this.f35855b = str;
+        this.f35100b = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public boolean a() {
-        return (TextUtils.isEmpty(this.f35843f) || TextUtils.isEmpty(this.f35844g) || TextUtils.isEmpty(this.f35855b)) ? false : true;
+        return (TextUtils.isEmpty(this.f35088f) || TextUtils.isEmpty(this.f35089g) || TextUtils.isEmpty(this.f35100b)) ? false : true;
     }
 
     public void b(boolean z) {
-        this.f35854a = z;
+        this.f35099a = z;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public Intent c() {
         Intent intent = new Intent();
-        intent.putExtra(Constants.APP_ID, this.f35843f);
-        intent.putExtra(com.alipay.sdk.cons.b.f1831h, this.f35844g);
-        intent.putExtra("strategy_package_name", this.f35842e.getPackageName());
-        intent.putExtra("push_id", this.f35855b);
+        intent.putExtra(Constants.APP_ID, this.f35088f);
+        intent.putExtra("app_key", this.f35089g);
+        intent.putExtra("strategy_package_name", this.f35087e.getPackageName());
+        intent.putExtra("push_id", this.f35100b);
         intent.putExtra("strategy_type", g());
-        intent.putExtra("strategy_child_type", this.f35856c);
-        intent.putExtra("strategy_params", this.f35854a ? "1" : "0");
+        intent.putExtra("strategy_child_type", this.f35101c);
+        intent.putExtra("strategy_params", this.f35099a ? "1" : "0");
         return intent;
     }
 
@@ -134,10 +134,10 @@ public class f extends c<PushSwitchStatus> {
         String str;
         PushSwitchStatus pushSwitchStatus = new PushSwitchStatus();
         pushSwitchStatus.setCode(LightappConstants.ERRCODE_NOT_ALLOWED_BACKGROUND);
-        if (TextUtils.isEmpty(this.f35843f)) {
+        if (TextUtils.isEmpty(this.f35088f)) {
             str = "appId not empty";
-        } else if (!TextUtils.isEmpty(this.f35844g)) {
-            if (TextUtils.isEmpty(this.f35855b)) {
+        } else if (!TextUtils.isEmpty(this.f35089g)) {
+            if (TextUtils.isEmpty(this.f35100b)) {
                 str = "pushId not empty";
             }
             return pushSwitchStatus;
@@ -163,9 +163,9 @@ public class f extends c<PushSwitchStatus> {
         int i2;
         boolean p;
         PushSwitchStatus pushSwitchStatus = new PushSwitchStatus();
-        pushSwitchStatus.setPushId(this.f35855b);
+        pushSwitchStatus.setPushId(this.f35100b);
         pushSwitchStatus.setCode(BasicPushStatus.SUCCESS_CODE);
-        int i3 = this.f35856c;
+        int i3 = this.f35101c;
         if (i3 != 0) {
             if (i3 != 1) {
                 if (i3 == 2) {
@@ -177,16 +177,16 @@ public class f extends c<PushSwitchStatus> {
                         pushSwitchStatus.setSwitchThroughMessage(r);
                     } else {
                         f(true);
-                        a2 = this.j.c(this.f35843f, this.f35844g, this.f35855b);
+                        a2 = this.j.c(this.f35088f, this.f35089g, this.f35100b);
                     }
                 } else if (i3 == 3) {
                     pushSwitchStatus.setMessage("SWITCH_ALL");
-                    if (p() == this.f35854a && r() == this.f35854a && !t()) {
-                        p = this.f35854a;
+                    if (p() == this.f35099a && r() == this.f35099a && !t()) {
+                        p = this.f35099a;
                     } else {
                         f(true);
-                        e(this.f35854a);
-                        a2 = this.j.a(this.f35843f, this.f35844g, this.f35855b, this.f35854a);
+                        e(this.f35099a);
+                        a2 = this.j.a(this.f35088f, this.f35089g, this.f35100b, this.f35099a);
                     }
                 }
                 if (a2 != null) {
@@ -213,42 +213,42 @@ public class f extends c<PushSwitchStatus> {
                 }
                 d.j.a.a.a.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
                 if (this.l && !this.k) {
-                    i2 = this.f35856c;
+                    i2 = this.f35101c;
                     if (i2 != 0 || i2 == 1) {
-                        PlatformMessageSender.a(this.f35842e, this.f35856c, this.f35854a, this.f35845h);
+                        PlatformMessageSender.a(this.f35087e, this.f35101c, this.f35099a, this.f35090h);
                     } else if (i2 == 3) {
-                        PlatformMessageSender.a(this.f35842e, 0, this.f35854a, this.f35845h);
-                        PlatformMessageSender.a(this.f35842e, 1, this.f35854a, this.f35845h);
+                        PlatformMessageSender.a(this.f35087e, 0, this.f35099a, this.f35090h);
+                        PlatformMessageSender.a(this.f35087e, 1, this.f35099a, this.f35090h);
                     }
                 }
                 return pushSwitchStatus;
             }
             pushSwitchStatus.setMessage("SWITCH_THROUGH_MESSAGE");
-            if (r() != this.f35854a || t()) {
+            if (r() != this.f35099a || t()) {
                 f(true);
-                d(this.f35854a);
-                a2 = this.j.a(this.f35843f, this.f35844g, this.f35855b, this.f35856c, this.f35854a);
+                d(this.f35099a);
+                a2 = this.j.a(this.f35088f, this.f35089g, this.f35100b, this.f35101c, this.f35099a);
                 if (a2 != null) {
                 }
                 d.j.a.a.a.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
                 if (this.l) {
-                    i2 = this.f35856c;
+                    i2 = this.f35101c;
                     if (i2 != 0) {
                     }
-                    PlatformMessageSender.a(this.f35842e, this.f35856c, this.f35854a, this.f35845h);
+                    PlatformMessageSender.a(this.f35087e, this.f35101c, this.f35099a, this.f35090h);
                 }
                 return pushSwitchStatus;
             }
             p = p();
             pushSwitchStatus.setSwitchNotificationMessage(p);
-            r = this.f35854a;
+            r = this.f35099a;
             pushSwitchStatus.setSwitchThroughMessage(r);
         } else {
             pushSwitchStatus.setMessage("SWITCH_NOTIFICATION");
-            if (p() != this.f35854a || t()) {
+            if (p() != this.f35099a || t()) {
                 f(true);
-                c(this.f35854a);
-                a2 = this.j.a(this.f35843f, this.f35844g, this.f35855b, this.f35856c, this.f35854a);
+                c(this.f35099a);
+                a2 = this.j.a(this.f35088f, this.f35089g, this.f35100b, this.f35101c, this.f35099a);
                 if (a2 != null) {
                 }
                 d.j.a.a.a.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
@@ -256,7 +256,7 @@ public class f extends c<PushSwitchStatus> {
                 }
                 return pushSwitchStatus;
             }
-            z = this.f35854a;
+            z = this.f35099a;
             pushSwitchStatus.setSwitchNotificationMessage(z);
             r = r();
             pushSwitchStatus.setSwitchThroughMessage(r);
@@ -274,17 +274,17 @@ public class f extends c<PushSwitchStatus> {
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     /* renamed from: j */
     public PushSwitchStatus f() {
-        int i2 = this.f35856c;
+        int i2 = this.f35101c;
         if (i2 == 0) {
-            c(this.f35854a);
+            c(this.f35099a);
             return null;
         } else if (i2 == 1) {
-            d(this.f35854a);
+            d(this.f35099a);
             return null;
         } else if (i2 != 3) {
             return null;
         } else {
-            e(this.f35854a);
+            e(this.f35099a);
             return null;
         }
     }

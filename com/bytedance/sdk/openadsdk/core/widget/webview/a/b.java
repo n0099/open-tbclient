@@ -16,29 +16,29 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f29556a;
+    public static File f28801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f29557b;
+    public static volatile b f28802b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f29558c = new AtomicBoolean(true);
+    public AtomicBoolean f28803c = new AtomicBoolean(true);
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f29559d = new AtomicBoolean(false);
+    public AtomicBoolean f28804d = new AtomicBoolean(false);
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f29560e = false;
+    public boolean f28805e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f29561f = new AtomicInteger(0);
+    public AtomicInteger f28806f = new AtomicInteger(0);
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicLong f29562g = new AtomicLong();
+    public AtomicLong f28807g = new AtomicLong();
 
     public b() {
         f();
@@ -46,7 +46,7 @@ public class b {
 
     public static File e() {
         File externalCacheDir;
-        if (f29556a == null) {
+        if (f28801a == null) {
             try {
                 if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && p.a().getExternalCacheDir() != null) {
                     externalCacheDir = p.a().getExternalCacheDir();
@@ -55,12 +55,12 @@ public class b {
                 }
                 File file = new File(new File(externalCacheDir, "tt_tmpl_pkg"), "template");
                 file.mkdirs();
-                f29556a = file;
+                f28801a = file;
             } catch (Throwable th) {
                 u.c("TemplateManager", "getTemplateDir error", th);
             }
         }
-        return f29556a;
+        return f28801a;
     }
 
     private void f() {
@@ -68,7 +68,7 @@ public class b {
             @Override // java.lang.Runnable
             public void run() {
                 f.a();
-                b.this.f29558c.set(false);
+                b.this.f28803c.set(false);
                 b.this.g();
                 b.this.d();
             }
@@ -101,14 +101,14 @@ public class b {
                 f.d();
             }
             u.b("TemplateManager", "check template usable4: " + z);
-            this.f29560e = z;
+            this.f28805e = z;
             return;
         }
         u.b("TemplateManager", "check template usable2");
     }
 
     private void h() {
-        if (this.f29561f.getAndSet(0) <= 0 || System.currentTimeMillis() - this.f29562g.get() <= 600000) {
+        if (this.f28806f.getAndSet(0) <= 0 || System.currentTimeMillis() - this.f28807g.get() <= 600000) {
             return;
         }
         d();
@@ -123,18 +123,18 @@ public class b {
     }
 
     public static b a() {
-        if (f29557b == null) {
+        if (f28802b == null) {
             synchronized (b.class) {
-                if (f29557b == null) {
-                    f29557b = new b();
+                if (f28802b == null) {
+                    f28802b = new b();
                 }
             }
         }
-        return f29557b;
+        return f28802b;
     }
 
     public boolean b() {
-        return this.f29560e;
+        return this.f28805e;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:100:0x0194 A[SYNTHETIC] */
@@ -145,25 +145,25 @@ public class b {
     public void a(boolean z) {
         Iterator<s.a> it;
         o oVar;
-        if (this.f29558c.get()) {
+        if (this.f28803c.get()) {
             u.b("TemplateManager", "loadTemplate error1");
             return;
         }
         try {
-            if (this.f29559d.get()) {
+            if (this.f28804d.get()) {
                 if (z) {
-                    this.f29561f.getAndIncrement();
+                    this.f28806f.getAndIncrement();
                 }
                 u.b("TemplateManager", "loadTemplate error2: " + z);
                 return;
             }
-            this.f29559d.set(true);
+            this.f28804d.set(true);
             s a2 = p.f().a();
             s b2 = f.b();
             if (a2 != null && a2.f()) {
                 if (!f.b(a2.b())) {
-                    this.f29559d.set(false);
-                    this.f29562g.set(System.currentTimeMillis());
+                    this.f28804d.set(false);
+                    this.f28807g.set(System.currentTimeMillis());
                     u.b("TemplateManager", "loadTemplate error4");
                     return;
                 }
@@ -240,13 +240,13 @@ public class b {
                             f.c();
                             u.b("TemplateManager", "loadTemplate update success: " + a2.b());
                             g();
-                            this.f29559d.set(false);
-                            this.f29562g.set(System.currentTimeMillis());
+                            this.f28804d.set(false);
+                            this.f28807g.set(System.currentTimeMillis());
                             h();
                             return;
                         }
                     } while (oVar.f());
-                    this.f29559d.set(false);
+                    this.f28804d.set(false);
                     a(arrayList2);
                     u.b("TemplateManager", "loadTemplate error5");
                     return;
@@ -258,12 +258,12 @@ public class b {
                     if (!it.hasNext()) {
                     }
                 } while (oVar.f());
-                this.f29559d.set(false);
+                this.f28804d.set(false);
                 a(arrayList2);
                 u.b("TemplateManager", "loadTemplate error5");
                 return;
             }
-            this.f29559d.set(false);
+            this.f28804d.set(false);
             a(109);
             u.b("TemplateManager", "loadTemplate error3");
         } catch (Throwable th) {

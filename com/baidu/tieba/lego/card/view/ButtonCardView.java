@@ -15,8 +15,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.activity.LegoListFragment;
 import com.baidu.tieba.lego.card.model.ButtonCard;
 import d.a.c.e.p.l;
-import d.a.i0.r.s.a;
-import d.a.j0.s2.w;
+import d.a.j0.r.s.a;
+import d.a.k0.s2.x;
 /* loaded from: classes4.dex */
 public class ButtonCardView extends BaseCardView<ButtonCard> {
     public RelativeLayout r;
@@ -29,16 +29,16 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f18686e;
+        public final /* synthetic */ ButtonCard f18001e;
 
         public a(ButtonCard buttonCard) {
-            this.f18686e = buttonCard;
+            this.f18001e = buttonCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ButtonCardView.this.setDialog(this.f18686e);
-            w.p().m().c(this.f18686e.getsExtras(), ButtonCardView.this.f18681e);
+            ButtonCardView.this.setDialog(this.f18001e);
+            x.p().m().c(this.f18001e.getsExtras(), ButtonCardView.this.f17996e);
         }
     }
 
@@ -46,16 +46,16 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f18688e;
+        public final /* synthetic */ ButtonCard f18003e;
 
         public b(ButtonCard buttonCard) {
-            this.f18688e = buttonCard;
+            this.f18003e = buttonCard;
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
-            UrlManager.getInstance().dealOneLink(ButtonCardView.this.m, new String[]{this.f18688e.getBtnScheme()});
-            w.p().m().e(ButtonCardView.this.f18681e, "yes", this.f18688e.getsExtras());
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
+            UrlManager.getInstance().dealOneLink(ButtonCardView.this.m, new String[]{this.f18003e.getBtnScheme()});
+            x.p().m().e(ButtonCardView.this.f17996e, "yes", this.f18003e.getsExtras());
             aVar.dismiss();
         }
     }
@@ -64,15 +64,15 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f18690e;
+        public final /* synthetic */ ButtonCard f18005e;
 
         public c(ButtonCard buttonCard) {
-            this.f18690e = buttonCard;
+            this.f18005e = buttonCard;
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
-            w.p().m().e(ButtonCardView.this.f18681e, "no", this.f18690e.getsExtras());
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
+            x.p().m().e(ButtonCardView.this.f17996e, "no", this.f18005e.getsExtras());
             aVar.dismiss();
         }
     }
@@ -85,7 +85,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setDialog(ButtonCard buttonCard) {
-        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(this.m.getPageActivity());
+        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(this.m.getPageActivity());
         aVar.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
         aVar.setPositiveButton(R.string.call, new b(buttonCard));
         aVar.setNegativeButton(R.string.cancel, new c(buttonCard));
@@ -94,18 +94,18 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: K */
-    public void x(ButtonCard buttonCard, int i2) {
+    /* renamed from: J */
+    public void w(ButtonCard buttonCard, int i2) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: L */
-    public void y(ButtonCard buttonCard) {
+    /* renamed from: K */
+    public void x(ButtonCard buttonCard) {
         if (buttonCard == null) {
             return;
         }
-        M();
+        L();
         float cardWidth = (float) ((this.v * 1.0d) / buttonCard.getCardWidth());
         ViewGroup.LayoutParams layoutParams = this.r.getLayoutParams();
         layoutParams.width = this.v;
@@ -115,7 +115,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         this.s.setDefaultBgResource(R.color.transparent);
         if (!TextUtils.isEmpty(buttonCard.getPicUrl())) {
             this.s.V(buttonCard.getPicUrl(), 17, false);
-        } else if (!d.a.j0.j1.o.k.b.a(bgColor)) {
+        } else if (!d.a.k0.j1.o.k.b.a(bgColor)) {
             this.s.setBackgroundColor(bgColor);
         } else {
             this.s.setDefaultBgResource(R.color.transparent);
@@ -127,7 +127,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         this.t.setText(buttonCard.getText());
         this.t.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize28));
         int textColor = buttonCard.getTextColor();
-        if (!d.a.j0.j1.o.k.b.a(textColor)) {
+        if (!d.a.k0.j1.o.k.b.a(textColor)) {
             this.t.setTextColor(textColor);
         }
         this.t.setOnClickListener(new a(buttonCard));
@@ -137,14 +137,14 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         if (i2 == 1) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            if (!d.a.j0.j1.o.k.b.a(buttonColor)) {
+            if (!d.a.k0.j1.o.k.b.a(buttonColor)) {
                 gradientDrawable.setStroke(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds3), buttonColor);
             }
             gradientDrawable.setColor(0);
             this.t.setBackgroundDrawable(gradientDrawable);
         } else if (i2 != 2) {
             this.t.setBackgroundColor(0);
-        } else if (!d.a.j0.j1.o.k.b.a(buttonColor)) {
+        } else if (!d.a.k0.j1.o.k.b.a(buttonColor)) {
             this.t.setBackgroundColor(buttonColor);
         } else {
             this.t.setBackgroundColor(0);
@@ -153,10 +153,10 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             return;
         }
         LegoListFragment.V.add(buttonCard.toString());
-        w.p().m().d(buttonCard.getShowExtra(), this.f18681e);
+        x.p().m().d(buttonCard.getShowExtra(), this.f17996e);
     }
 
-    public void M() {
+    public void L() {
         TbImageView tbImageView = this.s;
         if (tbImageView != null) {
             tbImageView.setVisibility(0);
@@ -172,7 +172,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View u() {
+    public View t() {
         RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.m.getPageActivity().getApplicationContext()).inflate(R.layout.card_button, (ViewGroup) null);
         this.r = relativeLayout;
         this.t = (Button) relativeLayout.findViewById(R.id.bt_phone);

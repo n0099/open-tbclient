@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ResourceUtil {
     public static int getColorId(Context context, String str) {
         Resources resources;

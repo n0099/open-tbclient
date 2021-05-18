@@ -3,7 +3,7 @@ package com.bytedance.sdk.a.b;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum ad {
     TLS_1_3("TLSv1.3"),
     TLS_1_2("TLSv1.2"),
@@ -13,10 +13,10 @@ public enum ad {
     
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f27692f;
+    public final String f26937f;
 
     ad(String str) {
-        this.f27692f = str;
+        this.f26937f = str;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */

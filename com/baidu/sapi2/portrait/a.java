@@ -3,24 +3,24 @@ package com.baidu.sapi2.portrait;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10865a = false;
+    public static final boolean f9902a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10866b = "com.baidu.sapi2.portrait";
+    public static final String f9903b = "com.baidu.sapi2.portrait";
     @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f10867c = "com.baidu.sapi2.portrait";
+    public static final String f9904c = "com.baidu.sapi2.portrait";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f10868d = "release";
+    public static final String f9905d = "release";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f10869e = "";
+    public static final String f9906e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f10870f = 1;
+    public static final int f9907f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f10871g = "9.3.1";
+    public static final String f9908g = "9.3.1";
 }

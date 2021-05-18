@@ -14,24 +14,24 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f3442a = false;
+    public static boolean f3443a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile j f3443b;
+    public static volatile j f3444b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f3444c;
+    public static Context f3445c;
 
     public static j a(Context context) {
-        if (f3443b == null) {
+        if (f3444b == null) {
             synchronized (j.class) {
-                if (f3443b == null) {
-                    f3443b = new j();
-                    f3444c = context;
+                if (f3444b == null) {
+                    f3444b = new j();
+                    f3445c = context;
                 }
             }
         }
-        return f3443b;
+        return f3444b;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -50,13 +50,13 @@ public class j {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, com.baidu.android.pushservice.j.i.a(f3444c, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
+            jSONObject2.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, com.baidu.android.pushservice.j.i.a(f3445c, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
             jSONObject2.put("timestamp", (System.currentTimeMillis() / 1000) + "");
-            jSONObject2.put(IAdRequestParam.CELL_ID, com.baidu.android.pushservice.j.i.a(f3444c, IAdRequestParam.CELL_ID));
+            jSONObject2.put(IAdRequestParam.CELL_ID, com.baidu.android.pushservice.j.i.a(f3445c, IAdRequestParam.CELL_ID));
             jSONObject2.put("device_type", "3");
             jSONObject2.put("sdk_int", Build.VERSION.SDK_INT + "");
             jSONObject2.put("push_sdk_version", ((int) a.a()) + "");
-            int i2 = m.o(f3444c) ? 3 : 2;
+            int i2 = m.o(f3445c) ? 3 : 2;
             jSONObject2.put("connect_version", i2 + "");
             jSONObject2.put("bind_name", Build.MODEL);
             if (!TextUtils.isEmpty(str)) {
@@ -64,7 +64,7 @@ public class j {
             }
             jSONObject2.put("os_version", Build.DISPLAY);
             jSONObject2.put("manufacturer", Build.MANUFACTURER);
-            jSONObject2.put("bind_notify_status", com.baidu.android.pushservice.j.h.b(f3444c));
+            jSONObject2.put("bind_notify_status", com.baidu.android.pushservice.j.h.b(f3445c));
             jSONObject2.put("source", 2);
             JSONArray a2 = com.baidu.android.pushservice.j.k.a(jSONObject2.toString(), 3, 2);
             jSONObject.put("info", a2);
@@ -75,21 +75,21 @@ public class j {
     }
 
     public void a(final String str) {
-        final String str2 = h.f3120c + h.f3125h;
+        final String str2 = h.f3121c + h.f3126h;
         final HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
         com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("requestNewBind", (short) 100) { // from class: com.baidu.android.pushservice.j.1
             @Override // com.baidu.android.pushservice.h.c
             public void a() {
                 String b2 = j.this.b(str);
-                com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(j.f3444c, str2, "POST", j.this.c(str), hashMap, "application/json");
+                com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(j.f3445c, str2, "POST", j.this.c(str), hashMap, "application/json");
                 if (a2 != null) {
                     try {
-                        com.baidu.android.pushservice.j.i.a(j.f3444c, IAdRequestParam.CELL_ID, new JSONObject(m.a(j.f3444c, a2.a())).getJSONObject("response_params").getString(IAdRequestParam.CELL_ID));
+                        com.baidu.android.pushservice.j.i.a(j.f3445c, IAdRequestParam.CELL_ID, new JSONObject(m.a(j.f3445c, a2.a())).getJSONObject("response_params").getString(IAdRequestParam.CELL_ID));
                         if (TextUtils.isEmpty(b2)) {
                             return;
                         }
-                        com.baidu.android.pushservice.j.i.a(j.f3444c, "token", b2);
+                        com.baidu.android.pushservice.j.i.a(j.f3445c, "token", b2);
                     } catch (JSONException unused) {
                     }
                 }

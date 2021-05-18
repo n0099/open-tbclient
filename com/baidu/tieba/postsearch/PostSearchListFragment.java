@@ -17,27 +17,27 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.i0.s0.a;
-import d.a.j0.n2.b;
-import d.a.j0.n2.e;
+import d.a.j0.s0.a;
+import d.a.k0.n2.b;
+import d.a.k0.n2.e;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PostSearchListFragment extends BaseFragment implements BdListView.p {
 
     /* renamed from: e  reason: collision with root package name */
-    public PostSearchActivity f20834e;
+    public PostSearchActivity f20122e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f20835f;
+    public View f20123f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdListView f20836g;
+    public BdListView f20124g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f20837h;
+    public e f20125h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PbListView f20838i;
+    public PbListView f20126i;
     public NoDataView j;
     public b k;
     public int l;
@@ -48,86 +48,86 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         this.m = "";
     }
 
-    public void E0() {
+    public void D0() {
         List<b.a> list;
         b bVar = this.k;
-        if (bVar != null && (list = bVar.f56966a) != null) {
+        if (bVar != null && (list = bVar.f57673a) != null) {
             list.clear();
-            this.f20837h.c(this.k.f56966a);
-            this.f20837h.notifyDataSetChanged();
+            this.f20125h.c(this.k.f57673a);
+            this.f20125h.notifyDataSetChanged();
         }
+        E0();
         F0();
-        G0();
     }
 
-    public final void F0() {
-        BdListView bdListView = this.f20836g;
+    public final void E0() {
+        BdListView bdListView = this.f20124g;
         if (bdListView == null) {
             return;
         }
         bdListView.setNextPage(null);
     }
 
-    public final void G0() {
+    public final void F0() {
         NoDataView noDataView = this.j;
         if (noDataView != null) {
             noDataView.setVisibility(8);
         }
     }
 
-    public final void H0() {
-        this.f20836g = (BdListView) this.f20835f.findViewById(R.id.result_list);
+    public final void G0() {
+        this.f20124g = (BdListView) this.f20123f.findViewById(R.id.result_list);
     }
 
-    public void I0(b bVar, boolean z) {
+    public void H0(b bVar, boolean z) {
         b bVar2;
         List<b.a> list;
         List<b.a> list2;
         b bVar3;
         List<b.a> list3;
-        G0();
-        hideLoadingView(this.f20835f);
-        if (bVar == null || (list2 = bVar.f56966a) == null || list2.size() == 0) {
-            if (z && (bVar2 = this.k) != null && (list = bVar2.f56966a) != null && list.size() != 0) {
-                if (this.k.f56967b.b() == 1) {
-                    K0();
+        F0();
+        hideLoadingView(this.f20123f);
+        if (bVar == null || (list2 = bVar.f57673a) == null || list2.size() == 0) {
+            if (z && (bVar2 = this.k) != null && (list = bVar2.f57673a) != null && list.size() != 0) {
+                if (this.k.f57674b.b() == 1) {
+                    J0();
                     return;
                 } else {
-                    M0();
+                    L0();
                     return;
                 }
             }
-            F0();
-            L0();
-            this.f20836g.setVisibility(8);
+            E0();
+            K0();
+            this.f20124g.setVisibility(8);
             this.k = bVar;
             return;
         }
-        if (z && (bVar3 = this.k) != null && (list3 = bVar3.f56966a) != null && list3.size() != 0) {
+        if (z && (bVar3 = this.k) != null && (list3 = bVar3.f57673a) != null && list3.size() != 0) {
             b bVar4 = this.k;
-            bVar4.f56967b = bVar.f56967b;
-            bVar4.f56966a.addAll(bVar.f56966a);
+            bVar4.f57674b = bVar.f57674b;
+            bVar4.f57673a.addAll(bVar.f57673a);
         } else {
             this.k = bVar;
         }
         if (z) {
-            O0();
+            N0();
         }
-        if (this.k.f56967b.b() == 1) {
-            K0();
+        if (this.k.f57674b.b() == 1) {
+            J0();
         } else {
-            M0();
+            L0();
         }
-        this.f20837h.c(this.k.f56966a);
-        this.f20837h.notifyDataSetChanged();
+        this.f20125h.c(this.k.f57673a);
+        this.f20125h.notifyDataSetChanged();
         if (!z) {
-            this.f20836g.setSelection(0);
+            this.f20124g.setSelection(0);
         }
-        this.f20836g.setVisibility(0);
+        this.f20124g.setVisibility(0);
     }
 
-    public void J0(boolean z) {
-        PostSearchActivity postSearchActivity = this.f20834e;
+    public void I0(boolean z) {
+        PostSearchActivity postSearchActivity = this.f20122e;
         if (postSearchActivity == null) {
             return;
         }
@@ -142,72 +142,72 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
             z2 = z3;
         }
         if (z2) {
-            showLoadingView(this.f20835f, false, this.f20834e.getResources().getDimensionPixelSize(R.dimen.ds320));
-            this.f20834e.getModel().l(str, this.l);
+            showLoadingView(this.f20123f, false, this.f20122e.getResources().getDimensionPixelSize(R.dimen.ds320));
+            this.f20122e.getModel().l(str, this.l);
             this.m = str;
         }
     }
 
-    public final void K0() {
-        this.f20836g.setNextPage(this.f20838i);
-        this.f20838i.f();
-        this.f20838i.A(this.f20834e.getResources().getString(R.string.pb_load_more));
+    public final void J0() {
+        this.f20124g.setNextPage(this.f20126i);
+        this.f20126i.f();
+        this.f20126i.A(this.f20122e.getResources().getString(R.string.pb_load_more));
     }
 
-    public final void L0() {
+    public final void K0() {
         if (this.j == null) {
-            NoDataView a2 = NoDataViewFactory.a(this.f20834e.getPageContext().getPageActivity(), this.f20835f, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f20834e.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.text_no_search_result), null);
+            NoDataView a2 = NoDataViewFactory.a(this.f20122e.getPageContext().getPageActivity(), this.f20123f, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f20122e.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.text_no_search_result), null);
             this.j = a2;
-            a2.f(this.f20834e.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            a2.f(this.f20122e.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         this.j.setVisibility(0);
     }
 
+    public final void L0() {
+        this.f20124g.setNextPage(this.f20126i);
+        this.f20126i.f();
+        this.f20126i.A(this.f20122e.getResources().getString(R.string.list_no_more));
+    }
+
     public final void M0() {
-        this.f20836g.setNextPage(this.f20838i);
-        this.f20838i.f();
-        this.f20838i.A(this.f20834e.getResources().getString(R.string.list_no_more));
+        this.f20124g.setNextPage(this.f20126i);
+        this.f20126i.O();
     }
 
     public final void N0() {
-        this.f20836g.setNextPage(this.f20838i);
-        this.f20838i.O();
-    }
-
-    public final void O0() {
-        if (this.f20834e == null) {
+        if (this.f20122e == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c12406").param("fid", this.f20834e.mForumId).param("fname", this.f20834e.mForumName).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tab_id", this.l));
+        TiebaStatic.log(new StatisticItem("c12406").param("fid", this.f20122e.mForumId).param("fname", this.f20122e.mForumName).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tab_id", this.l));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.f20834e = (PostSearchActivity) getBaseFragmentActivity();
-        e eVar = new e(this.f20834e.getPageContext());
-        this.f20837h = eVar;
+        this.f20122e = (PostSearchActivity) getBaseFragmentActivity();
+        e eVar = new e(this.f20122e.getPageContext());
+        this.f20125h = eVar;
         eVar.d(this.l);
-        BdListViewHelper.d(this.f20834e.getActivity(), this.f20836g, BdListViewHelper.HeadType.HASTAB);
-        this.f20836g.setAdapter((ListAdapter) this.f20837h);
-        PbListView pbListView = new PbListView(this.f20834e.getPageContext().getPageActivity());
-        this.f20838i = pbListView;
+        BdListViewHelper.d(this.f20122e.getActivity(), this.f20124g, BdListViewHelper.HeadType.HASTAB);
+        this.f20124g.setAdapter((ListAdapter) this.f20125h);
+        PbListView pbListView = new PbListView(this.f20122e.getPageContext().getPageActivity());
+        this.f20126i = pbListView;
         pbListView.a();
-        this.f20836g.setOnSrollToBottomListener(this);
+        this.f20124g.setOnSrollToBottomListener(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        PostSearchActivity postSearchActivity = this.f20834e;
+        PostSearchActivity postSearchActivity = this.f20122e;
         if (postSearchActivity != null) {
-            a.a(postSearchActivity.getPageContext(), this.f20835f);
+            a.a(postSearchActivity.getPageContext(), this.f20123f);
         }
-        PbListView pbListView = this.f20838i;
+        PbListView pbListView = this.f20126i;
         if (pbListView != null) {
             pbListView.d(i2);
         }
-        e eVar = this.f20837h;
+        e eVar = this.f20125h;
         if (eVar != null) {
             eVar.notifyDataSetChanged();
         }
@@ -215,25 +215,25 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.f20835f = layoutInflater.inflate(R.layout.post_search_list_fragment, (ViewGroup) null);
-        H0();
-        return this.f20835f;
+        this.f20123f = layoutInflater.inflate(R.layout.post_search_list_fragment, (ViewGroup) null);
+        G0();
+        return this.f20123f;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.l == this.f20834e.getPostSearchView().a()) {
-            O0();
-            J0(false);
+        if (this.l == this.f20122e.getPostSearchView().a()) {
+            N0();
+            I0(false);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
         b bVar;
-        if (!StringUtils.isNull(this.m) && (bVar = this.k) != null && bVar.b() && this.f20834e.getModel().l(this.m, this.l)) {
-            N0();
+        if (!StringUtils.isNull(this.m) && (bVar = this.k) != null && bVar.b() && this.f20122e.getModel().l(this.m, this.l)) {
+            M0();
         }
     }
 

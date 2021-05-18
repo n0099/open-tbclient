@@ -33,17 +33,17 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f18721e;
+        public final /* synthetic */ RankDetailTrendCard f18036e;
 
         public a(RankDetailTrendCard rankDetailTrendCard) {
-            this.f18721e = rankDetailTrendCard;
+            this.f18036e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (ViewHelper.checkUpIsLogin(RankDetailTrendCardView.this.getContext())) {
-                d.a.j0.j1.m.b a2 = d.a.j0.j1.m.b.a();
-                RankDetailTrendCard rankDetailTrendCard = this.f18721e;
+                d.a.k0.j1.m.b a2 = d.a.k0.j1.m.b.a();
+                RankDetailTrendCard rankDetailTrendCard = this.f18036e;
                 a2.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
             }
         }
@@ -53,15 +53,15 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f18723e;
+        public final /* synthetic */ RankDetailTrendCard f18038e;
 
         public b(RankDetailTrendCard rankDetailTrendCard) {
-            this.f18723e = rankDetailTrendCard;
+            this.f18038e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            RankDetailTrendCardView.this.q(this.f18723e);
+            RankDetailTrendCardView.this.p(this.f18038e);
         }
     }
 
@@ -75,14 +75,14 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         if (rankDetailTrendCard == null || TextUtils.isEmpty(rankDetailTrendCard.getTrendText())) {
             return;
         }
-        F(this.w, rankDetailTrendCard.getTrendColor(), rankDetailTrendCard.getTrendColorNight(), R.color.CAM_X0308);
+        B(this.w, rankDetailTrendCard.getTrendColor(), rankDetailTrendCard.getTrendColorNight(), R.color.CAM_X0308);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: J */
-    public void x(RankDetailTrendCard rankDetailTrendCard, int i2) {
-        d.a.i0.s0.a.a(this.m, getRootView());
+    /* renamed from: I */
+    public void w(RankDetailTrendCard rankDetailTrendCard, int i2) {
+        d.a.j0.s0.a.a(this.m, getRootView());
         SkinManager.setBackgroundResource(this.r, R.drawable.addresslist_item_bg);
         SkinManager.setViewTextColor(this.t, R.color.CAM_X0108);
         SkinManager.setViewTextColor(this.u, R.color.CAM_X0105);
@@ -91,8 +91,8 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: K */
-    public void y(RankDetailTrendCard rankDetailTrendCard) {
+    /* renamed from: J */
+    public void x(RankDetailTrendCard rankDetailTrendCard) {
         if (rankDetailTrendCard.getRank() == 1) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.y.getLayoutParams();
             layoutParams.topMargin = getResources().getDimensionPixelSize(R.dimen.ds24);
@@ -140,7 +140,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         }
         if (!TextUtils.isEmpty(rankDetailTrendCard.getPostUrl()) && !TextUtils.isEmpty(rankDetailTrendCard.getBtnText()) && !TextUtils.isEmpty(rankDetailTrendCard.getBtnDone())) {
             this.x.setVisibility(0);
-            H(this.x, rankDetailTrendCard.isDone(), rankDetailTrendCard.getBtnText(), rankDetailTrendCard.getBtnDone());
+            G(this.x, rankDetailTrendCard.isDone(), rankDetailTrendCard.getBtnText(), rankDetailTrendCard.getBtnDone());
             this.x.setTag(rankDetailTrendCard.getPostUrl());
             this.x.setOnClickListener(new a(rankDetailTrendCard));
             this.v.setVisibility(8);
@@ -188,7 +188,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View u() {
+    public View t() {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_rank_trend, (ViewGroup) null);
         this.r = linearLayout;
         this.s = (TbImageView) o(linearLayout, R.id.leftIcon);

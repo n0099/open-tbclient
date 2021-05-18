@@ -100,13 +100,13 @@ public final class ImmutableLongArray implements Serializable {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long[] f32202a;
+        public long[] f31447a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f32203b = 0;
+        public int f31448b = 0;
 
         public b(int i2) {
-            this.f32202a = new long[i2];
+            this.f31447a = new long[i2];
         }
 
         public static int f(int i2, int i3) {
@@ -125,10 +125,10 @@ public final class ImmutableLongArray implements Serializable {
 
         public b a(long j) {
             e(1);
-            long[] jArr = this.f32202a;
-            int i2 = this.f32203b;
+            long[] jArr = this.f31447a;
+            int i2 = this.f31448b;
             jArr[i2] = j;
-            this.f32203b = i2 + 1;
+            this.f31448b = i2 + 1;
             return this;
         }
 
@@ -146,25 +146,25 @@ public final class ImmutableLongArray implements Serializable {
         public b c(Collection<Long> collection) {
             e(collection.size());
             for (Long l : collection) {
-                long[] jArr = this.f32202a;
-                int i2 = this.f32203b;
-                this.f32203b = i2 + 1;
+                long[] jArr = this.f31447a;
+                int i2 = this.f31448b;
+                this.f31448b = i2 + 1;
                 jArr[i2] = l.longValue();
             }
             return this;
         }
 
         public ImmutableLongArray d() {
-            return this.f32203b == 0 ? ImmutableLongArray.EMPTY : new ImmutableLongArray(this.f32202a, 0, this.f32203b);
+            return this.f31448b == 0 ? ImmutableLongArray.EMPTY : new ImmutableLongArray(this.f31447a, 0, this.f31448b);
         }
 
         public final void e(int i2) {
-            int i3 = this.f32203b + i2;
-            long[] jArr = this.f32202a;
+            int i3 = this.f31448b + i2;
+            long[] jArr = this.f31447a;
             if (i3 > jArr.length) {
                 long[] jArr2 = new long[f(jArr.length, i3)];
-                System.arraycopy(this.f32202a, 0, jArr2, 0, this.f32203b);
-                this.f32202a = jArr2;
+                System.arraycopy(this.f31447a, 0, jArr2, 0, this.f31448b);
+                this.f31447a = jArr2;
             }
         }
     }

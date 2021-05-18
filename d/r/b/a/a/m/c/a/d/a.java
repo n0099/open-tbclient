@@ -9,111 +9,111 @@ import kotlin.jvm.internal.Intrinsics;
 public final class a extends d.r.b.a.a.m.c.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f67427a;
+    public b f68113a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67428b;
+    public String f68114b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67429c;
+    public String f68115c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67430d;
+    public String f68116d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f67431e;
+    public String f68117e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f67432f;
+    public String f68118f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f67433g;
+    public String f68119g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f67434h;
+    public String f68120h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f67435i;
+    public String f68121i;
     public String j;
 
     /* renamed from: d.r.b.a.a.m.c.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C1840a {
+    public static final class C1904a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final a f67436a = new a(null);
+        public final a f68122a = new a(null);
 
         public final a a() {
-            return this.f67436a;
+            return this.f68122a;
         }
 
-        public final C1840a b(b bVar) {
-            this.f67436a.f67427a = bVar;
+        public final C1904a b(b bVar) {
+            this.f68122a.f68113a = bVar;
             return this;
         }
 
-        public final C1840a c(String str) {
-            this.f67436a.f67434h = str;
+        public final C1904a c(String str) {
+            this.f68122a.f68120h = str;
             return this;
         }
 
-        public final C1840a d(String str) {
-            this.f67436a.f67433g = str;
+        public final C1904a d(String str) {
+            this.f68122a.f68119g = str;
             return this;
         }
 
-        public final C1840a e(String str) {
-            this.f67436a.f67435i = str;
+        public final C1904a e(String str) {
+            this.f68122a.f68121i = str;
             return this;
         }
 
-        public final C1840a f(String str) {
-            this.f67436a.f67428b = str;
+        public final C1904a f(String str) {
+            this.f68122a.f68114b = str;
             return this;
         }
 
-        public final C1840a g(String str) {
-            this.f67436a.f67431e = str;
+        public final C1904a g(String str) {
+            this.f68122a.f68117e = str;
             return this;
         }
 
-        public final C1840a h(String str) {
-            this.f67436a.f67432f = str;
+        public final C1904a h(String str) {
+            this.f68122a.f68118f = str;
             return this;
         }
 
-        public final C1840a i(String str) {
-            this.f67436a.f67430d = str;
+        public final C1904a i(String str) {
+            this.f68122a.f68116d = str;
             return this;
         }
 
-        public final C1840a j(String str) {
-            this.f67436a.f67429c = str;
+        public final C1904a j(String str) {
+            this.f68122a.f68115c = str;
             return this;
         }
     }
 
     public a() {
-        this.f67428b = "";
-        this.f67429c = "";
-        this.f67430d = "";
-        this.f67431e = "";
-        this.f67432f = "";
-        this.f67433g = "";
-        this.f67434h = "";
-        this.f67435i = "";
+        this.f68114b = "";
+        this.f68115c = "";
+        this.f68116d = "";
+        this.f68117e = "";
+        this.f68118f = "";
+        this.f68119g = "";
+        this.f68120h = "";
+        this.f68121i = "";
         this.j = "";
     }
 
     public final String j() {
-        String str = "orderid=" + URLEncoder.encode(this.f67428b, "UTF-8") + "&purchasetime=" + URLEncoder.encode(this.f67429c, "UTF-8") + "&productid=" + URLEncoder.encode(this.f67430d, "UTF-8") + "&payentranceid=" + URLEncoder.encode(this.f67431e, "UTF-8") + "&paytraceid=" + URLEncoder.encode(this.f67432f, "UTF-8") + "&event=" + URLEncoder.encode(this.f67433g, "UTF-8") + "&code=" + this.f67434h + "&msg=" + URLEncoder.encode(this.f67435i, "UTF-8") + "&" + BaiduPay.PAY_FROM + "=" + URLEncoder.encode(this.j, "UTF-8");
+        String str = "orderid=" + URLEncoder.encode(this.f68114b, "UTF-8") + "&purchasetime=" + URLEncoder.encode(this.f68115c, "UTF-8") + "&productid=" + URLEncoder.encode(this.f68116d, "UTF-8") + "&payentranceid=" + URLEncoder.encode(this.f68117e, "UTF-8") + "&paytraceid=" + URLEncoder.encode(this.f68118f, "UTF-8") + "&event=" + URLEncoder.encode(this.f68119g, "UTF-8") + "&code=" + this.f68120h + "&msg=" + URLEncoder.encode(this.f68121i, "UTF-8") + "&" + BaiduPay.PAY_FROM + "=" + URLEncoder.encode(this.j, "UTF-8");
         Intrinsics.checkExpressionValueIsNotNull(str, "contents.toString()");
         return str;
     }
 
     public String k() {
         StringBuilder sb = new StringBuilder();
-        b bVar = this.f67427a;
+        b bVar = this.f68113a;
         sb.append(bVar != null ? bVar.e() : null);
         sb.append("&");
         sb.append(j());

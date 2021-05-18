@@ -9,31 +9,31 @@ import java.util.Iterator;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f63970a;
+    public static final String f64657a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f63971b;
+    public static boolean f64658b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f63972c;
+    public static String f64659c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ArrayList<String> f63973d;
+    public static ArrayList<String> f64660d;
 
     static {
         AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
         if (appInfoService != null) {
             l(appInfoService.isDebug());
         }
-        f63970a = a.class.getName();
-        f63971b = false;
-        f63972c = null;
-        f63973d = new ArrayList<>();
+        f64657a = a.class.getName();
+        f64658b = false;
+        f64659c = null;
+        f64660d = new ArrayList<>();
     }
 
     public static String a(boolean z, String str, String str2, String str3) {
         if (i()) {
-            String str4 = f63972c;
+            String str4 = f64659c;
             if (str4 == null || str3.startsWith(str4)) {
                 if (!z || j(str)) {
                     StringBuffer stringBuffer = new StringBuffer(100);
@@ -54,7 +54,7 @@ public class a {
     public static void b(String str, String str2, String str3) {
         String a2 = a(true, str, str2, str3);
         if (a2 != null) {
-            Log.d(f63970a, a2);
+            Log.d(f64657a, a2);
         }
     }
 
@@ -62,7 +62,7 @@ public class a {
         if (!i() || th == null) {
             return -1;
         }
-        Log.e(f63970a, th.getMessage(), th);
+        Log.e(f64657a, th.getMessage(), th);
         return k(0, th.getMessage());
     }
 
@@ -77,7 +77,7 @@ public class a {
     public static void f(String str, String str2, String str3) {
         String a2 = a(false, str, str2, str3);
         if (a2 != null) {
-            Log.e(f63970a, a2);
+            Log.e(f64657a, a2);
         }
     }
 
@@ -88,20 +88,20 @@ public class a {
     public static void h(String str, String str2, String str3) {
         String a2 = a(true, str, str2, str3);
         if (a2 != null) {
-            Log.i(f63970a, a2);
+            Log.i(f64657a, a2);
         }
     }
 
     public static boolean i() {
-        return f63971b;
+        return f64658b;
     }
 
     public static boolean j(String str) {
         boolean z = false;
-        if (f63973d.size() == 0) {
+        if (f64660d.size() == 0) {
             return false;
         }
-        Iterator<String> it = f63973d.iterator();
+        Iterator<String> it = f64660d.iterator();
         while (it.hasNext()) {
             if (str.startsWith(it.next())) {
                 z = true;
@@ -143,20 +143,20 @@ public class a {
     }
 
     public static void l(boolean z) {
-        f63971b = z;
+        f64658b = z;
     }
 
     public static void m(String str, String str2, String str3) {
         String a2 = a(true, str, str2, str3);
         if (a2 != null) {
-            Log.v(f63970a, a2);
+            Log.v(f64657a, a2);
         }
     }
 
     public static void n(String str, String str2, String str3) {
         String a2 = a(false, str, str2, str3);
         if (a2 != null) {
-            Log.w(f63970a, a2);
+            Log.w(f64657a, a2);
         }
     }
 }

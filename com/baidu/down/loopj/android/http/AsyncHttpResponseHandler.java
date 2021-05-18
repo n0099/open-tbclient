@@ -8,6 +8,7 @@ public class AsyncHttpResponseHandler {
     public static final int FILELENGTH_MESSAGE = 6;
     public static final int FINISH_MESSAGE = 3;
     public static final int PAUSED_MESSAGE = 5;
+    public static final int REDIRECT_MESSAGE = 7;
     public static final int START_MESSAGE = 2;
     public static final int SUCCESS_MESSAGE = 0;
     public boolean mRunning = true;

@@ -7,21 +7,21 @@ import android.net.NetworkInfo;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f39380a;
+    public final int f38625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f39381b;
+    public final int f38626b;
 
     public f(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
         NetworkInfo activeNetworkInfo = connectivityManager == null ? null : connectivityManager.getActiveNetworkInfo();
         int type = activeNetworkInfo == null ? -1 : activeNetworkInfo.getType();
-        this.f39380a = type;
-        this.f39381b = (activeNetworkInfo == null || type != 0) ? 0 : activeNetworkInfo.getSubtype();
+        this.f38625a = type;
+        this.f38626b = (activeNetworkInfo == null || type != 0) ? 0 : activeNetworkInfo.getSubtype();
     }
 
     public boolean a() {
-        return this.f39380a == 0;
+        return this.f38625a == 0;
     }
 
     public boolean b() {
@@ -29,7 +29,7 @@ public class f {
     }
 
     public final int c() {
-        switch (this.f39381b) {
+        switch (this.f38626b) {
             case 1:
             case 2:
             case 4:
@@ -53,7 +53,7 @@ public class f {
     }
 
     public int d() {
-        int i2 = this.f39380a;
+        int i2 = this.f38625a;
         if (i2 != 0) {
             return i2 != 1 ? 0 : 1;
         }

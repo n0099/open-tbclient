@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import d.a.i.u0.a;
+import d.a.i.v0.a;
 /* loaded from: classes.dex */
 public class n extends h {
     public ThreadGodReplyLayout l;
-    public d.a.i0.r.q.a m;
+    public d.a.j0.r.q.a m;
     public StatisticItem n;
 
     /* loaded from: classes.dex */
@@ -34,21 +34,21 @@ public class n extends h {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f47743e;
+        public final /* synthetic */ View.OnClickListener f40367e;
 
         public b(View.OnClickListener onClickListener) {
-            this.f47743e = onClickListener;
+            this.f40367e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(n.this.f47690f);
-            String w1 = n.this.m.m().w1();
-            PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(w1, n.this.m.m().z1().E() + "", 1, "other");
-            createNormalCfg.setStartFrom(n.this.f47689e.i());
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(n.this.f40316f);
+            String x1 = n.this.m.m().x1();
+            PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(x1, n.this.m.m().A1().E() + "", 1, "other");
+            createNormalCfg.setStartFrom(n.this.f40315e.i());
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-            n.this.f47689e.o(new a.C1011a(1));
-            this.f47743e.onClick(view);
+            n.this.f40315e.o(new a.C0549a(1));
+            this.f40367e.onClick(view);
         }
     }
 
@@ -57,9 +57,9 @@ public class n extends h {
         public c() {
         }
 
-        @Override // d.a.i.u0.a.b
-        public boolean a(a.C1011a c1011a) {
-            d.a.j0.x.m.l(n.this.l.getGodReplyContent(), n.this.m.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        @Override // d.a.i.v0.a.b
+        public boolean a(a.C0549a c0549a) {
+            d.a.k0.x.m.l(n.this.l.getGodReplyContent(), n.this.m.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             return false;
         }
     }
@@ -96,12 +96,12 @@ public class n extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: v */
-    public void a(d.a.i0.r.q.a aVar) {
+    public void a(d.a.j0.r.q.a aVar) {
         this.m = aVar;
-        PostData z1 = aVar.m().z1();
-        if (this.n != null && z1 != null && z1.t() != null && z1.t().getUserId() != null) {
-            this.n.param("tid", aVar.m().A).param("post_id", z1.E()).param("uid", z1.t().getUserId());
-            d.a.j0.x.t.b().a(this.n);
+        PostData A1 = aVar.m().A1();
+        if (this.n != null && A1 != null && A1.t() != null && A1.t().getUserId() != null) {
+            this.n.param("tid", aVar.m().A).param("post_id", A1.E()).param("uid", A1.t().getUserId());
+            d.a.k0.x.t.b().a(this.n);
         }
         this.l.setData(aVar.m());
     }

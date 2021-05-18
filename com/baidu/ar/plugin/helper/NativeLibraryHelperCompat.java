@@ -103,7 +103,7 @@ public class NativeLibraryHelperCompat {
         }
     }
 
-    public static final Class handleClass() throws ClassNotFoundException {
+    public static final Class handleClass() {
         return Class.forName("com.android.internal.content.NativeLibraryHelper$Handle");
     }
 
@@ -114,7 +114,7 @@ public class NativeLibraryHelperCompat {
         return false;
     }
 
-    public static final Class nativeLibraryHelperClass() throws ClassNotFoundException {
+    public static final Class nativeLibraryHelperClass() {
         return Class.forName("com.android.internal.content.NativeLibraryHelper");
     }
 }

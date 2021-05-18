@@ -7,14 +7,14 @@ import com.bytedance.sdk.openadsdk.f.a.q;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<x> f29983a;
+    public WeakReference<x> f29228a;
 
     public i(x xVar) {
-        this.f29983a = new WeakReference<>(xVar);
+        this.f29228a = new WeakReference<>(xVar);
     }
 
     public static void a(q qVar, final x xVar) {
@@ -35,7 +35,7 @@ public class i extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject>
             sb.append(jSONObject != null ? jSONObject.toString() : "");
             u.b("ShowAppDetailOrPrivacyDialogMethod", sb.toString());
         }
-        WeakReference<x> weakReference = this.f29983a;
+        WeakReference<x> weakReference = this.f29228a;
         if (weakReference == null) {
             return;
         }

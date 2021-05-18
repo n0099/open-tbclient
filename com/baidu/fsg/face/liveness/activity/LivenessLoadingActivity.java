@@ -31,28 +31,28 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     public static final String TAG = "LivenessLoadingActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    public LoadingDialog f5873a;
+    public LoadingDialog f5727a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f5874b;
+    public i f5728b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f5875c;
+    public g f5729c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LivenessRecogDTO f5876d;
+    public LivenessRecogDTO f5730d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f5877e;
+    public boolean f5731e;
 
     private void a() {
         i iVar = new i(this);
-        this.f5874b = iVar;
+        this.f5728b = iVar;
         iVar.setResponseCallback(this);
         g gVar = new g(this);
-        this.f5875c = gVar;
+        this.f5729c = gVar;
         gVar.setResponseCallback(this);
-        this.f5876d = (LivenessRecogDTO) c.a().a("request_data");
+        this.f5730d = (LivenessRecogDTO) c.a().a("request_data");
     }
 
     private void b() {
@@ -61,8 +61,8 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     }
 
     private void c() {
-        if (isUseable(this) && this.f5873a.isShowing()) {
-            this.f5873a.dismiss();
+        if (isUseable(this) && this.f5727a.isShowing()) {
+            this.f5727a.dismiss();
             finish();
         }
     }
@@ -72,7 +72,7 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
         if (i2 == 1) {
             c();
             LivenessRecogDTO livenessRecogDTO = this.livenessRecogDTO;
-            RimStatisticsUtil.onEventEndWithValue(d.f6176b, i3, livenessRecogDTO != null ? livenessRecogDTO.getSpno() : "");
+            RimStatisticsUtil.onEventEndWithValue(d.f6030b, i3, livenessRecogDTO != null ? livenessRecogDTO.getSpno() : "");
             LogUtil.d("hello", "onEventStart(StatServiceEvent.QUERYVIDEO):  查询视频状态结束  " + i3);
             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
             livenessRecogResult.setResultCode(i3);
@@ -87,7 +87,7 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.livenessRecogDTO.getSpno() + "");
                 arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-                RimStatisticsUtil.onEventEndWithValues(d.f6179e, i3, arrayList);
+                RimStatisticsUtil.onEventEndWithValues(d.f6033e, i3, arrayList);
                 LogUtil.d("hello", "onEventStart(StatServiceEvent.GETPORTRAIT):  获取公安网小图结束  " + i3 + str);
             }
             c();
@@ -119,10 +119,10 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.livenessRecogDTO.getSpno() + "");
                 arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-                RimStatisticsUtil.onEventEndWithValues(d.f6179e, 0, arrayList);
+                RimStatisticsUtil.onEventEndWithValues(d.f6033e, 0, arrayList);
                 LogUtil.d("hello", "onEventStart(StatServiceEvent.GETPORTRAIT):  获取公安网小图结束  0");
             }
-            LivenessRecogDTO livenessRecogDTO = this.f5876d;
+            LivenessRecogDTO livenessRecogDTO = this.f5730d;
             if (livenessRecogDTO.showGuidePage) {
                 if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS && !TextUtils.isEmpty(str)) {
                     try {
@@ -144,7 +144,7 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
             return;
         }
         LivenessRecogDTO livenessRecogDTO2 = this.livenessRecogDTO;
-        RimStatisticsUtil.onEventEndWithValue(d.f6176b, 0, livenessRecogDTO2 != null ? livenessRecogDTO2.getSpno() : "");
+        RimStatisticsUtil.onEventEndWithValue(d.f6030b, 0, livenessRecogDTO2 != null ? livenessRecogDTO2.getSpno() : "");
         LogUtil.d("hello", "onEventStart(StatServiceEvent.QUERYVIDEO):  查询视频状态结束  0");
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -153,7 +153,7 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
                 e3.printStackTrace();
             }
             z = optInt == 1;
-            this.f5877e = z;
+            this.f5731e = z;
             if (!z) {
                 LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                 livenessRecogResult.setResultCode(LivenessRecogResult.ERROR_CODE_VIDEO_IS_REVIEWING);
@@ -164,18 +164,18 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
                 LogUtil.d("hello", "triggerSending():  发送日志");
                 return;
             }
-            RimStatisticsUtil.onEventStart(d.f6179e);
+            RimStatisticsUtil.onEventStart(d.f6033e);
             g gVar = new g(this);
-            this.f5875c = gVar;
+            this.f5729c = gVar;
             gVar.setResponseCallback(this);
             LogUtil.d("hello", "onEventStart(StatServiceEvent.GETPORTRAIT):  获取公安网小图开始");
-            this.f5875c.execBean();
+            this.f5729c.execBean();
             return;
         }
         optInt = 0;
         if (optInt == 1) {
         }
-        this.f5877e = z;
+        this.f5731e = z;
         if (!z) {
         }
     }
@@ -220,29 +220,29 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
         setContentView(R.layout.layout_sapi_liveness_loading);
         b();
         a();
-        if (this.f5876d == null) {
+        if (this.f5730d == null) {
             finish();
         }
-        if (this.f5876d.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
-            this.f5874b.execBean();
-            RimStatisticsUtil.onEventStart(d.f6176b);
+        if (this.f5730d.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
+            this.f5728b.execBean();
+            RimStatisticsUtil.onEventStart(d.f6030b);
             LogUtil.d("hello", "onEventStart(StatServiceEvent.QUERYVIDEO):  查询视频状态开始  ");
             return;
         }
-        RimStatisticsUtil.onEventStart(d.f6179e);
+        RimStatisticsUtil.onEventStart(d.f6033e);
         LogUtil.d("hello", "onEventStart(StatServiceEvent.GETPORTRAIT):  获取公安网小图开始");
-        this.f5875c.execBean();
+        this.f5729c.execBean();
     }
 
     private void a(Context context) {
-        if (this.f5873a == null) {
+        if (this.f5727a == null) {
             LoadingDialog loadingDialog = new LoadingDialog(context);
-            this.f5873a = loadingDialog;
+            this.f5727a = loadingDialog;
             loadingDialog.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-            this.f5873a.setCancelable(false);
+            this.f5727a.setCancelable(false);
         }
-        if ((context instanceof Activity) && isUseable((Activity) context) && !this.f5873a.isShowing()) {
-            this.f5873a.show();
+        if ((context instanceof Activity) && isUseable((Activity) context) && !this.f5727a.isShowing()) {
+            this.f5727a.show();
         }
     }
 }

@@ -23,13 +23,13 @@ public final class Result<T> implements Serializable {
         @InlineOnly
         @JvmName(name = SmsLoginView.f.l)
         private final <T> Object failure(Throwable th) {
-            return Result.m636constructorimpl(ResultKt.createFailure(th));
+            return Result.m635constructorimpl(ResultKt.createFailure(th));
         }
 
         @InlineOnly
         @JvmName(name = "success")
         private final <T> Object success(T t) {
-            return Result.m636constructorimpl(t);
+            return Result.m635constructorimpl(t);
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -69,28 +69,28 @@ public final class Result<T> implements Serializable {
     }
 
     /* renamed from: box-impl  reason: not valid java name */
-    public static final /* synthetic */ Result m635boximpl(Object obj) {
+    public static final /* synthetic */ Result m634boximpl(Object obj) {
         return new Result(obj);
     }
 
     @PublishedApi
     /* renamed from: constructor-impl  reason: not valid java name */
-    public static Object m636constructorimpl(Object obj) {
+    public static Object m635constructorimpl(Object obj) {
         return obj;
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
-    public static boolean m637equalsimpl(Object obj, Object obj2) {
-        return (obj2 instanceof Result) && Intrinsics.areEqual(obj, ((Result) obj2).m645unboximpl());
+    public static boolean m636equalsimpl(Object obj, Object obj2) {
+        return (obj2 instanceof Result) && Intrinsics.areEqual(obj, ((Result) obj2).m644unboximpl());
     }
 
     /* renamed from: equals-impl0  reason: not valid java name */
-    public static final boolean m638equalsimpl0(Object obj, Object obj2) {
+    public static final boolean m637equalsimpl0(Object obj, Object obj2) {
         return Intrinsics.areEqual(obj, obj2);
     }
 
     /* renamed from: exceptionOrNull-impl  reason: not valid java name */
-    public static final Throwable m639exceptionOrNullimpl(Object obj) {
+    public static final Throwable m638exceptionOrNullimpl(Object obj) {
         if (obj instanceof Failure) {
             return ((Failure) obj).exception;
         }
@@ -101,8 +101,8 @@ public final class Result<T> implements Serializable {
     /* JADX WARN: Multi-variable type inference failed */
     @InlineOnly
     /* renamed from: getOrNull-impl  reason: not valid java name */
-    public static final T m640getOrNullimpl(Object obj) {
-        if (m642isFailureimpl(obj)) {
+    public static final T m639getOrNullimpl(Object obj) {
+        if (m641isFailureimpl(obj)) {
             return null;
         }
         return obj;
@@ -113,7 +113,7 @@ public final class Result<T> implements Serializable {
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
-    public static int m641hashCodeimpl(Object obj) {
+    public static int m640hashCodeimpl(Object obj) {
         if (obj != null) {
             return obj.hashCode();
         }
@@ -121,17 +121,17 @@ public final class Result<T> implements Serializable {
     }
 
     /* renamed from: isFailure-impl  reason: not valid java name */
-    public static final boolean m642isFailureimpl(Object obj) {
+    public static final boolean m641isFailureimpl(Object obj) {
         return obj instanceof Failure;
     }
 
     /* renamed from: isSuccess-impl  reason: not valid java name */
-    public static final boolean m643isSuccessimpl(Object obj) {
+    public static final boolean m642isSuccessimpl(Object obj) {
         return !(obj instanceof Failure);
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static String m644toStringimpl(Object obj) {
+    public static String m643toStringimpl(Object obj) {
         if (obj instanceof Failure) {
             return obj.toString();
         }
@@ -139,19 +139,19 @@ public final class Result<T> implements Serializable {
     }
 
     public boolean equals(Object obj) {
-        return m637equalsimpl(this.value, obj);
+        return m636equalsimpl(this.value, obj);
     }
 
     public int hashCode() {
-        return m641hashCodeimpl(this.value);
+        return m640hashCodeimpl(this.value);
     }
 
     public String toString() {
-        return m644toStringimpl(this.value);
+        return m643toStringimpl(this.value);
     }
 
     /* renamed from: unbox-impl  reason: not valid java name */
-    public final /* synthetic */ Object m645unboximpl() {
+    public final /* synthetic */ Object m644unboximpl() {
         return this.value;
     }
 }

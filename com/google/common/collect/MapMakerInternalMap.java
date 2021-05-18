@@ -173,8 +173,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         @Override // com.google.common.collect.MapMakerInternalMap.Segment
         public void setWeakValueReferenceForTesting(h<K, V, ?> hVar, v<K, V, ? extends h<K, V, ?>> vVar) {
             o<K, V> castForTesting = castForTesting((h) hVar);
-            v vVar2 = castForTesting.f31984h;
-            castForTesting.f31984h = vVar;
+            v vVar2 = castForTesting.f31229h;
+            castForTesting.f31229h = vVar;
             vVar2.clear();
         }
 
@@ -313,8 +313,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         @Override // com.google.common.collect.MapMakerInternalMap.Segment
         public void setWeakValueReferenceForTesting(h<K, V, ?> hVar, v<K, V, ? extends h<K, V, ?>> vVar) {
             t<K, V> castForTesting = castForTesting((h) hVar);
-            v vVar2 = castForTesting.f31990g;
-            castForTesting.f31990g = vVar;
+            v vVar2 = castForTesting.f31235g;
+            castForTesting.f31235g = vVar;
             vVar2.clear();
         }
 
@@ -360,33 +360,33 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static abstract class b<K, V, E extends h<K, V, E>> implements h<K, V, E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f31969e;
+        public final K f31214e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31970f;
+        public final int f31215f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final E f31971g;
+        public final E f31216g;
 
         public b(K k, int i2, E e2) {
-            this.f31969e = k;
-            this.f31970f = i2;
-            this.f31971g = e2;
+            this.f31214e = k;
+            this.f31215f = i2;
+            this.f31216g = e2;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public int getHash() {
-            return this.f31970f;
+            return this.f31215f;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public K getKey() {
-            return this.f31969e;
+            return this.f31214e;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public E getNext() {
-            return this.f31971g;
+            return this.f31216g;
         }
     }
 
@@ -394,20 +394,20 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static abstract class c<K, V, E extends h<K, V, E>> extends WeakReference<K> implements h<K, V, E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f31972e;
+        public final int f31217e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final E f31973f;
+        public final E f31218f;
 
         public c(ReferenceQueue<K> referenceQueue, K k, int i2, E e2) {
             super(k, referenceQueue);
-            this.f31972e = i2;
-            this.f31973f = e2;
+            this.f31217e = i2;
+            this.f31218f = e2;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public int getHash() {
-            return this.f31972e;
+            return this.f31217e;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
@@ -417,7 +417,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public E getNext() {
-            return this.f31973f;
+            return this.f31218f;
         }
     }
 
@@ -514,24 +514,24 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public abstract class g<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31975e;
+        public int f31220e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31976f = -1;
+        public int f31221f = -1;
 
         /* renamed from: g  reason: collision with root package name */
-        public Segment<K, V, E, S> f31977g;
+        public Segment<K, V, E, S> f31222g;
 
         /* renamed from: h  reason: collision with root package name */
-        public AtomicReferenceArray<E> f31978h;
+        public AtomicReferenceArray<E> f31223h;
 
         /* renamed from: i  reason: collision with root package name */
-        public E f31979i;
+        public E f31224i;
         public MapMakerInternalMap<K, V, E, S>.x j;
         public MapMakerInternalMap<K, V, E, S>.x k;
 
         public g() {
-            this.f31975e = MapMakerInternalMap.this.segments.length - 1;
+            this.f31220e = MapMakerInternalMap.this.segments.length - 1;
             a();
         }
 
@@ -541,18 +541,18 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                 return;
             }
             while (true) {
-                int i2 = this.f31975e;
+                int i2 = this.f31220e;
                 if (i2 < 0) {
                     return;
                 }
                 Segment<K, V, E, S>[] segmentArr = MapMakerInternalMap.this.segments;
-                this.f31975e = i2 - 1;
+                this.f31220e = i2 - 1;
                 Segment<K, V, E, S> segment = segmentArr[i2];
-                this.f31977g = segment;
+                this.f31222g = segment;
                 if (segment.count != 0) {
-                    AtomicReferenceArray<E> atomicReferenceArray = this.f31977g.table;
-                    this.f31978h = atomicReferenceArray;
-                    this.f31976f = atomicReferenceArray.length() - 1;
+                    AtomicReferenceArray<E> atomicReferenceArray = this.f31222g.table;
+                    this.f31223h = atomicReferenceArray;
+                    this.f31221f = atomicReferenceArray.length() - 1;
                     if (e()) {
                         return;
                     }
@@ -573,7 +573,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                 }
                 return z;
             } finally {
-                this.f31977g.postReadCleanup();
+                this.f31222g.postReadCleanup();
             }
         }
 
@@ -588,33 +588,33 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         public boolean d() {
-            E e2 = this.f31979i;
+            E e2 = this.f31224i;
             if (e2 == null) {
                 return false;
             }
             while (true) {
-                this.f31979i = (E) e2.getNext();
-                E e3 = this.f31979i;
+                this.f31224i = (E) e2.getNext();
+                E e3 = this.f31224i;
                 if (e3 == null) {
                     return false;
                 }
                 if (b(e3)) {
                     return true;
                 }
-                e2 = this.f31979i;
+                e2 = this.f31224i;
             }
         }
 
         public boolean e() {
             while (true) {
-                int i2 = this.f31976f;
+                int i2 = this.f31221f;
                 if (i2 < 0) {
                     return false;
                 }
-                AtomicReferenceArray<E> atomicReferenceArray = this.f31978h;
-                this.f31976f = i2 - 1;
+                AtomicReferenceArray<E> atomicReferenceArray = this.f31223h;
+                this.f31221f = i2 - 1;
                 E e2 = atomicReferenceArray.get(i2);
-                this.f31979i = e2;
+                this.f31224i = e2;
                 if (e2 != null && (b(e2) || d())) {
                     return true;
                 }
@@ -736,10 +736,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public static final class a<K> implements i<K, MapMaker.Dummy, m<K>, StrongKeyDummyValueSegment<K>> {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final a<?> f31981a = new a<>();
+            public static final a<?> f31226a = new a<>();
 
             public static <K> a<K> h() {
-                return (a<K>) f31981a;
+                return (a<K>) f31226a;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
@@ -785,7 +785,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         public m<K> a(m<K> mVar) {
-            return new m<>(this.f31969e, this.f31970f, mVar);
+            return new m<>(this.f31214e, this.f31215f, mVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -800,16 +800,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class n<K, V> extends b<K, V, n<K, V>> implements Object<K, V, n<K, V>> {
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile V f31982h;
+        public volatile V f31227h;
 
         /* loaded from: classes6.dex */
         public static final class a<K, V> implements i<K, V, n<K, V>, StrongKeyStrongValueSegment<K, V>> {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final a<?, ?> f31983a = new a<>();
+            public static final a<?, ?> f31228a = new a<>();
 
             public static <K, V> a<K, V> h() {
-                return (a<K, V>) f31983a;
+                return (a<K, V>) f31228a;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
@@ -853,22 +853,22 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         public n(K k, int i2, n<K, V> nVar) {
             super(k, i2, nVar);
-            this.f31982h = null;
+            this.f31227h = null;
         }
 
         public n<K, V> a(n<K, V> nVar) {
-            n<K, V> nVar2 = new n<>(this.f31969e, this.f31970f, nVar);
-            nVar2.f31982h = this.f31982h;
+            n<K, V> nVar2 = new n<>(this.f31214e, this.f31215f, nVar);
+            nVar2.f31227h = this.f31227h;
             return nVar2;
         }
 
         public void b(V v) {
-            this.f31982h = v;
+            this.f31227h = v;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public V getValue() {
-            return this.f31982h;
+            return this.f31227h;
         }
     }
 
@@ -876,16 +876,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class o<K, V> extends b<K, V, o<K, V>> implements u<K, V, o<K, V>> {
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile v<K, V, o<K, V>> f31984h;
+        public volatile v<K, V, o<K, V>> f31229h;
 
         /* loaded from: classes6.dex */
         public static final class a<K, V> implements i<K, V, o<K, V>, StrongKeyWeakValueSegment<K, V>> {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final a<?, ?> f31985a = new a<>();
+            public static final a<?, ?> f31230a = new a<>();
 
             public static <K, V> a<K, V> h() {
-                return (a<K, V>) f31985a;
+                return (a<K, V>) f31230a;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
@@ -932,29 +932,29 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         public o(K k, int i2, o<K, V> oVar) {
             super(k, i2, oVar);
-            this.f31984h = MapMakerInternalMap.unsetWeakValueReference();
+            this.f31229h = MapMakerInternalMap.unsetWeakValueReference();
         }
 
         public o<K, V> c(ReferenceQueue<V> referenceQueue, o<K, V> oVar) {
-            o<K, V> oVar2 = new o<>(this.f31969e, this.f31970f, oVar);
-            oVar2.f31984h = this.f31984h.b(referenceQueue, oVar2);
+            o<K, V> oVar2 = new o<>(this.f31214e, this.f31215f, oVar);
+            oVar2.f31229h = this.f31229h.b(referenceQueue, oVar2);
             return oVar2;
         }
 
         public void d(V v, ReferenceQueue<V> referenceQueue) {
-            v<K, V, o<K, V>> vVar = this.f31984h;
-            this.f31984h = new w(referenceQueue, v, this);
+            v<K, V, o<K, V>> vVar = this.f31229h;
+            this.f31229h = new w(referenceQueue, v, this);
             vVar.clear();
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public V getValue() {
-            return this.f31984h.get();
+            return this.f31229h.get();
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.u
         public v<K, V, o<K, V>> getValueReference() {
-            return this.f31984h;
+            return this.f31229h;
         }
     }
 
@@ -1018,10 +1018,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public static final class a<K> implements i<K, MapMaker.Dummy, r<K>, WeakKeyDummyValueSegment<K>> {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final a<?> f31987a = new a<>();
+            public static final a<?> f31232a = new a<>();
 
             public static <K> a<K> h() {
-                return (a<K>) f31987a;
+                return (a<K>) f31232a;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
@@ -1070,7 +1070,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         public r<K> a(ReferenceQueue<K> referenceQueue, r<K> rVar) {
-            return new r<>(referenceQueue, getKey(), this.f31972e, rVar);
+            return new r<>(referenceQueue, getKey(), this.f31217e, rVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1085,16 +1085,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class s<K, V> extends c<K, V, s<K, V>> implements Object<K, V, s<K, V>> {
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile V f31988g;
+        public volatile V f31233g;
 
         /* loaded from: classes6.dex */
         public static final class a<K, V> implements i<K, V, s<K, V>, WeakKeyStrongValueSegment<K, V>> {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final a<?, ?> f31989a = new a<>();
+            public static final a<?, ?> f31234a = new a<>();
 
             public static <K, V> a<K, V> h() {
-                return (a<K, V>) f31989a;
+                return (a<K, V>) f31234a;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
@@ -1141,22 +1141,22 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         public s(ReferenceQueue<K> referenceQueue, K k, int i2, s<K, V> sVar) {
             super(referenceQueue, k, i2, sVar);
-            this.f31988g = null;
+            this.f31233g = null;
         }
 
         public s<K, V> a(ReferenceQueue<K> referenceQueue, s<K, V> sVar) {
-            s<K, V> sVar2 = new s<>(referenceQueue, getKey(), this.f31972e, sVar);
-            sVar2.b(this.f31988g);
+            s<K, V> sVar2 = new s<>(referenceQueue, getKey(), this.f31217e, sVar);
+            sVar2.b(this.f31233g);
             return sVar2;
         }
 
         public void b(V v) {
-            this.f31988g = v;
+            this.f31233g = v;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public V getValue() {
-            return this.f31988g;
+            return this.f31233g;
         }
     }
 
@@ -1164,16 +1164,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class t<K, V> extends c<K, V, t<K, V>> implements u<K, V, t<K, V>> {
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile v<K, V, t<K, V>> f31990g;
+        public volatile v<K, V, t<K, V>> f31235g;
 
         /* loaded from: classes6.dex */
         public static final class a<K, V> implements i<K, V, t<K, V>, WeakKeyWeakValueSegment<K, V>> {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final a<?, ?> f31991a = new a<>();
+            public static final a<?, ?> f31236a = new a<>();
 
             public static <K, V> a<K, V> h() {
-                return (a<K, V>) f31991a;
+                return (a<K, V>) f31236a;
             }
 
             @Override // com.google.common.collect.MapMakerInternalMap.i
@@ -1220,29 +1220,29 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         public t(ReferenceQueue<K> referenceQueue, K k, int i2, t<K, V> tVar) {
             super(referenceQueue, k, i2, tVar);
-            this.f31990g = MapMakerInternalMap.unsetWeakValueReference();
+            this.f31235g = MapMakerInternalMap.unsetWeakValueReference();
         }
 
         public t<K, V> c(ReferenceQueue<K> referenceQueue, ReferenceQueue<V> referenceQueue2, t<K, V> tVar) {
-            t<K, V> tVar2 = new t<>(referenceQueue, getKey(), this.f31972e, tVar);
-            tVar2.f31990g = this.f31990g.b(referenceQueue2, tVar2);
+            t<K, V> tVar2 = new t<>(referenceQueue, getKey(), this.f31217e, tVar);
+            tVar2.f31235g = this.f31235g.b(referenceQueue2, tVar2);
             return tVar2;
         }
 
         public void d(V v, ReferenceQueue<V> referenceQueue) {
-            v<K, V, t<K, V>> vVar = this.f31990g;
-            this.f31990g = new w(referenceQueue, v, this);
+            v<K, V, t<K, V>> vVar = this.f31235g;
+            this.f31235g = new w(referenceQueue, v, this);
             vVar.clear();
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public V getValue() {
-            return this.f31990g.get();
+            return this.f31235g.get();
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.u
         public v<K, V, t<K, V>> getValueReference() {
-            return this.f31990g;
+            return this.f31235g;
         }
     }
 
@@ -1266,16 +1266,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public static final class w<K, V, E extends h<K, V, E>> extends WeakReference<V> implements v<K, V, E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final E f31992e;
+        public final E f31237e;
 
         public w(ReferenceQueue<V> referenceQueue, V v, E e2) {
             super(v, referenceQueue);
-            this.f31992e = e2;
+            this.f31237e = e2;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.v
         public E a() {
-            return this.f31992e;
+            return this.f31237e;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.v
@@ -1288,44 +1288,44 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
     public final class x extends d.g.c.c.b<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f31993e;
+        public final K f31238e;
 
         /* renamed from: f  reason: collision with root package name */
-        public V f31994f;
+        public V f31239f;
 
         public x(K k, V v) {
-            this.f31993e = k;
-            this.f31994f = v;
+            this.f31238e = k;
+            this.f31239f = v;
         }
 
         @Override // d.g.c.c.b, java.util.Map.Entry
         public boolean equals(Object obj) {
             if (obj instanceof Map.Entry) {
                 Map.Entry entry = (Map.Entry) obj;
-                return this.f31993e.equals(entry.getKey()) && this.f31994f.equals(entry.getValue());
+                return this.f31238e.equals(entry.getKey()) && this.f31239f.equals(entry.getValue());
             }
             return false;
         }
 
         @Override // d.g.c.c.b, java.util.Map.Entry
         public K getKey() {
-            return this.f31993e;
+            return this.f31238e;
         }
 
         @Override // d.g.c.c.b, java.util.Map.Entry
         public V getValue() {
-            return this.f31994f;
+            return this.f31239f;
         }
 
         @Override // d.g.c.c.b, java.util.Map.Entry
         public int hashCode() {
-            return this.f31993e.hashCode() ^ this.f31994f.hashCode();
+            return this.f31238e.hashCode() ^ this.f31239f.hashCode();
         }
 
         @Override // d.g.c.c.b, java.util.Map.Entry
         public V setValue(V v) {
-            V v2 = (V) MapMakerInternalMap.this.put(this.f31993e, v);
-            this.f31994f = v;
+            V v2 = (V) MapMakerInternalMap.this.put(this.f31238e, v);
+            this.f31239f = v;
             return v2;
         }
     }

@@ -2,18 +2,18 @@ package com.sdk.base.framework.bean;
 
 import com.sdk.base.framework.f.c.a;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PInfo {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36472c;
+    public String f35717c;
     public ArrayList<String> imei;
     public String mac;
     public String n;
     public String os;
 
     public String getC() {
-        return this.f36472c;
+        return this.f35717c;
     }
 
     public ArrayList<String> getImei() {
@@ -33,7 +33,7 @@ public class PInfo {
     }
 
     public void setC(String str) {
-        this.f36472c = str;
+        this.f35717c = str;
     }
 
     public void setImei(ArrayList<String> arrayList) {

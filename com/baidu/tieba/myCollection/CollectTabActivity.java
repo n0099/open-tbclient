@@ -12,17 +12,19 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import d.a.i0.e0.c;
-import d.a.j0.w1.b;
+import d.a.j0.a.w;
+import d.a.j0.e0.c;
+import d.a.k0.w1.b;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
     public static final String FRAGMENTS_TAG = "android:support:fragments";
     public static final String SCHEME_MY_COLLECT = "tbmycollection://";
-    public d.a.j0.w1.a mController;
+    public d.a.k0.w1.a mController;
     public CustomMessageListener mEditorEnableListener = new a(2022209);
 
     /* loaded from: classes3.dex */
@@ -60,17 +62,19 @@ public class CollectTabActivity extends BaseFragmentActivity {
         }
         Map<String, String> paramPair = UrlManager.getParamPair(decode);
         if (paramPair != null) {
-            TiebaStatic.log(new StatisticItem("c10320").param("obj_locate", paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1));
+            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
+            w.b(param, paramPair);
+            TiebaStatic.log(param);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "a081";
     }
 
     public void initTabsOnActivityCreated() {
-        d.a.i0.q.a aVar = new d.a.i0.q.a(getPageContext().getPageActivity());
+        d.a.j0.q.a aVar = new d.a.j0.q.a(getPageContext().getPageActivity());
         ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
         aVar.a(threadDelegateStatic);
         if (aVar.b() != null) {
@@ -78,7 +82,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
             if (fragmentTabStructure == null) {
                 return;
             }
-            fragmentTabStructure.f48462a.setArguments(new Bundle());
+            fragmentTabStructure.f49290a.setArguments(new Bundle());
         }
         this.mController.h(aVar.c());
     }
@@ -103,7 +107,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if (view == this.mController.d()) {
             boolean z = !this.mController.i();
             if (z) {
-                d.a.j0.w1.c.a("c14067");
+                d.a.k0.w1.c.a("c14067");
             }
             this.mController.b(z);
         }
@@ -113,7 +117,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.collect_tab_activity);
-        this.mController = new d.a.j0.w1.a(this);
+        this.mController = new d.a.k0.w1.a(this);
         registerListener(this.mEditorEnableListener);
         initTabsOnActivityCreated();
         checkSchemeFromIntent(getIntent());
@@ -135,7 +139,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.a.j0.w1.c.a("c14061");
+        d.a.k0.w1.c.a("c14061");
         b.b().f(true);
         b.b().e(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);

@@ -6,7 +6,7 @@ import android.os.Process;
 import com.qq.e.comm.managers.GDTADManager;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class SystemUtil {
     public static String buildNewPathByProcessName(String str) {
         if (StringUtil.isEmpty(str)) {

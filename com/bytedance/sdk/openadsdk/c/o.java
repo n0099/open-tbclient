@@ -6,7 +6,7 @@ import com.bytedance.sdk.openadsdk.h.c.c;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o extends g<c.a> {
     public q<a> m;
 
@@ -28,7 +28,7 @@ public class o extends g<c.a> {
         try {
             JSONArray jSONArray = new JSONArray();
             for (c.a aVar : list) {
-                jSONArray.put(aVar.f30021b);
+                jSONArray.put(aVar.f29266b);
             }
             jSONObject.put("stats_list", jSONArray);
         } catch (Exception unused) {

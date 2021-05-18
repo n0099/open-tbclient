@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import java.net.URLEncoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class OpenWebview {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
         public static final int MAX_URL_LENGHT = 10240;
         public String url;
@@ -36,7 +36,7 @@ public class OpenWebview {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
         public String result;
 

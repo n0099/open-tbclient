@@ -30,6 +30,8 @@ public class ResourceLoaderType {
     public static final int PORTRAIT_BLUR = 40;
     public static final int PORTRAIT_FORCELOAD = 26;
     public static final int PORTRAIT_SETTING = 28;
+    public static final int SCREEN_2_3 = 46;
+    public static final int SCREEN_2_3_NO_CDN = 47;
     public static final int SIMPLE = 10;
     public static final int SIMPLE_BLUR = 39;
     public static final int SIMPLE_FOREVER = 29;

@@ -8,77 +8,77 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3007a;
+    public String f3008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3008b;
+    public String f3009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3009c;
+    public String f3010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3010d;
+    public String f3011d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3011e;
+    public String f3012e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3012f;
+    public String f3013f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3013g;
+    public String f3014g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f3014h;
+    public boolean f3015h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f3015i;
+    public String f3016i;
     public boolean j;
     public boolean k;
 
     public i() {
-        this.f3007a = "";
-        this.f3008b = "";
-        this.f3009c = "";
-        this.f3010d = "";
-        this.f3011e = "";
-        this.f3012f = "";
-        this.f3013g = "";
-        this.f3014h = false;
-        this.f3015i = "";
+        this.f3008a = "";
+        this.f3009b = "";
+        this.f3010c = "";
+        this.f3011d = "";
+        this.f3012e = "";
+        this.f3013f = "";
+        this.f3014g = "";
+        this.f3015h = false;
+        this.f3016i = "";
         this.j = true;
     }
 
     public i(Intent intent) {
-        this.f3007a = "";
-        this.f3008b = "";
-        this.f3009c = "";
-        this.f3010d = "";
-        this.f3011e = "";
-        this.f3012f = "";
-        this.f3013g = "";
-        this.f3014h = false;
-        this.f3015i = "";
+        this.f3008a = "";
+        this.f3009b = "";
+        this.f3010c = "";
+        this.f3011d = "";
+        this.f3012e = "";
+        this.f3013f = "";
+        this.f3014g = "";
+        this.f3015h = false;
+        this.f3016i = "";
         this.j = true;
         PendingIntent pendingIntent = (PendingIntent) intent.getParcelableExtra("app");
         if (pendingIntent != null) {
-            this.f3010d = pendingIntent.getTargetPackage();
+            this.f3011d = pendingIntent.getTargetPackage();
         }
-        if (TextUtils.isEmpty(this.f3010d)) {
-            this.f3010d = intent.getStringExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+        if (TextUtils.isEmpty(this.f3011d)) {
+            this.f3011d = intent.getStringExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME);
         }
-        this.f3009c = intent.getStringExtra("access_token");
-        this.f3013g = intent.getStringExtra("secret_key");
-        this.f3007a = intent.getStringExtra("method");
-        this.f3008b = intent.getStringExtra("method_type");
-        this.f3011e = intent.getStringExtra("appid");
-        this.f3014h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
-        this.f3015i = intent.getStringExtra("push_proxy");
+        this.f3010c = intent.getStringExtra("access_token");
+        this.f3014g = intent.getStringExtra("secret_key");
+        this.f3008a = intent.getStringExtra("method");
+        this.f3009b = intent.getStringExtra("method_type");
+        this.f3012e = intent.getStringExtra("appid");
+        this.f3015h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
+        this.f3016i = intent.getStringExtra("push_proxy");
         this.j = intent.getBooleanExtra("should_notify_user", true);
         this.k = intent.getBooleanExtra("ignore_token", false);
     }
 
     public String toString() {
-        return "method=" + this.f3007a + ", accessToken=" + this.f3009c + ", packageName=" + this.f3010d + ", appId=" + this.f3011e + ", userId=" + this.f3012f;
+        return "method=" + this.f3008a + ", accessToken=" + this.f3010c + ", packageName=" + this.f3011d + ", appId=" + this.f3012e + ", userId=" + this.f3013f;
     }
 }

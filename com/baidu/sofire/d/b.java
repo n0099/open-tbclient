@@ -5,17 +5,17 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f11218a;
+    public JSONObject f10285a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11219b;
+    public String f10286b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11220c;
+    public int f10287c;
 
     public b(JSONObject jSONObject, String str, int i2) {
-        this.f11218a = jSONObject;
-        this.f11219b = str;
-        this.f11220c = i2;
+        this.f10285a = jSONObject;
+        this.f10286b = str;
+        this.f10287c = i2;
     }
 }

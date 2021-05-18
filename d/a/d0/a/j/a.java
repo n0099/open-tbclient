@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40613a;
+    public Context f39858a;
 
     public a(Context context) {
-        this.f40613a = context;
+        this.f39858a = context;
     }
 
     public final void a(RelativeLayout.LayoutParams layoutParams, int i2, int i3, int i4) {
@@ -64,7 +64,7 @@ public class a {
         if (iArr == null || iArr.length != 4) {
             return;
         }
-        marginLayoutParams.setMargins(h.a(this.f40613a, iArr[0]), h.a(this.f40613a, iArr[1]), h.a(this.f40613a, iArr[2]), h.a(this.f40613a, iArr[3]));
+        marginLayoutParams.setMargins(h.a(this.f39858a, iArr[0]), h.a(this.f39858a, iArr[1]), h.a(this.f39858a, iArr[2]), h.a(this.f39858a, iArr[3]));
     }
 
     public final void f(RelativeLayout.LayoutParams layoutParams, JSONObject jSONObject) {

@@ -3,13 +3,13 @@ package d.g.c.c;
 public abstract class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f65564a = new a();
+    public static final o f66250a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final o f65565b = new b(-1);
+    public static final o f66251b = new b(-1);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final o f65566c = new b(1);
+    public static final o f66252c = new b(1);
 
     /* loaded from: classes6.dex */
     public static class a extends o {
@@ -29,9 +29,9 @@ public abstract class o {
 
         public o g(int i2) {
             if (i2 < 0) {
-                return o.f65565b;
+                return o.f66251b;
             }
-            return i2 > 0 ? o.f65566c : o.f65564a;
+            return i2 > 0 ? o.f66252c : o.f66250a;
         }
     }
 
@@ -39,11 +39,11 @@ public abstract class o {
     public static final class b extends o {
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f65567d;
+        public final int f66253d;
 
         public b(int i2) {
             super(null);
-            this.f65567d = i2;
+            this.f66253d = i2;
         }
 
         @Override // d.g.c.c.o
@@ -53,7 +53,7 @@ public abstract class o {
 
         @Override // d.g.c.c.o
         public int e() {
-            return this.f65567d;
+            return this.f66253d;
         }
     }
 
@@ -62,7 +62,7 @@ public abstract class o {
     }
 
     public static o f() {
-        return f65564a;
+        return f66250a;
     }
 
     public abstract o d(Comparable<?> comparable, Comparable<?> comparable2);

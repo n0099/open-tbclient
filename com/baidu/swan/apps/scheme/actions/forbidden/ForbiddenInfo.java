@@ -2,7 +2,7 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import d.a.h0.a.y0.e.b;
+import d.a.i0.a.f1.e.b;
 /* loaded from: classes3.dex */
 public class ForbiddenInfo implements Parcelable {
     public static final Parcelable.Creator<ForbiddenInfo> CREATOR = new a();
@@ -12,6 +12,7 @@ public class ForbiddenInfo implements Parcelable {
     public String appTitle;
     public int enableSlidingFlag;
     public String forbiddenDetail;
+    public String forbiddenInformation;
     public String forbiddenReason;
     public String launchPath;
     public String launchSource;
@@ -41,11 +42,11 @@ public class ForbiddenInfo implements Parcelable {
         if (bVar == null) {
             return;
         }
-        this.appId = bVar.G();
-        this.appKey = bVar.H();
-        this.appTitle = bVar.J();
-        this.launchPath = bVar.b0();
-        this.launchSource = bVar.S();
+        this.appId = bVar.H();
+        this.appKey = bVar.I();
+        this.appTitle = bVar.K();
+        this.launchPath = bVar.e0();
+        this.launchSource = bVar.T();
     }
 
     public boolean b() {

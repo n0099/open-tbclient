@@ -12,14 +12,14 @@ public final class b implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f27051a = new b();
+        public static b f26296a = new b();
     }
 
     public b() {
     }
 
     public static b a() {
-        return a.f27051a;
+        return a.f26296a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

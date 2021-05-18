@@ -2,7 +2,7 @@ package com.vivo.push.util;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static Bitmap a(Bitmap bitmap, int i2, int i3) {
         int width = bitmap.getWidth();

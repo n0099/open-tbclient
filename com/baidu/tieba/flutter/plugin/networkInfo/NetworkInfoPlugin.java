@@ -123,13 +123,13 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         this.mFlutterNetworkInfo = new NetworkInfoAuto.FlutterNetworkInfo(flutterPluginBinding.getBinaryMessenger());
         MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-        d.a.j0.m0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
+        d.a.k0.m0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         MessageManager.getInstance().unRegisterListener(this.mNetworkChangedListener);
         this.mFlutterNetworkInfo = null;
-        d.a.j0.m0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
+        d.a.k0.m0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
     }
 }

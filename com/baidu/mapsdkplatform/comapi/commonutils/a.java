@@ -15,10 +15,10 @@ import java.util.zip.ZipFile;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7834a;
+    public static final boolean f7631a;
 
     static {
-        f7834a = Build.VERSION.SDK_INT >= 8;
+        f7631a = Build.VERSION.SDK_INT >= 8;
     }
 
     public static Bitmap a(String str, Context context) {
@@ -33,31 +33,31 @@ public class a {
         }
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     public static void a(InputStream inputStream, FileOutputStream fileOutputStream) throws IOException {
         byte[] bArr = new byte[4096];
         while (true) {
             try {
                 int read = inputStream.read(bArr);
                 if (read == -1) {
-                    fileOutputStream.flush();
-                    try {
-                        inputStream.close();
-                        fileOutputStream.close();
-                        return;
-                    } catch (IOException unused) {
-                        return;
-                    }
+                    break;
                 }
                 fileOutputStream.write(bArr, 0, read);
-            } catch (Throwable th) {
+            } finally {
                 try {
                     inputStream.close();
+                } catch (IOException unused) {
+                }
+                try {
                     fileOutputStream.close();
-                    throw th;
                 } catch (IOException unused2) {
-                    return;
                 }
             }
+        }
+        fileOutputStream.flush();
+        try {
+            fileOutputStream.close();
+        } catch (IOException unused3) {
         }
     }
 
@@ -159,7 +159,7 @@ public class a {
         try {
             try {
                 try {
-                    zipFile = new ZipFile(f7834a ? context.getPackageCodePath() : "");
+                    zipFile = new ZipFile(f7631a ? context.getPackageCodePath() : "");
                 } catch (Exception e2) {
                     e = e2;
                 }

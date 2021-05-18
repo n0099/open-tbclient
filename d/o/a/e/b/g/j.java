@@ -3,7 +3,7 @@ package d.o.a.e.b.g;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface j {
     DownloadInfo a(int i2, int i3);
 

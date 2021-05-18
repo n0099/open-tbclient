@@ -3,7 +3,7 @@ package com.sdk.base.framework.a.c;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class g extends Handler {
     public g() {
         super(Looper.getMainLooper());
@@ -21,11 +21,11 @@ public final class g extends Handler {
             if (i2 != 2) {
                 return;
             }
-            fVar.f36402a.a((Object[]) fVar.f36403b);
+            fVar.f35647a.a((Object[]) fVar.f35648b);
             return;
         }
-        c cVar = fVar.f36402a;
-        Object obj = fVar.f36403b[0];
-        cVar.f36397f.get();
+        c cVar = fVar.f35647a;
+        Object obj = fVar.f35648b[0];
+        cVar.f35642f.get();
     }
 }

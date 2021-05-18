@@ -5,7 +5,7 @@ import java.util.List;
 public class IDCardEditTextPasteFilter implements IEditTextPasteFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5708a = "IDCardEditTextPasteFilter";
+    public static final String f5562a = "IDCardEditTextPasteFilter";
 
     @Override // com.baidu.fsg.base.widget.textfilter.IEditTextPasteFilter
     public String intercept(String str) {

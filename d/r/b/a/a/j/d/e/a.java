@@ -9,31 +9,31 @@ import org.json.JSONObject;
 public class a implements d.r.b.a.a.j.d.f.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f67214a;
+    public long f67900a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67215b;
+    public int f67901b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67216c;
+    public int f67902c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67217d;
+    public int f67903d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f67218e;
+    public int f67904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f67219f;
+    public String f67905f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f67220g;
+    public String f67906g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f67221h;
+    public String f67907h;
 
     /* renamed from: i  reason: collision with root package name */
-    public double f67222i;
+    public double f67908i;
     public int j;
     public boolean k;
     public String l;
@@ -41,22 +41,22 @@ public class a implements d.r.b.a.a.j.d.f.b {
     public String n;
 
     public a(long j, int i2, int i3, int i4, int i5, String str, String str2, String str3, double d2, int i6, boolean z, String str4, String str5, String str6, String str7) {
-        this.f67215b = 0;
-        this.f67217d = 10002;
+        this.f67901b = 0;
+        this.f67903d = 10002;
         this.j = 0;
         this.k = true;
         this.l = "";
         this.m = "";
         this.n = "";
-        this.f67214a = j;
-        this.f67215b = i2;
-        this.f67216c = i3;
-        this.f67217d = i4;
-        this.f67218e = i5;
-        this.f67219f = str;
-        this.f67220g = str2;
-        this.f67221h = str3;
-        this.f67222i = d2;
+        this.f67900a = j;
+        this.f67901b = i2;
+        this.f67902c = i3;
+        this.f67903d = i4;
+        this.f67904e = i5;
+        this.f67905f = str;
+        this.f67906g = str2;
+        this.f67907h = str3;
+        this.f67908i = d2;
         this.j = i6;
         this.k = z;
         this.l = str4;
@@ -69,15 +69,15 @@ public class a implements d.r.b.a.a.j.d.f.b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("cmd", 1022);
-            jSONObject.put("uid", this.f67214a);
-            jSONObject.put("sid", this.f67215b);
-            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f67216c);
-            jSONObject.put("usedChannel", this.f67217d);
-            jSONObject.put("currencyType", this.f67218e);
-            jSONObject.put(IAdRequestParam.SEQ, this.f67219f);
-            jSONObject.put("payChannel", this.f67220g);
-            jSONObject.put("payMethod", this.f67221h);
-            jSONObject.put("amount", this.f67222i);
+            jSONObject.put("uid", this.f67900a);
+            jSONObject.put("sid", this.f67901b);
+            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f67902c);
+            jSONObject.put("usedChannel", this.f67903d);
+            jSONObject.put("currencyType", this.f67904e);
+            jSONObject.put(IAdRequestParam.SEQ, this.f67905f);
+            jSONObject.put("payChannel", this.f67906g);
+            jSONObject.put("payMethod", this.f67907h);
+            jSONObject.put("amount", this.f67908i);
             jSONObject.put("chargeCurrencyConfigId", this.j);
             jSONObject.put("needUnicast", this.k);
             jSONObject.put("returnUrl", this.l);

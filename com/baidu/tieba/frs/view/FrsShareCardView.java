@@ -18,76 +18,76 @@ import d.a.c.e.p.k;
 public class FrsShareCardView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f16659e;
+    public LinearLayout f15974e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f16660f;
+    public Context f15975f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditText f16661g;
+    public EditText f15976g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HeadImageView f16662h;
+    public HeadImageView f15977h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f16663i;
+    public TextView f15978i;
     public TextView j;
     public TextView k;
     public ShareFromFrsMsgData l;
 
     public FrsShareCardView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16660f = context;
+        this.f15975f = context;
         c(context);
     }
 
     public final String a(String str) {
-        return k.cutString(str, 18) + this.f16660f.getString(R.string.forum);
+        return k.cutString(str, 18) + this.f15975f.getString(R.string.forum);
     }
 
     public void b() {
-        this.f16659e.setFocusable(true);
-        this.f16659e.setFocusableInTouchMode(true);
-        this.f16659e.requestFocus();
+        this.f15974e.setFocusable(true);
+        this.f15974e.setFocusableInTouchMode(true);
+        this.f15974e.requestFocus();
     }
 
     public final void c(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_share_card_view, this);
         setOrientation(1);
-        this.f16659e = (LinearLayout) findViewById(R.id.share_content);
-        this.f16663i = (TextView) findViewById(R.id.frs_card_name);
-        this.f16661g = (EditText) findViewById(R.id.chat_msg);
-        this.f16662h = (HeadImageView) findViewById(R.id.frs_card_img);
+        this.f15974e = (LinearLayout) findViewById(R.id.share_content);
+        this.f15978i = (TextView) findViewById(R.id.frs_card_name);
+        this.f15976g = (EditText) findViewById(R.id.chat_msg);
+        this.f15977h = (HeadImageView) findViewById(R.id.frs_card_img);
         this.k = (TextView) findViewById(R.id.frs_card_member_num);
         this.j = (TextView) findViewById(R.id.frs_card_post_num);
-        SkinManager.setViewTextColor(this.f16663i, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.f16661g, R.color.CAM_X0105, 2);
-        this.f16661g.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        this.f16661g.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        SkinManager.setViewTextColor(this.f15978i, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f15976g, R.color.CAM_X0105, 2);
+        this.f15976g.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        this.f15976g.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
         b();
     }
 
     public void d(String str, boolean z) {
-        HeadImageView headImageView = this.f16662h;
+        HeadImageView headImageView = this.f15977h;
         if (headImageView != null) {
             headImageView.V(str, 15, false);
         }
     }
 
     public final void e() {
-        this.f16663i.setText(a(this.l.getName()));
+        this.f15978i.setText(a(this.l.getName()));
         BdLog.e("mData.getImageUrl()的图片URL" + this.l.getImageUrl());
-        this.f16662h.V(this.l.getImageUrl(), 15, false);
+        this.f15977h.V(this.l.getImageUrl(), 15, false);
         this.k.setText(StringHelper.numFormatOver10000((long) this.l.getMemberNum()));
         this.j.setText(StringHelper.numFormatOver10000((long) this.l.getPostNum()));
     }
 
     public EditText getChatMsgView() {
-        return this.f16661g;
+        return this.f15976g;
     }
 
     public String getLeaveMsg() {
-        EditText editText = this.f16661g;
+        EditText editText = this.f15976g;
         if (editText != null) {
             return k.charSequence2String(editText.getText(), null);
         }
@@ -100,7 +100,7 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.f16662h.setPageId(bdUniqueId);
+        this.f15977h.setPageId(bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +111,7 @@ public class FrsShareCardView extends LinearLayout {
 
     public FrsShareCardView(Context context) {
         super(context);
-        this.f16660f = context;
+        this.f15975f = context;
         c(context);
     }
 }

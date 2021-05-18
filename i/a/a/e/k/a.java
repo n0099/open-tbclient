@@ -4,7 +4,7 @@ import com.yy.mobile.framework.revenuesdk.IRevenue;
 import d.r.b.a.a.f.d.d;
 import d.r.b.a.a.f.f.b;
 import tv.athena.revenue.RevenueManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static b a(int i2, int i3) {
         IRevenue revenue = RevenueManager.instance().getRevenue(i2, i3);

@@ -8,9 +8,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 /* loaded from: classes3.dex */
 public class PullToRefreshListView extends PullToRefreshBase<ListView> implements AbsListView.OnScrollListener {
-    public LoadingLayout A;
-    public AbsListView.OnScrollListener B;
-    public ListView z;
+    public ListView A;
+    public LoadingLayout B;
+    public AbsListView.OnScrollListener C;
 
     public PullToRefreshListView(Context context) {
         this(context, null);
@@ -19,7 +19,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public void K() {
         super.K();
-        LoadingLayout loadingLayout = this.A;
+        LoadingLayout loadingLayout = this.B;
         if (loadingLayout != null) {
             loadingLayout.setState(ILoadingLayout$State.REFRESHING);
         }
@@ -36,27 +36,27 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     public final boolean O() {
-        LoadingLayout loadingLayout = this.A;
+        LoadingLayout loadingLayout = this.B;
         return loadingLayout == null || loadingLayout.getState() != ILoadingLayout$State.NO_MORE_DATA;
     }
 
     public final boolean P() {
-        ListAdapter adapter = this.z.getAdapter();
+        ListAdapter adapter = this.A.getAdapter();
         if (adapter == null || adapter.isEmpty()) {
             return true;
         }
-        return (this.z.getChildCount() > 0 ? this.z.getChildAt(0).getTop() : 0) >= 0 && this.z.getFirstVisiblePosition() == 0;
+        return (this.A.getChildCount() > 0 ? this.A.getChildAt(0).getTop() : 0) >= 0 && this.A.getFirstVisiblePosition() == 0;
     }
 
     public final boolean Q() {
-        ListAdapter adapter = this.z.getAdapter();
+        ListAdapter adapter = this.A.getAdapter();
         if (adapter == null || adapter.isEmpty()) {
             return true;
         }
-        int lastVisiblePosition = this.z.getLastVisiblePosition();
+        int lastVisiblePosition = this.A.getLastVisiblePosition();
         if (lastVisiblePosition >= (adapter.getCount() - 1) - 1) {
-            View childAt = this.z.getChildAt(Math.min(lastVisiblePosition - this.z.getFirstVisiblePosition(), this.z.getChildCount() - 1));
-            return childAt != null && childAt.getBottom() <= this.z.getBottom();
+            View childAt = this.A.getChildAt(Math.min(lastVisiblePosition - this.A.getFirstVisiblePosition(), this.A.getChildCount() - 1));
+            return childAt != null && childAt.getBottom() <= this.A.getBottom();
         }
         return false;
     }
@@ -64,14 +64,14 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public LoadingLayout getFooterLoadingLayout() {
         if (v()) {
-            return this.A;
+            return this.B;
         }
         return super.getFooterLoadingLayout();
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
-        AbsListView.OnScrollListener onScrollListener = this.B;
+        AbsListView.OnScrollListener onScrollListener = this.C;
         if (onScrollListener != null) {
             onScrollListener.onScroll(absListView, i2, i3, i4);
         }
@@ -82,14 +82,14 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         if (v() && O() && ((i2 == 0 || i2 == 2) && u())) {
             K();
         }
-        AbsListView.OnScrollListener onScrollListener = this.B;
+        AbsListView.OnScrollListener onScrollListener = this.C;
         if (onScrollListener != null) {
             onScrollListener.onScrollStateChanged(absListView, i2);
         }
     }
 
     public void setHasMoreData(boolean z) {
-        LoadingLayout loadingLayout = this.A;
+        LoadingLayout loadingLayout = this.B;
         if (loadingLayout != null) {
             loadingLayout.setState(z ? ILoadingLayout$State.RESET : ILoadingLayout$State.NO_MORE_DATA);
         }
@@ -100,11 +100,11 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.B = onScrollListener;
+        this.C = onScrollListener;
     }
 
     public void setRefreshableView(ListView listView) {
-        this.z = listView;
+        this.A = listView;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
@@ -114,15 +114,15 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         }
         super.setScrollLoadEnabled(z);
         if (z) {
-            if (this.A == null) {
+            if (this.B == null) {
                 FooterLoadingLayout footerLoadingLayout = new FooterLoadingLayout(getContext());
-                this.A = footerLoadingLayout;
-                this.z.addFooterView(footerLoadingLayout, null, false);
+                this.B = footerLoadingLayout;
+                this.A.addFooterView(footerLoadingLayout, null, false);
             }
-            this.A.m(true);
+            this.B.m(true);
             return;
         }
-        LoadingLayout loadingLayout = this.A;
+        LoadingLayout loadingLayout = this.B;
         if (loadingLayout != null) {
             loadingLayout.m(false);
         }

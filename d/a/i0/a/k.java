@@ -1,16 +1,10 @@
 package d.a.i0.a;
-/* loaded from: classes3.dex */
-public class k extends h {
+/* loaded from: classes2.dex */
+public class k {
 
-    /* renamed from: e  reason: collision with root package name */
-    public long f47877e;
+    /* renamed from: a  reason: collision with root package name */
+    public static final boolean f43025a = d.a.i0.a.c1.a.n().isDebug();
 
-    public k(b bVar, long j) {
-        super(bVar);
-        this.f47877e = j;
-    }
-
-    public long i() {
-        return this.f47877e;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static final boolean f43026b = d.a.i0.a.c1.a.n().G();
 }

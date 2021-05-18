@@ -4,23 +4,23 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f37581a = new Handler(Looper.getMainLooper());
+    public static final Handler f36826a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HandlerThread f37582b;
+    public static final HandlerThread f36827b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Handler f37583c;
+    public static final Handler f36828c;
 
     static {
         HandlerThread handlerThread = new HandlerThread("push_client_thread");
-        f37582b = handlerThread;
+        f36827b = handlerThread;
         handlerThread.start();
-        f37583c = new x(f37582b.getLooper());
+        f36828c = new x(f36827b.getLooper());
     }
 
     public static void a(v vVar) {
@@ -32,15 +32,15 @@ public final class w {
         Message message = new Message();
         message.what = a2;
         message.obj = vVar;
-        f37583c.sendMessageDelayed(message, 0L);
+        f36828c.sendMessageDelayed(message, 0L);
     }
 
     public static void b(Runnable runnable) {
-        f37581a.post(runnable);
+        f36826a.post(runnable);
     }
 
     public static void a(Runnable runnable) {
-        f37583c.removeCallbacks(runnable);
-        f37583c.postDelayed(runnable, 15000L);
+        f36828c.removeCallbacks(runnable);
+        f36828c.postDelayed(runnable, 15000L);
     }
 }

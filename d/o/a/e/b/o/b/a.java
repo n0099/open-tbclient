@@ -5,30 +5,30 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, c> f66723a;
+    public final Map<String, c> f67409a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, d> f66724b;
+    public final Map<String, d> f67410b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f66725a = new a();
+        public static final a f67411a = new a();
     }
 
     public static a a() {
-        return b.f66725a;
+        return b.f67411a;
     }
 
     public c b(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
         c remove;
-        synchronized (this.f66723a) {
-            remove = this.f66723a.remove(str);
+        synchronized (this.f67409a) {
+            remove = this.f67409a.remove(str);
         }
         if (remove != null) {
             if (e.Q(remove.k(), list)) {
@@ -55,13 +55,13 @@ public class a {
     }
 
     public void d(String str, c cVar) {
-        synchronized (this.f66723a) {
-            this.f66723a.put(str, cVar);
+        synchronized (this.f67409a) {
+            this.f67409a.put(str, cVar);
         }
     }
 
     public boolean e(String str) {
-        c cVar = this.f66723a.get(str);
+        c cVar = this.f67409a.get(str);
         if (cVar != null) {
             if (cVar.j()) {
                 return true;
@@ -73,8 +73,8 @@ public class a {
 
     public d f(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
         d remove;
-        synchronized (this.f66724b) {
-            remove = this.f66724b.remove(str);
+        synchronized (this.f67410b) {
+            remove = this.f67410b.remove(str);
         }
         if (remove != null) {
             if (e.Q(remove.f(), list)) {
@@ -98,7 +98,7 @@ public class a {
     }
 
     public a() {
-        this.f66723a = new HashMap();
-        this.f66724b = new LinkedHashMap(3);
+        this.f67409a = new HashMap();
+        this.f67410b = new LinkedHashMap(3);
     }
 }

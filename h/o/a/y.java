@@ -5,19 +5,19 @@ import rx.internal.producers.SingleProducer;
 public final class y<T> extends h.i<T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.j<? super T> f67851f;
+    public final h.j<? super T> f68531f;
 
     public y(h.j<? super T> jVar) {
-        this.f67851f = jVar;
+        this.f68531f = jVar;
     }
 
     @Override // h.i
     public void b(Throwable th) {
-        this.f67851f.onError(th);
+        this.f68531f.onError(th);
     }
 
     @Override // h.i
     public void c(T t) {
-        this.f67851f.setProducer(new SingleProducer(this.f67851f, t));
+        this.f68531f.setProducer(new SingleProducer(this.f68531f, t));
     }
 }

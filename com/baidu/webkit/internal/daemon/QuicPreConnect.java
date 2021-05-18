@@ -20,7 +20,7 @@ public class QuicPreConnect implements INoProGuard, INetListener {
 
     public static String getUrl(Context context) {
         String str = mQuicPreConnectUrl + System.currentTimeMillis();
-        Log.w(LOG_TAG, "getUrl=" + str);
+        Log.w(LOG_TAG, "getUrl=".concat(String.valueOf(str)));
         return str;
     }
 
@@ -33,7 +33,7 @@ public class QuicPreConnect implements INoProGuard, INetListener {
         } else {
             if (WebSettingsGlobalBlink.getPreconnectABTestEnable() && WebSettingsGlobalBlink.hasQuicAltService("https://m.baidu.com") && WebViewFactory.hasProvider() && WebViewFactory.getProvider().getStatics() != null) {
                 String str = mQuicPreConnectUrl + System.currentTimeMillis();
-                Log.i(LOG_TAG, "QuicPreconnect tryToQuicPreConnect preconnectUrl Url = " + str);
+                Log.i(LOG_TAG, "QuicPreconnect tryToQuicPreConnect preconnectUrl Url = ".concat(String.valueOf(str)));
                 WebViewFactory.getProvider().getStatics().preconnectUrl(str, 1);
             } else if (mDownloading) {
             } else {
@@ -69,7 +69,7 @@ public class QuicPreConnect implements INoProGuard, INetListener {
         if (this.mData == null) {
             this.mData = new ByteArrayOutputStream();
         }
-        Log.w(LOG_TAG, "onNetReceiveData " + i2);
+        Log.w(LOG_TAG, "onNetReceiveData ".concat(String.valueOf(i2)));
         this.mData.write(bArr, 0, i2);
     }
 

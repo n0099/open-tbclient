@@ -16,16 +16,16 @@ import d.a.a0.g;
 public class c extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f10354e;
+    public ImageView f9390e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f10355f;
+    public TextView f9391f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f10356g;
+    public Animation f9392g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f10357h;
+    public boolean f9393h;
 
     public c(Context context) {
         this(context, null);
@@ -33,9 +33,9 @@ public class c extends FrameLayout {
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(g.view_toast_loading, (ViewGroup) this, true);
-        this.f10354e = (ImageView) findViewById(f.toast_loading_view);
-        this.f10355f = (TextView) findViewById(f.toast_text_view);
-        this.f10356g = AnimationUtils.loadAnimation(context, b.loading_rotate);
+        this.f9390e = (ImageView) findViewById(f.toast_loading_view);
+        this.f9391f = (TextView) findViewById(f.toast_text_view);
+        this.f9392g = AnimationUtils.loadAnimation(context, b.loading_rotate);
         setClickable(true);
     }
 
@@ -50,23 +50,23 @@ public class c extends FrameLayout {
     }
 
     public boolean getIsLoading() {
-        return this.f10357h;
+        return this.f9393h;
     }
 
     public void setLoading(boolean z) {
         b();
-        this.f10357h = z;
+        this.f9393h = z;
         if (z) {
             setVisibility(0);
-            this.f10354e.startAnimation(this.f10356g);
+            this.f9390e.startAnimation(this.f9392g);
             return;
         }
-        this.f10354e.clearAnimation();
+        this.f9390e.clearAnimation();
         setVisibility(8);
     }
 
     public void setText(String str) {
-        this.f10355f.setText(str);
+        this.f9391f.setText(str);
     }
 
     public c(Context context, AttributeSet attributeSet) {

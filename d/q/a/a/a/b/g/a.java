@@ -16,28 +16,28 @@ import java.util.concurrent.TimeUnit;
 public final class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f66842d;
+    public com.yxcorp.kuaishou.addfp.a.b.b f67528d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f66843e;
+    public Context f67529e;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.f.a f66839a = null;
+    public com.yxcorp.kuaishou.addfp.a.b.f.a f67525a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66840b = null;
+    public String f67526b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66841c = null;
+    public String f67527c = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public CountDownLatch f66844f = new CountDownLatch(1);
+    public CountDownLatch f67530f = new CountDownLatch(1);
 
     /* renamed from: g  reason: collision with root package name */
-    public ServiceConnection f66845g = new b(this);
+    public ServiceConnection f67531g = new b(this);
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f66846h = false;
+    public boolean f67532h = false;
 
     public static boolean g(Context context) {
         try {
@@ -51,13 +51,13 @@ public final class a {
 
     public final String a(Context context, String str) {
         try {
-            if (this.f66846h) {
-                if (TextUtils.isEmpty(this.f66840b)) {
-                    this.f66840b = context.getPackageName();
+            if (this.f67532h) {
+                if (TextUtils.isEmpty(this.f67526b)) {
+                    this.f67526b = context.getPackageName();
                 }
-                if (TextUtils.isEmpty(this.f66841c)) {
+                if (TextUtils.isEmpty(this.f67527c)) {
                     String str2 = null;
-                    Signature[] signatureArr = context.getPackageManager().getPackageInfo(this.f66840b, 64).signatures;
+                    Signature[] signatureArr = context.getPackageManager().getPackageInfo(this.f67526b, 64).signatures;
                     if (signatureArr != null && signatureArr.length > 0) {
                         byte[] byteArray = signatureArr[0].toByteArray();
                         MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
@@ -70,10 +70,10 @@ public final class a {
                             str2 = sb.toString();
                         }
                     }
-                    this.f66841c = str2;
+                    this.f67527c = str2;
                 }
-                if (!TextUtils.isEmpty(this.f66841c) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f66840b)) {
-                    String a2 = this.f66839a.a(this.f66840b, this.f66841c, str);
+                if (!TextUtils.isEmpty(this.f67527c) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f67526b)) {
+                    String a2 = this.f67525a.a(this.f67526b, this.f67527c, str);
                     return TextUtils.isEmpty(a2) ? "" : a2;
                 }
                 return "";
@@ -86,7 +86,7 @@ public final class a {
     }
 
     public final void c(Context context) {
-        ServiceConnection serviceConnection = this.f66845g;
+        ServiceConnection serviceConnection = this.f67531g;
         if (serviceConnection == null || context == null) {
             return;
         }
@@ -95,10 +95,10 @@ public final class a {
 
     public final void d(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.f66842d = bVar;
-            this.f66843e = context;
+            this.f67528d = bVar;
+            this.f67529e = context;
             boolean g2 = g(context);
-            this.f66846h = g2;
+            this.f67532h = g2;
             if (!g2) {
                 e(false);
                 return;
@@ -106,12 +106,12 @@ public final class a {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            if (!context.bindService(intent, this.f66845g, 1)) {
+            if (!context.bindService(intent, this.f67531g, 1)) {
                 e(false);
                 return;
             }
-            this.f66844f.await(3000L, TimeUnit.MILLISECONDS);
-            if (this.f66839a != null) {
+            this.f67530f.await(3000L, TimeUnit.MILLISECONDS);
+            if (this.f67525a != null) {
                 e(true);
             } else {
                 e(false);
@@ -125,9 +125,9 @@ public final class a {
     public final void e(boolean z) {
         try {
             if (z) {
-                this.f66842d.a(this.f66839a);
+                this.f67528d.a(this.f67525a);
             } else {
-                this.f66842d.e();
+                this.f67528d.e();
             }
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
@@ -135,6 +135,6 @@ public final class a {
     }
 
     public final boolean f() {
-        return this.f66846h;
+        return this.f67532h;
     }
 }

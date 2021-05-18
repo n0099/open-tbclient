@@ -22,7 +22,7 @@ public abstract class BaseHttpRequest implements HttpExecutor.HttpRequest, HttpE
             jSONObject.put("uk", Utility.getUK(this.mContext));
             jSONObject.put("cseq_id", -1);
             jSONObject.put("sseq_id", -1);
-            jSONObject.put("des", "c_client_response");
+            jSONObject.put("step", "c_client_response");
             jSONObject.put("ext", "-1");
             return jSONObject.toString();
         } catch (Exception unused) {
@@ -55,6 +55,6 @@ public abstract class BaseHttpRequest implements HttpExecutor.HttpRequest, HttpE
     }
 
     public void trackRequest(int i2, String str) {
-        new BIMRtcTrack.RequestBuilder(this.mContext).method(str).requestId("-1").requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i2).ext(trackExt()).build();
+        new BIMRtcTrack.RequestBuilder(this.mContext).method(str).requestId(str).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i2).ext(trackExt()).build();
     }
 }

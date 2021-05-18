@@ -12,7 +12,7 @@ public final class MaybeDetach<T> extends AbstractMaybeWithUpstream<T, T> {
         public MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68246d;
+        public Disposable f68926d;
 
         public DetachMaybeObserver(MaybeObserver<? super T> maybeObserver) {
             this.actual = maybeObserver;
@@ -21,18 +21,18 @@ public final class MaybeDetach<T> extends AbstractMaybeWithUpstream<T, T> {
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             this.actual = null;
-            this.f68246d.dispose();
-            this.f68246d = DisposableHelper.DISPOSED;
+            this.f68926d.dispose();
+            this.f68926d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68246d.isDisposed();
+            return this.f68926d.isDisposed();
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
-            this.f68246d = DisposableHelper.DISPOSED;
+            this.f68926d = DisposableHelper.DISPOSED;
             MaybeObserver<? super T> maybeObserver = this.actual;
             if (maybeObserver != null) {
                 this.actual = null;
@@ -42,7 +42,7 @@ public final class MaybeDetach<T> extends AbstractMaybeWithUpstream<T, T> {
 
         @Override // io.reactivex.MaybeObserver
         public void onError(Throwable th) {
-            this.f68246d = DisposableHelper.DISPOSED;
+            this.f68926d = DisposableHelper.DISPOSED;
             MaybeObserver<? super T> maybeObserver = this.actual;
             if (maybeObserver != null) {
                 this.actual = null;
@@ -52,15 +52,15 @@ public final class MaybeDetach<T> extends AbstractMaybeWithUpstream<T, T> {
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68246d, disposable)) {
-                this.f68246d = disposable;
+            if (DisposableHelper.validate(this.f68926d, disposable)) {
+                this.f68926d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onSuccess(T t) {
-            this.f68246d = DisposableHelper.DISPOSED;
+            this.f68926d = DisposableHelper.DISPOSED;
             MaybeObserver<? super T> maybeObserver = this.actual;
             if (maybeObserver != null) {
                 this.actual = null;

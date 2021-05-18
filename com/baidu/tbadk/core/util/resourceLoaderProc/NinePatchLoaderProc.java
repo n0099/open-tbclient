@@ -39,7 +39,7 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
             cVar.formatData(cVar.getData());
             Bitmap bitmap = cVar.getBitmap();
             if (bitmap != null) {
-                return new a(bitmap, false, str, bVar.e());
+                return new a(bitmap, false, str, bVar.g());
             }
             return null;
         }

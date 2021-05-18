@@ -3,9 +3,9 @@ package d.r.b.a.a.m.c.c;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f67450a;
+    public static d f68136a;
 
     public static final d a() {
-        return f67450a;
+        return f68136a;
     }
 }

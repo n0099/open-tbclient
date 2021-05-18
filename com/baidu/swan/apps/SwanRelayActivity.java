@@ -3,10 +3,11 @@ package com.baidu.swan.apps;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import androidx.annotation.Nullable;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SwanRelayActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
@@ -28,5 +29,13 @@ public class SwanRelayActivity extends Activity {
             }
         }
         finish();
+    }
+
+    @Override // android.app.Activity
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if (!isFinishing() && !isDestroyed()) {
+            finish();
+        }
+        return super.onTouchEvent(motionEvent);
     }
 }

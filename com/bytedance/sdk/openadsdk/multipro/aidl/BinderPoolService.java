@@ -13,13 +13,13 @@ import com.bytedance.sdk.openadsdk.multipro.aidl.a.d;
 import com.bytedance.sdk.openadsdk.multipro.aidl.a.e;
 import com.bytedance.sdk.openadsdk.multipro.aidl.a.f;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BinderPoolService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public Binder f30398a = new a();
+    public Binder f29643a = new a();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends IBinderPool.Stub {
         @Override // com.bytedance.sdk.openadsdk.IBinderPool
         public IBinder queryBinder(int i2) throws RemoteException {
@@ -47,7 +47,7 @@ public class BinderPoolService extends Service {
     @Nullable
     public IBinder onBind(Intent intent) {
         u.b("MultiProcess", "BinderPoolService onBind ! ");
-        return this.f30398a;
+        return this.f29643a;
     }
 
     @Override // android.app.Service

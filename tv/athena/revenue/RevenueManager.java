@@ -9,20 +9,20 @@ import java.util.List;
 import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RevenueManager implements i.a.a.b.a {
     public final String TAG;
     public i.a.a.b.a revenueService;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final RevenueManager f68866a = new RevenueManager();
+        public static final RevenueManager f69548a = new RevenueManager();
     }
 
     public static RevenueManager instance() {
-        return b.f68866a;
+        return b.f69548a;
     }
 
     @Override // i.a.a.b.a

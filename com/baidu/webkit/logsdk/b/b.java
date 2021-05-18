@@ -13,26 +13,26 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f27494b = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjTe6LTkPFvWowhciLFGS+nqhc\nhfaYCwBhVIkmZXNNiqdBMcNBUmqaAIKYB8lh1+UFf/KmuO14QbAKqzE/FjHWAV51\n68IJCk+DLxu885hYRiNH+kJDRuzDVMOv4NudroOwY1zB3c8VOjjLuz7xE7rRet7d\nAjH9k8YPZuedladalwIDAQAB";
+    public static String f26739b = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjTe6LTkPFvWowhciLFGS+nqhc\nhfaYCwBhVIkmZXNNiqdBMcNBUmqaAIKYB8lh1+UFf/KmuO14QbAKqzE/FjHWAV51\n68IJCk+DLxu885hYRiNH+kJDRuzDVMOv4NudroOwY1zB3c8VOjjLuz7xE7rRet7d\nAjH9k8YPZuedladalwIDAQAB";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f27495c = "1_0";
+    public static String f26740c = "1_0";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27496a;
+    public String f26741a;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, a> f27497d = new HashMap<>();
+    public HashMap<String, a> f26742d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, String> f27498e = new HashMap<>();
+    public HashMap<String, String> f26743e = new HashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, c> f27499f = new HashMap<>();
+    public HashMap<String, c> f26744f = new HashMap<>();
 
     public b() {
-        this.f27497d.clear();
-        this.f27498e.clear();
+        this.f26742d.clear();
+        this.f26743e.clear();
     }
 
     public static SharedPreferences a() {
@@ -41,25 +41,25 @@ public final class b {
 
     public static a a(String str, int i2, JSONObject jSONObject) {
         a aVar = new a(str);
-        aVar.f27492d = d();
-        aVar.f27491c = f();
+        aVar.f26737d = d();
+        aVar.f26736c = f();
         String str2 = "full";
         if (jSONObject != null && jSONObject.length() > 0) {
             i2 = jSONObject.optInt("log_level", i2);
             str2 = jSONObject.optString(EditNickNameActivityConfig.PARAM_TYPE, "full");
         }
-        aVar.f27490b = i2;
-        aVar.f27493e = str2;
+        aVar.f26735b = i2;
+        aVar.f26738e = str2;
         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "createConfig type = " + str + ", level = " + i2 + ", params = " + str2);
         if (i2 == 3) {
-            com.baidu.webkit.logsdk.a.b.a().h().c().a(str, false);
+            com.baidu.webkit.logsdk.a.b.a().h().b().a(str, false);
         }
         return aVar;
     }
 
     public static void a(String str, long j) {
         SharedPreferences.Editor edit = a().edit();
-        edit.putLong("upload_" + str, j);
+        edit.putLong("upload_".concat(String.valueOf(str)), j);
         edit.apply();
     }
 
@@ -68,8 +68,7 @@ public final class b {
     }
 
     public static long b(String str) {
-        SharedPreferences a2 = a();
-        return a2.getLong("upload_" + str, 0L);
+        return a().getLong("upload_".concat(String.valueOf(str)), 0L);
     }
 
     public static long c() {
@@ -77,7 +76,7 @@ public final class b {
     }
 
     public static String d() {
-        return a().getString("publickey", f27494b);
+        return a().getString("publickey", f26739b);
     }
 
     public static String e() {
@@ -85,7 +84,7 @@ public final class b {
     }
 
     public static String f() {
-        return a().getString("f2", f27495c);
+        return a().getString("f2", f26740c);
     }
 
     public static String g() {
@@ -94,8 +93,8 @@ public final class b {
 
     public final a a(String str) {
         String str2 = "";
-        if (this.f27497d.containsKey(str)) {
-            return this.f27497d.get(str);
+        if (this.f26742d.containsKey(str)) {
+            return this.f26742d.get(str);
         }
         SharedPreferences a2 = a();
         int i2 = 1;
@@ -106,10 +105,10 @@ public final class b {
         }
         try {
             str2 = a2.getString(str, "");
-            com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig = " + str2);
+            com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig = ".concat(String.valueOf(str2)));
         } catch (ClassCastException unused) {
             i2 = a2.getInt(str, i2);
-            com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig level = " + str2);
+            com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig level = ".concat(String.valueOf(str2)));
         }
         JSONObject jSONObject = null;
         try {
@@ -118,8 +117,19 @@ public final class b {
             com.baidu.webkit.logsdk.d.c.a(e2);
         }
         a a3 = a(str, i2, jSONObject);
-        this.f27497d.put(str, a3);
+        this.f26742d.put(str, a3);
         return a3;
+    }
+
+    public final void a(a aVar) {
+        this.f26742d.put(aVar.f26734a, aVar);
+    }
+
+    public final void a(String str, String str2) {
+        if (TextUtils.isEmpty(str2)) {
+            return;
+        }
+        this.f26743e.put(str, str2);
     }
 
     public final void a(JSONObject jSONObject, SharedPreferences.Editor editor) throws JSONException {
@@ -142,7 +152,7 @@ public final class b {
                 cVar.a(jSONArray2);
                 editor.putString(next + "@url", jSONArray2.toString());
             }
-            this.f27499f.put(next, cVar);
+            this.f26744f.put(next, cVar);
         }
     }
 
@@ -178,7 +188,7 @@ public final class b {
                                 }
                                 editor.putString(string, jSONObject3.toString());
                                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "setConfig: " + string + " = " + i4 + ", extra = " + jSONObject3);
-                                this.f27497d.put(string, a(string, i4, jSONObject3));
+                                this.f26742d.put(string, a(string, i4, jSONObject3));
                             }
                         }
                         i2 = z ? 1 : 0;
@@ -191,16 +201,20 @@ public final class b {
                         }
                         editor.putString(string, jSONObject32.toString());
                         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "setConfig: " + string + " = " + i4 + ", extra = " + jSONObject32);
-                        this.f27497d.put(string, a(string, i4, jSONObject32));
+                        this.f26742d.put(string, a(string, i4, jSONObject32));
                     }
                 }
             }
         }
     }
 
-    public final c c(String str) {
-        if (this.f27499f.containsKey(str)) {
-            return this.f27499f.get(str);
+    public final String c(String str) {
+        return this.f26743e.get(str);
+    }
+
+    public final c d(String str) {
+        if (this.f26744f.containsKey(str)) {
+            return this.f26744f.get(str);
         }
         SharedPreferences a2 = a();
         String string = a2.getString(str + "@body", "");
@@ -210,7 +224,7 @@ public final class b {
                 c cVar = new c(str);
                 cVar.b(new JSONArray(string));
                 cVar.a(new JSONArray(string2));
-                this.f27499f.put(str, cVar);
+                this.f26744f.put(str, cVar);
                 return cVar;
             } catch (JSONException e2) {
                 com.baidu.webkit.logsdk.d.c.a(e2);

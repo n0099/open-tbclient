@@ -1,6 +1,8 @@
 package com.baidu.webkit.sdk.performance;
 /* loaded from: classes5.dex */
 public class PagePerformanceTimingData {
+    public long mBrandAdCardPaint;
+    public long mBrandAdLastImagePaint;
     public long mConnectEnd;
     public long mConnectStart;
     public int mDocumentLoadState;
@@ -20,6 +22,8 @@ public class PagePerformanceTimingData {
     public long mFirstScreenLayout;
     public long mFirstScreenPaint;
     public int mFirstScreenPaintContentHeight;
+    public long mFspPresentationTime;
+    public long mFspSwapTime;
     public long mLoadEventEnd;
     public long mLoadEventStart;
     public long mLoadUrlFinish;

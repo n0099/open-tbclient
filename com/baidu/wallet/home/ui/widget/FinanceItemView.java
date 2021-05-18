@@ -12,19 +12,19 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 public class FinanceItemView extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f25007a;
+    public RelativeLayout f24252a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetImageView f25008b;
+    public NetImageView f24253b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f25009c;
+    public MaskTextView f24254c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f25010d;
+    public MaskTextView f24255d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NetImageView f25011e;
+    public NetImageView f24256e;
 
     public FinanceItemView(Context context) {
         super(context);
@@ -33,11 +33,11 @@ public class FinanceItemView extends BaseItemView {
     private void a() {
         removeAllViews();
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_item_view_layout_type_8"), this);
-        this.f25007a = (RelativeLayout) findViewById(ResUtils.id(getContext(), "item_view"));
-        this.f25008b = (NetImageView) findViewById(ResUtils.id(getContext(), "home_type_8_item_icon"));
-        this.f25009c = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_type_8_item_title"));
-        this.f25011e = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
-        this.f25010d = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_type_8_item_des_1"));
+        this.f24252a = (RelativeLayout) findViewById(ResUtils.id(getContext(), "item_view"));
+        this.f24253b = (NetImageView) findViewById(ResUtils.id(getContext(), "home_type_8_item_icon"));
+        this.f24254c = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_type_8_item_title"));
+        this.f24256e = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
+        this.f24255d = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_type_8_item_des_1"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
@@ -49,22 +49,22 @@ public class FinanceItemView extends BaseItemView {
         if (getData() == null) {
             return;
         }
-        this.f25009c.setMaskText(getData().name);
-        NetImageView netImageView = this.f25008b;
+        this.f24254c.setMaskText(getData().name);
+        NetImageView netImageView = this.f24253b;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().logo);
         if (!TextUtils.isEmpty(getData().value1)) {
-            this.f25010d.setMaskText(getData().value1);
-            this.f25010d.setVisibility(0);
+            this.f24255d.setMaskText(getData().value1);
+            this.f24255d.setVisibility(0);
         } else {
-            this.f25010d.setVisibility(8);
+            this.f24255d.setVisibility(8);
         }
         if (!handlePoint() && hasCornor()) {
-            this.f25011e.setVisibility(0);
-            NetImageView netImageView2 = this.f25011e;
+            this.f24256e.setVisibility(0);
+            NetImageView netImageView2 = this.f24256e;
             netImageView2.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().corner_addr);
             return;
         }
-        this.f25011e.setVisibility(8);
+        this.f24256e.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
@@ -75,20 +75,20 @@ public class FinanceItemView extends BaseItemView {
     }
 
     public void setIconMarginTop(int i2) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f25008b.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f24253b.getLayoutParams();
         layoutParams.topMargin = i2;
-        this.f25008b.setLayoutParams(layoutParams);
+        this.f24253b.setLayoutParams(layoutParams);
     }
 
     public void setLayoutPaddingBottom(int i2) {
-        RelativeLayout relativeLayout = this.f25007a;
-        relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f25007a.getPaddingTop(), this.f25007a.getPaddingRight(), i2);
+        RelativeLayout relativeLayout = this.f24252a;
+        relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f24252a.getPaddingTop(), this.f24252a.getPaddingRight(), i2);
     }
 
     public void setTitleMarginTop(int i2) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f25009c.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f24254c.getLayoutParams();
         layoutParams.topMargin = i2;
-        this.f25009c.setLayoutParams(layoutParams);
+        this.f24254c.setLayoutParams(layoutParams);
     }
 
     public boolean showValue1() {

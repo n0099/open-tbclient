@@ -22,7 +22,7 @@ import com.baidu.tbadk.widget.mission.SignItemView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import d.a.c.e.p.l;
-import d.a.i0.a.q;
+import d.a.j0.a.r;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class MissionCustomDialogActivity extends BaseActivity {
@@ -59,7 +59,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.a.i0.a.c.y().D() ? 2 : 1).param("obj_type", 3));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.a.j0.a.c.y().D() ? 2 : 1).param("obj_type", 3));
             MissionCustomDialogActivity.this.finish();
         }
     }
@@ -119,7 +119,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
                 }
             } else {
                 if (i3 == 6) {
-                    if (q.g().i().f()) {
+                    if (r.g().i().f()) {
                         activeCenterStatusData.is_completed = true;
                     } else {
                         activeCenterStatusData.is_completed = false;
@@ -140,7 +140,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
             this.mBottonActionText.setVisibility(0);
             this.mBottonActionText.setText("未开始");
         }
-        d.a.i0.r.f0.m.a aVar = new d.a.i0.r.f0.m.a();
+        d.a.j0.r.f0.m.a aVar = new d.a.j0.r.f0.m.a();
         aVar.o(R.color.CAM_X0301);
         aVar.k(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
         this.mBottomActionBtn.setConfig(aVar);
@@ -149,7 +149,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleTask() {
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.a.i0.a.c.y().D() ? 2 : 1).param("obj_type", 2));
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.a.j0.a.c.y().D() ? 2 : 1).param("obj_type", 2));
         ActiveCenterData activeCenterData = this.mActiveCenterData;
         if (activeCenterData == null) {
             return;
@@ -194,7 +194,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processBrowseThreadTask() {
         if (TbadkCoreApplication.isLogin()) {
-            q.g().d().e(getPageContext());
+            r.g().d().e(getPageContext());
             finish();
             return;
         }
@@ -203,7 +203,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processFinalAwardTask() {
         if (TbadkCoreApplication.isLogin()) {
-            q.g().e().e(getPageContext());
+            r.g().e().e(getPageContext());
             finish();
             return;
         }
@@ -212,7 +212,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processFollowForumTask() {
         if (TbadkCoreApplication.isLogin()) {
-            q.g().f().e(getPageContext());
+            r.g().f().e(getPageContext());
             finish();
             return;
         }
@@ -221,8 +221,8 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processNewUserRedPkgTask() {
         if (TbadkCoreApplication.isLogin()) {
-            q.g().h().e(getPageContext());
-            q.g().h().b();
+            r.g().h().e(getPageContext());
+            r.g().h().b();
             finish();
             return;
         }
@@ -231,7 +231,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processPushTask() {
         if (TbadkCoreApplication.isLogin()) {
-            q.g().i().e(getPageContext());
+            r.g().i().e(getPageContext());
             finish();
             return;
         }
@@ -240,7 +240,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processShareThreadTask() {
         if (TbadkCoreApplication.isLogin()) {
-            q.g().j().e(getPageContext());
+            r.g().j().e(getPageContext());
             finish();
             return;
         }
@@ -249,7 +249,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processSignRedPkgTask() {
         if (TbadkCoreApplication.isLogin()) {
-            q.g().k().e(getPageContext());
+            r.g().k().e(getPageContext());
             finish();
             return;
         }
@@ -258,9 +258,9 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void setData() {
         ArrayList<ActiveCenterData.ActiveCenterStatusData> arrayList;
-        ActiveCenterData c2 = q.g().c();
+        ActiveCenterData c2 = r.g().c();
         if (c2 != null && c2.mission != null && (arrayList = c2.mission_status_list) != null && arrayList.size() > 0) {
-            q.g().u(true);
+            r.g().u(true);
             this.mActiveCenterData = c2;
             this.mDialogTitle.setText(StringHelper.cutChineseAndEnglishWithSuffix(c2.win_title, 14, StringHelper.STRING_MORE));
             this.mDialogDetail.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.mActiveCenterData.win_desc, 30, StringHelper.STRING_MORE));
@@ -301,7 +301,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         SkinManager.setViewTextColor(this.mBottomActionDetail, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.mBottonActionText, R.color.CAM_X0109);
         if (this.mBottomActionBtn != null) {
-            d.a.i0.r.f0.m.a aVar = new d.a.i0.r.f0.m.a();
+            d.a.j0.r.f0.m.a aVar = new d.a.j0.r.f0.m.a();
             aVar.o(R.color.CAM_X0301);
             aVar.k(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
             this.mBottomActionBtn.setConfig(aVar);
@@ -322,6 +322,6 @@ public class MissionCustomDialogActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        q.g().i().b();
+        r.g().i().b();
     }
 }

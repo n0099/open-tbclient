@@ -57,7 +57,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
         return new a(this, msgleftView.e(), msgleftView);
     }
 
-    public void r0(boolean z) {
+    public void s0(boolean z) {
         this.t = z;
     }
 }

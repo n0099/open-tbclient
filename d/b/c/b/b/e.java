@@ -10,7 +10,7 @@ import d.b.c.b.b.d;
 import d.b.c.b.d.k;
 import d.b.c.b.d.o;
 import d.b.c.b.d.q;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e extends Request<Bitmap> {
     public static final Object A = new Object();
     public final Object x;
@@ -36,7 +36,7 @@ public class e extends Request<Bitmap> {
                 try {
                     b2 = b(kVar);
                 } catch (OutOfMemoryError e2) {
-                    q.d("Caught OOM for %d byte image, url=%s", Integer.valueOf(kVar.f65064b.length), getUrl());
+                    q.d("Caught OOM for %d byte image, url=%s", Integer.valueOf(kVar.f65750b.length), getUrl());
                     return o.b(new com.bytedance.sdk.adnet.err.e(e2, VAdError.IMAGE_OOM_FAIL_CODE));
                 }
             } catch (Throwable th) {
@@ -47,7 +47,7 @@ public class e extends Request<Bitmap> {
     }
 
     public final o<Bitmap> b(k kVar) {
-        Bitmap f2 = f(kVar.f65064b);
+        Bitmap f2 = f(kVar.f65750b);
         if (f2 == null) {
             return o.b(new com.bytedance.sdk.adnet.err.e(kVar));
         }

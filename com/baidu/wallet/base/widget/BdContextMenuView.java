@@ -19,10 +19,10 @@ import java.util.List;
 public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24155a = "BdContextMenuView";
+    public static final String f23400a = "BdContextMenuView";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f24156b = true;
+    public static final boolean f23401b = true;
     public boolean mMenuLoaded;
 
     @SuppressLint({"NewApi"})
@@ -64,7 +64,7 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
     }
 
     public void layoutMenu(List<BdMenuItem> list) {
-        Log.d(f24155a, "layout menu view");
+        Log.d(f23400a, "layout menu view");
         if (this.mMenuLoaded) {
             return;
         }

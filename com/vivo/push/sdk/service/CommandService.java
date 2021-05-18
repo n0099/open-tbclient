@@ -6,7 +6,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import com.vivo.push.sdk.a;
 import com.vivo.push.util.p;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class CommandService extends Service {
     public boolean a(String str) {
         return "com.vivo.pushservice.action.RECEIVE".equals(str);

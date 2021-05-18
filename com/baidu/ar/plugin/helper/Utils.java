@@ -19,7 +19,7 @@ public class Utils {
     public static final char[] HEX = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     public static final String VALID_JAVA_IDENTIFIER = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
 
-    public static void copyFile(String str, String str2, boolean z, Context context) throws IOException {
+    public static void copyFile(String str, String str2, boolean z, Context context) {
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
         BufferedOutputStream bufferedOutputStream2;
@@ -109,7 +109,7 @@ public class Utils {
         }
     }
 
-    public static byte[] readFromFile(File file) throws IOException {
+    public static byte[] readFromFile(File file) {
         FileInputStream fileInputStream = null;
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -159,7 +159,7 @@ public class Utils {
         return ANDROID_DATA_PATTERN.matcher(str).matches();
     }
 
-    public static void writeToFile(File file, byte[] bArr) throws IOException {
+    public static void writeToFile(File file, byte[] bArr) {
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2 = null;
         try {

@@ -8,25 +8,25 @@ import javax.microedition.khronos.opengles.GL10;
 public class MapRenderer implements GLSurfaceView.Renderer {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f7863d = MapRenderer.class.getSimpleName();
+    public static final String f7660d = MapRenderer.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7864a;
+    public int f7661a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7865b;
+    public int f7662b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7866c;
+    public int f7663c;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f7867e;
+    public long f7664e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f7868f;
+    public a f7665f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final j f7869g;
+    public final j f7666g;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -34,8 +34,8 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     }
 
     public MapRenderer(j jVar, a aVar) {
-        this.f7868f = aVar;
-        this.f7869g = jVar;
+        this.f7665f = aVar;
+        this.f7666g = jVar;
     }
 
     private void a(GL10 gl10) {
@@ -44,7 +44,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     }
 
     private boolean a() {
-        return this.f7867e != 0;
+        return this.f7664e != 0;
     }
 
     public static native void nativeInit(long j);
@@ -54,7 +54,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     public static native void nativeResize(long j, int i2, int i3);
 
     public void a(long j) {
-        this.f7867e = j;
+        this.f7664e = j;
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -63,27 +63,27 @@ public class MapRenderer implements GLSurfaceView.Renderer {
             a(gl10);
             return;
         }
-        if (this.f7866c <= 1) {
-            nativeResize(this.f7867e, this.f7864a, this.f7865b);
-            this.f7866c++;
+        if (this.f7663c <= 1) {
+            nativeResize(this.f7664e, this.f7661a, this.f7662b);
+            this.f7663c++;
         }
-        this.f7868f.f();
-        int nativeRender = nativeRender(this.f7867e);
-        if (this.f7869g.a() == null) {
+        this.f7665f.f();
+        int nativeRender = nativeRender(this.f7664e);
+        if (this.f7666g.a() == null) {
             return;
         }
-        if (this.f7869g.a().f7927h != null) {
-            for (l lVar : this.f7869g.a().f7927h) {
-                if (this.f7869g.a() == null) {
+        if (this.f7666g.a().f7724h != null) {
+            for (l lVar : this.f7666g.a().f7724h) {
+                if (this.f7666g.a() == null) {
                     return;
                 }
-                ab I = this.f7869g.a().I();
+                ab J = this.f7666g.a().J();
                 if (lVar != null) {
-                    lVar.a(gl10, I);
+                    lVar.a(gl10, J);
                 }
             }
         }
-        j jVar = this.f7869g;
+        j jVar = this.f7666g;
         if (nativeRender == 1) {
             jVar.requestRender();
         } else if (jVar.a().b()) {
@@ -97,7 +97,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
 
     @Override // android.opengl.GLSurfaceView.Renderer
     public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
-        long j = this.f7867e;
+        long j = this.f7664e;
         if (j != 0) {
             nativeResize(j, i2, i3);
         }
@@ -105,9 +105,9 @@ public class MapRenderer implements GLSurfaceView.Renderer {
 
     @Override // android.opengl.GLSurfaceView.Renderer
     public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-        nativeInit(this.f7867e);
+        nativeInit(this.f7664e);
         if (a()) {
-            this.f7868f.f();
+            this.f7665f.f();
         }
     }
 }

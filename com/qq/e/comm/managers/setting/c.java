@@ -1,7 +1,7 @@
 package com.qq.e.comm.managers.setting;
 
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class c extends e {
     public c() {
     }
@@ -11,7 +11,7 @@ public final class c extends e {
     }
 
     public final Object a(String str, String str2) {
-        JSONObject optJSONObject = this.f36289a.optJSONObject(str2);
+        JSONObject optJSONObject = this.f35534a.optJSONObject(str2);
         if (optJSONObject != null) {
             return optJSONObject.opt(str);
         }

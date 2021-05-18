@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.utils;
 import android.os.StatFs;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class v {
     public static long a(String str) {
         StringBuilder sb;

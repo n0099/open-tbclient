@@ -5,10 +5,10 @@ import android.content.Context;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4906a;
+    public Context f4760a;
 
     public a(Context context) {
-        this.f4906a = context;
+        this.f4760a = context;
     }
 
     public abstract void a(String str);

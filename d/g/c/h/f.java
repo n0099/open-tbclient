@@ -21,80 +21,80 @@ import kotlin.text.Typography;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f65607a;
+    public final c f66293a;
 
     /* loaded from: classes6.dex */
     public static class a extends g {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Map f65608b;
+        public final /* synthetic */ Map f66294b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Type f65609c;
+        public final /* synthetic */ Type f66295c;
 
         public a(Map map, Type type) {
-            this.f65608b = map;
-            this.f65609c = type;
+            this.f66294b = map;
+            this.f66295c = type;
         }
 
         @Override // d.g.c.h.g
         public void b(Class<?> cls) {
-            if (this.f65609c instanceof WildcardType) {
+            if (this.f66295c instanceof WildcardType) {
                 return;
             }
-            throw new IllegalArgumentException("No type mapping from " + cls + " to " + this.f65609c);
+            throw new IllegalArgumentException("No type mapping from " + cls + " to " + this.f66295c);
         }
 
         @Override // d.g.c.h.g
         public void c(GenericArrayType genericArrayType) {
-            Type type = this.f65609c;
+            Type type = this.f66295c;
             if (type instanceof WildcardType) {
                 return;
             }
             Type j = Types.j(type);
-            n.k(j != null, "%s is not an array type.", this.f65609c);
-            f.g(this.f65608b, genericArrayType.getGenericComponentType(), j);
+            n.k(j != null, "%s is not an array type.", this.f66295c);
+            f.g(this.f66294b, genericArrayType.getGenericComponentType(), j);
         }
 
         @Override // d.g.c.h.g
         public void d(ParameterizedType parameterizedType) {
-            Type type = this.f65609c;
+            Type type = this.f66295c;
             if (type instanceof WildcardType) {
                 return;
             }
             ParameterizedType parameterizedType2 = (ParameterizedType) f.e(ParameterizedType.class, type);
             if (parameterizedType.getOwnerType() != null && parameterizedType2.getOwnerType() != null) {
-                f.g(this.f65608b, parameterizedType.getOwnerType(), parameterizedType2.getOwnerType());
+                f.g(this.f66294b, parameterizedType.getOwnerType(), parameterizedType2.getOwnerType());
             }
-            n.l(parameterizedType.getRawType().equals(parameterizedType2.getRawType()), "Inconsistent raw type: %s vs. %s", parameterizedType, this.f65609c);
+            n.l(parameterizedType.getRawType().equals(parameterizedType2.getRawType()), "Inconsistent raw type: %s vs. %s", parameterizedType, this.f66295c);
             Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
             Type[] actualTypeArguments2 = parameterizedType2.getActualTypeArguments();
             n.l(actualTypeArguments.length == actualTypeArguments2.length, "%s not compatible with %s", parameterizedType, parameterizedType2);
             for (int i2 = 0; i2 < actualTypeArguments.length; i2++) {
-                f.g(this.f65608b, actualTypeArguments[i2], actualTypeArguments2[i2]);
+                f.g(this.f66294b, actualTypeArguments[i2], actualTypeArguments2[i2]);
             }
         }
 
         @Override // d.g.c.h.g
         public void e(TypeVariable<?> typeVariable) {
-            this.f65608b.put(new d(typeVariable), this.f65609c);
+            this.f66294b.put(new d(typeVariable), this.f66295c);
         }
 
         @Override // d.g.c.h.g
         public void f(WildcardType wildcardType) {
-            Type type = this.f65609c;
+            Type type = this.f66295c;
             if (type instanceof WildcardType) {
                 WildcardType wildcardType2 = (WildcardType) type;
                 Type[] upperBounds = wildcardType.getUpperBounds();
                 Type[] upperBounds2 = wildcardType2.getUpperBounds();
                 Type[] lowerBounds = wildcardType.getLowerBounds();
                 Type[] lowerBounds2 = wildcardType2.getLowerBounds();
-                n.l(upperBounds.length == upperBounds2.length && lowerBounds.length == lowerBounds2.length, "Incompatible type: %s vs. %s", wildcardType, this.f65609c);
+                n.l(upperBounds.length == upperBounds2.length && lowerBounds.length == lowerBounds2.length, "Incompatible type: %s vs. %s", wildcardType, this.f66295c);
                 for (int i2 = 0; i2 < upperBounds.length; i2++) {
-                    f.g(this.f65608b, upperBounds[i2], upperBounds2[i2]);
+                    f.g(this.f66294b, upperBounds[i2], upperBounds2[i2]);
                 }
                 for (int i3 = 0; i3 < lowerBounds.length; i3++) {
-                    f.g(this.f65608b, lowerBounds[i3], lowerBounds2[i3]);
+                    f.g(this.f66294b, lowerBounds[i3], lowerBounds2[i3]);
                 }
             }
         }
@@ -104,13 +104,13 @@ public final class f {
     public static final class b extends g {
 
         /* renamed from: b  reason: collision with root package name */
-        public final Map<d, Type> f65610b = Maps.p();
+        public final Map<d, Type> f66296b = Maps.p();
 
         public static ImmutableMap<d, Type> g(Type type) {
             n.p(type);
             b bVar = new b();
             bVar.a(type);
-            return ImmutableMap.copyOf((Map) bVar.f65610b);
+            return ImmutableMap.copyOf((Map) bVar.f66296b);
         }
 
         @Override // d.g.c.h.g
@@ -143,20 +143,20 @@ public final class f {
         }
 
         public final void h(d dVar, Type type) {
-            if (this.f65610b.containsKey(dVar)) {
+            if (this.f66296b.containsKey(dVar)) {
                 return;
             }
             Type type2 = type;
             while (type2 != null) {
                 if (dVar.a(type2)) {
                     while (type != null) {
-                        type = this.f65610b.remove(d.c(type));
+                        type = this.f66296b.remove(d.c(type));
                     }
                     return;
                 }
-                type2 = this.f65610b.get(d.c(type2));
+                type2 = this.f66296b.get(d.c(type2));
             }
-            this.f65610b.put(dVar, type);
+            this.f66296b.put(dVar, type);
         }
     }
 
@@ -164,11 +164,11 @@ public final class f {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final TypeVariable<?> f65614a;
+        public final TypeVariable<?> f66300a;
 
         public d(TypeVariable<?> typeVariable) {
             n.p(typeVariable);
-            this.f65614a = typeVariable;
+            this.f66300a = typeVariable;
         }
 
         public static d c(Type type) {
@@ -186,22 +186,22 @@ public final class f {
         }
 
         public final boolean b(TypeVariable<?> typeVariable) {
-            return this.f65614a.getGenericDeclaration().equals(typeVariable.getGenericDeclaration()) && this.f65614a.getName().equals(typeVariable.getName());
+            return this.f66300a.getGenericDeclaration().equals(typeVariable.getGenericDeclaration()) && this.f66300a.getName().equals(typeVariable.getName());
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof d) {
-                return b(((d) obj).f65614a);
+                return b(((d) obj).f66300a);
             }
             return false;
         }
 
         public int hashCode() {
-            return k.b(this.f65614a.getGenericDeclaration(), this.f65614a.getName());
+            return k.b(this.f66300a.getGenericDeclaration(), this.f66300a.getName());
         }
 
         public String toString() {
-            return this.f65614a.toString();
+            return this.f66300a.toString();
         }
     }
 
@@ -209,27 +209,27 @@ public final class f {
     public static class e {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final e f65615b = new e();
+        public static final e f66301b = new e();
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicInteger f65616a;
+        public final AtomicInteger f66302a;
 
         /* loaded from: classes6.dex */
         public class a extends e {
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ TypeVariable f65617c;
+            public final /* synthetic */ TypeVariable f66303c;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(e eVar, AtomicInteger atomicInteger, TypeVariable typeVariable) {
                 super(atomicInteger, null);
-                this.f65617c = typeVariable;
+                this.f66303c = typeVariable;
             }
 
             @Override // d.g.c.h.f.e
             public TypeVariable<?> b(Type[] typeArr) {
                 LinkedHashSet linkedHashSet = new LinkedHashSet(Arrays.asList(typeArr));
-                linkedHashSet.addAll(Arrays.asList(this.f65617c.getBounds()));
+                linkedHashSet.addAll(Arrays.asList(this.f66303c.getBounds()));
                 if (linkedHashSet.size() > 1) {
                     linkedHashSet.remove(Object.class);
                 }
@@ -267,7 +267,7 @@ public final class f {
         }
 
         public TypeVariable<?> b(Type[] typeArr) {
-            return Types.l(e.class, "capture#" + this.f65616a.incrementAndGet() + "-of ? extends " + i.f(Typography.amp).e(typeArr), typeArr);
+            return Types.l(e.class, "capture#" + this.f66302a.incrementAndGet() + "-of ? extends " + i.f(Typography.amp).e(typeArr), typeArr);
         }
 
         public final Type c(Type type) {
@@ -278,11 +278,11 @@ public final class f {
         }
 
         public final e d(TypeVariable<?> typeVariable) {
-            return new a(this, this.f65616a, typeVariable);
+            return new a(this, this.f66302a, typeVariable);
         }
 
         public final e e() {
-            return new e(this.f65616a);
+            return new e(this.f66302a);
         }
 
         public e() {
@@ -290,7 +290,7 @@ public final class f {
         }
 
         public e(AtomicInteger atomicInteger) {
-            this.f65616a = atomicInteger;
+            this.f66302a = atomicInteger;
         }
     }
 
@@ -311,7 +311,7 @@ public final class f {
     }
 
     public static f f(Type type) {
-        return new f().o(b.g(e.f65615b.a(type)));
+        return new f().o(b.g(e.f66301b.a(type)));
     }
 
     public static void g(Map<d, Type> map, Type type, Type type2) {
@@ -333,7 +333,7 @@ public final class f {
     public Type j(Type type) {
         n.p(type);
         if (type instanceof TypeVariable) {
-            return this.f65607a.a((TypeVariable) type);
+            return this.f66293a.a((TypeVariable) type);
         }
         if (type instanceof ParameterizedType) {
             return i((ParameterizedType) type);
@@ -372,37 +372,37 @@ public final class f {
     }
 
     public f o(Map<d, ? extends Type> map) {
-        return new f(this.f65607a.c(map));
+        return new f(this.f66293a.c(map));
     }
 
     /* loaded from: classes6.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ImmutableMap<d, Type> f65611a;
+        public final ImmutableMap<d, Type> f66297a;
 
         /* loaded from: classes6.dex */
         public class a extends c {
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ TypeVariable f65612b;
+            public final /* synthetic */ TypeVariable f66298b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ c f65613c;
+            public final /* synthetic */ c f66299c;
 
             public a(c cVar, TypeVariable typeVariable, c cVar2) {
-                this.f65612b = typeVariable;
-                this.f65613c = cVar2;
+                this.f66298b = typeVariable;
+                this.f66299c = cVar2;
             }
 
             @Override // d.g.c.h.f.c
             public Type b(TypeVariable<?> typeVariable, c cVar) {
-                return typeVariable.getGenericDeclaration().equals(this.f65612b.getGenericDeclaration()) ? typeVariable : this.f65613c.b(typeVariable, cVar);
+                return typeVariable.getGenericDeclaration().equals(this.f66298b.getGenericDeclaration()) ? typeVariable : this.f66299c.b(typeVariable, cVar);
             }
         }
 
         public c() {
-            this.f65611a = ImmutableMap.of();
+            this.f66297a = ImmutableMap.of();
         }
 
         public final Type a(TypeVariable<?> typeVariable) {
@@ -411,21 +411,21 @@ public final class f {
 
         /* JADX WARN: Type inference failed for: r0v4, types: [java.lang.reflect.GenericDeclaration] */
         public Type b(TypeVariable<?> typeVariable, c cVar) {
-            Type type = this.f65611a.get(new d(typeVariable));
+            Type type = this.f66297a.get(new d(typeVariable));
             if (type == null) {
                 Type[] bounds = typeVariable.getBounds();
                 if (bounds.length == 0) {
                     return typeVariable;
                 }
                 Type[] k = new f(cVar, null).k(bounds);
-                return (Types.c.f32224a && Arrays.equals(bounds, k)) ? typeVariable : Types.l(typeVariable.getGenericDeclaration(), typeVariable.getName(), k);
+                return (Types.c.f31469a && Arrays.equals(bounds, k)) ? typeVariable : Types.l(typeVariable.getGenericDeclaration(), typeVariable.getName(), k);
             }
             return new f(cVar, null).j(type);
         }
 
         public final c c(Map<d, ? extends Type> map) {
             ImmutableMap.b builder = ImmutableMap.builder();
-            builder.f(this.f65611a);
+            builder.f(this.f66297a);
             for (Map.Entry<d, ? extends Type> entry : map.entrySet()) {
                 d key = entry.getKey();
                 Type value = entry.getValue();
@@ -436,15 +436,15 @@ public final class f {
         }
 
         public c(ImmutableMap<d, Type> immutableMap) {
-            this.f65611a = immutableMap;
+            this.f66297a = immutableMap;
         }
     }
 
     public f() {
-        this.f65607a = new c();
+        this.f66293a = new c();
     }
 
     public f(c cVar) {
-        this.f65607a = cVar;
+        this.f66293a = cVar;
     }
 }

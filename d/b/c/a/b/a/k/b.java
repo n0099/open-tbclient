@@ -6,19 +6,19 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<X500Principal, Set<X509Certificate>> f64753a = new LinkedHashMap();
+    public final Map<X500Principal, Set<X509Certificate>> f65439a = new LinkedHashMap();
 
     public b(X509Certificate... x509CertificateArr) {
         for (X509Certificate x509Certificate : x509CertificateArr) {
             X500Principal subjectX500Principal = x509Certificate.getSubjectX500Principal();
-            Set<X509Certificate> set = this.f64753a.get(subjectX500Principal);
+            Set<X509Certificate> set = this.f65439a.get(subjectX500Principal);
             if (set == null) {
                 set = new LinkedHashSet<>(1);
-                this.f64753a.put(subjectX500Principal, set);
+                this.f65439a.put(subjectX500Principal, set);
             }
             set.add(x509Certificate);
         }
@@ -26,7 +26,7 @@ public final class b implements f {
 
     @Override // d.b.c.a.b.a.k.f
     public X509Certificate a(X509Certificate x509Certificate) {
-        Set<X509Certificate> set = this.f64753a.get(x509Certificate.getIssuerX500Principal());
+        Set<X509Certificate> set = this.f65439a.get(x509Certificate.getIssuerX500Principal());
         if (set == null) {
             return null;
         }
@@ -44,10 +44,10 @@ public final class b implements f {
         if (obj == this) {
             return true;
         }
-        return (obj instanceof b) && ((b) obj).f64753a.equals(this.f64753a);
+        return (obj instanceof b) && ((b) obj).f65439a.equals(this.f65439a);
     }
 
     public int hashCode() {
-        return this.f64753a.hashCode();
+        return this.f65439a.hashCode();
     }
 }

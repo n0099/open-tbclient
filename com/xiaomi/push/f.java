@@ -3,16 +3,16 @@ package com.xiaomi.push;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f38393a = a(1, 3);
+    public static final int f37638a = a(1, 3);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f38394b = a(1, 4);
+    public static final int f37639b = a(1, 4);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f38395c = a(2, 0);
+    public static final int f37640c = a(2, 0);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f38396d = a(3, 2);
+    public static final int f37641d = a(3, 2);
 
     public static int a(int i2) {
         return i2 & 7;

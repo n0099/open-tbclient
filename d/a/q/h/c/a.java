@@ -18,45 +18,45 @@ import org.json.JSONObject;
 public class a extends d.a.q.h.a {
 
     /* renamed from: d  reason: collision with root package name */
-    public a.C1722a f63749d;
+    public a.C1785a f64386d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f63750e;
+    public b f64387e;
 
     /* renamed from: d.a.q.h.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1724a {
+    public static class C1787a {
 
         /* renamed from: a  reason: collision with root package name */
-        public HashSet<String> f63751a = new HashSet<>();
+        public HashSet<String> f64388a = new HashSet<>();
 
         /* renamed from: b  reason: collision with root package name */
-        public HashSet<String> f63752b = new HashSet<>();
+        public HashSet<String> f64389b = new HashSet<>();
 
-        public static C1724a a(TrustSubject trustSubject) {
+        public static C1787a a(TrustSubject trustSubject) {
             try {
                 String m = trustSubject.m("config-aid");
                 if (TextUtils.isEmpty(m)) {
                     return null;
                 }
                 try {
-                    C1724a c1724a = new C1724a();
+                    C1787a c1787a = new C1787a();
                     JSONObject jSONObject = new JSONObject(m);
                     JSONArray optJSONArray = jSONObject.optJSONArray("blist");
                     if (optJSONArray != null) {
                         int length = optJSONArray.length();
                         for (int i2 = 0; i2 < length; i2++) {
-                            c1724a.f63751a.add(optJSONArray.getString(i2));
+                            c1787a.f64388a.add(optJSONArray.getString(i2));
                         }
                     }
                     JSONArray optJSONArray2 = jSONObject.optJSONArray("reset_blist");
                     if (optJSONArray2 != null) {
                         int length2 = optJSONArray2.length();
                         for (int i3 = 0; i3 < length2; i3++) {
-                            c1724a.f63752b.add(optJSONArray2.getString(i3));
+                            c1787a.f64389b.add(optJSONArray2.getString(i3));
                         }
                     }
-                    return c1724a;
+                    return c1787a;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return null;
@@ -68,11 +68,11 @@ public class a extends d.a.q.h.a {
         }
 
         public boolean b(String str) {
-            return this.f63751a.contains(str);
+            return this.f64388a.contains(str);
         }
 
         public boolean c(String str) {
-            return this.f63752b.contains(str);
+            return this.f64389b.contains(str);
         }
     }
 
@@ -80,127 +80,127 @@ public class a extends d.a.q.h.a {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f63753a;
+        public byte[] f64390a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f63754b;
+        public String f64391b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f63755c;
+        public String f64392c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f63756d;
+        public long f64393d;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f63758f;
+        public String f64395f;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f63760h;
+        public long f64397h;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f63757e = true;
+        public boolean f64394e = true;
 
         /* renamed from: g  reason: collision with root package name */
-        public e f63759g = new e();
+        public e f64396g = new e();
 
         public b() {
         }
 
         public void a(long j) {
-            if (j != this.f63756d) {
-                this.f63756d = j;
-                this.f63757e = true;
+            if (j != this.f64393d) {
+                this.f64393d = j;
+                this.f64394e = true;
             }
         }
 
         public void b(long j, long j2) {
-            if (this.f63759g.c(j, j2)) {
-                this.f63757e = true;
+            if (this.f64396g.c(j, j2)) {
+                this.f64394e = true;
             }
         }
 
         public void c(String str) {
-            String str2 = this.f63754b;
+            String str2 = this.f64391b;
             if (str == str2) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
-                this.f63754b = str;
-                this.f63757e = true;
+                this.f64391b = str;
+                this.f64394e = true;
             }
         }
 
         public void d(byte[] bArr) {
-            if (Arrays.equals(bArr, this.f63753a)) {
+            if (Arrays.equals(bArr, this.f64390a)) {
                 return;
             }
-            this.f63753a = bArr;
-            this.f63757e = true;
+            this.f64390a = bArr;
+            this.f64394e = true;
         }
 
         public byte[] e() {
-            return this.f63753a;
+            return this.f64390a;
         }
 
         public long f(long j) {
-            return this.f63759g.a(j);
+            return this.f64396g.a(j);
         }
 
         public String g() {
-            return this.f63754b;
+            return this.f64391b;
         }
 
         public void h(String str) {
-            String str2 = this.f63755c;
+            String str2 = this.f64392c;
             if (str2 == str) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
-                this.f63755c = str;
-                this.f63757e = true;
+                this.f64392c = str;
+                this.f64394e = true;
             }
         }
 
         public String i() {
-            return this.f63755c;
+            return this.f64392c;
         }
 
         public void j(long j) {
-            if (this.f63760h != j) {
-                this.f63760h = j;
-                this.f63757e = true;
+            if (this.f64397h != j) {
+                this.f64397h = j;
+                this.f64394e = true;
             }
         }
 
         public void k(String str) {
-            String str2 = this.f63758f;
+            String str2 = this.f64395f;
             if (str == str2) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
-                this.f63758f = str;
-                this.f63757e = true;
+                this.f64395f = str;
+                this.f64394e = true;
             }
         }
 
         public long l() {
-            return this.f63760h;
+            return this.f64397h;
         }
 
         public boolean m() {
-            String g2 = a.this.f63749d.g("aid.dat", true);
+            String g2 = a.this.f64386d.g("aid.dat", true);
             if (!TextUtils.isEmpty(g2)) {
                 try {
                     JSONObject jSONObject = new JSONObject(g2);
-                    this.f63753a = Base64.decode(jSONObject.getString("raw_id"), 2);
-                    this.f63756d = jSONObject.getLong("gen_ts");
-                    this.f63755c = jSONObject.getString("form_id");
-                    this.f63754b = jSONObject.getString("and_id");
-                    this.f63758f = jSONObject.optString("ran_id", null);
-                    this.f63759g.b(jSONObject.getLong("flags"));
-                    this.f63760h = jSONObject.getLong("lst_conf_ver");
+                    this.f64390a = Base64.decode(jSONObject.getString("raw_id"), 2);
+                    this.f64393d = jSONObject.getLong("gen_ts");
+                    this.f64392c = jSONObject.getString("form_id");
+                    this.f64391b = jSONObject.getString("and_id");
+                    this.f64395f = jSONObject.optString("ran_id", null);
+                    this.f64396g.b(jSONObject.getLong("flags"));
+                    this.f64397h = jSONObject.getLong("lst_conf_ver");
                     jSONObject.getInt("c_form_ver");
-                    this.f63757e = false;
+                    this.f64394e = false;
                     return true;
                 } catch (Exception unused) {
                 }
@@ -209,23 +209,23 @@ public class a extends d.a.q.h.a {
         }
 
         public boolean n() {
-            if (this.f63757e) {
+            if (this.f64394e) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("and_id", this.f63754b);
-                    jSONObject.put("form_id", this.f63755c);
-                    jSONObject.put("gen_ts", this.f63756d);
-                    jSONObject.put("flags", this.f63759g.d());
+                    jSONObject.put("and_id", this.f64391b);
+                    jSONObject.put("form_id", this.f64392c);
+                    jSONObject.put("gen_ts", this.f64393d);
+                    jSONObject.put("flags", this.f64396g.d());
                     jSONObject.put("c_form_ver", 1);
-                    if (!TextUtils.isEmpty(this.f63758f)) {
-                        jSONObject.put("ran_id", this.f63758f);
+                    if (!TextUtils.isEmpty(this.f64395f)) {
+                        jSONObject.put("ran_id", this.f64395f);
                     }
-                    if (this.f63753a != null) {
-                        jSONObject.put("raw_id", Base64.encodeToString(this.f63753a, 2));
+                    if (this.f64390a != null) {
+                        jSONObject.put("raw_id", Base64.encodeToString(this.f64390a, 2));
                     }
-                    jSONObject.put("lst_conf_ver", this.f63760h);
-                    a.this.f63749d.i("aid.dat", jSONObject.toString(), true);
-                    this.f63757e = false;
+                    jSONObject.put("lst_conf_ver", this.f64397h);
+                    a.this.f64386d.i("aid.dat", jSONObject.toString(), true);
+                    this.f64394e = false;
                     return true;
                 } catch (Exception unused) {
                 }
@@ -236,7 +236,7 @@ public class a extends d.a.q.h.a {
 
     public a() {
         super("aid");
-        this.f63750e = new b();
+        this.f64387e = new b();
     }
 
     public static String i(byte[] bArr) {
@@ -245,12 +245,12 @@ public class a extends d.a.q.h.a {
 
     @Override // d.a.q.h.a
     public String c() {
-        return this.f63750e.i();
+        return this.f64387e.i();
     }
 
     @Override // d.a.q.h.a
     public byte[] d() {
-        return this.f63750e.e();
+        return this.f64387e.e();
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(19:1|(2:3|(4:5|6|(1:49)(1:12)|(12:17|(1:19)(1:48)|20|21|22|23|(1:25)|26|(2:(2:39|40)|31)(2:(2:42|(1:44))|40)|(3:33|(1:35)|36)|37|38)(1:15)))(1:51)|50|6|(1:8)|49|(0)|17|(0)(0)|20|21|22|23|(0)|26|(0)(0)|(0)|37|38) */
@@ -272,26 +272,26 @@ public class a extends d.a.q.h.a {
         boolean z;
         boolean z2;
         String str;
-        this.f63749d = this.f63737a.f("aid");
-        this.f63750e.m();
-        TrustSubject trustSubject = this.f63738b.f63744c.f6515b;
+        this.f64386d = this.f64374a.f("aid");
+        this.f64387e.m();
+        TrustSubject trustSubject = this.f64375b.f64381c.f6369b;
         boolean z3 = false;
         boolean z4 = true;
         if (trustSubject != null) {
             j = trustSubject.n();
-            if (j != this.f63750e.l()) {
+            if (j != this.f64387e.l()) {
                 z = true;
-                z2 = !TextUtils.isEmpty(this.f63750e.i()) || this.f63750e.e() == null || TextUtils.isEmpty(this.f63750e.g());
+                z2 = !TextUtils.isEmpty(this.f64387e.i()) || this.f64387e.e() == null || TextUtils.isEmpty(this.f64387e.g());
                 if (!z2 || z) {
                     str = null;
-                    C1724a a2 = trustSubject == null ? C1724a.a(trustSubject) : null;
-                    str = Settings.Secure.getString(this.f63738b.f63742a.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                    C1787a a2 = trustSubject == null ? C1787a.a(trustSubject) : null;
+                    str = Settings.Secure.getString(this.f64375b.f64379a.getContentResolver(), IAdRequestParam.ANDROID_ID);
                     if (TextUtils.isEmpty(str)) {
                         str = "000000000";
                     }
                     if (z2) {
                         if (a2 != null) {
-                            if (this.f63750e.f(1L) == 0) {
+                            if (this.f64387e.f(1L) == 0) {
                             }
                         }
                         z4 = false;
@@ -306,19 +306,19 @@ public class a extends d.a.q.h.a {
                         String str2 = "com.helios" + str;
                         if (z4) {
                             String uuid = UUID.randomUUID().toString();
-                            this.f63750e.k(uuid);
+                            this.f64387e.k(uuid);
                             str2 = str2 + uuid;
-                            this.f63750e.b(1L, 1L);
+                            this.f64387e.b(1L, 1L);
                         }
                         byte[] a3 = f.a(str2, "utf-8");
                         String i2 = i(a3);
-                        this.f63750e.d(a3);
-                        this.f63750e.a(System.currentTimeMillis());
-                        this.f63750e.c(str);
-                        this.f63750e.h(i2);
+                        this.f64387e.d(a3);
+                        this.f64387e.a(System.currentTimeMillis());
+                        this.f64387e.c(str);
+                        this.f64387e.h(i2);
                     }
-                    this.f63750e.j(j);
-                    this.f63750e.n();
+                    this.f64387e.j(j);
+                    this.f64387e.n();
                 }
                 return;
             }
@@ -326,21 +326,21 @@ public class a extends d.a.q.h.a {
             j = 0;
         }
         z = false;
-        if (TextUtils.isEmpty(this.f63750e.i())) {
+        if (TextUtils.isEmpty(this.f64387e.i())) {
         }
         if (z2) {
         }
         str = null;
         if (trustSubject == null) {
         }
-        str = Settings.Secure.getString(this.f63738b.f63742a.getContentResolver(), IAdRequestParam.ANDROID_ID);
+        str = Settings.Secure.getString(this.f64375b.f64379a.getContentResolver(), IAdRequestParam.ANDROID_ID);
         if (TextUtils.isEmpty(str)) {
         }
         if (z2) {
         }
         if (z3) {
         }
-        this.f63750e.j(j);
-        this.f63750e.n();
+        this.f64387e.j(j);
+        this.f64387e.n();
     }
 }

@@ -28,7 +28,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68280d;
+        public Disposable f68960d;
         public final boolean delayErrors;
         public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
         public final CompositeDisposable set = new CompositeDisposable();
@@ -85,7 +85,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             this.cancelled = true;
-            this.f68280d.dispose();
+            this.f68960d.dispose();
             this.set.dispose();
         }
 
@@ -148,7 +148,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
             this.set.delete(innerObserver);
             if (this.errors.addThrowable(th)) {
                 if (!this.delayErrors) {
-                    this.f68280d.dispose();
+                    this.f68960d.dispose();
                     this.set.dispose();
                 }
                 this.active.decrementAndGet();
@@ -228,15 +228,15 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
                 singleSource.subscribe(innerObserver);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
-                this.f68280d.dispose();
+                this.f68960d.dispose();
                 onError(th);
             }
         }
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68280d, disposable)) {
-                this.f68280d = disposable;
+            if (DisposableHelper.validate(this.f68960d, disposable)) {
+                this.f68960d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

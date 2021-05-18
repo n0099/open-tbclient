@@ -12,7 +12,7 @@ public class JsSerializeValue extends JsReleaser {
     }
 
     @Override // com.baidu.searchbox.v8engine.JsReleaser
-    public void finalize() throws Throwable {
+    public void finalize() {
         super.finalize();
     }
 

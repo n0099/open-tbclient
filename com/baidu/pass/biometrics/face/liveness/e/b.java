@@ -11,107 +11,107 @@ import com.baidu.pass.biometrics.R;
 public class b extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewSwitcher f9591a;
+    public ViewSwitcher f9212a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f9592b;
+    public LinearLayout f9213b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f9593c;
+    public TextView f9214c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f9594d;
+    public TextView f9215d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f9595e;
+    public TextView f9216e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9596f;
+    public TextView f9217f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f9597g;
+    public TextView f9218g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f9598h;
+    public Context f9219h;
 
     public b(Context context) {
         super(context, R.style.PassBioBeautyDialog);
-        this.f9598h = context;
+        this.f9219h = context;
         a();
     }
 
     private void a() {
         setContentView(R.layout.layout_pass_liveness_dialog_alert);
         setCanceledOnTouchOutside(false);
-        this.f9592b = (LinearLayout) findViewById(R.id.pass_bio_dialog_alert_ll_content);
-        this.f9591a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.f9593c = (TextView) findViewById(R.id.title_text);
-        this.f9594d = (TextView) findViewById(R.id.msg_text);
-        this.f9595e = (TextView) findViewById(R.id.positive_btn);
-        this.f9596f = (TextView) findViewById(R.id.negative_btn);
-        this.f9597g = (TextView) findViewById(R.id.neutral_btn);
+        this.f9213b = (LinearLayout) findViewById(R.id.pass_bio_dialog_alert_ll_content);
+        this.f9212a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f9214c = (TextView) findViewById(R.id.title_text);
+        this.f9215d = (TextView) findViewById(R.id.msg_text);
+        this.f9216e = (TextView) findViewById(R.id.positive_btn);
+        this.f9217f = (TextView) findViewById(R.id.negative_btn);
+        this.f9218g = (TextView) findViewById(R.id.neutral_btn);
     }
 
     public void b(String str) {
-        this.f9593c.setText(str);
+        this.f9214c.setText(str);
     }
 
     public void c(int i2) {
-        this.f9593c.setVisibility(i2);
+        this.f9214c.setVisibility(i2);
     }
 
     public void b(int i2) {
-        this.f9594d.setVisibility(i2);
+        this.f9215d.setVisibility(i2);
     }
 
     public void c(String str, View.OnClickListener onClickListener) {
-        this.f9595e.setText(str);
-        this.f9595e.setOnClickListener(onClickListener);
+        this.f9216e.setText(str);
+        this.f9216e.setOnClickListener(onClickListener);
     }
 
     public void b(String str, View.OnClickListener onClickListener) {
-        this.f9597g.setText(str);
-        this.f9597g.setOnClickListener(onClickListener);
+        this.f9218g.setText(str);
+        this.f9218g.setOnClickListener(onClickListener);
     }
 
     public void a(int i2) {
         if ((i2 < 1 ? 1 : Math.min(i2, 2)) == 2) {
-            this.f9591a.setDisplayedChild(0);
+            this.f9212a.setDisplayedChild(0);
         } else {
-            this.f9591a.setDisplayedChild(1);
+            this.f9212a.setDisplayedChild(1);
         }
     }
 
     public void a(String str) {
-        this.f9594d.setText(str);
+        this.f9215d.setText(str);
     }
 
     public void a(String str, View.OnClickListener onClickListener) {
-        this.f9596f.setText(str);
-        this.f9596f.setOnClickListener(onClickListener);
+        this.f9217f.setText(str);
+        this.f9217f.setOnClickListener(onClickListener);
     }
 
     public void a(boolean z) {
         if (z) {
-            this.f9592b.setBackgroundDrawable(this.f9598h.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg_night));
-            this.f9593c.setTextColor(this.f9598h.getResources().getColor(R.color.pass_bio_dialog_title_text_color_night));
-            this.f9594d.setTextColor(this.f9598h.getResources().getColor(R.color.pass_bio_dialog_content_text_color_night));
-            this.f9596f.setTextColor(this.f9598h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color_night));
-            this.f9595e.setTextColor(this.f9598h.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color_night));
-            this.f9597g.setTextColor(this.f9598h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color_night));
-            this.f9596f.setBackgroundDrawable(this.f9598h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg_night));
-            this.f9595e.setBackgroundDrawable(this.f9598h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg_night));
-            this.f9597g.setBackgroundDrawable(this.f9598h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg_night));
+            this.f9213b.setBackgroundDrawable(this.f9219h.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg_night));
+            this.f9214c.setTextColor(this.f9219h.getResources().getColor(R.color.pass_bio_dialog_title_text_color_night));
+            this.f9215d.setTextColor(this.f9219h.getResources().getColor(R.color.pass_bio_dialog_content_text_color_night));
+            this.f9217f.setTextColor(this.f9219h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color_night));
+            this.f9216e.setTextColor(this.f9219h.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color_night));
+            this.f9218g.setTextColor(this.f9219h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color_night));
+            this.f9217f.setBackgroundDrawable(this.f9219h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg_night));
+            this.f9216e.setBackgroundDrawable(this.f9219h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg_night));
+            this.f9218g.setBackgroundDrawable(this.f9219h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg_night));
             return;
         }
-        this.f9592b.setBackgroundDrawable(this.f9598h.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg));
-        this.f9593c.setTextColor(this.f9598h.getResources().getColor(R.color.pass_bio_dialog_title_text_color));
-        this.f9594d.setTextColor(this.f9598h.getResources().getColor(R.color.pass_bio_dialog_content_text_color));
-        this.f9596f.setTextColor(this.f9598h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color));
-        this.f9597g.setTextColor(this.f9598h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color));
-        this.f9595e.setTextColor(this.f9598h.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color));
-        this.f9596f.setBackgroundDrawable(this.f9598h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg));
-        this.f9595e.setBackgroundDrawable(this.f9598h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg));
-        this.f9597g.setBackgroundDrawable(this.f9598h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg));
+        this.f9213b.setBackgroundDrawable(this.f9219h.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg));
+        this.f9214c.setTextColor(this.f9219h.getResources().getColor(R.color.pass_bio_dialog_title_text_color));
+        this.f9215d.setTextColor(this.f9219h.getResources().getColor(R.color.pass_bio_dialog_content_text_color));
+        this.f9217f.setTextColor(this.f9219h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color));
+        this.f9218g.setTextColor(this.f9219h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color));
+        this.f9216e.setTextColor(this.f9219h.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color));
+        this.f9217f.setBackgroundDrawable(this.f9219h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg));
+        this.f9216e.setBackgroundDrawable(this.f9219h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg));
+        this.f9218g.setBackgroundDrawable(this.f9219h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg));
     }
 }

@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum b {
     TYPE_2G("2g"),
     TYPE_3G("3g"),
@@ -10,14 +10,14 @@ public enum b {
     
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30109g;
+    public String f29354g;
 
     b(String str) {
-        this.f30109g = str;
+        this.f29354g = str;
     }
 
     @Override // java.lang.Enum
     public String toString() {
-        return this.f30109g;
+        return this.f29354g;
     }
 }

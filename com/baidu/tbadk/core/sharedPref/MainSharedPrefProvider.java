@@ -9,7 +9,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.a.i0.r.d0.a;
+import d.a.j0.r.d0.a;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;

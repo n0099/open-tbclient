@@ -18,41 +18,41 @@ public class l extends a {
     public void a(d dVar, ImageView imageView) {
         int b2 = dVar.b();
         int a2 = dVar.a();
-        RectF rectF = this.f40102f;
-        PointF b3 = b(rectF.left, rectF.top, this.f40101e);
+        RectF rectF = this.f39347f;
+        PointF b3 = b(rectF.left, rectF.top, this.f39346e);
         int i2 = (int) b3.x;
         int i3 = (int) b3.y;
-        RectF rectF2 = this.f40102f;
-        PointF b4 = b(rectF2.right, rectF2.bottom, this.f40101e);
+        RectF rectF2 = this.f39347f;
+        PointF b4 = b(rectF2.right, rectF2.bottom, this.f39346e);
         int i4 = (int) b4.x;
         int i5 = (int) b4.y;
         this.q.reset();
         this.q.postScale((i4 - i2) / b2, (i5 - i3) / a2);
         this.q.postTranslate(i2, i3);
         if (dVar.e()) {
-            Bitmap bitmap = dVar.f40109a.getBitmap();
+            Bitmap bitmap = dVar.f39354a.getBitmap();
             Shader.TileMode tileMode = Shader.TileMode.CLAMP;
             this.r = new BitmapShader(bitmap, tileMode, tileMode);
         } else {
-            this.r = dVar.f40110b.d();
+            this.r = dVar.f39355b.d();
         }
         BitmapShader bitmapShader = this.r;
         if (bitmapShader == null) {
             return;
         }
         bitmapShader.setLocalMatrix(this.q);
-        this.f40098b.setShader(this.r);
+        this.f39343b.setShader(this.r);
         int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
         int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
         this.s.set(Math.max(i2, 0), Math.max(i3, 0), Math.min(i4, width), Math.min(i5, height));
         e eVar = this.k;
-        if (eVar.f40114c) {
-            float f2 = eVar.f40115d / 2.0f;
-            if (!eVar.f40118g) {
-                this.f40103g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
+        if (eVar.f39359c) {
+            float f2 = eVar.f39360d / 2.0f;
+            if (!eVar.f39363g) {
+                this.f39348g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
                 return;
             }
-            RectF rectF3 = this.f40103g;
+            RectF rectF3 = this.f39348g;
             RectF rectF4 = this.s;
             rectF3.set(rectF4.left + f2, rectF4.top + f2, rectF4.right - f2, rectF4.bottom - f2);
         }
@@ -61,9 +61,9 @@ public class l extends a {
     @Override // d.a.c.f.a.a
     public void f(Canvas canvas, ImageView imageView) {
         e eVar = this.k;
-        if (eVar.f40114c) {
-            if (!eVar.f40113b) {
-                canvas.drawPath(l(this.f40103g, eVar.f40112a), this.f40099c);
+        if (eVar.f39359c) {
+            if (!eVar.f39358b) {
+                canvas.drawPath(l(this.f39348g, eVar.f39357a), this.f39344c);
                 return;
             }
             RectF rectF = this.s;
@@ -75,7 +75,7 @@ public class l extends a {
                 f3 = (imageView.getTop() + imageView.getBottom()) / 2.0f;
                 min = Math.min(imageView.getWidth(), imageView.getHeight()) / 2.0f;
             }
-            canvas.drawCircle(f2, f3, min - (this.k.f40115d / 2.0f), this.f40099c);
+            canvas.drawCircle(f2, f3, min - (this.k.f39360d / 2.0f), this.f39344c);
         }
     }
 
@@ -83,17 +83,17 @@ public class l extends a {
     public void h(Canvas canvas, d dVar, ImageView imageView) {
         boolean d2 = dVar.d();
         if (d2 && dVar.d()) {
-            dVar.f40110b.b(true);
+            dVar.f39355b.b(true);
         }
         e eVar = this.k;
-        if (!eVar.f40113b) {
-            canvas.drawPath(l(this.s, eVar.f40112a), this.f40098b);
+        if (!eVar.f39358b) {
+            canvas.drawPath(l(this.s, eVar.f39357a), this.f39343b);
         } else {
             RectF rectF = this.s;
-            canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.s.height()) / 2.0f, this.f40098b);
+            canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.s.height()) / 2.0f, this.f39343b);
         }
         if (d2 && dVar.d()) {
-            dVar.f40110b.b(false);
+            dVar.f39355b.b(false);
         }
     }
 
@@ -105,14 +105,14 @@ public class l extends a {
         int scrollX = imageView.getScrollX();
         int scrollY = imageView.getScrollY();
         canvas.translate(scrollX, scrollY);
-        this.f40100d.setColor(this.k.m);
-        if (!this.k.f40113b) {
+        this.f39345d.setColor(this.k.m);
+        if (!this.k.f39358b) {
             this.n.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            canvas.drawPath(l(this.n, this.k.f40112a), this.f40100d);
+            canvas.drawPath(l(this.n, this.k.f39357a), this.f39345d);
         } else {
             float width = imageView.getWidth() / 2.0f;
             float height = imageView.getHeight() / 2.0f;
-            canvas.drawCircle(width, height, Math.min(width, height) - (this.k.f40115d / 2.0f), this.f40100d);
+            canvas.drawCircle(width, height, Math.min(width, height) - (this.k.f39360d / 2.0f), this.f39345d);
         }
         canvas.translate(-scrollX, -scrollY);
     }

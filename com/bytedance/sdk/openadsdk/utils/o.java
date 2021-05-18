@@ -7,10 +7,10 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.i.a.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -21,16 +21,16 @@ public class o {
 
     public static void a(Context context, String str, int i2, final a aVar, boolean z) {
         u.f("splashLoadAd", " getImageBytes url " + str);
-        com.bytedance.sdk.openadsdk.i.e.c().g().a(str, new b.InterfaceC0319b() { // from class: com.bytedance.sdk.openadsdk.utils.o.1
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0319b
+        com.bytedance.sdk.openadsdk.i.e.c().g().a(str, new b.InterfaceC0306b() { // from class: com.bytedance.sdk.openadsdk.utils.o.1
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0306b
             public void a() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0319b
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0306b
             public void a(b.c cVar) {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0319b
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0306b
             public void a(String str2, com.bytedance.sdk.openadsdk.i.a.d dVar) {
                 a aVar2;
                 if (dVar.c() && (aVar2 = a.this) != null) {
@@ -43,7 +43,7 @@ public class o {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0319b
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0306b
             public void b(b.c cVar) {
                 a aVar2 = a.this;
                 if (aVar2 != null) {
@@ -51,7 +51,7 @@ public class o {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0319b
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0306b
             public void b() {
                 a aVar2 = a.this;
                 if (aVar2 != null) {

@@ -3,16 +3,16 @@ package com.baidu.media.duplayer;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8287a;
+    public String f8099a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8288b;
+    public String f8100b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8289c;
+    public String f8101c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f8290d;
+    public a f8102d;
 
     /* loaded from: classes2.dex */
     public enum a {
@@ -21,33 +21,33 @@ public class d {
     }
 
     public d(int i2, String str, String str2) {
-        this.f8287a = str;
-        this.f8288b = str2;
-        this.f8290d = a.LIB_TYPE_SO;
+        this.f8099a = str;
+        this.f8100b = str2;
+        this.f8102d = a.LIB_TYPE_SO;
     }
 
     public d(int i2, String str, String str2, a aVar) {
         this(i2, str, str2);
-        this.f8290d = aVar;
+        this.f8102d = aVar;
     }
 
     public String a() {
-        return this.f8287a;
+        return this.f8099a;
     }
 
     public void b(String str) {
-        this.f8289c = str;
+        this.f8101c = str;
     }
 
     public String c() {
-        return this.f8288b;
+        return this.f8100b;
     }
 
     public String d() {
-        return this.f8289c;
+        return this.f8101c;
     }
 
     public a e() {
-        return this.f8290d;
+        return this.f8102d;
     }
 }

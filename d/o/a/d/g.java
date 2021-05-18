@@ -21,103 +21,103 @@ import d.o.a.d.j;
 import d.o.a.e.b.a.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g implements d.o.a.b.a.d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f66154b = "g";
+    public static String f66840b = "g";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile g f66155c;
+    public static volatile g f66841c;
 
     /* renamed from: a  reason: collision with root package name */
-    public l f66156a = l.b(n.a());
+    public l f66842a = l.b(n.a());
 
-    /* loaded from: classes6.dex */
-    public class a implements c.InterfaceC1792c {
+    /* loaded from: classes7.dex */
+    public class a implements c.InterfaceC1856c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.a.a.c.d f66157a;
+        public final /* synthetic */ d.o.a.a.a.c.d f66843a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.a.a.c.c f66158b;
+        public final /* synthetic */ d.o.a.a.a.c.c f66844b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.a.a.c.b f66159c;
+        public final /* synthetic */ d.o.a.a.a.c.b f66845c;
 
         public a(d.o.a.a.a.c.d dVar, d.o.a.a.a.c.c cVar, d.o.a.a.a.c.b bVar) {
-            this.f66157a = dVar;
-            this.f66158b = cVar;
-            this.f66159c = bVar;
+            this.f66843a = dVar;
+            this.f66844b = cVar;
+            this.f66845c = bVar;
         }
 
-        @Override // d.o.a.a.a.d.c.InterfaceC1792c
+        @Override // d.o.a.a.a.d.c.InterfaceC1856c
         public void a(DialogInterface dialogInterface) {
-            g.this.f66156a.g(this.f66157a.a(), this.f66157a.d(), 2, this.f66158b, this.f66159c);
-            j.c.a().m("landing_download_dialog_confirm", this.f66157a, this.f66158b, this.f66159c);
+            g.this.f66842a.g(this.f66843a.a(), this.f66843a.d(), 2, this.f66844b, this.f66845c);
+            j.c.a().m("landing_download_dialog_confirm", this.f66843a, this.f66844b, this.f66845c);
             dialogInterface.dismiss();
         }
 
-        @Override // d.o.a.a.a.d.c.InterfaceC1792c
+        @Override // d.o.a.a.a.d.c.InterfaceC1856c
         public void b(DialogInterface dialogInterface) {
-            j.c.a().m("landing_download_dialog_cancel", this.f66157a, this.f66158b, this.f66159c);
+            j.c.a().m("landing_download_dialog_cancel", this.f66843a, this.f66844b, this.f66845c);
             dialogInterface.dismiss();
         }
 
-        @Override // d.o.a.a.a.d.c.InterfaceC1792c
+        @Override // d.o.a.a.a.d.c.InterfaceC1856c
         public void c(DialogInterface dialogInterface) {
-            j.c.a().m("landing_download_dialog_cancel", this.f66157a, this.f66158b, this.f66159c);
+            j.c.a().m("landing_download_dialog_cancel", this.f66843a, this.f66844b, this.f66845c);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b {
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class a implements e {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f66161a;
+            public final /* synthetic */ JSONObject f66847a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.b.a.c.a f66162b;
+            public final /* synthetic */ d.o.a.b.a.c.a f66848b;
 
             public a(JSONObject jSONObject, d.o.a.b.a.c.a aVar) {
-                this.f66161a = jSONObject;
-                this.f66162b = aVar;
+                this.f66847a = jSONObject;
+                this.f66848b = aVar;
             }
 
             @Override // d.o.a.d.g.e
             public void a(boolean z) {
                 if (z) {
-                    j.c.a().t("deeplink_success", this.f66161a, this.f66162b);
+                    j.c.a().t("deeplink_success", this.f66847a, this.f66848b);
                 } else {
-                    j.c.a().t("deeplink_failed", this.f66161a, this.f66162b);
+                    j.c.a().t("deeplink_failed", this.f66847a, this.f66848b);
                 }
             }
         }
 
         /* renamed from: d.o.a.d.g$b$b  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C1803b implements e {
+        /* loaded from: classes7.dex */
+        public static class C1867b implements e {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f66163a;
+            public final /* synthetic */ JSONObject f66849a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.b.a.c.a f66164b;
+            public final /* synthetic */ d.o.a.b.a.c.a f66850b;
 
-            public C1803b(JSONObject jSONObject, d.o.a.b.a.c.a aVar) {
-                this.f66163a = jSONObject;
-                this.f66164b = aVar;
+            public C1867b(JSONObject jSONObject, d.o.a.b.a.c.a aVar) {
+                this.f66849a = jSONObject;
+                this.f66850b = aVar;
             }
 
             @Override // d.o.a.d.g.e
             public void a(boolean z) {
                 if (z) {
-                    j.c.a().t("deeplink_success", this.f66163a, this.f66164b);
+                    j.c.a().t("deeplink_success", this.f66849a, this.f66850b);
                 } else {
-                    j.c.a().t("deeplink_failed", this.f66163a, this.f66164b);
+                    j.c.a().t("deeplink_failed", this.f66849a, this.f66850b);
                 }
             }
         }
@@ -228,8 +228,8 @@ public class g implements d.o.a.b.a.d {
             }
             d.o.a.d.n.k.r(jSONObject, "applink_source", str);
             j.c.a().t("market_open_success", jSONObject, fVar);
-            n.m().a(n.a(), fVar.f66030b, fVar.f66032d, fVar.f66031c, fVar.f66030b.v(), str);
-            d.o.a.b.a.c.b bVar = new d.o.a.b.a.c.b(fVar.f66030b, fVar.f66031c, fVar.f66032d);
+            n.m().a(n.a(), fVar.f66716b, fVar.f66718d, fVar.f66717c, fVar.f66716b.v(), str);
+            d.o.a.b.a.c.b bVar = new d.o.a.b.a.c.b(fVar.f66716b, fVar.f66717c, fVar.f66718d);
             bVar.v0(2);
             bVar.A0(System.currentTimeMillis());
             bVar.H0(4);
@@ -243,7 +243,7 @@ public class g implements d.o.a.b.a.d {
 
         public static boolean g(@NonNull c.f fVar) {
             boolean z;
-            d.o.a.a.a.d.b x = fVar.f66030b.x();
+            d.o.a.a.a.d.b x = fVar.f66716b.x();
             String d2 = x == null ? null : x.d();
             JSONObject jSONObject = new JSONObject();
             d.o.a.d.n.f.a(jSONObject, fVar);
@@ -254,15 +254,15 @@ public class g implements d.o.a.b.a.d {
                 if (!TextUtils.isEmpty(d2)) {
                     k("by_url", k, jSONObject, fVar);
                 }
-                k = d.o.a.d.n.h.d(n.a(), fVar.f66030b.v(), fVar);
+                k = d.o.a.d.n.h.d(n.a(), fVar.f66716b.v(), fVar);
             }
             boolean z2 = false;
-            if (f(fVar.f66029a) && n.s().optInt("link_ad_click_event") == 1) {
-                d.o.a.a.a.c.d dVar = fVar.f66030b;
+            if (f(fVar.f66715a) && n.s().optInt("link_ad_click_event") == 1) {
+                d.o.a.a.a.c.d dVar = fVar.f66716b;
                 if (dVar instanceof d.o.a.b.a.a.c) {
                     ((d.o.a.b.a.a.c) dVar).b(4);
                 }
-                j.c.a().c(fVar.f66029a, 0);
+                j.c.a().c(fVar.f66715a, 0);
                 z = true;
             } else {
                 z = false;
@@ -278,14 +278,14 @@ public class g implements d.o.a.b.a.d {
                 } else {
                     c("by_package", k, jSONObject, fVar);
                 }
-                if (z2 && !z && ((j.e.a().c() && !j.e.a().d(fVar.f66029a, fVar.f66030b.u())) || j.e.a().f())) {
-                    j.c.a().c(fVar.f66029a, 2);
+                if (z2 && !z && ((j.e.a().c() && !j.e.a().d(fVar.f66715a, fVar.f66716b.u())) || j.e.a().f())) {
+                    j.c.a().c(fVar.f66715a, 2);
                 }
                 return z2;
             }
             z2 = true;
             if (z2) {
-                j.c.a().c(fVar.f66029a, 2);
+                j.c.a().c(fVar.f66715a, 2);
             }
             return z2;
         }
@@ -293,7 +293,7 @@ public class g implements d.o.a.b.a.d {
         public static boolean h(@NonNull c.f fVar, int i2) {
             JSONObject jSONObject = new JSONObject();
             j.c.a().t("market_click_open", jSONObject, fVar);
-            c.h b2 = d.o.a.d.n.h.b(n.a(), fVar, fVar.f66030b.v());
+            c.h b2 = d.o.a.d.n.h.b(n.a(), fVar, fVar.f66716b.v());
             String m = d.o.a.d.n.k.m(b2.c(), "open_market");
             int a2 = b2.a();
             if (a2 == 5) {
@@ -305,7 +305,7 @@ public class g implements d.o.a.b.a.d {
             } else if (a2 != 7) {
                 return false;
             }
-            j.c.a().c(fVar.f66029a, i2);
+            j.c.a().c(fVar.f66715a, i2);
             return true;
         }
 
@@ -415,7 +415,7 @@ public class g implements d.o.a.b.a.d {
             if (c2 == 0 || c2 == 1) {
                 if (n.s().optInt("download_sdk_optimize_mode") == 1) {
                     d.o.a.d.n.k.r(jSONObject, "check_applink_result_opt", 1);
-                    f.a().b(aVar.e(), new C1803b(jSONObject, aVar));
+                    f.a().b(aVar.e(), new C1867b(jSONObject, aVar));
                     return;
                 }
             } else if (c2 != 2 && c2 != 3) {
@@ -425,43 +425,43 @@ public class g implements d.o.a.b.a.d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c {
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.b.a.c.b f66165e;
+            public final /* synthetic */ d.o.a.b.a.c.b f66851e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h f66166f;
+            public final /* synthetic */ h f66852f;
 
             /* renamed from: d.o.a.d.g$c$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class C1804a implements i {
-                public C1804a() {
+            /* loaded from: classes7.dex */
+            public class C1868a implements i {
+                public C1868a() {
                 }
 
                 @Override // d.o.a.d.g.i
                 public void a(boolean z) {
-                    a.this.f66166f.a(z);
+                    a.this.f66852f.a(z);
                 }
             }
 
             public a(c cVar, d.o.a.b.a.c.b bVar, h hVar) {
-                this.f66165e = bVar;
-                this.f66166f = hVar;
+                this.f66851e = bVar;
+                this.f66852f = hVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (j.a(this.f66165e)) {
-                    this.f66166f.a(false);
-                } else if (!C1805g.c(this.f66165e)) {
-                    this.f66166f.a(false);
+                if (j.a(this.f66851e)) {
+                    this.f66852f.a(false);
+                } else if (!C1869g.c(this.f66851e)) {
+                    this.f66852f.a(false);
                 } else {
-                    C1805g.b(this.f66165e, new C1804a());
+                    C1869g.b(this.f66851e, new C1868a());
                 }
             }
         }
@@ -471,33 +471,33 @@ public class g implements d.o.a.b.a.d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d {
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class a implements a.b {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.b.a.c.b f66168e;
+            public final /* synthetic */ d.o.a.b.a.c.b f66854e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.d.m.a.a f66169f;
+            public final /* synthetic */ d.o.a.d.m.a.a f66855f;
 
             public a(d.o.a.b.a.c.b bVar, d.o.a.d.m.a.a aVar) {
-                this.f66168e = bVar;
-                this.f66169f = aVar;
+                this.f66854e = bVar;
+                this.f66855f = aVar;
             }
 
             @Override // d.o.a.e.b.a.a.b
             public void b() {
                 d.o.a.e.b.c.a.g("AppInstallOptimiseHelper", "AppInstallOptimiseHelper-->onAppForeground");
                 d.o.a.e.b.a.a.c().h(this);
-                if (d.o.a.d.n.k.D(this.f66168e)) {
+                if (d.o.a.d.n.k.D(this.f66854e)) {
                     return;
                 }
-                this.f66168e.Z0(true);
-                j.c.a().o("install_delay_invoke", this.f66168e);
-                this.f66169f.a();
+                this.f66854e.Z0(true);
+                j.c.a().o("install_delay_invoke", this.f66854e);
+                this.f66855f.a();
             }
 
             @Override // d.o.a.e.b.a.a.b
@@ -523,47 +523,47 @@ public class g implements d.o.a.b.a.d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void a(boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f implements a.b {
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a implements Runnable {
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f66170e;
+            public final /* synthetic */ String f66856e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ e f66171f;
+            public final /* synthetic */ e f66857f;
 
             public b(f fVar, String str, e eVar) {
-                this.f66170e = str;
-                this.f66171f = eVar;
+                this.f66856e = str;
+                this.f66857f = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (d.o.a.d.n.k.H(this.f66170e)) {
-                    this.f66171f.a(true);
+                if (d.o.a.d.n.k.H(this.f66856e)) {
+                    this.f66857f.a(true);
                 } else {
-                    this.f66171f.a(false);
+                    this.f66857f.a(false);
                 }
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class c {
 
             /* renamed from: a  reason: collision with root package name */
-            public static f f66172a = new f(null);
+            public static f f66858a = new f(null);
         }
 
         public /* synthetic */ f(a aVar) {
@@ -571,7 +571,7 @@ public class g implements d.o.a.b.a.d {
         }
 
         public static f a() {
-            return c.f66172a;
+            return c.f66858a;
         }
 
         @Override // d.o.a.e.b.a.a.b
@@ -604,59 +604,59 @@ public class g implements d.o.a.b.a.d {
     }
 
     /* renamed from: d.o.a.d.g$g  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C1805g {
+    /* loaded from: classes7.dex */
+    public class C1869g {
 
         /* renamed from: d.o.a.d.g$g$a */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class a implements a.b {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.b.a.c.b f66173e;
+            public final /* synthetic */ d.o.a.b.a.c.b f66859e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ long f66174f;
+            public final /* synthetic */ long f66860f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ i f66175g;
+            public final /* synthetic */ i f66861g;
 
             /* renamed from: d.o.a.d.g$g$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class RunnableC1806a implements Runnable {
-                public RunnableC1806a() {
+            /* loaded from: classes7.dex */
+            public class RunnableC1870a implements Runnable {
+                public RunnableC1870a() {
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    boolean H = d.o.a.d.n.k.H(a.this.f66173e.e());
-                    long h2 = C1805g.h(a.this.f66173e);
-                    if (!H || h2 >= System.currentTimeMillis() - a.this.f66174f) {
-                        long k = C1805g.k(a.this.f66173e);
+                    boolean H = d.o.a.d.n.k.H(a.this.f66859e.e());
+                    long h2 = C1869g.h(a.this.f66859e);
+                    if (!H || h2 >= System.currentTimeMillis() - a.this.f66860f) {
+                        long k = C1869g.k(a.this.f66859e);
                         long currentTimeMillis = System.currentTimeMillis();
                         a aVar = a.this;
-                        if (currentTimeMillis - aVar.f66174f > k) {
-                            j.c.a().o("deeplink_delay_timeout", a.this.f66173e);
+                        if (currentTimeMillis - aVar.f66860f > k) {
+                            j.c.a().o("deeplink_delay_timeout", a.this.f66859e);
                             return;
                         }
-                        aVar.f66173e.X0(true);
-                        j.c.a().o("deeplink_delay_invoke", a.this.f66173e);
-                        a.this.f66175g.a(true);
-                        d.o.a.b.a.c.b bVar = a.this.f66173e;
-                        C1805g.d(bVar, C1805g.m(bVar));
+                        aVar.f66859e.X0(true);
+                        j.c.a().o("deeplink_delay_invoke", a.this.f66859e);
+                        a.this.f66861g.a(true);
+                        d.o.a.b.a.c.b bVar = a.this.f66859e;
+                        C1869g.d(bVar, C1869g.m(bVar));
                     }
                 }
             }
 
             public a(d.o.a.b.a.c.b bVar, long j, i iVar) {
-                this.f66173e = bVar;
-                this.f66174f = j;
-                this.f66175g = iVar;
+                this.f66859e = bVar;
+                this.f66860f = j;
+                this.f66861g = iVar;
             }
 
             @Override // d.o.a.e.b.a.a.b
             public void b() {
                 d.o.a.e.b.a.a.c().h(this);
-                d.o.a.d.i.a().b(new RunnableC1806a());
+                d.o.a.d.i.a().b(new RunnableC1870a());
             }
 
             @Override // d.o.a.e.b.a.a.b
@@ -665,37 +665,37 @@ public class g implements d.o.a.b.a.d {
         }
 
         /* renamed from: d.o.a.d.g$g$b */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.b.a.c.b f66177e;
+            public final /* synthetic */ d.o.a.b.a.c.b f66863e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f66178f;
+            public final /* synthetic */ int f66864f;
 
             public b(d.o.a.b.a.c.b bVar, int i2) {
-                this.f66177e = bVar;
-                this.f66178f = i2;
+                this.f66863e = bVar;
+                this.f66864f = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 int i2 = 1;
-                if (d.o.a.d.n.k.H(this.f66177e.e())) {
+                if (d.o.a.d.n.k.H(this.f66863e.e())) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        if (!this.f66177e.V()) {
+                        if (!this.f66863e.V()) {
                             i2 = 2;
                         }
                         jSONObject.putOpt("deeplink_source", Integer.valueOf(i2));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
-                    j.c.a().u("deeplink_success_2", jSONObject, this.f66177e);
+                    j.c.a().u("deeplink_success_2", jSONObject, this.f66863e);
                     return;
                 }
-                C1805g.d(this.f66177e, this.f66178f - 1);
+                C1869g.d(this.f66863e, this.f66864f - 1);
             }
         }
 
@@ -767,24 +767,24 @@ public class g implements d.o.a.b.a.d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface h {
         void a(boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface i {
         void a(boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class j {
         public static boolean a(@NonNull d.o.a.b.a.c.a aVar) {
             return d.o.a.e.a.h.c.f() && Build.VERSION.SDK_INT < 29 && n.u() != null && n.u().a() && d.o.a.d.n.e.c(aVar).m("invoke_app_form_background_switch") == 1 && aVar.q();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class k {
         public static boolean a(Uri uri) {
             if (uri == null) {
@@ -817,14 +817,14 @@ public class g implements d.o.a.b.a.d {
     }
 
     public static g e() {
-        if (f66155c == null) {
+        if (f66841c == null) {
             synchronized (g.class) {
-                if (f66155c == null) {
-                    f66155c = new g();
+                if (f66841c == null) {
+                    f66841c = new g();
                 }
             }
         }
-        return f66155c;
+        return f66841c;
     }
 
     public static d.o.a.a.a.c.b h() {
@@ -832,32 +832,32 @@ public class g implements d.o.a.b.a.d {
     }
 
     public static d.o.a.a.a.c.c j() {
-        b.C1794b c1794b = new b.C1794b();
-        c1794b.b("landing_h5_download_ad_button");
-        c1794b.f("landing_h5_download_ad_button");
-        c1794b.i("click_start_detail");
-        c1794b.l("click_pause_detail");
-        c1794b.n("click_continue_detail");
-        c1794b.p("click_install_detail");
-        c1794b.r("click_open_detail");
-        c1794b.t("storage_deny_detail");
-        c1794b.a(1);
-        c1794b.c(false);
-        c1794b.g(true);
-        c1794b.j(false);
-        return c1794b.d();
+        b.C1858b c1858b = new b.C1858b();
+        c1858b.b("landing_h5_download_ad_button");
+        c1858b.f("landing_h5_download_ad_button");
+        c1858b.i("click_start_detail");
+        c1858b.l("click_pause_detail");
+        c1858b.n("click_continue_detail");
+        c1858b.p("click_install_detail");
+        c1858b.r("click_open_detail");
+        c1858b.t("storage_deny_detail");
+        c1858b.a(1);
+        c1858b.c(false);
+        c1858b.g(true);
+        c1858b.j(false);
+        return c1858b.d();
     }
 
     @Override // d.o.a.b.a.d
     public boolean a(Context context, long j2, String str, d.o.a.a.a.c.e eVar, int i2) {
         d.o.a.b.a.c.b u = c.g.e().u(j2);
         if (u != null) {
-            this.f66156a.d(context, i2, eVar, u.f0());
+            this.f66842a.d(context, i2, eVar, u.f0());
             return true;
         }
         d.o.a.a.a.c.d a2 = c.g.e().a(j2);
         if (a2 != null) {
-            this.f66156a.d(context, i2, eVar, a2);
+            this.f66842a.d(context, i2, eVar, a2);
             return true;
         }
         return false;
@@ -913,7 +913,7 @@ public class g implements d.o.a.b.a.d {
         } else if (context == null || TextUtils.isEmpty(dVar.a())) {
             return null;
         } else {
-            this.f66156a.d(context, i2, eVar, dVar);
+            this.f66842a.d(context, i2, eVar, dVar);
             boolean z2 = true;
             d.o.a.a.a.c.c cVar2 = (d.o.a.a.a.c.c) d.o.a.d.n.k.k(cVar, j());
             d.o.a.a.a.c.b bVar2 = (d.o.a.a.a.c.b) d.o.a.d.n.k.k(bVar, h());
@@ -923,10 +923,10 @@ public class g implements d.o.a.b.a.d {
                 z2 = z3;
             }
             if (z2) {
-                this.f66156a.g(dVar.a(), dVar.d(), 2, cVar2, bVar2);
+                this.f66842a.g(dVar.a(), dVar.d(), 2, cVar2, bVar2);
                 return null;
             }
-            String str2 = f66154b;
+            String str2 = f66840b;
             d.o.a.d.n.j.a(str2, "tryStartDownload show dialog appName:" + dVar.a(), null);
             d.o.a.a.a.a.k n = n.n();
             c.b bVar3 = new c.b(context);
@@ -968,17 +968,17 @@ public class g implements d.o.a.b.a.d {
             }
         } else {
             if (n == null) {
-                b.C1794b c1794b = new b.C1794b();
-                c1794b.b(u.j());
-                c1794b.v(u.i());
-                c1794b.j(u.m());
-                c1794b.c(false);
-                c1794b.i("click_start_detail");
-                c1794b.l("click_pause_detail");
-                c1794b.n("click_continue_detail");
-                c1794b.p("click_install_detail");
-                c1794b.t("storage_deny_detail");
-                n = c1794b.d();
+                b.C1858b c1858b = new b.C1858b();
+                c1858b.b(u.j());
+                c1858b.v(u.i());
+                c1858b.j(u.m());
+                c1858b.c(false);
+                c1858b.i("click_start_detail");
+                c1858b.l("click_pause_detail");
+                c1858b.n("click_continue_detail");
+                c1858b.p("click_install_detail");
+                c1858b.t("storage_deny_detail");
+                n = c1858b.d();
             }
             if (s == null) {
                 s = u.h0();
@@ -986,7 +986,7 @@ public class g implements d.o.a.b.a.d {
         }
         d.o.a.a.a.c.c cVar = n;
         cVar.a(1);
-        this.f66156a.g(a2.a(), j2, 2, cVar, s);
+        this.f66842a.g(a2.a(), j2, 2, cVar, s);
     }
 
     public boolean i(long j2) {

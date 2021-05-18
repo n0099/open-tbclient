@@ -6,7 +6,7 @@ import android.util.LruCache;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public LruCache<String, Bitmap> f39139a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
+    public LruCache<String, Bitmap> f38384a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
 
     /* loaded from: classes2.dex */
     public class a extends LruCache<String, Bitmap> {
@@ -25,7 +25,7 @@ public class b {
     public void a(String str, Bitmap bitmap) {
         String b2 = d.a.a0.k.g.b.b(str);
         if (c(b2) == null) {
-            this.f39139a.put(b2, bitmap);
+            this.f38384a.put(b2, bitmap);
         }
     }
 
@@ -34,6 +34,6 @@ public class b {
     }
 
     public final Bitmap c(String str) {
-        return this.f39139a.get(str);
+        return this.f38384a.get(str);
     }
 }

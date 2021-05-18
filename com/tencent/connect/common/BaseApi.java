@@ -27,7 +27,7 @@ import java.net.SocketTimeoutException;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseApi {
     public static String businessId = null;
     public static String installChannel = null;
@@ -35,29 +35,29 @@ public abstract class BaseApi {
     public static String registerChannel;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f37076a;
+    public c f36321a;
 
     /* renamed from: b  reason: collision with root package name */
-    public QQToken f37077b;
+    public QQToken f36322b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class TempRequestListener implements IRequestListener {
 
         /* renamed from: b  reason: collision with root package name */
-        public final IUiListener f37079b;
+        public final IUiListener f36324b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Handler f37080c;
+        public final Handler f36325c;
 
         public TempRequestListener(IUiListener iUiListener) {
-            this.f37079b = iUiListener;
-            this.f37080c = new Handler(e.a().getMainLooper()) { // from class: com.tencent.connect.common.BaseApi.TempRequestListener.1
+            this.f36324b = iUiListener;
+            this.f36325c = new Handler(e.a().getMainLooper()) { // from class: com.tencent.connect.common.BaseApi.TempRequestListener.1
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
                     if (message.what == 0) {
-                        TempRequestListener.this.f37079b.onComplete(message.obj);
+                        TempRequestListener.this.f36324b.onComplete(message.obj);
                     } else {
-                        TempRequestListener.this.f37079b.onError(new UiError(message.what, (String) message.obj, null));
+                        TempRequestListener.this.f36324b.onError(new UiError(message.what, (String) message.obj, null));
                     }
                 }
             };
@@ -65,80 +65,80 @@ public abstract class BaseApi {
 
         @Override // com.tencent.tauth.IRequestListener
         public void onComplete(JSONObject jSONObject) {
-            Message obtainMessage = this.f37080c.obtainMessage();
+            Message obtainMessage = this.f36325c.obtainMessage();
             obtainMessage.obj = jSONObject;
             obtainMessage.what = 0;
-            this.f37080c.sendMessage(obtainMessage);
+            this.f36325c.sendMessage(obtainMessage);
         }
 
         @Override // com.tencent.tauth.IRequestListener
         public void onConnectTimeoutException(ConnectTimeoutException connectTimeoutException) {
-            Message obtainMessage = this.f37080c.obtainMessage();
+            Message obtainMessage = this.f36325c.obtainMessage();
             obtainMessage.obj = connectTimeoutException.getMessage();
             obtainMessage.what = -7;
-            this.f37080c.sendMessage(obtainMessage);
+            this.f36325c.sendMessage(obtainMessage);
         }
 
         @Override // com.tencent.tauth.IRequestListener
         public void onHttpStatusException(HttpUtils.HttpStatusException httpStatusException) {
-            Message obtainMessage = this.f37080c.obtainMessage();
+            Message obtainMessage = this.f36325c.obtainMessage();
             obtainMessage.obj = httpStatusException.getMessage();
             obtainMessage.what = -9;
-            this.f37080c.sendMessage(obtainMessage);
+            this.f36325c.sendMessage(obtainMessage);
         }
 
         @Override // com.tencent.tauth.IRequestListener
         public void onIOException(IOException iOException) {
-            Message obtainMessage = this.f37080c.obtainMessage();
+            Message obtainMessage = this.f36325c.obtainMessage();
             obtainMessage.obj = iOException.getMessage();
             obtainMessage.what = -2;
-            this.f37080c.sendMessage(obtainMessage);
+            this.f36325c.sendMessage(obtainMessage);
         }
 
         @Override // com.tencent.tauth.IRequestListener
         public void onJSONException(JSONException jSONException) {
-            Message obtainMessage = this.f37080c.obtainMessage();
+            Message obtainMessage = this.f36325c.obtainMessage();
             obtainMessage.obj = jSONException.getMessage();
             obtainMessage.what = -4;
-            this.f37080c.sendMessage(obtainMessage);
+            this.f36325c.sendMessage(obtainMessage);
         }
 
         @Override // com.tencent.tauth.IRequestListener
         public void onMalformedURLException(MalformedURLException malformedURLException) {
-            Message obtainMessage = this.f37080c.obtainMessage();
+            Message obtainMessage = this.f36325c.obtainMessage();
             obtainMessage.obj = malformedURLException.getMessage();
             obtainMessage.what = -3;
-            this.f37080c.sendMessage(obtainMessage);
+            this.f36325c.sendMessage(obtainMessage);
         }
 
         @Override // com.tencent.tauth.IRequestListener
         public void onNetworkUnavailableException(HttpUtils.NetworkUnavailableException networkUnavailableException) {
-            Message obtainMessage = this.f37080c.obtainMessage();
+            Message obtainMessage = this.f36325c.obtainMessage();
             obtainMessage.obj = networkUnavailableException.getMessage();
             obtainMessage.what = -10;
-            this.f37080c.sendMessage(obtainMessage);
+            this.f36325c.sendMessage(obtainMessage);
         }
 
         @Override // com.tencent.tauth.IRequestListener
         public void onSocketTimeoutException(SocketTimeoutException socketTimeoutException) {
-            Message obtainMessage = this.f37080c.obtainMessage();
+            Message obtainMessage = this.f36325c.obtainMessage();
             obtainMessage.obj = socketTimeoutException.getMessage();
             obtainMessage.what = -8;
-            this.f37080c.sendMessage(obtainMessage);
+            this.f36325c.sendMessage(obtainMessage);
         }
 
         @Override // com.tencent.tauth.IRequestListener
         public void onUnknowException(Exception exc) {
-            Message obtainMessage = this.f37080c.obtainMessage();
+            Message obtainMessage = this.f36325c.obtainMessage();
             obtainMessage.obj = exc.getMessage();
             obtainMessage.what = -6;
-            this.f37080c.sendMessage(obtainMessage);
+            this.f36325c.sendMessage(obtainMessage);
         }
     }
 
     public BaseApi(c cVar, QQToken qQToken) {
-        this.f37076a = cVar;
-        this.f37077b = qQToken;
+        this.f36321a = cVar;
+        this.f36322b = qQToken;
     }
 
     public Bundle a() {
@@ -149,12 +149,12 @@ public abstract class BaseApi {
         bundle.putString("status_version", Build.VERSION.SDK);
         bundle.putString("sdkv", Constants.SDK_VERSION);
         bundle.putString("sdkp", "a");
-        QQToken qQToken = this.f37077b;
+        QQToken qQToken = this.f36322b;
         if (qQToken != null && qQToken.isSessionValid()) {
-            bundle.putString("access_token", this.f37077b.getAccessToken());
-            bundle.putString("oauth_consumer_key", this.f37077b.getAppId());
-            bundle.putString("openid", this.f37077b.getOpenId());
-            bundle.putString("appid_for_getting_config", this.f37077b.getAppId());
+            bundle.putString("access_token", this.f36322b.getAccessToken());
+            bundle.putString("oauth_consumer_key", this.f36322b.getAppId());
+            bundle.putString("openid", this.f36322b.getOpenId());
+            bundle.putString("appid_for_getting_config", this.f36322b.getAppId());
         }
         SharedPreferences sharedPreferences = e.a().getSharedPreferences(Constants.PREFERENCE_PF, 0);
         if (isOEM) {
@@ -167,12 +167,12 @@ public abstract class BaseApi {
 
     public Bundle b() {
         Bundle bundle = new Bundle();
-        bundle.putString("appid", this.f37077b.getAppId());
-        if (this.f37077b.isSessionValid()) {
-            bundle.putString(Constants.PARAM_KEY_STR, this.f37077b.getAccessToken());
+        bundle.putString("appid", this.f36322b.getAppId());
+        if (this.f36322b.isSessionValid()) {
+            bundle.putString(Constants.PARAM_KEY_STR, this.f36322b.getAccessToken());
             bundle.putString(Constants.PARAM_KEY_TYPE, "0x80");
         }
-        String openId = this.f37077b.getOpenId();
+        String openId = this.f36322b.getOpenId();
         if (openId != null) {
             bundle.putString("hopenid", openId);
         }
@@ -271,6 +271,6 @@ public abstract class BaseApi {
 
     public void a(Activity activity, Bundle bundle, IUiListener iUiListener) {
         f.c("openSDK_LOG.BaseApi", "--handleDownloadLastestQQ");
-        new TDialog(activity, "", "http://qzs.qq.com/open/mobile/login/qzsjump.html?" + HttpUtils.encodeUrl(bundle), null, this.f37077b).show();
+        new TDialog(activity, "", "http://qzs.qq.com/open/mobile/login/qzsjump.html?" + HttpUtils.encodeUrl(bundle), null, this.f36322b).show();
     }
 }

@@ -1,9 +1,11 @@
 package androidx.customview.view;
 
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public abstract class AbsSavedState implements Parcelable {
     public final Parcelable mSuperState;

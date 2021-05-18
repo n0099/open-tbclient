@@ -2,7 +2,7 @@ package d.o.a.e.b.l;
 
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import org.apache.http.HttpStatus;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static String a(int i2) {
         if (i2 != 449) {

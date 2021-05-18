@@ -9,7 +9,7 @@ import kotlinx.coroutines.scheduling.CoroutineScheduler;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f38203a;
+    public final int f37448a;
 
     /* renamed from: a  reason: collision with other field name */
     public final OutputStream f167a;
@@ -18,7 +18,7 @@ public final class c {
     public final byte[] f168a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38204b;
+    public int f37449b;
 
     /* loaded from: classes7.dex */
     public static class a extends IOException {
@@ -30,15 +30,15 @@ public final class c {
     public c(OutputStream outputStream, byte[] bArr) {
         this.f167a = outputStream;
         this.f168a = bArr;
-        this.f38204b = 0;
-        this.f38203a = bArr.length;
+        this.f37449b = 0;
+        this.f37448a = bArr.length;
     }
 
     public c(byte[] bArr, int i2, int i3) {
         this.f167a = null;
         this.f168a = bArr;
-        this.f38204b = i2;
-        this.f38203a = i2 + i3;
+        this.f37449b = i2;
+        this.f37448a = i2 + i3;
     }
 
     public static int a(int i2) {
@@ -163,8 +163,8 @@ public final class c {
         if (outputStream == null) {
             throw new a();
         }
-        outputStream.write(this.f168a, 0, this.f38204b);
-        this.f38204b = 0;
+        outputStream.write(this.f168a, 0, this.f37449b);
+        this.f37449b = 0;
     }
 
     public static int d(int i2) {
@@ -182,128 +182,128 @@ public final class c {
 
     public int a() {
         if (this.f167a == null) {
-            return this.f38203a - this.f38204b;
+            return this.f37448a - this.f37449b;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m181a() {
+    public void m180a() {
         if (this.f167a != null) {
             c();
         }
     }
 
     public void a(byte b2) {
-        if (this.f38204b == this.f38203a) {
+        if (this.f37449b == this.f37448a) {
             c();
         }
         byte[] bArr = this.f168a;
-        int i2 = this.f38204b;
-        this.f38204b = i2 + 1;
+        int i2 = this.f37449b;
+        this.f37449b = i2 + 1;
         bArr[i2] = b2;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m182a(int i2) {
+    public void m181a(int i2) {
         if (i2 >= 0) {
-            m201d(i2);
+            m200d(i2);
         } else {
-            m200c(i2);
+            m199c(i2);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m183a(int i2, int i3) {
+    public void m182a(int i2, int i3) {
         c(i2, 0);
-        m182a(i3);
+        m181a(i3);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m184a(int i2, long j) {
+    public void m183a(int i2, long j) {
         c(i2, 0);
-        m189a(j);
+        m188a(j);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m185a(int i2, com.xiaomi.push.a aVar) {
+    public void m184a(int i2, com.xiaomi.push.a aVar) {
         c(i2, 2);
-        m190a(aVar);
+        m189a(aVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m186a(int i2, e eVar) {
+    public void m185a(int i2, e eVar) {
         c(i2, 2);
-        m191a(eVar);
+        m190a(eVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m187a(int i2, String str) {
+    public void m186a(int i2, String str) {
         c(i2, 2);
-        m192a(str);
+        m191a(str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m188a(int i2, boolean z) {
+    public void m187a(int i2, boolean z) {
         c(i2, 0);
-        m193a(z);
+        m192a(z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m189a(long j) {
-        m200c(j);
+    public void m188a(long j) {
+        m199c(j);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m190a(com.xiaomi.push.a aVar) {
-        byte[] m125a = aVar.m125a();
-        m201d(m125a.length);
-        a(m125a);
+    public void m189a(com.xiaomi.push.a aVar) {
+        byte[] m124a = aVar.m124a();
+        m200d(m124a.length);
+        a(m124a);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m191a(e eVar) {
-        m201d(eVar.a());
+    public void m190a(e eVar) {
+        m200d(eVar.a());
         eVar.a(this);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m192a(String str) {
+    public void m191a(String str) {
         byte[] bytes = str.getBytes("UTF-8");
-        m201d(bytes.length);
+        m200d(bytes.length);
         a(bytes);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m193a(boolean z) {
-        m199c(z ? 1 : 0);
+    public void m192a(boolean z) {
+        m198c(z ? 1 : 0);
     }
 
     public void a(byte[] bArr) {
-        m194a(bArr, 0, bArr.length);
+        m193a(bArr, 0, bArr.length);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m194a(byte[] bArr, int i2, int i3) {
-        int i4 = this.f38203a;
-        int i5 = this.f38204b;
+    public void m193a(byte[] bArr, int i2, int i3) {
+        int i4 = this.f37448a;
+        int i5 = this.f37449b;
         if (i4 - i5 >= i3) {
             System.arraycopy(bArr, i2, this.f168a, i5, i3);
-            this.f38204b += i3;
+            this.f37449b += i3;
             return;
         }
         int i6 = i4 - i5;
         System.arraycopy(bArr, i2, this.f168a, i5, i6);
         int i7 = i2 + i6;
         int i8 = i3 - i6;
-        this.f38204b = this.f38203a;
+        this.f37449b = this.f37448a;
         c();
-        if (i8 > this.f38203a) {
+        if (i8 > this.f37448a) {
             this.f167a.write(bArr, i7, i8);
             return;
         }
         System.arraycopy(bArr, i7, this.f168a, 0, i8);
-        this.f38204b = i8;
+        this.f37449b = i8;
     }
 
     public void b() {
@@ -313,51 +313,51 @@ public final class c {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m195b(int i2) {
-        m201d(i2);
+    public void m194b(int i2) {
+        m200d(i2);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m196b(int i2, int i3) {
+    public void m195b(int i2, int i3) {
         c(i2, 0);
-        m195b(i3);
+        m194b(i3);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m197b(int i2, long j) {
+    public void m196b(int i2, long j) {
         c(i2, 0);
-        m198b(j);
+        m197b(j);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m198b(long j) {
-        m200c(j);
+    public void m197b(long j) {
+        m199c(j);
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m199c(int i2) {
+    public void m198c(int i2) {
         a((byte) i2);
     }
 
     public void c(int i2, int i3) {
-        m201d(f.a(i2, i3));
+        m200d(f.a(i2, i3));
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m200c(long j) {
+    public void m199c(long j) {
         while (((-128) & j) != 0) {
-            m199c((((int) j) & 127) | 128);
+            m198c((((int) j) & 127) | 128);
             j >>>= 7;
         }
-        m199c((int) j);
+        m198c((int) j);
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public void m201d(int i2) {
+    public void m200d(int i2) {
         while ((i2 & com.alipay.sdk.encrypt.a.f1872g) != 0) {
-            m199c((i2 & 127) | 128);
+            m198c((i2 & 127) | 128);
             i2 >>>= 7;
         }
-        m199c(i2);
+        m198c(i2);
     }
 }

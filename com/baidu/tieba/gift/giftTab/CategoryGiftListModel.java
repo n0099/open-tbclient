@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.a.c.a.f;
-import d.a.i0.r.q.i0;
+import d.a.j0.r.q.i0;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<i0> f16794e;
+    public ArrayList<i0> f16109e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f16795f;
+    public b f16110f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f16796g;
+    public d.a.c.c.g.a f16111g;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -35,15 +35,15 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
                 int i2 = 0;
                 if (z) {
                     CategoryGiftListHttpResponseMessage categoryGiftListHttpResponseMessage = (CategoryGiftListHttpResponseMessage) responsedMessage;
-                    CategoryGiftListModel.this.f16794e = categoryGiftListHttpResponseMessage.getGiftList();
+                    CategoryGiftListModel.this.f16109e = categoryGiftListHttpResponseMessage.getGiftList();
                     i2 = categoryGiftListHttpResponseMessage.getCategoryId();
                 } else if (responsedMessage instanceof CategoryGiftListSocketResponseMessage) {
                     CategoryGiftListSocketResponseMessage categoryGiftListSocketResponseMessage = (CategoryGiftListSocketResponseMessage) responsedMessage;
-                    CategoryGiftListModel.this.f16794e = categoryGiftListSocketResponseMessage.getGiftList();
+                    CategoryGiftListModel.this.f16109e = categoryGiftListSocketResponseMessage.getGiftList();
                     i2 = categoryGiftListSocketResponseMessage.getCategoryId();
                 }
-                if (CategoryGiftListModel.this.f16795f != null) {
-                    CategoryGiftListModel.this.f16795f.a(responsedMessage.getError(), responsedMessage.getErrorString(), i2, CategoryGiftListModel.this.f16794e);
+                if (CategoryGiftListModel.this.f16110f != null) {
+                    CategoryGiftListModel.this.f16110f.a(responsedMessage.getError(), responsedMessage.getErrorString(), i2, CategoryGiftListModel.this.f16109e);
                 }
             }
         }
@@ -56,7 +56,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     public CategoryGiftListModel(f<GiftTabActivity> fVar) {
         super(fVar);
-        this.f16796g = new a(CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, 309055);
+        this.f16111g = new a(CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, 309055);
         registerTask();
         registerListener();
     }
@@ -72,12 +72,12 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public final void registerListener() {
-        registerListener(this.f16796g);
+        registerListener(this.f16111g);
     }
 
     public final void registerTask() {
-        d.a.j0.d3.d0.a.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
-        d.a.j0.d3.d0.a.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
+        d.a.k0.d3.d0.a.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
+        d.a.k0.d3.d0.a.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
     }
 
     public void v(int i2) {
@@ -87,6 +87,6 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public void w(b bVar) {
-        this.f16795f = bVar;
+        this.f16110f = bVar;
     }
 }

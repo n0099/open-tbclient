@@ -1,48 +1,36 @@
 package d.a.j0.p0.c;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class a extends BaseCardInfo {
+import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.ContentProvider;
+/* loaded from: classes3.dex */
+public class a {
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f57340g = BdUniqueId.gen();
+    /* renamed from: a  reason: collision with root package name */
+    public static Service f49584a;
 
-    /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f57341h = BdUniqueId.gen();
+    /* renamed from: b  reason: collision with root package name */
+    public static ContentProvider f49585b;
 
-    /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f57342i = BdUniqueId.gen();
+    /* renamed from: c  reason: collision with root package name */
+    public static BroadcastReceiver f49586c;
 
-    /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f57343e;
+    /* renamed from: d  reason: collision with root package name */
+    public static BroadcastReceiver f49587d;
 
-    /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f57344f;
-
-    public a() {
-        BdUniqueId bdUniqueId = f57341h;
-        this.f57343e = bdUniqueId;
-        this.f57343e = bdUniqueId;
+    public static BroadcastReceiver a() {
+        return f49587d;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
-    public BdUniqueId getType() {
-        return this.f57343e;
+    public static ContentProvider b() {
+        return f49585b;
     }
 
-    public ArrayList<String> h() {
-        return this.f57344f;
+    public static BroadcastReceiver c() {
+        return f49586c;
     }
 
-    public void l(BdUniqueId bdUniqueId) {
-        this.f57343e = bdUniqueId;
-    }
-
-    public a(ArrayList<String> arrayList) {
-        this.f57343e = f57341h;
-        this.f57344f = arrayList;
-        this.f57343e = f57340g;
+    public static Service d() {
+        return f49584a;
     }
 }

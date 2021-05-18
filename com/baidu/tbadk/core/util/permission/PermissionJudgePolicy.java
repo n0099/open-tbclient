@@ -14,11 +14,12 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.permission.PermissionRequestDialog;
 import com.baidu.tieba.R;
+import com.baidu.tieba.service.AsInstallService;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.a.c.a.f;
 import d.a.c.a.j;
-import d.a.i0.r.s.a;
+import d.a.j0.r.s.a;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -232,20 +233,20 @@ public class PermissionJudgePolicy {
         aVar.setTitle(R.string.request_permission_default_title);
         aVar.setMessageId(getPermissionDescriptionId(str));
         aVar.setPositiveButton(R.string.isopen, new a.e() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
-            @Override // d.a.i0.r.s.a.e
+            @Override // d.a.j0.r.s.a.e
             public void onClick(a aVar2) {
                 aVar2.dismiss();
                 Intent intent = new Intent();
                 intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
+                intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, activity.getPackageName(), null));
                 activity.startActivity(intent);
                 if (PermissionJudgePolicy.this.mDialogClickListener != null) {
                     PermissionJudgePolicy.this.mDialogClickListener.onDialogComfirmed(str);
                 }
             }
         }).setNegativeButton(R.string.cancel, new a.e() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
-            @Override // d.a.i0.r.s.a.e
+            @Override // d.a.j0.r.s.a.e
             public void onClick(a aVar2) {
                 aVar2.dismiss();
                 if (PermissionJudgePolicy.this.mDialogClickListener != null) {

@@ -2,13 +2,13 @@ package d.b.c.a.b.a.h;
 
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final k f64714a = new a();
+    public static final k f65400a = new a();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements k {
         @Override // d.b.c.a.b.a.h.k
         public void a(int i2, com.bytedance.sdk.a.b.a.e.b bVar) {

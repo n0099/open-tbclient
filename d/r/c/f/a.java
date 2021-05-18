@@ -15,41 +15,41 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f67468c;
+    public Context f68154c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67469d;
+    public String f68155d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.r.c.g.a f67470e = d.r.c.g.a.b();
+    public d.r.c.g.a f68156e = d.r.c.g.a.b();
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<c> f67466a = new SparseArray<>();
+    public SparseArray<c> f68152a = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f67467b = new Handler(Looper.getMainLooper());
+    public Handler f68153b = new Handler(Looper.getMainLooper());
 
     /* renamed from: d.r.c.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class RunnableC1842a implements Runnable {
+    public class RunnableC1906a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f67471e;
+        public final /* synthetic */ int f68157e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.r.c.b f67472f;
+        public final /* synthetic */ d.r.c.b f68158f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Intent f67473g;
+        public final /* synthetic */ Intent f68159g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f67474h;
+        public final /* synthetic */ long f68160h;
 
-        public RunnableC1842a(int i2, d.r.c.b bVar, Intent intent, long j) {
-            this.f67471e = i2;
-            this.f67472f = bVar;
-            this.f67473g = intent;
-            this.f67474h = j;
+        public RunnableC1906a(int i2, d.r.c.b bVar, Intent intent, long j) {
+            this.f68157e = i2;
+            this.f68158f = bVar;
+            this.f68159g = intent;
+            this.f68160h = j;
         }
 
         @Override // java.lang.Runnable
@@ -57,36 +57,36 @@ public final class a {
             String str;
             int i2;
             try {
-                if (this.f67471e == 0) {
-                    this.f67472f.onCancel();
+                if (this.f68157e == 0) {
+                    this.f68158f.onCancel();
                     return;
                 }
-                String stringExtra = this.f67473g.getStringExtra("resjson");
-                a.this.f67470e.a(stringExtra);
+                String stringExtra = this.f68159g.getStringExtra("resjson");
+                a.this.f68156e.a(stringExtra);
                 JSONObject jSONObject = new JSONObject(stringExtra);
                 if (jSONObject.has("resCode") && jSONObject.has("resMsg")) {
                     String optString = jSONObject.optString("resMsg");
                     int optInt = jSONObject.optInt("resCode");
                     if (optInt != 1000006 && optInt != 1290001) {
-                        optInt = this.f67471e;
-                        a.this.f(this.f67473g, this.f67472f, this.f67474h, optInt, optString);
+                        optInt = this.f68157e;
+                        a.this.f(this.f68159g, this.f68158f, this.f68160h, optInt, optString);
                         return;
                     }
                     Log.e("chenqiang", "resCode:" + optInt);
-                    a.this.f(this.f67473g, this.f67472f, this.f67474h, optInt, optString);
+                    a.this.f(this.f68159g, this.f68158f, this.f68160h, optInt, optString);
                     return;
                 }
                 Log.e("chenqiang", "please update yy new version！");
                 if (jSONObject.has("openid") && jSONObject.has("access_code")) {
-                    i2 = this.f67471e;
+                    i2 = this.f68157e;
                     str = "success";
                 } else {
                     str = "handleAuthLoginResult--default error!";
                     i2 = 444222199;
                 }
-                a.this.f(this.f67473g, this.f67472f, this.f67474h, i2, str);
+                a.this.f(this.f68159g, this.f68158f, this.f68160h, i2, str);
             } catch (Exception unused) {
-                this.f67472f.onError(new d.r.c.d(444222105, d.h(444222105)));
+                this.f68158f.onError(new d.r.c.d(444222105, d.h(444222105)));
             }
         }
     }
@@ -95,19 +95,19 @@ public final class a {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.r.c.b f67476e;
+        public final /* synthetic */ d.r.c.b f68162e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.r.c.d f67477f;
+        public final /* synthetic */ d.r.c.d f68163f;
 
         public b(a aVar, d.r.c.b bVar, d.r.c.d dVar) {
-            this.f67476e = bVar;
-            this.f67477f = dVar;
+            this.f68162e = bVar;
+            this.f68163f = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f67476e.onError(this.f67477f);
+            this.f68162e.onError(this.f68163f);
         }
     }
 
@@ -115,19 +115,19 @@ public final class a {
     public final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.r.c.b f67478a;
+        public d.r.c.b f68164a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f67479b = System.currentTimeMillis();
+        public long f68165b = System.currentTimeMillis();
 
         public c(a aVar, d.r.c.b bVar) {
-            this.f67478a = bVar;
+            this.f68164a = bVar;
         }
     }
 
     public a(Context context, String str) {
-        this.f67468c = context;
-        this.f67469d = str;
+        this.f68154c = context;
+        this.f68155d = str;
     }
 
     public final void c(Activity activity, String str, d.r.c.b bVar) {
@@ -135,8 +135,8 @@ public final class a {
             int a2 = d.a(activity);
             if (a2 != 0) {
                 try {
-                    this.f67466a.put(62345, new c(this, bVar));
-                    String c2 = d.c(this.f67468c, this.f67469d, str, true);
+                    this.f68152a.put(62345, new c(this, bVar));
+                    String c2 = d.c(this.f68154c, this.f68155d, str, true);
                     Intent intent = new Intent(activity, AssistActivity.class);
                     intent.putExtra("type", AssistActivity.TYPE_WEB);
                     intent.putExtra("url", c2);
@@ -148,8 +148,8 @@ public final class a {
                 }
             }
             Intent e2 = d.e(activity);
-            this.f67466a.put(62345, new c(this, bVar));
-            Bundle d2 = d.d(activity, this.f67469d);
+            this.f68152a.put(62345, new c(this, bVar));
+            Bundle d2 = d.d(activity, this.f68155d);
             e2.putExtra("action", "action_login");
             e2.putExtra("bundle", d2);
             i(activity, e2, 62345);
@@ -162,11 +162,11 @@ public final class a {
         long currentTimeMillis;
         d.r.c.b bVar2;
         if (i2 == 62345 || i2 == 62347) {
-            c cVar = this.f67466a.get(i2);
+            c cVar = this.f68152a.get(i2);
             if (cVar != null) {
-                currentTimeMillis = cVar.f67479b;
-                bVar2 = cVar.f67478a;
-                this.f67466a.remove(i2);
+                currentTimeMillis = cVar.f68165b;
+                bVar2 = cVar.f68164a;
+                this.f68152a.remove(i2);
             } else {
                 currentTimeMillis = System.currentTimeMillis();
                 bVar2 = bVar;
@@ -185,7 +185,7 @@ public final class a {
     }
 
     public final void e(int i2, Intent intent, d.r.c.b bVar, long j) {
-        this.f67467b.postDelayed(new RunnableC1842a(i2, bVar, intent, j), 10L);
+        this.f68153b.postDelayed(new RunnableC1906a(i2, bVar, intent, j), 10L);
     }
 
     public final void f(Intent intent, d.r.c.b bVar, long j, int i2, String str) {
@@ -199,7 +199,7 @@ public final class a {
             case 444111001:
                 try {
                     String stringExtra = intent.getStringExtra("resjson");
-                    this.f67470e.a(stringExtra);
+                    this.f68156e.a(stringExtra);
                     JSONObject jSONObject = new JSONObject(stringExtra);
                     jSONObject.optString("openid");
                     jSONObject.optString("uid");
@@ -280,7 +280,7 @@ public final class a {
 
     public final void g(d.r.c.d dVar, d.r.c.b bVar) {
         if (bVar != null) {
-            this.f67467b.postDelayed(new b(this, bVar, dVar), 50L);
+            this.f68153b.postDelayed(new b(this, bVar, dVar), 50L);
         }
     }
 

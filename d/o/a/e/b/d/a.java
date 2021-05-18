@@ -1,5 +1,5 @@
 package d.o.a.e.b.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static boolean a(int i2) {
         return (i2 >= 0 || i2 == -2 || i2 == -5) ? false : true;

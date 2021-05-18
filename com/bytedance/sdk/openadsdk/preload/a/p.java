@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.preload.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class p extends RuntimeException {
     public p(String str) {
         super(str);

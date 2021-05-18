@@ -8,7 +8,7 @@ import com.baidu.mapsdkplatform.comapi.a.f;
 public class RotateAnimation extends Animation {
     public RotateAnimation(float f2, float f3) {
         if (f2 < 0.0f || f3 < 0.0f) {
-            throw new NullPointerException("the degrees can't less than zero");
+            throw new NullPointerException("BDMapSDKException: the degrees can't less than zero");
         }
         this.bdAnimation = new f(f2, f3);
     }

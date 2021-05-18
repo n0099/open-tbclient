@@ -16,19 +16,19 @@ import org.json.JSONObject;
 public class MzNotifyActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3563a;
+    public String f3564a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3564b;
+    public String f3565b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3565c;
+    public String f3566c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3566d;
+    public String f3567d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3567e;
+    public String f3568e;
 
     public static String a(Context context, String str) {
         Intent intent = new Intent();
@@ -57,37 +57,37 @@ public class MzNotifyActivity extends Activity {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                         if (!jSONObject2.isNull("Msgid")) {
-                            this.f3563a = jSONObject2.getString("Msgid");
+                            this.f3564a = jSONObject2.getString("Msgid");
                         }
                         if (!jSONObject2.isNull("msgBody")) {
-                            this.f3565c = jSONObject2.getString("msgBody");
+                            this.f3566c = jSONObject2.getString("msgBody");
                         }
                     }
-                    if (!TextUtils.isEmpty(this.f3565c)) {
-                        JSONObject jSONObject3 = new JSONObject(this.f3565c);
+                    if (!TextUtils.isEmpty(this.f3566c)) {
+                        JSONObject jSONObject3 = new JSONObject(this.f3566c);
                         if (!jSONObject3.isNull("custom_content")) {
-                            this.f3566d = jSONObject3.getString("custom_content");
+                            this.f3567d = jSONObject3.getString("custom_content");
                         }
                         if (!jSONObject3.isNull("pkg_content")) {
-                            this.f3567e = jSONObject3.getString("pkg_content");
+                            this.f3568e = jSONObject3.getString("pkg_content");
                         }
                         if (!jSONObject3.isNull("mzpri_signinfo")) {
-                            this.f3564b = jSONObject3.getString("mzpri_signinfo");
+                            this.f3565b = jSONObject3.getString("mzpri_signinfo");
                         }
                     }
                 }
-                if (f.a(this, this.f3564b, (this.f3563a + this.f3566d).replaceAll("\\\\", ""))) {
-                    if (TextUtils.isEmpty(this.f3567e)) {
+                if (f.a(this, this.f3565b, (this.f3564a + this.f3567d).replaceAll("\\\\", ""))) {
+                    if (TextUtils.isEmpty(this.f3568e)) {
                         parseUri = new Intent();
                         parseUri.setClassName(getPackageName(), a(this, getPackageName()));
                         parseUri.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     } else {
-                        parseUri = Intent.parseUri(this.f3567e, 0);
+                        parseUri = Intent.parseUri(this.f3568e, 0);
                         parseUri.setPackage(getPackageName());
                         parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     }
-                    if (!TextUtils.isEmpty(this.f3566d)) {
-                        JSONObject jSONObject4 = new JSONObject(this.f3566d);
+                    if (!TextUtils.isEmpty(this.f3567d)) {
+                        JSONObject jSONObject4 = new JSONObject(this.f3567d);
                         Iterator<String> keys = jSONObject4.keys();
                         while (keys.hasNext()) {
                             String next = keys.next();

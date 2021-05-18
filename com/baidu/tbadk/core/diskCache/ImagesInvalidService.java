@@ -22,7 +22,7 @@ public class ImagesInvalidService extends BdBaseService {
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
         public void callback(boolean z) {
             super.callback(z);
-            d.a.i0.r.t.a.g();
+            d.a.j0.r.t.a.g();
             ImagesInvalidReceiver.broadcast(z);
         }
 
@@ -33,7 +33,7 @@ public class ImagesInvalidService extends BdBaseService {
     }
 
     public static void setSuccess(boolean z) {
-        d.a.i0.r.t.a.e(z);
+        d.a.j0.r.t.a.e(z);
     }
 
     @Override // android.app.Service

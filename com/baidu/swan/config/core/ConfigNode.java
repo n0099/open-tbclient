@@ -2,14 +2,14 @@ package com.baidu.swan.config.core;
 
 import android.text.TextUtils;
 import com.baidu.webkit.internal.ETAG;
-import d.a.h0.c.g.a;
-import d.a.h0.c.g.b;
+import d.a.i0.d.g.a;
+import d.a.i0.d.g.b;
 /* loaded from: classes3.dex */
 public enum ConfigNode {
     HOST_INFO("host_info", a.class, b.class),
-    FRAMEWORK("framework", d.a.h0.c.f.a.class, d.a.h0.c.f.b.class),
-    EXTENSION(ETAG.KEY_EXTENSION, d.a.h0.c.e.a.class, d.a.h0.c.e.b.class),
-    TIP_MSG("tipmsgs", d.a.h0.c.h.a.class, d.a.h0.c.h.b.class);
+    FRAMEWORK("framework", d.a.i0.d.f.a.class, d.a.i0.d.f.b.class),
+    EXTENSION(ETAG.KEY_EXTENSION, d.a.i0.d.e.a.class, d.a.i0.d.e.b.class),
+    TIP_MSG("tipmsgs", d.a.i0.d.h.a.class, d.a.i0.d.h.b.class);
     
     public String mName;
     public Class<? extends Object> mParamsProvider;

@@ -1,16 +1,16 @@
 package com.bytedance.sdk.openadsdk.core.video.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29209a;
+    public String f28454a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29210b;
+    public String f28455b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29211c;
+    public int f28456c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29212d;
+    public String f28457d;
 }

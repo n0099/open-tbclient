@@ -24,40 +24,40 @@ public class b implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35746a;
+    public String f34991a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f35747b;
+    public a f34992b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f35748c;
+    public f f34993c;
 
     public b() {
     }
 
     public b(Parcel parcel) {
-        this.f35746a = parcel.readString();
-        this.f35747b = (a) parcel.readParcelable(a.class.getClassLoader());
-        this.f35748c = (f) parcel.readParcelable(f.class.getClassLoader());
+        this.f34991a = parcel.readString();
+        this.f34992b = (a) parcel.readParcelable(a.class.getClassLoader());
+        this.f34993c = (f) parcel.readParcelable(f.class.getClassLoader());
     }
 
     public b(String str, String str2, String str3) {
-        this.f35746a = str;
+        this.f34991a = str;
         if (TextUtils.isEmpty(str)) {
-            this.f35747b = new a();
-            this.f35748c = new f();
+            this.f34992b = new a();
+            this.f34993c = new f();
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f35747b = a.a(jSONObject.getJSONObject("ctl"));
+            this.f34992b = a.a(jSONObject.getJSONObject("ctl"));
             f a2 = f.a(jSONObject.getJSONObject("statics"));
-            this.f35748c = a2;
+            this.f34993c = a2;
             a2.c(str2);
-            this.f35748c.d(str3);
+            this.f34993c.d(str3);
         } catch (JSONException e2) {
-            this.f35747b = new a();
-            this.f35748c = new f();
+            this.f34992b = new a();
+            this.f34993c = new f();
             d.j.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
         }
     }
@@ -77,19 +77,19 @@ public class b implements Parcelable {
     }
 
     public a a() {
-        return this.f35747b;
+        return this.f34992b;
     }
 
     public void a(a aVar) {
-        this.f35747b = aVar;
+        this.f34992b = aVar;
     }
 
     public void a(f fVar) {
-        this.f35748c = fVar;
+        this.f34993c = fVar;
     }
 
     public f b() {
-        return this.f35748c;
+        return this.f34993c;
     }
 
     @Override // android.os.Parcelable
@@ -98,13 +98,13 @@ public class b implements Parcelable {
     }
 
     public String toString() {
-        return "ControlMessage{controlMessage='" + this.f35746a + "', control=" + this.f35747b + ", statics=" + this.f35748c + '}';
+        return "ControlMessage{controlMessage='" + this.f34991a + "', control=" + this.f34992b + ", statics=" + this.f34993c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f35746a);
-        parcel.writeParcelable(this.f35747b, i2);
-        parcel.writeParcelable(this.f35748c, i2);
+        parcel.writeString(this.f34991a);
+        parcel.writeParcelable(this.f34992b, i2);
+        parcel.writeParcelable(this.f34993c, i2);
     }
 }

@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 public class av implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f38147a;
+    public Context f37392a;
 
     /* renamed from: a  reason: collision with other field name */
     public Class<?> f131a;
@@ -18,16 +18,16 @@ public class av implements ar {
     public Method f133a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f38148b = null;
+    public Method f37393b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f38149c = null;
+    public Method f37394c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f38150d = null;
+    public Method f37395d = null;
 
     public av(Context context) {
-        this.f38147a = context;
+        this.f37392a = context;
         a(context);
     }
 
@@ -54,16 +54,16 @@ public class av implements ar {
             this.f131a = a2;
             this.f132a = a2.newInstance();
             this.f133a = this.f131a.getMethod("getUDID", Context.class);
-            this.f38148b = this.f131a.getMethod("getOAID", Context.class);
-            this.f38149c = this.f131a.getMethod("getVAID", Context.class);
-            this.f38150d = this.f131a.getMethod("getAAID", Context.class);
+            this.f37393b = this.f131a.getMethod("getOAID", Context.class);
+            this.f37394c = this.f131a.getMethod("getVAID", Context.class);
+            this.f37395d = this.f131a.getMethod("getAAID", Context.class);
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e2);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m140a(Context context) {
+    public static boolean m139a(Context context) {
         return "com.xiaomi.xmsf".equals(context.getPackageName());
     }
 
@@ -79,17 +79,17 @@ public class av implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo137b() {
-        return a(this.f38147a, this.f38148b);
+    public String mo136b() {
+        return a(this.f37392a, this.f37393b);
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
-        return a(this.f38147a, this.f38149c);
+        return a(this.f37392a, this.f37394c);
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        return a(this.f38147a, this.f38150d);
+        return a(this.f37392a, this.f37395d);
     }
 }

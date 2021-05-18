@@ -10,26 +10,26 @@ import com.baidu.tbadk.mvc.message.ReadCacheMessage;
 import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
 import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import d.a.i0.g0.b.c;
-import d.a.i0.g0.e.d;
+import d.a.j0.g0.b.c;
+import d.a.j0.g0.e.d;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class CacheModel<T extends d.a.i0.g0.b.c, ActivityType> extends BdBaseModel<ActivityType> {
+public abstract class CacheModel<T extends d.a.j0.g0.b.c, ActivityType> extends BdBaseModel<ActivityType> {
 
     /* renamed from: e  reason: collision with root package name */
-    public MessageListener<CustomResponsedMessage<?>> f13629e;
+    public MessageListener<CustomResponsedMessage<?>> f12965e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MessageListener<CustomResponsedMessage<?>> f13630f;
+    public MessageListener<CustomResponsedMessage<?>> f12966f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c<T> f13631g;
+    public c<T> f12967g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13632h;
+    public boolean f12968h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13633i;
+    public boolean f12969i;
     public boolean j;
     public boolean k;
     public boolean l;
@@ -53,8 +53,8 @@ public abstract class CacheModel<T extends d.a.i0.g0.b.c, ActivityType> extends 
             if (readCacheRespMsg.getOrginalMessage() != null && (readCacheRespMsg.getOrginalMessage() instanceof ReadCacheMessage)) {
                 readCacheMessage = (ReadCacheMessage) readCacheRespMsg.getOrginalMessage();
             }
-            if (CacheModel.this.f13631g != null) {
-                CacheModel.this.f13631g.onCacheDataGet(readCacheRespMsg, readCacheMessage);
+            if (CacheModel.this.f12967g != null) {
+                CacheModel.this.f12967g.onCacheDataGet(readCacheRespMsg, readCacheMessage);
             }
         }
     }
@@ -77,8 +77,8 @@ public abstract class CacheModel<T extends d.a.i0.g0.b.c, ActivityType> extends 
             if (writeCacheRespMsg.getOrginalMessage() != null && (writeCacheRespMsg.getOrginalMessage() instanceof WriteCacheMessage)) {
                 writeCacheMessage = (WriteCacheMessage) writeCacheRespMsg.getOrginalMessage();
             }
-            if (CacheModel.this.f13631g != null) {
-                CacheModel.this.f13631g.onCacheDataWrite(writeCacheRespMsg, writeCacheMessage);
+            if (CacheModel.this.f12967g != null) {
+                CacheModel.this.f12967g.onCacheDataWrite(writeCacheRespMsg, writeCacheMessage);
             }
         }
     }
@@ -92,18 +92,18 @@ public abstract class CacheModel<T extends d.a.i0.g0.b.c, ActivityType> extends 
 
     public CacheModel(TbPageContext<ActivityType> tbPageContext) {
         super(tbPageContext);
-        this.f13632h = false;
-        this.f13633i = false;
+        this.f12968h = false;
+        this.f12969i = false;
         this.j = false;
         this.k = false;
     }
 
     public final void A() {
-        if (this.f13633i || MessageManager.getInstance().findTask(F()) != null) {
+        if (this.f12969i || MessageManager.getInstance().findTask(F()) != null) {
             return;
         }
-        MessageManager.getInstance().registerTask(new d.a.i0.v0.a(F(), new d(F(), r(), D())));
-        this.f13633i = true;
+        MessageManager.getInstance().registerTask(new d.a.j0.v0.a(F(), new d(F(), r(), D())));
+        this.f12969i = true;
     }
 
     public final void B() {
@@ -139,7 +139,7 @@ public abstract class CacheModel<T extends d.a.i0.g0.b.c, ActivityType> extends 
         sendMessage(readCacheMessage);
     }
 
-    public final void I(d.a.i0.g0.b.d dVar) {
+    public final void I(d.a.j0.g0.b.d dVar) {
         x();
         ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(E());
         readCacheMessage.setTag(getUniqueId());
@@ -154,7 +154,7 @@ public abstract class CacheModel<T extends d.a.i0.g0.b.c, ActivityType> extends 
     }
 
     public void K(c<T> cVar) {
-        this.f13631g = cVar;
+        this.f12967g = cVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -187,35 +187,35 @@ public abstract class CacheModel<T extends d.a.i0.g0.b.c, ActivityType> extends 
         if (this.j) {
             return;
         }
-        if (this.f13629e == null) {
+        if (this.f12965e == null) {
             a aVar = new a(E());
-            this.f13629e = aVar;
+            this.f12965e = aVar;
             aVar.setSelfListener(true);
-            this.f13629e.setTag(this.unique_id);
+            this.f12965e.setTag(this.unique_id);
         }
-        registerListener(this.f13629e);
+        registerListener(this.f12965e);
         this.j = true;
     }
 
     public final void y() {
-        if (this.f13632h || MessageManager.getInstance().findTask(E()) != null) {
+        if (this.f12968h || MessageManager.getInstance().findTask(E()) != null) {
             return;
         }
-        MessageManager.getInstance().registerTask(new d.a.i0.v0.a(E(), new d.a.i0.g0.e.c(E(), r(), D())));
-        this.f13632h = true;
+        MessageManager.getInstance().registerTask(new d.a.j0.v0.a(E(), new d.a.j0.g0.e.c(E(), r(), D())));
+        this.f12968h = true;
     }
 
     public final void z() {
         if (this.k) {
             return;
         }
-        if (this.f13630f == null) {
+        if (this.f12966f == null) {
             b bVar = new b(F());
-            this.f13630f = bVar;
+            this.f12966f = bVar;
             bVar.setSelfListener(true);
-            this.f13630f.setTag(this.unique_id);
+            this.f12966f.setTag(this.unique_id);
         }
-        registerListener(this.f13630f);
+        registerListener(this.f12966f);
         this.k = true;
     }
 }

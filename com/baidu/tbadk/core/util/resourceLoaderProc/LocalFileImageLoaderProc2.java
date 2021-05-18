@@ -9,7 +9,7 @@ import d.a.c.e.l.b;
 import d.a.c.e.l.e;
 import d.a.c.e.p.l;
 import d.a.c.j.d.a;
-import d.a.i0.a0.c;
+import d.a.j0.a0.c;
 /* loaded from: classes3.dex */
 public class LocalFileImageLoaderProc2 implements e<a> {
     public int height;
@@ -28,7 +28,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public a m22decodeToResource(byte[] bArr, Object... objArr) {
+    public a m21decodeToResource(byte[] bArr, Object... objArr) {
         return null;
     }
 

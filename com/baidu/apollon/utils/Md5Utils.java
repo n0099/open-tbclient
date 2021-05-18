@@ -13,7 +13,7 @@ import org.apache.commons.base.CharEncoding;
 public final class Md5Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f4057a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static char[] f4058a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static synchronized String a(byte[] bArr) {
         String sb;
@@ -189,8 +189,8 @@ public final class Md5Utils {
             if (i2 > 0 && ch != null) {
                 stringBuffer.append(ch.charValue());
             }
-            stringBuffer.append(f4057a[i3]);
-            stringBuffer.append(f4057a[i4]);
+            stringBuffer.append(f4058a[i3]);
+            stringBuffer.append(f4058a[i4]);
         }
         return stringBuffer.toString();
     }

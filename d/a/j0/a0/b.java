@@ -1,7 +1,5 @@
 package d.a.j0.a0;
-/* loaded from: classes4.dex */
-public class b {
-    public abstract String a();
-
-    public abstract String b();
+/* loaded from: classes3.dex */
+public interface b {
+    void a(d.a.c.j.d.a aVar, String str, boolean z);
 }

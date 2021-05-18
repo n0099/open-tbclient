@@ -563,7 +563,7 @@ public class WebSocketChannel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x00ce A[Catch: JSONException -> 0x0109, TryCatch #0 {JSONException -> 0x0109, blocks: (B:3:0x0016, B:5:0x0062, B:6:0x006a, B:9:0x007b, B:11:0x0081, B:13:0x008e, B:14:0x0093, B:15:0x009c, B:24:0x00ca, B:26:0x00ce, B:27:0x00de, B:16:0x00a0, B:18:0x00a8, B:20:0x00ae, B:22:0x00bb, B:23:0x00c0), top: B:33:0x0016 }] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x00ce A[Catch: JSONException -> 0x010a, TryCatch #0 {JSONException -> 0x010a, blocks: (B:3:0x0016, B:5:0x0062, B:6:0x006a, B:9:0x007b, B:11:0x0081, B:13:0x008e, B:14:0x0093, B:15:0x009c, B:24:0x00ca, B:26:0x00ce, B:27:0x00de, B:16:0x00a0, B:18:0x00a8, B:20:0x00ae, B:22:0x00bb, B:23:0x00c0), top: B:33:0x0016 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -769,7 +769,7 @@ public class WebSocketChannel {
         return this.mUserList;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x00be A[Catch: JSONException -> 0x00ef, TryCatch #0 {JSONException -> 0x00ef, blocks: (B:3:0x0038, B:6:0x007d, B:8:0x0083, B:10:0x0090, B:11:0x0095, B:19:0x00ba, B:21:0x00be, B:22:0x00ce, B:12:0x0099, B:14:0x00a1, B:16:0x00a7, B:18:0x00b4), top: B:28:0x0038 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x00be A[Catch: JSONException -> 0x00f0, TryCatch #0 {JSONException -> 0x00f0, blocks: (B:3:0x0038, B:6:0x007d, B:8:0x0083, B:10:0x0090, B:11:0x0095, B:19:0x00ba, B:21:0x00be, B:22:0x00ce, B:12:0x0099, B:14:0x00a1, B:16:0x00a7, B:18:0x00b4), top: B:28:0x0038 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -838,7 +838,7 @@ public class WebSocketChannel {
         sendMessage(jSONObject2);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x00c8 A[Catch: JSONException -> 0x00f9, TryCatch #0 {JSONException -> 0x00f9, blocks: (B:3:0x0038, B:6:0x008f, B:8:0x0095, B:9:0x009f, B:17:0x00c4, B:19:0x00c8, B:20:0x00d8, B:10:0x00a3, B:12:0x00ab, B:14:0x00b1, B:16:0x00be), top: B:26:0x0038 }] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x00c8 A[Catch: JSONException -> 0x00fa, TryCatch #0 {JSONException -> 0x00fa, blocks: (B:3:0x0038, B:6:0x008f, B:8:0x0095, B:9:0x009f, B:17:0x00c4, B:19:0x00c8, B:20:0x00d8, B:10:0x00a3, B:12:0x00ab, B:14:0x00b1, B:16:0x00be), top: B:26:0x0038 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

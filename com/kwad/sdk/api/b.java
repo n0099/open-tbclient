@@ -3,14 +3,14 @@ package com.kwad.sdk.api;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f32541a;
+    public static final Boolean f31786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f32542b;
+    public static final Boolean f31787b;
 
     static {
         Boolean bool = Boolean.TRUE;
-        f32541a = bool;
-        f32542b = bool;
+        f31786a = bool;
+        f31787b = bool;
     }
 }

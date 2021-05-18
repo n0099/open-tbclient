@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FileUtil {
     public static boolean copyTo(InputStream inputStream, File file) {
         if (inputStream == null || file == null) {

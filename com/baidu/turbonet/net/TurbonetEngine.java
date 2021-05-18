@@ -4,10 +4,9 @@ import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 import com.alipay.sdk.cons.b;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.turbonet.net.UrlRequest;
-import d.a.k0.b.c;
+import d.a.l0.b.c;
 import java.io.File;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -28,31 +27,31 @@ public abstract class TurbonetEngine {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f23237a;
+        public final Context f22482a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LibraryLoader f23238b;
+        public LibraryLoader f22483b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f23239c;
+        public String f22484c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f23240d;
+        public String f22485d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f23241e;
+        public boolean f22486e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f23242f;
+        public boolean f22487f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f23243g;
+        public String f22488g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f23244h;
+        public boolean f22489h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f23245i;
+        public int f22490i;
         public long j;
         public String k;
         public boolean l;
@@ -70,7 +69,7 @@ public abstract class TurbonetEngine {
         }
 
         public Builder(Context context) {
-            this.f23237a = context;
+            this.f22482a = context;
             t("turbonet");
             this.m = new JSONObject();
             d(false);
@@ -91,18 +90,18 @@ public abstract class TurbonetEngine {
             }
             s(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
             if (j() == null) {
-                v(c.a(this.f23237a));
+                v(c.a(this.f22482a));
             }
             return TurbonetEngine.c(this);
         }
 
         public boolean c() {
-            return this.f23244h;
+            return this.f22489h;
         }
 
         public Builder d(boolean z) {
             s(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
-            this.f23241e = z;
+            this.f22486e = z;
             return this;
         }
 
@@ -126,15 +125,15 @@ public abstract class TurbonetEngine {
         }
 
         public Context i() {
-            return this.f23237a;
+            return this.f22482a;
         }
 
         public String j() {
-            return this.f23240d;
+            return this.f22485d;
         }
 
         public boolean k() {
-            return this.f23241e;
+            return this.f22486e;
         }
 
         public long l() {
@@ -142,21 +141,21 @@ public abstract class TurbonetEngine {
         }
 
         public int m() {
-            return this.f23245i;
+            return this.f22490i;
         }
 
         public void n() {
-            LibraryLoader libraryLoader = this.f23238b;
+            LibraryLoader libraryLoader = this.f22483b;
             if (libraryLoader == null) {
-                if (this.f23239c.equals("turbonet")) {
-                    System.loadLibrary(this.f23239c);
+                if (this.f22484c.equals("turbonet")) {
+                    System.loadLibrary(this.f22484c);
                     return;
                 } else {
-                    System.load(this.f23239c);
+                    System.load(this.f22484c);
                     return;
                 }
             }
-            libraryLoader.a(this.f23239c);
+            libraryLoader.a(this.f22484c);
         }
 
         public boolean o() {
@@ -164,7 +163,7 @@ public abstract class TurbonetEngine {
         }
 
         public boolean p() {
-            return this.f23242f;
+            return this.f22487f;
         }
 
         public Builder q(String str) {
@@ -173,7 +172,7 @@ public abstract class TurbonetEngine {
         }
 
         public Builder r(String str) {
-            s("app", DpStatConstants.KEY_APP_NAME, str);
+            s("app", "app_name", str);
             return this;
         }
 
@@ -191,13 +190,13 @@ public abstract class TurbonetEngine {
         }
 
         public Builder t(String str) {
-            this.f23239c = str;
+            this.f22484c = str;
             return this;
         }
 
         public Builder u(String str) {
             if (new File(str).isDirectory()) {
-                this.f23243g = str;
+                this.f22488g = str;
                 return this;
             }
             throw new IllegalArgumentException("Storage path must be set to existing directory");
@@ -205,12 +204,12 @@ public abstract class TurbonetEngine {
 
         public Builder v(String str) {
             s(SchemeCollecter.CLASSIFY_BASE, b.f1825b, str);
-            this.f23240d = str;
+            this.f22485d = str;
             return this;
         }
 
         public String w() {
-            return this.f23243g;
+            return this.f22488g;
         }
     }
 

@@ -14,31 +14,31 @@ import java.util.List;
 public class SelectNumberDialog extends BaseDialog implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f24465a;
+    public LinearLayout f23710a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f24466b;
+    public AdapterView.OnItemClickListener f23711b;
 
     public SelectNumberDialog(Context context) {
         super(context);
         LinearLayout linearLayout = new LinearLayout(this.mContext);
-        this.f24465a = linearLayout;
+        this.f23710a = linearLayout;
         linearLayout.setOrientation(1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         dismiss();
-        if (this.f24466b == null || view.getTag() == null) {
+        if (this.f23711b == null || view.getTag() == null) {
             return;
         }
-        this.f24466b.onItemClick(null, view, ((Integer) view.getTag()).intValue(), 0L);
+        this.f23711b.onItemClick(null, view, ((Integer) view.getTag()).intValue(), 0L);
     }
 
     @Override // com.baidu.apollon.base.widget.BaseDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        addContentView(this.f24465a);
+        addContentView(this.f23710a);
         hideButtons();
         setTitleText("选择手机号");
         setCancelable(true);
@@ -48,7 +48,7 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
         if (list == null || list.size() <= 1) {
             return;
         }
-        this.f24465a.removeAllViews();
+        this.f23710a.removeAllViews();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(this.mContext, 45.0f));
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(this.mContext, 1.0f));
         for (int i2 = 1; i2 < list.size(); i2++) {
@@ -56,7 +56,7 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
                 View view = new View(this.mContext);
                 view.setBackgroundColor(ResUtils.getColor(this.mContext, "bd_wallet_gray"));
                 view.setLayoutParams(layoutParams2);
-                this.f24465a.addView(view);
+                this.f23710a.addView(view);
             }
             TextView textView = new TextView(this.mContext);
             textView.setText(list.get(i2));
@@ -65,11 +65,11 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
             textView.setLayoutParams(layoutParams);
             textView.setTag(Integer.valueOf(i2));
             textView.setOnClickListener(this);
-            this.f24465a.addView(textView);
+            this.f23710a.addView(textView);
         }
     }
 
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
-        this.f24466b = onItemClickListener;
+        this.f23711b = onItemClickListener;
     }
 }

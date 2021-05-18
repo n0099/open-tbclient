@@ -7,20 +7,20 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.swan.menu.viewpager.SlideableGridView;
-import d.a.h0.i.g;
-import d.a.h0.i.h;
+import d.a.i0.k.g;
+import d.a.i0.k.h;
 /* loaded from: classes3.dex */
 public class SwanAppMenuSlidableGridView extends SlideableGridView {
 
     /* loaded from: classes3.dex */
-    public class b extends WrapContentHeightViewPager {
+    public class a extends WrapContentHeightViewPager {
+        public a(Context context) {
+            super(context);
+        }
+
         @Override // androidx.viewpager.widget.ViewPager
         public boolean canScroll(View view, boolean z, int i2, int i3, int i4) {
             return false;
-        }
-
-        public b(Context context) {
-            super(context);
         }
     }
 
@@ -29,17 +29,17 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    public void f(Context context) {
-        PointPageIndicator e2 = new d.a.h0.i.r.a(context).e(h.menu_indicator_normal, h.menu_indicator_selected);
+    public void a(Context context) {
+        PointPageIndicator e2 = new d.a.i0.k.r.a(context).e(h.menu_indicator_normal, h.menu_indicator_selected);
         e2.f((int) getResources().getDimension(g.common_grid_indicator_margin));
         this.l = e2;
         this.m[0] = (int) getResources().getDimension(g.aiapp_menu_gridview_indicator_height);
         this.m[1] = (int) getResources().getDimension(g.aiapp_menu_gridview_indicator_height);
-        addView(this.l, j());
+        addView(this.l, e());
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    public void h() {
+    public void c() {
         SlideableGridView.a gridItemAdapter = getGridItemAdapter();
         int c2 = gridItemAdapter == null ? 0 : gridItemAdapter.c();
         boolean z = c2 > 1;
@@ -54,22 +54,22 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    public int i() {
+    public int d() {
         return (int) getResources().getDimension(g.aiapp_menu_gridview_indicator_height);
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    public ViewPager l(Context context) {
-        return new b(context);
+    public ViewPager g(Context context) {
+        return new a(context);
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    public void p(Context context) {
+    public void k(Context context) {
         setOrientation(1);
-        g(context);
+        b(context);
         Resources resources = context.getResources();
         addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(g.aiapp_menu_gridview_padding_view_height1)));
-        f(context);
+        a(context);
         addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(g.aiapp_menu_gridview_padding_view_height2)));
     }
 

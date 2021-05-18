@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PushManager {
     public static final String DEFAULT_REQUEST_ID = "1";
     public static final Object SLOCK = new Object();

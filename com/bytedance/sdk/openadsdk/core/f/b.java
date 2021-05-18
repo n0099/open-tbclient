@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Process;
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static void a(@NonNull Activity activity, @NonNull String[] strArr, int i2) {
         if (Build.VERSION.SDK_INT >= 23) {

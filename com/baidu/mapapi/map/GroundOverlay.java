@@ -10,31 +10,31 @@ public final class GroundOverlay extends Overlay {
     public static final String j = "GroundOverlay";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7128a;
+    public int f6940a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BitmapDescriptor f7129b;
+    public BitmapDescriptor f6941b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f7130c;
+    public LatLng f6942c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f7131d;
+    public double f6943d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f7132e;
+    public double f6944e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f7133f;
+    public float f6945f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f7134g;
+    public float f6946g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LatLngBounds f7135h;
+    public LatLngBounds f6947h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f7136i;
+    public float f6948i;
 
     public GroundOverlay() {
         this.type = com.baidu.mapsdkplatform.comapi.map.h.ground;
@@ -43,116 +43,116 @@ public final class GroundOverlay extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        bundle.putBundle("image_info", this.f7129b.b());
-        if (this.f7128a == 1) {
-            GeoPoint ll2mc = CoordUtil.ll2mc(this.f7135h.southwest);
+        bundle.putBundle("image_info", this.f6941b.b());
+        if (this.f6940a == 1) {
+            GeoPoint ll2mc = CoordUtil.ll2mc(this.f6947h.southwest);
             double longitudeE6 = ll2mc.getLongitudeE6();
             double latitudeE6 = ll2mc.getLatitudeE6();
-            GeoPoint ll2mc2 = CoordUtil.ll2mc(this.f7135h.northeast);
+            GeoPoint ll2mc2 = CoordUtil.ll2mc(this.f6947h.northeast);
             double longitudeE62 = ll2mc2.getLongitudeE6();
             double latitudeE62 = ll2mc2.getLatitudeE6();
             double d2 = longitudeE62 - longitudeE6;
-            this.f7131d = d2;
+            this.f6943d = d2;
             double d3 = latitudeE62 - latitudeE6;
-            this.f7132e = d3;
-            this.f7130c = CoordUtil.mc2ll(new GeoPoint(latitudeE6 + (d3 / 2.0d), longitudeE6 + (d2 / 2.0d)));
-            this.f7133f = 0.5f;
-            this.f7134g = 0.5f;
+            this.f6944e = d3;
+            this.f6942c = CoordUtil.mc2ll(new GeoPoint(latitudeE6 + (d3 / 2.0d), longitudeE6 + (d2 / 2.0d)));
+            this.f6945f = 0.5f;
+            this.f6946g = 0.5f;
         }
-        double d4 = this.f7131d;
-        if (d4 <= 0.0d || this.f7132e <= 0.0d) {
-            throw new IllegalStateException("when you add ground overlay, the width and height must greater than 0");
+        double d4 = this.f6943d;
+        if (d4 <= 0.0d || this.f6944e <= 0.0d) {
+            throw new IllegalStateException("BDMapSDKException: when you add ground overlay, the width and height must greater than 0");
         }
         bundle.putDouble("x_distance", d4);
-        if (this.f7132e == 2.147483647E9d) {
-            this.f7132e = (int) ((this.f7131d * this.f7129b.f7097a.getHeight()) / this.f7129b.f7097a.getWidth());
+        if (this.f6944e == 2.147483647E9d) {
+            this.f6944e = (int) ((this.f6943d * this.f6941b.f6908a.getHeight()) / this.f6941b.f6908a.getWidth());
         }
-        bundle.putDouble("y_distance", this.f7132e);
-        GeoPoint ll2mc3 = CoordUtil.ll2mc(this.f7130c);
+        bundle.putDouble("y_distance", this.f6944e);
+        GeoPoint ll2mc3 = CoordUtil.ll2mc(this.f6942c);
         bundle.putDouble("location_x", ll2mc3.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc3.getLatitudeE6());
-        bundle.putFloat("anchor_x", this.f7133f);
-        bundle.putFloat("anchor_y", this.f7134g);
-        bundle.putFloat("transparency", this.f7136i);
+        bundle.putFloat("anchor_x", this.f6945f);
+        bundle.putFloat("anchor_y", this.f6946g);
+        bundle.putFloat("transparency", this.f6948i);
         return bundle;
     }
 
     public float getAnchorX() {
-        return this.f7133f;
+        return this.f6945f;
     }
 
     public float getAnchorY() {
-        return this.f7134g;
+        return this.f6946g;
     }
 
     public LatLngBounds getBounds() {
-        return this.f7135h;
+        return this.f6947h;
     }
 
     public double getHeight() {
-        return this.f7132e;
+        return this.f6944e;
     }
 
     public BitmapDescriptor getImage() {
-        return this.f7129b;
+        return this.f6941b;
     }
 
     public LatLng getPosition() {
-        return this.f7130c;
+        return this.f6942c;
     }
 
     public float getTransparency() {
-        return this.f7136i;
+        return this.f6948i;
     }
 
     public double getWidth() {
-        return this.f7131d;
+        return this.f6943d;
     }
 
     public void setAnchor(float f2, float f3) {
         if (f2 < 0.0f || f2 > 1.0f || f3 < 0.0f || f3 > 1.0f) {
             return;
         }
-        this.f7133f = f2;
-        this.f7134g = f3;
+        this.f6945f = f2;
+        this.f6946g = f3;
         this.listener.b(this);
     }
 
     public void setDimensions(int i2) {
-        this.f7131d = i2;
-        this.f7132e = 2.147483647E9d;
+        this.f6943d = i2;
+        this.f6944e = 2.147483647E9d;
         this.listener.b(this);
     }
 
     public void setDimensions(int i2, int i3) {
-        this.f7131d = i2;
-        this.f7132e = i3;
+        this.f6943d = i2;
+        this.f6944e = i3;
         this.listener.b(this);
     }
 
     public void setImage(BitmapDescriptor bitmapDescriptor) {
         if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("image can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: image can not be null");
         }
-        this.f7129b = bitmapDescriptor;
+        this.f6941b = bitmapDescriptor;
         this.listener.b(this);
     }
 
     public void setPosition(LatLng latLng) {
         if (latLng == null) {
-            throw new IllegalArgumentException("position can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: position can not be null");
         }
-        this.f7128a = 2;
-        this.f7130c = latLng;
+        this.f6940a = 2;
+        this.f6942c = latLng;
         this.listener.b(this);
     }
 
     public void setPositionFromBounds(LatLngBounds latLngBounds) {
         if (latLngBounds == null) {
-            throw new IllegalArgumentException("bounds can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: bounds can not be null");
         }
-        this.f7128a = 1;
-        this.f7135h = latLngBounds;
+        this.f6940a = 1;
+        this.f6947h = latLngBounds;
         this.listener.b(this);
     }
 
@@ -160,7 +160,7 @@ public final class GroundOverlay extends Overlay {
         if (f2 > 1.0f || f2 < 0.0f) {
             return;
         }
-        this.f7136i = f2;
+        this.f6948i = f2;
         this.listener.b(this);
     }
 }

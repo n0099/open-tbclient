@@ -35,16 +35,16 @@ public final class PassUtil {
     public static final int TYPE_VERIFY = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    public static IPassNormalize f24741a;
+    public static IPassNormalize f23986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f24742b;
+    public static long f23987b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static IPassNormalize f24743c;
+    public static IPassNormalize f23988c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f24744d = new Object();
+    public static final Object f23989d = new Object();
 
     /* loaded from: classes5.dex */
     public interface IPassNormalize {
@@ -64,7 +64,7 @@ public final class PassUtil {
             if (i2 == 1 && map != null) {
                 String str = map.get("pass_open_bduss");
                 if ("0".equals(map.get("pass_error_code")) && !TextUtils.isEmpty(str)) {
-                    IPassNormalize iPassNormalize = PassUtil.f24741a;
+                    IPassNormalize iPassNormalize = PassUtil.f23986a;
                     if (iPassNormalize != null) {
                         iPassNormalize.onNormalize(context, i2, map);
                     }
@@ -76,7 +76,7 @@ public final class PassUtil {
     }
 
     public static long b() {
-        long currentTimeMillis = System.currentTimeMillis() - f24742b;
+        long currentTimeMillis = System.currentTimeMillis() - f23987b;
         LogUtil.logd("wait =" + currentTimeMillis);
         if (currentTimeMillis < 500 && currentTimeMillis > 0) {
             LogUtil.logd("需要wait =" + currentTimeMillis);
@@ -93,10 +93,10 @@ public final class PassUtil {
                 @Override // com.baidu.sapi2.callback.LoginStatusAware
                 /* renamed from: a */
                 public void onBdussExpired(Web2NativeLoginResult web2NativeLoginResult) {
-                    if (PassUtil.f24743c != null) {
-                        PassUtil.f24743c.onNormalize(context, i2, map);
+                    if (PassUtil.f23988c != null) {
+                        PassUtil.f23988c.onNormalize(context, i2, map);
                     }
-                    IPassNormalize unused = PassUtil.f24743c = null;
+                    IPassNormalize unused = PassUtil.f23988c = null;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -106,23 +106,23 @@ public final class PassUtil {
                     WalletLoginHelper.getInstance().getOpenBduss(true, new ILoginBackListener() { // from class: com.baidu.wallet.core.utils.PassUtil.1.1
                         @Override // com.baidu.wallet.api.ILoginBackListener
                         public void onFail(int i3, String str) {
-                            if (PassUtil.f24743c != null) {
-                                IPassNormalize iPassNormalize = PassUtil.f24743c;
+                            if (PassUtil.f23988c != null) {
+                                IPassNormalize iPassNormalize = PassUtil.f23988c;
                                 AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
                                 iPassNormalize.onNormalize(context, i2, map);
                             }
-                            IPassNormalize unused = PassUtil.f24743c = null;
+                            IPassNormalize unused = PassUtil.f23988c = null;
                         }
 
                         @Override // com.baidu.wallet.api.ILoginBackListener
                         public void onSuccess(int i3, String str) {
                             map.put("pass_open_bduss", str);
-                            if (PassUtil.f24743c != null) {
-                                IPassNormalize iPassNormalize = PassUtil.f24743c;
+                            if (PassUtil.f23988c != null) {
+                                IPassNormalize iPassNormalize = PassUtil.f23988c;
                                 AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
                                 iPassNormalize.onNormalize(context, i2, map);
                             }
-                            IPassNormalize unused = PassUtil.f24743c = null;
+                            IPassNormalize unused = PassUtil.f23988c = null;
                         }
                     });
                 }
@@ -131,18 +131,18 @@ public final class PassUtil {
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 /* renamed from: c */
                 public void onFailure(Web2NativeLoginResult web2NativeLoginResult) {
-                    if (PassUtil.f24743c != null) {
-                        PassUtil.f24743c.onNormalize(context, i2, map);
+                    if (PassUtil.f23988c != null) {
+                        PassUtil.f23988c.onNormalize(context, i2, map);
                     }
-                    IPassNormalize unused = PassUtil.f24743c = null;
+                    IPassNormalize unused = PassUtil.f23988c = null;
                 }
 
                 @Override // com.baidu.sapi2.callback.Web2NativeLoginCallback
                 public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
-                    if (PassUtil.f24743c != null) {
-                        PassUtil.f24743c.onNormalize(context, i2, map);
+                    if (PassUtil.f23988c != null) {
+                        PassUtil.f23988c.onNormalize(context, i2, map);
                     }
-                    IPassNormalize unused = PassUtil.f24743c = null;
+                    IPassNormalize unused = PassUtil.f23988c = null;
                 }
 
                 @Override // com.baidu.sapi2.callback.SapiCallback
@@ -155,15 +155,15 @@ public final class PassUtil {
             }, true);
             return;
         }
-        IPassNormalize iPassNormalize = f24743c;
+        IPassNormalize iPassNormalize = f23988c;
         if (iPassNormalize != null) {
             iPassNormalize.onNormalize(context, i2, map);
         }
-        f24743c = null;
+        f23988c = null;
     }
 
     public static void onCreate() {
-        f24742b = System.currentTimeMillis();
+        f23987b = System.currentTimeMillis();
     }
 
     public static void passNormalized(Context context, String str, int i2, IPassNormalize iPassNormalize) {
@@ -173,16 +173,16 @@ public final class PassUtil {
         long b2 = b();
         if (b2 > 0) {
             try {
-                synchronized (f24744d) {
+                synchronized (f23989d) {
                     LogUtil.logd("before wait");
-                    f24744d.wait(b2);
+                    f23989d.wait(b2);
                     LogUtil.logd("after wait");
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        f24743c = iPassNormalize;
+        f23988c = iPassNormalize;
         Intent intent = new Intent(context, PassNormalizeActivity.class);
         intent.putExtra("normalize_url", str);
         intent.putExtra("pass_util_type", i2);
@@ -190,6 +190,6 @@ public final class PassUtil {
     }
 
     public static void registerPassNormalize(IPassNormalize iPassNormalize) {
-        f24741a = iPassNormalize;
+        f23986a = iPassNormalize;
     }
 }

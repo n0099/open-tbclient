@@ -9,22 +9,22 @@ import javax.crypto.spec.SecretKeySpec;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5784a = "UTF-8";
+    public static final String f5638a = "UTF-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5785b = "AES/CBC/NoPadding";
+    public static final String f5639b = "AES/CBC/NoPadding";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5786c = "AES";
+    public static final String f5640c = "AES";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5787d;
+    public String f5641d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5788e;
+    public String f5642e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f5789f;
+    public String f5643f;
 
     public a() {
         this("AES", "AES/CBC/NoPadding", "UTF-8");
@@ -33,9 +33,9 @@ public class a {
     public byte[] a(String str, String str2, String str3) throws Exception {
         if (str != null && str.length() != 0) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f5787d));
-                SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f5789f);
-                Cipher cipher = Cipher.getInstance(this.f5788e);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f5641d));
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f5643f);
+                Cipher cipher = Cipher.getInstance(this.f5642e);
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(a(str).getBytes());
             } catch (NoSuchAlgorithmException e2) {
@@ -54,21 +54,21 @@ public class a {
     }
 
     public a(String str, String str2, String str3) {
-        this.f5787d = "UTF-8";
-        this.f5788e = "AES/CBC/NoPadding";
-        this.f5789f = "AES";
-        this.f5789f = str;
-        this.f5788e = str2;
-        this.f5787d = str3;
+        this.f5641d = "UTF-8";
+        this.f5642e = "AES/CBC/NoPadding";
+        this.f5643f = "AES";
+        this.f5643f = str;
+        this.f5642e = str2;
+        this.f5641d = str3;
     }
 
     public byte[] a(byte[] bArr, String str, String str2) throws Exception {
         if (bArr != null && bArr.length != 0) {
             byte[] bArr2 = new byte[0];
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f5787d));
-                SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f5789f);
-                Cipher cipher = Cipher.getInstance(this.f5788e);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f5641d));
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f5643f);
+                Cipher cipher = Cipher.getInstance(this.f5642e);
                 cipher.init(2, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(bArr);
             } catch (Throwable th) {

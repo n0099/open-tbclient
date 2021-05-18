@@ -13,14 +13,14 @@ import com.baidu.apollon.utils.ResUtils;
 public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageButton f24353a;
+    public ImageButton f23598a;
     public Button btConfirm;
 
     public SafeKeyBoardPopUpWindowNew(Context context) {
         super(context);
         this.btConfirm = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "wallet_base_safekeyboard_confirm"));
         ImageButton imageButton = (ImageButton) this.contentView.findViewById(ResUtils.id(this.mContext, "wallet_base_safekeyboard_hide"));
-        this.f24353a = imageButton;
+        this.f23598a = imageButton;
         imageButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.SafeKeyBoardPopUpWindowNew.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

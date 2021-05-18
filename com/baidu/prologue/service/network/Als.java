@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class Als {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10428a;
+    public static final boolean f9465a;
 
     /* loaded from: classes2.dex */
     public enum Area {
@@ -78,7 +78,7 @@ public class Als {
     public static class a implements l {
         @Override // d.a.b0.d.a.i
         public void a(Throwable th) {
-            if (Als.f10428a) {
+            if (Als.f9465a) {
                 Log.e("Als", "Als get error response, " + th);
             }
         }
@@ -87,7 +87,7 @@ public class Als {
         @Override // d.a.b0.d.a.i
         /* renamed from: c */
         public void b(String str) {
-            if (Als.f10428a) {
+            if (Als.f9465a) {
                 Log.d("Als", "Als get correct response.");
             }
         }
@@ -97,7 +97,7 @@ public class Als {
     public static class b implements l {
         @Override // d.a.b0.d.a.i
         public void a(Throwable th) {
-            if (Als.f10428a) {
+            if (Als.f9465a) {
                 Log.e("Als", "Als performance get error response, " + th);
             }
         }
@@ -106,7 +106,7 @@ public class Als {
         @Override // d.a.b0.d.a.i
         /* renamed from: c */
         public void b(String str) {
-            if (Als.f10428a) {
+            if (Als.f9465a) {
                 Log.d("Als", "Als performance get correct response.");
             }
         }
@@ -116,7 +116,7 @@ public class Als {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final JSONObject f10429a = new JSONObject();
+        public final JSONObject f9466a = new JSONObject();
 
         public c(@NonNull Type type) {
             d("da_type", type.value);
@@ -124,13 +124,13 @@ public class Als {
         }
 
         public final <T> c b(String str, T t) {
-            if (Als.f10428a && this.f10429a.has(str)) {
+            if (Als.f9465a && this.f9466a.has(str)) {
                 throw new IllegalArgumentException("key " + str + " has been set!");
             }
             try {
-                this.f10429a.put(str, t);
+                this.f9466a.put(str, t);
             } catch (JSONException unused) {
-                if (Als.f10428a) {
+                if (Als.f9465a) {
                     throw new IllegalArgumentException("Json put create invalid exception");
                 }
             }
@@ -179,13 +179,13 @@ public class Als {
     }
 
     static {
-        f10428a = d.a.b0.a.b.a.f39288a.get() != null && d.a.b0.a.b.a.f39288a.get().s();
+        f9465a = d.a.b0.a.b.a.f38533a.get() != null && d.a.b0.a.b.a.f38533a.get().s();
     }
 
     public static void b(Request.c cVar, d.a.b0.a.b.a aVar) {
         cVar.j(HttpRequest.CLIENT_TYPE, "2");
         cVar.j(AdUploadHttpRequest.KEY_OS_TYPE, "2");
-        cVar.j(HttpRequest.CLIENT_VERSION, aVar.D());
+        cVar.j("_client_version", aVar.D());
         cVar.j(AdUploadHttpRequest.KEY_OS_VERSION, aVar.g());
         cVar.j("model", aVar.q());
         cVar.j("cuid", aVar.f());
@@ -207,9 +207,9 @@ public class Als {
     }
 
     public static void e(@NonNull c cVar) {
-        d.a.b0.a.b.a aVar = d.a.b0.a.b.a.f39288a.get();
+        d.a.b0.a.b.a aVar = d.a.b0.a.b.a.f38533a.get();
         if (aVar == null) {
-            if (f10428a) {
+            if (f9465a) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
             }
             return;
@@ -217,16 +217,16 @@ public class Als {
         Request.c cVar2 = new Request.c(aVar.o(), "https://als.baidu.com/clog/clog");
         b(cVar2, aVar);
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(cVar.f10429a);
+        jSONArray.put(cVar.f9466a);
         cVar2.j("ad", jSONArray.toString());
         cVar2.n();
         cVar2.l().e(new a());
     }
 
     public static void f(String str, String str2, String str3, long j, String str4) {
-        d.a.b0.a.b.a aVar = d.a.b0.a.b.a.f39288a.get();
+        d.a.b0.a.b.a aVar = d.a.b0.a.b.a.f38533a.get();
         if (aVar == null) {
-            if (f10428a) {
+            if (f9465a) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
             }
             return;

@@ -68,6 +68,7 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.core.util.FieldBuilder;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.io.UnsupportedEncodingException;
@@ -301,7 +302,7 @@ public final class SapiAccountRepository {
         jSONObject.put("password", str4);
         jSONObject.put("login_type", "3");
         jSONObject.put("key", sapiDataEncryptor.getAESKey());
-        jSONObject.put("sdk_version", "2");
+        jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "2");
         jSONObject.put("pinfo", SapiDeviceUtils.getBrandName());
         httpHashMapWrap.put(TableDefine.DB_TABLE_USERINFO, sapiDataEncryptor.encrypt(str, jSONObject.toString()));
         new HttpClientWrap().post(SapiEnv.LOGIN_URI, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.3
@@ -330,7 +331,7 @@ public final class SapiAccountRepository {
             public void onFailure(Throwable th, int i2, String str4) {
                 OneKeyRequestJsCallback oneKeyRequestJsCallback2 = oneKeyRequestJsCallback;
                 if (oneKeyRequestJsCallback2 != null) {
-                    oneKeyRequestJsCallback2.failure(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, "");
+                    oneKeyRequestJsCallback2.failure(-105, "");
                 }
             }
 
@@ -350,7 +351,7 @@ public final class SapiAccountRepository {
                 }
                 OneKeyRequestJsCallback oneKeyRequestJsCallback3 = oneKeyRequestJsCallback;
                 if (oneKeyRequestJsCallback3 != null) {
-                    oneKeyRequestJsCallback3.failure(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL, "");
+                    oneKeyRequestJsCallback3.failure(-106, "");
                 }
                 Log.d(SapiAccountRepository.TAG, "oneKeyLogin check javsScript MD5 failed");
             }
@@ -371,7 +372,7 @@ public final class SapiAccountRepository {
             httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
         }
         httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
-        httpHashMapWrap.put("sdk_version", "3");
+        httpHashMapWrap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "3");
         return httpHashMapWrap;
     }
 
@@ -1341,7 +1342,7 @@ public final class SapiAccountRepository {
                 JSONObject jSONObject2 = null;
                 if (TextUtils.isEmpty(str3)) {
                     Log.e(SapiAccountRepository.TAG, "oneKeyLogin execute JavaScript failed, it only support after KitKat version");
-                    new OneKeyLoginSdkCall().loadOneKeyLoginFail(oneKeyLoginCallback, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_EXECUTE_JS_FAIL, null);
+                    new OneKeyLoginSdkCall().loadOneKeyLoginFail(oneKeyLoginCallback, -107, null);
                     SapiStatUtil.statOneKeyLoginPassAction(-1, "-100", "js execute fail");
                     return;
                 }
@@ -1410,7 +1411,7 @@ public final class SapiAccountRepository {
                                     optString = optJSONObject4.optString("ppDatau");
                                     if (TextUtils.isEmpty(optString)) {
                                         OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
-                                        oneKeyLoginResult.setResultCode(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
+                                        oneKeyLoginResult.setResultCode(-104);
                                         oneKeyLoginCallback.onGuideProcess(oneKeyLoginResult);
                                         loadExternalWebViewActivityCallback.needLoadExternalWebView("", optString);
                                         return;

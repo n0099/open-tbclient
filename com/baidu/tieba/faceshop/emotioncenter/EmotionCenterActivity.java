@@ -165,7 +165,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         } else if (view == this.mSettingImg) {
             int i2 = 0;
             if (!ListUtils.isEmpty(this.fragments) && (this.fragments.get(0) instanceof EmotionRecommendFragment)) {
-                i2 = ((EmotionRecommendFragment) this.fragments.get(0)).J0();
+                i2 = ((EmotionRecommendFragment) this.fragments.get(0)).I0();
             }
             sendMessage(new CustomMessage(2002001, new NativeEmotionManagerActivityConfig(getPageContext().getPageActivity(), i2)));
         }

@@ -3,6 +3,7 @@ package com.baidu.android.imrtc.notify;
 import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcUtility;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
@@ -14,6 +15,28 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
     public String mRtcRoomToken;
     public int mRtcRoomType;
     public long mRtcUserId;
+
+    public String createOpenVideoJson() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            JSONObject jSONObject2 = new JSONObject(this.mRtcExt);
+            String optString = jSONObject2.optString("inviter_name");
+            String optString2 = jSONObject2.optString("inviter_avatar");
+            JSONObject jSONObject3 = new JSONObject(jSONObject2.getJSONObject("push_info").getString("ext"));
+            jSONObject.put("inviter_name", optString);
+            jSONObject.put("inviter_avatar", optString2);
+            jSONObject.put("media_type", this.mMediaType);
+            jSONObject.put("room_id", getRtcRoomId());
+            jSONObject.put("inviter_passuk", jSONObject3.optString("inviter_passuk"));
+            jSONObject.put(TiebaStatic.Params.RESOURCE_ID, jSONObject3.optString(TiebaStatic.Params.RESOURCE_ID));
+            jSONObject.put("session_type", jSONObject3.optInt("session_type"));
+            jSONObject.put("inviter_imuk", this.mInitiatorUk);
+        } catch (Exception e2) {
+            LogUtils.d("IMInviteRtcInfo", e2.getMessage());
+        }
+        LogUtils.d("IMInviteRtcInfo", "info = " + jSONObject.toString());
+        return jSONObject.toString();
+    }
 
     public int getMediaType() {
         return this.mMediaType;

@@ -21,19 +21,19 @@ import java.util.SimpleTimeZone;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9671a = "d";
+    public static final String f9292a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9672b = "Set-Cookie";
+    public static final String f9293b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f9673c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+    public static final String f9294c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f9674d = "Cookie";
+    public static final String f9295d = "Cookie";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f9675e = "https://";
+    public static final String f9296e = "https://";
 
     public static String a(String str, String str2, String str3, long j, boolean z) {
         Calendar calendar = Calendar.getInstance();
@@ -64,12 +64,12 @@ public class d {
             sb.append("https://");
             sb.append(uri.getHost());
             String cookie = cookieManager.getCookie(sb.toString());
-            String str = f9671a;
+            String str = f9292a;
             StringBuilder sb2 = new StringBuilder();
             sb2.append("asyncCookie");
             sb2.append(passHttpParamDTO.asyncCookie);
             e.a(str, sb2.toString());
-            String str2 = f9671a;
+            String str2 = f9292a;
             StringBuilder sb3 = new StringBuilder();
             sb3.append("webviewCookies");
             sb3.append(cookie);
@@ -98,7 +98,7 @@ public class d {
                             if (!httpCookie.hasExpired()) {
                                 str3 = str3 + httpCookie.getName() + "=" + httpCookie.getValue() + ";";
                             }
-                            String str5 = f9671a;
+                            String str5 = f9292a;
                             StringBuilder sb4 = new StringBuilder();
                             sb4.append("httpCookie webview item name:");
                             sb4.append(httpCookie.getName());
@@ -120,14 +120,14 @@ public class d {
                 return;
             }
             String substring = str3.substring(0, str3.length() - 1);
-            String str6 = f9671a;
+            String str6 = f9292a;
             StringBuilder sb5 = new StringBuilder();
             sb5.append("cookieStr");
             sb5.append(substring);
             e.a(str6, sb5.toString());
             httpURLConnection.setRequestProperty("Cookie", substring);
         } catch (Exception e2) {
-            e.a(f9671a, "asyncWebviewCookie2NA:" + e2.toString());
+            e.a(f9292a, "asyncWebviewCookie2NA:" + e2.toString());
         }
     }
 
@@ -136,7 +136,7 @@ public class d {
         Map<String, List<String>> headerFields;
         List<String> list;
         try {
-            String str = f9671a;
+            String str = f9292a;
             StringBuilder sb = new StringBuilder();
             sb.append("asyncCookie");
             sb.append(passHttpParamDTO.asyncCookie);
@@ -152,13 +152,13 @@ public class d {
                             if (!parse.isEmpty()) {
                                 HttpCookie httpCookie = parse.get(0);
                                 if (a(passHttpParamDTO.url, httpCookie)) {
-                                    String str3 = f9671a;
+                                    String str3 = f9292a;
                                     StringBuilder sb2 = new StringBuilder();
                                     sb2.append("httpcookie:");
                                     sb2.append(httpCookie.toString());
                                     Log.e(str3, sb2.toString());
                                     String a2 = a(httpCookie.getDomain(), httpCookie.getName(), httpCookie.getValue(), (httpCookie.getMaxAge() * 1000) + System.currentTimeMillis(), httpCookie.getSecure());
-                                    String str4 = f9671a;
+                                    String str4 = f9292a;
                                     StringBuilder sb3 = new StringBuilder();
                                     sb3.append("httpcookie build:");
                                     sb3.append(a2);
@@ -179,7 +179,7 @@ public class d {
                 }
             }
         } catch (Exception e2) {
-            String str5 = f9671a;
+            String str5 = f9292a;
             e.a(str5, "asyncNaCookie2Webview:" + e2.toString());
         }
     }

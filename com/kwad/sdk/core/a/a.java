@@ -24,7 +24,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.core.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0373a {
+    public static class C0360a {
         public static String a(Context context) {
             File file = new File(b(context), "kwad_ex");
             if (!file.exists()) {
@@ -98,7 +98,7 @@ public class a {
     @NonNull
     public static b b(@NonNull Context context, @NonNull final SdkConfig sdkConfig) {
         final Context applicationContext = context.getApplicationContext();
-        return new b.a().a(applicationContext).f("3.3.8.3").a(3030803).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(d.f33864a).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(ai.n(applicationContext)).b(ai.n()).a("Android").c(sdkConfig.appId).d(C0373a.a(applicationContext)).a(new f() { // from class: com.kwad.sdk.core.a.a.2
+        return new b.a().a(applicationContext).f("3.3.8.3").a(3030803).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(d.f33109a).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(ai.n(applicationContext)).b(ai.n()).a("Android").c(sdkConfig.appId).d(C0360a.a(applicationContext)).a(new f() { // from class: com.kwad.sdk.core.a.a.2
             @Override // com.kwad.sdk.crash.f
             public com.kwad.sdk.crash.model.message.a a(int i2) {
                 com.kwad.sdk.crash.model.message.a aVar = new com.kwad.sdk.crash.model.message.a();
@@ -112,7 +112,7 @@ public class a {
                 aVar.a("mKsadSdKVersionCode", 3030803);
                 aVar.a("mKsadSdkApiVersion", KsAdSDKImpl.get().getApiVersion());
                 aVar.a("mKsadSdKApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-                aVar.a("mKsadSdkType", d.f33864a);
+                aVar.a("mKsadSdkType", d.f33109a);
                 return aVar;
             }
         }).a(new e() { // from class: com.kwad.sdk.core.a.a.1

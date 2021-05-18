@@ -5,9 +5,9 @@ import d.a.b.a.a.d.a.a.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f39279a = new b(32);
+    public b f38524a = new b(32);
 
     public byte[] a(byte[] bArr) {
-        return this.f39279a.j(bArr);
+        return this.f38524a.j(bArr);
     }
 }

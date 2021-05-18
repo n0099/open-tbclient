@@ -4,7 +4,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class b extends Binder implements c {
     public static c a(IBinder iBinder) {
         if (iBinder == null) {

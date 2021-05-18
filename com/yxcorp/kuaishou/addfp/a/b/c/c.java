@@ -6,10 +6,10 @@ import android.os.Parcel;
 public final class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f39023a;
+    public IBinder f38268a;
 
     public c(IBinder iBinder) {
-        this.f39023a = iBinder;
+        this.f38268a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.c.a
@@ -19,7 +19,7 @@ public final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-            this.f39023a.transact(1, obtain, obtain2, 0);
+            this.f38268a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
         } finally {
@@ -39,7 +39,7 @@ public final class c implements a {
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
             obtain.writeString(str);
-            this.f39023a.transact(4, obtain, obtain2, 0);
+            this.f38268a.transact(4, obtain, obtain2, 0);
             obtain2.readException();
             str2 = obtain2.readString();
         } finally {
@@ -53,7 +53,7 @@ public final class c implements a {
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.f39023a;
+        return this.f38268a;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.c.a
@@ -63,7 +63,7 @@ public final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-            this.f39023a.transact(2, obtain, obtain2, 0);
+            this.f38268a.transact(2, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
         } finally {
@@ -83,7 +83,7 @@ public final class c implements a {
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
             obtain.writeString(str);
-            this.f39023a.transact(5, obtain, obtain2, 0);
+            this.f38268a.transact(5, obtain, obtain2, 0);
             obtain2.readException();
             str2 = obtain2.readString();
         } finally {
@@ -101,7 +101,7 @@ public final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-            this.f39023a.transact(3, obtain, obtain2, 0);
+            this.f38268a.transact(3, obtain, obtain2, 0);
             obtain2.readException();
             r2 = obtain2.readInt() != 0;
             obtain2.recycle();

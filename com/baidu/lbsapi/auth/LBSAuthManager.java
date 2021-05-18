@@ -35,39 +35,42 @@ public class LBSAuthManager {
     public static final int CODE_NETWORK_FAILED = -11;
     public static final int CODE_NETWORK_INVALID = -10;
     public static final int CODE_UNAUTHENTICATE = 601;
-    public static final String VERSION = "1.0.22";
+    public static final String VERSION = "1.0.23";
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f6534a;
+    public static Context f6384a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static m f6535d;
+    public static m f6385d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f6536e;
+    public static int f6386e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Hashtable<String, LBSAuthManagerListener> f6537f = new Hashtable<>();
+    public static Hashtable<String, LBSAuthManagerListener> f6387f = new Hashtable<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public static LBSAuthManager f6538g;
+    public static LBSAuthManager f6388g;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f6539b = null;
+    public c f6389b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f6540c = null;
+    public e f6390c = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f6541h = new i(this, Looper.getMainLooper());
+    public boolean f6391h = false;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final Handler f6392i = new i(this, Looper.getMainLooper());
 
     public LBSAuthManager(Context context) {
-        f6534a = context;
-        m mVar = f6535d;
+        f6384a = context;
+        m mVar = f6385d;
         if (mVar != null && !mVar.isAlive()) {
-            f6535d = null;
+            f6385d = null;
         }
-        a.b("BaiduApiAuth SDK Version:1.0.22");
+        a.b("BaiduApiAuth SDK Version:1.0.23");
         d();
     }
 
@@ -83,8 +86,10 @@ public class LBSAuthManager {
                 long j = jSONObject.getLong(ProgressInfo.JSON_KEY_CURRENT);
                 long currentTimeMillis = System.currentTimeMillis();
                 if ((currentTimeMillis - j) / 3600000.0d < 24.0d) {
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    if (!simpleDateFormat.format(Long.valueOf(currentTimeMillis)).equals(simpleDateFormat.format(Long.valueOf(j)))) {
+                    if (this.f6391h) {
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        if (!simpleDateFormat.format(Long.valueOf(currentTimeMillis)).equals(simpleDateFormat.format(Long.valueOf(j)))) {
+                        }
                     }
                 }
                 i2 = 601;
@@ -226,7 +231,7 @@ public class LBSAuthManager {
             str = a(myPid);
         } catch (IOException unused) {
         }
-        return str != null ? str : f6534a.getPackageName();
+        return str != null ? str : f6384a.getPackageName();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x003b, code lost:
@@ -240,7 +245,7 @@ public class LBSAuthManager {
         try {
             ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
             if (applicationInfo.metaData == null) {
-                LBSAuthManagerListener lBSAuthManagerListener = f6537f.get(str);
+                LBSAuthManagerListener lBSAuthManagerListener = f6387f.get(str);
                 if (lBSAuthManagerListener != null) {
                     lBSAuthManagerListener.onAuthResult(101, ErrorMessage.a(101, "AndroidManifest.xml的application中没有meta-data标签"));
                 }
@@ -250,14 +255,14 @@ public class LBSAuthManager {
                     try {
                     } catch (PackageManager.NameNotFoundException unused) {
                         str2 = string;
-                        LBSAuthManagerListener lBSAuthManagerListener2 = f6537f.get(str);
+                        LBSAuthManagerListener lBSAuthManagerListener2 = f6387f.get(str);
                         if (lBSAuthManagerListener2 != null) {
                             lBSAuthManagerListener2.onAuthResult(101, ErrorMessage.a(101, "无法在AndroidManifest.xml中获取com.baidu.android.lbs.API_KEY的值"));
                         }
                         return str2;
                     }
                 }
-                LBSAuthManagerListener lBSAuthManagerListener3 = f6537f.get(str);
+                LBSAuthManagerListener lBSAuthManagerListener3 = f6387f.get(str);
                 if (lBSAuthManagerListener3 != null) {
                     lBSAuthManagerListener3.onAuthResult(101, ErrorMessage.a(101, "无法在AndroidManifest.xml中获取com.baidu.android.lbs.API_KEY的值"));
                 }
@@ -273,7 +278,7 @@ public class LBSAuthManager {
         if (str == null) {
             str = e();
         }
-        Message obtainMessage = this.f6541h.obtainMessage();
+        Message obtainMessage = this.f6392i.obtainMessage();
         int i2 = -1;
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -293,7 +298,7 @@ public class LBSAuthManager {
             Bundle bundle = new Bundle();
             bundle.putString("listenerKey", str2);
             obtainMessage.setData(bundle);
-            this.f6541h.sendMessage(obtainMessage);
+            this.f6392i.sendMessage(obtainMessage);
         } catch (JSONException e2) {
             e2.printStackTrace();
             obtainMessage.what = i2;
@@ -301,18 +306,16 @@ public class LBSAuthManager {
             Bundle bundle2 = new Bundle();
             bundle2.putString("listenerKey", str2);
             obtainMessage.setData(bundle2);
-            this.f6541h.sendMessage(obtainMessage);
+            this.f6392i.sendMessage(obtainMessage);
         }
-        if (f6535d != null) {
-            f6535d.c();
+        if (f6385d != null) {
+            f6385d.c();
         }
-        f6536e--;
-        if (a.f6542a) {
-            a.a("httpRequest called mAuthCounter-- = " + f6536e);
-        }
-        if (f6536e == 0 && f6535d != null) {
-            f6535d.a();
-            f6535d = null;
+        f6386e--;
+        a.a("httpRequest called mAuthCounter-- = " + f6386e);
+        if (f6386e == 0 && f6385d != null) {
+            f6385d.a();
+            f6385d = null;
         }
     }
 
@@ -320,8 +323,7 @@ public class LBSAuthManager {
     public void a(boolean z, String str, Hashtable<String, String> hashtable, String str2) {
         String str3;
         String str4;
-        String str5;
-        String a2 = a(f6534a, str2);
+        String a2 = a(f6384a, str2);
         if (a2 == null || a2.equals("")) {
             return;
         }
@@ -331,7 +333,7 @@ public class LBSAuthManager {
         hashMap.put("output", "json");
         hashMap.put(ContentUtil.RESULT_KEY_AK, a2);
         a.a("ak:" + a2);
-        hashMap.put("mcode", b.a(f6534a));
+        hashMap.put("mcode", b.a(f6384a));
         hashMap.put("from", "lbs_yunsdk");
         if (hashtable != null && hashtable.size() > 0) {
             for (Map.Entry<String, String> entry : hashtable.entrySet()) {
@@ -343,8 +345,10 @@ public class LBSAuthManager {
             }
         }
         try {
-            str3 = CommonParam.a(f6534a);
-        } catch (Exception unused) {
+            str3 = CommonParam.getCUID(f6384a);
+        } catch (Exception e2) {
+            a.a("get cuid failed");
+            e2.printStackTrace();
             str3 = "";
         }
         a.a("cuid:" + str3);
@@ -353,27 +357,18 @@ public class LBSAuthManager {
         } else {
             hashMap.put("cuid", str3);
         }
-        hashMap.put("pcn", f6534a.getPackageName());
+        hashMap.put("pcn", f6384a.getPackageName());
         hashMap.put("version", VERSION);
+        hashMap.put("macaddr", "");
         try {
-            str4 = b.c(f6534a);
-        } catch (Exception unused2) {
+            str4 = b.a();
+        } catch (Exception unused) {
             str4 = "";
         }
         if (TextUtils.isEmpty(str4)) {
-            hashMap.put("macaddr", "");
-        } else {
-            hashMap.put("macaddr", str4);
-        }
-        try {
-            str5 = b.a();
-        } catch (Exception unused3) {
-            str5 = "";
-        }
-        if (TextUtils.isEmpty(str5)) {
             hashMap.put("language", "");
         } else {
-            hashMap.put("language", str5);
+            hashMap.put("language", str4);
         }
         if (z) {
             hashMap.put("force", z ? "1" : "0");
@@ -383,8 +378,8 @@ public class LBSAuthManager {
         } else {
             hashMap.put("from_service", str);
         }
-        c cVar = new c(f6534a);
-        this.f6539b = cVar;
+        c cVar = new c(f6384a);
+        this.f6389b = cVar;
         cVar.a(hashMap, new k(this, str2));
     }
 
@@ -392,8 +387,7 @@ public class LBSAuthManager {
     public void a(boolean z, String str, Hashtable<String, String> hashtable, String[] strArr, String str2) {
         String str3;
         String str4;
-        String str5;
-        String a2 = a(f6534a, str2);
+        String a2 = a(f6384a, str2);
         if (a2 == null || a2.equals("")) {
             return;
         }
@@ -412,7 +406,7 @@ public class LBSAuthManager {
             }
         }
         try {
-            str3 = CommonParam.a(f6534a);
+            str3 = CommonParam.getCUID(f6384a);
         } catch (Exception unused) {
             str3 = "";
         }
@@ -421,27 +415,18 @@ public class LBSAuthManager {
         } else {
             hashMap.put("cuid", str3);
         }
-        hashMap.put("pcn", f6534a.getPackageName());
+        hashMap.put("pcn", f6384a.getPackageName());
         hashMap.put("version", VERSION);
+        hashMap.put("macaddr", "");
         try {
-            str4 = b.c(f6534a);
+            str4 = b.a();
         } catch (Exception unused2) {
             str4 = "";
         }
         if (TextUtils.isEmpty(str4)) {
-            hashMap.put("macaddr", "");
-        } else {
-            hashMap.put("macaddr", str4);
-        }
-        try {
-            str5 = b.a();
-        } catch (Exception unused3) {
-            str5 = "";
-        }
-        if (TextUtils.isEmpty(str5)) {
             hashMap.put("language", "");
         } else {
-            hashMap.put("language", str5);
+            hashMap.put("language", str4);
         }
         if (z) {
             hashMap.put("force", z ? "1" : "0");
@@ -451,8 +436,8 @@ public class LBSAuthManager {
         } else {
             hashMap.put("from_service", str);
         }
-        e eVar = new e(f6534a);
-        this.f6540c = eVar;
+        e eVar = new e(f6384a);
+        this.f6390c = eVar;
         eVar.a(hashMap, strArr, new l(this, str2));
     }
 
@@ -460,7 +445,7 @@ public class LBSAuthManager {
     public boolean b(String str) {
         String str2;
         JSONObject jSONObject;
-        String a2 = a(f6534a, str);
+        String a2 = a(f6384a, str);
         try {
             jSONObject = new JSONObject(e());
         } catch (JSONException e2) {
@@ -475,21 +460,19 @@ public class LBSAuthManager {
     }
 
     private void c(String str) {
-        Context context = f6534a;
-        context.getSharedPreferences("authStatus_" + a(f6534a), 0).edit().putString("status", str).commit();
+        Context context = f6384a;
+        context.getSharedPreferences("authStatus_" + a(f6384a), 0).edit().putString("status", str).commit();
     }
 
     private void d() {
         synchronized (LBSAuthManager.class) {
-            if (f6535d == null) {
+            if (f6385d == null) {
                 m mVar = new m("auth");
-                f6535d = mVar;
+                f6385d = mVar;
                 mVar.start();
-                while (f6535d.f6568a == null) {
+                while (f6385d.f6419a == null) {
                     try {
-                        if (a.f6542a) {
-                            a.a("wait for create auth thread.");
-                        }
+                        a.a("wait for create auth thread.");
                         Thread.sleep(3L);
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
@@ -500,42 +483,46 @@ public class LBSAuthManager {
     }
 
     private String e() {
-        Context context = f6534a;
-        return context.getSharedPreferences("authStatus_" + a(f6534a), 0).getString("status", "{\"status\":601}");
+        Context context = f6384a;
+        return context.getSharedPreferences("authStatus_" + a(f6384a), 0).getString("status", "{\"status\":601}");
     }
 
     public static LBSAuthManager getInstance(Context context) {
-        if (f6538g == null) {
+        if (f6388g == null) {
             synchronized (LBSAuthManager.class) {
-                if (f6538g == null) {
-                    f6538g = new LBSAuthManager(context);
+                if (f6388g == null) {
+                    f6388g = new LBSAuthManager(context);
                 }
             }
         } else if (context != null) {
-            f6534a = context;
-        } else if (a.f6542a) {
+            f6384a = context;
+        } else if (a.f6393a) {
             a.c("input context is null");
             new RuntimeException("here").printStackTrace();
         }
-        return f6538g;
+        return f6388g;
     }
 
     public int authenticate(boolean z, String str, Hashtable<String, String> hashtable, LBSAuthManagerListener lBSAuthManagerListener) {
         synchronized (LBSAuthManager.class) {
-            String str2 = System.currentTimeMillis() + "";
-            if (lBSAuthManagerListener != null) {
-                f6537f.put(str2, lBSAuthManagerListener);
+            boolean z2 = false;
+            if (hashtable != null) {
+                String str2 = hashtable.get("zero_auth");
+                if (str2 != null && Integer.valueOf(str2).intValue() == 1) {
+                    z2 = true;
+                }
             }
-            String a2 = a(f6534a, str2);
+            this.f6391h = z2;
+            String str3 = System.currentTimeMillis() + "";
+            if (lBSAuthManagerListener != null) {
+                f6387f.put(str3, lBSAuthManagerListener);
+            }
+            String a2 = a(f6384a, str3);
             if (a2 != null && !a2.equals("")) {
-                f6536e++;
-                if (a.f6542a) {
-                    a.a(" mAuthCounter  ++ = " + f6536e);
-                }
+                f6386e++;
+                a.a(" mAuthCounter  ++ = " + f6386e);
                 String e2 = e();
-                if (a.f6542a) {
-                    a.a("getAuthMessage from cache:" + e2);
-                }
+                a.a("getAuthMessage from cache:" + e2);
                 int a3 = a(e2);
                 if (a3 == 601) {
                     try {
@@ -545,11 +532,9 @@ public class LBSAuthManager {
                     }
                 }
                 d();
-                if (f6535d != null && f6535d.f6568a != null) {
-                    if (a.f6542a) {
-                        a.a("mThreadLooper.mHandler = " + f6535d.f6568a);
-                    }
-                    f6535d.f6568a.post(new j(this, a3, z, str2, str, hashtable));
+                if (f6385d != null && f6385d.f6419a != null) {
+                    a.a("mThreadLooper.mHandler = " + f6385d.f6419a);
+                    f6385d.f6419a.post(new j(this, a3, z, str3, str, hashtable));
                     return a3;
                 }
                 return -1;
@@ -559,23 +544,20 @@ public class LBSAuthManager {
     }
 
     public String getCUID() {
-        Context context = f6534a;
+        Context context = f6384a;
         if (context == null) {
             return "";
         }
         try {
-            return CommonParam.a(context);
+            return CommonParam.getCUID(context);
         } catch (Exception e2) {
-            if (a.f6542a) {
-                e2.printStackTrace();
-                return "";
-            }
+            e2.printStackTrace();
             return "";
         }
     }
 
     public String getKey() {
-        Context context = f6534a;
+        Context context = f6384a;
         if (context == null) {
             return "";
         }
@@ -588,7 +570,7 @@ public class LBSAuthManager {
     }
 
     public String getMCode() {
-        Context context = f6534a;
+        Context context = f6384a;
         return context == null ? "" : b.a(context);
     }
 

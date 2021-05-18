@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.card.detail;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.j0.j3.a;
+import d.a.k0.j3.a;
 import tbclient.Error;
 import tbclient.GetCard.GetCardResIdl;
 /* loaded from: classes5.dex */

@@ -5,6 +5,7 @@ import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -25,7 +26,7 @@ public abstract class AbstractService implements NoProguard {
             httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
         }
         httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
-        httpHashMapWrap.put("sdk_version", "3");
+        httpHashMapWrap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "3");
         return httpHashMapWrap;
     }
 

@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
-import d.a.i0.r.q.o;
+import d.a.j0.r.q.o;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PrivSets;
@@ -26,7 +26,7 @@ public class PrivSetsData extends o implements Serializable {
         return this.bazhuShowOutside;
     }
 
-    @Override // d.a.i0.r.q.o
+    @Override // d.a.j0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;

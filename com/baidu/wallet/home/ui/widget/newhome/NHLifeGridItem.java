@@ -13,13 +13,13 @@ import com.baidu.wallet.home.ui.widget.b;
 public class NHLifeGridItem extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f25206a;
+    public NetImageView f24451a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f25207b;
+    public MaskTextView f24452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f25208c;
+    public NetImageView f24453c;
 
     public NHLifeGridItem(Context context) {
         super(context);
@@ -28,9 +28,9 @@ public class NHLifeGridItem extends BaseItemView {
     private void a() {
         removeAllViews();
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_life_item_view"), this);
-        this.f25206a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
-        this.f25207b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
-        this.f25208c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
+        this.f24451a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
+        this.f24452b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
+        this.f24453c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
@@ -42,12 +42,12 @@ public class NHLifeGridItem extends BaseItemView {
         if (getData() == null) {
             return;
         }
-        this.f25207b.setMaskText(getData().name);
-        NetImageView netImageView = this.f25206a;
+        this.f24452b.setMaskText(getData().name);
+        NetImageView netImageView = this.f24451a;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().logo);
         if (hasCornor()) {
-            this.f25208c.setVisibility(0);
-            NetImageView netImageView2 = this.f25208c;
+            this.f24453c.setVisibility(0);
+            NetImageView netImageView2 = this.f24453c;
             netImageView2.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().corner_addr);
         }
     }

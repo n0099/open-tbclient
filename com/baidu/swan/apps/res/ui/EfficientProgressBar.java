@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.res.ui;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -16,19 +17,19 @@ import android.view.animation.Transformation;
 public class EfficientProgressBar extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11977e;
+    public int f11194e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11978f;
+    public int f11195f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11979g;
+    public int f11196g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f11980h;
+    public long f11197h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Transformation f11981i;
+    public Transformation f11198i;
     public Interpolator j;
     public AnimationSet k;
     public Drawable l;
@@ -36,9 +37,9 @@ public class EfficientProgressBar extends View {
 
     public EfficientProgressBar(Context context) {
         super(context);
-        this.f11979g = g(66);
-        this.f11980h = -1L;
-        this.f11981i = new Transformation();
+        this.f11196g = g(66);
+        this.f11197h = -1L;
+        this.f11198i = new Transformation();
         this.j = new DecelerateInterpolator(2.0f);
         this.m = -1.0f;
         d();
@@ -56,11 +57,11 @@ public class EfficientProgressBar extends View {
         if (getVisibility() == 0) {
             if (z) {
                 this.k = new AnimationSet(false);
-                AlphaAnimation alphaAnimation = new AlphaAnimation(this.f11978f / 10000.0f, 1.0f);
+                AlphaAnimation alphaAnimation = new AlphaAnimation(this.f11195f / 10000.0f, 1.0f);
                 alphaAnimation.setDuration(200L);
                 alphaAnimation.setInterpolator(this.j);
                 this.k.addAnimation(alphaAnimation);
-                this.f11981i.clear();
+                this.f11198i.clear();
                 this.k.start();
                 invalidate();
                 return;
@@ -72,10 +73,11 @@ public class EfficientProgressBar extends View {
     public final void d() {
     }
 
+    @SuppressLint({"ObsoleteSdkInt"})
     @TargetApi(11)
     public final void e() {
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
-        float f2 = width > 0 ? ((10000 - this.f11978f) / 10000.0f) * width : -1.0f;
+        float f2 = width > 0 ? ((10000 - this.f11195f) / 10000.0f) * width : -1.0f;
         if (f2 > 0.0f) {
             if (Build.VERSION.SDK_INT >= 11) {
                 setTranslationX(-f2);
@@ -85,9 +87,9 @@ public class EfficientProgressBar extends View {
     }
 
     public void f() {
-        this.f11978f = 0;
-        this.f11977e = 0;
-        this.f11980h = -1L;
+        this.f11195f = 0;
+        this.f11194e = 0;
+        this.f11197h = -1L;
         this.k = null;
         h(0, false);
         setVisibility(4);
@@ -101,7 +103,7 @@ public class EfficientProgressBar extends View {
         if (i2 > 10000) {
             i2 = 10000;
         }
-        this.f11978f = i2;
+        this.f11195f = i2;
         e();
         if (z) {
             postInvalidateDelayed(50L);
@@ -111,11 +113,11 @@ public class EfficientProgressBar extends View {
     }
 
     public final void i() {
-        this.f11978f = 0;
-        this.f11977e = 0;
+        this.f11195f = 0;
+        this.f11194e = 0;
         this.k = null;
-        this.f11980h = System.currentTimeMillis();
-        h(this.f11978f, false);
+        this.f11197h = System.currentTimeMillis();
+        h(this.f11195f, false);
         setVisibility(0);
     }
 
@@ -124,19 +126,19 @@ public class EfficientProgressBar extends View {
         if (this.l != null) {
             AnimationSet animationSet = this.k;
             if (animationSet != null) {
-                if (animationSet.getTransformation(getDrawingTime(), this.f11981i)) {
-                    h((int) (this.f11981i.getAlpha() * 10000.0f), false);
+                if (animationSet.getTransformation(getDrawingTime(), this.f11198i)) {
+                    h((int) (this.f11198i.getAlpha() * 10000.0f), false);
                 } else {
                     this.k = null;
                     f();
                 }
-            } else if (this.f11980h != -1 && this.f11978f < this.f11979g) {
+            } else if (this.f11197h != -1 && this.f11195f < this.f11196g) {
                 long currentTimeMillis = System.currentTimeMillis();
-                int a2 = a(currentTimeMillis - this.f11980h);
-                int i2 = this.f11978f + a2;
-                this.f11978f = i2;
+                int a2 = a(currentTimeMillis - this.f11197h);
+                int i2 = this.f11195f + a2;
+                this.f11195f = i2;
                 if (a2 != 0) {
-                    this.f11980h = currentTimeMillis;
+                    this.f11197h = currentTimeMillis;
                     h(i2, true);
                 }
             }
@@ -169,15 +171,15 @@ public class EfficientProgressBar extends View {
     }
 
     public void setProgress(int i2, boolean z) {
-        if (i2 == 100 && b(this.f11977e) == 100) {
+        if (i2 == 100 && b(this.f11194e) == 100) {
             return;
         }
-        this.f11977e = g(i2);
+        this.f11194e = g(i2);
         if (i2 == 100) {
             if (this.k == null) {
                 c(z);
             }
-        } else if (this.f11980h == -1) {
+        } else if (this.f11197h == -1) {
             i();
         }
     }
@@ -188,9 +190,9 @@ public class EfficientProgressBar extends View {
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11979g = g(66);
-        this.f11980h = -1L;
-        this.f11981i = new Transformation();
+        this.f11196g = g(66);
+        this.f11197h = -1L;
+        this.f11198i = new Transformation();
         this.j = new DecelerateInterpolator(2.0f);
         this.m = -1.0f;
         d();
@@ -198,9 +200,9 @@ public class EfficientProgressBar extends View {
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11979g = g(66);
-        this.f11980h = -1L;
-        this.f11981i = new Transformation();
+        this.f11196g = g(66);
+        this.f11197h = -1L;
+        this.f11198i = new Transformation();
         this.j = new DecelerateInterpolator(2.0f);
         this.m = -1.0f;
         d();

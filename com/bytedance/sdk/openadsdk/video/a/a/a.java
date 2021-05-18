@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.video.a.a;
 
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface a {
     int a(long j, byte[] bArr, int i2, int i3) throws IOException;
 

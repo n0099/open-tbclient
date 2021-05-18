@@ -12,17 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.utils.ad;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PlayableLoadingView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ProgressBar f29384a;
+    public ProgressBar f28629a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f29385b;
+    public TextView f28630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f29386c;
+    public TextView f28631c;
 
     public PlayableLoadingView(@NonNull Context context) {
         super(context);
@@ -34,9 +34,9 @@ public class PlayableLoadingView extends FrameLayout {
         setClickable(true);
         setVisibility(8);
         LayoutInflater.from(context).inflate(ad.f(context, "tt_playable_loading_layout"), (ViewGroup) this, true);
-        this.f29384a = (ProgressBar) findViewById(ad.e(context, "tt_playable_pb_view"));
-        this.f29385b = (TextView) findViewById(ad.e(context, "tt_playable_progress_tip"));
-        this.f29386c = (TextView) findViewById(ad.e(context, "tt_playable_play"));
+        this.f28629a = (ProgressBar) findViewById(ad.e(context, "tt_playable_pb_view"));
+        this.f28630b = (TextView) findViewById(ad.e(context, "tt_playable_progress_tip"));
+        this.f28631c = (TextView) findViewById(ad.e(context, "tt_playable_play"));
     }
 
     public void b() {
@@ -44,7 +44,7 @@ public class PlayableLoadingView extends FrameLayout {
     }
 
     public TextView getPlayView() {
-        return this.f29386c;
+        return this.f28631c;
     }
 
     public void setProgress(int i2) {
@@ -54,11 +54,11 @@ public class PlayableLoadingView extends FrameLayout {
         if (i2 > 100) {
             i2 = 100;
         }
-        ProgressBar progressBar = this.f29384a;
+        ProgressBar progressBar = this.f28629a;
         if (progressBar != null) {
             progressBar.setProgress(i2);
         }
-        TextView textView = this.f29385b;
+        TextView textView = this.f28630b;
         if (textView != null) {
             textView.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i2)));
         }

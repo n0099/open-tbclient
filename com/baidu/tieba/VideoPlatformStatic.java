@@ -19,15 +19,15 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.tencent.connect.common.Constants;
 import d.a.c.e.p.j;
-import d.a.j0.m3.e;
-import d.a.j0.t1.k;
-import d.a.j0.t1.l;
+import d.a.k0.m3.e;
+import d.a.k0.t1.k;
+import d.a.k0.t1.l;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class VideoPlatformStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f14191a = new a(2007015);
+    public static CustomMessageListener f13527a = new a(2007015);
 
     /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
@@ -39,7 +39,7 @@ public class VideoPlatformStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.h().o();
-            d.a.j0.m3.b.d().k();
+            d.a.k0.m3.b.d().k();
         }
     }
 
@@ -54,7 +54,7 @@ public class VideoPlatformStatic {
 
     static {
         f();
-        MessageManager.getInstance().registerListener(f14191a);
+        MessageManager.getInstance().registerListener(f13527a);
         e();
     }
 
@@ -100,7 +100,7 @@ public class VideoPlatformStatic {
     }
 
     public static String d() {
-        return j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f3962b : (j.v() || j.z()) ? "4G" : "NONE";
+        return j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f3963b : (j.v() || j.z()) ? "4G" : "NONE";
     }
 
     public static void e() {

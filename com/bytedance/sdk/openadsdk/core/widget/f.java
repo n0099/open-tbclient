@@ -15,130 +15,130 @@ import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.ad;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f extends Drawable {
     @ColorInt
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29494a;
+    public int f28739a;
     @ColorInt
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29495b;
+    public int f28740b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f29496c;
+    public int[] f28741c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f29497d;
+    public float[] f28742d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearGradient f29498e;
+    public LinearGradient f28743e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29499f;
+    public int f28744f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29500g;
+    public int f28745g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29501h;
+    public int f28746h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29502i;
+    public int f28747i;
     @Nullable
     public RectF j;
     @Nullable
     public Paint k;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: c  reason: collision with root package name */
-        public int[] f29505c;
+        public int[] f28750c;
         @Nullable
 
         /* renamed from: d  reason: collision with root package name */
-        public float[] f29506d;
+        public float[] f28751d;
 
         /* renamed from: e  reason: collision with root package name */
-        public LinearGradient f29507e;
+        public LinearGradient f28752e;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f29510h;
+        public int f28755h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f29511i;
+        public int f28756i;
         @ColorInt
 
         /* renamed from: a  reason: collision with root package name */
-        public int f29503a = ad.j(p.a(), "tt_ssxinmian8");
+        public int f28748a = ad.j(p.a(), "tt_ssxinmian8");
         @ColorInt
 
         /* renamed from: b  reason: collision with root package name */
-        public int f29504b = ad.j(p.a(), "tt_ssxinxian3");
+        public int f28749b = ad.j(p.a(), "tt_ssxinxian3");
 
         /* renamed from: f  reason: collision with root package name */
-        public int f29508f = 10;
+        public int f28753f = 10;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f29509g = 16;
+        public int f28754g = 16;
 
         public a() {
-            this.f29510h = 0;
-            this.f29511i = 0;
-            this.f29510h = 0;
-            this.f29511i = 0;
+            this.f28755h = 0;
+            this.f28756i = 0;
+            this.f28755h = 0;
+            this.f28756i = 0;
         }
 
         public a a(@ColorInt int i2) {
-            this.f29503a = i2;
+            this.f28748a = i2;
             return this;
         }
 
         public a b(@ColorInt int i2) {
-            this.f29504b = i2;
+            this.f28749b = i2;
             return this;
         }
 
         public a c(int i2) {
-            this.f29508f = i2;
+            this.f28753f = i2;
             return this;
         }
 
         public a d(int i2) {
-            this.f29510h = i2;
+            this.f28755h = i2;
             return this;
         }
 
         public a e(int i2) {
-            this.f29511i = i2;
+            this.f28756i = i2;
             return this;
         }
 
         public a a(@Nullable int[] iArr) {
-            this.f29505c = iArr;
+            this.f28750c = iArr;
             return this;
         }
 
         public f a() {
-            return new f(this.f29503a, this.f29505c, this.f29506d, this.f29504b, this.f29507e, this.f29508f, this.f29509g, this.f29510h, this.f29511i);
+            return new f(this.f28748a, this.f28750c, this.f28751d, this.f28749b, this.f28752e, this.f28753f, this.f28754g, this.f28755h, this.f28756i);
         }
     }
 
     public f(@ColorInt int i2, @Nullable int[] iArr, @Nullable float[] fArr, @ColorInt int i3, @Nullable LinearGradient linearGradient, int i4, int i5, int i6, int i7) {
-        this.f29494a = i2;
-        this.f29496c = iArr;
-        this.f29497d = fArr;
-        this.f29495b = i3;
-        this.f29498e = linearGradient;
-        this.f29499f = i4;
-        this.f29500g = i5;
-        this.f29501h = i6;
-        this.f29502i = i7;
+        this.f28739a = i2;
+        this.f28741c = iArr;
+        this.f28742d = fArr;
+        this.f28740b = i3;
+        this.f28743e = linearGradient;
+        this.f28744f = i4;
+        this.f28745g = i5;
+        this.f28746h = i6;
+        this.f28747i = i7;
     }
 
     private void a() {
@@ -147,20 +147,20 @@ public class f extends Drawable {
         this.k = paint;
         boolean z = true;
         paint.setAntiAlias(true);
-        this.k.setShadowLayer(this.f29500g, this.f29501h, this.f29502i, this.f29495b);
-        if (this.j != null && (iArr = this.f29496c) != null && iArr.length > 1) {
-            float[] fArr = this.f29497d;
+        this.k.setShadowLayer(this.f28745g, this.f28746h, this.f28747i, this.f28740b);
+        if (this.j != null && (iArr = this.f28741c) != null && iArr.length > 1) {
+            float[] fArr = this.f28742d;
             z = (fArr == null || fArr.length <= 0 || fArr.length != iArr.length) ? false : false;
             Paint paint2 = this.k;
-            LinearGradient linearGradient = this.f29498e;
+            LinearGradient linearGradient = this.f28743e;
             if (linearGradient == null) {
                 RectF rectF = this.j;
-                linearGradient = new LinearGradient(rectF.left, 0.0f, rectF.right, 0.0f, this.f29496c, z ? this.f29497d : null, Shader.TileMode.CLAMP);
+                linearGradient = new LinearGradient(rectF.left, 0.0f, rectF.right, 0.0f, this.f28741c, z ? this.f28742d : null, Shader.TileMode.CLAMP);
             }
             paint2.setShader(linearGradient);
             return;
         }
-        this.k.setColor(this.f29494a);
+        this.k.setColor(this.f28739a);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -168,16 +168,16 @@ public class f extends Drawable {
         if (this.j == null) {
             Rect bounds = getBounds();
             int i2 = bounds.left;
-            int i3 = this.f29500g;
-            int i4 = this.f29501h;
-            int i5 = this.f29502i;
+            int i3 = this.f28745g;
+            int i4 = this.f28746h;
+            int i5 = this.f28747i;
             this.j = new RectF((i2 + i3) - i4, (bounds.top + i3) - i5, (bounds.right - i3) - i4, (bounds.bottom - i3) - i5);
         }
         if (this.k == null) {
             a();
         }
         RectF rectF = this.j;
-        int i6 = this.f29499f;
+        int i6 = this.f28744f;
         canvas.drawRoundRect(rectF, i6, i6, this.k);
     }
 

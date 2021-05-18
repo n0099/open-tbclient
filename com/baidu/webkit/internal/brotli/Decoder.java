@@ -16,6 +16,35 @@ public class Decoder implements INoProGuard {
     public boolean eager;
     public final ReadableByteChannel source;
 
+    /* renamed from: com.baidu.webkit.internal.brotli.Decoder$1  reason: invalid class name */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f26661a;
+
+        static {
+            int[] iArr = new int[DecoderJNI.a.values().length];
+            f26661a = iArr;
+            try {
+                iArr[DecoderJNI.a.DONE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f26661a[DecoderJNI.a.OK.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f26661a[DecoderJNI.a.NEEDS_MORE_INPUT.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f26661a[DecoderJNI.a.NEEDS_MORE_OUTPUT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
     public Decoder(ReadableByteChannel readableByteChannel, int i2) throws IOException {
         if (i2 <= 0) {
             throw new IllegalArgumentException("buffer size must be positive");
@@ -35,7 +64,7 @@ public class Decoder implements INoProGuard {
             wrapper.push(bArr.length);
             int i2 = 0;
             while (wrapper.getStatus() != DecoderJNI.a.DONE) {
-                int i3 = a.f27410a[wrapper.getStatus().ordinal()];
+                int i3 = AnonymousClass1.f26661a[wrapper.getStatus().ordinal()];
                 if (i3 == 2) {
                     wrapper.push(0);
                 } else if (i3 != 4) {
@@ -104,7 +133,7 @@ public class Decoder implements INoProGuard {
                 }
                 this.buffer = null;
             }
-            int i2 = a.f27410a[this.decoder.getStatus().ordinal()];
+            int i2 = AnonymousClass1.f26661a[this.decoder.getStatus().ordinal()];
             if (i2 == 1) {
                 return -1;
             }

@@ -21,19 +21,19 @@ public final class b implements Choreographer.FrameCallback {
     public static final b j = new b();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f63295e = false;
+    public boolean f63834e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f63296f = 0;
+    public long f63835f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f63297g = 41666666;
+    public long f63836g = 41666666;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f63298h = 16666665;
+    public long f63837h = 16666665;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f63299i = 0;
+    public int f63838i = 0;
 
     public static /* synthetic */ void a(b bVar) {
         Context context;
@@ -43,13 +43,13 @@ public final class b implements Choreographer.FrameCallback {
             return;
         }
         com.baidu.crabsdk.c.a.c("^^ -BlockCanaryCore- ^^" + d2.toString());
-        context = com.baidu.crabsdk.a.c.f4801d;
+        context = com.baidu.crabsdk.a.c.f4655d;
         byte[] bArr = null;
         Map<String, Object> c2 = com.baidu.crabsdk.sender.g.c(context, null, true);
         c2.putAll(d2);
         com.baidu.crabsdk.sender.g.h(c2);
         String h2 = com.baidu.crabsdk.sender.i.h(c2);
-        String h3 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4782d, UUID.randomUUID().toString());
+        String h3 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4636d, UUID.randomUUID().toString());
         String j2 = com.baidu.crabsdk.c.d.j(h2, h3);
         try {
             h3 = com.baidu.crabsdk.c.e.a(h3);
@@ -91,15 +91,15 @@ public final class b implements Choreographer.FrameCallback {
     }
 
     public final void b() {
-        this.f63296f = 0L;
-        this.f63299i = 0;
+        this.f63835f = 0L;
+        this.f63838i = 0;
     }
 
     public final void c() {
-        if (this.f63295e) {
+        if (this.f63834e) {
             return;
         }
-        this.f63295e = true;
+        this.f63834e = true;
         b();
         try {
             if (Looper.getMainLooper() != Looper.myLooper()) {
@@ -117,7 +117,7 @@ public final class b implements Choreographer.FrameCallback {
     }
 
     public final void d() {
-        this.f63295e = false;
+        this.f63834e = false;
         b();
         if (Looper.getMainLooper() != Looper.myLooper()) {
             new Handler(Looper.getMainLooper()).post(new e(this));
@@ -135,23 +135,23 @@ public final class b implements Choreographer.FrameCallback {
     public final void doFrame(long j2) {
         ExecutorService executorService;
         try {
-            if (this.f63296f != 0) {
-                long j3 = j2 - this.f63296f;
-                if (j3 > this.f63297g) {
-                    this.f63299i = (int) (this.f63299i + (j3 / this.f63298h));
-                } else if (this.f63299i > 0) {
-                    if (this.f63299i > 30) {
-                        com.baidu.crabsdk.c.a.c("^^ block skip frames = " + this.f63299i + "\n^^ costs : " + TimeUnit.NANOSECONDS.toMillis(this.f63299i * this.f63298h) + "ms");
-                        if (TimeUnit.NANOSECONDS.toMillis(this.f63299i * this.f63298h) >= com.baidu.crabsdk.a.a.f4788g) {
-                            executorService = com.baidu.crabsdk.a.c.f4802e;
+            if (this.f63835f != 0) {
+                long j3 = j2 - this.f63835f;
+                if (j3 > this.f63836g) {
+                    this.f63838i = (int) (this.f63838i + (j3 / this.f63837h));
+                } else if (this.f63838i > 0) {
+                    if (this.f63838i > 30) {
+                        com.baidu.crabsdk.c.a.c("^^ block skip frames = " + this.f63838i + "\n^^ costs : " + TimeUnit.NANOSECONDS.toMillis(this.f63838i * this.f63837h) + "ms");
+                        if (TimeUnit.NANOSECONDS.toMillis(this.f63838i * this.f63837h) >= com.baidu.crabsdk.a.a.f4642g) {
+                            executorService = com.baidu.crabsdk.a.c.f4656e;
                             executorService.execute(new c(this));
                         }
-                        this.f63299i = 1;
+                        this.f63838i = 1;
                     }
-                    this.f63299i--;
+                    this.f63838i--;
                 }
             }
-            this.f63296f = j2;
+            this.f63835f = j2;
         } catch (Throwable th) {
             com.baidu.crabsdk.c.a.d("doFrame:" + th.toString());
         }

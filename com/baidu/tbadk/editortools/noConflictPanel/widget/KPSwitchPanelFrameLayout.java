@@ -3,66 +3,66 @@ package com.baidu.tbadk.editortools.noConflictPanel.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import d.a.i0.w.v.a;
-import d.a.i0.w.v.b;
+import d.a.j0.w.v.a;
+import d.a.j0.w.v.b;
 /* loaded from: classes3.dex */
 public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.i0.w.v.c.b f13539e;
+    public d.a.j0.w.v.c.b f12875e;
 
     public KPSwitchPanelFrameLayout(Context context) {
         super(context);
         c(null);
     }
 
-    @Override // d.a.i0.w.v.b
+    @Override // d.a.j0.w.v.b
     public void a(boolean z) {
-        this.f13539e.f(z);
+        this.f12875e.f(z);
     }
 
-    @Override // d.a.i0.w.v.a
+    @Override // d.a.j0.w.v.a
     public boolean b() {
-        return this.f13539e.b();
+        return this.f12875e.b();
     }
 
     public final void c(AttributeSet attributeSet) {
-        this.f13539e = new d.a.i0.w.v.c.b(this, attributeSet);
+        this.f12875e = new d.a.j0.w.v.c.b(this, attributeSet);
     }
 
-    @Override // d.a.i0.w.v.a
+    @Override // d.a.j0.w.v.a
     public void handleHide() {
-        this.f13539e.handleHide();
+        this.f12875e.handleHide();
     }
 
-    @Override // d.a.i0.w.v.a
+    @Override // d.a.j0.w.v.a
     public void handleShow() {
         super.setVisibility(0);
     }
 
-    @Override // d.a.i0.w.v.a
+    @Override // d.a.j0.w.v.a
     public boolean isVisible() {
-        return this.f13539e.isVisible();
+        return this.f12875e.isVisible();
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        int[] c2 = this.f13539e.c(i2, i3);
+        int[] c2 = this.f12875e.c(i2, i3);
         super.onMeasure(c2[0], c2[1]);
     }
 
-    @Override // d.a.i0.w.v.b
+    @Override // d.a.j0.w.v.b
     public void refreshHeight(int i2) {
-        this.f13539e.d(i2);
+        this.f12875e.d(i2);
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.f13539e.e(z);
+        this.f12875e.e(z);
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
-        if (this.f13539e.a(i2)) {
+        if (this.f12875e.a(i2)) {
             return;
         }
         super.setVisibility(i2);

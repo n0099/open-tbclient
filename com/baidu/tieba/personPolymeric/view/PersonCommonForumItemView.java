@@ -17,30 +17,30 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.k;
-import d.a.j0.i2.e.f;
-/* loaded from: classes4.dex */
+import d.a.k0.i2.e.f;
+/* loaded from: classes5.dex */
 public class PersonCommonForumItemView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public BarImageView f20694e;
+    public BarImageView f19982e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20695f;
+    public TextView f19983f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20696g;
+    public TextView f19984g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20697h;
+    public TextView f19985h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f20698i;
+    public TextView f19986i;
     public int j;
     public Context k;
     public f l;
     public View.OnClickListener m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -52,7 +52,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
             }
             TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "6"));
             TiebaStatic.log(new StatisticItem("c11594"));
-            String str = PersonCommonForumItemView.this.l.f55514f;
+            String str = PersonCommonForumItemView.this.l.f56221f;
             if (k.isForumName(str)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(PersonCommonForumItemView.this.k).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(8)));
             }
@@ -69,11 +69,11 @@ public class PersonCommonForumItemView extends RelativeLayout {
     }
 
     public final void c() {
-        this.f20694e = (BarImageView) findViewById(R.id.forum_avatar);
-        this.f20695f = (TextView) findViewById(R.id.forum_name);
-        this.f20696g = (TextView) findViewById(R.id.forum_post_thread);
-        this.f20697h = (TextView) findViewById(R.id.forum_thread_num);
-        this.f20698i = (TextView) findViewById(R.id.forum_thread_str);
+        this.f19982e = (BarImageView) findViewById(R.id.forum_avatar);
+        this.f19983f = (TextView) findViewById(R.id.forum_name);
+        this.f19984g = (TextView) findViewById(R.id.forum_post_thread);
+        this.f19985h = (TextView) findViewById(R.id.forum_thread_num);
+        this.f19986i = (TextView) findViewById(R.id.forum_thread_str);
     }
 
     public final void d() {
@@ -82,10 +82,10 @@ public class PersonCommonForumItemView extends RelativeLayout {
 
     public void e() {
         if (this.j != TbadkCoreApplication.getInst().getSkinType()) {
-            SkinManager.setViewTextColor(this.f20695f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f20696g, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f20698i, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f20697h, R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.f19983f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f19984g, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f19986i, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f19985h, R.color.CAM_X0302);
             SkinManager.setBackgroundResource(this, R.drawable.person_common_forum_item_bg);
         }
         this.j = TbadkCoreApplication.getInst().getSkinType();
@@ -93,11 +93,11 @@ public class PersonCommonForumItemView extends RelativeLayout {
 
     public void setData(f fVar) {
         this.l = fVar;
-        this.f20694e.V(fVar.f55515g, 10, false);
-        TextView textView = this.f20695f;
-        textView.setText(StringHelper.cutForumNameWithSuffix(fVar.f55514f, 7, StringHelper.STRING_MORE) + this.k.getString(R.string.forum));
-        this.f20697h.setText(StringHelper.numberUniformFormat((long) fVar.f55516h));
-        this.f20696g.setText(String.format(this.k.getString(R.string.person_has_posted), StringHelper.getUserDescByGender(fVar.f55517i)));
+        this.f19982e.V(fVar.f56222g, 10, false);
+        TextView textView = this.f19983f;
+        textView.setText(StringHelper.cutForumNameWithSuffix(fVar.f56221f, 7, StringHelper.STRING_MORE) + this.k.getString(R.string.forum));
+        this.f19985h.setText(StringHelper.numberUniformFormat((long) fVar.f56223h));
+        this.f19984g.setText(String.format(this.k.getString(R.string.person_has_posted), StringHelper.getUserDescByGender(fVar.f56224i)));
         if (getRootView() != null) {
             getRootView().setOnClickListener(this.m);
         }

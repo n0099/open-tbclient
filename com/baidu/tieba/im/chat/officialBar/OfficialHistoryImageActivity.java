@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import com.baidu.tieba.im.chat.AbsMsgImageActivity;
-import d.a.j0.e1.s.c;
+import d.a.k0.e1.s.c;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 /* loaded from: classes4.dex */

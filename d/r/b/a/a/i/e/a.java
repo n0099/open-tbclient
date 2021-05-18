@@ -11,16 +11,16 @@ import java.util.List;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes7.dex */
 public class a implements IPayMethod {
-    public static final C1835a Companion = new C1835a(null);
+    public static final C1899a Companion = new C1899a(null);
     public static final String TAG = "DefaultPayMethod";
 
     /* renamed from: d.r.b.a.a.i.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C1835a {
-        public C1835a() {
+    public static final class C1899a {
+        public C1899a() {
         }
 
-        public /* synthetic */ C1835a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C1899a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }

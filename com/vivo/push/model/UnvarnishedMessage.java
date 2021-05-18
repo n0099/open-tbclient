@@ -8,7 +8,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class UnvarnishedMessage {
     public static final String TAG = "UnvarnishedMessage";
     public String mMessage;

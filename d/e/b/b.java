@@ -7,54 +7,54 @@ import java.nio.ByteBuffer;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f65350c = {1, 0, 5, 7, 6};
+    public static final int[] f66036c = {1, 0, 5, 7, 6};
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f65351d = 48000;
+    public static int f66037d = 48000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f65352e = 2048;
+    public static int f66038e = 2048;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f65353f = 24;
+    public static int f66039f = 24;
 
     /* renamed from: g  reason: collision with root package name */
-    public static b f65354g;
+    public static b f66040g;
 
     /* renamed from: a  reason: collision with root package name */
-    public AudioRecord f65355a;
+    public AudioRecord f66041a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f65356b;
+    public boolean f66042b;
 
     public b() {
-        int minBufferSize = AudioRecord.getMinBufferSize(f65351d, 16, 2);
-        int i2 = f65352e;
-        int i3 = f65353f * i2;
+        int minBufferSize = AudioRecord.getMinBufferSize(f66037d, 16, 2);
+        int i2 = f66038e;
+        int i3 = f66039f * i2;
         i3 = i3 < minBufferSize ? ((minBufferSize / i2) + 1) * i2 * 2 : i3;
-        for (int i4 : f65350c) {
+        for (int i4 : f66036c) {
             try {
-                AudioRecord audioRecord = new AudioRecord(i4, f65351d, 16, 2, i3);
-                this.f65355a = audioRecord;
+                AudioRecord audioRecord = new AudioRecord(i4, f66037d, 16, 2, i3);
+                this.f66041a = audioRecord;
                 if (audioRecord.getState() != 1) {
-                    this.f65355a = null;
+                    this.f66041a = null;
                 }
             } catch (Exception unused) {
-                this.f65355a = null;
+                this.f66041a = null;
             }
         }
     }
 
     public AudioRecord a() {
-        return this.f65355a;
+        return this.f66041a;
     }
 
     public boolean b() {
-        return this.f65356b;
+        return this.f66042b;
     }
 
     public int c(@NonNull ByteBuffer byteBuffer, int i2) {
-        AudioRecord audioRecord = this.f65355a;
+        AudioRecord audioRecord = this.f66041a;
         if (audioRecord == null) {
             return 0;
         }
@@ -62,31 +62,31 @@ public class b {
     }
 
     public void d() {
-        if (this.f65356b) {
+        if (this.f66042b) {
             return;
         }
-        this.f65356b = true;
-        AudioRecord audioRecord = this.f65355a;
+        this.f66042b = true;
+        AudioRecord audioRecord = this.f66041a;
         if (audioRecord != null) {
             audioRecord.release();
-            this.f65355a = null;
+            this.f66041a = null;
         }
     }
 
     public void e() {
-        if (this.f65355a == null) {
+        if (this.f66041a == null) {
             return;
         }
-        b bVar = f65354g;
+        b bVar = f66040g;
         if (bVar != null && !bVar.b()) {
-            f65354g.d();
+            f66040g.d();
         }
-        this.f65355a.startRecording();
-        f65354g = this;
+        this.f66041a.startRecording();
+        f66040g = this;
     }
 
     public void f() {
-        AudioRecord audioRecord = this.f65355a;
+        AudioRecord audioRecord = this.f66041a;
         if (audioRecord == null) {
             return;
         }

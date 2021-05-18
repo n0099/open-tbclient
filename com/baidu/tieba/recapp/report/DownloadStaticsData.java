@@ -14,7 +14,6 @@ public class DownloadStaticsData implements Serializable {
     public String da_range_nt = "0";
     public String extensionInfo;
     public String fid;
-    public String price;
 
     public String getAdPosition() {
         return this.adPosition;
@@ -44,10 +43,6 @@ public class DownloadStaticsData implements Serializable {
         return this.fid;
     }
 
-    public String getPrice() {
-        return this.price;
-    }
-
     public void setAdPosition(String str) {
         this.adPosition = str;
     }
@@ -74,9 +69,5 @@ public class DownloadStaticsData implements Serializable {
 
     public void setFid(String str) {
         this.fid = str;
-    }
-
-    public void setPrice(String str) {
-        this.price = str;
     }
 }

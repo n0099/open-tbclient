@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.collection.SparseArrayCompat;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.ViewCompat;
-import androidx.core.view.ViewParentCompat;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeProviderCompat;
@@ -237,7 +236,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         getVisibleVirtualViews(arrayList);
         SparseArrayCompat<AccessibilityNodeInfoCompat> sparseArrayCompat = new SparseArrayCompat<>();
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            sparseArrayCompat.put(i2, createNodeForChild(i2));
+            sparseArrayCompat.put(arrayList.get(i2).intValue(), createNodeForChild(arrayList.get(i2).intValue()));
         }
         return sparseArrayCompat;
     }
@@ -523,6 +522,9 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
             if (i3 != Integer.MIN_VALUE) {
                 clearKeyboardFocusForVirtualView(i3);
             }
+            if (i2 == Integer.MIN_VALUE) {
+                return false;
+            }
             this.mKeyboardFocusedVirtualViewId = i2;
             onVirtualViewKeyboardFocusChanged(i2, true);
             sendEventForVirtualView(i2, 8);
@@ -536,7 +538,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         if (i2 == Integer.MIN_VALUE || !this.mManager.isEnabled() || (parent = this.mHost.getParent()) == null) {
             return false;
         }
-        return ViewParentCompat.requestSendAccessibilityEvent(parent, this.mHost, createEvent(i2, i3));
+        return parent.requestSendAccessibilityEvent(this.mHost, createEvent(i2, i3));
     }
 
     public final void invalidateVirtualView(int i2, int i3) {
@@ -546,6 +548,6 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         }
         AccessibilityEvent createEvent = createEvent(i2, 2048);
         AccessibilityEventCompat.setContentChangeTypes(createEvent, i3);
-        ViewParentCompat.requestSendAccessibilityEvent(parent, this.mHost, createEvent);
+        parent.requestSendAccessibilityEvent(this.mHost, createEvent);
     }
 }

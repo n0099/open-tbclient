@@ -4,69 +4,69 @@ import android.content.Context;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.win.opensdk.core.Info;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q0 implements e1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37922a;
+    public String f37167a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f37923b;
+    public Context f37168b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37924c;
+    public boolean f37169c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37925d;
+    public boolean f37170d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f37926e;
+    public boolean f37171e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Info f37927f;
+    public Info f37172f;
 
     /* renamed from: g  reason: collision with root package name */
-    public K f37928g;
+    public K f37173g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PBInterstitialListener f37929h;
+    public PBInterstitialListener f37174h;
 
     /* renamed from: i  reason: collision with root package name */
-    public K0 f37930i;
+    public K0 f37175i;
     public long j;
     public Handler k = new n0(this);
 
     public q0(Context context, String str) {
-        this.f37923b = context;
-        this.f37922a = str;
+        this.f37168b = context;
+        this.f37167a = str;
     }
 
     public final void a(Info info) {
         boolean z = false;
-        this.f37926e = false;
-        this.f37927f = info;
+        this.f37171e = false;
+        this.f37172f = info;
         this.j = System.currentTimeMillis();
-        if (b() && this.f37927f.getType() == 21) {
+        if (b() && this.f37172f.getType() == 21) {
             z = true;
         }
         if (z) {
             if (a()) {
-                this.f37929h.onLoaded();
+                this.f37174h.onLoaded();
                 return;
             }
-            K k = new K(this.f37923b);
-            this.f37928g = k;
-            k.f37675a = new p0(this);
-            this.f37928g.a(this.f37927f.getLoad(), this.f37927f);
-            this.k.sendEmptyMessageDelayed(11, this.f37927f.getWt() * 1000);
+            K k = new K(this.f37168b);
+            this.f37173g = k;
+            k.f36920a = new p0(this);
+            this.f37173g.a(this.f37172f.getLoad(), this.f37172f);
+            this.k.sendEmptyMessageDelayed(11, this.f37172f.getWt() * 1000);
             return;
         }
-        this.f37929h.onFail(PBError.PID_TYPE_ERROR);
+        this.f37174h.onFail(PBError.PID_TYPE_ERROR);
     }
 
     @Override // com.win.opensdk.e1
     public void a(String str, String str2, Object obj) {
-        if (TextUtils.equals(str, this.f37927f.getId() + this.f37922a)) {
+        if (TextUtils.equals(str, this.f37172f.getId() + this.f37167a)) {
             char c2 = 65535;
             int hashCode = str2.hashCode();
             if (hashCode != -1122984843) {
@@ -81,25 +81,25 @@ public class q0 implements e1 {
                 c2 = 1;
             }
             if (c2 == 0) {
-                this.f37929h.onClicked();
+                this.f37174h.onClicked();
             } else if (c2 == 1) {
-                this.f37929h.onInterstitialDismissed();
+                this.f37174h.onInterstitialDismissed();
             } else if (c2 != 2) {
             } else {
-                this.f37929h.onInterstitialDisplayed();
+                this.f37174h.onInterstitialDisplayed();
             }
         }
     }
 
     public final boolean a() {
-        return this.f37924c && !this.f37926e && b() && !this.f37927f.isShown() && this.f37927f.isEffective();
+        return this.f37169c && !this.f37171e && b() && !this.f37172f.isShown() && this.f37172f.isEffective();
     }
 
     public final boolean b() {
-        return this.f37927f != null;
+        return this.f37172f != null;
     }
 
     public final boolean c() {
-        return b() && this.f37927f.getType() == 21;
+        return b() && this.f37172f.getType() == 21;
     }
 }

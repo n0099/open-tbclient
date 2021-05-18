@@ -16,7 +16,7 @@ public class FileUtils {
         try {
             System.loadLibrary("zeuslzma");
         } catch (Throwable th) {
-            Log.e("FileUtils", "failed to load lzma library: " + th);
+            Log.e("FileUtils", "failed to load lzma library: ".concat(String.valueOf(th)));
         }
         sFileRwErrorDetail = "none";
     }

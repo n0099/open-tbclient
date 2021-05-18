@@ -14,10 +14,10 @@ import org.json.JSONObject;
 public abstract class b implements g {
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, String> f33217b = new HashMap();
+    public final Map<String, String> f32462b = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    public final JSONObject f33216a = new JSONObject();
+    public final JSONObject f32461a = new JSONObject();
 
     public b() {
         e();
@@ -37,44 +37,44 @@ public abstract class b implements g {
     public abstract String a();
 
     public void a(String str, int i2) {
-        o.a(this.f33216a, str, i2);
+        o.a(this.f32461a, str, i2);
     }
 
     public void a(String str, long j) {
-        o.a(this.f33216a, str, j);
+        o.a(this.f32461a, str, j);
     }
 
     public void a(String str, com.kwad.sdk.core.b bVar) {
-        o.a(this.f33216a, str, bVar);
+        o.a(this.f32461a, str, bVar);
     }
 
     public void a(String str, String str2) {
-        this.f33217b.put(str, str2);
+        this.f32462b.put(str, str2);
     }
 
     public void a(String str, List<? extends com.kwad.sdk.core.b> list) {
-        o.a(this.f33216a, str, list);
+        o.a(this.f32461a, str, list);
     }
 
     public void a(String str, JSONArray jSONArray) {
-        o.a(this.f33216a, str, jSONArray);
+        o.a(this.f32461a, str, jSONArray);
     }
 
     public void a(String str, JSONObject jSONObject) {
-        o.a(this.f33216a, str, jSONObject);
+        o.a(this.f32461a, str, jSONObject);
     }
 
     public void a(String str, boolean z) {
-        o.a(this.f33216a, str, z);
+        o.a(this.f32461a, str, z);
     }
 
     @Override // com.kwad.sdk.core.network.g
     public Map<String, String> b() {
-        return this.f33217b;
+        return this.f32462b;
     }
 
     public void b(String str, String str2) {
-        o.a(this.f33216a, str, str2);
+        o.a(this.f32461a, str, str2);
     }
 
     @Override // com.kwad.sdk.core.network.g
@@ -89,11 +89,11 @@ public abstract class b implements g {
             JSONObject jSONObject = new JSONObject();
             o.a(jSONObject, "version", KsAdSDKImpl.get().getSDKVersion());
             o.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, KsAdSDKImpl.get().getAppId());
-            o.a(jSONObject, "message", com.kwad.sdk.core.b.d.a(this.f33216a.toString()));
+            o.a(jSONObject, "message", com.kwad.sdk.core.b.d.a(this.f32461a.toString()));
             com.kwad.sdk.core.b.d.a(a().replace(com.kwad.sdk.d.a(), ""), b(), jSONObject);
             return jSONObject;
         }
-        return this.f33216a;
+        return this.f32461a;
     }
 
     public abstract void e();

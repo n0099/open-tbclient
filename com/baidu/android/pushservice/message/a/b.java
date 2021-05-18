@@ -9,11 +9,11 @@ public class b extends d {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3501a;
+        public static final /* synthetic */ int[] f3502a;
 
         static {
             int[] iArr = new int[com.baidu.android.pushservice.a.c.values().length];
-            f3501a = iArr;
+            f3502a = iArr;
             try {
                 iArr[com.baidu.android.pushservice.a.c.PUSH_CLIENT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
@@ -30,17 +30,17 @@ public class b extends d {
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
         int a2 = kVar.a();
         int i2 = 12;
-        if (AnonymousClass1.f3501a[com.baidu.android.pushservice.a.d.a(this.f3503a, kVar.c()).a().ordinal()] != 1) {
+        if (AnonymousClass1.f3502a[com.baidu.android.pushservice.a.d.a(this.f3504a, kVar.c()).a().ordinal()] != 1) {
             i2 = 7;
         } else {
             if (kVar.g() == l.MSG_TYPE_CLEAR_MESSAGE.b()) {
-                if (kVar.a() != 0 && com.baidu.android.pushservice.c.c.a(this.f3503a, a2)) {
-                    com.baidu.android.pushservice.j.h.a(this.f3503a, a2);
-                    if (com.baidu.android.pushservice.c.c.b(this.f3503a, a2)) {
+                if (kVar.a() != 0 && com.baidu.android.pushservice.c.c.a(this.f3504a, a2)) {
+                    com.baidu.android.pushservice.j.h.a(this.f3504a, a2);
+                    if (com.baidu.android.pushservice.c.c.b(this.f3504a, a2)) {
                         i2 = 10;
                     }
                 } else {
-                    com.baidu.android.pushservice.j.h.a(this.f3503a);
+                    com.baidu.android.pushservice.j.h.a(this.f3504a);
                 }
             }
             i2 = 1;

@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import d.a.i0.r.q.a2;
+import d.a.j0.r.q.a2;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
@@ -69,22 +69,22 @@ public class ImageViewerConfig extends IntentConfig {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f12776a;
+        public ArrayList<String> f12121a;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12778c;
+        public String f12123c;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f12781f;
+        public boolean f12126f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f12782g;
+        public String f12127g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f12783h;
+        public boolean f12128h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ConcurrentHashMap<String, ImageUrlData> f12784i;
+        public ConcurrentHashMap<String, ImageUrlData> f12129i;
         public boolean j;
         public boolean k;
         public a2 m;
@@ -96,13 +96,13 @@ public class ImageViewerConfig extends IntentConfig {
         public boolean u;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12777b = 0;
+        public int f12122b = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12779d = "";
+        public String f12124d = "";
 
         /* renamed from: e  reason: collision with root package name */
-        public String f12780e = "";
+        public String f12125e = "";
         public boolean l = false;
         public boolean p = true;
         public boolean s = true;
@@ -113,12 +113,12 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b B(int i2) {
-            this.f12777b = i2;
+            this.f12122b = i2;
             return this;
         }
 
         public b C(boolean z) {
-            this.f12781f = z;
+            this.f12126f = z;
             return this;
         }
 
@@ -133,58 +133,53 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b F(boolean z) {
-            this.u = z;
+            this.f12128h = z;
             return this;
         }
 
         public b G(boolean z) {
-            this.f12783h = z;
-            return this;
-        }
-
-        public b H(boolean z) {
             this.l = z;
             return this;
         }
 
-        public b I(boolean z) {
+        public b H(boolean z) {
             this.j = z;
             return this;
         }
 
-        public b J(boolean z) {
+        public b I(boolean z) {
             this.s = z;
             return this;
         }
 
-        public b K(String str) {
-            this.f12782g = str;
+        public b J(String str) {
+            this.f12127g = str;
             return this;
         }
 
-        public b L(boolean z) {
+        public b K(boolean z) {
             this.k = z;
             return this;
         }
 
-        public b M(String str) {
+        public b L(String str) {
             this.o = str;
             return this;
         }
 
-        public b N(Rect rect, RectF rectF) {
+        public b M(Rect rect, RectF rectF) {
             this.q = rect;
             this.r = rectF;
             return this;
         }
 
-        public b O(a2 a2Var) {
+        public b N(a2 a2Var) {
             this.m = a2Var;
             return this;
         }
 
-        public b P(String str) {
-            this.f12780e = str;
+        public b O(String str) {
+            this.f12125e = str;
             return this;
         }
 
@@ -193,22 +188,22 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b w(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
-            this.f12784i = concurrentHashMap;
+            this.f12129i = concurrentHashMap;
             return this;
         }
 
         public b x(ArrayList<String> arrayList) {
-            this.f12776a = arrayList;
+            this.f12121a = arrayList;
             return this;
         }
 
         public b y(String str) {
-            this.f12779d = str;
+            this.f12124d = str;
             return this;
         }
 
         public b z(String str) {
-            this.f12778c = str;
+            this.f12123c = str;
             return this;
         }
     }
@@ -220,27 +215,27 @@ public class ImageViewerConfig extends IntentConfig {
             return;
         }
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
-        if (bVar.f12776a != null && bVar.f12776a.size() > 0) {
+        if (bVar.f12121a != null && bVar.f12121a.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra("url", bVar.f12776a);
-            intent.putExtra("index", bVar.f12777b);
+            intent.putStringArrayListExtra("url", bVar.f12121a);
+            intent.putExtra("index", bVar.f12122b);
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");
-            intent.putExtra(PARAM_IS_CDN, bVar.f12781f);
-            intent.putExtra("fname", bVar.f12778c);
-            intent.putExtra("fid", bVar.f12779d);
-            intent.putExtra("tid", bVar.f12780e);
-            intent.putExtra(LAST_ID, bVar.f12782g);
-            intent.putExtra(REVERSE_MODE, bVar.f12783h);
-            intent.putExtra(ASSIST_URLS, bVar.f12784i);
+            intent.putExtra(PARAM_IS_CDN, bVar.f12126f);
+            intent.putExtra("fname", bVar.f12123c);
+            intent.putExtra("fid", bVar.f12124d);
+            intent.putExtra("tid", bVar.f12125e);
+            intent.putExtra(LAST_ID, bVar.f12127g);
+            intent.putExtra(REVERSE_MODE, bVar.f12128h);
+            intent.putExtra(ASSIST_URLS, bVar.f12129i);
             intent.putExtra(IS_SHOW_AD, bVar.j);
             intent.putExtra(NEED_BROADCAST, bVar.k);
             intent.putExtra(SEE_HOST, bVar.l);
-            int size = bVar.f12776a.size();
+            int size = bVar.f12121a.size();
             for (int i2 = 0; i2 < size; i2++) {
-                String str = (String) bVar.f12776a.get(i2);
+                String str = (String) bVar.f12121a.get(i2);
                 if (!StringUtils.isNull(str)) {
-                    ImageUrlData imageUrlData = bVar.f12784i != null ? (ImageUrlData) bVar.f12784i.get(str) : null;
+                    ImageUrlData imageUrlData = bVar.f12129i != null ? (ImageUrlData) bVar.f12129i.get(str) : null;
                     if (imageUrlData == null) {
                         imageUrlData = new ImageUrlData();
                         imageUrlData.imageUrl = str;
@@ -261,8 +256,8 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
         }
         if (bVar.m != null) {
-            intent.putExtra(IS_BJH, bVar.m.y2());
-            if (bVar.m.y2()) {
+            intent.putExtra(IS_BJH, bVar.m.A2());
+            if (bVar.m.A2()) {
                 intent.putExtra(PARAM_IS_CDN, true);
             }
             intent.putExtra("nid", bVar.m.L0());
@@ -271,7 +266,7 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra("ab_tag", bVar.m.T0);
             intent.putExtra("weight", bVar.m.S0);
             intent.putExtra("extra", bVar.m.U0);
-            if (bVar.m.A2()) {
+            if (bVar.m.C2()) {
                 intent.putExtra(IS_VIDEO_WORKS_INFO, true);
             }
         }

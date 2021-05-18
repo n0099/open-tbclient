@@ -9,47 +9,47 @@ import d.o.a.e.b.o.k;
 import java.io.BufferedInputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f36657b = 8;
+    public static int f35902b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f36658c;
+    public static volatile c f35903c;
 
     /* renamed from: a  reason: collision with root package name */
-    public a<Integer, Bitmap> f36659a;
+    public a<Integer, Bitmap> f35904a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a<K, T> extends LinkedHashMap<K, T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f36660a;
+        public final int f35905a;
 
         public a(int i2, int i3) {
             super(i3, 0.75f, true);
-            this.f36660a = i2;
+            this.f35905a = i2;
         }
 
         @Override // java.util.LinkedHashMap
         public boolean removeEldestEntry(Map.Entry<K, T> entry) {
-            return size() > this.f36660a;
+            return size() > this.f35905a;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f36661e;
+        public final /* synthetic */ String f35906e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f36662f;
+        public final /* synthetic */ int f35907f;
 
         public b(String str, int i2) {
-            this.f36661e = str;
-            this.f36662f = i2;
+            this.f35906e = str;
+            this.f35907f = i2;
         }
 
         @Override // java.lang.Runnable
@@ -59,7 +59,7 @@ public class c {
             Exception e2;
             try {
                 try {
-                    k x = d.x(true, 0, this.f36661e, null);
+                    k x = d.x(true, 0, this.f35906e, null);
                     if (x == null) {
                         e.C(null);
                         return;
@@ -74,7 +74,7 @@ public class c {
                         options.inSampleSize = c.a(c2, c2, options);
                         options.inJustDecodeBounds = false;
                         bufferedInputStream.reset();
-                        c.this.f36659a.put(Integer.valueOf(this.f36662f), BitmapFactory.decodeStream(bufferedInputStream, null, options));
+                        c.this.f35904a.put(Integer.valueOf(this.f35907f), BitmapFactory.decodeStream(bufferedInputStream, null, options));
                         e.C(bufferedInputStream);
                     } catch (Exception e3) {
                         e2 = e3;
@@ -99,9 +99,9 @@ public class c {
     }
 
     public c() {
-        this.f36659a = null;
-        int i2 = f36657b;
-        this.f36659a = new a<>(i2, i2 / 2);
+        this.f35904a = null;
+        int i2 = f35902b;
+        this.f35904a = new a<>(i2, i2 / 2);
     }
 
     public static int a(int i2, int i3, BitmapFactory.Options options) {
@@ -112,18 +112,18 @@ public class c {
     }
 
     public static c d() {
-        if (f36658c == null) {
+        if (f35903c == null) {
             synchronized (c.class) {
-                if (f36658c == null) {
-                    f36658c = new c();
+                if (f35903c == null) {
+                    f35903c = new c();
                 }
             }
         }
-        return f36658c;
+        return f35903c;
     }
 
     public Bitmap b(int i2) {
-        return this.f36659a.get(Integer.valueOf(i2));
+        return this.f35904a.get(Integer.valueOf(i2));
     }
 
     public void e(int i2, String str) {

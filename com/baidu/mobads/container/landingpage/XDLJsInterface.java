@@ -67,7 +67,7 @@ public class XDLJsInterface {
         executeJavaScript("window.mobadssdkbridge.nativeCallComplete(" + JSONObject.quote(commandType.toJavascriptString()) + SmallTailInfo.EMOTION_SUFFIX);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00e9 A[Catch: Exception -> 0x014b, TryCatch #0 {Exception -> 0x014b, blocks: (B:3:0x0010, B:6:0x0040, B:35:0x00e3, B:37:0x00e9, B:38:0x00ed, B:34:0x00da), top: B:44:0x0010 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00ea A[Catch: Exception -> 0x014c, TryCatch #0 {Exception -> 0x014c, blocks: (B:3:0x0010, B:6:0x0040, B:35:0x00e4, B:37:0x00ea, B:38:0x00ee, B:34:0x00db), top: B:44:0x0010 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -8,4 +8,8 @@ public class AppMD5 {
     public static String getSignMD5String(String str) {
         return JNIMD5.getSignMD5String(str);
     }
+
+    public static String getUrlNeedInfo() {
+        return JNIMD5.getUrlNeedInfo();
+    }
 }

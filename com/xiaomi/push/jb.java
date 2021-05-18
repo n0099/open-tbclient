@@ -5,49 +5,49 @@ import java.nio.ByteBuffer;
 public abstract class jb {
 
     /* renamed from: a  reason: collision with root package name */
-    public jl f38802a;
+    public jl f38047a;
 
     public jb(jl jlVar) {
-        this.f38802a = jlVar;
+        this.f38047a = jlVar;
     }
 
     public abstract byte a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract double m505a();
+    public abstract double m504a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract int m506a();
+    public abstract int m505a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract long m507a();
+    public abstract long m506a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract iy m508a();
+    public abstract iy m507a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract iz m509a();
+    public abstract iz m508a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract ja m510a();
+    public abstract ja m509a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jf m511a();
+    public abstract jf m510a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jg m512a();
+    public abstract jg m511a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m513a();
+    public abstract String m512a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract ByteBuffer m514a();
+    public abstract ByteBuffer m513a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract short m515a();
+    public abstract short m514a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m516a();
+    public abstract void m515a();
 
     public abstract void a(byte b2);
 
@@ -72,7 +72,7 @@ public abstract class jb {
     public abstract void a(boolean z);
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m517a();
+    public abstract boolean m516a();
 
     public abstract void b();
 

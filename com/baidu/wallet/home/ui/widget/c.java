@@ -17,23 +17,23 @@ import java.util.List;
 public class c extends BdMenu {
 
     /* renamed from: a  reason: collision with root package name */
-    public HomeCfgResponse.TitleItemData[] f25068a;
+    public HomeCfgResponse.TitleItemData[] f24313a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25069b;
+    public String f24314b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f25070c;
+    public Context f24315c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f25071d;
+    public d f24316d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25072e;
+    public String f24317e;
 
     public c(View view) {
         super(view);
-        this.f25070c = view.getContext();
+        this.f24315c = view.getContext();
         setDismissOnClick(true);
         setMenuItemClickListener(new BdMenuItem.OnItemClickListener() { // from class: com.baidu.wallet.home.ui.widget.c.1
             @Override // com.baidu.wallet.base.widget.BdMenuItem.OnItemClickListener
@@ -45,15 +45,15 @@ public class c extends BdMenu {
     @Override // com.baidu.wallet.base.widget.BdMenu
     public void ensureMenuLoaded(View view, List<BdMenuItem> list) {
         WalletHomeMenuView walletHomeMenuView = (WalletHomeMenuView) view;
-        walletHomeMenuView.layoutMenu(this.f25069b, this.f25068a);
+        walletHomeMenuView.layoutMenu(this.f24314b, this.f24313a);
         walletHomeMenuView.setMenuSelectListener(new WalletMenuLayout.a() { // from class: com.baidu.wallet.home.ui.widget.c.2
             @Override // com.baidu.wallet.home.ui.widget.WalletMenuLayout.a
             public void a(HomeCfgResponse.TitleItemData titleItemData) {
-                if (c.this.f25071d != null && c.this.f25071d.a(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr)) {
+                if (c.this.f24316d != null && c.this.f24316d.a(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr)) {
                     DXMSdkSAUtils.onEventWithValues("clickHomeMenu", Arrays.asList(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr));
                     PayStatisticsUtil.onEventWithValues("clickHomeMenu", Arrays.asList(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr));
                 } else {
-                    com.baidu.wallet.home.a.a().a(c.this.f25070c, titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, titleItemData.getPrevlogin(), c.this.f25072e);
+                    com.baidu.wallet.home.a.a().a(c.this.f24315c, titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, titleItemData.getPrevlogin(), c.this.f24317e);
                 }
                 c.this.dismiss();
             }
@@ -73,21 +73,21 @@ public class c extends BdMenu {
     }
 
     public void a(String str, HomeCfgResponse.TitleItemData[] titleItemDataArr, String str2) {
-        this.f25072e = str2;
+        this.f24317e = str2;
         removeAllItem();
-        this.f25069b = str;
-        this.f25068a = titleItemDataArr;
+        this.f24314b = str;
+        this.f24313a = titleItemDataArr;
         if (titleItemDataArr == null || titleItemDataArr.length <= 0) {
             return;
         }
         int i2 = 0;
         while (true) {
-            HomeCfgResponse.TitleItemData[] titleItemDataArr2 = this.f25068a;
+            HomeCfgResponse.TitleItemData[] titleItemDataArr2 = this.f24313a;
             if (i2 >= titleItemDataArr2.length) {
                 return;
             }
             if (!TextUtils.isEmpty(titleItemDataArr2[i2].setting_name)) {
-                add(i2, this.f25068a[i2].setting_name);
+                add(i2, this.f24313a[i2].setting_name);
             }
             i2++;
         }

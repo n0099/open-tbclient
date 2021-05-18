@@ -6,10 +6,10 @@ import android.widget.AbsListView;
 public final class cc implements AbsListView.RecyclerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23514a;
+    public final /* synthetic */ FeedbackInputActivity f22759a;
 
     public cc(FeedbackInputActivity feedbackInputActivity) {
-        this.f23514a = feedbackInputActivity;
+        this.f22759a = feedbackInputActivity;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

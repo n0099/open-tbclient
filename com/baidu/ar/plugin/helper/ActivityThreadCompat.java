@@ -4,20 +4,19 @@ import android.app.Instrumentation;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.ar.plugin.reflect.MethodUtils;
-import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
 public class ActivityThreadCompat {
     public static Object sActivityThread;
     public static Class sClass;
 
-    public static final Class activityThreadClass() throws ClassNotFoundException {
+    public static final Class activityThreadClass() {
         if (sClass == null) {
             sClass = Class.forName("android.app.ActivityThread");
         }
         return sClass;
     }
 
-    public static final synchronized Object currentActivityThread() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    public static final synchronized Object currentActivityThread() {
         Object obj;
         synchronized (ActivityThreadCompat.class) {
             if (sActivityThread == null) {
@@ -71,7 +70,7 @@ public class ActivityThreadCompat {
         return null;
     }
 
-    public static Instrumentation getInstrumentation() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+    public static Instrumentation getInstrumentation() {
         return (Instrumentation) MethodUtils.invokeMethod(currentActivityThread(), "getInstrumentation", new Object[0]);
     }
 }

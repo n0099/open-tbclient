@@ -64,6 +64,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_COMMODITY_ENTRANCE_SHOW = "c13896";
     public static final String KEY_CONCERN_BTN_CLICK = "c13570";
     public static final String KEY_CONCERN_SWITCH = "c14054";
+    public static final String KEY_COPY_CLIENT_NUMBER_CLICK = "c14146";
     public static final String KEY_DARK_MODE_FOLLOW_SYSTEM = "c13577";
     public static final String KEY_DELETE_THREAD_REASON = "c13123";
     public static final String KEY_DYNAMIC_CARD_CLICK = "c13564";
@@ -93,6 +94,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_RATE_SCORE_CLICK_SCORE = "c13074";
     public static final String KEY_RATE_SCORE_DIALOG_SHOW = "c13073";
     public static final String KEY_RICH_TEXT_VIDEO_CLICK = "c10643";
+    public static final String KEY_SCHEME_JUMP_CALL_NATIVE = "c10320";
     public static final String KEY_SEERET_HINT_ACTIVITY_SHOW = "c13294";
     public static final String KEY_SEERET_HINT_BUTTON_CLICK = "c13295";
     public static final String KEY_SHARE_CANCEL = "c12481";
@@ -112,6 +114,8 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_SMART_APP_HISTORY_DELETE_CLICK = "c13436";
     public static final String KEY_TASK_ENTRANCE = "c13422";
     public static final String KEY_THREAD_ACHIEVEMENT_SHARE = "c10898";
+    public static final String KEY_TIEBA_UID_SHARE_DIALOG_CLICK = "c14148";
+    public static final String KEY_TIEBA_UID_SHARE_DIALOG_SHOW = "c14147";
     public static final String KEY_TOPIC_DETAIL_CARD_AGREE_CLICK = "c13358";
     public static final String KEY_TRANSFER_BTN_CLICK = "c13567";
     public static final String KEY_UPDATE_OFFLINE_PACK = "c14055";

@@ -9,26 +9,26 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Y0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37807a;
+    public Context f37052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public K0 f37808b;
+    public K0 f37053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f37809c;
+    public Info f37054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f37810d;
+    public View f37055d;
 
     /* renamed from: f  reason: collision with root package name */
-    public r f37812f;
+    public r f37057f;
 
     /* renamed from: g  reason: collision with root package name */
-    public E1 f37813g;
+    public E1 f37058g;
     public float l;
     public float m;
     public int n;
@@ -45,22 +45,22 @@ public class Y0 {
     public long y;
 
     /* renamed from: e  reason: collision with root package name */
-    public List f37811e = Collections.synchronizedList(new ArrayList());
+    public List f37056e = Collections.synchronizedList(new ArrayList());
 
     /* renamed from: h  reason: collision with root package name */
-    public long f37814h = 0;
+    public long f37059h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public L0 f37815i = new S0(this);
+    public L0 f37060i = new S0(this);
     public boolean j = false;
     public long k = 0;
 
     public Y0(Context context, String str) {
-        this.f37807a = context;
+        this.f37052a = context;
         K0 k0 = new K0(context, str, y.SPLASH);
-        this.f37808b = k0;
-        k0.f37686g = this.f37815i;
-        this.f37813g = new E1(context);
+        this.f37053b = k0;
+        k0.f36931g = this.f37060i;
+        this.f37058g = new E1(context);
     }
 
     public static /* synthetic */ void a(Y0 y0, View view) {
@@ -93,32 +93,32 @@ public class Y0 {
     public void a() {
         try {
             c();
-            if (this.f37808b != null) {
-                this.f37808b.a();
-                this.f37808b = null;
+            if (this.f37053b != null) {
+                this.f37053b.a();
+                this.f37053b = null;
             }
-            if (this.f37812f != null) {
-                this.f37812f = null;
+            if (this.f37057f != null) {
+                this.f37057f = null;
             }
         } catch (Exception unused) {
         }
     }
 
     public boolean b() {
-        Info info = this.f37809c;
+        Info info = this.f37054c;
         return info != null && info.isEffective();
     }
 
     public void c() {
         try {
-            for (View view : this.f37811e) {
+            for (View view : this.f37056e) {
                 if (view != null) {
                     view.setOnClickListener(null);
                 }
             }
-            this.f37811e.clear();
-            if (this.f37810d != null) {
-                this.f37810d = null;
+            this.f37056e.clear();
+            if (this.f37055d != null) {
+                this.f37055d = null;
             }
         } catch (Exception unused) {
         }
@@ -144,17 +144,17 @@ public class Y0 {
         if (view == null || arrayList == null || arrayList.size() == 0 || !b()) {
             return;
         }
-        this.f37814h = 0L;
-        if (this.f37810d != null) {
+        this.f37059h = 0L;
+        if (this.f37055d != null) {
             c();
         }
-        this.f37810d = view;
+        this.f37055d = view;
         try {
             X0 x0 = new X0(this);
             for (View view2 : arrayList) {
                 if (view2 != null && !(view2 instanceof PBMediaView)) {
-                    if (!this.f37811e.contains(view2)) {
-                        this.f37811e.add(view2);
+                    if (!this.f37056e.contains(view2)) {
+                        this.f37056e.add(view2);
                     }
                     if (!(view2 instanceof CircleProgressbar)) {
                         view2.setOnClickListener(x0);
@@ -168,24 +168,24 @@ public class Y0 {
             try {
                 if (pBMediaView.getHtmlWebView() != null) {
                     K htmlWebView = pBMediaView.getHtmlWebView();
-                    htmlWebView.a(b() ? this.f37809c.getLoad() : "", this.f37809c);
-                    if (this.f37809c.isNat()) {
-                        htmlWebView.f37677c.setOnTouchListener(new V0(this));
+                    htmlWebView.a(b() ? this.f37054c.getLoad() : "", this.f37054c);
+                    if (this.f37054c.isNat()) {
+                        htmlWebView.f36922c.setOnTouchListener(new V0(this));
                     }
-                    htmlWebView.f37676b = new W0(this);
+                    htmlWebView.f36921b = new W0(this);
                 }
             } catch (Exception unused2) {
             }
         }
-        x0.a(this.f37807a).a(new y0(this.f37809c)).a();
-        r rVar = this.f37812f;
+        x0.a(this.f37052a).a(new y0(this.f37054c)).a();
+        r rVar = this.f37057f;
         if (rVar != null) {
             rVar.onDisplayed();
         }
-        if (this.f37809c != null) {
-            s1.b(this.f37807a, this.f37809c.getId() + ":" + System.currentTimeMillis(), false);
+        if (this.f37054c != null) {
+            s1.b(this.f37052a, this.f37054c.getId() + ":" + System.currentTimeMillis(), false);
         }
-        z.a(this.f37809c);
-        new m0().a(view, this.f37809c, new U0(this, view));
+        z.a(this.f37054c);
+        new m0().a(view, this.f37054c, new U0(this, view));
     }
 }

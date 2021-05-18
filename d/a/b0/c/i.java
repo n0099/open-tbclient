@@ -15,10 +15,10 @@ import org.json.JSONObject;
 public class i extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f39364a = d.a.b0.a.b.a.f39288a.get().s();
+    public static final boolean f38609a = d.a.b0.a.b.a.f38533a.get().s();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f39365b = {"deeplink", "open"};
+    public static final String[] f38610b = {"deeplink", "open"};
 
     /* loaded from: classes2.dex */
     public class a implements b {
@@ -29,7 +29,7 @@ public class i extends e {
     @Override // d.a.b0.c.e
     public void a(HashMap<String, String> hashMap) {
         String[] strArr;
-        for (String str : f39365b) {
+        for (String str : f38610b) {
             hashMap.put("splash/ad/" + str, "splash_ad/" + str);
         }
     }
@@ -42,7 +42,7 @@ public class i extends e {
             if (gVar.g()) {
                 return true;
             }
-            if (f39364a) {
+            if (f38609a) {
                 Log.e("UnitedSchemeSplashDispatcher", "invoke: " + gVar.f().toString());
             }
             char c2 = 65535;
@@ -56,7 +56,7 @@ public class i extends e {
             }
             if (c2 != 0) {
                 if (c2 != 1) {
-                    if (f39364a) {
+                    if (f38609a) {
                         throw new IllegalStateException("scheme action 不支持错误");
                     }
                     return false;
@@ -72,7 +72,7 @@ public class i extends e {
     public final boolean e(@NonNull Context context, @NonNull g gVar, d.a.b0.c.a aVar) {
         String str = gVar.d().get("params");
         if (TextUtils.isEmpty(str)) {
-            if (f39364a) {
+            if (f38609a) {
                 throw new IllegalStateException("action deeplink 没有params参数");
             }
             return false;
@@ -103,7 +103,7 @@ public class i extends e {
     public final boolean f(g gVar, d.a.b0.c.a aVar) {
         String str = gVar.d().get("params");
         if (TextUtils.isEmpty(str)) {
-            if (f39364a) {
+            if (f38609a) {
                 throw new IllegalStateException("action deeplink 没有params参数");
             }
             return false;
@@ -117,17 +117,17 @@ public class i extends e {
     }
 
     public final boolean g(@NonNull String str, d.a.b0.c.a aVar) {
-        return d.a.b0.a.b.a.f39288a.get().v(str, new a(this, aVar));
+        return d.a.b0.a.b.a.f38533a.get().v(str, new a(this, aVar));
     }
 
     public final void h(Als.Area area) {
-        if (!TextUtils.isEmpty(d.a.b0.b.f.c.f39325a)) {
+        if (!TextUtils.isEmpty(d.a.b0.b.f.c.f38570a)) {
             Als.c cVar = new Als.c(Als.Type.DEEP_LINK);
             cVar.i(Als.Page.NA_DEEPLINK);
             cVar.e(area);
-            cVar.j(d.a.b0.b.f.c.f39325a);
+            cVar.j(d.a.b0.b.f.c.f38570a);
             Als.e(cVar);
-        } else if (f39364a) {
+        } else if (f38609a) {
             throw new IllegalStateException("全局数据仓库获取数据失败，打点失败...");
         }
     }

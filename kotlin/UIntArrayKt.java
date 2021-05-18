@@ -11,16 +11,16 @@ public final class UIntArrayKt {
     public static final int[] UIntArray(int i2, Function1<? super Integer, UInt> function1) {
         int[] iArr = new int[i2];
         for (int i3 = 0; i3 < i2; i3++) {
-            iArr[i3] = function1.invoke(Integer.valueOf(i3)).m765unboximpl();
+            iArr[i3] = function1.invoke(Integer.valueOf(i3)).m764unboximpl();
         }
-        return UIntArray.m768constructorimpl(iArr);
+        return UIntArray.m767constructorimpl(iArr);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: uintArrayOf--ajY-9A  reason: not valid java name */
-    public static final int[] m784uintArrayOfajY9A(int... iArr) {
+    public static final int[] m783uintArrayOfajY9A(int... iArr) {
         return iArr;
     }
 }

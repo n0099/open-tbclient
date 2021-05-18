@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.swan.games.utils.so.SoUtils;
+import com.baidu.swan.apps.so.SoUtils;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.webkit.sdk.WebKitFactory;
@@ -23,12 +23,12 @@ import java.util.Locale;
 import kotlin.UShort;
 /* loaded from: classes6.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_5 = null;
     public static HashMap<String, String> language;
     public int dataCountry;
     public int dataLanguage;

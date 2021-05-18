@@ -3,7 +3,7 @@ package d.a.g0.h;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.swan.games.utils.so.SoUtils;
+import com.baidu.swan.apps.so.SoUtils;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.tencent.connect.common.Constants;
 import org.json.JSONArray;
@@ -12,26 +12,26 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40916a;
+    public static String f40161a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40917b;
+    public static String f40162b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40918c;
+    public static String f40163c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f40919d;
+    public static String f40164d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f40920e;
+    public static String f40165e;
 
     public static String b(Context context) {
         try {
-            if (TextUtils.isEmpty(f40916a)) {
-                f40916a = d.a.g0.l.c.e(context);
+            if (TextUtils.isEmpty(f40161a)) {
+                f40161a = d.a.g0.l.c.e(context);
             }
-            return TextUtils.isEmpty(f40916a) ? "" : f40916a;
+            return TextUtils.isEmpty(f40161a) ? "" : f40161a;
         } catch (Throwable th) {
             d.a.g0.l.c.d(th);
             return "";
@@ -48,7 +48,7 @@ public class c {
             jSONObject.put("5", str);
             jSONObject.put("6", System.currentTimeMillis());
             jSONObject.put("7", "0");
-            jSONObject.put("8", d.a.g0.a.f40743b);
+            jSONObject.put("8", d.a.g0.a.f39988b);
             jSONObject.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
             jSONObject.put("10", "1.0.5");
             jSONObject.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, d.a.g0.l.c.j(context));
@@ -64,10 +64,10 @@ public class c {
 
     public static String d(Context context) {
         try {
-            if (TextUtils.isEmpty(f40917b)) {
-                f40917b = d.a.g0.l.c.h(context);
+            if (TextUtils.isEmpty(f40162b)) {
+                f40162b = d.a.g0.l.c.h(context);
             }
-            return TextUtils.isEmpty(f40917b) ? "" : f40917b;
+            return TextUtils.isEmpty(f40162b) ? "" : f40162b;
         } catch (Throwable th) {
             d.a.g0.l.c.d(th);
             return "";
@@ -76,11 +76,11 @@ public class c {
 
     public static String e(Context context) {
         try {
-            if (!TextUtils.isEmpty(f40920e)) {
-                return f40920e;
+            if (!TextUtils.isEmpty(f40165e)) {
+                return f40165e;
             }
             String b2 = d.a.g0.g.a.b(context);
-            f40920e = b2;
+            f40165e = b2;
             return b2;
         } catch (Throwable unused) {
             return "";
@@ -89,10 +89,10 @@ public class c {
 
     public static String f(Context context) {
         try {
-            if (TextUtils.isEmpty(f40918c)) {
-                f40918c = context.getPackageName();
+            if (TextUtils.isEmpty(f40163c)) {
+                f40163c = context.getPackageName();
             }
-            return TextUtils.isEmpty(f40918c) ? "" : f40918c;
+            return TextUtils.isEmpty(f40163c) ? "" : f40163c;
         } catch (Throwable th) {
             d.a.g0.l.c.d(th);
             return "";
@@ -101,11 +101,11 @@ public class c {
 
     public static String g(Context context) {
         try {
-            if (!TextUtils.isEmpty(f40919d)) {
-                return f40919d;
+            if (!TextUtils.isEmpty(f40164d)) {
+                return f40164d;
             }
             String l = d.a.g0.l.d.l(context);
-            f40919d = l;
+            f40164d = l;
             return l;
         } catch (Throwable unused) {
             return "";

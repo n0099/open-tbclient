@@ -6,8 +6,10 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.Process;
+import android.util.Log;
 import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.location.d.j;
+import com.baidu.location.e.k;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
@@ -19,19 +21,19 @@ public class f extends Service {
     public static String replaceFileName = "repll.jar";
 
     /* renamed from: a  reason: collision with root package name */
-    public LLSInterface f6994a = null;
+    public LLSInterface f6828a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public LLSInterface f6995b = null;
+    public LLSInterface f6829b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public LLSInterface f6996c = null;
+    public LLSInterface f6830c = null;
 
     private boolean a(File file) {
         int readInt;
         boolean z = false;
         try {
-            File file2 = new File(j.h() + "/grtcfrsa.dat");
+            File file2 = new File(k.j() + "/grtcfrsa.dat");
             if (file2.exists()) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
                 randomAccessFile.seek(200L);
@@ -39,8 +41,8 @@ public class f extends Service {
                     byte[] bArr = new byte[readInt];
                     randomAccessFile.read(bArr, 0, readInt);
                     String str = new String(bArr);
-                    String a2 = j.a(file, "SHA-256");
-                    if (a2 != null && j.b(a2, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
+                    String a2 = k.a(file, "SHA-256");
+                    if (a2 != null && k.b(a2, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
                         z = true;
                     }
                 }
@@ -52,7 +54,7 @@ public class f extends Service {
     }
 
     public static float getFrameVersion() {
-        return 7.63f;
+        return 7.93f;
     }
 
     public static String getJarFileName() {
@@ -65,18 +67,26 @@ public class f extends Service {
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return this.f6996c.onBind(intent);
+        LLSInterface lLSInterface = this.f6830c;
+        if (lLSInterface != null) {
+            return lLSInterface.onBind(intent);
+        }
+        return null;
     }
 
     @Override // android.app.Service
     @SuppressLint({"NewApi"})
     public void onCreate() {
+        if (isServing) {
+            Log.d("baidu_location_service", "baidu location service can not start again ...20190306..." + Process.myPid());
+            return;
+        }
         mC = getApplicationContext();
         System.currentTimeMillis();
-        this.f6995b = new com.baidu.location.c.a();
+        this.f6829b = new com.baidu.location.d.a();
         try {
-            File file = new File(j.h() + File.separator + replaceFileName);
-            File file2 = new File(j.h() + File.separator + "app.jar");
+            File file = new File(k.j() + File.separator + replaceFileName);
+            File file2 = new File(k.j() + File.separator + "app.jar");
             if (file.exists()) {
                 if (file2.exists()) {
                     file2.delete();
@@ -84,29 +94,32 @@ public class f extends Service {
                 file.renameTo(file2);
             }
             if (file2.exists()) {
-                if (a(new File(j.h() + File.separator + "app.jar"))) {
-                    this.f6994a = (LLSInterface) new DexClassLoader(j.h() + File.separator + "app.jar", j.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+                if (a(new File(k.j() + File.separator + "app.jar"))) {
+                    this.f6828a = (LLSInterface) new DexClassLoader(k.j() + File.separator + "app.jar", k.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
                 }
             }
         } catch (Exception unused) {
-            this.f6994a = null;
+            this.f6828a = null;
         }
-        LLSInterface lLSInterface = this.f6994a;
-        if (lLSInterface == null || lLSInterface.getVersion() < this.f6995b.getVersion()) {
-            this.f6996c = this.f6995b;
-            this.f6994a = null;
+        LLSInterface lLSInterface = this.f6828a;
+        if (lLSInterface == null || lLSInterface.getVersion() < this.f6829b.getVersion()) {
+            this.f6830c = this.f6829b;
+            this.f6828a = null;
         } else {
-            this.f6996c = this.f6994a;
-            this.f6995b = null;
+            this.f6830c = this.f6828a;
+            this.f6829b = null;
         }
         isServing = true;
-        this.f6996c.onCreate(this);
+        this.f6830c.onCreate(this);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         isServing = false;
-        this.f6996c.onDestroy();
+        LLSInterface lLSInterface = this.f6830c;
+        if (lLSInterface != null) {
+            lLSInterface.onDestroy();
+        }
         if (isStartedServing) {
             stopForeground(true);
         }
@@ -128,16 +141,19 @@ public class f extends Service {
                 e2.printStackTrace();
             }
         }
-        return this.f6996c.onStartCommand(intent, i2, i3);
+        return this.f6830c.onStartCommand(intent, i2, i3);
     }
 
     @Override // android.app.Service
     public void onTaskRemoved(Intent intent) {
-        this.f6996c.onTaskRemoved(intent);
+        LLSInterface lLSInterface = this.f6830c;
+        if (lLSInterface != null) {
+            lLSInterface.onTaskRemoved(intent);
+        }
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        return this.f6996c.onUnBind(intent);
+        return false;
     }
 }

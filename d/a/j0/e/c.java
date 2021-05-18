@@ -1,5 +1,9 @@
 package d.a.j0.e;
-/* loaded from: classes4.dex */
+
+import java.util.List;
+/* loaded from: classes3.dex */
 public interface c {
-    Object c();
+    void a(List<a> list);
+
+    void onPreLoad();
 }

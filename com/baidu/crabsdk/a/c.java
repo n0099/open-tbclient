@@ -11,26 +11,26 @@ import java.util.concurrent.Executors;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f4800c;
+    public static c f4654c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Context f4801d;
+    public static Context f4655d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ExecutorService f4802e;
+    public static ExecutorService f4656e;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f4803a;
+    public h f4657a;
 
     /* renamed from: b  reason: collision with root package name */
-    public p f4804b;
+    public p f4658b;
 
     public c(Context context) {
-        f4801d = context;
-        this.f4804b = new p(Looper.getMainLooper().getThread(), a.f4788g);
-        this.f4803a = new h(new d.a.m.a.a(this), context);
-        if (f4802e == null) {
-            f4802e = Executors.newSingleThreadExecutor();
+        f4655d = context;
+        this.f4658b = new p(Looper.getMainLooper().getThread(), a.f4642g);
+        this.f4657a = new h(new d.a.m.a.a(this), context);
+        if (f4656e == null) {
+            f4656e = Executors.newSingleThreadExecutor();
         }
     }
 
@@ -41,19 +41,19 @@ public class c {
             return;
         }
         a b2 = a.b();
-        b2.f4796f = e2;
+        b2.f4650f = e2;
         b2.a(j, j2, j3, j4);
     }
 
     public static c b(Context context) {
-        if (f4800c == null) {
+        if (f4654c == null) {
             synchronized (c.class) {
-                if (f4800c == null) {
-                    f4800c = new c(context);
+                if (f4654c == null) {
+                    f4654c = new c(context);
                 }
             }
         }
-        return f4800c;
+        return f4654c;
     }
 
     public static void e() {

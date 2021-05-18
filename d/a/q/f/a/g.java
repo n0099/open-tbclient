@@ -7,32 +7,32 @@ import org.json.JSONObject;
 public class g implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public i f63648a = new f();
+    public i f64285a = new f();
 
     /* renamed from: b  reason: collision with root package name */
-    public l f63649b = new p();
+    public l f64286b = new p();
 
     /* renamed from: c  reason: collision with root package name */
-    public h f63650c = new e();
+    public h f64287c = new e();
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f63651d;
+    public JSONObject f64288d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f63652e;
+    public Context f64289e;
 
     public g(Context context) {
-        if (this.f63651d == null) {
+        if (this.f64288d == null) {
             c(context);
         }
     }
 
     @Override // d.a.q.f.a.c
     public JSONObject a() {
-        if (this.f63651d == null) {
-            c(this.f63652e);
+        if (this.f64288d == null) {
+            c(this.f64289e);
         }
-        return this.f63651d;
+        return this.f64288d;
     }
 
     public final JSONObject b() {
@@ -43,62 +43,62 @@ public class g implements c {
             e2.printStackTrace();
         }
         try {
-            jSONObject.put("aid", this.f63648a.a(this.f63652e));
+            jSONObject.put("aid", this.f64285a.a(this.f64289e));
         } catch (Exception e3) {
             e3.printStackTrace();
         }
         try {
-            jSONObject.put("uid", this.f63650c.a(this.f63652e));
+            jSONObject.put("uid", this.f64287c.a(this.f64289e));
         } catch (Exception e4) {
             e4.printStackTrace();
         }
         try {
-            jSONObject.put("adrid", this.f63649b.c(this.f63652e));
+            jSONObject.put("adrid", this.f64286b.c(this.f64289e));
         } catch (Exception e5) {
             e5.printStackTrace();
         }
         try {
-            jSONObject.put("network", this.f63649b.d(this.f63652e));
+            jSONObject.put("network", this.f64286b.d(this.f64289e));
         } catch (Exception e6) {
             e6.printStackTrace();
         }
         try {
-            jSONObject.put("pkg", this.f63649b.b(this.f63652e));
+            jSONObject.put("pkg", this.f64286b.b(this.f64289e));
         } catch (Exception e7) {
             e7.printStackTrace();
         }
         try {
-            jSONObject.put("ctime", this.f63649b.b());
+            jSONObject.put("ctime", this.f64286b.b());
         } catch (Exception e8) {
             e8.printStackTrace();
         }
         try {
-            jSONObject.put("ua", this.f63649b.a(this.f63652e));
+            jSONObject.put("ua", this.f64286b.a(this.f64289e));
         } catch (Exception e9) {
             e9.printStackTrace();
         }
         try {
-            jSONObject.put("ut", this.f63649b.a());
+            jSONObject.put("ut", this.f64286b.a());
         } catch (Exception e10) {
             e10.printStackTrace();
         }
         try {
-            jSONObject.put(CommonUrlParamManager.PARAM_IID, this.f63648a.e(this.f63652e));
+            jSONObject.put(CommonUrlParamManager.PARAM_IID, this.f64285a.e(this.f64289e));
         } catch (Exception e11) {
             e11.printStackTrace();
         }
         try {
-            jSONObject.put("sids", this.f63648a.b(this.f63652e));
+            jSONObject.put("sids", this.f64285a.b(this.f64289e));
         } catch (Exception e12) {
             e12.printStackTrace();
         }
         try {
-            jSONObject.put("oid", this.f63648a.c(this.f63652e));
+            jSONObject.put("oid", this.f64285a.c(this.f64289e));
         } catch (Exception e13) {
             e13.printStackTrace();
         }
         try {
-            jSONObject.put("gaid", this.f63648a.d(this.f63652e));
+            jSONObject.put("gaid", this.f64285a.d(this.f64289e));
         } catch (Exception e14) {
             e14.printStackTrace();
         }
@@ -109,9 +109,9 @@ public class g implements c {
         if (context == null) {
             throw new NullPointerException("ctx should not be null");
         }
-        if (this.f63652e == null) {
-            this.f63652e = context.getApplicationContext();
+        if (this.f64289e == null) {
+            this.f64289e = context.getApplicationContext();
         }
-        this.f63651d = b();
+        this.f64288d = b();
     }
 }

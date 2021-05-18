@@ -5,14 +5,14 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.tencent.open.SocialConstants;
-import d.a.j0.y1.f.a;
-import d.a.j0.y1.f.b;
+import d.a.k0.y1.f.a;
+import d.a.k0.y1.f.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
     public a mData;
 
@@ -39,19 +39,19 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
         }
         a aVar = new a();
         String optString = jSONObject.optString("id");
-        aVar.f62749a = optString;
+        aVar.f63473a = optString;
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
-        aVar.f62750b = jSONObject.optString("name");
+        aVar.f63474b = jSONObject.optString("name");
         jSONObject.optInt("type");
         jSONObject.optString("owner");
         jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
         jSONObject.optString("timestamp");
         jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-        aVar.f62751c = jSONObject.optString("covername");
-        aVar.f62752d = jSONObject.optString("url");
-        aVar.f62753e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+        aVar.f63475c = jSONObject.optString("covername");
+        aVar.f63476d = jSONObject.optString("url");
+        aVar.f63477e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
         return aVar;
     }
 
@@ -64,13 +64,13 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(i2);
                 b bVar = new b();
-                bVar.f62755f = jSONObject.optString("id");
+                bVar.f63479f = jSONObject.optString("id");
                 jSONObject.optString("url");
                 jSONObject.optString("thumbnail");
-                bVar.f62756g = jSONObject.optString("name");
-                bVar.f62757h = jSONObject.optString("thumbname");
+                bVar.f63480g = jSONObject.optString("name");
+                bVar.f63481h = jSONObject.optString("thumbname");
                 bVar.j = jSONObject.optInt("width");
-                bVar.f62758i = jSONObject.optInt("height");
+                bVar.f63482i = jSONObject.optInt("height");
                 arrayList.add(bVar);
             } catch (JSONException e2) {
                 e2.printStackTrace();

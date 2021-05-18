@@ -3,16 +3,16 @@ package com.baidu.wallet.base.camera.internal;
 public interface c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f23978a = 1;
+    public static final int f23223a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f23979b = 2;
+    public static final int f23224b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f23980c = 4;
+    public static final int f23225c = 4;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f23981d = 8;
+    public static final int f23226d = 8;
 
     void destroyCamera();
 

@@ -15,19 +15,19 @@ import com.baidu.tieba.R;
 import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ReplyLinearLayout extends LinearLayout {
 
     /* renamed from: g  reason: collision with root package name */
-    public static ViewGroup.LayoutParams f20829g;
+    public static ViewGroup.LayoutParams f20117g;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<TextView> f20830e;
+    public List<TextView> f20118e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f20831f;
+    public View.OnClickListener f20119f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -80,19 +80,19 @@ public class ReplyLinearLayout extends LinearLayout {
         CharSequence[] charSequenceArr;
         int i3;
         int i4;
-        if (f20829g == null) {
-            f20829g = new LinearLayout.LayoutParams(-1, -2);
+        if (f20117g == null) {
+            f20117g = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.f20830e.size();
+        int size2 = size - this.f20118e.size();
         for (int i5 = 0; i5 < size2; i5++) {
             TextView textView = new TextView(getContext());
-            this.f20830e.add(textView);
+            this.f20118e.add(textView);
             addView(textView);
         }
-        for (int i6 = 0; i6 < this.f20830e.size(); i6++) {
-            TextView textView2 = this.f20830e.get(i6);
+        for (int i6 = 0; i6 < this.f20118e.size(); i6++) {
+            TextView textView2 = this.f20118e.get(i6);
             if (i6 < size) {
                 if (i6 != 0 && i6 != 1) {
                     int i7 = i6 % 3;
@@ -108,12 +108,12 @@ public class ReplyLinearLayout extends LinearLayout {
                         textView2.setText(charSequenceArr[4]);
                     }
                     textView2.setTag(charSequenceArr);
-                    textView2.setOnClickListener(this.f20831f);
+                    textView2.setOnClickListener(this.f20119f);
                     a(textView2, i6);
                     if (i6 != 0) {
                         textView2.setTextSize(17.0f);
                         textView2.setMaxLines(3);
-                        textView2.setLayoutParams(f20829g);
+                        textView2.setLayoutParams(f20117g);
                         SkinManager.setViewTextColor(textView2, R.color.CAM_X0105, 1);
                     } else if (i6 == 1 || (i3 = i6 % 3) == 1) {
                         textView2.setLayoutParams(layoutParams);
@@ -121,11 +121,11 @@ public class ReplyLinearLayout extends LinearLayout {
                     } else if (i3 == 2) {
                         textView2.setTextSize(15.0f);
                         textView2.setMaxLines(2);
-                        textView2.setLayoutParams(f20829g);
+                        textView2.setLayoutParams(f20117g);
                         SkinManager.setViewTextColor(textView2, R.color.CAM_X0106, 1);
                     } else if (i3 == 0) {
                         textView2.setTextSize(10.0f);
-                        textView2.setLayoutParams(f20829g);
+                        textView2.setLayoutParams(f20117g);
                         SkinManager.setViewTextColor(textView2, R.color.CAM_X0109, 1);
                     }
                     textView2.setVisibility(0);
@@ -136,7 +136,7 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
                 textView2.setText(charSequenceArr[0]);
                 textView2.setTag(charSequenceArr);
-                textView2.setOnClickListener(this.f20831f);
+                textView2.setOnClickListener(this.f20119f);
                 a(textView2, i6);
                 if (i6 != 0) {
                 }
@@ -149,7 +149,7 @@ public class ReplyLinearLayout extends LinearLayout {
 
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20831f = new a();
-        this.f20830e = new ArrayList();
+        this.f20119f = new a();
+        this.f20118e = new ArrayList();
     }
 }

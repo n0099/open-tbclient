@@ -13,24 +13,24 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f36258a;
+    public final File f35503a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f36259b;
+    public final File f35504b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36260c;
+    public String f35505c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36261d;
+    public int f35506d;
 
     public a(File file, File file2) {
-        this.f36258a = file;
-        this.f36259b = file2;
+        this.f35503a = file;
+        this.f35504b = file2;
     }
 
     public static boolean a(Context context, File file, File file2) {
@@ -87,18 +87,18 @@ public class a {
     public boolean a() {
         boolean z;
         try {
-            if (this.f36259b.exists() && this.f36258a.exists()) {
-                String[] split = StringUtil.readAll(this.f36259b).split("#####");
+            if (this.f35504b.exists() && this.f35503a.exists()) {
+                String[] split = StringUtil.readAll(this.f35504b).split("#####");
                 if (split.length == 2) {
                     String str = split[1];
                     int parseInteger = StringUtil.parseInteger(split[0], 0);
                     com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
-                    File file = this.f36258a;
+                    File file = this.f35503a;
                     if (file != null && file.exists()) {
                         z = a2.b(str, Md5Util.encode(file));
                         if (z) {
-                            this.f36260c = str;
-                            this.f36261d = parseInteger;
+                            this.f35505c = str;
+                            this.f35506d = parseInteger;
                             return true;
                         }
                     }
@@ -118,14 +118,14 @@ public class a {
         if (file == null || file2 == null) {
             return false;
         }
-        return (file.equals(this.f36258a) || FileUtil.renameTo(this.f36258a, file)) && (file2.equals(this.f36259b) || FileUtil.renameTo(this.f36259b, file2));
+        return (file.equals(this.f35503a) || FileUtil.renameTo(this.f35503a, file)) && (file2.equals(this.f35504b) || FileUtil.renameTo(this.f35504b, file2));
     }
 
     public int b() {
-        return this.f36261d;
+        return this.f35506d;
     }
 
     public String c() {
-        return this.f36260c;
+        return this.f35505c;
     }
 }

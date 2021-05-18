@@ -10,7 +10,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.fun.ad.sdk.FunAdCallback;
 import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunAdLoadListener;
@@ -405,7 +404,7 @@ public class j implements f {
                     funAdLoadListener.onError(j.this.f1048a.f1313b);
                     b();
                 } else if (!this.f1059c.hasNext() && this.f1061e.isEmpty()) {
-                    this.f1060d.a(i2, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
+                    this.f1060d.a(i2, -102);
                     a.a.a.a.x.d.a("All loader load failed, callback onError(%s)", j.this.f1048a.f1313b);
                     funAdLoadListener.onError(j.this.f1048a.f1313b);
                     b();

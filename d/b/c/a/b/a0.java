@@ -6,54 +6,54 @@ import d.b.c.a.b.v;
 import java.net.URL;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.a.b.s f64762a;
+    public final com.bytedance.sdk.a.b.s f65448a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f64763b;
+    public final String f65449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final v f64764c;
+    public final v f65450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final b0 f64765d;
+    public final b0 f65451d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f64766e;
+    public final Object f65452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile h f64767f;
+    public volatile h f65453f;
 
     public a0(a aVar) {
-        this.f64762a = aVar.f64768a;
-        this.f64763b = aVar.f64769b;
-        this.f64764c = aVar.f64770c.c();
-        this.f64765d = aVar.f64771d;
-        Object obj = aVar.f64772e;
-        this.f64766e = obj == null ? this : obj;
+        this.f65448a = aVar.f65454a;
+        this.f65449b = aVar.f65455b;
+        this.f65450c = aVar.f65456c.c();
+        this.f65451d = aVar.f65457d;
+        Object obj = aVar.f65458e;
+        this.f65452e = obj == null ? this : obj;
     }
 
     public com.bytedance.sdk.a.b.s a() {
-        return this.f64762a;
+        return this.f65448a;
     }
 
     public String b(String str) {
-        return this.f64764c.c(str);
+        return this.f65450c.c(str);
     }
 
     public String c() {
-        return this.f64763b;
+        return this.f65449b;
     }
 
     public v d() {
-        return this.f64764c;
+        return this.f65450c;
     }
 
     public b0 e() {
-        return this.f64765d;
+        return this.f65451d;
     }
 
     public a f() {
@@ -61,27 +61,27 @@ public final class a0 {
     }
 
     public h g() {
-        h hVar = this.f64767f;
+        h hVar = this.f65453f;
         if (hVar != null) {
             return hVar;
         }
-        h a2 = h.a(this.f64764c);
-        this.f64767f = a2;
+        h a2 = h.a(this.f65450c);
+        this.f65453f = a2;
         return a2;
     }
 
     public boolean h() {
-        return this.f64762a.q();
+        return this.f65448a.q();
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Request{method=");
-        sb.append(this.f64763b);
+        sb.append(this.f65449b);
         sb.append(", url=");
-        sb.append(this.f64762a);
+        sb.append(this.f65448a);
         sb.append(", tag=");
-        Object obj = this.f64766e;
+        Object obj = this.f65452e;
         if (obj == this) {
             obj = null;
         }
@@ -90,27 +90,27 @@ public final class a0 {
         return sb.toString();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bytedance.sdk.a.b.s f64768a;
+        public com.bytedance.sdk.a.b.s f65454a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f64769b;
+        public String f65455b;
 
         /* renamed from: c  reason: collision with root package name */
-        public v.a f64770c;
+        public v.a f65456c;
 
         /* renamed from: d  reason: collision with root package name */
-        public b0 f64771d;
+        public b0 f65457d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f64772e;
+        public Object f65458e;
 
         public a() {
-            this.f64769b = "GET";
-            this.f64770c = new v.a();
+            this.f65455b = "GET";
+            this.f65456c = new v.a();
         }
 
         public a a() {
@@ -119,13 +119,13 @@ public final class a0 {
         }
 
         public a b(v vVar) {
-            this.f64770c = vVar.h();
+            this.f65456c = vVar.h();
             return this;
         }
 
         public a c(com.bytedance.sdk.a.b.s sVar) {
             if (sVar != null) {
-                this.f64768a = sVar;
+                this.f65454a = sVar;
                 return this;
             }
             throw new NullPointerException("url == null");
@@ -161,8 +161,8 @@ public final class a0 {
                     } else if (b0Var == null && e.h.b(str)) {
                         throw new IllegalArgumentException("method " + str + " must have a request body.");
                     } else {
-                        this.f64769b = str;
-                        this.f64771d = b0Var;
+                        this.f65455b = str;
+                        this.f65457d = b0Var;
                         return this;
                     }
                 }
@@ -172,7 +172,7 @@ public final class a0 {
         }
 
         public a g(String str, String str2) {
-            this.f64770c.f(str, str2);
+            this.f65456c.f(str, str2);
             return this;
         }
 
@@ -199,17 +199,17 @@ public final class a0 {
         }
 
         public a k(String str) {
-            this.f64770c.d(str);
+            this.f65456c.d(str);
             return this;
         }
 
         public a l(String str, String str2) {
-            this.f64770c.b(str, str2);
+            this.f65456c.b(str, str2);
             return this;
         }
 
         public a m() {
-            j(d.b.c.a.b.a.e.f64528d);
+            j(d.b.c.a.b.a.e.f65214d);
             return this;
         }
 
@@ -224,18 +224,18 @@ public final class a0 {
         }
 
         public a0 p() {
-            if (this.f64768a != null) {
+            if (this.f65454a != null) {
                 return new a0(this);
             }
             throw new IllegalStateException("url == null");
         }
 
         public a(a0 a0Var) {
-            this.f64768a = a0Var.f64762a;
-            this.f64769b = a0Var.f64763b;
-            this.f64771d = a0Var.f64765d;
-            this.f64772e = a0Var.f64766e;
-            this.f64770c = a0Var.f64764c.h();
+            this.f65454a = a0Var.f65448a;
+            this.f65455b = a0Var.f65449b;
+            this.f65457d = a0Var.f65451d;
+            this.f65458e = a0Var.f65452e;
+            this.f65456c = a0Var.f65450c.h();
         }
     }
 }

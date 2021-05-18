@@ -28,23 +28,23 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WDownLoadService extends Service {
 
     /* renamed from: a */
-    public String f37854a;
+    public String f37099a;
 
     /* renamed from: b */
-    public String f37855b;
+    public String f37100b;
 
     /* renamed from: c */
-    public String f37856c;
+    public String f37101c;
 
     /* renamed from: d */
-    public NotificationManager f37857d;
+    public NotificationManager f37102d;
 
     /* renamed from: e */
-    public Notification f37858e;
+    public Notification f37103e;
 
     /* JADX DEBUG: Method not inlined, still used in: [com.win.opensdk.G.b():void] */
     public static /* synthetic */ void a(WDownLoadService wDownLoadService, Info info) {
@@ -57,7 +57,7 @@ public class WDownLoadService extends Service {
     }
 
     public final PendingIntent a(Info info) {
-        return PendingIntent.getActivity(this, 0, z.a(info, getApplicationContext(), this.f37854a), 134217728);
+        return PendingIntent.getActivity(this, 0, z.a(info, getApplicationContext(), this.f37099a), 134217728);
     }
 
     public void a(Info info, String str, String str2, int i2) {
@@ -93,12 +93,12 @@ public class WDownLoadService extends Service {
         builder2.setTicker(str);
         builder2.setContentIntent(i2 >= 100 ? a(info) : PendingIntent.getActivity(this, 0, new Intent(), 134217728));
         Notification build = builder2.build();
-        this.f37858e = build;
-        this.f37857d.notify(232, build);
+        this.f37103e = build;
+        this.f37102d.notify(232, build);
     }
 
     public final boolean a() {
-        File file = new File(this.f37854a);
+        File file = new File(this.f37099a);
         if (file.exists() && file.isFile()) {
             return file.delete();
         }
@@ -112,13 +112,13 @@ public class WDownLoadService extends Service {
     public final void c(Info info) {
         w0 a2 = x0.a(getApplicationContext());
         y0 y0Var = new y0(info);
-        String str = this.f37855b;
+        String str = this.f37100b;
         try {
-            a2.f37984b = x0.a("wdst", y0Var);
+            a2.f37229b = x0.a("wdst", y0Var);
             a2.a("msg", x0.a(str));
         } catch (JSONException unused) {
         }
-        String str2 = this.f37854a;
+        String str2 = this.f37099a;
         try {
             str2 = z.a(str2);
         } catch (Exception unused2) {
@@ -132,11 +132,11 @@ public class WDownLoadService extends Service {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        A a3 = A.f37602d;
-        String str3 = this.f37855b;
-        String str4 = this.f37854a;
+        A a3 = A.f36847d;
+        String str3 = this.f37100b;
+        String str4 = this.f37099a;
         G g2 = new G(this, info);
-        if (a3.f37605c) {
+        if (a3.f36850c) {
             return;
         }
         File file = new File(str4.substring(0, str4.lastIndexOf("/") + 1));
@@ -152,8 +152,8 @@ public class WDownLoadService extends Service {
             }
         }
         E e4 = new E(str3, str4, g2);
-        a3.f37604b = e4;
-        new WeakReference(a3.f37603a.submit(e4));
+        a3.f36849b = e4;
+        new WeakReference(a3.f36848a.submit(e4));
     }
 
     @Override // android.app.Service
@@ -163,16 +163,16 @@ public class WDownLoadService extends Service {
 
     @Override // android.app.Service
     public void onCreate() {
-        this.f37857d = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        this.f37102d = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
         try {
-            A.f37602d.f37605c = false;
-            if (this.f37857d != null) {
-                this.f37857d.cancel(232);
+            A.f36847d.f36850c = false;
+            if (this.f37102d != null) {
+                this.f37102d.cancel(232);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -185,15 +185,15 @@ public class WDownLoadService extends Service {
         int i4;
         Info info = null;
         try {
-            this.f37855b = intent.getStringExtra("down_load_apk_url");
-            this.f37856c = intent.getStringExtra("down_load_pkg_name");
-            this.f37854a = z.a(getApplicationContext()) + File.separator + "win" + File.separator + z.e(this.f37855b);
-            File parentFile = new File(this.f37854a).getParentFile();
+            this.f37100b = intent.getStringExtra("down_load_apk_url");
+            this.f37101c = intent.getStringExtra("down_load_pkg_name");
+            this.f37099a = z.a(getApplicationContext()) + File.separator + "win" + File.separator + z.e(this.f37100b);
+            File parentFile = new File(this.f37099a).getParentFile();
             if (!parentFile.exists()) {
                 parentFile.mkdirs();
             }
             try {
-                info = (Info) s1.b(getApplicationContext(), this.f37856c);
+                info = (Info) s1.b(getApplicationContext(), this.f37101c);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

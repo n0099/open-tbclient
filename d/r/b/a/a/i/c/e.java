@@ -3,15 +3,15 @@ package d.r.b.a.a.i.c;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67075a;
+    public int f67761a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67076b;
+    public long f67762b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67077c;
+    public String f67763c;
 
     public String toString() {
-        return "CurrencyInfo{offers_currency_type=" + this.f67075a + ", offers_currency_amount=" + this.f67076b + ", offers_currency_name='" + this.f67077c + "'}";
+        return "CurrencyInfo{offers_currency_type=" + this.f67761a + ", offers_currency_amount=" + this.f67762b + ", offers_currency_name='" + this.f67763c + "'}";
     }
 }

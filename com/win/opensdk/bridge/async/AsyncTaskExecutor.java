@@ -5,11 +5,11 @@ import android.os.Looper;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AsyncTaskExecutor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ThreadPoolExecutor f37835a = new ThreadPoolExecutor(3, 3, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
+    public static final ThreadPoolExecutor f37080a = new ThreadPoolExecutor(3, 3, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
 
     public static boolean isMainThread() {
         return Looper.myLooper() == Looper.getMainLooper();
@@ -19,7 +19,7 @@ public class AsyncTaskExecutor {
         if (runnable == null) {
             return;
         }
-        f37835a.execute(runnable);
+        f37080a.execute(runnable);
     }
 
     public static void runOnMainThread(Runnable runnable) {
@@ -30,10 +30,10 @@ public class AsyncTaskExecutor {
     }
 
     public static void shutDown() {
-        ThreadPoolExecutor threadPoolExecutor = f37835a;
-        if (threadPoolExecutor == null || threadPoolExecutor.isShutdown() || f37835a.isTerminating()) {
+        ThreadPoolExecutor threadPoolExecutor = f37080a;
+        if (threadPoolExecutor == null || threadPoolExecutor.isShutdown() || f37080a.isTerminating()) {
             return;
         }
-        f37835a.shutdown();
+        f37080a.shutdown();
     }
 }

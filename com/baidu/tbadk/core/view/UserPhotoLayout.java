@@ -48,10 +48,10 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public static class b implements d.a.c.e.k.c<HeadImageView> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f13195a;
+        public final /* synthetic */ Context f12531a;
 
         public b(Context context) {
-            this.f13195a = context;
+            this.f12531a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -90,7 +90,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // d.a.c.e.k.c
         /* renamed from: g */
         public HeadImageView d() {
-            return new HeadImageView(this.f13195a);
+            return new HeadImageView(this.f12531a);
         }
 
         public HeadImageView h(HeadImageView headImageView) {
@@ -106,7 +106,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f13196e;
+        public final int f12532e;
 
         public /* synthetic */ c(UserPhotoLayout userPhotoLayout, int i2, a aVar) {
             this(i2);
@@ -115,12 +115,12 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (UserPhotoLayout.this.mChildClickListener != null) {
-                UserPhotoLayout.this.mChildClickListener.a(this.f13196e);
+                UserPhotoLayout.this.mChildClickListener.a(this.f12532e);
             }
         }
 
         public c(int i2) {
-            this.f13196e = i2;
+            this.f12532e = i2;
         }
     }
 
@@ -133,16 +133,16 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public static class e implements AbsListView.RecyclerListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13198e;
+        public int f12534e;
 
         public e(int i2) {
-            this.f13198e = 0;
-            this.f13198e = i2;
+            this.f12534e = 0;
+            this.f12534e = i2;
         }
 
         @Override // android.widget.AbsListView.RecyclerListener
         public void onMovedToScrapHeap(View view) {
-            View findViewById = view.findViewById(this.f13198e);
+            View findViewById = view.findViewById(this.f12534e);
             if (findViewById == null || !(findViewById instanceof UserPhotoLayout)) {
                 return;
             }

@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.StreamCorruptedException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class s1 {
     public static long a(Context context) {
         return context.getSharedPreferences("_prefs", 0).getLong("bdts", 0L);

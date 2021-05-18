@@ -9,22 +9,22 @@ public class a {
 
     /* renamed from: d.a.g0.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class RunnableC0551a implements Runnable {
+    public static class RunnableC0538a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC0549a f40787e;
+        public final /* synthetic */ a.InterfaceC0536a f40032e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f40788f;
+        public final /* synthetic */ String f40033f;
 
-        public RunnableC0551a(a.InterfaceC0549a interfaceC0549a, String str) {
-            this.f40787e = interfaceC0549a;
-            this.f40788f = str;
+        public RunnableC0538a(a.InterfaceC0536a interfaceC0536a, String str) {
+            this.f40032e = interfaceC0536a;
+            this.f40033f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f40787e.onFinish(this.f40788f);
+            this.f40032e.onFinish(this.f40033f);
         }
     }
 
@@ -32,19 +32,19 @@ public class a {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC0549a f40789e;
+        public final /* synthetic */ a.InterfaceC0536a f40034e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f40790f;
+        public final /* synthetic */ String f40035f;
 
-        public b(a.InterfaceC0549a interfaceC0549a, String str) {
-            this.f40789e = interfaceC0549a;
-            this.f40790f = str;
+        public b(a.InterfaceC0536a interfaceC0536a, String str) {
+            this.f40034e = interfaceC0536a;
+            this.f40035f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f40789e.onFinish(this.f40790f);
+            this.f40034e.onFinish(this.f40035f);
         }
     }
 
@@ -52,19 +52,19 @@ public class a {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC0549a f40791e;
+        public final /* synthetic */ a.InterfaceC0536a f40036e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f40792f;
+        public final /* synthetic */ String f40037f;
 
-        public c(a.InterfaceC0549a interfaceC0549a, String str) {
-            this.f40791e = interfaceC0549a;
-            this.f40792f = str;
+        public c(a.InterfaceC0536a interfaceC0536a, String str) {
+            this.f40036e = interfaceC0536a;
+            this.f40037f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f40791e.onFinish(this.f40792f);
+            this.f40036e.onFinish(this.f40037f);
         }
     }
 
@@ -72,19 +72,19 @@ public class a {
     public static class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC0549a f40793e;
+        public final /* synthetic */ a.InterfaceC0536a f40038e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f40794f;
+        public final /* synthetic */ String f40039f;
 
-        public d(a.InterfaceC0549a interfaceC0549a, String str) {
-            this.f40793e = interfaceC0549a;
-            this.f40794f = str;
+        public d(a.InterfaceC0536a interfaceC0536a, String str) {
+            this.f40038e = interfaceC0536a;
+            this.f40039f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f40793e.onFinish(this.f40794f);
+            this.f40038e.onFinish(this.f40039f);
         }
     }
 
@@ -110,37 +110,37 @@ public class a {
         return UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE;
     }
 
-    public static synchronized void b(a.InterfaceC0549a interfaceC0549a, h hVar, int i2, boolean z) {
+    public static synchronized void b(a.InterfaceC0536a interfaceC0536a, h hVar, int i2, boolean z) {
         synchronized (a.class) {
             if (hVar != null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", hVar.f40869a);
-                    jSONObject.put("1", hVar.f40870b);
-                    jSONObject.put("2", String.valueOf(hVar.f40871c));
-                    jSONObject.put("3", hVar.f40872d);
+                    jSONObject.put("0", hVar.f40114a);
+                    jSONObject.put("1", hVar.f40115b);
+                    jSONObject.put("2", String.valueOf(hVar.f40116c));
+                    jSONObject.put("3", hVar.f40117d);
                     String jSONObject2 = jSONObject.toString();
-                    if (interfaceC0549a != null) {
+                    if (interfaceC0536a != null) {
                         if (i2 == 1) {
                             if (z) {
                                 d.a.g0.c.a.c().f(false);
                             }
-                            new Thread(new RunnableC0551a(interfaceC0549a, jSONObject2)).start();
+                            new Thread(new RunnableC0538a(interfaceC0536a, jSONObject2)).start();
                         } else if (i2 == 2) {
                             if (z) {
                                 d.a.g0.c.a.c().d(false);
                             }
-                            new Thread(new b(interfaceC0549a, jSONObject2)).start();
+                            new Thread(new b(interfaceC0536a, jSONObject2)).start();
                         } else if (i2 == 3) {
                             if (z) {
                                 d.a.g0.c.a.c().j(false);
                             }
-                            new Thread(new c(interfaceC0549a, jSONObject2)).start();
+                            new Thread(new c(interfaceC0536a, jSONObject2)).start();
                         } else {
                             if (z) {
                                 d.a.g0.c.a.c().m(false);
                             }
-                            new Thread(new d(interfaceC0549a, jSONObject2)).start();
+                            new Thread(new d(interfaceC0536a, jSONObject2)).start();
                         }
                     }
                 } catch (Throwable th) {

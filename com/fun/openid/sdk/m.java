@@ -7,23 +7,23 @@ import java.lang.reflect.Method;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f31552a;
+    public static Object f30797a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f31553b;
+    public static Class<?> f30798b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f31554c;
+    public static Method f30799c;
 
     static {
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f31553b = cls;
-            f31552a = cls.newInstance();
-            f31553b.getMethod("getUDID", Context.class);
-            f31554c = f31553b.getMethod("getOAID", Context.class);
-            f31553b.getMethod("getVAID", Context.class);
-            f31553b.getMethod("getAAID", Context.class);
+            f30798b = cls;
+            f30797a = cls.newInstance();
+            f30798b.getMethod("getUDID", Context.class);
+            f30799c = f30798b.getMethod("getOAID", Context.class);
+            f30798b.getMethod("getVAID", Context.class);
+            f30798b.getMethod("getAAID", Context.class);
         } catch (Exception e2) {
             Log.e("IdentifierManager", "reflect exception!", e2);
         }

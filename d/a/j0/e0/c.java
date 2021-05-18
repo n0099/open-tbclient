@@ -1,169 +1,37 @@
 package d.a.j0.e0;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.tieba.dnsproxy.DnsProxyResponseData;
-import d.a.c.e.d.l;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes4.dex */
-public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
+import androidx.fragment.app.Fragment;
+/* loaded from: classes3.dex */
+public class c {
+    public static int j = 1;
+    public static int k = 2;
+    public static int l = 3;
+    public static int m = 4;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f53371a;
+    public Fragment f49290a;
 
-    public c(boolean z) {
-        this.f53371a = z;
-        setPriority(4);
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public int f49291b;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x027f  */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x02ab  */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> doInBackground(Collection<String>... collectionArr) {
-        Collection<String> collection;
-        String message;
-        String str;
-        StringBuilder sb;
-        l<String> c2 = BdCacheService.l().c("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-        if (this.f53371a) {
-            String str2 = c2.get("dnsproxycachedata");
-            if (str2 != null) {
-                DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) OrmObject.objectWithJsonStr(str2, DnsProxyResponseData.class);
-                if (dnsProxyResponseData != null && dnsProxyResponseData.getErrno() == 0) {
-                    List<HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> data = dnsProxyResponseData.getData();
-                    HashMap hashMap = new HashMap(data.size());
-                    for (HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap2 : data) {
-                        for (Map.Entry<String, List<DnsProxyResponseData.DnsProxyIpData>> entry : hashMap2.entrySet()) {
-                            hashMap.put(entry.getKey(), entry.getValue());
-                        }
-                    }
-                    publishProgress(hashMap);
-                } else {
-                    publishProgress(null);
-                }
-            } else {
-                publishProgress(null);
-            }
-            return null;
-        }
-        try {
-            Thread.sleep(2000L);
-        } catch (InterruptedException e2) {
-            e2.printStackTrace();
-        }
-        if (collectionArr == null || collectionArr.length != 1 || (collection = collectionArr[0]) == null) {
-            return null;
-        }
-        String a2 = new a().a();
-        StringBuilder sb2 = new StringBuilder();
-        for (String str3 : collection) {
-            if (sb2.length() > 0) {
-                sb2.append(",");
-            }
-            sb2.append(str3);
-        }
-        String str4 = "http://" + a2 + "/domains/resolve?domains=" + ((Object) sb2) + "&t=" + System.currentTimeMillis();
-        d.a.c.e.j.a.e eVar = new d.a.c.e.j.a.e();
-        d.a.c.e.j.a.c cVar = new d.a.c.e.j.a.c(eVar);
-        eVar.b().s(str4);
-        cVar.e(-1, -1, -1);
-        byte[] bArr = eVar.c().f39739h;
-        if (bArr != null) {
-            try {
-                str = new String(bArr, "UTF-8");
-                message = null;
-            } catch (Throwable th) {
-                message = th.getMessage();
-                str = null;
-            }
-            DnsProxyResponseData dnsProxyResponseData2 = (DnsProxyResponseData) OrmObject.objectWithJsonStr(str, DnsProxyResponseData.class);
-            if (dnsProxyResponseData2 != null && dnsProxyResponseData2.getErrno() == 0) {
-                sb = new StringBuilder();
-                List<HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> data2 = dnsProxyResponseData2.getData();
-                HashSet hashSet = new HashSet();
-                HashMap hashMap3 = new HashMap(data2.size());
-                for (HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap4 : data2) {
-                    for (Map.Entry<String, List<DnsProxyResponseData.DnsProxyIpData>> entry2 : hashMap4.entrySet()) {
-                        hashMap3.put(entry2.getKey(), entry2.getValue());
-                    }
-                }
-                for (Map.Entry entry3 : hashMap3.entrySet()) {
-                    List<DnsProxyResponseData.DnsProxyIpData> list = (List) entry3.getValue();
-                    if (list != null && list.size() > 0) {
-                        StringBuilder sb3 = new StringBuilder();
-                        for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData : list) {
-                            if (dnsProxyIpData != null) {
-                                hashSet.add(dnsProxyIpData.getIp());
-                                if (sb3.length() > 0) {
-                                    sb3.append(",");
-                                }
-                                sb3.append(dnsProxyIpData.getIp());
-                            }
-                        }
-                        if (sb3.length() > 0) {
-                            sb3.insert(0, ":");
-                            sb3.insert(0, (String) entry3.getKey());
-                            if (sb.length() > 0) {
-                                sb.append(";");
-                            }
-                            sb.append((CharSequence) sb3);
-                        }
-                    }
-                }
-                b.a().b(hashSet);
-                publishProgress(hashMap3);
-                c2.g("dnsproxycachedata", str);
-                if (!TextUtils.isEmpty(message)) {
-                    d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-                    statsItem.b("workflow", "dnsproxy_get");
-                    statsItem.c("issuc", Boolean.TRUE);
-                    statsItem.b("comment", sb == null ? "" : sb.toString());
-                    BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                } else {
-                    d.a.c.e.n.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
-                    statsItem2.b("workflow", "dnsproxy_get");
-                    statsItem2.c("issuc", Boolean.FALSE);
-                    statsItem2.b("comment", message);
-                    BdStatisticsManager.getInstance().debug("dnsproxy", statsItem2);
-                }
-                return null;
-            } else if (dnsProxyResponseData2 == null) {
-                message = "parser response error return null";
-            } else {
-                message = dnsProxyResponseData2.getErrno() + " " + dnsProxyResponseData2.getErrmsg();
-            }
-        } else if (eVar.a() != null) {
-            message = eVar.a().f39719h;
-        } else {
-            StringBuilder sb4 = new StringBuilder();
-            List<d.a.c.e.j.a.d> d2 = eVar.d();
-            if (d2 != null) {
-                for (d.a.c.e.j.a.d dVar : d2) {
-                    if (dVar != null && !TextUtils.isEmpty(dVar.f39719h)) {
-                        if (sb4.length() > 0) {
-                            sb4.append(",");
-                        }
-                        sb4.append(dVar.f39719h);
-                    }
-                }
-            }
-            message = sb4.length() <= 0 ? "http get data is null" : sb4.toString();
-        }
-        sb = null;
-        if (!TextUtils.isEmpty(message)) {
-        }
-        return null;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public String f49292c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f49293d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f49294e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f49295f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f49296g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public d.a.j0.e0.e.a f49297h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f49298i = j;
 }

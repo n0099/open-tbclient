@@ -13,54 +13,56 @@ import com.baidu.webkit.sdk.WebViewRendererService;
 import com.baidu.webkit.sdk.dumper.ZeusLogUploader;
 import com.baidu.webkit.sdk.jschecker.BdJsCheckPolicy;
 import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
+import com.baidu.webkit.sdk.performance.UMALogger;
 import java.net.HttpURLConnection;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Observable;
 /* loaded from: classes5.dex */
-public abstract class WebViewFactoryProvider extends Observable {
+public abstract class WebViewFactoryProvider {
     public static final String LOG_TAG = "WebViewFactoryProvider";
     public static final String SETTING_AD_BLOCK = "ADBlock";
+    public static final Boolean SETTING_AD_BLOCK_VALUE;
     public static final String SETTING_DEBUG = "Debug";
+    public static final Boolean SETTING_DEBUG_VALUE;
     public static final String SETTING_ENABLE_JS_PROMPT = "JsPromptEnable";
+    public static final Boolean SETTING_ENABLE_JS_PROMPT_VALUE;
     public static final String SETTING_EYE_SHIELD_MODE = "EyeShieldMode";
+    public static final Boolean SETTING_EYE_SHIELD_MODE_VALUE;
     public static final String SETTING_FIX_WEBVIEW_HOLES = "FixWebViewSecurityHoles";
     public static final String SETTING_GIF_FIRST_FRAME = "GifFirstFrameOnly";
+    public static final Boolean SETTING_GIF_FIRST_FRAME_VALUE;
     public static final String SETTING_JS_CHECK_POLICY = "JsCheckPolicy";
+    public static final BdJsCheckPolicy SETTING_JS_CHECK_POLICY_VALUE;
     public static final String SETTING_JS_ENABLE_ON_FILE_SCHEMA = "JavaScriptEnabledOnFileScheme";
     public static final String SETTING_MONITOR = "Monitor";
+    public static final Boolean SETTING_MONITOR_VALUE;
     public static final String SETTING_NA2_WEB_ENABLE = "NA2WebEnable";
+    public static final Boolean SETTING_NA2_WEB_VALUE;
     public static final String SETTING_NIGHT_THEME = "NightTheme";
+    public static final Boolean SETTING_NIGHT_THEME_VALUE;
     public static final String SETTING_NO_IMAGE_MODE = "NoImageMode";
+    public static final Boolean SETTING_NO_IMAGE_MODE_VALUE;
     public static final String SETTING_PAGE_FREEZE = "PageFreeze";
     public static final String SETTING_PROXY_TYPE = "ProxyType";
+    public static final Integer SETTING_PROXY_TYPE_VALUE;
     public static final String SETTING_SAVE_FLOW = "SaveFlow";
+    public static final Boolean SETTING_SAVE_FLOW_VALUE;
     public static final String SETTING_SPDY = "Spdy";
+    public static final Boolean SETTING_SPDY_VALUE;
     public static final String SETTING_UA_EMULATE = "UaEmulate";
+    public static final Boolean SETTING_UA_EMULATE_VALUE;
     public static final String SETTING_URL_SAFE_CHECK = "UrlSafeCheck";
+    public static final Boolean SETTING_URL_SAFE_CHECK_VALUE;
     public static final int STATIC_SETTING_SIZE = 16;
     public HashMap<String, Object> mStaticWebSettings;
-    public static final Boolean SETTING_JS_ENABLE_ON_FILE_SCHEMA_VALUE = new Boolean(false);
-    public static final Boolean SETTING_FIX_WEBVIEW_HOLES_VALUE = new Boolean(true);
-    public static final Boolean SETTING_AD_BLOCK_VALUE = new Boolean(false);
-    public static final Boolean SETTING_URL_SAFE_CHECK_VALUE = new Boolean(false);
-    public static final Boolean SETTING_SPDY_VALUE = new Boolean(false);
-    public static final Boolean SETTING_SAVE_FLOW_VALUE = new Boolean(false);
-    public static final Boolean SETTING_GIF_FIRST_FRAME_VALUE = new Boolean(false);
-    public static final Boolean SETTING_DEBUG_VALUE = new Boolean(false);
-    public static final Boolean SETTING_MONITOR_VALUE = new Boolean(false);
-    public static final Integer SETTING_PROXY_TYPE_VALUE = new Integer(WebSettings.ProxyType.NO_PROXY.ordinal());
-    public static final Boolean SETTING_UA_EMULATE_VALUE = new Boolean(false);
-    public static final Boolean SETTING_ENABLE_JS_PROMPT_VALUE = new Boolean(false);
-    public static final BdJsCheckPolicy SETTING_JS_CHECK_POLICY_VALUE = null;
-    public static final Boolean SETTING_NIGHT_THEME_VALUE = new Boolean(false);
-    public static final Boolean SETTING_EYE_SHIELD_MODE_VALUE = new Boolean(false);
-    public static final Boolean SETTING_NO_IMAGE_MODE_VALUE = new Boolean(false);
-    public static final Boolean SETTING_NA2_WEB_VALUE = new Boolean(false);
+    public static final Boolean SETTING_JS_ENABLE_ON_FILE_SCHEMA_VALUE = Boolean.FALSE;
+    public static final Boolean SETTING_FIX_WEBVIEW_HOLES_VALUE = Boolean.TRUE;
 
     /* loaded from: classes5.dex */
     public interface SettingsStatics {
+        void addPreConnectPrefixes(String str);
+
         boolean canUseFreeFlow();
 
         void clearNetworkFlow();
@@ -115,11 +117,17 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         WebSettings.ImgQuality getImgQuality();
 
+        boolean getInNovelSiteList(String str);
+
+        boolean getInVideoSiteList(String str);
+
         boolean getIpv6Env();
 
         int getKeepAliveTime();
 
         Context getKernelContext();
+
+        int getLevelInfo(String str);
 
         String getLocalDns();
 
@@ -182,6 +190,8 @@ public abstract class WebViewFactoryProvider extends Observable {
         boolean getSessionHeaderEnabled();
 
         String getSessionUploadUrl();
+
+        int getSiteTypeInfo(String str);
 
         String getSkeletonJsUrl();
 
@@ -305,6 +315,8 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void setImproveContentCache(boolean z);
 
+        void setInPageJudgeWhiteList(boolean z, boolean z2);
+
         void setIpv6First(boolean z);
 
         void setKeepAliveTime(int i2);
@@ -389,6 +401,8 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         boolean shouldAccessNetworkOverSpdy(String str);
 
+        void updateFixAdblockLevelInfo(String str, int i2, int i3);
+
         boolean useCronet();
     }
 
@@ -449,6 +463,30 @@ public abstract class WebViewFactoryProvider extends Observable {
         void resolveUrl(String str);
 
         void setWebContentsDebuggingEnabled(boolean z);
+    }
+
+    static {
+        Boolean bool = Boolean.FALSE;
+        SETTING_AD_BLOCK_VALUE = bool;
+        SETTING_URL_SAFE_CHECK_VALUE = bool;
+        SETTING_SPDY_VALUE = bool;
+        SETTING_SAVE_FLOW_VALUE = bool;
+        SETTING_GIF_FIRST_FRAME_VALUE = bool;
+        SETTING_DEBUG_VALUE = bool;
+        SETTING_MONITOR_VALUE = bool;
+        SETTING_PROXY_TYPE_VALUE = new Integer(WebSettings.ProxyType.NO_PROXY.ordinal());
+        Boolean bool2 = Boolean.FALSE;
+        SETTING_UA_EMULATE_VALUE = bool2;
+        SETTING_ENABLE_JS_PROMPT_VALUE = bool2;
+        SETTING_JS_CHECK_POLICY_VALUE = null;
+        SETTING_NIGHT_THEME_VALUE = bool2;
+        SETTING_EYE_SHIELD_MODE_VALUE = bool2;
+        SETTING_NO_IMAGE_MODE_VALUE = bool2;
+        SETTING_NA2_WEB_VALUE = bool2;
+    }
+
+    public String[] GetKernelInfo() {
+        return new String[0];
     }
 
     public void RecordUrl(String str) {
@@ -532,6 +570,10 @@ public abstract class WebViewFactoryProvider extends Observable {
     }
 
     public TracingController getTracingController() {
+        return null;
+    }
+
+    public UMALogger getUMALogger() {
         return null;
     }
 

@@ -10,48 +10,48 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.e.b.f.u;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile e f66484d;
+    public static volatile e f67170d;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile SparseArray<Boolean> f66485a = new SparseArray<>();
+    public volatile SparseArray<Boolean> f67171a = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f66486b = new Handler(Looper.getMainLooper());
+    public Handler f67172b = new Handler(Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile List<d.o.a.e.b.f.g> f66487c = new ArrayList();
+    public volatile List<d.o.a.e.b.f.g> f67173c = new ArrayList();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f66488e;
+        public final /* synthetic */ m f67174e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.e.b.n.a f66489f;
+        public final /* synthetic */ d.o.a.e.b.n.a f67175f;
 
         public a(e eVar, m mVar, d.o.a.e.b.n.a aVar) {
-            this.f66488e = mVar;
-            this.f66489f = aVar;
+            this.f67174e = mVar;
+            this.f67175f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f66488e.b(this.f66489f);
+            this.f67174e.b(this.f67175f);
         }
     }
 
     public static e c() {
-        if (f66484d == null) {
+        if (f67170d == null) {
             synchronized (e.class) {
-                f66484d = new e();
+                f67170d = new e();
             }
         }
-        return f66484d;
+        return f67170d;
     }
 
     public List<DownloadInfo> A(String str) {
@@ -206,7 +206,7 @@ public class e {
         if (t == null) {
             return;
         }
-        t.g(i2, bVar == null ? 0 : bVar.hashCode(), bVar, gVar, z);
+        t.h(i2, bVar == null ? 0 : bVar.hashCode(), bVar, gVar, z);
     }
 
     public void g(int i2, d.o.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z, boolean z2) {
@@ -214,7 +214,7 @@ public class e {
         if (t == null) {
             return;
         }
-        t.d(i2, bVar.hashCode(), bVar, gVar, z, z2);
+        t.e(i2, bVar.hashCode(), bVar, gVar, z, z2);
     }
 
     public void h(int i2, boolean z) {
@@ -246,7 +246,7 @@ public class e {
                 d.o.a.e.b.e.a.e(aVar.O(), aVar.H(), new BaseException(1003, "tryDownload but getDownloadHandler failed"), aVar.H() != null ? aVar.H().H0() : 0);
             }
         } else if (aVar.W()) {
-            this.f66486b.postDelayed(new a(this, n, aVar), 500L);
+            this.f67172b.postDelayed(new a(this, n, aVar), 500L);
         } else {
             n.b(aVar);
         }
@@ -272,10 +272,10 @@ public class e {
     }
 
     public synchronized int m(int i2) {
-        if (this.f66485a.get(i2) == null) {
+        if (this.f67171a.get(i2) == null) {
             return -1;
         }
-        return this.f66485a.get(i2).booleanValue() ? 1 : 0;
+        return this.f67171a.get(i2).booleanValue() ? 1 : 0;
     }
 
     public final m n(d.o.a.e.b.n.a aVar) {
@@ -327,8 +327,8 @@ public class e {
     }
 
     public void p() {
-        synchronized (this.f66487c) {
-            for (d.o.a.e.b.f.g gVar : this.f66487c) {
+        synchronized (this.f67173c) {
+            for (d.o.a.e.b.f.g gVar : this.f67173c) {
                 if (gVar != null) {
                     gVar.a();
                 }
@@ -341,11 +341,11 @@ public class e {
         if (t == null) {
             return;
         }
-        t.f(i2, bVar.hashCode(), bVar, gVar, z);
+        t.g(i2, bVar.hashCode(), bVar, gVar, z);
     }
 
     public synchronized void r(int i2, boolean z) {
-        this.f66485a.put(i2, z ? Boolean.TRUE : Boolean.FALSE);
+        this.f67171a.put(i2, z ? Boolean.TRUE : Boolean.FALSE);
     }
 
     public void s(List<String> list) {

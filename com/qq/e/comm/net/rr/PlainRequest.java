@@ -3,7 +3,7 @@ package com.qq.e.comm.net.rr;
 import com.qq.e.comm.net.rr.Request;
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PlainRequest extends AbstractRequest {
     public PlainRequest(String str, Request.Method method, byte[] bArr) {
         super(str, method, bArr);

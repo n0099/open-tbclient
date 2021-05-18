@@ -196,7 +196,7 @@ public class JsUploadTask implements INoProGuard {
                 addRawLogItem(sb2, ETAG.KEY_SPDY, shouldAccessNetworkOverSpdy);
                 addRawLogItem(sb2, ETAG.KEY_SPDY31, spdy31Enabled);
                 addRawLogItem(sb2, ETAG.KEY_HTTP2_WORMHOLE, http2Enabled);
-                Log.w(TAG, "[mohao] HTTP2_WORMHOLE: " + http2Enabled);
+                Log.w(TAG, "[mohao] HTTP2_WORMHOLE: ".concat(String.valueOf(http2Enabled)));
                 addRawLogItem(sb2, "zeus_ver", mZeusVer);
                 addRawLogItem(sb2, ETAG.KEY_FIRST_SCREEN, mFirstScreenTime);
                 addRawLogItem(sb2, ETAG.KEY_IS_MOBILE_SITE, mIsMobileSite);
@@ -240,9 +240,9 @@ public class JsUploadTask implements INoProGuard {
                         CloudSettings.a aVar = CloudSettings.NetRecordList.get(0);
                         CloudSettings.NetRecordList.remove(0);
                         Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
-                        jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f27418c);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f27416a);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f27417b);
+                        jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f26670c);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f26668a);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f26669b);
                     }
                     if (WebSettingsGlobalBlink.isFeedProxyAdUrl(mCurrentUrl)) {
                         jSONObject.put(ETAG.KEY_FEED_PROXY_AD, 1);
@@ -256,7 +256,7 @@ public class JsUploadTask implements INoProGuard {
                     jSONObject.put("WormholeForbidenHost", WebSettingsGlobalBlink.getWormholeForbidenHost());
                     jSONObject.put(ETAG.KEY_FREE_FLOW_ENABLE, WebSettingsGlobalBlink.canUseFreeFlow());
                     String jSONObject2 = jSONObject.toString();
-                    Log.w(TAG, "[mohao] extension: " + jSONObject2);
+                    Log.w(TAG, "[mohao] extension: ".concat(String.valueOf(jSONObject2)));
                     addRawLogItem(sb2, ETAG.KEY_EXTENSION, jSONObject2);
                 } catch (Exception e2) {
                     e2.printStackTrace();

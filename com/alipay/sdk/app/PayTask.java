@@ -15,7 +15,6 @@ import com.alipay.sdk.util.l;
 import com.alipay.sdk.util.n;
 import com.baidu.android.lbspay.channelpay.alipay.Result;
 import com.baidu.android.lbspay.presenter.LBSTransAuthPresenter;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
@@ -263,7 +262,7 @@ public class PayTask {
                             a(true, false, "pay_phase_id", sb, b2, "payPhaseId", "pay_phase_id", "out_relation_id");
                             sb.append("&biz_sub_type=\"TRADE\"");
                             sb.append("&biz_type=\"trade\"");
-                            String str2 = b2.get(DpStatConstants.KEY_APP_NAME);
+                            String str2 = b2.get("app_name");
                             if (TextUtils.isEmpty(str2) && !TextUtils.isEmpty(b2.get(IAdRequestParam.CELL_ID))) {
                                 str2 = "ali1688";
                             } else if (TextUtils.isEmpty(str2) && (!TextUtils.isEmpty(b2.get("sid")) || !TextUtils.isEmpty(b2.get("s_id")))) {
@@ -294,7 +293,7 @@ public class PayTask {
                         String a3 = a(parse.getQueryParameter("trade_nos"), parse.getQueryParameter("alipay_trade_no"));
                         String a4 = a(parse.getQueryParameter("payPhaseId"), parse.getQueryParameter("pay_phase_id"), parse.getQueryParameter("out_relation_id"));
                         String[] strArr = new String[4];
-                        strArr[0] = parse.getQueryParameter(DpStatConstants.KEY_APP_NAME);
+                        strArr[0] = parse.getQueryParameter("app_name");
                         strArr[1] = !TextUtils.isEmpty(parse.getQueryParameter(IAdRequestParam.CELL_ID)) ? "ali1688" : "";
                         strArr[2] = !TextUtils.isEmpty(parse.getQueryParameter("sid")) ? TbConfig.PassConfig.TPL : "";
                         strArr[3] = !TextUtils.isEmpty(parse.getQueryParameter("s_id")) ? TbConfig.PassConfig.TPL : "";

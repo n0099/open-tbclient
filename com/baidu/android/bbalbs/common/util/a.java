@@ -1,15 +1,190 @@
 package com.baidu.android.bbalbs.common.util;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
-import com.baidu.webkit.internal.Base64;
-import com.baidu.webkit.internal.utils.UtilsBlink;
-import io.flutter.plugin.common.StandardMessageCodec;
-import kotlin.jvm.internal.ByteCompanionObject;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.JsonReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.StringReader;
 /* loaded from: classes.dex */
 public final class a {
-    public static byte[] a() {
-        return new byte[]{48, -126, 3, 99, 48, -126, 2, 75, -96, 3, 2, 1, 2, 2, 4, 106, -93, 120, 122, 48, 13, 6, 9, 42, -122, 72, -122, -9, 13, 1, 1, 11, 5, 0, 48, 97, 49, 11, 48, 9, 6, 3, 85, 4, 6, 19, 2, 99, 110, 49, 16, 48, 14, 6, 3, 85, 4, 8, 19, 7, 98, Constants.SHORT_PING_CMD_TYPE, 105, 106, 105, 110, 103, 49, 16, 48, 14, 6, 3, 85, 4, 7, 19, 7, 104, 97, 105, 100, 105, 97, 110, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 10, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 11, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 3, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 48, 32, 23, 13, 49, 53, 49, 48, 50, 49, 48, 52, 51, 54, 51, 55, 90, 24, 15, 50, 48, 55, 48, 48, 55, 50, 52, 48, 52, 51, 54, 51, 55, 90, 48, 97, 49, 11, 48, 9, 6, 3, 85, 4, 6, 19, 2, 99, 110, 49, 16, 48, 14, 6, 3, 85, 4, 8, 19, 7, 98, Constants.SHORT_PING_CMD_TYPE, 105, 106, 105, 110, 103, 49, 16, 48, 14, 6, 3, 85, 4, 7, 19, 7, 104, 97, 105, 100, 105, 97, 110, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 10, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 11, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 3, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 48, -126, 1, 34, 48, 13, 6, 9, 42, -122, 72, -122, -9, 13, 1, 1, 1, 5, 0, 3, -126, 1, 15, 0, 48, -126, 1, 10, 2, -126, 1, 1, 0, -86, -91, -2, -41, ByteCompanionObject.MAX_VALUE, 37, -25, -33, 93, 51, -73, 32, -81, 61, 108, 37, 126, 14, -125, 125, -55, -29, 34, -60, 84, -67, -46, 125, -93, -67, -27, 97, 54, Base64.INTERNAL_PADDING, 0, -6, 83, 67, -116, 43, -24, 26, 88, -5, PublicSuffixDatabase.EXCEPTION_MARKER, 27, -105, 49, 76, -70, -32, 105, -48, 67, 69, 102, -111, -81, 93, -103, -18, 17, 55, 81, -34, -80, -76, -13, -84, 6, 91, 10, 48, -56, -1, UtilsBlink.VER_TYPE_SEPARATOR, 9, 23, 34, 6, 103, Base64.INTERNAL_PADDING, -51, 29, 70, -19, -51, 20, -39, -43, -97, 75, 23, -124, -101, -71, -75, -107, -88, -13, -71, 80, 90, -76, -119, 51, -80, 118, ByteCompanionObject.MIN_VALUE, -12, -108, 98, -29, -27, 60, -119, -74, 110, 61, 51, -22, 53, 66, -99, -45, -25, 111, -121, 25, -72, ByteCompanionObject.MAX_VALUE, 3, 51, -100, 57, -90, 116, -59, -117, 74, -71, 121, 59, 19, -8, -109, PublicSuffixDatabase.EXCEPTION_MARKER, -14, 76, -105, -127, -23, 5, 99, -82, 22, -99, 51, 78, -26, 77, -52, -29, 121, 42, -76, 20, 2, 116, 111, -76, 2, -78, -90, -54, 81, 115, 82, 50, 124, -83, 96, 20, -40, -118, 105, 90, -70, 120, -33, -110, StandardMessageCodec.LIST, -15, 38, 34, -125, -116, 69, -54, -103, -109, -124, 26, 94, -89, -98, -11, -66, 89, 48, -68, -51, 107, -60, StandardMessageCodec.LIST, 114, -71, 119, 49, -31, -65, 113, -99, 3, -90, 79, -88, -38, -87, -25, -38, 41, 110, -25, 29, 49, 124, -76, -91, 77, -11, -90, 114, -63, 118, -22, -5, -124, 19, 22, -74, -75, 78, 28, 47, -69, 2, 3, 1, 0, 1, -93, PublicSuffixDatabase.EXCEPTION_MARKER, 48, 31, 48, 29, 6, 3, 85, 29, 14, 4, 22, 4, 20, -41, -108, PublicSuffixDatabase.EXCEPTION_MARKER, -126, -103, Base64.INTERNAL_PADDING, 115, -83, 99, 110, -39, 110, -125, -118, -69, 87, -103, 30, StandardMessageCodec.LIST, -53, 48, 13, 6, 9, 42, -122, 72, -122, -9, 13, 1, 1, 11, 5, 0, 3, -126, 1, 1, 0, 0, -117, 0, -28, 51, 26, -4, -15, 86, ByteCompanionObject.MAX_VALUE, 14, -101, -48, 121, 115, -53, -72, -22, 4, -83, 49, 106, -15, -44, -116, -105, 19, 65, -32, 65, 92, 21, 51, 61, -21, -74, 71, 91, 64, 75, -72, -48, 102, 17, -120, -23, -68, 51, 23, -104, 107, 65, -30, 109, -6, 46, -44, -46, -73, -54, -55, 63, 77, -54, -11, -51, 27, -1, 114, 86, -80, 28, -89, 29, -20, 49, -8, 57, -7, -30, 61, -108, -6, -60, 113, UtilsBlink.VER_TYPE_SEPARATOR, -32, -93, 19, -62, -89, 106, 91, 96, -48, 90, -59, 46, 104, 111, -88, 51, -39, 40, -36, -113, 86, -92, 25, 30, 94, -13, -15, -57, 59, -21, -111, 104, -50, -3, -121, -90, -43, 61, 105, -3, 57, 69, 51, -3, -31, 105, -12, 19, 77, -82, -120, 121, 108, -63, -126, 46, -43, 14, -56, 21, 47, 63, -104, -7, 113, 57, 100, -9, -12, -101, 107, -77, -64, 91, -104, -61, 0, -7, -72, -19, 75, StandardMessageCodec.LIST, 111, ByteCompanionObject.MAX_VALUE, -115, -46, -99, -111, -93, -67, -42, -66, 32, 81, 70, 109, -57, 10, 19, -49, -44, 59, 21, 31, -61, -59, 83, -14, 43, 73, -88, 120, -58, -46, 46, 66, 41, -2, -70, -6, -42, 103, 8, 4, 89, 110, -122, 68, -86, 62, -68, 13, -117, Base64.INTERNAL_PADDING, -52, -6, 106, -91, 91, -62, -56, -26, -41, -109, 68, -102, -43, -29, 113, 43, -126, -127, 122, -47, -30, -96, -2, 78, 44, -92, -38, -124, -102, 73, -105, -66, 5, -85, -7, 56};
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f2531e;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f2532a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f2533b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f2534c = 0;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f2535d = 2;
+
+    static {
+        String str = new String(com.baidu.android.bbalbs.common.a.b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
+        String str2 = new String(com.baidu.android.bbalbs.common.a.b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+        f2531e = str + str2;
+    }
+
+    public static boolean a(Context context) {
+        File c2 = c(context);
+        if (c2.exists()) {
+            return c2.delete();
+        }
+        return false;
+    }
+
+    public static a b(Context context) {
+        return d(d.a(c(context)));
+    }
+
+    public static boolean b(int i2) {
+        return i2 >= 14;
+    }
+
+    public static a c(String str) {
+        JsonReader jsonReader;
+        JsonReader jsonReader2 = null;
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            jsonReader = new JsonReader(new StringReader(str));
+            try {
+                jsonReader.beginObject();
+                String g2 = g("ZGV2aWNlaWQ=");
+                String g3 = g("dmVy");
+                String str2 = "0";
+                String str3 = "";
+                int i2 = 2;
+                while (jsonReader.hasNext()) {
+                    String nextName = jsonReader.nextName();
+                    if (g2.equals(nextName)) {
+                        str3 = jsonReader.nextString();
+                    } else if (g3.equals(nextName)) {
+                        i2 = jsonReader.nextInt();
+                    } else {
+                        str2 = jsonReader.nextString();
+                    }
+                }
+                jsonReader.endObject();
+                int i3 = 0;
+                if (i2 == 2 && !TextUtils.isEmpty(str2)) {
+                    i3 = str2.length();
+                }
+                try {
+                    jsonReader.close();
+                } catch (Exception e2) {
+                    d.a(e2);
+                }
+                if (TextUtils.isEmpty(str3)) {
+                    return null;
+                }
+                a aVar = new a();
+                aVar.a(str3);
+                aVar.a(i3);
+                if (!aVar.d()) {
+                    aVar.b(str2);
+                }
+                return aVar;
+            } catch (IOException unused) {
+                if (jsonReader != null) {
+                    try {
+                        jsonReader.close();
+                    } catch (Exception e3) {
+                        d.a(e3);
+                    }
+                }
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                jsonReader2 = jsonReader;
+                if (jsonReader2 != null) {
+                    try {
+                        jsonReader2.close();
+                    } catch (Exception e4) {
+                        d.a(e4);
+                    }
+                }
+                throw th;
+            }
+        } catch (IOException unused2) {
+            jsonReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public static File c(Context context) {
+        return new File(context.getFilesDir(), "libcuid.so");
+    }
+
+    public static a d(String str) {
+        return c(f(str));
+    }
+
+    public static boolean e(String str) {
+        return TextUtils.isEmpty(str);
+    }
+
+    public static String f(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            return new String(com.baidu.android.bbalbs.common.a.a.b(f2531e, f2531e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
+        } catch (Exception e2) {
+            d.a(e2);
+            return "";
+        }
+    }
+
+    public static String g(String str) {
+        return new String(com.baidu.android.bbalbs.common.a.b.a(str.getBytes()));
+    }
+
+    public String a() {
+        return this.f2532a;
+    }
+
+    public void a(int i2) {
+        this.f2534c = i2;
+    }
+
+    public void a(String str) {
+        this.f2532a = str;
+    }
+
+    public String b() {
+        return this.f2533b;
+    }
+
+    public void b(String str) {
+        this.f2533b = str;
+    }
+
+    public boolean c() {
+        String str;
+        if (d()) {
+            str = "O";
+        } else if (!e()) {
+            return false;
+        } else {
+            str = "0";
+        }
+        this.f2533b = str;
+        return true;
+    }
+
+    public boolean d() {
+        return b(this.f2534c);
+    }
+
+    public boolean e() {
+        return e(this.f2533b);
     }
 }

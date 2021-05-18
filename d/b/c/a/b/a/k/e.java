@@ -13,11 +13,11 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f64761a = new e();
+    public static final e f65447a = new e();
 
     public static List<String> a(X509Certificate x509Certificate) {
         List<String> b2 = b(x509Certificate, 7);

@@ -190,12 +190,11 @@ public class LoadErrorCode {
                 if (mInfo == null) {
                     mInfo = new StringBuilder();
                 }
-                if (mInfo.length() <= 0) {
+                if (mInfo.length() > 0) {
+                    mInfo.append(LoadErrorCode.TOKEN_NEXT.concat(String.valueOf(str)));
+                } else {
                     mInfo.append(str);
-                    return;
                 }
-                StringBuilder sb = mInfo;
-                sb.append(LoadErrorCode.TOKEN_NEXT + str);
             }
         }
 
@@ -222,23 +221,22 @@ public class LoadErrorCode {
             }
         }
 
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0060 */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Type inference failed for: r0v1, types: [boolean] */
-        /* JADX WARN: Type inference failed for: r0v2, types: [java.io.FileInputStream] */
-        /* JADX WARN: Type inference failed for: r0v4 */
+        /* JADX WARN: Removed duplicated region for block: B:37:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public static JSONObject fileToJSON() {
+            Throwable th;
+            FileInputStream fileInputStream;
             JSONObject jSONObject;
             Exception e2;
-            FileInputStream fileInputStream;
-            ?? exists = sRecordFile.exists();
             JSONObject jSONObject2 = null;
+            if (!sRecordFile.exists()) {
+                return null;
+            }
             try {
-                if (exists == 0) {
-                    return null;
-                }
+                fileInputStream = new FileInputStream(sRecordFile);
                 try {
-                    fileInputStream = new FileInputStream(sRecordFile);
                     try {
                         int available = fileInputStream.available();
                         if (available > 0) {
@@ -246,7 +244,7 @@ public class LoadErrorCode {
                             fileInputStream.read(bArr);
                             jSONObject = new JSONObject(new String(bArr));
                             try {
-                                Log.d(TAG, "readJSON " + jSONObject);
+                                Log.d(TAG, "readJSON ".concat(String.valueOf(jSONObject)));
                                 jSONObject2 = jSONObject;
                             } catch (Exception e3) {
                                 e2 = e3;
@@ -270,23 +268,26 @@ public class LoadErrorCode {
                         jSONObject = null;
                         e2 = e4;
                     }
-                } catch (Exception e5) {
-                    jSONObject = null;
-                    e2 = e5;
-                    fileInputStream = null;
-                } catch (Throwable th) {
-                    th = th;
-                    exists = 0;
-                    if (exists != 0) {
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (fileInputStream != null) {
                         try {
-                            exists.close();
+                            fileInputStream.close();
                         } catch (IOException unused3) {
                         }
                     }
                     throw th;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Exception e5) {
+                jSONObject = null;
+                e2 = e5;
+                fileInputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                fileInputStream = null;
+                if (fileInputStream != null) {
+                }
+                throw th;
             }
         }
 

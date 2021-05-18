@@ -1,0 +1,17 @@
+package d.a.i0.a.l0.n;
+
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+/* loaded from: classes2.dex */
+public interface b {
+    String a();
+
+    @Nullable
+    V8EngineConfiguration.CodeCacheSetting b();
+
+    void c(d.a.i0.a.l0.a aVar);
+
+    void d(d.a.i0.a.l0.a aVar);
+
+    String getInitBasePath();
+}

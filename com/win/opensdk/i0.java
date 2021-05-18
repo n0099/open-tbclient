@@ -9,26 +9,26 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class i0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37880a;
+    public Context f37125a;
 
     /* renamed from: b  reason: collision with root package name */
-    public K0 f37881b;
+    public K0 f37126b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f37882c;
+    public Info f37127c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f37883d;
+    public View f37128d;
 
     /* renamed from: f  reason: collision with root package name */
-    public PBNativeListener f37885f;
+    public PBNativeListener f37130f;
 
     /* renamed from: g  reason: collision with root package name */
-    public E1 f37886g;
+    public E1 f37131g;
     public float l;
     public float m;
     public int n;
@@ -45,22 +45,22 @@ public class i0 {
     public long y;
 
     /* renamed from: e  reason: collision with root package name */
-    public List f37884e = Collections.synchronizedList(new ArrayList());
+    public List f37129e = Collections.synchronizedList(new ArrayList());
 
     /* renamed from: h  reason: collision with root package name */
-    public long f37887h = 0;
+    public long f37132h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public L0 f37888i = new c0(this);
+    public L0 f37133i = new c0(this);
     public boolean j = false;
     public long k = 0;
 
     public i0(Context context, String str) {
-        this.f37880a = context;
+        this.f37125a = context;
         K0 k0 = new K0(context, str, y.NATIVE);
-        this.f37881b = k0;
-        k0.f37686g = this.f37888i;
-        this.f37886g = new E1(context);
+        this.f37126b = k0;
+        k0.f36931g = this.f37133i;
+        this.f37131g = new E1(context);
     }
 
     public static /* synthetic */ void a(i0 i0Var, View view) {
@@ -93,32 +93,32 @@ public class i0 {
     public void a() {
         try {
             c();
-            if (this.f37881b != null) {
-                this.f37881b.a();
-                this.f37881b = null;
+            if (this.f37126b != null) {
+                this.f37126b.a();
+                this.f37126b = null;
             }
-            if (this.f37885f != null) {
-                this.f37885f = null;
+            if (this.f37130f != null) {
+                this.f37130f = null;
             }
         } catch (Exception unused) {
         }
     }
 
     public boolean b() {
-        Info info = this.f37882c;
+        Info info = this.f37127c;
         return info != null && info.isEffective();
     }
 
     public void c() {
         try {
-            for (View view : this.f37884e) {
+            for (View view : this.f37129e) {
                 if (view != null) {
                     view.setOnClickListener(null);
                 }
             }
-            this.f37884e.clear();
-            if (this.f37883d != null) {
-                this.f37883d = null;
+            this.f37129e.clear();
+            if (this.f37128d != null) {
+                this.f37128d = null;
             }
         } catch (Exception unused) {
         }
@@ -148,19 +148,19 @@ public class i0 {
         if (view == null || list == null || list.size() == 0 || !b()) {
             return;
         }
-        this.f37887h = 0L;
-        if (this.f37883d != null) {
+        this.f37132h = 0L;
+        if (this.f37128d != null) {
             c();
         }
-        this.f37883d = view;
+        this.f37128d = view;
         try {
             h0 h0Var = new h0(this);
             Iterator it = list.iterator();
             while (it.hasNext()) {
                 View view2 = (View) it.next();
                 if (view2 != null && !(view2 instanceof PBMediaView)) {
-                    if (!this.f37884e.contains(view2)) {
-                        this.f37884e.add(view2);
+                    if (!this.f37129e.contains(view2)) {
+                        this.f37129e.add(view2);
                     }
                     view2.setOnClickListener(h0Var);
                     view2.setOnTouchListener(h0Var);
@@ -172,24 +172,24 @@ public class i0 {
             try {
                 if (pBMediaView.getHtmlWebView() != null) {
                     K htmlWebView = pBMediaView.getHtmlWebView();
-                    htmlWebView.a(b() ? this.f37882c.getLoad() : "", this.f37882c);
-                    if (this.f37882c.isNat()) {
-                        htmlWebView.f37677c.setOnTouchListener(new f0(this));
+                    htmlWebView.a(b() ? this.f37127c.getLoad() : "", this.f37127c);
+                    if (this.f37127c.isNat()) {
+                        htmlWebView.f36922c.setOnTouchListener(new f0(this));
                     }
-                    htmlWebView.f37676b = new g0(this);
+                    htmlWebView.f36921b = new g0(this);
                 }
             } catch (Exception unused2) {
             }
         }
-        x0.a(this.f37880a).a(new y0(this.f37882c)).a();
-        PBNativeListener pBNativeListener = this.f37885f;
+        x0.a(this.f37125a).a(new y0(this.f37127c)).a();
+        PBNativeListener pBNativeListener = this.f37130f;
         if (pBNativeListener != null) {
             pBNativeListener.onDisplayed();
         }
-        if (this.f37882c != null) {
-            s1.b(this.f37880a, this.f37882c.getId() + ":" + System.currentTimeMillis(), false);
+        if (this.f37127c != null) {
+            s1.b(this.f37125a, this.f37127c.getId() + ":" + System.currentTimeMillis(), false);
         }
-        z.a(this.f37882c);
-        new m0().a(view, this.f37882c, new e0(this, view));
+        z.a(this.f37127c);
+        new m0().a(view, this.f37127c, new e0(this, view));
     }
 }

@@ -6,29 +6,29 @@ import java.util.Map;
 public class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f40485a;
+    public final int f39730a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40486b;
+    public int f39731b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f40487c;
+    public final int f39732c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f40488d;
+    public final int f39733d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f40489e;
+    public final String f39734e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap f40490f;
+    public HashMap f39735f;
 
     public c(int i2, int i3, String str, int i4, int i5, int i6) {
-        this.f40485a = i2;
-        this.f40489e = str;
-        this.f40486b = i4;
-        this.f40487c = i5;
-        this.f40488d = i6;
+        this.f39730a = i2;
+        this.f39734e = str;
+        this.f39731b = i4;
+        this.f39732c = i5;
+        this.f39733d = i6;
     }
 
     public static a h(int i2, int i3, String str, int i4, int i5, int i6) {
@@ -37,40 +37,40 @@ public class c implements a {
 
     @Override // d.a.d.m.a
     public void a(HashMap hashMap) {
-        this.f40490f = hashMap;
+        this.f39735f = hashMap;
         if (hashMap.containsKey("iadex")) {
             return;
         }
-        hashMap.put("iadex", d.a.i0.z0.d.e());
+        hashMap.put("iadex", d.a.j0.z0.d.e());
     }
 
     @Override // d.a.d.m.a
     public int b() {
-        return this.f40486b;
+        return this.f39731b;
     }
 
     @Override // d.a.d.m.a
     public int c() {
-        return this.f40485a;
+        return this.f39730a;
     }
 
     @Override // d.a.d.m.a
     public Map<String, String> d() {
-        return this.f40490f;
+        return this.f39735f;
     }
 
     @Override // d.a.d.m.a
     public int e() {
-        return this.f40488d;
+        return this.f39733d;
     }
 
     @Override // d.a.d.m.a
     public int f() {
-        return this.f40487c;
+        return this.f39732c;
     }
 
     @Override // d.a.d.m.a
     public String g() {
-        return this.f40489e;
+        return this.f39734e;
     }
 }

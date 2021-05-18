@@ -18,16 +18,16 @@ import java.util.Set;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f64131a;
+    public static e f64818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f64132b;
+    public static String f64819b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f64133c;
+    public static String f64820c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f64134d = new LinkedHashSet();
+    public static final Set<String> f64821d = new LinkedHashSet();
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -38,10 +38,10 @@ public class e {
         public void run() {
             File[] listFiles;
             try {
-                for (File file : new File(e.f64133c).listFiles()) {
+                for (File file : new File(e.f64820c).listFiles()) {
                     if (file.isFile()) {
                         e.this.g(file);
-                    } else if (file.getName().equals(e.f64132b)) {
+                    } else if (file.getName().equals(e.f64819b)) {
                         e.this.k(file);
                     } else {
                         Utils.d(file);
@@ -55,11 +55,11 @@ public class e {
     public static synchronized e b() {
         e eVar;
         synchronized (e.class) {
-            if (f64131a == null) {
-                f64132b = Utils.q();
-                f64131a = new e();
+            if (f64818a == null) {
+                f64819b = Utils.q();
+                f64818a = new e();
             }
-            eVar = f64131a;
+            eVar = f64818a;
         }
         return eVar;
     }
@@ -76,7 +76,7 @@ public class e {
                 return "apk_internal_jar";
             }
             sb = new StringBuilder();
-            sb.append(f64133c);
+            sb.append(f64820c);
             sb.append(File.separator);
             sb.append(dVar.a());
             sb.append("_");
@@ -90,9 +90,9 @@ public class e {
                 return findLibrary;
             }
             sb = new StringBuilder();
-            sb.append(f64133c);
+            sb.append(f64820c);
             sb.append(File.separator);
-            sb.append(f64132b);
+            sb.append(f64819b);
             sb.append(File.separator);
             sb.append(dVar.a());
             sb.append("_");
@@ -142,7 +142,7 @@ public class e {
     }
 
     public final void i(Context context, String str) {
-        f64133c = str + File.separator + "libs";
+        f64820c = str + File.separator + "libs";
         for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
             String c2 = c(context, dVar);
             dVar.b(c2);
@@ -151,7 +151,7 @@ public class e {
                 if (!parentFile.exists() || parentFile.isFile()) {
                     parentFile.mkdirs();
                 }
-                f64134d.add(parentFile.getAbsolutePath());
+                f64821d.add(parentFile.getAbsolutePath());
             }
         }
     }
@@ -161,7 +161,7 @@ public class e {
         boolean z;
         try {
             for (File file2 : file.listFiles()) {
-                Iterator<String> it = f64134d.iterator();
+                Iterator<String> it = f64821d.iterator();
                 while (true) {
                     if (it.hasNext()) {
                         if (it.next().contains(file2.getAbsolutePath())) {
@@ -182,12 +182,12 @@ public class e {
     }
 
     public String[] l() {
-        Set<String> set = f64134d;
+        Set<String> set = f64821d;
         return (String[]) set.toArray(new String[set.size()]);
     }
 
     public String m() {
-        return f64132b;
+        return f64819b;
     }
 
     public String n(int i2) {
@@ -195,7 +195,7 @@ public class e {
         if (a2 == null) {
             return null;
         }
-        return f64132b + "_" + a2.a() + "_" + a2.c() + ".zip";
+        return f64819b + "_" + a2.a() + "_" + a2.c() + ".zip";
     }
 
     public void o() {

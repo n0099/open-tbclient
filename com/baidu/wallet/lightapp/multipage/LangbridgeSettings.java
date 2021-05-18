@@ -35,7 +35,7 @@ public class LangbridgeSettings implements NoProguard, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public LangbridgeSettings m29clone() {
+    public LangbridgeSettings m28clone() {
         try {
             return (LangbridgeSettings) super.clone();
         } catch (Exception e2) {

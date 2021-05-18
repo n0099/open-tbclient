@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class BitmapHelper {
     public static int getSampleSizeAutoFitToScreen(int i2, int i3, int i4, int i5) {
         if (i3 == 0 || i2 == 0) {

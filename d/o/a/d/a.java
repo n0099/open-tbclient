@@ -1,7 +1,7 @@
 package d.o.a.d;
 
 import com.bytedance.sdk.openadsdk.adhost.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static final int tt_appdownloader_action_bg = R.drawable.tt_appdownloader_action_bg;
     public static final int tt_appdownloader_action_new_bg = R.drawable.tt_appdownloader_action_new_bg;

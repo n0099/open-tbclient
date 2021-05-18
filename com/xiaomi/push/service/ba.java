@@ -24,7 +24,7 @@ import java.util.Iterator;
 public class ba extends bi.a implements cs.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f38919a;
+    public long f38164a;
 
     /* renamed from: a  reason: collision with other field name */
     public XMPushService f919a;
@@ -44,7 +44,7 @@ public class ba extends bi.a implements cs.a {
             int port = url.getPort() == -1 ? 80 : url.getPort();
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                String a2 = com.xiaomi.push.bg.a(com.xiaomi.push.t.m624a(), url);
+                String a2 = com.xiaomi.push.bg.a(com.xiaomi.push.t.m623a(), url);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                 gz.a(url.getHost() + ":" + port, (int) currentTimeMillis2, null);
                 return a2;
@@ -64,12 +64,12 @@ public class ba extends bi.a implements cs.a {
         @Override // com.xiaomi.push.cs
         public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
             try {
-                if (gx.m351a().m356a()) {
-                    str2 = bi.m600a();
+                if (gx.m350a().m355a()) {
+                    str2 = bi.m599a();
                 }
                 return super.a(arrayList, str, str2, z);
             } catch (IOException e2) {
-                gz.a(0, ew.GSLB_ERR.a(), 1, null, com.xiaomi.push.bg.c(cs.f38236a) ? 1 : 0);
+                gz.a(0, ew.GSLB_ERR.a(), 1, null, com.xiaomi.push.bg.c(cs.f37481a) ? 1 : 0);
                 throw e2;
             }
         }
@@ -100,31 +100,31 @@ public class ba extends bi.a implements cs.a {
     @Override // com.xiaomi.push.service.bi.a
     public void a(du.b bVar) {
         co b2;
-        if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.f38919a > VideoCloudSetting.HOUR_MILLISECOND) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("fetch bucket :" + bVar.a());
-            this.f38919a = System.currentTimeMillis();
+        if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.f38164a > VideoCloudSetting.HOUR_MILLISECOND) {
+            com.xiaomi.channel.commonutils.logger.b.m57a("fetch bucket :" + bVar.a());
+            this.f38164a = System.currentTimeMillis();
             cs a2 = cs.a();
-            a2.m219a();
-            a2.m222b();
-            fl m548a = this.f919a.m548a();
-            if (m548a == null || (b2 = a2.b(m548a.m308a().c())) == null) {
+            a2.m218a();
+            a2.m221b();
+            fl m547a = this.f919a.m547a();
+            if (m547a == null || (b2 = a2.b(m547a.m307a().c())) == null) {
                 return;
             }
-            ArrayList<String> m207a = b2.m207a();
+            ArrayList<String> m206a = b2.m206a();
             boolean z = true;
-            Iterator<String> it = m207a.iterator();
+            Iterator<String> it = m206a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
-                } else if (it.next().equals(m548a.m309a())) {
+                } else if (it.next().equals(m547a.m308a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m207a.isEmpty()) {
+            if (!z || m206a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m58a("bucket changed, force reconnect");
+            com.xiaomi.channel.commonutils.logger.b.m57a("bucket changed, force reconnect");
             this.f919a.a(0, (Exception) null);
             this.f919a.a(false);
         }

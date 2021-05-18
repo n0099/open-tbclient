@@ -8,19 +8,19 @@ import com.baidu.sso.n.a;
 public final class c implements ServiceConnection {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f40996e;
+    public a f40241e;
 
     public c(a aVar) {
-        this.f40996e = aVar;
+        this.f40241e = aVar;
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        this.f40996e.f40989a = a.AbstractBinderC0162a.a(iBinder);
+        this.f40241e.f40234a = a.AbstractBinderC0147a.a(iBinder);
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.f40996e.f40989a = null;
+        this.f40241e.f40234a = null;
     }
 }

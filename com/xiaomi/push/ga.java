@@ -7,7 +7,7 @@ import java.util.Map;
 public class ga extends gc {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f38448a;
+    public a f37693a;
 
     /* renamed from: a  reason: collision with other field name */
     public final Map<String, String> f420a;
@@ -16,19 +16,19 @@ public class ga extends gc {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f38449a = new a("get");
+        public static final a f37694a = new a("get");
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f38450b = new a("set");
+        public static final a f37695b = new a("set");
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f38451c = new a("result");
+        public static final a f37696c = new a("result");
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f38452d = new a("error");
+        public static final a f37697d = new a("error");
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f38453e = new a("command");
+        public static final a f37698e = new a("command");
 
         /* renamed from: a  reason: collision with other field name */
         public String f421a;
@@ -42,20 +42,20 @@ public class ga extends gc {
                 return null;
             }
             String lowerCase = str.toLowerCase();
-            if (f38449a.toString().equals(lowerCase)) {
-                return f38449a;
+            if (f37694a.toString().equals(lowerCase)) {
+                return f37694a;
             }
-            if (f38450b.toString().equals(lowerCase)) {
-                return f38450b;
+            if (f37695b.toString().equals(lowerCase)) {
+                return f37695b;
             }
-            if (f38452d.toString().equals(lowerCase)) {
-                return f38452d;
+            if (f37697d.toString().equals(lowerCase)) {
+                return f37697d;
             }
-            if (f38451c.toString().equals(lowerCase)) {
-                return f38451c;
+            if (f37696c.toString().equals(lowerCase)) {
+                return f37696c;
             }
-            if (f38453e.toString().equals(lowerCase)) {
-                return f38453e;
+            if (f37698e.toString().equals(lowerCase)) {
+                return f37698e;
             }
             return null;
         }
@@ -66,23 +66,23 @@ public class ga extends gc {
     }
 
     public ga() {
-        this.f38448a = a.f38449a;
+        this.f37693a = a.f37694a;
         this.f420a = new HashMap();
     }
 
     public ga(Bundle bundle) {
         super(bundle);
-        this.f38448a = a.f38449a;
+        this.f37693a = a.f37694a;
         this.f420a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
-            this.f38448a = a.a(bundle.getString("ext_iq_type"));
+            this.f37693a = a.a(bundle.getString("ext_iq_type"));
         }
     }
 
     @Override // com.xiaomi.push.gc
     public Bundle a() {
         Bundle a2 = super.a();
-        a aVar = this.f38448a;
+        a aVar = this.f37693a;
         if (aVar != null) {
             a2.putString("ext_iq_type", aVar.toString());
         }
@@ -91,7 +91,7 @@ public class ga extends gc {
 
     @Override // com.xiaomi.push.gc
     public a a() {
-        return this.f38448a;
+        return this.f37693a;
     }
 
     @Override // com.xiaomi.push.gc
@@ -123,7 +123,7 @@ public class ga extends gc {
             sb.append(gn.a(entry.getValue()));
             sb.append("\" ");
         }
-        if (this.f38448a == null) {
+        if (this.f37693a == null) {
             str = "type=\"get\">";
         } else {
             sb.append("type=\"");
@@ -136,9 +136,9 @@ public class ga extends gc {
             sb.append(b2);
         }
         sb.append(o());
-        gg m331a = m331a();
-        if (m331a != null) {
-            sb.append(m331a.m335a());
+        gg m330a = m330a();
+        if (m330a != null) {
+            sb.append(m330a.m334a());
         }
         sb.append("</iq>");
         return sb.toString();
@@ -146,9 +146,9 @@ public class ga extends gc {
 
     public void a(a aVar) {
         if (aVar == null) {
-            aVar = a.f38449a;
+            aVar = a.f37694a;
         }
-        this.f38448a = aVar;
+        this.f37693a = aVar;
     }
 
     public synchronized void a(Map<String, String> map) {

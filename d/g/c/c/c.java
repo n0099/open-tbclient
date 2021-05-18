@@ -52,8 +52,8 @@ public abstract class c<K, V> implements h0<K, V> {
 
     /* renamed from: d.g.c.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C1781c extends AbstractCollection<V> {
-        public C1781c() {
+    public class C1845c extends AbstractCollection<V> {
+        public C1845c() {
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection

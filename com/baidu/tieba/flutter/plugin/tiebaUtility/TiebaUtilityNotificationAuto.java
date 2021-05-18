@@ -22,7 +22,7 @@ public class TiebaUtilityNotificationAuto {
         }
 
         public void onNotification(OnNotifyData onNotifyData, final Reply<NotifyResult> reply) {
-            new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterUtilityNotification.onNotification", new StandardMessageCodec()).send(onNotifyData.toMap(), new BasicMessageChannel.Reply() { // from class: d.a.j0.m0.a.j.v0
+            new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterUtilityNotification.onNotification", new StandardMessageCodec()).send(onNotifyData.toMap(), new BasicMessageChannel.Reply() { // from class: d.a.k0.m0.a.j.v0
                 @Override // io.flutter.plugin.common.BasicMessageChannel.Reply
                 public final void reply(Object obj) {
                     TiebaUtilityNotificationAuto.FlutterUtilityNotification.Reply.this.reply(TiebaUtilityNotificationAuto.NotifyResult.fromMap((HashMap) obj));

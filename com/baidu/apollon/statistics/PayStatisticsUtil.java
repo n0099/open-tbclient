@@ -9,16 +9,16 @@ import java.util.Collection;
 public final class PayStatisticsUtil {
 
     /* renamed from: d  reason: collision with root package name */
-    public static Context f3924d;
+    public static Context f3925d;
 
     /* renamed from: a  reason: collision with root package name */
-    public StatisticsSettings f3925a;
+    public StatisticsSettings f3926a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3926b;
+    public boolean f3927b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SyncHttpImpl f3927c;
+    public SyncHttpImpl f3928c;
 
     /* loaded from: classes.dex */
     public enum CallerId {
@@ -50,18 +50,18 @@ public final class PayStatisticsUtil {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayStatisticsUtil f3928a = new PayStatisticsUtil();
+        public static PayStatisticsUtil f3929a = new PayStatisticsUtil();
     }
 
     public static Context c() {
-        return f3924d;
+        return f3925d;
     }
 
     private boolean d() {
-        if (f3924d == null) {
+        if (f3925d == null) {
             return true;
         }
-        StatisticsSettings statisticsSettings = this.f3925a;
+        StatisticsSettings statisticsSettings = this.f3926a;
         if (statisticsSettings != null) {
             return !statisticsSettings.isEnabled();
         }
@@ -69,7 +69,7 @@ public final class PayStatisticsUtil {
     }
 
     public static PayStatisticsUtil getInstance() {
-        return a.f3928a;
+        return a.f3929a;
     }
 
     public static void initData(Context context) {
@@ -83,12 +83,12 @@ public final class PayStatisticsUtil {
             return;
         }
         PayStatisticsUtil payStatisticsUtil = getInstance();
-        payStatisticsUtil.f3925a = statisticsSettings;
+        payStatisticsUtil.f3926a = statisticsSettings;
         try {
-            if (payStatisticsUtil.f3926b) {
+            if (payStatisticsUtil.f3927b) {
                 return;
             }
-            payStatisticsUtil.f3926b = true;
+            payStatisticsUtil.f3927b = true;
             d.a().b();
         } catch (Exception unused) {
         }
@@ -178,25 +178,25 @@ public final class PayStatisticsUtil {
     }
 
     public static void setHttpImpl(SyncHttpImpl syncHttpImpl) {
-        getInstance().f3927c = syncHttpImpl;
+        getInstance().f3928c = syncHttpImpl;
     }
 
     public StatisticsSettings a() {
-        return this.f3925a;
+        return this.f3926a;
     }
 
     public SyncHttpImpl b() {
-        return this.f3927c;
+        return this.f3928c;
     }
 
     public PayStatisticsUtil() {
     }
 
     public static boolean a(Context context) {
-        if (f3924d == null && context != null) {
-            f3924d = context.getApplicationContext();
+        if (f3925d == null && context != null) {
+            f3925d = context.getApplicationContext();
         }
-        return f3924d != null;
+        return f3925d != null;
     }
 
     public static void onEventEnd(String str, int i2, String str2) {

@@ -1,8 +1,8 @@
 package tv.athena.revenue.payui.view.dialog;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface DialogListener {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum ClickArea {
         BUTTOM_AREA(1),
         EMPTY_AREA(2),

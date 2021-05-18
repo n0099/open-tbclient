@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import d.a.c.e.p.l;
-import d.a.j0.i;
+import d.a.k0.i;
 /* loaded from: classes4.dex */
 public class SelectForumActivity extends SuspendedActivity {
     public CustomMessageListener mCloseListener = new a(2921503);
@@ -51,7 +51,7 @@ public class SelectForumActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public d.a.i0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public d.a.j0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         if (this.selectForumView == null) {
             this.selectForumView = new i(getPageContext(), linearLayout, navigationBar);
         }

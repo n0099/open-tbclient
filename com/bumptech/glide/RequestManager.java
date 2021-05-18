@@ -29,7 +29,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Util;
 import java.io.File;
 import java.net.URL;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RequestManager implements LifecycleListener, ModelTypes<RequestBuilder<Drawable>> {
     public static final RequestOptions DECODE_TYPE_BITMAP = RequestOptions.decodeTypeOf(Bitmap.class).lock();
     public static final RequestOptions DECODE_TYPE_GIF = RequestOptions.decodeTypeOf(GifDrawable.class).lock();
@@ -45,7 +45,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
     public final TargetTracker targetTracker;
     public final RequestManagerTreeNode treeNode;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class ClearTarget extends ViewTarget<View, Object> {
         public ClearTarget(@NonNull View view) {
             super(view);
@@ -56,7 +56,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class RequestManagerConnectivityListener implements ConnectivityMonitor.ConnectivityListener {
         public final RequestTracker requestTracker;
 
@@ -219,7 +219,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
     }
 
     public void setRequestOptions(@NonNull RequestOptions requestOptions) {
-        this.requestOptions = requestOptions.m34clone().autoClone();
+        this.requestOptions = requestOptions.m33clone().autoClone();
     }
 
     public String toString() {

@@ -8,7 +8,7 @@ import com.baidu.mapsdkplatform.comapi.a.c;
 public class AlphaAnimation extends Animation {
     public AlphaAnimation(float... fArr) {
         if (fArr == null || fArr.length == 0) {
-            throw new NullPointerException("the alphas is null");
+            throw new NullPointerException("BDMapSDKException: the alphas is null");
         }
         this.bdAnimation = new a(fArr);
     }

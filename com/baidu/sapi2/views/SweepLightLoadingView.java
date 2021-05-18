@@ -22,16 +22,16 @@ import d.a.y.a.f;
 public class SweepLightLoadingView extends FrameLayout implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f10960a;
+    public View f9997a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f10961b;
+    public ImageView f9998b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f10962c;
+    public ImageView f9999c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f10963d;
+    public LinearLayout f10000d;
 
     public SweepLightLoadingView(Context context) {
         super(context);
@@ -40,25 +40,25 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
 
     private void a() {
         View inflate = LayoutInflater.from(getContext()).inflate(f.layout_sapi_sdk_sweep_light_loading_view, (ViewGroup) this, true);
-        this.f10960a = inflate;
-        this.f10961b = (ImageView) inflate.findViewById(e.sapi_sdk_loading_logo);
-        this.f10962c = (ImageView) this.f10960a.findViewById(e.sapi_sdk_sweep_iv);
-        this.f10963d = (LinearLayout) this.f10960a.findViewById(e.sapi_sdk_sweep_light_loading_bg_layout);
+        this.f9997a = inflate;
+        this.f9998b = (ImageView) inflate.findViewById(e.sapi_sdk_loading_logo);
+        this.f9999c = (ImageView) this.f9997a.findViewById(e.sapi_sdk_sweep_iv);
+        this.f10000d = (LinearLayout) this.f9997a.findViewById(e.sapi_sdk_sweep_light_loading_bg_layout);
         if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-            this.f10963d.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_na_activity_color));
-            this.f10961b.setImageResource(d.sapi_sdk_sweep_light_logo_dark);
-            this.f10962c.setImageResource(d.sapi_sdk_sweep_light_dark);
-            this.f10960a.findViewById(e.sapi_sdk_sweep_bg_view).setBackgroundColor(getResources().getColor(b.sapi_sdk_sweep_loading_bg_dark));
+            this.f10000d.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_na_activity_color));
+            this.f9998b.setImageResource(d.sapi_sdk_sweep_light_logo_dark);
+            this.f9999c.setImageResource(d.sapi_sdk_sweep_light_dark);
+            this.f9997a.findViewById(e.sapi_sdk_sweep_bg_view).setBackgroundColor(getResources().getColor(b.sapi_sdk_sweep_loading_bg_dark));
         }
     }
 
     private void b() {
-        this.f10962c.startAnimation(AnimationUtils.loadAnimation(getContext(), d.a.y.a.a.sapi_sdk_sweep_light_trans));
+        this.f9999c.startAnimation(AnimationUtils.loadAnimation(getContext(), d.a.y.a.a.sapi_sdk_sweep_light_trans));
     }
 
     @TargetApi(11)
     private void c() {
-        ImageView imageView = this.f10962c;
+        ImageView imageView = this.f9999c;
         if (imageView != null) {
             imageView.clearAnimation();
         }

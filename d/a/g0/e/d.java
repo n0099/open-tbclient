@@ -8,13 +8,13 @@ import android.os.Message;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d f40815c;
+    public static volatile d f40060c;
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f40816a;
+    public HandlerThread f40061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f40817b;
+    public Handler f40062b;
 
     /* loaded from: classes2.dex */
     public class a extends Handler {
@@ -25,7 +25,7 @@ public class d {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             b bVar = new b();
-            bVar.f40795a = message.arg2;
+            bVar.f40040a = message.arg2;
             int i2 = message.arg1;
             if (i2 == -1) {
                 i2 = c.i().a();
@@ -36,28 +36,28 @@ public class d {
 
     public d() {
         HandlerThread handlerThread = new HandlerThread("callback-handler");
-        this.f40816a = handlerThread;
-        this.f40817b = null;
+        this.f40061a = handlerThread;
+        this.f40062b = null;
         handlerThread.start();
-        this.f40817b = new a(this, this.f40816a.getLooper());
+        this.f40062b = new a(this, this.f40061a.getLooper());
     }
 
     public static d a() {
-        if (f40815c == null) {
+        if (f40060c == null) {
             synchronized (d.class) {
-                if (f40815c == null) {
-                    f40815c = new d();
+                if (f40060c == null) {
+                    f40060c = new d();
                 }
             }
         }
-        return f40815c;
+        return f40060c;
     }
 
     public void b(int i2) {
-        this.f40817b.removeMessages(i2);
+        this.f40062b.removeMessages(i2);
     }
 
     public void c(Message message, long j) {
-        this.f40817b.sendMessageDelayed(message, j);
+        this.f40062b.sendMessageDelayed(message, j);
     }
 }

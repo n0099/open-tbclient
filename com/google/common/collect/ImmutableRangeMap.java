@@ -49,22 +49,22 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
     public static final class a<K extends Comparable<?>, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<Map.Entry<Range<K>, V>> f31876a = Lists.i();
+        public final List<Map.Entry<Range<K>, V>> f31121a = Lists.i();
 
         public ImmutableRangeMap<K, V> a() {
-            Collections.sort(this.f31876a, Range.rangeLexOrdering().onKeys());
-            ImmutableList.a aVar = new ImmutableList.a(this.f31876a.size());
-            ImmutableList.a aVar2 = new ImmutableList.a(this.f31876a.size());
-            for (int i2 = 0; i2 < this.f31876a.size(); i2++) {
-                Range<K> key = this.f31876a.get(i2).getKey();
+            Collections.sort(this.f31121a, Range.rangeLexOrdering().onKeys());
+            ImmutableList.a aVar = new ImmutableList.a(this.f31121a.size());
+            ImmutableList.a aVar2 = new ImmutableList.a(this.f31121a.size());
+            for (int i2 = 0; i2 < this.f31121a.size(); i2++) {
+                Range<K> key = this.f31121a.get(i2).getKey();
                 if (i2 > 0) {
-                    Range<K> key2 = this.f31876a.get(i2 - 1).getKey();
+                    Range<K> key2 = this.f31121a.get(i2 - 1).getKey();
                     if (key.isConnected(key2) && !key.intersection(key2).isEmpty()) {
                         throw new IllegalArgumentException("Overlapping ranges: range " + key2 + " overlaps with entry " + key);
                     }
                 }
                 aVar.h(key);
-                aVar2.h(this.f31876a.get(i2).getValue());
+                aVar2.h(this.f31121a.get(i2).getValue());
             }
             return new ImmutableRangeMap<>(aVar.j(), aVar2.j());
         }
@@ -73,7 +73,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
             n.p(range);
             n.p(v);
             n.k(!range.isEmpty(), "Range must not be empty, but was %s", range);
-            this.f31876a.add(Maps.j(range, v));
+            this.f31121a.add(Maps.j(range, v));
             return this;
         }
     }
@@ -183,7 +183,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: asDescendingMapOfRanges */
-    public ImmutableMap<Range<K>, V> m36asDescendingMapOfRanges() {
+    public ImmutableMap<Range<K>, V> m35asDescendingMapOfRanges() {
         if (this.ranges.isEmpty()) {
             return ImmutableMap.of();
         }
@@ -201,7 +201,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: subRangeMap */
-    public ImmutableRangeMap<K, V> m37subRangeMap(final Range<K> range) {
+    public ImmutableRangeMap<K, V> m36subRangeMap(final Range<K> range) {
         n.p(range);
         if (range.isEmpty()) {
             return of();
@@ -235,7 +235,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
         }, this.values.subList(a2, a3)) { // from class: com.google.common.collect.ImmutableRangeMap.2
             @Override // com.google.common.collect.ImmutableRangeMap
             public /* bridge */ /* synthetic */ Map asDescendingMapOfRanges() {
-                return super.m36asDescendingMapOfRanges();
+                return super.m35asDescendingMapOfRanges();
             }
 
             @Override // com.google.common.collect.ImmutableRangeMap, d.g.c.c.o0
@@ -247,7 +247,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
             @Override // com.google.common.collect.ImmutableRangeMap
             public ImmutableRangeMap<K, V> subRangeMap(Range<K> range2) {
                 if (range.isConnected(range2)) {
-                    return this.m37subRangeMap((Range) range2.intersection(range));
+                    return this.m36subRangeMap((Range) range2.intersection(range));
                 }
                 return ImmutableRangeMap.of();
             }

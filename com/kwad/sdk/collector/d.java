@@ -20,7 +20,7 @@ import java.util.Set;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, String> f32717a = new HashMap();
+    public static Map<String, String> f31962a = new HashMap();
 
     @NonNull
     public static List<AppRunningInfo> a(Context context, AppStatusRules.Strategy strategy, Map<String, InstalledAppInfoManager.AppPackageInfo> map) {
@@ -148,9 +148,9 @@ public class d {
         if (j <= 0 || startTimeWithMS + j <= j2) {
             return;
         }
-        AppRunningInfo m44clone = appRunningInfo.m44clone();
-        m44clone.setLastRunningTime(j);
-        list.add(m44clone);
+        AppRunningInfo m43clone = appRunningInfo.m43clone();
+        m43clone.setLastRunningTime(j);
+        list.add(m43clone);
     }
 
     @RequiresPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION)

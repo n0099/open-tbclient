@@ -14,32 +14,32 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
     public static final e l = new e(Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicBoolean f6649c = new AtomicBoolean(false);
+    public final AtomicBoolean f6473c = new AtomicBoolean(false);
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f6650d = new AtomicBoolean(false);
+    public final AtomicBoolean f6474d = new AtomicBoolean(false);
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile BdAsyncTaskStatus f6651e = BdAsyncTaskStatus.PENDING;
+    public volatile BdAsyncTaskStatus f6475e = BdAsyncTaskStatus.PENDING;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6652f = 1;
+    public int f6476f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6653g = 0;
+    public int f6477g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.t.a.c f6654h = null;
+    public d.a.t.a.c f6478h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f6655i = false;
+    public boolean f6479i = false;
     public boolean j = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public final f<ParamsT, ResultT> f6647a = new a();
+    public final f<ParamsT, ResultT> f6471a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.a.t.a.b<ResultT> f6648b = new b(this.f6647a, this);
+    public final d.a.t.a.b<ResultT> f6472b = new b(this.f6471a, this);
 
     /* loaded from: classes2.dex */
     public enum BdAsyncTaskStatus {
@@ -56,11 +56,11 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
 
         @Override // java.util.concurrent.Callable
         public ResultT call() throws Exception {
-            if (BdAsyncTask.this.f6648b.isCancelled()) {
+            if (BdAsyncTask.this.f6472b.isCancelled()) {
                 return (ResultT) BdAsyncTask.this.u(null);
             }
             BdAsyncTask bdAsyncTask = BdAsyncTask.this;
-            return (ResultT) bdAsyncTask.u(bdAsyncTask.f(this.f6661e));
+            return (ResultT) bdAsyncTask.u(bdAsyncTask.f(this.f6485e));
         }
     }
 
@@ -95,17 +95,17 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
     public static /* synthetic */ class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f6658a;
+        public static final /* synthetic */ int[] f6482a;
 
         static {
             int[] iArr = new int[BdAsyncTaskStatus.values().length];
-            f6658a = iArr;
+            f6482a = iArr;
             try {
                 iArr[BdAsyncTaskStatus.RUNNING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f6658a[BdAsyncTaskStatus.FINISHED.ordinal()] = 2;
+                f6482a[BdAsyncTaskStatus.FINISHED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -115,14 +115,14 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
     public static class d<DataT> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final BdAsyncTask f6659a;
+        public final BdAsyncTask f6483a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final DataT[] f6660b;
+        public final DataT[] f6484b;
 
         public d(BdAsyncTask bdAsyncTask, DataT... datatArr) {
-            this.f6659a = bdAsyncTask;
-            this.f6660b = datatArr;
+            this.f6483a = bdAsyncTask;
+            this.f6484b = datatArr;
         }
     }
 
@@ -137,10 +137,10 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
             d dVar = (d) message.obj;
             int i2 = message.what;
             if (i2 == 1) {
-                dVar.f6659a.i(dVar.f6660b[0]);
+                dVar.f6483a.i(dVar.f6484b[0]);
             } else if (i2 != 2) {
             } else {
-                dVar.f6659a.t(dVar.f6660b);
+                dVar.f6483a.t(dVar.f6484b);
             }
         }
     }
@@ -149,7 +149,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
     public static abstract class f<ParamsT, ResultT> implements Callable<ResultT> {
 
         /* renamed from: e  reason: collision with root package name */
-        public ParamsT[] f6661e;
+        public ParamsT[] f6485e;
 
         public f() {
         }
@@ -165,11 +165,11 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
 
     public final synchronized boolean e(boolean z) {
         boolean cancel;
-        if (!this.f6655i) {
+        if (!this.f6479i) {
             k.h(this);
         }
-        cancel = this.f6648b.cancel(z);
-        if (this.f6650d.compareAndSet(false, true)) {
+        cancel = this.f6472b.cancel(z);
+        if (this.f6474d.compareAndSet(false, true)) {
             r();
         }
         return cancel;
@@ -183,8 +183,8 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
     }
 
     public final synchronized BdAsyncTask<ParamsT, ProgressT, ResultT> h(Executor executor, ParamsT... paramstArr) {
-        if (this.f6651e != BdAsyncTaskStatus.PENDING) {
-            int i2 = c.f6658a[this.f6651e.ordinal()];
+        if (this.f6475e != BdAsyncTaskStatus.PENDING) {
+            int i2 = c.f6482a[this.f6475e.ordinal()];
             if (i2 == 1) {
                 throw new IllegalStateException("Cannot execute task: the task is already running.");
             }
@@ -192,10 +192,10 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
                 throw new IllegalStateException("Cannot execute task: the task has already been executed (a task can be executed only once)");
             }
         }
-        this.f6651e = BdAsyncTaskStatus.RUNNING;
+        this.f6475e = BdAsyncTaskStatus.RUNNING;
         s();
-        this.f6647a.f6661e = paramstArr;
-        executor.execute(this.f6648b);
+        this.f6471a.f6485e = paramstArr;
+        executor.execute(this.f6472b);
         return this;
     }
 
@@ -205,23 +205,23 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         } else {
             q(resultt);
         }
-        this.f6651e = BdAsyncTaskStatus.FINISHED;
+        this.f6475e = BdAsyncTaskStatus.FINISHED;
     }
 
     public d.a.t.a.c j() {
-        return this.f6654h;
+        return this.f6478h;
     }
 
     public int k() {
-        return this.f6652f;
+        return this.f6476f;
     }
 
     public final boolean l() {
-        return this.f6648b.isCancelled();
+        return this.f6472b.isCancelled();
     }
 
     public boolean m() {
-        return this.f6655i;
+        return this.f6479i;
     }
 
     public boolean n() {
@@ -247,7 +247,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
     }
 
     public final ResultT u(ResultT resultt) {
-        if (this.f6649c.compareAndSet(false, true)) {
+        if (this.f6473c.compareAndSet(false, true)) {
             l.obtainMessage(1, new d(this, resultt)).sendToTarget();
             return resultt;
         }
@@ -255,8 +255,8 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
     }
 
     public synchronized void v(d.a.t.a.c cVar) {
-        if (this.f6651e == BdAsyncTaskStatus.PENDING) {
-            this.f6654h = cVar;
+        if (this.f6475e == BdAsyncTaskStatus.PENDING) {
+            this.f6478h = cVar;
         } else {
             throw new IllegalStateException("the task is already running");
         }
@@ -264,9 +264,9 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
 
     public synchronized int w(int i2) {
         int i3;
-        if (this.f6651e == BdAsyncTaskStatus.PENDING) {
-            i3 = this.f6652f;
-            this.f6652f = i2;
+        if (this.f6475e == BdAsyncTaskStatus.PENDING) {
+            i3 = this.f6476f;
+            this.f6476f = i2;
         } else {
             throw new IllegalStateException("the task is already running");
         }
@@ -275,10 +275,10 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
 
     public synchronized int x(d.a.t.e.b bVar) {
         int i2;
-        if (this.f6651e == BdAsyncTaskStatus.PENDING) {
-            i2 = this.f6653g;
+        if (this.f6475e == BdAsyncTaskStatus.PENDING) {
+            i2 = this.f6477g;
             if (bVar != null) {
-                this.f6653g = bVar.b();
+                this.f6477g = bVar.b();
             }
         } else {
             throw new IllegalStateException("the task is already running");

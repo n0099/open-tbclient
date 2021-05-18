@@ -11,8 +11,8 @@ public class b extends c<byte[]> {
 
     @Override // d.a.c.e.d.c
     public boolean d(String str) {
-        d.a.c.a.k.b bVar = this.f39601a;
-        bVar.d("DROP TABLE IF EXISTS " + this.f39602b);
+        d.a.c.a.k.b bVar = this.f38846a;
+        bVar.d("DROP TABLE IF EXISTS " + this.f38847b);
         return true;
     }
 
@@ -26,18 +26,18 @@ public class b extends c<byte[]> {
     public g<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         Cursor cursor = null;
         try {
-            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f39602b + " where m_key = ?", new String[]{str});
+            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f38847b + " where m_key = ?", new String[]{str});
             try {
                 if (!rawQuery.moveToNext()) {
                     d.a.c.e.m.a.a(rawQuery);
                     return null;
                 }
                 g<byte[]> gVar = new g<>();
-                gVar.f39615a = rawQuery.getString(0);
-                gVar.f39618d = rawQuery.getLong(1);
-                gVar.f39619e = rawQuery.getLong(2);
-                gVar.f39620f = rawQuery.getLong(3);
-                gVar.f39616b = rawQuery.getBlob(4);
+                gVar.f38860a = rawQuery.getString(0);
+                gVar.f38863d = rawQuery.getLong(1);
+                gVar.f38864e = rawQuery.getLong(2);
+                gVar.f38865f = rawQuery.getLong(3);
+                gVar.f38861b = rawQuery.getBlob(4);
                 d.a.c.e.m.a.a(rawQuery);
                 return gVar;
             } catch (Throwable th) {
@@ -62,23 +62,23 @@ public class b extends c<byte[]> {
             hashCode *= -1;
         }
         String str2 = "cache_kv_b" + hashCode;
-        this.f39601a.d("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.f38846a.d("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
         return str2;
     }
 
     @Override // d.a.c.e.d.c
     public ContentValues p(g<byte[]> gVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", gVar.f39615a);
-        contentValues.put("m_value", gVar.f39616b);
-        contentValues.put("saveTime", Long.valueOf(gVar.f39618d));
-        contentValues.put("lastHitTime", Long.valueOf(gVar.f39619e));
-        contentValues.put("timeToExpire", Long.valueOf(gVar.f39620f));
+        contentValues.put("m_key", gVar.f38860a);
+        contentValues.put("m_value", gVar.f38861b);
+        contentValues.put("saveTime", Long.valueOf(gVar.f38863d));
+        contentValues.put("lastHitTime", Long.valueOf(gVar.f38864e));
+        contentValues.put("timeToExpire", Long.valueOf(gVar.f38865f));
         return contentValues;
     }
 
     @Override // d.a.c.e.d.c
     public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.f39602b, new String[0]);
+        return sQLiteDatabase.rawQuery("select * from " + this.f38847b, new String[0]);
     }
 }

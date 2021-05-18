@@ -18,31 +18,31 @@ import d.a.c.e.p.l;
 public class GameRankHorizontalLayout extends HorizontalScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f16231e;
+    public LinearLayout f15546e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f16232f;
+    public b f15547f;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.j0.t0.a f16233e;
+        public final /* synthetic */ d.a.k0.t0.a f15548e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f16234f;
+        public final /* synthetic */ int f15549f;
 
-        public a(d.a.j0.t0.a aVar, int i2) {
-            this.f16233e = aVar;
-            this.f16234f = i2;
+        public a(d.a.k0.t0.a aVar, int i2) {
+            this.f15548e = aVar;
+            this.f15549f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (GameRankHorizontalLayout.this.f16232f != null) {
-                GameRankHorizontalLayout.this.f16232f.a(this.f16233e, this.f16234f);
-                if (d.a.i0.r.d0.b.j().k("game_rank_list_show_times", 0) != 0) {
-                    d.a.i0.r.d0.b.j().v("game_rank_list_show_times", 0);
+            if (GameRankHorizontalLayout.this.f15547f != null) {
+                GameRankHorizontalLayout.this.f15547f.a(this.f15548e, this.f15549f);
+                if (d.a.j0.r.d0.b.j().k("game_rank_list_show_times", 0) != 0) {
+                    d.a.j0.r.d0.b.j().v("game_rank_list_show_times", 0);
                 }
             }
         }
@@ -50,7 +50,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(d.a.j0.t0.a aVar, int i2);
+        void a(d.a.k0.t0.a aVar, int i2);
     }
 
     public GameRankHorizontalLayout(Context context) {
@@ -62,11 +62,11 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         setFillViewport(true);
         setHorizontalScrollBarEnabled(false);
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f16231e = linearLayout;
+        this.f15546e = linearLayout;
         addView(linearLayout, -1, -1);
     }
 
-    public final View c(d.a.j0.t0.a aVar, int i2) {
+    public final View c(d.a.k0.t0.a aVar, int i2) {
         RoundAngleRelativeLayout roundAngleRelativeLayout;
         if (aVar == null) {
             return null;
@@ -96,8 +96,8 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         return roundAngleRelativeLayout;
     }
 
-    public void setData(d.a.j0.t0.b bVar) {
-        LinearLayout linearLayout = this.f16231e;
+    public void setData(d.a.k0.t0.b bVar) {
+        LinearLayout linearLayout = this.f15546e;
         if (linearLayout == null || bVar == null) {
             return;
         }
@@ -119,12 +119,12 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 layoutParams.rightMargin = 0;
             }
             c2.setLayoutParams(layoutParams);
-            this.f16231e.addView(c2);
+            this.f15546e.addView(c2);
         }
     }
 
     public void setOnCardClickListener(b bVar) {
-        this.f16232f = bVar;
+        this.f15547f = bVar;
     }
 
     public GameRankHorizontalLayout(Context context, AttributeSet attributeSet) {

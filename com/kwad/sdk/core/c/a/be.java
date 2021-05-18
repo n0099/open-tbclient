@@ -9,8 +9,8 @@ public class be implements com.kwad.sdk.core.c<com.kwad.sdk.collector.a.e> {
         if (jSONObject == null) {
             return;
         }
-        eVar.f32700a = jSONObject.optInt("sensorType");
-        eVar.f32702c = jSONObject.optLong("timestamp");
+        eVar.f31945a = jSONObject.optInt("sensorType");
+        eVar.f31947c = jSONObject.optLong("timestamp");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,8 +19,8 @@ public class be implements com.kwad.sdk.core.c<com.kwad.sdk.collector.a.e> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "sensorType", eVar.f32700a);
-        com.kwad.sdk.utils.o.a(jSONObject, "timestamp", eVar.f32702c);
+        com.kwad.sdk.utils.o.a(jSONObject, "sensorType", eVar.f31945a);
+        com.kwad.sdk.utils.o.a(jSONObject, "timestamp", eVar.f31947c);
         return jSONObject;
     }
 }

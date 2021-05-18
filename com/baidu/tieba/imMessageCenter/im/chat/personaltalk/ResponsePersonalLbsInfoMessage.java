@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.i0.s.f.b;
+import d.a.j0.s.f.b;
 import protobuf.SetLocation.DataRes;
 import protobuf.SetLocation.LbsInfo;
 import protobuf.SetLocation.SetLocationResIdl;

@@ -7,29 +7,29 @@ import android.widget.TextView;
 public final class bt implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23501a;
+    public final /* synthetic */ FeedbackInputActivity f22746a;
 
     public bt(FeedbackInputActivity feedbackInputActivity) {
-        this.f23501a = feedbackInputActivity;
+        this.f22746a = feedbackInputActivity;
     }
 
     @Override // android.text.TextWatcher
     public final void afterTextChanged(Editable editable) {
         boolean z;
-        z = this.f23501a.au;
+        z = this.f22746a.au;
         if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23501a);
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f22746a);
             dVar.b(dVar.b() + 1);
-            this.f23501a.au = true;
+            this.f22746a.au = true;
         }
-        FeedbackInputActivity feedbackInputActivity = this.f23501a;
+        FeedbackInputActivity feedbackInputActivity = this.f22746a;
         int i2 = feedbackInputActivity.I;
         if (i2 != 0) {
             if (i2 == 1 && feedbackInputActivity.E.getText().toString().trim().length() <= 0) {
-                this.f23501a.J.setTextColor(com.baidu.ufosdk.b.y);
+                this.f22746a.J.setTextColor(com.baidu.ufosdk.b.y);
             }
         } else if (feedbackInputActivity.E.getText().toString().trim().length() > 0) {
-            TextView textView = this.f23501a.J;
+            TextView textView = this.f22746a.J;
             int i3 = com.baidu.ufosdk.b.v;
             int i4 = com.baidu.ufosdk.b.y;
             int i5 = com.baidu.ufosdk.b.v;
@@ -41,11 +41,11 @@ public final class bt implements TextWatcher {
     public final void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         FeedbackInputActivity feedbackInputActivity;
         int i5;
-        if (this.f23501a.E.getText().toString().trim().length() <= 0) {
-            feedbackInputActivity = this.f23501a;
+        if (this.f22746a.E.getText().toString().trim().length() <= 0) {
+            feedbackInputActivity = this.f22746a;
             i5 = 0;
         } else {
-            feedbackInputActivity = this.f23501a;
+            feedbackInputActivity = this.f22746a;
             i5 = 1;
         }
         feedbackInputActivity.I = i5;

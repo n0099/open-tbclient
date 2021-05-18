@@ -23,8 +23,8 @@ import android.view.View;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
-import d.a.j0.p2.b.a.a;
-/* loaded from: classes3.dex */
+import d.a.k0.p2.b.a.a;
+/* loaded from: classes5.dex */
 public class ScanBoxView extends View {
     public Drawable A;
     public Bitmap B;
@@ -55,23 +55,23 @@ public class ScanBoxView extends View {
     public Bitmap d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f20906e;
+    public Bitmap f20194e;
     public Bitmap e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f20907f;
+    public Bitmap f20195f;
     public float f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f20908g;
+    public Bitmap f20196g;
     public StaticLayout g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f20909h;
+    public Bitmap f20197h;
     public int h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20910i;
+    public int f20198i;
     public boolean i0;
     public int j;
     public Context j0;
@@ -117,7 +117,7 @@ public class ScanBoxView extends View {
         this.F = false;
         this.G = 0;
         this.H = false;
-        this.f20910i = a.b(context, 2.0f);
+        this.f20198i = a.b(context, 2.0f);
         this.K = null;
         this.L = a.f(context, 14.0f);
         this.M = -1;
@@ -225,10 +225,10 @@ public class ScanBoxView extends View {
     public final void d(Canvas canvas) {
         this.n.reset();
         this.n.setAntiAlias(false);
-        canvas.drawBitmap(this.f20906e, getMainFrameLeft(), getMainFrameTop(), this.n);
-        canvas.drawBitmap(this.f20907f, getMainFrameRight() - this.f20906e.getWidth(), getMainFrameTop(), this.n);
-        canvas.drawBitmap(this.f20908g, getMainFrameLeft(), getMainFrameBottom() - this.f20906e.getHeight(), this.n);
-        canvas.drawBitmap(this.f20909h, getMainFrameRight() - this.f20906e.getWidth(), getMainFrameBottom() - this.f20906e.getHeight(), this.n);
+        canvas.drawBitmap(this.f20194e, getMainFrameLeft(), getMainFrameTop(), this.n);
+        canvas.drawBitmap(this.f20195f, getMainFrameRight() - this.f20194e.getWidth(), getMainFrameTop(), this.n);
+        canvas.drawBitmap(this.f20196g, getMainFrameLeft(), getMainFrameBottom() - this.f20194e.getHeight(), this.n);
+        canvas.drawBitmap(this.f20197h, getMainFrameRight() - this.f20194e.getWidth(), getMainFrameBottom() - this.f20194e.getHeight(), this.n);
     }
 
     public final void e(Canvas canvas) {
@@ -499,17 +499,17 @@ public class ScanBoxView extends View {
         int i2 = this.q;
         options.outWidth = i2;
         options.outHeight = i2;
-        this.f20906e = BitmapHelper.getResBitmap(this.j0, R.drawable.icon_scan_upperleft, options);
+        this.f20194e = BitmapHelper.getResBitmap(this.j0, R.drawable.icon_scan_upperleft, options);
         Matrix matrix = new Matrix();
         matrix.postRotate(90.0f);
-        Bitmap bitmap = this.f20906e;
-        this.f20907f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f20906e.getHeight(), matrix, false);
+        Bitmap bitmap = this.f20194e;
+        this.f20195f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f20194e.getHeight(), matrix, false);
         matrix.postRotate(180.0f);
-        Bitmap bitmap2 = this.f20906e;
-        this.f20908g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f20906e.getHeight(), matrix, false);
+        Bitmap bitmap2 = this.f20194e;
+        this.f20196g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f20194e.getHeight(), matrix, false);
         matrix.postRotate(270.0f);
-        Bitmap bitmap3 = this.f20906e;
-        this.f20909h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f20906e.getHeight(), matrix, false);
+        Bitmap bitmap3 = this.f20194e;
+        this.f20197h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f20194e.getHeight(), matrix, false);
     }
 
     public final void j(int i2, TypedArray typedArray) {
@@ -590,7 +590,7 @@ public class ScanBoxView extends View {
     public final void l() {
         if (this.H) {
             if (this.V == null) {
-                this.m += this.f20910i;
+                this.m += this.f20198i;
                 int i2 = this.w;
                 Bitmap bitmap = this.B;
                 if (bitmap != null) {
@@ -601,7 +601,7 @@ public class ScanBoxView extends View {
                     Rect rect = this.k;
                     float f3 = this.f0;
                     if (i2 + f2 > rect.right - f3 || f2 < rect.left + f3) {
-                        this.f20910i = -this.f20910i;
+                        this.f20198i = -this.f20198i;
                     }
                 } else {
                     float f4 = this.m + i2;
@@ -612,7 +612,7 @@ public class ScanBoxView extends View {
                     }
                 }
             } else {
-                float f6 = this.a0 + this.f20910i;
+                float f6 = this.a0 + this.f20198i;
                 this.a0 = f6;
                 Rect rect3 = this.k;
                 float f7 = this.f0;
@@ -621,7 +621,7 @@ public class ScanBoxView extends View {
                 }
             }
         } else if (this.V == null) {
-            this.l += this.f20910i;
+            this.l += this.f20198i;
             int i3 = this.w;
             Bitmap bitmap2 = this.B;
             if (bitmap2 != null) {
@@ -632,7 +632,7 @@ public class ScanBoxView extends View {
                 Rect rect4 = this.k;
                 float f9 = this.f0;
                 if (i3 + f8 > rect4.bottom - f9 || f8 < rect4.top + f9) {
-                    this.f20910i = -this.f20910i;
+                    this.f20198i = -this.f20198i;
                 }
             } else {
                 float f10 = this.l + i3;
@@ -643,7 +643,7 @@ public class ScanBoxView extends View {
                 }
             }
         } else {
-            float f12 = this.W + this.f20910i;
+            float f12 = this.W + this.f20198i;
             this.W = f12;
             Rect rect6 = this.k;
             float f13 = this.f0;
@@ -739,12 +739,12 @@ public class ScanBoxView extends View {
         if (this.H) {
             this.K = this.J;
             this.t = this.u;
-            this.j = (int) (((this.E * 1.0f) * this.f20910i) / this.s);
+            this.j = (int) (((this.E * 1.0f) * this.f20198i) / this.s);
         } else {
             this.K = this.I;
             int i2 = this.s;
             this.t = i2;
-            this.j = (int) (((this.E * 1.0f) * this.f20910i) / i2);
+            this.j = (int) (((this.E * 1.0f) * this.f20198i) / i2);
         }
         if (!TextUtils.isEmpty(this.K)) {
             if (this.P) {

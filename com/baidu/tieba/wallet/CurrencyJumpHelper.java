@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.util.PageDialogHelper;
-import d.a.i0.l0.f;
+import d.a.j0.l0.f;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class CurrencyJumpHelper {

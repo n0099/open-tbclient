@@ -10,32 +10,32 @@ import com.baidu.tbadk.TbSingleton;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public i f40386a;
+    public i f39631a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m f40387b;
+    public m f39632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RecyclerView f40388c;
+    public RecyclerView f39633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VelocityTracker f40389d;
+    public VelocityTracker f39634d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f40390e;
+    public float f39635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f40391f;
+    public float f39636f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40392g;
+    public int f39637g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40393h;
+    public int f39638h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f40394i;
-    public d.a.i0.m0.o.a j;
+    public int f39639i;
+    public d.a.j0.m0.o.a j;
     public RecyclerView.OnChildAttachStateChangeListener k = new a();
     public RecyclerView.OnScrollListener l = new b();
     public RecyclerView.OnItemTouchListener m = new c();
@@ -81,41 +81,41 @@ public class l {
         public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
             int actionMasked = motionEvent.getActionMasked();
             if (actionMasked == 0) {
-                l.this.f40388c.stopScroll();
-                l.this.f40390e = motionEvent.getX();
-                l.this.f40391f = motionEvent.getY();
+                l.this.f39633c.stopScroll();
+                l.this.f39635e = motionEvent.getX();
+                l.this.f39636f = motionEvent.getY();
                 l lVar = l.this;
-                View x = lVar.x(lVar.f40390e, l.this.f40391f);
+                View x = lVar.x(lVar.f39635e, l.this.f39636f);
                 l lVar2 = l.this;
-                lVar2.f40392g = lVar2.f40388c.getChildAdapterPosition(x);
-                if (l.this.f40389d == null) {
-                    l.this.f40389d = VelocityTracker.obtain();
+                lVar2.f39637g = lVar2.f39633c.getChildAdapterPosition(x);
+                if (l.this.f39634d == null) {
+                    l.this.f39634d = VelocityTracker.obtain();
                 }
-                l.this.f40389d.addMovement(motionEvent);
+                l.this.f39634d.addMovement(motionEvent);
                 return false;
             }
             if (actionMasked != 2) {
                 if (actionMasked == 3 || actionMasked == 1) {
-                    l.this.f40390e = 0.0f;
-                    l.this.f40391f = 0.0f;
-                    l.this.f40389d.clear();
+                    l.this.f39635e = 0.0f;
+                    l.this.f39636f = 0.0f;
+                    l.this.f39634d.clear();
                     return false;
                 }
                 return false;
             }
             float x2 = motionEvent.getX();
             float y = motionEvent.getY();
-            int i2 = (l.this.f40394i == 2 ? y - l.this.f40391f : x2 - l.this.f40390e) >= 0.0f ? 2 : 1;
-            if (i2 != l.this.f40393h) {
-                l.this.f40393h = i2;
-                l.this.f40389d.clear();
+            int i2 = (l.this.f39639i == 2 ? y - l.this.f39636f : x2 - l.this.f39635e) >= 0.0f ? 2 : 1;
+            if (i2 != l.this.f39638h) {
+                l.this.f39638h = i2;
+                l.this.f39634d.clear();
             }
-            l.this.f40389d.addMovement(motionEvent);
-            l.this.f40389d.computeCurrentVelocity(50);
+            l.this.f39634d.addMovement(motionEvent);
+            l.this.f39634d.computeCurrentVelocity(50);
             l lVar3 = l.this;
-            lVar3.v(lVar3.f40389d.getXVelocity(), l.this.f40389d.getYVelocity());
-            l.this.f40390e = x2;
-            l.this.f40391f = y;
+            lVar3.v(lVar3.f39634d.getXVelocity(), l.this.f39634d.getYVelocity());
+            l.this.f39635e = x2;
+            l.this.f39636f = y;
             return false;
         }
 
@@ -129,95 +129,95 @@ public class l {
     }
 
     public l(j jVar) {
-        this.f40386a = new i(jVar);
-        this.f40387b = new m(jVar);
+        this.f39631a = new i(jVar);
+        this.f39632b = new m(jVar);
     }
 
     public void q(RecyclerView recyclerView, int i2) {
         if (recyclerView == null) {
             return;
         }
-        RecyclerView recyclerView2 = this.f40388c;
+        RecyclerView recyclerView2 = this.f39633c;
         if (recyclerView2 != null) {
             recyclerView2.removeOnItemTouchListener(this.m);
-            this.f40388c.removeOnScrollListener(this.l);
-            this.f40388c.removeOnChildAttachStateChangeListener(this.k);
+            this.f39633c.removeOnScrollListener(this.l);
+            this.f39633c.removeOnChildAttachStateChangeListener(this.k);
         }
-        this.f40388c = recyclerView;
-        this.f40394i = i2;
+        this.f39633c = recyclerView;
+        this.f39639i = i2;
         if (recyclerView instanceof BdTypeRecyclerView) {
-            this.f40387b.e((BdTypeRecyclerView) recyclerView, i2);
+            this.f39632b.e((BdTypeRecyclerView) recyclerView, i2);
         } else {
-            this.f40386a.e(recyclerView, i2);
+            this.f39631a.e(recyclerView, i2);
         }
-        this.f40388c.addOnItemTouchListener(this.m);
-        this.f40388c.addOnScrollListener(this.l);
-        this.f40388c.addOnChildAttachStateChangeListener(this.k);
+        this.f39633c.addOnItemTouchListener(this.m);
+        this.f39633c.addOnScrollListener(this.l);
+        this.f39633c.addOnChildAttachStateChangeListener(this.k);
     }
 
     public final void r(View view) {
-        if (this.f40388c instanceof BdTypeRecyclerView) {
-            this.f40387b.j(view);
+        if (this.f39633c instanceof BdTypeRecyclerView) {
+            this.f39632b.j(view);
         } else {
-            this.f40386a.g(view);
+            this.f39631a.g(view);
         }
     }
 
     public final void s(View view) {
-        if (this.f40388c instanceof BdTypeRecyclerView) {
-            this.f40387b.k(view);
+        if (this.f39633c instanceof BdTypeRecyclerView) {
+            this.f39632b.k(view);
         } else {
-            this.f40386a.h(view);
+            this.f39631a.h(view);
         }
     }
 
     public final void t(int i2, int i3) {
-        if (this.f40388c instanceof BdTypeRecyclerView) {
-            this.f40387b.o(i2, i3, this.f40392g);
+        if (this.f39633c instanceof BdTypeRecyclerView) {
+            this.f39632b.o(i2, i3, this.f39637g);
         }
-        this.f40386a.l(i2, i3, this.f40392g);
+        this.f39631a.l(i2, i3, this.f39637g);
     }
 
     public final void u(int i2) {
         if (i2 == 1) {
             if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
                 if (this.j == null) {
-                    this.j = new d.a.i0.m0.o.a("anim_switch_slide");
+                    this.j = new d.a.j0.m0.o.a("anim_switch_slide");
                 }
                 this.j.b();
             }
         } else if (i2 == 0 && this.j != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
             this.j.c();
         }
-        if (this.f40388c instanceof BdTypeRecyclerView) {
-            this.f40387b.p(i2);
+        if (this.f39633c instanceof BdTypeRecyclerView) {
+            this.f39632b.p(i2);
         }
-        this.f40386a.m(i2);
+        this.f39631a.m(i2);
     }
 
     public final void v(float f2, float f3) {
-        if (this.f40388c instanceof BdTypeRecyclerView) {
-            this.f40387b.s(f2, f3, this.f40392g);
+        if (this.f39633c instanceof BdTypeRecyclerView) {
+            this.f39632b.s(f2, f3, this.f39637g);
         }
-        this.f40386a.o(f2, f3, this.f40392g);
+        this.f39631a.o(f2, f3, this.f39637g);
     }
 
     public void w() {
-        RecyclerView recyclerView = this.f40388c;
+        RecyclerView recyclerView = this.f39633c;
         if (recyclerView != null) {
             recyclerView.removeOnItemTouchListener(this.m);
-            this.f40388c.removeOnScrollListener(this.l);
-            this.f40388c.removeOnChildAttachStateChangeListener(this.k);
+            this.f39633c.removeOnScrollListener(this.l);
+            this.f39633c.removeOnChildAttachStateChangeListener(this.k);
         }
     }
 
     public View x(float f2, float f3) {
-        RecyclerView recyclerView = this.f40388c;
+        RecyclerView recyclerView = this.f39633c;
         if (recyclerView == null) {
             return null;
         }
         for (int childCount = recyclerView.getChildCount() - 1; childCount >= 0; childCount--) {
-            View childAt = this.f40388c.getChildAt(childCount);
+            View childAt = this.f39633c.getChildAt(childCount);
             float translationX = childAt.getTranslationX();
             float translationY = childAt.getTranslationY();
             if (f2 >= childAt.getLeft() + translationX && f2 <= childAt.getRight() + translationX && f3 >= childAt.getTop() + translationY && f3 <= childAt.getBottom() + translationY) {

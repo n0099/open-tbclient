@@ -1,6 +1,7 @@
 package com.cmic.sso.sdk.d;
 
 import android.text.TextUtils;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
@@ -28,7 +29,7 @@ public class m {
                     if (TextUtils.isEmpty(a2)) {
                         return false;
                     }
-                    return a2.indexOf("root") != a2.lastIndexOf("root");
+                    return a2.indexOf(PrefetchEvent.EVENT_DATA_ROOT_PATH) != a2.lastIndexOf(PrefetchEvent.EVENT_DATA_ROOT_PATH);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

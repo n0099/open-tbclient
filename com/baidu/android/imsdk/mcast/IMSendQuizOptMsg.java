@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -64,7 +65,7 @@ public class IMSendQuizOptMsg extends Message {
             jSONObject.put("room_id", this.mRoomId);
             jSONObject.put("op_code", this.mOpCode);
             jSONObject.put("op_ext", this.mOptExt);
-            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             this.mBody = jSONObject.toString();
         } catch (JSONException e3) {
             LogUtils.e(TAG, "Exception ", e3);

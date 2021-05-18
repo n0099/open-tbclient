@@ -1,33 +1,33 @@
 package com.bytedance.sdk.openadsdk.core.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28686a = 0;
+    public int f27931a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28687b = 1;
+    public int f27932b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28688c = 1;
+    public int f27933c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28689d = 1;
+    public int f27934d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28690e = 1;
+    public int f27935e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28691f = 0;
+    public int f27936f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28692g = 0;
+    public int f27937g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28693h = 0;
+    public int f27938h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28694i = 300;
+    public int f27939i = 300;
     public int j = -1;
     public int k = 1;
 
@@ -40,39 +40,39 @@ public class h {
     }
 
     public int c() {
-        return this.f28690e;
+        return this.f27935e;
     }
 
     public int d() {
-        return this.f28691f;
+        return this.f27936f;
     }
 
     public int e() {
-        return this.f28692g;
+        return this.f27937g;
     }
 
     public int f() {
-        return this.f28687b;
+        return this.f27932b;
     }
 
     public int g() {
-        return this.f28688c;
+        return this.f27933c;
     }
 
     public int h() {
-        return this.f28689d;
+        return this.f27934d;
     }
 
     public int i() {
-        return this.f28693h;
+        return this.f27938h;
     }
 
     public int j() {
-        return this.f28694i;
+        return this.f27939i;
     }
 
     public int k() {
-        return this.f28686a;
+        return this.f27931a;
     }
 
     public void a(int i2) {
@@ -84,38 +84,38 @@ public class h {
     }
 
     public void c(int i2) {
-        this.f28690e = i2;
+        this.f27935e = i2;
     }
 
     public void d(int i2) {
-        this.f28691f = i2;
+        this.f27936f = i2;
     }
 
     public void e(int i2) {
-        this.f28692g = i2;
+        this.f27937g = i2;
     }
 
     public void f(int i2) {
-        this.f28687b = i2;
+        this.f27932b = i2;
     }
 
     public void g(int i2) {
-        this.f28688c = i2;
+        this.f27933c = i2;
     }
 
     public void h(int i2) {
-        this.f28689d = i2;
+        this.f27934d = i2;
     }
 
     public void i(int i2) {
-        this.f28693h = i2;
+        this.f27938h = i2;
     }
 
     public void j(int i2) {
-        this.f28694i = i2;
+        this.f27939i = i2;
     }
 
     public void k(int i2) {
-        this.f28686a = i2;
+        this.f27931a = i2;
     }
 }

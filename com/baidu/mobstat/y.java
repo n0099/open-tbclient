@@ -9,31 +9,31 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static y f9157a;
+    public static y f8969a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f9158b;
+    public Context f8970b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f9159c = new JSONObject();
+    public JSONObject f8971c = new JSONObject();
 
     /* renamed from: d  reason: collision with root package name */
-    public long f9160d = 24;
+    public long f8972d = 24;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f9161e = 0;
+    public long f8973e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f9162f = 0;
+    public long f8974f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f9163g = 0;
+    public long f8975g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f9164h = 5;
+    public long f8976h = 5;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f9165i = 24;
+    public long f8977i = 24;
     public long j = 15;
     public long k = 15;
     public long l = 30;
@@ -44,21 +44,21 @@ public class y {
     public String q = "";
 
     public y(Context context) {
-        this.f9158b = context;
+        this.f8970b = context;
         m();
         j();
         k();
     }
 
     public static y a(Context context) {
-        if (f9157a == null) {
+        if (f8969a == null) {
             synchronized (y.class) {
-                if (f9157a == null) {
-                    f9157a = new y(context);
+                if (f8969a == null) {
+                    f8969a = new y(context);
                 }
             }
         }
-        return f9157a;
+        return f8969a;
     }
 
     private void m() {
@@ -67,17 +67,17 @@ public class y {
             if (TextUtils.isEmpty(b2)) {
                 return;
             }
-            this.f9159c = new JSONObject(b2);
+            this.f8971c = new JSONObject(b2);
         } catch (Exception unused) {
         }
     }
 
     public boolean b() {
-        return this.f9162f != 0;
+        return this.f8974f != 0;
     }
 
     public long c() {
-        return this.f9160d * 60 * 60 * 1000;
+        return this.f8972d * 60 * 60 * 1000;
     }
 
     public long d() {
@@ -85,11 +85,11 @@ public class y {
     }
 
     public long e() {
-        return this.f9164h * 60 * 1000;
+        return this.f8976h * 60 * 1000;
     }
 
     public long f() {
-        return this.f9165i * 60 * 60 * 1000;
+        return this.f8977i * 60 * 60 * 1000;
     }
 
     public long g() {
@@ -106,23 +106,23 @@ public class y {
 
     public void j() {
         try {
-            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f9158b, ".config2").getBytes())));
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f8970b, ".config2").getBytes())));
             if (TextUtils.isEmpty(str)) {
                 return;
             }
             JSONObject jSONObject = new JSONObject(str);
             try {
-                this.f9161e = jSONObject.getLong("c");
+                this.f8973e = jSONObject.getLong("c");
             } catch (JSONException e2) {
                 bb.c().b(e2);
             }
             try {
-                this.f9164h = jSONObject.getLong("d");
+                this.f8976h = jSONObject.getLong("d");
             } catch (JSONException e3) {
                 bb.c().b(e3);
             }
             try {
-                this.f9165i = jSONObject.getLong("e");
+                this.f8977i = jSONObject.getLong("e");
             } catch (JSONException e4) {
                 bb.c().b(e4);
             }
@@ -132,7 +132,7 @@ public class y {
                 bb.c().b(e5);
             }
             try {
-                this.f9160d = jSONObject.getLong("f");
+                this.f8972d = jSONObject.getLong("f");
             } catch (JSONException e6) {
                 bb.c().b(e6);
             }
@@ -162,12 +162,12 @@ public class y {
                 bb.c().b(e11);
             }
             try {
-                this.f9162f = jSONObject.getLong(Config.DEVICE_MAC_ID);
+                this.f8974f = jSONObject.getLong(Config.DEVICE_MAC_ID);
             } catch (JSONException e12) {
                 bb.c().b(e12);
             }
             try {
-                this.f9163g = jSONObject.getLong("lsc");
+                this.f8975g = jSONObject.getLong("lsc");
             } catch (JSONException e13) {
                 bb.c().b(e13);
             }
@@ -178,7 +178,7 @@ public class y {
 
     public void k() {
         try {
-            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f9158b, ".sign").getBytes())));
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f8970b, ".sign").getBytes())));
             if (TextUtils.isEmpty(str)) {
                 return;
             }
@@ -208,7 +208,7 @@ public class y {
     }
 
     public void b(String str) {
-        bo.a(this.f9158b, ".sign", str, false);
+        bo.a(this.f8970b, ".sign", str, false);
         k();
     }
 
@@ -224,11 +224,11 @@ public class y {
     }
 
     public boolean a() {
-        return this.f9161e != 0;
+        return this.f8973e != 0;
     }
 
     public void a(String str) {
-        bo.a(this.f9158b, ".config2", str, false);
+        bo.a(this.f8970b, ".config2", str, false);
         j();
     }
 
@@ -236,8 +236,8 @@ public class y {
         long j = gVar.j;
         try {
             String str = gVar.toString();
-            if (this.f9159c.has(str)) {
-                j = this.f9159c.getLong(str);
+            if (this.f8971c.has(str)) {
+                j = this.f8971c.getLong(str);
             }
         } catch (Exception e2) {
             bb.c().a(e2);
@@ -248,12 +248,12 @@ public class y {
     public void a(g gVar, long j) {
         gVar.j = j;
         try {
-            this.f9159c.put(gVar.toString(), j);
+            this.f8971c.put(gVar.toString(), j);
         } catch (Exception e2) {
             bb.c().a(e2);
         }
         try {
-            bo.a("backups/system/.timestamp", this.f9159c.toString(), false);
+            bo.a("backups/system/.timestamp", this.f8971c.toString(), false);
         } catch (Exception e3) {
             bb.c().a(e3);
         }

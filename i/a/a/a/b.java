@@ -1,7 +1,7 @@
 package i.a.a.a;
 
 import d.r.b.a.a.f.d.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements d.r.b.a.a.f.c.a {
     @Override // d.r.b.a.a.f.c.a
     public void initProtocol() {

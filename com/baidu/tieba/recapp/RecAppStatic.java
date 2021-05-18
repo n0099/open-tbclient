@@ -8,31 +8,27 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.alibaba.fastjson.asm.Label;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tieba.recapp.activity.AdDebugActivity;
-import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import d.a.i0.r.q.a2;
-import d.a.j0.e.e.e;
-import d.a.j0.s2.d;
-import d.a.j0.s2.f;
-import d.a.j0.s2.h;
-import d.a.j0.s2.l;
-import d.a.j0.s2.v;
-import d.a.j0.s2.w;
-import d.a.j0.s2.y;
+import d.a.j0.r.q.a2;
+import d.a.k0.e.e.e;
+import d.a.k0.s2.g;
+import d.a.k0.s2.i;
+import d.a.k0.s2.m;
+import d.a.k0.s2.w;
+import d.a.k0.s2.x;
+import d.a.k0.s2.z;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class RecAppStatic {
 
-    /* loaded from: classes3.dex */
-    public static class a implements l.a {
-        @Override // d.a.j0.s2.l.a
+    /* loaded from: classes5.dex */
+    public static class a implements m.a {
+        @Override // d.a.k0.s2.m.a
         public int a(Context context, String[] strArr) {
             if (strArr != null && strArr[0] != null) {
                 Uri parse = Uri.parse(strArr[0]);
@@ -80,7 +76,7 @@ public class RecAppStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class b extends BroadcastReceiver {
         public final /* synthetic */ TbadkCoreApplication val$application;
 
@@ -95,23 +91,21 @@ public class RecAppStatic {
     }
 
     static {
-        w.f60358a.set(new y());
-        d.a.j0.s2.c0.a.f60198a.set(new v());
+        x.f61093a.set(new z());
+        d.a.k0.s2.d0.a.f60927a.set(new w());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        d.a.j0.o.a.l().e(new a());
-        e.b().c(1, new h());
-        e.b().c(2, new f());
-        a2.u3.set(true);
+        d.a.k0.o.a.l().e(new a());
+        e.b().c(1, new i());
+        e.b().c(2, new g());
+        a2.v3.set(true);
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(AdWebVideoActivityConfig.class, AdWebVideoActivity.class);
-        inst.RegisterIntent(AdDebugActivityConfig.class, AdDebugActivity.class);
         b bVar = new b(inst);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(bVar, intentFilter);
-        d.t().a();
-        d.t().f();
-        BdLog.isDebugMode();
-        d.a.j0.o.d.h.a.f57103a.set(new d.a.j0.s2.b0.b());
+        d.a.k0.s2.e.t().a();
+        d.a.k0.s2.e.t().f();
+        d.a.k0.o.d.h.a.f57810a.set(new d.a.k0.s2.c0.b());
     }
 }

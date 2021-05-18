@@ -1,7 +1,7 @@
 package com.baidu.tieba.play;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CallStateMessage extends CustomResponsedMessage {
     public int mState;
 

@@ -15,17 +15,17 @@ public class PollOfflineCacheSwitch implements ActLifecycleCbs.a {
     public static final String TAG = "WebViewCacheManager";
 
     /* renamed from: a  reason: collision with root package name */
-    public SdkInitResponse.OfflineCacheConfig f24749a;
+    public SdkInitResponse.OfflineCacheConfig f23994a;
 
     /* loaded from: classes5.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final PollOfflineCacheSwitch f24752a = new PollOfflineCacheSwitch();
+        public static final PollOfflineCacheSwitch f23997a = new PollOfflineCacheSwitch();
     }
 
     public static final PollOfflineCacheSwitch getInstance() {
-        return a.f24752a;
+        return a.f23997a;
     }
 
     @Override // com.baidu.wallet.core.ActLifecycleCbs.a
@@ -35,7 +35,7 @@ public class PollOfflineCacheSwitch implements ActLifecycleCbs.a {
         sb.append("pollinit-触发请求init接口，from = ");
         sb.append(from);
         sb.append("; 离线缓存开关");
-        SdkInitResponse.OfflineCacheConfig offlineCacheConfig = this.f24749a;
+        SdkInitResponse.OfflineCacheConfig offlineCacheConfig = this.f23994a;
         sb.append(offlineCacheConfig != null ? Boolean.valueOf(offlineCacheConfig.isUseOfflineCache()) : "空");
         LogUtil.d("WebViewCacheManager", sb.toString());
         LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbridge_openPoll"), new RouterCallback() { // from class: com.baidu.wallet.core.utils.PollOfflineCacheSwitch.1
@@ -52,7 +52,7 @@ public class PollOfflineCacheSwitch implements ActLifecycleCbs.a {
             BdWalletUtils.getInitForPoll(context);
             return true;
         }
-        SdkInitResponse.OfflineCacheConfig offlineCacheConfig2 = this.f24749a;
+        SdkInitResponse.OfflineCacheConfig offlineCacheConfig2 = this.f23994a;
         if ((offlineCacheConfig2 == null || !offlineCacheConfig2.isUseOfflineCache()) && !zArr[0]) {
             return false;
         }
@@ -70,7 +70,7 @@ public class PollOfflineCacheSwitch implements ActLifecycleCbs.a {
         sb.append("pollinit-更新缓存配置:");
         sb.append(offlineCacheConfig != null ? Boolean.valueOf(offlineCacheConfig.isUseOfflineCache()) : "配置为空");
         LogUtil.d("WebViewCacheManager", sb.toString());
-        this.f24749a = offlineCacheConfig;
+        this.f23994a = offlineCacheConfig;
     }
 
     public void updateIntervalTime(String str) {

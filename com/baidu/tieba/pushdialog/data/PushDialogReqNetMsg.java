@@ -2,10 +2,10 @@ package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.i0.z0.w;
+import d.a.j0.z0.w;
 import tbclient.GetLockWindowMsg.DataReq;
 import tbclient.GetLockWindowMsg.GetLockWindowMsgReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PushDialogReqNetMsg extends NetMessage {
     public long task_id;
     public long tid;

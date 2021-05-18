@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.gamelist.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.squareup.wire.Wire;
-import d.a.i0.r.q.a2;
+import d.a.j0.r.q.a2;
 import java.util.LinkedList;
 import tbclient.LiveLabelInfo;
 import tbclient.LiveTabliveSubTab.LiveTabliveSubTabResIdl;
@@ -46,7 +46,7 @@ public class AlaSubListGameLiveSocketResponseMessage extends SocketResponsedMess
         for (ThreadInfo threadInfo : liveTabliveSubTabResIdl.data.live) {
             if (threadInfo.thread_type.intValue() == 49) {
                 a2 a2Var = new a2();
-                a2Var.R2(threadInfo);
+                a2Var.T2(threadInfo);
                 this.threadList.add(a2Var);
             }
         }

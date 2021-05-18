@@ -1,30 +1,30 @@
 package com.bytedance.sdk.openadsdk.utils;
 
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f31057a = false;
+    public static boolean f30302a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f31058b = 4;
+    public static int f30303b = 4;
 
     public static void a(int i2) {
-        f31058b = i2;
+        f30303b = i2;
     }
 
     public static void b() {
-        f31057a = true;
+        f30302a = true;
         a(3);
     }
 
     public static boolean c() {
-        return f31057a;
+        return f30302a;
     }
 
     public static void d(String str, String str2) {
-        if (f31057a && str2 != null && f31058b <= 5) {
+        if (f30302a && str2 != null && f30303b <= 5) {
             Log.w(str, str2);
         }
     }
@@ -40,83 +40,83 @@ public class u {
     }
 
     public static void f(String str, String str2) {
-        if (f31057a && str2 != null && f31058b <= 6) {
+        if (f30302a && str2 != null && f30303b <= 6) {
             Log.e(str, str2);
         }
     }
 
     public static boolean a() {
-        return f31058b <= 3;
+        return f30303b <= 3;
     }
 
     public static void c(String str, String str2) {
-        if (f31057a && str2 != null && f31058b <= 4) {
+        if (f30302a && str2 != null && f30303b <= 4) {
             Log.i(str, str2);
         }
     }
 
     public static void a(String str, String str2) {
-        if (f31057a && str2 != null && f31058b <= 2) {
+        if (f30302a && str2 != null && f30303b <= 2) {
             Log.v(str, str2);
         }
     }
 
     public static void b(String str, String str2) {
-        if (f31057a && str2 != null && f31058b <= 3) {
+        if (f30302a && str2 != null && f30303b <= 3) {
             Log.d(str, str2);
         }
     }
 
     public static void c(String str, String str2, Throwable th) {
-        if (f31057a) {
-            if (!(str2 == null && th == null) && f31058b <= 6) {
+        if (f30302a) {
+            if (!(str2 == null && th == null) && f30303b <= 6) {
                 Log.e(str, str2, th);
             }
         }
     }
 
     public static void a(String str) {
-        if (f31057a) {
+        if (f30302a) {
             b("Logger", str);
         }
     }
 
     public static void b(String str, Object... objArr) {
-        if (f31057a && objArr != null && f31058b <= 4) {
+        if (f30302a && objArr != null && f30303b <= 4) {
             Log.v(str, a(objArr));
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (f31057a) {
-            if (!(str2 == null && th == null) && f31058b <= 3) {
+        if (f30302a) {
+            if (!(str2 == null && th == null) && f30303b <= 3) {
                 Log.d(str, str2, th);
             }
         }
     }
 
     public static void c(String str, Object... objArr) {
-        if (f31057a && objArr != null && f31058b <= 6) {
+        if (f30302a && objArr != null && f30303b <= 6) {
             Log.v(str, a(objArr));
         }
     }
 
     public static void b(String str, String str2, Throwable th) {
-        if (f31057a) {
-            if (!(str2 == null && th == null) && f31058b <= 5) {
+        if (f30302a) {
+            if (!(str2 == null && th == null) && f30303b <= 5) {
                 Log.w(str, str2, th);
             }
         }
     }
 
     public static void a(String str, Object... objArr) {
-        if (f31057a && objArr != null && f31058b <= 3) {
+        if (f30302a && objArr != null && f30303b <= 3) {
             Log.v(str, a(objArr));
         }
     }
 
     public static void b(String str) {
-        if (f31057a) {
+        if (f30302a) {
             f("Logger", str);
         }
     }

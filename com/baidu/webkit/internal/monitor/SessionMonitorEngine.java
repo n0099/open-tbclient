@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,9 +31,13 @@ public class SessionMonitorEngine implements INoProGuard {
     public static final int MONITOR_FRAMEWORK_TYPE_SEARCH_CLICK = 1;
     public static final int MONITOR_FRAMEWORK_TYPE_SYNC_SEARCH_LOADURL = 3;
     public static final String PUBLIC_DATA_UNDIFNED = "undefined";
+    public static final int STATUS_CODE_FAILED = 0;
+    public static final int STATUS_CODE_SUCCESS = 1;
     public static SessionMonitorEngine sInstance;
     public ConcurrentHashMap<Integer, LinkedList<WeakReference<IExtraInfoCollector>>> mExtraInfoCollectors;
+    public CopyOnWriteArrayList<PageSessionObserver> mPageSessionObserverList;
     public JSONObject mStaticPublicData;
+    public IStatisticsTransmission mStatisticsTransmission;
     public String mWiseSid;
     public b sExtraInterfaceProvider;
     public a sFrameworkBehaviorProvider;
@@ -47,6 +52,10 @@ public class SessionMonitorEngine implements INoProGuard {
 
     /* loaded from: classes5.dex */
     public interface IPrototype extends INoProGuard {
+        void OnAppEnterBackground();
+
+        void OnAppEnterForeground();
+
         void notifyPageActive(String str, WebView webView, boolean z);
 
         void notifyPageLeave(String str, WebView webView);
@@ -59,7 +68,14 @@ public class SessionMonitorEngine implements INoProGuard {
 
         void record(WebView webView, String str);
 
+        void recordBySourceId(WebView webView, long j, int i2, JSONObject jSONObject);
+
         void recordImmediately(String str, String str2);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface PageSessionObserver extends INoProGuard {
+        void onPageSessionDataRecord(WebView webView, String str, String str2, int i2, String str3);
     }
 
     public SessionMonitorEngine() {
@@ -68,6 +84,9 @@ public class SessionMonitorEngine implements INoProGuard {
         }
         if (this.sFrameworkBehaviorProvider == null) {
             this.sFrameworkBehaviorProvider = new a();
+        }
+        if (this.mPageSessionObserverList == null) {
+            this.mPageSessionObserverList = new CopyOnWriteArrayList<>();
         }
     }
 
@@ -83,7 +102,7 @@ public class SessionMonitorEngine implements INoProGuard {
             this.mStaticPublicData = new JSONObject();
             try {
                 this.mStaticPublicData.put("cuid", WebKitFactory.getCUIDString());
-                this.mStaticPublicData.put(DpStatConstants.KEY_APP_NAME, WebKitFactory.getContext().getApplicationContext().getPackageName());
+                this.mStaticPublicData.put("app_name", WebKitFactory.getContext().getApplicationContext().getPackageName());
                 this.mStaticPublicData.put("app_version", WebKitFactory.getContext().getApplicationContext().getPackageManager().getPackageInfo(WebKitFactory.getContext().getApplicationContext().getPackageName(), 0).versionName);
                 this.mStaticPublicData.put("zeus_version", WebKitFactory.getZeusVersionName());
                 String str = Build.BRAND;
@@ -105,6 +124,37 @@ public class SessionMonitorEngine implements INoProGuard {
         return this.mStaticPublicData;
     }
 
+    public void OnAppEnterBackground() {
+        WeakReference<IPrototype> weakReference = this.sImplement;
+        if (weakReference == null || weakReference.get() == null) {
+            return;
+        }
+        this.sImplement.get().OnAppEnterBackground();
+    }
+
+    public void OnAppEnterForeground() {
+        WeakReference<IPrototype> weakReference = this.sImplement;
+        if (weakReference == null || weakReference.get() == null) {
+            return;
+        }
+        this.sImplement.get().OnAppEnterForeground();
+    }
+
+    public void addPageSessionObserver(PageSessionObserver pageSessionObserver) {
+        CopyOnWriteArrayList<PageSessionObserver> copyOnWriteArrayList = this.mPageSessionObserverList;
+        if (copyOnWriteArrayList == null || pageSessionObserver == null) {
+            return;
+        }
+        copyOnWriteArrayList.add(pageSessionObserver);
+    }
+
+    public void clearPageSessionObserver() {
+        CopyOnWriteArrayList<PageSessionObserver> copyOnWriteArrayList = this.mPageSessionObserverList;
+        if (copyOnWriteArrayList != null) {
+            copyOnWriteArrayList.clear();
+        }
+    }
+
     public void decorateMonitorEngine(IPrototype iPrototype) {
         if (iPrototype != null) {
             this.sImplement = new WeakReference<>(iPrototype);
@@ -124,7 +174,7 @@ public class SessionMonitorEngine implements INoProGuard {
             if (abTestInterface != null) {
                 JSONObject rawSwitch = abTestInterface.getRawSwitch();
                 processStaticPublicData.put("searchbox_ab_rsid", rawSwitch);
-                Log.i("linhua-x", "searchbox_ab_rsid is " + rawSwitch);
+                Log.i("linhua-x", "searchbox_ab_rsid is ".concat(String.valueOf(rawSwitch)));
             }
             HashMap<String, String> statisticParams = WebKitFactory.getStatisticParams();
             if (statisticParams != null && !statisticParams.isEmpty()) {
@@ -147,11 +197,11 @@ public class SessionMonitorEngine implements INoProGuard {
                     if (i2 != 3) {
                         return -1L;
                     }
-                    return bVar.f27444f;
+                    return bVar.f26694f;
                 }
-                return bVar.f27443e;
+                return bVar.f26693e;
             }
-            return bVar.f27445g;
+            return bVar.f26695g;
         }
         return -1L;
     }
@@ -159,22 +209,26 @@ public class SessionMonitorEngine implements INoProGuard {
     public long getSearchButtonClickedTimeStamp() {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
-            return bVar.f27439a;
+            return bVar.f26689a;
         }
         return -1L;
+    }
+
+    public IStatisticsTransmission getStatisticsTransmission() {
+        return this.mStatisticsTransmission;
     }
 
     public JSONObject getWebViewTimeStamp() {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
-            return bVar.f27446h;
+            return bVar.f26696h;
         }
         return null;
     }
 
     public final JSONArray notifyCollectorPageSessionFinished(WebView webView, String str) {
         JSONObject onPageSessionFinished;
-        Log.i("linhua-collector", "notifyCollectorPageSessionFinished: " + str);
+        Log.i("linhua-collector", "notifyCollectorPageSessionFinished: ".concat(String.valueOf(str)));
         JSONArray jSONArray = null;
         try {
         } catch (Throwable th) {
@@ -188,7 +242,7 @@ public class SessionMonitorEngine implements INoProGuard {
                     if (jSONArray == null) {
                         jSONArray = new JSONArray();
                     }
-                    Log.i("linhua-collector", "get something: " + onPageSessionFinished);
+                    Log.i("linhua-collector", "get something: ".concat(String.valueOf(onPageSessionFinished)));
                     jSONArray.put(onPageSessionFinished);
                 }
             }
@@ -237,6 +291,16 @@ public class SessionMonitorEngine implements INoProGuard {
         }
     }
 
+    public void onPageSessionDataRecord(WebView webView, String str, int i2, int i3, String str2) {
+        if (this.mPageSessionObserverList != null) {
+            Log.i("huqin-ps2", "onPageSessionDataRecord, webView = " + webView.hashCode() + ", url = " + str + ", type = " + i2 + ", status = " + i3 + ", data = " + str2);
+            Iterator<PageSessionObserver> it = this.mPageSessionObserverList.iterator();
+            while (it.hasNext()) {
+                it.next().onPageSessionDataRecord(webView, str, String.valueOf(i2), i3, str2);
+            }
+        }
+    }
+
     public JSONObject peekFrameworkBehaviorValue() {
         return this.sFrameworkBehaviorProvider.a();
     }
@@ -257,14 +321,6 @@ public class SessionMonitorEngine implements INoProGuard {
         return null;
     }
 
-    public void record(WebView webView, IZeusMonitor iZeusMonitor) {
-        WeakReference<IPrototype> weakReference = this.sImplement;
-        if (weakReference == null || weakReference.get() == null) {
-            return;
-        }
-        this.sImplement.get().record(webView, iZeusMonitor);
-    }
-
     public void record(WebView webView, String str) {
         WeakReference<IPrototype> weakReference = this.sImplement;
         if (weakReference == null || weakReference.get() == null) {
@@ -273,33 +329,41 @@ public class SessionMonitorEngine implements INoProGuard {
         this.sImplement.get().record(webView, str);
     }
 
+    public void recordBySourceId(WebView webView, long j, int i2, JSONObject jSONObject) {
+        WeakReference<IPrototype> weakReference = this.sImplement;
+        if (weakReference == null || weakReference.get() == null) {
+            return;
+        }
+        this.sImplement.get().recordBySourceId(webView, j, i2, jSONObject);
+    }
+
     public void recordFrameworkBehaviorValue(int i2, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.f27430a == null) {
-            aVar.f27430a = new a.C0284a(aVar, (byte) 0);
+        if (aVar.f26680a == null) {
+            aVar.f26680a = new a.C0271a(aVar, (byte) 0);
         }
         if (i2 == 9) {
-            aVar.f27430a.a();
-            aVar.f27430a.f27436f = true;
+            aVar.f26680a.a();
+            aVar.f26680a.f26686f = true;
         }
-        a.C0284a c0284a = aVar.f27430a;
-        if (c0284a.f27436f) {
+        a.C0271a c0271a = aVar.f26680a;
+        if (c0271a.f26686f) {
             switch (i2) {
                 case 7:
-                    c0284a.f27431a = ((Boolean) obj).booleanValue();
+                    c0271a.f26681a = ((Boolean) obj).booleanValue();
                     return;
                 case 8:
-                    c0284a.f27432b = ((Boolean) obj).booleanValue();
+                    c0271a.f26682b = ((Boolean) obj).booleanValue();
                     return;
                 case 9:
-                    c0284a.f27433c = ((Long) obj).longValue();
+                    c0271a.f26683c = ((Long) obj).longValue();
                     return;
                 case 10:
-                    c0284a.f27434d = ((Long) obj).longValue();
-                    aVar.f27430a.f27436f = true;
+                    c0271a.f26684d = ((Long) obj).longValue();
+                    aVar.f26680a.f26686f = true;
                     return;
                 case 11:
-                    c0284a.f27435e = ((Boolean) obj).booleanValue();
+                    c0271a.f26685e = ((Boolean) obj).booleanValue();
                     return;
                 default:
                     return;
@@ -309,9 +373,9 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j) {
         a aVar = this.sFrameworkBehaviorProvider;
-        a.C0284a c0284a = aVar.f27430a;
-        if (c0284a != null) {
-            aVar.f27430a.f27437g.put(str, Long.valueOf(j + (c0284a.f27437g.containsKey(str) ? aVar.f27430a.f27437g.get(str).longValue() : 0L)));
+        a.C0271a c0271a = aVar.f26680a;
+        if (c0271a != null) {
+            aVar.f26680a.f26687g.put(str, Long.valueOf(j + (c0271a.f26687g.containsKey(str) ? aVar.f26680a.f26687g.get(str).longValue() : 0L)));
         }
     }
 
@@ -328,12 +392,12 @@ public class SessionMonitorEngine implements INoProGuard {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
             if (i2 == 1) {
-                bVar.f27445g = j;
+                bVar.f26695g = j;
             } else if (i2 == 2) {
-                bVar.f27443e = j;
+                bVar.f26693e = j;
             } else if (i2 != 3) {
             } else {
-                bVar.f27444f = j;
+                bVar.f26694f = j;
             }
         }
     }
@@ -343,20 +407,20 @@ public class SessionMonitorEngine implements INoProGuard {
         if (bVar == null || TextUtils.isEmpty(str) || !str.startsWith("baiduboxapp://v1/browser/open") || !str.contains("isContainer=1")) {
             return;
         }
-        bVar.f27442d = System.currentTimeMillis();
-        Log.d("linhua-x", "recordSearchBoxJsBridgeInvoked: " + str);
+        bVar.f26692d = System.currentTimeMillis();
+        Log.d("linhua-x", "recordSearchBoxJsBridgeInvoked: ".concat(String.valueOf(str)));
     }
 
     public void recordSearchTimeStamp(int i2, long j) {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
             if (i2 == 1) {
-                bVar.f27439a = j;
+                bVar.f26689a = j;
             } else if (i2 == 2) {
-                bVar.f27440b = j;
+                bVar.f26690b = j;
             } else if (i2 != 3) {
             } else {
-                bVar.f27441c = j;
+                bVar.f26691c = j;
             }
         }
     }
@@ -364,14 +428,14 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordWebViewTimeStamp(String str, long j) {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
-            if (bVar.f27446h == null) {
-                bVar.f27446h = new JSONObject();
+            if (bVar.f26696h == null) {
+                bVar.f26696h = new JSONObject();
             }
             try {
-                if (TextUtils.isEmpty(str) || bVar.f27446h.has(str)) {
+                if (TextUtils.isEmpty(str) || bVar.f26696h.has(str)) {
                     return;
                 }
-                bVar.f27446h.put(str, j);
+                bVar.f26696h.put(str, j);
             } catch (JSONException e2) {
                 Log.printStackTrace(e2);
             }
@@ -405,23 +469,37 @@ public class SessionMonitorEngine implements INoProGuard {
         this.sImplement = null;
         this.sExtraInterfaceProvider = null;
         this.sFrameworkBehaviorProvider = null;
+        clearPageSessionObserver();
+        this.mPageSessionObserverList = null;
         sInstance = null;
+    }
+
+    public void removePageSessionObserver(PageSessionObserver pageSessionObserver) {
+        CopyOnWriteArrayList<PageSessionObserver> copyOnWriteArrayList = this.mPageSessionObserverList;
+        if (copyOnWriteArrayList == null || pageSessionObserver == null) {
+            return;
+        }
+        copyOnWriteArrayList.remove(pageSessionObserver);
+    }
+
+    public void setStatisticsTransmission(IStatisticsTransmission iStatisticsTransmission) {
+        this.mStatisticsTransmission = iStatisticsTransmission;
     }
 
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.f27430a == null) {
-            aVar.f27430a = new a.C0284a(aVar, (byte) 0);
+        if (aVar.f26680a == null) {
+            aVar.f26680a = new a.C0271a(aVar, (byte) 0);
         }
-        a.C0284a c0284a = aVar.f27430a;
-        if (c0284a.f27433c == -1) {
-            c0284a.a();
+        a.C0271a c0271a = aVar.f26680a;
+        if (c0271a.f26683c == -1) {
+            c0271a.a();
         }
-        a.C0284a c0284a2 = aVar.f27430a;
-        if (c0284a2.f27436f) {
+        a.C0271a c0271a2 = aVar.f26680a;
+        if (c0271a2.f26686f) {
             return;
         }
-        c0284a2.f27436f = true;
+        c0271a2.f26686f = true;
     }
 
     public void updateCuidIfNeeded() {

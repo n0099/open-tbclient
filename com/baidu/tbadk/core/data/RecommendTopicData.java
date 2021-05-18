@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import d.a.j0.x.e0.m;
-import d.a.j0.x.e0.n;
+import d.a.k0.x.e0.m;
+import d.a.k0.x.e0.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +19,10 @@ import tbclient.RecomTopicList;
 public class RecommendTopicData {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12809a;
+    public String f12145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RecommendTopicListData> f12810b = new ArrayList();
+    public List<RecommendTopicListData> f12146b = new ArrayList();
 
     /* loaded from: classes3.dex */
     public static class RecommendTopicListData implements Serializable, Parcelable {
@@ -62,9 +62,9 @@ public class RecommendTopicData {
 
         public m getConvertedCardData() {
             m mVar = new m();
-            mVar.f62480c = this.tag;
-            mVar.f62478a = this.topicId;
-            mVar.f62479b = this.topicName;
+            mVar.f63204c = this.tag;
+            mVar.f63202a = this.topicId;
+            mVar.f63203b = this.topicName;
             return mVar;
         }
 
@@ -147,10 +147,10 @@ public class RecommendTopicData {
     public n a() {
         ArrayList arrayList;
         n nVar = new n();
-        nVar.f62483g = b();
-        if (this.f12810b != null) {
+        nVar.f63207g = b();
+        if (this.f12146b != null) {
             arrayList = new ArrayList();
-            for (RecommendTopicListData recommendTopicListData : this.f12810b) {
+            for (RecommendTopicListData recommendTopicListData : this.f12146b) {
                 if (recommendTopicListData != null) {
                     arrayList.add(recommendTopicListData.getConvertedCardData());
                 }
@@ -158,15 +158,15 @@ public class RecommendTopicData {
         } else {
             arrayList = null;
         }
-        nVar.f62484h = arrayList;
+        nVar.f63208h = arrayList;
         return nVar;
     }
 
     public String b() {
-        if (StringUtils.isNull(this.f12809a)) {
+        if (StringUtils.isNull(this.f12145a)) {
             return TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title);
         }
-        return this.f12809a;
+        return this.f12145a;
     }
 
     public final boolean c(RecommendTopicListData recommendTopicListData) {
@@ -177,14 +177,14 @@ public class RecommendTopicData {
         if (recomTopicInfo == null) {
             return;
         }
-        this.f12809a = recomTopicInfo.recom_title;
+        this.f12145a = recomTopicInfo.recom_title;
         if (ListUtils.getCount(recomTopicInfo.topic_list) > 0) {
             for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                 if (recomTopicList != null) {
                     RecommendTopicListData recommendTopicListData = new RecommendTopicListData();
                     recommendTopicListData.parserProtoBuf(recomTopicList);
                     if (!c(recommendTopicListData)) {
-                        this.f12810b.add(recommendTopicListData);
+                        this.f12146b.add(recommendTopicListData);
                     }
                 }
             }

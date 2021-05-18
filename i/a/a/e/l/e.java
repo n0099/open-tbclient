@@ -5,11 +5,11 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f68162a = new e();
+    public static final e f68842a = new e();
 
     @TargetApi(17)
     public final boolean a(Context context) {

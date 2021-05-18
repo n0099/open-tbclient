@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static File a(Context context, String str) {
         File a2 = a(context);
@@ -54,7 +54,7 @@ public class c {
             });
             while (i2 < asList.size()) {
                 String name = ((File) asList.get(i2)).getName();
-                if (!com.bytedance.sdk.openadsdk.video.a.b.a.f31079a.contains(name.replace(name, ".download"))) {
+                if (!com.bytedance.sdk.openadsdk.video.a.b.a.f30324a.contains(name.replace(name, ".download"))) {
                     ((File) asList.get(i2)).delete();
                 }
                 i2++;

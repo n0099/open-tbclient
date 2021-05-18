@@ -15,18 +15,18 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static InterfaceC1770a f65113a = null;
+    public static InterfaceC1834a f65799a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f65114b = false;
+    public static boolean f65800b = false;
 
     /* renamed from: d.b.d.a.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC1770a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC1834a {
         boolean a();
 
         boolean b();
@@ -76,7 +76,7 @@ public class a {
     }
 
     public static String c(String str, List<Pair<String, String>> list) {
-        if (TextUtils.isEmpty(str) || f65113a == null || f65114b) {
+        if (TextUtils.isEmpty(str) || f65799a == null || f65800b) {
             return str;
         }
         LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -100,12 +100,12 @@ public class a {
             }
             String encodeToString = Base64.encodeToString(a2, 2);
             LinkedList linkedList2 = new LinkedList();
-            if (f65113a.a()) {
+            if (f65799a.a()) {
                 LinkedList linkedList3 = new LinkedList();
                 linkedList3.add(encodeToString);
                 linkedList2.add(new Pair("ss_queries", linkedList3));
             }
-            if (f65113a.b() && list != null) {
+            if (f65799a.b() && list != null) {
                 list.add(new Pair<>("X-SS-QUERIES", b(encodeToString, "UTF-8")));
             }
             if (!linkedHashMap.isEmpty()) {
@@ -190,7 +190,7 @@ public class a {
             return false;
         }
         list.add(new Pair<>(str, map.get(str)));
-        if (f65113a.c()) {
+        if (f65799a.c()) {
             return true;
         }
         map.remove(str);

@@ -8,7 +8,7 @@ import com.baidu.mapsdkplatform.comapi.a.h;
 public class ScaleAnimation extends Animation {
     public ScaleAnimation(float... fArr) {
         if (fArr == null || fArr.length == 0) {
-            throw new NullPointerException("the scales is null");
+            throw new NullPointerException("BDMapSDKException: the scales is null");
         }
         this.bdAnimation = new h(fArr);
     }

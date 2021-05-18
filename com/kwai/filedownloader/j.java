@@ -11,31 +11,31 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f35135a = 10;
+    public static int f34380a = 10;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f35136b = 5;
+    public static int f34381b = 5;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Executor f35137c;
+    public final Executor f34382c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f35138d;
+    public final Handler f34383d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinkedBlockingQueue<s> f35139e;
+    public final LinkedBlockingQueue<s> f34384e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f35140f;
+    public final Object f34385f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ArrayList<s> f35141g;
+    public final ArrayList<s> f34386g;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final j f35144a = new j();
+        public static final j f34389a = new j();
     }
 
     /* loaded from: classes6.dex */
@@ -65,54 +65,54 @@ public class j {
     }
 
     public j() {
-        this.f35137c = com.kwai.filedownloader.f.b.a(5, "BlockCompleted");
-        this.f35140f = new Object();
-        this.f35141g = new ArrayList<>();
-        this.f35138d = new Handler(Looper.getMainLooper(), new b());
-        this.f35139e = new LinkedBlockingQueue<>();
+        this.f34382c = com.kwai.filedownloader.f.b.a(5, "BlockCompleted");
+        this.f34385f = new Object();
+        this.f34386g = new ArrayList<>();
+        this.f34383d = new Handler(Looper.getMainLooper(), new b());
+        this.f34384e = new LinkedBlockingQueue<>();
     }
 
     public static j a() {
-        return a.f35144a;
+        return a.f34389a;
     }
 
     private void b(s sVar) {
-        Handler handler = this.f35138d;
+        Handler handler = this.f34383d;
         handler.sendMessage(handler.obtainMessage(1, sVar));
     }
 
     public static boolean b() {
-        return f35135a > 0;
+        return f34380a > 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        synchronized (this.f35140f) {
-            if (this.f35141g.isEmpty()) {
-                if (this.f35139e.isEmpty()) {
+        synchronized (this.f34385f) {
+            if (this.f34386g.isEmpty()) {
+                if (this.f34384e.isEmpty()) {
                     return;
                 }
                 int i2 = 0;
                 if (b()) {
-                    int i3 = f35135a;
-                    int min = Math.min(this.f35139e.size(), f35136b);
+                    int i3 = f34380a;
+                    int min = Math.min(this.f34384e.size(), f34381b);
                     while (i2 < min) {
-                        this.f35141g.add(this.f35139e.remove());
+                        this.f34386g.add(this.f34384e.remove());
                         i2++;
                     }
                     i2 = i3;
                 } else {
-                    this.f35139e.drainTo(this.f35141g);
+                    this.f34384e.drainTo(this.f34386g);
                 }
-                Handler handler = this.f35138d;
-                handler.sendMessageDelayed(handler.obtainMessage(2, this.f35141g), i2);
+                Handler handler = this.f34383d;
+                handler.sendMessageDelayed(handler.obtainMessage(2, this.f34386g), i2);
             }
         }
     }
 
     private void c(s sVar) {
-        synchronized (this.f35140f) {
-            this.f35139e.offer(sVar);
+        synchronized (this.f34385f) {
+            this.f34384e.offer(sVar);
         }
         c();
     }
@@ -125,22 +125,22 @@ public class j {
         if (sVar.c()) {
             sVar.b();
         } else if (sVar.d()) {
-            this.f35137c.execute(new Runnable() { // from class: com.kwai.filedownloader.j.1
+            this.f34382c.execute(new Runnable() { // from class: com.kwai.filedownloader.j.1
                 @Override // java.lang.Runnable
                 public void run() {
                     sVar.b();
                 }
             });
         } else {
-            if (!b() && !this.f35139e.isEmpty()) {
-                synchronized (this.f35140f) {
-                    if (!this.f35139e.isEmpty()) {
-                        Iterator<s> it = this.f35139e.iterator();
+            if (!b() && !this.f34384e.isEmpty()) {
+                synchronized (this.f34385f) {
+                    if (!this.f34384e.isEmpty()) {
+                        Iterator<s> it = this.f34384e.iterator();
                         while (it.hasNext()) {
                             b(it.next());
                         }
                     }
-                    this.f35139e.clear();
+                    this.f34384e.clear();
                 }
             }
             if (!b() || z) {

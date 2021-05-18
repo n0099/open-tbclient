@@ -28,32 +28,33 @@ import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import d.a.h0.a.i2.h;
-import d.a.h0.a.i2.h0;
-import d.a.h0.a.i2.s;
-import d.a.h0.a.k;
-import d.a.h0.a.r1.e;
-import d.a.h0.g.k0.f.a.c;
+import d.a.i0.a.a2.e;
+import d.a.i0.a.k;
+import d.a.i0.a.v2.i;
+import d.a.i0.a.v2.n0;
+import d.a.i0.a.v2.t;
+import d.a.i0.a.z1.a.b;
+import d.a.i0.h.o0.d.a.c;
 import java.io.File;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class ApiButton extends AppCompatButton implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public EventTargetImpl f12442e;
+    public EventTargetImpl f11784e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12443f;
+    public String f11785f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12444g;
+    public String f11786g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12445h;
+    public String f11787h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Bitmap f12446i;
-    public d.a.h0.g.k0.f.a.a j;
+    public Bitmap f11788i;
+    public d.a.i0.h.o0.d.a.a j;
     public int k;
     public int l;
 
@@ -61,16 +62,16 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     public class a extends BaseBitmapDataSubscriber {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DataSource f12447a;
+        public final /* synthetic */ DataSource f11789a;
 
         public a(DataSource dataSource) {
-            this.f12447a = dataSource;
+            this.f11789a = dataSource;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.facebook.datasource.DataSource] */
         @Override // com.facebook.datasource.BaseDataSubscriber
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            if (e.x) {
+            if (e.y) {
                 Log.d("ApiButton", "——> onFailureImpl: " + dataSource.getFailureCause().getMessage());
             }
             ApiButton.this.j();
@@ -81,22 +82,22 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
 
         @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
         public void onNewResultImpl(@Nullable Bitmap bitmap) {
-            if (e.x) {
+            if (e.y) {
                 Log.d("ApiButton", "——> onNewResultImpl: ");
             }
-            if (this.f12447a.isFinished()) {
+            if (this.f11789a.isFinished()) {
                 ApiButton apiButton = ApiButton.this;
-                apiButton.f12446i = s.g(bitmap, apiButton.k, ApiButton.this.l);
+                apiButton.f11788i = t.g(bitmap, apiButton.k, ApiButton.this.l);
                 ApiButton.this.j();
-                this.f12447a.close();
+                this.f11789a.close();
             }
         }
     }
 
     public ApiButton(Context context, EventTargetImpl eventTargetImpl) {
         super(context);
-        this.f12443f = "text";
-        this.f12442e = eventTargetImpl;
+        this.f11785f = "text";
+        this.f11784e = eventTargetImpl;
         setSingleLine();
         setOnClickListener(this);
     }
@@ -112,37 +113,37 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     private Uri getUri() {
         String b2;
         String str;
-        if (c.a(this.f12445h) == PathType.NETWORK) {
-            return Uri.parse(this.f12445h);
+        if (c.a(this.f11787h) == PathType.NETWORK) {
+            return Uri.parse(this.f11787h);
         }
-        if (c.a(this.f12445h) != PathType.RELATIVE || (b2 = c.b()) == null) {
+        if (c.a(this.f11787h) != PathType.RELATIVE || (b2 = c.b()) == null) {
             return null;
         }
-        if (this.f12445h.startsWith(".")) {
-            this.f12445h = this.f12445h.substring(1);
+        if (this.f11787h.startsWith(".")) {
+            this.f11787h = this.f11787h.substring(1);
         }
-        if (this.f12445h.startsWith("/")) {
-            str = b2 + this.f12445h;
+        if (this.f11787h.startsWith("/")) {
+            str = b2 + this.f11787h;
         } else {
-            str = b2 + File.separator + this.f12445h;
+            str = b2 + File.separator + this.f11787h;
         }
-        if (k.f43101a) {
+        if (k.f43025a) {
             Log.d("ApiButton", "——> getUri: " + str);
         }
         return Uri.parse(str);
     }
 
     private void setBorder(GradientDrawable gradientDrawable) {
-        int f2 = h0.f(this.j.borderWidth);
-        if (f2 > 0) {
-            gradientDrawable.setStroke(f2, d.a.h0.g.k0.f.a.a.c(m(this.j.borderColor, 0)));
+        int g2 = n0.g(this.j.borderWidth);
+        if (g2 > 0) {
+            gradientDrawable.setStroke(g2, d.a.i0.h.o0.d.a.a.c(m(this.j.borderColor, 0)));
         }
     }
 
     private void setBorderRadius(GradientDrawable gradientDrawable) {
         double d2 = this.j.borderRadius;
         if (d2 != 0.0d) {
-            gradientDrawable.setCornerRadius(h0.f((float) d2));
+            gradientDrawable.setCornerRadius(n0.g((float) d2));
         }
     }
 
@@ -170,7 +171,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     }
 
     public String getType() {
-        return this.f12443f;
+        return this.f11785f;
     }
 
     public void h() {
@@ -183,7 +184,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
             setBorder(gradientDrawable);
             setBorderRadius(gradientDrawable);
             setButtonBackground(gradientDrawable);
-            setText(this.f12444g);
+            setText(this.f11786g);
             e();
             setTextColor(m(this.j.color, -16777216));
             s();
@@ -197,7 +198,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     }
 
     public void hide() {
-        d.a.h0.g.k0.f.a.a aVar = this.j;
+        d.a.i0.h.o0.d.a.a aVar = this.j;
         if (aVar != null) {
             aVar.hidden = true;
         }
@@ -243,15 +244,15 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         setBorderRadius(gradientDrawable);
         Object gradientDrawable2 = new GradientDrawable();
         gradientDrawable.setColor(0);
-        if (this.f12446i != null) {
-            gradientDrawable2 = new d.a.h0.a.q1.a.c(this.f12446i, h0.f((float) this.j.borderRadius), 0, 0);
+        if (this.f11788i != null) {
+            gradientDrawable2 = new b(this.f11788i, n0.g((float) this.j.borderRadius), 0, 0);
         }
         setBackgroundDrawable(new LayerDrawable(new Drawable[]{gradientDrawable2, gradientDrawable}));
         g();
     }
 
     public void k(JSEvent jSEvent) {
-        EventTargetImpl eventTargetImpl = this.f12442e;
+        EventTargetImpl eventTargetImpl = this.f11784e;
         if (eventTargetImpl != null) {
             eventTargetImpl.dispatchEvent(jSEvent);
         }
@@ -260,13 +261,13 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     public final GradientDrawable l(int i2) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(i2);
-        int f2 = h0.f(this.j.borderWidth);
-        if (f2 > 0) {
-            gradientDrawable.setStroke(f2, d.a.h0.g.k0.f.a.a.c(i2));
+        int g2 = n0.g(this.j.borderWidth);
+        if (g2 > 0) {
+            gradientDrawable.setStroke(g2, d.a.i0.h.o0.d.a.a.c(i2));
         }
         double d2 = this.j.borderRadius;
         if (d2 != 0.0d) {
-            gradientDrawable.setCornerRadius(h0.f((float) d2));
+            gradientDrawable.setCornerRadius(n0.g((float) d2));
         }
         return gradientDrawable;
     }
@@ -279,11 +280,11 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
             return Color.parseColor(str);
         }
         try {
-            int parseColor = Color.parseColor(h.b(str));
+            int parseColor = Color.parseColor(i.b(str));
             int i3 = parseColor >>> 24;
             return ((parseColor & 255) << 16) | (i3 << 24) | (((parseColor >> 8) & 255) << 8) | ((parseColor >> 16) & 255);
         } catch (Exception e2) {
-            if (k.f43101a) {
+            if (k.f43025a) {
                 e2.printStackTrace();
                 return i2;
             }
@@ -296,18 +297,18 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     }
 
     public final boolean o(Uri uri) {
-        if (this.f12446i != null) {
+        if (this.f11788i != null) {
             return true;
         }
-        if (this.f12445h == null) {
+        if (this.f11787h == null) {
             return false;
         }
-        Bitmap c2 = s.c(uri, getContext());
-        this.f12446i = c2;
+        Bitmap c2 = t.c(uri, getContext());
+        this.f11788i = c2;
         if (c2 != null) {
-            this.f12446i = s.g(c2, this.k, this.l);
+            this.f11788i = t.g(c2, this.k, this.l);
         }
-        return this.f12446i != null;
+        return this.f11788i != null;
     }
 
     @Override // android.view.View.OnClickListener
@@ -317,12 +318,12 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        if (k.f43101a) {
+        if (k.f43025a) {
             Log.d("ApiButton", "onSizeChanged mWidth=" + this.k + ";mHeight" + this.l);
         }
         this.k = i2;
         this.l = i3;
-        this.f12446i = null;
+        this.f11788i = null;
         h();
     }
 
@@ -337,7 +338,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
                 t(uri);
                 return;
             } catch (Exception e2) {
-                if (k.f43101a) {
+                if (k.f43025a) {
                     e2.printStackTrace();
                     return;
                 }
@@ -348,10 +349,10 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     }
 
     public final void r() {
-        int f2 = h0.f(this.j.borderWidth);
-        int f3 = h0.f(this.j.lineHeight);
-        int textLineHeight = f3 > 0 ? ((f3 / 2) - (getTextLineHeight() / 2)) - getTextTopPadding() : 0;
-        int max = Math.max(0, f2);
+        int g2 = n0.g(this.j.borderWidth);
+        int g3 = n0.g(this.j.lineHeight);
+        int textLineHeight = g3 > 0 ? ((g3 / 2) - (getTextLineHeight() / 2)) - getTextTopPadding() : 0;
+        int max = Math.max(0, g2);
         setPadding(max, Math.max(max, textLineHeight), max, max);
     }
 
@@ -488,28 +489,28 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         }
     }
 
-    public void setApiButtonStyle(d.a.h0.g.k0.f.a.a aVar) {
+    public void setApiButtonStyle(d.a.i0.h.o0.d.a.a aVar) {
         this.j = aVar;
     }
 
     public void setButtonText(String str) {
-        if (TextUtils.equals(str, this.f12444g)) {
+        if (TextUtils.equals(str, this.f11786g)) {
             return;
         }
-        this.f12444g = str;
+        this.f11786g = str;
         if (!p() || getParent() == null) {
             return;
         }
-        setText(this.f12444g);
+        setText(this.f11786g);
         requestLayout();
     }
 
     public void setImageUrl(String str) {
-        if (TextUtils.equals(str, this.f12445h)) {
+        if (TextUtils.equals(str, this.f11787h)) {
             return;
         }
-        this.f12445h = str;
-        this.f12446i = null;
+        this.f11787h = str;
+        this.f11788i = null;
         if (!n() || getParent() == null) {
             return;
         }
@@ -517,11 +518,11 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     }
 
     public void setType(String str) {
-        this.f12443f = str;
+        this.f11785f = str;
     }
 
     public void show() {
-        d.a.h0.g.k0.f.a.a aVar = this.j;
+        d.a.i0.h.o0.d.a.a aVar = this.j;
         if (aVar != null) {
             aVar.hidden = false;
         }
@@ -536,6 +537,6 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
 
     public ApiButton(Context context) {
         super(context);
-        this.f12443f = "text";
+        this.f11785f = "text";
     }
 }

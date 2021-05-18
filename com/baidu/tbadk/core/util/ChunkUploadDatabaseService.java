@@ -5,7 +5,7 @@ import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import d.a.c.a.k.b;
 import d.a.c.e.m.a;
-import d.a.i0.s.c.q;
+import d.a.j0.s.c.q;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class ChunkUploadDatabaseService {

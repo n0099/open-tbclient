@@ -7,7 +7,7 @@ import com.bytedance.sdk.openadsdk.e.a;
 import com.bytedance.sdk.openadsdk.f.a.q;
 import com.bytedance.sdk.openadsdk.utils.u;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject> {
     public static void a(q qVar) {
         qVar.a("getDownloadStatus", (com.bytedance.sdk.openadsdk.f.a.e<?, ?>) new e());
@@ -33,7 +33,7 @@ public class e extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject>
                 return jSONObject2;
             }
             u.b("GetDownloadStatusMethod", "GetDownloadStatusMethod analysisJson downloadId " + optString);
-            JSONObject a2 = a.C0316a.a(optString);
+            JSONObject a2 = a.C0303a.a(optString);
             u.b("GetDownloadStatusMethod", "GetDownloadStatusMethod analysisJson downloadJson " + a2.toString());
             return a2;
         } catch (Throwable unused) {

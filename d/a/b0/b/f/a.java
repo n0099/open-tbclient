@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f39323a = d.a.b0.a.a.a.f39286a;
+    public static final boolean f38568a = d.a.b0.a.a.a.f38531a;
 
     public static List<g> a(JSONArray jSONArray, String str, boolean z) throws ParseError {
         if (jSONArray == null || jSONArray.length() == 0) {
@@ -56,7 +56,7 @@ public class a {
     public static List<g> c(JSONObject jSONObject, String str) throws ParseError {
         JSONObject optJSONObject;
         List<g> n;
-        if (f39323a) {
+        if (f38568a) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
         ArrayList arrayList = new ArrayList();
@@ -74,7 +74,7 @@ public class a {
                 if (!TextUtils.isEmpty(optString2)) {
                     j.f("empty_ext_info", optString2);
                     return a2;
-                } else if (f39323a) {
+                } else if (f38568a) {
                     throw new IllegalStateException("splash empty接口没有empty_ext_info信息");
                 } else {
                     return a2;
@@ -88,7 +88,7 @@ public class a {
                     return arrayList;
                 }
                 for (g gVar : n) {
-                    if (TextUtils.equals(gVar.f39346c, optString3)) {
+                    if (TextUtils.equals(gVar.f38591c, optString3)) {
                         arrayList.add(gVar);
                         return arrayList;
                     }

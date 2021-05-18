@@ -18,8 +18,8 @@ import d.a.c.e.l.e;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.j.d.a;
-import d.a.i0.a0.c;
-import d.a.i0.r.k;
+import d.a.j0.a0.c;
+import d.a.j0.r.k;
 /* loaded from: classes3.dex */
 public class ImageLoaderProc implements e<a> {
     public static final String GIF_PLAY_LOG_TYPE = "gifplay";
@@ -36,7 +36,7 @@ public class ImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(aVar);
-            bVar.f39786a = diskCancelWorker;
+            bVar.f39031a = diskCancelWorker;
         }
         if (d.g().a(aVar)) {
             int i4 = j.H() ? 500 : 2000;
@@ -57,7 +57,7 @@ public class ImageLoaderProc implements e<a> {
                 }
                 if (B) {
                     BdLog.e("BIGIMAGE gif parse fail ");
-                    d.a.i0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
+                    d.a.j0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
                 }
                 return new a(BitmapHelper.checkBitmapSize(BitmapHelper.Bytes2Bitmap(aVar.getData()), i2, i3), false, str2);
             }
@@ -68,7 +68,7 @@ public class ImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public a m20decodeToResource(byte[] bArr, Object... objArr) {
+    public a m19decodeToResource(byte[] bArr, Object... objArr) {
         return null;
     }
 
@@ -148,13 +148,13 @@ public class ImageLoaderProc implements e<a> {
                 boolean needCache = webClient.needCache();
                 if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                     BdLog.e("BIGIMAGE imageLoaderProc too big");
-                    d.a.i0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
+                    d.a.j0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
                 }
                 if (downloadImageBytes == null && webClient.IsRequestSuccess()) {
                     Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                     if (z && Bytes2Bitmap == null) {
                         TbadkCoreApplication.getInst().incWebpFailureCount();
-                        d.a.i0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
+                        d.a.j0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
                         downloadImageBytes = webClient.downloadImageBytes(str, false);
                         needCache = webClient.needCache();
                         if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
@@ -173,7 +173,7 @@ public class ImageLoaderProc implements e<a> {
                             } else {
                                 if (B) {
                                     BdLog.e("BIGIMAGE gif parse fail ");
-                                    d.a.i0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
+                                    d.a.j0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
                                 }
                                 a aVar2 = new a(BitmapHelper.checkBitmapSize(Bytes2Bitmap, i2, i3), false, str);
                                 aVar2.y(needCache);
@@ -190,7 +190,7 @@ public class ImageLoaderProc implements e<a> {
                                 if (bVar != null) {
                                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                                     diskCancelWorker.setOperate(aVar3);
-                                    bVar.f39786a = diskCancelWorker;
+                                    bVar.f39031a = diskCancelWorker;
                                 }
                             }
                             if (B) {
@@ -219,7 +219,7 @@ public class ImageLoaderProc implements e<a> {
         boolean needCache2 = webClient.needCache();
         if (webClient.IsRequestSuccess()) {
             BdLog.e("BIGIMAGE imageLoaderProc too big");
-            d.a.i0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
+            d.a.j0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
         }
         if (downloadImageBytes == null) {
         }

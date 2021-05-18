@@ -12,17 +12,17 @@ public class a {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31233a;
+        public static final /* synthetic */ int[] f30478a;
 
         static {
-            int[] iArr = new int[EnumC0337a.values().length];
-            f31233a = iArr;
+            int[] iArr = new int[EnumC0324a.values().length];
+            f30478a = iArr;
             try {
-                iArr[EnumC0337a.HUAWEI.ordinal()] = 1;
+                iArr[EnumC0324a.HUAWEI.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31233a[EnumC0337a.SAMSUNG.ordinal()] = 2;
+                f30478a[EnumC0324a.SAMSUNG.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -30,7 +30,7 @@ public class a {
 
     /* renamed from: com.cmic.sso.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public enum EnumC0337a {
+    public enum EnumC0324a {
         UNKNOWN,
         SAMSUNG,
         HUAWEI
@@ -40,19 +40,19 @@ public class a {
         return a(b());
     }
 
-    public static EnumC0337a b() {
+    public static EnumC0324a b() {
         String str = Build.BRAND;
         if (str.equalsIgnoreCase(ManufacturerUtils.SAMSUNG)) {
-            return EnumC0337a.SAMSUNG;
+            return EnumC0324a.SAMSUNG;
         }
         if (str.equalsIgnoreCase("Huawei")) {
-            return EnumC0337a.HUAWEI;
+            return EnumC0324a.HUAWEI;
         }
-        return EnumC0337a.UNKNOWN;
+        return EnumC0324a.UNKNOWN;
     }
 
-    public static int a(EnumC0337a enumC0337a) {
-        int i2 = AnonymousClass1.f31233a[enumC0337a.ordinal()];
+    public static int a(EnumC0324a enumC0324a) {
+        int i2 = AnonymousClass1.f30478a[enumC0324a.ordinal()];
         if (i2 != 1) {
             return i2 != 2 ? -1 : 1;
         }

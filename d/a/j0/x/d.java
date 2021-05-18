@@ -1,181 +1,265 @@
 package d.a.j0.x;
 
+import android.app.Activity;
+import android.os.Build;
+import android.provider.Settings;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
-import com.baidu.tbadk.TbPageContext;
+import android.view.WindowManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.ClickableHeaderImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.game.strategy.FrsGameStrategyActivity;
-import d.a.i0.r.q.a2;
-/* loaded from: classes4.dex */
-public class d extends b<d.a.j0.d0.a> {
-    public String A;
-    public LinearLayout m;
-    public TextView n;
-    public RelativeLayout o;
-    public TbImageView p;
-    public ImageView q;
-    public TextView r;
-    public RelativeLayout s;
-    public ClickableHeaderImageView t;
-    public TextView u;
-    public TextView v;
-    public TextView w;
-    public View x;
-    public d.a.j0.d0.a y;
-    public String z;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import java.util.Map;
+/* loaded from: classes3.dex */
+public class d {
+    public static d m;
 
-    public d(TbPageContext<?> tbPageContext, String str, String str2) {
-        super(tbPageContext);
-        this.z = str;
-        this.A = str2;
-        s(l());
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public Activity f50875a;
 
-    @Override // d.a.j0.x.b
-    public int g() {
-        return R.layout.card_frs_game_common_big_view_item;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public Activity f50876b;
 
-    @Override // d.a.j0.x.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f62436e != i2) {
-            SkinManager.setBackgroundResource(l(), R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.x, R.color.CAM_X0204);
-            d.a.j0.d3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.d(this.y.h().o0())) {
-                SkinManager.setViewTextColor(this.n, R.color.CAM_X0108, 1);
-            } else {
-                SkinManager.setViewTextColor(this.n, R.color.CAM_X0105, 1);
+    /* renamed from: c  reason: collision with root package name */
+    public WindowManager f50877c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f50878d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d.a.j0.x.c f50879e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f50880f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Runnable f50881g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f50882h = 85;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f50883i = 0;
+    public CustomMessageListener j = new a(2001011);
+    public CustomMessageListener k = new b(2921478);
+    public CustomMessageListener l = new c(2001304);
+
+    /* loaded from: classes3.dex */
+    public class a extends CustomMessageListener {
+        public a(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Boolean data;
+            if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
+                if (data.booleanValue()) {
+                    d.this.f50880f = true;
+                    if (d.this.f50875a != null) {
+                        d dVar = d.this;
+                        dVar.f50876b = dVar.f50875a;
+                    }
+                    d.this.i(true);
+                    return;
+                }
+                d.this.f50880f = false;
+                if (d.this.f50876b != null) {
+                    d dVar2 = d.this;
+                    dVar2.f50875a = dVar2.f50876b;
+                    d.this.f50876b = null;
+                    if (d.a.c.a.b.f().i(d.this.f50875a) != -1) {
+                        d.this.j();
+                        d.this.o(false);
+                    }
+                }
             }
-            SkinManager.setViewTextColor(this.u, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.v, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.w, R.color.CAM_X0304, 1);
-            SkinManager.setViewTextColor(this.r, R.color.CAM_X0101, 1);
-        }
-        this.f62436e = i2;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.w) {
-            TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 4).param("fid", this.z));
-            FrsGameStrategyActivity.startActivity(this.f62437f.getPageActivity(), this.z, this.A);
-        } else if (h() != null) {
-            h().a(l(), this.y);
         }
     }
 
-    public final void s(View view) {
-        this.m = (LinearLayout) view.findViewById(R.id.card_frs_game_thread_layout);
-        this.n = (TextView) view.findViewById(R.id.card_frs_game_thread_title);
-        this.o = (RelativeLayout) view.findViewById(R.id.card_frs_game_thread_content);
-        this.p = (TbImageView) view.findViewById(R.id.card_frs_game_thread_bg);
-        this.q = (ImageView) view.findViewById(R.id.img_play);
-        this.r = (TextView) view.findViewById(R.id.card_frs_game_thread_video_time);
-        this.s = (RelativeLayout) view.findViewById(R.id.card_frs_game_user_content);
-        this.t = (ClickableHeaderImageView) view.findViewById(R.id.card_frs_game_user_icon);
-        this.u = (TextView) view.findViewById(R.id.card_frs_game_user_name);
-        this.v = (TextView) view.findViewById(R.id.card_frs_game_thread_time);
-        this.w = (TextView) view.findViewById(R.id.card_frs_game_thread_more_article);
-        this.x = view.findViewById(R.id.card_frs_game_bottom_divider);
-        this.p.setDefaultBgResource(R.drawable.icon_morenpic);
-        int dimensionPixelSize = d.a.c.e.p.l.p(this.f62438g)[0] - (this.f62438g.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
-        layoutParams.width = dimensionPixelSize;
-        layoutParams.height = (dimensionPixelSize * 9) / 21;
-        this.o.setLayoutParams(layoutParams);
-        this.w.setOnClickListener(this);
-        this.t.setDefaultResource(17170445);
-        this.t.setDefaultBgResource(R.color.CAM_X0205);
-        this.t.setIsRound(true);
-        this.t.setDrawBorder(true);
-        this.t.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-        this.t.setBorderWidth(this.f62438g.getResources().getDimensionPixelSize(R.dimen.tbds1));
-        l().setOnClickListener(this);
+    /* loaded from: classes3.dex */
+    public class b extends CustomMessageListener {
+        public b(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Map map;
+            if (customResponsedMessage == null || customResponsedMessage.getData() == null || (map = (Map) customResponsedMessage.getData()) == null) {
+                return;
+            }
+            String str = (String) map.get("lifeCycle");
+            if ("BarBroadcastEdit".equals((String) map.get("name"))) {
+                if (("0".equals(str) || "1".equals(str)) && (d.this.f50879e instanceof d.a.j0.x.a)) {
+                    d.this.i(false);
+                }
+            }
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.j0.x.b
-    /* renamed from: t */
-    public void m(d.a.j0.d0.a aVar) {
-        if (aVar == null || aVar.h() == null) {
+    /* loaded from: classes3.dex */
+    public class c extends CustomMessageListener {
+        public c(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001304 || !(customResponsedMessage.getData() instanceof Integer) || d.this.f50878d == null || d.this.f50879e == null) {
+                return;
+            }
+            d.this.f50879e.d();
+        }
+    }
+
+    /* renamed from: d.a.j0.x.d$d  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC1162d implements View.OnClickListener {
+        public View$OnClickListenerC1162d() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            int i2;
+            int g2;
+            if (d.this.f50875a != null && (i2 = d.a.c.a.b.f().i(d.this.f50875a)) != -1 && i2 < d.a.c.a.b.f().g() && (g2 = d.a.c.a.b.f().g() - i2) >= 0) {
+                d.a.c.a.b.f().m(g2);
+            }
+            if (d.this.f50879e != null) {
+                d.this.f50879e.onClick();
+            }
+            d.this.i(false);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements Runnable {
+        public e(d dVar) {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921473, 1));
+        }
+    }
+
+    public static d h() {
+        if (m == null) {
+            m = new d();
+        }
+        return m;
+    }
+
+    public void i(boolean z) {
+        if (this.f50877c == null) {
+            this.f50877c = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
+        }
+        View view = this.f50878d;
+        if (view == null || view.getParent() == null) {
             return;
         }
-        this.y = aVar;
-        String str = null;
-        if (aVar.h().z2()) {
-            this.q.setVisibility(0);
-            this.r.setVisibility(0);
-            if (aVar.h().u1() != null) {
-                this.r.setText(StringHelper.stringForVideoTime(aVar.h().u1().video_duration.intValue() * 1000));
-                str = aVar.h().u1().thumbnail_url;
+        try {
+            if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {
+                if (this.f50877c != null && this.f50878d != null) {
+                    this.f50877c.removeView(this.f50878d);
+                }
+                this.f50877c = null;
+                this.f50878d = null;
+                return;
             }
-        } else {
-            this.q.setVisibility(8);
-            this.r.setVisibility(4);
-            if (aVar.h().K0() != null && aVar.h().K0().size() >= 1) {
-                str = aVar.h().K0().get(0).origin_pic;
+            this.f50877c.removeView(this.f50878d);
+            this.f50878d = null;
+            this.f50877c = null;
+            if (z || this.f50880f) {
+                return;
             }
-        }
-        this.p.V(str, 10, false);
-        this.n.setText(aVar.h().x1());
-        d.a.j0.d3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.d(aVar.h().o0())) {
-            SkinManager.setViewTextColor(this.n, R.color.CAM_X0108);
-        } else {
-            SkinManager.setViewTextColor(this.n, R.color.CAM_X0105);
-        }
-        this.t.setData(aVar.h(), false);
-        y(aVar.h());
-        this.v.setText(StringHelper.getFormatTimeShort(aVar.h().S()));
-        if (AuthoritySharedPreferences.KEY_CONFIG_FIRSTSHOT_GUIDE.equals(aVar.h().k0())) {
-            this.w.setVisibility(0);
-        } else {
-            this.w.setVisibility(8);
+            this.f50881g = new e(this);
+            d.a.c.e.m.e.a().postDelayed(this.f50881g, 300L);
+        } catch (SecurityException unused) {
+            this.f50877c = null;
+            this.f50878d = null;
         }
     }
 
-    public String u(String str) {
-        return StringHelper.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
-    }
-
-    public void v(int i2, int i3, int i4, int i5) {
-        LinearLayout linearLayout = this.m;
-        if (linearLayout != null) {
-            linearLayout.setPadding(i2, i3, i4, i5);
+    public boolean j() {
+        d.a.j0.x.c cVar = this.f50879e;
+        if (cVar == null) {
+            return false;
         }
-    }
-
-    public void w(int i2) {
-        RelativeLayout relativeLayout = this.s;
-        if (relativeLayout != null) {
-            relativeLayout.setVisibility(i2);
-        }
-    }
-
-    public void x(int i2) {
-        View view = this.x;
+        View view = this.f50878d;
         if (view != null) {
-            view.setVisibility(i2);
+            return view.getParent() == null;
+        }
+        View view2 = cVar.getView();
+        this.f50878d = view2;
+        view2.setOnClickListener(new View$OnClickListenerC1162d());
+        return true;
+    }
+
+    public boolean k() {
+        View view;
+        return (this.f50877c == null || (view = this.f50878d) == null || view.getParent() == null) ? false : true;
+    }
+
+    public void l() {
+        i(false);
+        this.f50876b = null;
+        this.f50875a = null;
+        this.f50879e = null;
+        this.f50878d = null;
+        m = null;
+        if (this.f50881g != null) {
+            d.a.c.e.m.e.a().removeCallbacks(this.f50881g);
         }
     }
 
-    public final void y(a2 a2Var) {
-        if (this.u == null || a2Var == null || StringUtils.isNull(a2Var.T().getName_show())) {
-            return;
+    public void m(d.a.j0.x.c cVar) {
+        this.f50879e = cVar;
+    }
+
+    public void n(int i2, int i3, int i4) {
+        this.f50882h = i2;
+        this.f50883i = i3;
+    }
+
+    public void o(boolean z) {
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        layoutParams.type = d.a.k0.p3.c.a(2002);
+        layoutParams.flags = 65800;
+        layoutParams.format = -3;
+        int i2 = this.f50883i;
+        layoutParams.x = i2;
+        layoutParams.y = i2;
+        layoutParams.width = -2;
+        layoutParams.height = -2;
+        layoutParams.gravity = this.f50882h;
+        if (this.f50877c == null) {
+            this.f50877c = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
         }
-        this.u.setText(u(a2Var.T().getName_show()));
+        try {
+            if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {
+                this.f50877c = null;
+                this.f50878d = null;
+            } else if (j()) {
+                if (this.f50878d != null && this.f50878d.getParent() == null) {
+                    this.f50877c.addView(this.f50878d, layoutParams);
+                    if (z) {
+                        this.f50875a = d.a.c.a.b.f().b();
+                    }
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921473, 0));
+                MessageManager.getInstance().registerListener(this.j);
+                MessageManager.getInstance().registerListener(this.l);
+                MessageManager.getInstance().registerListener(this.k);
+            }
+        } catch (SecurityException unused) {
+            this.f50877c = null;
+            this.f50878d = null;
+        }
     }
 }

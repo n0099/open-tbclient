@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static void a(l lVar, int i2) {
         int c2 = x.c(p.a());
@@ -85,7 +85,7 @@ public class c {
         VAdError vAdError;
         long elapsedRealtime = SystemClock.elapsedRealtime() - j;
         String str = z ? z2 ? "load_video_success" : "load_video_error" : z2 ? "download_video_image_success" : "download_video_image_fail";
-        String message = (z2 || oVar == null || (vAdError = oVar.f65082c) == null) ? null : vAdError.getMessage();
+        String message = (z2 || oVar == null || (vAdError = oVar.f65768c) == null) ? null : vAdError.getMessage();
         if (z) {
             Map<String, Object> a2 = ak.a(z2, lVar, elapsedRealtime, j2, message);
             a2.put("splash_show_type", 1);
@@ -124,8 +124,8 @@ public class c {
                     a.a(p.a()).b(new com.bytedance.sdk.openadsdk.core.d.p(aVar, lVar, null));
                     return;
                 }
-                com.bytedance.sdk.openadsdk.i.e.c().a(i2, new b.InterfaceC1767b() { // from class: com.bytedance.sdk.openadsdk.component.splash.c.1
-                    @Override // d.b.c.b.b.b.InterfaceC1767b
+                com.bytedance.sdk.openadsdk.i.e.c().a(i2, new b.InterfaceC1831b() { // from class: com.bytedance.sdk.openadsdk.component.splash.c.1
+                    @Override // d.b.c.b.b.b.InterfaceC1831b
                     public File a(String str2) {
                         try {
                             File parentFile = a2.getParentFile();
@@ -145,17 +145,17 @@ public class c {
                     public void a(long j, long j2) {
                     }
 
-                    @Override // d.b.c.b.b.b.InterfaceC1767b
+                    @Override // d.b.c.b.b.b.InterfaceC1831b
                     public File b(String str2) {
                         return a2;
                     }
 
                     @Override // d.b.c.b.d.o.a
                     public void b(o<File> oVar) {
-                        c.a(elapsedRealtime, true, false, lVar, oVar == null ? -2L : oVar.f65087h, oVar);
+                        c.a(elapsedRealtime, true, false, lVar, oVar == null ? -2L : oVar.f65773h, oVar);
                     }
 
-                    @Override // d.b.c.b.b.b.InterfaceC1767b
+                    @Override // d.b.c.b.b.b.InterfaceC1831b
                     public void a(String str2, File file) {
                         if (file != null) {
                             u.f("splashLoadAd", "SplashUtils preLoadVideo putFile  s " + str2 + " file " + file.getPath());
@@ -166,13 +166,13 @@ public class c {
 
                     @Override // d.b.c.b.d.o.a
                     public void a(o<File> oVar) {
-                        if (oVar != null && oVar.f65080a != null) {
+                        if (oVar != null && oVar.f65766a != null) {
                             a.a(p.a()).b(new com.bytedance.sdk.openadsdk.core.d.p(aVar, lVar, null));
                             a.a(p.a()).a(new com.bytedance.sdk.openadsdk.core.d.p(aVar, lVar, null));
                             c.a(elapsedRealtime, true, true, lVar, 0L, oVar);
                             return;
                         }
-                        c.a(elapsedRealtime, true, false, lVar, oVar == null ? -3L : oVar.f65087h, oVar);
+                        c.a(elapsedRealtime, true, false, lVar, oVar == null ? -3L : oVar.f65773h, oVar);
                     }
                 });
             }

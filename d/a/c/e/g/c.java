@@ -14,19 +14,19 @@ import d.a.c.e.g.d;
 public class c implements View.OnKeyListener, View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public Configuration f39667e;
+    public Configuration f38912e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MaskView f39668f;
+    public MaskView f38913f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.e.g.b[] f39669g;
+    public d.a.c.e.g.b[] f38914g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f39670h = true;
+    public boolean f38915h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f39671i = false;
+    public boolean f38916i = false;
     public d.a j;
 
     /* loaded from: classes.dex */
@@ -54,15 +54,15 @@ public class c implements View.OnKeyListener, View.OnClickListener {
     public class b implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f39673a;
+        public final /* synthetic */ ViewGroup f38918a;
 
         public b(ViewGroup viewGroup) {
-            this.f39673a = viewGroup;
+            this.f38918a = viewGroup;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            this.f39673a.removeAllViews();
+            this.f38918a.removeAllViews();
             if (c.this.j != null) {
                 c.this.j.onDismiss();
             }
@@ -80,8 +80,8 @@ public class c implements View.OnKeyListener, View.OnClickListener {
 
     /* renamed from: d.a.c.e.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class animation.Animation$AnimationListenerC0512c implements Animation.AnimationListener {
-        public animation.Animation$AnimationListenerC0512c() {
+    public class animation.Animation$AnimationListenerC0499c implements Animation.AnimationListener {
+        public animation.Animation$AnimationListenerC0499c() {
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -104,15 +104,15 @@ public class c implements View.OnKeyListener, View.OnClickListener {
     public class d implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f39676a;
+        public final /* synthetic */ ViewGroup f38921a;
 
         public d(ViewGroup viewGroup) {
-            this.f39676a = viewGroup;
+            this.f38921a = viewGroup;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            this.f39676a.removeView(c.this.f39668f);
+            this.f38921a.removeView(c.this.f38913f);
             if (c.this.j != null) {
                 c.this.j.onDismiss();
             }
@@ -129,18 +129,18 @@ public class c implements View.OnKeyListener, View.OnClickListener {
     }
 
     public void d() {
-        MaskView maskView = this.f39668f;
+        MaskView maskView = this.f38913f;
         if (maskView == null || !(maskView.getParent() instanceof ViewGroup)) {
             return;
         }
-        ViewGroup viewGroup = (ViewGroup) this.f39668f.getParent();
-        if (this.f39667e.n != -1) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f39668f.getContext(), this.f39667e.n);
+        ViewGroup viewGroup = (ViewGroup) this.f38913f.getParent();
+        if (this.f38912e.n != -1) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f38913f.getContext(), this.f38912e.n);
             loadAnimation.setAnimationListener(new d(viewGroup));
-            this.f39668f.startAnimation(loadAnimation);
+            this.f38913f.startAnimation(loadAnimation);
             return;
         }
-        viewGroup.removeView(this.f39668f);
+        viewGroup.removeView(this.f38913f);
         d.a aVar = this.j;
         if (aVar != null) {
             aVar.onDismiss();
@@ -152,8 +152,8 @@ public class c implements View.OnKeyListener, View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        if (this.f39667e.n != -1) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(viewGroup.getContext(), this.f39667e.n);
+        if (this.f38912e.n != -1) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(viewGroup.getContext(), this.f38912e.n);
             loadAnimation.setAnimationListener(new b(viewGroup));
             viewGroup.startAnimation(loadAnimation);
             return;
@@ -168,14 +168,14 @@ public class c implements View.OnKeyListener, View.OnClickListener {
 
     public final MaskView f(Activity activity) {
         MaskView maskView = new MaskView(activity);
-        maskView.e(activity.getResources().getColor(this.f39667e.j));
-        maskView.d(this.f39667e.f2160g);
-        maskView.g(this.f39667e.l);
+        maskView.e(activity.getResources().getColor(this.f38912e.j));
+        maskView.d(this.f38912e.f2160g);
+        maskView.g(this.f38912e.l);
         maskView.setOnKeyListener(this);
         int[] iArr = new int[2];
         ((ViewGroup) activity.findViewById(16908290)).getLocationInWindow(iArr);
         int i2 = iArr[1];
-        if (this.f39670h && i2 == 0) {
+        if (this.f38915h && i2 == 0) {
             try {
                 Class<?> cls = Class.forName("com.android.internal.R$dimen");
                 i2 = activity.getResources().getDimensionPixelSize(Integer.parseInt(cls.getField("status_bar_height").get(cls.newInstance()).toString()));
@@ -195,7 +195,7 @@ public class c implements View.OnKeyListener, View.OnClickListener {
                 e8.printStackTrace();
             }
         }
-        Configuration configuration = this.f39667e;
+        Configuration configuration = this.f38912e;
         View view = configuration.f2158e;
         if (view != null) {
             maskView.h(d.a.c.e.g.a.b(view, 0, i2));
@@ -205,24 +205,24 @@ public class c implements View.OnKeyListener, View.OnClickListener {
                 maskView.h(d.a.c.e.g.a.b(findViewById, 0, i2));
             }
         }
-        View findViewById2 = activity.findViewById(this.f39667e.f2161h);
+        View findViewById2 = activity.findViewById(this.f38912e.f2161h);
         if (findViewById2 != null) {
             maskView.f(d.a.c.e.g.a.b(findViewById2, 0, i2));
         }
-        if (this.f39667e.f2159f) {
+        if (this.f38912e.f2159f) {
             maskView.setClickable(false);
         } else {
             maskView.setOnClickListener(this);
         }
-        for (d.a.c.e.g.b bVar : this.f39669g) {
+        for (d.a.c.e.g.b bVar : this.f38914g) {
             maskView.addView(d.a.c.e.g.a.a(activity.getLayoutInflater(), bVar));
         }
         return maskView;
     }
 
     public final void g() {
-        this.f39667e = null;
-        this.f39669g = null;
+        this.f38912e = null;
+        this.f38914g = null;
         this.j = null;
     }
 
@@ -231,19 +231,19 @@ public class c implements View.OnKeyListener, View.OnClickListener {
     }
 
     public void i(d.a.c.e.g.b[] bVarArr) {
-        this.f39669g = bVarArr;
+        this.f38914g = bVarArr;
     }
 
     public void j(Configuration configuration) {
-        this.f39667e = configuration;
+        this.f38912e = configuration;
     }
 
     public void k(boolean z) {
-        this.f39670h = z;
+        this.f38915h = z;
     }
 
     public void l(boolean z) {
-        this.f39671i = z;
+        this.f38916i = z;
     }
 
     public void m(Activity activity) {
@@ -255,23 +255,23 @@ public class c implements View.OnKeyListener, View.OnClickListener {
     }
 
     public final void o(ViewGroup viewGroup, Activity activity, boolean z) {
-        if (this.f39668f == null) {
+        if (this.f38913f == null) {
             MaskView f2 = f(activity);
-            this.f39668f = f2;
-            f2.i(this.f39671i);
+            this.f38913f = f2;
+            f2.i(this.f38916i);
             if (!z) {
-                this.f39668f.setFocusable(false);
-                this.f39668f.setFocusableInTouchMode(false);
-                this.f39668f.clearFocus();
+                this.f38913f.setFocusable(false);
+                this.f38913f.setFocusableInTouchMode(false);
+                this.f38913f.clearFocus();
             }
         }
-        if (this.f39668f.getParent() == null) {
-            viewGroup.addView(this.f39668f);
-            int i2 = this.f39667e.m;
+        if (this.f38913f.getParent() == null) {
+            viewGroup.addView(this.f38913f);
+            int i2 = this.f38912e.m;
             if (i2 != -1) {
                 Animation loadAnimation = AnimationUtils.loadAnimation(activity, i2);
-                loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0512c());
-                this.f39668f.startAnimation(loadAnimation);
+                loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0499c());
+                this.f38913f.startAnimation(loadAnimation);
                 return;
             }
             d.a aVar = this.j;
@@ -283,7 +283,7 @@ public class c implements View.OnKeyListener, View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Configuration configuration = this.f39667e;
+        Configuration configuration = this.f38912e;
         if (configuration == null || !configuration.k) {
             return;
         }
@@ -293,7 +293,7 @@ public class c implements View.OnKeyListener, View.OnClickListener {
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i2, KeyEvent keyEvent) {
         Configuration configuration;
-        if (i2 == 4 && keyEvent.getAction() == 1 && (configuration = this.f39667e) != null && configuration.k) {
+        if (i2 == 4 && keyEvent.getAction() == 1 && (configuration = this.f38912e) != null && configuration.k) {
             d();
             return true;
         }
@@ -313,13 +313,13 @@ public class c implements View.OnKeyListener, View.OnClickListener {
             viewGroup.setFocusableInTouchMode(false);
             viewGroup.clearFocus();
         }
-        for (d.a.c.e.g.b bVar : this.f39669g) {
+        for (d.a.c.e.g.b bVar : this.f38914g) {
             View c2 = bVar.c(activity.getLayoutInflater());
             if (c2.getParent() == null) {
                 viewGroup.addView(c2);
             }
         }
-        int i2 = this.f39667e.m;
+        int i2 = this.f38912e.m;
         if (i2 == -1) {
             d.a aVar = this.j;
             if (aVar != null) {

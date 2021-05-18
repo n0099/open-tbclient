@@ -4,31 +4,31 @@ import com.win.opensdk.core.Info;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class E0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public List f37641a = Collections.synchronizedList(new ArrayList());
+    public List f36886a = Collections.synchronizedList(new ArrayList());
 
     public void a() {
         try {
-            this.f37641a.clear();
+            this.f36886a.clear();
         } catch (Exception unused) {
         }
     }
 
     public void a(List list) {
-        synchronized (this.f37641a) {
-            this.f37641a.clear();
-            this.f37641a.addAll(list);
+        synchronized (this.f36886a) {
+            this.f36886a.clear();
+            this.f36886a.addAll(list);
         }
     }
 
     public Info b() {
         Info info;
-        synchronized (this.f37641a) {
+        synchronized (this.f36886a) {
             info = null;
-            while (this.f37641a.size() > 0 && ((info = (Info) this.f37641a.remove(0)) == null || !info.isEffective())) {
+            while (this.f36886a.size() > 0 && ((info = (Info) this.f36886a.remove(0)) == null || !info.isEffective())) {
             }
         }
         return info;
@@ -36,8 +36,8 @@ public class E0 {
 
     public boolean c() {
         boolean isEmpty;
-        synchronized (this.f37641a) {
-            isEmpty = this.f37641a.isEmpty();
+        synchronized (this.f36886a) {
+            isEmpty = this.f36886a.isEmpty();
         }
         return isEmpty;
     }

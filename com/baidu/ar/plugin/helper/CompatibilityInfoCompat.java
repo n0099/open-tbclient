@@ -6,14 +6,14 @@ public class CompatibilityInfoCompat {
     public static Class sClass;
     public static Object sDefaultCompatibilityInfo;
 
-    public static Object getDefaultCompatibilityInfo() throws IllegalAccessException, ClassNotFoundException {
+    public static Object getDefaultCompatibilityInfo() {
         if (sDefaultCompatibilityInfo == null) {
             sDefaultCompatibilityInfo = FieldUtils.readStaticField(getMyClass(), "DEFAULT_COMPATIBILITY_INFO");
         }
         return sDefaultCompatibilityInfo;
     }
 
-    public static Class getMyClass() throws ClassNotFoundException {
+    public static Class getMyClass() {
         if (sClass == null) {
             sClass = Class.forName("android.content.res.CompatibilityInfo");
         }

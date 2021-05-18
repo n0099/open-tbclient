@@ -108,6 +108,6 @@ public final class SoUtils implements NoProGuard {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        onEvent(com.baidu.swan.games.utils.so.SoUtils.SO_EVENT_ID_DEFAULT, str);
+        onEvent(com.baidu.swan.apps.so.SoUtils.SO_EVENT_ID_DEFAULT, str);
     }
 }

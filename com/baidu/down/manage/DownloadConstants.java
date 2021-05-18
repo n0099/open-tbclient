@@ -55,6 +55,7 @@ public final class DownloadConstants {
         public static final String COLUMN_MIME_TYPE = "MIMETYPE";
         public static final String COLUMN_NEED_N_KEY = "NOTIFICATIONNEEDED";
         public static final String COLUMN_PROGRESS_MAP = "PROGRESSMAP";
+        public static final String COLUMN_REAL_URI = "REAL_URI";
         public static final String COLUMN_SAVED_PATH = "SAVED_PATH_FOR_USER";
         public static final String COLUMN_SOURCE_KEY = "SAVED_SOURCE_KEY_USER";
         public static final String COLUMN_STATUS = "STATUS";

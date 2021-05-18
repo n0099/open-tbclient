@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.a.i0.r.q.a2;
+import d.a.j0.r.q.a2;
 /* loaded from: classes3.dex */
 public class PbVideoActivityConfig extends IntentConfig {
     public static final int ACTIVITY_RESULT_DELETE = 1;
@@ -174,7 +174,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             return this;
         }
         Intent intent = getIntent();
-        intent.putExtra("thread_id", a2Var.w1());
+        intent.putExtra("thread_id", a2Var.x1());
         intent.putExtra("is_good", a2Var.w0());
         intent.putExtra("is_top", a2Var.x0());
         intent.putExtra("thread_time", a2Var.B0());

@@ -49,6 +49,7 @@ import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.SelectImageHelper;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
@@ -61,15 +62,16 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.switchs.NickNameActivitySwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.view.BdTopToast;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.i0.r.s.a;
-import d.a.i0.r.s.b;
-import d.a.i0.r.s.l;
-import d.a.i0.s.i.b;
+import d.a.j0.r.s.a;
+import d.a.j0.r.s.b;
+import d.a.j0.r.s.l;
+import d.a.j0.s.i.b;
 import java.util.Calendar;
 import java.util.Date;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public static final int DEFAULT_DAYS_THRESHOLD = 2000;
     public static final int FIRST_SCROLL_TO_BOTTOM_DELAY = 800;
@@ -81,17 +83,28 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public LinearLayout mAlaIdLayout;
     public TextView mAlaIdView;
     public ImageView mBackIcon;
+    public LinearLayout mClientNumberMain;
+    public TextView mClientid;
+    public TextView mClientidShow;
     public View mCloseView;
     public RelativeLayout mConstellationLayout;
     public TextView mConstellationView;
+    public ImageView mCopyClientid;
     public TextView mForumAgeView;
-    public d.a.i0.s.i.b mInputUserNameDialog;
+    public d.a.j0.s.i.b mInputUserNameDialog;
+    public TextView mIntro;
+    public TextView mIntroTextTipDivider;
+    public TextView mIntroTextTipLimit;
+    public TextView mIntroTextTipNum;
     public View mNameContainer;
-    public d.a.i0.r.s.a mNickNameActivityDialog;
+    public d.a.j0.r.s.a mNickNameActivityDialog;
     public View mNickNameMore;
+    public TextView mNickNameShow;
     public PermissionJudgePolicy mPermissionJudgement;
     public View mPersonNicknameLayout;
     public ImageView mPhotoCameraView;
+    public View mRootView;
+    public TextView mSexShow;
     public String mTempNickName;
     public View mUserNameMoreIcon;
     public TextView mUserNameShow;
@@ -102,16 +115,10 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public TextView mSave = null;
     public LinearLayout mParent = null;
     public ScrollView mPersonChangeScroll = null;
-    public TextView mNickNameShow = null;
     public RelativeLayout mSexLayout = null;
-    public TextView mSexShow = null;
     public LinearLayout mIntroClick = null;
-    public TextView mIntro = null;
     public EditText mEdit = null;
     public LinearLayout mIntroTextTip = null;
-    public TextView mIntroTextTipNum = null;
-    public TextView mIntroTextTipDivider = null;
-    public TextView mIntroTextTipLimit = null;
     public InputMethodManager mInputManager = null;
     public boolean mClickOnEditor = false;
     public PersonChangeModel mModel = null;
@@ -121,8 +128,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public u mModifyTask = null;
     public ProgressBar mImageProgressBar = null;
     public DialogInterface.OnCancelListener mDialogCancelListener = null;
-    public d.a.i0.r.s.a mConfirmDialog = null;
-    public d.a.i0.r.s.j mSexDialog = null;
+    public d.a.j0.r.s.a mConfirmDialog = null;
+    public d.a.j0.r.s.j mSexDialog = null;
     public boolean isEdited = false;
     public boolean isUpdate = false;
     public boolean isUpdateNickName = false;
@@ -134,7 +141,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public CustomMessageListener mModifyNicknameSucceedListener = new i(2921033);
     public CustomMessageListener mChangeLeftDayListener = new j(2921061);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnTouchListener {
         public a() {
         }
@@ -150,7 +157,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements TextWatcher {
         public b() {
         }
@@ -199,25 +206,25 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements a.e {
         public c() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             aVar.dismiss();
             PersonChangeActivity.this.saveProfile();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements a.e {
         public d() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             aVar.dismiss();
             if (PersonChangeActivity.this.mModel.s().getPhotoChanged()) {
                 Intent intent = new Intent();
@@ -233,7 +240,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements Runnable {
         public e() {
         }
@@ -244,13 +251,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements b.c {
         public f() {
         }
 
-        @Override // d.a.i0.r.s.b.c
-        public void a(d.a.i0.r.s.b bVar, int i2, View view) {
+        @Override // d.a.j0.r.s.b.c
+        public void a(d.a.j0.r.s.b bVar, int i2, View view) {
             if (i2 == 0) {
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) PersonChangeActivity.this.getPageContext().getPageActivity(), PersonChangeActivity.this.mWriteImagesInfo.toJsonString(), true);
                 albumActivityConfig.setRequestCode(12002);
@@ -263,33 +270,33 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g implements l.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20545e;
+        public final /* synthetic */ String f19833e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f20546f;
+        public final /* synthetic */ String f19834f;
 
         public g(String str, String str2) {
-            this.f20545e = str;
-            this.f20546f = str2;
+            this.f19833e = str;
+            this.f19834f = str2;
         }
 
-        @Override // d.a.i0.r.s.l.e
-        public void onItemClick(d.a.i0.r.s.l lVar, int i2, View view) {
+        @Override // d.a.j0.r.s.l.e
+        public void onItemClick(d.a.j0.r.s.l lVar, int i2, View view) {
             if (PersonChangeActivity.this.mSexDialog != null && PersonChangeActivity.this.mSexDialog.isShowing()) {
                 PersonChangeActivity.this.mSexDialog.dismiss();
             }
             if (view instanceof TextView) {
                 TextView textView = (TextView) view;
-                if (this.f20545e.equals(textView.getText().toString())) {
+                if (this.f19833e.equals(textView.getText().toString())) {
                     PersonChangeActivity.this.mSex = 1;
-                    PersonChangeActivity.this.mSexShow.setText(this.f20545e);
-                } else if (this.f20546f.equals(textView.getText().toString())) {
+                    PersonChangeActivity.this.mSexShow.setText(this.f19833e);
+                } else if (this.f19834f.equals(textView.getText().toString())) {
                     PersonChangeActivity.this.mSex = 2;
-                    PersonChangeActivity.this.mSexShow.setText(this.f20546f);
+                    PersonChangeActivity.this.mSexShow.setText(this.f19834f);
                 }
                 if (PersonChangeActivity.this.mSex != PersonChangeActivity.this.mModel.s().getSex()) {
                     PersonChangeActivity.this.isUpdate = true;
@@ -303,7 +310,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class h implements View.OnClickListener {
         public h() {
         }
@@ -331,7 +338,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class i extends CustomMessageListener {
         public i(int i2) {
             super(i2);
@@ -355,7 +362,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class j extends CustomMessageListener {
         public j(int i2) {
             super(i2);
@@ -376,13 +383,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class k implements a.e {
         public k() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             if (d.a.c.e.p.j.z()) {
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(PersonChangeActivity.this.getPageContext().getPageActivity(), 24);
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_MY_DATA, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
@@ -395,46 +402,46 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class l implements a.e {
         public l() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class m implements a.e {
         public m() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(PersonChangeActivity.this.getPageContext().getPageActivity(), null, d.a.j0.d2.c.a(), true)));
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(PersonChangeActivity.this.getPageContext().getPageActivity(), null, d.a.k0.d2.c.a(), true)));
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class n implements a.e {
         public n() {
         }
 
-        @Override // d.a.i0.r.s.a.e
-        public void onClick(d.a.i0.r.s.a aVar) {
+        @Override // d.a.j0.r.s.a.e
+        public void onClick(d.a.j0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class o implements b.e {
         public o() {
         }
 
-        @Override // d.a.i0.s.i.b.e
+        @Override // d.a.j0.s.i.b.e
         public void a(AccountData accountData) {
             if (accountData == null) {
                 return;
@@ -443,7 +450,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class p implements Runnable {
         public p() {
         }
@@ -454,7 +461,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class q implements DialogInterface.OnCancelListener {
         public q() {
         }
@@ -468,7 +475,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class r implements View.OnTouchListener {
         public r() {
         }
@@ -483,7 +490,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class s implements View.OnFocusChangeListener {
         public s() {
         }
@@ -497,7 +504,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class t extends BdAsyncTask<Object, Integer, Bitmap> {
         public t() {
         }
@@ -542,29 +549,29 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (bitmap != null) {
                 PersonChangeActivity.this.mPhoto = new d.a.c.j.d.a(bitmap, false, (String) null);
                 PersonChangeActivity.this.mPhoto.h(PersonChangeActivity.this.mPhotoView);
-                d.a.i0.a0.c.k().c(PersonChangeActivity.this.mModel.s().getPortrait(), PersonChangeActivity.this.mPhoto, true);
+                d.a.j0.a0.c.k().c(PersonChangeActivity.this.mModel.s().getPortrait(), PersonChangeActivity.this.mPhoto, true);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class u extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20561a = null;
+        public NetWork f19849a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public PersonChangeModel f20562b;
+        public PersonChangeModel f19850b;
 
         public u(PersonChangeModel personChangeModel) {
-            this.f20562b = null;
-            this.f20562b = personChangeModel;
+            this.f19850b = null;
+            this.f19850b = personChangeModel;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             PersonChangeActivity.this.mModifyTask = null;
-            NetWork netWork = this.f20561a;
+            NetWork netWork = this.f19849a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -581,18 +588,18 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            if (this.f20562b == null) {
+            if (this.f19850b == null) {
                 return null;
             }
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_MODIFY);
-            this.f20561a = netWork;
-            netWork.addPostData("sex", String.valueOf(this.f20562b.s().getSex()));
-            this.f20561a.addPostData("intro", this.f20562b.s().getIntro());
-            this.f20561a.addPostData("birthday_time", String.valueOf(this.f20562b.s().getBirthdayTime()));
-            this.f20561a.addPostData("birthday_show_status", String.valueOf(this.f20562b.s().getBirthdayShowStatus()));
-            this.f20561a.postMultiNetData();
-            if (this.f20561a.getNetContext().getResponse().isRequestSuccess()) {
-                d.a.j0.d3.n0.a.j();
+            this.f19849a = netWork;
+            netWork.addPostData("sex", String.valueOf(this.f19850b.s().getSex()));
+            this.f19849a.addPostData("intro", this.f19850b.s().getIntro());
+            this.f19849a.addPostData("birthday_time", String.valueOf(this.f19850b.s().getBirthdayTime()));
+            this.f19849a.addPostData("birthday_show_status", String.valueOf(this.f19850b.s().getBirthdayShowStatus()));
+            this.f19849a.postMultiNetData();
+            if (this.f19849a.getNetContext().getResponse().isRequestSuccess()) {
+                d.a.k0.d3.n0.a.j();
             }
             return null;
         }
@@ -602,14 +609,14 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onPostExecute(String str) {
             PersonChangeActivity.this.mModifyTask = null;
             PersonChangeActivity.this.closeLoadingDialog();
-            NetWork netWork = this.f20561a;
+            NetWork netWork = this.f19849a;
             if (netWork != null) {
                 if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                     PersonChangeActivity personChangeActivity = PersonChangeActivity.this;
                     personChangeActivity.showToast(personChangeActivity.getPageContext().getString(R.string.success));
                     PersonChangeActivity.this.setDataAndFinish();
                 } else {
-                    PersonChangeActivity.this.showToast(this.f20561a.getErrorString());
+                    PersonChangeActivity.this.showToast(this.f19849a.getErrorString());
                 }
             }
             super.onPostExecute((u) str);
@@ -632,9 +639,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     private void InitUI() {
-        ImageView imageView = (ImageView) findViewById(R.id.photo_pop_icon);
-        this.mPhotoCameraView = imageView;
-        imageView.setOnClickListener(this);
+        this.mPhotoCameraView = (ImageView) findViewById(R.id.photo_pop_icon);
+        this.mRootView = findViewById(R.id.main_parent);
+        this.mPhotoCameraView.setOnClickListener(this);
         HeadImageView headImageView = (HeadImageView) findViewById(R.id.photo);
         this.mPhotoView = headImageView;
         headImageView.setOnClickListener(this);
@@ -647,9 +654,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         this.mNavigationBar = navigationBar;
         View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.widget_nb_item_finish, this.mBackClickListener);
         this.mCloseView = addCustomView;
-        ImageView imageView2 = (ImageView) addCustomView.findViewById(R.id.widget_navi_back_button);
-        this.mBackIcon = imageView2;
-        imageView2.setContentDescription(getPageContext().getPageActivity().getResources().getString(R.string.close));
+        ImageView imageView = (ImageView) addCustomView.findViewById(R.id.widget_navi_back_button);
+        this.mBackIcon = imageView;
+        imageView.setContentDescription(getPageContext().getPageActivity().getResources().getString(R.string.close));
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.my_info));
         View addCustomView2 = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
         this.editLayout = addCustomView2;
@@ -666,6 +673,17 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         TextView textView2 = (TextView) findViewById(R.id.nick_name_show);
         this.mNickNameShow = textView2;
         textView2.setText(this.mModel.s().getNameShow());
+        this.mClientid = (TextView) findViewById(R.id.person_clientid);
+        this.mClientNumberMain = (LinearLayout) findViewById(R.id.person_client_number);
+        this.mClientidShow = (TextView) findViewById(R.id.person_tclient_show);
+        this.mCopyClientid = (ImageView) findViewById(R.id.person_client_copy);
+        PersonChangeModel personChangeModel = this.mModel;
+        if (personChangeModel != null && personChangeModel.s() != null && !TextUtils.isEmpty(this.mModel.s().getmTiebaId())) {
+            this.mClientidShow.setText(this.mModel.s().getmTiebaId());
+        } else {
+            this.mClientNumberMain.setVisibility(8);
+        }
+        this.mClientNumberMain.setOnClickListener(this);
         View findViewById = findViewById(R.id.person_nickname);
         this.mPersonNicknameLayout = findViewById;
         findViewById.setOnClickListener(this);
@@ -725,7 +743,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.mSexShow.setText(R.string.change_sex);
         }
         this.mImageProgressBar = (ProgressBar) findViewById(R.id.image_progress);
-        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getPageContext().getPageActivity());
+        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(getPageContext().getPageActivity());
         this.mConfirmDialog = aVar;
         aVar.setMessage(getPageContext().getString(R.string.confirm_giveup));
         this.mConfirmDialog.setPositiveButton(getPageContext().getString(R.string.alert_yes_button), new c());
@@ -904,7 +922,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
 
     private void showInputDialog(AccountData accountData) {
         if (this.mInputUserNameDialog == null) {
-            d.a.i0.s.i.b bVar = new d.a.i0.s.i.b(this);
+            d.a.j0.s.i.b bVar = new d.a.j0.s.i.b(this);
             this.mInputUserNameDialog = bVar;
             bVar.w(new o());
         }
@@ -927,7 +945,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     private void showNickNameActivityDialog() {
         if (this.mNickNameActivityDialog == null) {
             View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.person_nickname_act_dialog, (ViewGroup) null);
-            d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getPageContext().getPageActivity());
+            d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(getPageContext().getPageActivity());
             this.mNickNameActivityDialog = aVar;
             aVar.setContentView(inflate);
             this.mNickNameActivityDialog.setPositiveButton(R.string.nick_name_confirm, new m());
@@ -941,7 +959,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
 
     private void showSexDialog() {
         if (this.mSexDialog == null) {
-            this.mSexDialog = new d.a.i0.r.s.j(getPageContext());
+            this.mSexDialog = new d.a.j0.r.s.j(getPageContext());
             String string = getPageContext().getString(R.string.male);
             String string2 = getPageContext().getString(R.string.female);
             this.mSexDialog.i(getString(R.string.choose_sex), new String[]{string, string2}, new g(string, string2));
@@ -1047,7 +1065,10 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         this.mPhotoView.refresh();
         SkinManager.setViewTextColor(this.mUserNameShow, R.color.CAM_X0109);
         WebPManager.setMaskDrawable(this.mPhotoCameraView, R.drawable.icon_mask_personalba_edit40, null);
+        WebPManager.setPureDrawable(this.mCopyClientid, R.drawable.icon_pure_wo_recommend_copy18, R.color.CAM_X0108, null);
         SkinManager.setViewTextColor(this.mSave, R.color.CAM_X0302, 1);
+        d.a.j0.r.u.c.d(this.mClientid).q(R.color.CAM_X0108);
+        d.a.j0.r.u.c.d(this.mClientidShow).q(R.color.CAM_X0108);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -1109,7 +1130,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                         }
                         return;
                     } else {
-                        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getPageContext().getPageActivity());
+                        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(getPageContext().getPageActivity());
                         aVar.setMessage(String.format(getPageContext().getPageActivity().getString(R.string.modify_nickname_no_first_welfare), Integer.valueOf(nickNameLeftDays)));
                         aVar.setPositiveButton(R.string.open_now, new k());
                         aVar.setNegativeButton(R.string.cancel, new l());
@@ -1127,14 +1148,22 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             } else if (view == this.mConstellationLayout) {
                 PersonConstellationActivity.startPersonConstellationActivity(getActivity(), this.mModel.s().getBirthdayTime(), this.mModel.s().getBirthdayShowStatus());
                 return;
+            } else if (view != this.mClientNumberMain || this.mClientidShow == null || this.mUserNameShow == null) {
+                return;
             } else {
+                d.a.c.e.p.a.a(String.format(getResources().getString(R.string.to_share_tieba_id), TbadkCoreApplication.getCurrentAccountNameShow(), this.mClientidShow.getText().toString()));
+                BdTopToast bdTopToast = new BdTopToast(this, 3000);
+                bdTopToast.i(true);
+                bdTopToast.h(getResources().getString(R.string.copy_success));
+                bdTopToast.j((ViewGroup) this.mRootView);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_COPY_CLIENT_NUMBER_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", this.mClientidShow.getText().toString()).param("obj_locate", 2));
                 return;
             }
         }
         PersonChangeModel personChangeModel2 = this.mModel;
-        if (personChangeModel2 != null && (personChangeData = personChangeModel2.f20564e) != null && !personChangeData.canModifyAvatar()) {
-            if (!StringUtils.isNull(this.mModel.f20564e.getCantModifyAvatarDesc())) {
-                d.a.c.e.p.l.J(TbadkCoreApplication.getInst(), this.mModel.f20564e.getCantModifyAvatarDesc());
+        if (personChangeModel2 != null && (personChangeData = personChangeModel2.f19852e) != null && !personChangeData.canModifyAvatar()) {
+            if (!StringUtils.isNull(this.mModel.f19852e.getCantModifyAvatarDesc())) {
+                d.a.c.e.p.l.J(TbadkCoreApplication.getInst(), this.mModel.f19852e.getCantModifyAvatarDesc());
                 return;
             } else {
                 d.a.c.e.p.l.I(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);
@@ -1190,7 +1219,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         if (editText != null) {
             editText.addTextChangedListener(null);
         }
-        d.a.i0.s.i.b bVar = this.mInputUserNameDialog;
+        d.a.j0.s.i.b bVar = this.mInputUserNameDialog;
         if (bVar != null) {
             bVar.s();
         }
@@ -1228,7 +1257,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
 
     public void showHeadDialog() {
         String[] strArr = {getPageContext().getString(R.string.change_photo), getPageContext().getString(R.string.change_system_photo)};
-        d.a.i0.r.s.b bVar = new d.a.i0.r.s.b(getPageContext().getPageActivity());
+        d.a.j0.r.s.b bVar = new d.a.j0.r.s.b(getPageContext().getPageActivity());
         bVar.k(R.string.operation);
         bVar.j(strArr, new f());
         bVar.c(getPageContext());

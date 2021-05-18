@@ -12,6 +12,7 @@ import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTDislikeDialogAbstract;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
@@ -37,7 +38,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NativeExpressView extends FrameLayout implements j {
     public static int u = 500;
     public final AtomicBoolean A;
@@ -58,31 +59,31 @@ public class NativeExpressView extends FrameLayout implements j {
     public String P;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.b f29054a;
+    public com.bytedance.sdk.openadsdk.dislike.b f28299a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTDislikeDialogAbstract f29055b;
+    public TTDislikeDialogAbstract f28300b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29056c;
+    public String f28301c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29057d;
+    public String f28302d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29058e;
+    public int f28303e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f29059f;
+    public final AtomicBoolean f28304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Context f29060g;
+    public final Context f28305g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WeakReference<SSWebView> f29061h;
+    public WeakReference<SSWebView> f28306h;
 
     /* renamed from: i  reason: collision with root package name */
-    public x f29062i;
+    public x f28307i;
     public String j;
     public AdSlot k;
     public com.bytedance.sdk.openadsdk.core.d.l l;
@@ -100,19 +101,19 @@ public class NativeExpressView extends FrameLayout implements j {
     public e y;
     public final Map<String, com.bytedance.sdk.openadsdk.downloadnew.core.a> z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public int f29071b;
+        public int f28316b;
 
         public a(int i2) {
-            this.f29071b = i2;
+            this.f28316b = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f29071b == 1) {
+            if (this.f28316b == 1) {
                 u.c("NativeExpressView", "MSG_RENDER_TIME_OUT-->OnAdRenderRunnable......run....");
                 NativeExpressView.this.a(false, 0.0f, 0.0f, 107, 1);
             }
@@ -121,7 +122,7 @@ public class NativeExpressView extends FrameLayout implements j {
 
     public NativeExpressView(@NonNull Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, AdSlot adSlot, String str) {
         super(context);
-        this.f29059f = new AtomicBoolean(false);
+        this.f28304f = new AtomicBoolean(false);
         this.j = "embeded_ad";
         this.z = Collections.synchronizedMap(new HashMap());
         this.A = new AtomicBoolean(false);
@@ -138,7 +139,7 @@ public class NativeExpressView extends FrameLayout implements j {
         this.O = 0;
         this.P = "{\"id\":0,\"tplId\":0,\"title\":\"\",\"data\":{\"id\":\"root\",\"type\":\"vessel\",\"values\":{\"widthMode\":\"fixed\",\"width\":320,\"height\":320},\"children\":[[{\"type\":\"text\",\"values\":{\"fontSize\":19,\"fontWeight\":500,\"color\":\"#222222\",\"lineHeight\":1.3,\"data\":\"title\"}}],[{\"type\":\"text\",\"values\":{\"fontSize\":15,\"fontWeight\":500,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"subtitle\"}}],[{\"type\":\"image\",\"values\":{},\"children\":[]}],[{\"type\":\"vessel\",\"values\":{\"height\":40,\"paddingTop\":10,\"paddingRight\":15,\"paddingBottom\":10,\"paddingLeft\":15},\"children\":[[{\"type\":\"logo\",\"values\":{}},{\"type\":\"text\",\"values\":{\"widthMode\":\"auto\",\"paddingTop\":3,\"paddingRight\":0,\"paddingBottom\":3,\"paddingLeft\":6,\"fontSize\":12,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"source\"}},{\"type\":\"text\",\"values\":{\"widthMode\":\"auto\",\"paddingTop\":3,\"paddingRight\":0,\"paddingBottom\":3,\"paddingLeft\":10,\"fontSize\":12,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"time\"}},{\"type\":\"empty\",\"values\":{\"height\":18}},{\"type\":\"dislike\",\"values\":{}}]]}]]}}";
         this.j = str;
-        this.f29060g = context;
+        this.f28305g = context;
         this.l = lVar;
         d();
         a(adSlot);
@@ -146,10 +147,10 @@ public class NativeExpressView extends FrameLayout implements j {
     }
 
     private void c() {
-        this.f29056c = this.l.am();
-        this.f29057d = this.l.ap();
+        this.f28301c = this.l.am();
+        this.f28302d = this.l.ap();
         this.v = 3455;
-        this.f29058e = ak.a(this.j);
+        this.f28303e = ak.a(this.j);
         this.C = this.k.getCodeId();
     }
 
@@ -164,19 +165,19 @@ public class NativeExpressView extends FrameLayout implements j {
 
     private void e() {
         if (this.J) {
-            com.bytedance.sdk.openadsdk.core.dynamic.a.a aVar = new com.bytedance.sdk.openadsdk.core.dynamic.a.a(this.f29060g);
+            com.bytedance.sdk.openadsdk.core.dynamic.a.a aVar = new com.bytedance.sdk.openadsdk.core.dynamic.a.a(this.f28305g);
             this.I = aVar;
-            aVar.a(getWebView()).a(this.l).a(this.f29056c).b(this.f29057d).a(this.f29058e).c(ak.i(this.l)).a(this).a(getTemplateInfo()).b(getWebView()).a(this.H);
+            aVar.a(getWebView()).a(this.l).a(this.f28301c).b(this.f28302d).a(this.f28303e).c(ak.i(this.l)).a(this).a(getTemplateInfo()).b(getWebView()).a(this.H);
         }
     }
 
     private void f() {
         a(getWebView());
-        com.bytedance.sdk.openadsdk.c.j a2 = new com.bytedance.sdk.openadsdk.c.j(this.f29060g, this.l, getWebView()).a(false);
+        com.bytedance.sdk.openadsdk.c.j a2 = new com.bytedance.sdk.openadsdk.c.j(this.f28305g, this.l, getWebView()).a(false);
         this.G = a2;
         a2.a(this.H);
-        getWebView().setWebViewClient(new f(this.f29060g, this.f29062i, this.l, this.G, n()));
-        getWebView().setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.b(this.f29062i, this.G));
+        getWebView().setWebViewClient(new f(this.f28305g, this.f28307i, this.l, this.G, n()));
+        getWebView().setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.b(this.f28307i, this.G));
         getWebView().setDownloadListener(new DownloadListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView.1
             @Override // android.webkit.DownloadListener
             public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
@@ -193,7 +194,7 @@ public class NativeExpressView extends FrameLayout implements j {
                     NativeExpressView.this.l.aa().a();
                 }
                 NativeExpressView nativeExpressView = NativeExpressView.this;
-                com.bytedance.sdk.openadsdk.downloadnew.core.a a3 = com.bytedance.sdk.openadsdk.downloadnew.a.a(nativeExpressView.f29060g, str, nativeExpressView.l, nativeExpressView.j);
+                com.bytedance.sdk.openadsdk.downloadnew.core.a a3 = com.bytedance.sdk.openadsdk.downloadnew.a.a(nativeExpressView.f28305g, str, nativeExpressView.l, nativeExpressView.j);
                 NativeExpressView.this.z.put(str, a3);
                 a3.e();
             }
@@ -378,7 +379,7 @@ public class NativeExpressView extends FrameLayout implements j {
     }
 
     private void s() {
-        com.bytedance.sdk.openadsdk.h.a.a().a(com.bytedance.sdk.openadsdk.h.a.c.b().a(getAdSlotType()).c(this.C).f(ak.h(this.f29057d)).a("dynamic_backup_render_new"));
+        com.bytedance.sdk.openadsdk.h.a.a().a(com.bytedance.sdk.openadsdk.h.a.c.b().a(getAdSlotType()).c(this.C).f(ak.h(this.f28302d)).a("dynamic_backup_render_new"));
     }
 
     private void t() {
@@ -393,7 +394,7 @@ public class NativeExpressView extends FrameLayout implements j {
         if (this.A.getAndSet(true) || this.s) {
             return;
         }
-        com.bytedance.sdk.openadsdk.core.widget.webview.d.a().a(this, this.f29061h, j());
+        com.bytedance.sdk.openadsdk.core.widget.webview.d.a().a(this, this.f28306h, j());
     }
 
     private void v() {
@@ -410,30 +411,30 @@ public class NativeExpressView extends FrameLayout implements j {
 
     private void w() {
         v();
-        this.f29059f.set(true);
+        this.f28304f.set(true);
     }
 
     public void b() {
         JSONObject templateInfo;
         this.H = new p(1, this.j, this.l);
-        this.f29062i = new x(this.f29060g);
+        this.f28307i = new x(this.f28305g);
         if ("feed_video_middle_page".equals(this.j)) {
             templateInfo = getMiddleTemplateInfo();
         } else {
             templateInfo = getTemplateInfo();
         }
-        this.f29062i.b(getWebView()).a(this.l).b(this.f29056c).c(this.f29057d).a(this.j).a(this.f29058e).d(ak.i(this.l)).a((j) this).a(templateInfo).a(getWebView()).a(this.H);
+        this.f28307i.b(getWebView()).a(this.l).b(this.f28301c).c(this.f28302d).a(this.j).a(this.f28303e).d(ak.i(this.l)).a((j) this).a(templateInfo).a(getWebView()).a(this.H);
         e();
     }
 
     public void g() {
-        if (this.f29062i == null || this.F.get()) {
+        if (this.f28307i == null || this.F.get()) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("expressShow", true);
-            this.f29062i.a("expressShow", jSONObject);
+            this.f28307i.a("expressShow", jSONObject);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -460,16 +461,16 @@ public class NativeExpressView extends FrameLayout implements j {
     }
 
     public x getJsObject() {
-        return this.f29062i;
+        return this.f28307i;
     }
 
     public SSWebView getWebView() {
-        WeakReference<SSWebView> weakReference = this.f29061h;
+        WeakReference<SSWebView> weakReference = this.f28306h;
         if (weakReference != null && weakReference.get() != null) {
-            return this.f29061h.get();
+            return this.f28306h.get();
         }
         WeakReference<SSWebView> c2 = com.bytedance.sdk.openadsdk.core.widget.webview.d.a().c();
-        this.f29061h = c2;
+        this.f28306h = c2;
         return c2.get();
     }
 
@@ -542,11 +543,11 @@ public class NativeExpressView extends FrameLayout implements j {
 
     public void k() {
         try {
-            com.bytedance.sdk.openadsdk.core.widget.webview.d.a().a(this, this.f29061h, true);
+            com.bytedance.sdk.openadsdk.core.widget.webview.d.a().a(this, this.f28306h, true);
             this.F.set(true);
-            this.f29062i = null;
-            this.f29054a = null;
-            this.f29055b = null;
+            this.f28307i = null;
+            this.f28299a = null;
+            this.f28300b = null;
             this.k = null;
             this.l = null;
             this.w = null;
@@ -566,7 +567,7 @@ public class NativeExpressView extends FrameLayout implements j {
 
     public void l() {
         try {
-            com.bytedance.sdk.openadsdk.core.widget.webview.d.a().a(this, this.f29061h, true);
+            com.bytedance.sdk.openadsdk.core.widget.webview.d.a().a(this, this.f28306h, true);
             this.F.set(true);
         } catch (Throwable th) {
             u.a("NativeExpressView", "backupDestroy remove webview error", th);
@@ -629,7 +630,7 @@ public class NativeExpressView extends FrameLayout implements j {
         if (backupView != null) {
             backupView.setDislikeInner(bVar);
         }
-        this.f29054a = bVar;
+        this.f28299a = bVar;
     }
 
     public void setExpressInteractionListener(TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener) {
@@ -641,7 +642,7 @@ public class NativeExpressView extends FrameLayout implements j {
         if (backupView != null) {
             backupView.setDislikeOuter(tTDislikeDialogAbstract);
         }
-        this.f29055b = tTDislikeDialogAbstract;
+        this.f28300b = tTDislikeDialogAbstract;
     }
 
     public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
@@ -666,7 +667,7 @@ public class NativeExpressView extends FrameLayout implements j {
         c();
         b();
         f();
-        getWebView().addJavascriptInterface(this.f29062i, "SDK_INJECT_GLOBAL");
+        getWebView().addJavascriptInterface(this.f28307i, "SDK_INJECT_GLOBAL");
     }
 
     private void a(SSWebView sSWebView) {
@@ -674,7 +675,7 @@ public class NativeExpressView extends FrameLayout implements j {
             return;
         }
         try {
-            com.bytedance.sdk.openadsdk.core.widget.webview.a.a(this.f29060g).a(false).a(sSWebView);
+            com.bytedance.sdk.openadsdk.core.widget.webview.a.a(this.f28305g).a(false).a(sSWebView);
             sSWebView.setVerticalScrollBarEnabled(false);
             sSWebView.setHorizontalScrollBarEnabled(false);
             sSWebView.clearCache(true);
@@ -719,7 +720,7 @@ public class NativeExpressView extends FrameLayout implements j {
         } else if (i3 == 2) {
             this.N = true;
         }
-        if (this.f29059f.get()) {
+        if (this.f28304f.get()) {
             return;
         }
         if (!z && i3 == 1) {
@@ -776,7 +777,7 @@ public class NativeExpressView extends FrameLayout implements j {
     private JSONObject a(boolean z) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("button_text", this.l.al());
+            jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.l.al());
             if (this.l.aa() != null) {
                 jSONObject.put("icon", this.l.aa().a());
             }
@@ -841,8 +842,8 @@ public class NativeExpressView extends FrameLayout implements j {
         if (f2 <= 0.0f || f3 <= 0.0f) {
             return;
         }
-        int a2 = (int) al.a(this.f29060g, f2);
-        int a3 = (int) al.a(this.f29060g, f3);
+        int a2 = (int) al.a(this.f28305g, f2);
+        int a3 = (int) al.a(this.f28305g, f3);
         u.f("ExpressView", "width:" + a2);
         u.f("ExpressView", "height:" + a3);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) getWebView().getLayoutParams();
@@ -859,10 +860,10 @@ public class NativeExpressView extends FrameLayout implements j {
         if (i2 == -1 || jVar == null) {
             return;
         }
-        int i3 = jVar.f28697a;
-        int i4 = jVar.f28698b;
-        int i5 = jVar.f28699c;
-        int i6 = jVar.f28700d;
+        int i3 = jVar.f27942a;
+        int i4 = jVar.f27943b;
+        int i5 = jVar.f27944c;
+        int i6 = jVar.f27945d;
         a(this.j);
         if (i2 == 1) {
             FrameLayout frameLayout = this.n;
@@ -889,12 +890,12 @@ public class NativeExpressView extends FrameLayout implements j {
                 expressAdInteractionListener2.onAdClicked(this, this.l.Z());
             }
         } else if (i2 == 3) {
-            TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f29055b;
+            TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f28300b;
             if (tTDislikeDialogAbstract != null) {
                 tTDislikeDialogAbstract.show();
                 return;
             }
-            com.bytedance.sdk.openadsdk.dislike.b bVar = this.f29054a;
+            com.bytedance.sdk.openadsdk.dislike.b bVar = this.f28299a;
             if (bVar != null) {
                 bVar.showDislikeDialog(0);
             } else {
@@ -933,10 +934,10 @@ public class NativeExpressView extends FrameLayout implements j {
         if (i2 == -1 || jVar == null) {
             return;
         }
-        int i3 = jVar.f28697a;
-        int i4 = jVar.f28698b;
-        int i5 = jVar.f28699c;
-        int i6 = jVar.f28700d;
+        int i3 = jVar.f27942a;
+        int i4 = jVar.f27943b;
+        int i5 = jVar.f27944c;
+        int i6 = jVar.f27945d;
         if (i2 == 1) {
             FrameLayout frameLayout = this.n;
             if (frameLayout != null) {
@@ -964,12 +965,12 @@ public class NativeExpressView extends FrameLayout implements j {
                 expressAdInteractionListener2.onAdClicked(this, this.l.Z());
             }
         } else if (i2 == 3) {
-            TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f29055b;
+            TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f28300b;
             if (tTDislikeDialogAbstract != null) {
                 tTDislikeDialogAbstract.show();
                 return;
             }
-            com.bytedance.sdk.openadsdk.dislike.b bVar = this.f29054a;
+            com.bytedance.sdk.openadsdk.dislike.b bVar = this.f28299a;
             if (bVar != null) {
                 bVar.showDislikeDialog(0);
             } else {
@@ -1021,7 +1022,7 @@ public class NativeExpressView extends FrameLayout implements j {
     }
 
     private void a(int i2) {
-        com.bytedance.sdk.openadsdk.h.a.a().h(com.bytedance.sdk.openadsdk.h.a.c.b().a(getAdSlotType()).c(this.C).f(ak.h(this.f29057d)).b(i2).g(com.bytedance.sdk.openadsdk.core.h.a(i2)));
+        com.bytedance.sdk.openadsdk.h.a.a().h(com.bytedance.sdk.openadsdk.h.a.c.b().a(getAdSlotType()).c(this.C).f(ak.h(this.f28302d)).b(i2).g(com.bytedance.sdk.openadsdk.core.h.a(i2)));
     }
 
     public void a(final boolean z, final float f2, final float f3, final int i2, final int i3) {

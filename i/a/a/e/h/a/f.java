@@ -4,7 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.apollon.statusbar.ImmersiveOSUtils;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static int a() {
         try {

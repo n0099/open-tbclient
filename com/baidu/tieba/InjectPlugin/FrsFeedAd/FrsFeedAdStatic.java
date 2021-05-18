@@ -5,12 +5,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import d.a.c.j.e.n;
-import d.a.i0.r.q.a2;
-import d.a.j0.e.e.c;
-import d.a.j0.e.e.d;
-import d.a.j0.e.e.e;
-import d.a.j0.e.f.b;
-import d.a.j0.s2.t;
+import d.a.j0.r.q.a2;
+import d.a.k0.e.e.c;
+import d.a.k0.e.e.d;
+import d.a.k0.e.e.e;
+import d.a.k0.e.f.b;
+import d.a.k0.s2.u;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -26,12 +26,12 @@ public class FrsFeedAdStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             b bVar;
-            d.a.j0.e.e.b c2;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof b) || (c2 = (bVar = (b) customResponsedMessage.getData()).c()) == null || !(c2 instanceof t)) {
+            d.a.k0.e.e.b c2;
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof b) || (c2 = (bVar = (b) customResponsedMessage.getData()).c()) == null || !(c2 instanceof u)) {
                 return;
             }
-            t tVar = (t) c2;
-            d.a.j0.e.e.a injectPlugin = c2.getInjectPlugin(1);
+            u uVar = (u) c2;
+            d.a.k0.e.e.a injectPlugin = c2.getInjectPlugin(1);
             if (injectPlugin == null) {
                 d a2 = e.b().a(1);
                 if (a2 == null) {
@@ -39,23 +39,23 @@ public class FrsFeedAdStatic {
                 }
                 injectPlugin = a2.a();
                 c2.setInjectPlugin(1, injectPlugin);
-                injectPlugin.o(new c(tVar));
+                injectPlugin.o(new c(uVar));
             }
-            if (injectPlugin instanceof d.a.j0.e.b.d) {
-                d.a.j0.e.b.d dVar = (d.a.j0.e.b.d) injectPlugin;
+            if (injectPlugin instanceof d.a.k0.e.b.d) {
+                d.a.k0.e.b.d dVar = (d.a.k0.e.b.d) injectPlugin;
                 if (bVar.a() == 1) {
                     List list = (List) bVar.f();
-                    d.a.j0.e.b.b.e(dVar.d());
-                    for (BdUniqueId bdUniqueId : d.a.j0.e.b.b.f()) {
-                        d.a.j0.e.b.a aVar = new d.a.j0.e.b.a(tVar, bdUniqueId);
-                        aVar.e0(tVar.o());
+                    d.a.k0.e.b.b.e(dVar.d());
+                    for (BdUniqueId bdUniqueId : d.a.k0.e.b.b.f()) {
+                        d.a.k0.e.b.a aVar = new d.a.k0.e.b.a(uVar, bdUniqueId);
+                        aVar.e0(uVar.o());
                         list.add(aVar);
                     }
                 } else if (bVar.a() == 2) {
                     dVar.j(bVar.d());
                 } else if (bVar.a() == 3) {
                     List<n> n = bVar.n();
-                    List<d.a.j0.e.b.c> d2 = FrsFeedAdStatic.d(n);
+                    List<d.a.k0.e.b.c> d2 = FrsFeedAdStatic.d(n);
                     if (bVar.p()) {
                         dVar.n(d2, FrsFeedAdStatic.d(bVar.k()), bVar.o(), bVar.e());
                     } else {
@@ -76,14 +76,14 @@ public class FrsFeedAdStatic {
         MessageManager.getInstance().registerListener(new a());
     }
 
-    public static List<n> c(List<d.a.j0.e.b.c> list) {
+    public static List<n> c(List<d.a.k0.e.b.c> list) {
         if (list == null || list.isEmpty()) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (d.a.j0.e.b.c cVar : list) {
+        for (d.a.k0.e.b.c cVar : list) {
             if (cVar.c() == 3) {
-                d.a.j0.e.b.b bVar = new d.a.j0.e.b.b();
+                d.a.k0.e.b.b bVar = new d.a.k0.e.b.b();
                 bVar.k(cVar.a());
                 bVar.l(cVar.b());
                 arrayList.add(bVar);
@@ -94,10 +94,10 @@ public class FrsFeedAdStatic {
         return arrayList;
     }
 
-    public static List<d.a.j0.e.b.c> d(List<n> list) {
+    public static List<d.a.k0.e.b.c> d(List<n> list) {
         ArrayList arrayList = new ArrayList();
         for (n nVar : list) {
-            d.a.j0.e.b.c cVar = new d.a.j0.e.b.c();
+            d.a.k0.e.b.c cVar = new d.a.k0.e.b.c();
             if (nVar instanceof a2) {
                 a2 a2Var = (a2) nVar;
                 if (a2Var.x0() == 1) {
@@ -108,9 +108,9 @@ public class FrsFeedAdStatic {
                     cVar.f(4);
                 }
                 cVar.d(nVar);
-            } else if (nVar instanceof d.a.j0.e.b.b) {
+            } else if (nVar instanceof d.a.k0.e.b.b) {
                 cVar.f(3);
-                d.a.j0.e.b.b bVar = (d.a.j0.e.b.b) nVar;
+                d.a.k0.e.b.b bVar = (d.a.k0.e.b.b) nVar;
                 cVar.e(bVar.h());
                 cVar.d(bVar.c());
             } else {

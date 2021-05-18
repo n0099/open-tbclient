@@ -307,7 +307,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions apply(@NonNull RequestOptions requestOptions) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().apply(requestOptions);
+            return m33clone().apply(requestOptions);
         }
         if (isSet(requestOptions.fields, 2)) {
             this.sizeMultiplier = requestOptions.sizeMultiplier;
@@ -427,7 +427,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions decode(@NonNull Class<?> cls) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().decode(cls);
+            return m33clone().decode(cls);
         }
         this.resourceClass = (Class) Preconditions.checkNotNull(cls);
         this.fields |= 4096;
@@ -444,7 +444,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions diskCacheStrategy(@NonNull DiskCacheStrategy diskCacheStrategy) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().diskCacheStrategy(diskCacheStrategy);
+            return m33clone().diskCacheStrategy(diskCacheStrategy);
         }
         this.diskCacheStrategy = (DiskCacheStrategy) Preconditions.checkNotNull(diskCacheStrategy);
         this.fields |= 4;
@@ -461,7 +461,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions dontTransform() {
         if (this.isAutoCloneEnabled) {
-            return m34clone().dontTransform();
+            return m33clone().dontTransform();
         }
         this.transformations.clear();
         int i2 = this.fields & (-2049);
@@ -505,7 +505,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions error(@Nullable Drawable drawable) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().error(drawable);
+            return m33clone().error(drawable);
         }
         this.errorPlaceholder = drawable;
         int i2 = this.fields | 16;
@@ -519,7 +519,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions fallback(@Nullable Drawable drawable) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().fallback(drawable);
+            return m33clone().fallback(drawable);
         }
         this.fallbackDrawable = drawable;
         int i2 = this.fields | 8192;
@@ -692,7 +692,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions onlyRetrieveFromCache(boolean z) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().onlyRetrieveFromCache(z);
+            return m33clone().onlyRetrieveFromCache(z);
         }
         this.onlyRetrieveFromCache = z;
         this.fields |= 524288;
@@ -726,7 +726,7 @@ public class RequestOptions implements Cloneable {
     @NonNull
     public final RequestOptions optionalTransform(@NonNull DownsampleStrategy downsampleStrategy, @NonNull Transformation<Bitmap> transformation) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().optionalTransform(downsampleStrategy, transformation);
+            return m33clone().optionalTransform(downsampleStrategy, transformation);
         }
         downsample(downsampleStrategy);
         return transform(transformation, false);
@@ -736,7 +736,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions override(int i2, int i3) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().override(i2, i3);
+            return m33clone().override(i2, i3);
         }
         this.overrideWidth = i2;
         this.overrideHeight = i3;
@@ -748,7 +748,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions placeholder(@Nullable Drawable drawable) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().placeholder(drawable);
+            return m33clone().placeholder(drawable);
         }
         this.placeholderDrawable = drawable;
         int i2 = this.fields | 64;
@@ -762,7 +762,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions priority(@NonNull Priority priority) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().priority(priority);
+            return m33clone().priority(priority);
         }
         this.priority = (Priority) Preconditions.checkNotNull(priority);
         this.fields |= 8;
@@ -773,7 +773,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public <T> RequestOptions set(@NonNull Option<T> option, @NonNull T t) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().set(option, t);
+            return m33clone().set(option, t);
         }
         Preconditions.checkNotNull(option);
         Preconditions.checkNotNull(t);
@@ -785,7 +785,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions signature(@NonNull Key key) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().signature(key);
+            return m33clone().signature(key);
         }
         this.signature = (Key) Preconditions.checkNotNull(key);
         this.fields |= 1024;
@@ -796,7 +796,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions sizeMultiplier(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().sizeMultiplier(f2);
+            return m33clone().sizeMultiplier(f2);
         }
         if (f2 >= 0.0f && f2 <= 1.0f) {
             this.sizeMultiplier = f2;
@@ -810,7 +810,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions skipMemoryCache(boolean z) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().skipMemoryCache(true);
+            return m33clone().skipMemoryCache(true);
         }
         this.isCacheable = !z;
         this.fields |= 256;
@@ -821,7 +821,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions theme(@Nullable Resources.Theme theme) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().theme(theme);
+            return m33clone().theme(theme);
         }
         this.theme = theme;
         this.fields |= 32768;
@@ -838,7 +838,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public final RequestOptions transform(@NonNull DownsampleStrategy downsampleStrategy, @NonNull Transformation<Bitmap> transformation) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().transform(downsampleStrategy, transformation);
+            return m33clone().transform(downsampleStrategy, transformation);
         }
         downsample(downsampleStrategy);
         return transform(transformation);
@@ -854,7 +854,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions useAnimationPool(boolean z) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().useAnimationPool(z);
+            return m33clone().useAnimationPool(z);
         }
         this.useAnimationPool = z;
         this.fields |= 1048576;
@@ -865,7 +865,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions useUnlimitedSourceGeneratorsPool(boolean z) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().useUnlimitedSourceGeneratorsPool(z);
+            return m33clone().useUnlimitedSourceGeneratorsPool(z);
         }
         this.useUnlimitedSourceGeneratorsPool = z;
         this.fields |= 262144;
@@ -900,7 +900,7 @@ public class RequestOptions implements Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     @CheckResult
     /* renamed from: clone */
-    public RequestOptions m34clone() {
+    public RequestOptions m33clone() {
         try {
             RequestOptions requestOptions = (RequestOptions) super.clone();
             Options options = new Options();
@@ -932,7 +932,7 @@ public class RequestOptions implements Cloneable {
     @NonNull
     private RequestOptions transform(@NonNull Transformation<Bitmap> transformation, boolean z) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().transform(transformation, z);
+            return m33clone().transform(transformation, z);
         }
         DrawableTransformation drawableTransformation = new DrawableTransformation(transformation, z);
         transform(Bitmap.class, transformation, z);
@@ -958,7 +958,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions error(@DrawableRes int i2) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().error(i2);
+            return m33clone().error(i2);
         }
         this.errorId = i2;
         int i3 = this.fields | 32;
@@ -972,7 +972,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions fallback(@DrawableRes int i2) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().fallback(i2);
+            return m33clone().fallback(i2);
         }
         this.fallbackId = i2;
         int i3 = this.fields | 16384;
@@ -986,7 +986,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions placeholder(@DrawableRes int i2) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().placeholder(i2);
+            return m33clone().placeholder(i2);
         }
         this.placeholderId = i2;
         int i3 = this.fields | 128;
@@ -999,7 +999,7 @@ public class RequestOptions implements Cloneable {
     @NonNull
     private <T> RequestOptions transform(@NonNull Class<T> cls, @NonNull Transformation<T> transformation, boolean z) {
         if (this.isAutoCloneEnabled) {
-            return m34clone().transform(cls, transformation, z);
+            return m33clone().transform(cls, transformation, z);
         }
         Preconditions.checkNotNull(cls);
         Preconditions.checkNotNull(transformation);

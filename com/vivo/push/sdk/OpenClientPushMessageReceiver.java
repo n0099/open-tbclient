@@ -4,7 +4,7 @@ import android.content.Context;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.model.UnvarnishedMessage;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class OpenClientPushMessageReceiver extends BasePushMessageReceiver {
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public final boolean isAllowNet(Context context) {

@@ -8,11 +8,11 @@ import org.json.JSONObject;
 public class n extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f64338e;
+    public final Context f65024e;
 
     public n(Context context, i iVar) {
         super(true, false);
-        this.f64338e = context;
+        this.f65024e = context;
     }
 
     @Override // d.b.b.h2

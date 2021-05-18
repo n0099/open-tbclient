@@ -1,10 +1,10 @@
 package com.tencent.mm.opensdk.modelbiz;
 
 import com.tencent.mm.opensdk.modelbase.BaseReq;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class OpenRankList {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public boolean checkArgs() {

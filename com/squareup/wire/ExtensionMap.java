@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ExtensionMap<T extends ExtendableMessage<?>> {
     public final Map<Extension<T, ?>, Object> map;
 

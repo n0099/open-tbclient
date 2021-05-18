@@ -11,13 +11,13 @@ public final class fg extends fa {
 
     @Override // com.xiaomi.push.fa
     /* renamed from: a */
-    public ByteBuffer mo291a(ByteBuffer byteBuffer) {
-        return m294a().length == 0 ? byteBuffer : super.mo291a(byteBuffer);
+    public ByteBuffer mo290a(ByteBuffer byteBuffer) {
+        return m293a().length == 0 ? byteBuffer : super.mo290a(byteBuffer);
     }
 
     @Override // com.xiaomi.push.fa
     public int c() {
-        if (m294a().length == 0) {
+        if (m293a().length == 0) {
             return 0;
         }
         return super.c();

@@ -27,7 +27,7 @@ import java.net.URLDecoder;
 public class PayWebActivity extends Activity {
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f10359i;
+    public ImageView f9396i;
     public boolean j;
     public String k;
     public Bundle l;
@@ -56,7 +56,7 @@ public class PayWebActivity extends Activity {
     @SuppressLint({"SetJavaScriptEnabled"})
     private void W() {
         ImageView imageView = (ImageView) findViewById(f.iv_pay_back);
-        this.f10359i = imageView;
+        this.f9396i = imageView;
         imageView.setOnClickListener(new a());
         WebView webView = (WebView) findViewById(f.webView);
         this.webView = webView;

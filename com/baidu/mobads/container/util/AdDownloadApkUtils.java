@@ -16,6 +16,7 @@ import com.baidu.mobads.container.components.controller.InstallReceiver;
 import com.baidu.mobads.container.components.monitor.RemoteInstallApkTask;
 import com.baidu.mobads.container.components.monitor.RemoteScheduledMonitor;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tieba.service.AsInstallService;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.File;
 import org.json.JSONObject;
@@ -194,7 +195,7 @@ public class AdDownloadApkUtils {
             xAdRemoteAPKDownloadExtraInfo.autoOpen = true;
             InstallReceiver installReceiver = new InstallReceiver(xAdRemoteAPKDownloadExtraInfo);
             IntentFilter intentFilter = new IntentFilter(PackageChangedReceiver.ACTION_INSTALL);
-            intentFilter.addDataScheme("package");
+            intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
             context.registerReceiver(installReceiver, intentFilter);
         } catch (Exception e2) {
             RemoteXAdLogger.getInstance().d(e2);

@@ -8,11 +8,11 @@ public abstract class g extends Marshallable {
     @Override // d.r.b.a.a.f.e.f
     public byte[] c() {
         ByteBuffer allocate = ByteBuffer.allocate(k());
-        this.f67017a = allocate;
+        this.f67703a = allocate;
         allocate.order(ByteOrder.LITTLE_ENDIAN);
-        b(this.f67017a);
+        b(this.f67703a);
         l();
-        return this.f67017a.array();
+        return this.f67703a.array();
     }
 
     public abstract int k();

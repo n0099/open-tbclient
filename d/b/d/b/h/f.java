@@ -9,26 +9,26 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends Thread {
 
         /* renamed from: e  reason: collision with root package name */
-        public InputStream f65203e;
+        public InputStream f65889e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<String> f65204f;
+        public List<String> f65890f;
 
         public a(InputStream inputStream, List<String> list) {
-            this.f65203e = inputStream;
-            this.f65204f = list;
+            this.f65889e = inputStream;
+            this.f65890f = list;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f65203e));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f65889e));
             int i2 = 32768;
             while (true) {
                 try {
@@ -40,7 +40,7 @@ public class f {
                         if (i2 < 0) {
                             break;
                         }
-                        this.f65204f.add(readLine);
+                        this.f65890f.add(readLine);
                     }
                 } catch (IOException unused) {
                 } catch (Throwable th) {
@@ -52,28 +52,28 @@ public class f {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b extends Thread {
 
         /* renamed from: e  reason: collision with root package name */
-        public Process f65205e;
+        public Process f65891e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f65206f;
+        public long f65892f;
 
         public b(Process process, long j) {
-            this.f65205e = process;
-            this.f65206f = j;
+            this.f65891e = process;
+            this.f65892f = j;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             try {
-                Thread.sleep(this.f65206f);
+                Thread.sleep(this.f65892f);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            Process process = this.f65205e;
+            Process process = this.f65891e;
             if (process != null) {
                 process.destroy();
             }

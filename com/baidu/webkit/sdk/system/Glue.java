@@ -18,7 +18,7 @@ public final class Glue {
 
     /* renamed from: com.baidu.webkit.sdk.system.Glue$1  reason: invalid class name */
     /* loaded from: classes5.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm;
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$PluginState;
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$ZoomDensity;
@@ -142,11 +142,7 @@ public final class Glue {
         public android.webkit.JsResult mJsResult;
 
         public ResultReceiverWrapper(android.webkit.JsResult jsResult) {
-            try {
-                this.mJsResult = jsResult;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+            this.mJsResult = jsResult;
         }
 
         public /* synthetic */ ResultReceiverWrapper(android.webkit.JsResult jsResult, AnonymousClass1 anonymousClass1) {
@@ -155,18 +151,24 @@ public final class Glue {
 
         @Override // com.baidu.webkit.sdk.JsResult.ResultReceiver
         public void onJsResultComplete(JsResult jsResult) {
-            try {
-                if (!(jsResult instanceof JsPromptResult)) {
+            if (!(jsResult instanceof JsPromptResult)) {
+                if (jsResult.getResult()) {
                     this.mJsResult.confirm();
                     return;
+                } else {
+                    this.mJsResult.cancel();
+                    return;
                 }
-                JsPromptResult jsPromptResult = (JsPromptResult) jsResult;
-                if (this.mJsResult instanceof android.webkit.JsPromptResult) {
-                    ((android.webkit.JsPromptResult) this.mJsResult).confirm(jsPromptResult.getStringResult());
+            }
+            JsPromptResult jsPromptResult = (JsPromptResult) jsResult;
+            android.webkit.JsResult jsResult2 = this.mJsResult;
+            if (jsResult2 instanceof android.webkit.JsPromptResult) {
+                android.webkit.JsPromptResult jsPromptResult2 = (android.webkit.JsPromptResult) jsResult2;
+                if (jsResult.getResult()) {
+                    jsPromptResult2.confirm(jsPromptResult.getStringResult());
+                } else {
+                    jsPromptResult2.cancel();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                this.mJsResult.confirm();
             }
         }
     }

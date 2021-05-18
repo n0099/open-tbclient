@@ -11,22 +11,22 @@ import org.json.JSONObject;
 public class q {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67330b;
+    public String f68016b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67331c;
+    public int f68017c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67332d;
+    public String f68018d;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f67334f;
+    public boolean f68020f;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67329a = 2046;
+    public int f68015a = 2046;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.r.b.a.a.i.c.l> f67333e = new ArrayList();
+    public List<d.r.b.a.a.i.c.l> f68019e = new ArrayList();
 
     public q(String str) {
         b(str);
@@ -64,17 +64,17 @@ public class q {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt("cmd");
-                if (this.f67329a == optInt) {
+                if (this.f68015a == optInt) {
                     jSONObject.optLong("uid");
-                    this.f67330b = jSONObject.optString(IAdRequestParam.SEQ);
+                    this.f68016b = jSONObject.optString(IAdRequestParam.SEQ);
                     jSONObject.optInt(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                    this.f67331c = jSONObject.optInt("result");
-                    this.f67332d = jSONObject.optString("message");
-                    this.f67333e.addAll(a(jSONObject.optJSONArray("userAccountHistoryInfos")));
-                    this.f67334f = jSONObject.optBoolean("hasMore");
+                    this.f68017c = jSONObject.optInt("result");
+                    this.f68018d = jSONObject.optString("message");
+                    this.f68019e.addAll(a(jSONObject.optJSONArray("userAccountHistoryInfos")));
+                    this.f68020f = jSONObject.optBoolean("hasMore");
                     return;
                 }
-                throw new Exception(this.f67329a + " != " + optInt);
+                throw new Exception(this.f68015a + " != " + optInt);
             } catch (JSONException e2) {
                 d.r.b.a.a.f.d.d.d("GetUserAccountHistoryResponse", "parserResponse error.", e2);
                 return;

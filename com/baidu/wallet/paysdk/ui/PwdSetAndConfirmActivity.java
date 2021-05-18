@@ -50,25 +50,25 @@ import java.util.ArrayList;
 public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumberPwdView.OnPwdChangedListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f26683b;
+    public View f25928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f26684c;
+    public TextView f25929c;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f26685e;
+    public TextView f25930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SixNumberPwdView f26686f;
+    public SixNumberPwdView f25931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f26687g;
+    public TextView f25932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f26688h;
+    public View f25933h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SafeKeyBoardEditText f26689i;
+    public SafeKeyBoardEditText f25934i;
     public TextView j;
     public SafeScrollView k;
     public RelativeLayout l;
@@ -82,17 +82,17 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     public CountDownTimer t;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f26682a = false;
+    public boolean f25927a = false;
     public final int u = 1;
     public final int v = 2;
     public final int w = 18;
 
     private void b() {
-        this.f26687g.setVisibility(8);
+        this.f25932g.setVisibility(8);
     }
 
     private void c() {
-        this.f26682a = false;
+        this.f25927a = false;
         int i2 = this.m.mFrom;
         if (i2 != 0) {
             if (i2 == 2) {
@@ -131,7 +131,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     }
 
     private void d() {
-        this.f26682a = true;
+        this.f25927a = true;
         PayRequest payRequest = this.o;
         PayStatisticsUtil.onEventWithValue(StatServiceEvent.BIND_CLICK_PAY, payRequest != null ? payRequest.mSpNO : "");
         StatisticManager.onEventStart(StatServiceEvent.TIME_PAY);
@@ -227,12 +227,12 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     }
 
     private void k() {
-        this.f26686f.resetPwd();
+        this.f25931f.resetPwd();
         b();
     }
 
     public String getPwdConfirm() {
-        return this.f26686f.getPwd();
+        return this.f25931f.getPwd();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
@@ -326,7 +326,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity
     public boolean isBindPay() {
-        return this.f26682a;
+        return this.f25927a;
     }
 
     @Override // com.baidu.wallet.core.BaseActivity
@@ -543,7 +543,7 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
             this.m.mPayPass = getPwdConfirm();
             this.m.mConfirmPayPass = getPwdConfirm();
             c();
-        } else if (i2 <= 0 || this.f26683b.getVisibility() != 0) {
+        } else if (i2 <= 0 || this.f25928b.getVisibility() != 0) {
         } else {
             b();
         }
@@ -567,14 +567,14 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     public void onWindowFocusChanged(boolean z) {
         SafeKeyBoardEditText safeKeyBoardEditText;
         super.onWindowFocusChanged(z);
-        if (!z || (safeKeyBoardEditText = this.f26689i) == null) {
+        if (!z || (safeKeyBoardEditText = this.f25934i) == null) {
             return;
         }
         safeKeyBoardEditText.requestFocus();
     }
 
     public void resetPwdConfirm() {
-        this.f26686f.resetPwd();
+        this.f25931f.resetPwd();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity
@@ -597,14 +597,14 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
     }
 
     private void a(String str, String str2) {
-        this.f26683b = findViewById(ResUtils.id(this, "layout_confirm"));
-        this.f26684c = (TextView) findViewById(ResUtils.id(this, "pwd_tip_confirm"));
-        this.f26685e = (TextView) findViewById(ResUtils.id(this, "pwd_tip_sub"));
+        this.f25928b = findViewById(ResUtils.id(this, "layout_confirm"));
+        this.f25929c = (TextView) findViewById(ResUtils.id(this, "pwd_tip_confirm"));
+        this.f25930e = (TextView) findViewById(ResUtils.id(this, "pwd_tip_sub"));
         SixNumberPwdView sixNumberPwdView = (SixNumberPwdView) findViewById(ResUtils.id(this, "pwd_input_box_confirm"));
-        this.f26686f = sixNumberPwdView;
+        this.f25931f = sixNumberPwdView;
         sixNumberPwdView.setShowInputMethod(true);
-        this.f26688h = findViewById(ResUtils.id(this, "error_area_confirm"));
-        this.f26687g = (TextView) findViewById(ResUtils.id(this, "error_tip_confirm"));
+        this.f25933h = findViewById(ResUtils.id(this, "error_area_confirm"));
+        this.f25932g = (TextView) findViewById(ResUtils.id(this, "error_tip_confirm"));
         TextView textView = (TextView) findViewById(ResUtils.id(this, "what_is_pay_password"));
         this.j = textView;
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PwdSetAndConfirmActivity.1
@@ -614,18 +614,18 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
             }
         });
         b();
-        this.f26686f.addSixNumberPwdChangedListenter(this);
-        SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f26686f.findViewById(ResUtils.id(getActivity(), "pwd_input"));
-        this.f26689i = safeKeyBoardEditText;
-        safeKeyBoardEditText.initSafeKeyBoardParams(this.l, this.k, this.f26683b, false);
-        this.f26689i.setGap(20);
-        this.f26684c.setText(str);
-        this.f26685e.setText(str2);
-        this.f26689i.setDisablePast(true);
-        this.f26689i.addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.paysdk.ui.PwdSetAndConfirmActivity.2
+        this.f25931f.addSixNumberPwdChangedListenter(this);
+        SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f25931f.findViewById(ResUtils.id(getActivity(), "pwd_input"));
+        this.f25934i = safeKeyBoardEditText;
+        safeKeyBoardEditText.initSafeKeyBoardParams(this.l, this.k, this.f25928b, false);
+        this.f25934i.setGap(20);
+        this.f25929c.setText(str);
+        this.f25930e.setText(str2);
+        this.f25934i.setDisablePast(true);
+        this.f25934i.addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.paysdk.ui.PwdSetAndConfirmActivity.2
 
             /* renamed from: b  reason: collision with root package name */
-            public boolean f26692b = false;
+            public boolean f25937b = false;
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
@@ -637,22 +637,22 @@ public class PwdSetAndConfirmActivity extends PayBaseActivity implements SixNumb
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-                if (this.f26692b) {
+                if (this.f25937b) {
                     return;
                 }
                 PayStatisticsUtil.onEventWithValues(StatServiceEvent.CLICK_CONFIRM_PWD, PwdSetAndConfirmActivity.this.a());
-                this.f26692b = true;
+                this.f25937b = true;
             }
         });
     }
 
     private void a(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.f26687g.setVisibility(8);
+            this.f25932g.setVisibility(8);
             return;
         }
-        this.f26687g.setVisibility(0);
-        this.f26687g.setText(str);
+        this.f25932g.setVisibility(0);
+        this.f25932g.setText(str);
     }
 
     private void a(int i2, String str) {

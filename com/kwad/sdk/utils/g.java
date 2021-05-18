@@ -11,25 +11,25 @@ import org.webrtc.MediaStreamTrack;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public AudioManager f34890a;
+    public AudioManager f34135a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioManager.OnAudioFocusChangeListener f34891b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.kwad.sdk.utils.g.1
+    public AudioManager.OnAudioFocusChangeListener f34136b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.kwad.sdk.utils.g.1
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i2) {
-            if (g.this.f34892c == null) {
+            if (g.this.f34137c == null) {
                 return;
             }
             if (i2 < 0) {
-                g.this.f34892c.a();
+                g.this.f34137c.a();
             } else {
-                g.this.f34892c.b();
+                g.this.f34137c.b();
             }
         }
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public a f34892c;
+    public a f34137c;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -39,22 +39,22 @@ public class g {
     }
 
     public g(Context context) {
-        this.f34890a = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.f34135a = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
     }
 
     @TargetApi(26)
     private AudioFocusRequest b() {
-        return new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f34891b).build();
+        return new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f34136b).build();
     }
 
     public void a(a aVar) {
-        this.f34892c = aVar;
+        this.f34137c = aVar;
     }
 
     public boolean a() {
         AudioManager audioManager;
-        AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.f34891b;
-        if (onAudioFocusChangeListener == null || (audioManager = this.f34890a) == null) {
+        AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.f34136b;
+        if (onAudioFocusChangeListener == null || (audioManager = this.f34135a) == null) {
             return false;
         }
         return Build.VERSION.SDK_INT >= 26 ? 1 == audioManager.requestAudioFocus(b()) : 1 == audioManager.requestAudioFocus(onAudioFocusChangeListener, 3, 2);

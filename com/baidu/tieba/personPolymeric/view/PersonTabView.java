@@ -8,23 +8,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonTabView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20706e;
+    public Context f19994e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20707f;
+    public TextView f19995f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20708g;
+    public TextView f19996g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f20709h;
+    public View f19997h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f20710i;
+    public View f19998i;
     public View j;
     public View k;
     public int l;
@@ -33,7 +33,7 @@ public class PersonTabView extends LinearLayout {
     public b o;
     public View.OnClickListener p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -51,7 +51,7 @@ public class PersonTabView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void onTabSelect(int i2);
     }
@@ -66,16 +66,16 @@ public class PersonTabView extends LinearLayout {
     }
 
     public final void c(Context context) {
-        this.f20706e = context;
+        this.f19994e = context;
         LayoutInflater.from(context).inflate(R.layout.person_button_header_view, this);
         TextView textView = (TextView) findViewById(R.id.main_thread_btn);
-        this.f20707f = textView;
+        this.f19995f = textView;
         textView.setOnClickListener(this.p);
         TextView textView2 = (TextView) findViewById(R.id.reply_btn);
-        this.f20708g = textView2;
+        this.f19996g = textView2;
         textView2.setOnClickListener(this.p);
-        this.f20709h = findViewById(R.id.main_thread_divider);
-        this.f20710i = findViewById(R.id.reply_btn_divider);
+        this.f19997h = findViewById(R.id.main_thread_divider);
+        this.f19998i = findViewById(R.id.reply_btn_divider);
         this.j = findViewById(R.id.main_thread_bottom_divider);
         this.k = findViewById(R.id.reply_btn_bottom_divider);
         setCurrentTab(0);
@@ -87,15 +87,15 @@ public class PersonTabView extends LinearLayout {
         }
         this.l = i2;
         if (i2 == 0) {
-            this.f20709h.setVisibility(0);
-            this.f20710i.setVisibility(4);
-            this.f20707f.setTextColor(this.m);
-            this.f20708g.setTextColor(this.n);
+            this.f19997h.setVisibility(0);
+            this.f19998i.setVisibility(4);
+            this.f19995f.setTextColor(this.m);
+            this.f19996g.setTextColor(this.n);
         } else if (i2 == 1) {
-            this.f20709h.setVisibility(4);
-            this.f20710i.setVisibility(0);
-            this.f20707f.setTextColor(this.n);
-            this.f20708g.setTextColor(this.m);
+            this.f19997h.setVisibility(4);
+            this.f19998i.setVisibility(0);
+            this.f19995f.setTextColor(this.n);
+            this.f19996g.setTextColor(this.m);
         }
     }
 

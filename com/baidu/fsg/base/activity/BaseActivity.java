@@ -26,13 +26,13 @@ public class BaseActivity extends Activity implements NoProguard {
     public static final String WITH_ANIM = "with_anim";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5295a = "BaseActivity";
+    public static final String f5149a = "BaseActivity";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5296b = false;
+    public static final boolean f5150b = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f5302h;
+    public long f5156h;
     public RimStatisticsUtil mStatUtil;
     public static LinkedList<BaseActivity> mActivityStack = new LinkedList<>();
     public static int mLiveActivityNum = 0;
@@ -41,29 +41,29 @@ public class BaseActivity extends Activity implements NoProguard {
     public int mFlag = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f5297c = false;
+    public boolean f5151c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f5298d = true;
+    public boolean f5152d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5299e = MULTI_WINDOW_TIPS;
+    public String f5153e = MULTI_WINDOW_TIPS;
 
     /* renamed from: f  reason: collision with root package name */
-    public SafeScrollView f5300f = null;
+    public SafeScrollView f5154f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5301g = false;
+    public boolean f5155g = false;
 
     @TargetApi(24)
     private void a() {
         if (Build.VERSION.SDK_INT < 24 || !isInMultiWindowMode()) {
             return;
         }
-        if (this.f5297c) {
-            RimGlobalUtils.toastWithText(getActivity(), this.f5299e, 1);
+        if (this.f5151c) {
+            RimGlobalUtils.toastWithText(getActivity(), this.f5153e, 1);
         }
-        if (this.f5298d) {
+        if (this.f5152d) {
             return;
         }
         finish();
@@ -182,7 +182,7 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     public boolean isActivityInForeground() {
-        return this.f5301g;
+        return this.f5155g;
     }
 
     public boolean isRequestedOrientation() {
@@ -204,7 +204,7 @@ public class BaseActivity extends Activity implements NoProguard {
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.f5302h = System.currentTimeMillis();
+        this.f5156h = System.currentTimeMillis();
         this.mStatUtil = RimStatisticsUtil.getInstance();
         RimStatisticsUtil.onPush(getClass().getSimpleName());
         if (isRequestedOrientation()) {
@@ -243,15 +243,15 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onMultiWindowModeChanged(boolean z) {
         if (Build.VERSION.SDK_INT >= 24) {
             super.onMultiWindowModeChanged(z);
-            SafeScrollView safeScrollView = this.f5300f;
+            SafeScrollView safeScrollView = this.f5154f;
             if (safeScrollView != null) {
                 safeScrollView.dismissKeyBoard();
             }
             if (z && isActivityInForeground()) {
-                if (this.f5297c) {
-                    RimGlobalUtils.toastWithText(getActivity(), this.f5299e, 1);
+                if (this.f5151c) {
+                    RimGlobalUtils.toastWithText(getActivity(), this.f5153e, 1);
                 }
-                if (this.f5298d) {
+                if (this.f5152d) {
                     return;
                 }
                 finish();
@@ -263,7 +263,7 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onPause() {
         super.onPause();
         decLiveActivityNum();
-        this.f5301g = false;
+        this.f5155g = false;
         RimStatisticsUtil.onOut(getClass().getSimpleName());
     }
 
@@ -271,10 +271,10 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onResume() {
         super.onResume();
         addLiveActivityNum();
-        this.f5301g = true;
-        if (0 != this.f5302h) {
-            RimStatisticsUtil.onIn(getClass().getSimpleName(), System.currentTimeMillis() - this.f5302h);
-            this.f5302h = 0L;
+        this.f5155g = true;
+        if (0 != this.f5156h) {
+            RimStatisticsUtil.onIn(getClass().getSimpleName(), System.currentTimeMillis() - this.f5156h);
+            this.f5156h = 0L;
         } else {
             RimStatisticsUtil.onIn(getClass().getSimpleName(), 0L);
         }
@@ -286,23 +286,23 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     public void setIsMultiWindowAvailable(boolean z) {
-        if (z != this.f5298d) {
-            this.f5298d = z;
+        if (z != this.f5152d) {
+            this.f5152d = z;
         }
     }
 
     public void setIsShowMultiWindowTips(boolean z) {
-        if (z != this.f5297c) {
-            this.f5297c = z;
+        if (z != this.f5151c) {
+            this.f5151c = z;
         }
     }
 
     public void setMultiWindowTipsId(String str) {
-        this.f5299e = str;
+        this.f5153e = str;
     }
 
     public void setSafeScrollView(SafeScrollView safeScrollView) {
-        this.f5300f = safeScrollView;
+        this.f5154f = safeScrollView;
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context

@@ -2,9 +2,8 @@ package com.baidu.swan.apps.extcore.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.text.TextUtils;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import java.io.File;
+import d.a.i0.a.v2.l0;
 /* loaded from: classes2.dex */
 public class ExtensionCore extends SwanAppIPCData {
     public static final Parcelable.Creator<ExtensionCore> CREATOR = new a();
@@ -38,7 +37,7 @@ public class ExtensionCore extends SwanAppIPCData {
     }
 
     public boolean a() {
-        return !TextUtils.isEmpty(this.extensionCorePath) && new File(this.extensionCorePath).exists();
+        return l0.e(this.extensionCorePath);
     }
 
     @Override // android.os.Parcelable

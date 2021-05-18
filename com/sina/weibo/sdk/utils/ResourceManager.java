@@ -21,7 +21,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ResourceManager {
     public static final String DRAWABLE = "drawable";
     public static final String TAG = "com.sina.weibo.sdk.utils.ResourceManager";

@@ -7,16 +7,16 @@ import java.util.concurrent.TimeUnit;
 public class r {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final r f64468d = new a();
+    public static final r f65154d = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f64469a;
+    public boolean f65155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f64470b;
+    public long f65156b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f64471c;
+    public long f65157c;
 
     /* loaded from: classes5.dex */
     public static class a extends r {
@@ -36,15 +36,15 @@ public class r {
     }
 
     public r a(long j) {
-        this.f64469a = true;
-        this.f64470b = j;
+        this.f65155a = true;
+        this.f65156b = j;
         return this;
     }
 
     public r b(long j, TimeUnit timeUnit) {
         if (j >= 0) {
             if (timeUnit != null) {
-                this.f64471c = timeUnit.toNanos(j);
+                this.f65157c = timeUnit.toNanos(j);
                 return this;
             }
             throw new IllegalArgumentException("unit == null");
@@ -53,33 +53,33 @@ public class r {
     }
 
     public long c() {
-        return this.f64471c;
+        return this.f65157c;
     }
 
     public boolean d() {
-        return this.f64469a;
+        return this.f65155a;
     }
 
     public long e() {
-        if (this.f64469a) {
-            return this.f64470b;
+        if (this.f65155a) {
+            return this.f65156b;
         }
         throw new IllegalStateException("No deadline");
     }
 
     public r f() {
-        this.f64471c = 0L;
+        this.f65157c = 0L;
         return this;
     }
 
     public r g() {
-        this.f64469a = false;
+        this.f65155a = false;
         return this;
     }
 
     public void h() throws IOException {
         if (!Thread.interrupted()) {
-            if (this.f64469a && this.f64470b - System.nanoTime() <= 0) {
+            if (this.f65155a && this.f65156b - System.nanoTime() <= 0) {
                 throw new InterruptedIOException("deadline reached");
             }
             return;

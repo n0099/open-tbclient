@@ -5,15 +5,15 @@ import android.os.Handler;
 import d.b.d.b.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f65221a;
+    public List<a> f65907a;
 
     public c(Handler handler, Context context) {
         ArrayList arrayList = new ArrayList(3);
-        this.f65221a = arrayList;
+        this.f65907a = arrayList;
         arrayList.add(new b(handler, 0L, 15000L));
     }
 
@@ -22,8 +22,8 @@ public final class c {
     }
 
     public void b() {
-        l.k.a("[ScheduleTaskManager] execute, task size=" + this.f65221a.size());
-        for (a aVar : this.f65221a) {
+        l.k.a("[ScheduleTaskManager] execute, task size=" + this.f65907a.size());
+        for (a aVar : this.f65907a) {
             try {
                 aVar.a();
             } catch (Throwable unused) {

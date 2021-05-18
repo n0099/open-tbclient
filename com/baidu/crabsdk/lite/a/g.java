@@ -13,23 +13,23 @@ import java.util.HashMap;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4879a;
+    public static String f4733a;
 
     public static String a(String str, Context context) {
         Object obj;
-        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4862a.get(str);
+        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4716a.get(str);
         if ((hashMap == null || (obj = hashMap.get("sdk_imei")) == null) ? true : ((Boolean) obj).booleanValue()) {
-            String str2 = f4879a;
+            String str2 = f4733a;
             if (str2 != null) {
                 return str2;
             }
             try {
-                f4879a = b(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID));
+                f4733a = b(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID));
             } catch (Exception e2) {
                 com.baidu.crabsdk.lite.b.a.c(str, "getCUID fail," + e2);
-                f4879a = "N/A";
+                f4733a = "N/A";
             }
-            return f4879a;
+            return f4733a;
         }
         return "N/A";
     }

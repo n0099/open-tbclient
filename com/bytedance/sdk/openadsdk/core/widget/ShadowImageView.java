@@ -10,14 +10,14 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ShadowImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f29394a;
+    public Paint f28639a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RectF f29395b;
+    public RectF f28640b;
 
     public ShadowImageView(Context context) {
         super(context);
@@ -26,28 +26,28 @@ public class ShadowImageView extends ImageView {
 
     private void a() {
         Paint paint = new Paint();
-        this.f29394a = paint;
+        this.f28639a = paint;
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        this.f29394a.setColor(Color.parseColor("#99333333"));
-        this.f29394a.setAntiAlias(true);
-        this.f29394a.setStrokeWidth(0.0f);
-        this.f29395b = new RectF();
+        this.f28639a.setColor(Color.parseColor("#99333333"));
+        this.f28639a.setAntiAlias(true);
+        this.f28639a.setStrokeWidth(0.0f);
+        this.f28640b = new RectF();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        RectF rectF = this.f29395b;
-        canvas.drawRoundRect(rectF, rectF.right / 2.0f, rectF.bottom / 2.0f, this.f29394a);
+        RectF rectF = this.f28640b;
+        canvas.drawRoundRect(rectF, rectF.right / 2.0f, rectF.bottom / 2.0f, this.f28639a);
         super.onDraw(canvas);
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        if (this.f29395b.right == getMeasuredWidth() && this.f29395b.bottom == getMeasuredHeight()) {
+        if (this.f28640b.right == getMeasuredWidth() && this.f28640b.bottom == getMeasuredHeight()) {
             return;
         }
-        this.f29395b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        this.f28640b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
     }
 
     public ShadowImageView(Context context, @Nullable AttributeSet attributeSet) {

@@ -11,41 +11,41 @@ import android.util.AttributeSet;
 public class CirclePortraitView extends NetImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Paint f3596a;
+    public final Paint f3597a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Paint f3597b;
+    public final Paint f3598b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final RectF f3598c;
+    public final RectF f3599c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f3599d;
+    public float f3600d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f3600e;
+    public float f3601e;
 
     public CirclePortraitView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f3596a = new Paint();
-        this.f3597b = new Paint();
-        this.f3598c = new RectF();
+        this.f3597a = new Paint();
+        this.f3598b = new Paint();
+        this.f3599c = new RectF();
         c();
     }
 
     private void c() {
-        this.f3596a.setAntiAlias(true);
-        this.f3596a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        this.f3597b.setAntiAlias(true);
-        this.f3597b.setColor(-1);
+        this.f3597a.setAntiAlias(true);
+        this.f3597a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        this.f3598b.setAntiAlias(true);
+        this.f3598b.setColor(-1);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        canvas.saveLayer(this.f3598c, this.f3597b, 31);
-        float f2 = this.f3599d;
-        canvas.drawCircle(f2 / 2.0f, this.f3600e / 2.0f, f2 / 2.0f, this.f3597b);
-        canvas.saveLayer(this.f3598c, this.f3596a, 31);
+        canvas.saveLayer(this.f3599c, this.f3598b, 31);
+        float f2 = this.f3600d;
+        canvas.drawCircle(f2 / 2.0f, this.f3601e / 2.0f, f2 / 2.0f, this.f3598b);
+        canvas.saveLayer(this.f3599c, this.f3597a, 31);
         super.draw(canvas);
         canvas.restore();
     }
@@ -53,25 +53,25 @@ public class CirclePortraitView extends NetImageView {
     @Override // android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         super.onLayout(z, i2, i3, i4, i5);
-        this.f3599d = getWidth();
+        this.f3600d = getWidth();
         float height = getHeight();
-        this.f3600e = height;
-        this.f3598c.set(0.0f, 0.0f, this.f3599d, height);
+        this.f3601e = height;
+        this.f3599c.set(0.0f, 0.0f, this.f3600d, height);
     }
 
     public CirclePortraitView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f3596a = new Paint();
-        this.f3597b = new Paint();
-        this.f3598c = new RectF();
+        this.f3597a = new Paint();
+        this.f3598b = new Paint();
+        this.f3599c = new RectF();
         c();
     }
 
     public CirclePortraitView(Context context) {
         super(context);
-        this.f3596a = new Paint();
-        this.f3597b = new Paint();
-        this.f3598c = new RectF();
+        this.f3597a = new Paint();
+        this.f3598b = new Paint();
+        this.f3599c = new RectF();
         c();
     }
 }

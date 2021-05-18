@@ -1,59 +1,124 @@
 package d.a.i0.r;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.text.TextUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final CustomMessageListener f48981a = new a(0);
+    public String f48222a;
 
-    /* loaded from: classes3.dex */
-    public static class a extends CustomMessageListener {
-        public a(int i2) {
-            super(i2);
+    /* renamed from: b  reason: collision with root package name */
+    public String f48223b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f48224c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f48225d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public JSONObject f48226e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f48227f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f48228g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f48229h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f48230i;
+    public boolean j;
+    public String k;
+
+    public i(String str, String str2, int i2) {
+        this.f48225d = "";
+        this.j = false;
+        this.k = "";
+        this.f48222a = str;
+        this.f48223b = str;
+        this.f48224c = -1;
+        this.f48225d = str2;
+        this.f48228g = i2;
+        if ((i2 & 2) == 0) {
+            this.f48227f = System.currentTimeMillis();
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null) {
-                return;
-            }
-            switch (customResponsedMessage.getCmd()) {
-                case 2005009:
-                    TbadkCoreApplication.getInst().startSyncService();
-                    return;
-                case 2005010:
-                    TbadkCoreApplication.getInst().stopSyncService();
-                    return;
-                case 2005011:
-                    TbadkCoreApplication.getInst().startActiveService();
-                    return;
-                case 2005012:
-                    TbadkCoreApplication.getInst().stopActiveServide();
-                    return;
-                case 2005013:
-                    TbadkCoreApplication.getInst().startClearTempService();
-                    return;
-                case 2005014:
-                default:
-                    return;
-                case 2005015:
-                    TbadkCoreApplication.getInst().startSyncLoginService();
-                    return;
-            }
+        try {
+            this.f48226e = new JSONObject(this.f48225d);
+        } catch (JSONException unused) {
         }
     }
 
-    public static void a() {
-        MessageManager.getInstance().registerListener(2005009, f48981a);
-        MessageManager.getInstance().registerListener(2005010, f48981a);
-        MessageManager.getInstance().registerListener(2005011, f48981a);
-        MessageManager.getInstance().registerListener(2005012, f48981a);
-        MessageManager.getInstance().registerListener(2005013, f48981a);
-        MessageManager.getInstance().registerListener(2005015, f48981a);
+    public String a() {
+        JSONObject jSONObject = this.f48226e;
+        return jSONObject != null ? jSONObject.optString("bizId") : "";
+    }
+
+    public void b() {
+        String str = this.f48222a;
+        if (str != null && str.equals(this.f48223b) && d.g().a(this.f48222a)) {
+            this.f48229h = e.h().h();
+        }
+    }
+
+    public i(String str, JSONObject jSONObject, int i2) {
+        this.f48225d = "";
+        this.j = false;
+        this.k = "";
+        this.f48222a = str;
+        this.f48223b = str;
+        this.f48224c = -1;
+        this.f48226e = jSONObject;
+        this.f48228g = i2;
+        if ((i2 & 2) == 0) {
+            this.f48227f = System.currentTimeMillis();
+        }
+    }
+
+    public i(String str, String str2, int i2, String str3, int i3) {
+        this.f48225d = "";
+        this.j = false;
+        this.k = "";
+        this.f48222a = str2;
+        this.f48223b = str;
+        this.f48224c = i2;
+        this.f48225d = str3;
+        this.f48228g = i3;
+        if ((i3 & 2) == 0) {
+            this.f48227f = System.currentTimeMillis();
+        }
+        try {
+            this.f48226e = new JSONObject(this.f48225d);
+        } catch (JSONException unused) {
+        }
+    }
+
+    public i(String str, String str2, int i2, String str3, long j, int i3) {
+        this.f48225d = "";
+        this.j = false;
+        this.k = "";
+        this.f48222a = str2;
+        this.f48223b = str;
+        this.f48224c = i2;
+        this.f48225d = str3;
+        this.f48228g = i3;
+        if ((i3 & 2) == 0) {
+            if (j > 0) {
+                this.f48227f = j;
+            } else {
+                this.f48227f = System.currentTimeMillis();
+            }
+        }
+        if (TextUtils.isEmpty(this.f48225d)) {
+            return;
+        }
+        try {
+            this.f48226e = new JSONObject(this.f48225d);
+        } catch (JSONException unused) {
+        }
     }
 }

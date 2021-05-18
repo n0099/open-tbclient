@@ -48,19 +48,19 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static final Queue<?> C = new b();
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f31640e;
+    public final int f30885e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f31641f;
+    public final int f30886f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Segment<K, V>[] f31642g;
+    public final Segment<K, V>[] f30887g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f31643h;
+    public final int f30888h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Equivalence<Object> f31644i;
+    public final Equivalence<Object> f30889i;
     public final Equivalence<Object> j;
     public final Strength k;
     public final Strength l;
@@ -314,15 +314,15 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public class a extends CacheLoader<Object, V> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Callable f31645a;
+            public final /* synthetic */ Callable f30890a;
 
             public a(LocalManualCache localManualCache, Callable callable) {
-                this.f31645a = callable;
+                this.f30890a = callable;
             }
 
             @Override // com.google.common.cache.CacheLoader
             public V load(Object obj) throws Exception {
-                return (V) this.f31645a.call();
+                return (V) this.f30890a.call();
             }
         }
 
@@ -386,7 +386,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public d.g.c.b.d stats() {
             d.g.c.b.a aVar = new d.g.c.b.a();
             aVar.g(this.localCache.v);
-            for (Segment<K, V> segment : this.localCache.f31642g) {
+            for (Segment<K, V> segment : this.localCache.f30887g) {
                 aVar.g(segment.statsCounter);
             }
             return aVar.f();
@@ -428,7 +428,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public final d.g.c.b.j<K, V> weigher;
 
         public ManualSerializationProxy(LocalCache<K, V> localCache) {
-            this(localCache.k, localCache.l, localCache.f31644i, localCache.j, localCache.p, localCache.o, localCache.m, localCache.n, localCache.f31643h, localCache.s, localCache.t, localCache.w);
+            this(localCache.k, localCache.l, localCache.f30889i, localCache.j, localCache.p, localCache.o, localCache.m, localCache.n, localCache.f30888h, localCache.s, localCache.t, localCache.w);
         }
 
         private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
@@ -450,7 +450,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             cacheBuilder.D(this.valueEquivalence);
             cacheBuilder.e(this.concurrencyLevel);
             cacheBuilder.z(this.removalListener);
-            cacheBuilder.f31626a = false;
+            cacheBuilder.f30871a = false;
             long j = this.expireAfterWriteNanos;
             if (j > 0) {
                 cacheBuilder.g(j, TimeUnit.NANOSECONDS);
@@ -675,16 +675,16 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static final class a0<K, V> extends p<K, V> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31651f;
+        public final int f30896f;
 
         public a0(V v, int i2) {
             super(v);
-            this.f31651f = i2;
+            this.f30896f = i2;
         }
 
         @Override // com.google.common.cache.LocalCache.p, com.google.common.cache.LocalCache.s
         public int c() {
-            return this.f31651f;
+            return this.f30896f;
         }
     }
 
@@ -720,21 +720,21 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static final class b0<K, V> extends x<K, V> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31652f;
+        public final int f30897f;
 
         public b0(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar, int i2) {
             super(referenceQueue, v, hVar);
-            this.f31652f = i2;
+            this.f30897f = i2;
         }
 
         @Override // com.google.common.cache.LocalCache.x, com.google.common.cache.LocalCache.s
         public int c() {
-            return this.f31652f;
+            return this.f30897f;
         }
 
         @Override // com.google.common.cache.LocalCache.x, com.google.common.cache.LocalCache.s
         public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar) {
-            return new b0(referenceQueue, v, hVar, this.f31652f);
+            return new b0(referenceQueue, v, hVar, this.f30897f);
         }
     }
 
@@ -742,25 +742,25 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public abstract class c<T> extends AbstractSet<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final ConcurrentMap<?, ?> f31653e;
+        public final ConcurrentMap<?, ?> f30898e;
 
         public c(LocalCache localCache, ConcurrentMap<?, ?> concurrentMap) {
-            this.f31653e = concurrentMap;
+            this.f30898e = concurrentMap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
-            this.f31653e.clear();
+            this.f30898e.clear();
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean isEmpty() {
-            return this.f31653e.isEmpty();
+            return this.f30898e.isEmpty();
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return this.f31653e.size();
+            return this.f30898e.size();
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -778,28 +778,28 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static final class c0<K, V> extends AbstractQueue<d.g.c.b.h<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.g.c.b.h<K, V> f31654e = new a(this);
+        public final d.g.c.b.h<K, V> f30899e = new a(this);
 
         /* loaded from: classes6.dex */
         public class a extends d<K, V> {
 
             /* renamed from: e  reason: collision with root package name */
-            public d.g.c.b.h<K, V> f31655e = this;
+            public d.g.c.b.h<K, V> f30900e = this;
 
             /* renamed from: f  reason: collision with root package name */
-            public d.g.c.b.h<K, V> f31656f = this;
+            public d.g.c.b.h<K, V> f30901f = this;
 
             public a(c0 c0Var) {
             }
 
             @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
             public d.g.c.b.h<K, V> getNextInWriteQueue() {
-                return this.f31655e;
+                return this.f30900e;
             }
 
             @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
             public d.g.c.b.h<K, V> getPreviousInWriteQueue() {
-                return this.f31656f;
+                return this.f30901f;
             }
 
             @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
@@ -809,12 +809,12 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
             @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
             public void setNextInWriteQueue(d.g.c.b.h<K, V> hVar) {
-                this.f31655e = hVar;
+                this.f30900e = hVar;
             }
 
             @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
             public void setPreviousInWriteQueue(d.g.c.b.h<K, V> hVar) {
-                this.f31656f = hVar;
+                this.f30901f = hVar;
             }
 
             @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
@@ -833,7 +833,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             /* renamed from: b */
             public d.g.c.b.h<K, V> a(d.g.c.b.h<K, V> hVar) {
                 d.g.c.b.h<K, V> nextInWriteQueue = hVar.getNextInWriteQueue();
-                if (nextInWriteQueue == c0.this.f31654e) {
+                if (nextInWriteQueue == c0.this.f30899e) {
                     return null;
                 }
                 return nextInWriteQueue;
@@ -845,8 +845,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         /* renamed from: a */
         public boolean offer(d.g.c.b.h<K, V> hVar) {
             LocalCache.d(hVar.getPreviousInWriteQueue(), hVar.getNextInWriteQueue());
-            LocalCache.d(this.f31654e.getPreviousInWriteQueue(), hVar);
-            LocalCache.d(hVar, this.f31654e);
+            LocalCache.d(this.f30899e.getPreviousInWriteQueue(), hVar);
+            LocalCache.d(hVar, this.f30899e);
             return true;
         }
 
@@ -854,8 +854,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         @Override // java.util.Queue
         /* renamed from: b */
         public d.g.c.b.h<K, V> peek() {
-            d.g.c.b.h<K, V> nextInWriteQueue = this.f31654e.getNextInWriteQueue();
-            if (nextInWriteQueue == this.f31654e) {
+            d.g.c.b.h<K, V> nextInWriteQueue = this.f30899e.getNextInWriteQueue();
+            if (nextInWriteQueue == this.f30899e) {
                 return null;
             }
             return nextInWriteQueue;
@@ -865,8 +865,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         @Override // java.util.Queue
         /* renamed from: c */
         public d.g.c.b.h<K, V> poll() {
-            d.g.c.b.h<K, V> nextInWriteQueue = this.f31654e.getNextInWriteQueue();
-            if (nextInWriteQueue == this.f31654e) {
+            d.g.c.b.h<K, V> nextInWriteQueue = this.f30899e.getNextInWriteQueue();
+            if (nextInWriteQueue == this.f30899e) {
                 return null;
             }
             remove(nextInWriteQueue);
@@ -875,16 +875,16 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
         public void clear() {
-            d.g.c.b.h<K, V> nextInWriteQueue = this.f31654e.getNextInWriteQueue();
+            d.g.c.b.h<K, V> nextInWriteQueue = this.f30899e.getNextInWriteQueue();
             while (true) {
-                d.g.c.b.h<K, V> hVar = this.f31654e;
+                d.g.c.b.h<K, V> hVar = this.f30899e;
                 if (nextInWriteQueue != hVar) {
                     d.g.c.b.h<K, V> nextInWriteQueue2 = nextInWriteQueue.getNextInWriteQueue();
                     LocalCache.y(nextInWriteQueue);
                     nextInWriteQueue = nextInWriteQueue2;
                 } else {
                     hVar.setNextInWriteQueue(hVar);
-                    d.g.c.b.h<K, V> hVar2 = this.f31654e;
+                    d.g.c.b.h<K, V> hVar2 = this.f30899e;
                     hVar2.setPreviousInWriteQueue(hVar2);
                     return;
                 }
@@ -898,7 +898,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean isEmpty() {
-            return this.f31654e.getNextInWriteQueue() == this.f31654e;
+            return this.f30899e.getNextInWriteQueue() == this.f30899e;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -919,7 +919,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
             int i2 = 0;
-            for (d.g.c.b.h<K, V> nextInWriteQueue = this.f31654e.getNextInWriteQueue(); nextInWriteQueue != this.f31654e; nextInWriteQueue = nextInWriteQueue.getNextInWriteQueue()) {
+            for (d.g.c.b.h<K, V> nextInWriteQueue = this.f30899e.getNextInWriteQueue(); nextInWriteQueue != this.f30899e; nextInWriteQueue = nextInWriteQueue.getNextInWriteQueue()) {
                 i2++;
             }
             return i2;
@@ -1018,44 +1018,44 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public final class d0 implements Map.Entry<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f31658e;
+        public final K f30903e;
 
         /* renamed from: f  reason: collision with root package name */
-        public V f31659f;
+        public V f30904f;
 
         public d0(K k, V v) {
-            this.f31658e = k;
-            this.f31659f = v;
+            this.f30903e = k;
+            this.f30904f = v;
         }
 
         @Override // java.util.Map.Entry
         public boolean equals(Object obj) {
             if (obj instanceof Map.Entry) {
                 Map.Entry entry = (Map.Entry) obj;
-                return this.f31658e.equals(entry.getKey()) && this.f31659f.equals(entry.getValue());
+                return this.f30903e.equals(entry.getKey()) && this.f30904f.equals(entry.getValue());
             }
             return false;
         }
 
         @Override // java.util.Map.Entry
         public K getKey() {
-            return this.f31658e;
+            return this.f30903e;
         }
 
         @Override // java.util.Map.Entry
         public V getValue() {
-            return this.f31659f;
+            return this.f30904f;
         }
 
         @Override // java.util.Map.Entry
         public int hashCode() {
-            return this.f31658e.hashCode() ^ this.f31659f.hashCode();
+            return this.f30903e.hashCode() ^ this.f30904f.hashCode();
         }
 
         @Override // java.util.Map.Entry
         public V setValue(V v) {
-            V v2 = (V) LocalCache.this.put(this.f31658e, v);
-            this.f31659f = v;
+            V v2 = (V) LocalCache.this.put(this.f30903e, v);
+            this.f30904f = v;
             return v2;
         }
 
@@ -1068,16 +1068,16 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static final class e<K, V> extends AbstractQueue<d.g.c.b.h<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.g.c.b.h<K, V> f31661e = new a(this);
+        public final d.g.c.b.h<K, V> f30906e = new a(this);
 
         /* loaded from: classes6.dex */
         public class a extends d<K, V> {
 
             /* renamed from: e  reason: collision with root package name */
-            public d.g.c.b.h<K, V> f31662e = this;
+            public d.g.c.b.h<K, V> f30907e = this;
 
             /* renamed from: f  reason: collision with root package name */
-            public d.g.c.b.h<K, V> f31663f = this;
+            public d.g.c.b.h<K, V> f30908f = this;
 
             public a(e eVar) {
             }
@@ -1089,12 +1089,12 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
             @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
             public d.g.c.b.h<K, V> getNextInAccessQueue() {
-                return this.f31662e;
+                return this.f30907e;
             }
 
             @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
             public d.g.c.b.h<K, V> getPreviousInAccessQueue() {
-                return this.f31663f;
+                return this.f30908f;
             }
 
             @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
@@ -1103,12 +1103,12 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
             @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
             public void setNextInAccessQueue(d.g.c.b.h<K, V> hVar) {
-                this.f31662e = hVar;
+                this.f30907e = hVar;
             }
 
             @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
             public void setPreviousInAccessQueue(d.g.c.b.h<K, V> hVar) {
-                this.f31663f = hVar;
+                this.f30908f = hVar;
             }
         }
 
@@ -1123,7 +1123,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             /* renamed from: b */
             public d.g.c.b.h<K, V> a(d.g.c.b.h<K, V> hVar) {
                 d.g.c.b.h<K, V> nextInAccessQueue = hVar.getNextInAccessQueue();
-                if (nextInAccessQueue == e.this.f31661e) {
+                if (nextInAccessQueue == e.this.f30906e) {
                     return null;
                 }
                 return nextInAccessQueue;
@@ -1135,8 +1135,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         /* renamed from: a */
         public boolean offer(d.g.c.b.h<K, V> hVar) {
             LocalCache.c(hVar.getPreviousInAccessQueue(), hVar.getNextInAccessQueue());
-            LocalCache.c(this.f31661e.getPreviousInAccessQueue(), hVar);
-            LocalCache.c(hVar, this.f31661e);
+            LocalCache.c(this.f30906e.getPreviousInAccessQueue(), hVar);
+            LocalCache.c(hVar, this.f30906e);
             return true;
         }
 
@@ -1144,8 +1144,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         @Override // java.util.Queue
         /* renamed from: b */
         public d.g.c.b.h<K, V> peek() {
-            d.g.c.b.h<K, V> nextInAccessQueue = this.f31661e.getNextInAccessQueue();
-            if (nextInAccessQueue == this.f31661e) {
+            d.g.c.b.h<K, V> nextInAccessQueue = this.f30906e.getNextInAccessQueue();
+            if (nextInAccessQueue == this.f30906e) {
                 return null;
             }
             return nextInAccessQueue;
@@ -1155,8 +1155,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         @Override // java.util.Queue
         /* renamed from: c */
         public d.g.c.b.h<K, V> poll() {
-            d.g.c.b.h<K, V> nextInAccessQueue = this.f31661e.getNextInAccessQueue();
-            if (nextInAccessQueue == this.f31661e) {
+            d.g.c.b.h<K, V> nextInAccessQueue = this.f30906e.getNextInAccessQueue();
+            if (nextInAccessQueue == this.f30906e) {
                 return null;
             }
             remove(nextInAccessQueue);
@@ -1165,16 +1165,16 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
         public void clear() {
-            d.g.c.b.h<K, V> nextInAccessQueue = this.f31661e.getNextInAccessQueue();
+            d.g.c.b.h<K, V> nextInAccessQueue = this.f30906e.getNextInAccessQueue();
             while (true) {
-                d.g.c.b.h<K, V> hVar = this.f31661e;
+                d.g.c.b.h<K, V> hVar = this.f30906e;
                 if (nextInAccessQueue != hVar) {
                     d.g.c.b.h<K, V> nextInAccessQueue2 = nextInAccessQueue.getNextInAccessQueue();
                     LocalCache.x(nextInAccessQueue);
                     nextInAccessQueue = nextInAccessQueue2;
                 } else {
                     hVar.setNextInAccessQueue(hVar);
-                    d.g.c.b.h<K, V> hVar2 = this.f31661e;
+                    d.g.c.b.h<K, V> hVar2 = this.f30906e;
                     hVar2.setPreviousInAccessQueue(hVar2);
                     return;
                 }
@@ -1188,7 +1188,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean isEmpty() {
-            return this.f31661e.getNextInAccessQueue() == this.f31661e;
+            return this.f30906e.getNextInAccessQueue() == this.f30906e;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -1209,7 +1209,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
             int i2 = 0;
-            for (d.g.c.b.h<K, V> nextInAccessQueue = this.f31661e.getNextInAccessQueue(); nextInAccessQueue != this.f31661e; nextInAccessQueue = nextInAccessQueue.getNextInAccessQueue()) {
+            for (d.g.c.b.h<K, V> nextInAccessQueue = this.f30906e.getNextInAccessQueue(); nextInAccessQueue != this.f30906e; nextInAccessQueue = nextInAccessQueue.getNextInAccessQueue()) {
                 i2++;
             }
             return i2;
@@ -1261,24 +1261,24 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public abstract class h<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31666e;
+        public int f30911e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31667f = -1;
+        public int f30912f = -1;
 
         /* renamed from: g  reason: collision with root package name */
-        public Segment<K, V> f31668g;
+        public Segment<K, V> f30913g;
 
         /* renamed from: h  reason: collision with root package name */
-        public AtomicReferenceArray<d.g.c.b.h<K, V>> f31669h;
+        public AtomicReferenceArray<d.g.c.b.h<K, V>> f30914h;
 
         /* renamed from: i  reason: collision with root package name */
-        public d.g.c.b.h<K, V> f31670i;
+        public d.g.c.b.h<K, V> f30915i;
         public LocalCache<K, V>.d0 j;
         public LocalCache<K, V>.d0 k;
 
         public h() {
-            this.f31666e = LocalCache.this.f31642g.length - 1;
+            this.f30911e = LocalCache.this.f30887g.length - 1;
             a();
         }
 
@@ -1288,18 +1288,18 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 return;
             }
             while (true) {
-                int i2 = this.f31666e;
+                int i2 = this.f30911e;
                 if (i2 < 0) {
                     return;
                 }
-                Segment<K, V>[] segmentArr = LocalCache.this.f31642g;
-                this.f31666e = i2 - 1;
+                Segment<K, V>[] segmentArr = LocalCache.this.f30887g;
+                this.f30911e = i2 - 1;
                 Segment<K, V> segment = segmentArr[i2];
-                this.f31668g = segment;
+                this.f30913g = segment;
                 if (segment.count != 0) {
-                    AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.f31668g.table;
-                    this.f31669h = atomicReferenceArray;
-                    this.f31667f = atomicReferenceArray.length() - 1;
+                    AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.f30913g.table;
+                    this.f30914h = atomicReferenceArray;
+                    this.f30912f = atomicReferenceArray.length() - 1;
                     if (e()) {
                         return;
                     }
@@ -1321,7 +1321,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 }
                 return z;
             } finally {
-                this.f31668g.postReadCleanup();
+                this.f30913g.postReadCleanup();
             }
         }
 
@@ -1336,33 +1336,33 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         public boolean d() {
-            d.g.c.b.h<K, V> hVar = this.f31670i;
+            d.g.c.b.h<K, V> hVar = this.f30915i;
             if (hVar == null) {
                 return false;
             }
             while (true) {
-                this.f31670i = hVar.getNext();
-                d.g.c.b.h<K, V> hVar2 = this.f31670i;
+                this.f30915i = hVar.getNext();
+                d.g.c.b.h<K, V> hVar2 = this.f30915i;
                 if (hVar2 == null) {
                     return false;
                 }
                 if (b(hVar2)) {
                     return true;
                 }
-                hVar = this.f31670i;
+                hVar = this.f30915i;
             }
         }
 
         public boolean e() {
             while (true) {
-                int i2 = this.f31667f;
+                int i2 = this.f30912f;
                 if (i2 < 0) {
                     return false;
                 }
-                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.f31669h;
-                this.f31667f = i2 - 1;
+                AtomicReferenceArray<d.g.c.b.h<K, V>> atomicReferenceArray = this.f30914h;
+                this.f30912f = i2 - 1;
                 d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(i2);
-                this.f31670i = hVar;
+                this.f30915i = hVar;
                 if (hVar != null && (b(hVar) || d())) {
                     return true;
                 }
@@ -1402,7 +1402,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            return this.f31653e.containsKey(obj);
+            return this.f30898e.containsKey(obj);
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
@@ -1412,7 +1412,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean remove(Object obj) {
-            return this.f31653e.remove(obj) != null;
+            return this.f30898e.remove(obj) != null;
         }
     }
 
@@ -1420,13 +1420,13 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static class k<K, V> implements s<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public volatile s<K, V> f31672e;
+        public volatile s<K, V> f30917e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d.g.c.i.a.q<V> f31673f;
+        public final d.g.c.i.a.q<V> f30918f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final d.g.c.a.p f31674g;
+        public final d.g.c.a.p f30919g;
 
         /* loaded from: classes6.dex */
         public class a implements d.g.c.a.g<V, V> {
@@ -1454,18 +1454,18 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             if (v != null) {
                 k(v);
             } else {
-                this.f31672e = LocalCache.K();
+                this.f30917e = LocalCache.K();
             }
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public int c() {
-            return this.f31672e.c();
+            return this.f30917e.c();
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public V d() throws ExecutionException {
-            return (V) d.g.c.i.a.t.a(this.f31673f);
+            return (V) d.g.c.i.a.t.a(this.f30918f);
         }
 
         @Override // com.google.common.cache.LocalCache.s
@@ -1479,12 +1479,12 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         public long g() {
-            return this.f31674g.e(TimeUnit.NANOSECONDS);
+            return this.f30919g.e(TimeUnit.NANOSECONDS);
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public V get() {
-            return this.f31672e.get();
+            return this.f30917e.get();
         }
 
         public final d.g.c.i.a.l<V> h(Throwable th) {
@@ -1492,21 +1492,21 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         public s<K, V> i() {
-            return this.f31672e;
+            return this.f30917e;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public boolean isActive() {
-            return this.f31672e.isActive();
+            return this.f30917e.isActive();
         }
 
         public d.g.c.i.a.l<V> j(K k, CacheLoader<? super K, V> cacheLoader) {
             try {
-                this.f31674g.g();
-                V v = this.f31672e.get();
+                this.f30919g.g();
+                V v = this.f30917e.get();
                 if (v == null) {
                     V load = cacheLoader.load(k);
-                    return k(load) ? this.f31673f : d.g.c.i.a.g.d(load);
+                    return k(load) ? this.f30918f : d.g.c.i.a.g.d(load);
                 }
                 d.g.c.i.a.l<V> reload = cacheLoader.reload(k, v);
                 if (reload == null) {
@@ -1514,7 +1514,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 }
                 return d.g.c.i.a.g.e(reload, new a(), d.g.c.i.a.n.a());
             } catch (Throwable th) {
-                d.g.c.i.a.l<V> h2 = l(th) ? this.f31673f : h(th);
+                d.g.c.i.a.l<V> h2 = l(th) ? this.f30918f : h(th);
                 if (th instanceof InterruptedException) {
                     Thread.currentThread().interrupt();
                 }
@@ -1523,17 +1523,17 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         }
 
         public boolean k(V v) {
-            return this.f31673f.A(v);
+            return this.f30918f.A(v);
         }
 
         public boolean l(Throwable th) {
-            return this.f31673f.B(th);
+            return this.f30918f.B(th);
         }
 
         public k(s<K, V> sVar) {
-            this.f31673f = d.g.c.i.a.q.F();
-            this.f31674g = d.g.c.a.p.d();
-            this.f31672e = sVar;
+            this.f30918f = d.g.c.i.a.q.F();
+            this.f30919g = d.g.c.a.p.d();
+            this.f30917e = sVar;
         }
     }
 
@@ -1541,16 +1541,16 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static class l<K, V> extends SoftReference<V> implements s<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.g.c.b.h<K, V> f31676e;
+        public final d.g.c.b.h<K, V> f30921e;
 
         public l(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar) {
             super(v, referenceQueue);
-            this.f31676e = hVar;
+            this.f30921e = hVar;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public d.g.c.b.h<K, V> a() {
-            return this.f31676e;
+            return this.f30921e;
         }
 
         @Override // com.google.common.cache.LocalCache.s
@@ -1587,20 +1587,20 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static final class m<K, V> extends o<K, V> {
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile long f31677i;
+        public volatile long f30922i;
         public d.g.c.b.h<K, V> j;
         public d.g.c.b.h<K, V> k;
 
         public m(K k, int i2, d.g.c.b.h<K, V> hVar) {
             super(k, i2, hVar);
-            this.f31677i = Long.MAX_VALUE;
+            this.f30922i = Long.MAX_VALUE;
             this.j = LocalCache.w();
             this.k = LocalCache.w();
         }
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
         public long getAccessTime() {
-            return this.f31677i;
+            return this.f30922i;
         }
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
@@ -1615,7 +1615,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
         public void setAccessTime(long j) {
-            this.f31677i = j;
+            this.f30922i = j;
         }
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
@@ -1633,7 +1633,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static final class n<K, V> extends o<K, V> {
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile long f31678i;
+        public volatile long f30923i;
         public d.g.c.b.h<K, V> j;
         public d.g.c.b.h<K, V> k;
         public volatile long l;
@@ -1642,7 +1642,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         public n(K k, int i2, d.g.c.b.h<K, V> hVar) {
             super(k, i2, hVar);
-            this.f31678i = Long.MAX_VALUE;
+            this.f30923i = Long.MAX_VALUE;
             this.j = LocalCache.w();
             this.k = LocalCache.w();
             this.l = Long.MAX_VALUE;
@@ -1652,7 +1652,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
         public long getAccessTime() {
-            return this.f31678i;
+            return this.f30923i;
         }
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
@@ -1682,7 +1682,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
         public void setAccessTime(long j) {
-            this.f31678i = j;
+            this.f30923i = j;
         }
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
@@ -1715,46 +1715,46 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static class o<K, V> extends d<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f31679e;
+        public final K f30924e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31680f;
+        public final int f30925f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final d.g.c.b.h<K, V> f31681g;
+        public final d.g.c.b.h<K, V> f30926g;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile s<K, V> f31682h = LocalCache.K();
+        public volatile s<K, V> f30927h = LocalCache.K();
 
         public o(K k, int i2, d.g.c.b.h<K, V> hVar) {
-            this.f31679e = k;
-            this.f31680f = i2;
-            this.f31681g = hVar;
+            this.f30924e = k;
+            this.f30925f = i2;
+            this.f30926g = hVar;
         }
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
         public int getHash() {
-            return this.f31680f;
+            return this.f30925f;
         }
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
         public K getKey() {
-            return this.f31679e;
+            return this.f30924e;
         }
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
         public d.g.c.b.h<K, V> getNext() {
-            return this.f31681g;
+            return this.f30926g;
         }
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
         public s<K, V> getValueReference() {
-            return this.f31682h;
+            return this.f30927h;
         }
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
         public void setValueReference(s<K, V> sVar) {
-            this.f31682h = sVar;
+            this.f30927h = sVar;
         }
     }
 
@@ -1762,10 +1762,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static class p<K, V> implements s<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final V f31683e;
+        public final V f30928e;
 
         public p(V v) {
-            this.f31683e = v;
+            this.f30928e = v;
         }
 
         @Override // com.google.common.cache.LocalCache.s
@@ -1799,7 +1799,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // com.google.common.cache.LocalCache.s
         public V get() {
-            return this.f31683e;
+            return this.f30928e;
         }
 
         @Override // com.google.common.cache.LocalCache.s
@@ -1812,13 +1812,13 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static final class q<K, V> extends o<K, V> {
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile long f31684i;
+        public volatile long f30929i;
         public d.g.c.b.h<K, V> j;
         public d.g.c.b.h<K, V> k;
 
         public q(K k, int i2, d.g.c.b.h<K, V> hVar) {
             super(k, i2, hVar);
-            this.f31684i = Long.MAX_VALUE;
+            this.f30929i = Long.MAX_VALUE;
             this.j = LocalCache.w();
             this.k = LocalCache.w();
         }
@@ -1835,7 +1835,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
         public long getWriteTime() {
-            return this.f31684i;
+            return this.f30929i;
         }
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
@@ -1850,7 +1850,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // com.google.common.cache.LocalCache.d, d.g.c.b.h
         public void setWriteTime(long j) {
-            this.f31684i = j;
+            this.f30929i = j;
         }
     }
 
@@ -1889,25 +1889,25 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public final class t extends AbstractCollection<V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final ConcurrentMap<?, ?> f31685e;
+        public final ConcurrentMap<?, ?> f30930e;
 
         public t(ConcurrentMap<?, ?> concurrentMap) {
-            this.f31685e = concurrentMap;
+            this.f30930e = concurrentMap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public void clear() {
-            this.f31685e.clear();
+            this.f30930e.clear();
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean contains(Object obj) {
-            return this.f31685e.containsValue(obj);
+            return this.f30930e.containsValue(obj);
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean isEmpty() {
-            return this.f31685e.isEmpty();
+            return this.f30930e.isEmpty();
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -1917,7 +1917,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
-            return this.f31685e.size();
+            return this.f30930e.size();
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
@@ -1935,27 +1935,27 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static final class u<K, V> extends w<K, V> {
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile long f31687h;
+        public volatile long f30932h;
 
         /* renamed from: i  reason: collision with root package name */
-        public d.g.c.b.h<K, V> f31688i;
+        public d.g.c.b.h<K, V> f30933i;
         public d.g.c.b.h<K, V> j;
 
         public u(ReferenceQueue<K> referenceQueue, K k, int i2, d.g.c.b.h<K, V> hVar) {
             super(referenceQueue, k, i2, hVar);
-            this.f31687h = Long.MAX_VALUE;
-            this.f31688i = LocalCache.w();
+            this.f30932h = Long.MAX_VALUE;
+            this.f30933i = LocalCache.w();
             this.j = LocalCache.w();
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
         public long getAccessTime() {
-            return this.f31687h;
+            return this.f30932h;
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
         public d.g.c.b.h<K, V> getNextInAccessQueue() {
-            return this.f31688i;
+            return this.f30933i;
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
@@ -1965,12 +1965,12 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
         public void setAccessTime(long j) {
-            this.f31687h = j;
+            this.f30932h = j;
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
         public void setNextInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            this.f31688i = hVar;
+            this.f30933i = hVar;
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
@@ -1983,10 +1983,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static final class v<K, V> extends w<K, V> {
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile long f31689h;
+        public volatile long f30934h;
 
         /* renamed from: i  reason: collision with root package name */
-        public d.g.c.b.h<K, V> f31690i;
+        public d.g.c.b.h<K, V> f30935i;
         public d.g.c.b.h<K, V> j;
         public volatile long k;
         public d.g.c.b.h<K, V> l;
@@ -1994,8 +1994,8 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         public v(ReferenceQueue<K> referenceQueue, K k, int i2, d.g.c.b.h<K, V> hVar) {
             super(referenceQueue, k, i2, hVar);
-            this.f31689h = Long.MAX_VALUE;
-            this.f31690i = LocalCache.w();
+            this.f30934h = Long.MAX_VALUE;
+            this.f30935i = LocalCache.w();
             this.j = LocalCache.w();
             this.k = Long.MAX_VALUE;
             this.l = LocalCache.w();
@@ -2004,12 +2004,12 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
         public long getAccessTime() {
-            return this.f31689h;
+            return this.f30934h;
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
         public d.g.c.b.h<K, V> getNextInAccessQueue() {
-            return this.f31690i;
+            return this.f30935i;
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
@@ -2034,12 +2034,12 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
         public void setAccessTime(long j) {
-            this.f31689h = j;
+            this.f30934h = j;
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
         public void setNextInAccessQueue(d.g.c.b.h<K, V> hVar) {
-            this.f31690i = hVar;
+            this.f30935i = hVar;
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
@@ -2067,19 +2067,19 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static class w<K, V> extends WeakReference<K> implements d.g.c.b.h<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f31691e;
+        public final int f30936e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d.g.c.b.h<K, V> f31692f;
+        public final d.g.c.b.h<K, V> f30937f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile s<K, V> f31693g;
+        public volatile s<K, V> f30938g;
 
         public w(ReferenceQueue<K> referenceQueue, K k, int i2, d.g.c.b.h<K, V> hVar) {
             super(k, referenceQueue);
-            this.f31693g = LocalCache.K();
-            this.f31691e = i2;
-            this.f31692f = hVar;
+            this.f30938g = LocalCache.K();
+            this.f30936e = i2;
+            this.f30937f = hVar;
         }
 
         public long getAccessTime() {
@@ -2088,7 +2088,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // d.g.c.b.h
         public int getHash() {
-            return this.f31691e;
+            return this.f30936e;
         }
 
         @Override // d.g.c.b.h
@@ -2098,7 +2098,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // d.g.c.b.h
         public d.g.c.b.h<K, V> getNext() {
-            return this.f31692f;
+            return this.f30937f;
         }
 
         public d.g.c.b.h<K, V> getNextInAccessQueue() {
@@ -2119,7 +2119,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // d.g.c.b.h
         public s<K, V> getValueReference() {
-            return this.f31693g;
+            return this.f30938g;
         }
 
         public long getWriteTime() {
@@ -2148,7 +2148,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // d.g.c.b.h
         public void setValueReference(s<K, V> sVar) {
-            this.f31693g = sVar;
+            this.f30938g = sVar;
         }
 
         public void setWriteTime(long j) {
@@ -2160,16 +2160,16 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static class x<K, V> extends WeakReference<V> implements s<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.g.c.b.h<K, V> f31694e;
+        public final d.g.c.b.h<K, V> f30939e;
 
         public x(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar) {
             super(v, referenceQueue);
-            this.f31694e = hVar;
+            this.f30939e = hVar;
         }
 
         @Override // com.google.common.cache.LocalCache.s
         public d.g.c.b.h<K, V> a() {
-            return this.f31694e;
+            return this.f30939e;
         }
 
         @Override // com.google.common.cache.LocalCache.s
@@ -2204,22 +2204,22 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static final class y<K, V> extends w<K, V> {
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile long f31695h;
+        public volatile long f30940h;
 
         /* renamed from: i  reason: collision with root package name */
-        public d.g.c.b.h<K, V> f31696i;
+        public d.g.c.b.h<K, V> f30941i;
         public d.g.c.b.h<K, V> j;
 
         public y(ReferenceQueue<K> referenceQueue, K k, int i2, d.g.c.b.h<K, V> hVar) {
             super(referenceQueue, k, i2, hVar);
-            this.f31695h = Long.MAX_VALUE;
-            this.f31696i = LocalCache.w();
+            this.f30940h = Long.MAX_VALUE;
+            this.f30941i = LocalCache.w();
             this.j = LocalCache.w();
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
         public d.g.c.b.h<K, V> getNextInWriteQueue() {
-            return this.f31696i;
+            return this.f30941i;
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
@@ -2229,12 +2229,12 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
         public long getWriteTime() {
-            return this.f31695h;
+            return this.f30940h;
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
         public void setNextInWriteQueue(d.g.c.b.h<K, V> hVar) {
-            this.f31696i = hVar;
+            this.f30941i = hVar;
         }
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
@@ -2244,7 +2244,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // com.google.common.cache.LocalCache.w, d.g.c.b.h
         public void setWriteTime(long j) {
-            this.f31695h = j;
+            this.f30940h = j;
         }
     }
 
@@ -2252,29 +2252,29 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     public static final class z<K, V> extends l<K, V> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f31697f;
+        public final int f30942f;
 
         public z(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar, int i2) {
             super(referenceQueue, v, hVar);
-            this.f31697f = i2;
+            this.f30942f = i2;
         }
 
         @Override // com.google.common.cache.LocalCache.l, com.google.common.cache.LocalCache.s
         public int c() {
-            return this.f31697f;
+            return this.f30942f;
         }
 
         @Override // com.google.common.cache.LocalCache.l, com.google.common.cache.LocalCache.s
         public s<K, V> f(ReferenceQueue<V> referenceQueue, V v, d.g.c.b.h<K, V> hVar) {
-            return new z(referenceQueue, v, hVar, this.f31697f);
+            return new z(referenceQueue, v, hVar, this.f30942f);
         }
     }
 
     public LocalCache(CacheBuilder<? super K, ? super V> cacheBuilder, CacheLoader<? super K, V> cacheLoader) {
-        this.f31643h = Math.min(cacheBuilder.h(), 65536);
+        this.f30888h = Math.min(cacheBuilder.h(), 65536);
         this.k = cacheBuilder.m();
         this.l = cacheBuilder.t();
-        this.f31644i = cacheBuilder.l();
+        this.f30889i = cacheBuilder.l();
         this.j = cacheBuilder.s();
         this.m = cacheBuilder.n();
         this.n = (d.g.c.b.j<K, V>) cacheBuilder.u();
@@ -2296,13 +2296,13 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         int i3 = 1;
         int i4 = 1;
         int i5 = 0;
-        while (i4 < this.f31643h && (!h() || i4 * 20 <= this.m)) {
+        while (i4 < this.f30888h && (!h() || i4 * 20 <= this.m)) {
             i5++;
             i4 <<= 1;
         }
-        this.f31641f = 32 - i5;
-        this.f31640e = i4 - 1;
-        this.f31642g = v(i4);
+        this.f30886f = 32 - i5;
+        this.f30885e = i4 - 1;
+        this.f30887g = v(i4);
         int i6 = min / i4;
         while (i3 < (i6 * i4 < min ? i6 + 1 : i6)) {
             i3 <<= 1;
@@ -2312,17 +2312,17 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             long j3 = i4;
             long j4 = (j2 / j3) + 1;
             long j5 = j2 % j3;
-            while (i2 < this.f31642g.length) {
+            while (i2 < this.f30887g.length) {
                 if (i2 == j5) {
                     j4--;
                 }
-                this.f31642g[i2] = e(i3, j4, cacheBuilder.q().get());
+                this.f30887g[i2] = e(i3, j4, cacheBuilder.q().get());
                 i2++;
             }
             return;
         }
         while (true) {
-            Segment<K, V>[] segmentArr = this.f31642g;
+            Segment<K, V>[] segmentArr = this.f30887g;
             if (i2 >= segmentArr.length) {
                 return;
             }
@@ -2414,7 +2414,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     }
 
     public Segment<K, V> I(int i2) {
-        return this.f31642g[(i2 >>> this.f31641f) & this.f31640e];
+        return this.f30887g[(i2 >>> this.f30886f) & this.f30885e];
     }
 
     public boolean L() {
@@ -2442,14 +2442,14 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     }
 
     public void b() {
-        for (Segment<K, V> segment : this.f31642g) {
+        for (Segment<K, V> segment : this.f30887g) {
             segment.cleanUp();
         }
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public void clear() {
-        for (Segment<K, V> segment : this.f31642g) {
+        for (Segment<K, V> segment : this.f30887g) {
             segment.clear();
         }
     }
@@ -2469,7 +2469,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             return false;
         }
         long a2 = this.t.a();
-        Segment<K, V>[] segmentArr = this.f31642g;
+        Segment<K, V>[] segmentArr = this.f30887g;
         long j2 = -1;
         int i2 = 0;
         while (i2 < 3) {
@@ -2555,7 +2555,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
     @Override // java.util.AbstractMap, java.util.Map
     public boolean isEmpty() {
-        Segment<K, V>[] segmentArr = this.f31642g;
+        Segment<K, V>[] segmentArr = this.f30887g;
         long j2 = 0;
         for (int i2 = 0; i2 < segmentArr.length; i2++) {
             if (segmentArr[i2].count != 0) {
@@ -2710,7 +2710,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
     }
 
     public int q(Object obj) {
-        return H(this.f31644i.hash(obj));
+        return H(this.f30889i.hash(obj));
     }
 
     public void r(Iterable<?> iterable) {
@@ -2821,7 +2821,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
     public long u() {
         long j2 = 0;
-        for (Segment<K, V> segment : this.f31642g) {
+        for (Segment<K, V> segment : this.f30887g) {
             j2 += Math.max(0, segment.count);
         }
         return j2;
@@ -2894,22 +2894,22 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Object f31646e;
+            public final /* synthetic */ Object f30891e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f31647f;
+            public final /* synthetic */ int f30892f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ k f31648g;
+            public final /* synthetic */ k f30893g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ d.g.c.i.a.l f31649h;
+            public final /* synthetic */ d.g.c.i.a.l f30894h;
 
             public a(Object obj, int i2, k kVar, d.g.c.i.a.l lVar) {
-                this.f31646e = obj;
-                this.f31647f = i2;
-                this.f31648g = kVar;
-                this.f31649h = lVar;
+                this.f30891e = obj;
+                this.f30892f = i2;
+                this.f30893g = kVar;
+                this.f30894h = lVar;
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: com.google.common.cache.LocalCache$Segment */
@@ -2917,10 +2917,10 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    Segment.this.getAndRecordStats(this.f31646e, this.f31647f, this.f31648g, this.f31649h);
+                    Segment.this.getAndRecordStats(this.f30891e, this.f30892f, this.f30893g, this.f30894h);
                 } catch (Throwable th) {
                     LocalCache.A.log(Level.WARNING, "Exception thrown during refresh", th);
-                    this.f31648g.l(th);
+                    this.f30893g.l(th);
                 }
             }
         }
@@ -3255,7 +3255,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     K key = first.getKey();
                     if (key == null) {
                         tryDrainReferenceQueues();
-                    } else if (this.map.f31644i.equivalent(obj, key)) {
+                    } else if (this.map.f30889i.equivalent(obj, key)) {
                         return first;
                     }
                 }
@@ -3327,7 +3327,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(length);
                 for (d.g.c.b.h<K, V> hVar2 = hVar; hVar2 != null; hVar2 = hVar2.getNext()) {
                     K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null && this.map.f31644i.equivalent(k, key)) {
+                    if (hVar2.getHash() == i2 && key != null && this.map.f30889i.equivalent(k, key)) {
                         s<K, V> valueReference = hVar2.getValueReference();
                         if (!valueReference.e() && (!z || a2 - hVar2.getWriteTime() >= this.map.q)) {
                             this.modCount++;
@@ -3381,7 +3381,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         break;
                     }
                     K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null && this.map.f31644i.equivalent(k, key)) {
+                    if (hVar2.getHash() == i2 && key != null && this.map.f30889i.equivalent(k, key)) {
                         s<K, V> valueReference = hVar2.getValueReference();
                         if (valueReference.e()) {
                             z = false;
@@ -3474,7 +3474,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 while (true) {
                     if (hVar2 != null) {
                         K key = hVar2.getKey();
-                        if (hVar2.getHash() == i2 && key != null && this.map.f31644i.equivalent(k, key)) {
+                        if (hVar2.getHash() == i2 && key != null && this.map.f30889i.equivalent(k, key)) {
                             s<K, V> valueReference = hVar2.getValueReference();
                             V v2 = valueReference.get();
                             if (v2 != null) {
@@ -3549,7 +3549,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 d.g.c.b.h<K, V> hVar = atomicReferenceArray.get(length);
                 for (d.g.c.b.h<K, V> hVar2 = hVar; hVar2 != null; hVar2 = hVar2.getNext()) {
                     K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null && this.map.f31644i.equivalent(k, key)) {
+                    if (hVar2.getHash() == i2 && key != null && this.map.f30889i.equivalent(k, key)) {
                         if (hVar2.getValueReference() == sVar) {
                             this.modCount++;
                             atomicReferenceArray.set(length, removeValueFromChain(hVar, hVar2, key, i2, sVar.get(), sVar, RemovalCause.COLLECTED));
@@ -3661,7 +3661,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         break;
                     }
                     K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null && this.map.f31644i.equivalent(obj, key)) {
+                    if (hVar2.getHash() == i2 && key != null && this.map.f30889i.equivalent(obj, key)) {
                         break;
                     }
                     hVar2 = hVar2.getNext();
@@ -3723,7 +3723,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         break;
                     }
                     K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null && this.map.f31644i.equivalent(k, key)) {
+                    if (hVar2.getHash() == i2 && key != null && this.map.f30889i.equivalent(k, key)) {
                         if (hVar2.getValueReference() == kVar) {
                             if (kVar.isActive()) {
                                 hVar2.setValueReference(kVar.i());
@@ -3775,7 +3775,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     }
                     K key = hVar2.getKey();
                     if (hVar2.getHash() == i2 && key != null) {
-                        if (this.map.f31644i.equivalent(k, key)) {
+                        if (this.map.f30889i.equivalent(k, key)) {
                             s<K, V> valueReference = hVar2.getValueReference();
                             V v3 = valueReference.get();
                             if (v3 == null) {
@@ -3854,7 +3854,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                 while (true) {
                     if (hVar2 != null) {
                         K key = hVar2.getKey();
-                        if (hVar2.getHash() == i2 && key != null && this.map.f31644i.equivalent(k, key)) {
+                        if (hVar2.getHash() == i2 && key != null && this.map.f30889i.equivalent(k, key)) {
                             s<K, V> valueReference = hVar2.getValueReference();
                             V v2 = valueReference.get();
                             if (kVar != valueReference && (v2 != null || valueReference == LocalCache.B)) {
@@ -3997,7 +3997,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                         break;
                     }
                     K key = hVar2.getKey();
-                    if (hVar2.getHash() == i2 && key != null && this.map.f31644i.equivalent(obj, key)) {
+                    if (hVar2.getHash() == i2 && key != null && this.map.f30889i.equivalent(obj, key)) {
                         break;
                     }
                     hVar2 = hVar2.getNext();
@@ -4030,7 +4030,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
                     }
                     K key = hVar2.getKey();
                     if (hVar2.getHash() == i2 && key != null) {
-                        if (this.map.f31644i.equivalent(k, key)) {
+                        if (this.map.f30889i.equivalent(k, key)) {
                             s<K, V> valueReference = hVar2.getValueReference();
                             V v2 = valueReference.get();
                             if (v2 == null) {

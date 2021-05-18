@@ -11,13 +11,13 @@ import java.util.concurrent.TimeUnit;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExecutorService f31411a = new ThreadPoolExecutor(0, 30, 60, TimeUnit.SECONDS, new SynchronousQueue());
+    public static ExecutorService f30656a = new ThreadPoolExecutor(0, 30, 60, TimeUnit.SECONDS, new SynchronousQueue());
 
     public static void a(a aVar) {
         try {
-            f31411a.execute(aVar);
+            f30656a.execute(aVar);
         } catch (Exception e2) {
-            aVar.f31412a.uncaughtException(Thread.currentThread(), e2);
+            aVar.f30657a.uncaughtException(Thread.currentThread(), e2);
         }
     }
 
@@ -25,10 +25,10 @@ public class o {
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public Thread.UncaughtExceptionHandler f31412a;
+        public Thread.UncaughtExceptionHandler f30657a;
 
         public a() {
-            this.f31412a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.d.o.a.1
+            this.f30657a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.d.o.a.1
                 @Override // java.lang.Thread.UncaughtExceptionHandler
                 public void uncaughtException(Thread thread, Throwable th) {
                     th.printStackTrace();
@@ -40,16 +40,16 @@ public class o {
 
         @Override // java.lang.Runnable
         public void run() {
-            Thread.currentThread().setUncaughtExceptionHandler(this.f31412a);
+            Thread.currentThread().setUncaughtExceptionHandler(this.f30657a);
             a();
             Thread.currentThread().setUncaughtExceptionHandler(null);
         }
 
         public a(final Context context, final com.cmic.sso.sdk.a aVar) {
-            this.f31412a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.d.o.a.2
+            this.f30657a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.d.o.a.2
                 @Override // java.lang.Thread.UncaughtExceptionHandler
                 public void uncaughtException(Thread thread, Throwable th) {
-                    com.cmic.sso.sdk.c.a.f31379a.add(th);
+                    com.cmic.sso.sdk.c.a.f30624a.add(th);
                     AuthnHelper.getInstance(context).callBackResult("200025", "发生未知错误", aVar, null);
                 }
             };

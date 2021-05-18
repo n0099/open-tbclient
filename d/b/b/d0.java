@@ -22,24 +22,24 @@ public class d0 extends z {
     @Override // d.b.b.z
     @NonNull
     public z a(@NonNull Cursor cursor) {
-        this.f64413e = cursor.getLong(0);
-        this.f64414f = cursor.getLong(1);
-        this.f64415g = cursor.getString(2);
-        this.f64416h = cursor.getString(3);
+        this.f65099e = cursor.getLong(0);
+        this.f65100f = cursor.getLong(1);
+        this.f65101g = cursor.getString(2);
+        this.f65102h = cursor.getString(3);
         this.o = cursor.getString(4);
         this.m = cursor.getString(5);
         this.n = cursor.getInt(6) == 1;
-        this.f64417i = cursor.getString(7);
+        this.f65103i = cursor.getString(7);
         this.j = cursor.getString(8);
         return this;
     }
 
     @Override // d.b.b.z
     public void d(@NonNull ContentValues contentValues) {
-        contentValues.put("local_time_ms", Long.valueOf(this.f64413e));
-        contentValues.put("tea_event_index", Long.valueOf(this.f64414f));
-        contentValues.put(ETAG.KEY_STATISTICS_SEESIONID, this.f64415g);
-        contentValues.put("user_unique_id", this.f64416h);
+        contentValues.put("local_time_ms", Long.valueOf(this.f65099e));
+        contentValues.put("tea_event_index", Long.valueOf(this.f65100f));
+        contentValues.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65101g);
+        contentValues.put("user_unique_id", this.f65102h);
         contentValues.put("event", this.o);
         if (this.n && this.m == null) {
             try {
@@ -50,23 +50,23 @@ public class d0 extends z {
         }
         contentValues.put("params", this.m);
         contentValues.put("is_bav", Integer.valueOf(this.n ? 1 : 0));
-        contentValues.put("ab_version", this.f64417i);
+        contentValues.put("ab_version", this.f65103i);
         contentValues.put("ab_sdk_version", this.j);
     }
 
     @Override // d.b.b.z
     public void e(@NonNull JSONObject jSONObject) {
-        jSONObject.put("local_time_ms", this.f64413e);
-        jSONObject.put("tea_event_index", this.f64414f);
-        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f64415g);
-        jSONObject.put("user_unique_id", this.f64416h);
+        jSONObject.put("local_time_ms", this.f65099e);
+        jSONObject.put("tea_event_index", this.f65100f);
+        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65101g);
+        jSONObject.put("user_unique_id", this.f65102h);
         jSONObject.put("event", this.o);
         if (this.n && this.m == null) {
             p();
         }
         jSONObject.put("params", this.m);
         jSONObject.put("is_bav", this.n);
-        jSONObject.put("ab_version", this.f64417i);
+        jSONObject.put("ab_version", this.f65103i);
         jSONObject.put("ab_sdk_version", this.j);
     }
 
@@ -77,14 +77,14 @@ public class d0 extends z {
 
     @Override // d.b.b.z
     public z h(@NonNull JSONObject jSONObject) {
-        this.f64413e = jSONObject.optLong("local_time_ms", 0L);
-        this.f64414f = jSONObject.optLong("tea_event_index", 0L);
-        this.f64415g = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID, null);
-        this.f64416h = jSONObject.optString("user_unique_id", null);
+        this.f65099e = jSONObject.optLong("local_time_ms", 0L);
+        this.f65100f = jSONObject.optLong("tea_event_index", 0L);
+        this.f65101g = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID, null);
+        this.f65102h = jSONObject.optString("user_unique_id", null);
         this.o = jSONObject.optString("event", null);
         this.m = jSONObject.optString("params", null);
         this.n = jSONObject.optBoolean("is_bav", false);
-        this.f64417i = jSONObject.optString("ab_version", null);
+        this.f65103i = jSONObject.optString("ab_version", null);
         this.j = jSONObject.optString("ab_sdk_version", null);
         return this;
     }
@@ -92,11 +92,11 @@ public class d0 extends z {
     @Override // d.b.b.z
     public JSONObject i() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("local_time_ms", this.f64413e);
-        jSONObject.put("tea_event_index", this.f64414f);
-        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f64415g);
-        if (!TextUtils.isEmpty(this.f64416h)) {
-            jSONObject.put("user_unique_id", this.f64416h);
+        jSONObject.put("local_time_ms", this.f65099e);
+        jSONObject.put("tea_event_index", this.f65100f);
+        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65101g);
+        if (!TextUtils.isEmpty(this.f65102h)) {
+            jSONObject.put("user_unique_id", this.f65102h);
         }
         jSONObject.put("event", this.o);
         if (this.n) {
@@ -106,8 +106,8 @@ public class d0 extends z {
             jSONObject.put("params", new JSONObject(this.m));
         }
         jSONObject.put("datetime", this.k);
-        if (!TextUtils.isEmpty(this.f64417i)) {
-            jSONObject.put("ab_version", this.f64417i);
+        if (!TextUtils.isEmpty(this.f65103i)) {
+            jSONObject.put("ab_version", this.f65103i);
         }
         if (!TextUtils.isEmpty(this.j)) {
             jSONObject.put("ab_sdk_version", this.j);

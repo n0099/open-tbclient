@@ -22,7 +22,7 @@ public class SimpleBlurLoaderProc extends SimpleLoaderProc {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public a decodeToResource(byte[] bArr, Object... objArr) {
-        Bitmap p = super.m16decodeToResource(bArr, objArr).p();
+        Bitmap p = super.m15decodeToResource(bArr, objArr).p();
         if (p == null) {
             return null;
         }

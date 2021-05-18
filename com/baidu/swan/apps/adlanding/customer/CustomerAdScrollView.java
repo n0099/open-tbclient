@@ -3,27 +3,27 @@ package com.baidu.swan.apps.adlanding.customer;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
-import d.a.h0.a.q.f.a;
+import d.a.i0.a.q.e.a;
 /* loaded from: classes2.dex */
 public class CustomerAdScrollView extends ScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11419e;
+    public boolean f10489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f11420f;
+    public boolean f10490f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f11421g;
+    public float f10491g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f11422h;
+    public a f10492h;
 
     public CustomerAdScrollView(Context context) {
         super(context);
-        this.f11419e = false;
-        this.f11420f = false;
-        this.f11422h = null;
+        this.f10489e = false;
+        this.f10490f = false;
+        this.f10492h = null;
         setVerticalScrollBarEnabled(false);
     }
 
@@ -32,13 +32,13 @@ public class CustomerAdScrollView extends ScrollView {
         float y = motionEvent.getY();
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f11421g = y;
+            this.f10491g = y;
         } else if (action == 2) {
-            if (y - this.f11421g < 0.0f) {
-                if (!this.f11419e || this.f11420f) {
+            if (y - this.f10491g < 0.0f) {
+                if (!this.f10489e || this.f10490f) {
                     return false;
                 }
-            } else if (!this.f11420f) {
+            } else if (!this.f10490f) {
                 return false;
             }
         }
@@ -48,21 +48,21 @@ public class CustomerAdScrollView extends ScrollView {
     @Override // android.view.View
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
         super.onScrollChanged(i2, i3, i4, i5);
-        a aVar = this.f11422h;
+        a aVar = this.f10492h;
         if (aVar != null) {
             aVar.onScrollChanged(i2, i3, i4, i5);
         }
     }
 
     public void setIsFooterLayoutShow(boolean z) {
-        this.f11420f = z;
+        this.f10490f = z;
     }
 
     public void setIsWebViewOnBottom(boolean z) {
-        this.f11419e = z;
+        this.f10489e = z;
     }
 
     public void setScrollViewListener(a aVar) {
-        this.f11422h = aVar;
+        this.f10492h = aVar;
     }
 }

@@ -3,18 +3,18 @@ package com.vivo.push.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class j implements BaseNotifyLayoutAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public Resources f37534a;
+    public Resources f36779a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37535b;
+    public String f36780b;
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getNotificationLayout() {
-        return this.f37534a.getIdentifier("push_notify", "layout", this.f37535b);
+        return this.f36779a.getIdentifier("push_notify", "layout", this.f36780b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
@@ -22,17 +22,17 @@ public final class j implements BaseNotifyLayoutAdapter {
         Resources resources;
         String str;
         String str2;
-        if (k.f37542g) {
-            resources = this.f37534a;
-            str = this.f37535b;
+        if (k.f36787g) {
+            resources = this.f36779a;
+            str = this.f36780b;
             str2 = "notify_icon_rom30";
-        } else if (k.f37541f) {
-            resources = this.f37534a;
-            str = this.f37535b;
+        } else if (k.f36786f) {
+            resources = this.f36779a;
+            str = this.f36780b;
             str2 = "notify_icon_rom20";
         } else {
-            resources = this.f37534a;
-            str = this.f37535b;
+            resources = this.f36779a;
+            str = this.f36780b;
             str2 = "notify_icon";
         }
         return resources.getIdentifier(str2, "id", str);
@@ -48,13 +48,13 @@ public final class j implements BaseNotifyLayoutAdapter {
             i2 = 0;
         }
         if (i2 > 0) {
-            return this.f37534a.getColor(i2);
+            return this.f36779a.getColor(i2);
         }
-        if (k.f37542g) {
+        if (k.f36787g) {
             return -1;
         }
-        if (k.f37541f) {
-            if (k.f37542g) {
+        if (k.f36786f) {
+            if (k.f36787g) {
                 return Color.parseColor("#ff999999");
             }
             return -1;
@@ -64,7 +64,7 @@ public final class j implements BaseNotifyLayoutAdapter {
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final void init(Context context) {
-        this.f37535b = context.getPackageName();
-        this.f37534a = context.getResources();
+        this.f36780b = context.getPackageName();
+        this.f36779a = context.getResources();
     }
 }

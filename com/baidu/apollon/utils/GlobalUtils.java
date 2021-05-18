@@ -18,10 +18,10 @@ import java.lang.ref.WeakReference;
 public final class GlobalUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static LayoutInflater f4039a = null;
+    public static LayoutInflater f4040a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f4040b = null;
+    public static WeakReference<Toast> f4041b = null;
     public static String showStr = "";
 
     public static String getProperties(String str, String str2) {
@@ -82,14 +82,14 @@ public final class GlobalUtils {
         if (TextUtils.isEmpty(charSequence)) {
             return;
         }
-        WeakReference<Toast> weakReference = f4040b;
+        WeakReference<Toast> weakReference = f4041b;
         if (weakReference != null && weakReference.get() != null) {
-            f4040b.get().cancel();
+            f4041b.get().cancel();
         }
-        if (f4039a == null) {
-            f4039a = LayoutInflater.from(applicationContext);
+        if (f4040a == null) {
+            f4040a = LayoutInflater.from(applicationContext);
         }
-        View inflate = f4039a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
+        View inflate = f4040a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
         if (inflate == null || (textView = (TextView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_message"))) == null) {
             return;
         }
@@ -103,7 +103,7 @@ public final class GlobalUtils {
         toast.setDuration(i3);
         toast.setGravity(17, 0, 0);
         toast.setView(inflate);
-        f4040b = new WeakReference<>(toast);
+        f4041b = new WeakReference<>(toast);
         toast.show();
     }
 }

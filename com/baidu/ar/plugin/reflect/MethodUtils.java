@@ -1,7 +1,6 @@
 package com.baidu.ar.plugin.reflect;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
@@ -141,12 +140,12 @@ public class MethodUtils {
         }
     }
 
-    public static <T> T invokeConstructor(Class<T> cls, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    public static <T> T invokeConstructor(Class<T> cls, Object... objArr) {
         Object[] nullToEmpty = Utils.nullToEmpty(objArr);
         return (T) invokeConstructor(cls, nullToEmpty, Utils.toClass(nullToEmpty));
     }
 
-    public static Object invokeMethod(Object obj, String str, Object[] objArr, Class<?>[] clsArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    public static Object invokeMethod(Object obj, String str, Object[] objArr, Class<?>[] clsArr) {
         Class<?>[] nullToEmpty = Utils.nullToEmpty(clsArr);
         Object[] nullToEmpty2 = Utils.nullToEmpty(objArr);
         Method matchingAccessibleMethod = getMatchingAccessibleMethod(obj.getClass(), str, nullToEmpty);
@@ -156,7 +155,7 @@ public class MethodUtils {
         throw new NoSuchMethodException("No such accessible method: " + str + "() on object: " + obj.getClass().getName());
     }
 
-    public static Object invokeStaticMethod(Class cls, String str, Object[] objArr, Class<?>[] clsArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    public static Object invokeStaticMethod(Class cls, String str, Object[] objArr, Class<?>[] clsArr) {
         Class<?>[] nullToEmpty = Utils.nullToEmpty(clsArr);
         Object[] nullToEmpty2 = Utils.nullToEmpty(objArr);
         Method matchingAccessibleMethod = getMatchingAccessibleMethod(cls, str, nullToEmpty);
@@ -176,7 +175,7 @@ public class MethodUtils {
         return true;
     }
 
-    public static <T> T invokeConstructor(Class<T> cls, Object[] objArr, Class<?>[] clsArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    public static <T> T invokeConstructor(Class<T> cls, Object[] objArr, Class<?>[] clsArr) {
         Object[] nullToEmpty = Utils.nullToEmpty(objArr);
         Constructor matchingAccessibleConstructor = getMatchingAccessibleConstructor(cls, Utils.nullToEmpty(clsArr));
         if (matchingAccessibleConstructor != null) {
@@ -185,17 +184,17 @@ public class MethodUtils {
         throw new NoSuchMethodException("No such accessible constructor on object: " + cls.getName());
     }
 
-    public static Object invokeMethod(Object obj, String str, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    public static Object invokeMethod(Object obj, String str, Object... objArr) {
         Object[] nullToEmpty = Utils.nullToEmpty(objArr);
         return invokeMethod(obj, str, nullToEmpty, Utils.toClass(nullToEmpty));
     }
 
-    public static Object invokeStaticMethod(Class cls, String str, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    public static Object invokeStaticMethod(Class cls, String str, Object... objArr) {
         Object[] nullToEmpty = Utils.nullToEmpty(objArr);
         return invokeStaticMethod(cls, str, nullToEmpty, Utils.toClass(nullToEmpty));
     }
 
-    public static Method getAccessibleMethod(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException {
+    public static Method getAccessibleMethod(Class<?> cls, String str, Class<?>... clsArr) {
         Method method;
         String key = getKey(cls, str, clsArr);
         synchronized (sMethodCache) {

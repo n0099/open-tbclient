@@ -9,36 +9,36 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Method f68081a;
+    public static Method f68761a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f68082b;
+    public static Method f68762b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Field f68083c;
+    public static Field f68763c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f68084d;
+    public static int f68764d;
 
     static {
         try {
-            f68081a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
+            f68761a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
         } catch (NoSuchMethodException unused) {
         }
         try {
-            f68082b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
+            f68762b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
         } catch (NoSuchMethodException unused2) {
         }
         try {
-            f68083c = WindowManager.LayoutParams.class.getField("statusBarColor");
+            f68763c = WindowManager.LayoutParams.class.getField("statusBarColor");
         } catch (NoSuchFieldException unused3) {
         }
         try {
-            f68084d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
+            f68764d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
         } catch (IllegalAccessException | NoSuchFieldException unused4) {
         }
     }
@@ -78,11 +78,11 @@ public class c {
 
     public static void c(Window window, int i2) {
         WindowManager.LayoutParams attributes = window.getAttributes();
-        Field field = f68083c;
+        Field field = f68763c;
         if (field != null) {
             try {
                 if (field.getInt(attributes) != i2) {
-                    f68083c.set(attributes, Integer.valueOf(i2));
+                    f68763c.set(attributes, Integer.valueOf(i2));
                     window.setAttributes(attributes);
                 }
             } catch (IllegalAccessException e2) {
@@ -92,7 +92,7 @@ public class c {
     }
 
     public static void d(Activity activity, int i2) {
-        Method method = f68081a;
+        Method method = f68761a;
         if (method != null) {
             try {
                 method.invoke(activity, Integer.valueOf(i2));
@@ -106,7 +106,7 @@ public class c {
             }
         }
         boolean b2 = b(i2, 50);
-        if (f68083c != null) {
+        if (f68763c != null) {
             f(activity, b2, b2);
             h(activity.getWindow(), i2);
             return;
@@ -119,7 +119,7 @@ public class c {
     }
 
     public static void f(Activity activity, boolean z, boolean z2) {
-        Method method = f68082b;
+        Method method = f68762b;
         if (method == null) {
             if (z2) {
                 i(activity.getWindow(), z);
@@ -140,9 +140,9 @@ public class c {
         int i2;
         int systemUiVisibility = view.getSystemUiVisibility();
         if (z) {
-            i2 = f68084d | systemUiVisibility;
+            i2 = f68764d | systemUiVisibility;
         } else {
-            i2 = (~f68084d) & systemUiVisibility;
+            i2 = (~f68764d) & systemUiVisibility;
         }
         if (i2 != systemUiVisibility) {
             view.setSystemUiVisibility(i2);

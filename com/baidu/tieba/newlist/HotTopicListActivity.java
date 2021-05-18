@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import d.a.c.j.e.n;
-import d.a.j0.a2.b;
+import d.a.k0.a2.b;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements b {
     public String callFrom = "";
     public List<n> curDataList;
@@ -27,12 +27,12 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
     public String getCurrentPageKey() {
         return "a078";
     }
 
-    @Override // d.a.j0.a2.b
+    @Override // d.a.k0.a2.b
     public void loadData() {
         boolean LoadData = this.mModel.LoadData();
         if (!ListUtils.isEmpty(this.curDataList)) {
@@ -50,7 +50,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // d.a.j0.a2.b
+    @Override // d.a.k0.a2.b
     public void netCallback(int i2, List<n> list) {
         this.mView.r();
         this.mView.B();

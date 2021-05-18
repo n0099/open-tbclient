@@ -6,30 +6,30 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.bytedance.sdk.openadsdk.ICommonPermissionListener;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, RemoteCallbackList<ICommonPermissionListener>> f30413a = new HashMap<>();
+    public static HashMap<String, RemoteCallbackList<ICommonPermissionListener>> f29658a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f30414b;
+    public static volatile d f29659b;
 
     public static d a() {
-        if (f30414b == null) {
+        if (f29659b == null) {
             synchronized (d.class) {
-                if (f30414b == null) {
-                    f30414b = new d();
+                if (f29659b == null) {
+                    f29659b = new d();
                 }
             }
         }
-        return f30414b;
+        return f29659b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
     public void broadcastPermissionListener(String str, String str2) throws RemoteException {
         u.b("MultiProcess", "00000 CommonPermissionListenerManagerImpl broadcastDialogListener: 00000" + String.valueOf(str) + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
-        RemoteCallbackList<ICommonPermissionListener> remove = f30413a.remove(str);
+        RemoteCallbackList<ICommonPermissionListener> remove = f29658a.remove(str);
         if (remove == null) {
             return;
         }
@@ -57,6 +57,6 @@ public class d extends a {
         u.b("MultiProcess", "CommonPermissionListenerManagerImpl registerPermissionListener");
         RemoteCallbackList<ICommonPermissionListener> remoteCallbackList = new RemoteCallbackList<>();
         remoteCallbackList.register(iCommonPermissionListener);
-        f30413a.put(str, remoteCallbackList);
+        f29658a.put(str, remoteCallbackList);
     }
 }

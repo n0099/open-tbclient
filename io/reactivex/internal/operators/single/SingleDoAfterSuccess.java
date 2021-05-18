@@ -20,7 +20,7 @@ public final class SingleDoAfterSuccess<T> extends Single<T> {
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68295d;
+        public Disposable f68975d;
         public final Consumer<? super T> onAfterSuccess;
 
         public DoAfterObserver(SingleObserver<? super T> singleObserver, Consumer<? super T> consumer) {
@@ -30,12 +30,12 @@ public final class SingleDoAfterSuccess<T> extends Single<T> {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68295d.dispose();
+            this.f68975d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68295d.isDisposed();
+            return this.f68975d.isDisposed();
         }
 
         @Override // io.reactivex.SingleObserver
@@ -45,8 +45,8 @@ public final class SingleDoAfterSuccess<T> extends Single<T> {
 
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68295d, disposable)) {
-                this.f68295d = disposable;
+            if (DisposableHelper.validate(this.f68975d, disposable)) {
+                this.f68975d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

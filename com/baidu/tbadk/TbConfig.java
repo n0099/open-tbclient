@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.i0.a0.c;
+import d.a.j0.a0.c;
 import java.util.HashSet;
 /* loaded from: classes3.dex */
 public class TbConfig {
@@ -521,6 +521,7 @@ public class TbConfig {
     public static final String URL_GET_TOPIC_RELATE_THREAD = "c/f/recommend/getTopicRelateThread";
     public static final String URL_GET_TOPIC_THREAD = "c/f/recommend/newtopicthread";
     public static final String URL_GET_USER_BLOCK_INFO = "c/u/user/getUserBlackInfo";
+    public static final String URL_GET_USER_BY_TIEBA_UID = "c/u/user/getUserByTiebaUid";
     public static final String URL_GET_VIDEO_INFO_BY_VLOGID = "/c/f/video/getVideoInfoByVLogId";
     public static final String URL_GOD_AUTH = "https://tieba.baidu.com/mo/q/godRegister";
     public static final String URL_GOD_EXAMINE = "https://tieba.baidu.com/mo/q/godExamine";

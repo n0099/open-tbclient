@@ -13,8 +13,28 @@ public class a {
     public static String a() {
         byte[] hardwareAddress;
         try {
-            InetAddress e2 = e();
-            if (e2 == null || (hardwareAddress = NetworkInterface.getByInetAddress(e2).getHardwareAddress()) == null) {
+            NetworkInterface byName = NetworkInterface.getByName(NetworkInfoUtils.NETWORK_NAME);
+            if (byName != null && (hardwareAddress = byName.getHardwareAddress()) != null) {
+                StringBuilder sb = new StringBuilder();
+                int length = hardwareAddress.length;
+                for (int i2 = 0; i2 < length; i2++) {
+                    sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i2])));
+                }
+                if (sb.length() > 0) {
+                    sb.deleteCharAt(sb.length() - 1);
+                }
+                return sb.toString();
+            }
+        } catch (Exception unused) {
+        }
+        return "";
+    }
+
+    public static String b() {
+        byte[] hardwareAddress;
+        try {
+            InetAddress f2 = f();
+            if (f2 == null || (hardwareAddress = NetworkInterface.getByInetAddress(f2).getHardwareAddress()) == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
@@ -34,28 +54,28 @@ public class a {
         }
     }
 
-    public static String b() {
+    public static String c() {
         return ((WifiManager) g.a().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
     }
 
-    public static String c() {
-        String f2;
+    public static String d() {
+        String a2;
         if (Build.VERSION.SDK_INT < 23) {
-            f2 = b();
+            a2 = c();
         } else {
-            f2 = f();
+            a2 = a();
         }
-        if (!d(f2)) {
-            f2 = a();
+        if (!e(a2)) {
+            a2 = b();
         }
-        return !TextUtils.isEmpty(f2) ? f2.toUpperCase() : f2;
+        return !TextUtils.isEmpty(a2) ? a2.toUpperCase() : a2;
     }
 
-    public static boolean d(String str) {
+    public static boolean e(String str) {
         return (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true;
     }
 
-    public static InetAddress e() {
+    public static InetAddress f() {
         InetAddress inetAddress = null;
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
@@ -92,25 +112,5 @@ public class a {
             return inetAddress2;
         } catch (Exception unused3) {
         }
-    }
-
-    public static String f() {
-        byte[] hardwareAddress;
-        try {
-            NetworkInterface byName = NetworkInterface.getByName(NetworkInfoUtils.NETWORK_NAME);
-            if (byName != null && (hardwareAddress = byName.getHardwareAddress()) != null) {
-                StringBuilder sb = new StringBuilder();
-                int length = hardwareAddress.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i2])));
-                }
-                if (sb.length() > 0) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                return sb.toString();
-            }
-        } catch (Exception unused) {
-        }
-        return "";
     }
 }

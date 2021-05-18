@@ -7,15 +7,15 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.vivo.vms.IPCCallback;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface IPCInvoke extends IInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Stub extends Binder implements IPCInvoke {
         public static final String DESCRIPTOR = "com.vivo.vms.IPCInvoke";
         public static final int TRANSACTION_asyncCall = 1;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static class Proxy implements IPCInvoke {
             public IBinder mRemote;
 

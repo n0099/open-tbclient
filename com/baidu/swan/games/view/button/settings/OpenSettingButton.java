@@ -4,9 +4,10 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.games.view.button.base.ApiButton;
-import d.a.h0.a.e0.l.f;
-import d.a.h0.a.h;
-import d.a.h0.a.q1.b.f.d;
+import d.a.i0.a.g1.f;
+import d.a.i0.a.h;
+import d.a.i0.a.h0.g.g;
+import d.a.i0.a.z1.b.f.e;
 /* loaded from: classes3.dex */
 public class OpenSettingButton extends ApiButton {
     public OpenSettingButton(Context context) {
@@ -19,13 +20,13 @@ public class OpenSettingButton extends ApiButton {
     }
 
     public void u() {
-        f W = d.a.h0.a.z0.f.V().W();
+        g W = f.V().W();
         if (W == null) {
-            d.e(AppRuntime.getAppContext(), h.aiapps_open_fragment_failed_toast).C();
+            e.f(AppRuntime.getAppContext(), h.aiapps_open_fragment_failed_toast).F();
             return;
         }
-        f.b i2 = W.i("navigateTo");
-        i2.n(f.f42031g, f.f42033i);
+        g.b i2 = W.i("navigateTo");
+        i2.n(g.f41902g, g.f41904i);
         i2.k("authority", null).a();
     }
 }

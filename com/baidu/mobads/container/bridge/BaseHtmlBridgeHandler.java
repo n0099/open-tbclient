@@ -489,11 +489,11 @@ public abstract class BaseHtmlBridgeHandler {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:100:0x0292 A[Catch: Exception -> 0x02f8, TryCatch #2 {Exception -> 0x02f8, blocks: (B:98:0x027c, B:100:0x0292, B:102:0x029c, B:104:0x02b3, B:106:0x02b9, B:108:0x02db, B:109:0x02f2), top: B:121:0x027c }] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x0152 A[Catch: Exception -> 0x025e, TRY_LEAVE, TryCatch #8 {Exception -> 0x025e, blocks: (B:7:0x0040, B:33:0x00ec, B:61:0x0152, B:69:0x0175, B:70:0x017a, B:72:0x0186, B:73:0x0189, B:75:0x01c0, B:76:0x01c3, B:79:0x01ef, B:81:0x0201, B:83:0x020b, B:86:0x0213, B:88:0x0221, B:59:0x0149, B:64:0x0166, B:66:0x016c), top: B:131:0x0040, inners: #5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0186 A[Catch: Exception -> 0x025e, TryCatch #8 {Exception -> 0x025e, blocks: (B:7:0x0040, B:33:0x00ec, B:61:0x0152, B:69:0x0175, B:70:0x017a, B:72:0x0186, B:73:0x0189, B:75:0x01c0, B:76:0x01c3, B:79:0x01ef, B:81:0x0201, B:83:0x020b, B:86:0x0213, B:88:0x0221, B:59:0x0149, B:64:0x0166, B:66:0x016c), top: B:131:0x0040, inners: #5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x01c0 A[Catch: Exception -> 0x025e, TryCatch #8 {Exception -> 0x025e, blocks: (B:7:0x0040, B:33:0x00ec, B:61:0x0152, B:69:0x0175, B:70:0x017a, B:72:0x0186, B:73:0x0189, B:75:0x01c0, B:76:0x01c3, B:79:0x01ef, B:81:0x0201, B:83:0x020b, B:86:0x0213, B:88:0x0221, B:59:0x0149, B:64:0x0166, B:66:0x016c), top: B:131:0x0040, inners: #5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x01ed A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:100:0x0293 A[Catch: Exception -> 0x02f9, TryCatch #9 {Exception -> 0x02f9, blocks: (B:98:0x027d, B:100:0x0293, B:102:0x029d, B:104:0x02b4, B:106:0x02ba, B:108:0x02dc, B:109:0x02f3), top: B:133:0x027d }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0153 A[Catch: Exception -> 0x025f, TRY_LEAVE, TryCatch #7 {Exception -> 0x025f, blocks: (B:7:0x0040, B:33:0x00ed, B:61:0x0153, B:69:0x0176, B:70:0x017b, B:72:0x0187, B:73:0x018a, B:75:0x01c1, B:76:0x01c4, B:79:0x01f0, B:81:0x0202, B:83:0x020c, B:86:0x0214, B:88:0x0222, B:59:0x014a, B:64:0x0167, B:66:0x016d), top: B:128:0x0040, inners: #5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0187 A[Catch: Exception -> 0x025f, TryCatch #7 {Exception -> 0x025f, blocks: (B:7:0x0040, B:33:0x00ed, B:61:0x0153, B:69:0x0176, B:70:0x017b, B:72:0x0187, B:73:0x018a, B:75:0x01c1, B:76:0x01c4, B:79:0x01f0, B:81:0x0202, B:83:0x020c, B:86:0x0214, B:88:0x0222, B:59:0x014a, B:64:0x0167, B:66:0x016d), top: B:128:0x0040, inners: #5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x01c1 A[Catch: Exception -> 0x025f, TryCatch #7 {Exception -> 0x025f, blocks: (B:7:0x0040, B:33:0x00ed, B:61:0x0153, B:69:0x0176, B:70:0x017b, B:72:0x0187, B:73:0x018a, B:75:0x01c1, B:76:0x01c4, B:79:0x01f0, B:81:0x0202, B:83:0x020c, B:86:0x0214, B:88:0x0222, B:59:0x014a, B:64:0x0167, B:66:0x016d), top: B:128:0x0040, inners: #5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x01ee A[ADDED_TO_REGION] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -501,7 +501,6 @@ public abstract class BaseHtmlBridgeHandler {
         String str2;
         String str3;
         JSONObject jSONObject;
-        int optInt;
         boolean z;
         JSONObject jSONObject2;
         String str4;
@@ -513,7 +512,7 @@ public abstract class BaseHtmlBridgeHandler {
         String str7;
         String str8;
         JSONObject jSONObject3;
-        int optInt2;
+        int optInt;
         JSONObject jSONObject4;
         final IXAdInstanceInfo cloneIXAdInstanceInfo = getCloneIXAdInstanceInfo();
         try {
@@ -522,106 +521,165 @@ public abstract class BaseHtmlBridgeHandler {
             String optString2 = jSONObject5.optString("pk");
             String optString3 = jSONObject5.optString(XAdRemoteAPKDownloadExtraInfo.ADID);
             String optString4 = jSONObject5.optString("originUrl");
-            int optInt3 = jSONObject5.optInt(XAdRemoteAPKDownloadExtraInfo.DL_TUNNEL);
+            int optInt2 = jSONObject5.optInt(XAdRemoteAPKDownloadExtraInfo.DL_TUNNEL);
             str3 = "pk";
             try {
-                optInt = jSONObject5.optInt("act");
+                int optInt3 = jSONObject5.optInt("act");
                 str2 = "act";
-            } catch (Exception e2) {
-                e = e2;
-                str2 = "act";
-            }
-            try {
-                boolean optBoolean = jSONObject5.optBoolean("inapp", true);
-                boolean optBoolean2 = jSONObject5.optBoolean(IntentConfig.CLOSE);
-                boolean optBoolean3 = jSONObject5.optBoolean(XAdRemoteAPKDownloadExtraInfo.AUTO_OPEN);
-                boolean optBoolean4 = jSONObject5.optBoolean("popNotif");
-                boolean optBoolean5 = jSONObject5.optBoolean("isWifiTargeted");
-                boolean optBoolean6 = jSONObject5.optBoolean("isTooLarge");
-                boolean optBoolean7 = jSONObject5.optBoolean("canCancel");
-                boolean optBoolean8 = jSONObject5.optBoolean("canDelete");
-                boolean optBoolean9 = jSONObject5.optBoolean("secondConfirmed");
-                String str9 = null;
                 try {
-                    jSONObject2 = jSONObject5.optJSONObject("exp2");
+                    boolean optBoolean = jSONObject5.optBoolean("inapp", true);
+                    boolean optBoolean2 = jSONObject5.optBoolean(IntentConfig.CLOSE);
+                    boolean optBoolean3 = jSONObject5.optBoolean(XAdRemoteAPKDownloadExtraInfo.AUTO_OPEN);
+                    boolean optBoolean4 = jSONObject5.optBoolean("popNotif");
+                    boolean optBoolean5 = jSONObject5.optBoolean("isWifiTargeted");
+                    boolean optBoolean6 = jSONObject5.optBoolean("isTooLarge");
+                    boolean optBoolean7 = jSONObject5.optBoolean("canCancel");
+                    boolean optBoolean8 = jSONObject5.optBoolean("canDelete");
+                    boolean optBoolean9 = jSONObject5.optBoolean("secondConfirmed");
+                    String str9 = null;
                     try {
-                        JSONObject optJSONObject = jSONObject5.optJSONObject("control_flags");
-                        if (cloneIXAdInstanceInfo.getOriginJsonObject() == null || optJSONObject == null) {
-                            z = optBoolean;
-                            jSONObject4 = jSONObject2;
-                        } else {
-                            jSONObject4 = jSONObject2;
-                            try {
+                        jSONObject2 = jSONObject5.optJSONObject("exp2");
+                        try {
+                            JSONObject optJSONObject = jSONObject5.optJSONObject("control_flags");
+                            if (cloneIXAdInstanceInfo.getOriginJsonObject() == null || optJSONObject == null) {
                                 z = optBoolean;
+                                jSONObject4 = jSONObject2;
+                            } else {
+                                jSONObject4 = jSONObject2;
                                 try {
-                                    cloneIXAdInstanceInfo.getOriginJsonObject().put("control_flags", optJSONObject.toString());
-                                } catch (Exception unused) {
+                                    z = optBoolean;
+                                    try {
+                                        cloneIXAdInstanceInfo.getOriginJsonObject().put("control_flags", optJSONObject.toString());
+                                    } catch (Exception unused) {
+                                    }
+                                } catch (Exception unused2) {
+                                    z = optBoolean;
                                 }
-                            } catch (Exception unused2) {
-                                z = optBoolean;
                             }
+                            jSONObject2 = jSONObject4;
+                        } catch (Exception unused3) {
+                            z = optBoolean;
                         }
-                        jSONObject2 = jSONObject4;
-                    } catch (Exception unused3) {
+                    } catch (Exception unused4) {
                         z = optBoolean;
+                        jSONObject2 = null;
                     }
-                } catch (Exception unused4) {
-                    z = optBoolean;
-                    jSONObject2 = null;
-                }
-                try {
-                    JSONObject optJSONObject2 = jSONObject5.optJSONObject("allParamsJson");
-                    if (optJSONObject2 != null) {
-                        str9 = optJSONObject2.optString("app_store_link");
-                        String optString5 = optJSONObject2.optString("da_area");
-                        if (cloneIXAdInstanceInfo.getOriginJsonObject() != null) {
-                            if (!TextUtils.isEmpty(optString5)) {
-                                cloneIXAdInstanceInfo.getOriginJsonObject().put("da_area", optString5);
-                            }
-                            if (!TextUtils.isEmpty(str9)) {
-                                cloneIXAdInstanceInfo.getAppStoreLink();
+                    try {
+                        JSONObject optJSONObject2 = jSONObject5.optJSONObject("allParamsJson");
+                        if (optJSONObject2 != null) {
+                            str9 = optJSONObject2.optString("app_store_link");
+                            String optString5 = optJSONObject2.optString("da_area");
+                            if (cloneIXAdInstanceInfo.getOriginJsonObject() != null) {
+                                if (!TextUtils.isEmpty(optString5)) {
+                                    cloneIXAdInstanceInfo.getOriginJsonObject().put("da_area", optString5);
+                                }
+                                if (!TextUtils.isEmpty(str9)) {
+                                    cloneIXAdInstanceInfo.getAppStoreLink();
+                                }
                             }
                         }
+                    } catch (Exception unused5) {
                     }
-                } catch (Exception unused5) {
-                }
-                String optString6 = jSONObject5.optString(XAdRemoteAPKDownloadExtraInfo.QK);
-                try {
-                    String optString7 = jSONObject5.optString("adJson", "");
-                    if (optString7.length() > 0) {
-                        try {
-                            jSONObject3 = new JSONObject(optString7);
-                            str7 = optString6;
-                        } catch (Exception e3) {
-                            e = e3;
-                            str7 = optString6;
-                        }
-                        try {
-                            optInt2 = jSONObject3.optInt("sz", 0);
-                        } catch (Exception e4) {
-                            e = e4;
-                            str4 = str7;
-                            i2 = 0;
+                    String optString6 = jSONObject5.optString(XAdRemoteAPKDownloadExtraInfo.QK);
+                    try {
+                        String optString7 = jSONObject5.optString("adJson", "");
+                        if (optString7.length() > 0) {
                             try {
-                                this.mAdLogger.d(e);
-                                str8 = "";
-                                str5 = str4;
-                                str6 = str8;
-                            } catch (Exception e5) {
-                                e = e5;
-                                this.mAdLogger.d(e);
-                                str5 = str4;
-                                str6 = "";
+                                jSONObject3 = new JSONObject(optString7);
+                                str7 = optString6;
+                            } catch (Exception e2) {
+                                e = e2;
+                                str7 = optString6;
+                            }
+                            try {
+                                optInt = jSONObject3.optInt("sz", 0);
+                            } catch (Exception e3) {
+                                e = e3;
+                                str4 = str7;
+                                i2 = 0;
+                                try {
+                                    this.mAdLogger.d(e);
+                                    str8 = "";
+                                    str5 = str4;
+                                    str6 = str8;
+                                } catch (Exception e4) {
+                                    e = e4;
+                                    this.mAdLogger.d(e);
+                                    str5 = str4;
+                                    str6 = "";
+                                    if (jSONObject2 != null) {
+                                    }
+                                    cloneIXAdInstanceInfo.setAppOpenStrs(new JSONObject(optString).toString());
+                                    cloneIXAdInstanceInfo.setClickThroughUrl(optString);
+                                    cloneIXAdInstanceInfo.setAppPackageName(optString2);
+                                    if (!TextUtils.isEmpty(optString3)) {
+                                    }
+                                    cloneIXAdInstanceInfo.setOriginClickUrl(optString4);
+                                    cloneIXAdInstanceInfo.setDlTunnel(optInt2);
+                                    cloneIXAdInstanceInfo.setActionType(optInt3);
+                                    cloneIXAdInstanceInfo.setInapp(z);
+                                    cloneIXAdInstanceInfo.setClose(optBoolean2);
+                                    cloneIXAdInstanceInfo.setAutoOpen(optBoolean3);
+                                    cloneIXAdInstanceInfo.setPopNotif(optBoolean4);
+                                    cloneIXAdInstanceInfo.setWifiTargeted(optBoolean5);
+                                    cloneIXAdInstanceInfo.setTooLarge(optBoolean6);
+                                    cloneIXAdInstanceInfo.setCanCancel(optBoolean7);
+                                    cloneIXAdInstanceInfo.setCanDelete(optBoolean8);
+                                    if (!TextUtils.isEmpty(str5)) {
+                                    }
+                                    cloneIXAdInstanceInfo.setAppSize(i2);
+                                    cloneIXAdInstanceInfo.setAppName(str6);
+                                    cloneIXAdInstanceInfo.setSecondConfirmed(optBoolean9);
+                                    cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
+                                    handleVideoParameters(cloneIXAdInstanceInfo, jSONObject5);
+                                    if (optInt3 == 2) {
+                                        appContext = this.mAdContainerCxt.getAppContext();
+                                        activity = this.mAdContainerCxt.getActivity();
+                                        if (NetworkInfoUtils.isCurrentNetworkAvailable(appContext)) {
+                                            CommonUtils.showAlertDialog(activity, jSONObject5.optString("dlgTitle", CommonUtils.DIALOG_TITLE), jSONObject5.optString("dlgBody", CommonUtils.DIALOG_MESSAGE), jSONObject5.optString("okBtn", CommonUtils.DIALOG_POS_TEXT), jSONObject5.optString("cancelBtn", CommonUtils.DIALOG_NEG_TEXT), true, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.7
+                                                @Override // android.content.DialogInterface.OnClickListener
+                                                public void onClick(DialogInterface dialogInterface, int i3) {
+                                                    cloneIXAdInstanceInfo.setActionOnlyWifi(false);
+                                                    cloneIXAdInstanceInfo.setSecondConfirmed(true);
+                                                    BaseHtmlBridgeHandler.this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
+                                                    BaseHtmlBridgeHandler.this.try2FireCustomizeTracking(cloneIXAdInstanceInfo, 360);
+                                                    StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
+                                                }
+                                            }, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.8
+                                                @Override // android.content.DialogInterface.OnClickListener
+                                                public void onClick(DialogInterface dialogInterface, int i3) {
+                                                    cloneIXAdInstanceInfo.setActionOnlyWifi(true);
+                                                    cloneIXAdInstanceInfo.setSecondConfirmed(true);
+                                                    BaseHtmlBridgeHandler.this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
+                                                    BaseHtmlBridgeHandler.this.try2FireCustomizeTracking(cloneIXAdInstanceInfo, SDKLogTypeConstants.DZZB_ALERTDIALOG_NEGATIVE_CLICKED);
+                                                    StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
+                                                }
+                                            });
+                                            try2FireCustomizeTracking(cloneIXAdInstanceInfo, SDKLogTypeConstants.DZZB_ALERTDIALOG);
+                                            return;
+                                        }
+                                    }
+                                    this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
+                                    StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
+                                    jSONObject = new JSONObject(str);
+                                    String optString8 = jSONObject.optString(str3);
+                                    if (jSONObject.optInt(str2) == 2) {
+                                    }
+                                }
                                 if (jSONObject2 != null) {
                                 }
-                                cloneIXAdInstanceInfo.setAppOpenStrs(new JSONObject(optString).toString());
+                                try {
+                                    cloneIXAdInstanceInfo.setAppOpenStrs(new JSONObject(optString).toString());
+                                } catch (Exception e5) {
+                                    this.mAdLogger.d(e5);
+                                }
                                 cloneIXAdInstanceInfo.setClickThroughUrl(optString);
                                 cloneIXAdInstanceInfo.setAppPackageName(optString2);
                                 if (!TextUtils.isEmpty(optString3)) {
                                 }
                                 cloneIXAdInstanceInfo.setOriginClickUrl(optString4);
-                                cloneIXAdInstanceInfo.setDlTunnel(optInt3);
-                                cloneIXAdInstanceInfo.setActionType(optInt);
+                                cloneIXAdInstanceInfo.setDlTunnel(optInt2);
+                                cloneIXAdInstanceInfo.setActionType(optInt3);
                                 cloneIXAdInstanceInfo.setInapp(z);
                                 cloneIXAdInstanceInfo.setClose(optBoolean2);
                                 cloneIXAdInstanceInfo.setAutoOpen(optBoolean3);
@@ -637,211 +695,152 @@ public abstract class BaseHtmlBridgeHandler {
                                 cloneIXAdInstanceInfo.setSecondConfirmed(optBoolean9);
                                 cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
                                 handleVideoParameters(cloneIXAdInstanceInfo, jSONObject5);
-                                if (optInt == 2) {
-                                    appContext = this.mAdContainerCxt.getAppContext();
-                                    activity = this.mAdContainerCxt.getActivity();
-                                    if (NetworkInfoUtils.isCurrentNetworkAvailable(appContext)) {
-                                        CommonUtils.showAlertDialog(activity, jSONObject5.optString("dlgTitle", CommonUtils.DIALOG_TITLE), jSONObject5.optString("dlgBody", CommonUtils.DIALOG_MESSAGE), jSONObject5.optString("okBtn", CommonUtils.DIALOG_POS_TEXT), jSONObject5.optString("cancelBtn", CommonUtils.DIALOG_NEG_TEXT), true, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.7
-                                            @Override // android.content.DialogInterface.OnClickListener
-                                            public void onClick(DialogInterface dialogInterface, int i3) {
-                                                cloneIXAdInstanceInfo.setActionOnlyWifi(false);
-                                                cloneIXAdInstanceInfo.setSecondConfirmed(true);
-                                                BaseHtmlBridgeHandler.this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
-                                                BaseHtmlBridgeHandler.this.try2FireCustomizeTracking(cloneIXAdInstanceInfo, 360);
-                                                StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
-                                            }
-                                        }, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.8
-                                            @Override // android.content.DialogInterface.OnClickListener
-                                            public void onClick(DialogInterface dialogInterface, int i3) {
-                                                cloneIXAdInstanceInfo.setActionOnlyWifi(true);
-                                                cloneIXAdInstanceInfo.setSecondConfirmed(true);
-                                                BaseHtmlBridgeHandler.this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
-                                                BaseHtmlBridgeHandler.this.try2FireCustomizeTracking(cloneIXAdInstanceInfo, SDKLogTypeConstants.DZZB_ALERTDIALOG_NEGATIVE_CLICKED);
-                                                StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
-                                            }
-                                        });
-                                        try2FireCustomizeTracking(cloneIXAdInstanceInfo, SDKLogTypeConstants.DZZB_ALERTDIALOG);
-                                        return;
-                                    }
+                                if (optInt3 == 2) {
                                 }
                                 this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
                                 StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
                                 jSONObject = new JSONObject(str);
-                                String optString8 = jSONObject.optString(str3);
+                                String optString82 = jSONObject.optString(str3);
                                 if (jSONObject.optInt(str2) == 2) {
                                 }
                             }
-                            if (jSONObject2 != null) {
-                            }
                             try {
-                                cloneIXAdInstanceInfo.setAppOpenStrs(new JSONObject(optString).toString());
+                                String optString9 = jSONObject3.optString(XAdRemoteAPKDownloadExtraInfo.QK);
+                                if (!TextUtils.isEmpty(optString9)) {
+                                    str7 = optString9;
+                                }
+                                str8 = jSONObject3.optString("appname");
+                                i2 = optInt;
+                                str4 = str7;
                             } catch (Exception e6) {
-                                this.mAdLogger.d(e6);
+                                e = e6;
+                                i2 = optInt;
+                                str4 = str7;
+                                this.mAdLogger.d(e);
+                                str8 = "";
+                                str5 = str4;
+                                str6 = str8;
+                                if (jSONObject2 != null) {
+                                }
+                                cloneIXAdInstanceInfo.setAppOpenStrs(new JSONObject(optString).toString());
+                                cloneIXAdInstanceInfo.setClickThroughUrl(optString);
+                                cloneIXAdInstanceInfo.setAppPackageName(optString2);
+                                if (!TextUtils.isEmpty(optString3)) {
+                                }
+                                cloneIXAdInstanceInfo.setOriginClickUrl(optString4);
+                                cloneIXAdInstanceInfo.setDlTunnel(optInt2);
+                                cloneIXAdInstanceInfo.setActionType(optInt3);
+                                cloneIXAdInstanceInfo.setInapp(z);
+                                cloneIXAdInstanceInfo.setClose(optBoolean2);
+                                cloneIXAdInstanceInfo.setAutoOpen(optBoolean3);
+                                cloneIXAdInstanceInfo.setPopNotif(optBoolean4);
+                                cloneIXAdInstanceInfo.setWifiTargeted(optBoolean5);
+                                cloneIXAdInstanceInfo.setTooLarge(optBoolean6);
+                                cloneIXAdInstanceInfo.setCanCancel(optBoolean7);
+                                cloneIXAdInstanceInfo.setCanDelete(optBoolean8);
+                                if (!TextUtils.isEmpty(str5)) {
+                                }
+                                cloneIXAdInstanceInfo.setAppSize(i2);
+                                cloneIXAdInstanceInfo.setAppName(str6);
+                                cloneIXAdInstanceInfo.setSecondConfirmed(optBoolean9);
+                                cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
+                                handleVideoParameters(cloneIXAdInstanceInfo, jSONObject5);
+                                if (optInt3 == 2) {
+                                }
+                                this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
+                                StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
+                                jSONObject = new JSONObject(str);
+                                String optString822 = jSONObject.optString(str3);
+                                if (jSONObject.optInt(str2) == 2) {
+                                }
                             }
-                            cloneIXAdInstanceInfo.setClickThroughUrl(optString);
-                            cloneIXAdInstanceInfo.setAppPackageName(optString2);
-                            if (!TextUtils.isEmpty(optString3)) {
-                            }
-                            cloneIXAdInstanceInfo.setOriginClickUrl(optString4);
-                            cloneIXAdInstanceInfo.setDlTunnel(optInt3);
-                            cloneIXAdInstanceInfo.setActionType(optInt);
-                            cloneIXAdInstanceInfo.setInapp(z);
-                            cloneIXAdInstanceInfo.setClose(optBoolean2);
-                            cloneIXAdInstanceInfo.setAutoOpen(optBoolean3);
-                            cloneIXAdInstanceInfo.setPopNotif(optBoolean4);
-                            cloneIXAdInstanceInfo.setWifiTargeted(optBoolean5);
-                            cloneIXAdInstanceInfo.setTooLarge(optBoolean6);
-                            cloneIXAdInstanceInfo.setCanCancel(optBoolean7);
-                            cloneIXAdInstanceInfo.setCanDelete(optBoolean8);
-                            if (!TextUtils.isEmpty(str5)) {
-                            }
-                            cloneIXAdInstanceInfo.setAppSize(i2);
-                            cloneIXAdInstanceInfo.setAppName(str6);
-                            cloneIXAdInstanceInfo.setSecondConfirmed(optBoolean9);
-                            cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
-                            handleVideoParameters(cloneIXAdInstanceInfo, jSONObject5);
-                            if (optInt == 2) {
-                            }
-                            this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
-                            StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
-                            jSONObject = new JSONObject(str);
-                            String optString82 = jSONObject.optString(str3);
-                            if (jSONObject.optInt(str2) == 2) {
-                            }
-                        }
-                        try {
-                            String optString9 = jSONObject3.optString(XAdRemoteAPKDownloadExtraInfo.QK);
-                            if (!TextUtils.isEmpty(optString9)) {
-                                str7 = optString9;
-                            }
-                            str8 = jSONObject3.optString("appname");
-                            i2 = optInt2;
-                            str4 = str7;
-                        } catch (Exception e7) {
-                            e = e7;
-                            i2 = optInt2;
-                            str4 = str7;
-                            this.mAdLogger.d(e);
+                        } else {
                             str8 = "";
-                            str5 = str4;
-                            str6 = str8;
-                            if (jSONObject2 != null) {
-                            }
-                            cloneIXAdInstanceInfo.setAppOpenStrs(new JSONObject(optString).toString());
-                            cloneIXAdInstanceInfo.setClickThroughUrl(optString);
-                            cloneIXAdInstanceInfo.setAppPackageName(optString2);
-                            if (!TextUtils.isEmpty(optString3)) {
-                            }
-                            cloneIXAdInstanceInfo.setOriginClickUrl(optString4);
-                            cloneIXAdInstanceInfo.setDlTunnel(optInt3);
-                            cloneIXAdInstanceInfo.setActionType(optInt);
-                            cloneIXAdInstanceInfo.setInapp(z);
-                            cloneIXAdInstanceInfo.setClose(optBoolean2);
-                            cloneIXAdInstanceInfo.setAutoOpen(optBoolean3);
-                            cloneIXAdInstanceInfo.setPopNotif(optBoolean4);
-                            cloneIXAdInstanceInfo.setWifiTargeted(optBoolean5);
-                            cloneIXAdInstanceInfo.setTooLarge(optBoolean6);
-                            cloneIXAdInstanceInfo.setCanCancel(optBoolean7);
-                            cloneIXAdInstanceInfo.setCanDelete(optBoolean8);
-                            if (!TextUtils.isEmpty(str5)) {
-                            }
-                            cloneIXAdInstanceInfo.setAppSize(i2);
-                            cloneIXAdInstanceInfo.setAppName(str6);
-                            cloneIXAdInstanceInfo.setSecondConfirmed(optBoolean9);
-                            cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
-                            handleVideoParameters(cloneIXAdInstanceInfo, jSONObject5);
-                            if (optInt == 2) {
-                            }
-                            this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
-                            StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
-                            jSONObject = new JSONObject(str);
-                            String optString822 = jSONObject.optString(str3);
-                            if (jSONObject.optInt(str2) == 2) {
-                            }
+                            str4 = optString6;
+                            i2 = 0;
                         }
-                    } else {
-                        str8 = "";
+                        str5 = str4;
+                        str6 = str8;
+                    } catch (Exception e7) {
+                        e = e7;
                         str4 = optString6;
                         i2 = 0;
                     }
-                    str5 = str4;
-                    str6 = str8;
+                    if (jSONObject2 != null) {
+                        cloneIXAdInstanceInfo.setExp2ForSingleAd(jSONObject2.toString());
+                    }
+                    try {
+                        cloneIXAdInstanceInfo.setAppOpenStrs(new JSONObject(optString).toString());
+                    } catch (Exception unused6) {
+                        JSONObject optJSONObject3 = jSONObject5.optJSONObject("apo");
+                        if (optJSONObject3 != null) {
+                            cloneIXAdInstanceInfo.setAppOpenStrs(optJSONObject3.toString());
+                        }
+                    }
+                    cloneIXAdInstanceInfo.setClickThroughUrl(optString);
+                    cloneIXAdInstanceInfo.setAppPackageName(optString2);
+                    if (!TextUtils.isEmpty(optString3)) {
+                        cloneIXAdInstanceInfo.setAdId(optString3);
+                    }
+                    cloneIXAdInstanceInfo.setOriginClickUrl(optString4);
+                    cloneIXAdInstanceInfo.setDlTunnel(optInt2);
+                    cloneIXAdInstanceInfo.setActionType(optInt3);
+                    cloneIXAdInstanceInfo.setInapp(z);
+                    cloneIXAdInstanceInfo.setClose(optBoolean2);
+                    cloneIXAdInstanceInfo.setAutoOpen(optBoolean3);
+                    cloneIXAdInstanceInfo.setPopNotif(optBoolean4);
+                    cloneIXAdInstanceInfo.setWifiTargeted(optBoolean5);
+                    cloneIXAdInstanceInfo.setTooLarge(optBoolean6);
+                    cloneIXAdInstanceInfo.setCanCancel(optBoolean7);
+                    cloneIXAdInstanceInfo.setCanDelete(optBoolean8);
+                    if (!TextUtils.isEmpty(str5)) {
+                        cloneIXAdInstanceInfo.setQueryKey(str5);
+                    }
+                    cloneIXAdInstanceInfo.setAppSize(i2);
+                    cloneIXAdInstanceInfo.setAppName(str6);
+                    cloneIXAdInstanceInfo.setSecondConfirmed(optBoolean9);
+                    cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
+                    handleVideoParameters(cloneIXAdInstanceInfo, jSONObject5);
+                    if (optInt3 == 2 && !optBoolean9) {
+                        appContext = this.mAdContainerCxt.getAppContext();
+                        activity = this.mAdContainerCxt.getActivity();
+                        if (NetworkInfoUtils.isCurrentNetworkAvailable(appContext) && !NetworkInfoUtils.isWifiConnected(appContext).booleanValue() && TextUtils.isEmpty(str9) && activity != null && !this.mAdContainerCxt.getAdProd().equals("rsplash")) {
+                            CommonUtils.showAlertDialog(activity, jSONObject5.optString("dlgTitle", CommonUtils.DIALOG_TITLE), jSONObject5.optString("dlgBody", CommonUtils.DIALOG_MESSAGE), jSONObject5.optString("okBtn", CommonUtils.DIALOG_POS_TEXT), jSONObject5.optString("cancelBtn", CommonUtils.DIALOG_NEG_TEXT), true, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.7
+                                @Override // android.content.DialogInterface.OnClickListener
+                                public void onClick(DialogInterface dialogInterface, int i3) {
+                                    cloneIXAdInstanceInfo.setActionOnlyWifi(false);
+                                    cloneIXAdInstanceInfo.setSecondConfirmed(true);
+                                    BaseHtmlBridgeHandler.this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
+                                    BaseHtmlBridgeHandler.this.try2FireCustomizeTracking(cloneIXAdInstanceInfo, 360);
+                                    StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
+                                }
+                            }, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.8
+                                @Override // android.content.DialogInterface.OnClickListener
+                                public void onClick(DialogInterface dialogInterface, int i3) {
+                                    cloneIXAdInstanceInfo.setActionOnlyWifi(true);
+                                    cloneIXAdInstanceInfo.setSecondConfirmed(true);
+                                    BaseHtmlBridgeHandler.this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
+                                    BaseHtmlBridgeHandler.this.try2FireCustomizeTracking(cloneIXAdInstanceInfo, SDKLogTypeConstants.DZZB_ALERTDIALOG_NEGATIVE_CLICKED);
+                                    StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
+                                }
+                            });
+                            try2FireCustomizeTracking(cloneIXAdInstanceInfo, SDKLogTypeConstants.DZZB_ALERTDIALOG);
+                            return;
+                        }
+                    }
                 } catch (Exception e8) {
                     e = e8;
-                    str4 = optString6;
-                    i2 = 0;
-                }
-                if (jSONObject2 != null) {
-                    cloneIXAdInstanceInfo.setExp2ForSingleAd(jSONObject2.toString());
-                }
-                try {
-                    cloneIXAdInstanceInfo.setAppOpenStrs(new JSONObject(optString).toString());
-                } catch (Exception unused6) {
-                    JSONObject optJSONObject3 = jSONObject5.optJSONObject("apo");
-                    if (optJSONObject3 != null) {
-                        cloneIXAdInstanceInfo.setAppOpenStrs(optJSONObject3.toString());
-                    }
-                }
-                cloneIXAdInstanceInfo.setClickThroughUrl(optString);
-                cloneIXAdInstanceInfo.setAppPackageName(optString2);
-                if (!TextUtils.isEmpty(optString3)) {
-                    cloneIXAdInstanceInfo.setAdId(optString3);
-                }
-                cloneIXAdInstanceInfo.setOriginClickUrl(optString4);
-                cloneIXAdInstanceInfo.setDlTunnel(optInt3);
-                cloneIXAdInstanceInfo.setActionType(optInt);
-                cloneIXAdInstanceInfo.setInapp(z);
-                cloneIXAdInstanceInfo.setClose(optBoolean2);
-                cloneIXAdInstanceInfo.setAutoOpen(optBoolean3);
-                cloneIXAdInstanceInfo.setPopNotif(optBoolean4);
-                cloneIXAdInstanceInfo.setWifiTargeted(optBoolean5);
-                cloneIXAdInstanceInfo.setTooLarge(optBoolean6);
-                cloneIXAdInstanceInfo.setCanCancel(optBoolean7);
-                cloneIXAdInstanceInfo.setCanDelete(optBoolean8);
-                if (!TextUtils.isEmpty(str5)) {
-                    cloneIXAdInstanceInfo.setQueryKey(str5);
-                }
-                cloneIXAdInstanceInfo.setAppSize(i2);
-                cloneIXAdInstanceInfo.setAppName(str6);
-                cloneIXAdInstanceInfo.setSecondConfirmed(optBoolean9);
-                cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
-                handleVideoParameters(cloneIXAdInstanceInfo, jSONObject5);
-                if (optInt == 2 && !optBoolean9) {
-                    appContext = this.mAdContainerCxt.getAppContext();
-                    activity = this.mAdContainerCxt.getActivity();
-                    if (NetworkInfoUtils.isCurrentNetworkAvailable(appContext) && !NetworkInfoUtils.isWifiConnected(appContext).booleanValue() && TextUtils.isEmpty(str9) && activity != null && !this.mAdContainerCxt.getAdProd().equals("rsplash")) {
-                        CommonUtils.showAlertDialog(activity, jSONObject5.optString("dlgTitle", CommonUtils.DIALOG_TITLE), jSONObject5.optString("dlgBody", CommonUtils.DIALOG_MESSAGE), jSONObject5.optString("okBtn", CommonUtils.DIALOG_POS_TEXT), jSONObject5.optString("cancelBtn", CommonUtils.DIALOG_NEG_TEXT), true, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.7
-                            @Override // android.content.DialogInterface.OnClickListener
-                            public void onClick(DialogInterface dialogInterface, int i3) {
-                                cloneIXAdInstanceInfo.setActionOnlyWifi(false);
-                                cloneIXAdInstanceInfo.setSecondConfirmed(true);
-                                BaseHtmlBridgeHandler.this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
-                                BaseHtmlBridgeHandler.this.try2FireCustomizeTracking(cloneIXAdInstanceInfo, 360);
-                                StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
-                            }
-                        }, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.8
-                            @Override // android.content.DialogInterface.OnClickListener
-                            public void onClick(DialogInterface dialogInterface, int i3) {
-                                cloneIXAdInstanceInfo.setActionOnlyWifi(true);
-                                cloneIXAdInstanceInfo.setSecondConfirmed(true);
-                                BaseHtmlBridgeHandler.this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
-                                BaseHtmlBridgeHandler.this.try2FireCustomizeTracking(cloneIXAdInstanceInfo, SDKLogTypeConstants.DZZB_ALERTDIALOG_NEGATIVE_CLICKED);
-                                StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
-                            }
-                        });
-                        try2FireCustomizeTracking(cloneIXAdInstanceInfo, SDKLogTypeConstants.DZZB_ALERTDIALOG);
-                        return;
+                    this.mAdLogger.d(e);
+                    this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
+                    StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
+                    jSONObject = new JSONObject(str);
+                    String optString8222 = jSONObject.optString(str3);
+                    if (jSONObject.optInt(str2) == 2) {
                     }
                 }
             } catch (Exception e9) {
                 e = e9;
-                this.mAdLogger.d(e);
-                this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
-                StateMachine.event(cloneIXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK);
-                jSONObject = new JSONObject(str);
-                String optString8222 = jSONObject.optString(str3);
-                if (jSONObject.optInt(str2) == 2) {
-                }
+                str2 = "act";
             }
         } catch (Exception e10) {
             e = e10;

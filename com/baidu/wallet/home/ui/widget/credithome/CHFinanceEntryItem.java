@@ -13,13 +13,13 @@ import com.baidu.wallet.home.ui.widget.b;
 public class CHFinanceEntryItem extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f25103a;
+    public NetImageView f24348a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f25104b;
+    public MaskTextView f24349b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f25105c;
+    public MaskTextView f24350c;
 
     /* loaded from: classes5.dex */
     public enum EntryType {
@@ -39,18 +39,18 @@ public class CHFinanceEntryItem extends BaseItemView {
     public void initView(EntryType entryType) {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), EntryType.ENTRY_TYPE_NORMAL.equals(entryType) ? "wallet_home_ch_finance_entry_normal_item" : "wallet_home_ch_finance_entry_large_item"), this);
         setGravity(13);
-        this.f25103a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_fe_logo"));
-        this.f25104b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_title"));
-        this.f25105c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_desc"));
+        this.f24348a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_fe_logo"));
+        this.f24349b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_title"));
+        this.f24350c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_desc"));
     }
 
     public void refresh() {
         if (getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f25103a, getData().logo);
-        this.f25104b.setMaskText(getData().name);
-        this.f25105c.setMaskText(getData().value1);
+        setNetImageViewUrl(this.f24348a, getData().logo);
+        this.f24349b.setMaskText(getData().name);
+        this.f24350c.setMaskText(getData().value1);
         handlePoint();
     }
 

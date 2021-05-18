@@ -12,39 +12,39 @@ import java.util.Set;
 public class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f39558a;
+    public Bundle f38803a;
 
     public a(Bundle bundle) {
-        this.f39558a = bundle;
+        this.f38803a = bundle;
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public Set<String> a() {
-        return this.f39558a.keySet();
+        return this.f38803a.keySet();
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public void b(String str, Object obj) {
         if (obj instanceof Boolean) {
-            this.f39558a.putBoolean(str, ((Boolean) obj).booleanValue());
+            this.f38803a.putBoolean(str, ((Boolean) obj).booleanValue());
         } else if (obj instanceof Byte) {
-            this.f39558a.putByte(str, ((Byte) obj).byteValue());
+            this.f38803a.putByte(str, ((Byte) obj).byteValue());
         } else if (obj instanceof Short) {
-            this.f39558a.putShort(str, ((Short) obj).shortValue());
+            this.f38803a.putShort(str, ((Short) obj).shortValue());
         } else if (obj instanceof Integer) {
-            this.f39558a.putInt(str, ((Integer) obj).intValue());
+            this.f38803a.putInt(str, ((Integer) obj).intValue());
         } else if (obj instanceof Character) {
-            this.f39558a.putChar(str, ((Character) obj).charValue());
+            this.f38803a.putChar(str, ((Character) obj).charValue());
         } else if (obj instanceof Long) {
-            this.f39558a.putLong(str, ((Long) obj).longValue());
+            this.f38803a.putLong(str, ((Long) obj).longValue());
         } else if (obj instanceof Float) {
-            this.f39558a.putFloat(str, ((Float) obj).floatValue());
+            this.f38803a.putFloat(str, ((Float) obj).floatValue());
         } else if (obj instanceof Double) {
-            this.f39558a.putDouble(str, ((Double) obj).doubleValue());
+            this.f38803a.putDouble(str, ((Double) obj).doubleValue());
         } else if (obj instanceof String) {
-            this.f39558a.putString(str, (String) obj);
+            this.f38803a.putString(str, (String) obj);
         } else if (obj instanceof Bundle) {
-            this.f39558a.putBundle(str, (Bundle) obj);
+            this.f38803a.putBundle(str, (Bundle) obj);
         } else if (obj instanceof ArrayList) {
             ArrayList<String> arrayList = (ArrayList) obj;
             if (arrayList == null || arrayList.size() <= 0) {
@@ -52,45 +52,45 @@ public class a implements c {
             }
             String str2 = arrayList.get(0);
             if (str2 instanceof String) {
-                this.f39558a.putStringArrayList(str, arrayList);
+                this.f38803a.putStringArrayList(str, arrayList);
             } else if (str2 instanceof Integer) {
-                this.f39558a.putIntegerArrayList(str, arrayList);
+                this.f38803a.putIntegerArrayList(str, arrayList);
             } else if (str2 instanceof Parcelable) {
-                this.f39558a.putParcelableArrayList(str, arrayList);
+                this.f38803a.putParcelableArrayList(str, arrayList);
             }
         } else if (obj instanceof SparseArray) {
-            this.f39558a.putSparseParcelableArray(str, (SparseArray) obj);
+            this.f38803a.putSparseParcelableArray(str, (SparseArray) obj);
         } else if (obj.getClass().isArray()) {
             Class<?> componentType = obj.getClass().getComponentType();
             if (componentType == Boolean.TYPE) {
-                this.f39558a.putBooleanArray(str, (boolean[]) obj);
+                this.f38803a.putBooleanArray(str, (boolean[]) obj);
             } else if (componentType == Byte.TYPE) {
-                this.f39558a.putByteArray(str, (byte[]) obj);
+                this.f38803a.putByteArray(str, (byte[]) obj);
             } else if (componentType == Character.TYPE) {
-                this.f39558a.putCharArray(str, (char[]) obj);
+                this.f38803a.putCharArray(str, (char[]) obj);
             } else if (componentType == Double.TYPE) {
-                this.f39558a.putDoubleArray(str, (double[]) obj);
+                this.f38803a.putDoubleArray(str, (double[]) obj);
             } else if (componentType == Float.TYPE) {
-                this.f39558a.putFloatArray(str, (float[]) obj);
+                this.f38803a.putFloatArray(str, (float[]) obj);
             } else if (componentType == Integer.TYPE) {
-                this.f39558a.putIntArray(str, (int[]) obj);
+                this.f38803a.putIntArray(str, (int[]) obj);
             } else if (componentType == Long.TYPE) {
-                this.f39558a.putLongArray(str, (long[]) obj);
+                this.f38803a.putLongArray(str, (long[]) obj);
             } else if (componentType == Short.TYPE) {
-                this.f39558a.putShortArray(str, (short[]) obj);
+                this.f38803a.putShortArray(str, (short[]) obj);
             } else if (componentType == String.class) {
-                this.f39558a.putStringArray(str, (String[]) obj);
+                this.f38803a.putStringArray(str, (String[]) obj);
             } else if (d.a.c.e.b.a.a.g(componentType, Parcelable.class)) {
-                this.f39558a.putParcelableArray(str, (Parcelable[]) obj);
+                this.f38803a.putParcelableArray(str, (Parcelable[]) obj);
             }
         } else if (obj instanceof CharSequence) {
-            this.f39558a.putCharSequence(str, (CharSequence) obj);
+            this.f38803a.putCharSequence(str, (CharSequence) obj);
         } else if (obj instanceof IBinder) {
         } else {
             if (obj instanceof Parcelable) {
-                this.f39558a.putParcelable(str, (Parcelable) obj);
+                this.f38803a.putParcelable(str, (Parcelable) obj);
             } else if (obj instanceof Serializable) {
-                this.f39558a.putSerializable(str, (Serializable) obj);
+                this.f38803a.putSerializable(str, (Serializable) obj);
             }
         }
     }
@@ -110,6 +110,6 @@ public class a implements c {
     }
 
     public Object d(String str) {
-        return this.f39558a.get(str);
+        return this.f38803a.get(str);
     }
 }

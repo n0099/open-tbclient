@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ExcZan.ExcZanResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ChosenPbZanSocketResponse extends SocketResponsedMessage {
     public ChosenPbZanSocketResponse() {
         super(309095);

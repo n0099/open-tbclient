@@ -5,23 +5,23 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.swan.games.utils.so.SoUtils;
+import com.baidu.swan.apps.so.SoUtils;
 /* loaded from: classes7.dex */
 public class dp extends dq {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38271a;
+    public String f37516a;
 
     public dp(Context context, int i2, String str) {
         super(context, i2);
-        this.f38271a = str;
+        this.f37516a = str;
     }
 
     private String[] a() {
-        if (TextUtils.isEmpty(this.f38271a)) {
+        if (TextUtils.isEmpty(this.f37516a)) {
             return null;
         }
-        String b2 = bj.b(this.f38271a);
+        String b2 = bj.b(this.f37516a);
         if (TextUtils.isEmpty(b2)) {
             return null;
         }
@@ -30,13 +30,13 @@ public class dp extends dq {
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hh mo172a() {
+    public hh mo171a() {
         return hh.AppIsInstalled;
     }
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo172a() {
+    public String mo171a() {
         return SoUtils.SO_EVENT_ID_DEFAULT;
     }
 

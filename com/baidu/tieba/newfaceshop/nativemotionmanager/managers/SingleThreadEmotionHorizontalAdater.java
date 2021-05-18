@@ -8,28 +8,28 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.view.SingleThreadEmotionHorizontalView;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<EmotionPackageData> f19426e;
+    public List<EmotionPackageData> f18714e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f19427f;
+    public TbPageContext f18715f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public SingleThreadEmotionHorizontalView f19428a;
+        public SingleThreadEmotionHorizontalView f18716a;
 
         public EmotionGridViewHolder(View view) {
             super(view);
-            this.f19428a = (SingleThreadEmotionHorizontalView) view;
+            this.f18716a = (SingleThreadEmotionHorizontalView) view;
         }
 
         public void b(EmotionPackageData emotionPackageData) {
-            SingleThreadEmotionHorizontalView singleThreadEmotionHorizontalView = this.f19428a;
+            SingleThreadEmotionHorizontalView singleThreadEmotionHorizontalView = this.f18716a;
             if (singleThreadEmotionHorizontalView == null || emotionPackageData == null) {
                 return;
             }
@@ -38,18 +38,18 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
     }
 
     public SingleThreadEmotionHorizontalAdater(List<EmotionPackageData> list, TbPageContext tbPageContext) {
-        this.f19426e = list;
-        this.f19427f = tbPageContext;
+        this.f18714e = list;
+        this.f18715f = tbPageContext;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f19426e.size();
+        return this.f18714e.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        return this.f19426e.get(i2);
+        return this.f18714e.get(i2);
     }
 
     @Override // android.widget.Adapter
@@ -61,7 +61,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         EmotionGridViewHolder emotionGridViewHolder;
         if (view == null) {
-            view = new SingleThreadEmotionHorizontalView(this.f19427f);
+            view = new SingleThreadEmotionHorizontalView(this.f18715f);
             view.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             emotionGridViewHolder = new EmotionGridViewHolder(view);
             view.setTag(emotionGridViewHolder);
@@ -71,7 +71,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
         if (emotionGridViewHolder == null) {
             emotionGridViewHolder = (EmotionGridViewHolder) view.getTag();
         }
-        emotionGridViewHolder.b(this.f19426e.get(i2));
+        emotionGridViewHolder.b(this.f18714e.get(i2));
         return view;
     }
 }

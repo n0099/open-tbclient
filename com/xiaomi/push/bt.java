@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 public class bt {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile bt f38191a;
+    public static volatile bt f37436a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f156a;
@@ -16,14 +16,14 @@ public class bt {
     }
 
     public static bt a(Context context) {
-        if (f38191a == null) {
+        if (f37436a == null) {
             synchronized (bt.class) {
-                if (f38191a == null) {
-                    f38191a = new bt(context);
+                if (f37436a == null) {
+                    f37436a = new bt(context);
                 }
             }
         }
-        return f38191a;
+        return f37436a;
     }
 
     public synchronized long a(String str, String str2, long j) {
@@ -43,14 +43,14 @@ public class bt {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m176a(String str, String str2, long j) {
+    public synchronized void m175a(String str, String str2, long j) {
         SharedPreferences.Editor edit = this.f156a.getSharedPreferences(str, 4).edit();
         edit.putLong(str2, j);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m177a(String str, String str2, String str3) {
+    public synchronized void m176a(String str, String str2, String str3) {
         SharedPreferences.Editor edit = this.f156a.getSharedPreferences(str, 4).edit();
         edit.putString(str2, str3);
         edit.commit();

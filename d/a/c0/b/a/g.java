@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f40456a;
+    public static d f39701a;
 
     public static JSONObject a(Exception exc) {
         JSONObject jSONObject = new JSONObject();
@@ -22,14 +22,14 @@ public class g {
     }
 
     public static void b(Exception exc) {
-        d dVar = f40456a;
+        d dVar = f39701a;
         if (dVar != null) {
             dVar.a(a(exc).toString());
         }
     }
 
     public static void c(String str) {
-        d dVar = f40456a;
+        d dVar = f39701a;
         if (dVar != null) {
             dVar.a(str);
         }

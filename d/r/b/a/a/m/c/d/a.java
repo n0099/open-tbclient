@@ -3,9 +3,9 @@ package d.r.b.a.a.m.c.d;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f67458a = "";
+    public static String f68144a = "";
 
     public static String a() {
-        return f67458a;
+        return f68144a;
     }
 }

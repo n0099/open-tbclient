@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final f f64752a;
+    public final f f65438a;
 
     public a(f fVar) {
-        this.f64752a = fVar;
+        this.f65438a = fVar;
     }
 
     @Override // d.b.c.a.b.a.k.c
@@ -26,7 +26,7 @@ public final class a extends c {
         boolean z = false;
         for (int i2 = 0; i2 < 9; i2++) {
             X509Certificate x509Certificate = (X509Certificate) arrayList.get(arrayList.size() - 1);
-            X509Certificate a2 = this.f64752a.a(x509Certificate);
+            X509Certificate a2 = this.f65438a.a(x509Certificate);
             if (a2 != null) {
                 if (arrayList.size() > 1 || !x509Certificate.equals(a2)) {
                     arrayList.add(a2);
@@ -69,10 +69,10 @@ public final class a extends c {
         if (obj == this) {
             return true;
         }
-        return (obj instanceof a) && ((a) obj).f64752a.equals(this.f64752a);
+        return (obj instanceof a) && ((a) obj).f65438a.equals(this.f65438a);
     }
 
     public int hashCode() {
-        return this.f64752a.hashCode();
+        return this.f65438a.hashCode();
     }
 }

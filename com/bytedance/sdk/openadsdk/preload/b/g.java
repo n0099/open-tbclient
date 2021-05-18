@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g<T> extends d<List<T>, T> {
 
     /* renamed from: d  reason: collision with root package name */
-    public Executor f30759d;
+    public Executor f30004d;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
@@ -19,7 +19,7 @@ public class g<T> extends d<List<T>, T> {
         final CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
         final CopyOnWriteArrayList copyOnWriteArrayList2 = new CopyOnWriteArrayList();
         for (final T t : list) {
-            this.f30759d.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.b.g.1
+            this.f30004d.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.b.g.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -48,13 +48,13 @@ public class g<T> extends d<List<T>, T> {
         if (objArr != null) {
             if (objArr.length == 1) {
                 if (objArr[0] instanceof Executor) {
-                    this.f30759d = (Executor) objArr[0];
+                    this.f30004d = (Executor) objArr[0];
                     return;
                 }
                 throw new IllegalArgumentException("ParallelInterceptor args must be instance of Executor");
             }
             throw new IllegalArgumentException("ParallelInterceptor only need one param");
         }
-        this.f30759d = com.bytedance.sdk.openadsdk.l.e.a();
+        this.f30004d = com.bytedance.sdk.openadsdk.l.e.a();
     }
 }

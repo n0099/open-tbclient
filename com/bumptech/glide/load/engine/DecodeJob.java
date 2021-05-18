@@ -27,7 +27,7 @@ import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnable, Comparable<DecodeJob<?>>, FactoryPools.Poolable {
     public static final String TAG = "DecodeJob";
     public Callback<R> callback;
@@ -63,7 +63,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     public final ReleaseManager releaseManager = new ReleaseManager();
 
     /* renamed from: com.bumptech.glide.load.engine.DecodeJob$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$EncodeStrategy;
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason;
@@ -119,7 +119,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface Callback<R> {
         void onLoadFailed(GlideException glideException);
 
@@ -128,7 +128,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         void reschedule(DecodeJob<?> decodeJob);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public final class DecodeCallback<Z> implements DecodePath.DecodeCallback<Z> {
         public final DataSource dataSource;
 
@@ -143,7 +143,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class DeferredEncodeManager<Z> {
         public ResourceEncoder<Z> encoder;
         public Key key;
@@ -179,12 +179,12 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface DiskCacheProvider {
         DiskCache getDiskCache();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ReleaseManager {
         public boolean isEncodeComplete;
         public boolean isFailed;
@@ -216,14 +216,14 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum RunReason {
         INITIALIZE,
         SWITCH_TO_SOURCE_SERVICE,
         DECODE_DATA
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum Stage {
         INITIALIZE,
         RESOURCE_CACHE,

@@ -1,6 +1,4 @@
 package org.webrtc;
-
-import com.baidu.lbsapi.panoramaview.PanoramaView;
 /* loaded from: classes7.dex */
 public class Size {
     public int height;
@@ -20,7 +18,7 @@ public class Size {
     }
 
     public int hashCode() {
-        return (this.width * PanoramaView.PANOTYPE_INTERIOR) + 1 + this.height;
+        return (this.width * 65537) + 1 + this.height;
     }
 
     public String toString() {

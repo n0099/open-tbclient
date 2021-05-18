@@ -1,7 +1,7 @@
 package com.baidu.tieba.myAttentionAndFans.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.a.i0.r.q.g1;
+import d.a.j0.r.q.g1;
 /* loaded from: classes3.dex */
 public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Object> {
     public g1 data;
@@ -15,7 +15,7 @@ public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Objec
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'd.a.i0.r.q.g1' to match base method */
+    /* JADX DEBUG: Return type fixed from 'd.a.j0.r.q.g1' to match base method */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage
     /* renamed from: getData */
     public Object getData2() {

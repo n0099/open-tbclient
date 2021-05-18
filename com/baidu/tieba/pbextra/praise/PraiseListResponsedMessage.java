@@ -1,12 +1,12 @@
 package com.baidu.tieba.pbextra.praise;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.j0.e2.c.a;
+import d.a.k0.e2.c.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
     public int mErrCode;
     public String mErrMsg;

@@ -4,7 +4,7 @@ import com.bytedance.sdk.openadsdk.preload.b.e;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static <IN> b<IN> a(List<h> list, e eVar, d dVar) {
         if (list != null) {

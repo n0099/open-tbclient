@@ -9,31 +9,31 @@ import org.json.JSONObject;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67298a = 2061;
+    public int f67984a = 2061;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67299b;
+    public String f67985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67300c;
+    public int f67986c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67301d;
+    public String f67987d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f67302e;
+    public String f67988e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67303f;
+    public int f67989f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f67304g;
+    public int f67990g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f67305h;
+    public int f67991h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f67306i;
+    public long f67992i;
     public long j;
     public boolean k;
 
@@ -42,7 +42,7 @@ public class m {
     }
 
     public GetChargeOrderStatusResult a() {
-        return new GetChargeOrderStatusResult(this.f67302e, this.f67303f, this.f67304g, this.f67305h, this.f67306i, this.j, this.k);
+        return new GetChargeOrderStatusResult(this.f67988e, this.f67989f, this.f67990g, this.f67991h, this.f67992i, this.j, this.k);
     }
 
     public void b(String str) {
@@ -50,23 +50,23 @@ public class m {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt("cmd");
-                if (this.f67298a == optInt) {
+                if (this.f67984a == optInt) {
                     jSONObject.optLong("uid");
-                    this.f67299b = jSONObject.optString(IAdRequestParam.SEQ);
-                    this.f67300c = jSONObject.optInt("result");
-                    this.f67301d = jSONObject.optString("message");
+                    this.f67985b = jSONObject.optString(IAdRequestParam.SEQ);
+                    this.f67986c = jSONObject.optInt("result");
+                    this.f67987d = jSONObject.optString("message");
                     jSONObject.optInt(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
                     jSONObject.optInt("usedChannel");
-                    this.f67302e = jSONObject.optString("expand");
-                    this.f67303f = jSONObject.optInt("status");
-                    this.f67304g = jSONObject.optInt("hasGotSalePromotion");
+                    this.f67988e = jSONObject.optString("expand");
+                    this.f67989f = jSONObject.optInt("status");
+                    this.f67990g = jSONObject.optInt("hasGotSalePromotion");
                     this.j = jSONObject.optLong("currencyAmount");
-                    this.f67305h = jSONObject.optInt("currencyType");
-                    this.f67306i = jSONObject.optLong("amount");
+                    this.f67991h = jSONObject.optInt("currencyType");
+                    this.f67992i = jSONObject.optLong("amount");
                     this.k = jSONObject.optBoolean("finish", false);
                     return;
                 }
-                throw new Exception(this.f67298a + " != " + optInt);
+                throw new Exception(this.f67984a + " != " + optInt);
             } catch (JSONException e2) {
                 d.r.b.a.a.f.d.d.d("GetChargeOrderStatusResponse", "parserResponse error.", e2);
                 return;

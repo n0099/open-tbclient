@@ -17,7 +17,7 @@ import d.b.b.n1;
 public final class a1 implements g1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final t0<Boolean> f64244a = new a();
+    public static final t0<Boolean> f64930a = new a();
 
     /* loaded from: classes5.dex */
     public static class a extends t0<Boolean> {
@@ -53,14 +53,14 @@ public final class a1 implements g1 {
     public static class c extends g1.a {
 
         /* renamed from: c  reason: collision with root package name */
-        public long f64245c = 0;
+        public long f64931c = 0;
     }
 
     public static boolean c(Context context) {
         if (context == null) {
             return false;
         }
-        return f64244a.b(context).booleanValue();
+        return f64930a.b(context).booleanValue();
     }
 
     public static int e(Context context) {
@@ -98,9 +98,9 @@ public final class a1 implements g1 {
                 String string = Settings.Global.getString(context.getContentResolver(), "pps_oaid");
                 String string2 = Settings.Global.getString(context.getContentResolver(), "pps_track_limit");
                 if (!TextUtils.isEmpty(string)) {
-                    cVar.f64294a = string;
-                    cVar.f64295b = Boolean.parseBoolean(string2);
-                    cVar.f64245c = 202003021704L;
+                    cVar.f64980a = string;
+                    cVar.f64981b = Boolean.parseBoolean(string2);
+                    cVar.f64931c = 202003021704L;
                     return cVar;
                 }
             } catch (Throwable th) {
@@ -109,9 +109,9 @@ public final class a1 implements g1 {
         }
         Pair<String, Boolean> f2 = f(context);
         if (f2 != null) {
-            cVar.f64294a = (String) f2.first;
-            cVar.f64295b = ((Boolean) f2.second).booleanValue();
-            cVar.f64245c = e(context);
+            cVar.f64980a = (String) f2.first;
+            cVar.f64981b = ((Boolean) f2.second).booleanValue();
+            cVar.f64931c = e(context);
         }
         return cVar;
     }

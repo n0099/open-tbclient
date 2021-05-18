@@ -14,13 +14,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import d.a.i0.r.q.a2;
+import d.a.j0.r.q.a2;
 /* loaded from: classes.dex */
 public class d0 extends c implements p<a2>, q {
     public static final int s = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f47702i;
+    public RelativeLayout f40328i;
     public ImageView j;
     public FrameLayout k;
     public a2 l;
@@ -51,7 +51,7 @@ public class d0 extends c implements p<a2>, q {
     public d0(Context context, int i2) {
         this.n = 0;
         this.n = i2;
-        this.f47702i = new RelativeLayout(context);
+        this.f40328i = new RelativeLayout(context);
         this.j = new ImageView(context);
         FrameLayout frameLayout = new FrameLayout(context);
         this.k = frameLayout;
@@ -60,8 +60,8 @@ public class d0 extends c implements p<a2>, q {
         frameLayout.addView(imageView, new FrameLayout.LayoutParams(i3, i3));
         this.k.setOnClickListener(this.r);
         m(Align.ALIGN_RIGHT_BOTTOM);
-        this.f47702i.addView(this.k);
-        g(this.f47702i);
+        this.f40328i.addView(this.k);
+        g(this.f40328i);
         h(-1);
         i(new RelativeLayout.LayoutParams(-1, -1));
     }
@@ -99,7 +99,7 @@ public class d0 extends c implements p<a2>, q {
         this.q = align;
     }
 
-    public void n(d.a.i0.r.q.a aVar) {
+    public void n(d.a.j0.r.q.a aVar) {
         m(Align.ALIGN_RIGHT_TOP);
     }
 

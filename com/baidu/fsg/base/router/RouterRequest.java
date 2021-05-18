@@ -8,53 +8,53 @@ import org.json.JSONObject;
 public class RouterRequest {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5428a = "RouterRequest";
+    public static final String f5282a = "RouterRequest";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5429b = "";
+    public String f5283b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5430c = "";
+    public String f5284c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap f5431d = new HashMap();
+    public HashMap f5285d = new HashMap();
 
     public RouterRequest action(String str) {
-        this.f5430c = str;
+        this.f5284c = str;
         return this;
     }
 
     public RouterRequest data(String str, Object obj) {
-        this.f5431d.put(str, obj);
+        this.f5285d.put(str, obj);
         return this;
     }
 
     public String getAction() {
-        return this.f5430c;
+        return this.f5284c;
     }
 
     public HashMap getData() {
-        return this.f5431d;
+        return this.f5285d;
     }
 
     public String getProvider() {
-        return this.f5429b;
+        return this.f5283b;
     }
 
     public RouterRequest provider(String str) {
-        this.f5429b = str;
+        this.f5283b = str;
         return this;
     }
 
     public String toString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("provider", this.f5429b);
-            jSONObject.put("action", this.f5430c);
+            jSONObject.put("provider", this.f5283b);
+            jSONObject.put("action", this.f5284c);
             try {
                 JSONObject jSONObject2 = new JSONObject();
-                for (Object obj : this.f5431d.keySet()) {
-                    jSONObject2.put(obj.toString(), this.f5431d.get(obj));
+                for (Object obj : this.f5285d.keySet()) {
+                    jSONObject2.put(obj.toString(), this.f5285d.get(obj));
                 }
                 jSONObject.put("data", jSONObject2);
             } catch (Exception e2) {
@@ -68,7 +68,7 @@ public class RouterRequest {
     }
 
     public RouterRequest data(HashMap hashMap) {
-        this.f5431d = hashMap;
+        this.f5285d = hashMap;
         return this;
     }
 }

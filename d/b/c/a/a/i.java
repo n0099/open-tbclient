@@ -8,26 +8,26 @@ import java.util.zip.Inflater;
 public final class i implements q {
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f64439f;
+    public final e f65125f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Inflater f64440g;
+    public final Inflater f65126g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final j f64441h;
+    public final j f65127h;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64438e = 0;
+    public int f65124e = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public final CRC32 f64442i = new CRC32();
+    public final CRC32 f65128i = new CRC32();
 
     public i(q qVar) {
         if (qVar != null) {
-            this.f64440g = new Inflater(true);
+            this.f65126g = new Inflater(true);
             e b2 = k.b(qVar);
-            this.f64439f = b2;
-            this.f64441h = new j(b2, this.f64440g);
+            this.f65125f = b2;
+            this.f65127h = new j(b2, this.f65126g);
             return;
         }
         throw new IllegalArgumentException("source == null");
@@ -41,23 +41,23 @@ public final class i implements q {
         } else if (i2 == 0) {
             return 0L;
         } else {
-            if (this.f64438e == 0) {
+            if (this.f65124e == 0) {
                 n();
-                this.f64438e = 1;
+                this.f65124e = 1;
             }
-            if (this.f64438e == 1) {
-                long j2 = cVar.f64433f;
-                long a2 = this.f64441h.a(cVar, j);
+            if (this.f65124e == 1) {
+                long j2 = cVar.f65119f;
+                long a2 = this.f65127h.a(cVar, j);
                 if (a2 != -1) {
                     c(cVar, j2, a2);
                     return a2;
                 }
-                this.f64438e = 2;
+                this.f65124e = 2;
             }
-            if (this.f64438e == 2) {
+            if (this.f65124e == 2) {
                 o();
-                this.f64438e = 3;
-                if (!this.f64439f.e()) {
+                this.f65124e = 3;
+                if (!this.f65125f.e()) {
                     throw new IOException("gzip finished without exhausting source");
                 }
             }
@@ -67,28 +67,28 @@ public final class i implements q {
 
     public final void c(c cVar, long j, long j2) {
         int i2;
-        n nVar = cVar.f64432e;
+        n nVar = cVar.f65118e;
         while (true) {
-            int i3 = nVar.f64461c;
-            int i4 = nVar.f64460b;
+            int i3 = nVar.f65147c;
+            int i4 = nVar.f65146b;
             if (j < i3 - i4) {
                 break;
             }
             j -= i3 - i4;
-            nVar = nVar.f64464f;
+            nVar = nVar.f65150f;
         }
         while (j2 > 0) {
-            int min = (int) Math.min(nVar.f64461c - i2, j2);
-            this.f64442i.update(nVar.f64459a, (int) (nVar.f64460b + j), min);
+            int min = (int) Math.min(nVar.f65147c - i2, j2);
+            this.f65128i.update(nVar.f65145a, (int) (nVar.f65146b + j), min);
             j2 -= min;
-            nVar = nVar.f64464f;
+            nVar = nVar.f65150f;
             j = 0;
         }
     }
 
     @Override // d.b.c.a.a.q, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f64441h.close();
+        this.f65127h.close();
     }
 
     public final void d(String str, int i2, int i3) throws IOException {
@@ -98,61 +98,61 @@ public final class i implements q {
     }
 
     public final void n() throws IOException {
-        this.f64439f.a(10L);
-        byte u = this.f64439f.c().u(3L);
+        this.f65125f.a(10L);
+        byte u = this.f65125f.c().u(3L);
         boolean z = ((u >> 1) & 1) == 1;
         if (z) {
-            c(this.f64439f.c(), 0L, 10L);
+            c(this.f65125f.c(), 0L, 10L);
         }
-        d("ID1ID2", 8075, this.f64439f.i());
-        this.f64439f.g(8L);
+        d("ID1ID2", 8075, this.f65125f.i());
+        this.f65125f.g(8L);
         if (((u >> 2) & 1) == 1) {
-            this.f64439f.a(2L);
+            this.f65125f.a(2L);
             if (z) {
-                c(this.f64439f.c(), 0L, 2L);
+                c(this.f65125f.c(), 0L, 2L);
             }
-            long k = this.f64439f.c().k();
-            this.f64439f.a(k);
+            long k = this.f65125f.c().k();
+            this.f65125f.a(k);
             if (z) {
-                c(this.f64439f.c(), 0L, k);
+                c(this.f65125f.c(), 0L, k);
             }
-            this.f64439f.g(k);
+            this.f65125f.g(k);
         }
         if (((u >> 3) & 1) == 1) {
-            long k2 = this.f64439f.k((byte) 0);
+            long k2 = this.f65125f.k((byte) 0);
             if (k2 != -1) {
                 if (z) {
-                    c(this.f64439f.c(), 0L, k2 + 1);
+                    c(this.f65125f.c(), 0L, k2 + 1);
                 }
-                this.f64439f.g(k2 + 1);
+                this.f65125f.g(k2 + 1);
             } else {
                 throw new EOFException();
             }
         }
         if (((u >> 4) & 1) == 1) {
-            long k3 = this.f64439f.k((byte) 0);
+            long k3 = this.f65125f.k((byte) 0);
             if (k3 != -1) {
                 if (z) {
-                    c(this.f64439f.c(), 0L, k3 + 1);
+                    c(this.f65125f.c(), 0L, k3 + 1);
                 }
-                this.f64439f.g(k3 + 1);
+                this.f65125f.g(k3 + 1);
             } else {
                 throw new EOFException();
             }
         }
         if (z) {
-            d("FHCRC", this.f64439f.k(), (short) this.f64442i.getValue());
-            this.f64442i.reset();
+            d("FHCRC", this.f65125f.k(), (short) this.f65128i.getValue());
+            this.f65128i.reset();
         }
     }
 
     public final void o() throws IOException {
-        d("CRC", this.f64439f.l(), (int) this.f64442i.getValue());
-        d("ISIZE", this.f64439f.l(), (int) this.f64440g.getBytesWritten());
+        d("CRC", this.f65125f.l(), (int) this.f65128i.getValue());
+        d("ISIZE", this.f65125f.l(), (int) this.f65126g.getBytesWritten());
     }
 
     @Override // d.b.c.a.a.q
     public r a() {
-        return this.f64439f.a();
+        return this.f65125f.a();
     }
 }

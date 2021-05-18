@@ -8,10 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.database.SwanAppDbControl;
-import d.a.h0.a.w0.a;
+import d.a.i0.a.c1.a;
 /* loaded from: classes2.dex */
 public class SwanAppSubscribeMsgProvider extends ContentProvider {
-    public static final String CONTENT_AUTHORITY = a.c().getPackageName() + ".swan.subscribe_msg";
+    public static final String CONTENT_AUTHORITY = a.b().getPackageName() + ".swan.subscribe_msg";
     public static final Uri CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     @Nullable
     public SQLiteDatabase mDatabase;
@@ -20,7 +20,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
         if (this.mDatabase != null) {
             return false;
         }
-        SQLiteOpenHelper h2 = SwanAppDbControl.f(a.c()).h();
+        SQLiteOpenHelper h2 = SwanAppDbControl.f(a.b()).h();
         if (h2 != null) {
             SQLiteDatabase writableDatabase = h2.getWritableDatabase();
             this.mDatabase = writableDatabase;

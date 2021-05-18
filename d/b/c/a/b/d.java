@@ -4,40 +4,40 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class d implements Closeable {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends d {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ x f64800e;
+        public final /* synthetic */ x f65486e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f64801f;
+        public final /* synthetic */ long f65487f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.b.c.a.a.e f64802g;
+        public final /* synthetic */ d.b.c.a.a.e f65488g;
 
         public a(x xVar, long j, d.b.c.a.a.e eVar) {
-            this.f64800e = xVar;
-            this.f64801f = j;
-            this.f64802g = eVar;
+            this.f65486e = xVar;
+            this.f65487f = j;
+            this.f65488g = eVar;
         }
 
         @Override // d.b.c.a.b.d
         public x n() {
-            return this.f64800e;
+            return this.f65486e;
         }
 
         @Override // d.b.c.a.b.d
         public long o() {
-            return this.f64801f;
+            return this.f65487f;
         }
 
         @Override // d.b.c.a.b.d
         public d.b.c.a.a.e r() {
-            return this.f64802g;
+            return this.f65488g;
         }
     }
 

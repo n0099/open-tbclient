@@ -20,67 +20,67 @@ import java.util.zip.ZipInputStream;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static h f39951a;
+    public static h f39196a;
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Object, Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39952a;
+        public String f39197a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39953b;
+        public String f39198b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StringBuilder f39954c;
+        public StringBuilder f39199c;
 
         /* renamed from: d  reason: collision with root package name */
-        public i f39955d;
+        public i f39200d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f39956e = false;
+        public boolean f39201e = false;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
-            this.f39952a = str;
-            this.f39953b = str2;
-            this.f39954c = sb;
-            this.f39955d = iVar;
+            this.f39197a = str;
+            this.f39198b = str2;
+            this.f39199c = sb;
+            this.f39200d = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Object doInBackground(Object... objArr) {
-            boolean i2 = h.this.i(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.f39952a, this.f39954c);
-            this.f39956e = i2;
+            boolean i2 = h.this.i(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.f39197a, this.f39199c);
+            this.f39201e = i2;
             if (i2) {
                 return null;
             }
-            h.this.d(this.f39953b, "".getBytes(), this.f39954c);
+            h.this.d(this.f39198b, "".getBytes(), this.f39199c);
             return null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.f39954c.length() > 0) {
+            if (this.f39199c.length() > 0) {
                 BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                bdStatisticsManager.error("so", "load_" + this.f39952a + ".so", "", -9101, this.f39954c.toString(), new Object[0]);
+                bdStatisticsManager.error("so", "load_" + this.f39197a + ".so", "", -9101, this.f39199c.toString(), new Object[0]);
             }
-            i iVar = this.f39955d;
+            i iVar = this.f39200d;
             if (iVar != null) {
-                iVar.a(this.f39956e);
+                iVar.a(this.f39201e);
             }
         }
     }
 
     public static h f() {
         h hVar;
-        h hVar2 = f39951a;
+        h hVar2 = f39196a;
         if (hVar2 == null) {
             synchronized (h.class) {
-                if (f39951a == null) {
-                    f39951a = new h();
+                if (f39196a == null) {
+                    f39196a = new h();
                 }
-                hVar = f39951a;
+                hVar = f39196a;
             }
             return hVar;
         }
@@ -200,7 +200,7 @@ public class h {
     }
 
     public final String h(String str) {
-        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f5743g + File.separator + "lib" + str + ".so";
+        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f5597g + File.separator + "lib" + str + ".so";
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x0121 */

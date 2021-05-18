@@ -12,10 +12,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
 import d.a.c.e.p.j;
-import d.a.i0.r.d0.b;
+import d.a.j0.r.d0.b;
 /* loaded from: classes5.dex */
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
-    public d.a.j0.v2.e.a privacyMarkView;
+    public d.a.k0.v2.e.a privacyMarkView;
     public HttpMessageListener setPrivateHttpListener = new a(CmdConfigHttp.SET_PRIVATE_CMD, true);
 
     /* loaded from: classes5.dex */
@@ -70,7 +70,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
         if (intExtra2 != 1 && intExtra2 != 3) {
             intExtra2 = 1;
         }
-        d.a.j0.v2.e.a aVar = new d.a.j0.v2.e.a(getPageContext(), (intExtra << 2) | intExtra2);
+        d.a.k0.v2.e.a aVar = new d.a.k0.v2.e.a(getPageContext(), (intExtra << 2) | intExtra2);
         this.privacyMarkView = aVar;
         setContentView(aVar.j());
         registerListener(this.setPrivateHttpListener);

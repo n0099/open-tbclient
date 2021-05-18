@@ -92,7 +92,7 @@ public final class g {
             try {
                 com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
                 long currentTimeMillis = System.currentTimeMillis();
-                long j = eVar.f11221a.getLong("pu_cl_fd", 0L);
+                long j = eVar.f10288a.getLong("pu_cl_fd", 0L);
                 if (j == 0) {
                     j = System.currentTimeMillis();
                     eVar.g();
@@ -106,10 +106,10 @@ public final class g {
                         hashMap.put("0", Integer.valueOf(eVar.i()));
                         hashMap.put("1", Integer.valueOf(eVar.j() + 1));
                     }
-                    eVar.f11223c.putInt("mo_fa_pu_cl", 0);
-                    eVar.f11223c.commit();
-                    eVar.f11223c.putInt("wi_fa_pu_cl", 0);
-                    eVar.f11223c.commit();
+                    eVar.f10290c.putInt("mo_fa_pu_cl", 0);
+                    eVar.f10290c.commit();
+                    eVar.f10290c.putInt("wi_fa_pu_cl", 0);
+                    eVar.f10290c.commit();
                     eVar.g();
                     d.a(context, "1003112", (Map<String, Object>) hashMap, false);
                 } else if (d.f(context)) {

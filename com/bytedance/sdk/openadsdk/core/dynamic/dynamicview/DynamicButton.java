@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 import com.bytedance.sdk.openadsdk.utils.al;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DynamicButton extends DynamicBaseWidgetImp {
     public int p;
     public int q;
@@ -20,7 +20,7 @@ public class DynamicButton extends DynamicBaseWidgetImp {
     }
 
     private void f() {
-        this.p = ((this.f28853f - ((int) al.a(this.f28856i, this.j.e()))) / 2) - this.j.a();
+        this.p = ((this.f28098f - ((int) al.a(this.f28101i, this.j.e()))) / 2) - this.j.a();
         this.q = 0;
     }
 

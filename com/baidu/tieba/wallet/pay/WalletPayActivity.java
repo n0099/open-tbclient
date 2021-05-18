@@ -50,8 +50,8 @@ import d.a.c.c.g.a;
 import d.a.c.e.m.e;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.i0.r.d0.b;
-import d.a.i0.r.s.a;
+import d.a.j0.r.d0.b;
+import d.a.j0.r.s.a;
 import java.util.Date;
 import java.util.HashMap;
 import org.json.JSONException;
@@ -634,7 +634,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         } else {
             str2 = notifyPopup.y_btn_text;
         }
-        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getActivity());
+        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(getActivity());
         aVar.setContentViewSize(1);
         aVar.setCanceledOnTouchOutside(false);
         aVar.setContentView(this.mDialogRootView);
@@ -650,20 +650,20 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
             }
         });
         aVar.setNegativeButton(str, new a.e() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.12
-            @Override // d.a.i0.r.s.a.e
-            public void onClick(d.a.i0.r.s.a aVar2) {
+            @Override // d.a.j0.r.s.a.e
+            public void onClick(d.a.j0.r.s.a aVar2) {
                 aVar2.dismiss();
                 WalletPayActivity.this.finishSelf();
             }
         });
         aVar.setPositiveButton(str2, new a.e() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.13
-            @Override // d.a.i0.r.s.a.e
-            public void onClick(d.a.i0.r.s.a aVar2) {
+            @Override // d.a.j0.r.s.a.e
+            public void onClick(d.a.j0.r.s.a aVar2) {
                 if (!k.isEmpty(notifyPopup.y_btn_link)) {
-                    d.a.i0.v.b.l().t("app_update" + new Date().getTime(), notifyPopup.y_btn_link, "tieba" + new Date().getTime(), null);
+                    d.a.j0.v.b.l().t("app_update" + new Date().getTime(), notifyPopup.y_btn_link, "tieba" + new Date().getTime(), null);
                 }
                 if (!k.isEmpty(notifyPopup.appendix_text) && WalletPayActivity.this.mOtherApkSelected && !k.isEmpty(notifyPopup.appendix_link)) {
-                    d.a.i0.v.b.l().t("app_update_extra" + new Date().getTime(), notifyPopup.appendix_link, "tiebaextra" + new Date().getTime(), null);
+                    d.a.j0.v.b.l().t("app_update_extra" + new Date().getTime(), notifyPopup.appendix_link, "tiebaextra" + new Date().getTime(), null);
                 }
                 aVar2.dismiss();
                 WalletPayActivity.this.finishSelf();
@@ -673,8 +673,8 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         aVar.show();
     }
 
-    public d.a.i0.r.s.a showPaySuccessDialog() {
-        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getPageContext().getPageActivity());
+    public d.a.j0.r.s.a showPaySuccessDialog() {
+        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(getPageContext().getPageActivity());
         aVar.setCanceledOnTouchOutside(false);
         aVar.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.6
             @Override // android.content.DialogInterface.OnKeyListener
@@ -731,7 +731,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         if (notifyPopup == null) {
             return;
         }
-        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getActivity());
+        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(getActivity());
         aVar.setMessage(notifyPopup.hint);
         aVar.setCanceledOnTouchOutside(false);
         if (StringUtils.isNull(notifyPopup.n_btn_text)) {
@@ -745,17 +745,17 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
             str2 = notifyPopup.y_btn_text;
         }
         aVar.setNegativeButton(str, new a.e() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.8
-            @Override // d.a.i0.r.s.a.e
-            public void onClick(d.a.i0.r.s.a aVar2) {
+            @Override // d.a.j0.r.s.a.e
+            public void onClick(d.a.j0.r.s.a aVar2) {
                 aVar2.dismiss();
                 WalletPayActivity.this.finishSelf();
             }
         });
         aVar.setPositiveButton(str2, new a.e() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.9
-            @Override // d.a.i0.r.s.a.e
-            public void onClick(d.a.i0.r.s.a aVar2) {
+            @Override // d.a.j0.r.s.a.e
+            public void onClick(d.a.j0.r.s.a aVar2) {
                 if (!k.isEmpty(notifyPopup.y_btn_link)) {
-                    d.a.i0.v.b.l().t("app_update", notifyPopup.y_btn_link, "tieba", null);
+                    d.a.j0.v.b.l().t("app_update", notifyPopup.y_btn_link, "tieba", null);
                 }
                 aVar2.dismiss();
                 WalletPayActivity.this.finishSelf();

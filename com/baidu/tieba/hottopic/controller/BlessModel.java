@@ -7,11 +7,11 @@ import com.baidu.tieba.message.RequestBlessMessage;
 public class BlessModel extends BdBaseModel<BaseActivity<?>> {
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f17516e;
+    public BaseActivity<?> f16831e;
 
     public BlessModel(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
-        this.f17516e = baseActivity;
+        this.f16831e = baseActivity;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -18,14 +18,14 @@ import java.net.SocketException;
 import java.security.MessageDigest;
 import java.util.Enumeration;
 import java.util.Stack;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36507a = "com.sdk.base.framework.f.a.a";
+    public static final String f35752a = "com.sdk.base.framework.f.a.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f36508b = f.f36488b;
+    public static boolean f35753b = f.f35733b;
 
     static {
         new Stack();
@@ -60,7 +60,7 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return null;
         } catch (Exception e2) {
-            c.b(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
+            c.b(f35752a, e2.getMessage(), Boolean.valueOf(f35753b));
             return null;
         }
     }
@@ -75,7 +75,7 @@ public class a extends com.sdk.base.framework.f.a {
         try {
             return Build.VERSION.SDK_INT;
         } catch (Exception e2) {
-            c.b(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
+            c.b(f35752a, e2.getMessage(), Boolean.valueOf(f35753b));
             return -1;
         }
     }
@@ -91,7 +91,7 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return -1;
         } catch (Exception e2) {
-            c.b(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
+            c.b(f35752a, e2.getMessage(), Boolean.valueOf(f35753b));
             return -1;
         }
     }
@@ -108,20 +108,20 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return (T) bundle.get(str);
         } catch (Exception e2) {
-            c.a(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
+            c.a(f35752a, e2.getMessage(), Boolean.valueOf(f35753b));
             return null;
         }
     }
 
     public static String c(Context context) {
         if (context == null) {
-            c.c(f36507a, "mContext 为空", Boolean.valueOf(f36508b));
+            c.c(f35752a, "mContext 为空", Boolean.valueOf(f35753b));
             return null;
         }
         try {
             return context.getPackageName();
         } catch (Exception e2) {
-            c.b(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
+            c.b(f35752a, e2.getMessage(), Boolean.valueOf(f35753b));
             return null;
         }
     }
@@ -132,14 +132,14 @@ public class a extends com.sdk.base.framework.f.a {
 
     public static String d(Context context) {
         if (context == null) {
-            com.sdk.base.framework.f.a.a(f36507a, "getAppLable", "mContext 为空", f36508b);
+            com.sdk.base.framework.f.a.a(f35752a, "getAppLable", "mContext 为空", f35753b);
             return null;
         }
         try {
             PackageManager packageManager = context.getPackageManager();
             return packageManager.getApplicationLabel(packageManager.getApplicationInfo(context.getPackageName(), 128)).toString();
         } catch (Exception e2) {
-            c.b(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
+            c.b(f35752a, e2.getMessage(), Boolean.valueOf(f35753b));
             return null;
         }
     }
@@ -149,7 +149,7 @@ public class a extends com.sdk.base.framework.f.a {
         try {
             packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
         } catch (PackageManager.NameNotFoundException e2) {
-            c.b(f36507a, e2.getMessage(), Boolean.valueOf(f36508b));
+            c.b(f35752a, e2.getMessage(), Boolean.valueOf(f35753b));
             packageInfo = null;
         }
         if (packageInfo != null) {
@@ -178,7 +178,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
                 return str;
             } catch (Exception e3) {
-                c.b(f36507a, e3.getMessage(), Boolean.valueOf(f36508b));
+                c.b(f35752a, e3.getMessage(), Boolean.valueOf(f35753b));
                 return null;
             }
         }

@@ -11,27 +11,30 @@ import java.io.IOException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7829a;
+    public static boolean f7626a;
 
-    public static void a(Context context, boolean z, String str, String str2) {
-        if (f7829a) {
+    public static void a(Context context, boolean z, String str, String str2, String str3) {
+        if (f7626a) {
             return;
         }
         if (context == null) {
-            throw new IllegalArgumentException("context can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: context can not be null");
         }
         if (!(context instanceof Application)) {
-            throw new RuntimeException("context must be an ApplicationContext");
+            throw new RuntimeException("BDMapSDKException: context must be an ApplicationContext");
         }
         NativeLoader.setContext(context);
         NativeLoader.a(z, str);
         a.a().a(context);
         a.a().c();
+        a.a().a(str3);
         JNIInitializer.setContext((Application) context);
         if (a(str2)) {
             EnvironmentUtilities.setSDCardPath(str2);
         }
-        f7829a = true;
+        EnvironmentUtilities.initAppDirectory(context);
+        com.baidu.mapsdkplatform.comapi.b.a.c.a().a(context);
+        f7626a = true;
     }
 
     public static boolean a(String str) {
@@ -51,7 +54,7 @@ public class c {
             return true;
         } catch (IOException e2) {
             Log.e("SDKInitializer", "SDCard cache path invalid", e2);
-            throw new IllegalArgumentException("Provided sdcard cache path invalid can not used.");
+            throw new IllegalArgumentException("BDMapSDKException: Provided sdcard cache path invalid can not used.");
         }
     }
 }

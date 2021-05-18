@@ -16,19 +16,19 @@ import tbclient.Userlike.DataRes;
 public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public d f16966e;
+    public d f16281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f16967f;
+    public c f16282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16968g;
+    public boolean f16283g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.c.c.g.a f16969h;
+    public d.a.c.c.g.a f16284h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.c.c.g.a f16970i;
+    public d.a.c.c.g.a f16285i;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -38,11 +38,11 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null || ConcernNetModel.this.f16966e == null) {
+            if (responsedMessage == null || ConcernNetModel.this.f16281e == null) {
                 return;
             }
             boolean z = false;
-            ConcernNetModel.this.f16968g = false;
+            ConcernNetModel.this.f16283g = false;
             if (responsedMessage.getOrginalMessage() != null) {
                 Object extra = responsedMessage.getOrginalMessage().getExtra();
                 if (extra instanceof ConcernPageRequestMessage) {
@@ -50,7 +50,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
             if (responsedMessage.getError() != 0) {
-                ConcernNetModel.this.f16966e.a(responsedMessage.getError(), responsedMessage.getErrorString());
+                ConcernNetModel.this.f16281e.a(responsedMessage.getError(), responsedMessage.getErrorString());
                 return;
             }
             DataRes dataRes = null;
@@ -59,7 +59,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
             } else if (responsedMessage instanceof ConcernPageHttpResMessage) {
                 dataRes = ((ConcernPageHttpResMessage) responsedMessage).getResultData();
             }
-            ConcernNetModel.this.f16966e.b(dataRes, z);
+            ConcernNetModel.this.f16281e.b(dataRes, z);
         }
     }
 
@@ -73,7 +73,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             CheckRedNotifySocketResMessage checkRedNotifySocketResMessage;
             boolean isShowRedNotify;
-            if (responsedMessage == null || ConcernNetModel.this.f16967f == null || responsedMessage.getError() != 0) {
+            if (responsedMessage == null || ConcernNetModel.this.f16282f == null || responsedMessage.getError() != 0) {
                 return;
             }
             if (responsedMessage instanceof CheckRedNotifyHttpResMessage) {
@@ -88,7 +88,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                 }
                 isShowRedNotify = false;
             }
-            ConcernNetModel.this.f16967f.a(false);
+            ConcernNetModel.this.f16282f.a(false);
             if (isShowRedNotify && (responsedMessage.getmOrginalMessage().getExtra() instanceof CheckRedNotifyReqMessage) && ((CheckRedNotifyReqMessage) responsedMessage.getmOrginalMessage().getExtra()).reqUnreadTipAfterFinish) {
                 ConcernNetModel.this.sendMessage(new ConcernUnreadTipReqMessage());
             }
@@ -109,33 +109,33 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
 
     public ConcernNetModel(f<BaseFragmentActivity> fVar, BdUniqueId bdUniqueId) {
         super(fVar);
-        this.f16968g = false;
-        this.f16969h = new a(CmdConfigHttp.CMD_CONCERN_PAGE, 309474);
-        this.f16970i = new b(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476);
+        this.f16283g = false;
+        this.f16284h = new a(CmdConfigHttp.CMD_CONCERN_PAGE, 309474);
+        this.f16285i = new b(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476);
         setUniqueId(bdUniqueId);
         x();
         y();
-        registerListener(this.f16969h);
-        registerListener(this.f16970i);
+        registerListener(this.f16284h);
+        registerListener(this.f16285i);
     }
 
     public void A(d dVar) {
-        this.f16966e = dVar;
+        this.f16281e = dVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.f16968g) {
+        if (this.f16283g) {
             return true;
         }
-        this.f16968g = true;
+        this.f16283g = true;
         sendMessage(new ConcernPageRequestMessage());
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.f16968g = false;
+        this.f16283g = false;
         cancelMessage();
         return false;
     }
@@ -147,11 +147,11 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         sendMessage(checkRedNotifyReqMessage);
     }
 
-    public void w(String str, d.a.i0.z0.c cVar) {
-        if (this.f16968g) {
+    public void w(String str, d.a.j0.z0.c cVar) {
+        if (this.f16283g) {
             return;
         }
-        this.f16968g = true;
+        this.f16283g = true;
         ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
         concernPageRequestMessage.setPageTag(str);
         concernPageRequestMessage.setTag(getUniqueId());
@@ -160,28 +160,28 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public final void x() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, d.a.j0.d3.d0.a.a(TbConfig.URL_CONCERN_PAGE, 309474));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, d.a.k0.d3.d0.a.a(TbConfig.URL_CONCERN_PAGE, 309474));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, d.a.j0.d3.d0.a.a(TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, 309476));
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, d.a.k0.d3.d0.a.a(TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, 309476));
         tbHttpMessageTask2.setIsNeedAddCommenParam(true);
         tbHttpMessageTask2.setResponsedClass(CheckRedNotifyHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
     public final void y() {
-        d.a.i0.v0.b bVar = new d.a.i0.v0.b(309474);
+        d.a.j0.v0.b bVar = new d.a.j0.v0.b(309474);
         bVar.setResponsedClass(ConcernPageSocketResMessage.class);
         bVar.g(true);
         MessageManager.getInstance().registerTask(bVar);
-        d.a.i0.v0.b bVar2 = new d.a.i0.v0.b(309476);
+        d.a.j0.v0.b bVar2 = new d.a.j0.v0.b(309476);
         bVar2.setResponsedClass(CheckRedNotifySocketResMessage.class);
         bVar2.g(true);
         MessageManager.getInstance().registerTask(bVar2);
     }
 
     public void z(c cVar) {
-        this.f16967f = cVar;
+        this.f16282f = cVar;
     }
 }

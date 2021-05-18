@@ -5,28 +5,28 @@ import java.math.BigInteger;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static byte[] f50304a;
+    public static byte[] f48525a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f50305b;
+    public static byte[] f48526b;
 
     public static byte[] a() {
-        byte[] bArr = f50304a;
+        byte[] bArr = f48525a;
         if (bArr != null) {
             return bArr;
         }
-        byte[] byteArray = new BigInteger(a.f50299a).modPow(new BigInteger(a.f50300b), new BigInteger(a.f50303e)).toByteArray();
-        f50304a = byteArray;
+        byte[] byteArray = new BigInteger(a.f48520a).modPow(new BigInteger(a.f48521b), new BigInteger(a.f48524e)).toByteArray();
+        f48525a = byteArray;
         return byteArray;
     }
 
     public static byte[] b() {
-        byte[] bArr = f50305b;
+        byte[] bArr = f48526b;
         if (bArr != null) {
             return bArr;
         }
-        byte[] byteArray = new BigInteger(a.f50301c).modPow(new BigInteger(a.f50302d), new BigInteger(a.f50303e)).toByteArray();
-        f50305b = byteArray;
+        byte[] byteArray = new BigInteger(a.f48522c).modPow(new BigInteger(a.f48523d), new BigInteger(a.f48524e)).toByteArray();
+        f48526b = byteArray;
         return byteArray;
     }
 }

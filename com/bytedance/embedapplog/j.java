@@ -12,13 +12,13 @@ public interface j extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.j$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0292a implements j {
+        public static class C0279a implements j {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f27667a;
+            public IBinder f26912a;
 
-            public C0292a(IBinder iBinder) {
-                this.f27667a = iBinder;
+            public C0279a(IBinder iBinder) {
+                this.f26912a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.j
@@ -27,7 +27,7 @@ public interface j extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f27667a.transact(1, obtain, obtain2, 0);
+                    this.f26912a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -38,7 +38,7 @@ public interface j extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f27667a;
+                return this.f26912a;
             }
 
             @Override // com.bytedance.embedapplog.j
@@ -47,7 +47,7 @@ public interface j extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f27667a.transact(2, obtain, obtain2, 0);
+                    this.f26912a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -62,7 +62,7 @@ public interface j extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f27667a.transact(3, obtain, obtain2, 0);
+                    this.f26912a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -77,7 +77,7 @@ public interface j extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f27667a.transact(4, obtain, obtain2, 0);
+                    this.f26912a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -92,7 +92,7 @@ public interface j extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f27667a.transact(5, obtain, obtain2, 0);
+                    this.f26912a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -110,7 +110,7 @@ public interface j extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof j)) {
                 return (j) queryLocalInterface;
             }
-            return new C0292a(iBinder);
+            return new C0279a(iBinder);
         }
 
         @Override // android.os.Binder

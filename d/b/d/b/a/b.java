@@ -1,7 +1,7 @@
 package d.b.d.b.a;
 
 import android.app.ActivityManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String a(ActivityManager.ProcessErrorStateInfo processErrorStateInfo) {
         StringBuilder sb = new StringBuilder();

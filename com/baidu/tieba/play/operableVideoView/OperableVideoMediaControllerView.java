@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.VideoControllerView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OperableVideoMediaControllerView extends VideoControllerView {
     public OperableVideoMediaControllerView(Context context) {
         super(context);

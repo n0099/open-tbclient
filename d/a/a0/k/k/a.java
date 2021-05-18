@@ -8,18 +8,18 @@ public class a {
 
     /* renamed from: d.a.a0.k.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class RunnableC0499a implements Runnable {
+    public static class RunnableC0486a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f39222e;
+        public final /* synthetic */ c f38467e;
 
-        public RunnableC0499a(c cVar) {
-            this.f39222e = cVar;
+        public RunnableC0486a(c cVar) {
+            this.f38467e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.c(this.f39222e);
+            a.c(this.f38467e);
         }
     }
 
@@ -42,7 +42,7 @@ public class a {
         viewGroup.addView(cVar, layoutParams);
         cVar.setLoading(true);
         if (j != -1) {
-            viewGroup.postDelayed(new RunnableC0499a(cVar), j);
+            viewGroup.postDelayed(new RunnableC0486a(cVar), j);
         }
     }
 

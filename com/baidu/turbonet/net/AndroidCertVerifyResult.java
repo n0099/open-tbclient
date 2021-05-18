@@ -12,26 +12,26 @@ import java.util.List;
 public class AndroidCertVerifyResult {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f23052a;
+    public final int f22297a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f23053b;
+    public final boolean f22298b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<X509Certificate> f23054c;
+    public final List<X509Certificate> f22299c;
 
     public AndroidCertVerifyResult(int i2, boolean z, List<X509Certificate> list) {
-        this.f23052a = i2;
-        this.f23053b = z;
-        this.f23054c = new ArrayList(list);
+        this.f22297a = i2;
+        this.f22298b = z;
+        this.f22299c = new ArrayList(list);
     }
 
     @CalledByNative
     public byte[][] getCertificateChainEncoded() {
-        byte[][] bArr = new byte[this.f23054c.size()];
-        for (int i2 = 0; i2 < this.f23054c.size(); i2++) {
+        byte[][] bArr = new byte[this.f22299c.size()];
+        for (int i2 = 0; i2 < this.f22299c.size(); i2++) {
             try {
-                bArr[i2] = this.f23054c.get(i2).getEncoded();
+                bArr[i2] = this.f22299c.get(i2).getEncoded();
             } catch (CertificateEncodingException unused) {
                 return new byte[0];
             }
@@ -41,17 +41,17 @@ public class AndroidCertVerifyResult {
 
     @CalledByNative
     public int getStatus() {
-        return this.f23052a;
+        return this.f22297a;
     }
 
     @CalledByNative
     public boolean isIssuedByKnownRoot() {
-        return this.f23053b;
+        return this.f22298b;
     }
 
     public AndroidCertVerifyResult(int i2) {
-        this.f23052a = i2;
-        this.f23053b = false;
-        this.f23054c = Collections.emptyList();
+        this.f22297a = i2;
+        this.f22298b = false;
+        this.f22299c = Collections.emptyList();
     }
 }

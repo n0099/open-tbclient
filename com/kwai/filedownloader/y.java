@@ -9,18 +9,18 @@ import java.util.List;
 public class y extends e implements u {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<a.b> f35228a = new ArrayList<>();
+    public final ArrayList<a.b> f34473a = new ArrayList<>();
 
     @Override // com.kwai.filedownloader.e
     public void a() {
         v d2 = q.a().d();
-        if (com.kwai.filedownloader.f.d.f35118a) {
+        if (com.kwai.filedownloader.f.d.f34363a) {
             com.kwai.filedownloader.f.d.c(this, "The downloader service is connected.", new Object[0]);
         }
-        synchronized (this.f35228a) {
-            this.f35228a.clear();
+        synchronized (this.f34473a) {
+            this.f34473a.clear();
             ArrayList arrayList = new ArrayList(d2.b());
-            for (a.b bVar : (List) this.f35228a.clone()) {
+            for (a.b bVar : (List) this.f34473a.clone()) {
                 int I = bVar.I();
                 if (d2.a(I)) {
                     bVar.F().a().a();
@@ -37,7 +37,7 @@ public class y extends e implements u {
 
     @Override // com.kwai.filedownloader.u
     public boolean a(a.b bVar) {
-        return !this.f35228a.isEmpty() && this.f35228a.contains(bVar);
+        return !this.f34473a.isEmpty() && this.f34473a.contains(bVar);
     }
 
     @Override // com.kwai.filedownloader.e
@@ -50,13 +50,13 @@ public class y extends e implements u {
             return;
         }
         v d2 = q.a().d();
-        if (com.kwai.filedownloader.f.d.f35118a) {
+        if (com.kwai.filedownloader.f.d.f34363a) {
             com.kwai.filedownloader.f.d.c(this, "lost the connection to the file download service, and current active task size is %d", Integer.valueOf(h.a().b()));
         }
         if (h.a().b() > 0) {
-            synchronized (this.f35228a) {
-                h.a().a(this.f35228a);
-                Iterator<a.b> it = this.f35228a.iterator();
+            synchronized (this.f34473a) {
+                h.a().a(this.f34473a);
+                Iterator<a.b> it = this.f34473a.iterator();
                 while (it.hasNext()) {
                     it.next().M();
                 }
@@ -68,26 +68,26 @@ public class y extends e implements u {
 
     @Override // com.kwai.filedownloader.u
     public void b(a.b bVar) {
-        if (this.f35228a.isEmpty()) {
+        if (this.f34473a.isEmpty()) {
             return;
         }
-        synchronized (this.f35228a) {
-            this.f35228a.remove(bVar);
+        synchronized (this.f34473a) {
+            this.f34473a.remove(bVar);
         }
     }
 
     @Override // com.kwai.filedownloader.u
     public boolean c(a.b bVar) {
         if (!q.a().c()) {
-            synchronized (this.f35228a) {
+            synchronized (this.f34473a) {
                 if (!q.a().c()) {
-                    if (com.kwai.filedownloader.f.d.f35118a) {
+                    if (com.kwai.filedownloader.f.d.f34363a) {
                         com.kwai.filedownloader.f.d.c(this, "Waiting for connecting with the downloader service... %d", Integer.valueOf(bVar.F().h()));
                     }
                     m.a().a(com.kwai.filedownloader.f.c.a());
-                    if (!this.f35228a.contains(bVar)) {
+                    if (!this.f34473a.contains(bVar)) {
                         bVar.M();
-                        this.f35228a.add(bVar);
+                        this.f34473a.add(bVar);
                     }
                     return true;
                 }

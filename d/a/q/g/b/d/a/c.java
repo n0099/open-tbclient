@@ -5,23 +5,23 @@ import java.math.BigInteger;
 public class c implements d.a.q.g.b.e.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public BigInteger f63704a;
+    public BigInteger f64341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BigInteger f63705b;
+    public BigInteger f64342b;
 
     public c(byte[] bArr, byte[] bArr2) {
-        this.f63704a = new BigInteger(bArr);
-        this.f63705b = new BigInteger(bArr2);
+        this.f64341a = new BigInteger(bArr);
+        this.f64342b = new BigInteger(bArr2);
     }
 
     @Override // d.a.q.g.b.e.a
     public BigInteger a() {
-        return this.f63705b;
+        return this.f64342b;
     }
 
     @Override // d.a.q.g.b.e.a
     public BigInteger b() {
-        return this.f63704a;
+        return this.f64341a;
     }
 }

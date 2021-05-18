@@ -33,17 +33,17 @@ public final class MutableClassToInstanceMap<B> extends u<Class<? extends B>, B>
     public static class a extends v<Class<? extends B>, B> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map.Entry f32031e;
+        public final /* synthetic */ Map.Entry f31276e;
 
         public a(Map.Entry entry) {
-            this.f32031e = entry;
+            this.f31276e = entry;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.g.c.c.y
         /* renamed from: b */
         public Map.Entry<Class<? extends B>, B> delegate() {
-            return this.f32031e;
+            return this.f31276e;
         }
 
         @Override // d.g.c.c.v, java.util.Map.Entry

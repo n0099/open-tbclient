@@ -2,7 +2,7 @@ package d.b.c.b.d;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m {
     public static n a(Context context) {
         return b(context, null);

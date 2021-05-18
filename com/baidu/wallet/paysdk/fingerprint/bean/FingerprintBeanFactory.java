@@ -13,11 +13,11 @@ public final class FingerprintBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static FingerprintBeanFactory f26102a = new FingerprintBeanFactory();
+        public static FingerprintBeanFactory f25347a = new FingerprintBeanFactory();
     }
 
     public static FingerprintBeanFactory getInstance() {
-        return a.f26102a;
+        return a.f25347a;
     }
 
     public FingerprintBeanFactory() {

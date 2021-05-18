@@ -6,7 +6,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface aa extends IInterface {
     String a() throws RemoteException;
 
@@ -14,7 +14,7 @@ public interface aa extends IInterface {
 
     boolean a(boolean z) throws RemoteException;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements aa {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
@@ -28,11 +28,11 @@ public interface aa extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof aa)) {
                 return (aa) queryLocalInterface;
             }
-            return new C0444a(iBinder);
+            return new C0431a(iBinder);
         }
 
         public static aa b() {
-            return C0444a.f36781a;
+            return C0431a.f36026a;
         }
 
         @Override // android.os.IInterface
@@ -69,17 +69,17 @@ public interface aa extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.aa$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C0444a implements aa {
+        /* loaded from: classes7.dex */
+        public static class C0431a implements aa {
 
             /* renamed from: a  reason: collision with root package name */
-            public static aa f36781a;
+            public static aa f36026a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f36782b;
+            public IBinder f36027b;
 
-            public C0444a(IBinder iBinder) {
-                this.f36782b = iBinder;
+            public C0431a(IBinder iBinder) {
+                this.f36027b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.aa
@@ -97,7 +97,7 @@ public interface aa extends IInterface {
                     }
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f36782b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f36027b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                         a.b().a(i2, downloadInfo, str, str2);
                     } else {
                         obtain2.readException();
@@ -110,7 +110,7 @@ public interface aa extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f36782b;
+                return this.f36027b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.aa
@@ -120,7 +120,7 @@ public interface aa extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
                     obtain.writeInt(z ? 1 : 0);
-                    if (!this.f36782b.transact(2, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f36027b.transact(2, obtain, obtain2, 0) && a.b() != null) {
                         return a.b().a(z);
                     }
                     obtain2.readException();
@@ -137,7 +137,7 @@ public interface aa extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
-                    if (!this.f36782b.transact(3, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f36027b.transact(3, obtain, obtain2, 0) && a.b() != null) {
                         return a.b().a();
                     }
                     obtain2.readException();

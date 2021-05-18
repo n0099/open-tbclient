@@ -9,13 +9,13 @@ import d.a.c.a.f;
 public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16804e;
+    public int f16119e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f16805f;
+    public b f16120f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f16806g;
+    public d.a.c.c.g.a f16121g;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -31,12 +31,12 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             boolean z = responsedMessage instanceof FreeGiftChanceHttpResponseMessage;
             if (z || (responsedMessage instanceof FreeGiftChanceSocketResponseMessage)) {
                 if (z) {
-                    FreeGiftChanceModel.this.f16804e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
+                    FreeGiftChanceModel.this.f16119e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
                 } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
-                    FreeGiftChanceModel.this.f16804e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
+                    FreeGiftChanceModel.this.f16119e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
                 }
-                if (FreeGiftChanceModel.this.f16805f != null) {
-                    FreeGiftChanceModel.this.f16805f.a(responsedMessage.getError(), responsedMessage.getErrorString(), FreeGiftChanceModel.this.f16804e);
+                if (FreeGiftChanceModel.this.f16120f != null) {
+                    FreeGiftChanceModel.this.f16120f.a(responsedMessage.getError(), responsedMessage.getErrorString(), FreeGiftChanceModel.this.f16119e);
                 }
             }
         }
@@ -49,7 +49,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
 
     public FreeGiftChanceModel(f<GiftTabActivity> fVar) {
         super(fVar);
-        this.f16806g = new a(CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
+        this.f16121g = new a(CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
         registerListener();
         registerTask();
     }
@@ -65,12 +65,12 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public final void registerListener() {
-        registerListener(this.f16806g);
+        registerListener(this.f16121g);
     }
 
     public final void registerTask() {
-        d.a.j0.d3.d0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-        d.a.j0.d3.d0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+        d.a.k0.d3.d0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+        d.a.k0.d3.d0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
     }
 
     public void v(String str) {
@@ -80,6 +80,6 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public void w(b bVar) {
-        this.f16805f = bVar;
+        this.f16120f = bVar;
     }
 }

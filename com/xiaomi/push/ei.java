@@ -10,6 +10,6 @@ public class ei extends com.xiaomi.clientreport.processor.a {
 
     @Override // com.xiaomi.clientreport.processor.a
     public void a(List<String> list) {
-        ek.a(((com.xiaomi.clientreport.processor.a) this).f38033a, list);
+        ek.a(((com.xiaomi.clientreport.processor.a) this).f37278a, list);
     }
 }

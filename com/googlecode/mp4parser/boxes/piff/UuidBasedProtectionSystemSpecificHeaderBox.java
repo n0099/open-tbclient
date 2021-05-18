@@ -13,13 +13,13 @@ import java.util.UUID;
 /* loaded from: classes6.dex */
 public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox {
     public static byte[] USER_TYPE;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_6 = null;
     public ProtectionSpecificHeader protectionSpecificHeader;
     public UUID systemId;
 

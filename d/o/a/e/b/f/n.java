@@ -2,7 +2,7 @@ package d.o.a.e.b.f;
 
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class n extends a implements t {
     @Override // d.o.a.e.b.f.t
     public void a(DownloadInfo downloadInfo) {

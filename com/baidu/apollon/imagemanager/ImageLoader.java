@@ -23,35 +23,35 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class ImageLoader {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3753c = "baidu/wallet/image_cache";
+    public static final String f3754c = "baidu/wallet/image_cache";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long f3754d = 864000000;
+    public static final long f3755d = 864000000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f3755e = 3;
+    public static final int f3756e = 3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f3756f = 6;
+    public static final int f3757f = 6;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f3757g = 10;
+    public static final int f3758g = 10;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f3759i;
+    public Context f3760i;
     public b j;
     public a k;
     public ImageProcessor l;
     public ThreadPoolExecutor m = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3751a = ApollonConstants.DEBUG;
+    public static final boolean f3752a = ApollonConstants.DEBUG;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3752b = ImageLoader.class.getSimpleName();
+    public static final String f3753b = ImageLoader.class.getSimpleName();
 
     /* renamed from: h  reason: collision with root package name */
-    public static ImageLoader f3758h = null;
+    public static ImageLoader f3759h = null;
 
     /* loaded from: classes.dex */
     public interface OnGetBitmapListener {
@@ -64,16 +64,16 @@ public final class ImageLoader {
 
     public ImageLoader(Context context) {
         Context applicationContext = context.getApplicationContext();
-        this.f3759i = applicationContext;
+        this.f3760i = applicationContext;
         this.l = new ImageProcessor(applicationContext);
         this.j = new b();
-        this.k = new a(this.f3759i, f3753c, new a.InterfaceC0061a() { // from class: com.baidu.apollon.imagemanager.ImageLoader.1
-            @Override // com.baidu.apollon.imagemanager.a.InterfaceC0061a
+        this.k = new a(this.f3760i, f3754c, new a.InterfaceC0060a() { // from class: com.baidu.apollon.imagemanager.ImageLoader.1
+            @Override // com.baidu.apollon.imagemanager.a.InterfaceC0060a
             public List<File> a(File file) {
                 if (file.exists() && file.isDirectory()) {
                     LinkedList linkedList = new LinkedList();
                     File[] listFiles = file.listFiles();
-                    long currentTimeMillis = System.currentTimeMillis() - ImageLoader.f3754d;
+                    long currentTimeMillis = System.currentTimeMillis() - ImageLoader.f3755d;
                     for (File file2 : listFiles) {
                         if (file2.lastModified() < currentTimeMillis) {
                             linkedList.add(file2);
@@ -87,25 +87,25 @@ public final class ImageLoader {
     }
 
     public static ImageLoader getInstance(Context context) {
-        if (f3751a) {
-            Log.d(f3752b, "getInstance()");
+        if (f3752a) {
+            Log.d(f3753b, "getInstance()");
         }
-        if (f3758h == null) {
+        if (f3759h == null) {
             synchronized (ImageLoader.class) {
-                if (f3758h == null) {
-                    f3758h = new ImageLoader(context.getApplicationContext());
+                if (f3759h == null) {
+                    f3759h = new ImageLoader(context.getApplicationContext());
                 }
             }
         }
-        return f3758h;
+        return f3759h;
     }
 
     public void getBitmap(String str, OnGetBitmapListener onGetBitmapListener, Object obj, int i2) {
         if (a(str)) {
             Bitmap bitmapFromMemCache = getBitmapFromMemCache(str);
             if (bitmapFromMemCache != null) {
-                if (f3751a) {
-                    Log.d(f3752b, "find in memory");
+                if (f3752a) {
+                    Log.d(f3753b, "find in memory");
                 }
                 onGetBitmapListener.onGetBitmap(str, obj, bitmapFromMemCache);
                 return;
@@ -127,8 +127,8 @@ public final class ImageLoader {
     }
 
     public Bitmap getBitmapFromMemCache(String str) {
-        if (f3751a) {
-            Log.d(f3752b, "check memory");
+        if (f3752a) {
+            Log.d(f3753b, "check memory");
         }
         if (a(str)) {
             return this.j.a(str);
@@ -140,14 +140,14 @@ public final class ImageLoader {
         if (a(str)) {
             Bitmap bitmapFromMemCache = getBitmapFromMemCache(str);
             if (bitmapFromMemCache != null) {
-                if (f3751a) {
-                    Log.d(f3752b, "find in memory");
+                if (f3752a) {
+                    Log.d(f3753b, "find in memory");
                 }
                 return bitmapFromMemCache;
             }
             Bitmap a2 = a(str, obj, i2);
-            if (a2 != null && f3751a) {
-                Log.d(f3752b, "find in disk");
+            if (a2 != null && f3752a) {
+                Log.d(f3753b, "find in disk");
             }
             return a2;
         }
@@ -174,10 +174,10 @@ public final class ImageLoader {
     public void b(String str, OnGetBitmapListener onGetBitmapListener, Object obj, int i2) {
         byte[] bArr;
         if (onGetBitmapListener == null || !onGetBitmapListener.needCancel(str, obj)) {
-            if (f3751a) {
-                Log.d(f3752b, "download from net");
+            if (f3752a) {
+                Log.d(f3753b, "download from net");
             }
-            Context context = this.f3759i;
+            Context context = this.f3760i;
             RestTemplate restTemplate = new RestTemplate(context, BussinessUtils.getUA(context), "image load http request");
             restTemplate.setMessageConverter(new com.baidu.apollon.restnet.converter.a());
             Bitmap bitmap = null;
@@ -200,8 +200,8 @@ public final class ImageLoader {
             } catch (FileNotFoundException unused) {
             }
             if (bitmap != null) {
-                if (f3751a) {
-                    Log.d(f3752b, "find in file");
+                if (f3752a) {
+                    Log.d(f3753b, "find in file");
                 }
                 this.j.a(str, bitmap);
                 this.j.a();
@@ -216,15 +216,15 @@ public final class ImageLoader {
     public boolean a(String str, OnGetBitmapListener onGetBitmapListener, Object obj, int i2) {
         Bitmap bitmap;
         if (onGetBitmapListener == null || !onGetBitmapListener.needCancel(str, obj)) {
-            if (f3751a) {
-                Log.d(f3752b, "chech file async ");
+            if (f3752a) {
+                Log.d(f3753b, "chech file async ");
             }
             File a2 = this.k.a(str);
             if (a2 == null || !a2.exists()) {
                 return false;
             }
-            if (f3751a) {
-                Log.d(f3752b, "file is not null ");
+            if (f3752a) {
+                Log.d(f3753b, "file is not null ");
             }
             try {
                 bitmap = this.l.decode(a2, i2);
@@ -232,8 +232,8 @@ public final class ImageLoader {
                 bitmap = null;
             }
             if (bitmap != null) {
-                if (f3751a) {
-                    Log.d(f3752b, "find in file");
+                if (f3752a) {
+                    Log.d(f3753b, "find in file");
                 }
                 this.j.a(str, bitmap);
                 this.j.a();
@@ -261,22 +261,22 @@ public final class ImageLoader {
     }
 
     private Bitmap a(String str, Object obj, int i2) {
-        if (f3751a) {
-            Log.d(f3752b, "chech file async ");
+        if (f3752a) {
+            Log.d(f3753b, "chech file async ");
         }
         File a2 = this.k.a(str);
         Bitmap bitmap = null;
         if (a2 != null && a2.exists()) {
-            if (f3751a) {
-                Log.d(f3752b, "file is not null ");
+            if (f3752a) {
+                Log.d(f3753b, "file is not null ");
             }
             try {
                 bitmap = this.l.decode(a2, i2);
             } catch (FileNotFoundException unused) {
             }
             if (bitmap != null) {
-                if (f3751a) {
-                    Log.d(f3752b, "find in file");
+                if (f3752a) {
+                    Log.d(f3753b, "find in file");
                 }
                 this.j.a(str, bitmap);
                 this.j.a();

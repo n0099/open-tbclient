@@ -9,29 +9,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d extends Dialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f65980e;
+    public TextView f66666e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f65981f;
+    public TextView f66667f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f65982g;
+    public TextView f66668g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.o.a.d.f.a.c f65983h;
+    public d.o.a.d.f.a.c f66669h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f65984i;
+    public boolean f66670i;
     public Activity j;
     public String k;
     public String l;
     public String m;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -42,7 +42,7 @@ public class d extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -53,57 +53,57 @@ public class d extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public Activity f65987a;
+        public Activity f66673a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f65988b;
+        public String f66674b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f65989c;
+        public String f66675c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f65990d;
+        public String f66676d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f65991e;
+        public boolean f66677e;
 
         /* renamed from: f  reason: collision with root package name */
-        public d.o.a.d.f.a.c f65992f;
+        public d.o.a.d.f.a.c f66678f;
 
         public c(Activity activity) {
-            this.f65987a = activity;
+            this.f66673a = activity;
         }
 
         public c a(d.o.a.d.f.a.c cVar) {
-            this.f65992f = cVar;
+            this.f66678f = cVar;
             return this;
         }
 
         public c b(String str) {
-            this.f65988b = str;
+            this.f66674b = str;
             return this;
         }
 
         public c c(boolean z) {
-            this.f65991e = z;
+            this.f66677e = z;
             return this;
         }
 
         public d d() {
-            return new d(this.f65987a, this.f65988b, this.f65989c, this.f65990d, this.f65991e, this.f65992f);
+            return new d(this.f66673a, this.f66674b, this.f66675c, this.f66676d, this.f66677e, this.f66678f);
         }
 
         public c e(String str) {
-            this.f65989c = str;
+            this.f66675c = str;
             return this;
         }
 
         public c f(String str) {
-            this.f65990d = str;
+            this.f66676d = str;
             return this;
         }
     }
@@ -111,7 +111,7 @@ public class d extends Dialog {
     public d(@NonNull Activity activity, String str, String str2, String str3, boolean z, @NonNull d.o.a.d.f.a.c cVar) {
         super(activity, d.o.a.d.d.ttdownloader_translucent_dialog);
         this.j = activity;
-        this.f65983h = cVar;
+        this.f66669h = cVar;
         this.k = str;
         this.l = str2;
         this.m = str3;
@@ -133,10 +133,10 @@ public class d extends Dialog {
         if (!this.j.isFinishing()) {
             this.j.finish();
         }
-        if (this.f65984i) {
-            this.f65983h.a();
+        if (this.f66670i) {
+            this.f66669h.a();
         } else {
-            this.f65983h.b();
+            this.f66669h.b();
         }
     }
 
@@ -154,24 +154,24 @@ public class d extends Dialog {
 
     public final void f() {
         setContentView(LayoutInflater.from(this.j.getApplicationContext()).inflate(a(), (ViewGroup) null));
-        this.f65980e = (TextView) findViewById(c());
-        this.f65981f = (TextView) findViewById(e());
-        this.f65982g = (TextView) findViewById(d.o.a.d.b.message_tv);
+        this.f66666e = (TextView) findViewById(c());
+        this.f66667f = (TextView) findViewById(e());
+        this.f66668g = (TextView) findViewById(d.o.a.d.b.message_tv);
         if (!TextUtils.isEmpty(this.l)) {
-            this.f65980e.setText(this.l);
+            this.f66666e.setText(this.l);
         }
         if (!TextUtils.isEmpty(this.m)) {
-            this.f65981f.setText(this.m);
+            this.f66667f.setText(this.m);
         }
         if (!TextUtils.isEmpty(this.k)) {
-            this.f65982g.setText(this.k);
+            this.f66668g.setText(this.k);
         }
-        this.f65980e.setOnClickListener(new a());
-        this.f65981f.setOnClickListener(new b());
+        this.f66666e.setOnClickListener(new a());
+        this.f66667f.setOnClickListener(new b());
     }
 
     public final void g() {
-        this.f65984i = true;
+        this.f66670i = true;
         dismiss();
     }
 

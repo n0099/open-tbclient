@@ -11,16 +11,16 @@ import java.util.concurrent.Future;
 public abstract class h<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Future<SharedPreferences> f67518a;
+    public final Future<SharedPreferences> f68204a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f67519b;
+    public final a f68205b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f67520c;
+    public final String f68206c;
 
     /* renamed from: d  reason: collision with root package name */
-    public T f67521d;
+    public T f68207d;
 
     /* loaded from: classes7.dex */
     public interface a<T> {
@@ -32,9 +32,9 @@ public abstract class h<T> {
     }
 
     public h(Future<SharedPreferences> future, String str, a<T> aVar) {
-        this.f67518a = future;
-        this.f67519b = aVar;
-        this.f67520c = str;
+        this.f68204a = future;
+        this.f68205b = aVar;
+        this.f68206c = str;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x0028 A[Catch: all -> 0x000e, DONT_GENERATE, TryCatch #2 {, blocks: (B:4:0x0005, B:14:0x0028, B:16:0x002a, B:18:0x0041, B:20:0x0048, B:19:0x0045, B:9:0x0011, B:11:0x001a), top: B:24:0x0005, inners: #3 }] */
@@ -44,10 +44,10 @@ public abstract class h<T> {
     */
     public void a(T t) {
         SharedPreferences sharedPreferences;
-        this.f67521d = t;
-        synchronized (this.f67518a) {
+        this.f68207d = t;
+        synchronized (this.f68204a) {
             try {
-                sharedPreferences = this.f67518a.get();
+                sharedPreferences = this.f68204a.get();
             } catch (InterruptedException e2) {
                 Log.e("SA.PersistentIdentity", "Cannot read distinct ids from sharedPreferences.", e2);
                 sharedPreferences = null;
@@ -63,7 +63,7 @@ public abstract class h<T> {
                 return;
             }
             SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putString(this.f67520c, this.f67519b.a(this.f67521d));
+            edit.putString(this.f68206c, this.f68205b.a(this.f68207d));
             if (Build.VERSION.SDK_INT >= 9) {
                 edit.apply();
             } else {
@@ -76,13 +76,13 @@ public abstract class h<T> {
     /* JADX WARN: Multi-variable type inference failed */
     public T b() {
         Object load;
-        if (this.f67521d == null) {
-            synchronized (this.f67518a) {
+        if (this.f68207d == null) {
+            synchronized (this.f68204a) {
                 String str = null;
                 try {
-                    SharedPreferences sharedPreferences = this.f67518a.get();
+                    SharedPreferences sharedPreferences = this.f68204a.get();
                     if (sharedPreferences != null) {
-                        str = sharedPreferences.getString(this.f67520c, null);
+                        str = sharedPreferences.getString(this.f68206c, null);
                     }
                 } catch (InterruptedException e2) {
                     Log.e("SA.PersistentIdentity", "Cannot read distinct ids from sharedPreferences.", e2);
@@ -90,15 +90,15 @@ public abstract class h<T> {
                     Log.e("SA.PersistentIdentity", "Cannot read distinct ids from sharedPreferences.", e3.getCause());
                 }
                 if (str == null) {
-                    load = this.f67519b.create();
+                    load = this.f68205b.create();
                 } else {
-                    load = this.f67519b.load(str);
+                    load = this.f68205b.load(str);
                 }
                 if (load != null) {
                     a(load);
                 }
             }
         }
-        return this.f67521d;
+        return this.f68207d;
     }
 }

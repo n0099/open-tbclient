@@ -3,8 +3,8 @@ package com.baidu.tieba.write.write.vote;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import d.a.i0.t0.a;
-import d.a.j0.v3.u.p.b;
+import d.a.j0.t0.a;
+import d.a.k0.v3.u.p.b;
 /* loaded from: classes5.dex */
 public class WriteVoteActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.suspended.SuspendedActivity

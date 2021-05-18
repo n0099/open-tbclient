@@ -87,25 +87,28 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
             }
         } else if (i2 == 4) {
             handleDownloadMessage((ByteArrayInfo) ((Object[]) message.obj)[0]);
-        } else if (i2 != 5) {
-            if (i2 != 6) {
-                super.handleMessage(message);
-                return;
-            }
-            Bundle data = message.getData();
-            handleFileLengthMessage(data.getLong("filetotalbytes"), data.getString("etag"));
-        } else {
+        } else if (i2 == 5) {
             Object obj = message.obj;
             if (obj == null) {
                 handlePausedMessage(0);
             } else {
                 handlePausedMessage(((Integer) obj).intValue());
             }
+        } else if (i2 == 6) {
+            Bundle data = message.getData();
+            handleFileLengthMessage(data.getLong("filetotalbytes"), data.getString("etag"));
+        } else if (i2 != 7) {
+            super.handleMessage(message);
+        } else if (message.getData() != null) {
+            handleRedirectUrl(message.getData().getString("redirect_url", ""));
         }
     }
 
     public void handlePausedMessage(int i2) {
         onPaused(i2);
+    }
+
+    public void handleRedirectUrl(String str) {
     }
 
     public void handleSuccessMessage(int i2, byte[] bArr, long j) {
@@ -239,6 +242,15 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         Bundle bundle = new Bundle();
         bundle.putLong("filetotalbytes", this.mFileTotalBytes);
         bundle.putString("etag", this.mHeaderETag);
+        obtain.setData(bundle);
+        sendMessage(obtain);
+    }
+
+    public void sendRedirectMessage(String str) {
+        Message obtain = Message.obtain();
+        obtain.what = 7;
+        Bundle bundle = new Bundle();
+        bundle.putString("redirect_url", str);
         obtain.setData(bundle);
         sendMessage(obtain);
     }

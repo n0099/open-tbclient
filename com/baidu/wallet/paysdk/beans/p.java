@@ -20,20 +20,20 @@ import java.util.List;
 public class p extends BaseBean<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f25987a;
+    public BindFastRequest f25232a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PwdRequest f25988b;
+    public PwdRequest f25233b;
 
     public <T> p(Context context) {
         super(context);
-        this.f25987a = null;
-        this.f25988b = null;
-        this.f25988b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f25232a = null;
+        this.f25233b = null;
+        this.f25233b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     public void a(BindFastRequest bindFastRequest) {
-        this.f25987a = bindFastRequest;
+        this.f25232a = bindFastRequest;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -43,50 +43,50 @@ public class p extends BaseBean<Object> {
 
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
-        if (this.f25987a != null) {
+        if (this.f25232a != null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("request_type", this.f25987a.getCardRequestType()));
-            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f25987a.getServiceType()));
+            arrayList.add(new RestNameValuePair("request_type", this.f25232a.getCardRequestType()));
+            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f25232a.getServiceType()));
             arrayList.add(new RestNameValuePair("source_flag", "3"));
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25987a.getmBankCard())));
-            if (!TextUtils.isEmpty(this.f25987a.getmName())) {
-                arrayList.add(new RestNameValuePair("true_name", this.f25987a.getmName()));
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25232a.getmBankCard())));
+            if (!TextUtils.isEmpty(this.f25232a.getmName())) {
+                arrayList.add(new RestNameValuePair("true_name", this.f25232a.getmName()));
             }
-            if (!TextUtils.isEmpty(this.f25987a.getCertificateType())) {
-                arrayList.add(new RestNameValuePair("identity_type", this.f25987a.getCertificateType()));
+            if (!TextUtils.isEmpty(this.f25232a.getCertificateType())) {
+                arrayList.add(new RestNameValuePair("identity_type", this.f25232a.getCertificateType()));
             }
-            if (!TextUtils.isEmpty(this.f25987a.getmIdCard())) {
-                arrayList.add(new RestNameValuePair("identity_code", PayUtils.encrypt("identity_code", this.f25987a.getmIdCard())));
+            if (!TextUtils.isEmpty(this.f25232a.getmIdCard())) {
+                arrayList.add(new RestNameValuePair("identity_code", PayUtils.encrypt("identity_code", this.f25232a.getmIdCard())));
             }
-            if (!TextUtils.isEmpty(this.f25987a.getmPhone())) {
-                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25987a.getmPhone())));
+            if (!TextUtils.isEmpty(this.f25232a.getmPhone())) {
+                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25232a.getmPhone())));
             }
-            arrayList.add(new RestNameValuePair("vcode", this.f25987a.mSmsVCode));
-            String handlePwdSimple = PasswordController.handlePwdSimple(this.f25988b.mPayPass);
+            arrayList.add(new RestNameValuePair("vcode", this.f25232a.mSmsVCode));
+            String handlePwdSimple = PasswordController.handlePwdSimple(this.f25233b.mPayPass);
             String seed = PasswordController.getSeed();
-            String handlePwd = PasswordController.handlePwd(this.f25988b.mConfirmPayPass, seed);
+            String handlePwd = PasswordController.handlePwd(this.f25233b.mConfirmPayPass, seed);
             arrayList.add(new RestNameValuePair("mobile_pass", SafePay.getInstance().encryptProxy(handlePwdSimple)));
             arrayList.add(new RestNameValuePair("mobile_pass_confirm", handlePwd));
-            arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f25988b.mConfirmPayPass)));
+            arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f25233b.mConfirmPayPass)));
             arrayList.add(new RestNameValuePair("seed", SafePay.getInstance().encryptProxy(seed)));
             arrayList.add(new RestNameValuePair("key", SafePay.getInstance().getpwProxy()));
-            if (!TextUtils.isEmpty(this.f25987a.getmValidDate())) {
-                arrayList.add(new RestNameValuePair("valid_date", PayUtils.encrypt("valid_date", this.f25987a.getmValidDate())));
+            if (!TextUtils.isEmpty(this.f25232a.getmValidDate())) {
+                arrayList.add(new RestNameValuePair("valid_date", PayUtils.encrypt("valid_date", this.f25232a.getmValidDate())));
             }
-            if (!TextUtils.isEmpty(this.f25987a.getmCvv())) {
-                arrayList.add(new RestNameValuePair("cvv2", PayUtils.encrypt("cvv2", this.f25987a.getmCvv())));
+            if (!TextUtils.isEmpty(this.f25232a.getmCvv())) {
+                arrayList.add(new RestNameValuePair("cvv2", PayUtils.encrypt("cvv2", this.f25232a.getmCvv())));
             }
-            if (!TextUtils.isEmpty(this.f25987a.getChannelNo())) {
-                arrayList.add(new RestNameValuePair("channel_no", this.f25987a.getChannelNo()));
+            if (!TextUtils.isEmpty(this.f25232a.getChannelNo())) {
+                arrayList.add(new RestNameValuePair("channel_no", this.f25232a.getChannelNo()));
             }
-            if (!TextUtils.isEmpty(this.f25987a.getSubBankCode())) {
-                arrayList.add(new RestNameValuePair("sub_bank_code", this.f25987a.getSubBankCode()));
+            if (!TextUtils.isEmpty(this.f25232a.getSubBankCode())) {
+                arrayList.add(new RestNameValuePair("sub_bank_code", this.f25232a.getSubBankCode()));
             }
-            CardData.BondCard bondCard = this.f25987a.mBondCard;
+            CardData.BondCard bondCard = this.f25232a.mBondCard;
             if (bondCard != null) {
                 arrayList.add(new RestNameValuePair("card_no_bind", bondCard.account_no));
             }
-            arrayList.add(new RestNameValuePair(ETAG.KEY_STATISTICS_SEESIONID, this.f25987a.getSessionId()));
+            arrayList.add(new RestNameValuePair(ETAG.KEY_STATISTICS_SEESIONID, this.f25232a.getSessionId()));
             return arrayList;
         }
         throw new IllegalStateException("not call setBindRequest(req) method or param(req) null");

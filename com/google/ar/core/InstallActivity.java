@@ -85,7 +85,7 @@ public class InstallActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finishWithFailure(Exception exc) {
-        d.g.b.a.f.d().f65458a = exc;
+        d.g.b.a.f.d().f66144a = exc;
         d.g.b.a.f.d().g();
         this.finished = true;
         super.finish();
@@ -221,7 +221,7 @@ public class InstallActivity extends Activity {
                 } else if (this.lastEvent == p.ACCEPTED) {
                     this.waitingForCompletion = true;
                 } else {
-                    finishWithFailure(d.g.b.a.f.d().f65458a);
+                    finishWithFailure(d.g.b.a.f.d().f66144a);
                 }
             }
         }

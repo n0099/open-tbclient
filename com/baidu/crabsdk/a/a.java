@@ -10,61 +10,61 @@ import java.util.Map;
 public final class a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f4788g = 2000;
+    public static int f4642g = 2000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f4789h = 1;
+    public static int f4643h = 1;
 
     /* renamed from: i  reason: collision with root package name */
-    public static a f4790i;
+    public static a f4644i;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f4791a;
+    public long f4645a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f4792b;
+    public long f4646b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f4793c;
+    public long f4647c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f4794d;
+    public long f4648d;
 
     /* renamed from: e  reason: collision with root package name */
-    public StringBuilder f4795e = new StringBuilder();
+    public StringBuilder f4649e = new StringBuilder();
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f4796f = new ArrayList<>();
+    public ArrayList<String> f4650f = new ArrayList<>();
 
     public static a b() {
-        if (f4790i == null) {
+        if (f4644i == null) {
             synchronized (a.class) {
-                if (f4790i == null) {
-                    f4790i = new a();
+                if (f4644i == null) {
+                    f4644i = new a();
                 }
             }
         }
-        return f4790i;
+        return f4644i;
     }
 
     public static long e() {
-        return f4788g * 0.6f;
+        return f4642g * 0.6f;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
-        this.f4791a = j2 - j;
-        this.f4792b = j4 - j3;
-        this.f4793c = j;
-        this.f4794d = j2;
+        this.f4645a = j2 - j;
+        this.f4646b = j4 - j3;
+        this.f4647c = j;
+        this.f4648d = j2;
         return this;
     }
 
     public final String c() {
-        Iterator<String> it = this.f4796f.iterator();
+        Iterator<String> it = this.f4650f.iterator();
         while (it.hasNext()) {
             String next = it.next();
             com.baidu.crabsdk.c.a.c("===== stackEntry ===== \n" + next);
-            this.f4795e.append(next);
+            this.f4649e.append(next);
             String[] split = next.split(Part.CRLF);
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -80,10 +80,10 @@ public final class a {
 
     public final Map<String, Object> d() {
         HashMap hashMap = new HashMap();
-        long j = this.f4793c;
-        long j2 = this.f4794d;
-        long j3 = this.f4791a;
-        long j4 = this.f4792b;
+        long j = this.f4647c;
+        long j2 = this.f4648d;
+        long j3 = this.f4645a;
+        long j4 = this.f4646b;
         String c2 = c();
         if (TextUtils.isEmpty(c2)) {
             return null;
@@ -94,10 +94,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.f4795e.toString());
+        hashMap.put("errorTrace", this.f4649e.toString());
         hashMap.put("errorLine", c2);
         hashMap.put("errorOriLine", c2);
-        this.f4795e.setLength(0);
+        this.f4649e.setLength(0);
         return hashMap;
     }
 }

@@ -5,17 +5,17 @@ import android.os.Looper;
 import android.os.RemoteException;
 import com.bytedance.sdk.openadsdk.ICommonPermissionListener;
 import com.bytedance.sdk.openadsdk.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends ICommonPermissionListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f30424a = new Handler(Looper.getMainLooper());
+    public Handler f29669a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public h.a f30425b;
+    public h.a f29670b;
 
     public b(h.a aVar) {
-        this.f30425b = aVar;
+        this.f29670b = aVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
@@ -23,8 +23,8 @@ public class b extends ICommonPermissionListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.b.2
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.f30425b != null) {
-                    b.this.f30425b.a(str);
+                if (b.this.f29670b != null) {
+                    b.this.f29670b.a(str);
                 }
             }
         });
@@ -35,17 +35,17 @@ public class b extends ICommonPermissionListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.b.1
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.f30425b != null) {
-                    b.this.f30425b.a();
+                if (b.this.f29670b != null) {
+                    b.this.f29670b.a();
                 }
             }
         });
     }
 
     private void a(Runnable runnable) {
-        if (this.f30424a == null) {
-            this.f30424a = new Handler(Looper.getMainLooper());
+        if (this.f29669a == null) {
+            this.f29669a = new Handler(Looper.getMainLooper());
         }
-        this.f30424a.post(runnable);
+        this.f29669a.post(runnable);
     }
 }

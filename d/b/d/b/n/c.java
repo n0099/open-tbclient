@@ -4,14 +4,14 @@ import android.content.Context;
 import d.b.d.b.h.i;
 import d.b.d.b.l;
 import d.b.d.b.m;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class c implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f65250e;
+    public Context f65936e;
 
     public c(Context context) {
-        this.f65250e = context;
+        this.f65936e = context;
     }
 
     public static void a(Context context) {
@@ -31,7 +31,7 @@ public final class c implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            new d.b.d.b.h.e(this.f65250e).c(l.j.c(this.f65250e));
+            new d.b.d.b.h.e(this.f65936e).c(l.j.c(this.f65936e));
         } finally {
             try {
             } finally {

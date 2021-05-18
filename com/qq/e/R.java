@@ -1,57 +1,57 @@
 package com.qq.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public final class R {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static final class anim {
-        public static final int slide_right_in = 0x7f010115;
-        public static final int slide_up = 0x7f010116;
+        public static final int slide_right_in = 0x7f010116;
+        public static final int slide_up = 0x7f010117;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static final class drawable {
-        public static final int gdt_ic_back = 0x7f0808ec;
-        public static final int gdt_ic_browse = 0x7f0808ed;
-        public static final int gdt_ic_download = 0x7f0808ee;
-        public static final int gdt_ic_enter_fullscreen = 0x7f0808ef;
-        public static final int gdt_ic_exit_fullscreen = 0x7f0808f0;
-        public static final int gdt_ic_express_back_to_port = 0x7f0808f1;
-        public static final int gdt_ic_express_close = 0x7f0808f2;
-        public static final int gdt_ic_express_enter_fullscreen = 0x7f0808f3;
-        public static final int gdt_ic_express_pause = 0x7f0808f4;
-        public static final int gdt_ic_express_play = 0x7f0808f5;
-        public static final int gdt_ic_express_volume_off = 0x7f0808f6;
-        public static final int gdt_ic_express_volume_on = 0x7f0808f7;
-        public static final int gdt_ic_gesture_arrow_down = 0x7f0808f8;
-        public static final int gdt_ic_gesture_arrow_right = 0x7f0808f9;
-        public static final int gdt_ic_gesture_hand = 0x7f0808fa;
-        public static final int gdt_ic_native_back = 0x7f0808fb;
-        public static final int gdt_ic_native_download = 0x7f0808fc;
-        public static final int gdt_ic_native_volume_off = 0x7f0808fd;
-        public static final int gdt_ic_native_volume_on = 0x7f0808fe;
-        public static final int gdt_ic_pause = 0x7f0808ff;
-        public static final int gdt_ic_play = 0x7f080900;
-        public static final int gdt_ic_progress_thumb_normal = 0x7f080901;
-        public static final int gdt_ic_replay = 0x7f080902;
-        public static final int gdt_ic_seekbar_background = 0x7f080903;
-        public static final int gdt_ic_seekbar_progress = 0x7f080904;
-        public static final int gdt_ic_volume_off = 0x7f080905;
-        public static final int gdt_ic_volume_on = 0x7f080906;
+        public static final int gdt_ic_back = 0x7f08090e;
+        public static final int gdt_ic_browse = 0x7f08090f;
+        public static final int gdt_ic_download = 0x7f080910;
+        public static final int gdt_ic_enter_fullscreen = 0x7f080911;
+        public static final int gdt_ic_exit_fullscreen = 0x7f080912;
+        public static final int gdt_ic_express_back_to_port = 0x7f080913;
+        public static final int gdt_ic_express_close = 0x7f080914;
+        public static final int gdt_ic_express_enter_fullscreen = 0x7f080915;
+        public static final int gdt_ic_express_pause = 0x7f080916;
+        public static final int gdt_ic_express_play = 0x7f080917;
+        public static final int gdt_ic_express_volume_off = 0x7f080918;
+        public static final int gdt_ic_express_volume_on = 0x7f080919;
+        public static final int gdt_ic_gesture_arrow_down = 0x7f08091a;
+        public static final int gdt_ic_gesture_arrow_right = 0x7f08091b;
+        public static final int gdt_ic_gesture_hand = 0x7f08091c;
+        public static final int gdt_ic_native_back = 0x7f08091d;
+        public static final int gdt_ic_native_download = 0x7f08091e;
+        public static final int gdt_ic_native_volume_off = 0x7f08091f;
+        public static final int gdt_ic_native_volume_on = 0x7f080920;
+        public static final int gdt_ic_pause = 0x7f080921;
+        public static final int gdt_ic_play = 0x7f080922;
+        public static final int gdt_ic_progress_thumb_normal = 0x7f080923;
+        public static final int gdt_ic_replay = 0x7f080924;
+        public static final int gdt_ic_seekbar_background = 0x7f080925;
+        public static final int gdt_ic_seekbar_progress = 0x7f080926;
+        public static final int gdt_ic_volume_off = 0x7f080927;
+        public static final int gdt_ic_volume_on = 0x7f080928;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static final class string {
-        public static final int app_name = 0x7f0f029e;
+        public static final int app_name = 0x7f0f02b8;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static final class style {
-        public static final int DialogAnimationRight = 0x7f100100;
-        public static final int DialogAnimationUp = 0x7f100101;
-        public static final int DialogFullScreen = 0x7f100102;
+        public static final int DialogAnimationRight = 0x7f100102;
+        public static final int DialogAnimationUp = 0x7f100103;
+        public static final int DialogFullScreen = 0x7f100104;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static final class xml {
         public static final int gdt_file_path = 0x7f130004;
     }

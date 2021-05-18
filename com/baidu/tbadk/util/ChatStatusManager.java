@@ -17,10 +17,10 @@ public class ChatStatusManager {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f13706a;
+        public boolean f13042a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13707b;
+        public String f13043b;
     }
 
     public static synchronized ChatStatusManager getInst() {
@@ -36,13 +36,13 @@ public class ChatStatusManager {
 
     public String getCurId(int i2) {
         a aVar = this.mStatus.get(i2);
-        return aVar != null ? aVar.f13707b : "";
+        return aVar != null ? aVar.f13043b : "";
     }
 
     public boolean getIsOpen(int i2) {
         a aVar = this.mStatus.get(i2);
         if (aVar != null) {
-            return aVar.f13706a;
+            return aVar.f13042a;
         }
         return false;
     }
@@ -54,22 +54,22 @@ public class ChatStatusManager {
     public void setCurId(int i2, String str) {
         a aVar = this.mStatus.get(i2);
         if (aVar != null) {
-            aVar.f13707b = str;
+            aVar.f13043b = str;
             return;
         }
         a aVar2 = new a();
-        aVar2.f13707b = str;
+        aVar2.f13043b = str;
         this.mStatus.put(i2, aVar2);
     }
 
     public void setIsOpen(int i2, boolean z) {
         a aVar = this.mStatus.get(i2);
         if (aVar != null) {
-            aVar.f13706a = z;
+            aVar.f13042a = z;
             return;
         }
         a aVar2 = new a();
-        aVar2.f13706a = z;
+        aVar2.f13042a = z;
         this.mStatus.put(i2, aVar2);
     }
 }

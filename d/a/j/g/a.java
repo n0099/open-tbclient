@@ -11,61 +11,61 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f50332a;
+    public Context f48553a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C1093a f50333b;
+    public C1087a f48554b;
 
     /* renamed from: d.a.j.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public final class C1093a {
+    public final class C1087a {
 
         /* renamed from: a  reason: collision with root package name */
-        public File f50334a;
+        public File f48555a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f50335b;
+        public String f48556b;
 
         /* renamed from: c  reason: collision with root package name */
-        public C1093a f50336c;
+        public C1087a f48557c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f50337d;
+        public boolean f48558d;
 
-        public C1093a(File file) {
-            this.f50337d = false;
-            this.f50337d = true;
-            this.f50334a = file;
-            this.f50335b = file.getName();
+        public C1087a(File file) {
+            this.f48558d = false;
+            this.f48558d = true;
+            this.f48555a = file;
+            this.f48556b = file.getName();
         }
 
-        public C1093a(String str, C1093a c1093a) {
-            this.f50337d = false;
-            this.f50335b = str;
-            this.f50336c = c1093a;
-            this.f50337d = false;
+        public C1087a(String str, C1087a c1087a) {
+            this.f48558d = false;
+            this.f48556b = str;
+            this.f48557c = c1087a;
+            this.f48558d = false;
         }
 
-        public C1093a a(File file) {
-            if (this.f50337d) {
+        public C1087a a(File file) {
+            if (this.f48558d) {
                 throw new IllegalStateException("isolate session is not support");
             }
             ArrayList arrayList = new ArrayList();
-            C1093a c1093a = this;
+            C1087a c1087a = this;
             do {
-                arrayList.add(c1093a.h());
-                c1093a = c1093a.i();
-            } while (c1093a != null);
+                arrayList.add(c1087a.h());
+                c1087a = c1087a.i();
+            } while (c1087a != null);
             int size = arrayList.size() - 1;
             while (size >= 0) {
                 size--;
                 file = new File(file, (String) arrayList.get(size));
             }
-            return new C1093a(file);
+            return new C1087a(file);
         }
 
-        public C1093a b(String str) {
-            return new C1093a(str, this);
+        public C1087a b(String str) {
+            return new C1087a(str, this);
         }
 
         public String c(String str, boolean z) {
@@ -81,30 +81,30 @@ public class a {
         }
 
         public File f() {
-            File file = this.f50334a;
+            File file = this.f48555a;
             if (file != null) {
                 return file;
             }
-            File file2 = this.f50336c == null ? new File(a.this.a(), this.f50335b) : new File(this.f50336c.f(), this.f50335b);
-            this.f50334a = file2;
+            File file2 = this.f48557c == null ? new File(a.this.a(), this.f48556b) : new File(this.f48557c.f(), this.f48556b);
+            this.f48555a = file2;
             return file2;
         }
 
         public File g(String str) {
-            return new File(this.f50334a, str);
+            return new File(this.f48555a, str);
         }
 
         public String h() {
-            return this.f50335b;
+            return this.f48556b;
         }
 
-        public C1093a i() {
-            return this.f50336c;
+        public C1087a i() {
+            return this.f48557c;
         }
     }
 
     public a(Context context) {
-        this.f50332a = context;
+        this.f48553a = context;
         f().mkdirs();
     }
 
@@ -198,14 +198,14 @@ public class a {
     }
 
     public File a() {
-        return new File(this.f50332a.getApplicationInfo().dataDir);
+        return new File(this.f48553a.getApplicationInfo().dataDir);
     }
 
-    public synchronized C1093a e() {
-        if (this.f50333b == null) {
-            this.f50333b = new C1093a(".cesium", null);
+    public synchronized C1087a e() {
+        if (this.f48554b == null) {
+            this.f48554b = new C1087a(".cesium", null);
         }
-        return this.f50333b;
+        return this.f48554b;
     }
 
     public final File f() {

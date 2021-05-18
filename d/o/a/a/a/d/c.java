@@ -4,70 +4,70 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f65826a;
+    public Context f66512a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f65827b;
+    public String f66513b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f65828c;
+    public String f66514c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f65829d;
+    public String f66515d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f65830e;
+    public String f66516e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f65831f;
+    public boolean f66517f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f65832g;
+    public Drawable f66518g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC1792c f65833h;
+    public InterfaceC1856c f66519h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f65834i;
+    public View f66520i;
     public int j;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f65835a;
+        public Context f66521a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f65836b;
+        public String f66522b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f65837c;
+        public String f66523c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f65838d;
+        public String f66524d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f65839e;
+        public String f66525e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f65840f;
+        public boolean f66526f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Drawable f65841g;
+        public Drawable f66527g;
 
         /* renamed from: h  reason: collision with root package name */
-        public InterfaceC1792c f65842h;
+        public InterfaceC1856c f66528h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f65843i;
+        public View f66529i;
         public int j;
 
         public b(Context context) {
-            this.f65835a = context;
+            this.f66521a = context;
         }
 
         public b b(int i2) {
@@ -76,22 +76,22 @@ public class c {
         }
 
         public b c(Drawable drawable) {
-            this.f65841g = drawable;
+            this.f66527g = drawable;
             return this;
         }
 
-        public b d(InterfaceC1792c interfaceC1792c) {
-            this.f65842h = interfaceC1792c;
+        public b d(InterfaceC1856c interfaceC1856c) {
+            this.f66528h = interfaceC1856c;
             return this;
         }
 
         public b e(String str) {
-            this.f65836b = str;
+            this.f66522b = str;
             return this;
         }
 
         public b f(boolean z) {
-            this.f65840f = z;
+            this.f66526f = z;
             return this;
         }
 
@@ -100,24 +100,24 @@ public class c {
         }
 
         public b h(String str) {
-            this.f65837c = str;
+            this.f66523c = str;
             return this;
         }
 
         public b j(String str) {
-            this.f65838d = str;
+            this.f66524d = str;
             return this;
         }
 
         public b l(String str) {
-            this.f65839e = str;
+            this.f66525e = str;
             return this;
         }
     }
 
     /* renamed from: d.o.a.a.a.d.c$c  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC1792c {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC1856c {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);
@@ -126,16 +126,16 @@ public class c {
     }
 
     public c(b bVar) {
-        this.f65831f = true;
-        this.f65826a = bVar.f65835a;
-        this.f65827b = bVar.f65836b;
-        this.f65828c = bVar.f65837c;
-        this.f65829d = bVar.f65838d;
-        this.f65830e = bVar.f65839e;
-        this.f65831f = bVar.f65840f;
-        this.f65832g = bVar.f65841g;
-        this.f65833h = bVar.f65842h;
-        this.f65834i = bVar.f65843i;
+        this.f66517f = true;
+        this.f66512a = bVar.f66521a;
+        this.f66513b = bVar.f66522b;
+        this.f66514c = bVar.f66523c;
+        this.f66515d = bVar.f66524d;
+        this.f66516e = bVar.f66525e;
+        this.f66517f = bVar.f66526f;
+        this.f66518g = bVar.f66527g;
+        this.f66519h = bVar.f66528h;
+        this.f66520i = bVar.f66529i;
         this.j = bVar.j;
     }
 }

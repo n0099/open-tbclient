@@ -5,5 +5,5 @@ import com.baidu.nps.utils.ContextHolder;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f64210a = ContextHolder.getApplicationContext().getPackageName() + ".nps.process.kill";
+    public static final String f64897a = ContextHolder.getApplicationContext().getPackageName() + ".nps.process.kill";
 }

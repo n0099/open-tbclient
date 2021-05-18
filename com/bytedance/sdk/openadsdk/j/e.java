@@ -8,23 +8,23 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30133a;
+    public Context f29378a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<WebView> f30134b;
+    public WeakReference<WebView> f29379b;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f30136d;
+    public a f29381d;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30140h;
+    public String f29385h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30141i;
+    public String f29386i;
     public String j;
     public JSONObject l;
     public JSONObject m;
@@ -34,37 +34,37 @@ public class e {
     public boolean q;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30137e = 0;
+    public int f29382e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30138f = 0;
+    public int f29383f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f30139g = new JSONObject();
+    public JSONObject f29384g = new JSONObject();
     public Map<String, String> k = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public c f30135c = new c(this);
+    public c f29380c = new c(this);
 
     public e(Context context, final WebView webView, a aVar) {
-        this.f30133a = context;
-        this.f30134b = new WeakReference<>(webView);
-        this.f30136d = aVar;
+        this.f29378a = context;
+        this.f29379b = new WeakReference<>(webView);
+        this.f29381d = aVar;
         f.a(webView);
         webView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.bytedance.sdk.openadsdk.j.e.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 try {
-                    if (e.this.f30137e == webView.getWidth() && e.this.f30138f == webView.getHeight()) {
+                    if (e.this.f29382e == webView.getWidth() && e.this.f29383f == webView.getHeight()) {
                         return;
                     }
-                    e.this.f30137e = webView.getWidth();
-                    e.this.f30138f = webView.getHeight();
+                    e.this.f29382e = webView.getWidth();
+                    e.this.f29383f = webView.getHeight();
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("width", e.this.f30137e);
-                    jSONObject.put("height", e.this.f30138f);
+                    jSONObject.put("width", e.this.f29382e);
+                    jSONObject.put("height", e.this.f29383f);
                     e.this.a("resize", jSONObject);
-                    e.this.f30139g = jSONObject;
+                    e.this.f29384g = jSONObject;
                 } catch (Throwable th) {
                     d.a("PlayablePlugin", "onSizeChanged error", th);
                 }
@@ -77,11 +77,11 @@ public class e {
     }
 
     public String d() {
-        return this.f30141i;
+        return this.f29386i;
     }
 
     public String e() {
-        return this.f30140h;
+        return this.f29385h;
     }
 
     public String f() {
@@ -101,19 +101,19 @@ public class e {
     }
 
     public Set<String> j() {
-        return this.f30135c.a();
+        return this.f29380c.a();
     }
 
     public b k() {
-        return this.f30136d.a();
+        return this.f29381d.a();
     }
 
     public a l() {
-        return this.f30136d;
+        return this.f29381d;
     }
 
     public JSONObject m() {
-        return this.f30139g;
+        return this.f29384g;
     }
 
     public JSONObject n() {
@@ -121,7 +121,7 @@ public class e {
     }
 
     public void o() {
-        this.f30136d.b();
+        this.f29381d.b();
     }
 
     public void p() {
@@ -134,7 +134,7 @@ public class e {
 
     public void r() {
         try {
-            this.f30135c.b();
+            this.f29380c.b();
         } catch (Throwable unused) {
         }
     }
@@ -165,11 +165,11 @@ public class e {
     }
 
     public Context a() {
-        return this.f30133a;
+        return this.f29378a;
     }
 
     public e b(String str) {
-        this.f30141i = str;
+        this.f29386i = str;
         return this;
     }
 
@@ -191,7 +191,7 @@ public class e {
     }
 
     public e a(String str) {
-        this.f30140h = str;
+        this.f29385h = str;
         return this;
     }
 
@@ -229,7 +229,7 @@ public class e {
             sb.append(jSONObject != null ? jSONObject.toString() : "");
             d.a("PlayablePlugin", sb.toString());
         }
-        JSONObject a2 = this.f30135c.a(str, jSONObject);
+        JSONObject a2 = this.f29380c.a(str, jSONObject);
         if (d.a()) {
             StringBuilder sb2 = new StringBuilder();
             sb2.append("PlayablePlugin JSB-RSP [");
@@ -252,7 +252,7 @@ public class e {
             sb.append(jSONObject != null ? jSONObject.toString() : "");
             d.a("PlayablePlugin", sb.toString());
         }
-        this.f30136d.a(str, jSONObject);
+        this.f29381d.a(str, jSONObject);
     }
 
     public static e a(Context context, WebView webView, a aVar) {

@@ -9,7 +9,7 @@ import org.reactivestreams.Subscription;
 public final class SubscriberCompletableObserver<T> implements CompletableObserver, Subscription {
 
     /* renamed from: d  reason: collision with root package name */
-    public Disposable f68234d;
+    public Disposable f68914d;
     public final Subscriber<? super T> subscriber;
 
     public SubscriberCompletableObserver(Subscriber<? super T> subscriber) {
@@ -18,7 +18,7 @@ public final class SubscriberCompletableObserver<T> implements CompletableObserv
 
     @Override // org.reactivestreams.Subscription
     public void cancel() {
-        this.f68234d.dispose();
+        this.f68914d.dispose();
     }
 
     @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
@@ -33,8 +33,8 @@ public final class SubscriberCompletableObserver<T> implements CompletableObserv
 
     @Override // io.reactivex.CompletableObserver
     public void onSubscribe(Disposable disposable) {
-        if (DisposableHelper.validate(this.f68234d, disposable)) {
-            this.f68234d = disposable;
+        if (DisposableHelper.validate(this.f68914d, disposable)) {
+            this.f68914d = disposable;
             this.subscriber.onSubscribe(this);
         }
     }

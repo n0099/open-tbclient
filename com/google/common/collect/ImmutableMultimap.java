@@ -120,20 +120,20 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
         public static final long serialVersionUID = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableMultimap<K, V> f31857e;
+        public final transient ImmutableMultimap<K, V> f31102e;
 
         public Values(ImmutableMultimap<K, V> immutableMultimap) {
-            this.f31857e = immutableMultimap;
+            this.f31102e = immutableMultimap;
         }
 
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            return this.f31857e.containsValue(obj);
+            return this.f31102e.containsValue(obj);
         }
 
         @Override // com.google.common.collect.ImmutableCollection
         public int copyIntoArray(Object[] objArr, int i2) {
-            c1<? extends ImmutableCollection<V>> it = this.f31857e.map.values().iterator();
+            c1<? extends ImmutableCollection<V>> it = this.f31102e.map.values().iterator();
             while (it.hasNext()) {
                 i2 = it.next().copyIntoArray(objArr, i2);
             }
@@ -147,13 +147,13 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
-            return this.f31857e.size();
+            return this.f31102e.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet
         public c1<V> iterator() {
-            return this.f31857e.valueIterator();
+            return this.f31102e.valueIterator();
         }
     }
 
@@ -161,33 +161,33 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
     public class a extends c1<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Iterator<? extends Map.Entry<K, ? extends ImmutableCollection<V>>> f31858e;
+        public final Iterator<? extends Map.Entry<K, ? extends ImmutableCollection<V>>> f31103e;
 
         /* renamed from: f  reason: collision with root package name */
-        public K f31859f = null;
+        public K f31104f = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public Iterator<V> f31860g = Iterators.h();
+        public Iterator<V> f31105g = Iterators.h();
 
         public a() {
-            this.f31858e = ImmutableMultimap.this.map.entrySet().iterator();
+            this.f31103e = ImmutableMultimap.this.map.entrySet().iterator();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         /* renamed from: a */
         public Map.Entry<K, V> next() {
-            if (!this.f31860g.hasNext()) {
-                Map.Entry<K, ? extends ImmutableCollection<V>> next = this.f31858e.next();
-                this.f31859f = next.getKey();
-                this.f31860g = next.getValue().iterator();
+            if (!this.f31105g.hasNext()) {
+                Map.Entry<K, ? extends ImmutableCollection<V>> next = this.f31103e.next();
+                this.f31104f = next.getKey();
+                this.f31105g = next.getValue().iterator();
             }
-            return Maps.j(this.f31859f, this.f31860g.next());
+            return Maps.j(this.f31104f, this.f31105g.next());
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31860g.hasNext() || this.f31858e.hasNext();
+            return this.f31105g.hasNext() || this.f31103e.hasNext();
         }
     }
 
@@ -195,26 +195,26 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
     public class b extends c1<V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public Iterator<? extends ImmutableCollection<V>> f31862e;
+        public Iterator<? extends ImmutableCollection<V>> f31107e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Iterator<V> f31863f = Iterators.h();
+        public Iterator<V> f31108f = Iterators.h();
 
         public b() {
-            this.f31862e = ImmutableMultimap.this.map.values().iterator();
+            this.f31107e = ImmutableMultimap.this.map.values().iterator();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31863f.hasNext() || this.f31862e.hasNext();
+            return this.f31108f.hasNext() || this.f31107e.hasNext();
         }
 
         @Override // java.util.Iterator
         public V next() {
-            if (!this.f31863f.hasNext()) {
-                this.f31863f = this.f31862e.next().iterator();
+            if (!this.f31108f.hasNext()) {
+                this.f31108f = this.f31107e.next().iterator();
             }
-            return this.f31863f.next();
+            return this.f31108f.next();
         }
     }
 
@@ -222,21 +222,21 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
     public static class c<K, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<K, Collection<V>> f31865a = n0.h();
+        public Map<K, Collection<V>> f31110a = n0.h();
 
         /* renamed from: b  reason: collision with root package name */
-        public Comparator<? super K> f31866b;
+        public Comparator<? super K> f31111b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Comparator<? super V> f31867c;
+        public Comparator<? super V> f31112c;
 
         public ImmutableMultimap<K, V> a() {
-            Collection entrySet = this.f31865a.entrySet();
-            Comparator<? super K> comparator = this.f31866b;
+            Collection entrySet = this.f31110a.entrySet();
+            Comparator<? super K> comparator = this.f31111b;
             if (comparator != null) {
                 entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
             }
-            return ImmutableListMultimap.fromMapEntries(entrySet, this.f31867c);
+            return ImmutableListMultimap.fromMapEntries(entrySet, this.f31112c);
         }
 
         public Collection<V> b() {
@@ -245,9 +245,9 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
 
         public c<K, V> c(K k, V v) {
             m.a(k, v);
-            Collection<V> collection = this.f31865a.get(k);
+            Collection<V> collection = this.f31110a.get(k);
             if (collection == null) {
-                Map<K, Collection<V>> map = this.f31865a;
+                Map<K, Collection<V>> map = this.f31110a;
                 Collection<V> b2 = b();
                 map.put(k, b2);
                 collection = b2;
@@ -272,10 +272,10 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final r0.b<ImmutableMultimap> f31868a = r0.a(ImmutableMultimap.class, "map");
+        public static final r0.b<ImmutableMultimap> f31113a = r0.a(ImmutableMultimap.class, "map");
 
         /* renamed from: b  reason: collision with root package name */
-        public static final r0.b<ImmutableMultimap> f31869b = r0.a(ImmutableMultimap.class, "size");
+        public static final r0.b<ImmutableMultimap> f31114b = r0.a(ImmutableMultimap.class, "size");
     }
 
     public ImmutableMultimap(ImmutableMap<K, ? extends ImmutableCollection<V>> immutableMap, int i2) {

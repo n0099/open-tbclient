@@ -26,7 +26,7 @@ public interface i extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof i)) {
                 return (i) queryLocalInterface;
             }
-            return new C0291a(iBinder);
+            return new C0278a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -72,13 +72,13 @@ public interface i extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.i$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0291a implements i {
+        public static class C0278a implements i {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f27666a;
+            public IBinder f26911a;
 
-            public C0291a(IBinder iBinder) {
-                this.f27666a = iBinder;
+            public C0278a(IBinder iBinder) {
+                this.f26911a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.i
@@ -87,7 +87,7 @@ public interface i extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                    this.f27666a.transact(1, obtain, obtain2, 0);
+                    this.f26911a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -98,7 +98,7 @@ public interface i extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f27666a;
+                return this.f26911a;
             }
 
             @Override // com.bytedance.embedapplog.i
@@ -107,7 +107,7 @@ public interface i extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                    this.f27666a.transact(2, obtain, obtain2, 0);
+                    this.f26911a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -122,7 +122,7 @@ public interface i extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                    this.f27666a.transact(3, obtain, obtain2, 0);
+                    this.f26911a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -138,7 +138,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
                     obtain.writeString(str);
-                    this.f27666a.transact(4, obtain, obtain2, 0);
+                    this.f26911a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -154,7 +154,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
                     obtain.writeString(str);
-                    this.f27666a.transact(5, obtain, obtain2, 0);
+                    this.f26911a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {

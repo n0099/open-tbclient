@@ -22,35 +22,35 @@ public class co {
     public String f191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38227c;
+    public String f37472c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38228d;
+    public String f37473d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38229e;
+    public String f37474e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38230f;
+    public String f37475f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38231g;
+    public String f37476g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f38232h;
+    public String f37477h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f38233i;
+    public String f37478i;
 
     /* renamed from: a  reason: collision with other field name */
     public ArrayList<cx> f190a = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public double f38225a = 0.1d;
+    public double f37470a = 0.1d;
     public String j = "s.mi1.cc";
 
     /* renamed from: b  reason: collision with root package name */
-    public long f38226b = 86400000;
+    public long f37471b = 86400000;
 
     public co(String str) {
         this.f189a = "";
@@ -59,7 +59,7 @@ public class co {
         }
         this.f188a = System.currentTimeMillis();
         this.f190a.add(new cx(str, -1));
-        this.f189a = cs.m216a();
+        this.f189a = cs.m215a();
         this.f191b = str;
     }
 
@@ -74,16 +74,16 @@ public class co {
 
     public synchronized co a(JSONObject jSONObject) {
         this.f189a = jSONObject.optString("net");
-        this.f38226b = jSONObject.getLong("ttl");
-        this.f38225a = jSONObject.getDouble("pct");
+        this.f37471b = jSONObject.getLong("ttl");
+        this.f37470a = jSONObject.getDouble("pct");
         this.f188a = jSONObject.getLong("ts");
-        this.f38228d = jSONObject.optString("city");
-        this.f38227c = jSONObject.optString("prv");
-        this.f38231g = jSONObject.optString("cty");
-        this.f38229e = jSONObject.optString("isp");
-        this.f38230f = jSONObject.optString("ip");
+        this.f37473d = jSONObject.optString("city");
+        this.f37472c = jSONObject.optString("prv");
+        this.f37476g = jSONObject.optString("cty");
+        this.f37474e = jSONObject.optString("isp");
+        this.f37475f = jSONObject.optString("ip");
         this.f191b = jSONObject.optString("host");
-        this.f38232h = jSONObject.optString("xf");
+        this.f37477h = jSONObject.optString("xf");
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             a(new cx().a(jSONArray.getJSONObject(i2)));
@@ -92,19 +92,19 @@ public class co {
     }
 
     public synchronized String a() {
-        if (!TextUtils.isEmpty(this.f38233i)) {
-            return this.f38233i;
-        } else if (TextUtils.isEmpty(this.f38229e)) {
+        if (!TextUtils.isEmpty(this.f37478i)) {
+            return this.f37478i;
+        } else if (TextUtils.isEmpty(this.f37474e)) {
             return "hardcode_isp";
         } else {
-            String a2 = bm.a(new String[]{this.f38229e, this.f38227c, this.f38228d, this.f38231g, this.f38230f}, "_");
-            this.f38233i = a2;
+            String a2 = bm.a(new String[]{this.f37474e, this.f37472c, this.f37473d, this.f37476g, this.f37475f}, "_");
+            this.f37478i = a2;
             return a2;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<String> m207a() {
+    public synchronized ArrayList<String> m206a() {
         return a(false);
     }
 
@@ -118,7 +118,7 @@ public class co {
             Iterator<String> it = a(true).iterator();
             while (it.hasNext()) {
                 cq a2 = cq.a(it.next(), url.getPort());
-                arrayList.add(new URL(url.getProtocol(), a2.m215a(), a2.a(), url.getFile()).toString());
+                arrayList.add(new URL(url.getProtocol(), a2.m214a(), a2.a(), url.getFile()).toString());
             }
             return arrayList;
         }
@@ -147,20 +147,20 @@ public class co {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m208a() {
+    public synchronized JSONObject m207a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put("net", this.f189a);
-        jSONObject.put("ttl", this.f38226b);
-        jSONObject.put("pct", this.f38225a);
+        jSONObject.put("ttl", this.f37471b);
+        jSONObject.put("pct", this.f37470a);
         jSONObject.put("ts", this.f188a);
-        jSONObject.put("city", this.f38228d);
-        jSONObject.put("prv", this.f38227c);
-        jSONObject.put("cty", this.f38231g);
-        jSONObject.put("isp", this.f38229e);
-        jSONObject.put("ip", this.f38230f);
+        jSONObject.put("city", this.f37473d);
+        jSONObject.put("prv", this.f37472c);
+        jSONObject.put("cty", this.f37476g);
+        jSONObject.put("isp", this.f37474e);
+        jSONObject.put("ip", this.f37475f);
         jSONObject.put("host", this.f191b);
-        jSONObject.put("xf", this.f38232h);
+        jSONObject.put("xf", this.f37477h);
         JSONArray jSONArray = new JSONArray();
         Iterator<cx> it = this.f190a.iterator();
         while (it.hasNext()) {
@@ -171,12 +171,12 @@ public class co {
     }
 
     public void a(double d2) {
-        this.f38225a = d2;
+        this.f37470a = d2;
     }
 
     public void a(long j) {
         if (j > 0) {
-            this.f38226b = j;
+            this.f37471b = j;
             return;
         }
         throw new IllegalArgumentException("the duration is invalid " + j);
@@ -188,7 +188,7 @@ public class co {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m209a(String str) {
+    public synchronized void m208a(String str) {
         a(new cx(str));
     }
 
@@ -253,8 +253,8 @@ public class co {
         int i3 = 0;
         while (it.hasNext()) {
             cx next = it.next();
-            if (next.f38244a > i3) {
-                i3 = next.f38244a;
+            if (next.f37489a > i3) {
+                i3 = next.f37489a;
             }
         }
         while (i2 < strArr.length) {
@@ -264,8 +264,8 @@ public class co {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m210a() {
-        return TextUtils.equals(this.f189a, cs.m216a());
+    public boolean m209a() {
+        return TextUtils.equals(this.f189a, cs.m215a());
     }
 
     public boolean a(co coVar) {
@@ -285,17 +285,17 @@ public class co {
     }
 
     public boolean b() {
-        return System.currentTimeMillis() - this.f188a < this.f38226b;
+        return System.currentTimeMillis() - this.f188a < this.f37471b;
     }
 
     public boolean c() {
-        long j = this.f38226b;
-        if (ImageLoader.f3754d >= j) {
+        long j = this.f37471b;
+        if (ImageLoader.f3755d >= j) {
             j = 864000000;
         }
         long currentTimeMillis = System.currentTimeMillis();
         long j2 = this.f188a;
-        return currentTimeMillis - j2 > j || (currentTimeMillis - j2 > this.f38226b && this.f189a.startsWith("WIFI-"));
+        return currentTimeMillis - j2 > j || (currentTimeMillis - j2 > this.f37471b && this.f189a.startsWith("WIFI-"));
     }
 
     public String toString() {

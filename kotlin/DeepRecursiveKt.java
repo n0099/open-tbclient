@@ -10,7 +10,7 @@ public final class DeepRecursiveKt {
 
     static {
         Result.Companion companion = Result.Companion;
-        UNDEFINED_RESULT = Result.m636constructorimpl(IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED());
+        UNDEFINED_RESULT = Result.m635constructorimpl(IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED());
     }
 
     @ExperimentalStdlibApi

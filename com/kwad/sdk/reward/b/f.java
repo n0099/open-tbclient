@@ -20,28 +20,28 @@ import java.lang.ref.WeakReference;
 public class f extends com.kwad.sdk.reward.d {
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f34566b;
+    public WebView f33811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a.g f34567c;
+    public com.kwad.sdk.core.webview.a.g f33812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f34568d;
+    public com.kwad.sdk.core.webview.a f33813d;
 
     /* renamed from: e  reason: collision with root package name */
-    public m f34569e;
+    public m f33814e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f34570f;
+    public b f33815f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f34571g;
+    public a f33816g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.f f34572h = new com.kwad.sdk.reward.a.f() { // from class: com.kwad.sdk.reward.b.f.1
+    public com.kwad.sdk.reward.a.f f33817h = new com.kwad.sdk.reward.a.f() { // from class: com.kwad.sdk.reward.b.f.1
         @Override // com.kwad.sdk.reward.a.f
         public void a() {
-            if (f.this.f34570f != null && f.this.f34570f.a()) {
+            if (f.this.f33815f != null && f.this.f33815f.a()) {
                 f.this.m();
             } else {
                 f.this.n();
@@ -53,15 +53,15 @@ public class f extends com.kwad.sdk.reward.d {
     public static class a implements p.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public AdTemplate f34575a;
+        public AdTemplate f33820a;
 
         public a(AdTemplate adTemplate) {
-            this.f34575a = adTemplate;
+            this.f33820a = adTemplate;
         }
 
         @Override // com.kwad.sdk.core.webview.jshandler.p.b
         public void a(int i2) {
-            com.kwad.sdk.core.report.b.a(this.f34575a, i2, (q.a) null);
+            com.kwad.sdk.core.report.b.a(this.f33820a, i2, (q.a) null);
         }
     }
 
@@ -69,23 +69,23 @@ public class f extends com.kwad.sdk.reward.d {
     public static class b implements k.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f34576a = -1;
+        public int f33821a = -1;
 
         /* renamed from: b  reason: collision with root package name */
-        public WeakReference<f> f34577b;
+        public WeakReference<f> f33822b;
 
         public b(f fVar) {
-            this.f34577b = new WeakReference<>(fVar);
+            this.f33822b = new WeakReference<>(fVar);
         }
 
         @Override // com.kwad.sdk.core.webview.jshandler.k.b
         public void a(int i2) {
-            this.f34576a = i2;
+            this.f33821a = i2;
             com.kwad.sdk.core.d.a.c("RewardPlayablePresenter", "updatePageStatus mPageState: " + i2);
-            WeakReference<f> weakReference = this.f34577b;
+            WeakReference<f> weakReference = this.f33822b;
             if (weakReference != null) {
                 AdTemplate r = weakReference.get().r();
-                if (this.f34576a != 1 || r == null) {
+                if (this.f33821a != 1 || r == null) {
                     return;
                 }
                 com.kwad.sdk.core.report.b.n(r);
@@ -93,7 +93,7 @@ public class f extends com.kwad.sdk.reward.d {
         }
 
         public boolean a() {
-            return this.f34576a == 1;
+            return this.f33821a == 1;
         }
     }
 
@@ -121,29 +121,29 @@ public class f extends com.kwad.sdk.reward.d {
     }
 
     private void a(com.kwad.sdk.core.webview.a.g gVar) {
-        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f34594a;
+        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f33839a;
         com.kwad.sdk.core.download.b.b bVar = aVar.j;
-        a aVar2 = new a(aVar.f34321f);
-        this.f34571g = aVar2;
-        gVar.a(new p(this.f34568d, bVar, aVar2));
-        gVar.a(new k(this.f34570f));
-        gVar.a(new j(this.f34568d));
+        a aVar2 = new a(aVar.f33566f);
+        this.f33816g = aVar2;
+        gVar.a(new p(this.f33813d, bVar, aVar2));
+        gVar.a(new k(this.f33815f));
+        gVar.a(new j(this.f33813d));
         m mVar = new m();
-        this.f34569e = mVar;
+        this.f33814e = mVar;
         gVar.a(mVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
-        if (this.f34566b == null) {
+        if (this.f33811b == null) {
             return;
         }
-        m mVar = this.f34569e;
+        m mVar = this.f33814e;
         if (mVar != null) {
             mVar.c();
         }
-        this.f34566b.setVisibility(0);
-        m mVar2 = this.f34569e;
+        this.f33811b.setVisibility(0);
+        m mVar2 = this.f33814e;
         if (mVar2 != null) {
             mVar2.d();
         }
@@ -151,12 +151,12 @@ public class f extends com.kwad.sdk.reward.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n() {
-        m mVar = this.f34569e;
+        m mVar = this.f33814e;
         if (mVar != null) {
             mVar.e();
         }
-        this.f34566b.setVisibility(8);
-        m mVar2 = this.f34569e;
+        this.f33811b.setVisibility(8);
+        m mVar2 = this.f33814e;
         if (mVar2 != null) {
             mVar2.f();
         }
@@ -165,37 +165,37 @@ public class f extends com.kwad.sdk.reward.d {
     @SuppressLint({"AddJavascriptInterface"})
     private void o() {
         q();
-        this.f34567c = new com.kwad.sdk.core.webview.a.g(this.f34566b);
-        com.kwad.sdk.core.d.a.a("RewardPlayablePresenter", "mJsInterface is : " + this.f34567c);
-        a(this.f34567c);
-        this.f34566b.addJavascriptInterface(this.f34567c, "KwaiAd");
+        this.f33812c = new com.kwad.sdk.core.webview.a.g(this.f33811b);
+        com.kwad.sdk.core.d.a.a("RewardPlayablePresenter", "mJsInterface is : " + this.f33812c);
+        a(this.f33812c);
+        this.f33811b.addJavascriptInterface(this.f33812c, "KwaiAd");
     }
 
     private void p() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-        this.f34568d = aVar;
-        com.kwad.sdk.reward.a aVar2 = ((com.kwad.sdk.reward.d) this).f34594a;
-        aVar.f33622b = aVar2.f34321f;
-        aVar.f33621a = 0;
-        AdBaseFrameLayout adBaseFrameLayout = aVar2.f34323h;
-        aVar.f33623c = adBaseFrameLayout;
-        aVar.f33625e = adBaseFrameLayout;
-        aVar.f33626f = this.f34566b;
+        this.f33813d = aVar;
+        com.kwad.sdk.reward.a aVar2 = ((com.kwad.sdk.reward.d) this).f33839a;
+        aVar.f32867b = aVar2.f33566f;
+        aVar.f32866a = 0;
+        AdBaseFrameLayout adBaseFrameLayout = aVar2.f33568h;
+        aVar.f32868c = adBaseFrameLayout;
+        aVar.f32870e = adBaseFrameLayout;
+        aVar.f32871f = this.f33811b;
     }
 
     private void q() {
-        com.kwad.sdk.core.webview.a.g gVar = this.f34567c;
+        com.kwad.sdk.core.webview.a.g gVar = this.f33812c;
         if (gVar != null) {
             gVar.a();
-            this.f34567c = null;
+            this.f33812c = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public AdTemplate r() {
-        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f34594a;
+        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f33839a;
         if (aVar != null) {
-            return aVar.f34321f;
+            return aVar.f33566f;
         }
         return null;
     }
@@ -203,9 +203,9 @@ public class f extends com.kwad.sdk.reward.d {
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        ((com.kwad.sdk.reward.d) this).f34594a.a(this.f34572h);
+        ((com.kwad.sdk.reward.d) this).f33839a.a(this.f33817h);
         p();
-        WebSettings a2 = a(this.f34566b);
+        WebSettings a2 = a(this.f33811b);
         a2.setCacheMode(2);
         if (Build.VERSION.SDK_INT >= 17 && com.kwad.sdk.core.config.c.C()) {
             a2.setMediaPlaybackRequiresUserGesture(false);
@@ -217,16 +217,16 @@ public class f extends com.kwad.sdk.reward.d {
     public void b() {
         super.b();
         WebView webView = (WebView) a(R.id.ksad_playable_webview);
-        this.f34566b = webView;
+        this.f33811b = webView;
         webView.setVisibility(4);
-        this.f34566b.setWebChromeClient(new WebChromeClient() { // from class: com.kwad.sdk.reward.b.f.2
+        this.f33811b.setWebChromeClient(new WebChromeClient() { // from class: com.kwad.sdk.reward.b.f.2
             @Override // android.webkit.WebChromeClient
             public void onProgressChanged(WebView webView2, int i2) {
                 super.onProgressChanged(webView2, i2);
                 com.kwad.sdk.core.d.a.a("RewardPlayablePresenter", "newProgress: " + i2);
             }
         });
-        this.f34570f = new b(this);
+        this.f33815f = new b(this);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -234,15 +234,15 @@ public class f extends com.kwad.sdk.reward.d {
         super.c();
         q();
         n();
-        ((com.kwad.sdk.reward.d) this).f34594a.b(this.f34572h);
+        ((com.kwad.sdk.reward.d) this).f33839a.b(this.f33817h);
     }
 
     public void e() {
         o();
-        AdTemplate adTemplate = ((com.kwad.sdk.reward.d) this).f34594a.f34321f;
+        AdTemplate adTemplate = ((com.kwad.sdk.reward.d) this).f33839a.f33566f;
         String aa = com.kwad.sdk.core.response.b.a.aa(com.kwad.sdk.core.response.b.c.g(adTemplate));
         if (!TextUtils.isEmpty(aa)) {
-            this.f34566b.loadUrl(aa);
+            this.f33811b.loadUrl(aa);
         }
         com.kwad.sdk.core.report.b.o(adTemplate);
     }

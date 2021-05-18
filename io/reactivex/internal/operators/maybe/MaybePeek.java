@@ -24,7 +24,7 @@ public final class MaybePeek<T> extends AbstractMaybeWithUpstream<T, T> {
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68267d;
+        public Disposable f68947d;
         public final MaybePeek<T> parent;
 
         public MaybePeekObserver(MaybeObserver<? super T> maybeObserver, MaybePeek<T> maybePeek) {
@@ -40,13 +40,13 @@ public final class MaybePeek<T> extends AbstractMaybeWithUpstream<T, T> {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);
             }
-            this.f68267d.dispose();
-            this.f68267d = DisposableHelper.DISPOSED;
+            this.f68947d.dispose();
+            this.f68947d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68267d.isDisposed();
+            return this.f68947d.isDisposed();
         }
 
         public void onAfterTerminate() {
@@ -60,12 +60,12 @@ public final class MaybePeek<T> extends AbstractMaybeWithUpstream<T, T> {
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
-            if (this.f68267d == DisposableHelper.DISPOSED) {
+            if (this.f68947d == DisposableHelper.DISPOSED) {
                 return;
             }
             try {
                 this.parent.onCompleteCall.run();
-                this.f68267d = DisposableHelper.DISPOSED;
+                this.f68947d = DisposableHelper.DISPOSED;
                 this.actual.onComplete();
                 onAfterTerminate();
             } catch (Throwable th) {
@@ -76,7 +76,7 @@ public final class MaybePeek<T> extends AbstractMaybeWithUpstream<T, T> {
 
         @Override // io.reactivex.MaybeObserver
         public void onError(Throwable th) {
-            if (this.f68267d == DisposableHelper.DISPOSED) {
+            if (this.f68947d == DisposableHelper.DISPOSED) {
                 RxJavaPlugins.onError(th);
             } else {
                 onErrorInner(th);
@@ -90,22 +90,22 @@ public final class MaybePeek<T> extends AbstractMaybeWithUpstream<T, T> {
                 Exceptions.throwIfFatal(th2);
                 th = new CompositeException(th, th2);
             }
-            this.f68267d = DisposableHelper.DISPOSED;
+            this.f68947d = DisposableHelper.DISPOSED;
             this.actual.onError(th);
             onAfterTerminate();
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68267d, disposable)) {
+            if (DisposableHelper.validate(this.f68947d, disposable)) {
                 try {
                     this.parent.onSubscribeCall.accept(disposable);
-                    this.f68267d = disposable;
+                    this.f68947d = disposable;
                     this.actual.onSubscribe(this);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     disposable.dispose();
-                    this.f68267d = DisposableHelper.DISPOSED;
+                    this.f68947d = DisposableHelper.DISPOSED;
                     EmptyDisposable.error(th, this.actual);
                 }
             }
@@ -113,12 +113,12 @@ public final class MaybePeek<T> extends AbstractMaybeWithUpstream<T, T> {
 
         @Override // io.reactivex.MaybeObserver
         public void onSuccess(T t) {
-            if (this.f68267d == DisposableHelper.DISPOSED) {
+            if (this.f68947d == DisposableHelper.DISPOSED) {
                 return;
             }
             try {
                 this.parent.onSuccessCall.accept(t);
-                this.f68267d = DisposableHelper.DISPOSED;
+                this.f68947d = DisposableHelper.DISPOSED;
                 this.actual.onSuccess(t);
                 onAfterTerminate();
             } catch (Throwable th) {

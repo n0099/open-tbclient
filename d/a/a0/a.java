@@ -8,37 +8,37 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f39087a;
+    public long f38332a;
 
     /* renamed from: d.a.a0.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0487a {
+    public static class C0474a {
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f39089b;
+        public Context f38334b;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f39088a = 1;
+        public int f38333a = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f39090c = false;
+        public boolean f38335c = false;
 
         public a d() {
             return new a(this);
         }
 
-        public C0487a e(Context context) {
-            this.f39089b = context;
+        public C0474a e(Context context) {
+            this.f38334b = context;
             return this;
         }
 
-        public C0487a f(boolean z) {
-            this.f39090c = z;
+        public C0474a f(boolean z) {
+            this.f38335c = z;
             return this;
         }
 
-        public C0487a g(int i2) {
-            this.f39088a = i2;
+        public C0474a g(int i2) {
+            this.f38333a = i2;
             return this;
         }
     }
@@ -57,11 +57,11 @@ public class a {
         }
         if (cVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f39087a < 1000) {
+            if (currentTimeMillis - this.f38332a < 1000) {
                 d.a.a0.n.d.e("cashier pay time interval less than 1s");
                 return;
             }
-            this.f39087a = currentTimeMillis;
+            this.f38332a = currentTimeMillis;
             d.a.a0.n.d.e("cashier pay");
             d.a.a0.k.h.a.c(Long.valueOf(currentTimeMillis));
             d.a.a0.k.h.d.b(new d.a.a0.k.h.b("0"));
@@ -81,14 +81,14 @@ public class a {
         }
     }
 
-    public a(C0487a c0487a) {
-        this.f39087a = 0L;
-        if (c0487a != null) {
-            if (c0487a.f39089b != null) {
-                d.a.a0.k.b.a.c(c0487a.f39088a);
-                d.a.a0.k.d.b.a(d.a.a0.k.d.a.e(c0487a.f39089b.getApplicationContext()));
-                d.a.a0.n.g.b(c0487a.f39089b.getApplicationContext());
-                d.a.a0.n.d.f39231d = c0487a.f39090c;
+    public a(C0474a c0474a) {
+        this.f38332a = 0L;
+        if (c0474a != null) {
+            if (c0474a.f38334b != null) {
+                d.a.a0.k.b.a.c(c0474a.f38333a);
+                d.a.a0.k.d.b.a(d.a.a0.k.d.a.e(c0474a.f38334b.getApplicationContext()));
+                d.a.a0.n.g.b(c0474a.f38334b.getApplicationContext());
+                d.a.a0.n.d.f38476d = c0474a.f38335c;
                 return;
             }
             throw new IllegalArgumentException("context can not be null");

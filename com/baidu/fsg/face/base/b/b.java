@@ -17,47 +17,47 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5724a = 100;
+    public static final int f5578a = 100;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5725c = ".BD_SAPI_CACHE";
+    public static final String f5579c = ".BD_SAPI_CACHE";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5726d = "so_zips";
+    public static final String f5580d = "so_zips";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5727e = "1.0.1";
+    public static final String f5581e = "1.0.1";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5728f = "1.0.3";
+    public static final String f5582f = "1.0.3";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5729g = "FaceSDKLibs";
+    public static final String f5583g = "FaceSDKLibs";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f5730h = {License.LICENSE_DEFAULT_FILE_NAME, "FaceSDK"};
+    public static final String[] f5584h = {License.LICENSE_DEFAULT_FILE_NAME, "FaceSDK"};
 
     /* renamed from: i  reason: collision with root package name */
-    public static b f5731i;
+    public static b f5585i;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5732b;
+    public String f5586b;
     public SharedPreferences j;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f5733a;
+        public String f5587a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5734b;
+        public String f5588b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f5735c;
+        public String f5589c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String[] f5736d;
+        public String[] f5590d;
     }
 
     public b(Context context) {
@@ -66,10 +66,10 @@ public class b {
 
     public static b a(Context context) {
         Context applicationContext = context.getApplicationContext();
-        if (f5731i == null) {
-            f5731i = new b(applicationContext);
+        if (f5585i == null) {
+            f5585i = new b(applicationContext);
         }
-        return f5731i;
+        return f5585i;
     }
 
     public static String b(Context context, a aVar) {
@@ -79,26 +79,26 @@ public class b {
 
     public static String c(Context context, a aVar) {
         String a2 = a(context, aVar);
-        return new File(a2 + File.separator + aVar.f5733a + File.separator + aVar.f5733a + "-" + aVar.f5734b + ".zip").getAbsolutePath();
+        return new File(a2 + File.separator + aVar.f5587a + File.separator + aVar.f5587a + "-" + aVar.f5588b + ".zip").getAbsolutePath();
     }
 
     private String b(Context context) {
-        if (TextUtils.isEmpty(this.f5732b)) {
+        if (TextUtils.isEmpty(this.f5586b)) {
             try {
-                this.f5732b = MD5Util.toMd5((context.getPackageName() + h.a(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                this.f5586b = MD5Util.toMd5((context.getPackageName() + h.a(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
             } catch (UnsupportedEncodingException e2) {
                 com.baidu.fsg.face.base.d.d.a(e2);
             }
         }
-        return this.f5732b;
+        return this.f5586b;
     }
 
     public static String a(Context context, a aVar) {
-        return context.getDir(aVar.f5735c, 0).getAbsolutePath();
+        return context.getDir(aVar.f5589c, 0).getAbsolutePath();
     }
 
     public static String a(a aVar) {
-        return ShareStorage.SP_FILE_PATH + aVar.f5733a + "/" + aVar.f5733a + "-" + aVar.f5734b + ".zip";
+        return ShareStorage.SP_FILE_PATH + aVar.f5587a + "/" + aVar.f5587a + "-" + aVar.f5588b + ".zip";
     }
 
     private String a(String str) {
@@ -137,10 +137,10 @@ public class b {
     public static a a(int i2) {
         a aVar = new a();
         if (i2 == 4) {
-            aVar.f5733a = f5726d;
-            aVar.f5734b = "1.0.3";
-            aVar.f5735c = f5729g;
-            aVar.f5736d = f5730h;
+            aVar.f5587a = f5580d;
+            aVar.f5588b = "1.0.3";
+            aVar.f5589c = f5583g;
+            aVar.f5590d = f5584h;
             return aVar;
         }
         throw new IllegalArgumentException("the so modle type = " + i2 + " is not support");

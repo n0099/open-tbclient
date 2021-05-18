@@ -2,7 +2,7 @@ package com.baidu.tieba.enterForum.recommend.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.j0.i0.k.c.a;
+import d.a.k0.i0.k.c.a;
 import tbclient.Recommforum.RecommforumResIdl;
 /* loaded from: classes4.dex */
 public class ResponseSocketRecommendMessage extends SocketResponsedMessage {
