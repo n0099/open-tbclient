@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class StreamEncoder implements Encoder<InputStream> {
     public static final String TAG = "StreamEncoder";
     public final ArrayPool byteArrayPool;

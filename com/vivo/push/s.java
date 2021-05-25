@@ -3,10 +3,10 @@ package com.vivo.push;
 public final class s implements IPushActionListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p f36744a;
+    public final /* synthetic */ p f36673a;
 
     public s(p pVar) {
-        this.f36744a = pVar;
+        this.f36673a = pVar;
     }
 
     @Override // com.vivo.push.IPushActionListener
@@ -14,15 +14,15 @@ public final class s implements IPushActionListener {
         com.vivo.push.util.a aVar;
         com.vivo.push.util.a aVar2;
         if (i2 == 0) {
-            this.f36744a.l = "";
-            aVar2 = this.f36744a.k;
+            this.f36673a.l = "";
+            aVar2 = this.f36673a.k;
             aVar2.a("APP_TOKEN", "");
-            this.f36744a.t();
-            this.f36744a.k.c("APP_TAGS");
+            this.f36673a.t();
+            this.f36673a.k.c("APP_TAGS");
             return;
         }
-        this.f36744a.l = null;
-        aVar = this.f36744a.k;
+        this.f36673a.l = null;
+        aVar = this.f36673a.k;
         aVar.c("APP_TOKEN");
     }
 }

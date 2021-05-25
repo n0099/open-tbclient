@@ -22,35 +22,35 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import d.a.c.e.p.l;
 import d.a.i.p;
-import d.a.j0.b1.j.d;
-import d.a.j0.r.k;
-import d.a.j0.r.q.a2;
-import d.a.k0.x.b0;
+import d.a.m0.b1.j.d;
+import d.a.m0.r.k;
+import d.a.m0.r.q.a2;
+import d.a.n0.z.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MutiImgDoubleLayout extends LinearLayout implements p<d.a.j0.r.q.a> {
+public class MutiImgDoubleLayout extends LinearLayout implements p<d.a.m0.r.q.a> {
     public static final int r;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f4419e;
+    public TextView f4422e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f4420f;
+    public TextView f4423f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PlayVoiceBntNew f4421g;
+    public PlayVoiceBntNew f4424g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f4422h;
+    public RelativeLayout f4425h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f4423i;
+    public TbImageView f4426i;
     public TbImageView j;
     public String k;
     public boolean l;
-    public b0<d.a.j0.r.q.a> m;
-    public d.a.j0.r.q.a n;
+    public b0<d.a.m0.r.q.a> m;
+    public d.a.m0.r.q.a n;
     public int o;
     public d p;
     public LinkedList<MediaData> q;
@@ -62,7 +62,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.a.j0.r.q.a>
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.a.j0.r.q.a> subClickListener = MutiImgDoubleLayout.this.getSubClickListener();
+            b0<d.a.m0.r.q.a> subClickListener = MutiImgDoubleLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("2");
                 subClickListener.a(view, MutiImgDoubleLayout.this.n);
@@ -75,9 +75,9 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.a.j0.r.q.a>
         public b() {
         }
 
-        @Override // d.a.j0.b1.j.d
+        @Override // d.a.m0.b1.j.d
         public void a(View view, int i2, boolean z) {
-            b0<d.a.j0.r.q.a> subClickListener = MutiImgDoubleLayout.this.getSubClickListener();
+            b0<d.a.m0.r.q.a> subClickListener = MutiImgDoubleLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("1");
                 MutiImgDoubleLayout.this.n.objType = 2;
@@ -92,28 +92,28 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.a.j0.r.q.a>
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4426e;
+        public int f4429e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f4427f;
+        public boolean f4430f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f4428g;
+        public boolean f4431g;
 
         public c(int i2, boolean z, boolean z2) {
             a(i2, z, z2);
         }
 
         public void a(int i2, boolean z, boolean z2) {
-            this.f4426e = i2;
-            this.f4427f = z;
-            this.f4428g = z2;
+            this.f4429e = i2;
+            this.f4430f = z;
+            this.f4431g = z2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (MutiImgDoubleLayout.this.p != null) {
-                MutiImgDoubleLayout.this.p.a(view, this.f4426e, this.f4427f && this.f4428g);
+                MutiImgDoubleLayout.this.p.a(view, this.f4429e, this.f4430f && this.f4431g);
             }
         }
     }
@@ -130,46 +130,46 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.a.j0.r.q.a>
     }
 
     private void setImageData(a2 a2Var) {
-        ArrayList<MediaData> K0 = a2Var.K0();
-        if (k.c().g() && ListUtils.getCount(K0) != 0) {
+        ArrayList<MediaData> L0 = a2Var.L0();
+        if (k.c().g() && ListUtils.getCount(L0) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i2 = 0; i2 < K0.size(); i2++) {
-                MediaData mediaData = (MediaData) ListUtils.getItem(K0, i2);
+            for (int i2 = 0; i2 < L0.size(); i2++) {
+                MediaData mediaData = (MediaData) ListUtils.getItem(L0, i2);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
             }
             this.q = linkedList;
-            this.f4422h.setVisibility(8);
+            this.f4425h.setVisibility(8);
             if (ListUtils.getCount(linkedList) == 2) {
-                this.f4422h.setVisibility(0);
-                this.f4423i.setConrers(15);
-                l((MediaData) ListUtils.getItem(K0, 0), this.f4423i, true, false, false, 0);
+                this.f4425h.setVisibility(0);
+                this.f4426i.setConrers(15);
+                l((MediaData) ListUtils.getItem(L0, 0), this.f4426i, true, false, false, 0);
                 this.j.setConrers(15);
-                l((MediaData) ListUtils.getItem(K0, 1), this.j, true, false, true, 1);
+                l((MediaData) ListUtils.getItem(L0, 1), this.j, true, false, true, 1);
                 return;
             }
-            this.f4422h.setVisibility(8);
+            this.f4425h.setVisibility(8);
             return;
         }
-        this.f4422h.setVisibility(8);
+        this.f4425h.setVisibility(8);
     }
 
     private void setVoiceData(a2 a2Var) {
-        ArrayList<VoiceData$VoiceModel> I1 = a2Var.I1();
-        if (ListUtils.isEmpty(I1)) {
-            this.f4421g.setVisibility(8);
+        ArrayList<VoiceData$VoiceModel> J1 = a2Var.J1();
+        if (ListUtils.isEmpty(J1)) {
+            this.f4424g.setVisibility(8);
             return;
         }
-        this.f4421g.setVisibility(0);
-        VoiceData$VoiceModel voiceData$VoiceModel = I1.get(0);
-        this.f4421g.setVoiceModel(voiceData$VoiceModel);
-        this.f4421g.setTag(voiceData$VoiceModel);
-        this.f4421g.b();
+        this.f4424g.setVisibility(0);
+        VoiceData$VoiceModel voiceData$VoiceModel = J1.get(0);
+        this.f4424g.setVoiceModel(voiceData$VoiceModel);
+        this.f4424g.setTag(voiceData$VoiceModel);
+        this.f4424g.b();
         if (voiceData$VoiceModel != null) {
-            this.f4421g.j(voiceData$VoiceModel.voice_status.intValue());
+            this.f4424g.j(voiceData$VoiceModel.voice_status.intValue());
         }
-        this.f4421g.l();
+        this.f4424g.l();
     }
 
     public final int g(int i2) {
@@ -182,7 +182,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.a.j0.r.q.a>
         return size;
     }
 
-    public b0<d.a.j0.r.q.a> getSubClickListener() {
+    public b0<d.a.m0.r.q.a> getSubClickListener() {
         return this.m;
     }
 
@@ -204,18 +204,18 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.a.j0.r.q.a>
         LayoutInflater.from(getContext()).inflate(R.layout.multi_image_double_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4420f = (TextView) findViewById(R.id.thread_card_abstract);
-        this.f4419e = (TextView) findViewById(R.id.thread_card_title);
+        this.f4423f = (TextView) findViewById(R.id.thread_card_abstract);
+        this.f4422e = (TextView) findViewById(R.id.thread_card_title);
         PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
-        this.f4421g = playVoiceBntNew;
+        this.f4424g = playVoiceBntNew;
         playVoiceBntNew.setAfterClickListener(new a());
-        d.a.j0.b.g.b.b(this.f4421g, R.dimen.tbds28, R.dimen.tbds14);
-        d.a.j0.b.g.b.k(this.f4419e, R.dimen.tbds7, R.dimen.tbds10);
-        d.a.j0.b.g.b.k(this.f4420f, R.dimen.tbds7, R.dimen.tbds10);
+        d.a.m0.b.g.b.b(this.f4424g, R.dimen.tbds28, R.dimen.tbds14);
+        d.a.m0.b.g.b.k(this.f4422e, R.dimen.tbds7, R.dimen.tbds10);
+        d.a.m0.b.g.b.k(this.f4423f, R.dimen.tbds7, R.dimen.tbds10);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.thread_card_img_double_container);
-        this.f4422h = relativeLayout;
-        d.a.j0.b.g.b.b(relativeLayout, R.dimen.tbds20, R.dimen.tbds14);
-        this.f4423i = (TbImageView) findViewById(R.id.thread_card_img_double_one);
+        this.f4425h = relativeLayout;
+        d.a.m0.b.g.b.b(relativeLayout, R.dimen.tbds20, R.dimen.tbds14);
+        this.f4426i = (TbImageView) findViewById(R.id.thread_card_img_double_one);
         this.j = (TbImageView) findViewById(R.id.thread_card_img_double_two);
         this.p = new b();
     }
@@ -223,11 +223,11 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.a.j0.r.q.a>
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: j */
-    public void a(d.a.j0.r.q.a aVar) {
+    public void a(d.a.m0.r.q.a aVar) {
         this.n = aVar;
         a2 m = aVar.m();
-        ThreadCardUtils.setTitle(this.f4419e, m);
-        ThreadCardUtils.setAbstract(this.f4420f, this.f4419e, m, r);
+        ThreadCardUtils.setTitle(this.f4422e, m);
+        ThreadCardUtils.setAbstract(this.f4423f, this.f4422e, m, r);
         setImageData(m);
         setVoiceData(m);
     }
@@ -268,14 +268,14 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.a.j0.r.q.a>
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
         int g2 = g(i2);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f4423i.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f4426i.getLayoutParams();
         layoutParams.width = g2;
         layoutParams.height = g2;
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
         layoutParams2.width = g2;
         layoutParams2.height = g2;
-        if (this.f4422h.getVisibility() != 8) {
-            this.f4423i.setLayoutParams(layoutParams);
+        if (this.f4425h.getVisibility() != 8) {
+            this.f4426i.setLayoutParams(layoutParams);
             this.j.setLayoutParams(layoutParams2);
         }
     }
@@ -301,7 +301,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.a.j0.r.q.a>
     public void setPreloadSizeReadyCallback(d.a.c.j.c.b bVar) {
     }
 
-    public void setSubClickListener(b0<d.a.j0.r.q.a> b0Var) {
+    public void setSubClickListener(b0<d.a.m0.r.q.a> b0Var) {
         this.m = b0Var;
     }
 

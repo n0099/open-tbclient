@@ -50,16 +50,16 @@ import org.json.JSONObject;
 public class bw {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8826a;
+    public static String f8726a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8827b;
+    public static String f8727b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8828c;
+    public static String f8728c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f8829d = Pattern.compile("\\s*|\t|\r|\n");
+    public static final Pattern f8729d = Pattern.compile("\\s*|\t|\r|\n");
 
     public static String a(Context context, String str) {
         try {
@@ -379,7 +379,7 @@ public class bw {
     }
 
     public static String u(Context context) {
-        String str = f8827b;
+        String str = f8727b;
         if (str == null) {
             String y = y(context);
             String b2 = b(context, y);
@@ -387,7 +387,7 @@ public class bw {
                 b2 = c(context, y);
             }
             str = b2 == null ? "" : b2;
-            f8827b = str;
+            f8727b = str;
         }
         return str;
     }
@@ -464,7 +464,7 @@ public class bw {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String y(Context context) {
-        String str = f8826a;
+        String str = f8726a;
         if (str == null) {
             try {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
@@ -484,7 +484,7 @@ public class bw {
             if (str == null) {
                 str = "";
             }
-            f8826a = str;
+            f8726a = str;
         }
         return str;
     }
@@ -604,7 +604,7 @@ public class bw {
 
     public static String b() {
         String str;
-        String str2 = f8828c;
+        String str2 = f8728c;
         if (str2 != null) {
             return str2;
         }
@@ -625,7 +625,7 @@ public class bw {
                 str = ImmersiveOSUtils.FLYME;
             }
         }
-        f8828c = str;
+        f8728c = str;
         return str;
     }
 
@@ -642,7 +642,7 @@ public class bw {
     }
 
     public static String a(Context context) {
-        return f8829d.matcher(bx.a(context)).replaceAll("");
+        return f8729d.matcher(bx.a(context)).replaceAll("");
     }
 
     public static Boolean c() {

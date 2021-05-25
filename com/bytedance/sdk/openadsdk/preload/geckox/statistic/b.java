@@ -8,18 +8,18 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Long, b> f30171a = new HashMap();
+    public static final Map<Long, b> f30100a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a> f30172b = new HashMap();
+    public final Map<String, com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a> f30101b = new HashMap();
 
     public static b a(long j) {
         b bVar;
-        synchronized (f30171a) {
-            bVar = f30171a.get(Long.valueOf(j));
+        synchronized (f30100a) {
+            bVar = f30100a.get(Long.valueOf(j));
             if (bVar == null) {
                 bVar = new b();
-                f30171a.put(Long.valueOf(j), bVar);
+                f30100a.put(Long.valueOf(j), bVar);
             }
         }
         return bVar;
@@ -27,11 +27,11 @@ public class b {
 
     public com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a(String str) {
         com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a aVar;
-        synchronized (this.f30172b) {
-            aVar = this.f30172b.get(str);
+        synchronized (this.f30101b) {
+            aVar = this.f30101b.get(str);
             if (aVar == null) {
                 aVar = new com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a();
-                this.f30172b.put(str, aVar);
+                this.f30101b.put(str, aVar);
             }
         }
         return aVar;
@@ -39,8 +39,8 @@ public class b {
 
     public List<com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a> a() {
         ArrayList arrayList;
-        synchronized (this.f30172b) {
-            arrayList = new ArrayList(this.f30172b.values());
+        synchronized (this.f30101b) {
+            arrayList = new ArrayList(this.f30101b.values());
         }
         return arrayList;
     }

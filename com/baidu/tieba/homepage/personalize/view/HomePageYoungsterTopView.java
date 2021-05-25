@@ -17,21 +17,22 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import d.a.m0.c1.b.e;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class HomePageYoungsterTopView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f16571e;
+    public TextView f16481e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f16572f;
+    public ImageView f16482f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f16573g;
+    public c f16483g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f16574h;
+    public b f16484h;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -40,8 +41,8 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (HomePageYoungsterTopView.this.f16574h != null) {
-                HomePageYoungsterTopView.this.f16574h.onDelete();
+            if (HomePageYoungsterTopView.this.f16484h != null) {
+                HomePageYoungsterTopView.this.f16484h.onDelete();
             }
         }
     }
@@ -55,16 +56,16 @@ public class HomePageYoungsterTopView extends RelativeLayout {
     public static class c extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<Context> f16576e;
+        public WeakReference<Context> f16486e;
 
         public c(Context context) {
-            this.f16576e = new WeakReference<>(context);
+            this.f16486e = new WeakReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            Context context = this.f16576e.get();
-            if (context == null || !d.a.j0.c1.b.c.d()) {
+            Context context = this.f16486e.get();
+            if (context == null || !e.d()) {
                 return;
             }
             YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(context);
@@ -86,26 +87,26 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
     public final void b() {
         RelativeLayout.inflate(getContext(), R.layout.view_homepage_youngster_top, this);
-        this.f16571e = (TextView) findViewById(R.id.youngster_top_text);
-        this.f16572f = (ImageView) findViewById(R.id.youngster_top_delete);
+        this.f16481e = (TextView) findViewById(R.id.youngster_top_text);
+        this.f16482f = (ImageView) findViewById(R.id.youngster_top_delete);
         SpannableString spannableString = new SpannableString(getContext().getString(R.string.youngster_open_title) + "，" + getContext().getString(R.string.youngster_homgpage_top_text));
         c cVar = new c(getContext());
-        this.f16573g = cVar;
+        this.f16483g = cVar;
         spannableString.setSpan(cVar, 9, 13, 33);
-        this.f16571e.setText(spannableString);
-        this.f16571e.setMovementMethod(LinkMovementMethod.getInstance());
-        this.f16572f.setOnClickListener(new a());
+        this.f16481e.setText(spannableString);
+        this.f16481e.setMovementMethod(LinkMovementMethod.getInstance());
+        this.f16482f.setOnClickListener(new a());
         c();
     }
 
     public void c() {
         SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-        SkinManager.setViewTextColor(this.f16571e, R.color.CAM_X0107);
-        SkinManager.setImageResource(this.f16572f, R.drawable.icon_home_card_delete);
+        SkinManager.setViewTextColor(this.f16481e, R.color.CAM_X0107);
+        SkinManager.setImageResource(this.f16482f, R.drawable.icon_home_card_delete);
     }
 
     public void setOnDeleteClick(b bVar) {
-        this.f16574h = bVar;
+        this.f16484h = bVar;
     }
 
     public HomePageYoungsterTopView(Context context) {

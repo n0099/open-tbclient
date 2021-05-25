@@ -22,7 +22,7 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f67074a;
+    public static Boolean f67117a;
 
     public static String a(@NonNull String str) {
         return e.i(str);
@@ -31,14 +31,14 @@ public class d {
     @WorkerThread
     public static synchronized void b(@NonNull Context context) {
         synchronized (d.class) {
-            if (f67074a == null) {
-                f67074a = Boolean.valueOf((d() || e(context) || g(context) || !i(context) || f() || k(context)) ? false : true);
+            if (f67117a == null) {
+                f67117a = Boolean.valueOf((d() || e(context) || g(context) || !i(context) || f() || k(context)) ? false : true);
             }
         }
     }
 
     public static boolean c() {
-        Boolean bool = f67074a;
+        Boolean bool = f67117a;
         if (bool == null) {
             return true;
         }

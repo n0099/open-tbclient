@@ -3,10 +3,10 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
-import d.a.i0.a.c;
-import d.a.i0.a.c1.a;
-import d.a.i0.a.e;
-import d.a.i0.a.v2.n0;
+import d.a.l0.a.c;
+import d.a.l0.a.c1.a;
+import d.a.l0.a.e;
+import d.a.l0.a.v2.n0;
 /* loaded from: classes3.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public boolean r;

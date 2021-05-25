@@ -2,7 +2,7 @@ package com.baidu.tieba.chosen.posts.request;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import d.a.k0.y.a.d.b;
+import d.a.n0.a0.a.d.b;
 import tbclient.HotThread.HotThreadResIdl;
 /* loaded from: classes4.dex */
 public class ChosenPostHttpResponse extends MvcProtobufHttpResponsedMessage<b, HotThreadResIdl> {

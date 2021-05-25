@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67925a;
+    public int f67968a;
 
     public c(String str) {
         a(str);
@@ -17,7 +17,7 @@ public class c {
         if (str != null && !"".equals(str.trim())) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f67925a = jSONObject.optInt("cmd");
+                this.f67968a = jSONObject.optInt("cmd");
                 jSONObject.optInt("appid");
                 jSONObject.optLong("uid");
                 jSONObject.optString(IAdRequestParam.SEQ);

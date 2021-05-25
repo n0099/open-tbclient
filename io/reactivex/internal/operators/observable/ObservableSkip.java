@@ -13,7 +13,7 @@ public final class ObservableSkip<T> extends AbstractObservableWithUpstream<T, T
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68970d;
+        public Disposable f69013d;
         public long remaining;
 
         public SkipObserver(Observer<? super T> observer, long j) {
@@ -23,12 +23,12 @@ public final class ObservableSkip<T> extends AbstractObservableWithUpstream<T, T
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68970d.dispose();
+            this.f69013d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68970d.isDisposed();
+            return this.f69013d.isDisposed();
         }
 
         @Override // io.reactivex.Observer
@@ -53,8 +53,8 @@ public final class ObservableSkip<T> extends AbstractObservableWithUpstream<T, T
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68970d, disposable)) {
-                this.f68970d = disposable;
+            if (DisposableHelper.validate(this.f69013d, disposable)) {
+                this.f69013d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

@@ -1,0 +1,144 @@
+package d.a.m0.k0;
+
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.List;
+/* loaded from: classes3.dex */
+public class d {
+
+    /* renamed from: b  reason: collision with root package name */
+    public List<String> f49437b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f49438c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f49439d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f49440e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f49441f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f49442g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f49443h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f49444i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public d.a.m0.i0.c s;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f49436a = false;
+    public int r = 0;
+
+    public String a() {
+        return this.o;
+    }
+
+    public int b() {
+        return this.r;
+    }
+
+    public String c() {
+        return this.f49438c;
+    }
+
+    public long d() {
+        return this.f49439d;
+    }
+
+    public String e() {
+        return this.f49441f;
+    }
+
+    public String f() {
+        return this.n;
+    }
+
+    public long g() {
+        return this.f49442g;
+    }
+
+    public List<String> h() {
+        return this.f49437b;
+    }
+
+    public long i() {
+        return this.f49443h;
+    }
+
+    public String j() {
+        return this.m;
+    }
+
+    public d.a.m0.i0.c k() {
+        return this.s;
+    }
+
+    public long l() {
+        return this.f49440e;
+    }
+
+    public boolean m() {
+        return StringUtils.isNull(this.f49438c);
+    }
+
+    public void n(String str) {
+        this.o = str;
+    }
+
+    public void o(int i2) {
+        this.r = i2;
+    }
+
+    public void p(String str) {
+        this.f49438c = str;
+    }
+
+    public void q(long j) {
+        this.f49439d = j;
+    }
+
+    public void r(String str) {
+        this.f49441f = str;
+    }
+
+    public void s(String str) {
+        this.n = str;
+    }
+
+    public void t(long j) {
+        this.f49442g = j;
+    }
+
+    public void u(List<String> list) {
+        this.f49437b = list;
+    }
+
+    public void v(long j) {
+        this.f49443h = j;
+    }
+
+    public void w(String str) {
+        this.m = str;
+    }
+
+    public void x(d.a.m0.i0.c cVar) {
+        this.s = cVar;
+    }
+
+    public void y(long j) {
+        this.f49440e = j;
+    }
+}

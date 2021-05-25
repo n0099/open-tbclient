@@ -11,36 +11,36 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20386e;
+    public int f20308e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f20387f;
+    public Handler f20309f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f20388g;
+    public c f20310g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f20389h;
+    public Runnable f20311h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f20390i;
+    public boolean f20312i;
 
     /* loaded from: classes5.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f20391e;
+        public final WeakReference<CountDownTextView> f20313e;
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.f20391e.get();
+            CountDownTextView countDownTextView = this.f20313e.get();
             if (countDownTextView != null) {
                 countDownTextView.b(1);
             }
         }
 
         public b(CountDownTextView countDownTextView) {
-            this.f20391e = new WeakReference<>(countDownTextView);
+            this.f20313e = new WeakReference<>(countDownTextView);
         }
     }
 
@@ -51,9 +51,9 @@ public class CountDownTextView extends TextView {
 
     public CountDownTextView(Context context) {
         super(context);
-        this.f20387f = null;
-        this.f20388g = null;
-        this.f20390i = true;
+        this.f20309f = null;
+        this.f20310g = null;
+        this.f20312i = true;
         d();
     }
 
@@ -61,30 +61,30 @@ public class CountDownTextView extends TextView {
         if (i2 <= 0) {
             return;
         }
-        int i3 = this.f20386e;
+        int i3 = this.f20308e;
         if (i3 == 0) {
-            if (this.f20388g != null && this.f20390i && getVisibility() == 0) {
-                this.f20388g.a(this);
+            if (this.f20310g != null && this.f20312i && getVisibility() == 0) {
+                this.f20310g.a(this);
             }
-            setText(String.valueOf(this.f20386e));
-            this.f20387f.removeCallbacksAndMessages(null);
+            setText(String.valueOf(this.f20308e));
+            this.f20309f.removeCallbacksAndMessages(null);
             return;
         }
         if (i3 > 0) {
             setText(String.valueOf(i3));
         }
-        this.f20387f.removeCallbacks(this.f20389h);
-        this.f20387f.postDelayed(this.f20389h, 1000L);
-        this.f20386e -= i2;
+        this.f20309f.removeCallbacks(this.f20311h);
+        this.f20309f.postDelayed(this.f20311h, 1000L);
+        this.f20308e -= i2;
     }
 
     public final void c() {
-        this.f20387f.removeCallbacksAndMessages(null);
+        this.f20309f.removeCallbacksAndMessages(null);
     }
 
     public final void d() {
-        this.f20389h = new b();
-        this.f20387f = new Handler();
+        this.f20311h = new b();
+        this.f20309f = new Handler();
     }
 
     public void e() {
@@ -92,7 +92,7 @@ public class CountDownTextView extends TextView {
     }
 
     public void f(int i2) {
-        this.f20386e = i2;
+        this.f20308e = i2;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -113,26 +113,26 @@ public class CountDownTextView extends TextView {
     }
 
     public void setEnableTimeoutListener(boolean z) {
-        this.f20390i = z;
+        this.f20312i = z;
     }
 
     public void setTimeoutListener(c cVar) {
-        this.f20388g = cVar;
+        this.f20310g = cVar;
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20387f = null;
-        this.f20388g = null;
-        this.f20390i = true;
+        this.f20309f = null;
+        this.f20310g = null;
+        this.f20312i = true;
         d();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f20387f = null;
-        this.f20388g = null;
-        this.f20390i = true;
+        this.f20309f = null;
+        this.f20310g = null;
+        this.f20312i = true;
         d();
     }
 }

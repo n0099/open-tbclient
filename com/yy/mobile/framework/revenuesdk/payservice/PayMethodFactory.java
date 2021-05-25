@@ -19,25 +19,25 @@ public enum PayMethodFactory {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f38306a;
+        public static final /* synthetic */ int[] f38235a;
 
         static {
             int[] iArr = new int[PayType.values().length];
-            f38306a = iArr;
+            f38235a = iArr;
             try {
                 iArr[PayType.WECHAT_PAY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f38306a[PayType.ALI_PAY.ordinal()] = 2;
+                f38235a[PayType.ALI_PAY.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f38306a[PayType.DXM_PAY.ordinal()] = 3;
+                f38235a[PayType.DXM_PAY.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f38306a[PayType.PAYTM_PAY.ordinal()] = 4;
+                f38235a[PayType.PAYTM_PAY.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -71,7 +71,7 @@ public enum PayMethodFactory {
             d.b("AppPayServiceImpl", "use proxyPayMethod channel:" + payType.getChannel());
             return b2;
         }
-        int i2 = a.f38306a[payType.ordinal()];
+        int i2 = a.f38235a[payType.ordinal()];
         if (i2 != 1) {
             if (i2 != 2) {
                 if (i2 != 3) {

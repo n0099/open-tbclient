@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 public class bt {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile bt f37436a;
+    public static volatile bt f37365a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f156a;
@@ -16,14 +16,14 @@ public class bt {
     }
 
     public static bt a(Context context) {
-        if (f37436a == null) {
+        if (f37365a == null) {
             synchronized (bt.class) {
-                if (f37436a == null) {
-                    f37436a = new bt(context);
+                if (f37365a == null) {
+                    f37365a = new bt(context);
                 }
             }
         }
-        return f37436a;
+        return f37365a;
     }
 
     public synchronized long a(String str, String str2, long j) {

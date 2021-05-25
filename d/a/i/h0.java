@@ -27,23 +27,23 @@ public class h0 extends h {
         this.l.b();
     }
 
-    public final boolean s(d.a.j0.r.q.a aVar) {
-        return (aVar == null || aVar.m() == null || !aVar.m().B2() || aVar.m().v1() == null) ? false : true;
+    public final boolean s(d.a.m0.r.q.a aVar) {
+        return (aVar == null || aVar.m() == null || !aVar.m().C2() || aVar.m().w1() == null) ? false : true;
     }
 
-    public final boolean t(d.a.j0.r.q.a aVar) {
-        return (aVar == null || aVar.m() == null || aVar.m().O0() == null || aVar.m().O0().getOptions() == null || aVar.m().O0().getOptions().size() <= 0) ? false : true;
+    public final boolean t(d.a.m0.r.q.a aVar) {
+        return (aVar == null || aVar.m() == null || aVar.m().P0() == null || aVar.m().P0().getOptions() == null || aVar.m().P0().getOptions().size() <= 0) ? false : true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: u */
-    public void a(d.a.j0.r.q.a aVar) {
-        if (!t(aVar) && aVar != null && aVar.m() != null && !s(aVar) && ((!ListUtils.isEmpty(aVar.m().G0()) || ListUtils.getCount(aVar.m().l0()) == 1) && ((!ListUtils.isEmpty(aVar.m().l0()) || ListUtils.getCount(aVar.m().G0()) == 1) && ListUtils.getCount(aVar.m().G0()) + ListUtils.getCount(aVar.m().l0()) == 1))) {
-            if (aVar.m().G0().size() >= 1) {
-                this.l.a((d.a.k0.x.e0.c) ListUtils.getItem(aVar.m().G0(), 0));
+    public void a(d.a.m0.r.q.a aVar) {
+        if (!t(aVar) && aVar != null && aVar.m() != null && !s(aVar) && ((!ListUtils.isEmpty(aVar.m().H0()) || ListUtils.getCount(aVar.m().l0()) == 1) && ((!ListUtils.isEmpty(aVar.m().l0()) || ListUtils.getCount(aVar.m().H0()) == 1) && ListUtils.getCount(aVar.m().H0()) + ListUtils.getCount(aVar.m().l0()) == 1))) {
+            if (aVar.m().H0().size() >= 1) {
+                this.l.a((d.a.n0.z.e0.c) ListUtils.getItem(aVar.m().H0(), 0));
             } else if (aVar.m().l0().size() >= 1) {
-                this.l.a((d.a.k0.x.e0.c) ListUtils.getItem(aVar.m().l0(), 0));
+                this.l.a((d.a.n0.z.e0.c) ListUtils.getItem(aVar.m().l0(), 0));
             }
             this.l.setVisibility(0);
             return;

@@ -19,23 +19,23 @@ import java.util.concurrent.locks.ReentrantLock;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5090a = null;
+    public String f4990a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5091b = null;
+    public String f4991b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5092c;
+    public String f4992c;
 
     public d() {
-        this.f5092c = null;
-        this.f5092c = "video_session";
+        this.f4992c = null;
+        this.f4992c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
     public d(String str) {
-        this.f5092c = null;
-        this.f5092c = str;
+        this.f4992c = null;
+        this.f4992c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -160,15 +160,15 @@ public class d {
     }
 
     public void a() {
-        if (TextUtils.isEmpty(this.f5090a) || TextUtils.isEmpty(this.f5091b)) {
+        if (TextUtils.isEmpty(this.f4990a) || TextUtils.isEmpty(this.f4991b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f5090a;
+            String str = this.f4990a;
             if (b(str)) {
-                String str2 = this.f5091b;
+                String str2 = this.f4991b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -190,19 +190,19 @@ public class d {
         }
         new File(b2).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.f5090a = b2 + File.separator + this.f5092c + "_" + coreVersion + ".bak";
-        this.f5091b = b2 + File.separator + this.f5092c + "_log_" + coreVersion + ".tmp";
+        this.f4990a = b2 + File.separator + this.f4992c + "_" + coreVersion + ".bak";
+        this.f4991b = b2 + File.separator + this.f4992c + "_log_" + coreVersion + ".tmp";
     }
 
     public void a(byte[] bArr) {
-        if (bArr == null || TextUtils.isEmpty(this.f5090a)) {
+        if (bArr == null || TextUtils.isEmpty(this.f4990a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
             try {
-                a(this.f5090a, bArr, Part.CRLF);
+                a(this.f4990a, bArr, Part.CRLF);
             } catch (AssertionError unused) {
                 CyberLog.e("DpStatFileWriter", "write data to file fail");
             }
@@ -218,7 +218,7 @@ public class d {
             FileInputStream fileInputStream = new FileInputStream(str);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f5092c.equals("live_show_session") ? 24 : 1);
+            String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f4992c.equals("live_show_session") ? 24 : 1);
             if (TextUtils.isEmpty(a2)) {
                 z = true;
             } else {

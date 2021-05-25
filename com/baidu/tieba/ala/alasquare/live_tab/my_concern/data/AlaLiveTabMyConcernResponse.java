@@ -4,8 +4,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.j0.r.q.a2;
-import d.a.k0.t.d.c.f.b.b;
+import d.a.m0.r.q.a2;
+import d.a.n0.v.d.c.f.b.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -47,7 +47,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                 if (optJSONObject2 != null) {
                     a2 a2Var = new a2();
-                    a2Var.S2(optJSONObject2);
+                    a2Var.T2(optJSONObject2);
                     this.followList.add(a2Var);
                 }
             }
@@ -69,7 +69,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i5);
                 if (optJSONObject4 != null) {
                     a2 a2Var2 = new a2();
-                    a2Var2.S2(optJSONObject4);
+                    a2Var2.T2(optJSONObject4);
                     this.recommendList.add(a2Var2);
                 }
             }

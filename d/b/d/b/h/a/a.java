@@ -12,13 +12,13 @@ public class a extends c {
     @Override // d.b.d.b.h.a.c
     public d.b.d.b.e.a a(d.b.d.b.e.a aVar) {
         d.b.d.b.e.a a2 = super.a(aVar);
-        d.b.d.b.e.b a3 = d.b.d.b.e.b.a(this.f65869b);
+        d.b.d.b.e.b a3 = d.b.d.b.e.b.a(this.f65912b);
         a3.d(m.a().a());
         a3.c(m.d().a());
-        a3.g(this.f65870c.c());
+        a3.g(this.f65913c.c());
         a2.d(a3);
-        a2.k("process_name", l.b.k(this.f65869b));
-        l.C1838l.b(a2, a3, this.f65868a);
+        a2.k("process_name", l.b.k(this.f65912b));
+        l.C1842l.b(a2, a3, this.f65911a);
         return a2;
     }
 }

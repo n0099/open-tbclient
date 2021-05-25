@@ -6,51 +6,51 @@ import java.lang.reflect.Method;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f26889a;
+    public static Object f26818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f26890b;
+    public static Class<?> f26819b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f26891c;
+    public static Method f26820c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Method f26892d;
+    public static Method f26821d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f26893e;
+    public static Method f26822e;
 
     static {
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f26890b = cls;
-            f26889a = cls.newInstance();
+            f26819b = cls;
+            f26818a = cls.newInstance();
         } catch (Exception e2) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e2);
         }
         try {
-            f26891c = f26890b.getMethod("getOAID", Context.class);
+            f26820c = f26819b.getMethod("getOAID", Context.class);
         } catch (Exception e3) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e3);
         }
         try {
-            f26892d = f26890b.getMethod("getVAID", Context.class);
+            f26821d = f26819b.getMethod("getVAID", Context.class);
         } catch (Exception e4) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e4);
         }
         try {
-            f26893e = f26890b.getMethod("getAAID", Context.class);
+            f26822e = f26819b.getMethod("getAAID", Context.class);
         } catch (Exception e5) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e5);
         }
     }
 
     public static String a(Context context) {
-        return a(context, f26891c);
+        return a(context, f26820c);
     }
 
     public static String a(Context context, Method method) {
-        Object obj = f26889a;
+        Object obj = f26818a;
         if (obj == null || method == null) {
             return null;
         }
@@ -67,14 +67,14 @@ public class a {
     }
 
     public static boolean a() {
-        return (f26890b == null || f26889a == null) ? false : true;
+        return (f26819b == null || f26818a == null) ? false : true;
     }
 
     public static String b(Context context) {
-        return a(context, f26892d);
+        return a(context, f26821d);
     }
 
     public static String c(Context context) {
-        return a(context, f26893e);
+        return a(context, f26822e);
     }
 }

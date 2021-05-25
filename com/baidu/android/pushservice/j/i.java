@@ -52,7 +52,7 @@ public class i {
             edit.putString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, str4);
             edit.putString("user_id", str5);
             edit.putBoolean("bind_status", true);
-            m.f3467a = 1;
+            m.f3470a = 1;
             edit.putLong("version_code", m.c(context, context.getPackageName()));
             edit.apply();
         } catch (Exception e2) {

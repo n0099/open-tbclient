@@ -13,7 +13,7 @@ import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
 public class NewFaceSyncDownloadModel extends FaceBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f18634e = new a(this, CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
+    public final HttpMessageListener f18548e = new a(this, CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -26,9 +26,9 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Object extra;
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003351 && (httpResponsedMessage instanceof GetCloudFaceGroupMessage)) {
-                d.a.k0.y1.e.a aVar = null;
-                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof d.a.k0.y1.e.a)) {
-                    aVar = (d.a.k0.y1.e.a) extra;
+                d.a.n0.z1.e.a aVar = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof d.a.n0.z1.e.a)) {
+                    aVar = (d.a.n0.z1.e.a) extra;
                 }
                 if (aVar != null) {
                     aVar.a((GetCloudFaceGroupMessage) httpResponsedMessage);
@@ -40,9 +40,9 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
     public NewFaceSyncDownloadModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f18634e.setTag(getUniqueId());
-        this.f18634e.setSelfListener(true);
-        registerListener(this.f18634e);
+        this.f18548e.setTag(getUniqueId());
+        this.f18548e.setSelfListener(true);
+        registerListener(this.f18548e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -62,7 +62,7 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void s(d.a.k0.y1.e.a aVar) {
+    public void s(d.a.n0.z1.e.a aVar) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
         httpMessage.setExtra(aVar);
         sendMessage(httpMessage);

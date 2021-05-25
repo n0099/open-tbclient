@@ -4,25 +4,25 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import d.a.i0.a.v2.n0;
-import d.a.i0.j.d;
+import d.a.l0.a.v2.n0;
+import d.a.l0.j.d;
 /* loaded from: classes3.dex */
 public class OpenLocationMenuItem {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f11858e = n0.g(45.0f);
+    public static final int f11759e = n0.g(45.0f);
 
     /* renamed from: a  reason: collision with root package name */
-    public MenuItemType f11859a;
+    public MenuItemType f11760a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f11860b;
+    public b f11761b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f11861c;
+    public TextView f11762c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f11862d = n0.g(1.0f);
+    public int f11763d = n0.g(1.0f);
 
     /* loaded from: classes3.dex */
     public enum MenuItemType {
@@ -43,8 +43,8 @@ public class OpenLocationMenuItem {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (OpenLocationMenuItem.this.f11860b != null) {
-                OpenLocationMenuItem.this.f11860b.a(OpenLocationMenuItem.this);
+            if (OpenLocationMenuItem.this.f11761b != null) {
+                OpenLocationMenuItem.this.f11761b.a(OpenLocationMenuItem.this);
             }
         }
     }
@@ -55,37 +55,37 @@ public class OpenLocationMenuItem {
     }
 
     public OpenLocationMenuItem(Context context, String str, MenuItemType menuItemType) {
-        this.f11861c = new TextView(context);
-        this.f11861c.setText(str);
-        this.f11861c.setTextSize(16.0f);
-        this.f11861c.setBackground(context.getResources().getDrawable(d.openlocation_bottommenu_itemclick_selector));
-        this.f11861c.setTextColor(-16777216);
-        this.f11861c.setGravity(17);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, f11858e);
-        layoutParams.bottomMargin = this.f11862d;
+        this.f11762c = new TextView(context);
+        this.f11762c.setText(str);
+        this.f11762c.setTextSize(16.0f);
+        this.f11762c.setBackground(context.getResources().getDrawable(d.openlocation_bottommenu_itemclick_selector));
+        this.f11762c.setTextColor(-16777216);
+        this.f11762c.setGravity(17);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, f11759e);
+        layoutParams.bottomMargin = this.f11763d;
         layoutParams.gravity = 17;
-        this.f11861c.setLayoutParams(layoutParams);
+        this.f11762c.setLayoutParams(layoutParams);
         e(str);
         f(menuItemType);
-        this.f11861c.setOnClickListener(new a());
+        this.f11762c.setOnClickListener(new a());
     }
 
     public TextView b() {
-        return this.f11861c;
+        return this.f11762c;
     }
 
     public MenuItemType c() {
-        return this.f11859a;
+        return this.f11760a;
     }
 
     public void d(b bVar) {
-        this.f11860b = bVar;
+        this.f11761b = bVar;
     }
 
     public void e(String str) {
     }
 
     public void f(MenuItemType menuItemType) {
-        this.f11859a = menuItemType;
+        this.f11760a = menuItemType;
     }
 }

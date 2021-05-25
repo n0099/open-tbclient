@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 public class da {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37491a = "/MiPushLog";
+    public static String f37420a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
     public int f209a;
@@ -35,14 +35,14 @@ public class da {
     public String f213b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37493c;
+    public String f37422c;
     @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
     public final SimpleDateFormat f210a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /* renamed from: b  reason: collision with root package name */
-    public int f37492b = 2097152;
+    public int f37421b = 2097152;
 
     /* renamed from: a  reason: collision with other field name */
     public ArrayList<File> f211a = new ArrayList<>();
@@ -63,7 +63,7 @@ public class da {
                 int start = matcher.start();
                 String substring = str.substring(start, this.f213b.length() + start);
                 if (this.f212a) {
-                    if (substring.compareTo(this.f37493c) > 0) {
+                    if (substring.compareTo(this.f37422c) > 0) {
                         read = start;
                         z = true;
                         break;
@@ -82,7 +82,7 @@ public class da {
                 int i4 = read - i3;
                 this.f209a += i4;
                 bufferedWriter.write(cArr, i3, i4);
-                if (z || this.f209a > this.f37492b) {
+                if (z || this.f209a > this.f37421b) {
                     return;
                 }
             }
@@ -177,7 +177,7 @@ public class da {
             this.f213b = this.f210a.format(date);
             format = this.f210a.format(date2);
         }
-        this.f37493c = format;
+        this.f37422c = format;
         return this;
     }
 
@@ -192,7 +192,7 @@ public class da {
             m226a(new File(file2, "xmsf.log.1"));
             file3 = new File(file2, "xmsf.log");
         } else {
-            file2 = new File(context.getExternalFilesDir(null) + f37491a);
+            file2 = new File(context.getExternalFilesDir(null) + f37420a);
             m226a(new File(file2, "log0.txt"));
             file3 = new File(file2, "log1.txt");
         }
@@ -223,7 +223,7 @@ public class da {
 
     public void a(int i2) {
         if (i2 != 0) {
-            this.f37492b = i2;
+            this.f37421b = i2;
         }
     }
 }

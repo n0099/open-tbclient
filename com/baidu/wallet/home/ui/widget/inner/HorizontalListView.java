@@ -31,31 +31,31 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     public Runnable A;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f24390a;
+    public final a f24319a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GestureDetector f24391b;
+    public GestureDetector f24320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24392c;
+    public int f24321c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<Queue<View>> f24393d;
+    public List<Queue<View>> f24322d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f24394e;
+    public boolean f24323e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f24395f;
+    public Rect f24324f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f24396g;
+    public View f24325g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f24397h;
+    public int f24326h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Drawable f24398i;
+    public Drawable f24327i;
     public Integer j;
     public int k;
     public int l;
@@ -196,13 +196,13 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     public HorizontalListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mFlingTracker = new Scroller(getContext());
-        this.f24390a = new a();
-        this.f24393d = new ArrayList();
-        this.f24394e = false;
-        this.f24395f = new Rect();
-        this.f24396g = null;
-        this.f24397h = 0;
-        this.f24398i = null;
+        this.f24319a = new a();
+        this.f24322d = new ArrayList();
+        this.f24323e = false;
+        this.f24324f = new Rect();
+        this.f24325g = null;
+        this.f24326h = 0;
+        this.f24327i = null;
         this.j = null;
         this.k = Integer.MAX_VALUE;
         this.o = null;
@@ -215,7 +215,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         this.z = new DataSetObserver() { // from class: com.baidu.wallet.home.ui.widget.inner.HorizontalListView.2
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                HorizontalListView.this.f24394e = true;
+                HorizontalListView.this.f24323e = true;
                 HorizontalListView.this.q = false;
                 HorizontalListView.this.f();
                 HorizontalListView.this.invalidate();
@@ -239,7 +239,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         };
         this.t = new EdgeEffectCompat(context);
         this.u = new EdgeEffectCompat(context);
-        this.f24391b = new GestureDetector(context, this.f24390a);
+        this.f24320b = new GestureDetector(context, this.f24319a);
         a();
         b();
         setWillNotDraw(false);
@@ -367,7 +367,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         f();
         if (!this.w && (c2 = c((int) motionEvent.getX(), (int) motionEvent.getY())) >= 0) {
             View childAt = getChildAt(c2);
-            this.f24396g = childAt;
+            this.f24325g = childAt;
             if (childAt != null) {
                 childAt.setPressed(true);
                 refreshDrawableState();
@@ -397,12 +397,12 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             return;
         }
         invalidate();
-        if (this.f24394e) {
+        if (this.f24323e) {
             int i6 = this.mCurrentX;
             b();
             removeAllViewsInLayout();
             this.mNextX = i6;
-            this.f24394e = false;
+            this.f24323e = false;
         }
         Integer num = this.j;
         if (num != null) {
@@ -496,7 +496,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     }
 
     public void setDivider(Drawable drawable) {
-        this.f24398i = drawable;
+        this.f24327i = drawable;
         if (drawable != null) {
             setDividerWidth(drawable.getIntrinsicWidth());
         } else {
@@ -505,7 +505,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     }
 
     public void setDividerWidth(int i2) {
-        this.f24397h = i2;
+        this.f24326h = i2;
         requestLayout();
         invalidate();
     }
@@ -562,14 +562,14 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     private void f(int i2) {
         int childCount = getChildCount();
         if (childCount > 0) {
-            int i3 = this.f24392c + i2;
-            this.f24392c = i3;
+            int i3 = this.f24321c + i2;
+            this.f24321c = i3;
             for (int i4 = 0; i4 < childCount; i4++) {
                 View childAt = getChildAt(i4);
                 int paddingLeft = getPaddingLeft() + i3;
                 int paddingTop = getPaddingTop();
                 childAt.layout(paddingLeft, paddingTop, childAt.getMeasuredWidth() + paddingLeft, childAt.getMeasuredHeight() + paddingTop);
-                i3 += childAt.getMeasuredWidth() + this.f24397h;
+                i3 += childAt.getMeasuredWidth() + this.f24326h;
             }
         }
     }
@@ -608,7 +608,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     private void b() {
         this.l = -1;
         this.m = -1;
-        this.f24392c = 0;
+        this.f24321c = 0;
         this.mCurrentX = 0;
         this.mNextX = 0;
         this.k = Integer.MAX_VALUE;
@@ -634,15 +634,15 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     }
 
     private boolean c(int i2) {
-        return i2 < this.f24393d.size();
+        return i2 < this.f24322d.size();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int c(int i2, int i3) {
         int childCount = getChildCount();
         for (int i4 = 0; i4 < childCount; i4++) {
-            getChildAt(i4).getHitRect(this.f24395f);
-            if (this.f24395f.contains(i2, i3)) {
+            getChildAt(i4).getHitRect(this.f24324f);
+            if (this.f24324f.contains(i2, i3)) {
                 return i4;
             }
         }
@@ -653,7 +653,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.wallet.home.ui.widget.inner.HorizontalListView.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                return HorizontalListView.this.f24391b.onTouchEvent(motionEvent);
+                return HorizontalListView.this.f24320b.onTouchEvent(motionEvent);
             }
         });
     }
@@ -661,7 +661,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     private void e(int i2) {
         View leftmostChild = getLeftmostChild();
         while (leftmostChild != null && leftmostChild.getRight() + i2 <= 0) {
-            this.f24392c += h(this.l) ? leftmostChild.getMeasuredWidth() : this.f24397h + leftmostChild.getMeasuredWidth();
+            this.f24321c += h(this.l) ? leftmostChild.getMeasuredWidth() : this.f24326h + leftmostChild.getMeasuredWidth();
             a(this.l, leftmostChild);
             removeViewInLayout(leftmostChild);
             this.l++;
@@ -692,18 +692,18 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     private View b(int i2) {
         int itemViewType = this.mAdapter.getItemViewType(i2);
         if (c(itemViewType)) {
-            return this.f24393d.get(itemViewType).poll();
+            return this.f24322d.get(itemViewType).poll();
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        View view = this.f24396g;
+        View view = this.f24325g;
         if (view != null) {
             view.setPressed(false);
             refreshDrawableState();
-            this.f24396g = null;
+            this.f24325g = null;
         }
     }
 
@@ -718,28 +718,28 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     }
 
     private void a(int i2) {
-        this.f24393d.clear();
+        this.f24322d.clear();
         for (int i3 = 0; i3 < i2; i3++) {
-            this.f24393d.add(new LinkedList());
+            this.f24322d.add(new LinkedList());
         }
     }
 
     private void b(int i2, int i3) {
         int i4;
-        while ((i2 + i3) - this.f24397h > 0 && (i4 = this.l) >= 1) {
+        while ((i2 + i3) - this.f24326h > 0 && (i4 = this.l) >= 1) {
             int i5 = i4 - 1;
             this.l = i5;
             View view = this.mAdapter.getView(i5, b(i5), this);
             a(view, 0);
-            i2 -= this.l == 0 ? view.getMeasuredWidth() : this.f24397h + view.getMeasuredWidth();
-            this.f24392c -= i2 + i3 == 0 ? view.getMeasuredWidth() : view.getMeasuredWidth() + this.f24397h;
+            i2 -= this.l == 0 ? view.getMeasuredWidth() : this.f24326h + view.getMeasuredWidth();
+            this.f24321c -= i2 + i3 == 0 ? view.getMeasuredWidth() : view.getMeasuredWidth() + this.f24326h;
         }
     }
 
     private void a(int i2, View view) {
         int itemViewType = this.mAdapter.getItemViewType(i2);
         if (c(itemViewType)) {
-            this.f24393d.get(itemViewType).offer(view);
+            this.f24322d.get(itemViewType).offer(view);
         }
     }
 
@@ -750,15 +750,15 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
 
     private void b(Canvas canvas) {
         int childCount = getChildCount();
-        Rect rect = this.f24395f;
+        Rect rect = this.f24324f;
         rect.top = getPaddingTop();
-        Rect rect2 = this.f24395f;
+        Rect rect2 = this.f24324f;
         rect2.bottom = rect2.top + getRenderHeight();
         for (int i2 = 0; i2 < childCount; i2++) {
             if (i2 != childCount - 1 || !h(this.m)) {
                 View childAt = getChildAt(i2);
                 rect.left = childAt.getRight();
-                rect.right = childAt.getRight() + this.f24397h;
+                rect.right = childAt.getRight() + this.f24326h;
                 if (rect.left < getPaddingLeft()) {
                     rect.left = getPaddingLeft();
                 }
@@ -789,7 +789,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     }
 
     private void a(int i2, int i3) {
-        while (i2 + i3 + this.f24397h < getWidth() && this.m + 1 < this.mAdapter.getCount()) {
+        while (i2 + i3 + this.f24326h < getWidth() && this.m + 1 < this.mAdapter.getCount()) {
             int i4 = this.m + 1;
             this.m = i4;
             if (this.l < 0) {
@@ -799,7 +799,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             int i5 = this.m;
             View view = listAdapter.getView(i5, b(i5), this);
             a(view, -1);
-            i2 += (this.m == 0 ? 0 : this.f24397h) + view.getMeasuredWidth();
+            i2 += (this.m == 0 ? 0 : this.f24326h) + view.getMeasuredWidth();
             h();
         }
     }
@@ -834,10 +834,10 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     }
 
     private void a(Canvas canvas, Rect rect) {
-        Drawable drawable = this.f24398i;
+        Drawable drawable = this.f24327i;
         if (drawable != null) {
             drawable.setBounds(rect);
-            this.f24398i.draw(canvas);
+            this.f24327i.draw(canvas);
         }
     }
 }

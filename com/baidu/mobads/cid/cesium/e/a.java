@@ -11,61 +11,61 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8287a;
+    public Context f8187a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C0105a f8288b;
+    public C0106a f8188b;
 
     /* renamed from: com.baidu.mobads.cid.cesium.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public final class C0105a {
+    public final class C0106a {
 
         /* renamed from: b  reason: collision with root package name */
-        public File f8290b;
+        public File f8190b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8291c;
+        public String f8191c;
 
         /* renamed from: d  reason: collision with root package name */
-        public C0105a f8292d;
+        public C0106a f8192d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f8293e;
+        public boolean f8193e;
 
-        public C0105a(File file) {
-            this.f8293e = false;
-            this.f8293e = true;
-            this.f8290b = file;
-            this.f8291c = file.getName();
+        public C0106a(File file) {
+            this.f8193e = false;
+            this.f8193e = true;
+            this.f8190b = file;
+            this.f8191c = file.getName();
         }
 
-        public C0105a(String str, C0105a c0105a) {
-            this.f8293e = false;
-            this.f8291c = str;
-            this.f8292d = c0105a;
-            this.f8293e = false;
+        public C0106a(String str, C0106a c0106a) {
+            this.f8193e = false;
+            this.f8191c = str;
+            this.f8192d = c0106a;
+            this.f8193e = false;
         }
 
-        public C0105a a(File file) {
-            if (this.f8293e) {
+        public C0106a a(File file) {
+            if (this.f8193e) {
                 throw new IllegalStateException("isolate session is not support");
             }
             ArrayList arrayList = new ArrayList();
-            C0105a c0105a = this;
+            C0106a c0106a = this;
             do {
-                arrayList.add(c0105a.c());
-                c0105a = c0105a.d();
-            } while (c0105a != null);
+                arrayList.add(c0106a.c());
+                c0106a = c0106a.d();
+            } while (c0106a != null);
             int size = arrayList.size() - 1;
             while (size >= 0) {
                 size--;
                 file = new File(file, (String) arrayList.get(size));
             }
-            return new C0105a(file);
+            return new C0106a(file);
         }
 
-        public C0105a a(String str) {
-            return new C0105a(str, this);
+        public C0106a a(String str) {
+            return new C0106a(str, this);
         }
 
         public String a(String str, boolean z) {
@@ -81,26 +81,26 @@ public class a {
         }
 
         public File b() {
-            File file = this.f8290b;
+            File file = this.f8190b;
             if (file != null) {
                 return file;
             }
-            File file2 = this.f8292d == null ? new File(a.this.a(), this.f8291c) : new File(this.f8292d.b(), this.f8291c);
-            this.f8290b = file2;
+            File file2 = this.f8192d == null ? new File(a.this.a(), this.f8191c) : new File(this.f8192d.b(), this.f8191c);
+            this.f8190b = file2;
             return file2;
         }
 
         public String c() {
-            return this.f8291c;
+            return this.f8191c;
         }
 
-        public C0105a d() {
-            return this.f8292d;
+        public C0106a d() {
+            return this.f8192d;
         }
     }
 
     public a(Context context) {
-        this.f8287a = context;
+        this.f8187a = context;
         c().mkdirs();
     }
 
@@ -198,13 +198,13 @@ public class a {
     }
 
     public File a() {
-        return new File(this.f8287a.getApplicationInfo().dataDir);
+        return new File(this.f8187a.getApplicationInfo().dataDir);
     }
 
-    public synchronized C0105a b() {
-        if (this.f8288b == null) {
-            this.f8288b = new C0105a(".cesium", null);
+    public synchronized C0106a b() {
+        if (this.f8188b == null) {
+            this.f8188b = new C0106a(".cesium", null);
         }
-        return this.f8288b;
+        return this.f8188b;
     }
 }

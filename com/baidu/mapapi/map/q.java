@@ -9,18 +9,18 @@ import com.baidu.mapapi.map.SwipeDismissTouchListener;
 public class q extends AnimatorListenerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ViewGroup.LayoutParams f7200a;
+    public final /* synthetic */ ViewGroup.LayoutParams f7100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f7201b;
+    public final /* synthetic */ int f7101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f7202c;
+    public final /* synthetic */ SwipeDismissTouchListener f7102c;
 
     public q(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams, int i2) {
-        this.f7202c = swipeDismissTouchListener;
-        this.f7200a = layoutParams;
-        this.f7201b = i2;
+        this.f7102c = swipeDismissTouchListener;
+        this.f7100a = layoutParams;
+        this.f7101b = i2;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -30,14 +30,14 @@ public class q extends AnimatorListenerAdapter {
         Object obj;
         View view2;
         View view3;
-        dismissCallbacks = this.f7202c.f7100f;
-        view = this.f7202c.f7099e;
-        obj = this.f7202c.l;
+        dismissCallbacks = this.f7102c.f7000f;
+        view = this.f7102c.f6999e;
+        obj = this.f7102c.l;
         dismissCallbacks.onDismiss(view, obj);
-        view2 = this.f7202c.f7099e;
+        view2 = this.f7102c.f6999e;
         view2.setTranslationX(0.0f);
-        this.f7200a.height = this.f7201b;
-        view3 = this.f7202c.f7099e;
-        view3.setLayoutParams(this.f7200a);
+        this.f7100a.height = this.f7101b;
+        view3 = this.f7102c.f6999e;
+        view3.setLayoutParams(this.f7100a);
     }
 }

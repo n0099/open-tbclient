@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35616a = "a";
+    public static final String f35545a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f35617b = Boolean.valueOf(f.f35733b);
+    public static Boolean f35546b = Boolean.valueOf(f.f35662b);
 
     public static String a(int i2, String str) {
         String a2 = com.sdk.base.framework.f.d.a.a();
@@ -31,7 +31,7 @@ public class a {
                     String b3 = b(b2);
                     String a3 = com.sdk.base.framework.f.k.a.a(context, a(b2));
                     if (!com.sdk.base.framework.f.k.a.a(a3)) {
-                        c.a(f35616a, "can use cache", f35617b);
+                        c.a(f35545a, "can use cache", f35546b);
                         JSONObject jSONObject = new JSONObject(a3);
                         if (i2 == 1) {
                             jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
@@ -42,7 +42,7 @@ public class a {
                         sb.append(b3);
                         return sb.toString();
                     }
-                    c.a(f35616a, "OutDate cache invalid", f35617b);
+                    c.a(f35545a, "OutDate cache invalid", f35546b);
                 }
             }
             return null;
@@ -59,7 +59,7 @@ public class a {
     }
 
     public static void a(Context context) {
-        c.a(f35616a, "cache clear", f35617b);
+        c.a(f35545a, "cache clear", f35546b);
         com.sdk.base.framework.f.b.a.d(context, "accessCode");
     }
 
@@ -77,7 +77,7 @@ public class a {
     }
 
     public static void b(Context context) {
-        c.a(f35616a, "oauth cache clear", f35617b);
+        c.a(f35545a, "oauth cache clear", f35546b);
         com.sdk.base.framework.f.b.a.d(context, "accessCode1");
     }
 }

@@ -3,21 +3,21 @@ package d.a.q.e.c;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[][] f64229a = {new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
+    public static final byte[][] f64105a = {new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
 
     /* renamed from: d.a.q.e.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1779a {
+    public static class C1782a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f64230a;
+        public byte[] f64106a;
 
-        public C1779a(byte[] bArr, int i2) {
-            this.f64230a = bArr;
+        public C1782a(byte[] bArr, int i2) {
+            this.f64106a = bArr;
         }
 
         public byte[] a() {
-            return this.f64230a;
+            return this.f64106a;
         }
     }
 
@@ -36,7 +36,7 @@ public class a {
         return c2 > 0 ? i4 + 1 : i4;
     }
 
-    public static C1779a b(byte[] bArr) {
+    public static C1782a b(byte[] bArr) {
         int length = (((bArr.length - 1) / 2) * 3) - (bArr.length % 2 != 0 ? bArr[bArr.length - 1] : 0);
         int i2 = length / 8;
         if (length % 8 > 0) {
@@ -62,7 +62,7 @@ public class a {
         if (i4 > 0 && i3 < i2) {
             bArr2[i3] = (byte) (bArr2[i3] << i4);
         }
-        return new C1779a(bArr2, length);
+        return new C1782a(bArr2, length);
     }
 
     public static byte[] c(byte[] bArr, int i2) {
@@ -90,7 +90,7 @@ public class a {
             for (int i8 = 7; i8 >= 0; i8--) {
                 bArr2[i6] = (byte) ((bArr2[i6] << 1) | ((b3 >> i8) & 1));
                 if (i7 % 3 == 2) {
-                    byte[][] bArr3 = f64229a;
+                    byte[][] bArr3 = f64105a;
                     bArr2[i6 + 1] = bArr3[bArr2[i6]][1];
                     bArr2[i6] = bArr3[bArr2[i6]][0];
                     i6 += 2;
@@ -106,7 +106,7 @@ public class a {
         }
         if (b2 > 0) {
             bArr2[i6] = (byte) (bArr2[i6] << b2);
-            byte[][] bArr4 = f64229a;
+            byte[][] bArr4 = f64105a;
             bArr2[i6 + 1] = bArr4[bArr2[i6]][1];
             bArr2[i6] = bArr4[bArr2[i6]][0];
             bArr2[i6 + 2] = b2;

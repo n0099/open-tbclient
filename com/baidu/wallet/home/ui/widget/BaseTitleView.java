@@ -10,17 +10,17 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 public class BaseTitleView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public HomeCfgResponse.ConfigData f24244a;
+    public HomeCfgResponse.ConfigData f24173a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f24245b;
+    public b f24174b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f24246c;
+    public Context f24175c;
 
     public BaseTitleView(Context context) {
         super(context);
-        this.f24246c = context;
+        this.f24175c = context;
         a();
     }
 
@@ -29,61 +29,61 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
     }
 
     public HomeCfgResponse.ConfigData getData() {
-        return this.f24244a;
+        return this.f24173a;
     }
 
     public String getGroupDesc() {
-        HomeCfgResponse.ConfigData configData = this.f24244a;
-        return (configData == null || TextUtils.isEmpty(configData.getGroup_desc())) ? "" : this.f24244a.getGroup_desc();
+        HomeCfgResponse.ConfigData configData = this.f24173a;
+        return (configData == null || TextUtils.isEmpty(configData.getGroup_desc())) ? "" : this.f24173a.getGroup_desc();
     }
 
     public String getGroupLayout() {
-        HomeCfgResponse.ConfigData configData = this.f24244a;
-        return (configData == null || TextUtils.isEmpty(configData.getGroup_layout())) ? "" : this.f24244a.getGroup_layout();
+        HomeCfgResponse.ConfigData configData = this.f24173a;
+        return (configData == null || TextUtils.isEmpty(configData.getGroup_layout())) ? "" : this.f24173a.getGroup_layout();
     }
 
     public String getGroupLink() {
-        HomeCfgResponse.ConfigData configData = this.f24244a;
-        return (configData == null || TextUtils.isEmpty(configData.getGroup_link())) ? "" : this.f24244a.getGroup_link();
+        HomeCfgResponse.ConfigData configData = this.f24173a;
+        return (configData == null || TextUtils.isEmpty(configData.getGroup_link())) ? "" : this.f24173a.getGroup_link();
     }
 
     public String getGroupName() {
-        HomeCfgResponse.ConfigData configData = this.f24244a;
-        return (configData == null || TextUtils.isEmpty(configData.getGroup_name())) ? "" : this.f24244a.getGroup_name();
+        HomeCfgResponse.ConfigData configData = this.f24173a;
+        return (configData == null || TextUtils.isEmpty(configData.getGroup_name())) ? "" : this.f24173a.getGroup_name();
     }
 
     public String getGroupType() {
-        HomeCfgResponse.ConfigData configData = this.f24244a;
-        return (configData == null || TextUtils.isEmpty(configData.getGroup_type())) ? "" : this.f24244a.getGroup_type();
+        HomeCfgResponse.ConfigData configData = this.f24173a;
+        return (configData == null || TextUtils.isEmpty(configData.getGroup_type())) ? "" : this.f24173a.getGroup_type();
     }
 
     public b getWalletInterface() {
-        return this.f24245b;
+        return this.f24174b;
     }
 
     @Override // android.view.View
     public boolean isClickable() {
-        HomeCfgResponse.ConfigData configData = this.f24244a;
+        HomeCfgResponse.ConfigData configData = this.f24173a;
         return configData != null && configData.isGroupCanClick();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f24244a == null || getWalletInterface() == null) {
+        if (this.f24173a == null || getWalletInterface() == null) {
             return;
         }
         b walletInterface = getWalletInterface();
-        HomeCfgResponse.ConfigData configData = this.f24244a;
+        HomeCfgResponse.ConfigData configData = this.f24173a;
         HomeCfgResponse.Stat stat = configData.stat;
-        walletInterface.jump(stat != null ? stat.getName() : configData.getGroup_name(), this.f24244a.getGroup_type(), this.f24244a.getGroup_link(), this.f24244a.getGroup_prevlogin());
+        walletInterface.jump(stat != null ? stat.getName() : configData.getGroup_name(), this.f24173a.getGroup_type(), this.f24173a.getGroup_link(), this.f24173a.getGroup_prevlogin());
     }
 
     public void onEyeMaskChanged() {
     }
 
     public void setData(HomeCfgResponse.ConfigData configData, b bVar) {
-        this.f24244a = configData;
-        this.f24245b = bVar;
+        this.f24173a = configData;
+        this.f24174b = bVar;
         if (!isClickable()) {
             setEnabled(false);
         } else {
@@ -93,7 +93,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
 
     public BaseTitleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24246c = context;
+        this.f24175c = context;
         a();
     }
 }

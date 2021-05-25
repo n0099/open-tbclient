@@ -6,15 +6,15 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static l f4989a;
+    public static l f4889a;
 
     public static synchronized l a() {
         l lVar;
         synchronized (l.class) {
-            if (f4989a == null) {
-                f4989a = new l();
+            if (f4889a == null) {
+                f4889a = new l();
             }
-            lVar = f4989a;
+            lVar = f4889a;
         }
         return lVar;
     }

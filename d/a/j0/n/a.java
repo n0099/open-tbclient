@@ -1,65 +1,60 @@
 package d.a.j0.n;
 
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class a {
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.text.TextUtils;
+import com.baidu.sso.m.d;
+import d.a.j0.m.c;
+/* loaded from: classes2.dex */
+public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49539a = 300;
+    public Context f40489a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49540b = 5000;
+    public d f40490b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f49541c = 10000;
+    public ServiceConnection f40491c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f49542d = 1500;
+    public String f40492d;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f49543e = 3000;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f49544f = 6000;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f49545g = true;
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
+    /* renamed from: d.a.j0.n.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public class ServiceConnectionC0557a implements ServiceConnection {
+        public ServiceConnectionC0557a() {
         }
+
+        @Override // android.content.ServiceConnection
+        public final synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            a.this.f40490b = d.a.a(iBinder);
+        }
+
+        @Override // android.content.ServiceConnection
+        public final void onServiceDisconnected(ComponentName componentName) {
+            a.this.f40490b = null;
+        }
+    }
+
+    public a(Context context, c cVar) {
+        this.f40489a = null;
+        this.f40489a = context;
+    }
+
+    public final String a() {
         try {
-            int optInt = jSONObject.optInt("wifiSlow", -1);
-            if (optInt > 0) {
-                this.f49539a = optInt;
-            }
-            int optInt2 = jSONObject.optInt("threeGSlow", -1);
-            if (optInt2 > 0) {
-                this.f49540b = optInt2;
-            }
-            int optInt3 = jSONObject.optInt("twoGSlow", -1);
-            if (optInt3 > 0) {
-                this.f49541c = optInt3;
-            }
-            int optInt4 = jSONObject.optInt("wifiLog", -1);
-            if (optInt4 > 0) {
-                this.f49542d = optInt4;
-            }
-            int optInt5 = jSONObject.optInt("threeGLog", -1);
-            if (optInt5 > 0) {
-                this.f49543e = optInt5;
-            }
-            int optInt6 = jSONObject.optInt("twoGLog", -1);
-            if (optInt6 > 0) {
-                this.f49544f = optInt6;
-            }
-            boolean z = true;
-            if (jSONObject.optInt("mobile_cdn_switch", 1) != 1) {
-                z = false;
-            }
-            this.f49545g = z;
-        } catch (Exception unused) {
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
+        if (TextUtils.isEmpty(this.f40492d)) {
+            if (this.f40490b != null) {
+                this.f40492d = this.f40490b.a();
+            }
+            return this.f40492d;
+        }
+        return this.f40492d;
     }
 }

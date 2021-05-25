@@ -13,39 +13,39 @@ import org.json.JSONStringer;
 public class K0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36925a;
+    public Context f36854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36926b;
+    public String f36855b;
 
     /* renamed from: e  reason: collision with root package name */
-    public y f36929e;
+    public y f36858e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36930f;
+    public int f36859f;
 
     /* renamed from: g  reason: collision with root package name */
-    public L0 f36931g;
+    public L0 f36860g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f36932h;
+    public boolean f36861h;
 
     /* renamed from: i  reason: collision with root package name */
-    public P0 f36933i;
+    public P0 f36862i;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36928d = false;
+    public boolean f36857d = false;
     public Handler j = new F0(this, Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public E0 f36927c = new E0();
+    public E0 f36856c = new E0();
 
     public K0(Context context, String str, y yVar) {
-        this.f36930f = 5;
-        this.f36925a = context;
-        this.f36926b = str;
-        this.f36929e = yVar;
-        this.f36930f = s1.q(context);
+        this.f36859f = 5;
+        this.f36854a = context;
+        this.f36855b = str;
+        this.f36858e = yVar;
+        this.f36859f = s1.q(context);
     }
 
     public static /* synthetic */ int c() {
@@ -57,20 +57,20 @@ public class K0 {
     }
 
     public final void a(PBError pBError) {
-        if (this.f36932h) {
+        if (this.f36861h) {
             return;
         }
-        this.f36932h = true;
-        v1.f37206a.post(new H0(this, pBError));
+        this.f36861h = true;
+        v1.f37135a.post(new H0(this, pBError));
     }
 
     public void b() {
         JSONStringer object;
-        v1.f37206a.post(new J0(this));
+        v1.f37135a.post(new J0(this));
         boolean z = false;
-        this.f36932h = false;
-        Context context = this.f36925a;
-        String str = this.f36926b;
+        this.f36861h = false;
+        Context context = this.f36854a;
+        String str = this.f36855b;
         String k = s1.k(context);
         if (!TextUtils.isEmpty(k)) {
             try {
@@ -93,11 +93,11 @@ public class K0 {
             }
         }
         if (!z) {
-            w0 a2 = x0.a(this.f36925a);
-            String str2 = this.f36926b;
+            w0 a2 = x0.a(this.f36854a);
+            String str2 = this.f36855b;
             try {
                 object = new JSONStringer().object();
-                a2.f37229b = object;
+                a2.f37158b = object;
                 a2.a("e", "Ld").a("pid", str2).a("timeis", x0.b());
             } catch (JSONException unused2) {
             }
@@ -105,18 +105,18 @@ public class K0 {
             a(PBError.PID_INVALID);
             return;
         }
-        Info b2 = this.f36927c.b();
+        Info b2 = this.f36856c.b();
         if (b2 == null) {
-            if (this.f36928d) {
+            if (this.f36857d) {
                 a(PBError.LOAD_TOO_FREQUENTLY);
                 return;
             }
-            this.f36928d = true;
-            P0 p0 = new P0(this.f36925a);
-            p0.f36963b = this.f36926b;
+            this.f36857d = true;
+            P0 p0 = new P0(this.f36854a);
+            p0.f36892b = this.f36855b;
             P0 a3 = p0.a(new G0(this));
-            this.f36933i = a3;
-            y yVar = this.f36929e;
+            this.f36862i = a3;
+            y yVar = this.f36858e;
             if (yVar == y.BANNER) {
                 a3.a();
                 return;
@@ -140,26 +140,26 @@ public class K0 {
     }
 
     public final void a(Info info) {
-        if (this.f36932h) {
+        if (this.f36861h) {
             return;
         }
-        this.f36932h = true;
-        v1.f37206a.post(new I0(this, info));
+        this.f36861h = true;
+        v1.f37135a.post(new I0(this, info));
     }
 
     public void a() {
         try {
-            if (this.f36933i != null) {
-                this.f36933i.f36965d = null;
+            if (this.f36862i != null) {
+                this.f36862i.f36894d = null;
             }
             if (this.j != null) {
                 this.j.removeCallbacksAndMessages(null);
             }
-            if (this.f36927c != null) {
-                this.f36927c.a();
+            if (this.f36856c != null) {
+                this.f36856c.a();
             }
-            if (this.f36931g != null) {
-                this.f36931g = null;
+            if (this.f36860g != null) {
+                this.f36860g = null;
             }
         } catch (Exception unused) {
         }
@@ -168,11 +168,11 @@ public class K0 {
     public final void a(w wVar) {
         if (wVar != null) {
             try {
-                List list = wVar.f37225a;
+                List list = wVar.f37154a;
                 if (list == null || list.size() <= 0) {
                     return;
                 }
-                this.f36927c.a(wVar.f37225a);
+                this.f36856c.a(wVar.f37154a);
             } catch (Exception unused) {
             }
         }

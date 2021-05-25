@@ -6,24 +6,24 @@ import java.util.LinkedHashMap;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f64038b;
+    public static d f63823b;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedHashMap<String, Integer> f64039a = new LinkedHashMap<>(150, 0.75f, true);
+    public LinkedHashMap<String, Integer> f63824a = new LinkedHashMap<>(150, 0.75f, true);
 
     public static d b() {
-        if (f64038b == null) {
+        if (f63823b == null) {
             synchronized (d.class) {
-                if (f64038b == null) {
-                    f64038b = new d();
+                if (f63823b == null) {
+                    f63823b = new d();
                 }
             }
         }
-        return f64038b;
+        return f63823b;
     }
 
     public int a(String str) {
-        Integer num = this.f64039a.get(str);
+        Integer num = this.f63824a.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -34,13 +34,13 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f64039a.remove(str);
+        this.f63824a.remove(str);
     }
 
     public void d(String str, int i2) {
-        if (i2 == 0 && this.f64039a.containsKey(str)) {
+        if (i2 == 0 && this.f63824a.containsKey(str)) {
             return;
         }
-        this.f64039a.put(str, Integer.valueOf(i2));
+        this.f63824a.put(str, Integer.valueOf(i2));
     }
 }

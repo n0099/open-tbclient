@@ -16,12 +16,12 @@ import com.baidu.tieba.frs.mc.FrsNetModel;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import d.a.c.e.m.b;
 import d.a.c.e.p.l;
-import d.a.j0.b.d;
-import d.a.j0.b.g.a;
-import d.a.j0.r.q.a2;
-import d.a.j0.z0.c0;
-import d.a.k0.q0.n2.k;
-import d.a.k0.s2.x;
+import d.a.m0.b.d;
+import d.a.m0.b.g.a;
+import d.a.m0.r.q.a2;
+import d.a.m0.z0.c0;
+import d.a.n0.r0.n2.k;
+import d.a.n0.t2.x;
 /* loaded from: classes3.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static final String ALA_IS_ONLIVING = "ala_is_living";
@@ -149,7 +149,7 @@ public class FrsActivityConfig extends IntentConfig {
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
             i2 = 6;
         }
-        if (d.n() && a.f48863c != a.d()) {
+        if (d.n() && a.f48888c != a.d()) {
             frsRequestData.D(k.d(a.d()));
         }
         frsRequestData.setSortType(k.d(i2));
@@ -185,7 +185,7 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.E(longExtra);
         k.e(i2, frsRequestData);
         frsRequestData.M(1);
-        if (a2.v3.get() && x.p().b() != null) {
+        if (a2.w3.get() && x.p().b() != null) {
             int d2 = x.p().b().d(stringExtra, false);
             int e2 = x.p().b().e(stringExtra, false);
             if (frsRequestData.w() == 1) {

@@ -3,12 +3,14 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.android.imsdk.chatmessage.ChatMsgManager;
 import com.baidu.android.imsdk.chatmessage.IMediaSetSessionReadListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -99,6 +101,15 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
             JSONObject jSONObject = new JSONObject(str2);
             i3 = jSONObject.optInt("error_code", 0);
             str = jSONObject.optString("error_msg");
+            if (i3 == 0) {
+                if (this.mContactorType == -1) {
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(57);
+                    ChatMsgManager.setMsgReadByChatTpyes(this.mContext, arrayList, 0L);
+                } else if (this.mContactorType == 2) {
+                    ChatMsgManager.setAllMsgRead(this.mContext, 1, this.mContacter, false);
+                }
+            }
         } catch (JSONException e2) {
             LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e2);
             i3 = 1010;

@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.gamevideo.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.j0.z0.w;
+import d.a.m0.z0.w;
 import tbclient.RecomVertical.DataReq;
 import tbclient.RecomVertical.RecomVerticalReqIdl;
 /* loaded from: classes4.dex */

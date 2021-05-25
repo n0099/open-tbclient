@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.group;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 /* loaded from: classes.dex */
 public class GroupMember implements Parcelable, NoProGuard {
@@ -86,6 +87,10 @@ public class GroupMember implements Parcelable, NoProGuard {
 
     public int getRole() {
         return this.role;
+    }
+
+    public String getShowName() {
+        return TextUtils.isEmpty(this.mNickName) ? this.mName : this.mNickName;
     }
 
     public long getUk() {

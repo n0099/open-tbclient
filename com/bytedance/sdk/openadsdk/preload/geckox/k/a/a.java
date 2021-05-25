@@ -8,17 +8,17 @@ public class a {
     @c(a = "gecko_accesskey")
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f30163a;
+    public List<String> f30092a;
     @c(a = IAdRequestParam.OS)
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30164b = 0;
+    public int f30093b = 0;
     @c(a = "msg_type")
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30165c = 1;
+    public int f30094c = 1;
 
     public a(List<String> list) {
-        this.f30163a = list;
+        this.f30092a = list;
     }
 }

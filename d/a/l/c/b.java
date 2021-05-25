@@ -7,55 +7,55 @@ import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63769a;
+    public String f40561a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63770b;
+    public String f40562b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63771c;
+    public String f40563c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f63772d;
+    public String f40564d;
 
     public b() {
         b();
     }
 
     public String a() {
-        return this.f63772d;
+        return this.f40564d;
     }
 
     public final void b() {
         String str = Build.MODEL;
-        this.f63769a = str;
+        this.f40561a = str;
         if (TextUtils.isEmpty(str)) {
-            this.f63769a = "NUL";
+            this.f40561a = "NUL";
         } else {
-            this.f63769a = this.f63769a.replace("_", "-");
+            this.f40561a = this.f40561a.replace("_", "-");
         }
         String str2 = Build.MANUFACTURER;
-        this.f63770b = str2;
+        this.f40562b = str2;
         if (TextUtils.isEmpty(str2)) {
-            this.f63770b = "NUL";
+            this.f40562b = "NUL";
         } else {
-            this.f63770b = this.f63770b.replace("_", "-");
+            this.f40562b = this.f40562b.replace("_", "-");
         }
         String str3 = Build.VERSION.RELEASE;
-        this.f63771c = str3;
+        this.f40563c = str3;
         if (TextUtils.isEmpty(str3)) {
-            this.f63771c = XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
+            this.f40563c = XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
         } else {
-            this.f63771c = this.f63771c.replace("_", "-");
+            this.f40563c = this.f40563c.replace("_", "-");
         }
-        this.f63772d = c();
+        this.f40564d = c();
     }
 
     public final String c() {
-        String str = this.f63769a;
-        String str2 = this.f63771c;
+        String str = this.f40561a;
+        String str2 = this.f40563c;
         int i2 = Build.VERSION.SDK_INT;
-        String str3 = this.f63770b;
+        String str3 = this.f40562b;
         return str + "_" + str2 + "_" + i2 + "_" + str3;
     }
 }

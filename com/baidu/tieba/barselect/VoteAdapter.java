@@ -4,58 +4,58 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
-import d.a.k0.v.b.d;
-import d.a.k0.v.b.f;
-import d.a.k0.v.e.a;
+import d.a.n0.x.b.d;
+import d.a.n0.x.b.f;
+import d.a.n0.x.e.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f14207a;
+    public TbPageContext f14110a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f14208b;
+    public f f14111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d> f14209c;
+    public List<d> f14112c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14210d = -1;
+    public int f14113d = -1;
 
     public VoteAdapter(TbPageContext tbPageContext) {
-        this.f14207a = tbPageContext;
+        this.f14110a = tbPageContext;
     }
 
     public int c() {
-        return this.f14210d;
+        return this.f14113d;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: d */
     public VoteViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
-        VoteCandidateCard voteCandidateCard = new VoteCandidateCard(this.f14207a.getPageActivity());
+        VoteCandidateCard voteCandidateCard = new VoteCandidateCard(this.f14110a.getPageActivity());
         voteCandidateCard.setVoteAdaPter(this);
         return new VoteViewHolder(voteCandidateCard);
     }
 
     public void e(int i2) {
-        this.f14210d = i2;
+        this.f14113d = i2;
     }
 
     public void f(f fVar) {
-        this.f14208b = fVar;
+        this.f14111b = fVar;
         if (fVar != null) {
-            this.f14209c = fVar.b();
+            this.f14112c = fVar.b();
         }
-        this.f14210d = -1;
+        this.f14113d = -1;
         notifyDataSetChanged();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        List<d> list = this.f14209c;
+        List<d> list = this.f14112c;
         if (list != null) {
             return list.size();
         }
@@ -64,17 +64,17 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i2) {
-        List<d> list = this.f14209c;
-        if (list == null || list.size() <= i2 || this.f14209c.get(i2).i() != 1 || i2 != 0) {
+        List<d> list = this.f14112c;
+        if (list == null || list.size() <= i2 || this.f14112c.get(i2).i() != 1 || i2 != 0) {
             return 0;
         }
-        return a.f62341c;
+        return a.f63203c;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i2) {
         if (viewHolder instanceof VoteViewHolder) {
-            ((VoteViewHolder) viewHolder).a(i2, this.f14208b);
+            ((VoteViewHolder) viewHolder).a(i2, this.f14111b);
         }
     }
 }

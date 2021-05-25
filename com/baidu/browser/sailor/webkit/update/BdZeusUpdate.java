@@ -27,19 +27,19 @@ import org.json.JSONObject;
 public class BdZeusUpdate {
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdZeusUpdate f4310e;
+    public static BdZeusUpdate f4313e;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4311a;
+    public String f4314a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4312b;
+    public String f4315b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4313c;
+    public String f4316c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4314d;
+    public boolean f4317d;
 
     /* loaded from: classes.dex */
     public class BdZesuUpdateTask extends BdNetTask implements INetListener {
@@ -98,13 +98,13 @@ public class BdZeusUpdate {
                         if (jSONObject.has("data")) {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                             if (jSONObject2.has("version")) {
-                                BdZeusUpdate.this.f4312b = jSONObject2.getString("version");
+                                BdZeusUpdate.this.f4315b = jSONObject2.getString("version");
                             }
                             if (jSONObject2.has("link")) {
-                                BdZeusUpdate.this.f4311a = jSONObject2.getString("link");
+                                BdZeusUpdate.this.f4314a = jSONObject2.getString("link");
                             }
                             if (jSONObject2.has(PackageTable.MD5)) {
-                                BdZeusUpdate.this.f4313c = jSONObject2.getString(PackageTable.MD5);
+                                BdZeusUpdate.this.f4316c = jSONObject2.getString(PackageTable.MD5);
                             }
                         }
                     }
@@ -146,38 +146,38 @@ public class BdZeusUpdate {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f4315e;
+        public final /* synthetic */ Context f4318e;
 
         public a(Context context) {
-            this.f4315e = context;
+            this.f4318e = context;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            if (this.f4315e != null) {
+            if (this.f4318e != null) {
                 Log.i(EngineManager.LOG_TAG, "start check zeus update async");
                 BdZeusUpdate bdZeusUpdate = BdZeusUpdate.this;
-                Context context = this.f4315e;
-                if (WebKitFactory.isUserPrivacyEnabled() && !bdZeusUpdate.f4314d && b.d(context)) {
+                Context context = this.f4318e;
+                if (WebKitFactory.isUserPrivacyEnabled() && !bdZeusUpdate.f4317d && b.d(context)) {
                     BdZesuUpdateTask bdZesuUpdateTask = new BdZesuUpdateTask(context, "https://mbrowser.baidu.com/api/update/kernel?version=");
                     BdNet bdNet = new BdNet(context);
                     bdNet.setEventListener(bdZesuUpdateTask);
                     bdNet.start(bdZesuUpdateTask, false);
-                    bdZeusUpdate.f4314d = true;
+                    bdZeusUpdate.f4317d = true;
                 }
             }
         }
     }
 
     public static BdZeusUpdate a() {
-        if (f4310e == null) {
+        if (f4313e == null) {
             synchronized (BdZeusUpdate.class) {
-                if (f4310e == null) {
-                    f4310e = new BdZeusUpdate();
+                if (f4313e == null) {
+                    f4313e = new BdZeusUpdate();
                 }
             }
         }
-        return f4310e;
+        return f4313e;
     }
 
     public static String b(String str, Context context) {
@@ -373,8 +373,8 @@ public class BdZeusUpdate {
             String zeusVersionName = WebKitFactory.getZeusVersionName();
             boolean z = false;
             if (WebKitFactory.getCurEngine() == 1) {
-                if (e(zeusVersionName, this.f4312b)) {
-                    BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.f4311a, this.f4313c);
+                if (e(zeusVersionName, this.f4315b)) {
+                    BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.f4314a, this.f4316c);
                     return;
                 }
                 return;
@@ -397,7 +397,7 @@ public class BdZeusUpdate {
             BdSailorPlatform.getStatic().c("download-webkit-start", String.valueOf(System.currentTimeMillis()));
             BdSailorPlatform.getStatic().a();
             Log.i(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.f4311a, this.f4313c);
+            BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.f4314a, this.f4316c);
         }
     }
 }

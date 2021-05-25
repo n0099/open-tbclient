@@ -3,8 +3,8 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Message;
-import d.a.j0.z0.w;
-import d.a.k0.s2.g0.a;
+import d.a.m0.z0.w;
+import d.a.n0.t2.g0.a;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes5.dex */

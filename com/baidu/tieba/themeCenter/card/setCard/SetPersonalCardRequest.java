@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.card.setCard;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.j0.z0.w;
+import d.a.m0.z0.w;
 import tbclient.SetCard.DataReq;
 import tbclient.SetCard.SetCardReqIdl;
 /* loaded from: classes5.dex */

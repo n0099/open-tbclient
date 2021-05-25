@@ -7,32 +7,32 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class i implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadFactory f4602a;
+    public final ThreadFactory f4605a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f4603b;
+    public final String f4606b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f4604c;
+    public final AtomicInteger f4607c;
 
     public i(String str) {
         this(str, Executors.defaultThreadFactory());
     }
 
     public i(String str, ThreadFactory threadFactory) {
-        this.f4604c = new AtomicInteger(0);
-        this.f4603b = str;
-        this.f4602a = threadFactory;
+        this.f4607c = new AtomicInteger(0);
+        this.f4606b = str;
+        this.f4605a = threadFactory;
     }
 
     private String a(int i2) {
-        return String.format("%s-%d", this.f4603b, Integer.valueOf(i2));
+        return String.format("%s-%d", this.f4606b, Integer.valueOf(i2));
     }
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        Thread newThread = this.f4602a.newThread(runnable);
-        newThread.setName(a(this.f4604c.getAndIncrement()));
+        Thread newThread = this.f4605a.newThread(runnable);
+        newThread.setName(a(this.f4607c.getAndIncrement()));
         return newThread;
     }
 }

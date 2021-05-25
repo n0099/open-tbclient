@@ -17,32 +17,27 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.j0.k0.a;
-import d.a.j0.r.f0.q.b;
+import d.a.m0.k0.a;
+import d.a.m0.r.f0.q.b;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class BlueLikeButton extends TextView implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f19966e;
+    public boolean f19888e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19967f;
+    public boolean f19889f;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.f19966e = false;
-        this.f19967f = false;
+        this.f19888e = false;
+        this.f19889f = false;
     }
 
-    @Override // d.a.j0.r.f0.q.b
-    public void a(boolean z, int i2, boolean z2) {
-        e(z, i2);
-    }
-
-    @Override // d.a.j0.r.f0.q.b
-    public void b(View view) {
-        if (this.f19967f) {
+    @Override // d.a.m0.r.f0.q.b
+    public void a(View view) {
+        if (this.f19889f) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
@@ -53,7 +48,7 @@ public class BlueLikeButton extends TextView implements b {
             statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
             TiebaStatic.log(statisticItem);
         }
-        if (this.f19966e) {
+        if (this.f19888e) {
             return;
         }
         Context context = getContext();
@@ -67,24 +62,29 @@ public class BlueLikeButton extends TextView implements b {
         }
     }
 
-    @Override // d.a.j0.r.f0.q.b
-    public void c(View.OnClickListener onClickListener) {
+    @Override // d.a.m0.r.f0.q.b
+    public void b(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 
-    @Override // d.a.j0.r.f0.q.b
+    @Override // d.a.m0.r.f0.q.b
+    public void c(boolean z, int i2, boolean z2) {
+        e(z, i2);
+    }
+
+    @Override // d.a.m0.r.f0.q.b
     public void d(int i2) {
     }
 
-    @Override // d.a.j0.r.f0.q.b
+    @Override // d.a.m0.r.f0.q.b
     public void e(boolean z, int i2) {
         f(z);
     }
 
     public void f(boolean z) {
-        this.f19966e = z;
+        this.f19888e = z;
         if (z) {
-            if (this.f19967f) {
+            if (this.f19889f) {
                 setText(R.string.followed);
                 TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).defaultColor(R.color.CAM_X0204).into(this);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
@@ -95,7 +95,7 @@ public class BlueLikeButton extends TextView implements b {
             setPadding(0, 0, 0, 0);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1);
-        } else if (this.f19967f) {
+        } else if (this.f19889f) {
             setText(R.string.attention);
             TBSelector.selectorBackgroundDrawable(DrawableSelector.make().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0302).build(), DrawableSelector.make().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).build()).into(this);
             SkinManager.setViewTextColor(this, R.color.CAM_X0101, 1);
@@ -109,18 +109,18 @@ public class BlueLikeButton extends TextView implements b {
     }
 
     public void setBJH(boolean z) {
-        this.f19967f = z;
+        this.f19889f = z;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19966e = false;
-        this.f19967f = false;
+        this.f19888e = false;
+        this.f19889f = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f19966e = false;
-        this.f19967f = false;
+        this.f19888e = false;
+        this.f19889f = false;
     }
 }

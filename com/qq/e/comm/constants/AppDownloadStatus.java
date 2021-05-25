@@ -1,5 +1,5 @@
 package com.qq.e.comm.constants;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public interface AppDownloadStatus {
     public static final int STATUS_DOWNLOADING = 4;
     public static final int STATUS_DOWNLOAD_FAILED = 16;

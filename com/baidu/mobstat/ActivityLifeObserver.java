@@ -12,13 +12,13 @@ import java.util.Set;
 public class ActivityLifeObserver {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ActivityLifeObserver f8313b = new ActivityLifeObserver();
+    public static final ActivityLifeObserver f8213b = new ActivityLifeObserver();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8314a;
+    public boolean f8214a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<IActivityLifeCallback> f8315c = new LinkedHashSet();
+    public Set<IActivityLifeCallback> f8215c = new LinkedHashSet();
 
     /* loaded from: classes2.dex */
     public interface IActivityLifeCallback {
@@ -38,18 +38,18 @@ public class ActivityLifeObserver {
     }
 
     public static ActivityLifeObserver instance() {
-        return f8313b;
+        return f8213b;
     }
 
     public void addObserver(IActivityLifeCallback iActivityLifeCallback) {
-        synchronized (this.f8315c) {
-            this.f8315c.add(iActivityLifeCallback);
+        synchronized (this.f8215c) {
+            this.f8215c.add(iActivityLifeCallback);
         }
     }
 
     public void clearObservers() {
-        synchronized (this.f8315c) {
-            this.f8315c.clear();
+        synchronized (this.f8215c) {
+            this.f8215c.clear();
         }
     }
 
@@ -59,8 +59,8 @@ public class ActivityLifeObserver {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.baidu.mobstat.ActivityLifeObserver.1
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityCreated(Activity activity, Bundle bundle) {
-                    synchronized (ActivityLifeObserver.this.f8315c) {
-                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8315c) {
+                    synchronized (ActivityLifeObserver.this.f8215c) {
+                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8215c) {
                             iActivityLifeCallback.onActivityCreated(activity, bundle);
                         }
                     }
@@ -68,8 +68,8 @@ public class ActivityLifeObserver {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityDestroyed(Activity activity) {
-                    synchronized (ActivityLifeObserver.this.f8315c) {
-                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8315c) {
+                    synchronized (ActivityLifeObserver.this.f8215c) {
+                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8215c) {
                             iActivityLifeCallback.onActivityDestroyed(activity);
                         }
                     }
@@ -77,8 +77,8 @@ public class ActivityLifeObserver {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityPaused(Activity activity) {
-                    synchronized (ActivityLifeObserver.this.f8315c) {
-                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8315c) {
+                    synchronized (ActivityLifeObserver.this.f8215c) {
+                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8215c) {
                             iActivityLifeCallback.onActivityPaused(activity);
                         }
                     }
@@ -86,8 +86,8 @@ public class ActivityLifeObserver {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityResumed(Activity activity) {
-                    synchronized (ActivityLifeObserver.this.f8315c) {
-                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8315c) {
+                    synchronized (ActivityLifeObserver.this.f8215c) {
+                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8215c) {
                             iActivityLifeCallback.onActivityResumed(activity);
                         }
                     }
@@ -95,8 +95,8 @@ public class ActivityLifeObserver {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-                    synchronized (ActivityLifeObserver.this.f8315c) {
-                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8315c) {
+                    synchronized (ActivityLifeObserver.this.f8215c) {
+                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8215c) {
                             iActivityLifeCallback.onActivitySaveInstanceState(activity, bundle);
                         }
                     }
@@ -104,8 +104,8 @@ public class ActivityLifeObserver {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityStarted(Activity activity) {
-                    synchronized (ActivityLifeObserver.this.f8315c) {
-                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8315c) {
+                    synchronized (ActivityLifeObserver.this.f8215c) {
+                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8215c) {
                             iActivityLifeCallback.onActivityStarted(activity);
                         }
                     }
@@ -113,8 +113,8 @@ public class ActivityLifeObserver {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityStopped(Activity activity) {
-                    synchronized (ActivityLifeObserver.this.f8315c) {
-                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8315c) {
+                    synchronized (ActivityLifeObserver.this.f8215c) {
+                        for (IActivityLifeCallback iActivityLifeCallback : ActivityLifeObserver.this.f8215c) {
                             iActivityLifeCallback.onActivityStopped(activity);
                         }
                     }
@@ -126,15 +126,15 @@ public class ActivityLifeObserver {
     }
 
     public void registerActivityLifeCallback(Context context) {
-        if (!this.f8314a && Build.VERSION.SDK_INT >= 14) {
+        if (!this.f8214a && Build.VERSION.SDK_INT >= 14) {
             doRegister(context);
-            this.f8314a = true;
+            this.f8214a = true;
         }
     }
 
     public void removeObserver(IActivityLifeCallback iActivityLifeCallback) {
-        synchronized (this.f8315c) {
-            this.f8315c.remove(iActivityLifeCallback);
+        synchronized (this.f8215c) {
+            this.f8215c.remove(iActivityLifeCallback);
         }
     }
 }

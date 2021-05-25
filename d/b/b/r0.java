@@ -1,17 +1,17 @@
 package d.b.b;
 
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class r0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f65048a = false;
+    public static boolean f65091a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f65049b = false;
+    public static boolean f65092b = false;
 
     public static void a(String str, Throwable th) {
-        if (f65049b) {
+        if (f65092b) {
             Log.d("TeaLog", str, th);
         }
     }

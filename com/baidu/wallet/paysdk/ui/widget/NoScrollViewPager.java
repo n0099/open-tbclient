@@ -9,22 +9,22 @@ import androidx.viewpager.widget.ViewPager;
 public class NoScrollViewPager extends ViewPager {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f26131a;
+    public boolean f26060a;
 
     public NoScrollViewPager(Context context) {
         super(context);
-        this.f26131a = true;
+        this.f26060a = true;
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.f26131a && super.onInterceptTouchEvent(motionEvent);
+        return this.f26060a && super.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
     @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.f26131a && super.onTouchEvent(motionEvent);
+        return this.f26060a && super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
@@ -33,11 +33,11 @@ public class NoScrollViewPager extends ViewPager {
     }
 
     public void setScanScroll(boolean z) {
-        this.f26131a = z;
+        this.f26060a = z;
     }
 
     public NoScrollViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f26131a = true;
+        this.f26060a = true;
     }
 }

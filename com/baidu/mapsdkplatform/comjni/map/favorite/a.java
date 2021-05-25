@@ -5,89 +5,89 @@ import android.os.Bundle;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8039a = 0;
+    public long f7939a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public JNIFavorite f8040b;
+    public JNIFavorite f7940b;
 
     /* renamed from: com.baidu.mapsdkplatform.comjni.map.favorite.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0102a {
+    public static class C0103a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static boolean f8041a = false;
+        public static boolean f7941a = false;
 
         public static void b() {
-            f8041a = true;
+            f7941a = true;
         }
     }
 
     public a() {
-        this.f8040b = null;
-        this.f8040b = new JNIFavorite();
+        this.f7940b = null;
+        this.f7940b = new JNIFavorite();
     }
 
     public int a(Bundle bundle) {
         try {
-            return this.f8040b.GetAll(this.f8039a, bundle);
+            return this.f7940b.GetAll(this.f7939a, bundle);
         } catch (Throwable unused) {
             return 0;
         }
     }
 
     public long a() {
-        long Create = this.f8040b.Create();
-        this.f8039a = Create;
+        long Create = this.f7940b.Create();
+        this.f7939a = Create;
         return Create;
     }
 
     public boolean a(int i2) {
-        return this.f8040b.SetType(this.f8039a, i2);
+        return this.f7940b.SetType(this.f7939a, i2);
     }
 
     public boolean a(String str) {
-        return this.f8040b.Remove(this.f8039a, str);
+        return this.f7940b.Remove(this.f7939a, str);
     }
 
     public boolean a(String str, String str2) {
-        C0102a.b();
-        return this.f8040b.Add(this.f8039a, str, str2);
+        C0103a.b();
+        return this.f7940b.Add(this.f7939a, str, str2);
     }
 
     public boolean a(String str, String str2, String str3, int i2, int i3, int i4) {
-        return this.f8040b.Load(this.f8039a, str, str2, str3, i2, i3, i4);
+        return this.f7940b.Load(this.f7939a, str, str2, str3, i2, i3, i4);
     }
 
     public int b() {
-        return this.f8040b.Release(this.f8039a);
+        return this.f7940b.Release(this.f7939a);
     }
 
     public String b(String str) {
         try {
-            return this.f8040b.GetValue(this.f8039a, str);
+            return this.f7940b.GetValue(this.f7939a, str);
         } catch (Exception unused) {
             return null;
         }
     }
 
     public boolean b(String str, String str2) {
-        C0102a.b();
-        return this.f8040b.Update(this.f8039a, str, str2);
+        C0103a.b();
+        return this.f7940b.Update(this.f7939a, str, str2);
     }
 
     public boolean c() {
-        return this.f8040b.Clear(this.f8039a);
+        return this.f7940b.Clear(this.f7939a);
     }
 
     public boolean c(String str) {
         try {
-            return this.f8040b.IsExist(this.f8039a, str);
+            return this.f7940b.IsExist(this.f7939a, str);
         } catch (Throwable unused) {
             return false;
         }
     }
 
     public boolean d() {
-        return this.f8040b.SaveCache(this.f8039a);
+        return this.f7940b.SaveCache(this.f7939a);
     }
 }

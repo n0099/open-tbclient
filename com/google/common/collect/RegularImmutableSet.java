@@ -7,22 +7,22 @@ public final class RegularImmutableSet<E> extends ImmutableSet<E> {
     public static final RegularImmutableSet<Object> EMPTY = new RegularImmutableSet<>(new Object[0], 0, null, 0, 0);
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient int f31308e;
+    public final transient int f31237e;
     public final transient Object[] elements;
 
     /* renamed from: f  reason: collision with root package name */
-    public final transient int f31309f;
+    public final transient int f31238f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final transient int f31310g;
+    public final transient int f31239g;
     public final transient Object[] table;
 
     public RegularImmutableSet(Object[] objArr, int i2, Object[] objArr2, int i3, int i4) {
         this.elements = objArr;
         this.table = objArr2;
-        this.f31308e = i3;
-        this.f31309f = i2;
-        this.f31310g = i4;
+        this.f31237e = i3;
+        this.f31238f = i2;
+        this.f31239g = i4;
     }
 
     @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -33,7 +33,7 @@ public final class RegularImmutableSet<E> extends ImmutableSet<E> {
         }
         int d2 = e0.d(obj);
         while (true) {
-            int i2 = d2 & this.f31308e;
+            int i2 = d2 & this.f31237e;
             Object obj2 = objArr[i2];
             if (obj2 == null) {
                 return false;
@@ -47,18 +47,18 @@ public final class RegularImmutableSet<E> extends ImmutableSet<E> {
 
     @Override // com.google.common.collect.ImmutableCollection
     public int copyIntoArray(Object[] objArr, int i2) {
-        System.arraycopy(this.elements, 0, objArr, i2, this.f31310g);
-        return i2 + this.f31310g;
+        System.arraycopy(this.elements, 0, objArr, i2, this.f31239g);
+        return i2 + this.f31239g;
     }
 
     @Override // com.google.common.collect.ImmutableSet
     public ImmutableList<E> createAsList() {
-        return ImmutableList.asImmutableList(this.elements, this.f31310g);
+        return ImmutableList.asImmutableList(this.elements, this.f31239g);
     }
 
     @Override // com.google.common.collect.ImmutableSet, java.util.Collection, java.util.Set
     public int hashCode() {
-        return this.f31309f;
+        return this.f31238f;
     }
 
     @Override // com.google.common.collect.ImmutableCollection
@@ -68,7 +68,7 @@ public final class RegularImmutableSet<E> extends ImmutableSet<E> {
 
     @Override // com.google.common.collect.ImmutableCollection
     public int internalArrayEnd() {
-        return this.f31310g;
+        return this.f31239g;
     }
 
     @Override // com.google.common.collect.ImmutableCollection
@@ -88,7 +88,7 @@ public final class RegularImmutableSet<E> extends ImmutableSet<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
     public int size() {
-        return this.f31310g;
+        return this.f31239g;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

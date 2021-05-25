@@ -47,8 +47,10 @@ public class IMSendMsgRequest extends BaseHttpRequest {
         int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
         String str = "https://pim.baidu.com/";
         if (readIntData != 0) {
-            if (readIntData == 1 || readIntData == 2) {
+            if (readIntData == 1) {
                 str = "http://rd-im-server.bcc-szth.baidu.com:8111/";
+            } else if (readIntData == 2) {
+                str = Constants.URL_HTTP_QA;
             } else if (readIntData == 3) {
                 str = Constants.URL_HTTP_BOX;
             }

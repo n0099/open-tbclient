@@ -6,19 +6,19 @@ import org.json.JSONObject;
 public class w implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public z f8962a = z.f8978a;
+    public z f8862a = z.f8878a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f8963b;
+    public Object f8863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?> f8964c;
+    public Class<?> f8864c;
 
     public w(Object obj) {
         if (obj != null) {
             if ("com.baidu.bottom.remote.BPStretegyController2".equals(obj.getClass().getName())) {
-                this.f8963b = obj;
-                this.f8964c = obj.getClass();
+                this.f8863b = obj;
+                this.f8864c = obj.getClass();
                 return;
             }
             throw new IllegalArgumentException("class isn't com.baidu.bottom.remote.BPStretegyController2");
@@ -32,7 +32,7 @@ public class w implements a {
             a(new Object[]{context, jSONObject}, "startDataAnynalyze", new Class[]{Context.class, JSONObject.class});
         } catch (Exception e2) {
             bb.c().b(e2);
-            this.f8962a.a(context, jSONObject);
+            this.f8862a.a(context, jSONObject);
         }
     }
 
@@ -42,7 +42,7 @@ public class w implements a {
             a(new Object[]{context, str}, "saveRemoteSign", new Class[]{Context.class, String.class});
         } catch (Exception e2) {
             bb.c().b(e2);
-            this.f8962a.b(context, str);
+            this.f8862a.b(context, str);
         }
     }
 
@@ -52,7 +52,7 @@ public class w implements a {
             a(new Object[]{context, str}, "saveRemoteConfig2", new Class[]{Context.class, String.class});
         } catch (Exception e2) {
             bb.c().b(e2);
-            this.f8962a.a(context, str);
+            this.f8862a.a(context, str);
         }
     }
 
@@ -62,7 +62,7 @@ public class w implements a {
             return ((Boolean) a(new Object[]{context}, "canStartService", new Class[]{Context.class})).booleanValue();
         } catch (Exception e2) {
             bb.c().b(e2);
-            return this.f8962a.b(context);
+            return this.f8862a.b(context);
         }
     }
 
@@ -72,7 +72,7 @@ public class w implements a {
             a(new Object[]{context, Long.valueOf(j)}, "setLastUpdateTime", new Class[]{Context.class, Long.TYPE});
         } catch (Exception e2) {
             bb.c().b(e2);
-            this.f8962a.a(context, j);
+            this.f8862a.a(context, j);
         }
     }
 
@@ -82,11 +82,11 @@ public class w implements a {
             return ((Boolean) a(new Object[]{context}, "needUpdate", new Class[]{Context.class})).booleanValue();
         } catch (Exception e2) {
             bb.c().b(e2);
-            return this.f8962a.a(context);
+            return this.f8862a.a(context);
         }
     }
 
     private <T> T a(Object[] objArr, String str, Class<?>[] clsArr) throws Exception {
-        return (T) this.f8964c.getMethod(str, clsArr).invoke(this.f8963b, objArr);
+        return (T) this.f8864c.getMethod(str, clsArr).invoke(this.f8863b, objArr);
     }
 }

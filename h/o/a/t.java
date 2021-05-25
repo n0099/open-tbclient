@@ -10,42 +10,42 @@ public final class t<T> extends u<T> {
     public class a implements u.a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f68495a;
+        public final /* synthetic */ long f68538a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TimeUnit f68496b;
+        public final /* synthetic */ TimeUnit f68539b;
 
         /* renamed from: h.o.a.t$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1923a implements h.n.a {
+        public class C1927a implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ u.c f68497e;
+            public final /* synthetic */ u.c f68540e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Long f68498f;
+            public final /* synthetic */ Long f68541f;
 
-            public C1923a(a aVar, u.c cVar, Long l) {
-                this.f68497e = cVar;
-                this.f68498f = l;
+            public C1927a(a aVar, u.c cVar, Long l) {
+                this.f68540e = cVar;
+                this.f68541f = l;
             }
 
             @Override // h.n.a
             public void call() {
-                this.f68497e.b(this.f68498f.longValue());
+                this.f68540e.b(this.f68541f.longValue());
             }
         }
 
         public a(long j, TimeUnit timeUnit) {
-            this.f68495a = j;
-            this.f68496b = timeUnit;
+            this.f68538a = j;
+            this.f68539b = timeUnit;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.h
         /* renamed from: b */
         public h.k a(u.c<T> cVar, Long l, g.a aVar) {
-            return aVar.c(new C1923a(this, cVar, l), this.f68495a, this.f68496b);
+            return aVar.c(new C1927a(this, cVar, l), this.f68538a, this.f68539b);
         }
     }
 
@@ -53,41 +53,41 @@ public final class t<T> extends u<T> {
     public class b implements u.b<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f68499a;
+        public final /* synthetic */ long f68542a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TimeUnit f68500b;
+        public final /* synthetic */ TimeUnit f68543b;
 
         /* loaded from: classes7.dex */
         public class a implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ u.c f68501e;
+            public final /* synthetic */ u.c f68544e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Long f68502f;
+            public final /* synthetic */ Long f68545f;
 
             public a(b bVar, u.c cVar, Long l) {
-                this.f68501e = cVar;
-                this.f68502f = l;
+                this.f68544e = cVar;
+                this.f68545f = l;
             }
 
             @Override // h.n.a
             public void call() {
-                this.f68501e.b(this.f68502f.longValue());
+                this.f68544e.b(this.f68545f.longValue());
             }
         }
 
         public b(long j, TimeUnit timeUnit) {
-            this.f68499a = j;
-            this.f68500b = timeUnit;
+            this.f68542a = j;
+            this.f68543b = timeUnit;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.i
         /* renamed from: b */
         public h.k a(u.c<T> cVar, Long l, T t, g.a aVar) {
-            return aVar.c(new a(this, cVar, l), this.f68499a, this.f68500b);
+            return aVar.c(new a(this, cVar, l), this.f68542a, this.f68543b);
         }
     }
 

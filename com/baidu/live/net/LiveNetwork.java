@@ -18,38 +18,38 @@ import kotlin.text.StringsKt__StringsJVMKt;
 public final class LiveNetwork {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6486a;
+    public String f6386a;
 
     /* renamed from: b  reason: collision with root package name */
-    public INetWork f6487b;
+    public INetWork f6387b;
 
     /* loaded from: classes2.dex */
     public static final class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final NetResponse f6488a;
+        public final NetResponse f6388a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f6489b;
+        public final T f6389b;
 
         public a(NetResponse netResponse, T t) {
-            this.f6488a = netResponse;
-            this.f6489b = t;
+            this.f6388a = netResponse;
+            this.f6389b = t;
         }
 
         public final T a() {
-            return this.f6489b;
+            return this.f6389b;
         }
 
         public final NetResponse b() {
-            return this.f6488a;
+            return this.f6388a;
         }
 
         public boolean equals(Object obj) {
             if (this != obj) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.f6488a, aVar.f6488a) && Intrinsics.areEqual(this.f6489b, aVar.f6489b);
+                    return Intrinsics.areEqual(this.f6388a, aVar.f6388a) && Intrinsics.areEqual(this.f6389b, aVar.f6389b);
                 }
                 return false;
             }
@@ -57,48 +57,48 @@ public final class LiveNetwork {
         }
 
         public int hashCode() {
-            NetResponse netResponse = this.f6488a;
+            NetResponse netResponse = this.f6388a;
             int hashCode = (netResponse != null ? netResponse.hashCode() : 0) * 31;
-            T t = this.f6489b;
+            T t = this.f6389b;
             return hashCode + (t != null ? t.hashCode() : 0);
         }
 
         public String toString() {
-            return "Response(response=" + this.f6488a + ", data=" + this.f6489b + SmallTailInfo.EMOTION_SUFFIX;
+            return "Response(response=" + this.f6388a + ", data=" + this.f6389b + SmallTailInfo.EMOTION_SUFFIX;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class b<T> implements d.a.t.d.b<a<ResponseDataT>> {
+    public static final class b<T> implements d.a.v.d.b<a<ResponseDataT>> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Map f6491b;
+        public final /* synthetic */ Map f6391b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.t.b.a f6492c;
+        public final /* synthetic */ d.a.v.b.a f6392c;
 
-        public b(Map map, d.a.t.b.a aVar) {
-            this.f6491b = map;
-            this.f6492c = aVar;
+        public b(Map map, d.a.v.b.a aVar) {
+            this.f6391b = map;
+            this.f6392c = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.t.d.b
+        @Override // d.a.v.d.b
         /* renamed from: b */
         public final a<ResponseDataT> a() {
-            INetWork iNetWork = LiveNetwork.this.f6487b;
+            INetWork iNetWork = LiveNetwork.this.f6387b;
             if (iNetWork == null) {
                 Intrinsics.throwNpe();
             }
-            NetResponse res = iNetWork.postSync(this.f6491b);
+            NetResponse res = iNetWork.postSync(this.f6391b);
             Object obj = null;
             try {
-                d.a.t.b.a aVar = this.f6492c;
+                d.a.v.b.a aVar = this.f6392c;
                 if (aVar != null) {
                     obj = aVar.onParseResponseInBackground(res);
                 }
             } catch (Exception e2) {
-                d.a.t.e.a.e(e2);
+                d.a.v.e.a.e(e2);
             }
             Intrinsics.checkExpressionValueIsNotNull(res, "res");
             return new a<>(res, obj);
@@ -106,22 +106,22 @@ public final class LiveNetwork {
     }
 
     /* loaded from: classes2.dex */
-    public static final class c<T> implements d.a.t.d.c<a<ResponseDataT>> {
+    public static final class c<T> implements d.a.v.d.c<a<ResponseDataT>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.t.b.a f6493a;
+        public final /* synthetic */ d.a.v.b.a f6393a;
 
-        public c(d.a.t.b.a aVar) {
-            this.f6493a = aVar;
+        public c(d.a.v.b.a aVar) {
+            this.f6393a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: d.a.t.b.a */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: d.a.v.b.a */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // d.a.t.d.c
+        @Override // d.a.v.d.c
         /* renamed from: a */
         public final void onReturnDataInUI(a<ResponseDataT> aVar) {
-            d.a.t.b.a aVar2 = this.f6493a;
+            d.a.v.b.a aVar2 = this.f6393a;
             if (aVar2 != 0) {
                 aVar2.onNetResponse(aVar != 0 ? aVar.b() : null, aVar != 0 ? aVar.a() : null);
             }
@@ -135,34 +135,34 @@ public final class LiveNetwork {
     public LiveNetwork() {
         LazyKt__LazyJVMKt.lazy(LiveNetwork$handler$2.INSTANCE);
         NetworkAgentService networkAgentService = (NetworkAgentService) ServiceManager.getService(NetworkAgentService.SERVICE_REFERENCE);
-        this.f6487b = networkAgentService != null ? networkAgentService.buildNetworkInstance() : null;
+        this.f6387b = networkAgentService != null ? networkAgentService.buildNetworkInstance() : null;
     }
 
-    public final <ResponseDataT> void b(Map<String, ? extends Object> map, d.a.t.b.a<ResponseDataT> aVar) {
-        String str = this.f6486a;
-        if (str == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.f6487b == null) {
+    public final <ResponseDataT> void b(Map<String, ? extends Object> map, d.a.v.b.a<ResponseDataT> aVar) {
+        String str = this.f6386a;
+        if (str == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.f6387b == null) {
             return;
         }
-        d.a.t.d.a.a(new b(map, aVar), new c(aVar));
+        d.a.v.d.a.a(new b(map, aVar), new c(aVar));
     }
 
     public final void c(Map<String, ? extends Object> map) {
-        INetWork iNetWork = this.f6487b;
+        INetWork iNetWork = this.f6387b;
         if (iNetWork != null) {
             iNetWork.setExtra(map);
         }
     }
 
     public final void d(int i2) {
-        INetWork iNetWork = this.f6487b;
+        INetWork iNetWork = this.f6387b;
         if (iNetWork != null) {
             iNetWork.setRetryCount(i2);
         }
     }
 
     public final void e(String str) {
-        this.f6486a = str;
-        INetWork iNetWork = this.f6487b;
+        this.f6386a = str;
+        INetWork iNetWork = this.f6387b;
         if (iNetWork != null) {
             iNetWork.setUrl(str);
         }

@@ -41,31 +41,31 @@ import javax.security.auth.x500.X500Principal;
 public class X509Util {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CertificateFactory f22510a = null;
+    public static CertificateFactory f22439a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f22511b = null;
+    public static d f22440b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f22512c = null;
+    public static b f22441c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static d f22513d = null;
+    public static d f22442d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static KeyStore f22514e = null;
+    public static KeyStore f22443e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static KeyStore f22515f = null;
+    public static KeyStore f22444f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static File f22516g = null;
+    public static File f22445g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Set<Pair<X500Principal, PublicKey>> f22517h = null;
+    public static Set<Pair<X500Principal, PublicKey>> f22446h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f22518i = false;
+    public static boolean f22447i = false;
     public static boolean k = false;
     public static final Object j = new Object();
     public static final char[] l = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -95,15 +95,15 @@ public class X509Util {
     public static final class c implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final X509TrustManager f22519a;
+        public final X509TrustManager f22448a;
 
         public c(X509TrustManager x509TrustManager) {
-            this.f22519a = x509TrustManager;
+            this.f22448a = x509TrustManager;
         }
 
         @Override // com.baidu.turbonet.net.X509Util.d
         public List<X509Certificate> a(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException {
-            this.f22519a.checkServerTrusted(x509CertificateArr, str);
+            this.f22448a.checkServerTrusted(x509CertificateArr, str);
             return Collections.emptyList();
         }
     }
@@ -117,16 +117,16 @@ public class X509Util {
     public static final class e implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final X509TrustManagerExtensions f22520a;
+        public final X509TrustManagerExtensions f22449a;
 
         @SuppressLint({"NewApi"})
         public e(X509TrustManager x509TrustManager) {
-            this.f22520a = new X509TrustManagerExtensions(x509TrustManager);
+            this.f22449a = new X509TrustManagerExtensions(x509TrustManager);
         }
 
         @Override // com.baidu.turbonet.net.X509Util.d
         public List<X509Certificate> a(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException {
-            return this.f22520a.checkServerTrusted(x509CertificateArr, str, str2);
+            return this.f22449a.checkServerTrusted(x509CertificateArr, str, str2);
         }
     }
 
@@ -134,8 +134,8 @@ public class X509Util {
         f();
         X509Certificate d2 = d(bArr);
         synchronized (j) {
-            KeyStore keyStore = f22514e;
-            keyStore.setCertificateEntry("root_cert_" + Integer.toString(f22514e.size()), d2);
+            KeyStore keyStore = f22443e;
+            keyStore.setCertificateEntry("root_cert_" + Integer.toString(f22443e.size()), d2);
             l();
         }
     }
@@ -144,7 +144,7 @@ public class X509Util {
         f();
         synchronized (j) {
             try {
-                f22514e.load(null);
+                f22443e.load(null);
                 l();
             } catch (IOException unused) {
             }
@@ -153,7 +153,7 @@ public class X509Util {
 
     public static X509Certificate d(byte[] bArr) throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
         f();
-        return (X509Certificate) f22510a.generateCertificate(new ByteArrayInputStream(bArr));
+        return (X509Certificate) f22439a.generateCertificate(new ByteArrayInputStream(bArr));
     }
 
     public static d e(KeyStore keyStore) throws KeyStoreException, NoSuchAlgorithmException {
@@ -183,47 +183,47 @@ public class X509Util {
     }
 
     public static void g() throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
-        if (f22510a == null) {
-            f22510a = CertificateFactory.getInstance("X.509");
+        if (f22439a == null) {
+            f22439a = CertificateFactory.getInstance("X.509");
         }
-        if (f22511b == null) {
-            f22511b = e(null);
+        if (f22440b == null) {
+            f22440b = e(null);
         }
-        if (!f22518i) {
+        if (!f22447i) {
             try {
                 KeyStore keyStore = KeyStore.getInstance("AndroidCAStore");
-                f22515f = keyStore;
+                f22444f = keyStore;
                 try {
                     keyStore.load(null);
                 } catch (IOException unused) {
                 }
-                f22516g = new File(System.getenv("ANDROID_ROOT") + "/etc/security/cacerts");
+                f22445g = new File(System.getenv("ANDROID_ROOT") + "/etc/security/cacerts");
             } catch (KeyStoreException unused2) {
             }
             if (!k) {
-                nativeRecordCertVerifyCapabilitiesHistogram(f22515f != null);
+                nativeRecordCertVerifyCapabilitiesHistogram(f22444f != null);
             }
-            f22518i = true;
+            f22447i = true;
         }
-        if (f22517h == null) {
-            f22517h = new HashSet();
+        if (f22446h == null) {
+            f22446h = new HashSet();
         }
-        if (f22514e == null) {
+        if (f22443e == null) {
             KeyStore keyStore2 = KeyStore.getInstance(KeyStore.getDefaultType());
-            f22514e = keyStore2;
+            f22443e = keyStore2;
             try {
                 keyStore2.load(null);
             } catch (IOException unused3) {
             }
         }
-        if (f22513d == null) {
-            f22513d = e(f22514e);
+        if (f22442d == null) {
+            f22442d = e(f22443e);
         }
-        if (k || f22512c != null) {
+        if (k || f22441c != null) {
             return;
         }
-        f22512c = new b();
-        ContextUtils.a().registerReceiver(f22512c, new IntentFilter("android.security.STORAGE_CHANGED"));
+        f22441c = new b();
+        ContextUtils.a().registerReceiver(f22441c, new IntentFilter("android.security.STORAGE_CHANGED"));
     }
 
     public static String h(X500Principal x500Principal) throws NoSuchAlgorithmException {
@@ -240,28 +240,28 @@ public class X509Util {
     }
 
     public static boolean i(X509Certificate x509Certificate) throws NoSuchAlgorithmException, KeyStoreException {
-        if (f22515f == null) {
+        if (f22444f == null) {
             return false;
         }
         Pair<X500Principal, PublicKey> pair = new Pair<>(x509Certificate.getSubjectX500Principal(), x509Certificate.getPublicKey());
-        if (f22517h.contains(pair)) {
+        if (f22446h.contains(pair)) {
             return true;
         }
         String h2 = h(x509Certificate.getSubjectX500Principal());
         int i2 = 0;
         while (true) {
             String str = h2 + IStringUtil.EXTENSION_SEPARATOR + i2;
-            if (!new File(f22516g, str).exists()) {
+            if (!new File(f22445g, str).exists()) {
                 return false;
             }
-            Certificate certificate = f22515f.getCertificate("system:" + str);
+            Certificate certificate = f22444f.getCertificate("system:" + str);
             if (certificate != null) {
                 if (!(certificate instanceof X509Certificate)) {
                     Log.e("X509Util", "Anchor " + str + " not an X509Certificate: " + certificate.getClass().getName());
                 } else {
                     X509Certificate x509Certificate2 = (X509Certificate) certificate;
                     if (x509Certificate.getSubjectX500Principal().equals(x509Certificate2.getSubjectX500Principal()) && x509Certificate.getPublicKey().equals(x509Certificate2.getPublicKey())) {
-                        f22517h.add(pair);
+                        f22446h.add(pair);
                         return true;
                     }
                 }
@@ -282,15 +282,15 @@ public class X509Util {
 
     public static void k() throws KeyStoreException, NoSuchAlgorithmException, CertificateException {
         synchronized (j) {
-            f22511b = null;
-            f22517h = null;
+            f22440b = null;
+            f22446h = null;
             g();
         }
         nativeNotifyKeyChainChanged();
     }
 
     public static void l() throws KeyStoreException, NoSuchAlgorithmException {
-        f22513d = e(f22514e);
+        f22442d = e(f22443e);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0013  */
@@ -335,14 +335,14 @@ public class X509Util {
                         return new AndroidCertVerifyResult(-6);
                     }
                     synchronized (j) {
-                        if (f22511b == null) {
+                        if (f22440b == null) {
                             return new AndroidCertVerifyResult(-1);
                         }
                         try {
-                            emptyList = f22511b.a(x509CertificateArr, str, str2);
+                            emptyList = f22440b.a(x509CertificateArr, str, str2);
                         } catch (CertificateException e2) {
                             try {
-                                emptyList = f22513d.a(x509CertificateArr, str, str2);
+                                emptyList = f22442d.a(x509CertificateArr, str, str2);
                             } catch (CertificateException unused2) {
                                 Log.i("X509Util", "Failed to validate the certificate chain, error: " + e2.getMessage());
                                 if (j(e2)) {

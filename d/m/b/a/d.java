@@ -6,18 +6,18 @@ import d.m.a.b.f;
 import d.m.b.a.a.a;
 import java.util.Calendar;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f66446e;
+    public a f66489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f66447f;
+    public Context f66490f;
 
     public d(Context context, a aVar) {
-        this.f66446e = aVar;
-        this.f66447f = context;
+        this.f66489e = aVar;
+        this.f66490f = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x012f  */
@@ -35,26 +35,26 @@ public class d implements Runnable {
         String valueOf = String.valueOf(System.currentTimeMillis());
         try {
             str = d.m.a.a.a.c() + "/v1/getInfoPgl";
-            long timeInMillis = com.pgl.sys.ces.b.a().f35190a ? Calendar.getInstance().getTimeInMillis() : 0L;
-            bArr = (byte[]) com.pgl.sys.ces.a.meta(301, this.f66447f, null);
-            long timeInMillis2 = com.pgl.sys.ces.b.a().f35190a ? Calendar.getInstance().getTimeInMillis() : 0L;
-            if (com.pgl.sys.ces.b.a().f35190a) {
+            long timeInMillis = com.pgl.sys.ces.b.a().f35119a ? Calendar.getInstance().getTimeInMillis() : 0L;
+            bArr = (byte[]) com.pgl.sys.ces.a.meta(301, this.f66490f, null);
+            long timeInMillis2 = com.pgl.sys.ces.b.a().f35119a ? Calendar.getInstance().getTimeInMillis() : 0L;
+            if (com.pgl.sys.ces.b.a().f35119a) {
                 Log.d("CZL_Efficient", "[Efficient] selas : " + (timeInMillis2 - timeInMillis));
             }
         } catch (Throwable unused) {
             try {
-                b.f66440a = 500;
+                b.f66483a = 500;
                 a2 = com.pgl.sys.ces.b.a();
                 sb = new StringBuilder();
             } catch (Throwable th) {
-                com.pgl.sys.ces.b.a().reportNow("SS-" + b.f66440a);
+                com.pgl.sys.ces.b.a().reportNow("SS-" + b.f66483a);
                 throw th;
             }
         }
         if (bArr == null || bArr.length <= 0) {
             throw new NullPointerException("NullPointerException");
         }
-        String str2 = str + "?os=android&app_key=" + b.f66442c + "&did=" + com.pgl.sys.ces.b.c() + "&version=1.0.5&version_code=5&time=" + valueOf;
+        String str2 = str + "?os=android&app_key=" + b.f66485c + "&did=" + com.pgl.sys.ces.b.c() + "&version=1.0.5&version_code=5&time=" + valueOf;
         int i2 = 0;
         int i3 = 504;
         while (i2 < 3) {
@@ -62,22 +62,22 @@ public class d implements Runnable {
             i3 = jSONObject.getInt("code");
             if (i3 == 200 || i3 == 202) {
                 if (i3 == 200) {
-                    b.f66441b = true;
-                    b.f66443d = jSONObject.getString("token_id");
+                    b.f66484b = true;
+                    b.f66486d = jSONObject.getString("token_id");
                 }
                 if (i3 == 202) {
-                    b.f66441b = true;
+                    b.f66484b = true;
                     String string = jSONObject.getString("token_id");
-                    b.f66443d = string;
-                    com.pgl.sys.ces.a.meta(302, this.f66447f, string);
+                    b.f66486d = string;
+                    com.pgl.sys.ces.a.meta(302, this.f66490f, string);
                 }
-                b.f66440a = i3;
+                b.f66483a = i3;
                 a2 = com.pgl.sys.ces.b.a();
                 sb = new StringBuilder();
                 sb.append("SS-");
-                sb.append(b.f66440a);
+                sb.append(b.f66483a);
                 a2.reportNow(sb.toString());
-                aVar = this.f66446e;
+                aVar = this.f66489e;
                 if (aVar == null) {
                     aVar.a(b.a());
                     return;
@@ -87,13 +87,13 @@ public class d implements Runnable {
             i2++;
             f.a(i2 * 3 * 1000);
         }
-        b.f66440a = i3;
+        b.f66483a = i3;
         a2 = com.pgl.sys.ces.b.a();
         sb = new StringBuilder();
         sb.append("SS-");
-        sb.append(b.f66440a);
+        sb.append(b.f66483a);
         a2.reportNow(sb.toString());
-        aVar = this.f66446e;
+        aVar = this.f66489e;
         if (aVar == null) {
         }
     }

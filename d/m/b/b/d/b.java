@@ -1,7 +1,7 @@
 package d.m.b.b.d;
 
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface b {
     String onEvent();
 

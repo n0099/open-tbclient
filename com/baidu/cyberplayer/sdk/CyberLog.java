@@ -5,55 +5,55 @@ import android.util.Log;
 public class CyberLog {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4800a = 1;
+    public static int f4700a = 1;
 
     public static void a(int i2) {
-        f4800a = i2;
+        f4700a = i2;
     }
 
     @Keep
     public static void d(String str, String str2) {
-        if (7 - f4800a <= 3) {
+        if (7 - f4700a <= 3) {
             Log.i("duplayer-" + str, str2);
         }
     }
 
     @Keep
     public static void e(String str, String str2) {
-        if (7 - f4800a <= 6) {
+        if (7 - f4700a <= 6) {
             Log.e("duplayer-" + str, str2);
         }
     }
 
     @Keep
     public static void e(String str, String str2, Throwable th) {
-        if (7 - f4800a <= 6) {
+        if (7 - f4700a <= 6) {
             Log.e("duplayer-" + str, str2, th);
         }
     }
 
     @Keep
     public static int getLogLevel() {
-        return f4800a;
+        return f4700a;
     }
 
     @Keep
     public static void i(String str, String str2) {
-        if (7 - f4800a <= 4) {
+        if (7 - f4700a <= 4) {
             Log.i("duplayer-" + str, str2);
         }
     }
 
     @Keep
     public static void v(String str, String str2) {
-        if (7 - f4800a <= 2) {
+        if (7 - f4700a <= 2) {
             Log.v("duplayer-" + str, str2);
         }
     }
 
     @Keep
     public static void w(String str, String str2) {
-        if (7 - f4800a <= 5) {
+        if (7 - f4700a <= 5) {
             Log.w("duplayer-" + str, str2);
         }
     }

@@ -21,13 +21,13 @@ import java.util.logging.Logger;
 public class CycleDetectingLockFactory {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Logger f31506b;
+    public static final Logger f31435b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ThreadLocal<ArrayList<c>> f31507c;
+    public static final ThreadLocal<ArrayList<c>> f31436c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d f31508a;
+    public final d f31437a;
 
     /* loaded from: classes6.dex */
     public final class CycleDetectingReentrantLock extends ReentrantLock implements b {
@@ -176,7 +176,7 @@ public class CycleDetectingLockFactory {
         WARN { // from class: com.google.common.util.concurrent.CycleDetectingLockFactory.Policies.2
             @Override // com.google.common.util.concurrent.CycleDetectingLockFactory.Policies, com.google.common.util.concurrent.CycleDetectingLockFactory.d
             public void handlePotentialDeadlock(PotentialDeadlockException potentialDeadlockException) {
-                CycleDetectingLockFactory.f31506b.log(Level.SEVERE, "Detected potential deadlock", (Throwable) potentialDeadlockException);
+                CycleDetectingLockFactory.f31435b.log(Level.SEVERE, "Detected potential deadlock", (Throwable) potentialDeadlockException);
             }
         },
         DISABLED { // from class: com.google.common.util.concurrent.CycleDetectingLockFactory.Policies.3
@@ -243,31 +243,31 @@ public class CycleDetectingLockFactory {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<c, ExampleStackTrace> f31509a;
+        public final Map<c, ExampleStackTrace> f31438a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Map<c, PotentialDeadlockException> f31510b;
+        public final Map<c, PotentialDeadlockException> f31439b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f31511c;
+        public final String f31440c;
 
         public void a(d dVar, c cVar) {
             n.A(this != cVar, "Attempted to acquire multiple locks with the same rank %s", cVar.d());
-            if (this.f31509a.containsKey(cVar)) {
+            if (this.f31438a.containsKey(cVar)) {
                 return;
             }
-            PotentialDeadlockException potentialDeadlockException = this.f31510b.get(cVar);
+            PotentialDeadlockException potentialDeadlockException = this.f31439b.get(cVar);
             if (potentialDeadlockException != null) {
                 dVar.handlePotentialDeadlock(new PotentialDeadlockException(cVar, this, potentialDeadlockException.getConflictingStackTrace(), null));
                 return;
             }
             ExampleStackTrace c2 = cVar.c(this, Sets.e());
             if (c2 == null) {
-                this.f31509a.put(cVar, new ExampleStackTrace(cVar, this));
+                this.f31438a.put(cVar, new ExampleStackTrace(cVar, this));
                 return;
             }
             PotentialDeadlockException potentialDeadlockException2 = new PotentialDeadlockException(cVar, this, c2, null);
-            this.f31510b.put(cVar, potentialDeadlockException2);
+            this.f31439b.put(cVar, potentialDeadlockException2);
             dVar.handlePotentialDeadlock(potentialDeadlockException2);
         }
 
@@ -280,11 +280,11 @@ public class CycleDetectingLockFactory {
 
         public final ExampleStackTrace c(c cVar, Set<c> set) {
             if (set.add(this)) {
-                ExampleStackTrace exampleStackTrace = this.f31509a.get(cVar);
+                ExampleStackTrace exampleStackTrace = this.f31438a.get(cVar);
                 if (exampleStackTrace != null) {
                     return exampleStackTrace;
                 }
-                for (Map.Entry<c, ExampleStackTrace> entry : this.f31509a.entrySet()) {
+                for (Map.Entry<c, ExampleStackTrace> entry : this.f31438a.entrySet()) {
                     c key = entry.getKey();
                     ExampleStackTrace c2 = key.c(cVar, set);
                     if (c2 != null) {
@@ -300,7 +300,7 @@ public class CycleDetectingLockFactory {
         }
 
         public String d() {
-            return this.f31511c;
+            return this.f31440c;
         }
     }
 
@@ -317,15 +317,15 @@ public class CycleDetectingLockFactory {
         MapMaker mapMaker = new MapMaker();
         mapMaker.l();
         mapMaker.i();
-        f31506b = Logger.getLogger(CycleDetectingLockFactory.class.getName());
-        f31507c = new a();
+        f31435b = Logger.getLogger(CycleDetectingLockFactory.class.getName());
+        f31436c = new a();
     }
 
     public static void e(b bVar) {
         if (bVar.isAcquiredByCurrentThread()) {
             return;
         }
-        ArrayList<c> arrayList = f31507c.get();
+        ArrayList<c> arrayList = f31436c.get();
         c lockGraphNode = bVar.getLockGraphNode();
         for (int size = arrayList.size() - 1; size >= 0; size--) {
             if (arrayList.get(size) == lockGraphNode) {
@@ -339,9 +339,9 @@ public class CycleDetectingLockFactory {
         if (bVar.isAcquiredByCurrentThread()) {
             return;
         }
-        ArrayList<c> arrayList = f31507c.get();
+        ArrayList<c> arrayList = f31436c.get();
         c lockGraphNode = bVar.getLockGraphNode();
-        lockGraphNode.b(this.f31508a, arrayList);
+        lockGraphNode.b(this.f31437a, arrayList);
         arrayList.add(lockGraphNode);
     }
 

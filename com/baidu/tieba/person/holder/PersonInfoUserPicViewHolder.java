@@ -10,73 +10,73 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.j.e.n;
-import d.a.j0.t.o;
+import d.a.m0.t.o;
 /* loaded from: classes5.dex */
 public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbImageView f19714a;
+    public TbImageView f19636a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f19715b;
+    public TextView f19637b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f19716c;
+    public View f19638c;
 
     /* renamed from: d  reason: collision with root package name */
-    public n f19717d;
+    public n f19639d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19718e;
+    public int f19640e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f19719f;
+    public View.OnClickListener f19641f;
 
     public PersonInfoUserPicViewHolder(View view) {
         super(view);
-        this.f19718e = 3;
+        this.f19640e = 3;
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.photo_image_view);
-        this.f19714a = tbImageView;
+        this.f19636a = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-        this.f19716c = view.findViewById(R.id.normal_pic_click_bg);
-        this.f19715b = (TextView) view.findViewById(R.id.tip_default_view);
+        this.f19638c = view.findViewById(R.id.normal_pic_click_bg);
+        this.f19637b = (TextView) view.findViewById(R.id.tip_default_view);
     }
 
     public void b(n nVar) {
         if (nVar instanceof o) {
-            this.f19717d = nVar;
+            this.f19639d = nVar;
             o oVar = (o) nVar;
             if (oVar.f()) {
                 String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(oVar.e());
-                this.f19715b.setVisibility(0);
+                this.f19637b.setVisibility(0);
                 if (StringUtils.isNull(headPortraitFilter)) {
-                    this.f19714a.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
+                    this.f19636a.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
                 } else {
-                    this.f19714a.V(headPortraitFilter, 25, false);
+                    this.f19636a.V(headPortraitFilter, 25, false);
                 }
             } else {
-                this.f19714a.setDefaultResource(R.drawable.img_default_100);
-                this.f19715b.setVisibility(8);
-                this.f19714a.V(oVar.e(), 10, false);
+                this.f19636a.setDefaultResource(R.drawable.img_default_100);
+                this.f19637b.setVisibility(8);
+                this.f19636a.V(oVar.e(), 10, false);
             }
-            a().setOnClickListener(this.f19719f);
+            a().setOnClickListener(this.f19641f);
             d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public n c() {
-        return this.f19717d;
+        return this.f19639d;
     }
 
     public void d(int i2) {
-        if (this.f19718e != i2) {
-            SkinManager.setViewTextColor(this.f19715b, R.color.CAM_X0111, 1);
-            SkinManager.setBackgroundColor(this.f19715b, R.color.black_alpha50);
-            this.f19718e = i2;
+        if (this.f19640e != i2) {
+            SkinManager.setViewTextColor(this.f19637b, R.color.CAM_X0111, 1);
+            SkinManager.setBackgroundColor(this.f19637b, R.color.black_alpha50);
+            this.f19640e = i2;
         }
     }
 
     public void e(View.OnClickListener onClickListener) {
-        this.f19719f = onClickListener;
+        this.f19641f = onClickListener;
     }
 }

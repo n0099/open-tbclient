@@ -5,22 +5,22 @@ import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public PayType f68834a;
+    public PayType f68877a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68835b;
+    public String f68878b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68836c;
+    public String f68879c;
 
     public d(PayType payType, String str, String str2) {
-        this.f68835b = "";
-        this.f68834a = payType;
-        this.f68835b = str;
-        this.f68836c = str2;
+        this.f68878b = "";
+        this.f68877a = payType;
+        this.f68878b = str;
+        this.f68879c = str2;
     }
 
     public String a() {
-        return this.f68835b;
+        return this.f68878b;
     }
 }

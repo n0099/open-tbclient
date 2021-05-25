@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import d.a.c.e.p.j;
 import d.a.c.j.e.n;
-import d.a.j0.r.f0.f;
-import d.a.k0.o0.c.d;
-import d.a.k0.q0.c1;
-import d.a.k0.q0.t0;
-import d.a.k0.q0.z0;
+import d.a.m0.r.f0.f;
+import d.a.n0.p0.c.d;
+import d.a.n0.r0.c1;
+import d.a.n0.r0.t0;
+import d.a.n0.r0.z0;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -20,7 +20,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public String mForumName;
     public d mModel;
     public z0 mPageInfo;
-    public d.a.k0.o0.c.o.b mView;
+    public d.a.n0.p0.c.o.b mView;
     public List<n> mListViewData = null;
     public t0 mCallback = new a();
     public NoNetworkView.b mNetworkChangeListener = new b();
@@ -30,14 +30,14 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         public a() {
         }
 
-        @Override // d.a.k0.q0.t0
+        @Override // d.a.n0.r0.t0
         public void a(int i2, int i3, c1 c1Var, ArrayList<n> arrayList) {
             ForumMemberActivity.this.mView.d();
             ForumMemberActivity.this.mView.c();
             if (arrayList != null) {
                 Iterator<n> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    if (it.next() instanceof d.a.k0.q0.n) {
+                    if (it.next() instanceof d.a.n0.r0.n) {
                         it.remove();
                     }
                 }
@@ -48,7 +48,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 ForumMemberActivity.this.mView.f(ForumMemberActivity.this.mListViewData);
             } else if (!ListUtils.isEmpty(ForumMemberActivity.this.mListViewData) || c1Var == null) {
             } else {
-                ForumMemberActivity.this.mView.l(c1Var.f58267f);
+                ForumMemberActivity.this.mView.l(c1Var.f58408f);
             }
         }
     }
@@ -84,8 +84,8 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         }
         z0 z0Var = new z0();
         this.mPageInfo = z0Var;
-        z0Var.f59729b = this.mForumId;
-        z0Var.f59728a = this.mForumName;
+        z0Var.f59870b = this.mForumId;
+        z0Var.f59869a = this.mForumName;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -104,7 +104,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initBundle(bundle);
-        d.a.k0.o0.c.o.b bVar = new d.a.k0.o0.c.o.b(this);
+        d.a.n0.p0.c.o.b bVar = new d.a.n0.p0.c.o.b(this);
         this.mView = bVar;
         bVar.j(this.mNetworkChangeListener);
         d dVar = new d();
@@ -119,13 +119,13 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public void onDestroy() {
         super.onDestroy();
         this.mModel.e();
-        d.a.k0.o0.c.o.b bVar = this.mView;
+        d.a.n0.p0.c.o.b bVar = this.mView;
         if (bVar != null) {
             bVar.i();
         }
     }
 
-    @Override // d.a.j0.r.f0.f.g
+    @Override // d.a.m0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
         this.mModel.m(3, 0, this.mPageInfo);
     }

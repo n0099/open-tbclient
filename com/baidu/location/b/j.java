@@ -13,36 +13,36 @@ import javax.crypto.spec.SecretKeySpec;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public IvParameterSpec f6620a;
+    public IvParameterSpec f6520a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SecretKeySpec f6621b;
+    public SecretKeySpec f6521b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Cipher f6622c;
+    public Cipher f6522c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f6623d;
+    public boolean f6523d;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static j f6624a = new j();
+        public static j f6524a = new j();
     }
 
     public j() {
-        this.f6623d = false;
+        this.f6523d = false;
         try {
             String str = Jni.getldkaiv();
             if (str == null || !str.contains(FieldBuilder.SE)) {
                 return;
             }
             String[] split = str.split("\\|");
-            this.f6620a = new IvParameterSpec(split[1].getBytes("UTF-8"));
-            this.f6621b = new SecretKeySpec(split[0].getBytes("UTF-8"), "AES");
-            this.f6622c = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            this.f6623d = true;
+            this.f6520a = new IvParameterSpec(split[1].getBytes("UTF-8"));
+            this.f6521b = new SecretKeySpec(split[0].getBytes("UTF-8"), "AES");
+            this.f6522c = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+            this.f6523d = true;
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         } catch (NoSuchAlgorithmException e3) {
@@ -53,14 +53,14 @@ public class j {
     }
 
     public static j a() {
-        return a.f6624a;
+        return a.f6524a;
     }
 
     public String a(String str) {
-        if (this.f6623d) {
+        if (this.f6523d) {
             try {
-                this.f6622c.init(2, this.f6621b, this.f6620a);
-                return new String(this.f6622c.doFinal(Base64.decode(str, 0)), "UTF-8");
+                this.f6522c.init(2, this.f6521b, this.f6520a);
+                return new String(this.f6522c.doFinal(Base64.decode(str, 0)), "UTF-8");
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -70,6 +70,6 @@ public class j {
     }
 
     public boolean b() {
-        return this.f6623d;
+        return this.f6523d;
     }
 }

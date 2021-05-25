@@ -13,31 +13,31 @@ import org.json.JSONObject;
 public class d implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32302a;
+    public String f32231a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32303b;
+    public String f32232b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32304c;
+    public String f32233c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32305d;
+    public String f32234d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32306e;
+    public String f32235e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32307f;
+    public String f32236f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f32308g;
+    public int f32237g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f32309h;
+    public int f32238h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32310i;
+    public String f32239i;
     public int j;
     public int k;
     public String l;
@@ -62,18 +62,18 @@ public class d implements com.kwad.sdk.core.b {
 
     public static d a(boolean z, int i2) {
         d dVar = new d();
-        dVar.f32303b = ai.d(KsAdSDKImpl.get().getContext());
+        dVar.f32232b = ai.d(KsAdSDKImpl.get().getContext());
         String[] f2 = ai.f(KsAdSDKImpl.get().getContext());
-        dVar.f32304c = f2[0];
-        dVar.f32305d = f2[1];
-        dVar.f32306e = ai.e(KsAdSDKImpl.get().getContext());
-        dVar.f32307f = com.kwad.sdk.core.f.a.a();
+        dVar.f32233c = f2[0];
+        dVar.f32234d = f2[1];
+        dVar.f32235e = ai.e(KsAdSDKImpl.get().getContext());
+        dVar.f32236f = com.kwad.sdk.core.f.a.a();
         dVar.p = ai.e();
         dVar.q = ai.f();
-        dVar.f32308g = 1;
-        dVar.f32309h = ai.k();
-        dVar.f32310i = ai.j();
-        dVar.f32302a = ai.l();
+        dVar.f32237g = 1;
+        dVar.f32238h = ai.k();
+        dVar.f32239i = ai.j();
+        dVar.f32231a = ai.l();
         dVar.k = ai.j(KsAdSDKImpl.get().getContext());
         dVar.j = ai.i(KsAdSDKImpl.get().getContext());
         dVar.l = ai.k(KsAdSDKImpl.get().getContext());
@@ -114,17 +114,17 @@ public class d implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "imei", this.f32303b);
-        o.a(jSONObject, "imei1", this.f32304c);
-        o.a(jSONObject, IAdRequestParam.IMEI2, this.f32305d);
-        o.a(jSONObject, "meid", this.f32306e);
-        o.a(jSONObject, "oaid", this.f32307f);
+        o.a(jSONObject, "imei", this.f32232b);
+        o.a(jSONObject, "imei1", this.f32233c);
+        o.a(jSONObject, IAdRequestParam.IMEI2, this.f32234d);
+        o.a(jSONObject, "meid", this.f32235e);
+        o.a(jSONObject, "oaid", this.f32236f);
         o.a(jSONObject, "deviceModel", this.p);
         o.a(jSONObject, "deviceBrand", this.q);
-        o.a(jSONObject, "osType", this.f32308g);
-        o.a(jSONObject, "osVersion", this.f32310i);
-        o.a(jSONObject, "osApi", this.f32309h);
-        o.a(jSONObject, "language", this.f32302a);
+        o.a(jSONObject, "osType", this.f32237g);
+        o.a(jSONObject, "osVersion", this.f32239i);
+        o.a(jSONObject, "osApi", this.f32238h);
+        o.a(jSONObject, "language", this.f32231a);
         o.a(jSONObject, "androidId", this.l);
         o.a(jSONObject, "deviceId", this.m);
         o.a(jSONObject, "deviceVendor", this.n);

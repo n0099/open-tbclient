@@ -17,35 +17,35 @@ import java.util.Map;
 public class AlbumImagePagerAdapter extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragmentActivity f21852a;
+    public BaseFragmentActivity f21780a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f21853b;
+    public LayoutInflater f21781b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<ImageFileInfo> f21854c;
+    public List<ImageFileInfo> f21782c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<Integer, Boolean> f21855d = new HashMap();
+    public Map<Integer, Boolean> f21783d = new HashMap();
 
     public AlbumImagePagerAdapter(BaseFragmentActivity baseFragmentActivity) {
-        this.f21852a = baseFragmentActivity;
-        this.f21853b = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
+        this.f21780a = baseFragmentActivity;
+        this.f21781b = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
     }
 
     public ImageFileInfo b(int i2) {
-        return (ImageFileInfo) ListUtils.getItem(this.f21854c, i2);
+        return (ImageFileInfo) ListUtils.getItem(this.f21782c, i2);
     }
 
     public boolean c(int i2) {
-        if (this.f21855d.get(Integer.valueOf(i2)) == null) {
+        if (this.f21783d.get(Integer.valueOf(i2)) == null) {
             return false;
         }
-        return this.f21855d.get(Integer.valueOf(i2)).booleanValue();
+        return this.f21783d.get(Integer.valueOf(i2)).booleanValue();
     }
 
     public void d(List<ImageFileInfo> list) {
-        this.f21854c = list;
+        this.f21782c = list;
         notifyDataSetChanged();
     }
 
@@ -56,12 +56,12 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return ListUtils.getCount(this.f21854c);
+        return ListUtils.getCount(this.f21782c);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i2) {
-        View inflate = this.f21853b.inflate(R.layout.album_big_image_item, (ViewGroup) null);
+        View inflate = this.f21781b.inflate(R.layout.album_big_image_item, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultBgResource(0);
@@ -78,7 +78,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         if (b2 != null) {
             tbImageView2.W(b2.getFilePath(), 35, false, true);
             tbImageView.V(b2.getFilePath(), 36, false);
-            this.f21855d.put(Integer.valueOf(i2), Boolean.TRUE);
+            this.f21783d.put(Integer.valueOf(i2), Boolean.TRUE);
         }
         viewGroup.addView(inflate, 0);
         SkinManager.setBackgroundColor(inflate, R.color.CAM_X0201);

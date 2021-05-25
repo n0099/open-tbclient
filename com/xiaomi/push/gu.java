@@ -5,21 +5,21 @@ import com.xiaomi.push.service.av;
 public /* synthetic */ class gu {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f37763a;
+    public static final /* synthetic */ int[] f37692a;
 
     static {
         int[] iArr = new int[av.c.values().length];
-        f37763a = iArr;
+        f37692a = iArr;
         try {
             iArr[av.c.unbind.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f37763a[av.c.binding.ordinal()] = 2;
+            f37692a[av.c.binding.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f37763a[av.c.binded.ordinal()] = 3;
+            f37692a[av.c.binded.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
     }

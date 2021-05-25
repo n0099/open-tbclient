@@ -3,11 +3,11 @@ package com.pgl.sys.ces;
 import android.content.Context;
 import java.security.MessageDigest;
 import java.util.Calendar;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static String a() {
         try {
-            Context applicationContext = b.a().f35191b != null ? b.a().f35191b : d.m.b.b.a.a.d().getApplicationContext();
+            Context applicationContext = b.a().f35120b != null ? b.a().f35120b : d.m.b.b.a.a.d().getApplicationContext();
             return d.m.a.b.a.a(MessageDigest.getInstance("SHA1").digest(applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 64).signatures[0].toByteArray())).toUpperCase();
         } catch (Throwable unused) {
             return "0000000000000000000000000000000000000000";

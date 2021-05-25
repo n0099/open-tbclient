@@ -2,6 +2,7 @@ package com.baidu.tbadk.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.viewpager.widget.ViewPager;
@@ -9,11 +10,12 @@ import androidx.viewpager.widget.ViewPager;
 public class CustomViewPager extends TbViewPager {
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13046i;
+    public boolean f12954i;
     public int j;
     public boolean k;
     public int l;
     public ViewPager.OnPageChangeListener m;
+    public GestureDetector n;
 
     /* loaded from: classes3.dex */
     public class a implements ViewPager.OnPageChangeListener {
@@ -58,7 +60,7 @@ public class CustomViewPager extends TbViewPager {
 
     public CustomViewPager(Context context) {
         super(context);
-        this.f13046i = true;
+        this.f12954i = true;
         this.j = 0;
         this.k = false;
         this.l = -1;
@@ -83,22 +85,26 @@ public class CustomViewPager extends TbViewPager {
 
     @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.f13046i) {
-            if (getCurrentItem() != 0) {
-                getParent().requestDisallowInterceptTouchEvent(true);
+        if (!this.f12954i) {
+            GestureDetector gestureDetector = this.n;
+            if (gestureDetector != null) {
+                return gestureDetector.onTouchEvent(motionEvent);
             }
-            try {
-                return super.onInterceptTouchEvent(motionEvent);
-            } catch (Exception unused) {
-                return false;
-            }
+            return false;
         }
-        return false;
+        if (getCurrentItem() != 0) {
+            getParent().requestDisallowInterceptTouchEvent(true);
+        }
+        try {
+            return super.onInterceptTouchEvent(motionEvent);
+        } catch (Exception unused) {
+            return false;
+        }
     }
 
     @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.f13046i) {
+        if (this.f12954i) {
             return super.onTouchEvent(motionEvent);
         }
         return false;
@@ -110,12 +116,17 @@ public class CustomViewPager extends TbViewPager {
     }
 
     public void setScrollable(boolean z) {
-        this.f13046i = z;
+        this.f12954i = z;
+    }
+
+    public void setScrollable(boolean z, GestureDetector gestureDetector) {
+        this.f12954i = z;
+        this.n = gestureDetector;
     }
 
     public CustomViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13046i = true;
+        this.f12954i = true;
         this.j = 0;
         this.k = false;
         this.l = -1;

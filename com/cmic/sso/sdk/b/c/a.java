@@ -22,23 +22,23 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f30601a;
+    public static a f30530a;
 
     public static a a() {
-        if (f30601a == null) {
+        if (f30530a == null) {
             synchronized (a.class) {
-                if (f30601a == null) {
-                    f30601a = new a();
+                if (f30530a == null) {
+                    f30530a = new a();
                 }
             }
         }
-        return f30601a;
+        return f30530a;
     }
 
     public void b(com.cmic.sso.sdk.a aVar, d dVar) {
         int c2 = aVar.c("networktype");
         com.cmic.sso.sdk.b.b.a aVar2 = new com.cmic.sso.sdk.b.b.a();
-        a.C0327a c0327a = new a.C0327a();
+        a.C0328a c0328a = new a.C0328a();
         aVar2.f("0.1");
         aVar2.i(aVar.b("phonescrip"));
         aVar2.h(aVar.b("appid"));
@@ -52,23 +52,23 @@ public class a {
         aVar2.k(aVar.b("authenticated_appid"));
         aVar2.l(aVar.b("genTokenByAppid"));
         aVar2.j(aVar2.m(aVar.b("appkey")));
-        c0327a.b(n.c());
-        c0327a.a(k.b("AID", ""));
-        c0327a.c(n.b());
-        c0327a.d(n.a());
-        c0327a.e(aVar.b("operatortype", ""));
-        c0327a.f("0");
-        c0327a.g(c2 + "");
-        c0327a.h(r.a(false));
-        c0327a.i(r.a(false, false));
-        c0327a.j(aVar.b("CLOSE_CERT_VERIFY", true) ? "0" : "1");
+        c0328a.b(n.c());
+        c0328a.a(k.b("AID", ""));
+        c0328a.c(n.b());
+        c0328a.d(n.a());
+        c0328a.e(aVar.b("operatortype", ""));
+        c0328a.f("0");
+        c0328a.g(c2 + "");
+        c0328a.h(r.a(false));
+        c0328a.i(r.a(false, false));
+        c0328a.j(aVar.b("CLOSE_CERT_VERIFY", true) ? "0" : "1");
         String f2 = q.f();
         if (m.a()) {
-            c0327a.k("1");
+            c0328a.k("1");
         } else {
-            c0327a.k("0");
+            c0328a.k("0");
         }
-        aVar2.a(c0327a.a());
+        aVar2.a(c0328a.a());
         s.a(aVar, "getAuthToken");
         aVar.a("interfaceVersion", "6.0");
         a(new c(f2 + "/api/getAuthToken", aVar2, "POST", aVar.b("traceId")), dVar, aVar);
@@ -110,13 +110,13 @@ public class a {
         aVar2.q(p.a());
         aVar2.r(aVar.b("apppackage"));
         aVar2.s(aVar.b("appsign"));
-        eVar.a(aVar.a(b.a.f30529a));
+        eVar.a(aVar.a(b.a.f30458a));
         if (aVar.b("use2048PublicKey", false)) {
             com.cmic.sso.sdk.d.c.a(BaseRequest.TAG, "使用2对应的编码");
             eVar.a("2");
-            a2 = i.a().b(aVar.a(b.a.f30529a));
+            a2 = i.a().b(aVar.a(b.a.f30458a));
         } else {
-            a2 = i.a().a(aVar.a(b.a.f30529a));
+            a2 = i.a().a(aVar.a(b.a.f30458a));
         }
         eVar.b(a2);
         eVar.a(aVar2);

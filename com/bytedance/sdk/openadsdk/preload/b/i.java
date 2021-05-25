@@ -5,16 +5,16 @@ import java.util.List;
 public final class i implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f30017a;
+    public e f29946a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30018b;
+    public int f29947b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<h> f30019c;
+    public List<h> f29948c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f30020d;
+    public d f29949d;
 
     /* loaded from: classes6.dex */
     public static final class a extends Exception {
@@ -24,16 +24,16 @@ public final class i implements b {
     }
 
     public i(List<h> list, int i2, e eVar, d dVar) {
-        this.f30019c = list;
-        this.f30018b = i2;
-        this.f30017a = eVar;
-        this.f30020d = dVar;
+        this.f29948c = list;
+        this.f29947b = i2;
+        this.f29946a = eVar;
+        this.f29949d = dVar;
     }
 
     private d c(Class cls) {
-        d dVar = this.f30020d;
+        d dVar = this.f29949d;
         while (dVar != null && dVar.getClass() != cls) {
-            dVar = dVar.f29998a;
+            dVar = dVar.f29927a;
         }
         return dVar;
     }
@@ -42,21 +42,21 @@ public final class i implements b {
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.bytedance.sdk.openadsdk.preload.b.b
     public Object a(Object obj) throws Exception {
-        d dVar = this.f30020d;
+        d dVar = this.f29949d;
         if (dVar != null) {
-            dVar.f30000c = obj;
+            dVar.f29929c = obj;
             dVar.f();
         }
-        if (this.f30018b >= this.f30019c.size()) {
+        if (this.f29947b >= this.f29948c.size()) {
             return obj;
         }
-        h hVar = this.f30019c.get(this.f30018b);
+        h hVar = this.f29948c.get(this.f29947b);
         Class<? extends d> a2 = hVar.a();
-        d dVar2 = (d) this.f30017a.a(a2);
+        d dVar2 = (d) this.f29946a.a(a2);
         if (dVar2 != null) {
             com.bytedance.sdk.openadsdk.preload.b.b.a b2 = hVar.b();
-            i iVar = new i(this.f30019c, this.f30018b + 1, this.f30017a, dVar2);
-            dVar2.a(iVar, this.f30020d, obj, b2, hVar.c());
+            i iVar = new i(this.f29948c, this.f29947b + 1, this.f29946a, dVar2);
+            dVar2.a(iVar, this.f29949d, obj, b2, hVar.c());
             dVar2.d();
             try {
                 Object a_ = dVar2.a_(iVar, obj);
@@ -77,7 +77,7 @@ public final class i implements b {
     public Object b(Class cls) {
         d c2 = c(cls);
         if (c2 != null) {
-            return c2.f30000c;
+            return c2.f29929c;
         }
         throw new IllegalArgumentException("can not find pre Interceptor , class:" + cls);
     }
@@ -86,7 +86,7 @@ public final class i implements b {
     public Object a(Class cls) {
         d c2 = c(cls);
         if (c2 != null) {
-            return c2.f29999b;
+            return c2.f29928b;
         }
         throw new IllegalArgumentException("can not find pre Interceptor , class:" + cls);
     }

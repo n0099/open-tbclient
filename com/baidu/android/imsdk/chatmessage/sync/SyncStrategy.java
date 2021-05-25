@@ -20,7 +20,6 @@ public abstract class SyncStrategy {
     public static final int DEFAULT_AOUNT_EACH_FETCH = 100;
     public static final int DEFAULT_COUNT_JUMP_TO_RECENT_EACH_FETCH = 200;
     public static final int DEFAULT_LOGIN_FETCH_SLEEP_TIME = 6000;
-    public static final String FETCHED_MAX_NOTIFY_MSGID = "fetched_max_msgid";
     public static final int FETCHING = 1;
     public static final int IDEL = 2;
     public static final int MAX_RETRY_TIMES = 2;

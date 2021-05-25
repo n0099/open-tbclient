@@ -14,16 +14,16 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.e0.c;
-import d.a.j0.e0.d;
+import d.a.m0.e0.c;
+import d.a.m0.e0.d;
 /* loaded from: classes3.dex */
-public class MemberCenterDelegateStatic extends d.a.j0.e0.b {
+public class MemberCenterDelegateStatic extends d.a.m0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f18317a;
+    public ImageView f18227a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f18318b;
+    public CustomMessageListener f18228b;
 
     /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
@@ -43,7 +43,7 @@ public class MemberCenterDelegateStatic extends d.a.j0.e0.b {
             if (((d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = memberCenterDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
-            fragmentTabStructure.f49290a.setArguments(new Bundle());
+            fragmentTabStructure.f49334a.setArguments(new Bundle());
         }
     }
 
@@ -60,16 +60,16 @@ public class MemberCenterDelegateStatic extends d.a.j0.e0.b {
                 return;
             }
             if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                MemberCenterDelegateStatic.this.f18317a.setVisibility(8);
+                MemberCenterDelegateStatic.this.f18227a.setVisibility(8);
             } else if (!TbadkCoreApplication.isLogin()) {
-                MemberCenterDelegateStatic.this.f18317a.setVisibility(8);
+                MemberCenterDelegateStatic.this.f18227a.setVisibility(8);
             } else {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                d.a.j0.r.d0.b j = d.a.j0.r.d0.b.j();
+                d.a.m0.r.d0.b j = d.a.m0.r.d0.b.j();
                 if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() > j.l("maintab_member_center_red_tip_" + currentAccount, 0L)) {
-                    MemberCenterDelegateStatic.this.f18317a.setVisibility(0);
+                    MemberCenterDelegateStatic.this.f18227a.setVisibility(0);
                 } else {
-                    MemberCenterDelegateStatic.this.f18317a.setVisibility(8);
+                    MemberCenterDelegateStatic.this.f18227a.setVisibility(8);
                 }
             }
         }
@@ -79,45 +79,45 @@ public class MemberCenterDelegateStatic extends d.a.j0.e0.b {
         new a(2007002);
     }
 
-    @Override // d.a.j0.e0.b
+    @Override // d.a.m0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f49290a = new MemberCenterFragment();
-        cVar.f49294e = 14;
-        cVar.f49291b = R.string.member;
+        cVar.f49334a = new MemberCenterFragment();
+        cVar.f49338e = 14;
+        cVar.f49335b = R.string.member;
         return cVar;
     }
 
-    @Override // d.a.j0.e0.b
+    @Override // d.a.m0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.f18317a = new ImageView(context);
+        this.f18227a = new ImageView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.f12964f = this.mIndicator;
-        aVar.f12961c = l.e(context, 3.0f);
-        ImageView imageView = this.f18317a;
-        aVar.f12959a = imageView;
-        aVar.f12962d = R.drawable.icon_news_down_bar_one;
+        aVar.f12872f = this.mIndicator;
+        aVar.f12869c = l.e(context, 3.0f);
+        ImageView imageView = this.f18227a;
+        aVar.f12867a = imageView;
+        aVar.f12870d = R.drawable.icon_news_down_bar_one;
         imageView.setVisibility(8);
         this.mIndicator.a("member_center_red_tip", aVar);
         return this.mIndicator;
     }
 
-    @Override // d.a.j0.e0.b
+    @Override // d.a.m0.e0.b
     public boolean isAvailable() {
         return MainTabActivityConfig.MEMBER_CENTER_TAB_AVAILABLE;
     }
 
-    @Override // d.a.j0.e0.b
+    @Override // d.a.m0.e0.b
     public void onAdd() {
         super.onAdd();
-        this.f18318b = new b(2016459);
+        this.f18228b = new b(2016459);
     }
 
-    @Override // d.a.j0.e0.b
+    @Override // d.a.m0.e0.b
     public void onRemove() {
         super.onRemove();
-        this.f18317a = null;
-        MessageManager.getInstance().unRegisterListener(this.f18318b);
+        this.f18227a = null;
+        MessageManager.getInstance().unRegisterListener(this.f18228b);
     }
 }

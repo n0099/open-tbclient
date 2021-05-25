@@ -14,22 +14,22 @@ import org.json.JSONObject;
 public class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8812a;
+    public static String f8712a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<WebView> f8813b;
+    public WeakReference<WebView> f8713b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f8814c;
+    public WeakReference<Activity> f8714c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f8815d;
+    public JSONObject f8715d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f8816e;
+    public boolean f8716e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f8817f;
+    public boolean f8717f;
 
     public static void b(Activity activity, final WebView webView, Rect rect) {
         int i2;
@@ -67,7 +67,7 @@ public class bl {
         Activity activity;
         WeakReference<WebView> weakReference;
         WebView webView;
-        if (bd.c().b() && this.f8817f) {
+        if (bd.c().b() && this.f8717f) {
             bd c2 = bd.c();
             c2.a("setEventToNative: " + str);
         }
@@ -75,8 +75,8 @@ public class bl {
             bh c3 = bh.c();
             c3.a("setEventToNative: " + str);
         }
-        WeakReference<Activity> weakReference2 = this.f8814c;
-        if (weakReference2 == null || (activity = weakReference2.get()) == null || (weakReference = this.f8813b) == null || (webView = weakReference.get()) == null) {
+        WeakReference<Activity> weakReference2 = this.f8714c;
+        if (weakReference2 == null || (activity = weakReference2.get()) == null || (weakReference = this.f8713b) == null || (webView = weakReference.get()) == null) {
             return;
         }
         a(str, activity, webView);
@@ -88,11 +88,11 @@ public class bl {
             bd c2 = bd.c();
             c2.a("setViewportTreeToNative " + str);
         }
-        f8812a = str;
+        f8712a = str;
     }
 
     public static String a(Activity activity, WebView webView, Rect rect) {
-        f8812a = "";
+        f8712a = "";
         b(activity, webView, rect);
         int i2 = 0;
         while (true) {
@@ -104,8 +104,8 @@ public class bl {
                 Thread.sleep(20L);
             } catch (Exception unused) {
             }
-            if (!TextUtils.isEmpty(f8812a)) {
-                return f8812a;
+            if (!TextUtils.isEmpty(f8712a)) {
+                return f8712a;
             }
             i2 = i3;
         }
@@ -116,8 +116,8 @@ public class bl {
             return;
         }
         if (z) {
-            this.f8817f = z;
-            this.f8815d = jSONObject;
+            this.f8717f = z;
+            this.f8715d = jSONObject;
         }
         if (z) {
             bd.c().a("injectTrackJs circleConfig: " + jSONObject);
@@ -132,17 +132,17 @@ public class bl {
             }
         }
         if (activity != null) {
-            this.f8814c = new WeakReference<>(activity);
+            this.f8714c = new WeakReference<>(activity);
         }
         if (webView != null) {
-            this.f8813b = new WeakReference<>(webView);
+            this.f8713b = new WeakReference<>(webView);
         }
-        this.f8816e = z;
+        this.f8716e = z;
         String a2 = a();
         if (TextUtils.isEmpty(a2)) {
             a2 = new JSONObject().toString();
         }
-        if (bd.c().b() && this.f8817f) {
+        if (bd.c().b() && this.f8717f) {
             bd.c().a("injectTrackJs h5Config: " + a2);
         }
         if (bh.c().b()) {
@@ -155,8 +155,8 @@ public class bl {
     }
 
     private boolean a(WebView webView, boolean z) {
-        WeakReference<WebView> weakReference = this.f8813b;
-        return (weakReference == null || weakReference.get() != webView || this.f8816e == z) ? false : true;
+        WeakReference<WebView> weakReference = this.f8713b;
+        return (weakReference == null || weakReference.get() != webView || this.f8716e == z) ? false : true;
     }
 
     private String a() {
@@ -231,9 +231,9 @@ public class bl {
             Map<String, String> g2 = bj.g(webView);
             Context applicationContext = activity.getApplicationContext();
             long currentTimeMillis = System.currentTimeMillis();
-            if (a(this.f8815d, activity.getClass().getName(), str5, a3, b2)) {
+            if (a(this.f8715d, activity.getClass().getName(), str5, a3, b2)) {
                 BDStatCore.instance().onEvent(applicationContext, "", str422, 1, System.currentTimeMillis(), a2, jSONArray222, name, str5, f2, g2, true);
-            } else if (bd.c().b() && this.f8817f) {
+            } else if (bd.c().b() && this.f8717f) {
                 bd.c().a("setEventToNative: not circle event, will not take effect");
             }
             aw.a().a(applicationContext, "", str422, 1, currentTimeMillis, name, a2, str5, jSONArray222, f2, g2, true, jSONObject322, "");

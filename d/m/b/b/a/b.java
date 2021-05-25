@@ -8,13 +8,13 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final FileFilter f66448a = new a();
+    public static final FileFilter f66491a = new a();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements FileFilter {
         @Override // java.io.FileFilter
         public boolean accept(File file) {
@@ -146,7 +146,7 @@ public class b {
 
     public static int e() {
         try {
-            return new File("/sys/devices/system/cpu/").listFiles(f66448a).length;
+            return new File("/sys/devices/system/cpu/").listFiles(f66491a).length;
         } catch (Throwable unused) {
             return -1;
         }

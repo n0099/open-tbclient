@@ -11,32 +11,32 @@ import java.util.List;
 public class ac extends PayBaseBean<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25189a;
+    public String f25118a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25190b;
+    public String f25119b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25191c;
+    public String f25120c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25192d;
+    public String f25121d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25193e;
+    public String f25122e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25194f;
+    public String f25123f;
 
     public ac(Context context) {
         super(context);
     }
 
     public void a(String str, String str2, String str3, String str4) {
-        this.f25189a = str;
-        this.f25190b = str2;
-        this.f25191c = str3;
-        this.f25192d = str4;
+        this.f25118a = str;
+        this.f25119b = str2;
+        this.f25120c = str3;
+        this.f25121d = str4;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -47,15 +47,15 @@ public class ac extends PayBaseBean<Object> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("mobile_pwd", this.f25189a));
-        arrayList.add(new RestNameValuePair("seed", this.f25190b));
-        arrayList.add(new RestNameValuePair("new_passfree_status", this.f25191c));
-        arrayList.add(new RestNameValuePair("new_passfree_credit", this.f25192d));
-        if (!TextUtils.isEmpty(this.f25193e)) {
-            arrayList.add(new RestNameValuePair("mobile", PayUtils.encrypt("phone_number", this.f25193e)));
+        arrayList.add(new RestNameValuePair("mobile_pwd", this.f25118a));
+        arrayList.add(new RestNameValuePair("seed", this.f25119b));
+        arrayList.add(new RestNameValuePair("new_passfree_status", this.f25120c));
+        arrayList.add(new RestNameValuePair("new_passfree_credit", this.f25121d));
+        if (!TextUtils.isEmpty(this.f25122e)) {
+            arrayList.add(new RestNameValuePair("mobile", PayUtils.encrypt("phone_number", this.f25122e)));
         }
-        if (!TextUtils.isEmpty(this.f25194f)) {
-            arrayList.add(new RestNameValuePair("sms_vcode", this.f25194f));
+        if (!TextUtils.isEmpty(this.f25123f)) {
+            arrayList.add(new RestNameValuePair("sms_vcode", this.f25123f));
         }
         return arrayList;
     }
@@ -71,7 +71,7 @@ public class ac extends PayBaseBean<Object> {
     }
 
     public void a(String str, String str2) {
-        this.f25193e = str;
-        this.f25194f = str2;
+        this.f25122e = str;
+        this.f25123f = str2;
     }
 }

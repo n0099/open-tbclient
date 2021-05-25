@@ -44,37 +44,37 @@ public class MP3TrackImpl extends AbstractTrack {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f31550a;
+        public int f31479a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31551b;
+        public int f31480b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31552c;
+        public int f31481c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f31553d;
+        public int f31482d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31554e;
+        public int f31483e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31555f;
+        public int f31484f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f31556g;
+        public int f31485g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f31557h;
+        public int f31486h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f31558i;
+        public int f31487i;
 
         public a(MP3TrackImpl mP3TrackImpl) {
         }
 
         public int a() {
-            return ((this.f31553d * 144) / this.f31555f) + this.f31556g;
+            return ((this.f31482d * 144) / this.f31484f) + this.f31485g;
         }
     }
 
@@ -89,7 +89,7 @@ public class MP3TrackImpl extends AbstractTrack {
         this.samples = new LinkedList();
         a readSamples = readSamples(dataSource);
         this.firstHeader = readSamples;
-        double d2 = readSamples.f31555f / 1152.0d;
+        double d2 = readSamples.f31484f / 1152.0d;
         double size = this.samples.size() / d2;
         LinkedList linkedList = new LinkedList();
         Iterator<Sample> it = this.samples.iterator();
@@ -100,8 +100,8 @@ public class MP3TrackImpl extends AbstractTrack {
                 this.avgBitRate = (int) ((j * 8) / size);
                 this.sampleDescriptionBox = new SampleDescriptionBox();
                 AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
-                audioSampleEntry.setChannelCount(this.firstHeader.f31558i);
-                audioSampleEntry.setSampleRate(this.firstHeader.f31555f);
+                audioSampleEntry.setChannelCount(this.firstHeader.f31487i);
+                audioSampleEntry.setSampleRate(this.firstHeader.f31484f);
                 audioSampleEntry.setDataReferenceIndex(1);
                 audioSampleEntry.setSampleSize(16);
                 ESDescriptorBox eSDescriptorBox = new ESDescriptorBox();
@@ -123,7 +123,7 @@ public class MP3TrackImpl extends AbstractTrack {
                 this.trackMetaData.setModificationTime(new Date());
                 this.trackMetaData.setLanguage(this.lang);
                 this.trackMetaData.setVolume(1.0f);
-                this.trackMetaData.setTimescale(this.firstHeader.f31555f);
+                this.trackMetaData.setTimescale(this.firstHeader.f31484f);
                 long[] jArr = new long[this.samples.size()];
                 this.durations = jArr;
                 Arrays.fill(jArr, 1152L);
@@ -159,27 +159,27 @@ public class MP3TrackImpl extends AbstractTrack {
         BitReaderBuffer bitReaderBuffer = new BitReaderBuffer((ByteBuffer) allocate.rewind());
         if (bitReaderBuffer.readBits(11) == 2047) {
             int readBits = bitReaderBuffer.readBits(2);
-            aVar.f31550a = readBits;
+            aVar.f31479a = readBits;
             if (readBits == 3) {
                 int readBits2 = bitReaderBuffer.readBits(2);
-                aVar.f31551b = readBits2;
+                aVar.f31480b = readBits2;
                 if (readBits2 == 1) {
                     bitReaderBuffer.readBits(1);
                     int readBits3 = bitReaderBuffer.readBits(4);
-                    aVar.f31552c = readBits3;
+                    aVar.f31481c = readBits3;
                     int i2 = BIT_RATE[readBits3];
-                    aVar.f31553d = i2;
+                    aVar.f31482d = i2;
                     if (i2 != 0) {
                         int readBits4 = bitReaderBuffer.readBits(2);
-                        aVar.f31554e = readBits4;
+                        aVar.f31483e = readBits4;
                         int i3 = SAMPLE_RATE[readBits4];
-                        aVar.f31555f = i3;
+                        aVar.f31484f = i3;
                         if (i3 != 0) {
-                            aVar.f31556g = bitReaderBuffer.readBits(1);
+                            aVar.f31485g = bitReaderBuffer.readBits(1);
                             bitReaderBuffer.readBits(1);
                             int readBits5 = bitReaderBuffer.readBits(2);
-                            aVar.f31557h = readBits5;
-                            aVar.f31558i = readBits5 == 3 ? 1 : 2;
+                            aVar.f31486h = readBits5;
+                            aVar.f31487i = readBits5 == 3 ? 1 : 2;
                             return aVar;
                         }
                         throw new IOException("Unexpected (reserved) sample rate frequency");

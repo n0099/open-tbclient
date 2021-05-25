@@ -22,7 +22,7 @@ public final class SingleDoFinally<T> extends Single<T> {
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68977d;
+        public Disposable f69020d;
         public final Action onFinally;
 
         public DoFinallyObserver(SingleObserver<? super T> singleObserver, Action action) {
@@ -32,13 +32,13 @@ public final class SingleDoFinally<T> extends Single<T> {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68977d.dispose();
+            this.f69020d.dispose();
             runFinally();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68977d.isDisposed();
+            return this.f69020d.isDisposed();
         }
 
         @Override // io.reactivex.SingleObserver
@@ -49,8 +49,8 @@ public final class SingleDoFinally<T> extends Single<T> {
 
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68977d, disposable)) {
-                this.f68977d = disposable;
+            if (DisposableHelper.validate(this.f69020d, disposable)) {
+                this.f69020d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

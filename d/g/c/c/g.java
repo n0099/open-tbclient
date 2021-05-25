@@ -5,26 +5,26 @@ import java.util.NoSuchElementException;
 public abstract class g<T> extends c1<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public T f66233e;
+    public T f66276e;
 
     public g(T t) {
-        this.f66233e = t;
+        this.f66276e = t;
     }
 
     public abstract T a(T t);
 
     @Override // java.util.Iterator
     public final boolean hasNext() {
-        return this.f66233e != null;
+        return this.f66276e != null;
     }
 
     @Override // java.util.Iterator
     public final T next() {
         if (hasNext()) {
             try {
-                return this.f66233e;
+                return this.f66276e;
             } finally {
-                this.f66233e = a(this.f66233e);
+                this.f66276e = a(this.f66276e);
             }
         }
         throw new NoSuchElementException();

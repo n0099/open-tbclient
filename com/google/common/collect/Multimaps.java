@@ -219,23 +219,23 @@ public final class Multimaps {
         public class a extends Sets.a<V> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Object f31262e;
+            public final /* synthetic */ Object f31191e;
 
             /* renamed from: com.google.common.collect.Multimaps$MapMultimap$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0337a implements Iterator<V> {
+            public class C0338a implements Iterator<V> {
 
                 /* renamed from: e  reason: collision with root package name */
-                public int f31264e;
+                public int f31193e;
 
-                public C0337a() {
+                public C0338a() {
                 }
 
                 @Override // java.util.Iterator
                 public boolean hasNext() {
-                    if (this.f31264e == 0) {
+                    if (this.f31193e == 0) {
                         a aVar = a.this;
-                        if (MapMultimap.this.map.containsKey(aVar.f31262e)) {
+                        if (MapMultimap.this.map.containsKey(aVar.f31191e)) {
                             return true;
                         }
                     }
@@ -245,34 +245,34 @@ public final class Multimaps {
                 @Override // java.util.Iterator
                 public V next() {
                     if (hasNext()) {
-                        this.f31264e++;
+                        this.f31193e++;
                         a aVar = a.this;
-                        return MapMultimap.this.map.get(aVar.f31262e);
+                        return MapMultimap.this.map.get(aVar.f31191e);
                     }
                     throw new NoSuchElementException();
                 }
 
                 @Override // java.util.Iterator
                 public void remove() {
-                    m.e(this.f31264e == 1);
-                    this.f31264e = -1;
+                    m.e(this.f31193e == 1);
+                    this.f31193e = -1;
                     a aVar = a.this;
-                    MapMultimap.this.map.remove(aVar.f31262e);
+                    MapMultimap.this.map.remove(aVar.f31191e);
                 }
             }
 
             public a(Object obj) {
-                this.f31262e = obj;
+                this.f31191e = obj;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
             public Iterator<V> iterator() {
-                return new C0337a();
+                return new C0338a();
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
             public int size() {
-                return MapMultimap.this.map.containsKey(this.f31262e) ? 1 : 0;
+                return MapMultimap.this.map.containsKey(this.f31191e) ? 1 : 0;
             }
         }
 
@@ -697,27 +697,27 @@ public final class Multimaps {
     public static final class a<K, V> extends Maps.u<K, Collection<V>> {
 
         /* renamed from: h  reason: collision with root package name */
-        public final h0<K, V> f31266h;
+        public final h0<K, V> f31195h;
 
         /* renamed from: com.google.common.collect.Multimaps$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0338a extends Maps.j<K, Collection<V>> {
+        public class C0339a extends Maps.j<K, Collection<V>> {
 
             /* renamed from: com.google.common.collect.Multimaps$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0339a implements g<K, Collection<V>> {
-                public C0339a() {
+            public class C0340a implements g<K, Collection<V>> {
+                public C0340a() {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // d.g.c.a.g
                 /* renamed from: a */
                 public Collection<V> apply(K k) {
-                    return a.this.f31266h.get(k);
+                    return a.this.f31195h.get(k);
                 }
             }
 
-            public C0338a() {
+            public C0339a() {
             }
 
             @Override // com.google.common.collect.Maps.j
@@ -727,7 +727,7 @@ public final class Multimaps {
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
             public Iterator<Map.Entry<K, Collection<V>>> iterator() {
-                return Maps.d(a.this.f31266h.keySet(), new C0339a());
+                return Maps.d(a.this.f31195h.keySet(), new C0340a());
             }
 
             @Override // com.google.common.collect.Maps.j, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -742,22 +742,22 @@ public final class Multimaps {
 
         public a(h0<K, V> h0Var) {
             n.p(h0Var);
-            this.f31266h = h0Var;
+            this.f31195h = h0Var;
         }
 
         @Override // com.google.common.collect.Maps.u
         public Set<Map.Entry<K, Collection<V>>> a() {
-            return new C0338a();
+            return new C0339a();
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public void clear() {
-            this.f31266h.clear();
+            this.f31195h.clear();
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public boolean containsKey(Object obj) {
-            return this.f31266h.containsKey(obj);
+            return this.f31195h.containsKey(obj);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -765,7 +765,7 @@ public final class Multimaps {
         /* renamed from: e */
         public Collection<V> get(Object obj) {
             if (containsKey(obj)) {
-                return this.f31266h.get(obj);
+                return this.f31195h.get(obj);
             }
             return null;
         }
@@ -775,28 +775,28 @@ public final class Multimaps {
         /* renamed from: f */
         public Collection<V> remove(Object obj) {
             if (containsKey(obj)) {
-                return this.f31266h.removeAll(obj);
+                return this.f31195h.removeAll(obj);
             }
             return null;
         }
 
         public void g(Object obj) {
-            this.f31266h.keySet().remove(obj);
+            this.f31195h.keySet().remove(obj);
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public boolean isEmpty() {
-            return this.f31266h.isEmpty();
+            return this.f31195h.isEmpty();
         }
 
         @Override // com.google.common.collect.Maps.u, java.util.AbstractMap, java.util.Map
         public Set<K> keySet() {
-            return this.f31266h.keySet();
+            return this.f31195h.keySet();
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public int size() {
-            return this.f31266h.keySet().size();
+            return this.f31195h.keySet().size();
         }
     }
 
@@ -837,30 +837,30 @@ public final class Multimaps {
     public static class c<K, V> extends d<K> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h0<K, V> f31269e;
+        public final h0<K, V> f31198e;
 
         /* loaded from: classes6.dex */
         public class a extends a1<Map.Entry<K, Collection<V>>, i0.a<K>> {
 
             /* renamed from: com.google.common.collect.Multimaps$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0340a extends Multisets.b<K> {
+            public class C0341a extends Multisets.b<K> {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map.Entry f31270e;
+                public final /* synthetic */ Map.Entry f31199e;
 
-                public C0340a(a aVar, Map.Entry entry) {
-                    this.f31270e = entry;
+                public C0341a(a aVar, Map.Entry entry) {
+                    this.f31199e = entry;
                 }
 
                 @Override // d.g.c.c.i0.a
                 public int getCount() {
-                    return ((Collection) this.f31270e.getValue()).size();
+                    return ((Collection) this.f31199e.getValue()).size();
                 }
 
                 @Override // d.g.c.c.i0.a
                 public K getElement() {
-                    return (K) this.f31270e.getKey();
+                    return (K) this.f31199e.getKey();
                 }
             }
 
@@ -872,27 +872,27 @@ public final class Multimaps {
             @Override // d.g.c.c.a1
             /* renamed from: b */
             public i0.a<K> a(Map.Entry<K, Collection<V>> entry) {
-                return new C0340a(this, entry);
+                return new C0341a(this, entry);
             }
         }
 
         public c(h0<K, V> h0Var) {
-            this.f31269e = h0Var;
+            this.f31198e = h0Var;
         }
 
         @Override // d.g.c.c.d, java.util.AbstractCollection, java.util.Collection
         public void clear() {
-            this.f31269e.clear();
+            this.f31198e.clear();
         }
 
         @Override // d.g.c.c.d, java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
         public boolean contains(Object obj) {
-            return this.f31269e.containsKey(obj);
+            return this.f31198e.containsKey(obj);
         }
 
         @Override // d.g.c.c.i0
         public int count(Object obj) {
-            Collection collection = (Collection) Maps.x(this.f31269e.asMap(), obj);
+            Collection collection = (Collection) Maps.x(this.f31198e.asMap(), obj);
             if (collection == null) {
                 return 0;
             }
@@ -901,7 +901,7 @@ public final class Multimaps {
 
         @Override // d.g.c.c.d
         public int distinctElements() {
-            return this.f31269e.asMap().size();
+            return this.f31198e.asMap().size();
         }
 
         @Override // d.g.c.c.d
@@ -911,17 +911,17 @@ public final class Multimaps {
 
         @Override // d.g.c.c.d, d.g.c.c.i0
         public Set<K> elementSet() {
-            return this.f31269e.keySet();
+            return this.f31198e.keySet();
         }
 
         @Override // d.g.c.c.d
         public Iterator<i0.a<K>> entryIterator() {
-            return new a(this, this.f31269e.asMap().entrySet().iterator());
+            return new a(this, this.f31198e.asMap().entrySet().iterator());
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, d.g.c.c.i0
         public Iterator<K> iterator() {
-            return Maps.m(this.f31269e.entries().iterator());
+            return Maps.m(this.f31198e.entries().iterator());
         }
 
         @Override // d.g.c.c.d, d.g.c.c.i0
@@ -930,7 +930,7 @@ public final class Multimaps {
             if (i2 == 0) {
                 return count(obj);
             }
-            Collection collection = (Collection) Maps.x(this.f31269e.asMap(), obj);
+            Collection collection = (Collection) Maps.x(this.f31198e.asMap(), obj);
             if (collection == null) {
                 return 0;
             }
@@ -949,7 +949,7 @@ public final class Multimaps {
 
         @Override // java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
         public int size() {
-            return this.f31269e.size();
+            return this.f31198e.size();
         }
     }
 

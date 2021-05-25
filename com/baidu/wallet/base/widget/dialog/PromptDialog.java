@@ -11,59 +11,59 @@ import com.baidu.wallet.base.widget.dialog.view.ContentDialogAdapter;
 public class PromptDialog extends WalletDialog implements BaseDialogInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnClickListener f23696a;
+    public View.OnClickListener f23625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ContentDialogModel f23697b;
+    public final ContentDialogModel f23626b;
 
     public PromptDialog(Context context) {
         super(context, ResUtils.style(context, "EbpayPromptDialog"));
-        this.f23696a = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptDialog.1
+        this.f23625a = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PromptDialog.this.dismiss();
             }
         };
-        this.f23697b = new ContentDialogModel();
+        this.f23626b = new ContentDialogModel();
         a();
     }
 
     private void a() {
-        ContentDialogModel contentDialogModel = this.f23697b;
-        contentDialogModel.defaultListener = this.f23696a;
+        ContentDialogModel contentDialogModel = this.f23626b;
+        contentDialogModel.defaultListener = this.f23625a;
         setAdapter(new ContentDialogAdapter(contentDialogModel));
     }
 
     public void cancelNegativeBtnTextBold() {
-        this.f23697b.negativeBtnTextBold = false;
+        this.f23626b.negativeBtnTextBold = false;
     }
 
     public void cancelPositiveBtnTextBold() {
-        this.f23697b.positiveBtnTextBold = false;
+        this.f23626b.positiveBtnTextBold = false;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void hideButtons() {
-        this.f23697b.hideButtons = true;
+        this.f23626b.hideButtons = true;
     }
 
     public void hideMessage() {
-        this.f23697b.hideMessage = true;
+        this.f23626b.hideMessage = true;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void hideNegativeButton() {
-        this.f23697b.hideNegativeBtn = true;
+        this.f23626b.hideNegativeBtn = true;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void hidePositiveButton() {
-        this.f23697b.hidePositiveBtn = true;
+        this.f23626b.hidePositiveBtn = true;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void hideTitle() {
-        this.f23697b.hideTitle = true;
+        this.f23626b.hideTitle = true;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
@@ -71,54 +71,54 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     }
 
     public void setDialogBackgroundColor(int i2) {
-        this.f23697b.dialogBackgound = i2;
+        this.f23626b.dialogBackgound = i2;
     }
 
     public void setMessage(int i2) {
-        this.f23697b.messageId = i2;
+        this.f23626b.messageId = i2;
     }
 
     public void setMessageBackgroundColor(int i2) {
-        this.f23697b.backgroundColor = i2;
+        this.f23626b.backgroundColor = i2;
     }
 
     public void setMessageColor(int i2) {
-        this.f23697b.messageColor = i2;
+        this.f23626b.messageColor = i2;
     }
 
     public void setMessageTextSize(int i2) {
-        this.f23697b.messageSize = i2;
+        this.f23626b.messageSize = i2;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void setNegativeBtn(View.OnClickListener onClickListener) {
-        this.f23697b.negativeBtnClickListener = onClickListener;
+        this.f23626b.negativeBtnClickListener = onClickListener;
     }
 
     public void setNegativeBtnTextColor(int i2) {
-        this.f23697b.negativeBtnTextColor = i2;
+        this.f23626b.negativeBtnTextColor = i2;
     }
 
     public void setNegativeBtnTextSize(int i2) {
-        this.f23697b.negativeBtnTextSize = i2;
+        this.f23626b.negativeBtnTextSize = i2;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void setPositiveBtn(View.OnClickListener onClickListener) {
-        this.f23697b.positiveBtnClickListener = onClickListener;
+        this.f23626b.positiveBtnClickListener = onClickListener;
     }
 
     public void setPositiveBtnTextColor(int i2) {
-        this.f23697b.positiveBtnTextColor = i2;
+        this.f23626b.positiveBtnTextColor = i2;
     }
 
     public void setPositiveBtnTextSize(int i2) {
-        this.f23697b.positiveBtnTextSize = i2;
+        this.f23626b.positiveBtnTextSize = i2;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void setTitleText(int i2) {
-        this.f23697b.titleId = i2;
+        this.f23626b.titleId = i2;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
@@ -131,19 +131,19 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     }
 
     public void setMessage(CharSequence charSequence) {
-        this.f23697b.message = charSequence;
+        this.f23626b.message = charSequence;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void setNegativeBtn(int i2, View.OnClickListener onClickListener) {
-        ContentDialogModel contentDialogModel = this.f23697b;
+        ContentDialogModel contentDialogModel = this.f23626b;
         contentDialogModel.negativeBtnClickListener = onClickListener;
         contentDialogModel.negativeBtnTextId = i2;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void setPositiveBtn(int i2, View.OnClickListener onClickListener) {
-        ContentDialogModel contentDialogModel = this.f23697b;
+        ContentDialogModel contentDialogModel = this.f23626b;
         contentDialogModel.positiveBtnClickListener = onClickListener;
         contentDialogModel.positiveBtnTextId = i2;
     }
@@ -153,45 +153,45 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
         if (TextUtils.isEmpty(str)) {
             str = getContext().getString(ResUtils.string(getContext(), "ebpay_tip"));
         }
-        this.f23697b.title = str;
+        this.f23626b.title = str;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
-        ContentDialogModel contentDialogModel = this.f23697b;
+        ContentDialogModel contentDialogModel = this.f23626b;
         contentDialogModel.negativeBtnClickListener = onClickListener;
         contentDialogModel.negativeBtnText = str;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void setPositiveBtn(SpannableString spannableString, View.OnClickListener onClickListener) {
-        ContentDialogModel contentDialogModel = this.f23697b;
+        ContentDialogModel contentDialogModel = this.f23626b;
         contentDialogModel.positiveBtnClickListener = onClickListener;
         contentDialogModel.positiveBtnText = spannableString;
     }
 
     public PromptDialog(Context context, int i2) {
         super(context, i2);
-        this.f23696a = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptDialog.1
+        this.f23625a = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PromptDialog.this.dismiss();
             }
         };
-        this.f23697b = new ContentDialogModel();
+        this.f23626b = new ContentDialogModel();
         a();
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void setNegativeBtn(SpannableString spannableString, View.OnClickListener onClickListener) {
-        ContentDialogModel contentDialogModel = this.f23697b;
+        ContentDialogModel contentDialogModel = this.f23626b;
         contentDialogModel.negativeBtnClickListener = onClickListener;
         contentDialogModel.negativeBtnText = spannableString;
     }
 
     @Override // com.baidu.wallet.base.widget.dialog.BaseDialogInterface
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
-        ContentDialogModel contentDialogModel = this.f23697b;
+        ContentDialogModel contentDialogModel = this.f23626b;
         contentDialogModel.positiveBtnText = str;
         contentDialogModel.positiveBtnClickListener = onClickListener;
     }

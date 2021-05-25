@@ -11,24 +11,24 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
 import d.a.c.e.p.l;
-import d.a.j0.r.u.c;
+import d.a.m0.r.u.c;
 /* loaded from: classes5.dex */
 public class TextLineView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f19314e;
+    public Paint f19234e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19315f;
+    public int f19235f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19316g;
+    public int f19236g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19317h;
+    public int f19237h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f19318i;
+    public int f19238i;
     public int j;
     public RectF k;
     public int l;
@@ -43,25 +43,25 @@ public class TextLineView extends TextView {
     private void setTextSelectedUI(boolean z) {
         if (z) {
             c d2 = c.d(this);
-            d2.q(R.color.CAM_X0105);
-            d2.v(R.string.F_X02);
+            d2.s(R.color.CAM_X0105);
+            d2.x(R.string.F_X02);
             return;
         }
         c d3 = c.d(this);
-        d3.q(R.color.CAM_X0108);
-        d3.v(R.string.F_X01);
+        d3.s(R.color.CAM_X0108);
+        d3.x(R.string.F_X01);
     }
 
     public final void a() {
-        if (this.f19314e == null) {
-            this.f19314e = new Paint();
+        if (this.f19234e == null) {
+            this.f19234e = new Paint();
         }
-        this.f19314e.setAntiAlias(true);
-        this.f19314e.setStyle(Paint.Style.FILL);
+        this.f19234e.setAntiAlias(true);
+        this.f19234e.setStyle(Paint.Style.FILL);
         if (isSelected()) {
-            this.f19314e.setColor(SkinManager.getColor(R.color.transparent));
+            this.f19234e.setColor(SkinManager.getColor(R.color.transparent));
         } else {
-            this.f19314e.setColor(SkinManager.getColor(R.color.transparent));
+            this.f19234e.setColor(SkinManager.getColor(R.color.transparent));
         }
     }
 
@@ -81,11 +81,11 @@ public class TextLineView extends TextView {
         RectF rectF = this.k;
         int i2 = this.n;
         int i3 = this.m;
-        int i4 = this.f19317h;
-        rectF.set(i2 + 0, (i3 - i4) - this.f19315f, this.l - i2, i3 - i4);
+        int i4 = this.f19237h;
+        rectF.set(i2 + 0, (i3 - i4) - this.f19235f, this.l - i2, i3 - i4);
         RectF rectF2 = this.k;
         int i5 = this.o;
-        canvas.drawRoundRect(rectF2, i5, i5, this.f19314e);
+        canvas.drawRoundRect(rectF2, i5, i5, this.f19234e);
     }
 
     @Override // android.view.View
@@ -106,13 +106,13 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.TextLineView);
-        this.f19315f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_height, 0);
-        this.f19316g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_top_margin, 0);
-        this.f19317h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_bottom_margin, 0);
-        this.f19318i = obtainStyledAttributes.getColor(R$styleable.TextLineView_text_selected_color, SkinManager.getColor(R.color.CAM_X0105));
+        this.f19235f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_height, 0);
+        this.f19236g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_top_margin, 0);
+        this.f19237h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_bottom_margin, 0);
+        this.f19238i = obtainStyledAttributes.getColor(R$styleable.TextLineView_text_selected_color, SkinManager.getColor(R.color.CAM_X0105));
         obtainStyledAttributes.getColor(R$styleable.TextLineView_text_unselected_color, SkinManager.getColor(R.color.CAM_X0108));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f19316g + this.f19315f + this.f19317h);
-        setTextColor(this.f19318i);
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f19236g + this.f19235f + this.f19237h);
+        setTextColor(this.f19238i);
         this.j = l.g(context, R.dimen.ds56);
         this.k = new RectF();
         this.o = l.g(getContext(), R.dimen.ds4);

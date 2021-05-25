@@ -256,7 +256,7 @@ public class b {
                     if (subtype != 3 && subtype != 5 && subtype != 6 && subtype != 8 && subtype != 9 && subtype != 10 && subtype != 12 && subtype != 14 && subtype != 15) {
                         return subtype == 13 ? "4G" : "UNKNOW";
                     }
-                    return g.f3963b;
+                    return g.f3966b;
                 }
                 return "2G";
             }

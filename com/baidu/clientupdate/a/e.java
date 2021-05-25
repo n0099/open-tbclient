@@ -7,14 +7,14 @@ import com.baidu.util.LogUtil;
 public class e extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ byte[] f4572a;
+    public final /* synthetic */ byte[] f4575a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f4573b;
+    public final /* synthetic */ d f4576b;
 
     public e(d dVar, byte[] bArr) {
-        this.f4573b = dVar;
-        this.f4572a = bArr;
+        this.f4576b = dVar;
+        this.f4575a = bArr;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -22,9 +22,9 @@ public class e extends Thread {
         b bVar;
         super.run();
         try {
-            this.f4573b.a();
-            bVar = this.f4573b.f4571d;
-            bVar.a(this.f4572a);
+            this.f4576b.a();
+            bVar = this.f4576b.f4574d;
+            bVar.a(this.f4575a);
         } catch (Exception e2) {
             LogUtil.logE(LogUtils.TAG, Log.getStackTraceString(e2));
         }

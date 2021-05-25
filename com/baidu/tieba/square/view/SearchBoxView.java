@@ -19,19 +19,19 @@ import com.baidu.tieba.R;
 public class SearchBoxView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f20809e;
+    public Activity f20729e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f20810f;
+    public String f20730f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f20811g;
+    public LinearLayout f20731g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20812h;
+    public TextView f20732h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f20813i;
+    public TextView f20733i;
     public View.OnClickListener j;
     public View.OnClickListener k;
 
@@ -42,7 +42,7 @@ public class SearchBoxView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CaptureActivityConfig(SearchBoxView.this.f20809e, 16003)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CaptureActivityConfig(SearchBoxView.this.f20729e, 16003)));
         }
     }
 
@@ -54,59 +54,59 @@ public class SearchBoxView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == R.id.search_bg_layout) {
-                TiebaStatic.eventStat(SearchBoxView.this.f20809e, SearchBoxView.this.f20810f, PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(SearchBoxView.this.f20809e)));
+                TiebaStatic.eventStat(SearchBoxView.this.f20729e, SearchBoxView.this.f20730f, PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(SearchBoxView.this.f20729e)));
             }
         }
     }
 
     public SearchBoxView(Context context) {
         super(context);
-        this.f20810f = "sq_tb_search";
-        this.f20811g = null;
-        this.f20812h = null;
-        this.f20813i = null;
+        this.f20730f = "sq_tb_search";
+        this.f20731g = null;
+        this.f20732h = null;
+        this.f20733i = null;
         this.j = new a();
         this.k = new b();
         c(context);
     }
 
     public final void c(Context context) {
-        this.f20809e = (Activity) context;
+        this.f20729e = (Activity) context;
         LayoutInflater.from(context).inflate(R.layout.widget_search_box, this);
-        this.f20811g = (LinearLayout) findViewById(R.id.search_bg_layout);
-        this.f20812h = (TextView) findViewById(R.id.search_bar_text);
-        this.f20811g.setOnClickListener(this.k);
+        this.f20731g = (LinearLayout) findViewById(R.id.search_bg_layout);
+        this.f20732h = (TextView) findViewById(R.id.search_bar_text);
+        this.f20731g.setOnClickListener(this.k);
         TextView textView = (TextView) findViewById(R.id.search_from_qr);
-        this.f20813i = textView;
+        this.f20733i = textView;
         textView.setOnClickListener(this.j);
     }
 
     public void setClickStatKey(String str) {
-        this.f20810f = str;
+        this.f20730f = str;
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.f20811g.setOnClickListener(onClickListener);
+            this.f20731g.setOnClickListener(onClickListener);
         }
     }
 
     public void setText(CharSequence charSequence) {
-        this.f20812h.setHint(charSequence);
+        this.f20732h.setHint(charSequence);
     }
 
     public void setText(int i2) {
-        this.f20812h.setHint(i2);
+        this.f20732h.setHint(i2);
     }
 
     public SearchBoxView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20810f = "sq_tb_search";
-        this.f20811g = null;
-        this.f20812h = null;
-        this.f20813i = null;
+        this.f20730f = "sq_tb_search";
+        this.f20731g = null;
+        this.f20732h = null;
+        this.f20733i = null;
         this.j = new a();
         this.k = new b();
         c(context);
@@ -114,10 +114,10 @@ public class SearchBoxView extends RelativeLayout {
 
     public SearchBoxView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f20810f = "sq_tb_search";
-        this.f20811g = null;
-        this.f20812h = null;
-        this.f20813i = null;
+        this.f20730f = "sq_tb_search";
+        this.f20731g = null;
+        this.f20732h = null;
+        this.f20733i = null;
         this.j = new a();
         this.k = new b();
         c(context);

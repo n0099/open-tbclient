@@ -6,14 +6,14 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 public class PersonChangeModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonChangeData f19852e;
+    public PersonChangeData f19774e;
 
     public PersonChangeModel(PersonChangeData personChangeData) {
         super(null);
-        this.f19852e = null;
-        this.f19852e = personChangeData;
+        this.f19774e = null;
+        this.f19774e = personChangeData;
         if (personChangeData == null) {
-            this.f19852e = new PersonChangeData();
+            this.f19774e = new PersonChangeData();
         }
     }
 
@@ -28,6 +28,6 @@ public class PersonChangeModel extends BdBaseModel {
     }
 
     public PersonChangeData s() {
-        return this.f19852e;
+        return this.f19774e;
     }
 }

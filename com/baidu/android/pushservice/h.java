@@ -16,31 +16,31 @@ import java.util.Properties;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3119a = 5287;
+    public static int f3122a = 5287;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f3120b = 5288;
+    public static int f3123b = 5288;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3121c = "https://info.tuisong.baidu.com";
+    public static String f3124c = "https://info.tuisong.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f3122d = "/setter";
+    public static String f3125d = "/setter";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f3123e = "/v2/setter";
+    public static String f3126e = "/v2/setter";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f3124f = "/getter";
+    public static String f3127f = "/getter";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f3125g = "/v2/getter";
+    public static String f3128g = "/v2/getter";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f3126h = "/bccs/upload";
+    public static String f3129h = "/bccs/upload";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f3127i = "https://ack.tuisong.baidu.com";
+    public static String f3130i = "https://ack.tuisong.baidu.com";
     public static String j = "/click";
     public static String k = "api.tuisong.baidu.com";
     public static String m = "sa.tuisong.baidu.com";
@@ -49,7 +49,7 @@ public final class h {
     public static String[] n = {"sa0.tuisong.baidu.com", "sa1.tuisong.baidu.com", "sa2.tuisong.baidu.com", "sa3.tuisong.baidu.com", "sa4.tuisong.baidu.com", "sa5.tuisong.baidu.com", "sa6.tuisong.baidu.com", "sa7.tuisong.baidu.com", "sa8.tuisong.baidu.com", "sa9.tuisong.baidu.com"};
 
     public static int a(Context context) {
-        return m.o(context) ? f3120b : f3119a;
+        return m.o(context) ? f3123b : f3122a;
     }
 
     public static String a() {
@@ -120,27 +120,27 @@ public final class h {
             }
             String property3 = properties.getProperty("data_update_server");
             if (!TextUtils.isEmpty(property3)) {
-                f3121c = property3;
+                f3124c = property3;
             }
             String property4 = properties.getProperty("push_ack_server");
             if (!TextUtils.isEmpty(property4)) {
-                f3127i = property4;
+                f3130i = property4;
             }
             if (m.o(context)) {
                 String property5 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property5)) {
-                    f3120b = Integer.parseInt(property5);
+                    f3123b = Integer.parseInt(property5);
                 }
             } else {
                 String property6 = properties.getProperty("socket_server_port");
                 if (!TextUtils.isEmpty(property6)) {
-                    f3119a = Integer.parseInt(property6);
+                    f3122a = Integer.parseInt(property6);
                 }
             }
-            if (f.f3061a == 0) {
+            if (f.f3064a == 0) {
                 String property7 = properties.getProperty(Constants.API_KEY);
                 if (TextUtils.equals(properties.getProperty(EmotionResourceInfo.JSON_KEY_PKG_NAME), context.getPackageName()) && !TextUtils.isEmpty(property7)) {
-                    f.f3062b = property7;
+                    f.f3065b = property7;
                 }
             }
             o = true;

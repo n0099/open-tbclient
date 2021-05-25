@@ -5,30 +5,30 @@ import android.text.TextUtils;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f63767b;
+    public static a f40559b;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63768a;
+    public String f40560a;
 
     public static a b() {
-        if (f63767b == null) {
+        if (f40559b == null) {
             synchronized (a.class) {
-                if (f63767b == null) {
-                    f63767b = new a();
+                if (f40559b == null) {
+                    f40559b = new a();
                 }
             }
         }
-        return f63767b;
+        return f40559b;
     }
 
     public String a() {
-        if (!TextUtils.isEmpty(this.f63768a)) {
-            return this.f63768a;
+        if (!TextUtils.isEmpty(this.f40560a)) {
+            return this.f40560a;
         }
         return b.a().getAppName();
     }
 
     public void c(String str) {
-        this.f63768a = str;
+        this.f40560a = str;
     }
 }

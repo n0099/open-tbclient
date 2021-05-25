@@ -98,6 +98,8 @@ public class IMSendMsg extends Message {
                     jSONObject.put("group_id", this.mToUser);
                     if (this.mContent.contains("stargroupext")) {
                         jSONObject.put("group_type", 2);
+                    } else if (this.mChatMsg.getChatType() == 57) {
+                        jSONObject.put("group_type", 3);
                     }
                     jSONObject.put("client_identifier", AccountManagerImpl.getInstance(this.mContext).getExtraSafeParams());
                 }

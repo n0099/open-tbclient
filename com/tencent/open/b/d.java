@@ -6,15 +6,15 @@ import com.tencent.open.utils.j;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f36462a;
+    public static d f36391a;
 
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f36462a == null) {
-                f36462a = new d();
+            if (f36391a == null) {
+                f36391a = new d();
             }
-            dVar = f36462a;
+            dVar = f36391a;
         }
         return dVar;
     }

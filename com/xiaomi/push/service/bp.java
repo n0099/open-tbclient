@@ -30,7 +30,7 @@ public class bp {
     }
 
     public static iq a(hf hfVar, boolean z) {
-        switch (bq.f38186a[hfVar.ordinal()]) {
+        switch (bq.f38115a[hfVar.ordinal()]) {
             case 1:
                 return new ig();
             case 2:

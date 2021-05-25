@@ -13,31 +13,31 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import d.a.i0.a.f;
-import d.a.i0.a.k;
-import d.a.i0.a.v2.n0;
+import d.a.l0.a.f;
+import d.a.l0.a.k;
+import d.a.l0.a.v2.n0;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FloatButton extends FullScreenFloatView {
-    public static final boolean s = k.f43025a;
+    public static final boolean s = k.f43199a;
 
     public FloatButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
     private void d(float f2, float f3) {
-        if (this.f11199e == null) {
+        if (this.f11100e == null) {
             return;
         }
         if (s) {
             Log.e("FloatButton", "move--> x = " + f2 + ", y = " + f3);
         }
-        int i2 = this.f11200f;
+        int i2 = this.f11101f;
         int i3 = (int) (f2 - (i2 / 2));
-        int i4 = this.f11201g;
+        int i4 = this.f11102g;
         int i5 = (int) (f3 - (i4 / 2));
-        int i6 = this.f11202h - i2;
-        int i7 = (this.f11203i - i4) - 168;
+        int i6 = this.f11103h - i2;
+        int i7 = (this.f11104i - i4) - 168;
         if (i3 <= 0) {
             i3 = 0;
         }
@@ -53,8 +53,8 @@ public class FloatButton extends FullScreenFloatView {
         if (s) {
             Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.j);
         }
-        this.f11199e.setX(i6);
-        this.f11199e.setY(i7);
+        this.f11100e.setX(i6);
+        this.f11100e.setY(i7);
         requestLayout();
     }
 
@@ -66,7 +66,7 @@ public class FloatButton extends FullScreenFloatView {
         Rect rect = new Rect();
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f11199e.getHitRect(rect);
+            this.f11100e.getHitRect(rect);
             if (rect.contains((int) x, (int) y)) {
                 this.n = x;
                 this.o = y;
@@ -88,9 +88,9 @@ public class FloatButton extends FullScreenFloatView {
                 Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.k);
             }
             if (this.m && !this.k && x >= 0.0f) {
-                int i2 = this.f11202h;
-                if (x <= i2 && y >= 0.0f && y <= this.f11203i + this.f11201g) {
-                    this.f11199e.animate().x(i2 - this.f11200f).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                int i2 = this.f11103h;
+                if (x <= i2 && y >= 0.0f && y <= this.f11104i + this.f11102g) {
+                    this.f11100e.animate().x(i2 - this.f11101f).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                 }
             }
             this.k = false;

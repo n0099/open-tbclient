@@ -3,16 +3,11 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
 import java.util.Map;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -26,10 +21,12 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     public int mCount;
     public long mEndTime;
     public String mKey;
+    public int mNeedTop;
 
     public IMMediaGetChatSessionRequest(Context context, long j, int i2, long j2, String str) {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
+        this.mNeedTop = -1;
         this.mContext = context;
         this.mContacter = j;
         this.mCount = i2;
@@ -66,7 +63,11 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         try {
             putCommonParams(jSONObject);
             if (this.mContacter > 0) {
-                jSONObject.put("contacter", Utility.transBDUID(String.valueOf(this.mContacter)));
+                if (this.mContactorType == 2) {
+                    jSONObject.put("contacter_im_uk", this.mContacter);
+                } else {
+                    jSONObject.put("contacter", Utility.transBDUID(String.valueOf(this.mContacter)));
+                }
             }
             if (this.mEndTime > 0) {
                 jSONObject.put("end_time", this.mEndTime);
@@ -80,6 +81,7 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
             if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                 jSONObject.put("contacter_third_id", this.mContactorThirdid);
             }
+            jSONObject.put("need_top", this.mNeedTop);
             int i2 = 20;
             if (this.mCount <= 20) {
                 i2 = this.mCount;
@@ -96,166 +98,366 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     public void onFailure(int i2, byte[] bArr, Throwable th) {
         Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         LogUtils.d(TAG, "onFailure error = " + transErrorCode.first + " errormsg = " + ((String) transErrorCode.second));
-        ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(((Integer) transErrorCode.first).intValue(), false, 0, null, null, this.mKey);
+        ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(((Integer) transErrorCode.first).intValue(), false, 0, 0, null, null, null, this.mKey);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:61:0x017f  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0181  */
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:98:0x0226
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onSuccess(int i2, byte[] bArr) {
-        String str;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
-        long j;
-        String extLog;
-        String str2 = new String(bArr);
-        String str3 = TAG;
-        LogUtils.d(TAG, "onSuccess resultContent = " + str2);
-        HashMap hashMap = new HashMap();
-        HashMap hashMap2 = new HashMap();
-        try {
-            JSONObject jSONObject = new JSONObject(str2);
-            int optInt = jSONObject.optInt("error_code", 0);
-            if (optInt == 0) {
-                i3 = jSONObject.optInt("has_more", 0);
-                try {
-                    i4 = jSONObject.optInt("total_unread_num", 0);
-                    try {
-                        JSONArray optJSONArray = jSONObject.optJSONArray("sessions");
-                        if (optJSONArray != null) {
-                            int i7 = 0;
-                            while (i7 < optJSONArray.length()) {
-                                JSONObject jSONObject2 = optJSONArray.getJSONObject(i7);
-                                try {
-                                    j = Long.parseLong(Utility.transBDUK(jSONObject2.optString("contacter_pass_uk")));
-                                } catch (NumberFormatException e2) {
-                                    LogUtils.e(LogUtils.TAG, "IMMediaGetChatSessionRequest NumberFormatException", e2);
-                                    j = 0;
-                                } catch (JSONException e3) {
-                                    e = e3;
-                                    str = str3;
-                                    LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);
-                                    i5 = 1010;
-                                    if (i3 == 1) {
-                                    }
-                                    ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i5, i3 == 1, i4, hashMap, hashMap2, this.mKey);
-                                }
-                                String str4 = str3;
-                                try {
-                                    long optLong = jSONObject2.optLong("contacter_pa_uid");
-                                    int optInt2 = jSONObject2.optInt("content_type");
-                                    String optString = jSONObject2.optString("content");
-                                    JSONArray jSONArray = optJSONArray;
-                                    int i8 = optInt;
-                                    int i9 = i3;
-                                    int i10 = i4;
-                                    try {
-                                        ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, 0, optInt2, -1);
-                                        String str5 = "";
-                                        if (newChatMsg != null) {
-                                            try {
-                                                newChatMsg.setMsgType(optInt2);
-                                                newChatMsg.setMsgContentFromServer(optString);
-                                                str5 = newChatMsg.getRecommendDescription();
-                                                extLog = newChatMsg.getExtLog();
-                                            } catch (JSONException e4) {
-                                                e = e4;
-                                                str = str4;
-                                                i3 = i9;
-                                                i4 = i10;
-                                                LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);
-                                                i5 = 1010;
-                                                if (i3 == 1) {
-                                                }
-                                                ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i5, i3 == 1, i4, hashMap, hashMap2, this.mKey);
-                                            }
-                                        } else {
-                                            extLog = "";
-                                        }
-                                        int optInt3 = jSONObject2.optInt("unread_num");
-                                        int i11 = i7;
-                                        long optLong2 = jSONObject2.optLong("last_time");
-                                        long optLong3 = jSONObject2.optLong("contacter_im_uk");
-                                        str = str4;
-                                        try {
-                                            int optInt4 = jSONObject2.optInt("is_top", 0);
-                                            ChatSession chatSession = new ChatSession(0, optLong3, j, "");
-                                            long j2 = j;
-                                            chatSession.setNewMsgSum(optInt3);
-                                            chatSession.setLastMsgTime(optLong2);
-                                            chatSession.setLastOpenTime(optLong2);
-                                            chatSession.setLastMsg(str5);
-                                            chatSession.setMarkTop(optInt4);
-                                            chatSession.setMarkTopTime(optLong2);
-                                            chatSession.setSessionFrom(1);
-                                            chatSession.setIsClicked(1);
-                                            chatSession.setExt(extLog);
-                                            if (optLong != 0) {
-                                                chatSession.setPaid(optLong);
-                                                hashMap.put(Long.valueOf(optLong), chatSession);
-                                            } else if (j2 != 0) {
-                                                hashMap2.put(Long.valueOf(j2), chatSession);
-                                            }
-                                            i7 = i11 + 1;
-                                            optJSONArray = jSONArray;
-                                            optInt = i8;
-                                            i3 = i9;
-                                            i4 = i10;
-                                            str3 = str;
-                                        } catch (JSONException e5) {
-                                            e = e5;
-                                            i3 = i9;
-                                            i4 = i10;
-                                            LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);
-                                            i5 = 1010;
-                                            if (i3 == 1) {
-                                            }
-                                            ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i5, i3 == 1, i4, hashMap, hashMap2, this.mKey);
-                                        }
-                                    } catch (JSONException e6) {
-                                        e = e6;
-                                        str = str4;
-                                    }
-                                } catch (JSONException e7) {
-                                    e = e7;
-                                    str = str4;
-                                }
-                            }
-                        }
-                        i6 = optInt;
-                        i3 = i3;
-                        i4 = i4;
-                    } catch (JSONException e8) {
-                        e = e8;
-                        str = str3;
-                    }
-                } catch (JSONException e9) {
-                    e = e9;
-                    str = TAG;
-                    i4 = 0;
-                    LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);
-                    i5 = 1010;
-                    if (i3 == 1) {
-                    }
-                    ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i5, i3 == 1, i4, hashMap, hashMap2, this.mKey);
-                }
-            } else {
-                i6 = optInt;
-                i3 = 0;
-                i4 = 0;
-            }
-            i5 = i6;
-        } catch (JSONException e10) {
-            e = e10;
-            str = TAG;
-            i3 = 0;
-        }
-        ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i5, i3 == 1, i4, hashMap, hashMap2, this.mKey);
+    public void onSuccess(int r40, byte[] r41) {
+        /*
+            r39 = this;
+            r1 = r39
+            java.lang.String r0 = new java.lang.String
+            r2 = r41
+            r0.<init>(r2)
+            java.lang.StringBuilder r2 = new java.lang.StringBuilder
+            r2.<init>()
+            java.lang.String r3 = "onSuccess resultContent = "
+            r2.append(r3)
+            r2.append(r0)
+            java.lang.String r2 = r2.toString()
+            java.lang.String r3 = "IMMediaGetChatSessionRequest"
+            com.baidu.android.imsdk.utils.LogUtils.d(r3, r2)
+            java.util.HashMap r9 = new java.util.HashMap
+            r9.<init>()
+            java.util.HashMap r10 = new java.util.HashMap
+            r10.<init>()
+            java.util.HashMap r11 = new java.util.HashMap
+            r11.<init>()
+            r4 = 0
+            org.json.JSONObject r5 = new org.json.JSONObject     // Catch: org.json.JSONException -> L261
+            r5.<init>(r0)     // Catch: org.json.JSONException -> L261
+            java.lang.String r0 = "error_code"
+            int r6 = r5.optInt(r0, r4)     // Catch: org.json.JSONException -> L261
+            if (r6 != 0) goto L259
+            java.lang.String r0 = "has_more"
+            int r7 = r5.optInt(r0, r4)     // Catch: org.json.JSONException -> L261
+            java.lang.String r0 = "total_unread_num"
+            int r8 = r5.optInt(r0, r4)     // Catch: org.json.JSONException -> L255
+            java.lang.String r0 = "top_has_more"
+            int r12 = r5.optInt(r0)     // Catch: org.json.JSONException -> L24f
+            java.lang.String r0 = "sessions"
+            org.json.JSONArray r5 = r5.optJSONArray(r0)     // Catch: org.json.JSONException -> L247
+            if (r5 == 0) goto L238
+            r13 = 0
+        L57:
+            int r0 = r5.length()     // Catch: org.json.JSONException -> L247
+            if (r13 >= r0) goto L238
+            org.json.JSONObject r14 = r5.getJSONObject(r13)     // Catch: org.json.JSONException -> L247
+            java.lang.String r0 = "chat_type"
+            int r15 = r14.optInt(r0)     // Catch: org.json.JSONException -> L247
+            java.lang.String r0 = "contacter_pass_uk"
+            java.lang.String r0 = r14.optString(r0)     // Catch: org.json.JSONException -> L247
+            r16 = 0
+            java.lang.String r0 = com.baidu.android.imsdk.utils.Utility.transBDUK(r0)     // Catch: org.json.JSONException -> L78 java.lang.NumberFormatException -> L7b
+            long r18 = java.lang.Long.parseLong(r0)     // Catch: org.json.JSONException -> L78 java.lang.NumberFormatException -> L7b
+            goto L85
+        L78:
+            r0 = move-exception
+            goto L265
+        L7b:
+            r0 = move-exception
+            java.lang.String r2 = com.baidu.android.imsdk.utils.LogUtils.TAG     // Catch: org.json.JSONException -> L247
+            java.lang.String r4 = "IMMediaGetChatSessionRequest NumberFormatException"
+            com.baidu.android.imsdk.utils.LogUtils.e(r2, r4, r0)     // Catch: org.json.JSONException -> L22f
+            r18 = r16
+        L85:
+            java.lang.String r0 = "contacter_pa_uid"
+            r2 = r5
+            long r4 = r14.optLong(r0)     // Catch: org.json.JSONException -> L22f
+            java.lang.String r0 = "content_type"
+            int r0 = r14.optInt(r0)     // Catch: org.json.JSONException -> L22f
+            r20 = r2
+            java.lang.String r2 = "content"
+            java.lang.String r2 = r14.optString(r2)     // Catch: org.json.JSONException -> L22f
+            r21 = r6
+            java.lang.String r6 = "unread_num"
+            int r6 = r14.optInt(r6)     // Catch: org.json.JSONException -> L22f
+            r22 = r7
+            java.lang.String r7 = "last_time"
+            r23 = r8
+            long r7 = r14.optLong(r7)     // Catch: org.json.JSONException -> L21d
+            r24 = r12
+            java.lang.String r12 = "contacter_im_uk"
+            long r32 = r14.optLong(r12)     // Catch: org.json.JSONException -> L214
+            java.lang.String r12 = "is_top"
+            r34 = r13
+            r13 = 0
+            int r12 = r14.optInt(r12, r13)     // Catch: org.json.JSONException -> L214
+            java.lang.String r13 = "last_msg_bd_uid"
+            long r13 = r14.optLong(r13)     // Catch: org.json.JSONException -> L214
+            r35 = r10
+            r10 = 57
+            r36 = r9
+            if (r15 != r10) goto Lcf
+            r18 = r32
+            r10 = 1
+            goto Ld0
+        Lcf:
+            r10 = 0
+        Ld0:
+            com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory r9 = com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory.getInstance()     // Catch: org.json.JSONException -> L20e
+            r37 = r4
+            android.content.Context r4 = r1.mContext     // Catch: org.json.JSONException -> L20e
+            r5 = -1
+            com.baidu.android.imsdk.chatmessage.messages.ChatMsg r4 = r9.newChatMsg(r4, r10, r0, r5)     // Catch: org.json.JSONException -> L20e
+            java.lang.String r5 = ""
+            if (r4 == 0) goto L114
+            r4.setMsgType(r0)     // Catch: org.json.JSONException -> L107
+            r4.setMsgContentFromServer(r2)     // Catch: org.json.JSONException -> L107
+            r0 = 57
+            if (r15 != r0) goto Lfe
+            android.content.Context r0 = r1.mContext     // Catch: org.json.JSONException -> L107
+            com.baidu.android.imsdk.group.GroupMessageManagerImpl r0 = com.baidu.android.imsdk.group.GroupMessageManagerImpl.getInstance(r0)     // Catch: org.json.JSONException -> L107
+            boolean r0 = r0.isValidGroup(r4)     // Catch: org.json.JSONException -> L107
+            if (r0 != 0) goto Lfe
+        Lf7:
+            r10 = r35
+            r9 = r36
+            r4 = 0
+            goto L200
+        Lfe:
+            java.lang.String r5 = r4.getRecommendDescription()     // Catch: org.json.JSONException -> L107
+            java.lang.String r0 = r4.getExtLog()     // Catch: org.json.JSONException -> L107
+            goto L115
+        L107:
+            r0 = move-exception
+            r7 = r22
+            r8 = r23
+            r12 = r24
+            r10 = r35
+            r9 = r36
+            goto L236
+        L114:
+            r0 = r5
+        L115:
+            com.baidu.android.imsdk.chatmessage.ChatSession r2 = new com.baidu.android.imsdk.chatmessage.ChatSession     // Catch: org.json.JSONException -> L20e
+            java.lang.String r31 = ""
+            r25 = r2
+            r26 = r10
+            r27 = r32
+            r29 = r18
+            r25.<init>(r26, r27, r29, r31)     // Catch: org.json.JSONException -> L20e
+            long r9 = (long) r6     // Catch: org.json.JSONException -> L20e
+            r2.setNewMsgSum(r9)     // Catch: org.json.JSONException -> L20e
+            r2.setLastMsgTime(r7)     // Catch: org.json.JSONException -> L20e
+            r2.setLastOpenTime(r7)     // Catch: org.json.JSONException -> L20e
+            r2.setLastMsg(r5)     // Catch: org.json.JSONException -> L20e
+            r2.setMarkTop(r12)     // Catch: org.json.JSONException -> L20e
+            r2.setMarkTopTime(r7)     // Catch: org.json.JSONException -> L20e
+            r4 = 1
+            r2.setSessionFrom(r4)     // Catch: org.json.JSONException -> L20e
+            r2.setIsClicked(r4)     // Catch: org.json.JSONException -> L20e
+            r2.setExt(r0)     // Catch: org.json.JSONException -> L20e
+            r2.setLastMsgUid(r13)     // Catch: org.json.JSONException -> L20e
+            r0 = 57
+            if (r15 != r0) goto L1c5
+            java.lang.String r0 = java.lang.String.valueOf(r32)     // Catch: org.json.JSONException -> L1b7
+            r11.put(r0, r2)     // Catch: org.json.JSONException -> L1b7
+            if (r6 <= 0) goto L1a7
+            long r4 = r2.getContacterId()     // Catch: org.json.JSONException -> L107
+            java.lang.String r0 = java.lang.Long.toString(r4)     // Catch: org.json.JSONException -> L107
+            android.content.Context r4 = r1.mContext     // Catch: org.json.JSONException -> L107
+            java.lang.String r4 = com.baidu.android.imsdk.account.AccountManager.getUid(r4)     // Catch: org.json.JSONException -> L107
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: org.json.JSONException -> L107
+            r5.<init>()     // Catch: org.json.JSONException -> L107
+            java.lang.String r6 = "userId: "
+            r5.append(r6)     // Catch: org.json.JSONException -> L107
+            r5.append(r4)     // Catch: org.json.JSONException -> L107
+            java.lang.String r5 = r5.toString()     // Catch: org.json.JSONException -> L107
+            com.baidu.android.imsdk.utils.LogUtils.d(r3, r5)     // Catch: org.json.JSONException -> L107
+            android.content.Context r5 = r1.mContext     // Catch: org.json.JSONException -> L107
+            java.util.ArrayList r0 = com.baidu.android.imsdk.group.db.GroupMessageDAOImpl.getFansGroupAtUnread(r5, r0, r4)     // Catch: org.json.JSONException -> L107
+            if (r0 == 0) goto L19c
+            int r4 = r0.size()     // Catch: org.json.JSONException -> L107
+            r2.setNewFansAtMsgSum(r4)     // Catch: org.json.JSONException -> L107
+            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: org.json.JSONException -> L107
+            r2.<init>()     // Catch: org.json.JSONException -> L107
+            java.lang.String r4 = "newFansAtSMsgSum: "
+            r2.append(r4)     // Catch: org.json.JSONException -> L107
+            int r0 = r0.size()     // Catch: org.json.JSONException -> L107
+            r2.append(r0)     // Catch: org.json.JSONException -> L107
+            java.lang.String r0 = r2.toString()     // Catch: org.json.JSONException -> L107
+            com.baidu.android.imsdk.utils.LogUtils.d(r3, r0)     // Catch: org.json.JSONException -> L107
+            goto Lf7
+        L19c:
+            r4 = 0
+            r2.setNewFansAtMsgSum(r4)     // Catch: org.json.JSONException -> L1b5
+            java.lang.String r0 = "newFansAtSMsgSum: 0"
+            com.baidu.android.imsdk.utils.LogUtils.d(r3, r0)     // Catch: org.json.JSONException -> L107
+            goto Lf7
+        L1a7:
+            r4 = 0
+            r2.setNewFansAtMsgSum(r4)     // Catch: org.json.JSONException -> L1b5
+            java.lang.String r0 = "newFansAtSMsgSum: 0, unread = 0"
+            com.baidu.android.imsdk.utils.LogUtils.d(r3, r0)     // Catch: org.json.JSONException -> L1b5
+            r10 = r35
+            r9 = r36
+            goto L200
+        L1b5:
+            r0 = move-exception
+            goto L1b9
+        L1b7:
+            r0 = move-exception
+            r4 = 0
+        L1b9:
+            r7 = r22
+            r8 = r23
+            r12 = r24
+            r10 = r35
+            r9 = r36
+            goto L265
+        L1c5:
+            r4 = 0
+            int r0 = (r37 > r16 ? 1 : (r37 == r16 ? 0 : -1))
+            if (r0 == 0) goto L1e8
+            r5 = r37
+            r2.setPaid(r5)     // Catch: org.json.JSONException -> L1db
+            java.lang.Long r0 = java.lang.Long.valueOf(r5)     // Catch: org.json.JSONException -> L1db
+            r9 = r36
+            r9.put(r0, r2)     // Catch: org.json.JSONException -> L1d9
+            goto L1fe
+        L1d9:
+            r0 = move-exception
+            goto L1de
+        L1db:
+            r0 = move-exception
+            r9 = r36
+        L1de:
+            r7 = r22
+            r8 = r23
+            r12 = r24
+            r10 = r35
+            goto L265
+        L1e8:
+            r9 = r36
+            int r0 = (r18 > r16 ? 1 : (r18 == r16 ? 0 : -1))
+            if (r0 == 0) goto L1fe
+            java.lang.Long r0 = java.lang.Long.valueOf(r18)     // Catch: org.json.JSONException -> L1fa
+            r10 = r35
+            r10.put(r0, r2)     // Catch: org.json.JSONException -> L1f8
+            goto L200
+        L1f8:
+            r0 = move-exception
+            goto L216
+        L1fa:
+            r0 = move-exception
+            r10 = r35
+            goto L216
+        L1fe:
+            r10 = r35
+        L200:
+            int r13 = r34 + 1
+            r5 = r20
+            r6 = r21
+            r7 = r22
+            r8 = r23
+            r12 = r24
+            goto L57
+        L20e:
+            r0 = move-exception
+            r10 = r35
+            r9 = r36
+            goto L215
+        L214:
+            r0 = move-exception
+        L215:
+            r4 = 0
+        L216:
+            r7 = r22
+            r8 = r23
+            r12 = r24
+            goto L265
+        L21d:
+            r0 = move-exception
+            r24 = r12
+            r4 = 0
+            r7 = r22
+            r8 = r23
+            goto L265
+        L226:
+            r0 = move-exception
+            r23 = r8
+            r24 = r12
+            r4 = 0
+            r7 = r22
+            goto L265
+        L22f:
+            r0 = move-exception
+            r22 = r7
+            r23 = r8
+            r24 = r12
+        L236:
+            r4 = 0
+            goto L265
+        L238:
+            r21 = r6
+            r22 = r7
+            r23 = r8
+            r24 = r12
+            r7 = r22
+            r8 = r23
+            r12 = r24
+            goto L25e
+        L247:
+            r0 = move-exception
+            r22 = r7
+            r23 = r8
+            r24 = r12
+            goto L265
+        L24f:
+            r0 = move-exception
+            r22 = r7
+            r23 = r8
+            goto L264
+        L255:
+            r0 = move-exception
+            r22 = r7
+            goto L263
+        L259:
+            r21 = r6
+            r7 = 0
+            r8 = 0
+            r12 = 0
+        L25e:
+            r5 = r21
+            goto L26e
+        L261:
+            r0 = move-exception
+            r7 = 0
+        L263:
+            r8 = 0
+        L264:
+            r12 = 0
+        L265:
+            java.lang.String r2 = "IMMediaGetChatSessionRequest JSONException"
+            com.baidu.android.imsdk.utils.LogUtils.e(r3, r2, r0)
+            r0 = 1010(0x3f2, float:1.415E-42)
+            r5 = 1010(0x3f2, float:1.415E-42)
+        L26e:
+            android.content.Context r0 = r1.mContext
+            com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl r0 = com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.getInstance(r0)
+            r2 = 1
+            if (r7 != r2) goto L279
+            r6 = 1
+            goto L27a
+        L279:
+            r6 = 0
+        L27a:
+            java.lang.String r2 = r1.mKey
+            r4 = r0
+            r7 = r8
+            r8 = r12
+            r12 = r2
+            r4.onMediaGetChatSessionRequest(r5, r6, r7, r8, r9, r10, r11, r12)
+            return
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.android.imsdk.chatmessage.request.IMMediaGetChatSessionRequest.onSuccess(int, byte[]):void");
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -263,9 +465,10 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaGetChatSessionRequest(Context context, long j, int i2, long j2, String str, int i3, long j3, String str2) {
+    public IMMediaGetChatSessionRequest(Context context, long j, int i2, long j2, String str, int i3, long j3, int i4, String str2) {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
+        this.mNeedTop = -1;
         this.mContext = context;
         this.mContacter = j;
         this.mCount = i3;
@@ -274,5 +477,6 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = i2;
         this.mContactorPauid = j2;
         this.mContactorThirdid = str;
+        this.mNeedTop = i4;
     }
 }

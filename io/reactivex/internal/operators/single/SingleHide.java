@@ -14,7 +14,7 @@ public final class SingleHide<T> extends Single<T> {
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68981d;
+        public Disposable f69024d;
 
         public HideSingleObserver(SingleObserver<? super T> singleObserver) {
             this.actual = singleObserver;
@@ -22,12 +22,12 @@ public final class SingleHide<T> extends Single<T> {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68981d.dispose();
+            this.f69024d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68981d.isDisposed();
+            return this.f69024d.isDisposed();
         }
 
         @Override // io.reactivex.SingleObserver
@@ -37,8 +37,8 @@ public final class SingleHide<T> extends Single<T> {
 
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68981d, disposable)) {
-                this.f68981d = disposable;
+            if (DisposableHelper.validate(this.f69024d, disposable)) {
+                this.f69024d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

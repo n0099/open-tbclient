@@ -12,30 +12,30 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile d f66737d;
+    public static volatile d f66780d;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f66738a = 0;
+    public long f66781a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, e> f66739b = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, e> f66782b = new ConcurrentHashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, Integer> f66740c = new HashMap<>();
+    public HashMap<String, Integer> f66783c = new HashMap<>();
 
     public d() {
         new CopyOnWriteArrayList();
     }
 
     public static d a() {
-        if (f66737d == null) {
+        if (f66780d == null) {
             synchronized (d.class) {
-                if (f66737d == null) {
-                    f66737d = new d();
+                if (f66780d == null) {
+                    f66780d = new d();
                 }
             }
         }
-        return f66737d;
+        return f66780d;
     }
 
     @WorkerThread
@@ -70,34 +70,34 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f66739b.remove(str);
+        this.f66782b.remove(str);
     }
 
     public void e(String str, e eVar) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f66739b.put(str, eVar);
+        this.f66782b.put(str, eVar);
     }
 
     public int f(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
-        if (this.f66740c == null) {
-            this.f66740c = new HashMap<>();
+        if (this.f66783c == null) {
+            this.f66783c = new HashMap<>();
         }
-        if (this.f66740c.containsKey(str)) {
-            return this.f66740c.get(str).intValue();
+        if (this.f66783c.containsKey(str)) {
+            return this.f66783c.get(str).intValue();
         }
         return 0;
     }
 
     public long g() {
-        return this.f66738a;
+        return this.f66781a;
     }
 
     public void h() {
-        this.f66738a = System.currentTimeMillis();
+        this.f66781a = System.currentTimeMillis();
     }
 }

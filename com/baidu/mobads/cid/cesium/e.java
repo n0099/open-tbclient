@@ -8,30 +8,30 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8283a;
+    public String f8183a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8284b;
+    public String f8184b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f8285c = 2;
+    public int f8185c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8286d = 0;
+    public int f8186d = 0;
 
     public static e a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         e eVar = new e();
-        eVar.f8283a = str;
+        eVar.f8183a = str;
         int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-        eVar.f8286d = length;
+        eVar.f8186d = length;
         if (length < 14) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "0";
             }
-            eVar.f8284b = str2;
+            eVar.f8184b = str2;
         }
         return eVar;
     }
@@ -68,14 +68,14 @@ public class e {
             int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
             if (!TextUtils.isEmpty(string)) {
                 e eVar = new e();
-                eVar.f8283a = string;
-                eVar.f8285c = i2;
-                eVar.f8286d = length;
+                eVar.f8183a = string;
+                eVar.f8185c = i2;
+                eVar.f8186d = length;
                 if (length < 14) {
                     if (!TextUtils.isEmpty(str3)) {
                         str2 = str3;
                     }
-                    eVar.f8284b = str2;
+                    eVar.f8184b = str2;
                 }
                 eVar.c();
                 return eVar;
@@ -104,11 +104,11 @@ public class e {
     }
 
     public boolean a() {
-        return a(this.f8284b);
+        return a(this.f8184b);
     }
 
     public boolean b() {
-        return a(this.f8286d);
+        return a(this.f8186d);
     }
 
     public boolean c() {
@@ -120,7 +120,7 @@ public class e {
         } else {
             str = "0";
         }
-        this.f8284b = str;
+        this.f8184b = str;
         return true;
     }
 }

@@ -41,6 +41,7 @@ public interface ResponseCode {
     public static final int NO_MD5_ALGORITHM = 1021;
     public static final int PARAMETER_ERROR = 1005;
     public static final int PROTOCOL_EXP = 1023;
+    public static final int REPORT_RATE_LIMITED = 1001;
     public static final int SEND_MSG_FAIL = 6;
     public static final int SERVER_ERROR_MSG = 800200;
     public static final int SERVER_INTERNAL_ERROR = 1015;

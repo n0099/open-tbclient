@@ -25,19 +25,19 @@ import d.a.c.e.p.l;
 public class WriteEvaluationHeaderView extends FrameLayout implements View.OnClickListener, RankStarView.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22010e;
+    public int f21938e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EMTextView f22011f;
+    public EMTextView f21939f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f22012g;
+    public EMTextView f21940g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f22013h;
+    public ImageView f21941h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f22014i;
+    public View f21942i;
     public View j;
     public ItemCardView k;
     public RankStarView l;
@@ -85,10 +85,10 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
 
     public final void c() {
         LayoutInflater.from(getContext()).inflate(R.layout.write_evaluation_header_view, (ViewGroup) this, true);
-        this.f22012g = (EMTextView) findViewById(R.id.item_relevance_desc);
-        this.f22011f = (EMTextView) findViewById(R.id.item_relevance_tip);
-        this.f22014i = findViewById(R.id.write_select_item_relevance);
-        this.f22013h = (ImageView) findViewById(R.id.item_relevance_arrow);
+        this.f21940g = (EMTextView) findViewById(R.id.item_relevance_desc);
+        this.f21939f = (EMTextView) findViewById(R.id.item_relevance_tip);
+        this.f21942i = findViewById(R.id.write_select_item_relevance);
+        this.f21941h = (ImageView) findViewById(R.id.item_relevance_arrow);
         this.j = findViewById(R.id.item_relevance_line);
         this.k = (ItemCardView) findViewById(R.id.item_star_info);
         RankStarView rankStarView = (RankStarView) findViewById(R.id.item_set_new_star);
@@ -103,7 +103,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     }
 
     public final void d() {
-        this.f22014i.setOnClickListener(new a());
+        this.f21942i.setOnClickListener(new a());
     }
 
     public boolean e() {
@@ -112,19 +112,19 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
 
     public void f() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f22010e) {
+        if (skinType == this.f21938e) {
             return;
         }
-        this.f22010e = skinType;
-        EMTextView eMTextView = this.f22011f;
+        this.f21938e = skinType;
+        EMTextView eMTextView = this.f21939f;
         if (eMTextView != null) {
             SkinManager.setViewTextColor(eMTextView, R.color.CAM_X0109);
-            d.a.j0.r.u.c d2 = d.a.j0.r.u.c.d(this.f22011f);
-            d2.k(R.string.J_X06);
+            d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f21939f);
+            d2.m(R.string.J_X06);
             d2.f(R.color.CAM_X0206);
         }
-        if (this.f22013h != null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22013h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        if (this.f21941h != null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21941h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         }
         View view = this.j;
         if (view != null) {
@@ -134,7 +134,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         if (itemCardView != null) {
             SkinManager.setBackgroundColor(itemCardView, R.color.CAM_X0206);
         }
-        EMTextView eMTextView2 = this.f22012g;
+        EMTextView eMTextView2 = this.f21940g;
         if (eMTextView2 != null) {
             SkinManager.setViewTextColor(eMTextView2, R.color.CAM_X0105);
         }
@@ -165,7 +165,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         this.k.setVisibility(8);
         this.j.setVisibility(0);
         this.l.setVisibility(8);
-        this.f22011f.setVisibility(0);
+        this.f21939f.setVisibility(0);
         c cVar = this.m;
         if (cVar != null) {
             cVar.onClose();
@@ -184,7 +184,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         }
         this.l.setVisibility(0);
         this.l.setStarCount(0.0f);
-        this.f22011f.setVisibility(8);
+        this.f21939f.setVisibility(8);
         this.k.setData(tbRichTextEvaluateItemInfo, 10);
     }
 
@@ -192,7 +192,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         this.p = z;
         this.k.setVisibility(8);
         this.j.setVisibility(0);
-        this.f22014i.setVisibility(8);
+        this.f21942i.setVisibility(8);
     }
 
     public void setStarChangeListener(b bVar) {
@@ -209,7 +209,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
 
     public WriteEvaluationHeaderView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f22010e = 3;
+        this.f21938e = 3;
         this.p = true;
         c();
     }

@@ -8,32 +8,32 @@ import com.baidu.tbadk.core.flow.CoverFlowLocalView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.r.w.b.c;
-import d.a.j0.r.w.b.d;
-import d.a.j0.r.w.b.e;
-import d.a.k0.q0.h;
+import d.a.m0.r.w.b.c;
+import d.a.m0.r.w.b.d;
+import d.a.m0.r.w.b.e;
+import d.a.n0.r0.h;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LocalBannerLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public CoverFlowLocalView<h> f15265e;
+    public CoverFlowLocalView<h> f15168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d<h> f15266f;
+    public d<h> f15169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<h> f15267g;
+    public List<h> f15170g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d<h> f15268h;
+    public d<h> f15171h;
 
     /* loaded from: classes4.dex */
-    public class a extends d.a.j0.r.w.b.b {
+    public class a extends d.a.m0.r.w.b.b {
         public a() {
         }
 
-        @Override // d.a.j0.r.w.b.b, d.a.j0.r.w.a
+        @Override // d.a.m0.r.w.b.b, d.a.m0.r.w.a
         public c a() {
             c cVar = new c();
             cVar.c(R.drawable.icon_mask_goods_select8);
@@ -44,14 +44,14 @@ public class LocalBannerLayout extends RelativeLayout {
             return cVar;
         }
 
-        @Override // d.a.j0.r.w.b.b, d.a.j0.r.w.a
+        @Override // d.a.m0.r.w.b.b, d.a.m0.r.w.a
         public e c() {
             e eVar = new e();
             eVar.a(l.g(LocalBannerLayout.this.getContext(), R.dimen.tbds690));
             return eVar;
         }
 
-        @Override // d.a.j0.r.w.b.b, d.a.j0.r.w.a
+        @Override // d.a.m0.r.w.b.b, d.a.m0.r.w.a
         public TbImageView d(Context context) {
             TbImageView tbImageView = new TbImageView(context);
             tbImageView.setPlaceHolder(2);
@@ -67,22 +67,22 @@ public class LocalBannerLayout extends RelativeLayout {
         public b() {
         }
 
-        @Override // d.a.j0.r.w.b.d
+        @Override // d.a.m0.r.w.b.d
         public void b(int i2, String str) {
-            if (i2 < 0 || LocalBannerLayout.this.f15267g == null || i2 > LocalBannerLayout.this.f15267g.size() + 1 || LocalBannerLayout.this.f15266f == null) {
+            if (i2 < 0 || LocalBannerLayout.this.f15170g == null || i2 > LocalBannerLayout.this.f15170g.size() + 1 || LocalBannerLayout.this.f15169f == null) {
                 return;
             }
-            LocalBannerLayout.this.f15266f.b(i2, str);
+            LocalBannerLayout.this.f15169f.b(i2, str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.j0.r.w.b.d
+        @Override // d.a.m0.r.w.b.d
         /* renamed from: c */
         public void a(int i2, h hVar) {
-            if (i2 < 0 || LocalBannerLayout.this.f15267g == null || i2 > LocalBannerLayout.this.f15267g.size() + 1 || LocalBannerLayout.this.f15266f == null) {
+            if (i2 < 0 || LocalBannerLayout.this.f15170g == null || i2 > LocalBannerLayout.this.f15170g.size() + 1 || LocalBannerLayout.this.f15169f == null) {
                 return;
             }
-            LocalBannerLayout.this.f15266f.a(i2, hVar);
+            LocalBannerLayout.this.f15169f.a(i2, hVar);
         }
     }
 
@@ -91,25 +91,25 @@ public class LocalBannerLayout extends RelativeLayout {
     }
 
     public final void c() {
-        this.f15265e = new CoverFlowLocalView<>(getContext());
+        this.f15168e = new CoverFlowLocalView<>(getContext());
         a aVar = new a();
-        this.f15265e.setIndicatorNoOffet(false);
-        this.f15265e.setDisableParentEvent(false);
-        this.f15265e.setCoverFlowFactory(aVar);
-        this.f15265e.setIndicatorVisible(0);
-        this.f15265e.setIsAutoPlayDragging(false);
-        this.f15265e.setAutoPlay(false);
-        this.f15265e.setCallback(this.f15268h);
-        addView(this.f15265e);
+        this.f15168e.setIndicatorNoOffet(false);
+        this.f15168e.setDisableParentEvent(false);
+        this.f15168e.setCoverFlowFactory(aVar);
+        this.f15168e.setIndicatorVisible(0);
+        this.f15168e.setIsAutoPlayDragging(false);
+        this.f15168e.setAutoPlay(false);
+        this.f15168e.setCallback(this.f15171h);
+        addView(this.f15168e);
     }
 
     public void setData(List<h> list) {
-        this.f15267g = list;
-        this.f15265e.setData(list);
+        this.f15170g = list;
+        this.f15168e.setData(list);
     }
 
     public void setOnCoverViewCallback(d<h> dVar) {
-        this.f15266f = dVar;
+        this.f15169f = dVar;
     }
 
     public LocalBannerLayout(Context context, AttributeSet attributeSet) {
@@ -118,7 +118,7 @@ public class LocalBannerLayout extends RelativeLayout {
 
     public LocalBannerLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f15268h = new b();
+        this.f15171h = new b();
         c();
     }
 }

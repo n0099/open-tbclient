@@ -11,6 +11,7 @@ public class IMPushUploadConstants {
     public static final int ERROR_CODE = -1;
     public static final String ONLINE_URL = "https://pimlog.baidu.com/LogService/PushIMLog";
     public static final String TAG = "BIMUploadUbc";
+    public static final String TEST_URL = "http://bjhw-ps-superpage131.bjhw.baidu.com:8900/LogService/PushIMLog";
     public static final int VERSION = 1;
 
     /* loaded from: classes.dex */

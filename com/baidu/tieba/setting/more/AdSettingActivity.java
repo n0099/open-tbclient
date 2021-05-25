@@ -22,15 +22,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.setting.im.more.MemberCloseAdHttpResponseMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdRequestMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdSocketResponseMessage;
-import d.a.j0.r.s.a;
+import d.a.m0.r.s.a;
 /* loaded from: classes5.dex */
 public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public static int NO_SET_MEMBER_CLOSE_AD = -1;
     public static int SET_MEMBER_CLOSE_AD_FALSE = 0;
     public static int SET_MEMBER_CLOSE_AD_TRUE = 1;
-    public d.a.k0.v2.c.b mView;
+    public d.a.n0.w2.c.b mView;
     public int mMemberCloseAdSettingState = NO_SET_MEMBER_CLOSE_AD;
-    public d.a.j0.r.f0.a mWaitingDialog = new d.a.j0.r.f0.a(getPageContext());
+    public d.a.m0.r.f0.a mWaitingDialog = new d.a.m0.r.f0.a(getPageContext());
     public d.a.c.c.g.a mMemberCloseAdListener = new c(CmdConfigHttp.CMD_MEMBER_CLOSE_AD, 309348);
 
     /* loaded from: classes5.dex */
@@ -38,8 +38,8 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         public a() {
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(AdSettingActivity.this.getPageContext().getPageActivity(), 2, "", 20);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_SITE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -52,8 +52,8 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         public b() {
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -98,7 +98,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     }
 
     private void goToPrivacyControl() {
-        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{d.a.j0.r.d0.b.j().p("sync_ad_privacy_url", "")}, false);
+        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{d.a.m0.r.d0.b.j().p("sync_ad_privacy_url", "")}, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -123,7 +123,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"ResourceAsColor"})
     public void showMemberDialog() {
-        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(getPageContext().getPageActivity());
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(getPageContext().getPageActivity());
         aVar.setMessageId(R.string.mebmer_close_ad_dialog_message);
         aVar.setButtonTextColor(R.color.CAM_X0305);
         aVar.setPositiveButton(R.string.open_now, new a());
@@ -161,14 +161,14 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mView = new d.a.k0.v2.c.b(this);
+        this.mView = new d.a.n0.w2.c.b(this);
         registerTask();
         registerListener(this.mMemberCloseAdListener);
     }
 
     public void registerTask() {
-        d.a.k0.d3.d0.a.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
-        d.a.k0.d3.d0.a.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
+        d.a.n0.e3.d0.a.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
+        d.a.n0.e3.d0.a.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
     }
 
     public void sendMessageToCloseAd(int i2) {

@@ -8,10 +8,10 @@ import android.widget.Toast;
 public final class ef implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f22859a;
+    public final /* synthetic */ FeedbackReportActivity f22788a;
 
     public ef(FeedbackReportActivity feedbackReportActivity) {
-        this.f22859a = feedbackReportActivity;
+        this.f22788a = feedbackReportActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -25,28 +25,28 @@ public final class ef implements TextWatcher {
         String str;
         EditText editText6;
         String str2;
-        z = this.f22859a.E;
+        z = this.f22788a.E;
         if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f22859a);
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f22788a);
             dVar.b(dVar.b() + 1);
-            this.f22859a.E = true;
+            this.f22788a.E = true;
         }
-        editText = this.f22859a.u;
+        editText = this.f22788a.u;
         if (editText != null) {
-            editText4 = this.f22859a.u;
+            editText4 = this.f22788a.u;
             if (editText4.getText().toString().trim().length() > 30) {
-                editText5 = this.f22859a.u;
-                str = this.f22859a.M;
+                editText5 = this.f22788a.u;
+                str = this.f22788a.M;
                 editText5.setText(str);
-                Toast.makeText(this.f22859a, com.baidu.ufosdk.f.s.a("32"), 1).show();
-                editText6 = this.f22859a.u;
-                str2 = this.f22859a.M;
+                Toast.makeText(this.f22788a, com.baidu.ufosdk.f.s.a("32"), 1).show();
+                editText6 = this.f22788a.u;
+                str2 = this.f22788a.M;
                 editText6.setSelection(str2.length());
             }
         }
-        editText2 = this.f22859a.u;
+        editText2 = this.f22788a.u;
         if (editText2 != null) {
-            FeedbackReportActivity feedbackReportActivity = this.f22859a;
+            FeedbackReportActivity feedbackReportActivity = this.f22788a;
             editText3 = feedbackReportActivity.u;
             feedbackReportActivity.M = editText3.getText().toString();
         }

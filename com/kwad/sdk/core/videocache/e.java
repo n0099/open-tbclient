@@ -9,18 +9,18 @@ import java.util.Locale;
 public class e extends k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f32794a;
+    public final h f32723a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.a.b f32795b;
+    public final com.kwad.sdk.core.videocache.a.b f32724b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f32796c;
+    public b f32725c;
 
     public e(h hVar, com.kwad.sdk.core.videocache.a.b bVar) {
         super(hVar, bVar);
-        this.f32795b = bVar;
-        this.f32794a = hVar;
+        this.f32724b = bVar;
+        this.f32723a = hVar;
     }
 
     private String a(String str, Object... objArr) {
@@ -42,29 +42,29 @@ public class e extends k {
     }
 
     private boolean a(d dVar) {
-        long a2 = this.f32794a.a();
-        return (((a2 > 0L ? 1 : (a2 == 0L ? 0 : -1)) > 0) && dVar.f32792c && ((float) dVar.f32791b) > ((float) this.f32795b.a()) + (((float) a2) * 0.2f)) ? false : true;
+        long a2 = this.f32723a.a();
+        return (((a2 > 0L ? 1 : (a2 == 0L ? 0 : -1)) > 0) && dVar.f32721c && ((float) dVar.f32720b) > ((float) this.f32724b.a()) + (((float) a2) * 0.2f)) ? false : true;
     }
 
     private String b(d dVar) {
-        String c2 = this.f32794a.c();
+        String c2 = this.f32723a.c();
         boolean z = !TextUtils.isEmpty(c2);
-        long a2 = this.f32795b.d() ? this.f32795b.a() : this.f32794a.a();
+        long a2 = this.f32724b.d() ? this.f32724b.a() : this.f32723a.a();
         boolean z2 = a2 >= 0;
-        long j = dVar.f32792c ? a2 - dVar.f32791b : a2;
-        boolean z3 = z2 && dVar.f32792c;
+        long j = dVar.f32721c ? a2 - dVar.f32720b : a2;
+        boolean z3 = z2 && dVar.f32721c;
         StringBuilder sb = new StringBuilder();
-        sb.append(dVar.f32792c ? "HTTP/1.1 206 PARTIAL CONTENT\n" : "HTTP/1.1 200 OK\n");
+        sb.append(dVar.f32721c ? "HTTP/1.1 206 PARTIAL CONTENT\n" : "HTTP/1.1 200 OK\n");
         sb.append("Accept-Ranges: bytes\n");
         sb.append(z2 ? a("Content-Length: %d\n", Long.valueOf(j)) : "");
-        sb.append(z3 ? a("Content-Range: bytes %d-%d/%d\n", Long.valueOf(dVar.f32791b), Long.valueOf(a2 - 1), Long.valueOf(a2)) : "");
+        sb.append(z3 ? a("Content-Range: bytes %d-%d/%d\n", Long.valueOf(dVar.f32720b), Long.valueOf(a2 - 1), Long.valueOf(a2)) : "");
         sb.append(z ? a("Content-Type: %s\n", c2) : "");
         sb.append("\n");
         return sb.toString();
     }
 
     private void b(OutputStream outputStream, long j) {
-        h hVar = new h(this.f32794a);
+        h hVar = new h(this.f32723a);
         try {
             hVar.a((int) j);
             byte[] bArr = new byte[8192];
@@ -83,20 +83,20 @@ public class e extends k {
 
     @Override // com.kwad.sdk.core.videocache.k
     public void a(int i2) {
-        b bVar = this.f32796c;
+        b bVar = this.f32725c;
         if (bVar != null) {
-            bVar.a(this.f32795b.f32775a, this.f32794a.d(), i2);
+            bVar.a(this.f32724b.f32704a, this.f32723a.d(), i2);
         }
     }
 
     public void a(b bVar) {
-        this.f32796c = bVar;
+        this.f32725c = bVar;
     }
 
     public void a(d dVar, Socket socket) {
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(socket.getOutputStream());
         bufferedOutputStream.write(b(dVar).getBytes("UTF-8"));
-        long j = dVar.f32791b;
+        long j = dVar.f32720b;
         if (a(dVar)) {
             a(bufferedOutputStream, j);
         } else {

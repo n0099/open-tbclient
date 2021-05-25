@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import d.a.c.e.p.g;
 import d.a.c.e.p.m;
-import d.a.j0.r.d0.b;
+import d.a.m0.r.d0.b;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -38,13 +38,13 @@ public class FatalErrorService extends BdBaseService {
     public class a extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f20416a;
+        public Intent f20336a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetWork f20417b = null;
+        public NetWork f20337b = null;
 
         public a(Intent intent) {
-            this.f20416a = intent;
+            this.f20336a = intent;
         }
 
         public final void b(FileWriter fileWriter, String str, String str2) {
@@ -64,7 +64,7 @@ public class FatalErrorService extends BdBaseService {
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0017 */
         public final void c(File file) {
             FileWriter fileWriter;
-            if (file == null || !file.exists() || !file.isFile() || this.f20416a == null) {
+            if (file == null || !file.exists() || !file.isFile() || this.f20336a == null) {
                 return;
             }
             FileWriter fileWriter2 = null;
@@ -87,10 +87,10 @@ public class FatalErrorService extends BdBaseService {
                 b(fileWriter, "from", TbConfig.getFrom());
                 String currentFrom = TbConfig.getCurrentFrom();
                 b(fileWriter, "current_from", currentFrom);
-                b(fileWriter, "uid", this.f20416a.getStringExtra("uid"));
+                b(fileWriter, "uid", this.f20336a.getStringExtra("uid"));
                 b(fileWriter, "client_id", TbadkCoreApplication.getClientId());
                 b(fileWriter, "imei", TbadkCoreApplication.getInst().getImei());
-                b(fileWriter, "uname", this.f20416a.getStringExtra("uname"));
+                b(fileWriter, "uname", this.f20336a.getStringExtra("uname"));
                 fileWriter.append("\n##TIEBA_NATIVE_END##\n");
                 m.h(fileWriter);
                 fileWriter2 = currentFrom;
@@ -110,7 +110,7 @@ public class FatalErrorService extends BdBaseService {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            NetWork netWork = this.f20417b;
+            NetWork netWork = this.f20337b;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -236,15 +236,15 @@ public class FatalErrorService extends BdBaseService {
                                         }
                                     }
                                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + str);
-                                    this.f20417b = netWork;
+                                    this.f20337b = netWork;
                                     netWork.addPostData("logfile", byteArray);
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
-                                        this.f20417b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
+                                        this.f20337b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.f20417b.postMultiNetData();
+                                    this.f20337b.postMultiNetData();
                                     byteArrayOutputStream.close();
                                     fileInputStream.close();
-                                    if (this.f20417b.getNetContext().getResponse().isRequestSuccess()) {
+                                    if (this.f20337b.getNetContext().getResponse().isRequestSuccess()) {
                                         if (z2) {
                                             d(file);
                                         }

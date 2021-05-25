@@ -8,10 +8,10 @@ import d.j.b.a.b;
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26855a;
+    public Context f26784a;
 
     public a(Context context) {
-        this.f26855a = context;
+        this.f26784a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -26,7 +26,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         try {
-            return b.e(this.f26855a);
+            return b.e(this.f26784a);
         } catch (Exception unused) {
             return "";
         }
@@ -35,7 +35,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         try {
-            return b.c(this.f26855a);
+            return b.c(this.f26784a);
         } catch (Exception unused) {
             return "";
         }
@@ -44,7 +44,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
         try {
-            return b.a(this.f26855a);
+            return b.a(this.f26784a);
         } catch (Exception unused) {
             return "";
         }
@@ -53,7 +53,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         try {
-            return b.d(this.f26855a);
+            return b.d(this.f26784a);
         } catch (Exception unused) {
             return "";
         }

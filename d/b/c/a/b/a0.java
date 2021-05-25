@@ -10,50 +10,50 @@ import org.apache.http.client.methods.HttpPut;
 public final class a0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.a.b.s f65448a;
+    public final com.bytedance.sdk.a.b.s f65491a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f65449b;
+    public final String f65492b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final v f65450c;
+    public final v f65493c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final b0 f65451d;
+    public final b0 f65494d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f65452e;
+    public final Object f65495e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile h f65453f;
+    public volatile h f65496f;
 
     public a0(a aVar) {
-        this.f65448a = aVar.f65454a;
-        this.f65449b = aVar.f65455b;
-        this.f65450c = aVar.f65456c.c();
-        this.f65451d = aVar.f65457d;
-        Object obj = aVar.f65458e;
-        this.f65452e = obj == null ? this : obj;
+        this.f65491a = aVar.f65497a;
+        this.f65492b = aVar.f65498b;
+        this.f65493c = aVar.f65499c.c();
+        this.f65494d = aVar.f65500d;
+        Object obj = aVar.f65501e;
+        this.f65495e = obj == null ? this : obj;
     }
 
     public com.bytedance.sdk.a.b.s a() {
-        return this.f65448a;
+        return this.f65491a;
     }
 
     public String b(String str) {
-        return this.f65450c.c(str);
+        return this.f65493c.c(str);
     }
 
     public String c() {
-        return this.f65449b;
+        return this.f65492b;
     }
 
     public v d() {
-        return this.f65450c;
+        return this.f65493c;
     }
 
     public b0 e() {
-        return this.f65451d;
+        return this.f65494d;
     }
 
     public a f() {
@@ -61,27 +61,27 @@ public final class a0 {
     }
 
     public h g() {
-        h hVar = this.f65453f;
+        h hVar = this.f65496f;
         if (hVar != null) {
             return hVar;
         }
-        h a2 = h.a(this.f65450c);
-        this.f65453f = a2;
+        h a2 = h.a(this.f65493c);
+        this.f65496f = a2;
         return a2;
     }
 
     public boolean h() {
-        return this.f65448a.q();
+        return this.f65491a.q();
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Request{method=");
-        sb.append(this.f65449b);
+        sb.append(this.f65492b);
         sb.append(", url=");
-        sb.append(this.f65448a);
+        sb.append(this.f65491a);
         sb.append(", tag=");
-        Object obj = this.f65452e;
+        Object obj = this.f65495e;
         if (obj == this) {
             obj = null;
         }
@@ -94,23 +94,23 @@ public final class a0 {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bytedance.sdk.a.b.s f65454a;
+        public com.bytedance.sdk.a.b.s f65497a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f65455b;
+        public String f65498b;
 
         /* renamed from: c  reason: collision with root package name */
-        public v.a f65456c;
+        public v.a f65499c;
 
         /* renamed from: d  reason: collision with root package name */
-        public b0 f65457d;
+        public b0 f65500d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f65458e;
+        public Object f65501e;
 
         public a() {
-            this.f65455b = "GET";
-            this.f65456c = new v.a();
+            this.f65498b = "GET";
+            this.f65499c = new v.a();
         }
 
         public a a() {
@@ -119,13 +119,13 @@ public final class a0 {
         }
 
         public a b(v vVar) {
-            this.f65456c = vVar.h();
+            this.f65499c = vVar.h();
             return this;
         }
 
         public a c(com.bytedance.sdk.a.b.s sVar) {
             if (sVar != null) {
-                this.f65454a = sVar;
+                this.f65497a = sVar;
                 return this;
             }
             throw new NullPointerException("url == null");
@@ -161,8 +161,8 @@ public final class a0 {
                     } else if (b0Var == null && e.h.b(str)) {
                         throw new IllegalArgumentException("method " + str + " must have a request body.");
                     } else {
-                        this.f65455b = str;
-                        this.f65457d = b0Var;
+                        this.f65498b = str;
+                        this.f65500d = b0Var;
                         return this;
                     }
                 }
@@ -172,7 +172,7 @@ public final class a0 {
         }
 
         public a g(String str, String str2) {
-            this.f65456c.f(str, str2);
+            this.f65499c.f(str, str2);
             return this;
         }
 
@@ -199,17 +199,17 @@ public final class a0 {
         }
 
         public a k(String str) {
-            this.f65456c.d(str);
+            this.f65499c.d(str);
             return this;
         }
 
         public a l(String str, String str2) {
-            this.f65456c.b(str, str2);
+            this.f65499c.b(str, str2);
             return this;
         }
 
         public a m() {
-            j(d.b.c.a.b.a.e.f65214d);
+            j(d.b.c.a.b.a.e.f65257d);
             return this;
         }
 
@@ -224,18 +224,18 @@ public final class a0 {
         }
 
         public a0 p() {
-            if (this.f65454a != null) {
+            if (this.f65497a != null) {
                 return new a0(this);
             }
             throw new IllegalStateException("url == null");
         }
 
         public a(a0 a0Var) {
-            this.f65454a = a0Var.f65448a;
-            this.f65455b = a0Var.f65449b;
-            this.f65457d = a0Var.f65451d;
-            this.f65458e = a0Var.f65452e;
-            this.f65456c = a0Var.f65450c.h();
+            this.f65497a = a0Var.f65491a;
+            this.f65498b = a0Var.f65492b;
+            this.f65500d = a0Var.f65494d;
+            this.f65501e = a0Var.f65495e;
+            this.f65499c = a0Var.f65493c.h();
         }
     }
 }

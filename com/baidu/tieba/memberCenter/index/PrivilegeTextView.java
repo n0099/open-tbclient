@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class PrivilegeTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f18335e;
+    public a f18245e;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -29,14 +29,14 @@ public class PrivilegeTextView extends TextView {
     @Override // android.widget.TextView
     public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         super.onTextChanged(charSequence, i2, i3, i4);
-        a aVar = this.f18335e;
+        a aVar = this.f18245e;
         if (aVar != null) {
             aVar.a(charSequence, i2, i3, i4);
         }
     }
 
     public void setTextChangeListener(a aVar) {
-        this.f18335e = aVar;
+        this.f18245e = aVar;
     }
 
     public PrivilegeTextView(Context context, AttributeSet attributeSet) {

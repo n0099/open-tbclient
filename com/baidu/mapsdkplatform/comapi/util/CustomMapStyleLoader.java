@@ -26,25 +26,25 @@ import org.json.JSONObject;
 public class CustomMapStyleLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7971a = "CustomMapStyleLoader";
+    public static final String f7871a = "CustomMapStyleLoader";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7972c;
+    public static String f7872c;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7973b;
+    public String f7873b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f7974d;
+    public Context f7874d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7975e;
+    public String f7875e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f7976f;
+    public boolean f7876f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AsyncHttpClient f7977g;
+    public AsyncHttpClient f7877g;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -56,7 +56,7 @@ public class CustomMapStyleLoader {
             CustomMapStyleLoader.this.b();
             String d2 = CustomMapStyleLoader.this.d();
             if (TextUtils.isEmpty(d2)) {
-                Log.e(CustomMapStyleLoader.f7971a, "build request url failed");
+                Log.e(CustomMapStyleLoader.f7871a, "build request url failed");
             } else {
                 CustomMapStyleLoader.this.a(d2);
             }
@@ -67,12 +67,12 @@ public class CustomMapStyleLoader {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final CustomMapStyleLoader f7979a = new CustomMapStyleLoader(null);
+        public static final CustomMapStyleLoader f7879a = new CustomMapStyleLoader(null);
     }
 
     public CustomMapStyleLoader() {
-        this.f7976f = true;
-        this.f7977g = new AsyncHttpClient();
+        this.f7876f = true;
+        this.f7877g = new AsyncHttpClient();
     }
 
     public /* synthetic */ CustomMapStyleLoader(c cVar) {
@@ -100,11 +100,11 @@ public class CustomMapStyleLoader {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
-        this.f7977g.get(str, new c(this));
+        this.f7877g.get(str, new c(this));
     }
 
     private void a(JSONObject jSONObject) {
-        File file = new File(f7972c);
+        File file = new File(f7872c);
         if (file.exists()) {
             file.delete();
         }
@@ -113,7 +113,7 @@ public class CustomMapStyleLoader {
                 file.createNewFile();
             }
         } catch (IOException e2) {
-            Log.e(f7971a, "create custom file failed", e2);
+            Log.e(f7871a, "create custom file failed", e2);
         }
         String optString = jSONObject.optString("json");
         String optString2 = jSONObject.optString(PackageTable.MD5, StringUtil.NULL_STRING);
@@ -122,16 +122,16 @@ public class CustomMapStyleLoader {
             jSONObject2.put("json", optString);
             jSONObject2.put(PackageTable.MD5, optString2);
         } catch (JSONException e3) {
-            Log.e(f7971a, "build style data failed", e3);
+            Log.e(f7871a, "build style data failed", e3);
         }
         String jSONObject3 = jSONObject2.toString();
         try {
-            FileOutputStream openFileOutput = this.f7974d.openFileOutput("server_custom_style_file.json", 0);
+            FileOutputStream openFileOutput = this.f7874d.openFileOutput("server_custom_style_file.json", 0);
             openFileOutput.write(jSONObject3.getBytes());
             openFileOutput.flush();
             openFileOutput.close();
         } catch (IOException e4) {
-            Log.e(f7971a, "write style data into file failed", e4);
+            Log.e(f7871a, "write style data into file failed", e4);
         }
     }
 
@@ -147,11 +147,11 @@ public class CustomMapStyleLoader {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (!c()) {
-            this.f7973b = StringUtil.NULL_STRING;
+            this.f7873b = StringUtil.NULL_STRING;
             return;
         }
         try {
-            FileInputStream openFileInput = this.f7974d.openFileInput("server_custom_style_file.json");
+            FileInputStream openFileInput = this.f7874d.openFileInput("server_custom_style_file.json");
             JsonReader jsonReader = new JsonReader(new InputStreamReader(openFileInput));
             try {
                 try {
@@ -159,7 +159,7 @@ public class CustomMapStyleLoader {
                         jsonReader.beginObject();
                         while (jsonReader.hasNext()) {
                             if (jsonReader.nextName().equals(PackageTable.MD5)) {
-                                this.f7973b = jsonReader.nextString();
+                                this.f7873b = jsonReader.nextString();
                             } else {
                                 jsonReader.skipValue();
                             }
@@ -168,11 +168,11 @@ public class CustomMapStyleLoader {
                         jsonReader.close();
                         openFileInput.close();
                     } catch (IOException e2) {
-                        Log.e(f7971a, "Close custom style failed", e2);
+                        Log.e(f7871a, "Close custom style failed", e2);
                     }
                 } catch (IOException e3) {
-                    this.f7973b = StringUtil.NULL_STRING;
-                    Log.e(f7971a, "Read custom style failed", e3);
+                    this.f7873b = StringUtil.NULL_STRING;
+                    Log.e(f7871a, "Read custom style failed", e3);
                     jsonReader.close();
                     openFileInput.close();
                 }
@@ -181,13 +181,13 @@ public class CustomMapStyleLoader {
                     jsonReader.close();
                     openFileInput.close();
                 } catch (IOException e4) {
-                    Log.e(f7971a, "Close custom style failed", e4);
+                    Log.e(f7871a, "Close custom style failed", e4);
                 }
                 throw th;
             }
         } catch (FileNotFoundException e5) {
-            this.f7973b = StringUtil.NULL_STRING;
-            Log.e(f7971a, "Open custom style failed", e5);
+            this.f7873b = StringUtil.NULL_STRING;
+            Log.e(f7871a, "Open custom style failed", e5);
         }
     }
 
@@ -195,7 +195,7 @@ public class CustomMapStyleLoader {
         Intent intent = i2 == 0 ? new Intent(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_LOAD_CUSTOM_STYLE_SUCCESS) : new Intent(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_LOAD_CUSTOM_STYLE_ERROR);
         intent.putExtra("error_code", i2);
         intent.putExtra("error_message", str);
-        this.f7974d.sendBroadcast(intent);
+        this.f7874d.sendBroadcast(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -208,28 +208,28 @@ public class CustomMapStyleLoader {
             if (a(jSONObject.optInt("status"), jSONObject.optString("message"))) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject == null || optJSONObject.length() == 0) {
-                    Log.e(f7971a, "custom style data is null");
+                    Log.e(f7871a, "custom style data is null");
                 } else {
                     a(optJSONObject);
                 }
             }
         } catch (JSONException e2) {
-            Log.e(f7971a, "parse response result failed", e2);
+            Log.e(f7871a, "parse response result failed", e2);
         }
     }
 
     private boolean c() {
-        return new File(f7972c).exists();
+        return new File(f7872c).exists();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String d() {
         String str;
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("style_id", this.f7975e);
-        linkedHashMap.put("type", this.f7976f ? "publish" : "edit");
-        linkedHashMap.put(PackageTable.MD5, this.f7973b);
-        linkedHashMap.put("token", i.f8022d);
+        linkedHashMap.put("style_id", this.f7875e);
+        linkedHashMap.put("type", this.f7876f ? "publish" : "edit");
+        linkedHashMap.put(PackageTable.MD5, this.f7873b);
+        linkedHashMap.put("token", i.f7922d);
         return e() + "?" + ((a(linkedHashMap) + i.c()) + "&sign=" + AppMD5.getSignMD5String(str));
     }
 
@@ -238,23 +238,23 @@ public class CustomMapStyleLoader {
     }
 
     public static String getCustomStyleFilePath() {
-        return f7972c;
+        return f7872c;
     }
 
     public static CustomMapStyleLoader getInstance() {
-        return b.f7979a;
+        return b.f7879a;
     }
 
     public void initCustomStyleFilePath(Context context) {
-        this.f7974d = context;
-        f7972c = context.getFilesDir().getAbsolutePath();
-        f7972c += "/server_custom_style_file.json";
+        this.f7874d = context;
+        f7872c = context.getFilesDir().getAbsolutePath();
+        f7872c += "/server_custom_style_file.json";
     }
 
     public void loadCustomMapStyleFile(String str, boolean z) {
-        if (NetworkUtil.isNetworkAvailable(this.f7974d) && !TextUtils.isEmpty(str)) {
-            this.f7975e = str;
-            this.f7976f = z;
+        if (NetworkUtil.isNetworkAvailable(this.f7874d) && !TextUtils.isEmpty(str)) {
+            this.f7875e = str;
+            this.f7876f = z;
             new Thread(new a(), "Load custom style").start();
         }
     }

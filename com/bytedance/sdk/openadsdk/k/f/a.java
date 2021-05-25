@@ -21,23 +21,23 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f29506a = u.c();
+    public static final boolean f29435a = u.c();
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Boolean> f29507b;
+    public HashMap<String, Boolean> f29436b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C0309a f29508c;
+    public C0310a f29437c;
 
     /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f29521a = new a();
+        public static final a f29450a = new a();
     }
 
     public static a a() {
-        return b.f29521a;
+        return b.f29450a;
     }
 
     public static c c() {
@@ -67,7 +67,7 @@ public class a {
     }
 
     public boolean b() {
-        if (this.f29508c != null) {
+        if (this.f29437c != null) {
             return true;
         }
         c c2 = c();
@@ -79,10 +79,10 @@ public class a {
         e.a(1);
         f.a().d();
         try {
-            C0309a c0309a = new C0309a();
-            this.f29508c = c0309a;
-            c0309a.setName("tt_pangle_thread_video_cache_preloader");
-            this.f29508c.start();
+            C0310a c0310a = new C0310a();
+            this.f29437c = c0310a;
+            c0310a.setName("tt_pangle_thread_video_cache_preloader");
+            this.f29437c.start();
             e.a(c2, p.a());
             d.c().a(StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
             d.c().a(10485759);
@@ -93,13 +93,13 @@ public class a {
     }
 
     public a() {
-        this.f29507b = new HashMap<>();
+        this.f29436b = new HashMap<>();
         b();
     }
 
     public boolean a(com.bytedance.sdk.openadsdk.k.f.b bVar) {
         if (b()) {
-            this.f29508c.a(bVar);
+            this.f29437c.a(bVar);
             return true;
         }
         return false;
@@ -107,58 +107,58 @@ public class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.k.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0309a extends Thread {
+    public class C0310a extends Thread {
 
         /* renamed from: d  reason: collision with root package name */
-        public final Queue<C0310a> f29512d = new ArrayBlockingQueue(10);
+        public final Queue<C0311a> f29441d = new ArrayBlockingQueue(10);
 
         /* renamed from: b  reason: collision with root package name */
-        public Queue<C0310a> f29510b = new LinkedBlockingQueue();
+        public Queue<C0311a> f29439b = new LinkedBlockingQueue();
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f29511c = true;
+        public boolean f29440c = true;
 
         /* renamed from: e  reason: collision with root package name */
-        public Queue<C0310a> f29513e = new LinkedBlockingQueue();
+        public Queue<C0311a> f29442e = new LinkedBlockingQueue();
 
         /* renamed from: com.bytedance.sdk.openadsdk.k.f.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0310a {
+        public class C0311a {
 
             /* renamed from: a  reason: collision with root package name */
-            public int f29514a;
+            public int f29443a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f29515b;
+            public String f29444b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String[] f29516c;
+            public String[] f29445c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f29517d;
+            public int f29446d;
 
             /* renamed from: e  reason: collision with root package name */
-            public String f29518e;
+            public String f29447e;
 
             /* renamed from: f  reason: collision with root package name */
-            public com.bytedance.sdk.openadsdk.k.f.b f29519f;
+            public com.bytedance.sdk.openadsdk.k.f.b f29448f;
 
-            public C0310a() {
+            public C0311a() {
             }
         }
 
-        public C0309a() {
+        public C0310a() {
         }
 
-        private C0310a a(int i2, com.bytedance.sdk.openadsdk.k.f.b bVar) {
+        private C0311a a(int i2, com.bytedance.sdk.openadsdk.k.f.b bVar) {
             b();
-            u.b("VideoCachePreloader", "pool: " + this.f29512d.size());
-            C0310a poll = this.f29512d.poll();
+            u.b("VideoCachePreloader", "pool: " + this.f29441d.size());
+            C0311a poll = this.f29441d.poll();
             if (poll == null) {
-                poll = new C0310a();
+                poll = new C0311a();
             }
-            poll.f29514a = i2;
-            poll.f29519f = bVar;
+            poll.f29443a = i2;
+            poll.f29448f = bVar;
             return poll;
         }
 
@@ -168,36 +168,36 @@ public class a {
         private void b() {
         }
 
-        private synchronized void b(C0310a c0310a) {
+        private synchronized void b(C0311a c0311a) {
             b();
-            this.f29513e.add(c0310a);
+            this.f29442e.add(c0311a);
             notify();
         }
 
-        private void c(C0310a c0310a) {
+        private void c(C0311a c0311a) {
             a();
-            if (c0310a == null) {
+            if (c0311a == null) {
                 return;
             }
-            this.f29510b.offer(c0310a);
+            this.f29439b.offer(c0311a);
             notify();
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             String[] strArr;
-            while (this.f29511c) {
+            while (this.f29440c) {
                 synchronized (this) {
-                    if (!this.f29513e.isEmpty()) {
+                    if (!this.f29442e.isEmpty()) {
                         c();
                     }
-                    while (!this.f29510b.isEmpty()) {
-                        C0310a poll = this.f29510b.poll();
+                    while (!this.f29439b.isEmpty()) {
+                        C0311a poll = this.f29439b.poll();
                         if (poll != null) {
-                            int i2 = poll.f29514a;
+                            int i2 = poll.f29443a;
                             if (i2 != 0) {
                                 if (i2 == 1) {
-                                    d.c().a(poll.f29515b);
+                                    d.c().a(poll.f29444b);
                                 } else if (i2 == 2) {
                                     d.c().d();
                                 } else if (i2 == 3) {
@@ -210,16 +210,16 @@ public class a {
                                     }
                                 } else if (i2 == 4) {
                                     d.c().d();
-                                    this.f29511c = false;
+                                    this.f29440c = false;
                                 }
-                            } else if (poll.f29516c != null && poll.f29516c.length > 0) {
+                            } else if (poll.f29445c != null && poll.f29445c.length > 0) {
                                 ArrayList arrayList = new ArrayList();
-                                for (String str : poll.f29516c) {
+                                for (String str : poll.f29445c) {
                                     if (com.bytedance.sdk.openadsdk.k.g.d.a(str)) {
                                         arrayList.add(str);
                                     }
                                 }
-                                d.c().a(false, !TextUtils.isEmpty(poll.f29518e), poll.f29517d, poll.f29515b, (String[]) arrayList.toArray(new String[arrayList.size()]));
+                                d.c().a(false, !TextUtils.isEmpty(poll.f29447e), poll.f29446d, poll.f29444b, (String[]) arrayList.toArray(new String[arrayList.size()]));
                             }
                             a(poll);
                         }
@@ -236,32 +236,32 @@ public class a {
         private void c() {
             a();
             while (true) {
-                C0310a poll = this.f29513e.poll();
+                C0311a poll = this.f29442e.poll();
                 if (poll == null) {
                     return;
                 }
-                com.bytedance.sdk.openadsdk.k.f.b bVar = poll.f29519f;
-                String str = bVar.f29522a;
-                poll.f29515b = str;
-                poll.f29516c = new String[]{str};
-                poll.f29517d = bVar.f29523b;
-                String str2 = bVar.f29524c;
-                poll.f29518e = str2;
+                com.bytedance.sdk.openadsdk.k.f.b bVar = poll.f29448f;
+                String str = bVar.f29451a;
+                poll.f29444b = str;
+                poll.f29445c = new String[]{str};
+                poll.f29446d = bVar.f29452b;
+                String str2 = bVar.f29453c;
+                poll.f29447e = str2;
                 if (!TextUtils.isEmpty(str2)) {
-                    poll.f29515b = poll.f29519f.f29524c;
+                    poll.f29444b = poll.f29448f.f29453c;
                 }
-                poll.f29519f = null;
+                poll.f29448f = null;
                 c(poll);
             }
         }
 
-        private void a(C0310a c0310a) {
+        private void a(C0311a c0311a) {
             a();
-            c0310a.f29516c = null;
-            c0310a.f29515b = null;
-            c0310a.f29514a = -1;
-            c0310a.f29519f = null;
-            this.f29512d.offer(c0310a);
+            c0311a.f29445c = null;
+            c0311a.f29444b = null;
+            c0311a.f29443a = -1;
+            c0311a.f29448f = null;
+            this.f29441d.offer(c0311a);
         }
 
         public void a(com.bytedance.sdk.openadsdk.k.f.b bVar) {
@@ -273,7 +273,7 @@ public class a {
         if (bVar == null) {
             return null;
         }
-        boolean z = !TextUtils.isEmpty(bVar.f29524c);
-        return f.a().a(false, z, z ? bVar.f29524c : bVar.f29522a, bVar.f29522a);
+        boolean z = !TextUtils.isEmpty(bVar.f29453c);
+        return f.a().a(false, z, z ? bVar.f29453c : bVar.f29451a, bVar.f29451a);
     }
 }

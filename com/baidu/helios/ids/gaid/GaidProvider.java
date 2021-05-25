@@ -23,39 +23,39 @@ import org.json.JSONObject;
 public class GaidProvider extends d.a.q.h.a {
 
     /* renamed from: d  reason: collision with root package name */
-    public a.C1785a f6318d;
+    public a.C1788a f6218d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f6319e;
+    public c f6219e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f6320f;
+    public f f6220f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f6321g;
+    public b f6221g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<a.d<String>> f6322h;
+    public List<a.d<String>> f6222h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f6323i;
+    public g f6223i;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.d f6324e;
+        public final /* synthetic */ a.d f6224e;
 
         public a(a.d dVar) {
-            this.f6324e = dVar;
+            this.f6224e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (GaidProvider.this.f6321g.f6326a.get()) {
-                GaidProvider.this.j(this.f6324e);
+            if (GaidProvider.this.f6221g.f6226a.get()) {
+                GaidProvider.this.j(this.f6224e);
             } else {
-                GaidProvider.this.f6322h.add(this.f6324e);
+                GaidProvider.this.f6222h.add(this.f6224e);
             }
         }
     }
@@ -64,7 +64,7 @@ public class GaidProvider extends d.a.q.h.a {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public AtomicBoolean f6326a = new AtomicBoolean(false);
+        public AtomicBoolean f6226a = new AtomicBoolean(false);
 
         public b(GaidProvider gaidProvider) {
         }
@@ -74,83 +74,83 @@ public class GaidProvider extends d.a.q.h.a {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f6327a;
+        public long f6227a;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f6330d;
+        public String f6230d;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f6328b = true;
+        public boolean f6228b = true;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.a.q.g.c.a.e f6329c = new d.a.q.g.c.a.e();
+        public d.a.q.g.c.a.e f6229c = new d.a.q.g.c.a.e();
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<String> f6331e = new ArrayList<>();
+        public ArrayList<String> f6231e = new ArrayList<>();
 
         public c() {
         }
 
         public String a() {
-            return this.f6330d;
+            return this.f6230d;
         }
 
         public void b(long j, long j2) {
-            if (this.f6329c.c(j, j2)) {
-                this.f6328b = true;
+            if (this.f6229c.c(j, j2)) {
+                this.f6228b = true;
             }
         }
 
         public void c(String str) {
-            String str2 = this.f6330d;
+            String str2 = this.f6230d;
             if (str2 == str) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
-                this.f6330d = str;
-                this.f6328b = true;
+                this.f6230d = str;
+                this.f6228b = true;
             }
         }
 
         public long d() {
-            return this.f6327a;
+            return this.f6227a;
         }
 
         public void e(long j) {
-            if (this.f6327a != j) {
-                this.f6327a = j;
-                this.f6328b = true;
+            if (this.f6227a != j) {
+                this.f6227a = j;
+                this.f6228b = true;
             }
         }
 
         public void f(String str) {
-            if (this.f6331e.contains(str)) {
+            if (this.f6231e.contains(str)) {
                 return;
             }
-            this.f6331e.add(str);
-            this.f6328b = true;
+            this.f6231e.add(str);
+            this.f6228b = true;
         }
 
         public boolean g() {
-            String g2 = GaidProvider.this.f6318d.g("cache.dat", true);
+            String g2 = GaidProvider.this.f6218d.g("cache.dat", true);
             if (!TextUtils.isEmpty(g2)) {
                 try {
                     JSONObject jSONObject = new JSONObject(g2);
-                    this.f6330d = jSONObject.optString("form_id");
-                    this.f6327a = jSONObject.getLong("lst_fe_ts");
+                    this.f6230d = jSONObject.optString("form_id");
+                    this.f6227a = jSONObject.getLong("lst_fe_ts");
                     jSONObject.getInt("c_form_ver");
-                    this.f6329c.b(jSONObject.getLong("flags"));
-                    this.f6331e.clear();
+                    this.f6229c.b(jSONObject.getLong("flags"));
+                    this.f6231e.clear();
                     JSONObject optJSONObject = jSONObject.optJSONObject("his_form_ids");
                     if (optJSONObject != null) {
                         int i2 = optJSONObject.getInt("count");
                         for (int i3 = 0; i3 < i2; i3++) {
                             String string = optJSONObject.getString("id_" + i3);
                             if (TextUtils.isEmpty(string)) {
-                                this.f6331e.clear();
+                                this.f6231e.clear();
                                 return false;
                             }
-                            this.f6331e.add(string);
+                            this.f6231e.add(string);
                         }
                     }
                     return true;
@@ -161,25 +161,25 @@ public class GaidProvider extends d.a.q.h.a {
         }
 
         public boolean h() {
-            if (this.f6328b) {
+            if (this.f6228b) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("form_id", this.f6330d);
-                    jSONObject.put("lst_fe_ts", this.f6327a);
+                    jSONObject.put("form_id", this.f6230d);
+                    jSONObject.put("lst_fe_ts", this.f6227a);
                     jSONObject.put("c_form_ver", 1);
-                    jSONObject.put("flags", this.f6329c.d());
-                    int size = this.f6331e.size();
+                    jSONObject.put("flags", this.f6229c.d());
+                    int size = this.f6231e.size();
                     if (size > 0) {
                         int min = Math.min(size, 5);
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject.put("his_form_ids", jSONObject2);
                         jSONObject2.put("count", min);
                         for (int i2 = 0; i2 < min; i2++) {
-                            jSONObject2.put("id_" + i2, this.f6331e.get((size - min) + i2));
+                            jSONObject2.put("id_" + i2, this.f6231e.get((size - min) + i2));
                         }
                     }
-                    GaidProvider.this.f6318d.i("cache.dat", jSONObject.toString(), true);
-                    this.f6328b = false;
+                    GaidProvider.this.f6218d.i("cache.dat", jSONObject.toString(), true);
+                    this.f6228b = false;
                     return true;
                 } catch (Exception unused) {
                 }
@@ -192,15 +192,15 @@ public class GaidProvider extends d.a.q.h.a {
     public static class d implements IInterface {
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f6333a;
+        public IBinder f6233a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6334b;
+        public String f6234b;
 
         public d(IBinder iBinder) {
-            this.f6333a = iBinder;
+            this.f6233a = iBinder;
             try {
-                this.f6334b = com.baidu.helios.ids.gaid.c.a(d.a.q.h.d.a.c());
+                this.f6234b = com.baidu.helios.ids.gaid.c.a(d.a.q.h.d.a.c());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -210,8 +210,8 @@ public class GaidProvider extends d.a.q.h.a {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
-                obtain.writeInterfaceToken(this.f6334b);
-                this.f6333a.transact(1, obtain, obtain2, 0);
+                obtain.writeInterfaceToken(this.f6234b);
+                this.f6233a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
             } finally {
@@ -224,9 +224,9 @@ public class GaidProvider extends d.a.q.h.a {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
-                obtain.writeInterfaceToken(this.f6334b);
+                obtain.writeInterfaceToken(this.f6234b);
                 obtain.writeInt(z ? 1 : 0);
-                this.f6333a.transact(2, obtain, obtain2, 0);
+                this.f6233a.transact(2, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readInt() != 0;
             } finally {
@@ -237,7 +237,7 @@ public class GaidProvider extends d.a.q.h.a {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f6333a;
+            return this.f6233a;
         }
     }
 
@@ -248,57 +248,57 @@ public class GaidProvider extends d.a.q.h.a {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ IBinder f6336e;
+            public final /* synthetic */ IBinder f6236e;
 
             /* renamed from: com.baidu.helios.ids.gaid.GaidProvider$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public class RunnableC0086a implements Runnable {
+            public class RunnableC0087a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f6338e;
+                public final /* synthetic */ String f6238e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ boolean f6339f;
+                public final /* synthetic */ boolean f6239f;
 
-                public RunnableC0086a(String str, boolean z) {
-                    this.f6338e = str;
-                    this.f6339f = z;
+                public RunnableC0087a(String str, boolean z) {
+                    this.f6238e = str;
+                    this.f6239f = z;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!GaidProvider.this.f6321g.f6326a.get()) {
+                    if (!GaidProvider.this.f6221g.f6226a.get()) {
                         GaidProvider.this.i();
-                        GaidProvider.this.f6321g.f6326a.set(true);
+                        GaidProvider.this.f6221g.f6226a.set(true);
                     }
-                    GaidProvider.this.f6319e.b(this.f6339f ? 1L : 2L, 3L);
-                    if (!TextUtils.isEmpty(this.f6338e)) {
+                    GaidProvider.this.f6219e.b(this.f6239f ? 1L : 2L, 3L);
+                    if (!TextUtils.isEmpty(this.f6238e)) {
                         try {
-                            String b2 = d.a.q.h.a.b("A20", new d.a.q.g.c.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.f6338e.getBytes("UTF-8")));
-                            GaidProvider.this.f6319e.c(b2);
-                            GaidProvider.this.f6319e.f(b2);
+                            String b2 = d.a.q.h.a.b("A20", new d.a.q.g.c.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.f6238e.getBytes("UTF-8")));
+                            GaidProvider.this.f6219e.c(b2);
+                            GaidProvider.this.f6219e.f(b2);
                         } catch (Exception unused) {
                         }
                     }
-                    GaidProvider.this.f6319e.h();
+                    GaidProvider.this.f6219e.h();
                 }
             }
 
             public a(IBinder iBinder) {
-                this.f6336e = iBinder;
+                this.f6236e = iBinder;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    d dVar = new d(this.f6336e);
+                    d dVar = new d(this.f6236e);
                     String a2 = dVar.a();
                     boolean a3 = dVar.a(false);
-                    if (GaidProvider.this.f6323i != null) {
-                        GaidProvider.this.f6323i.removeMessages(0);
+                    if (GaidProvider.this.f6223i != null) {
+                        GaidProvider.this.f6223i.removeMessages(0);
                     }
-                    GaidProvider.this.f64375b.f64382d.submit(new RunnableC0086a(a2, a3));
-                    GaidProvider.this.f64375b.f64379a.unbindService(e.this);
+                    GaidProvider.this.f64251b.f64258d.submit(new RunnableC0087a(a2, a3));
+                    GaidProvider.this.f64251b.f64255a.unbindService(e.this);
                 } catch (Exception unused) {
                 }
             }
@@ -309,7 +309,7 @@ public class GaidProvider extends d.a.q.h.a {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            GaidProvider.this.f64375b.f64383e.submit(new a(iBinder));
+            GaidProvider.this.f64251b.f64259e.submit(new a(iBinder));
         }
 
         @Override // android.content.ServiceConnection
@@ -321,15 +321,15 @@ public class GaidProvider extends d.a.q.h.a {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f6341a;
+        public String f6241a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6342b;
+        public String f6242b;
 
         public f() {
             try {
-                this.f6341a = com.baidu.helios.ids.gaid.c.a(d.a.q.h.d.a.a());
-                this.f6342b = com.baidu.helios.ids.gaid.c.a(d.a.q.h.d.a.b());
+                this.f6241a = com.baidu.helios.ids.gaid.c.a(d.a.q.h.d.a.a());
+                this.f6242b = com.baidu.helios.ids.gaid.c.a(d.a.q.h.d.a.b());
             } catch (Exception unused) {
             }
         }
@@ -339,11 +339,11 @@ public class GaidProvider extends d.a.q.h.a {
         }
 
         public final String a() {
-            return this.f6341a;
+            return this.f6241a;
         }
 
         public final String c() {
-            return this.f6342b;
+            return this.f6242b;
         }
     }
 
@@ -357,10 +357,10 @@ public class GaidProvider extends d.a.q.h.a {
 
             @Override // java.lang.Runnable
             public void run() {
-                if (GaidProvider.this.f6321g.f6326a.get()) {
+                if (GaidProvider.this.f6221g.f6226a.get()) {
                     return;
                 }
-                GaidProvider.this.f6321g.f6326a.set(true);
+                GaidProvider.this.f6221g.f6226a.set(true);
                 GaidProvider.this.i();
             }
         }
@@ -374,84 +374,84 @@ public class GaidProvider extends d.a.q.h.a {
             if (message.what != 0) {
                 return;
             }
-            GaidProvider.this.f64375b.f64382d.submit(new a());
+            GaidProvider.this.f64251b.f64258d.submit(new a());
         }
     }
 
     public GaidProvider() {
         super("gaid");
-        this.f6319e = new c();
-        this.f6322h = new ArrayList();
+        this.f6219e = new c();
+        this.f6222h = new ArrayList();
     }
 
     @Override // d.a.q.h.a
     public String c() {
-        return this.f6319e.a();
+        return this.f6219e.a();
     }
 
     @Override // d.a.q.h.a
     public void f(a.c cVar) {
         String a2;
         b bVar = new b(this);
-        this.f6321g = bVar;
-        this.f6318d = this.f64374a.f("gaid");
-        Context context = this.f64375b.f64379a;
-        this.f6320f = new f(null);
+        this.f6221g = bVar;
+        this.f6218d = this.f64250a.f("gaid");
+        Context context = this.f64251b.f64255a;
+        this.f6220f = new f(null);
         PackageManager packageManager = context.getPackageManager();
         try {
-            a2 = this.f6320f.a();
+            a2 = this.f6220f.a();
         } catch (PackageManager.NameNotFoundException unused) {
         }
         if (a2 == null) {
-            bVar.f6326a.set(true);
+            bVar.f6226a.set(true);
             return;
         }
         packageManager.getPackageInfo(a2, 0);
-        this.f6319e.g();
+        this.f6219e.g();
         long currentTimeMillis = System.currentTimeMillis();
-        if (Math.abs(currentTimeMillis - this.f6319e.d()) > 604800000) {
-            this.f6319e.e(currentTimeMillis);
-            this.f6319e.h();
+        if (Math.abs(currentTimeMillis - this.f6219e.d()) > 604800000) {
+            this.f6219e.e(currentTimeMillis);
+            this.f6219e.h();
             try {
-                String c2 = this.f6320f.c();
+                String c2 = this.f6220f.c();
                 if (c2 == null) {
-                    bVar.f6326a.set(true);
+                    bVar.f6226a.set(true);
                     return;
                 } else if (!context.bindService(new Intent(c2).setPackage(a2), new e(), 1)) {
-                    bVar.f6326a.set(true);
+                    bVar.f6226a.set(true);
                     return;
                 } else {
                     g gVar = new g(Looper.getMainLooper());
-                    this.f6323i = gVar;
+                    this.f6223i = gVar;
                     gVar.sendEmptyMessageDelayed(0, 50000L);
                     return;
                 }
             } catch (Exception unused2) {
-                bVar.f6326a.set(true);
+                bVar.f6226a.set(true);
                 return;
             }
         }
-        bVar.f6326a.set(true);
+        bVar.f6226a.set(true);
     }
 
     @Override // d.a.q.h.a
     public void g(a.d<String> dVar) {
-        this.f64375b.f64382d.submit(new a(dVar));
+        this.f64251b.f64258d.submit(new a(dVar));
     }
 
     public void i() {
-        for (a.d<String> dVar : this.f6322h) {
+        for (a.d<String> dVar : this.f6222h) {
             j(dVar);
         }
-        this.f6322h.clear();
+        this.f6222h.clear();
     }
 
     public final void j(a.d<String> dVar) {
         Bundle bundle = new Bundle();
-        if (TextUtils.isEmpty(this.f6319e.a())) {
+        if (TextUtils.isEmpty(this.f6219e.a())) {
             dVar.b(-1, null, bundle);
         } else {
-            dVar.a(this.f6319e.a(), bundle);
+            dVar.a(this.f6219e.a(), bundle);
         }
     }
 }

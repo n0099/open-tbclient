@@ -16,27 +16,27 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.webkit.sdk.VideoCloudSetting;
 import d.a.c.e.p.j;
 import d.a.c.j.e.n;
-import d.a.j0.m0.h;
-import d.a.j0.m0.k;
+import d.a.m0.m0.h;
+import d.a.m0.m0.k;
 import java.util.List;
 import tbclient.User;
 /* loaded from: classes5.dex */
-public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment implements BdListView.p, d.a.k0.i2.i.b.a {
+public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment implements BdListView.p, d.a.n0.j2.i.b.a {
     public static boolean p = true;
     public static CustomMessageListener q = new a(2921440);
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.k0.i2.i.d.a f19954f;
+    public d.a.n0.j2.i.d.a f19876f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f19955g;
+    public long f19877g;
 
     /* renamed from: i  reason: collision with root package name */
-    public PersonPostModel f19957i;
+    public PersonPostModel f19879i;
     public User j;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f19956h = false;
+    public boolean f19878h = false;
     public boolean k = false;
     public boolean l = false;
     public boolean m = false;
@@ -92,7 +92,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     public void B0() {
-        d.a.k0.i2.i.d.a aVar = this.f19954f;
+        d.a.n0.j2.i.d.a aVar = this.f19876f;
         if (aVar == null || !this.l) {
             return;
         }
@@ -101,25 +101,25 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void D0(boolean z) {
-        d.a.k0.i2.i.d.a aVar;
-        if (this.f19957i == null || (aVar = this.f19954f) == null || !this.l) {
+        d.a.n0.j2.i.d.a aVar;
+        if (this.f19879i == null || (aVar = this.f19876f) == null || !this.l) {
             return;
         }
         hideNetRefreshView(aVar.f());
         if (j.z()) {
             if (z && p) {
-                showLoadingView(this.f19954f.f(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
+                showLoadingView(this.f19876f.f(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
             }
             Q0(true);
             B0();
             return;
         }
-        showNetRefreshView(this.f19954f.f(), null, false);
+        showNetRefreshView(this.f19876f.f(), null, false);
     }
 
-    @Override // d.a.k0.i2.i.b.a
-    public d.a.k0.i2.i.d.a E() {
-        return this.f19954f;
+    @Override // d.a.n0.j2.i.b.a
+    public d.a.n0.j2.i.d.a E() {
+        return this.f19876f;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
@@ -129,7 +129,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public boolean F0() {
-        return this.f19956h;
+        return this.f19878h;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
@@ -138,9 +138,9 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         M0();
     }
 
-    @Override // d.a.k0.i2.i.b.a
+    @Override // d.a.n0.j2.i.b.a
     public List<n> J() {
-        PersonPostModel personPostModel = this.f19957i;
+        PersonPostModel personPostModel = this.f19879i;
         if (personPostModel != null) {
             return personPostModel.threadList;
         }
@@ -164,27 +164,27 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         PersonPostModel personPostModel2;
         long currentTimeMillis = System.currentTimeMillis();
         this.k = false;
-        hideLoadingView(this.f19954f.f());
-        hideNetRefreshView(this.f19954f.f());
-        if (personPostModel != null && (personPostModel2 = this.f19957i) != null) {
+        hideLoadingView(this.f19876f.f());
+        hideNetRefreshView(this.f19876f.f());
+        if (personPostModel != null && (personPostModel2 = this.f19879i) != null) {
             if (z) {
                 personPostModel2.threadList.clear();
             }
-            this.f19957i.threadList.addAll(d.a.k0.i2.i.c.a.c(personPostModel.threadList));
+            this.f19879i.threadList.addAll(d.a.n0.j2.i.c.a.c(personPostModel.threadList));
         }
         this.m = K0(personPostModel, z);
-        if (ListUtils.isEmpty(this.f19957i.threadList) && !j.z()) {
-            showNetRefreshView(this.f19954f.f(), null, false);
+        if (ListUtils.isEmpty(this.f19879i.threadList) && !j.z()) {
+            showNetRefreshView(this.f19876f.f(), null, false);
         } else {
             if (this.m) {
-                this.f19954f.o();
+                this.f19876f.o();
             } else {
-                this.f19954f.q();
+                this.f19876f.q();
             }
-            R0(this.f19957i.threadList);
+            R0(this.f19879i.threadList);
         }
-        d.a.k0.i2.b.d().l(System.currentTimeMillis() - currentTimeMillis);
-        d.a.k0.i2.b.d().p(System.currentTimeMillis() - d.a.k0.i2.b.d().g());
+        d.a.n0.j2.b.d().l(System.currentTimeMillis() - currentTimeMillis);
+        d.a.n0.j2.b.d().p(System.currentTimeMillis() - d.a.n0.j2.b.d().g());
         if (personPostModel == null || personPostModel.getResponsedMessage() == null) {
             return;
         }
@@ -196,29 +196,29 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
             return;
         }
         this.l = true;
-        d.a.k0.i2.b.d().o(System.currentTimeMillis());
+        d.a.n0.j2.b.d().o(System.currentTimeMillis());
         D0(true);
     }
 
     public final void N0(Bundle bundle) {
         if (bundle != null) {
-            this.f19955g = bundle.getLong("uid");
-            this.f19956h = bundle.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
+            this.f19877g = bundle.getLong("uid");
+            this.f19878h = bundle.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
             return;
         }
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.f19955g = arguments.getLong("uid");
-            this.f19956h = arguments.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
+            this.f19877g = arguments.getLong("uid");
+            this.f19878h = arguments.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
         }
     }
 
     public void O0(ResponsedMessage<?> responsedMessage) {
-        long h2 = d.a.k0.i2.b.d().h();
-        long b2 = d.a.k0.i2.b.d().b();
-        long a2 = d.a.k0.i2.b.d().a();
-        long c2 = d.a.k0.i2.b.d().c();
-        long f2 = d.a.k0.i2.b.d().f();
+        long h2 = d.a.n0.j2.b.d().h();
+        long b2 = d.a.n0.j2.b.d().b();
+        long a2 = d.a.n0.j2.b.d().a();
+        long c2 = d.a.n0.j2.b.d().c();
+        long f2 = d.a.n0.j2.b.d().f();
         if (!k.d().g() || b2 <= 0) {
             return;
         }
@@ -231,7 +231,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
             hVar.b("profileTime", String.valueOf(f2));
         }
         hVar.c();
-        d.a.k0.i2.b.d().k(0L);
+        d.a.n0.j2.b.d().k(0L);
     }
 
     public final void Q0(boolean z) {
@@ -239,25 +239,25 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
             return;
         }
         this.k = true;
-        this.f19957i.fetchPost(getPageContext(), this.o, z, String.valueOf(this.f19955g), true, 0, false, true, this.j);
+        this.f19879i.fetchPost(getPageContext(), this.o, z, String.valueOf(this.f19877g), true, 0, false, true, this.j);
     }
 
     public void R0(List<n> list) {
-        d.a.k0.i2.i.d.a aVar = this.f19954f;
+        d.a.n0.j2.i.d.a aVar = this.f19876f;
         if (aVar != null) {
             aVar.n(list);
         }
     }
 
-    @Override // d.a.k0.i2.i.b.a
+    @Override // d.a.n0.j2.i.b.a
     public boolean i0() {
-        return this.f19956h && isPrimary() && !this.k;
+        return this.f19878h && isPrimary() && !this.k;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        d.a.k0.i2.i.d.a aVar = this.f19954f;
+        d.a.n0.j2.i.d.a aVar = this.f19876f;
         if (aVar != null) {
             aVar.i(i2);
         }
@@ -267,18 +267,18 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         N0(bundle);
-        this.f19957i = new PersonPostModel(getPageContext(), getUniqueId(), this.n, F0(), PersonPostModel.FROM_PERSON_POST);
-        new d.a.k0.i2.i.a.b(getPageContext(), getUniqueId(), this, E0());
+        this.f19879i = new PersonPostModel(getPageContext(), getUniqueId(), this.n, F0(), PersonPostModel.FROM_PERSON_POST);
+        new d.a.n0.j2.i.a.b(getPageContext(), getUniqueId(), this, E0());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        d.a.k0.i2.i.d.a aVar = new d.a.k0.i2.i.d.a(getPageContext(), inflate, this);
-        this.f19954f = aVar;
+        d.a.n0.j2.i.d.a aVar = new d.a.n0.j2.i.d.a(getPageContext(), inflate, this);
+        this.f19876f = aVar;
         aVar.m(1012);
-        this.f19954f.l(this);
+        this.f19876f.l(this);
         return inflate;
     }
 
@@ -288,7 +288,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         this.m = false;
         this.l = false;
         this.k = false;
-        d.a.k0.i2.i.d.a aVar = this.f19954f;
+        d.a.n0.j2.i.d.a aVar = this.f19876f;
         if (aVar != null) {
             aVar.j();
         }
@@ -309,13 +309,13 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putLong("uid", this.f19955g);
-        bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, this.f19956h);
+        bundle.putLong("uid", this.f19877g);
+        bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, this.f19878h);
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        if (this.f19957i != null && this.l && j.z() && this.m) {
+        if (this.f19879i != null && this.l && j.z() && this.m) {
             Q0(false);
         }
     }

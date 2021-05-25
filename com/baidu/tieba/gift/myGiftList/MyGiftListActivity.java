@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gift.myGiftList.MyGiftListModel;
 import d.a.c.e.p.l;
-import d.a.j0.r.f0.f;
+import d.a.m0.r.f0.f;
 /* loaded from: classes4.dex */
 public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
     public boolean mIsHost;
     public MyGiftListModel mModel;
-    public d.a.k0.u0.c.c mMyGiftListView;
+    public d.a.n0.v0.c.c mMyGiftListView;
     public String nameShow;
     public String st_type;
     public int userType;
@@ -39,7 +39,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         }
 
         @Override // com.baidu.tieba.gift.myGiftList.MyGiftListModel.b
-        public void a(int i2, String str, boolean z, d.a.k0.u0.c.a aVar) {
+        public void a(int i2, String str, boolean z, d.a.n0.v0.c.a aVar) {
             MyGiftListActivity.this.closeLoadingDialog();
             MyGiftListActivity.this.mMyGiftListView.n().setVisibility(8);
             MyGiftListActivity.this.mMyGiftListView.m();
@@ -61,17 +61,17 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         public b() {
         }
 
-        @Override // d.a.j0.r.f0.f.g
+        @Override // d.a.m0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (!l.D()) {
                 MyGiftListActivity.this.mMyGiftListView.m();
                 MyGiftListActivity.this.mMyGiftListView.v(MyGiftListActivity.this.getString(R.string.neterror), true);
                 return;
             }
-            d.a.j0.s.d.b.g0().n();
+            d.a.m0.s.d.b.g0().n();
             MyGiftListActivity.this.mModel.E(false);
             MyGiftListActivity.this.mModel.LoadData();
-            d.a.j0.s.d.b.g0().d0(0);
+            d.a.m0.s.d.b.g0().d0(0);
             MyGiftListActivity.this.mMyGiftListView.o();
         }
     }
@@ -156,7 +156,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
     }
 
     private void initUI() {
-        d.a.k0.u0.c.c cVar = new d.a.k0.u0.c.c(this, this.scrollToBottomListener, this.mIsHost);
+        d.a.n0.v0.c.c cVar = new d.a.n0.v0.c.c(this, this.scrollToBottomListener, this.mIsHost);
         this.mMyGiftListView = cVar;
         cVar.u(new b());
         addNetWorkChangeListener();
@@ -179,7 +179,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        d.a.j0.s.d.b.g0().n();
+        d.a.m0.s.d.b.g0().n();
         Intent intent = getIntent();
         if (intent != null) {
             this.suid = intent.getStringExtra("id");
@@ -207,6 +207,6 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         } else {
             this.mMyGiftListView.v(getString(R.string.neterror), true);
         }
-        d.a.j0.s.d.b.g0().d0(0);
+        d.a.m0.s.d.b.g0().d0(0);
     }
 }

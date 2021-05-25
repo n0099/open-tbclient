@@ -2,7 +2,7 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import d.a.k0.j1.m.b;
+import d.a.n0.k1.m.b;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class BaseCardInfo extends BaseLegoCardInfo {
@@ -11,11 +11,11 @@ public class BaseCardInfo extends BaseLegoCardInfo {
     }
 
     public String getFidFromPostUrl(String str) {
-        return !TextUtils.isEmpty(str) ? b.C1391b.a(str).d("fid") : "";
+        return !TextUtils.isEmpty(str) ? b.C1409b.a(str).d("fid") : "";
     }
 
     public String getTouidFromPostUrl(String str) {
-        return !TextUtils.isEmpty(str) ? b.C1391b.a(str).d("touid") : "";
+        return !TextUtils.isEmpty(str) ? b.C1409b.a(str).d("touid") : "";
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
@@ -23,10 +23,10 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         if (shouldResponseAttention()) {
             if (obj instanceof UpdateAttentionMessage.a) {
                 UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
-                return responseAttentionUser(aVar.f12668c, aVar.f12669d);
-            } else if (obj instanceof d.a.k0.j1.p.b) {
-                d.a.k0.j1.p.b bVar = (d.a.k0.j1.p.b) obj;
-                return responseAttentionForum(bVar.f56559a, bVar.f56560b);
+                return responseAttentionUser(aVar.f12576c, aVar.f12577d);
+            } else if (obj instanceof d.a.n0.k1.p.b) {
+                d.a.n0.k1.p.b bVar = (d.a.n0.k1.p.b) obj;
+                return responseAttentionForum(bVar.f56739a, bVar.f56740b);
             } else {
                 return false;
             }

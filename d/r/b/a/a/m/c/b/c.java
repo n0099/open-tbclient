@@ -13,25 +13,25 @@ import javax.net.ssl.HttpsURLConnection;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f68130a = "c";
+    public static final String f68173a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f68131b = Pattern.compile("\\d+\\.\\d+\\.\\d+\\.\\d+");
+    public static final Pattern f68174b = Pattern.compile("\\d+\\.\\d+\\.\\d+\\.\\d+");
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f68132a = false;
+        public boolean f68175a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f68133b = -1;
+        public int f68176b = -1;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f68134c = null;
+        public String f68177c = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f68135d = null;
+        public String f68178d = null;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:32:0x00c8 A[Catch: all -> 0x00cc, TRY_ENTER, TryCatch #3 {all -> 0x00cc, blocks: (B:22:0x00b1, B:24:0x00b6, B:32:0x00c8, B:36:0x00d0), top: B:55:0x000b }] */
@@ -54,7 +54,7 @@ public class c {
                     th = th;
                     inputStream = null;
                     try {
-                        d.r.b.a.a.m.c.d.d.b(f68130a, "getByUrlConn", th);
+                        d.r.b.a.a.m.c.d.d.b(f68173a, "getByUrlConn", th);
                         if (httpURLConnection != null) {
                         }
                         if (inputStream != null) {
@@ -65,7 +65,7 @@ public class c {
                             try {
                                 httpURLConnection.disconnect();
                             } catch (Throwable th3) {
-                                d.r.b.a.a.m.c.d.d.b(f68130a, "getByUrlConn", th3);
+                                d.r.b.a.a.m.c.d.d.b(f68173a, "getByUrlConn", th3);
                                 throw th2;
                             }
                         }
@@ -84,11 +84,11 @@ public class c {
                 c2.setRequestMethod("GET");
                 c2.setInstanceFollowRedirects(true);
                 c2.connect();
-                aVar.f68132a = c2.getResponseCode() == 200;
-                aVar.f68133b = c2.getResponseCode();
-                aVar.f68134c = c2.getResponseMessage();
+                aVar.f68175a = c2.getResponseCode() == 200;
+                aVar.f68176b = c2.getResponseCode();
+                aVar.f68177c = c2.getResponseMessage();
                 if (c2.getResponseCode() == 200) {
-                    d.r.b.a.a.m.c.d.d.e(f68130a, "get url=[%s] is ok", str);
+                    d.r.b.a.a.m.c.d.d.e(f68173a, "get url=[%s] is ok", str);
                     inputStream2 = c2.getInputStream();
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     byte[] bArr = new byte[1024];
@@ -100,11 +100,11 @@ public class c {
                         byteArrayOutputStream.write(bArr, 0, read);
                     }
                     String str3 = new String(byteArrayOutputStream.toByteArray(), "UTF-8");
-                    aVar.f68135d = str3;
-                    d.r.b.a.a.m.c.d.d.e(f68130a, "the result is %s", str3);
+                    aVar.f68178d = str3;
+                    d.r.b.a.a.m.c.d.d.e(f68173a, "the result is %s", str3);
                     byteArrayOutputStream.close();
                 } else {
-                    d.r.b.a.a.m.c.d.d.h(f68130a, "http get [%s] error! status:%d", str, Integer.valueOf(c2.getResponseCode()));
+                    d.r.b.a.a.m.c.d.d.h(f68173a, "http get [%s] error! status:%d", str, Integer.valueOf(c2.getResponseCode()));
                 }
                 if (c2 != null) {
                     c2.disconnect();
@@ -116,7 +116,7 @@ public class c {
                 th = th4;
                 httpURLConnection = c2;
                 inputStream = null;
-                d.r.b.a.a.m.c.d.d.b(f68130a, "getByUrlConn", th);
+                d.r.b.a.a.m.c.d.d.b(f68173a, "getByUrlConn", th);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
                 }
@@ -126,13 +126,13 @@ public class c {
                 return aVar;
             }
         } catch (Throwable th5) {
-            d.r.b.a.a.m.c.d.d.b(f68130a, "getByUrlConn", th5);
+            d.r.b.a.a.m.c.d.d.b(f68173a, "getByUrlConn", th5);
         }
         return aVar;
     }
 
     public static boolean b(String str) {
-        return f68131b.matcher(str).matches();
+        return f68174b.matcher(str).matches();
     }
 
     public static HttpURLConnection c(String str) throws IOException {

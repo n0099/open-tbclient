@@ -10,10 +10,10 @@ import java.util.Map;
 public final class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f22624a;
+    public final /* synthetic */ ScreenCapEditActivity f22553a;
 
     public d(ScreenCapEditActivity screenCapEditActivity) {
-        this.f22624a = screenCapEditActivity;
+        this.f22553a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,34 +26,34 @@ public final class d implements View.OnClickListener {
         int i3;
         Canvas canvas;
         Paint paint;
-        this.f22624a.a(false);
-        hashMap = this.f22624a.t;
+        this.f22553a.a(false);
+        hashMap = this.f22553a.t;
         for (Map.Entry entry : hashMap.entrySet()) {
-            canvas = this.f22624a.m;
+            canvas = this.f22553a.m;
             float b2 = ((a) entry.getValue()).b();
             float c2 = ((a) entry.getValue()).c();
             float d2 = ((a) entry.getValue()).d();
             float e2 = ((a) entry.getValue()).e();
-            paint = this.f22624a.n;
+            paint = this.f22553a.n;
             canvas.drawRect(b2, c2, d2, e2, paint);
         }
-        button = this.f22624a.T;
+        button = this.f22553a.T;
         button.setClickable(false);
-        z = this.f22624a.I;
+        z = this.f22553a.I;
         if (!z) {
-            ScreenCapEditActivity.j(this.f22624a);
-            ScreenCapEditActivity screenCapEditActivity = this.f22624a;
+            ScreenCapEditActivity.j(this.f22553a);
+            ScreenCapEditActivity screenCapEditActivity = this.f22553a;
             i2 = screenCapEditActivity.M;
             ScreenCapEditActivity.a(screenCapEditActivity, i2);
             return;
         }
-        z2 = this.f22624a.L;
+        z2 = this.f22553a.L;
         if (!z2) {
-            ScreenCapEditActivity.i(this.f22624a);
+            ScreenCapEditActivity.i(this.f22553a);
             return;
         }
-        ScreenCapEditActivity.j(this.f22624a);
-        ScreenCapEditActivity screenCapEditActivity2 = this.f22624a;
+        ScreenCapEditActivity.j(this.f22553a);
+        ScreenCapEditActivity screenCapEditActivity2 = this.f22553a;
         i3 = screenCapEditActivity2.M;
         ScreenCapEditActivity.a(screenCapEditActivity2, i3);
     }

@@ -7,21 +7,21 @@ import java.util.HashMap;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, c> f40260a;
+    public static HashMap<String, c> f39944a;
 
     public static synchronized c a(String str, Context context) {
         synchronized (d.class) {
             if (TextUtils.isEmpty(str)) {
                 str = context.getPackageName() + "_preferences";
             }
-            if (f40260a == null) {
-                f40260a = new HashMap<>();
+            if (f39944a == null) {
+                f39944a = new HashMap<>();
             }
-            if (f40260a.get(str) != null) {
-                return f40260a.get(str);
+            if (f39944a.get(str) != null) {
+                return f39944a.get(str);
             }
             c cVar = new c(str);
-            f40260a.put(str, cVar);
+            f39944a.put(str, cVar);
             return cVar;
         }
     }

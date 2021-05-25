@@ -12,27 +12,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
-import d.a.k0.i2.e.c;
-import d.a.k0.i2.e.f;
+import d.a.n0.j2.e.c;
+import d.a.n0.j2.e.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class PersonCenterAttentionBarListView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f19974e;
+    public Context f19896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f19975f;
+    public c f19897f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19976g;
+    public TextView f19898g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ListViewPager f19977h;
+    public ListViewPager f19899h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f19978i;
+    public View f19900i;
     public View j;
     public d.a.c.e.k.b<PersonCommonForumItemView> k;
 
@@ -76,7 +76,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         @Override // d.a.c.e.k.c
         /* renamed from: g */
         public PersonCommonForumItemView d() {
-            return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.f19974e);
+            return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.f19896e);
         }
 
         public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
@@ -100,10 +100,10 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            if (PersonCenterAttentionBarListView.this.f19975f == null || ListUtils.isEmpty(PersonCenterAttentionBarListView.this.f19975f.f56210e)) {
+            if (PersonCenterAttentionBarListView.this.f19897f == null || ListUtils.isEmpty(PersonCenterAttentionBarListView.this.f19897f.f56394e)) {
                 return 0;
             }
-            return PersonCenterAttentionBarListView.this.f19975f.f56210e.size() % 4 == 0 ? PersonCenterAttentionBarListView.this.f19975f.f56210e.size() / 4 : (PersonCenterAttentionBarListView.this.f19975f.f56210e.size() / 4) + 1;
+            return PersonCenterAttentionBarListView.this.f19897f.f56394e.size() % 4 == 0 ? PersonCenterAttentionBarListView.this.f19897f.f56394e.size() / 4 : (PersonCenterAttentionBarListView.this.f19897f.f56394e.size() / 4) + 1;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -112,7 +112,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             if (ListUtils.isEmpty(e2)) {
                 return null;
             }
-            PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(PersonCenterAttentionBarListView.this.f19974e);
+            PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(PersonCenterAttentionBarListView.this.f19896e);
             personCommonForumCardView.setForumItemViewBdObjectPool(PersonCenterAttentionBarListView.this.k);
             personCommonForumCardView.setData(e2);
             personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
@@ -139,14 +139,14 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     }
 
     public final List<f> e(int i2) {
-        c cVar = this.f19975f;
-        if (cVar == null || ListUtils.isEmpty(cVar.f56210e)) {
+        c cVar = this.f19897f;
+        if (cVar == null || ListUtils.isEmpty(cVar.f56394e)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         int i3 = i2 * 4;
         for (int i4 = i3; i4 < i3 + 4; i4++) {
-            f fVar = (f) ListUtils.getItem(this.f19975f.f56210e, i4);
+            f fVar = (f) ListUtils.getItem(this.f19897f.f56394e, i4);
             if (fVar != null) {
                 arrayList.add(fVar);
             }
@@ -155,13 +155,13 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     }
 
     public final void f(Context context) {
-        this.f19974e = context;
+        this.f19896e = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.person_info_common_forum_layout, this);
-        this.f19978i = inflate;
-        this.f19976g = (TextView) inflate.findViewById(R.id.common_forum_title);
-        this.f19977h = (ListViewPager) this.f19978i.findViewById(R.id.common_forum_viewpager);
-        this.j = this.f19978i.findViewById(R.id.divider_line);
-        this.f19977h.setOffscreenPageLimit(1);
+        this.f19900i = inflate;
+        this.f19898g = (TextView) inflate.findViewById(R.id.common_forum_title);
+        this.f19899h = (ListViewPager) this.f19900i.findViewById(R.id.common_forum_viewpager);
+        this.j = this.f19900i.findViewById(R.id.divider_line);
+        this.f19899h.setOffscreenPageLimit(1);
     }
 
     public int getLayout() {

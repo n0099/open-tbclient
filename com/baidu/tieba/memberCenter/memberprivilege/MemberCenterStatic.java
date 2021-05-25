@@ -56,7 +56,7 @@ import com.baidu.tieba.memberCenter.tail.message.SetTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.SetTailSocketResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
-import d.a.j0.z0.n0;
+import d.a.m0.z0.n0;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class MemberCenterStatic {
@@ -140,22 +140,22 @@ public class MemberCenterStatic {
     /* loaded from: classes3.dex */
     public static class d implements CustomMessageTask.CustomRunnable<Context> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.j0.w.m> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<d.a.m0.w.m> run(CustomMessage<Context> customMessage) {
             if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2001342, new d.a.k0.r1.h.e.a(customMessage.getData(), 1));
+            return new CustomResponsedMessage<>(2001342, new d.a.n0.s1.h.e.a(customMessage.getData(), 1));
         }
     }
 
     /* loaded from: classes3.dex */
     public static class e implements CustomMessageTask.CustomRunnable<Context> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.j0.w.m> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<d.a.m0.w.m> run(CustomMessage<Context> customMessage) {
             if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2001343, new d.a.k0.r1.h.d.b(customMessage.getData()));
+            return new CustomResponsedMessage<>(2001343, new d.a.n0.s1.h.d.b(customMessage.getData()));
         }
     }
 
@@ -163,7 +163,7 @@ public class MemberCenterStatic {
     public static class f implements CustomMessageTask.CustomRunnable<String> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<Object> run(CustomMessage<String> customMessage) {
-            return new CustomResponsedMessage<>(2001294, new d.a.k0.r1.g.b());
+            return new CustomResponsedMessage<>(2001294, new d.a.n0.s1.g.b());
         }
     }
 
@@ -207,11 +207,11 @@ public class MemberCenterStatic {
     /* loaded from: classes3.dex */
     public static class i implements CustomMessageTask.CustomRunnable<Context> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.j0.w.m> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<d.a.m0.w.m> run(CustomMessage<Context> customMessage) {
             if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2001339, new d.a.k0.r1.b.b(customMessage.getData()));
+            return new CustomResponsedMessage<>(2001339, new d.a.n0.s1.b.b(customMessage.getData()));
         }
     }
 
@@ -378,8 +378,8 @@ public class MemberCenterStatic {
     }
 
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
-        d.a.k0.d3.d0.a.h(i3, cls2, false, false);
-        d.a.k0.d3.d0.a.c(i3, i2, str, cls, false, false, false, false);
+        d.a.n0.e3.d0.a.h(i3, cls2, false, false);
+        d.a.n0.e3.d0.a.c(i3, i2, str, cls, false, false, false, false);
     }
 
     public static void d() {

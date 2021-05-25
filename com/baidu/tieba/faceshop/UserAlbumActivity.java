@@ -23,21 +23,21 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.k0.l0.s;
-import d.a.k0.y1.g.g;
+import d.a.n0.m0.s;
+import d.a.n0.z1.g.g;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class UserAlbumActivity extends BaseFragmentActivity implements AbsListView.OnScrollListener, d.a.k0.y1.g.f, PopupWindow.OnDismissListener, s.d {
+public class UserAlbumActivity extends BaseFragmentActivity implements AbsListView.OnScrollListener, d.a.n0.z1.g.f, PopupWindow.OnDismissListener, s.d {
     public static int MAX_SELECT_NUM = 10;
     public g mAdapter;
     public TextView mAddAlbumTv;
-    public d.a.j0.e.a mAddData;
+    public d.a.m0.e.a mAddData;
     public int mChoosedNum;
     public GridView mGridView;
-    public d.a.j0.e.b mLoadModel;
+    public d.a.m0.e.b mLoadModel;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
     public TextView mSelectAlbumTv;
@@ -46,19 +46,19 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     public List<ImageFileInfo> mImageList = new ArrayList();
     public List<ImageFileInfo> mAllImageList = new ArrayList();
     public LinkedHashMap<String, ImageFileInfo> mChooseList = new LinkedHashMap<>();
-    public String mAlbumId = d.a.j0.e.a.f49255f;
+    public String mAlbumId = d.a.m0.e.a.f49299f;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: com.baidu.tieba.faceshop.UserAlbumActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0171a implements d.a.j0.e.c {
-            public C0171a() {
+        public class C0172a implements d.a.m0.e.c {
+            public C0172a() {
             }
 
-            @Override // d.a.j0.e.c
-            public void a(List<d.a.j0.e.a> list) {
+            @Override // d.a.m0.e.c
+            public void a(List<d.a.m0.e.a> list) {
                 if (ListUtils.isEmpty(list)) {
                     return;
                 }
@@ -72,7 +72,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                 UserAlbumActivity.this.mUserCollectAlbumListPopupWindow.l(UserAlbumActivity.this.mNavigationBar);
             }
 
-            @Override // d.a.j0.e.c
+            @Override // d.a.m0.e.c
             public void onPreLoad() {
             }
         }
@@ -85,7 +85,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_albumarrow_up);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             UserAlbumActivity.this.mSelectAlbumTv.setCompoundDrawables(null, null, drawable, null);
-            UserAlbumActivity.this.mLoadModel.g(new C0171a());
+            UserAlbumActivity.this.mLoadModel.g(new C0172a());
         }
     }
 
@@ -121,21 +121,21 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     /* loaded from: classes4.dex */
-    public class d implements d.a.j0.e.d {
+    public class d implements d.a.m0.e.d {
         public d() {
         }
 
-        @Override // d.a.j0.e.d
-        public void a(List<d.a.j0.e.a> list, List<ImageFileInfo> list2, String str) {
+        @Override // d.a.m0.e.d
+        public void a(List<d.a.m0.e.a> list, List<ImageFileInfo> list2, String str) {
             if (!ListUtils.isEmpty(list2)) {
                 UserAlbumActivity.this.mGridView.setVisibility(0);
                 UserAlbumActivity.this.mNoDataView.setVisibility(8);
                 UserAlbumActivity.this.mAllImageList.clear();
                 UserAlbumActivity.this.mAllImageList.addAll(list2);
                 UserAlbumActivity.this.mImageList.addAll(list2);
-                UserAlbumActivity.this.mAddData = new d.a.j0.e.a();
-                UserAlbumActivity.this.mAddData.h(d.a.j0.e.a.f49255f);
-                d.a.j0.e.a aVar = UserAlbumActivity.this.mAddData;
+                UserAlbumActivity.this.mAddData = new d.a.m0.e.a();
+                UserAlbumActivity.this.mAddData.h(d.a.m0.e.a.f49299f);
+                d.a.m0.e.a aVar = UserAlbumActivity.this.mAddData;
                 aVar.i(list2.size() + "");
                 UserAlbumActivity.this.mAddData.l(UserAlbumActivity.this.getPageContext().getString(R.string.album_all));
                 UserAlbumActivity.this.mAddData.k(list2.get(0));
@@ -146,17 +146,17 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             UserAlbumActivity.this.mNoDataView.setVisibility(0);
         }
 
-        @Override // d.a.j0.e.d
+        @Override // d.a.m0.e.d
         public void onPreLoad() {
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e implements d.a.j0.a0.b {
+    public class e implements d.a.m0.a0.b {
         public e() {
         }
 
-        @Override // d.a.j0.a0.b
+        @Override // d.a.m0.a0.b
         public void a(d.a.c.j.d.a aVar, String str, boolean z) {
             TbImageView tbImageView = (TbImageView) UserAlbumActivity.this.mGridView.findViewWithTag(str);
             if (tbImageView == null || aVar == null) {
@@ -167,12 +167,12 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     /* loaded from: classes4.dex */
-    public class f implements d.a.j0.e.d {
+    public class f implements d.a.m0.e.d {
         public f() {
         }
 
-        @Override // d.a.j0.e.d
-        public void a(List<d.a.j0.e.a> list, List<ImageFileInfo> list2, String str) {
+        @Override // d.a.m0.e.d
+        public void a(List<d.a.m0.e.a> list, List<ImageFileInfo> list2, String str) {
             UserAlbumActivity.this.mImageList.clear();
             if (!ListUtils.isEmpty(list2)) {
                 UserAlbumActivity.this.mImageList.addAll(list2);
@@ -180,13 +180,13 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             UserAlbumActivity.this.mAdapter.notifyDataSetChanged();
         }
 
-        @Override // d.a.j0.e.d
+        @Override // d.a.m0.e.d
         public void onPreLoad() {
         }
     }
 
     private void initSetting() {
-        this.mLoadModel = new d.a.j0.e.b(getActivity());
+        this.mLoadModel = new d.a.m0.e.b(getActivity());
         g gVar = new g(this, this.mImageList);
         this.mAdapter = gVar;
         gVar.k(getPageContext().getString(R.string.can_select_only_ten));
@@ -227,7 +227,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     private void loadAlbumData() {
-        this.mLoadModel.i(d.a.j0.e.a.f49255f, new d());
+        this.mLoadModel.i(d.a.m0.e.a.f49299f, new d());
     }
 
     private void refreshImages() {
@@ -260,7 +260,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         this.mAddAlbumTv.setText(string);
     }
 
-    @Override // d.a.k0.y1.g.f
+    @Override // d.a.n0.z1.g.f
     public boolean canChooseMore() {
         return this.mChoosedNum < MAX_SELECT_NUM;
     }
@@ -271,7 +271,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
     }
 
-    @Override // d.a.k0.y1.g.f
+    @Override // d.a.n0.z1.g.f
     public void onChoose() {
         this.mChoosedNum++;
         updateChoosedNum();
@@ -300,8 +300,8 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         this.mSelectAlbumTv.setCompoundDrawables(null, null, drawable, null);
     }
 
-    @Override // d.a.k0.l0.s.d
-    public void onItemClick(int i2, d.a.j0.e.a aVar) {
+    @Override // d.a.n0.m0.s.d
+    public void onItemClick(int i2, d.a.m0.e.a aVar) {
         if (aVar != null) {
             this.mAlbumId = aVar.b();
             this.mNavigationBar.setCenterTextTitle(aVar.g());
@@ -323,7 +323,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         }
     }
 
-    @Override // d.a.k0.y1.g.f
+    @Override // d.a.n0.z1.g.f
     public void onUnChoose() {
         int i2 = this.mChoosedNum;
         if (i2 > 0) {

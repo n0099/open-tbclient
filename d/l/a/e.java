@@ -5,5 +5,5 @@ import android.graphics.BitmapFactory;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final BitmapFactory.Options f66383a = new BitmapFactory.Options();
+    public static final BitmapFactory.Options f66426a = new BitmapFactory.Options();
 }

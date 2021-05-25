@@ -8,13 +8,13 @@ import com.kwad.sdk.core.response.model.AdInfo;
 public class g extends com.kwad.sdk.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f31750b;
+    public ImageView f31679b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f31751c;
+    public AdInfo f31680c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f31752d = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.a.b.g.1
+    public com.kwad.sdk.contentalliance.detail.video.d f31681d = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.a.b.g.1
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void f() {
             g.this.e();
@@ -23,27 +23,27 @@ public class g extends com.kwad.sdk.a.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        KSImageLoader.loadImage(this.f31750b, com.kwad.sdk.core.response.b.a.f(this.f31751c), ((com.kwad.sdk.a.a.a) this).f31701a.f31705d);
-        this.f31750b.setVisibility(0);
+        KSImageLoader.loadImage(this.f31679b, com.kwad.sdk.core.response.b.a.f(this.f31680c), ((com.kwad.sdk.a.a.a) this).f31630a.f31634d);
+        this.f31679b.setVisibility(0);
     }
 
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f31751c = com.kwad.sdk.core.response.b.c.g(((com.kwad.sdk.a.a.a) this).f31701a.f31705d);
-        ((com.kwad.sdk.a.a.a) this).f31701a.f31707f.a(this.f31752d);
-        this.f31750b.setVisibility(8);
+        this.f31680c = com.kwad.sdk.core.response.b.c.g(((com.kwad.sdk.a.a.a) this).f31630a.f31634d);
+        ((com.kwad.sdk.a.a.a) this).f31630a.f31636f.a(this.f31681d);
+        this.f31679b.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b() {
         super.b();
-        this.f31750b = (ImageView) a(R.id.ksad_video_cover_image);
+        this.f31679b = (ImageView) a(R.id.ksad_video_cover_image);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        ((com.kwad.sdk.a.a.a) this).f31701a.f31707f.b(this.f31752d);
+        ((com.kwad.sdk.a.a.a) this).f31630a.f31636f.b(this.f31681d);
     }
 }

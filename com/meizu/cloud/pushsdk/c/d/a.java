@@ -21,27 +21,27 @@ import java.util.Map;
 public class a implements d {
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f34927b;
+    public SQLiteDatabase f34856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f34928c;
+    public b f34857c;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f34931f;
+    public int f34860f;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34926a = a.class.getSimpleName();
+    public String f34855a = a.class.getSimpleName();
 
     /* renamed from: d  reason: collision with root package name */
-    public String[] f34929d = {"id", "eventData", "dateCreated"};
+    public String[] f34858d = {"id", "eventData", "dateCreated"};
 
     /* renamed from: e  reason: collision with root package name */
-    public long f34930e = -1;
+    public long f34859e = -1;
 
     public a(Context context, int i2) {
-        this.f34928c = b.a(context, a(context));
+        this.f34857c = b.a(context, a(context));
         b();
-        this.f34931f = i2;
+        this.f34860f = i2;
     }
 
     private String a(Context context) {
@@ -87,7 +87,7 @@ public class a implements d {
     public List<Map<String, Object>> a(String str, String str2) {
         ArrayList arrayList = new ArrayList();
         if (e()) {
-            Cursor query = this.f34927b.query("events", this.f34929d, str, null, null, null, str2);
+            Cursor query = this.f34856b.query("events", this.f34858d, str, null, null, null, str2);
             query.moveToFirst();
             while (!query.isAfterLast()) {
                 HashMap hashMap = new HashMap();
@@ -116,12 +116,12 @@ public class a implements d {
     public boolean a(long j) {
         int i2;
         if (e()) {
-            SQLiteDatabase sQLiteDatabase = this.f34927b;
+            SQLiteDatabase sQLiteDatabase = this.f34856b;
             i2 = sQLiteDatabase.delete("events", "id=" + j, null);
         } else {
             i2 = -1;
         }
-        String str = this.f34926a;
+        String str = this.f34855a;
         com.meizu.cloud.pushsdk.c.f.c.b(str, "Removed event from database: " + j, new Object[0]);
         return i2 == 1;
     }
@@ -131,11 +131,11 @@ public class a implements d {
             byte[] a2 = a(aVar.a());
             ContentValues contentValues = new ContentValues(2);
             contentValues.put("eventData", a2);
-            this.f34930e = this.f34927b.insert("events", null, contentValues);
+            this.f34859e = this.f34856b.insert("events", null, contentValues);
         }
-        String str = this.f34926a;
-        com.meizu.cloud.pushsdk.c.f.c.b(str, "Added event to database: " + this.f34930e, new Object[0]);
-        return this.f34930e;
+        String str = this.f34855a;
+        com.meizu.cloud.pushsdk.c.f.c.b(str, "Added event to database: " + this.f34859e, new Object[0]);
+        return this.f34859e;
     }
 
     public void b() {
@@ -143,11 +143,11 @@ public class a implements d {
             return;
         }
         try {
-            SQLiteDatabase writableDatabase = this.f34928c.getWritableDatabase();
-            this.f34927b = writableDatabase;
+            SQLiteDatabase writableDatabase = this.f34857c.getWritableDatabase();
+            this.f34856b = writableDatabase;
             writableDatabase.enableWriteAheadLogging();
         } catch (Exception e2) {
-            String str = this.f34926a;
+            String str = this.f34855a;
             com.meizu.cloud.pushsdk.c.f.c.a(str, " open database error " + e2.getMessage(), new Object[0]);
         }
     }
@@ -155,7 +155,7 @@ public class a implements d {
     @Override // com.meizu.cloud.pushsdk.c.d.d
     public long c() {
         if (e()) {
-            return DatabaseUtils.queryNumEntries(this.f34927b, "events");
+            return DatabaseUtils.queryNumEntries(this.f34856b, "events");
         }
         return 0L;
     }
@@ -164,7 +164,7 @@ public class a implements d {
     public com.meizu.cloud.pushsdk.c.b.b d() {
         LinkedList linkedList = new LinkedList();
         ArrayList arrayList = new ArrayList();
-        for (Map<String, Object> map : a(this.f34931f)) {
+        for (Map<String, Object> map : a(this.f34860f)) {
             com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
             cVar.a((Map) map.get("eventData"));
             linkedList.add((Long) map.get("id"));
@@ -174,7 +174,7 @@ public class a implements d {
     }
 
     public boolean e() {
-        SQLiteDatabase sQLiteDatabase = this.f34927b;
+        SQLiteDatabase sQLiteDatabase = this.f34856b;
         return sQLiteDatabase != null && sQLiteDatabase.isOpen();
     }
 }

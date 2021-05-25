@@ -16,11 +16,12 @@ import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class IMSetNickNameRequest extends GroupBaseHttpRequest {
+public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
     public static final String TAG = "IMSetNickNameRequest";
     public long mAppid;
     public long mBuid;
     public String mGroupId;
+    public boolean mIsFansGroup;
     public String mKey;
     public String mNickName;
 
@@ -57,15 +58,15 @@ public class IMSetNickNameRequest extends GroupBaseHttpRequest {
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(IMSetNickNameRequest.this.mKey);
-            if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
-                return;
+            if (removeListener instanceof BIMValueCallBack) {
+                ((BIMValueCallBack) removeListener).onResult(i2, str, IMSetNickNameRequest.this.mGroupId);
             }
-            ((BIMValueCallBack) removeListener).onResult(i2, str, IMSetNickNameRequest.this.mGroupId);
         }
     }
 
-    public IMSetNickNameRequest(Context context, String str, long j, String str2, String str3, long j2) {
+    public IMSetNickNameRequest(Context context, String str, long j, boolean z, String str2, String str3, long j2) {
         this.mContext = context;
+        this.mIsFansGroup = z;
         this.mAppid = j;
         this.mKey = str;
         this.mBuid = j2;
@@ -73,26 +74,47 @@ public class IMSetNickNameRequest extends GroupBaseHttpRequest {
         this.mNickName = str3;
     }
 
+    private String getFansGroupRequestParam() throws NoSuchAlgorithmException {
+        return "method=set_member_name&group_id=" + this.mGroupId + "&member_name=" + this.mNickName + getCommonParams();
+    }
+
+    private String getNormalGroupRequestParam() throws NoSuchAlgorithmException {
+        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+        long currentTimeMillis = System.currentTimeMillis() / 1000;
+        return "method=set_member_name&appid=" + this.mAppid + "&group_id=" + this.mGroupId + "&member_id=" + this.mBuid + "&name=" + this.mNickName + "&timestamp=" + currentTimeMillis + "&sign=" + getMd5("" + currentTimeMillis + bduss + this.mAppid);
+    }
+
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getContentType() {
         return "application/x-www-form-urlencoded";
     }
 
+    @Override // com.baidu.android.imsdk.group.request.FansGroupBaseHttpRequest, com.baidu.android.imsdk.group.request.GroupBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getHost() {
+        if (getHostUrl() == null) {
+            return null;
+        }
+        if (this.mIsFansGroup) {
+            return getHostUrl() + "rest/2.0/im/groupchatv1";
+        }
+        return getHostUrl() + "rest/2.0/im/groupchat";
+    }
+
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
-        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        return ("method=set_member_name&appid=" + this.mAppid + "&group_id=" + this.mGroupId + "&member_id=" + this.mBuid + "&name=" + this.mNickName + "&timestamp=" + currentTimeMillis + "&sign=" + getMd5("" + currentTimeMillis + bduss + this.mAppid)).getBytes();
+        if (this.mIsFansGroup) {
+            return getFansGroupRequestParam().getBytes();
+        }
+        return getNormalGroupRequestParam().getBytes();
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i2, byte[] bArr, Throwable th) {
         Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
-            return;
+        if (removeListener instanceof BIMValueCallBack) {
+            ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mGroupId);
         }
-        ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mGroupId);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler

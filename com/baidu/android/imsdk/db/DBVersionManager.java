@@ -603,7 +603,7 @@ public class DBVersionManager {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_SUBTYPE, (Integer) 29);
                     ContentValues contentValues2 = new ContentValues();
-                    contentValues2.put(TableDefine.SessionColumns.COLUMN_CHAT_TYPE, (Integer) 29);
+                    contentValues2.put("chat_type", (Integer) 29);
                     if (Constants.getEnv(DBVersionManager.this.mContext) == 0) {
                         sQLiteDatabase.update(TableDefine.DB_TABLE_PA_SUBSCRIBE, contentValues, "paid = ?", new String[]{Long.toString(17592194956492L)});
                         sQLiteDatabase.update(TableDefine.DB_TABLE_PA_SUBSCRIBE, contentValues, "paid = ?", new String[]{Long.toString(17592195132261L)});
@@ -657,6 +657,27 @@ public class DBVersionManager {
         public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN has_reject_menu INTEGER DEFAULT 0 ");
+            } catch (Exception e2) {
+                new IMTrack.CrashBuilder(DBVersionManager.this.mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(LogUtils.TAG, "onUpgrade:48->49", e2);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class Version49And50Handler implements VersionHandler {
+        public Version49And50Handler() {
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN last_msg_bduid LONG DEFAULT 0 ");
+                sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN last_msg_name TEXT ");
             } catch (Exception e2) {
                 new IMTrack.CrashBuilder(DBVersionManager.this.mContext).exception(Log.getStackTraceString(e2)).build();
                 LogUtils.e(LogUtils.TAG, "onUpgrade:48->49", e2);
@@ -913,6 +934,10 @@ public class DBVersionManager {
             }
             if (i2 <= 48 && i3 >= 49) {
                 new Version48And49Handler().onUpgrade(sQLiteDatabase, i2, i3);
+                i2 = 49;
+            }
+            if (i2 <= 49 && i3 >= 50) {
+                new Version49And50Handler().onUpgrade(sQLiteDatabase, i2, i3);
             }
             Cursor cursor = null;
             try {
@@ -934,33 +959,33 @@ public class DBVersionManager {
                         }
                     }
                     return;
-                } catch (Throwable th) {
+                } catch (Exception e3) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                    LogUtils.e(TAG, "database exception, check table dialog_record exist");
                     if (cursor != null) {
                         try {
                             cursor.close();
-                        } catch (Exception e3) {
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                            return;
+                        } catch (Exception e4) {
+                            e = e4;
+                            crashBuilder = new IMTrack.CrashBuilder(this.mContext);
+                            crashBuilder.exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "close curse exception");
+                            return;
                         }
                     }
-                    throw th;
+                    return;
                 }
-            } catch (Exception e4) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
-                LogUtils.e(TAG, "database exception, check table dialog_record exist");
+            } catch (Throwable th) {
                 if (cursor != null) {
                     try {
                         cursor.close();
-                        return;
                     } catch (Exception e5) {
-                        e = e5;
-                        crashBuilder = new IMTrack.CrashBuilder(this.mContext);
-                        crashBuilder.exception(Log.getStackTraceString(e)).build();
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e5)).build();
                         LogUtils.e(TAG, "close curse exception");
-                        return;
                     }
                 }
-                return;
+                throw th;
             }
         }
         new DefaultHandler().onUpgrade(sQLiteDatabase, i2, i3);

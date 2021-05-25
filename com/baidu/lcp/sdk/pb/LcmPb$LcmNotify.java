@@ -18,7 +18,7 @@ import java.io.ObjectStreamException;
 public final class LcmPb$LcmNotify extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static final int ACTION_FIELD_NUMBER = 2;
     public static final int LOG_ID_FIELD_NUMBER = 1;
-    public static final Parser<LcmPb$LcmNotify> PARSER = new a();
+    public static Parser<LcmPb$LcmNotify> PARSER = new a();
     public static final LcmPb$LcmNotify defaultInstance;
     public static final long serialVersionUID = 0;
     public int action_;
@@ -41,13 +41,13 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmNotify, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6432e;
+        public int f6332e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6433f;
+        public long f6333f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f6434g;
+        public int f6334g;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -93,24 +93,24 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         /* renamed from: n */
         public LcmPb$LcmNotify buildPartial() {
             LcmPb$LcmNotify lcmPb$LcmNotify = new LcmPb$LcmNotify(this);
-            int i2 = this.f6432e;
+            int i2 = this.f6332e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            lcmPb$LcmNotify.logId_ = this.f6433f;
+            lcmPb$LcmNotify.logId_ = this.f6333f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            lcmPb$LcmNotify.action_ = this.f6434g;
+            lcmPb$LcmNotify.action_ = this.f6334g;
             lcmPb$LcmNotify.bitField0_ = i3;
             return lcmPb$LcmNotify;
         }
 
         public b o() {
             super.clear();
-            this.f6433f = 0L;
-            int i2 = this.f6432e & (-2);
-            this.f6432e = i2;
-            this.f6434g = 0;
-            this.f6432e = i2 & (-3);
+            this.f6333f = 0L;
+            int i2 = this.f6332e & (-2);
+            this.f6332e = i2;
+            this.f6334g = 0;
+            this.f6332e = i2 & (-3);
             return this;
         }
 
@@ -131,7 +131,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         }
 
         public boolean s() {
-            return (this.f6432e & 1) == 1;
+            return (this.f6332e & 1) == 1;
         }
 
         public b t(LcmPb$LcmNotify lcmPb$LcmNotify) {
@@ -182,14 +182,14 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         }
 
         public b v(int i2) {
-            this.f6432e |= 2;
-            this.f6434g = i2;
+            this.f6332e |= 2;
+            this.f6334g = i2;
             return this;
         }
 
         public b w(long j) {
-            this.f6432e |= 1;
-            this.f6433f = j;
+            this.f6332e |= 1;
+            this.f6333f = j;
             return this;
         }
 

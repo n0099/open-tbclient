@@ -1,30 +1,58 @@
 package d.a.j0.g;
-/* loaded from: classes3.dex */
+
+import android.content.Context;
+import android.text.TextUtils;
+import d.a.j0.l.c;
+import d.a.j0.l.d;
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49347a;
+    public static String f40409a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49348b;
+    public static String f40410b;
 
-    public a() {
+    public static String a(Context context) {
+        return d.a(context);
     }
 
-    public String a() {
-        return this.f49347a;
+    public static String b(Context context) {
+        if (d.a.j0.b.a.g(context).d()) {
+            if (!TextUtils.isEmpty(f40410b)) {
+                return f40410b;
+            }
+            if (d.a.j0.b.a.g(context).b()) {
+                f40410b = d.a.j0.d.a.b(context);
+            } else if (c.o(context)) {
+                f40410b = d.a.j0.d.a.b(context);
+            }
+            if (TextUtils.isEmpty(f40410b)) {
+                f40410b = d.a.j0.b.a.g(context).M();
+            } else {
+                d.a.j0.b.a.g(context).l(f40410b);
+            }
+            return f40410b;
+        }
+        return "";
     }
 
-    public int b() {
-        return this.f49348b;
+    public static String c(Context context) {
+        return d.j(context);
     }
 
-    public void c(int i2) {
-        this.f49348b = i2;
-    }
-
-    public a(String str, int i2) {
-        this.f49347a = str;
-        this.f49348b = i2;
+    public static String d(Context context) {
+        if (d.a.j0.b.a.g(context).d()) {
+            if (!TextUtils.isEmpty(f40409a)) {
+                return f40409a;
+            }
+            if (c.o(context)) {
+                String a2 = d.a.j0.m.a.b().a();
+                f40409a = a2;
+                return a2;
+            }
+            return "";
+        }
+        return "";
     }
 }

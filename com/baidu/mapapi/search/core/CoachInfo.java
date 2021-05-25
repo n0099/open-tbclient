@@ -7,26 +7,26 @@ public class CoachInfo extends TransitBaseInfo {
     public static final Parcelable.Creator<CoachInfo> CREATOR = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    public double f7248a;
+    public double f7148a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7249b;
+    public String f7149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7250c;
+    public String f7150c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7251d;
+    public String f7151d;
 
     public CoachInfo() {
     }
 
     public CoachInfo(Parcel parcel) {
         super(parcel);
-        this.f7248a = parcel.readDouble();
-        this.f7249b = parcel.readString();
-        this.f7250c = parcel.readString();
-        this.f7251d = parcel.readString();
+        this.f7148a = parcel.readDouble();
+        this.f7149b = parcel.readString();
+        this.f7150c = parcel.readString();
+        this.f7151d = parcel.readString();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -35,43 +35,43 @@ public class CoachInfo extends TransitBaseInfo {
     }
 
     public String getBooking() {
-        return this.f7249b;
+        return this.f7149b;
     }
 
     public double getPrice() {
-        return this.f7248a;
+        return this.f7148a;
     }
 
     public String getProviderName() {
-        return this.f7250c;
+        return this.f7150c;
     }
 
     public String getProviderUrl() {
-        return this.f7251d;
+        return this.f7151d;
     }
 
     public void setBooking(String str) {
-        this.f7249b = str;
+        this.f7149b = str;
     }
 
     public void setPrice(double d2) {
-        this.f7248a = d2;
+        this.f7148a = d2;
     }
 
     public void setProviderName(String str) {
-        this.f7250c = str;
+        this.f7150c = str;
     }
 
     public void setProviderUrl(String str) {
-        this.f7251d = str;
+        this.f7151d = str;
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         super.writeToParcel(parcel, i2);
-        parcel.writeDouble(this.f7248a);
-        parcel.writeString(this.f7249b);
-        parcel.writeString(this.f7250c);
-        parcel.writeString(this.f7251d);
+        parcel.writeDouble(this.f7148a);
+        parcel.writeString(this.f7149b);
+        parcel.writeString(this.f7150c);
+        parcel.writeString(this.f7151d);
     }
 }

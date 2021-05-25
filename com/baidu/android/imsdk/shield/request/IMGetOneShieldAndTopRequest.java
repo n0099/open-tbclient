@@ -27,6 +27,8 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public long mShieldTime = 0;
     public int mDisturb = 0;
     public long mDisturbTime = 0;
+    public int mGraphicStatus = 1;
+    public int mCommodityStatus = 1;
 
     @Deprecated
     public IMGetOneShieldAndTopRequest(Context context, long j, String str) {
@@ -40,7 +42,7 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
 
     private int getContacterType(int i2) {
         if (i2 != 0) {
-            return i2 != 3 ? 1 : 2;
+            return (i2 == 3 || i2 == 57) ? 2 : 1;
         }
         return 0;
     }
@@ -115,6 +117,10 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
                     } else if (optInt == 3) {
                         this.mDisturb = jSONObject2.optInt("ability");
                         this.mDisturbTime = jSONObject2.optLong("timestamp");
+                    } else if (optInt == 4) {
+                        this.mGraphicStatus = jSONObject2.optInt("ability", 1);
+                    } else if (optInt == 5) {
+                        this.mCommodityStatus = jSONObject2.optInt("ability", 1);
                     }
                 }
             }
@@ -133,6 +139,8 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         getShieldAndTopResult.setShieldTime(this.mShieldTime);
         getShieldAndTopResult.setDisturbStatus(this.mDisturb);
         getShieldAndTopResult.setDisturbTime(this.mDisturbTime);
+        getShieldAndTopResult.setGraphicStatus(this.mGraphicStatus);
+        getShieldAndTopResult.setCommodityStatus(this.mCommodityStatus);
         getShieldAndTopResult.setChatType(this.mChatType);
         ShieldAndTopManager.getInstance(this.mContext).onUserShieldAndTopResult(getShieldAndTopResult, this.mKey);
     }

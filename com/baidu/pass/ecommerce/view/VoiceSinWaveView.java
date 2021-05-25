@@ -21,7 +21,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
-import d.a.y.a.b;
+import d.a.a0.a.b;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class VoiceSinWaveView extends View implements VoiceWaveInterface {

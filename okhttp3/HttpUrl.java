@@ -3,7 +3,6 @@ package okhttp3;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.model.SwanTaskDeadEvent;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.google.android.material.badge.BadgeDrawable;
 import java.net.MalformedURLException;
@@ -198,7 +197,7 @@ public final class HttpUrl {
         }
         int indexOf = this.url.indexOf(63) + 1;
         String str = this.url;
-        return this.url.substring(indexOf, Util.delimiterOffset(str, indexOf, str.length(), (char) SwanTaskDeadEvent.SEPARATOR));
+        return this.url.substring(indexOf, Util.delimiterOffset(str, indexOf, str.length(), '#'));
     }
 
     public String encodedUsername() {
@@ -750,7 +749,7 @@ public final class HttpUrl {
             }
             int slashCount = slashCount(str, skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace);
             char c2 = '?';
-            char c3 = SwanTaskDeadEvent.SEPARATOR;
+            char c3 = '#';
             if (slashCount < 2 && httpUrl != null && httpUrl.scheme.equals(this.scheme)) {
                 this.encodedUsername = httpUrl.encodedUsername();
                 this.encodedPassword = httpUrl.encodedPassword();
@@ -792,7 +791,7 @@ public final class HttpUrl {
                         i3 = i2 + 1;
                     }
                     c2 = '?';
-                    c3 = SwanTaskDeadEvent.SEPARATOR;
+                    c3 = '#';
                 }
                 int portColonOffset = portColonOffset(str, i3, delimiterOffset);
                 int i4 = portColonOffset + 1;
@@ -815,7 +814,7 @@ public final class HttpUrl {
             int delimiterOffset3 = Util.delimiterOffset(str, skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace, "?#");
             resolvePath(str, skipLeadingAsciiWhitespace, delimiterOffset3);
             if (delimiterOffset3 < skipTrailingAsciiWhitespace && str.charAt(delimiterOffset3) == '?') {
-                int delimiterOffset4 = Util.delimiterOffset(str, delimiterOffset3, skipTrailingAsciiWhitespace, (char) SwanTaskDeadEvent.SEPARATOR);
+                int delimiterOffset4 = Util.delimiterOffset(str, delimiterOffset3, skipTrailingAsciiWhitespace, '#');
                 this.encodedQueryNamesAndValues = HttpUrl.queryStringToNamesAndValues(HttpUrl.canonicalize(str, delimiterOffset3 + 1, delimiterOffset4, " \"'<>#", true, false, true, true, null));
                 delimiterOffset3 = delimiterOffset4;
             }
@@ -978,7 +977,7 @@ public final class HttpUrl {
                 HttpUrl.namesAndValuesToQueryString(sb, this.encodedQueryNamesAndValues);
             }
             if (this.encodedFragment != null) {
-                sb.append(SwanTaskDeadEvent.SEPARATOR);
+                sb.append('#');
                 sb.append(this.encodedFragment);
             }
             return sb.toString();

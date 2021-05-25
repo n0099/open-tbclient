@@ -13,7 +13,7 @@ import java.util.Map;
 public class ek {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f37592a;
+    public static a f37521a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, hp> f317a;
@@ -139,7 +139,7 @@ public class ek {
             com.xiaomi.push.service.bn.a(context.getApplicationContext(), hjVar);
             return;
         }
-        a aVar = f37592a;
+        a aVar = f37521a;
         if (aVar != null) {
             aVar.uploader(context, hjVar);
         }
@@ -162,7 +162,7 @@ public class ek {
     }
 
     public static void a(a aVar) {
-        f37592a = aVar;
+        f37521a = aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */

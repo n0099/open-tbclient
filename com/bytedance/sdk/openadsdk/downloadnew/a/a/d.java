@@ -18,10 +18,10 @@ import java.lang.ref.WeakReference;
 public class d implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f29017a;
+    public final WeakReference<Context> f28946a;
 
     public d(Context context) {
-        this.f29017a = new WeakReference<>(context);
+        this.f28946a = new WeakReference<>(context);
     }
 
     @Override // d.o.a.a.a.a.h

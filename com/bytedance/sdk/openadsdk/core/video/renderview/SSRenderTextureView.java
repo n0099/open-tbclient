@@ -16,10 +16,10 @@ import com.bytedance.sdk.openadsdk.core.video.renderview.b;
 public class SSRenderTextureView extends TextureView implements TextureView.SurfaceTextureListener, b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f28578a;
+    public a f28507a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a f28579b;
+    public b.a f28508b;
 
     public SSRenderTextureView(Context context) {
         this(context, null);
@@ -27,7 +27,7 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
     public void a(a aVar) {
-        this.f28578a = aVar;
+        this.f28507a = aVar;
         setSurfaceTextureListener(this);
     }
 
@@ -62,7 +62,7 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-        a aVar = this.f28578a;
+        a aVar = this.f28507a;
         if (aVar != null) {
             aVar.a(surfaceTexture, i2, i3);
         }
@@ -70,13 +70,13 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        a aVar = this.f28578a;
+        a aVar = this.f28507a;
         return aVar != null && aVar.a(surfaceTexture);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
-        a aVar = this.f28578a;
+        a aVar = this.f28507a;
         if (aVar != null) {
             aVar.b(surfaceTexture, i2, i3);
         }
@@ -84,7 +84,7 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        a aVar = this.f28578a;
+        a aVar = this.f28507a;
         if (aVar != null) {
             aVar.b(surfaceTexture);
         }
@@ -93,14 +93,14 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i2) {
         super.onWindowVisibilityChanged(i2);
-        b.a aVar = this.f28579b;
+        b.a aVar = this.f28508b;
         if (aVar != null) {
             aVar.a(i2);
         }
     }
 
     public void setWindowVisibilityChangedListener(b.a aVar) {
-        this.f28579b = aVar;
+        this.f28508b = aVar;
     }
 
     public SSRenderTextureView(Context context, AttributeSet attributeSet) {

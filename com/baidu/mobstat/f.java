@@ -20,35 +20,35 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f8920a = new f();
+    public static f f8820a = new f();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8921b = "";
+    public String f8821b = "";
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8922a;
+        public String f8822a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8923b;
+        public String f8823b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8924c;
+        public String f8824c;
 
         public a(String str, String str2, String str3) {
-            this.f8922a = str == null ? "" : str;
-            this.f8923b = str2 == null ? "" : str2;
-            this.f8924c = str3 == null ? "" : str3;
+            this.f8822a = str == null ? "" : str;
+            this.f8823b = str2 == null ? "" : str2;
+            this.f8824c = str3 == null ? "" : str3;
         }
 
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("n", this.f8922a);
-                jSONObject.put("v", this.f8923b);
-                jSONObject.put("w", this.f8924c);
+                jSONObject.put("n", this.f8822a);
+                jSONObject.put("v", this.f8823b);
+                jSONObject.put("w", this.f8824c);
                 return jSONObject;
             } catch (JSONException e2) {
                 bb.c().b(e2);
@@ -57,7 +57,7 @@ public class f {
         }
 
         public String b() {
-            return this.f8922a;
+            return this.f8822a;
         }
     }
 
@@ -122,8 +122,8 @@ public class f {
         }
         if (z) {
             String b2 = a2.get(0).b();
-            if (a(b2, this.f8921b)) {
-                this.f8921b = b2;
+            if (a(b2, this.f8821b)) {
+                this.f8821b = b2;
             }
         }
         a(context, a2, z);
@@ -137,7 +137,7 @@ public class f {
     }
 
     private boolean a(String str, String str2) {
-        return (TextUtils.isEmpty(str) || str.equals(this.f8921b)) ? false : true;
+        return (TextUtils.isEmpty(str) || str.equals(this.f8821b)) ? false : true;
     }
 
     private String a(Context context, String str) {

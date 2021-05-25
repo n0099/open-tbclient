@@ -16,10 +16,10 @@ import java.util.Map;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Resources> f31885a = new HashMap();
+    public static Map<String, Resources> f31814a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f31886b = new Object();
+    public static final Object f31815b = new Object();
 
     /* loaded from: classes6.dex */
     public static final class a {
@@ -179,14 +179,14 @@ public class o {
     @NonNull
     public static Resources a(Context context, Resources resources, String str) {
         Resources resources2;
-        synchronized (f31886b) {
-            resources2 = f31885a.get(str);
+        synchronized (f31815b) {
+            resources2 = f31814a.get(str);
             if (resources2 == null) {
                 resources2 = b(context, resources, str);
                 if (resources2 == null) {
                     throw new RuntimeException("Can not createResources for " + str);
                 }
-                f31885a.put(str, resources);
+                f31814a.put(str, resources);
             }
         }
         return resources2;

@@ -3,14 +3,14 @@ package com.bytedance.sdk.openadsdk.f.a;
 public class r extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29180a;
+    public int f29109a;
 
     public r(int i2) {
-        this.f29180a = i2;
+        this.f29109a = i2;
     }
 
     public r(int i2, String str) {
         super(str);
-        this.f29180a = i2;
+        this.f29109a = i2;
     }
 }

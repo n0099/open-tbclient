@@ -34,7 +34,7 @@ public class l {
     public JSONObject Y;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27964a;
+    public String f27893a;
     public int aa;
     public q af;
     public n ag;
@@ -42,22 +42,22 @@ public class l {
     public String ai;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27965b;
+    public int f27894b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f27966c;
+    public k f27895c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f27967d;
+    public k f27896d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27968e;
+    public String f27897e;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27970g;
+    public String f27899g;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f27972i;
+    public String f27901i;
     public String l;
     public String m;
     public String n;
@@ -72,10 +72,10 @@ public class l {
     public boolean z;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27969f = -1;
+    public int f27898f = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<k> f27971h = new ArrayList();
+    public List<k> f27900h = new ArrayList();
     public List<String> j = new ArrayList();
     public List<String> k = new ArrayList();
     public String o = "0";
@@ -102,80 +102,80 @@ public class l {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f27973a;
+        public String f27902a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27974b;
+        public String f27903b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f27975c;
+        public String f27904c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f27976d;
+        public String f27905d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f27977e;
+        public String f27906e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f27978f;
+        public String f27907f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f27979g;
+        public String f27908g;
 
         public String a() {
-            return this.f27978f;
+            return this.f27907f;
         }
 
         public String b() {
-            return this.f27973a;
+            return this.f27902a;
         }
 
         public String c() {
-            return this.f27974b;
+            return this.f27903b;
         }
 
         public String d() {
-            return this.f27975c;
+            return this.f27904c;
         }
 
         public String e() {
-            return this.f27976d;
+            return this.f27905d;
         }
 
         public String f() {
-            return this.f27977e;
+            return this.f27906e;
         }
 
         public String g() {
-            return this.f27979g;
+            return this.f27908g;
         }
 
         public void a(String str) {
-            this.f27978f = str;
+            this.f27907f = str;
         }
 
         public void b(String str) {
-            this.f27973a = str;
+            this.f27902a = str;
         }
 
         public void c(String str) {
-            this.f27974b = str;
+            this.f27903b = str;
         }
 
         public void d(String str) {
-            this.f27975c = str;
+            this.f27904c = str;
         }
 
         public void e(String str) {
-            this.f27976d = str;
+            this.f27905d = str;
         }
 
         public void f(String str) {
-            this.f27977e = str;
+            this.f27906e = str;
         }
 
         public void g(String str) {
-            this.f27979g = str;
+            this.f27908g = str;
         }
     }
 
@@ -335,7 +335,7 @@ public class l {
     }
 
     public int Z() {
-        return this.f27965b;
+        return this.f27894b;
     }
 
     public String aA() {
@@ -359,7 +359,7 @@ public class l {
     }
 
     public String aF() {
-        return this.f27964a;
+        return this.f27893a;
     }
 
     public int aG() {
@@ -367,11 +367,11 @@ public class l {
     }
 
     public boolean aH() {
-        if (this.f27971h.isEmpty()) {
+        if (this.f27900h.isEmpty()) {
             return false;
         }
-        if (this.r != 4 || this.f27971h.size() >= 3) {
-            for (k kVar : this.f27971h) {
+        if (this.r != 4 || this.f27900h.size() >= 3) {
+            for (k kVar : this.f27900h) {
                 if (!kVar.e()) {
                     return false;
                 }
@@ -447,12 +447,12 @@ public class l {
             e o = o();
             if (o != null) {
                 JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("click_upper_content_area", o.f27904a);
-                jSONObject5.put("click_upper_non_content_area", o.f27905b);
-                jSONObject5.put("click_lower_content_area", o.f27906c);
-                jSONObject5.put("click_lower_non_content_area", o.f27907d);
-                jSONObject5.put("click_button_area", o.f27908e);
-                jSONObject5.put("click_video_area", o.f27909f);
+                jSONObject5.put("click_upper_content_area", o.f27833a);
+                jSONObject5.put("click_upper_non_content_area", o.f27834b);
+                jSONObject5.put("click_lower_content_area", o.f27835c);
+                jSONObject5.put("click_lower_non_content_area", o.f27836d);
+                jSONObject5.put("click_button_area", o.f27837e);
+                jSONObject5.put("click_video_area", o.f27838f);
                 jSONObject.put("click_area", jSONObject5);
             }
             AdSlot p = p();
@@ -615,31 +615,31 @@ public class l {
     }
 
     public k aa() {
-        return this.f27966c;
+        return this.f27895c;
     }
 
     public k ab() {
-        return this.f27967d;
+        return this.f27896d;
     }
 
     public String ac() {
-        return this.f27968e;
+        return this.f27897e;
     }
 
     public int ad() {
-        return this.f27969f;
+        return this.f27898f;
     }
 
     public String ae() {
-        return this.f27970g;
+        return this.f27899g;
     }
 
     public List<k> af() {
-        return this.f27971h;
+        return this.f27900h;
     }
 
     public String ag() {
-        return this.f27972i;
+        return this.f27901i;
     }
 
     public List<String> ah() {
@@ -898,11 +898,11 @@ public class l {
     }
 
     public void n(int i2) {
-        this.f27965b = i2;
+        this.f27894b = i2;
     }
 
     public void o(int i2) {
-        this.f27969f = i2;
+        this.f27898f = i2;
     }
 
     public void p(int i2) {
@@ -950,7 +950,7 @@ public class l {
     }
 
     public void f(String str) {
-        this.f27968e = str;
+        this.f27897e = str;
     }
 
     public void g(int i2) {
@@ -958,7 +958,7 @@ public class l {
     }
 
     public void h(String str) {
-        this.f27972i = str;
+        this.f27901i = str;
     }
 
     public void i(String str) {
@@ -986,7 +986,7 @@ public class l {
     }
 
     public void o(String str) {
-        this.f27964a = str;
+        this.f27893a = str;
     }
 
     public static boolean b(l lVar) {
@@ -1011,7 +1011,7 @@ public class l {
     }
 
     public void c(k kVar) {
-        this.f27971h.add(kVar);
+        this.f27900h.add(kVar);
     }
 
     public void d(boolean z) {
@@ -1019,7 +1019,7 @@ public class l {
     }
 
     public void g(String str) {
-        this.f27970g = str;
+        this.f27899g = str;
     }
 
     public static boolean d(l lVar) {
@@ -1056,7 +1056,7 @@ public class l {
         if (jSONObject == null) {
             return;
         }
-        this.f27965b = 4;
+        this.f27894b = 4;
         this.o = jSONObject.optString("id");
         this.s = jSONObject.optString("source");
         b bVar = new b();
@@ -1075,7 +1075,7 @@ public class l {
     }
 
     public void b(k kVar) {
-        this.f27967d = kVar;
+        this.f27896d = kVar;
     }
 
     public void a(a aVar) {
@@ -1142,7 +1142,7 @@ public class l {
     }
 
     public void a(k kVar) {
-        this.f27966c = kVar;
+        this.f27895c = kVar;
     }
 
     public void a(b bVar) {

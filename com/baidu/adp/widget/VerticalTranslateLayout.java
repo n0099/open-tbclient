@@ -24,19 +24,19 @@ public class VerticalTranslateLayout extends FrameLayout {
     public g B;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2398e;
+    public int f2403e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2399f;
+    public int f2404f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f2400g;
+    public float f2405g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f2401h;
+    public float f2406h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f2402i;
+    public float f2407i;
     public float j;
     public int k;
     public final int l;
@@ -67,21 +67,21 @@ public class VerticalTranslateLayout extends FrameLayout {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f2403a;
+        public static final /* synthetic */ int[] f2408a;
 
         static {
             int[] iArr = new int[TrackDirection.values().length];
-            f2403a = iArr;
+            f2408a = iArr;
             try {
                 iArr[TrackDirection.top.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f2403a[TrackDirection.bottom.ordinal()] = 2;
+                f2408a[TrackDirection.bottom.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f2403a[TrackDirection.vertical.ordinal()] = 3;
+                f2408a[TrackDirection.vertical.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -94,7 +94,7 @@ public class VerticalTranslateLayout extends FrameLayout {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (VerticalTranslateLayout.this.w.f2411g) {
+            if (VerticalTranslateLayout.this.w.f2416g) {
                 int i2 = message.what;
                 if (i2 == -105) {
                     VerticalTranslateLayout.this.w.g();
@@ -118,25 +118,25 @@ public class VerticalTranslateLayout extends FrameLayout {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public float f2405a;
+        public float f2410a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f2406b;
+        public float f2411b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f2407c;
+        public float f2412c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f2408d;
+        public float f2413d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f2409e;
+        public long f2414e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f2410f;
+        public long f2415f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f2411g;
+        public boolean f2416g;
 
         public c() {
             float f2 = VerticalTranslateLayout.this.getContext().getResources().getDisplayMetrics().density;
@@ -147,18 +147,18 @@ public class VerticalTranslateLayout extends FrameLayout {
             if (dVar != null) {
                 dVar.a();
             }
-            this.f2411g = true;
+            this.f2416g = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2409e = uptimeMillis;
-            this.f2410f = uptimeMillis + 16;
-            this.f2406b = f2;
-            this.f2405a = 0.0f;
-            this.f2407c = (VerticalTranslateLayout.this.f2399f - VerticalTranslateLayout.this.f2402i) - VerticalTranslateLayout.this.k;
-            this.f2408d = VerticalTranslateLayout.this.k;
-            BdLog.d("Animator@animateBottom " + this.f2407c);
+            this.f2414e = uptimeMillis;
+            this.f2415f = uptimeMillis + 16;
+            this.f2411b = f2;
+            this.f2410a = 0.0f;
+            this.f2412c = (VerticalTranslateLayout.this.f2404f - VerticalTranslateLayout.this.f2407i) - VerticalTranslateLayout.this.k;
+            this.f2413d = VerticalTranslateLayout.this.k;
+            BdLog.d("Animator@animateBottom " + this.f2412c);
             BdLog.d("Animator@animateBottom " + f2);
             VerticalTranslateLayout.this.v.removeMessages(-101);
-            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-101, this.f2410f);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-101, this.f2415f);
         }
 
         public void b(float f2) {
@@ -167,18 +167,18 @@ public class VerticalTranslateLayout extends FrameLayout {
                     eVar.a();
                 }
             }
-            this.f2411g = true;
+            this.f2416g = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2409e = uptimeMillis;
-            this.f2410f = uptimeMillis + 16;
-            this.f2406b = f2;
-            this.f2405a = 0.0f;
-            this.f2407c = 0 - VerticalTranslateLayout.this.k;
-            this.f2408d = VerticalTranslateLayout.this.k;
-            BdLog.d("Animator@animateBottomOpen " + this.f2407c);
+            this.f2414e = uptimeMillis;
+            this.f2415f = uptimeMillis + 16;
+            this.f2411b = f2;
+            this.f2410a = 0.0f;
+            this.f2412c = 0 - VerticalTranslateLayout.this.k;
+            this.f2413d = VerticalTranslateLayout.this.k;
+            BdLog.d("Animator@animateBottomOpen " + this.f2412c);
             BdLog.d("Animator@animateBottomOpen " + f2);
             VerticalTranslateLayout.this.v.removeMessages(-105);
-            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-105, this.f2410f);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-105, this.f2415f);
         }
 
         public void c(float f2) {
@@ -186,18 +186,18 @@ public class VerticalTranslateLayout extends FrameLayout {
             if (fVar != null) {
                 fVar.a();
             }
-            this.f2411g = true;
+            this.f2416g = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2409e = uptimeMillis;
-            this.f2410f = uptimeMillis + 16;
-            this.f2406b = f2;
-            this.f2405a = 0.0f;
-            this.f2407c = ((-VerticalTranslateLayout.this.f2399f) + VerticalTranslateLayout.this.f2400g) - VerticalTranslateLayout.this.k;
-            this.f2408d = VerticalTranslateLayout.this.k;
-            BdLog.d("Animator@animateTop " + this.f2407c);
+            this.f2414e = uptimeMillis;
+            this.f2415f = uptimeMillis + 16;
+            this.f2411b = f2;
+            this.f2410a = 0.0f;
+            this.f2412c = ((-VerticalTranslateLayout.this.f2404f) + VerticalTranslateLayout.this.f2405g) - VerticalTranslateLayout.this.k;
+            this.f2413d = VerticalTranslateLayout.this.k;
+            BdLog.d("Animator@animateTop " + this.f2412c);
             BdLog.d("Animator@animateTop " + f2);
             VerticalTranslateLayout.this.v.removeMessages(-100);
-            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-100, this.f2410f);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-100, this.f2415f);
         }
 
         public void d(float f2) {
@@ -206,103 +206,103 @@ public class VerticalTranslateLayout extends FrameLayout {
                     eVar.a();
                 }
             }
-            this.f2411g = true;
+            this.f2416g = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2409e = uptimeMillis;
-            this.f2410f = uptimeMillis + 16;
-            this.f2406b = f2;
-            this.f2405a = 0.0f;
-            this.f2407c = 0 - VerticalTranslateLayout.this.k;
-            this.f2408d = VerticalTranslateLayout.this.k;
+            this.f2414e = uptimeMillis;
+            this.f2415f = uptimeMillis + 16;
+            this.f2411b = f2;
+            this.f2410a = 0.0f;
+            this.f2412c = 0 - VerticalTranslateLayout.this.k;
+            this.f2413d = VerticalTranslateLayout.this.k;
             VerticalTranslateLayout.this.v.removeMessages(-104);
-            BdLog.d("Animator@animateTopOpen " + this.f2407c);
+            BdLog.d("Animator@animateTopOpen " + this.f2412c);
             BdLog.d("Animator@animateTopOpen " + f2);
-            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-104, this.f2410f);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-104, this.f2415f);
         }
 
         public final void e() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2405a += this.f2406b * (((float) (uptimeMillis - this.f2409e)) / 1000.0f);
-            this.f2409e = uptimeMillis;
-            this.f2410f += 16;
+            this.f2410a += this.f2411b * (((float) (uptimeMillis - this.f2414e)) / 1000.0f);
+            this.f2414e = uptimeMillis;
+            this.f2415f += 16;
         }
 
         public void f() {
             e();
-            float f2 = this.f2405a;
-            float f3 = this.f2407c;
+            float f2 = this.f2410a;
+            float f3 = this.f2412c;
             if (f2 >= f3) {
                 d dVar = VerticalTranslateLayout.this.z;
                 if (dVar != null) {
                     dVar.b();
                 }
-                this.f2411g = false;
+                this.f2416g = false;
                 VerticalTranslateLayout.this.n = 10001;
                 VerticalTranslateLayout.this.s();
                 return;
             }
-            VerticalTranslateLayout.this.k = (int) (d.a.c.j.a.a(f3, f2, false) + this.f2408d);
+            VerticalTranslateLayout.this.k = (int) (d.a.c.j.a.a(f3, f2, false) + this.f2413d);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-101, this.f2410f);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-101, this.f2415f);
         }
 
         public void g() {
             e();
-            float f2 = this.f2405a;
-            float f3 = this.f2407c;
+            float f2 = this.f2410a;
+            float f3 = this.f2412c;
             if (f2 <= f3) {
                 for (e eVar : VerticalTranslateLayout.this.A) {
                     if (eVar != null) {
                         eVar.b();
                     }
                 }
-                this.f2411g = false;
+                this.f2416g = false;
                 VerticalTranslateLayout.this.n = 10004;
                 VerticalTranslateLayout.this.s();
                 return;
             }
-            VerticalTranslateLayout.this.k = (int) (d.a.c.j.a.a(f3, f2, false) + this.f2408d);
+            VerticalTranslateLayout.this.k = (int) (d.a.c.j.a.a(f3, f2, false) + this.f2413d);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-105, this.f2410f);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-105, this.f2415f);
         }
 
         public void h() {
             e();
-            float f2 = this.f2405a;
-            float f3 = this.f2407c;
+            float f2 = this.f2410a;
+            float f3 = this.f2412c;
             if (f2 <= f3) {
                 f fVar = VerticalTranslateLayout.this.y;
                 if (fVar != null) {
                     fVar.b();
                 }
-                this.f2411g = false;
+                this.f2416g = false;
                 VerticalTranslateLayout.this.n = 10000;
                 VerticalTranslateLayout.this.s();
                 return;
             }
-            VerticalTranslateLayout.this.k = (int) (d.a.c.j.a.a(f3, f2, false) + this.f2408d);
+            VerticalTranslateLayout.this.k = (int) (d.a.c.j.a.a(f3, f2, false) + this.f2413d);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-100, this.f2410f);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-100, this.f2415f);
         }
 
         public void i() {
             e();
-            float f2 = this.f2405a;
-            float f3 = this.f2407c;
+            float f2 = this.f2410a;
+            float f3 = this.f2412c;
             if (f2 >= f3) {
                 for (e eVar : VerticalTranslateLayout.this.A) {
                     if (eVar != null) {
                         eVar.b();
                     }
                 }
-                this.f2411g = false;
+                this.f2416g = false;
                 VerticalTranslateLayout.this.n = 10004;
                 VerticalTranslateLayout.this.s();
                 return;
             }
-            VerticalTranslateLayout.this.k = (int) (d.a.c.j.a.a(f3, f2, false) + this.f2408d);
+            VerticalTranslateLayout.this.k = (int) (d.a.c.j.a.a(f3, f2, false) + this.f2413d);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-104, this.f2410f);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-104, this.f2415f);
         }
     }
 
@@ -336,21 +336,21 @@ public class VerticalTranslateLayout extends FrameLayout {
     public class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public VelocityTracker f2413a;
+        public VelocityTracker f2418a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f2414b;
+        public boolean f2419b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f2415c;
+        public final int f2420c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f2416d;
+        public final int f2421d;
 
         public h() {
             float f2 = VerticalTranslateLayout.this.getContext().getResources().getDisplayMetrics().density;
-            this.f2415c = (int) ((200.0f * f2) + 0.5f);
-            this.f2416d = (int) ((f2 * 500.0f) + 0.5f);
+            this.f2420c = (int) ((200.0f * f2) + 0.5f);
+            this.f2421d = (int) ((f2 * 500.0f) + 0.5f);
         }
 
         public final void b(float f2) {
@@ -364,15 +364,15 @@ public class VerticalTranslateLayout extends FrameLayout {
 
         public final void c() {
             float max;
-            this.f2413a.computeCurrentVelocity(this.f2415c);
-            float yVelocity = this.f2413a.getYVelocity();
+            this.f2418a.computeCurrentVelocity(this.f2420c);
+            float yVelocity = this.f2418a.getYVelocity();
             BdLog.d("VerticalTranslateLayout@fling y " + yVelocity);
             if (yVelocity < 0.0f) {
-                max = Math.min(yVelocity, -this.f2416d);
+                max = Math.min(yVelocity, -this.f2421d);
             } else {
-                max = Math.max(yVelocity, this.f2416d);
+                max = Math.max(yVelocity, this.f2421d);
             }
-            int i2 = a.f2403a[VerticalTranslateLayout.this.m.ordinal()];
+            int i2 = a.f2408a[VerticalTranslateLayout.this.m.ordinal()];
             if (i2 == 1) {
                 g(max);
             } else if (i2 == 2) {
@@ -380,24 +380,24 @@ public class VerticalTranslateLayout extends FrameLayout {
             } else if (i2 == 3) {
                 h(max);
             }
-            this.f2413a.recycle();
-            this.f2413a = null;
+            this.f2418a.recycle();
+            this.f2418a = null;
         }
 
         public void d(int i2) {
-            if (this.f2414b) {
+            if (this.f2419b) {
                 int i3 = VerticalTranslateLayout.this.k - i2;
-                int i4 = a.f2403a[VerticalTranslateLayout.this.m.ordinal()];
+                int i4 = a.f2408a[VerticalTranslateLayout.this.m.ordinal()];
                 if (i4 == 1) {
                     BdLog.d("VerticalTranslateLayout@move top");
-                    if (i3 <= VerticalTranslateLayout.this.f2400g - VerticalTranslateLayout.this.f2399f || i3 >= 0) {
+                    if (i3 <= VerticalTranslateLayout.this.f2405g - VerticalTranslateLayout.this.f2404f || i3 >= 0) {
                         return;
                     }
                     VerticalTranslateLayout.this.k -= i2;
                     VerticalTranslateLayout.this.invalidate();
                 } else if (i4 == 2) {
                     BdLog.d("VerticalTranslateLayout@move bottom");
-                    if (i3 >= VerticalTranslateLayout.this.f2399f - VerticalTranslateLayout.this.f2402i || i3 <= 0) {
+                    if (i3 >= VerticalTranslateLayout.this.f2404f - VerticalTranslateLayout.this.f2407i || i3 <= 0) {
                         return;
                     }
                     VerticalTranslateLayout.this.k -= i2;
@@ -406,7 +406,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                 } else {
                     BdLog.d("VerticalTranslateLayout@move vertical");
                     float f2 = i3;
-                    if (f2 < VerticalTranslateLayout.this.f2400g - VerticalTranslateLayout.this.f2399f || f2 > VerticalTranslateLayout.this.f2399f - VerticalTranslateLayout.this.f2402i) {
+                    if (f2 < VerticalTranslateLayout.this.f2405g - VerticalTranslateLayout.this.f2404f || f2 > VerticalTranslateLayout.this.f2404f - VerticalTranslateLayout.this.f2407i) {
                         return;
                     }
                     VerticalTranslateLayout.this.k -= i2;
@@ -416,7 +416,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         }
 
         public boolean e(int i2) {
-            int i3 = a.f2403a[VerticalTranslateLayout.this.m.ordinal()];
+            int i3 = a.f2408a[VerticalTranslateLayout.this.m.ordinal()];
             if (i3 != 1) {
                 if (i3 != 2) {
                     if (i3 == 3 && VerticalTranslateLayout.this.B != null) {
@@ -428,13 +428,13 @@ public class VerticalTranslateLayout extends FrameLayout {
             } else if (VerticalTranslateLayout.this.n != 10004 && VerticalTranslateLayout.this.n != 10000) {
                 return false;
             }
-            this.f2413a = VelocityTracker.obtain();
-            this.f2414b = true;
+            this.f2418a = VelocityTracker.obtain();
+            this.f2419b = true;
             return true;
         }
 
         public void f() {
-            this.f2414b = false;
+            this.f2419b = false;
         }
 
         public final void g(float f2) {
@@ -449,13 +449,13 @@ public class VerticalTranslateLayout extends FrameLayout {
         public final void h(float f2) {
             BdLog.d("VerticalTranslateLayout@verticalFling");
             int i2 = VerticalTranslateLayout.this.k;
-            if (i2 <= 0 && i2 >= VerticalTranslateLayout.this.f2400g - VerticalTranslateLayout.this.f2399f) {
+            if (i2 <= 0 && i2 >= VerticalTranslateLayout.this.f2405g - VerticalTranslateLayout.this.f2404f) {
                 if (f2 < 0.0f) {
                     VerticalTranslateLayout.this.w.c(f2);
                 } else {
                     VerticalTranslateLayout.this.w.d(f2);
                 }
-            } else if (i2 < 0 || i2 > VerticalTranslateLayout.this.f2399f - VerticalTranslateLayout.this.f2402i) {
+            } else if (i2 < 0 || i2 > VerticalTranslateLayout.this.f2404f - VerticalTranslateLayout.this.f2407i) {
             } else {
                 if (f2 < 0.0f) {
                     VerticalTranslateLayout.this.w.b(f2);
@@ -488,13 +488,13 @@ public class VerticalTranslateLayout extends FrameLayout {
         canvas.save();
         canvas.translate(0.0f, this.k);
         BdLog.d("VerticalTranslateLayout@dispatchDraw " + this.k);
-        canvas.drawRect(0.0f, 0.0f, (float) this.f2398e, (float) this.f2399f, this.q);
+        canvas.drawRect(0.0f, 0.0f, (float) this.f2403e, (float) this.f2404f, this.q);
         super.dispatchDraw(canvas);
         canvas.restore();
     }
 
     public int getBottomOffset() {
-        return (int) this.f2402i;
+        return (int) this.f2407i;
     }
 
     public int getState() {
@@ -502,7 +502,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     public int getTopOffset() {
-        return (int) this.f2400g;
+        return (int) this.f2405g;
     }
 
     public int getTopTranslate() {
@@ -540,16 +540,16 @@ public class VerticalTranslateLayout extends FrameLayout {
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         super.onLayout(z, i2, i3, i4, i5);
         if (z) {
-            float f2 = this.f2400g;
+            float f2 = this.f2405g;
             if (f2 != -1.0f) {
                 this.o.set(i2, i3, i4, (int) (i3 + f2));
             }
-            float f3 = this.f2402i;
+            float f3 = this.f2407i;
             if (f3 != -1.0f) {
                 this.p.set(i2, (int) (i5 - f3), i4, i5);
             }
         }
-        if (this.w.f2411g || this.x.f2414b) {
+        if (this.w.f2416g || this.x.f2419b) {
             return;
         }
         s();
@@ -559,14 +559,14 @@ public class VerticalTranslateLayout extends FrameLayout {
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
         int i4 = 1073741823 & i3;
-        if (this.f2401h != -1.0f) {
-            this.f2400g = i4 - this.j;
+        if (this.f2406h != -1.0f) {
+            this.f2405g = i4 - this.j;
         }
         if (this.j != -1.0f) {
-            this.f2402i = i4 - this.f2401h;
+            this.f2407i = i4 - this.f2406h;
         }
-        this.f2398e = getMeasuredWidth();
-        this.f2399f = getMeasuredHeight();
+        this.f2403e = getMeasuredWidth();
+        this.f2404f = getMeasuredHeight();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:24:0x0074, code lost:
@@ -587,7 +587,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     if (action != 3) {
                         return false;
                     }
-                } else if (this.x.f2414b) {
+                } else if (this.x.f2419b) {
                     if (!this.u) {
                         int i3 = this.s;
                         if (y > i3) {
@@ -600,12 +600,12 @@ public class VerticalTranslateLayout extends FrameLayout {
                     }
                     this.x.d(this.t - y);
                     this.t = y;
-                    this.x.f2413a.addMovement(motionEvent);
+                    this.x.f2418a.addMovement(motionEvent);
                 }
             }
             BdLog.d("VerticalTranslateLayout@onTouchEvent up");
             this.u = false;
-            if (this.x.f2414b) {
+            if (this.x.f2419b) {
                 BdLog.d("VerticalTranslateLayout@onTouchEvent tracking");
                 this.x.f();
                 this.x.c();
@@ -618,7 +618,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                 }
             }
             h hVar = this.x;
-            if (hVar.f2414b) {
+            if (hVar.f2419b) {
                 hVar.f();
                 this.x.c();
             }
@@ -626,34 +626,34 @@ public class VerticalTranslateLayout extends FrameLayout {
             return false;
         } else {
             h hVar2 = this.x;
-            if (!hVar2.f2414b) {
+            if (!hVar2.f2419b) {
                 this.t = y;
                 hVar2.e(y);
             }
         }
         h hVar3 = this.x;
-        if (hVar3.f2414b) {
+        if (hVar3.f2419b) {
             hVar3.d(this.t - y);
             this.t = y;
-            this.x.f2413a.addMovement(motionEvent);
+            this.x.f2418a.addMovement(motionEvent);
         }
         return true;
     }
 
     public final boolean p() {
-        return (this.f2402i == -1.0f && this.f2401h == -1.0f) ? false : true;
+        return (this.f2407i == -1.0f && this.f2406h == -1.0f) ? false : true;
     }
 
     public final boolean q() {
-        return (this.f2400g == -1.0f && this.j == -1.0f) ? false : true;
+        return (this.f2405g == -1.0f && this.j == -1.0f) ? false : true;
     }
 
     public final void r(AttributeSet attributeSet) {
         String[] split;
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.VerticalTranslateLayout);
-        this.f2400g = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topOffset, -1.0f);
-        this.f2402i = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomOffset, -1.0f);
-        this.f2401h = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topHeight, -1.0f);
+        this.f2405g = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topOffset, -1.0f);
+        this.f2407i = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomOffset, -1.0f);
+        this.f2406h = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topHeight, -1.0f);
         this.j = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomHeight, -1.0f);
         String string = obtainStyledAttributes.getString(R.styleable.VerticalTranslateLayout_transTrack);
         if (string != null && string.length() > 0) {
@@ -675,7 +675,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         if (string2 != null && string2.length() > 0) {
             for (String str : string2.split("\\|")) {
                 BdLog.d("VerticalTranslateLayout@loadAttrs tap area " + str);
-                if ((!"top".equals(str) || this.f2400g == -1.0f) && (!TipsConfigItem.TipConfigData.BOTTOM.equals(str) || this.f2402i == -1.0f)) {
+                if ((!"top".equals(str) || this.f2405g == -1.0f) && (!TipsConfigItem.TipConfigData.BOTTOM.equals(str) || this.f2407i == -1.0f)) {
                     BdLog.d("VerticalTranslateLayout@loadAttrs tap_back_area value illegal");
                 }
             }
@@ -688,10 +688,10 @@ public class VerticalTranslateLayout extends FrameLayout {
     public final void s() {
         int i2 = this.n;
         if (i2 == 10000) {
-            this.k = (int) (this.f2400g - this.f2399f);
+            this.k = (int) (this.f2405g - this.f2404f);
             invalidate();
         } else if (i2 == 10001) {
-            this.k = (int) (this.f2399f - this.f2402i);
+            this.k = (int) (this.f2404f - this.f2407i);
             invalidate();
         } else if (i2 != 10004) {
         } else {
@@ -719,19 +719,19 @@ public class VerticalTranslateLayout extends FrameLayout {
             return;
         }
         if (f2 < 0.0f) {
-            this.k = (int) ((this.f2400g - this.f2399f) * (-f2));
+            this.k = (int) ((this.f2405g - this.f2404f) * (-f2));
         } else {
             int i3 = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
             if (i3 > 0) {
-                this.k = (int) ((this.f2399f - this.f2402i) * f2);
+                this.k = (int) ((this.f2404f - this.f2407i) * f2);
             } else if (i3 == 0) {
                 this.k = 0;
                 this.n = 10004;
             } else if (f2 == -1.0f) {
-                this.f2400g -= this.f2399f;
+                this.f2405g -= this.f2404f;
                 this.n = 10000;
             } else if (i2 == 0) {
-                this.f2400g = this.f2399f - this.f2402i;
+                this.f2405g = this.f2404f - this.f2407i;
                 this.n = 10001;
             }
         }

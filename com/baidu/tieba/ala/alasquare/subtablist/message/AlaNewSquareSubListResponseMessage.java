@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.subtablist.message;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.j0.r.q.a2;
+import d.a.m0.r.q.a2;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -36,7 +36,7 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                 if (optJSONObject != null) {
                     a2 a2Var = new a2();
-                    a2Var.S2(optJSONObject);
+                    a2Var.T2(optJSONObject);
                     this.liveList.add(a2Var);
                 }
             }

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final l f66197a;
+    public static final l f66240a;
 
     /* loaded from: classes6.dex */
     public static final class b implements l {
@@ -28,12 +28,12 @@ public final class m {
 
     static {
         Logger.getLogger(m.class.getName());
-        f66197a = c();
+        f66240a = c();
     }
 
     public static e a(String str) {
         n.p(str);
-        return f66197a.a(str);
+        return f66240a.a(str);
     }
 
     public static String b(double d2) {
@@ -45,7 +45,7 @@ public final class m {
     }
 
     public static boolean d() {
-        return f66197a.b();
+        return f66240a.b();
     }
 
     public static boolean e(String str) {

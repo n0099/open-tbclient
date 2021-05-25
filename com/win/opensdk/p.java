@@ -3,15 +3,15 @@ package com.win.opensdk;
 public class p implements r {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ q f37162a;
+    public final /* synthetic */ q f37091a;
 
     public p(q qVar) {
-        this.f37162a = qVar;
+        this.f37091a = qVar;
     }
 
     @Override // com.win.opensdk.PBListener
     public void onClicked() {
-        r rVar = this.f37162a.f37166b;
+        r rVar = this.f37091a.f37095b;
         if (rVar != null) {
             rVar.onClicked();
         }
@@ -19,7 +19,7 @@ public class p implements r {
 
     @Override // com.win.opensdk.r
     public void onDisplayed() {
-        r rVar = this.f37162a.f37166b;
+        r rVar = this.f37091a.f37095b;
         if (rVar != null) {
             rVar.onDisplayed();
         }
@@ -27,7 +27,7 @@ public class p implements r {
 
     @Override // com.win.opensdk.PBListener
     public void onFail(PBError pBError) {
-        r rVar = this.f37162a.f37166b;
+        r rVar = this.f37091a.f37095b;
         if (rVar != null) {
             rVar.onFail(pBError);
         }
@@ -35,7 +35,7 @@ public class p implements r {
 
     @Override // com.win.opensdk.PBListener
     public void onLoaded() {
-        r rVar = this.f37162a.f37166b;
+        r rVar = this.f37091a.f37095b;
         if (rVar != null) {
             rVar.onLoaded();
         }

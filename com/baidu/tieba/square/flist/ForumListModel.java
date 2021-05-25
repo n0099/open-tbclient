@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.wallet.utils.ContactPermissionUtil;
 import d.a.c.e.d.l;
-import d.a.j0.r.r.a;
+import d.a.m0.r.r.a;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
 public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {

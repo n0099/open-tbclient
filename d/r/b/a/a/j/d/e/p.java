@@ -9,25 +9,25 @@ import org.json.JSONObject;
 public class p implements d.r.b.a.a.j.d.f.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f68008a;
+    public long f68051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68009b;
+    public int f68052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f68010c;
+    public int f68053c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f68011d;
+    public int f68054d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68012e;
+    public String f68055e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f68013f;
+    public long f68056f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f68014g;
+    public String f68057g;
 
     public p(long j, int i2, int i3, int i4, String str, String str2, long j2) {
         this(j, i2, i3, i4, str, str2, j2, "");
@@ -38,13 +38,13 @@ public class p implements d.r.b.a.a.j.d.f.b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("cmd", SDKLogTypeConstants.TYPE_DL_DIALOG_CLICK);
-            jSONObject.put("uid", this.f68008a);
-            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f68009b);
-            jSONObject.put("usedChannel", this.f68010c);
-            jSONObject.put("currencyType", this.f68011d);
-            jSONObject.put(IAdRequestParam.SEQ, this.f68012e);
-            jSONObject.put("lastId", this.f68013f);
-            jSONObject.put("expand", this.f68014g);
+            jSONObject.put("uid", this.f68051a);
+            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f68052b);
+            jSONObject.put("usedChannel", this.f68053c);
+            jSONObject.put("currencyType", this.f68054d);
+            jSONObject.put(IAdRequestParam.SEQ, this.f68055e);
+            jSONObject.put("lastId", this.f68056f);
+            jSONObject.put("expand", this.f68057g);
             return jSONObject.toString();
         } catch (JSONException e2) {
             d.r.b.a.a.f.d.d.d("GetUserAccountHistoryRequest", "constructPSCIMessageRequest", e2);
@@ -53,13 +53,13 @@ public class p implements d.r.b.a.a.j.d.f.b {
     }
 
     public p(long j, int i2, int i3, int i4, String str, String str2, long j2, String str3) {
-        this.f68010c = 10002;
-        this.f68008a = j;
-        this.f68009b = i2;
-        this.f68010c = i3;
-        this.f68011d = i4;
-        this.f68012e = str;
-        this.f68013f = j2;
-        this.f68014g = str3;
+        this.f68053c = 10002;
+        this.f68051a = j;
+        this.f68052b = i2;
+        this.f68053c = i3;
+        this.f68054d = i4;
+        this.f68055e = str;
+        this.f68056f = j2;
+        this.f68057g = str3;
     }
 }

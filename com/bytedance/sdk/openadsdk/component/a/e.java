@@ -24,49 +24,49 @@ import java.util.Map;
 public class e implements TTBannerAd, am.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d f27431a;
+    public final d f27360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f27432b;
+    public final a f27361b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f27433c;
+    public final Context f27362c;
 
     /* renamed from: d  reason: collision with root package name */
-    public am f27434d;
+    public am f27363d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27435e;
+    public int f27364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f27436f;
+    public l f27365f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TTBannerAd.AdInteractionListener f27437g;
+    public TTBannerAd.AdInteractionListener f27366g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TTAppDownloadListener f27438h;
+    public TTAppDownloadListener f27367h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.b f27439i;
+    public com.bytedance.sdk.openadsdk.dislike.b f27368i;
     public final b j;
     public com.bytedance.sdk.openadsdk.downloadnew.core.a k;
     public String l = "banner_ad";
     public AdSlot m;
 
     public e(Context context, a aVar, AdSlot adSlot) {
-        this.f27433c = context;
-        this.f27432b = aVar;
+        this.f27362c = context;
+        this.f27361b = aVar;
         this.m = adSlot;
-        this.f27436f = aVar.b();
-        this.f27431a = new d(context);
-        this.j = b.a(this.f27433c);
-        a(this.f27431a.b(), aVar);
+        this.f27365f = aVar.b();
+        this.f27360a = new d(context);
+        this.j = b.a(this.f27362c);
+        a(this.f27360a.b(), aVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTBannerAd
     public View getBannerView() {
-        return this.f27431a;
+        return this.f27360a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTBannerAd
@@ -75,13 +75,13 @@ public class e implements TTBannerAd, am.a {
             return null;
         }
         b(dislikeInteractionCallback);
-        this.f27431a.a(this.f27439i);
-        return this.f27439i;
+        this.f27360a.a(this.f27368i);
+        return this.f27368i;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTBannerAd
     public int getInteractionType() {
-        l lVar = this.f27436f;
+        l lVar = this.f27365f;
         if (lVar == null) {
             return -1;
         }
@@ -90,7 +90,7 @@ public class e implements TTBannerAd, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.TTBannerAd
     public Map<String, Object> getMediaExtraInfo() {
-        l lVar = this.f27436f;
+        l lVar = this.f27365f;
         if (lVar != null) {
             return lVar.ay();
         }
@@ -99,12 +99,12 @@ public class e implements TTBannerAd, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.TTBannerAd
     public void setBannerInteractionListener(TTBannerAd.AdInteractionListener adInteractionListener) {
-        this.f27437g = adInteractionListener;
+        this.f27366g = adInteractionListener;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTBannerAd
     public void setDownloadListener(TTAppDownloadListener tTAppDownloadListener) {
-        this.f27438h = tTAppDownloadListener;
+        this.f27367h = tTAppDownloadListener;
         com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.k;
         if (aVar != null) {
             aVar.a(tTAppDownloadListener);
@@ -125,28 +125,28 @@ public class e implements TTBannerAd, am.a {
             return;
         }
         this.l = "slide_banner_ad";
-        a(this.f27431a.b(), this.f27432b);
-        this.f27431a.a();
-        this.f27431a.a(1000);
+        a(this.f27360a.b(), this.f27361b);
+        this.f27360a.a();
+        this.f27360a.a(1000);
         if (i2 < 30000) {
             i2 = 30000;
         } else if (i2 > 120000) {
             i2 = 120000;
         }
-        this.f27435e = i2;
-        this.f27434d = new am(Looper.getMainLooper(), this);
+        this.f27364e = i2;
+        this.f27363d = new am(Looper.getMainLooper(), this);
     }
 
     private void b(TTAdDislike.DislikeInteractionCallback dislikeInteractionCallback) {
-        if (this.f27439i == null) {
-            this.f27439i = new com.bytedance.sdk.openadsdk.dislike.b(this.f27433c, this.f27436f, this.l);
+        if (this.f27368i == null) {
+            this.f27368i = new com.bytedance.sdk.openadsdk.dislike.b(this.f27362c, this.f27365f, this.l);
         }
-        this.f27439i.setDislikeInteractionCallback(dislikeInteractionCallback);
+        this.f27368i.setDislikeInteractionCallback(dislikeInteractionCallback);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        am amVar = this.f27434d;
+        am amVar = this.f27363d;
         if (amVar != null) {
             amVar.removeCallbacksAndMessages(null);
         }
@@ -154,15 +154,15 @@ public class e implements TTBannerAd, am.a {
 
     private void a(TTAdDislike.DislikeInteractionCallback dislikeInteractionCallback) {
         b(dislikeInteractionCallback);
-        this.f27431a.a(this.f27439i);
+        this.f27360a.a(this.f27368i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        am amVar = this.f27434d;
+        am amVar = this.f27363d;
         if (amVar != null) {
             amVar.removeCallbacksAndMessages(null);
-            this.f27434d.sendEmptyMessageDelayed(1, this.f27435e);
+            this.f27363d.sendEmptyMessageDelayed(1, this.f27364e);
         }
     }
 
@@ -178,7 +178,7 @@ public class e implements TTBannerAd, am.a {
             @Override // com.bytedance.sdk.openadsdk.component.a.b.a
             public void a(@NonNull a aVar) {
                 e.this.a(aVar);
-                e.this.f27431a.e();
+                e.this.f27360a.e();
                 e.this.b();
             }
 
@@ -191,15 +191,15 @@ public class e implements TTBannerAd, am.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull a aVar) {
-        if (this.f27431a.c() == null || this.f27431a.f()) {
+        if (this.f27360a.c() == null || this.f27360a.f()) {
             return;
         }
-        a(this.f27431a.c(), aVar);
+        a(this.f27360a.c(), aVar);
     }
 
     private com.bytedance.sdk.openadsdk.downloadnew.core.a a(l lVar) {
         if (lVar.Z() == 4) {
-            return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27433c, lVar, this.l);
+            return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27362c, lVar, this.l);
         }
         return null;
     }
@@ -208,8 +208,8 @@ public class e implements TTBannerAd, am.a {
     private void a(@NonNull c cVar, @NonNull a aVar) {
         cVar.a(aVar.a());
         final l b2 = aVar.b();
-        this.f27436f = b2;
-        this.f27439i = new com.bytedance.sdk.openadsdk.dislike.b(this.f27433c, b2, this.l);
+        this.f27365f = b2;
+        this.f27368i = new com.bytedance.sdk.openadsdk.dislike.b(this.f27362c, b2, this.l);
         cVar.a(b2);
         com.bytedance.sdk.openadsdk.downloadnew.core.a a2 = a(b2);
         this.k = a2;
@@ -222,7 +222,7 @@ public class e implements TTBannerAd, am.a {
         com.bytedance.sdk.openadsdk.c.d.a(b2);
         EmptyView a3 = a(cVar);
         if (a3 == null) {
-            a3 = new EmptyView(this.f27433c, cVar);
+            a3 = new EmptyView(this.f27362c, cVar);
             cVar.addView(a3);
         }
         com.bytedance.sdk.openadsdk.downloadnew.core.a aVar2 = this.k;
@@ -270,21 +270,21 @@ public class e implements TTBannerAd, am.a {
                 e.this.b();
                 u.b("TTBannerAd", "BANNER SHOW");
                 u.e("AdEvent", "pangolin ad show " + ak.a(b2, view));
-                com.bytedance.sdk.openadsdk.c.d.a(e.this.f27433c, b2, e.this.l, (Map<String, Object>) null);
-                if (e.this.f27437g != null) {
-                    e.this.f27437g.onAdShow(view, b2.Z());
+                com.bytedance.sdk.openadsdk.c.d.a(e.this.f27362c, b2, e.this.l, (Map<String, Object>) null);
+                if (e.this.f27366g != null) {
+                    e.this.f27366g.onAdShow(view, b2.Z());
                 }
             }
         });
-        com.bytedance.sdk.openadsdk.core.a.a aVar3 = new com.bytedance.sdk.openadsdk.core.a.a(this.f27433c, b2, this.l, 2);
+        com.bytedance.sdk.openadsdk.core.a.a aVar3 = new com.bytedance.sdk.openadsdk.core.a.a(this.f27362c, b2, this.l, 2);
         aVar3.a(cVar);
-        aVar3.b(this.f27431a.d());
+        aVar3.b(this.f27360a.d());
         aVar3.a(this.k);
         aVar3.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.component.a.e.3
             @Override // com.bytedance.sdk.openadsdk.core.a.b.a
             public void a(View view, int i2) {
-                if (e.this.f27437g != null) {
-                    e.this.f27437g.onAdClicked(view, i2);
+                if (e.this.f27366g != null) {
+                    e.this.f27366g.onAdClicked(view, i2);
                 }
             }
         });
@@ -292,7 +292,7 @@ public class e implements TTBannerAd, am.a {
         cVar.setOnTouchListener(aVar3);
         com.bytedance.sdk.openadsdk.downloadnew.core.a aVar4 = this.k;
         if (aVar4 != null) {
-            aVar4.a(this.f27438h);
+            aVar4.a(this.f27367h);
         }
         a3.setNeedCheckingShow(true);
     }

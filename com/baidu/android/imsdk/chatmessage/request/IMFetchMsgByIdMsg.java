@@ -172,7 +172,6 @@ public class IMFetchMsgByIdMsg extends Message {
                             PaManagerImpl.getInstance(this.mContext).syncAndQueryAllPaInfo();
                         }
                     } else {
-                        parserMessage.get(0).getContacter();
                         addMsgs = GroupMessageManagerImpl.getInstance(this.mContext).addMsgs(parserMessage, true);
                     }
                     arrayList = addMsgs;

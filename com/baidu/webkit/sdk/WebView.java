@@ -1222,7 +1222,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         boolean a2 = true ^ secureProcessor.a();
         if (obj != null && !TextUtils.isEmpty(str)) {
             secureProcessor.d().put(str, obj);
-            secureProcessor.f26621d = null;
+            secureProcessor.f26550d = null;
         }
         if (!a2 || getEnableJsPrompt()) {
             return;
@@ -1545,14 +1545,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void destroy() {
         a secureProcessor = getSecureProcessor();
-        if (secureProcessor.f26620c.getContext().getPackageName().contains("com.baidu.searchbox")) {
-            HashMap<String, Object> hashMap = secureProcessor.f26619b;
+        if (secureProcessor.f26549c.getContext().getPackageName().contains("com.baidu.searchbox")) {
+            HashMap<String, Object> hashMap = secureProcessor.f26548b;
             if (hashMap != null) {
                 hashMap.clear();
-                secureProcessor.f26619b = null;
+                secureProcessor.f26548b = null;
             }
-            if (secureProcessor.f26620c.getWebViewClient() != null) {
-                secureProcessor.f26621d = null;
+            if (secureProcessor.f26549c.getWebViewClient() != null) {
+                secureProcessor.f26550d = null;
             }
         }
         checkThread();
@@ -2593,11 +2593,11 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public void removeJavascriptInterface(String str) {
         a secureProcessor = getSecureProcessor();
         boolean z = true;
-        if (!"searchBoxJavaBridge_".equalsIgnoreCase(str) && secureProcessor.f26620c.getContext().getPackageName().contains("com.baidu.searchbox")) {
+        if (!"searchBoxJavaBridge_".equalsIgnoreCase(str) && secureProcessor.f26549c.getContext().getPackageName().contains("com.baidu.searchbox")) {
             boolean z2 = !secureProcessor.a();
             secureProcessor.d().remove(str);
-            if (secureProcessor.f26620c.getWebViewClient() != null) {
-                secureProcessor.f26621d = null;
+            if (secureProcessor.f26549c.getWebViewClient() != null) {
+                secureProcessor.f26550d = null;
             }
             z = z2;
         }

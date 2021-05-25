@@ -36,10 +36,10 @@ public class PoiInfo implements Parcelable {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7256a;
+        public int f7156a;
 
         POITYPE(int i2) {
-            this.f7256a = i2;
+            this.f7156a = i2;
         }
 
         public static POITYPE fromInt(int i2) {
@@ -62,7 +62,7 @@ public class PoiInfo implements Parcelable {
         }
 
         public int getInt() {
-            return this.f7256a;
+            return this.f7156a;
         }
     }
 

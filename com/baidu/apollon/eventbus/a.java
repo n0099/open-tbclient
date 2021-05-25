@@ -6,17 +6,17 @@ import com.baidu.apollon.taskmanager.TaskManager;
 public class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f3674a = new e();
+    public final e f3677a = new e();
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f3675b;
+    public final b f3678b;
 
     public a(b bVar) {
-        this.f3675b = bVar;
+        this.f3678b = bVar;
     }
 
     public void a(g gVar, EventBus.Event event) {
-        this.f3674a.a(d.a(gVar, event));
+        this.f3677a.a(d.a(gVar, event));
         TaskManager taskManager = TaskManager.getInstance("EBTaskManager");
         taskManager.getClass();
         taskManager.a(new TaskManager.c(0L, 0L, false, "AsyncPost_" + System.currentTimeMillis(), this), "AsyncPost");
@@ -24,9 +24,9 @@ public class a implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        d a2 = this.f3674a.a();
+        d a2 = this.f3677a.a();
         if (a2 != null) {
-            this.f3675b.a(a2);
+            this.f3678b.a(a2);
             return;
         }
         throw new IllegalStateException("No pending post available");

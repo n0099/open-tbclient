@@ -7,23 +7,23 @@ import h.i;
 public final class g<T> extends h.h<T> {
 
     /* renamed from: b  reason: collision with root package name */
-    public final T f68633b;
+    public final T f68676b;
 
     /* loaded from: classes7.dex */
     public class a implements h.c<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Object f68634e;
+        public final /* synthetic */ Object f68677e;
 
         public a(Object obj) {
-            this.f68634e = obj;
+            this.f68677e = obj;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(i<? super T> iVar) {
-            iVar.c((Object) this.f68634e);
+            iVar.c((Object) this.f68677e);
         }
     }
 
@@ -31,21 +31,21 @@ public final class g<T> extends h.h<T> {
     public static final class b<T> implements h.c<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.o.c.b f68635e;
+        public final h.o.c.b f68678e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final T f68636f;
+        public final T f68679f;
 
         public b(h.o.c.b bVar, T t) {
-            this.f68635e = bVar;
-            this.f68636f = t;
+            this.f68678e = bVar;
+            this.f68679f = t;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(i<? super T> iVar) {
-            iVar.a(this.f68635e.a(new d(iVar, this.f68636f)));
+            iVar.a(this.f68678e.a(new d(iVar, this.f68679f)));
         }
     }
 
@@ -53,23 +53,23 @@ public final class g<T> extends h.h<T> {
     public static final class c<T> implements h.c<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.g f68637e;
+        public final h.g f68680e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final T f68638f;
+        public final T f68681f;
 
         public c(h.g gVar, T t) {
-            this.f68637e = gVar;
-            this.f68638f = t;
+            this.f68680e = gVar;
+            this.f68681f = t;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(i<? super T> iVar) {
-            g.a createWorker = this.f68637e.createWorker();
+            g.a createWorker = this.f68680e.createWorker();
             iVar.a(createWorker);
-            createWorker.b(new d(iVar, this.f68638f));
+            createWorker.b(new d(iVar, this.f68681f));
         }
     }
 
@@ -77,30 +77,30 @@ public final class g<T> extends h.h<T> {
     public static final class d<T> implements h.n.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final i<? super T> f68639e;
+        public final i<? super T> f68682e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final T f68640f;
+        public final T f68683f;
 
         public d(i<? super T> iVar, T t) {
-            this.f68639e = iVar;
-            this.f68640f = t;
+            this.f68682e = iVar;
+            this.f68683f = t;
         }
 
         /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
         @Override // h.n.a
         public void call() {
             try {
-                this.f68639e.c((T) this.f68640f);
+                this.f68682e.c((T) this.f68683f);
             } catch (Throwable th) {
-                this.f68639e.b(th);
+                this.f68682e.b(th);
             }
         }
     }
 
     public g(T t) {
         super(new a(t));
-        this.f68633b = t;
+        this.f68676b = t;
     }
 
     public static <T> g<T> m(T t) {
@@ -109,8 +109,8 @@ public final class g<T> extends h.h<T> {
 
     public h.h<T> n(h.g gVar) {
         if (gVar instanceof h.o.c.b) {
-            return h.h.b(new b((h.o.c.b) gVar, this.f68633b));
+            return h.h.b(new b((h.o.c.b) gVar, this.f68676b));
         }
-        return h.h.b(new c(gVar, this.f68633b));
+        return h.h.b(new c(gVar, this.f68676b));
     }
 }

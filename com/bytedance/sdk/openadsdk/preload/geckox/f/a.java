@@ -11,66 +11,66 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30129a;
+    public String f30058a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30130b;
+    public String f30059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile File f30131c;
+    public volatile File f30060c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile Long f30132d;
+    public volatile Long f30061d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.preload.geckox.f.a.a f30133e;
+    public volatile com.bytedance.sdk.openadsdk.preload.geckox.f.a.a f30062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f30134f = new AtomicBoolean(false);
+    public AtomicBoolean f30063f = new AtomicBoolean(false);
 
     public a(String str, String str2, String str3) {
-        this.f30129a = str2;
-        this.f30130b = str3;
+        this.f30058a = str2;
+        this.f30059b = str3;
     }
 
     private synchronized com.bytedance.sdk.openadsdk.preload.geckox.f.a.a c(String str) throws Exception {
-        if (this.f30133e != null) {
-            return this.f30133e;
+        if (this.f30062e != null) {
+            return this.f30062e;
         }
         File d2 = d(str);
         if (d2 != null) {
             File file = new File(d2, "res.macv");
             File file2 = new File(d2, UriUtil.LOCAL_RESOURCE_SCHEME);
             if (file2.exists() && file2.isDirectory()) {
-                this.f30133e = new c(d2);
+                this.f30062e = new c(d2);
             } else if (file.exists() && file.isFile()) {
-                this.f30133e = new com.bytedance.sdk.openadsdk.preload.geckox.f.a.b(d2);
+                this.f30062e = new com.bytedance.sdk.openadsdk.preload.geckox.f.a.b(d2);
             } else {
                 throw new RuntimeException("can not find res, dir:" + d2.getAbsolutePath());
             }
-            return this.f30133e;
+            return this.f30062e;
         }
         throw new FileNotFoundException("channel no exist，channel:" + str);
     }
 
     private synchronized File d(String str) throws Exception {
-        if (this.f30131c != null) {
-            return this.f30131c;
-        } else if (this.f30132d == null || this.f30132d.longValue() != -1) {
-            com.bytedance.sdk.openadsdk.preload.geckox.g.b a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(this.f30129a + File.separator + str + File.separator + "select.lock");
-            if (this.f30132d == null) {
-                this.f30132d = k.a(new File(this.f30129a, str));
+        if (this.f30060c != null) {
+            return this.f30060c;
+        } else if (this.f30061d == null || this.f30061d.longValue() != -1) {
+            com.bytedance.sdk.openadsdk.preload.geckox.g.b a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(this.f30058a + File.separator + str + File.separator + "select.lock");
+            if (this.f30061d == null) {
+                this.f30061d = k.a(new File(this.f30058a, str));
             }
-            if (this.f30132d == null) {
-                this.f30132d = -1L;
+            if (this.f30061d == null) {
+                this.f30061d = -1L;
                 a2.a();
                 return null;
             }
-            String str2 = this.f30129a;
-            File file = new File(str2, File.separator + str + File.separator + this.f30132d + File.separator + "using.lock");
-            this.f30131c = file.getParentFile();
+            String str2 = this.f30058a;
+            File file = new File(str2, File.separator + str + File.separator + this.f30061d + File.separator + "using.lock");
+            this.f30060c = file.getParentFile();
             com.bytedance.sdk.openadsdk.preload.geckox.g.c.a(file.getAbsolutePath());
-            File file2 = this.f30131c;
+            File file2 = this.f30060c;
             a2.a();
             return file2;
         } else {
@@ -79,11 +79,11 @@ public class a {
     }
 
     public final InputStream a(String str) throws Exception {
-        return c(this.f30130b).a(a(this.f30130b, str));
+        return c(this.f30059b).a(a(this.f30059b, str));
     }
 
     public final boolean b(String str) throws Exception {
-        return c(this.f30130b).b(a(this.f30130b, str));
+        return c(this.f30059b).b(a(this.f30059b, str));
     }
 
     public void finalize() throws Throwable {
@@ -100,22 +100,22 @@ public class a {
     }
 
     private void b() throws Exception {
-        com.bytedance.sdk.openadsdk.preload.geckox.g.b a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(this.f30129a + File.separator + this.f30130b + File.separator + "select.lock");
+        com.bytedance.sdk.openadsdk.preload.geckox.g.b a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(this.f30058a + File.separator + this.f30059b + File.separator + "select.lock");
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-file-lock", "channel version loader clean");
         try {
-            if (this.f30131c == null) {
+            if (this.f30060c == null) {
                 return;
             }
-            com.bytedance.sdk.openadsdk.preload.geckox.g.c.b(this.f30131c.getAbsolutePath() + File.separator + "using.lock");
+            com.bytedance.sdk.openadsdk.preload.geckox.g.c.b(this.f30060c.getAbsolutePath() + File.separator + "using.lock");
             a2.a();
-            com.bytedance.sdk.openadsdk.preload.geckox.a.c.a(this.f30129a + File.separator + this.f30130b);
+            com.bytedance.sdk.openadsdk.preload.geckox.a.c.a(this.f30058a + File.separator + this.f30059b);
         } finally {
             a2.a();
         }
     }
 
     public void a() throws Exception {
-        if (this.f30134f.getAndSet(true)) {
+        if (this.f30063f.getAndSet(true)) {
             return;
         }
         b();

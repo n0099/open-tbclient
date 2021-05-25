@@ -10,44 +10,44 @@ import com.baidu.mapapi.map.Marker;
 public class j extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Animator f7596a = null;
+    public Animator f7496a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f7597b = 0;
+    public long f7497b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public Interpolator f7598c = null;
+    public Interpolator f7498c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation.AnimationListener f7599d = null;
+    public Animation.AnimationListener f7499d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7600e = 1;
+    public int f7500e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7601f = 0;
+    public int f7501f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f7602g;
+    public float[] f7502g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7603h;
+    public int f7503h;
 
     public j(int i2, float... fArr) {
-        this.f7603h = 1;
-        this.f7602g = fArr;
-        this.f7603h = i2;
+        this.f7503h = 1;
+        this.f7502g = fArr;
+        this.f7503h = i2;
     }
 
     @TargetApi(11)
     public ObjectAnimator a(Marker marker) {
-        int i2 = this.f7603h;
-        ObjectAnimator ofFloat = i2 == 1 ? ObjectAnimator.ofFloat(marker, "scaleX", this.f7602g) : i2 == 2 ? ObjectAnimator.ofFloat(marker, "scaleY", this.f7602g) : null;
+        int i2 = this.f7503h;
+        ObjectAnimator ofFloat = i2 == 1 ? ObjectAnimator.ofFloat(marker, "scaleX", this.f7502g) : i2 == 2 ? ObjectAnimator.ofFloat(marker, "scaleY", this.f7502g) : null;
         if (ofFloat != null) {
-            ofFloat.setRepeatCount(this.f7601f);
+            ofFloat.setRepeatCount(this.f7501f);
             ofFloat.setRepeatMode(c());
-            ofFloat.setDuration(this.f7597b);
-            Interpolator interpolator = this.f7598c;
+            ofFloat.setDuration(this.f7497b);
+            Interpolator interpolator = this.f7498c;
             if (interpolator != null) {
                 ofFloat.setInterpolator(interpolator);
             }
@@ -58,7 +58,7 @@ public class j extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        Animator animator = this.f7596a;
+        Animator animator = this.f7496a;
         if (animator == null) {
             return;
         }
@@ -67,7 +67,7 @@ public class j extends c {
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void a(int i2) {
-        this.f7600e = i2;
+        this.f7500e = i2;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -75,7 +75,7 @@ public class j extends c {
         if (j < 0) {
             j = 0;
         }
-        this.f7597b = j;
+        this.f7497b = j;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -89,41 +89,41 @@ public class j extends c {
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void a(Interpolator interpolator) {
-        this.f7598c = interpolator;
+        this.f7498c = interpolator;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void a(Animation.AnimationListener animationListener) {
-        this.f7599d = animationListener;
+        this.f7499d = animationListener;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
         ObjectAnimator a2 = a(marker);
-        this.f7596a = a2;
+        this.f7496a = a2;
         a(a2);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        Animator animator = this.f7596a;
+        Animator animator = this.f7496a;
         if (animator != null) {
             animator.cancel();
-            this.f7596a = null;
+            this.f7496a = null;
         }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void b(int i2) {
         if (i2 > 0 || i2 == -1) {
-            this.f7601f = i2;
+            this.f7501f = i2;
         }
     }
 
     public int c() {
-        return this.f7600e;
+        return this.f7500e;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c

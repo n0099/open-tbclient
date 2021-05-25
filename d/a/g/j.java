@@ -9,23 +9,23 @@ import java.util.Map;
 public class j implements i.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f39980a;
+    public final h f39893a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BDHttpDns f39981b;
+    public final BDHttpDns f39894b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BDHttpDns.CachePolicy f39982c;
+    public final BDHttpDns.CachePolicy f39895c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.baidu.bdhttpdns.i f39983d;
+    public final com.baidu.bdhttpdns.i f39896d;
 
     public j(Context context) {
         BDHttpDns j = BDHttpDns.j(context);
-        this.f39981b = j;
-        this.f39980a = j.a();
-        this.f39982c = this.f39981b.f();
-        this.f39983d = this.f39981b.g();
+        this.f39894b = j;
+        this.f39893a = j.a();
+        this.f39895c = this.f39894b.f();
+        this.f39896d = this.f39894b.g();
     }
 
     @Override // com.baidu.bdhttpdns.i.a
@@ -42,21 +42,21 @@ public class j implements i.a {
                         aVar.a(value.b());
                         aVar.e(System.currentTimeMillis() / 1000);
                         aVar.b(value.a());
-                        this.f39980a.c(key, aVar);
-                    } else if (this.f39982c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                        this.f39980a.f(key);
+                        this.f39893a.c(key, aVar);
+                    } else if (this.f39895c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                        this.f39893a.f(key);
                     }
                 }
             }
-        } else if (dVar.equals(i.d.DNLIST_HOSTS) && this.f39982c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+        } else if (dVar.equals(i.d.DNLIST_HOSTS) && this.f39895c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
             for (String str2 : str.split(",")) {
-                this.f39980a.f(str2);
+                this.f39893a.f(str2);
             }
         }
-        if (this.f39981b.h() <= 0 || this.f39983d.C()) {
+        if (this.f39894b.h() <= 0 || this.f39896d.C()) {
             return;
         }
-        this.f39983d.s(true);
+        this.f39896d.s(true);
         k.a("preResolve has finished", new Object[0]);
     }
 }

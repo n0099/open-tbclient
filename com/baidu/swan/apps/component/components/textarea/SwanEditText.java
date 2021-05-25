@@ -7,7 +7,7 @@ import androidx.appcompat.widget.AppCompatEditText;
 public class SwanEditText extends AppCompatEditText {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f10771e;
+    public a f10672e;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -22,14 +22,14 @@ public class SwanEditText extends AppCompatEditText {
     @Override // android.widget.TextView
     public void onSelectionChanged(int i2, int i3) {
         super.onSelectionChanged(i2, i3);
-        a aVar = this.f10771e;
+        a aVar = this.f10672e;
         if (aVar != null) {
             aVar.a(i2, i3);
         }
     }
 
     public void setSelectListener(a aVar) {
-        this.f10771e = aVar;
+        this.f10672e = aVar;
     }
 
     public SwanEditText(Context context, AttributeSet attributeSet) {

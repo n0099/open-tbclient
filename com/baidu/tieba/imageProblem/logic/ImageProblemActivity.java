@@ -56,7 +56,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
             super.onProgressUpdate(numArr);
             int intValue = numArr[0].intValue();
             ImageProblemActivity imageProblemActivity = ImageProblemActivity.this;
-            imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f17793d);
+            imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f17703d);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

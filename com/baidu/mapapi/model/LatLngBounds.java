@@ -13,50 +13,50 @@ public final class LatLngBounds implements Parcelable {
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public double f7218a;
+        public double f7118a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f7219b;
+        public double f7119b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f7220c;
+        public double f7120c;
 
         /* renamed from: d  reason: collision with root package name */
-        public double f7221d;
+        public double f7121d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f7222e = true;
+        public boolean f7122e = true;
 
         public LatLngBounds build() {
-            return new LatLngBounds(new LatLng(this.f7219b, this.f7221d), new LatLng(this.f7218a, this.f7220c));
+            return new LatLngBounds(new LatLng(this.f7119b, this.f7121d), new LatLng(this.f7118a, this.f7120c));
         }
 
         public Builder include(LatLng latLng) {
             if (latLng == null) {
                 return this;
             }
-            if (this.f7222e) {
-                this.f7222e = false;
+            if (this.f7122e) {
+                this.f7122e = false;
                 double d2 = latLng.latitude;
-                this.f7218a = d2;
-                this.f7219b = d2;
+                this.f7118a = d2;
+                this.f7119b = d2;
                 double d3 = latLng.longitude;
-                this.f7220c = d3;
-                this.f7221d = d3;
+                this.f7120c = d3;
+                this.f7121d = d3;
             }
             double d4 = latLng.latitude;
             double d5 = latLng.longitude;
-            if (d4 < this.f7218a) {
-                this.f7218a = d4;
+            if (d4 < this.f7118a) {
+                this.f7118a = d4;
             }
-            if (d4 > this.f7219b) {
-                this.f7219b = d4;
+            if (d4 > this.f7119b) {
+                this.f7119b = d4;
             }
-            if (d5 < this.f7220c) {
-                this.f7220c = d5;
+            if (d5 < this.f7120c) {
+                this.f7120c = d5;
             }
-            if (d5 > this.f7221d) {
-                this.f7221d = d5;
+            if (d5 > this.f7121d) {
+                this.f7121d = d5;
             }
             return this;
         }

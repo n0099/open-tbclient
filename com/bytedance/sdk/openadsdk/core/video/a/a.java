@@ -5,13 +5,13 @@ import java.util.concurrent.ConcurrentHashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, String> f28453a = new ConcurrentHashMap<>();
+    public static final ConcurrentHashMap<String, String> f28382a = new ConcurrentHashMap<>();
 
     public static void a(String str, String str2) {
-        f28453a.put(str, str2);
+        f28382a.put(str, str2);
     }
 
     public static String a(String str) {
-        return f28453a.get(str);
+        return f28382a.get(str);
     }
 }

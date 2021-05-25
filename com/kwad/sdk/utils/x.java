@@ -17,31 +17,31 @@ import java.util.Set;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Integer> f34160a;
+    public static Map<String, Integer> f34089a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Set<String> f34161b;
+    public static Set<String> f34090b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f34162c;
+    public static Method f34091c;
 
     static {
         HashSet hashSet = new HashSet();
-        f34161b = hashSet;
+        f34090b = hashSet;
         hashSet.add("android.permission.REQUEST_INSTALL_PACKAGES");
-        f34161b.add("android.permission.WRITE_SETTINGS");
-        f34161b.add("android.permission.SYSTEM_ALERT_WINDOW");
+        f34090b.add("android.permission.WRITE_SETTINGS");
+        f34090b.add("android.permission.SYSTEM_ALERT_WINDOW");
     }
 
     public static int a(Context context, String str) {
         int b2;
-        if (f34160a == null) {
+        if (f34089a == null) {
             try {
                 a(context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions);
             } catch (PackageManager.NameNotFoundException unused) {
             }
         }
-        if (!f34161b.contains(str) || (b2 = b(context, str)) == -2) {
+        if (!f34090b.contains(str) || (b2 = b(context, str)) == -2) {
             int c2 = c(context, str);
             return c2 != -2 ? c2 : context.checkPermission(str, Process.myPid(), Process.myUid());
         }
@@ -67,14 +67,14 @@ public class x {
         if (Build.VERSION.SDK_INT < 19 || strArr == null) {
             return;
         }
-        f34160a = new HashMap();
+        f34089a = new HashMap();
         for (String str : strArr) {
             try {
                 Field declaredField = AppOpsManager.class.getDeclaredField("OP_" + a(str));
                 declaredField.setAccessible(true);
                 int intValue = ((Integer) declaredField.get(null)).intValue();
                 if (intValue >= 0) {
-                    f34160a.put(str, Integer.valueOf(intValue));
+                    f34089a.put(str, Integer.valueOf(intValue));
                 }
             } catch (Throwable unused) {
             }
@@ -133,15 +133,15 @@ public class x {
         if (Build.VERSION.SDK_INT < 19) {
             return 0;
         }
-        if (f34160a.containsKey(str)) {
-            int intValue = f34160a.get(str).intValue();
+        if (f34089a.containsKey(str)) {
+            int intValue = f34089a.get(str).intValue();
             try {
-                if (f34162c == null) {
+                if (f34091c == null) {
                     Method declaredMethod = AppOpsManager.class.getDeclaredMethod("checkOp", Integer.TYPE, Integer.TYPE, String.class);
-                    f34162c = declaredMethod;
+                    f34091c = declaredMethod;
                     declaredMethod.setAccessible(true);
                 }
-                return ((Integer) f34162c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
+                return ((Integer) f34091c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
                 return 0;

@@ -16,10 +16,10 @@ import java.util.Enumeration;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConnectivityManager f3463a;
+    public static ConnectivityManager f3466a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TelephonyManager f3464b;
+    public static TelephonyManager f3467b;
 
     public static boolean a(Context context) {
         NetworkInfo c2 = c(context);
@@ -100,7 +100,7 @@ public class g {
                 case 14:
                 case 15:
                 case 17:
-                    str = com.baidu.apollon.statistics.g.f3963b;
+                    str = com.baidu.apollon.statistics.g.f3966b;
                     break;
                 case 13:
                 case 18:
@@ -164,23 +164,23 @@ public class g {
 
     public static ConnectivityManager j(Context context) {
         if (context == null) {
-            return f3463a;
+            return f3466a;
         }
-        if (f3463a == null) {
-            f3463a = (ConnectivityManager) context.getSystemService("connectivity");
+        if (f3466a == null) {
+            f3466a = (ConnectivityManager) context.getSystemService("connectivity");
         }
-        return f3463a;
+        return f3466a;
     }
 
     public static TelephonyManager k(Context context) {
         if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
             if (context == null) {
-                return f3464b;
+                return f3467b;
             }
-            if (f3464b == null) {
-                f3464b = (TelephonyManager) context.getSystemService("phone");
+            if (f3467b == null) {
+                f3467b = (TelephonyManager) context.getSystemService("phone");
             }
         }
-        return f3464b;
+        return f3467b;
     }
 }

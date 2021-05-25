@@ -8,21 +8,21 @@ import org.json.JSONObject;
 public abstract class d extends b {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32465b = 0;
+    public int f32394b = 0;
 
     public d() {
         a(0);
     }
 
     public void a(int i2) {
-        this.f32465b = i2;
+        this.f32394b = i2;
         a("deviceInfo", com.kwad.sdk.core.g.a.d.a(g(), i2));
     }
 
     @Override // com.kwad.sdk.core.network.b
     public void e() {
         String a2 = a();
-        if (!com.kwad.sdk.b.f31890b.booleanValue() || a2.contains(com.kwad.sdk.d.c())) {
+        if (!com.kwad.sdk.b.f31819b.booleanValue() || a2.contains(com.kwad.sdk.d.c())) {
             return;
         }
         DevelopMangerPlugin.DevelopValue a3 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_AD_UNIVERSE");
@@ -46,7 +46,7 @@ public abstract class d extends b {
         a("SDKVersionCode", 3030803);
         b("sdkApiVersion", KsAdSDKImpl.get().getApiVersion());
         a("sdkApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-        a("sdkType", com.kwad.sdk.d.f33109a);
+        a("sdkType", com.kwad.sdk.d.f33038a);
         a(DI.APP_INFO_NAME, com.kwad.sdk.core.g.a.b.a());
         a("deviceInfo", com.kwad.sdk.core.g.a.d.a(g()));
         a("networkInfo", com.kwad.sdk.core.g.a.i.a());

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.a.k0.e1.w.c;
+import d.a.n0.f1.w.c;
 /* loaded from: classes4.dex */
 public abstract class CommonPersonalMsglistModel extends MsglistModel {
     public final CustomMessageListener mCustomListener;

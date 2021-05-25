@@ -23,24 +23,24 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import d.a.c.e.p.l;
-import d.a.k0.t.j.g.d.b;
+import d.a.n0.v.j.g.d.b;
 /* loaded from: classes4.dex */
 public class AlaEffectPreviewView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14134e;
+    public int f14037e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14135f;
+    public int f14038f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f14136g;
+    public View f14039g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f14137h;
+    public ImageView f14040h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f14138i;
+    public TextView f14041i;
     public b.c j;
     public ObjectAnimator k;
     public LinearLayout l;
@@ -85,7 +85,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                 if (g2 != p) {
                     p.recycle();
                 }
-                AlaEffectPreviewView.this.f14137h.setImageBitmap(g2);
+                AlaEffectPreviewView.this.f14040h.setImageBitmap(g2);
             } catch (OutOfMemoryError e4) {
                 BdLog.e(e4);
                 if (p != null) {
@@ -147,13 +147,13 @@ public class AlaEffectPreviewView extends LinearLayout {
             float f3;
             float f4 = f2 * 3500.0f;
             if (f4 <= 500.0f) {
-                f3 = (AlaEffectPreviewView.this.f14134e * ((f4 / 500.0f) - 1.0f)) + AlaEffectPreviewView.this.f14135f;
+                f3 = (AlaEffectPreviewView.this.f14037e * ((f4 / 500.0f) - 1.0f)) + AlaEffectPreviewView.this.f14038f;
             } else {
                 float f5 = 3500.0f - f4;
                 if (f5 <= 500.0f) {
-                    f3 = AlaEffectPreviewView.this.f14135f + (AlaEffectPreviewView.this.f14134e * (1.0f - (f5 / 500.0f)));
+                    f3 = AlaEffectPreviewView.this.f14038f + (AlaEffectPreviewView.this.f14037e * (1.0f - (f5 / 500.0f)));
                 } else {
-                    f3 = AlaEffectPreviewView.this.f14135f;
+                    f3 = AlaEffectPreviewView.this.f14038f;
                 }
             }
             return Float.valueOf(f3);
@@ -166,9 +166,9 @@ public class AlaEffectPreviewView extends LinearLayout {
     }
 
     public final void e() {
-        this.f14136g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
-        this.f14137h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
-        this.f14138i = (TextView) findViewById(R.id.ala_im_user_enter_content);
+        this.f14039g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
+        this.f14040h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
+        this.f14041i = (TextView) findViewById(R.id.ala_im_user_enter_content);
         this.l = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
         this.m = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
     }
@@ -185,10 +185,10 @@ public class AlaEffectPreviewView extends LinearLayout {
             measure(0, 0);
         }
         int k = l.k(getContext());
-        this.f14134e = k;
-        this.f14135f = (k - getMeasuredWidth()) / 2;
-        View view = this.f14136g;
-        int i2 = this.f14134e;
+        this.f14037e = k;
+        this.f14038f = (k - getMeasuredWidth()) / 2;
+        View view = this.f14039g;
+        int i2 = this.f14037e;
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "TranslationX", i2, -i2);
         this.k = ofFloat;
         ofFloat.setDuration(3500L);
@@ -228,12 +228,12 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
         String str3 = alaEnterEffectData.icon_url;
         if (StringUtils.isNull(str3)) {
-            this.f14137h.setVisibility(8);
+            this.f14040h.setVisibility(8);
         } else {
-            this.f14137h.setVisibility(0);
+            this.f14040h.setVisibility(0);
             d.a.c.e.l.d.h().m(str3, 10, new a(), null);
         }
-        this.f14138i.setText(spannableStringBuilder);
+        this.f14041i.setText(spannableStringBuilder);
         String str4 = alaEnterEffectData.color;
         if (StringUtils.isNull(str4)) {
             str4 = "#B2FF5460";

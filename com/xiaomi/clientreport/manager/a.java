@@ -22,7 +22,7 @@ import java.util.concurrent.Executors;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f37268a;
+    public static final int f37197a;
 
     /* renamed from: a  reason: collision with other field name */
     public static volatile a f27a;
@@ -49,10 +49,10 @@ public class a {
     public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f33a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f37269b = new HashMap<>();
+    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f37198b = new HashMap<>();
 
     static {
-        f37268a = l.m522a() ? 30 : 10;
+        f37197a = l.m522a() ? 30 : 10;
     }
 
     public a(Context context) {
@@ -61,11 +61,11 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a() {
-        HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.f37269b;
+        HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.f37198b;
         if (hashMap != null) {
             int i2 = 0;
             for (String str : hashMap.keySet()) {
-                ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f37269b.get(str);
+                ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f37198b.get(str);
                 i2 += arrayList != null ? arrayList.size() : 0;
             }
             return i2;
@@ -114,7 +114,7 @@ public class a {
         if (iEventProcessor != null) {
             iEventProcessor.mo65a(eventClientReport);
             if (a() < 10) {
-                a(new d(this), f37268a);
+                a(new d(this), f37197a);
                 return;
             }
             d();
@@ -128,7 +128,7 @@ public class a {
         if (iPerfProcessor != null) {
             iPerfProcessor.mo65a(perfClientReport);
             if (b() < 10) {
-                a(new f(this), f37268a);
+                a(new f(this), f37197a);
                 return;
             }
             e();
@@ -224,7 +224,7 @@ public class a {
         this.f29a = config;
         this.f30a = iEventProcessor;
         this.f31a = iPerfProcessor;
-        iEventProcessor.setEventMap(this.f37269b);
+        iEventProcessor.setEventMap(this.f37198b);
         this.f31a.setPerfMap(this.f33a);
     }
 

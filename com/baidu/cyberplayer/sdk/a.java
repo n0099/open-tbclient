@@ -5,53 +5,53 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<C0068a> f4854a = new ArrayList<>();
+    public ArrayList<C0069a> f4754a = new ArrayList<>();
 
     /* renamed from: com.baidu.cyberplayer.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0068a {
+    public static class C0069a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4855a;
+        public String f4755a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f4856b;
+        public Object f4756b;
 
-        public C0068a(String str, Object obj) {
-            this.f4855a = str;
-            this.f4856b = obj;
+        public C0069a(String str, Object obj) {
+            this.f4755a = str;
+            this.f4756b = obj;
         }
 
         public String a() {
-            return this.f4855a;
+            return this.f4755a;
         }
 
         public void a(Object obj) {
-            this.f4856b = obj;
+            this.f4756b = obj;
         }
 
         public Object b() {
-            return this.f4856b;
+            return this.f4756b;
         }
     }
 
     public void a() {
-        this.f4854a.clear();
+        this.f4754a.clear();
     }
 
     public void a(String str, Object obj) {
-        int size = this.f4854a.size();
+        int size = this.f4754a.size();
         for (int i2 = 0; i2 < size; i2++) {
-            C0068a c0068a = this.f4854a.get(i2);
-            if (c0068a != null && c0068a.a() != null && c0068a.a().equals(str)) {
-                c0068a.a(obj);
+            C0069a c0069a = this.f4754a.get(i2);
+            if (c0069a != null && c0069a.a() != null && c0069a.a().equals(str)) {
+                c0069a.a(obj);
                 return;
             }
         }
-        this.f4854a.add(new C0068a(str, obj));
+        this.f4754a.add(new C0069a(str, obj));
     }
 
-    public ArrayList<C0068a> b() {
-        return this.f4854a;
+    public ArrayList<C0069a> b() {
+        return this.f4754a;
     }
 }

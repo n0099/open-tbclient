@@ -17,19 +17,19 @@ import kotlin.text.Typography;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36457a;
+    public static String f36386a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36458b;
+    public static String f36387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36459c;
+    public static String f36388c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f36460d;
+    public static String f36389d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f36461e;
+    public static String f36390e;
 
     public static String a() {
         WifiManager wifiManager;
@@ -48,42 +48,42 @@ public class c {
     }
 
     public static String c(Context context) {
-        String str = f36458b;
+        String str = f36387b;
         if (str == null || str.length() <= 0) {
             if (context == null) {
                 return "";
             }
             try {
                 String simSerialNumber = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
-                f36458b = simSerialNumber;
+                f36387b = simSerialNumber;
                 return simSerialNumber;
             } catch (Exception unused) {
                 return "";
             }
         }
-        return f36458b;
+        return f36387b;
     }
 
     public static String d(Context context) {
-        String str = f36459c;
+        String str = f36388c;
         if (str == null || str.length() <= 0) {
             if (context == null) {
                 return "";
             }
             try {
                 String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
-                f36459c = string;
+                f36388c = string;
                 return string;
             } catch (Exception unused) {
                 return "";
             }
         }
-        return f36459c;
+        return f36388c;
     }
 
     public static String e(Context context) {
         try {
-            if (f36461e == null) {
+            if (f36390e == null) {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 StringBuilder sb = new StringBuilder();
@@ -119,45 +119,45 @@ public class c {
                 sb.append("&");
                 sb.append("wifi=");
                 sb.append(a.e(context));
-                f36461e = sb.toString();
+                f36390e = sb.toString();
             }
-            return f36461e;
+            return f36390e;
         } catch (Exception unused) {
             return null;
         }
     }
 
     public static String b(Context context) {
-        String str = f36457a;
+        String str = f36386a;
         if (str == null || str.length() <= 0) {
             if (context == null) {
                 return "";
             }
             try {
                 String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                f36457a = deviceId;
+                f36386a = deviceId;
                 return deviceId;
             } catch (Exception unused) {
                 return "";
             }
         }
-        return f36457a;
+        return f36386a;
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f36460d)) {
+        if (TextUtils.isEmpty(f36389d)) {
             if (context == null) {
                 return "";
             }
-            f36460d = "";
+            f36389d = "";
             WindowManager windowManager = (WindowManager) context.getSystemService("window");
             if (windowManager != null) {
                 int width = windowManager.getDefaultDisplay().getWidth();
                 int height = windowManager.getDefaultDisplay().getHeight();
-                f36460d = width + "x" + height;
+                f36389d = width + "x" + height;
             }
-            return f36460d;
+            return f36389d;
         }
-        return f36460d;
+        return f36389d;
     }
 }

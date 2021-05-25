@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet;
 
 import d.a.c.e.p.k;
-import d.a.j0.r.d0.b;
+import d.a.m0.r.d0.b;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */

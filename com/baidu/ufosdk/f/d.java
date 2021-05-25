@@ -6,28 +6,28 @@ import android.content.SharedPreferences;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f22587a;
+    public Context f22516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f22588b;
+    public SharedPreferences f22517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences.Editor f22589c;
+    public SharedPreferences.Editor f22518c;
 
     public d(Context context) {
-        this.f22587a = context;
+        this.f22516a = context;
         SharedPreferences sharedPreferences = context.getSharedPreferences("UfoSharePreference", 0);
-        this.f22588b = sharedPreferences;
-        this.f22589c = sharedPreferences.edit();
+        this.f22517b = sharedPreferences;
+        this.f22518c = sharedPreferences.edit();
     }
 
     private int a(String str) {
-        return this.f22588b.getInt(str, 0);
+        return this.f22517b.getInt(str, 0);
     }
 
     private void a(String str, int i2) {
-        this.f22589c.putInt(str, i2);
-        this.f22589c.commit();
+        this.f22518c.putInt(str, i2);
+        this.f22518c.commit();
     }
 
     public final int a() {

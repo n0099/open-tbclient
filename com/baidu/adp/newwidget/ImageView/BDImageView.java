@@ -25,19 +25,19 @@ import java.util.Arrays;
 public abstract class BDImageView extends ImageView implements ViewTreeObserver.OnPreDrawListener, i {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2182e;
+    public int f2187e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView.ScaleType f2183f;
+    public ImageView.ScaleType f2188f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView.ScaleType f2184g;
+    public ImageView.ScaleType f2189g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f2185h;
+    public e f2190h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f2186i;
+    public a f2191i;
     public boolean j;
     public boolean k;
     public boolean l;
@@ -53,10 +53,10 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public BDImageView(Context context) {
         super(context);
-        this.f2182e = 0;
-        this.f2183f = ImageView.ScaleType.CENTER_INSIDE;
-        this.f2184g = null;
-        this.f2185h = new e();
+        this.f2187e = 0;
+        this.f2188f = ImageView.ScaleType.CENTER_INSIDE;
+        this.f2189g = null;
+        this.f2190h = new e();
         this.j = true;
         this.l = true;
         this.o = Integer.MAX_VALUE;
@@ -80,30 +80,30 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     private void getDisplayBdImage() {
         ImageView.ScaleType scaleType = getScaleType();
-        this.q.f39354a = (BitmapDrawable) getDrawable();
-        this.q.f39355b = getBdImage();
+        this.q.f39018a = (BitmapDrawable) getDrawable();
+        this.q.f39019b = getBdImage();
         if (this.q.e()) {
-            this.q.f39355b = null;
+            this.q.f39019b = null;
             c();
-            this.q.f39356c = false;
+            this.q.f39020c = false;
             this.u = this.t;
         } else if (this.q.d()) {
-            this.q.f39354a = null;
+            this.q.f39018a = null;
             c();
-            this.q.f39356c = false;
+            this.q.f39020c = false;
             this.u = this.t;
         } else {
             d dVar = this.q;
-            dVar.f39354a = null;
-            dVar.f39355b = getDefaultBdImage();
-            this.q.f39356c = true;
+            dVar.f39018a = null;
+            dVar.f39019b = getDefaultBdImage();
+            this.q.f39020c = true;
             if (this.q.d()) {
-                scaleType = this.f2183f;
+                scaleType = this.f2188f;
             }
             this.u = this.s;
         }
-        if (this.f2184g != scaleType) {
-            this.f2184g = scaleType;
+        if (this.f2189g != scaleType) {
+            this.f2189g = scaleType;
             this.l = true;
         }
     }
@@ -132,7 +132,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     }
 
     public final void c() {
-        if (this.q.f39356c) {
+        if (this.q.f39020c) {
             this.l = true;
             if (!this.r && this.m == 1073741824 && this.n == 1073741824) {
                 return;
@@ -143,23 +143,23 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public final void d() {
         if (this.k && this.j && this.l) {
-            this.f2186i.c(this.q, this, this.f2184g);
+            this.f2191i.c(this.q, this, this.f2189g);
             this.l = false;
         }
     }
 
     public final void e(Canvas canvas) {
         if (!this.q.c()) {
-            if (this.f2185h.o) {
-                this.f2186i.q();
-                this.f2186i.a(this.q, this);
-                this.f2186i.f(canvas, this);
+            if (this.f2190h.o) {
+                this.f2191i.q();
+                this.f2191i.a(this.q, this);
+                this.f2191i.f(canvas, this);
                 return;
             }
             return;
         }
         d();
-        this.f2186i.g(canvas, this.q, this);
+        this.f2191i.g(canvas, this.q, this);
     }
 
     public void f(Canvas canvas, ImageView imageView) {
@@ -170,7 +170,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     public abstract d.a.c.j.d.a getDefaultBdImage();
 
     public boolean getDrawBorder() {
-        return this.f2185h.f39359c;
+        return this.f2190h.f39023c;
     }
 
     public int getImageHeight() {
@@ -185,7 +185,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         if (!this.j) {
             return super.getImageMatrix();
         }
-        return this.f2186i.k();
+        return this.f2191i.k();
     }
 
     public int getImageWidth() {
@@ -198,27 +198,27 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     public void i(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
-            this.f2185h.f39357a = j(obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radius, l.e(getContext(), 4.0f)));
-            this.f2185h.f39358b = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
-            this.f2185h.f39359c = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
-            this.f2185h.f39360d = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, l.e(getContext(), 1.0f));
-            this.f2185h.f39361e = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, 201326592);
-            this.f2185h.f39363g = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
-            this.f2185h.f39365i = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
-            this.f2185h.m = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
-            this.f2182e = obtainStyledAttributes.getInt(R.styleable.BDImageView_drawerType, 0);
+            this.f2190h.f39021a = j(obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radius, l.e(getContext(), 4.0f)));
+            this.f2190h.f39022b = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
+            this.f2190h.f39023c = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
+            this.f2190h.f39024d = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, l.e(getContext(), 1.0f));
+            this.f2190h.f39025e = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, 201326592);
+            this.f2190h.f39027g = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
+            this.f2190h.f39029i = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
+            this.f2190h.m = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
+            this.f2187e = obtainStyledAttributes.getInt(R.styleable.BDImageView_drawerType, 0);
             this.o = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxWidth, Integer.MAX_VALUE);
             this.p = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxHeight, Integer.MAX_VALUE);
             this.r = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_adjustViewBounds, false);
             obtainStyledAttributes.recycle();
         } else {
-            this.f2185h.f39357a = j(l.e(getContext(), 4.0f));
-            this.f2185h.f39360d = l.e(getContext(), 1.0f);
-            this.f2185h.f39361e = 201326592;
+            this.f2190h.f39021a = j(l.e(getContext(), 4.0f));
+            this.f2190h.f39024d = l.e(getContext(), 1.0f);
+            this.f2190h.f39025e = 201326592;
         }
-        a a2 = f.b().a(this.f2182e);
-        this.f2186i = a2;
-        a2.p(this.f2185h);
+        a a2 = f.b().a(this.f2187e);
+        this.f2191i = a2;
+        a2.p(this.f2190h);
     }
 
     public final int k(int i2, int i3, int i4) {
@@ -254,10 +254,10 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
             return;
         }
         getDisplayBdImage();
-        this.f2186i.d(canvas, this, this.u);
+        this.f2191i.d(canvas, this, this.u);
         e(canvas);
         f(canvas, this);
-        this.f2186i.i(canvas, this);
+        this.f2191i.i(canvas, this);
         this.q.f();
     }
 
@@ -274,7 +274,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         int paddingTop = getPaddingTop() + getPaddingBottom();
         int max = Math.max(b2 + paddingLeft, getSuggestedMinimumWidth());
         int max2 = Math.max(a2 + paddingTop, getSuggestedMinimumHeight());
-        if (max <= paddingLeft || max2 <= paddingTop || this.q.f39356c || !this.r) {
+        if (max <= paddingLeft || max2 <= paddingTop || this.q.f39020c || !this.r) {
             max = k(max, this.o, i2);
             max2 = k(max2, this.p, i3);
         }
@@ -297,8 +297,8 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     }
 
     public void setAlphaValue(float f2) {
-        if (Math.abs(this.f2185h.k - f2) > 1.0E-4f) {
-            this.f2185h.k = f2;
+        if (Math.abs(this.f2190h.k - f2) > 1.0E-4f) {
+            this.f2190h.k = f2;
             invalidate();
         }
     }
@@ -308,26 +308,26 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     }
 
     public void setBorderColor(int i2) {
-        e eVar = this.f2185h;
-        if (eVar.f39361e != i2) {
-            eVar.f39361e = i2;
+        e eVar = this.f2190h;
+        if (eVar.f39025e != i2) {
+            eVar.f39025e = i2;
             invalidate();
         }
     }
 
     public void setBorderSurroundContent(boolean z) {
-        e eVar = this.f2185h;
-        if (eVar.f39363g != z) {
-            eVar.f39363g = z;
+        e eVar = this.f2190h;
+        if (eVar.f39027g != z) {
+            eVar.f39027g = z;
             this.l = true;
             invalidate();
         }
     }
 
     public void setBorderWidth(int i2) {
-        e eVar = this.f2185h;
-        if (eVar.f39360d != i2) {
-            eVar.f39360d = i2;
+        e eVar = this.f2190h;
+        if (eVar.f39024d != i2) {
+            eVar.f39024d = i2;
             invalidate();
         }
     }
@@ -337,40 +337,40 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     }
 
     public void setDefaultScaleType(ImageView.ScaleType scaleType) {
-        if (this.f2183f != scaleType) {
-            this.f2183f = scaleType;
+        if (this.f2188f != scaleType) {
+            this.f2188f = scaleType;
             this.l = true;
             invalidate();
         }
     }
 
     public void setDrawBorder(boolean z) {
-        e eVar = this.f2185h;
-        if (eVar.f39359c != z) {
-            eVar.f39359c = z;
+        e eVar = this.f2190h;
+        if (eVar.f39023c != z) {
+            eVar.f39023c = z;
             this.l = true;
             invalidate();
         }
     }
 
     public void setDrawerType(int i2) {
-        if (this.f2182e != i2) {
-            this.f2182e = i2;
-            a a2 = f.b().a(this.f2182e);
-            this.f2186i = a2;
-            a2.p(this.f2185h);
+        if (this.f2187e != i2) {
+            this.f2187e = i2;
+            a a2 = f.b().a(this.f2187e);
+            this.f2191i = a2;
+            a2.p(this.f2190h);
             this.l = true;
             invalidate();
         }
     }
 
     public void setExtraMatrix(Matrix matrix) {
-        this.f2185h.l = matrix;
+        this.f2190h.l = matrix;
         invalidate();
     }
 
     public void setForegroundColor(int i2) {
-        e eVar = this.f2185h;
+        e eVar = this.f2190h;
         if (eVar.m != i2) {
             eVar.m = i2;
             invalidate();
@@ -385,9 +385,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     }
 
     public void setGifIconSupport(boolean z) {
-        e eVar = this.f2185h;
-        if (eVar.f39365i != z) {
-            eVar.f39365i = z;
+        e eVar = this.f2190h;
+        if (eVar.f39029i != z) {
+            eVar.f39029i = z;
             invalidate();
         }
     }
@@ -402,9 +402,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     public void setImageMatrix(Matrix matrix) {
         if (!this.j) {
             super.setImageMatrix(matrix);
-        } else if (matrix == null || this.f2184g != ImageView.ScaleType.MATRIX) {
+        } else if (matrix == null || this.f2189g != ImageView.ScaleType.MATRIX) {
         } else {
-            this.f2186i.n(matrix);
+            this.f2191i.n(matrix);
             this.l = true;
             invalidate();
         }
@@ -417,15 +417,15 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     }
 
     public void setIsNight(boolean z) {
-        e eVar = this.f2185h;
-        if (eVar.f39362f != z) {
-            eVar.f39362f = z;
+        e eVar = this.f2190h;
+        if (eVar.f39026f != z) {
+            eVar.f39026f = z;
             invalidate();
         }
     }
 
     public void setIsPreDrawBorder(boolean z) {
-        e eVar = this.f2185h;
+        e eVar = this.f2190h;
         if (eVar.o != z) {
             eVar.o = z;
             invalidate();
@@ -433,41 +433,41 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     }
 
     public void setIsRound(boolean z) {
-        e eVar = this.f2185h;
-        if (eVar.f39358b != z) {
-            eVar.f39358b = z;
+        e eVar = this.f2190h;
+        if (eVar.f39022b != z) {
+            eVar.f39022b = z;
             invalidate();
         }
     }
 
     public void setLongIconSupport(boolean z) {
-        e eVar = this.f2185h;
-        if (eVar.f39364h != z) {
-            eVar.f39364h = z;
+        e eVar = this.f2190h;
+        if (eVar.f39028h != z) {
+            eVar.f39028h = z;
             invalidate();
         }
     }
 
     public void setRadius(int i2) {
         float[] j = j(i2);
-        if (Arrays.equals(this.f2185h.f39357a, j)) {
+        if (Arrays.equals(this.f2190h.f39021a, j)) {
             return;
         }
-        this.f2185h.f39357a = j;
+        this.f2190h.f39021a = j;
         invalidate();
     }
 
     public void setRadiusById(int i2) {
         float[] h2 = h(i2);
-        if (Arrays.equals(this.f2185h.f39357a, h2)) {
+        if (Arrays.equals(this.f2190h.f39021a, h2)) {
             return;
         }
-        this.f2185h.f39357a = h2;
+        this.f2190h.f39021a = h2;
         invalidate();
     }
 
     public void setTLIconType(int i2) {
-        e eVar = this.f2185h;
+        e eVar = this.f2190h;
         if (eVar.j != i2) {
             eVar.j = i2;
             invalidate();
@@ -480,10 +480,10 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     public BDImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f2182e = 0;
-        this.f2183f = ImageView.ScaleType.CENTER_INSIDE;
-        this.f2184g = null;
-        this.f2185h = new e();
+        this.f2187e = 0;
+        this.f2188f = ImageView.ScaleType.CENTER_INSIDE;
+        this.f2189g = null;
+        this.f2190h = new e();
         this.j = true;
         this.l = true;
         this.o = Integer.MAX_VALUE;

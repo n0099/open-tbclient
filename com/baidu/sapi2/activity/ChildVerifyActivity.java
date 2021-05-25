@@ -6,7 +6,7 @@ import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.callback.AccountRealNameCallback;
 import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.utils.Log;
-import d.a.y.a.f;
+import d.a.a0.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */

@@ -6,7 +6,7 @@ import java.io.ByteArrayOutputStream;
 public class iw {
 
     /* renamed from: a  reason: collision with root package name */
-    public jb f38029a;
+    public jb f37958a;
 
     /* renamed from: a  reason: collision with other field name */
     public final ji f798a;
@@ -23,12 +23,12 @@ public class iw {
         this.f799a = byteArrayOutputStream;
         ji jiVar = new ji(byteArrayOutputStream);
         this.f798a = jiVar;
-        this.f38029a = jdVar.a(jiVar);
+        this.f37958a = jdVar.a(jiVar);
     }
 
     public byte[] a(iq iqVar) {
         this.f799a.reset();
-        iqVar.b(this.f38029a);
+        iqVar.b(this.f37958a);
         return this.f799a.toByteArray();
     }
 }

@@ -16,7 +16,7 @@ import java.security.MessageDigest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class BitmapPreFillRunner implements Runnable {
     public static final int BACKOFF_RATIO = 4;
     public static final long INITIAL_BACKOFF_MS = 40;
@@ -35,14 +35,14 @@ public final class BitmapPreFillRunner implements Runnable {
     public static final long MAX_BACKOFF_MS = TimeUnit.SECONDS.toMillis(1);
 
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Clock {
         public long now() {
             return SystemClock.currentThreadTimeMillis();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class UniqueKey implements Key {
         @Override // com.bumptech.glide.load.Key
         public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {

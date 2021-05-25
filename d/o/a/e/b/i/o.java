@@ -9,44 +9,44 @@ import java.util.concurrent.atomic.AtomicLong;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f67263a;
+    public final String f67306a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f67264b;
+    public final String f67307b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f67265c;
+    public final String f67308c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f67266d;
+    public final boolean f67309d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<l> f67267e;
+    public final List<l> f67310e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67268f;
+    public int f67311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f67269g;
+    public boolean f67312g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f67270h;
+    public int f67313h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f67271i;
+    public String f67314i;
     public final AtomicLong j;
 
     public o(String str, boolean z) {
-        this.f67267e = new ArrayList();
+        this.f67310e = new ArrayList();
         this.j = new AtomicLong();
-        this.f67263a = str;
-        this.f67266d = z;
-        this.f67264b = null;
-        this.f67265c = null;
+        this.f67306a = str;
+        this.f67309d = z;
+        this.f67307b = null;
+        this.f67308c = null;
     }
 
     public synchronized int a() {
-        return this.f67267e.size();
+        return this.f67310e.size();
     }
 
     public final String b(String str) {
@@ -70,12 +70,12 @@ public class o {
     }
 
     public synchronized void d(l lVar) {
-        this.f67267e.add(lVar);
+        this.f67310e.add(lVar);
     }
 
     public synchronized void e() {
-        this.f67268f++;
-        this.f67269g = true;
+        this.f67311f++;
+        this.f67312g = true;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -90,53 +90,53 @@ public class o {
 
     public synchronized void f(l lVar) {
         try {
-            this.f67267e.remove(lVar);
+            this.f67310e.remove(lVar);
         } catch (Throwable unused) {
         }
     }
 
     public synchronized void g() {
-        this.f67269g = false;
+        this.f67312g = false;
     }
 
     public synchronized boolean h() {
-        return this.f67269g;
+        return this.f67312g;
     }
 
     public int hashCode() {
-        if (this.f67270h == 0) {
-            this.f67270h = i().hashCode();
+        if (this.f67313h == 0) {
+            this.f67313h = i().hashCode();
         }
-        return this.f67270h;
+        return this.f67313h;
     }
 
     public final String i() {
-        if (this.f67271i == null) {
+        if (this.f67314i == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f67263a);
+            sb.append(this.f67306a);
             sb.append("_");
-            String str = this.f67264b;
+            String str = this.f67307b;
             if (str == null) {
                 str = "";
             }
             sb.append(str);
             sb.append("_");
-            sb.append(this.f67266d);
-            this.f67271i = sb.toString();
+            sb.append(this.f67309d);
+            this.f67314i = sb.toString();
         }
-        return this.f67271i;
+        return this.f67314i;
     }
 
     public String toString() {
-        return "UrlRecord{url='" + this.f67263a + "', ip='" + this.f67264b + "', ipFamily='" + this.f67265c + "', isMainUrl=" + this.f67266d + ", failedTimes=" + this.f67268f + ", isCurrentFailed=" + this.f67269g + '}';
+        return "UrlRecord{url='" + this.f67306a + "', ip='" + this.f67307b + "', ipFamily='" + this.f67308c + "', isMainUrl=" + this.f67309d + ", failedTimes=" + this.f67311f + ", isCurrentFailed=" + this.f67312g + '}';
     }
 
     public o(String str, String str2) {
-        this.f67267e = new ArrayList();
+        this.f67310e = new ArrayList();
         this.j = new AtomicLong();
-        this.f67263a = str;
-        this.f67266d = false;
-        this.f67264b = str2;
-        this.f67265c = b(str2);
+        this.f67306a = str;
+        this.f67309d = false;
+        this.f67307b = str2;
+        this.f67308c = b(str2);
     }
 }

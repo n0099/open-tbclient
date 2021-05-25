@@ -1,208 +1,243 @@
 package d.a.j0.b;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.util.ListUtils;
-import d.a.j0.b.f.f;
-import d.a.j0.b.f.g;
-import d.a.j0.b.f.h;
-import d.a.j0.b.f.i;
-import d.a.j0.b.f.j;
-import d.a.j0.b.f.l;
-import d.a.j0.b.f.m;
-import d.a.j0.b.f.n;
-import d.a.j0.b.f.o;
-import d.a.j0.b.f.p;
-import d.a.j0.b.f.q;
-import d.a.j0.b.f.r;
-import d.a.j0.b.f.s;
-import d.a.j0.b.f.t;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONArray;
+import com.baidu.mobstat.Config;
+import com.xiaomi.mipush.sdk.Constants;
+import d.a.j0.e.i;
+import d.a.j0.k.e;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
 
-    /* renamed from: d  reason: collision with root package name */
-    public static c f48802d;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, e> f48803a = new HashMap<>();
-
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<BdUniqueId, d.a.j0.b.f.a> f48804b = new HashMap<>();
+    public static volatile c f40268b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<BdUniqueId, e> f48805c = new HashMap<>();
+    public static boolean f40269c = false;
 
-    public c() {
-        m();
-        j(c());
+    /* renamed from: a  reason: collision with root package name */
+    public Context f40270a;
+
+    /* loaded from: classes2.dex */
+    public class a extends d.a.j0.k.c {
+        public a() {
+        }
+
+        @Override // d.a.j0.k.c
+        public void b() {
+            try {
+                String b2 = new d.a.j0.f.d(c.this.f40270a, null).b();
+                if (TextUtils.isEmpty(b2)) {
+                    return;
+                }
+                JSONObject jSONObject = new JSONObject(b2);
+                if (jSONObject.optInt("0") == 0) {
+                    c.f40269c = jSONObject.optInt("1") == 2;
+                }
+            } catch (Throwable th) {
+                d.a.j0.l.c.d(th);
+            }
+        }
     }
 
-    public static c d() {
-        if (f48802d == null) {
+    public c(Context context) {
+        this.f40270a = context;
+    }
+
+    public static c b(Context context) {
+        if (f40268b == null) {
             synchronized (c.class) {
-                if (f48802d == null) {
-                    f48802d = new c();
+                if (f40268b == null) {
+                    f40268b = new c(context);
                 }
             }
         }
-        return f48802d;
+        return f40268b;
     }
 
-    public static String e() {
-        return "ubs_abtest_config";
+    public String c(JSONObject jSONObject, long j) {
+        if (jSONObject != null) {
+            try {
+                if (jSONObject.length() != 0) {
+                    String d2 = new d.a.j0.f.d(this.f40270a, null).d(jSONObject, j);
+                    if (!TextUtils.isEmpty(d2)) {
+                        return d2;
+                    }
+                }
+            } catch (Throwable th) {
+                d.a.j0.l.c.d(th);
+            }
+        }
+        return "";
     }
 
-    public final void a() {
-        d.a.j0.r.d0.b.j().v("static_opt_open", d.I() ? 1 : 0);
+    public void d() {
+        e.c().b(new a());
     }
 
-    public synchronized e b(String str) {
-        return this.f48803a.get(str);
+    public String e(JSONObject jSONObject, long j) {
+        if (jSONObject != null) {
+            try {
+                if (jSONObject.length() != 0) {
+                    String i2 = new d.a.j0.f.d(this.f40270a, null).i(jSONObject, j);
+                    if (!TextUtils.isEmpty(i2)) {
+                        return i2;
+                    }
+                }
+            } catch (Throwable th) {
+                d.a.j0.l.c.d(th);
+            }
+        }
+        return "";
     }
 
-    public final HashMap<String, e> c() {
-        HashMap<String, e> hashMap = new HashMap<>();
+    public synchronized boolean f() {
         try {
-            e();
-            JSONArray jSONArray = new JSONArray(d.a.j0.r.d0.b.j().p(e(), "[]"));
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("sid");
-                    hashMap.put(optString, new e(optString));
+            if (g()) {
+                return true;
+            }
+            d.a.j0.f.d dVar = new d.a.j0.f.d(this.f40270a, null);
+            String h2 = dVar.h();
+            if (TextUtils.isEmpty(h2)) {
+                for (int i2 = 0; i2 < 3; i2++) {
+                    h2 = dVar.h();
+                    if (!TextUtils.isEmpty(h2)) {
+                        break;
+                    }
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-        return hashMap;
-    }
-
-    public e f(BdUniqueId bdUniqueId) {
-        d.a.j0.b.f.a aVar = this.f48804b.get(bdUniqueId);
-        if (aVar == null) {
-            return null;
-        }
-        return aVar.b();
-    }
-
-    public Map<BdUniqueId, e> g() {
-        return this.f48805c;
-    }
-
-    public void h(JSONArray jSONArray) {
-        try {
-            String e2 = e();
-            if (jSONArray == null) {
-                this.f48803a.clear();
-                d.a.j0.r.d0.b.j().C(e2);
-                return;
+            if (TextUtils.isEmpty(h2)) {
+                return false;
             }
-            HashMap<String, e> hashMap = new HashMap<>();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("sid");
-                    hashMap.put(optString, new e(optString));
-                }
-            }
-            j(hashMap);
-            d.a.j0.r.d0.b.j().x(e2, jSONArray.toString());
-            a();
-        } catch (Exception e3) {
-            e3.printStackTrace();
-        }
-    }
-
-    public void i(String str) {
-        try {
-            if (TextUtils.isEmpty(str)) {
-                h(null);
+            JSONObject jSONObject = new JSONObject(h2);
+            int optInt = jSONObject.optInt("0", -1);
+            if (optInt == 2) {
+                d.a.j0.b.a.g(this.f40270a).L(false);
             } else {
-                h(new JSONArray(str));
+                d.a.j0.b.a.g(this.f40270a).L(true);
             }
-        } catch (Exception unused) {
-        }
-    }
-
-    public final void j(HashMap<String, e> hashMap) {
-        synchronized (this.f48803a) {
-            this.f48803a.clear();
-            if (hashMap != null) {
-                this.f48803a.putAll(hashMap);
+            if (optInt == 1 || optInt == 3) {
+                return true;
             }
-            k();
-        }
-    }
-
-    public final void k() {
-        for (Map.Entry<BdUniqueId, d.a.j0.b.f.a> entry : this.f48804b.entrySet()) {
-            d.a.j0.b.f.a value = entry.getValue();
-            if (value != null) {
-                o(value);
+            JSONObject optJSONObject = jSONObject.optJSONObject("1");
+            if (optJSONObject == null) {
+                return false;
             }
-        }
-        l();
-    }
-
-    public final void l() {
-        this.f48805c.clear();
-        for (BdUniqueId bdUniqueId : this.f48804b.keySet()) {
-            this.f48805c.put(bdUniqueId, f(bdUniqueId));
-        }
-    }
-
-    public final void m() {
-        n(new s());
-        n(new h());
-        n(new j());
-        n(new d.a.j0.b.f.e());
-        n(new p());
-        n(new d.a.j0.b.f.b());
-        n(new d.a.j0.b.f.c());
-        n(new r());
-        n(new g());
-        n(new f());
-        n(new l());
-        n(new t());
-        n(new m());
-        n(new q());
-        n(new n());
-        n(new i());
-        n(new o());
-        n(new d.a.j0.b.f.d());
-    }
-
-    public void n(d.a.j0.b.f.a aVar) {
-        if (aVar == null || aVar.c() == null) {
-            return;
-        }
-        this.f48804b.put(aVar.c(), aVar);
-    }
-
-    public final void o(d.a.j0.b.f.a aVar) {
-        if (aVar == null) {
-            return;
-        }
-        ArrayList<String> a2 = aVar.a();
-        e eVar = null;
-        if (ListUtils.isEmpty(a2)) {
-            aVar.f(null);
-            return;
-        }
-        Iterator<String> it = a2.iterator();
-        while (it.hasNext()) {
-            eVar = this.f48803a.get(it.next());
-            if (eVar != null) {
-                break;
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject("yd_config");
+            if (optJSONObject2 != null) {
+                String optString = optJSONObject2.optString(Constants.APP_ID);
+                String optString2 = optJSONObject2.optString("app_key");
+                if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                    i.i("cm", optString, optString2);
+                }
+                int optInt2 = optJSONObject2.optInt("status", -1);
+                if (optInt2 == 1) {
+                    d.a.j0.b.a.g(this.f40270a).m(true);
+                } else if (optInt2 == 2) {
+                    d.a.j0.b.a.g(this.f40270a).m(false);
+                }
+                d.a.j0.b.a.g(this.f40270a).W(optJSONObject2.toString());
             }
+            JSONObject optJSONObject3 = optJSONObject.optJSONObject("dx_config");
+            if (optJSONObject3 != null) {
+                String optString3 = optJSONObject3.optString(Constants.APP_ID);
+                String optString4 = optJSONObject3.optString("app_key");
+                if (!TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4)) {
+                    i.i(Config.EXCEPTION_CRASH_TYPE, optString3, optString4);
+                }
+                int optInt3 = optJSONObject3.optInt("status", -1);
+                if (optInt3 == 1) {
+                    d.a.j0.b.a.g(this.f40270a).w(true);
+                } else if (optInt3 == 2) {
+                    d.a.j0.b.a.g(this.f40270a).w(false);
+                }
+                d.a.j0.b.a.g(this.f40270a).z(optJSONObject3.toString());
+            }
+            JSONObject optJSONObject4 = optJSONObject.optJSONObject("lt_config");
+            if (optJSONObject4 != null) {
+                String optString5 = optJSONObject4.optString(Constants.APP_ID);
+                String optString6 = optJSONObject4.optString("app_key");
+                if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
+                    i.i("cu", optString5, optString6);
+                }
+                int optInt4 = optJSONObject4.optInt("status", -1);
+                if (optInt4 == 1) {
+                    d.a.j0.b.a.g(this.f40270a).B(true);
+                } else if (optInt4 == 2) {
+                    d.a.j0.b.a.g(this.f40270a).B(false);
+                }
+                d.a.j0.b.a.g(this.f40270a).O(optJSONObject4.toString());
+            }
+            JSONObject optJSONObject5 = optJSONObject.optJSONObject("auto_config");
+            if (optJSONObject5 != null) {
+                String optString7 = optJSONObject5.optString("app_key", "");
+                String optString8 = optJSONObject5.optString("secret_key", "");
+                if (!TextUtils.isEmpty(optString7) && !TextUtils.isEmpty(optString8)) {
+                    d.a.j0.a.f40249b = optString7;
+                    d.a.j0.a.f40250c = optString8;
+                    d.a.j0.b.a.g(this.f40270a).A(optString7, optString8);
+                }
+            }
+            d.a.j0.b.a.g(this.f40270a).S(optJSONObject.optString("encrypt_key", ""));
+            JSONObject optJSONObject6 = jSONObject.optJSONObject("a_setting");
+            if (optJSONObject6 != null) {
+                if ("1".equals(optJSONObject6.optString("1", "1"))) {
+                    d.a.j0.b.a.g(this.f40270a).G(true);
+                } else {
+                    d.a.j0.b.a.g(this.f40270a).G(false);
+                }
+            }
+            d.a.j0.b.a.g(this.f40270a).k(jSONObject.optLong("3", 300L) * 1000);
+            d.a.j0.b.a.g(this.f40270a).N(System.currentTimeMillis());
+            return true;
+        } catch (Throwable th) {
+            d.a.j0.l.c.d(th);
+            return false;
         }
-        aVar.f(eVar);
+    }
+
+    public final boolean g() {
+        try {
+            if (System.currentTimeMillis() - d.a.j0.b.a.g(this.f40270a).f0() > d.a.j0.b.a.g(this.f40270a).C()) {
+                return false;
+            }
+            String l0 = d.a.j0.b.a.g(this.f40270a).l0();
+            String Q = d.a.j0.b.a.g(this.f40270a).Q();
+            String d0 = d.a.j0.b.a.g(this.f40270a).d0();
+            if (TextUtils.isEmpty(l0) && TextUtils.isEmpty(Q) && TextUtils.isEmpty(d0)) {
+                return false;
+            }
+            if (!TextUtils.isEmpty(l0)) {
+                JSONObject jSONObject = new JSONObject(l0);
+                String string = jSONObject.getString(Constants.APP_ID);
+                String string2 = jSONObject.getString("app_key");
+                if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
+                    i.i("cm", string, string2);
+                }
+            }
+            if (!TextUtils.isEmpty(Q)) {
+                JSONObject jSONObject2 = new JSONObject(Q);
+                String string3 = jSONObject2.getString(Constants.APP_ID);
+                String string4 = jSONObject2.getString("app_key");
+                if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string4)) {
+                    i.i(Config.EXCEPTION_CRASH_TYPE, string3, string4);
+                }
+            }
+            if (TextUtils.isEmpty(d0)) {
+                return true;
+            }
+            JSONObject jSONObject3 = new JSONObject(d0);
+            String optString = jSONObject3.optString(Constants.APP_ID);
+            String optString2 = jSONObject3.optString("app_key");
+            if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
+                return true;
+            }
+            i.i("cu", optString, optString2);
+            return true;
+        } catch (Throwable th) {
+            d.a.j0.l.c.d(th);
+            return false;
+        }
     }
 }

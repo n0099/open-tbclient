@@ -15,22 +15,22 @@ import d.a.c.e.p.j;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class MyEmotionManagerFragment extends BaseFragment implements d.a.k0.y1.h.e.a.a<Pair<List<EmotionPackageData>, Integer>> {
+public class MyEmotionManagerFragment extends BaseFragment implements d.a.n0.z1.h.e.a.a<Pair<List<EmotionPackageData>, Integer>> {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.k0.y1.h.f.d f18686e;
+    public d.a.n0.z1.h.f.d f18600e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MyEmotionManagerModel f18687f;
+    public MyEmotionManagerModel f18601f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.k0.y1.h.c.a f18688g;
+    public d.a.n0.z1.h.c.a f18602g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f18689h = new a(2921311);
+    public CustomMessageListener f18603h = new a(2921311);
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f18690i = new b(2921054);
+    public CustomMessageListener f18604i = new b(2921054);
     public CustomMessageListener j = new c(2921310);
 
     /* loaded from: classes4.dex */
@@ -38,26 +38,26 @@ public class MyEmotionManagerFragment extends BaseFragment implements d.a.k0.y1.
 
         /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0194a implements Runnable {
+        public class RunnableC0195a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f18692e;
+            public final /* synthetic */ CustomResponsedMessage f18606e;
 
-            public RunnableC0194a(CustomResponsedMessage customResponsedMessage) {
-                this.f18692e = customResponsedMessage;
+            public RunnableC0195a(CustomResponsedMessage customResponsedMessage) {
+                this.f18606e = customResponsedMessage;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                String valueOf = String.valueOf(this.f18692e.getData());
+                String valueOf = String.valueOf(this.f18606e.getData());
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(valueOf);
-                if (!d.a.k0.y1.c.i().c(arrayList, true) || !j.z()) {
-                    if (MyEmotionManagerFragment.this.f18687f != null) {
-                        MyEmotionManagerFragment.this.f18687f.F();
+                if (!d.a.n0.z1.c.i().c(arrayList, true) || !j.z()) {
+                    if (MyEmotionManagerFragment.this.f18601f != null) {
+                        MyEmotionManagerFragment.this.f18601f.F();
                     }
-                } else if (MyEmotionManagerFragment.this.f18687f != null) {
-                    MyEmotionManagerFragment.this.f18687f.E();
+                } else if (MyEmotionManagerFragment.this.f18601f != null) {
+                    MyEmotionManagerFragment.this.f18601f.E();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921314));
                 }
             }
@@ -73,7 +73,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements d.a.k0.y1.
             if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer)) {
                 return;
             }
-            d.a.k0.y1.a.b().a(new RunnableC0194a(customResponsedMessage));
+            d.a.n0.z1.a.b().a(new RunnableC0195a(customResponsedMessage));
         }
     }
 
@@ -86,8 +86,8 @@ public class MyEmotionManagerFragment extends BaseFragment implements d.a.k0.y1.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (MyEmotionManagerFragment.this.f18687f != null) {
-                MyEmotionManagerFragment.this.f18687f.E();
+            if (MyEmotionManagerFragment.this.f18601f != null) {
+                MyEmotionManagerFragment.this.f18601f.E();
             }
         }
     }
@@ -101,8 +101,8 @@ public class MyEmotionManagerFragment extends BaseFragment implements d.a.k0.y1.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (MyEmotionManagerFragment.this.f18687f != null) {
-                MyEmotionManagerFragment.this.f18687f.J();
+            if (MyEmotionManagerFragment.this.f18601f != null) {
+                MyEmotionManagerFragment.this.f18601f.J();
             }
         }
     }
@@ -111,23 +111,23 @@ public class MyEmotionManagerFragment extends BaseFragment implements d.a.k0.y1.
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Pair f18696e;
+        public final /* synthetic */ Pair f18610e;
 
         public d(Pair pair) {
-            this.f18696e = pair;
+            this.f18610e = pair;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Object obj;
-            if (this.f18696e == null) {
+            if (this.f18610e == null) {
                 return;
             }
-            if (MyEmotionManagerFragment.this.f18686e != null) {
-                MyEmotionManagerFragment.this.f18686e.n((List) this.f18696e.first);
-                MyEmotionManagerFragment.this.f18686e.e();
+            if (MyEmotionManagerFragment.this.f18600e != null) {
+                MyEmotionManagerFragment.this.f18600e.n((List) this.f18610e.first);
+                MyEmotionManagerFragment.this.f18600e.e();
             }
-            if (MyEmotionManagerFragment.this.f18688g == null || (obj = this.f18696e.second) == null) {
+            if (MyEmotionManagerFragment.this.f18602g == null || (obj = this.f18610e.second) == null) {
                 return;
             }
             MyEmotionManagerFragment.this.H0(((Integer) obj).intValue() > 0);
@@ -141,42 +141,42 @@ public class MyEmotionManagerFragment extends BaseFragment implements d.a.k0.y1.
 
         @Override // java.lang.Runnable
         public void run() {
-            if (MyEmotionManagerFragment.this.f18686e != null) {
-                MyEmotionManagerFragment.this.f18686e.m();
+            if (MyEmotionManagerFragment.this.f18600e != null) {
+                MyEmotionManagerFragment.this.f18600e.m();
             }
-            if (MyEmotionManagerFragment.this.f18688g != null) {
+            if (MyEmotionManagerFragment.this.f18602g != null) {
                 MyEmotionManagerFragment.this.H0(false);
             }
         }
     }
 
     public final void G0() {
-        this.f18687f.E();
+        this.f18601f.E();
     }
 
     public void H0(boolean z) {
-        d.a.k0.y1.h.c.a aVar = this.f18688g;
+        d.a.n0.z1.h.c.a aVar = this.f18602g;
         if (aVar != null) {
             aVar.onUpdate(Boolean.valueOf(z));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.k0.y1.h.e.a.a
+    @Override // d.a.n0.z1.h.e.a.a
     /* renamed from: I0 */
     public void onSuccess(Pair<List<EmotionPackageData>, Integer> pair) {
         d.a.c.e.m.e.a().post(new d(pair));
     }
 
-    public void J0(d.a.k0.y1.h.c.a aVar) {
+    public void J0(d.a.n0.z1.h.c.a aVar) {
         if (aVar != null) {
-            this.f18688g = aVar;
+            this.f18602g = aVar;
         }
     }
 
-    @Override // d.a.k0.y1.h.e.a.a
+    @Override // d.a.n0.z1.h.e.a.a
     public void d0() {
-        d.a.k0.y1.h.f.d dVar = this.f18686e;
+        d.a.n0.z1.h.f.d dVar = this.f18600e;
         if (dVar != null) {
             dVar.h();
         }
@@ -185,7 +185,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements d.a.k0.y1.
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        d.a.k0.y1.h.f.d dVar = this.f18686e;
+        d.a.n0.z1.h.f.d dVar = this.f18600e;
         if (dVar != null) {
             dVar.g(i2);
         }
@@ -193,36 +193,36 @@ public class MyEmotionManagerFragment extends BaseFragment implements d.a.k0.y1.
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        d.a.k0.y1.h.a.b().c();
-        registerListener(this.f18690i);
+        d.a.n0.z1.h.a.b().c();
+        registerListener(this.f18604i);
         registerListener(this.j);
-        registerListener(this.f18689h);
-        this.f18686e = new d.a.k0.y1.h.f.d(getPageContext());
+        registerListener(this.f18603h);
+        this.f18600e = new d.a.n0.z1.h.f.d(getPageContext());
         MyEmotionManagerModel myEmotionManagerModel = new MyEmotionManagerModel(getPageContext());
-        this.f18687f = myEmotionManagerModel;
+        this.f18601f = myEmotionManagerModel;
         myEmotionManagerModel.L(this);
-        return this.f18686e.d();
+        return this.f18600e.d();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        MyEmotionManagerModel myEmotionManagerModel = this.f18687f;
+        MyEmotionManagerModel myEmotionManagerModel = this.f18601f;
         if (myEmotionManagerModel != null) {
             myEmotionManagerModel.G();
         }
-        if (this.f18690i != null) {
-            MessageManager.getInstance().unRegisterListener(this.f18690i);
+        if (this.f18604i != null) {
+            MessageManager.getInstance().unRegisterListener(this.f18604i);
         }
         if (this.j != null) {
             MessageManager.getInstance().unRegisterListener(this.j);
         }
-        if (this.f18689h != null) {
-            MessageManager.getInstance().unRegisterListener(this.f18689h);
+        if (this.f18603h != null) {
+            MessageManager.getInstance().unRegisterListener(this.f18603h);
         }
     }
 
-    @Override // d.a.k0.y1.h.e.a.a
+    @Override // d.a.n0.z1.h.e.a.a
     public void onFail() {
         d.a.c.e.m.e.a().post(new e());
     }

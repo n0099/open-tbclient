@@ -3,14 +3,14 @@ package com.xiaomi.clientreport.manager;
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f37273a;
+    public final /* synthetic */ d f37202a;
 
     public e(d dVar) {
-        this.f37273a = dVar;
+        this.f37202a = dVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f37273a.f37272a.d();
+        this.f37202a.f37201a.d();
     }
 }

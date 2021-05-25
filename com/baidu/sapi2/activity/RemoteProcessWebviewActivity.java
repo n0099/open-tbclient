@@ -25,12 +25,12 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.views.ViewUtility;
-import d.a.y.a.a;
-import d.a.y.a.b;
-import d.a.y.a.d;
-import d.a.y.a.e;
-import d.a.y.a.f;
-import d.a.y.a.h;
+import d.a.a0.a.a;
+import d.a.a0.a.b;
+import d.a.a0.a.d;
+import d.a.a0.a.e;
+import d.a.a0.a.f;
+import d.a.a0.a.h;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -41,25 +41,25 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     public static final String EXTRA_SHOW_BOTTOM_BACK = "show_bottom_back";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f9788f = ":pass";
+    public static final String f9688f = ":pass";
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f9789a;
+    public boolean f9689a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9790b;
+    public boolean f9690b;
     public View bottomBackView;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9791c;
+    public String f9691c;
     public SapiConfiguration configuration;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9792d;
+    public String f9692d;
     public View dividerLine;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebView f9793e;
+    public WebView f9693e;
     public ImageView mBottomBackBtnIv;
     public TextView mBottomBackTvText;
     public RelativeLayout mBottomBgLayout;
@@ -72,18 +72,18 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     public ProgressBar progressBar;
 
     private void b() {
-        this.f9789a = getIntent().getBooleanExtra(EXTRA_IS_DARK_MODE, false);
-        this.f9790b = getIntent().getBooleanExtra(EXTRA_SHOW_BOTTOM_BACK, false);
-        this.f9791c = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
-        this.f9792d = getIntent().getStringExtra("external_url");
+        this.f9689a = getIntent().getBooleanExtra(EXTRA_IS_DARK_MODE, false);
+        this.f9690b = getIntent().getBooleanExtra(EXTRA_SHOW_BOTTOM_BACK, false);
+        this.f9691c = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
+        this.f9692d = getIntent().getStringExtra("external_url");
     }
 
     private void c() {
         ViewStub viewStub;
-        if (this.f9789a) {
+        if (this.f9689a) {
             setTheme(h.SDKDarkTheme);
         }
-        this.f9793e = (WebView) findViewById(e.webview);
+        this.f9693e = (WebView) findViewById(e.webview);
         this.mTitle = (TextView) findViewById(e.title);
         ImageView imageView = (ImageView) findViewById(e.title_btn_left_iv);
         this.mLeftBtnIv = imageView;
@@ -91,8 +91,8 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
         this.mLeftBtnLayout = (LinearLayout) findViewById(e.title_left_btn_layout);
         this.dividerLine = findViewById(e.title_divider_line);
         this.mTitleBgLayout = (RelativeLayout) findViewById(e.sapi_title_bg_layout);
-        this.mTitle.setText(this.f9791c);
-        if (this.f9790b) {
+        this.mTitle.setText(this.f9691c);
+        if (this.f9690b) {
             if (this.bottomBackView == null && (viewStub = (ViewStub) findViewById(e.stub_bottom_back)) != null) {
                 this.bottomBackView = viewStub.inflate();
                 this.mBottomBackBtnIv = (ImageView) findViewById(e.sapi_bottom_back);
@@ -114,7 +114,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             ViewUtility.enlargedViews(this.mBottomBackBtnIv, this.configuration.textZoom);
             ViewUtility.enlargedViews(this.mBottomBackTvText, this.configuration.textZoom);
         }
-        if (this.f9789a) {
+        if (this.f9689a) {
             this.mTitleBgLayout.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
             this.mLeftBtnIv.setImageResource(d.sapi_sdk_btn_back_dark_mode);
             this.mTitle.setTextColor(getResources().getColor(b.sapi_sdk_dark_mode_edit_text_color));
@@ -138,7 +138,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             }
         }
         a();
-        this.f9793e.loadUrl(this.f9792d);
+        this.f9693e.loadUrl(this.f9692d);
     }
 
     @Override // android.app.Activity
@@ -156,7 +156,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     public void onCreate(Bundle bundle) {
         if (Build.VERSION.SDK_INT >= 28) {
             String curProcessName = SapiUtils.getCurProcessName(this);
-            if (!TextUtils.isEmpty(curProcessName) && curProcessName.endsWith(f9788f)) {
+            if (!TextUtils.isEmpty(curProcessName) && curProcessName.endsWith(f9688f)) {
                 try {
                     WebView.setDataDirectorySuffix(curProcessName);
                 } catch (Throwable unused) {
@@ -183,14 +183,14 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     }
 
     private void a() {
-        WebSettings settings = this.f9793e.getSettings();
+        WebSettings settings = this.f9693e.getSettings();
         try {
             settings.setJavaScriptEnabled(true);
         } catch (Exception unused) {
         }
         settings.setTextSize(WebSettings.TextSize.NORMAL);
         settings.setDomStorageEnabled(true);
-        this.f9793e.setScrollBarStyle(0);
+        this.f9693e.setScrollBarStyle(0);
         settings.setSaveFormData(false);
         settings.setSavePassword(false);
         settings.setAllowFileAccess(false);
@@ -203,11 +203,11 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             this.progressBar = progressBar;
             progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(this, 2.0f), 0, 0));
             this.progressBar.setBackgroundColor(getResources().getColor(b.sapi_sdk_explain_camera_detail_color));
-            this.f9793e.addView(this.progressBar);
+            this.f9693e.addView(this.progressBar);
         } catch (Throwable th) {
             Log.e(th);
         }
-        this.f9793e.setWebChromeClient(new WebChromeClient() { // from class: com.baidu.sapi2.activity.RemoteProcessWebviewActivity.1
+        this.f9693e.setWebChromeClient(new WebChromeClient() { // from class: com.baidu.sapi2.activity.RemoteProcessWebviewActivity.1
             @Override // android.webkit.WebChromeClient
             public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 JSONObject jSONObject = new JSONObject();
@@ -235,7 +235,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
                 super.onProgressChanged(webView, i2);
             }
         });
-        this.f9793e.setWebViewClient(new WebViewClient() { // from class: com.baidu.sapi2.activity.RemoteProcessWebviewActivity.2
+        this.f9693e.setWebViewClient(new WebViewClient() { // from class: com.baidu.sapi2.activity.RemoteProcessWebviewActivity.2
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
@@ -244,8 +244,8 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
                 }
                 RemoteProcessWebviewActivity remoteProcessWebviewActivity = RemoteProcessWebviewActivity.this;
                 if (remoteProcessWebviewActivity.noNetworkView == null) {
-                    remoteProcessWebviewActivity.noNetworkView = com.baidu.sapi2.utils.b.a(remoteProcessWebviewActivity, remoteProcessWebviewActivity.f9793e);
-                    RemoteProcessWebviewActivity.this.f9793e.addView(RemoteProcessWebviewActivity.this.noNetworkView, new ViewGroup.LayoutParams(-1, -1));
+                    remoteProcessWebviewActivity.noNetworkView = com.baidu.sapi2.utils.b.a(remoteProcessWebviewActivity, remoteProcessWebviewActivity.f9693e);
+                    RemoteProcessWebviewActivity.this.f9693e.addView(RemoteProcessWebviewActivity.this.noNetworkView, new ViewGroup.LayoutParams(-1, -1));
                 }
                 RemoteProcessWebviewActivity.this.noNetworkView.setVisibility(0);
             }

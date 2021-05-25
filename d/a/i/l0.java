@@ -17,27 +17,27 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import d.a.i.v0.a;
-import d.a.j0.r.q.a;
+import d.a.m0.r.q.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
+public class l0<T extends d.a.m0.r.q.a> implements q, d.a.n0.o.e {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40343e;
+    public int f40035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public p<T> f40344f;
+    public p<T> f40036f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f40345g;
+    public Context f40037g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ThreadCardView f40346h;
+    public ThreadCardView f40038h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f40347i;
+    public RelativeLayout f40039i;
     public LinearLayout j;
     public d.a.i.a<T> k;
     public d.a.i.a<T> l;
@@ -50,7 +50,7 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
     public T s;
     public d.a.i.v0.a t;
     public int u;
-    public a.C0549a v;
+    public a.C0544a v;
 
     /* loaded from: classes.dex */
     public class a implements View.OnTouchListener {
@@ -94,9 +94,9 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
         n(cVar);
         cVar.b().setVisibility(0);
         if (cVar.d() == null) {
-            this.f40347i.addView(cVar.b(), cVar.c());
+            this.f40039i.addView(cVar.b(), cVar.c());
         } else {
-            this.f40347i.addView(cVar.b(), cVar.c(), cVar.d());
+            this.f40039i.addView(cVar.b(), cVar.c(), cVar.d());
         }
         cVar.j(this);
         cVar.e();
@@ -105,11 +105,11 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
 
     public final void c() {
         c cVar = new c();
-        cVar.g(new TbImageView(this.f40345g));
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(d.a.c.e.p.l.g(this.f40345g, R.dimen.ds180), d.a.c.e.p.l.g(this.f40345g, R.dimen.ds50));
+        cVar.g(new TbImageView(this.f40037g));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(d.a.c.e.p.l.g(this.f40037g, R.dimen.ds180), d.a.c.e.p.l.g(this.f40037g, R.dimen.ds50));
         layoutParams.addRule(11);
         layoutParams.addRule(10);
-        layoutParams.rightMargin = -this.q.f40364g;
+        layoutParams.rightMargin = -this.q.f40056g;
         cVar.i(layoutParams);
         cVar.h(-1);
         this.o.add(cVar);
@@ -136,7 +136,7 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
     }
 
     public Context g() {
-        return this.f40345g;
+        return this.f40037g;
     }
 
     public List<h> h() {
@@ -148,7 +148,7 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
     }
 
     public View j() {
-        return this.f40346h;
+        return this.f40038h;
     }
 
     public final void k() {
@@ -157,10 +157,10 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
         }
         if (this.j.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             m0 m0Var = this.q;
-            ((ViewGroup.MarginLayoutParams) this.j.getLayoutParams()).setMargins(m0Var.f40363f, m0Var.f40361d, m0Var.f40364g, m0Var.f40362e);
+            ((ViewGroup.MarginLayoutParams) this.j.getLayoutParams()).setMargins(m0Var.f40055f, m0Var.f40053d, m0Var.f40056g, m0Var.f40054e);
             this.j.postInvalidate();
         }
-        if (this.q.f40358a) {
+        if (this.q.f40050a) {
             c();
         }
         d.a.i.a<T> aVar = this.k;
@@ -173,11 +173,11 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
         if (aVar2 != null) {
             aVar2.j(this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.q.f40359b;
+            layoutParams.topMargin = this.q.f40051b;
             if (this.l.f().booleanValue()) {
                 m0 m0Var2 = this.q;
-                layoutParams.leftMargin = -m0Var2.f40363f;
-                layoutParams.rightMargin = -m0Var2.f40364g;
+                layoutParams.leftMargin = -m0Var2.f40055f;
+                layoutParams.rightMargin = -m0Var2.f40056g;
             }
             this.j.addView(this.l.g(), layoutParams);
             this.l.h();
@@ -192,8 +192,8 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
                     layoutParams2.bottomMargin = hVar.o();
                     if (hVar.f().booleanValue()) {
                         m0 m0Var3 = this.q;
-                        layoutParams2.leftMargin = -m0Var3.f40363f;
-                        layoutParams2.rightMargin = -m0Var3.f40364g;
+                        layoutParams2.leftMargin = -m0Var3.f40055f;
+                        layoutParams2.rightMargin = -m0Var3.f40056g;
                     }
                     this.j.addView(hVar.g(), layoutParams2);
                     hVar.h();
@@ -202,7 +202,7 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
         }
         if (this.n != null) {
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams3.topMargin = this.q.f40360c;
+            layoutParams3.topMargin = this.q.f40052c;
             this.n.j(this);
             this.j.addView(this.n.g(), layoutParams3);
             this.n.h();
@@ -215,9 +215,9 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
             c next = it.next();
             if (next != null && next.b() != null) {
                 if (next.d() == null) {
-                    this.f40347i.addView(next.b(), next.c());
+                    this.f40039i.addView(next.b(), next.c());
                 } else {
-                    this.f40347i.addView(next.b(), next.c(), next.d());
+                    this.f40039i.addView(next.b(), next.c(), next.d());
                 }
                 next.j(this);
                 next.e();
@@ -242,7 +242,7 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
                 hVar.a(t);
                 if (i2 == 0) {
                     boolean z = true;
-                    ThreadCardUtils.dealMainViewTopMargin(hVar.g(), (ThreadCardUtils.isNoThreadTitle(t.m()) && ThreadCardUtils.isNoThreadAbstract(t.m()) && ThreadCardUtils.isNoThreadVoice(t.m()) && t.m().Y2() < 1 && t.m().v1() == null) ? false : false, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+                    ThreadCardUtils.dealMainViewTopMargin(hVar.g(), (ThreadCardUtils.isNoThreadTitle(t.m()) && ThreadCardUtils.isNoThreadAbstract(t.m()) && ThreadCardUtils.isNoThreadVoice(t.m()) && t.m().Z2() < 1 && t.m().w1() == null) ? false : false, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
                 }
             }
         }
@@ -250,12 +250,12 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
         if (aVar3 != null) {
             aVar3.a(t);
         }
-        p<T> pVar = this.f40344f;
+        p<T> pVar = this.f40036f;
         if (pVar != null) {
             pVar.a(t);
         }
         d(this.j);
-        d(this.f40347i);
+        d(this.f40039i);
     }
 
     public void m(int i2, a.b bVar) {
@@ -274,28 +274,28 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
         }
     }
 
-    public boolean o(a.C0549a c0549a) {
-        return this.t.b(c0549a);
+    public boolean o(a.C0544a c0544a) {
+        return this.t.b(c0544a);
     }
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        if (i2 == this.f40343e) {
+        if (i2 == this.f40035e) {
             return;
         }
-        this.f40343e = i2;
+        this.f40035e = i2;
         T t = this.s;
         if (t != null && !t.isSupportNone()) {
-            SkinManager.setBackgroundResource(this.f40346h, this.q.f40365h);
+            SkinManager.setBackgroundResource(this.f40038h, this.q.f40057h);
         }
         d.a.i.a<T> aVar = this.k;
         if (aVar != null) {
             aVar.onChangeSkinType(tbPageContext, i2);
             if (this.n == null) {
-                d.a.j0.r.u.c d2 = d.a.j0.r.u.c.d(this.f40346h);
-                d2.j(1);
-                d2.k(R.string.J_X06);
-                d2.f(this.q.f40365h);
+                d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f40038h);
+                d2.l(1);
+                d2.m(R.string.J_X06);
+                d2.f(this.q.f40057h);
             }
         }
         d.a.i.a<T> aVar2 = this.l;
@@ -311,16 +311,16 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
         if (aVar3 != null) {
             aVar3.onChangeSkinType(tbPageContext, i2);
             if (this.k == null) {
-                d.a.j0.r.u.c d3 = d.a.j0.r.u.c.d(this.f40346h);
-                d3.j(2);
-                d3.k(R.string.J_X06);
-                d3.f(this.q.f40365h);
+                d.a.m0.r.u.c d3 = d.a.m0.r.u.c.d(this.f40038h);
+                d3.l(2);
+                d3.m(R.string.J_X06);
+                d3.f(this.q.f40057h);
             }
         }
         if (this.k != null && this.n != null) {
-            d.a.j0.r.u.c d4 = d.a.j0.r.u.c.d(this.f40346h);
-            d4.k(R.string.J_X06);
-            d4.g(this.q.f40365h, R.color.CAM_X0206);
+            d.a.m0.r.u.c d4 = d.a.m0.r.u.c.d(this.f40038h);
+            d4.m(R.string.J_X06);
+            d4.h(this.q.f40057h, R.color.CAM_X0206);
         }
         if (!ListUtils.isEmpty(this.o)) {
             Iterator<c> it = this.o.iterator();
@@ -337,7 +337,7 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
         }
     }
 
-    public void p(d.a.k0.x.b0<T> b0Var) {
+    public void p(d.a.n0.z.b0<T> b0Var) {
         d.a.i.a<T> aVar = this.k;
         if (aVar != null) {
             aVar.l(b0Var);
@@ -358,7 +358,7 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
     }
 
     public void q(int i2) {
-        ThreadCardView threadCardView = this.f40346h;
+        ThreadCardView threadCardView = this.f40038h;
         if (threadCardView != null) {
             threadCardView.setPosition(i2);
         }
@@ -368,7 +368,7 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
         this.u = i2;
     }
 
-    @Override // d.a.k0.m.e
+    @Override // d.a.n0.o.e
     public void setPage(String str) {
     }
 
@@ -393,41 +393,41 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
     }
 
     public l0(b bVar, BaseCardInfo.SupportType supportType, ViewGroup viewGroup, d.a.c.j.e.s sVar) {
-        this.f40343e = 3;
-        this.f40344f = null;
+        this.f40035e = 3;
+        this.f40036f = null;
         this.p = null;
         this.t = new d.a.i.v0.a();
         this.u = 0;
-        this.v = new a.C0549a(7);
-        Context context = bVar.f40354f;
-        this.f40345g = context;
+        this.v = new a.C0544a(7);
+        Context context = bVar.f40046f;
+        this.f40037g = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_card_layout, viewGroup, false);
         ThreadCardView threadCardView = (ThreadCardView) inflate.findViewById(R.id.thread_card_root);
-        this.f40346h = threadCardView;
-        this.f40347i = (RelativeLayout) threadCardView.findViewById(R.id.card_decor_layer);
-        LinearLayout linearLayout = (LinearLayout) this.f40346h.findViewById(R.id.body_root);
+        this.f40038h = threadCardView;
+        this.f40039i = (RelativeLayout) threadCardView.findViewById(R.id.card_decor_layer);
+        LinearLayout linearLayout = (LinearLayout) this.f40038h.findViewById(R.id.body_root);
         this.j = linearLayout;
         linearLayout.setClipToPadding(false);
-        this.r = this.f40346h.findViewById(R.id.card_top_line);
-        this.k = bVar.f40349a;
-        this.l = bVar.f40350b;
-        this.m = bVar.f40351c;
-        this.n = bVar.f40352d;
-        this.o = bVar.f40353e;
-        this.q = bVar.f40355g;
-        this.f40346h.setParent(viewGroup);
-        this.f40346h.setITypeListView(sVar);
+        this.r = this.f40038h.findViewById(R.id.card_top_line);
+        this.k = bVar.f40041a;
+        this.l = bVar.f40042b;
+        this.m = bVar.f40043c;
+        this.n = bVar.f40044d;
+        this.o = bVar.f40045e;
+        this.q = bVar.f40047g;
+        this.f40038h.setParent(viewGroup);
+        this.f40038h.setITypeListView(sVar);
         k();
         if (supportType == BaseCardInfo.SupportType.TOP) {
-            if (this.f40346h.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f40346h.getLayoutParams();
+            if (this.f40038h.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f40038h.getLayoutParams();
                 marginLayoutParams.setMargins(marginLayoutParams.leftMargin, marginLayoutParams.topMargin + UtilHelper.getDimenPixelSize(R.dimen.M_H_X003), marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
-                this.f40346h.postInvalidate();
+                this.f40038h.postInvalidate();
             }
-        } else if (supportType == BaseCardInfo.SupportType.FULL && (this.f40346h.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f40346h.getLayoutParams();
+        } else if (supportType == BaseCardInfo.SupportType.FULL && (this.f40038h.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f40038h.getLayoutParams();
             marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.topMargin + UtilHelper.getDimenPixelSize(R.dimen.M_H_X003), marginLayoutParams2.rightMargin, marginLayoutParams2.bottomMargin);
-            this.f40346h.postInvalidate();
+            this.f40038h.postInvalidate();
         }
         inflate.setOnTouchListener(new a());
     }
@@ -436,42 +436,42 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.i.a f40349a;
+        public d.a.i.a f40041a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a.i.a f40350b;
+        public d.a.i.a f40042b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<h> f40351c;
+        public List<h> f40043c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d.a.i.a f40352d;
+        public d.a.i.a f40044d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<c> f40353e;
+        public ArrayList<c> f40045e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f40354f;
+        public Context f40046f;
 
         /* renamed from: g  reason: collision with root package name */
-        public m0 f40355g;
+        public m0 f40047g;
 
         public b(Context context, boolean z) {
-            this.f40349a = null;
-            this.f40350b = null;
-            this.f40352d = null;
-            this.f40354f = context;
-            this.f40353e = new ArrayList<>();
+            this.f40041a = null;
+            this.f40042b = null;
+            this.f40044d = null;
+            this.f40046f = context;
+            this.f40045e = new ArrayList<>();
             m0 m0Var = new m0();
-            this.f40355g = m0Var;
+            this.f40047g = m0Var;
             if (!z) {
                 m0Var.e(0);
             }
-            this.f40351c = new ArrayList();
+            this.f40043c = new ArrayList();
         }
 
         public b h(h hVar) {
-            this.f40351c.add(hVar);
+            this.f40043c.add(hVar);
             return this;
         }
 
@@ -488,21 +488,21 @@ public class l0<T extends d.a.j0.r.q.a> implements q, d.a.k0.m.e {
         }
 
         public m0 l() {
-            return this.f40355g;
+            return this.f40047g;
         }
 
         public b m(d.a.i.a aVar) {
-            this.f40352d = aVar;
+            this.f40044d = aVar;
             return this;
         }
 
         public b n(d.a.i.a aVar) {
-            this.f40350b = aVar;
+            this.f40042b = aVar;
             return this;
         }
 
         public b o(d.a.i.a aVar) {
-            this.f40349a = aVar;
+            this.f40041a = aVar;
             return this;
         }
 

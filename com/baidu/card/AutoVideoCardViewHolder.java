@@ -3,9 +3,9 @@ package com.baidu.card;
 import android.view.View;
 import d.a.i.l0;
 import d.a.i.t0;
-import d.a.j0.r.q.a;
-import d.a.k0.j2.e;
-import d.a.k0.j2.o;
+import d.a.m0.r.q.a;
+import d.a.n0.k2.e;
+import d.a.n0.k2.o;
 /* loaded from: classes.dex */
 public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T> implements e {
     public t0 n;
@@ -18,7 +18,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         }
     }
 
-    @Override // d.a.k0.j2.e
+    @Override // d.a.n0.k2.e
     public boolean C() {
         t0 t0Var = this.n;
         if (t0Var == null) {
@@ -27,7 +27,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return t0Var.C();
     }
 
-    @Override // d.a.k0.j2.e
+    @Override // d.a.n0.k2.e
     public int getCurrentPosition() {
         t0 t0Var = this.n;
         if (t0Var == null) {
@@ -36,7 +36,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return t0Var.getCurrentPosition();
     }
 
-    @Override // d.a.k0.j2.e
+    @Override // d.a.n0.k2.e
     public String getPlayUrl() {
         t0 t0Var = this.n;
         if (t0Var == null) {
@@ -45,7 +45,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return t0Var.getPlayUrl();
     }
 
-    @Override // d.a.k0.j2.e
+    @Override // d.a.n0.k2.e
     public View getVideoContainer() {
         t0 t0Var = this.n;
         if (t0Var == null) {
@@ -54,7 +54,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return t0Var.getVideoContainer();
     }
 
-    @Override // d.a.k0.j2.e
+    @Override // d.a.n0.k2.e
     public boolean isPlayStarted() {
         t0 t0Var = this.n;
         if (t0Var == null) {
@@ -63,7 +63,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return t0Var.isPlayStarted();
     }
 
-    @Override // d.a.k0.j2.e
+    @Override // d.a.n0.k2.e
     public boolean isPlaying() {
         t0 t0Var = this.n;
         if (t0Var == null) {
@@ -72,7 +72,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return t0Var.isPlaying();
     }
 
-    @Override // d.a.k0.j2.e
+    @Override // d.a.n0.k2.e
     public void startPlay() {
         t0 t0Var = this.n;
         if (t0Var != null) {
@@ -80,7 +80,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         }
     }
 
-    @Override // d.a.k0.j2.e
+    @Override // d.a.n0.k2.e
     public void stopPlay() {
         t0 t0Var = this.n;
         if (t0Var != null) {

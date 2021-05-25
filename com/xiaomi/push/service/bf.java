@@ -6,19 +6,19 @@ import com.xiaomi.push.service.XMPushService;
 public class bf {
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f38172d = 300000;
+    public static int f38101d = 300000;
 
     /* renamed from: a  reason: collision with other field name */
     public XMPushService f924a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38174b = 0;
+    public int f38103b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38175c = 0;
+    public int f38104c = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38173a = 500;
+    public int f38102a = 500;
 
     /* renamed from: a  reason: collision with other field name */
     public long f923a = 0;
@@ -28,11 +28,11 @@ public class bf {
     }
 
     private int a() {
-        if (this.f38174b > 8) {
+        if (this.f38103b > 8) {
             return 300000;
         }
         double random = (Math.random() * 2.0d) + 1.0d;
-        int i2 = this.f38174b;
+        int i2 = this.f38103b;
         if (i2 > 4) {
             return (int) (random * 60000.0d);
         }
@@ -43,21 +43,21 @@ public class bf {
             return 0;
         }
         if (System.currentTimeMillis() - this.f923a >= 310000) {
-            this.f38173a = 1000;
-            this.f38175c = 0;
+            this.f38102a = 1000;
+            this.f38104c = 0;
             return 0;
         }
-        int i3 = this.f38173a;
-        int i4 = f38172d;
+        int i3 = this.f38102a;
+        int i4 = f38101d;
         if (i3 >= i4) {
             return i3;
         }
-        int i5 = this.f38175c + 1;
-        this.f38175c = i5;
+        int i5 = this.f38104c + 1;
+        this.f38104c = i5;
         if (i5 >= 4) {
             return i4;
         }
-        this.f38173a = (int) (i3 * 1.5d);
+        this.f38102a = (int) (i3 * 1.5d);
         return i3;
     }
 
@@ -65,7 +65,7 @@ public class bf {
     public void m598a() {
         this.f923a = System.currentTimeMillis();
         this.f924a.a(1);
-        this.f38174b = 0;
+        this.f38103b = 0;
     }
 
     public void a(boolean z) {
@@ -73,7 +73,7 @@ public class bf {
             com.xiaomi.channel.commonutils.logger.b.c("should not reconnect as no client or network.");
         } else if (z) {
             if (!this.f924a.m551a(1)) {
-                this.f38174b++;
+                this.f38103b++;
             }
             this.f924a.a(1);
             XMPushService xMPushService = this.f924a;
@@ -82,15 +82,15 @@ public class bf {
         } else if (this.f924a.m551a(1)) {
         } else {
             int a2 = a();
-            this.f38174b++;
+            this.f38103b++;
             com.xiaomi.channel.commonutils.logger.b.m57a("schedule reconnect in " + a2 + "ms");
             XMPushService xMPushService2 = this.f924a;
             xMPushService2.getClass();
             xMPushService2.a(new XMPushService.d(), (long) a2);
-            if (this.f38174b == 2 && gx.m350a().m355a()) {
+            if (this.f38103b == 2 && gx.m350a().m355a()) {
                 ag.b();
             }
-            if (this.f38174b == 3) {
+            if (this.f38103b == 3) {
                 ag.a();
             }
         }

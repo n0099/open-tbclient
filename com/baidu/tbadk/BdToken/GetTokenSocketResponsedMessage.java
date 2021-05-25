@@ -2,7 +2,7 @@ package com.baidu.tbadk.BdToken;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.j0.a.a0;
+import d.a.m0.a.a0;
 import tbclient.Error;
 import tbclient.GetToken.GetTokenResIdl;
 /* loaded from: classes3.dex */

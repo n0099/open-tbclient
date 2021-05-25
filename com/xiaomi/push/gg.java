@@ -10,7 +10,7 @@ import java.util.List;
 public class gg {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37733a;
+    public int f37662a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f432a;
@@ -19,43 +19,43 @@ public class gg {
     public List<fz> f433a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37734b;
+    public String f37663b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37735c;
+    public String f37664c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37736d;
+    public String f37665d;
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f37737a = new a("internal-server-error");
+        public static final a f37666a = new a("internal-server-error");
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f37738b = new a("forbidden");
+        public static final a f37667b = new a("forbidden");
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f37739c = new a("bad-request");
+        public static final a f37668c = new a("bad-request");
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f37740d = new a("conflict");
+        public static final a f37669d = new a("conflict");
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f37741e = new a("feature-not-implemented");
+        public static final a f37670e = new a("feature-not-implemented");
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f37742f = new a("gone");
+        public static final a f37671f = new a("gone");
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f37743g = new a("item-not-found");
+        public static final a f37672g = new a("item-not-found");
 
         /* renamed from: h  reason: collision with root package name */
-        public static final a f37744h = new a("jid-malformed");
+        public static final a f37673h = new a("jid-malformed");
 
         /* renamed from: i  reason: collision with root package name */
-        public static final a f37745i = new a("not-acceptable");
+        public static final a f37674i = new a("not-acceptable");
         public static final a j = new a("not-allowed");
         public static final a k = new a("not-authorized");
         public static final a l = new a("payment-required");
@@ -86,23 +86,23 @@ public class gg {
 
     public gg(int i2, String str, String str2, String str3, String str4, List<fz> list) {
         this.f433a = null;
-        this.f37733a = i2;
+        this.f37662a = i2;
         this.f432a = str;
-        this.f37735c = str2;
-        this.f37734b = str3;
-        this.f37736d = str4;
+        this.f37664c = str2;
+        this.f37663b = str3;
+        this.f37665d = str4;
         this.f433a = list;
     }
 
     public gg(Bundle bundle) {
         this.f433a = null;
-        this.f37733a = bundle.getInt("ext_err_code");
+        this.f37662a = bundle.getInt("ext_err_code");
         if (bundle.containsKey("ext_err_type")) {
             this.f432a = bundle.getString("ext_err_type");
         }
-        this.f37734b = bundle.getString("ext_err_cond");
-        this.f37735c = bundle.getString("ext_err_reason");
-        this.f37736d = bundle.getString("ext_err_msg");
+        this.f37663b = bundle.getString("ext_err_cond");
+        this.f37664c = bundle.getString("ext_err_reason");
+        this.f37665d = bundle.getString("ext_err_msg");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
             this.f433a = new ArrayList(parcelableArray.length);
@@ -118,11 +118,11 @@ public class gg {
     public gg(a aVar) {
         this.f433a = null;
         a(aVar);
-        this.f37736d = null;
+        this.f37665d = null;
     }
 
     private void a(a aVar) {
-        this.f37734b = aVar.f434a;
+        this.f37663b = aVar.f434a;
     }
 
     public Bundle a() {
@@ -131,16 +131,16 @@ public class gg {
         if (str != null) {
             bundle.putString("ext_err_type", str);
         }
-        bundle.putInt("ext_err_code", this.f37733a);
-        String str2 = this.f37735c;
+        bundle.putInt("ext_err_code", this.f37662a);
+        String str2 = this.f37664c;
         if (str2 != null) {
             bundle.putString("ext_err_reason", str2);
         }
-        String str3 = this.f37734b;
+        String str3 = this.f37663b;
         if (str3 != null) {
             bundle.putString("ext_err_cond", str3);
         }
-        String str4 = this.f37736d;
+        String str4 = this.f37665d;
         if (str4 != null) {
             bundle.putString("ext_err_msg", str4);
         }
@@ -164,27 +164,27 @@ public class gg {
     public String m334a() {
         StringBuilder sb = new StringBuilder();
         sb.append("<error code=\"");
-        sb.append(this.f37733a);
+        sb.append(this.f37662a);
         sb.append("\"");
         if (this.f432a != null) {
             sb.append(" type=\"");
             sb.append(this.f432a);
             sb.append("\"");
         }
-        if (this.f37735c != null) {
+        if (this.f37664c != null) {
             sb.append(" reason=\"");
-            sb.append(this.f37735c);
+            sb.append(this.f37664c);
             sb.append("\"");
         }
         sb.append(">");
-        if (this.f37734b != null) {
+        if (this.f37663b != null) {
             sb.append("<");
-            sb.append(this.f37734b);
+            sb.append(this.f37663b);
             sb.append(" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\"/>");
         }
-        if (this.f37736d != null) {
+        if (this.f37665d != null) {
             sb.append("<text xml:lang=\"en\" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\">");
-            sb.append(this.f37736d);
+            sb.append(this.f37665d);
             sb.append("</text>");
         }
         for (fz fzVar : m335a()) {
@@ -204,16 +204,16 @@ public class gg {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        String str = this.f37734b;
+        String str = this.f37663b;
         if (str != null) {
             sb.append(str);
         }
         sb.append("(");
-        sb.append(this.f37733a);
+        sb.append(this.f37662a);
         sb.append(SmallTailInfo.EMOTION_SUFFIX);
-        if (this.f37736d != null) {
+        if (this.f37665d != null) {
             sb.append(" ");
-            sb.append(this.f37736d);
+            sb.append(this.f37665d);
         }
         return sb.toString();
     }

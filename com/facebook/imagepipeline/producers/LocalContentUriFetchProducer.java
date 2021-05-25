@@ -66,7 +66,7 @@ public class LocalContentUriFetchProducer extends LocalFetchProducer {
             createInputStream = this.mContentResolver.openInputStream(sourceUri);
         } else if (sourceUri.toString().endsWith("/display_photo")) {
             try {
-                createInputStream = this.mContentResolver.openAssetFileDescriptor(sourceUri, r.f7772a).createInputStream();
+                createInputStream = this.mContentResolver.openAssetFileDescriptor(sourceUri, r.f7672a).createInputStream();
             } catch (IOException unused) {
                 throw new IOException("Contact photo does not exist: " + sourceUri);
             }

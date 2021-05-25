@@ -14,13 +14,13 @@ import java.nio.channels.FileLock;
 public abstract class dq extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37517a;
+    public int f37446a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f238a;
 
     public dq(Context context, int i2) {
-        this.f37517a = i2;
+        this.f37446a = i2;
         this.f238a = context;
     }
 
@@ -40,7 +40,7 @@ public abstract class dq extends ai.a {
         if (b2 == null || b2.length == 0) {
             return;
         }
-        synchronized (dm.f37512a) {
+        synchronized (dm.f37441a) {
             FileLock fileLock = null;
             try {
                 try {
@@ -142,7 +142,7 @@ public abstract class dq extends ai.a {
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
     public boolean mo171a() {
-        return dl.a(this.f238a, String.valueOf(mo171a()), this.f37517a);
+        return dl.a(this.f238a, String.valueOf(mo171a()), this.f37446a);
     }
 
     public abstract String b();
@@ -175,7 +175,7 @@ public abstract class dq extends ai.a {
                 if (bm.a(b2).equals(sharedPreferences.getString(d(), null))) {
                     long j = sharedPreferences.getLong(c(), 0L);
                     int a3 = com.xiaomi.push.service.aq.a(this.f238a).a(hk.DCJobUploadRepeatedInterval.a(), 604800);
-                    if ((System.currentTimeMillis() - j) / 1000 < this.f37517a) {
+                    if ((System.currentTimeMillis() - j) / 1000 < this.f37446a) {
                         return;
                     }
                     if ((System.currentTimeMillis() - j) / 1000 < a3) {

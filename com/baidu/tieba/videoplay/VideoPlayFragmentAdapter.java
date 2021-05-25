@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.VideoPlayFragment;
-import d.a.j0.r.d0.b;
-import d.a.k0.j2.f;
-import d.a.k0.s3.a.a;
+import d.a.m0.r.d0.b;
+import d.a.n0.k2.f;
+import d.a.n0.t3.a.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,42 +25,42 @@ import java.util.List;
 public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<VideoItemData> f21559a;
+    public List<VideoItemData> f21487a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f21560b;
+    public boolean f21488b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f21561c;
+    public Rect f21489c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21562d;
+    public String f21490d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21563e;
+    public String f21491e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f21564f;
+    public long f21492f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21565g;
+    public String f21493g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SparseArray<VideoPlayFragment> f21566h;
+    public SparseArray<VideoPlayFragment> f21494h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f.c f21567i;
+    public f.c f21495i;
     public VideoPlayFragment.k0 j;
 
     public VideoPlayFragmentAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.f21564f = -1L;
-        this.f21566h = new SparseArray<>();
+        this.f21492f = -1L;
+        this.f21494h = new SparseArray<>();
         new a();
     }
 
     public VideoPlayFragment b(int i2) {
-        return this.f21566h.get(i2);
+        return this.f21494h.get(i2);
     }
 
     public void c(int i2) {
@@ -68,7 +68,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         List<String> list;
         VideoPlayFragment b2;
         VideoPlayFragment b3;
-        VideoPlayFragment videoPlayFragment = this.f21566h.get(i2);
+        VideoPlayFragment videoPlayFragment = this.f21494h.get(i2);
         String str2 = null;
         if (videoPlayFragment != null) {
             list = videoPlayFragment.E1();
@@ -102,26 +102,26 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
 
     public void d() {
         int k = b.j().k("nani_key_download_show_rate", 2);
-        if (this.f21564f <= 0 || k == 1) {
+        if (this.f21492f <= 0 || k == 1) {
             return;
         }
-        b.j().w("key_vertical_shown_time", this.f21564f);
+        b.j().w("key_vertical_shown_time", this.f21492f);
     }
 
     @Override // androidx.fragment.app.FragmentStatePagerAdapter, androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
         super.destroyItem(viewGroup, i2, obj);
-        this.f21566h.remove(i2);
+        this.f21494h.remove(i2);
     }
 
     public void e(List<VideoItemData> list, Rect rect) {
-        this.f21559a = list;
-        this.f21560b = true;
-        this.f21561c = rect;
+        this.f21487a = list;
+        this.f21488b = true;
+        this.f21489c = rect;
     }
 
     public void f(f.c cVar) {
-        this.f21567i = cVar;
+        this.f21495i = cVar;
     }
 
     public void g(VideoPlayFragment.k0 k0Var) {
@@ -130,26 +130,26 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (ListUtils.isEmpty(this.f21559a)) {
+        if (ListUtils.isEmpty(this.f21487a)) {
             return 0;
         }
-        return this.f21559a.size();
+        return this.f21487a.size();
     }
 
     @Override // androidx.fragment.app.FragmentStatePagerAdapter
     public Fragment getItem(int i2) {
         VideoPlayFragment videoPlayFragment = new VideoPlayFragment();
-        videoPlayFragment.P1(this.f21567i);
+        videoPlayFragment.P1(this.f21495i);
         videoPlayFragment.T1(this.j);
         Bundle bundle = new Bundle();
-        bundle.putSerializable(VideoPlayActivityConfig.VIDEO_DATA, (Serializable) ListUtils.getItem(this.f21559a, i2));
+        bundle.putSerializable(VideoPlayActivityConfig.VIDEO_DATA, (Serializable) ListUtils.getItem(this.f21487a, i2));
         bundle.putSerializable(VideoPlayActivityConfig.VIDEO_INDEX, Integer.valueOf(i2));
-        bundle.putSerializable("page_from", this.f21562d);
-        bundle.putSerializable("from", this.f21563e);
-        bundle.putSerializable("obj_id", this.f21565g);
-        if (this.f21560b) {
-            bundle.putParcelable(VideoPlayActivityConfig.VIDEO_COVER_RECT, this.f21561c);
-            this.f21560b = false;
+        bundle.putSerializable("page_from", this.f21490d);
+        bundle.putSerializable("from", this.f21491e);
+        bundle.putSerializable("obj_id", this.f21493g);
+        if (this.f21488b) {
+            bundle.putParcelable(VideoPlayActivityConfig.VIDEO_COVER_RECT, this.f21489c);
+            this.f21488b = false;
         }
         videoPlayFragment.setArguments(bundle);
         return videoPlayFragment;
@@ -158,7 +158,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     @Override // androidx.fragment.app.FragmentStatePagerAdapter, androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i2) {
         VideoPlayFragment videoPlayFragment = (VideoPlayFragment) super.instantiateItem(viewGroup, i2);
-        this.f21566h.put(i2, videoPlayFragment);
+        this.f21494h.put(i2, videoPlayFragment);
         return videoPlayFragment;
     }
 

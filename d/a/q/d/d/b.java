@@ -9,10 +9,10 @@ import java.util.concurrent.Future;
 public class b extends d.a.q.d.a {
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile g f64207g;
+    public volatile g f64083g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile d.a.q.d.c.a f64208h;
+    public volatile d.a.q.d.c.a f64084h;
     public volatile boolean k;
     public volatile Future<Boolean> l;
     public volatile Future<Boolean> m;
@@ -22,7 +22,7 @@ public class b extends d.a.q.d.a {
     public Object q = new Object();
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f64209i = true;
+    public volatile boolean f64085i = true;
     public volatile boolean j = false;
 
     /* loaded from: classes2.dex */
@@ -34,9 +34,9 @@ public class b extends d.a.q.d.a {
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Boolean call() {
-            b.this.f64208h = new d.a.q.d.c.a();
-            b.this.f64208h.b(b.this.f64167e);
-            b.this.f64208h.c(b.this.f64168f);
+            b.this.f64084h = new d.a.q.d.c.a();
+            b.this.f64084h.b(b.this.f64043e);
+            b.this.f64084h.c(b.this.f64044f);
             b.this.j = true;
             return Boolean.TRUE;
         }
@@ -44,8 +44,8 @@ public class b extends d.a.q.d.a {
 
     /* renamed from: d.a.q.d.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class CallableC1777b implements Callable<Boolean> {
-        public CallableC1777b() {
+    public class CallableC1780b implements Callable<Boolean> {
+        public CallableC1780b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -53,16 +53,16 @@ public class b extends d.a.q.d.a {
         /* renamed from: a */
         public Boolean call() {
             b bVar = b.this;
-            bVar.f64207g = new g(bVar, bVar.o);
-            b.this.f64207g.b(b.this.f64167e);
-            b.this.f64207g.c(b.this.f64168f);
+            bVar.f64083g = new g(bVar, bVar.o);
+            b.this.f64083g.b(b.this.f64043e);
+            b.this.f64083g.c(b.this.f64044f);
             b.this.k = true;
-            if (b.this.f64207g.n()) {
+            if (b.this.f64083g.n()) {
                 b.this.n = true;
                 return Boolean.TRUE;
             }
             b.this.n = false;
-            b.this.f64209i = false;
+            b.this.f64085i = false;
             b.this.p();
             return Boolean.FALSE;
         }
@@ -74,32 +74,32 @@ public class b extends d.a.q.d.a {
 
     @Override // d.a.q.d.a
     public void a(String str, Bundle bundle, a.c<String> cVar) {
-        if (this.f64209i) {
+        if (this.f64085i) {
             s();
             if (this.n) {
-                this.f64207g.a(str, bundle, cVar);
+                this.f64083g.a(str, bundle, cVar);
                 return;
             }
         }
         m();
-        this.f64208h.a(str, bundle, cVar);
+        this.f64084h.a(str, bundle, cVar);
     }
 
     @Override // d.a.q.d.a
     public boolean d(String str) {
-        if (this.f64209i) {
+        if (this.f64085i) {
             s();
             if (this.n) {
-                return this.f64207g.d(str);
+                return this.f64083g.d(str);
             }
         }
         m();
-        return this.f64208h.d(str);
+        return this.f64084h.d(str);
     }
 
     @Override // d.a.q.d.a
     public void e(a.b bVar) {
-        if (this.f64209i) {
+        if (this.f64085i) {
             synchronized (this.p) {
                 v();
             }
@@ -112,27 +112,27 @@ public class b extends d.a.q.d.a {
 
     @Override // d.a.q.d.a
     public a.d f(String str, Bundle bundle) {
-        if (this.f64209i) {
+        if (this.f64085i) {
             s();
             if (this.n) {
-                a.d f2 = this.f64207g.f(str, bundle);
+                a.d f2 = this.f64083g.f(str, bundle);
                 if (f2.b()) {
                     return f2;
                 }
-                this.f64209i = false;
+                this.f64085i = false;
             }
         }
         m();
-        return this.f64208h.f(str, bundle);
+        return this.f64084h.f(str, bundle);
     }
 
     public void j() {
-        this.f64209i = false;
+        this.f64085i = false;
         p();
     }
 
     public final void m() {
-        if (this.f64209i || this.j) {
+        if (this.f64085i || this.j) {
             return;
         }
         synchronized (this.q) {
@@ -148,11 +148,11 @@ public class b extends d.a.q.d.a {
         if (this.j || this.m != null) {
             return;
         }
-        this.m = this.f64167e.f64172d.submit(new a());
+        this.m = this.f64043e.f64048d.submit(new a());
     }
 
     public final void s() {
-        if (this.f64209i) {
+        if (this.f64085i) {
             if (!this.k) {
                 synchronized (this.p) {
                     v();
@@ -169,6 +169,6 @@ public class b extends d.a.q.d.a {
         if (this.k || this.l != null) {
             return;
         }
-        this.l = this.f64167e.f64172d.submit(new CallableC1777b());
+        this.l = this.f64043e.f64048d.submit(new CallableC1780b());
     }
 }

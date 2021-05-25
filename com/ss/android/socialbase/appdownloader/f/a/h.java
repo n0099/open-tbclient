@@ -6,13 +6,13 @@ import java.io.PrintStream;
 public class h extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    public Throwable f35909a;
+    public Throwable f35838a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35910b;
+    public int f35839b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35911c;
+    public int f35840c;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
@@ -40,25 +40,25 @@ public class h extends Exception {
             str4 = "caused by: " + th;
         }
         sb.append(str4);
-        this.f35910b = -1;
-        this.f35911c = -1;
+        this.f35839b = -1;
+        this.f35840c = -1;
         if (gVar != null) {
-            this.f35910b = gVar.c();
-            this.f35911c = gVar.f();
+            this.f35839b = gVar.c();
+            this.f35840c = gVar.f();
         }
-        this.f35909a = th;
+        this.f35838a = th;
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace() {
-        if (this.f35909a == null) {
+        if (this.f35838a == null) {
             super.printStackTrace();
             return;
         }
         synchronized (System.err) {
             PrintStream printStream = System.err;
             printStream.println(super.getMessage() + "; nested exception is:");
-            this.f35909a.printStackTrace();
+            this.f35838a.printStackTrace();
         }
     }
 }

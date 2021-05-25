@@ -14,10 +14,10 @@ import java.lang.reflect.Method;
 public class HkWebView extends HkMWebView {
 
     /* renamed from: h  reason: collision with root package name */
-    public HkWebView f18228h;
+    public HkWebView f18138h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f18229i;
+    public Context f18139i;
 
     /* loaded from: classes3.dex */
     public class a extends HkMWebView.c {
@@ -53,8 +53,8 @@ public class HkWebView extends HkMWebView {
 
     public HkWebView(Context context) {
         super(context);
-        this.f18228h = this;
-        this.f18229i = context;
+        this.f18138h = this;
+        this.f18139i = context;
         init();
     }
 
@@ -83,24 +83,24 @@ public class HkWebView extends HkMWebView {
     public final void init() {
         try {
             if (Build.VERSION.SDK_INT >= 11) {
-                this.f18228h.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f18228h.removeJavascriptInterface("accessibility");
-                this.f18228h.removeJavascriptInterface("accessibilityTraversal");
+                this.f18138h.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f18138h.removeJavascriptInterface("accessibility");
+                this.f18138h.removeJavascriptInterface("accessibilityTraversal");
             }
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        b(this.f18229i);
+        b(this.f18139i);
         getSettings().setCacheMode(-1);
         getSettings().setUserAgentString(getUserAgent());
-        setDownloadListener(new HkMWebView.b(this.f18228h, (Activity) this.f18229i));
-        setWebViewClient(new a(this.f18228h, (Activity) this.f18229i));
+        setDownloadListener(new HkMWebView.b(this.f18138h, (Activity) this.f18139i));
+        setWebViewClient(new a(this.f18138h, (Activity) this.f18139i));
     }
 
     public HkWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18228h = this;
-        this.f18229i = context;
+        this.f18138h = this;
+        this.f18139i = context;
         init();
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import d.a.j0.g0.b.g;
-import d.a.j0.g0.b.h;
+import d.a.m0.g0.b.g;
+import d.a.m0.g0.b.h;
 /* loaded from: classes3.dex */
 public class MvcNetMessage<T extends g, D extends h> extends NetMessage {
     public boolean isNeedCache;

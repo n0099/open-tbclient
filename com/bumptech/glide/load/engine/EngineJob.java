@@ -16,7 +16,7 @@ import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
     public static final EngineResourceFactory DEFAULT_FACTORY = new EngineResourceFactory();
     public static final Handler MAIN_THREAD_HANDLER = new Handler(Looper.getMainLooper(), new MainThreadCallback());
@@ -48,14 +48,14 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
     public boolean useUnlimitedSourceGeneratorPool;
 
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class EngineResourceFactory {
         public <R> EngineResource<R> build(Resource<R> resource, boolean z) {
             return new EngineResource<>(resource, z, true);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class MainThreadCallback implements Handler.Callback {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {

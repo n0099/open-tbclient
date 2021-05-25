@@ -2,7 +2,7 @@ package d.b.c.a.a;
 
 import java.io.IOException;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface d extends p, WritableByteChannel {
     d b(String str) throws IOException;
 

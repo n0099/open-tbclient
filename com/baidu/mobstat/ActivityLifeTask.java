@@ -9,42 +9,42 @@ import com.baidu.mobstat.av;
 public class ActivityLifeTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f8317a = false;
+    public static boolean f8217a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f8318b;
+    public static ActivityLifeObserver.IActivityLifeCallback f8218b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f8319c;
+    public static ActivityLifeObserver.IActivityLifeCallback f8219c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f8320d;
+    public static ActivityLifeObserver.IActivityLifeCallback f8220d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f8321e;
+    public static ActivityLifeObserver.IActivityLifeCallback f8221e;
 
     public static synchronized void a(Context context) {
         synchronized (ActivityLifeTask.class) {
-            f8318b = new AutoTrack.MyActivityLifeCallback(1);
-            f8320d = new af.a();
-            f8319c = new av.a();
-            f8321e = new AutoTrack.MyActivityLifeCallback(2);
+            f8218b = new AutoTrack.MyActivityLifeCallback(1);
+            f8220d = new af.a();
+            f8219c = new av.a();
+            f8221e = new AutoTrack.MyActivityLifeCallback(2);
         }
     }
 
     public static synchronized void registerActivityLifeCallback(Context context) {
         synchronized (ActivityLifeTask.class) {
-            if (f8317a) {
+            if (f8217a) {
                 return;
             }
             a(context);
             ActivityLifeObserver.instance().clearObservers();
-            ActivityLifeObserver.instance().addObserver(f8318b);
-            ActivityLifeObserver.instance().addObserver(f8320d);
-            ActivityLifeObserver.instance().addObserver(f8319c);
-            ActivityLifeObserver.instance().addObserver(f8321e);
+            ActivityLifeObserver.instance().addObserver(f8218b);
+            ActivityLifeObserver.instance().addObserver(f8220d);
+            ActivityLifeObserver.instance().addObserver(f8219c);
+            ActivityLifeObserver.instance().addObserver(f8221e);
             ActivityLifeObserver.instance().registerActivityLifeCallback(context);
-            f8317a = true;
+            f8217a = true;
         }
     }
 }

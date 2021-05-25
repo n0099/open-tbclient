@@ -26,15 +26,15 @@ public final class WechatPayProxy extends d.r.b.a.a.i.e.a {
     public static final class a implements g {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ IPayCallback f38305b;
+        public final /* synthetic */ IPayCallback f38234b;
 
         public a(IPayCallback iPayCallback) {
-            this.f38305b = iPayCallback;
+            this.f38234b = iPayCallback;
         }
 
         @Override // d.r.b.a.a.i.d.g
         public void a(Map<String, String> map) {
-            WechatPayProxy.this.onProxyPayResult(map, this.f38305b);
+            WechatPayProxy.this.onProxyPayResult(map, this.f38234b);
         }
     }
 

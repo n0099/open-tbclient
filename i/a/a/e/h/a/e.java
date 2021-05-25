@@ -11,31 +11,31 @@ import android.widget.FrameLayout;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f68776a;
+    public Activity f68819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Window f68777b;
+    public Window f68820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f68778c;
+    public View f68821c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f68779d;
+    public View f68822d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f68780e;
+    public View f68823e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f68781f;
+    public b f68824f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f68782g;
+    public int f68825g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f68783h;
+    public int f68826h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f68784i;
+    public int f68827i;
     public int j;
     public int k;
     public int l;
@@ -58,43 +58,43 @@ public class e {
             int i5;
             if (e.this.o) {
                 Rect rect = new Rect();
-                e.this.f68778c.getWindowVisibleDisplayFrame(rect);
-                if (e.this.f68781f.B) {
-                    int height2 = (e.this.f68779d.getHeight() - rect.bottom) - e.this.n;
-                    if (e.this.f68781f.D != null) {
-                        e.this.f68781f.D.a(height2 > e.this.n, height2);
+                e.this.f68821c.getWindowVisibleDisplayFrame(rect);
+                if (e.this.f68824f.B) {
+                    int height2 = (e.this.f68822d.getHeight() - rect.bottom) - e.this.n;
+                    if (e.this.f68824f.D != null) {
+                        e.this.f68824f.D.a(height2 > e.this.n, height2);
                     }
-                } else if (e.this.f68780e != null) {
-                    if (e.this.f68781f.w) {
-                        height = e.this.f68779d.getHeight() + e.this.l + e.this.m;
+                } else if (e.this.f68823e != null) {
+                    if (e.this.f68824f.w) {
+                        height = e.this.f68822d.getHeight() + e.this.l + e.this.m;
                         i5 = rect.bottom;
-                    } else if (e.this.f68781f.r) {
-                        height = e.this.f68779d.getHeight() + e.this.l;
+                    } else if (e.this.f68824f.r) {
+                        height = e.this.f68822d.getHeight() + e.this.l;
                         i5 = rect.bottom;
                     } else {
-                        height = e.this.f68779d.getHeight();
+                        height = e.this.f68822d.getHeight();
                         i5 = rect.bottom;
                     }
                     int i6 = height - i5;
-                    int i7 = e.this.f68781f.f68760i ? i6 - e.this.n : i6;
-                    if (e.this.f68781f.f68760i && i6 == e.this.n) {
+                    int i7 = e.this.f68824f.f68803i ? i6 - e.this.n : i6;
+                    if (e.this.f68824f.f68803i && i6 == e.this.n) {
                         i6 -= e.this.n;
                     }
                     if (i7 != e.this.k) {
-                        e.this.f68779d.setPadding(e.this.f68782g, e.this.f68783h, e.this.f68784i, i6 + e.this.j);
+                        e.this.f68822d.setPadding(e.this.f68825g, e.this.f68826h, e.this.f68827i, i6 + e.this.j);
                         e.this.k = i7;
-                        if (e.this.f68781f.D != null) {
-                            e.this.f68781f.D.a(i7 > e.this.n, i7);
+                        if (e.this.f68824f.D != null) {
+                            e.this.f68824f.D.a(i7 > e.this.n, i7);
                         }
                     }
                 } else {
-                    int height3 = e.this.f68779d.getHeight() - rect.bottom;
-                    if (e.this.f68781f.z && e.this.f68781f.A) {
+                    int height3 = e.this.f68822d.getHeight() - rect.bottom;
+                    if (e.this.f68824f.z && e.this.f68824f.A) {
                         if (Build.VERSION.SDK_INT == 19 || f.i()) {
                             i3 = e.this.n;
-                        } else if (!e.this.f68781f.f68760i) {
+                        } else if (!e.this.f68824f.f68803i) {
                             i4 = height3;
-                            if (e.this.f68781f.f68760i && height3 == e.this.n) {
+                            if (e.this.f68824f.f68803i && height3 == e.this.n) {
                                 height3 -= e.this.n;
                             }
                             int i8 = height3;
@@ -104,7 +104,7 @@ public class e {
                             i3 = e.this.n;
                         }
                         i4 = height3 - i3;
-                        if (e.this.f68781f.f68760i) {
+                        if (e.this.f68824f.f68803i) {
                             height3 -= e.this.n;
                         }
                         int i82 = height3;
@@ -114,16 +114,16 @@ public class e {
                         i2 = height3;
                     }
                     if (height3 != e.this.k) {
-                        if (e.this.f68781f.w) {
-                            e.this.f68779d.setPadding(0, e.this.l + e.this.m, 0, i2);
-                        } else if (e.this.f68781f.r) {
-                            e.this.f68779d.setPadding(0, e.this.l, 0, i2);
+                        if (e.this.f68824f.w) {
+                            e.this.f68822d.setPadding(0, e.this.l + e.this.m, 0, i2);
+                        } else if (e.this.f68824f.r) {
+                            e.this.f68822d.setPadding(0, e.this.l, 0, i2);
                         } else {
-                            e.this.f68779d.setPadding(0, 0, 0, i2);
+                            e.this.f68822d.setPadding(0, 0, 0, i2);
                         }
                         e.this.k = height3;
-                        if (e.this.f68781f.D != null) {
-                            e.this.f68781f.D.a(height3 > e.this.n, height3);
+                        if (e.this.f68824f.D != null) {
+                            e.this.f68824f.D.a(height3 > e.this.n, height3);
                         }
                     }
                 }
@@ -132,23 +132,23 @@ public class e {
     }
 
     public e(Activity activity, Window window) {
-        this.f68776a = activity;
-        this.f68777b = window;
+        this.f68819a = activity;
+        this.f68820b = window;
         View decorView = window.getDecorView();
-        this.f68778c = decorView;
+        this.f68821c = decorView;
         FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
         if (frameLayout == null) {
             return;
         }
         View childAt = frameLayout.getChildAt(0);
-        this.f68780e = childAt;
+        this.f68823e = childAt;
         frameLayout = childAt != null ? childAt : frameLayout;
-        this.f68779d = frameLayout;
-        this.f68782g = frameLayout.getPaddingLeft();
-        this.f68783h = this.f68779d.getPaddingTop();
-        this.f68784i = this.f68779d.getPaddingRight();
-        this.j = this.f68779d.getPaddingBottom();
-        i.a.a.e.h.a.a aVar = new i.a.a.e.h.a.a(this.f68776a);
+        this.f68822d = frameLayout;
+        this.f68825g = frameLayout.getPaddingLeft();
+        this.f68826h = this.f68822d.getPaddingTop();
+        this.f68827i = this.f68822d.getPaddingRight();
+        this.j = this.f68822d.getPaddingBottom();
+        i.a.a.e.h.a.a aVar = new i.a.a.e.h.a.a(this.f68819a);
         this.l = aVar.i();
         this.n = aVar.d();
         this.m = aVar.a();
@@ -161,20 +161,20 @@ public class e {
 
     public void o(int i2) {
         if (Build.VERSION.SDK_INT >= 19) {
-            this.f68777b.setSoftInputMode(i2);
-            this.f68778c.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
+            this.f68820b.setSoftInputMode(i2);
+            this.f68821c.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
         }
-        this.f68776a = null;
+        this.f68819a = null;
     }
 
     public void p(int i2) {
         if (Build.VERSION.SDK_INT >= 19) {
-            this.f68777b.setSoftInputMode(i2);
-            this.f68778c.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
+            this.f68820b.setSoftInputMode(i2);
+            this.f68821c.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
         }
     }
 
     public void r(b bVar) {
-        this.f68781f = bVar;
+        this.f68824f = bVar;
     }
 }

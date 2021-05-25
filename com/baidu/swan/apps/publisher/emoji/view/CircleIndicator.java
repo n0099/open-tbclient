@@ -8,25 +8,25 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-import d.a.i0.a.c;
-import d.a.i0.a.d;
+import d.a.l0.a.c;
+import d.a.l0.a.d;
 /* loaded from: classes3.dex */
 public class CircleIndicator extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11112e;
+    public int f11013e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11113f;
+    public int f11014f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11114g;
+    public int f11015g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11115h;
+    public int f11016h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11116i;
+    public int f11017i;
     public int j;
     public int k;
     public Paint l;
@@ -43,7 +43,7 @@ public class CircleIndicator extends View {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
-            d.a.i0.a.w1.h.a.g(CircleIndicator.this.getContext().getApplicationContext()).k();
+            d.a.l0.a.w1.h.a.g(CircleIndicator.this.getContext().getApplicationContext()).k();
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -55,7 +55,7 @@ public class CircleIndicator extends View {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
-            CircleIndicator.this.f11113f = i2;
+            CircleIndicator.this.f11014f = i2;
         }
     }
 
@@ -65,29 +65,29 @@ public class CircleIndicator extends View {
 
     public final void b(Canvas canvas) {
         this.l.setColor(this.o);
-        for (int i2 = 0; i2 < this.f11112e; i2++) {
-            int i3 = this.f11115h;
-            canvas.drawCircle(this.j + (this.f11114g * i2), i3, i3, this.l);
+        for (int i2 = 0; i2 < this.f11013e; i2++) {
+            int i3 = this.f11016h;
+            canvas.drawCircle(this.j + (this.f11015g * i2), i3, i3, this.l);
         }
     }
 
     public final void c() {
         int count = this.n.getAdapter().getCount();
-        this.f11112e = count;
+        this.f11013e = count;
         if (count <= 0) {
             return;
         }
         int i2 = this.m;
-        int i3 = this.f11114g;
+        int i3 = this.f11015g;
         this.j = (i2 - ((count - 1) * i3)) / 2;
-        this.f11115h = i3 / 5;
+        this.f11016h = i3 / 5;
         invalidate();
     }
 
     public final void d(Canvas canvas) {
         this.l.setColor(this.p);
-        int i2 = (this.j + this.k) - (this.f11114g / 2);
-        canvas.drawRoundRect(new RectF(i2, 0, this.f11116i + i2, (this.f11115h * 2) + 0), 10.0f, 10.0f, this.l);
+        int i2 = (this.j + this.k) - (this.f11015g / 2);
+        canvas.drawRoundRect(new RectF(i2, 0, this.f11017i + i2, (this.f11016h * 2) + 0), 10.0f, 10.0f, this.l);
     }
 
     public final void e() {
@@ -96,11 +96,11 @@ public class CircleIndicator extends View {
         paint.setAntiAlias(true);
         this.o = getResources().getColor(c.swanapp_emotion_circle_indicator);
         this.p = getResources().getColor(c.swanapp_emotion_circle_indicator_highlight);
-        this.f11114g = getResources().getDimensionPixelSize(d.aiapps_circle_inter_width);
+        this.f11015g = getResources().getDimensionPixelSize(d.aiapps_circle_inter_width);
     }
 
     public void f(int i2, float f2) {
-        this.k = (int) (this.f11114g * (f2 + i2));
+        this.k = (int) (this.f11015g * (f2 + i2));
         invalidate();
     }
 
@@ -115,10 +115,10 @@ public class CircleIndicator extends View {
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
         this.m = i2;
-        int i6 = this.f11114g;
-        this.j = (i2 - ((this.f11112e - 1) * i6)) / 2;
-        this.f11115h = i6 / 5;
-        this.f11116i = i6;
+        int i6 = this.f11015g;
+        this.j = (i2 - ((this.f11013e - 1) * i6)) / 2;
+        this.f11016h = i6 / 5;
+        this.f11017i = i6;
     }
 
     public void setViewPager(ViewPager viewPager) {
@@ -139,7 +139,7 @@ public class CircleIndicator extends View {
 
     public CircleIndicator(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11112e = 1;
+        this.f11013e = 1;
         this.k = 0;
         this.q = new a();
         e();

@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<String> f66439a = new ArrayList();
+    public static List<String> f66482a = new ArrayList();
 
     public static File a(Context context) {
         if (context == null || context.getFilesDir() == null) {
@@ -110,12 +110,12 @@ public class e {
 
     public static synchronized boolean c(Context context, String str) {
         synchronized (e.class) {
-            if (f66439a.contains(str)) {
+            if (f66482a.contains(str)) {
                 return true;
             }
             try {
                 System.loadLibrary(str);
-                f66439a.add(str);
+                f66482a.add(str);
             } catch (UnsatisfiedLinkError unused) {
                 File d2 = d(context, str);
                 if (d2 == null) {
@@ -129,7 +129,7 @@ public class e {
                 }
                 try {
                     System.load(d2.getAbsolutePath());
-                    f66439a.add(str);
+                    f66482a.add(str);
                 } catch (Throwable unused2) {
                     return false;
                 }

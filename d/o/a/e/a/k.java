@@ -16,25 +16,25 @@ import java.util.Queue;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Queue<Integer> f67091a;
+    public final Queue<Integer> f67134a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f67092b;
+    public boolean f67135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f67093c;
+    public long f67136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f67094d;
+    public long f67137d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SoftReference<JumpUnknownSourceActivity> f67095e;
+    public SoftReference<JumpUnknownSourceActivity> f67138e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f67096f;
+    public Handler f67139f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f67097g;
+    public Runnable f67140g;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -54,19 +54,19 @@ public class k {
 
         @Override // d.o.a.e.b.a.a.b
         public void b() {
-            if (k.this.f67091a.isEmpty()) {
+            if (k.this.f67134a.isEmpty()) {
                 return;
             }
             long c2 = d.o.a.e.b.j.a.r().c("install_on_resume_install_interval", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
-            long currentTimeMillis = System.currentTimeMillis() - k.this.f67094d;
+            long currentTimeMillis = System.currentTimeMillis() - k.this.f67137d;
             if (currentTimeMillis < c2) {
-                if (k.this.f67096f.hasCallbacks(k.this.f67097g)) {
+                if (k.this.f67139f.hasCallbacks(k.this.f67140g)) {
                     return;
                 }
-                k.this.f67096f.postDelayed(k.this.f67097g, c2 - currentTimeMillis);
+                k.this.f67139f.postDelayed(k.this.f67140g, c2 - currentTimeMillis);
                 return;
             }
-            k.this.f67094d = System.currentTimeMillis();
+            k.this.f67137d = System.currentTimeMillis();
             k.this.l();
         }
 
@@ -79,19 +79,19 @@ public class k {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f67100e;
+        public final /* synthetic */ Context f67143e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Integer f67101f;
+        public final /* synthetic */ Integer f67144f;
 
         public c(Context context, Integer num) {
-            this.f67100e = context;
-            this.f67101f = num;
+            this.f67143e = context;
+            this.f67144f = num;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            k.this.h(this.f67100e, this.f67101f.intValue(), false);
+            k.this.h(this.f67143e, this.f67144f.intValue(), false);
         }
     }
 
@@ -99,23 +99,23 @@ public class k {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f67103e;
+        public final /* synthetic */ Context f67146e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f67104f;
+        public final /* synthetic */ int f67147f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f67105g;
+        public final /* synthetic */ boolean f67148g;
 
         public d(Context context, int i2, boolean z) {
-            this.f67103e = context;
-            this.f67104f = i2;
-            this.f67105g = z;
+            this.f67146e = context;
+            this.f67147f = i2;
+            this.f67148g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            k.this.a(this.f67103e, this.f67104f, this.f67105g);
+            k.this.a(this.f67146e, this.f67147f, this.f67148g);
         }
     }
 
@@ -123,7 +123,7 @@ public class k {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final k f67107a = new k(null);
+        public static final k f67150a = new k(null);
     }
 
     public /* synthetic */ k(a aVar) {
@@ -131,7 +131,7 @@ public class k {
     }
 
     public static k d() {
-        return e.f67107a;
+        return e.f67150a;
     }
 
     public int a(Context context, int i2, boolean z) {
@@ -139,7 +139,7 @@ public class k {
             return h(context, i2, z);
         }
         if (n()) {
-            this.f67096f.postDelayed(new d(context, i2, z), 1000L);
+            this.f67139f.postDelayed(new d(context, i2, z), 1000L);
             return 1;
         } else if (d.o.a.e.b.a.a.c().j()) {
             d.o.a.e.b.c.a.h("leaves", "on Foreground");
@@ -148,22 +148,22 @@ public class k {
             return 1;
         } else {
             boolean z2 = Build.VERSION.SDK_INT < 29;
-            if (this.f67091a.isEmpty() && !this.f67092b && z2) {
+            if (this.f67134a.isEmpty() && !this.f67135b && z2) {
                 return h(context, i2, z);
             }
             int b2 = d.o.a.e.b.j.a.r().b("install_queue_size", 3);
-            synchronized (this.f67091a) {
-                while (this.f67091a.size() > b2) {
-                    this.f67091a.poll();
+            synchronized (this.f67134a) {
+                while (this.f67134a.size() > b2) {
+                    this.f67134a.poll();
                 }
             }
             if (z2) {
-                this.f67096f.removeCallbacks(this.f67097g);
-                this.f67096f.postDelayed(this.f67097g, d.o.a.e.b.j.a.d(i2).c("install_queue_timeout", 20000L));
+                this.f67139f.removeCallbacks(this.f67140g);
+                this.f67139f.postDelayed(this.f67140g, d.o.a.e.b.j.a.d(i2).c("install_queue_timeout", 20000L));
             }
-            synchronized (this.f67091a) {
-                if (!this.f67091a.contains(Integer.valueOf(i2))) {
-                    this.f67091a.offer(Integer.valueOf(i2));
+            synchronized (this.f67134a) {
+                if (!this.f67134a.contains(Integer.valueOf(i2))) {
+                    this.f67134a.offer(Integer.valueOf(i2));
                 }
             }
             return 1;
@@ -171,7 +171,7 @@ public class k {
     }
 
     public void f(JumpUnknownSourceActivity jumpUnknownSourceActivity) {
-        this.f67095e = new SoftReference<>(jumpUnknownSourceActivity);
+        this.f67138e = new SoftReference<>(jumpUnknownSourceActivity);
     }
 
     public void g(DownloadInfo downloadInfo, String str) {
@@ -184,49 +184,49 @@ public class k {
     public final int h(Context context, int i2, boolean z) {
         int D = d.o.a.e.a.d.D(context, i2, z);
         if (D == 1) {
-            this.f67092b = true;
+            this.f67135b = true;
         }
-        this.f67093c = System.currentTimeMillis();
+        this.f67136c = System.currentTimeMillis();
         return D;
     }
 
     public JumpUnknownSourceActivity i() {
-        SoftReference<JumpUnknownSourceActivity> softReference = this.f67095e;
+        SoftReference<JumpUnknownSourceActivity> softReference = this.f67138e;
         JumpUnknownSourceActivity jumpUnknownSourceActivity = softReference == null ? null : softReference.get();
-        this.f67095e = null;
+        this.f67138e = null;
         return jumpUnknownSourceActivity;
     }
 
     public final void l() {
         Integer poll;
         if (Build.VERSION.SDK_INT < 29 || d.o.a.e.b.a.a.c().j()) {
-            synchronized (this.f67091a) {
-                poll = this.f67091a.poll();
+            synchronized (this.f67134a) {
+                poll = this.f67134a.poll();
             }
-            this.f67096f.removeCallbacks(this.f67097g);
+            this.f67139f.removeCallbacks(this.f67140g);
             if (poll != null) {
                 Context l = d.o.a.e.b.g.d.l();
                 if (Looper.myLooper() != Looper.getMainLooper()) {
-                    this.f67096f.post(new c(l, poll));
+                    this.f67139f.post(new c(l, poll));
                 } else {
                     h(l, poll.intValue(), false);
                 }
-                this.f67096f.postDelayed(this.f67097g, 20000L);
+                this.f67139f.postDelayed(this.f67140g, 20000L);
                 return;
             }
-            this.f67092b = false;
+            this.f67135b = false;
         }
     }
 
     public final boolean n() {
-        return System.currentTimeMillis() - this.f67093c < 1000;
+        return System.currentTimeMillis() - this.f67136c < 1000;
     }
 
     public k() {
-        this.f67091a = new ArrayDeque();
-        this.f67092b = false;
-        this.f67096f = new Handler(Looper.getMainLooper());
-        this.f67097g = new a();
+        this.f67134a = new ArrayDeque();
+        this.f67135b = false;
+        this.f67139f = new Handler(Looper.getMainLooper());
+        this.f67140g = new a();
         d.o.a.e.b.a.a.c().f(new b());
     }
 }

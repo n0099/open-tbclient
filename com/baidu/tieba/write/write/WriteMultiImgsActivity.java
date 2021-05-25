@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.google.protobuf.CodedInputStream;
-import d.a.k0.v3.u.j;
-import d.a.k0.v3.u.k;
-import d.a.k0.v3.u.n.b.c;
+import d.a.n0.w3.u.j;
+import d.a.n0.w3.u.k;
+import d.a.n0.w3.u.n.b.c;
 /* loaded from: classes5.dex */
 public class WriteMultiImgsActivity extends BaseActivity {
     public static final String OUTSTATE_KEY_CURRENT_INDEX = "OutState_Current_Index";
@@ -28,23 +28,23 @@ public class WriteMultiImgsActivity extends BaseActivity {
         public a() {
         }
 
-        @Override // d.a.k0.v3.u.n.b.c
+        @Override // d.a.n0.w3.u.n.b.c
         public void a() {
             WriteMultiImgsActivity.this.mControler.s();
             WriteMultiImgsActivity.this.mControler.r(false);
         }
 
-        @Override // d.a.k0.v3.u.n.b.c
+        @Override // d.a.n0.w3.u.n.b.c
         public void b() {
             WriteMultiImgsActivity.this.mControler.A();
         }
 
-        @Override // d.a.k0.v3.u.n.b.c
+        @Override // d.a.n0.w3.u.n.b.c
         public boolean c(Bitmap bitmap) {
             return WriteMultiImgsActivity.this.mControler.q(bitmap);
         }
 
-        @Override // d.a.k0.v3.u.n.b.c
+        @Override // d.a.n0.w3.u.n.b.c
         public void d() {
             WriteMultiImgsActivity.this.mControler.n();
             WriteMultiImgsActivity.this.mControler.r(true);
@@ -115,7 +115,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
         if (jVar != null) {
             jVar.h(i2);
         }
-        this.mControler.f62953c.notifyDataSetChanged();
+        this.mControler.f63062c.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -150,11 +150,11 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public void onSaveInstanceState(Bundle bundle) {
         MultiImagePagerAdapter multiImagePagerAdapter;
         k kVar = this.mControler;
-        if (kVar != null && (multiImagePagerAdapter = kVar.f62953c) != null) {
+        if (kVar != null && (multiImagePagerAdapter = kVar.f63062c) != null) {
             bundle.putInt(OUTSTATE_KEY_CURRENT_INDEX, multiImagePagerAdapter.k());
             bundle.putInt(OUTSTATE_KEY_WRITE_ENTRANCE, this.mControler.u());
             bundle.putSerializable(OUTSTATE_KEY_WRITE_INFO_DATA, this.mControler.v());
-            this.mControler.f62953c.h(true);
+            this.mControler.f63062c.h(true);
             if (this.mControler.w() != null) {
                 bundle.putString(OUTSTATE_KEY_WRITE_IMG_INFO, this.mControler.w().toJsonString());
             }

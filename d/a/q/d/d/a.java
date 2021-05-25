@@ -16,41 +16,41 @@ import java.util.List;
 public class a extends d.a.q.d.a {
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.q.d.a f64205g;
+    public d.a.q.d.a f64081g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f64206h;
+    public boolean f64082h;
 
     public a(boolean z) {
-        this.f64206h = z;
+        this.f64082h = z;
     }
 
     @Override // d.a.q.d.a
     public void a(String str, Bundle bundle, a.c<String> cVar) {
-        this.f64205g.a(str, bundle, cVar);
+        this.f64081g.a(str, bundle, cVar);
     }
 
     @Override // d.a.q.d.a
     public boolean d(String str) {
-        return this.f64205g.d(str);
+        return this.f64081g.d(str);
     }
 
     @Override // d.a.q.d.a
     public void e(a.b bVar) {
         d.a.q.d.a bVar2;
-        if (this.f64206h ? i() : h()) {
+        if (this.f64082h ? i() : h()) {
             bVar2 = new d.a.q.d.c.a();
         } else {
-            bVar2 = new b(this.f64206h ? ".helios.ipc.default" : ".helios.ipc.isolate");
+            bVar2 = new b(this.f64082h ? ".helios.ipc.default" : ".helios.ipc.isolate");
         }
-        this.f64205g = bVar2;
-        bVar2.b(this.f64167e);
-        this.f64205g.c(bVar);
+        this.f64081g = bVar2;
+        bVar2.b(this.f64043e);
+        this.f64081g.c(bVar);
     }
 
     @Override // d.a.q.d.a
     public a.d f(String str, Bundle bundle) {
-        return this.f64205g.f(str, bundle);
+        return this.f64081g.f(str, bundle);
     }
 
     public final String g() {
@@ -77,7 +77,7 @@ public class a extends d.a.q.d.a {
             th = th3;
         }
         d.a.q.g.c.a.c.b(bufferedReader);
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.f64167e.f64171c.getSystemService("activity")).getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.f64043e.f64047c.getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses != null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                 if (runningAppProcessInfo.pid == Process.myPid()) {
@@ -99,7 +99,7 @@ public class a extends d.a.q.d.a {
         if (g2 == null) {
             return true;
         }
-        Context context = this.f64167e.f64171c;
+        Context context = this.f64043e.f64047c;
         String str = context.getApplicationInfo().processName;
         if (TextUtils.isEmpty(str)) {
             str = context.getPackageName();

@@ -16,20 +16,20 @@ public class m extends a {
 
     @Override // d.o.a.e.a.a.e
     public Intent b() {
-        String t = this.f66967b.t("s");
-        String b2 = d.o.a.e.a.h.b.b(this.f66967b.t("bb"), t);
+        String t = this.f67010b.t("s");
+        String b2 = d.o.a.e.a.h.b.b(this.f67010b.t("bb"), t);
         if (!TextUtils.isEmpty(b2) && b2.split(",").length == 2) {
-            String b3 = d.o.a.e.a.h.b.b(this.f66967b.t("bc"), t);
+            String b3 = d.o.a.e.a.h.b.b(this.f67010b.t("bc"), t);
             if (!TextUtils.isEmpty(b3) && b3.split(",").length == 2) {
                 String[] split = b2.split(",");
                 String[] split2 = b3.split(",");
-                String b4 = d.o.a.e.a.h.b.b(this.f66967b.t(Config.DEVICE_BRAND), t);
-                String b5 = d.o.a.e.a.h.b.b(this.f66967b.t("be"), t);
-                String b6 = d.o.a.e.a.h.b.b(this.f66967b.t("bf"), t);
+                String b4 = d.o.a.e.a.h.b.b(this.f67010b.t(Config.DEVICE_BRAND), t);
+                String b5 = d.o.a.e.a.h.b.b(this.f67010b.t("be"), t);
+                String b6 = d.o.a.e.a.h.b.b(this.f67010b.t("bf"), t);
                 HashMap hashMap = new HashMap();
                 hashMap.put(split[0], split[1]);
                 hashMap.put(split2[0], split2[1]);
-                hashMap.put(b4, this.f66968c);
+                hashMap.put(b4, this.f67011c);
                 Intent intent = new Intent();
                 intent.setAction(b6);
                 intent.setData(Uri.parse(b5 + b(hashMap)));

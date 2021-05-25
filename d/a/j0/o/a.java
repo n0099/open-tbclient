@@ -1,86 +1,71 @@
 package d.a.j0.o;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
-import d.a.j0.r.d0.b;
-import java.io.File;
-/* loaded from: classes3.dex */
-public class a {
+import android.content.Context;
+import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.text.TextUtils;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes2.dex */
+public final class a {
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f40496b;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f49548a = 604800000;
+    public com.baidu.sso.n.a f40495a = null;
 
-    /* renamed from: d.a.j0.o.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C1120a extends CustomMessageListener {
+    /* renamed from: c  reason: collision with root package name */
+    public String f40497c = null;
 
-        /* renamed from: d.a.j0.o.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C1121a extends Thread {
-            public C1121a(C1120a c1120a) {
-            }
+    /* renamed from: d  reason: collision with root package name */
+    public String f40498d = null;
 
-            @Override // java.lang.Thread, java.lang.Runnable
-            public void run() {
-                super.run();
-                try {
-                    ChunkUploadDatabaseService.delOverdueChunkUploadData();
-                    a.c(TbadkCoreApplication.getInst().getCacheDir());
-                } catch (Exception unused) {
-                }
-            }
-        }
+    /* renamed from: e  reason: collision with root package name */
+    public ServiceConnection f40499e = new c(this);
 
-        public C1120a(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            long l = b.j().l("key_clear_resource", 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            if (l == 0) {
-                b.j().w("key_clear_resource", currentTimeMillis);
-                l = currentTimeMillis;
-            }
-            if (currentTimeMillis - l > a.f49548a) {
-                new C1121a(this).start();
-                b.j().w("key_clear_resource", currentTimeMillis);
-            }
-        }
+    public a(Context context, d.a.j0.m.c cVar) {
+        this.f40496b = context;
     }
 
-    public static void c(File file) {
-        if (file == null) {
-            return;
-        }
+    public final String a(String str) {
+        return this.f40495a == null ? "" : b(str);
+    }
+
+    public final String b(String str) {
+        String str2;
+        Signature[] signatureArr;
+        String str3 = null;
         try {
-            if (file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles != null) {
-                    for (int i2 = 0; i2 < listFiles.length; i2++) {
-                        if (listFiles[i2].isDirectory()) {
-                            c(listFiles[i2]);
-                        } else {
-                            listFiles[i2].delete();
-                        }
-                    }
-                    return;
-                }
-                return;
+            if (TextUtils.isEmpty(this.f40497c)) {
+                this.f40497c = this.f40496b.getPackageName();
             }
-            file.delete();
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+            if (TextUtils.isEmpty(this.f40498d)) {
+                try {
+                    signatureArr = this.f40496b.getPackageManager().getPackageInfo(this.f40497c, 64).signatures;
+                } catch (PackageManager.NameNotFoundException unused) {
+                    signatureArr = null;
+                }
+                if (signatureArr != null && signatureArr.length > 0) {
+                    try {
+                        byte[] digest = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
+                        StringBuilder sb = new StringBuilder();
+                        for (byte b2 : digest) {
+                            sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3));
+                        }
+                        str3 = sb.toString();
+                    } catch (NoSuchAlgorithmException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                this.f40498d = str3;
+            }
+            str2 = this.f40495a.a(this.f40497c, this.f40498d, str);
+        } catch (Throwable th) {
+            th.printStackTrace();
+            str2 = str3;
         }
-    }
-
-    public static void d() {
-        MessageManager.getInstance().registerListener(new C1120a(2005016));
+        return TextUtils.isEmpty(str2) ? "" : str2;
     }
 }

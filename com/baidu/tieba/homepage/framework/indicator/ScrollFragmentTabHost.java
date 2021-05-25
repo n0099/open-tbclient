@@ -5,7 +5,9 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
@@ -15,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.RequiresApi;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
@@ -47,7 +50,7 @@ import com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 import com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
-import d.a.j0.a.o;
+import d.a.m0.a.o;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Userlike.DataRes;
@@ -56,31 +59,33 @@ public class ScrollFragmentTabHost extends RelativeLayout {
     public CustomMessageListener A;
     public CustomMessageListener B;
     public CustomMessageListener C;
-    public CustomMessageTask D;
-    public CustomMessageTask E;
-    public StickyAppBarLayout F;
-    public NestedScrollHeader G;
-    public d.a.k0.b0.e H;
-    public d.a.k0.a1.b.b I;
-    public boolean J;
-    public d.a.k0.a1.c.f.b K;
-    public d.a.k0.a1.c.e L;
-    public d.a.k0.a1.c.d M;
+    public CustomMessageListener D;
+    public CustomMessageListener E;
+    public CustomMessageTask F;
+    public CustomMessageTask G;
+    public StickyAppBarLayout H;
+    public NestedScrollHeader I;
+    public d.a.n0.d0.e J;
+    public d.a.n0.b1.b.b K;
+    public boolean L;
+    public d.a.n0.b1.c.f.b M;
+    public d.a.n0.b1.c.e N;
+    public d.a.n0.b1.c.d O;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f16367e;
+    public Context f16270e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f16368f;
+    public TbPageContext f16271f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HomeTabBarView f16369g;
+    public HomeTabBarView f16272g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PluginErrorTipView f16370h;
+    public PluginErrorTipView f16273h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoNetworkView f16371i;
+    public NoNetworkView f16274i;
     public FrameLayout j;
     public CustomViewPager k;
     public View l;
@@ -90,12 +95,12 @@ public class ScrollFragmentTabHost extends RelativeLayout {
     public AlphaAnimation p;
     public AlphaAnimation q;
     public NewScrollFragmentAdapter r;
-    public r s;
-    public d.a.k0.b0.e t;
-    public List<q> u;
+    public t s;
+    public d.a.n0.d0.e t;
+    public List<s> u;
     public boolean v;
     public boolean w;
-    public CustomMessageListener x;
+    public GestureDetector x;
     public CustomMessageListener y;
     public CustomMessageListener z;
 
@@ -107,12 +112,12 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             if (i2 == 0 && ScrollFragmentTabHost.this.getCurrentTabType() == 0) {
-                boolean F = ScrollFragmentTabHost.this.F();
-                TiebaStatic.log(new StatisticItem("c12350").param("obj_type", F ? 1 : 0));
-                if (F && ScrollFragmentTabHost.this.r != null) {
+                boolean G = ScrollFragmentTabHost.this.G();
+                TiebaStatic.log(new StatisticItem("c12350").param("obj_type", G ? 1 : 0));
+                if (G && ScrollFragmentTabHost.this.r != null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016325, 0));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921058));
-                    ScrollFragmentTabHost.this.r.L();
+                    ScrollFragmentTabHost.this.r.H();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921064));
             }
@@ -128,36 +133,36 @@ public class ScrollFragmentTabHost extends RelativeLayout {
             if (ScrollFragmentTabHost.this.s != null) {
                 ScrollFragmentTabHost.this.s.a(i2);
             }
-            d.a.j0.r.n.b.i().n(ScrollFragmentTabHost.this.r.n(i2) == 1);
+            d.a.m0.r.n.b.i().n(ScrollFragmentTabHost.this.r.l(i2) == 1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921348, Boolean.TRUE));
             int homeBarShowType = TbadkCoreApplication.getInst().getHomeBarShowType();
             if (i2 == 0 || i2 == 1 || (i2 == 2 && homeBarShowType == 1)) {
-                if (ScrollFragmentTabHost.this.z(i2) != 1) {
+                if (ScrollFragmentTabHost.this.A(i2) != 1) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 4));
                 } else {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 6));
                 }
             }
-            int n = ScrollFragmentTabHost.this.r.n(ScrollFragmentTabHost.this.k.getCurrentItem());
-            if (n == 5) {
+            int l = ScrollFragmentTabHost.this.r.l(ScrollFragmentTabHost.this.k.getCurrentItem());
+            if (l == 5) {
                 if (ScrollFragmentTabHost.this.w) {
                     ScrollFragmentTabHost.this.w = false;
                 } else {
                     StatisticItem statisticItem = new StatisticItem("c13740");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    statisticItem.param("obj_type", ScrollFragmentTabHost.this.H() ? 1 : 0);
+                    statisticItem.param("obj_type", ScrollFragmentTabHost.this.I() ? 1 : 0);
                     statisticItem.eventStat();
                 }
             }
-            if (n == 0) {
-                ScrollFragmentTabHost.this.v();
+            if (l == 0) {
+                ScrollFragmentTabHost.this.w();
             }
-            View c2 = ScrollFragmentTabHost.this.f16369g.c(0);
-            if ((c2 instanceof LinearLayout) && TbadkCoreApplication.isLogin() && d.a.j0.b.d.h()) {
+            View c2 = ScrollFragmentTabHost.this.f16272g.c(0);
+            if ((c2 instanceof LinearLayout) && TbadkCoreApplication.isLogin() && d.a.m0.b.d.h()) {
                 LinearLayout linearLayout = (LinearLayout) c2;
                 if (linearLayout.getChildCount() > 1 && (linearLayout.getChildAt(1) instanceof ImageView)) {
                     ImageView imageView = (ImageView) linearLayout.getChildAt(1);
-                    if (n == 0) {
+                    if (l == 0) {
                         imageView.setVisibility(0);
                     } else {
                         imageView.setVisibility(4);
@@ -165,45 +170,45 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                 }
             }
             if (ScrollFragmentTabHost.this.u != null && ScrollFragmentTabHost.this.r != null) {
-                int n2 = ScrollFragmentTabHost.this.r.n(ScrollFragmentTabHost.this.k.getCurrentItem());
-                if (n2 == 5) {
+                int l2 = ScrollFragmentTabHost.this.r.l(ScrollFragmentTabHost.this.k.getCurrentItem());
+                if (l2 == 5) {
                     ScrollFragmentTabHost.this.setScrollShadow(false);
-                    for (q qVar : ScrollFragmentTabHost.this.u) {
-                        qVar.c();
+                    for (s sVar : ScrollFragmentTabHost.this.u) {
+                        sVar.c();
                     }
-                } else if (n2 == 1) {
+                } else if (l2 == 1) {
                     ScrollFragmentTabHost.this.setScrollShadow(false);
-                    for (q qVar2 : ScrollFragmentTabHost.this.u) {
-                        qVar2.b();
+                    for (s sVar2 : ScrollFragmentTabHost.this.u) {
+                        sVar2.b();
                     }
-                } else if (n2 == 0) {
+                } else if (l2 == 0) {
                     ScrollFragmentTabHost.this.setScrollShadow(false);
-                    for (q qVar3 : ScrollFragmentTabHost.this.u) {
-                        qVar3.a();
+                    for (s sVar3 : ScrollFragmentTabHost.this.u) {
+                        sVar3.a();
                     }
-                } else if (n2 == 6) {
+                } else if (l2 == 6) {
                     ScrollFragmentTabHost.this.setScrollShadow(true);
-                } else if (n2 == 7) {
+                } else if (l2 == 7) {
                     ScrollFragmentTabHost.this.setScrollShadow(true);
-                } else if (n2 == 8) {
+                } else if (l2 == 8) {
                     ScrollFragmentTabHost.this.setScrollShadow(false);
                 } else {
-                    ScrollFragmentTabHost.this.w();
+                    ScrollFragmentTabHost.this.x();
                     ScrollFragmentTabHost.this.setScrollShadow(false);
                 }
             }
-            TbadkCoreApplication.getInst().setHomeBarShowType(ScrollFragmentTabHost.this.z(i2));
-            if (ScrollFragmentTabHost.this.z(i2) == 5) {
+            TbadkCoreApplication.getInst().setHomeBarShowType(ScrollFragmentTabHost.this.A(i2));
+            if (ScrollFragmentTabHost.this.A(i2) == 5) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (TbadkCoreApplication.isLogin()) {
                     if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                        d.a.j0.r.d0.b.j().w(TbadkCoreApplication.getCurrentAccount(), currentTimeMillis);
+                        d.a.m0.r.d0.b.j().w(TbadkCoreApplication.getCurrentAccount(), currentTimeMillis);
                     }
                 } else {
-                    d.a.j0.r.d0.b.j().w("unlogin_hot_top_timestamp", currentTimeMillis);
+                    d.a.m0.r.d0.b.j().w("unlogin_hot_top_timestamp", currentTimeMillis);
                 }
-                if (ScrollFragmentTabHost.this.f16369g.f()) {
-                    ScrollFragmentTabHost.this.f16369g.setShowHotTopicRedTip(false);
+                if (ScrollFragmentTabHost.this.f16272g.f()) {
+                    ScrollFragmentTabHost.this.f16272g.setShowHotTopicRedTip(false);
                 }
             }
         }
@@ -216,40 +221,39 @@ public class ScrollFragmentTabHost extends RelativeLayout {
 
         @Override // com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip.c
         public void a(View view, int i2) {
-            if (FullBrowseHelper.checkAndShowFullBrowseModeDialog(ScrollFragmentTabHost.this.f16368f)) {
-                return;
-            }
-            ScrollFragmentTabHost.this.t(i2);
-            int homeBarShowType = TbadkCoreApplication.getInst().getHomeBarShowType();
-            if ((i2 == 0 || i2 == 1 || (i2 == 2 && homeBarShowType == 1)) && ScrollFragmentTabHost.this.k.getCurrentItem() != i2) {
-                if (ScrollFragmentTabHost.this.z(i2) != 1) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 4));
-                } else {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 6));
-                }
-            }
-            if (ScrollFragmentTabHost.this.z(i2) == 7) {
-                TiebaStatic.log(new StatisticItem("c13483").param("obj_type", "1"));
-            } else if (ScrollFragmentTabHost.this.z(i2) == 8) {
-                TiebaStatic.log(new StatisticItem("c13580"));
-            }
-            TbadkCoreApplication.getInst().setHomeBarShowType(ScrollFragmentTabHost.this.z(i2));
-            if (ScrollFragmentTabHost.this.z(i2) == 5) {
-                StatisticItem statisticItem = new StatisticItem("c13740");
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("obj_type", ScrollFragmentTabHost.this.H() ? 1 : 0);
-                statisticItem.eventStat();
-                ScrollFragmentTabHost.this.w = true;
-                long currentTimeMillis = System.currentTimeMillis();
-                if (TbadkCoreApplication.isLogin()) {
-                    if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                        d.a.j0.r.d0.b.j().w(TbadkCoreApplication.getCurrentAccount(), currentTimeMillis);
+            if (ScrollFragmentTabHost.this.A(i2) == 1 || !FullBrowseHelper.checkAndShowFullBrowseModeDialog(ScrollFragmentTabHost.this.f16271f, null)) {
+                ScrollFragmentTabHost.this.u(i2);
+                int homeBarShowType = TbadkCoreApplication.getInst().getHomeBarShowType();
+                if ((i2 == 0 || i2 == 1 || (i2 == 2 && homeBarShowType == 1)) && ScrollFragmentTabHost.this.k.getCurrentItem() != i2) {
+                    if (ScrollFragmentTabHost.this.A(i2) != 1) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 4));
+                    } else {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 6));
                     }
-                } else {
-                    d.a.j0.r.d0.b.j().w("unlogin_hot_top_timestamp", currentTimeMillis);
                 }
-                if (ScrollFragmentTabHost.this.f16369g.f()) {
-                    ScrollFragmentTabHost.this.f16369g.setShowHotTopicRedTip(false);
+                if (ScrollFragmentTabHost.this.A(i2) == 7) {
+                    TiebaStatic.log(new StatisticItem("c13483").param("obj_type", "1"));
+                } else if (ScrollFragmentTabHost.this.A(i2) == 8) {
+                    TiebaStatic.log(new StatisticItem("c13580"));
+                }
+                TbadkCoreApplication.getInst().setHomeBarShowType(ScrollFragmentTabHost.this.A(i2));
+                if (ScrollFragmentTabHost.this.A(i2) == 5) {
+                    StatisticItem statisticItem = new StatisticItem("c13740");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                    statisticItem.param("obj_type", ScrollFragmentTabHost.this.I() ? 1 : 0);
+                    statisticItem.eventStat();
+                    ScrollFragmentTabHost.this.w = true;
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (TbadkCoreApplication.isLogin()) {
+                        if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
+                            d.a.m0.r.d0.b.j().w(TbadkCoreApplication.getCurrentAccount(), currentTimeMillis);
+                        }
+                    } else {
+                        d.a.m0.r.d0.b.j().w("unlogin_hot_top_timestamp", currentTimeMillis);
+                    }
+                    if (ScrollFragmentTabHost.this.f16272g.f()) {
+                        ScrollFragmentTabHost.this.f16272g.setShowHotTopicRedTip(false);
+                    }
                 }
             }
         }
@@ -262,10 +266,10 @@ public class ScrollFragmentTabHost extends RelativeLayout {
 
         @Override // com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout.b
         public void a(boolean z) {
-            if (!z || ScrollFragmentTabHost.this.H == null) {
+            if (!z || ScrollFragmentTabHost.this.J == null) {
                 return;
             }
-            ScrollFragmentTabHost.this.H.I();
+            ScrollFragmentTabHost.this.J.I();
         }
     }
 
@@ -276,12 +280,12 @@ public class ScrollFragmentTabHost extends RelativeLayout {
 
         @Override // com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.f
         public void a(String str) {
-            if (ScrollFragmentTabHost.this.H != null) {
-                ScrollFragmentTabHost.this.H.I();
-                ScrollFragmentTabHost.this.H = null;
+            if (ScrollFragmentTabHost.this.J != null) {
+                ScrollFragmentTabHost.this.J.I();
+                ScrollFragmentTabHost.this.J = null;
             }
-            if (ScrollFragmentTabHost.this.f16368f != null) {
-                UrlManager.getInstance().dealOneLink(ScrollFragmentTabHost.this.f16368f, new String[]{str});
+            if (ScrollFragmentTabHost.this.f16271f != null) {
+                UrlManager.getInstance().dealOneLink(ScrollFragmentTabHost.this.f16271f, new String[]{str});
             }
         }
     }
@@ -293,19 +297,57 @@ public class ScrollFragmentTabHost extends RelativeLayout {
 
         @Override // com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.f
         public void a(String str) {
-            if (ScrollFragmentTabHost.this.H != null) {
-                ScrollFragmentTabHost.this.H.I();
-                ScrollFragmentTabHost.this.H = null;
+            if (ScrollFragmentTabHost.this.J != null) {
+                ScrollFragmentTabHost.this.J.I();
+                ScrollFragmentTabHost.this.J = null;
             }
-            if (ScrollFragmentTabHost.this.f16368f != null) {
-                UrlManager.getInstance().dealOneLink(ScrollFragmentTabHost.this.f16368f, new String[]{str});
+            if (ScrollFragmentTabHost.this.f16271f != null) {
+                UrlManager.getInstance().dealOneLink(ScrollFragmentTabHost.this.f16271f, new String[]{str});
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class f implements Animation.AnimationListener {
+    public class f implements GestureDetector.OnGestureListener {
         public f() {
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public boolean onDown(MotionEvent motionEvent) {
+            return false;
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            if (Math.abs(motionEvent.getX() - motionEvent2.getX()) > 40.0f) {
+                FullBrowseHelper.checkAndShowFullBrowseModeDialog(ScrollFragmentTabHost.this.f16271f, null);
+                return true;
+            }
+            return false;
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public void onLongPress(MotionEvent motionEvent) {
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            return false;
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public void onShowPress(MotionEvent motionEvent) {
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public boolean onSingleTapUp(MotionEvent motionEvent) {
+            return false;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class g implements Animation.AnimationListener {
+        public g() {
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -323,46 +365,25 @@ public class ScrollFragmentTabHost extends RelativeLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class g implements d.a.k0.a1.c.e {
-        public g() {
-        }
-
-        @Override // d.a.k0.a1.c.e
-        public void a(int i2) {
-            ScrollFragmentTabHost.this.setCurrentTab(ScrollFragmentTabHost.this.r.m(i2), false);
-            ScrollFragmentTabHost.this.r.x(i2);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class h implements d.a.k0.a1.c.d {
+    public class h implements d.a.n0.b1.c.e {
         public h() {
         }
 
-        @Override // d.a.k0.a1.c.d
+        @Override // d.a.n0.b1.c.e
         public void a(int i2) {
-            ScrollFragmentTabHost.this.K.b(i2, ScrollFragmentTabHost.this.L);
+            ScrollFragmentTabHost.this.setCurrentTab(ScrollFragmentTabHost.this.r.k(i2), false);
+            ScrollFragmentTabHost.this.r.v(i2);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class i extends CustomMessageListener {
-        public i(int i2) {
-            super(i2);
+    public class i implements d.a.n0.b1.c.d {
+        public i() {
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean z = false;
-            if ((customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getData() != null) {
-                z = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            }
-            if (z) {
-                ScrollFragmentTabHost.this.T();
-            } else {
-                ScrollFragmentTabHost.this.w();
-            }
+        @Override // d.a.n0.b1.c.d
+        public void a(int i2) {
+            ScrollFragmentTabHost.this.M.b(i2, ScrollFragmentTabHost.this.N);
         }
     }
 
@@ -375,30 +396,71 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || ScrollFragmentTabHost.this.H == null) {
+            if (ScrollFragmentTabHost.this.k == null) {
                 return;
             }
-            ScrollFragmentTabHost.this.H.I();
-            ScrollFragmentTabHost.this.H = null;
+            if (FullBrowseHelper.checkIsFullBrowseMode()) {
+                ScrollFragmentTabHost.this.k.setScrollable(false, ScrollFragmentTabHost.this.x);
+            } else {
+                ScrollFragmentTabHost.this.k.setScrollable(true);
+            }
         }
     }
 
     /* loaded from: classes4.dex */
     public class k extends CustomMessageListener {
+        public k(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            boolean z = false;
+            if ((customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getData() != null) {
+                z = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            }
+            if (z) {
+                ScrollFragmentTabHost.this.U();
+            } else {
+                ScrollFragmentTabHost.this.x();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class l extends CustomMessageListener {
+        public l(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || ScrollFragmentTabHost.this.J == null) {
+                return;
+            }
+            ScrollFragmentTabHost.this.J.I();
+            ScrollFragmentTabHost.this.J = null;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class m extends CustomMessageListener {
 
         /* loaded from: classes4.dex */
         public class a implements ValueAnimator.AnimatorUpdateListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ImageView f16383e;
+            public final /* synthetic */ ImageView f16288e;
 
-            public a(k kVar, ImageView imageView) {
-                this.f16383e = imageView;
+            public a(m mVar, ImageView imageView) {
+                this.f16288e = imageView;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                this.f16383e.setRotationX(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                this.f16288e.setRotationX(((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         }
 
@@ -406,19 +468,19 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         public class b implements ValueAnimator.AnimatorUpdateListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ImageView f16384e;
+            public final /* synthetic */ ImageView f16289e;
 
-            public b(k kVar, ImageView imageView) {
-                this.f16384e = imageView;
+            public b(m mVar, ImageView imageView) {
+                this.f16289e = imageView;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                this.f16384e.setRotationX(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                this.f16289e.setRotationX(((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         }
 
-        public k(int i2) {
+        public m(int i2) {
             super(i2);
         }
 
@@ -429,7 +491,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                 return;
             }
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            LinearLayout linearLayout = (LinearLayout) ScrollFragmentTabHost.this.f16369g.c(0);
+            LinearLayout linearLayout = (LinearLayout) ScrollFragmentTabHost.this.f16272g.c(0);
             if (intValue == 1) {
                 if ((linearLayout instanceof LinearLayout) && linearLayout.getChildCount() > 1) {
                     ImageView imageView = (ImageView) linearLayout.getChildAt(1);
@@ -441,11 +503,11 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                         ofInt.start();
                     }
                 }
-                if (ScrollFragmentTabHost.this.f16369g != null) {
-                    ScrollFragmentTabHost.this.I.l(ScrollFragmentTabHost.this.f16369g.getBackgroundAlpha());
-                    ScrollFragmentTabHost.this.I.k(TbadkCoreApplication.getInst().getSkinType());
+                if (ScrollFragmentTabHost.this.f16272g != null) {
+                    ScrollFragmentTabHost.this.K.l(ScrollFragmentTabHost.this.f16272g.getBackgroundAlpha());
+                    ScrollFragmentTabHost.this.K.k(TbadkCoreApplication.getInst().getSkinType());
                 }
-                ScrollFragmentTabHost.this.I.n(ScrollFragmentTabHost.this.F);
+                ScrollFragmentTabHost.this.K.n(ScrollFragmentTabHost.this.H);
             } else if (!(linearLayout instanceof LinearLayout) || linearLayout.getChildCount() <= 1) {
             } else {
                 ImageView imageView2 = (ImageView) linearLayout.getChildAt(1);
@@ -461,45 +523,45 @@ public class ScrollFragmentTabHost extends RelativeLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class l extends CustomMessageListener {
-        public l(int i2) {
+    public class n extends CustomMessageListener {
+        public n(int i2) {
             super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371 || ScrollFragmentTabHost.this.J == d.a.j0.b.d.h()) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371 || ScrollFragmentTabHost.this.L == d.a.m0.b.d.h()) {
                 return;
             }
-            ScrollFragmentTabHost.this.f16369g.i();
-            if (d.a.j0.b.d.h() && ScrollFragmentTabHost.this.v) {
-                ScrollFragmentTabHost.this.v();
-                ScrollFragmentTabHost.this.R();
+            ScrollFragmentTabHost.this.f16272g.i();
+            if (d.a.m0.b.d.h() && ScrollFragmentTabHost.this.v) {
+                ScrollFragmentTabHost.this.w();
+                ScrollFragmentTabHost.this.S();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class m extends CustomMessageListener {
+    public class o extends CustomMessageListener {
 
         /* loaded from: classes4.dex */
         public class a implements ValueAnimator.AnimatorUpdateListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TextView f16387e;
+            public final /* synthetic */ TextView f16292e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f16388f;
+            public final /* synthetic */ int f16293f;
 
-            public a(m mVar, TextView textView, int i2) {
-                this.f16387e = textView;
-                this.f16388f = i2;
+            public a(o oVar, TextView textView, int i2) {
+                this.f16292e = textView;
+                this.f16293f = i2;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                this.f16387e.setMaxWidth(this.f16388f + ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                this.f16292e.setMaxWidth(this.f16293f + ((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         }
 
@@ -507,19 +569,19 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         public class b implements ValueAnimator.AnimatorUpdateListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TextView f16389e;
+            public final /* synthetic */ TextView f16294e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f16390f;
+            public final /* synthetic */ int f16295f;
 
-            public b(m mVar, TextView textView, int i2) {
-                this.f16389e = textView;
-                this.f16390f = i2;
+            public b(o oVar, TextView textView, int i2) {
+                this.f16294e = textView;
+                this.f16295f = i2;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                this.f16389e.setMaxWidth(this.f16390f - ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                this.f16294e.setMaxWidth(this.f16295f - ((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         }
 
@@ -527,14 +589,14 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         public class c implements Animator.AnimatorListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TextView f16391e;
+            public final /* synthetic */ TextView f16296e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f16392f;
+            public final /* synthetic */ String f16297f;
 
-            public c(m mVar, TextView textView, String str) {
-                this.f16391e = textView;
-                this.f16392f = str;
+            public c(o oVar, TextView textView, String str) {
+                this.f16296e = textView;
+                this.f16297f = str;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -543,7 +605,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                this.f16391e.setText(this.f16392f);
+                this.f16296e.setText(this.f16297f);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -555,7 +617,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
             }
         }
 
-        public m(int i2) {
+        public o(int i2) {
             super(i2);
         }
 
@@ -568,7 +630,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
             String string = ScrollFragmentTabHost.this.getResources().getString(R.string.attention_person);
             String string2 = ScrollFragmentTabHost.this.getResources().getString(R.string.attention);
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            LinearLayout linearLayout = (LinearLayout) ScrollFragmentTabHost.this.f16369g.c(0);
+            LinearLayout linearLayout = (LinearLayout) ScrollFragmentTabHost.this.f16272g.c(0);
             if (intValue == 1) {
                 if ((linearLayout instanceof LinearLayout) && linearLayout.getChildCount() > 0 && (linearLayout.getChildAt(0) instanceof TextView)) {
                     TextView textView = (TextView) linearLayout.getChildAt(0);
@@ -584,7 +646,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                             ofInt.start();
                         }
                     }
-                    d.a.j0.r.d0.b.j().v("key_home_concern_all_status", 1);
+                    d.a.m0.r.d0.b.j().v("key_home_concern_all_status", 1);
                 }
             } else if ((linearLayout instanceof LinearLayout) && linearLayout.getChildCount() > 0 && (linearLayout.getChildAt(0) instanceof TextView)) {
                 TextView textView2 = (TextView) linearLayout.getChildAt(0);
@@ -600,14 +662,14 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                         ofInt2.start();
                     }
                 }
-                d.a.j0.r.d0.b.j().v("key_home_concern_all_status", 0);
+                d.a.m0.r.d0.b.j().v("key_home_concern_all_status", 0);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class n extends CustomMessageListener {
-        public n(int i2) {
+    public class p extends CustomMessageListener {
+        public p(int i2) {
             super(i2);
         }
 
@@ -617,46 +679,42 @@ public class ScrollFragmentTabHost extends RelativeLayout {
             if (ScrollFragmentTabHost.this.r == null || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
                 return;
             }
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            ScrollFragmentTabHost.this.r.P();
-            if (!booleanValue || !d.a.j0.c1.b.c.d()) {
-                ScrollFragmentTabHost.this.r.B();
-            } else {
-                ScrollFragmentTabHost.this.r.A();
-            }
-            ScrollFragmentTabHost.this.f16369g.p();
+            ScrollFragmentTabHost.this.r.M();
+            ScrollFragmentTabHost.this.r.K();
+            ScrollFragmentTabHost.this.k.setAdapter(ScrollFragmentTabHost.this.r);
+            ScrollFragmentTabHost.this.f16272g.i();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class o implements CustomMessageTask.CustomRunnable<o.b> {
-        public o() {
+    public class q implements CustomMessageTask.CustomRunnable<o.b> {
+        public q() {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<o.b> customMessage) {
-            if (ScrollFragmentTabHost.this.f16368f != null && !ScrollFragmentTabHost.this.f16368f.getPageActivity().isFinishing() && ScrollFragmentTabHost.this.F != null && ScrollFragmentTabHost.this.G != null) {
-                ImageView taskView = (TbSingleton.getInstance().getHomePageStyleAbTest() & 1) != 0 ? ScrollFragmentTabHost.this.f16369g.getTaskView() : ScrollFragmentTabHost.this.G.getTaskView();
+            if (ScrollFragmentTabHost.this.f16271f != null && !ScrollFragmentTabHost.this.f16271f.getPageActivity().isFinishing() && ScrollFragmentTabHost.this.H != null && ScrollFragmentTabHost.this.I != null) {
+                ImageView taskView = (TbSingleton.getInstance().getHomePageStyleAbTest() & 1) != 0 ? ScrollFragmentTabHost.this.f16272g.getTaskView() : ScrollFragmentTabHost.this.I.getTaskView();
                 if ((taskView == null || taskView.getVisibility() == 0) && customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof o.b)) {
                     o.b data = customMessage.getData();
-                    int intValue = data.f48724c.intValue() > 0 ? data.f48724c.intValue() * 1000 : 5000;
-                    String str = data.f48728g;
+                    int intValue = data.f48746c.intValue() > 0 ? data.f48746c.intValue() * 1000 : 5000;
+                    String str = data.f48750g;
                     if (TextUtils.isEmpty(str)) {
-                        str = ScrollFragmentTabHost.this.f16368f.getString(R.string.task_float_tip_toast);
+                        str = ScrollFragmentTabHost.this.f16271f.getString(R.string.task_float_tip_toast);
                     }
                     String fixedText = UtilHelper.getFixedText(str, 20);
-                    if (ScrollFragmentTabHost.this.H != null) {
-                        ScrollFragmentTabHost.this.H.I();
+                    if (ScrollFragmentTabHost.this.J != null) {
+                        ScrollFragmentTabHost.this.J.I();
                     }
                     ScrollFragmentTabHost scrollFragmentTabHost = ScrollFragmentTabHost.this;
-                    scrollFragmentTabHost.H = new d.a.k0.b0.e(scrollFragmentTabHost.f16368f, taskView);
-                    ScrollFragmentTabHost.this.H.O(48);
-                    ScrollFragmentTabHost.this.H.h0(true);
-                    ScrollFragmentTabHost.this.H.L(4);
-                    ScrollFragmentTabHost.this.H.N(intValue);
-                    ScrollFragmentTabHost.this.H.U(true);
-                    ScrollFragmentTabHost.this.H.j0(0);
-                    ScrollFragmentTabHost.this.H.l0(fixedText);
+                    scrollFragmentTabHost.J = new d.a.n0.d0.e(scrollFragmentTabHost.f16271f, taskView);
+                    ScrollFragmentTabHost.this.J.O(48);
+                    ScrollFragmentTabHost.this.J.h0(true);
+                    ScrollFragmentTabHost.this.J.L(4);
+                    ScrollFragmentTabHost.this.J.N(intValue);
+                    ScrollFragmentTabHost.this.J.U(true);
+                    ScrollFragmentTabHost.this.J.j0(0);
+                    ScrollFragmentTabHost.this.J.l0(fixedText);
                     return new CustomResponsedMessage<>(2921409, Boolean.TRUE);
                 }
                 return null;
@@ -666,22 +724,22 @@ public class ScrollFragmentTabHost extends RelativeLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class p implements CustomMessageTask.CustomRunnable<Boolean> {
-        public p() {
+    public class r implements CustomMessageTask.CustomRunnable<Boolean> {
+        public r() {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
-            if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Boolean) || ScrollFragmentTabHost.this.F == null) {
+            if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Boolean) || ScrollFragmentTabHost.this.H == null) {
                 return null;
             }
-            ScrollFragmentTabHost.this.w();
+            ScrollFragmentTabHost.this.x();
             boolean z = false;
             if (customMessage.getData().booleanValue()) {
-                z = ScrollFragmentTabHost.this.F.f();
-            } else if (ScrollFragmentTabHost.this.F.d() && ScrollFragmentTabHost.this.v) {
+                z = ScrollFragmentTabHost.this.H.f();
+            } else if (ScrollFragmentTabHost.this.H.d() && ScrollFragmentTabHost.this.v) {
                 z = true;
-                ScrollFragmentTabHost.this.F.f();
+                ScrollFragmentTabHost.this.H.f();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921442, Boolean.TRUE));
             return new CustomResponsedMessage<>(2921405, Boolean.valueOf(z));
@@ -689,7 +747,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
     }
 
     /* loaded from: classes4.dex */
-    public static abstract class q {
+    public static abstract class s {
         public void a() {
         }
 
@@ -701,40 +759,45 @@ public class ScrollFragmentTabHost extends RelativeLayout {
     }
 
     /* loaded from: classes4.dex */
-    public interface r {
+    public interface t {
         void a(int i2);
     }
 
     public ScrollFragmentTabHost(Context context) {
         super(context);
         this.w = false;
-        this.x = new i(2921400);
-        this.y = new j(2921415);
-        this.z = new k(2921501);
-        this.A = new l(2001371);
-        this.B = new m(2921502);
-        this.C = new n(2921509);
-        this.D = new CustomMessageTask(2921409, new o());
-        this.E = new CustomMessageTask(2921405, new p());
-        this.K = new d.a.k0.a1.c.f.b();
-        this.L = new g();
-        this.M = new h();
-        B();
+        this.y = new j(2921563);
+        this.z = new k(2921400);
+        this.A = new l(2921415);
+        this.B = new m(2921501);
+        this.C = new n(2001371);
+        this.D = new o(2921502);
+        this.E = new p(2921509);
+        this.F = new CustomMessageTask(2921409, new q());
+        this.G = new CustomMessageTask(2921405, new r());
+        this.M = new d.a.n0.b1.c.f.b();
+        this.N = new h();
+        this.O = new i();
+        C();
     }
 
-    public boolean A() {
+    public int A(int i2) {
+        return this.r.l(i2);
+    }
+
+    public boolean B() {
         NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
         return newScrollFragmentAdapter != null && newScrollFragmentAdapter.getCount() > 0;
     }
 
-    public final void B() {
-        this.f16367e = getContext();
+    public final void C() {
+        this.f16270e = getContext();
         LayoutInflater.from(getContext()).inflate(R.layout.scroll_fragment_tabhost, (ViewGroup) this, true);
-        this.F = (StickyAppBarLayout) findViewById(R.id.app_bar_layout);
-        this.G = (NestedScrollHeader) findViewById(R.id.home_nested_header);
-        this.f16369g = (HomeTabBarView) findViewById(R.id.home_tab_bar_view);
-        this.f16370h = (PluginErrorTipView) findViewById(R.id.view_plugin_error_tip);
-        this.f16371i = (NoNetworkView) findViewById(R.id.view_no_network);
+        this.H = (StickyAppBarLayout) findViewById(R.id.app_bar_layout);
+        this.I = (NestedScrollHeader) findViewById(R.id.home_nested_header);
+        this.f16272g = (HomeTabBarView) findViewById(R.id.home_tab_bar_view);
+        this.f16273h = (PluginErrorTipView) findViewById(R.id.view_plugin_error_tip);
+        this.f16274i = (NoNetworkView) findViewById(R.id.view_no_network);
         this.j = (FrameLayout) findViewById(R.id.home_pager_container);
         this.k = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
         this.l = findViewById(R.id.divider_line);
@@ -742,132 +805,135 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.homepage_test_post_btn);
         this.n = tBSpecificationBtn;
         tBSpecificationBtn.setVisibility(8);
-        this.I = new d.a.k0.a1.b.b(this.f16367e);
-        this.J = d.a.j0.b.d.h();
+        this.K = new d.a.n0.b1.b.b(this.f16270e);
+        this.L = d.a.m0.b.d.h();
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.F.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
+            this.H.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
         ((ViewGroup.MarginLayoutParams) ((CoordinatorLayout.LayoutParams) this.j.getLayoutParams())).topMargin = 0;
-        this.f16369g.setOnPageChangeListener(new a());
-        this.f16369g.setOnTabItemClickListener(new b());
-        this.F.setOnHeaderStickyListener(new c());
-        this.G.setEntranceJumpListener(new d());
+        this.f16272g.setOnPageChangeListener(new a());
+        this.f16272g.setOnTabItemClickListener(new b());
+        this.H.setOnHeaderStickyListener(new c());
+        this.I.setEntranceJumpListener(new d());
         if ((TbSingleton.getInstance().getHomePageStyleAbTest() & 1) != 0) {
-            this.G.setVisibility(8);
-            this.f16369g.setMissionEntranceVisibility(true);
-            this.f16369g.setEntranceJumpListener(new e());
+            this.I.setVisibility(8);
+            this.f16272g.setMissionEntranceVisibility(true);
+            this.f16272g.setEntranceJumpListener(new e());
             return;
         }
-        this.G.setVisibility(0);
-        this.f16369g.setMissionEntranceVisibility(false);
+        this.I.setVisibility(0);
+        this.f16272g.setMissionEntranceVisibility(false);
     }
 
-    public void C(TbPageContext tbPageContext, NoNetworkView.b bVar) {
-        this.f16368f = tbPageContext;
-        this.f16371i.a(bVar);
-        MessageManager.getInstance().registerListener(this.x);
-        MessageManager.getInstance().registerListener(this.y);
-        MessageManager.getInstance().registerListener(this.B);
+    public void D(TbPageContext tbPageContext, NoNetworkView.b bVar) {
+        this.f16271f = tbPageContext;
+        this.f16274i.a(bVar);
         MessageManager.getInstance().registerListener(this.z);
         MessageManager.getInstance().registerListener(this.A);
+        MessageManager.getInstance().registerListener(this.D);
+        MessageManager.getInstance().registerListener(this.B);
         MessageManager.getInstance().registerListener(this.C);
-        this.D.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.D);
+        MessageManager.getInstance().registerListener(this.E);
+        MessageManager.getInstance().registerListener(this.y);
+        this.F.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(this.F);
     }
 
-    public void D(FragmentManager fragmentManager, d.a.k0.a1.c.b bVar, ConcernPageView.l lVar) {
-        NewScrollFragmentAdapter newScrollFragmentAdapter = new NewScrollFragmentAdapter(this.f16367e, fragmentManager, bVar, lVar);
+    @RequiresApi(api = 3)
+    public void E(FragmentManager fragmentManager, d.a.n0.b1.c.b bVar, ConcernPageView.l lVar) {
+        NewScrollFragmentAdapter newScrollFragmentAdapter = new NewScrollFragmentAdapter(this.f16270e, fragmentManager, bVar, lVar);
         this.r = newScrollFragmentAdapter;
-        newScrollFragmentAdapter.H(this);
+        newScrollFragmentAdapter.A(this);
         this.k.setOffscreenPageLimit(2);
         this.k.setAdapter(this.r);
-        int k2 = this.r.k();
+        int i2 = this.r.i();
         NewScrollFragmentAdapter newScrollFragmentAdapter2 = this.r;
-        if (HomePageStatic.f16217a) {
-            k2 = 0;
+        if (HomePageStatic.f16120a) {
+            i2 = 0;
         }
-        this.k.setCurrentItem(newScrollFragmentAdapter2.m(k2));
-        this.f16369g.setViewPager(this.k);
-        this.f16369g.setConcernTabIndex(this.r.m(0));
-        if (this.r.l() != -1) {
-            this.f16369g.setHotTopicTabIndex(this.r.l());
-            this.f16369g.setShowHotTopicRedTip(G());
+        this.k.setCurrentItem(newScrollFragmentAdapter2.k(i2));
+        this.f16272g.setViewPager(this.k);
+        this.f16272g.setConcernTabIndex(this.r.k(0));
+        if (this.r.j() != -1) {
+            this.f16272g.setHotTopicTabIndex(this.r.j());
+            this.f16272g.setShowHotTopicRedTip(H());
         }
+        this.x = new GestureDetector(this.f16270e, new f());
         if (FullBrowseHelper.checkIsFullBrowseMode()) {
-            this.k.setScrollable(false);
+            this.k.setScrollable(false, this.x);
         } else {
             this.k.setScrollable(true);
         }
     }
 
-    public final boolean E() {
+    public final boolean F() {
         return this.m.getVisibility() == 0;
     }
 
-    public boolean F() {
-        if (this.f16369g == null || !this.r.s()) {
+    public boolean G() {
+        if (this.f16272g == null || !this.r.q()) {
             return false;
         }
-        return this.f16369g.e();
+        return this.f16272g.e();
     }
 
-    public final boolean G() {
+    public final boolean H() {
         long currentTimeMillis = System.currentTimeMillis();
         if (TbadkCoreApplication.isLogin()) {
-            return !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && currentTimeMillis - d.a.j0.r.d0.b.j().l(TbadkCoreApplication.getCurrentAccount(), 0L) >= 86400000;
+            return !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && currentTimeMillis - d.a.m0.r.d0.b.j().l(TbadkCoreApplication.getCurrentAccount(), 0L) >= 86400000;
         }
-        return currentTimeMillis - d.a.j0.r.d0.b.j().l("unlogin_hot_top_timestamp", 0L) >= 86400000;
+        return currentTimeMillis - d.a.m0.r.d0.b.j().l("unlogin_hot_top_timestamp", 0L) >= 86400000;
     }
 
-    public boolean H() {
+    public boolean I() {
         NewScrollFragmentAdapter newScrollFragmentAdapter;
-        if (this.f16369g == null || (newScrollFragmentAdapter = this.r) == null || !newScrollFragmentAdapter.t()) {
+        if (this.f16272g == null || (newScrollFragmentAdapter = this.r) == null || !newScrollFragmentAdapter.r()) {
             return false;
         }
-        return this.f16369g.f();
-    }
-
-    public void I() {
-        HomeTabBarView homeTabBarView;
-        StickyAppBarLayout stickyAppBarLayout = this.F;
-        if (stickyAppBarLayout == null || stickyAppBarLayout.d() || (homeTabBarView = this.f16369g) == null || homeTabBarView.getTaskView() == null || this.f16369g.getTaskView().getVisibility() == 0) {
-            return;
-        }
-        this.f16369g.h();
+        return this.f16272g.f();
     }
 
     public void J() {
+        HomeTabBarView homeTabBarView;
+        StickyAppBarLayout stickyAppBarLayout = this.H;
+        if (stickyAppBarLayout == null || stickyAppBarLayout.d() || (homeTabBarView = this.f16272g) == null || homeTabBarView.getTaskView() == null || this.f16272g.getTaskView().getVisibility() == 0) {
+            return;
+        }
+        this.f16272g.h();
+    }
+
+    public void K() {
         NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
-        if (newScrollFragmentAdapter == null || HomePageStatic.f16217a) {
+        if (newScrollFragmentAdapter == null || HomePageStatic.f16120a) {
             return;
         }
         this.k.setAdapter(newScrollFragmentAdapter);
-        this.f16369g.i();
-        this.K.a(this.L);
+        this.f16272g.i();
+        this.M.a(this.N);
     }
 
-    public void K(boolean z) {
+    public void L(boolean z) {
     }
 
-    public void L(int i2) {
+    public void M(int i2) {
         PluginErrorTipView pluginErrorTipView;
         NoNetworkView noNetworkView;
-        d.a.j0.r.u.c.d(this.F).l(new int[]{R.color.CAM_X0202, R.color.CAM_X0208});
-        this.G.o();
-        this.f16369g.j();
-        TbPageContext tbPageContext = this.f16368f;
-        if (tbPageContext != null && (noNetworkView = this.f16371i) != null) {
+        d.a.m0.r.u.c.d(this.H).n(new int[]{R.color.CAM_X0202, R.color.CAM_X0208});
+        this.I.o();
+        this.f16272g.j();
+        TbPageContext tbPageContext = this.f16271f;
+        if (tbPageContext != null && (noNetworkView = this.f16274i) != null) {
             noNetworkView.c(tbPageContext, i2);
         }
         NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
         if (newScrollFragmentAdapter != null) {
-            newScrollFragmentAdapter.y(i2);
+            newScrollFragmentAdapter.w(i2);
         }
-        TbPageContext tbPageContext2 = this.f16368f;
-        if (tbPageContext2 != null && (pluginErrorTipView = this.f16370h) != null) {
+        TbPageContext tbPageContext2 = this.f16271f;
+        if (tbPageContext2 != null && (pluginErrorTipView = this.f16273h) != null) {
             pluginErrorTipView.e(tbPageContext2, i2);
         }
-        d.a.k0.a1.b.b bVar = this.I;
+        d.a.n0.b1.b.b bVar = this.K;
         if (bVar != null) {
             bVar.k(i2);
         }
@@ -875,49 +941,49 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         SkinManager.setBackgroundResource(this.m, R.drawable.personalize_tab_shadow);
     }
 
-    public void M() {
+    public void N() {
         MessageManager.getInstance().unRegisterTask(2921409);
-        d.a.k0.b0.e eVar = this.H;
+        d.a.n0.d0.e eVar = this.J;
         if (eVar != null) {
             eVar.I();
-            this.H = null;
+            this.J = null;
         }
-        v();
-        MessageManager.getInstance().unRegisterListener(this.A);
+        w();
+        MessageManager.getInstance().unRegisterListener(this.C);
     }
 
-    public void N() {
-        HomeTabBarView homeTabBarView = this.f16369g;
+    public void O() {
+        HomeTabBarView homeTabBarView = this.f16272g;
         if (homeTabBarView != null) {
             homeTabBarView.k();
         }
     }
 
-    public void O() {
-        this.r.o(this.M);
+    public void P() {
+        this.r.m(this.O);
     }
 
-    public void P() {
+    public void Q() {
         NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
         if (newScrollFragmentAdapter != null) {
-            newScrollFragmentAdapter.z();
+            newScrollFragmentAdapter.x();
         }
     }
 
-    public void Q(q qVar) {
-        List<q> list = this.u;
+    public void R(s sVar) {
+        List<s> list = this.u;
         if (list == null || list.size() <= 0) {
             return;
         }
-        this.u.remove(qVar);
+        this.u.remove(sVar);
     }
 
-    public void R() {
+    public void S() {
         if (TbadkCoreApplication.isLogin()) {
             NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
-            int m2 = newScrollFragmentAdapter != null ? newScrollFragmentAdapter.m(0) : 0;
+            int k2 = newScrollFragmentAdapter != null ? newScrollFragmentAdapter.k(0) : 0;
             if (this.t == null) {
-                d.a.k0.b0.e eVar = new d.a.k0.b0.e(this.f16368f, this.f16369g.c(m2));
+                d.a.n0.d0.e eVar = new d.a.n0.d0.e(this.f16271f, this.f16272g.c(k2));
                 this.t = eVar;
                 eVar.g0(R.drawable.bg_tip_blue_up_left);
                 this.t.O(16);
@@ -926,31 +992,31 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                 this.t.h0(true);
                 this.t.N(4000);
             }
-            this.t.m0(this.f16367e.getString(R.string.concern_tab_thread_forum_tips), "key_concern_forum_tab_tips_show");
+            this.t.m0(this.f16270e.getString(R.string.concern_tab_thread_forum_tips), "key_concern_forum_tab_tips_show");
         }
     }
 
-    public void S() {
-        if (d.a.j0.r.d0.b.j().k("key_concern_tab_tips_switch", 0) == 0) {
+    public void T() {
+        if (d.a.m0.r.d0.b.j().k("key_concern_tab_tips_switch", 0) == 0) {
             return;
         }
         NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
-        int m2 = newScrollFragmentAdapter != null ? newScrollFragmentAdapter.m(0) : 0;
+        int k2 = newScrollFragmentAdapter != null ? newScrollFragmentAdapter.k(0) : 0;
         if (this.t == null) {
-            d.a.k0.b0.e eVar = new d.a.k0.b0.e(this.f16368f, this.f16369g.c(m2));
+            d.a.n0.d0.e eVar = new d.a.n0.d0.e(this.f16271f, this.f16272g.c(k2));
             this.t = eVar;
             eVar.g0(R.drawable.bg_tip_blue_up);
             this.t.O(32);
             this.t.U(true);
             this.t.h0(true);
-            this.t.k0(d.a.c.e.p.l.g(this.f16367e, R.dimen.ds16));
+            this.t.k0(d.a.c.e.p.l.g(this.f16270e, R.dimen.ds16));
             this.t.N(4000);
         }
-        this.t.n0(this.f16367e.getString(R.string.concern_tab_thread_tips), "key_concern_tab_tips", true);
+        this.t.n0(this.f16270e.getString(R.string.concern_tab_thread_tips), "key_concern_tab_tips", true);
     }
 
-    public void T() {
-        if (this.o && !E()) {
+    public void U() {
+        if (this.o && !F()) {
             this.m.setVisibility(0);
             if (this.p == null) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
@@ -962,31 +1028,31 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         }
     }
 
-    public void U() {
+    public void V() {
         NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
         if (newScrollFragmentAdapter != null) {
-            newScrollFragmentAdapter.K();
+            newScrollFragmentAdapter.G();
         }
     }
 
-    public void V(DataRes dataRes, boolean z) {
+    public void W(DataRes dataRes, boolean z) {
         NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
         if (newScrollFragmentAdapter != null) {
-            newScrollFragmentAdapter.M(dataRes, z);
+            newScrollFragmentAdapter.I(dataRes, z);
         }
     }
 
-    public void W(String str, int i2, int i3) {
+    public void X(String str, int i2, int i3) {
         if (this.k == null) {
             return;
         }
-        this.r.N(str, i2, i3);
+        this.r.J(str, i2, i3);
     }
 
-    public void X(tbclient.Personalized.DataRes dataRes, boolean z, boolean z2) {
+    public void Y(tbclient.Personalized.DataRes dataRes, boolean z, boolean z2) {
         NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
         if (newScrollFragmentAdapter != null) {
-            newScrollFragmentAdapter.O(dataRes, z, z2);
+            newScrollFragmentAdapter.L(dataRes, z, z2);
         }
     }
 
@@ -1001,13 +1067,13 @@ public class ScrollFragmentTabHost extends RelativeLayout {
     public String getCurrentPageKey() {
         NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
         if (newScrollFragmentAdapter != null) {
-            return newScrollFragmentAdapter.j();
+            return newScrollFragmentAdapter.h();
         }
         return null;
     }
 
     public int getCurrentTabType() {
-        return this.r.n(this.k.getCurrentItem());
+        return this.r.l(this.k.getCurrentItem());
     }
 
     public FrameLayout getFrameLayout() {
@@ -1018,7 +1084,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         if (this.k.getAdapter() != null) {
             int count = this.k.getAdapter().getCount();
             for (int i2 = 0; i2 < count; i2++) {
-                if (this.r.n(i2) == 8) {
+                if (this.r.l(i2) == 8) {
                     return i2;
                 }
             }
@@ -1031,8 +1097,8 @@ public class ScrollFragmentTabHost extends RelativeLayout {
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         if ((TbSingleton.getInstance().getHomePageStyleAbTest() & 1) == 0) {
-            this.E.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(this.E);
+            this.G.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(this.G);
         }
     }
 
@@ -1048,35 +1114,36 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         if (i2 < 0 || i2 >= this.r.getCount()) {
             return;
         }
-        this.f16369g.setTabItemClicked(z);
-        this.r.I(i2);
+        this.f16272g.setTabItemClicked(z);
+        this.r.B(i2);
         this.k.setCurrentItem(i2);
     }
 
     public void setFakeClickCurrentTab(int i2) {
-        setCurrentTab(this.r.m(i2), true);
+        setCurrentTab(this.r.k(i2), true);
     }
 
-    public void setOnTabSelectedListener(r rVar) {
-        this.s = rVar;
+    public void setOnTabSelectedListener(t tVar) {
+        this.s = tVar;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.f16369g.setPageUniqueId(bdUniqueId);
-        this.x.setTag(bdUniqueId);
-        this.y.setTag(bdUniqueId);
-        this.B.setTag(bdUniqueId);
+        this.f16272g.setPageUniqueId(bdUniqueId);
         this.z.setTag(bdUniqueId);
-        this.C.setTag(bdUniqueId);
+        this.A.setTag(bdUniqueId);
+        this.D.setTag(bdUniqueId);
+        this.B.setTag(bdUniqueId);
+        this.E.setTag(bdUniqueId);
+        this.y.setTag(bdUniqueId);
     }
 
     public void setPrimary(boolean z) {
         this.v = z;
         NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
         if (newScrollFragmentAdapter != null) {
-            newScrollFragmentAdapter.G(z);
+            newScrollFragmentAdapter.z(z);
         }
-        NoNetworkView noNetworkView = this.f16371i;
+        NoNetworkView noNetworkView = this.f16274i;
         if (noNetworkView == null || !z) {
             return;
         }
@@ -1100,59 +1167,59 @@ public class ScrollFragmentTabHost extends RelativeLayout {
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.f16369g == null || !this.r.s()) {
+        if (this.f16272g == null || !this.r.q()) {
             return;
         }
-        this.f16369g.setShowConcernRedTip(z);
+        this.f16272g.setShowConcernRedTip(z);
     }
 
     public void setVideoThreadId(String str) {
         NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
         if (newScrollFragmentAdapter != null) {
-            newScrollFragmentAdapter.J(str);
+            newScrollFragmentAdapter.F(str);
         }
     }
 
-    public final void t(int i2) {
+    public final void u(int i2) {
         StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LIVE_TAB_CLICK);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.param("obj_type", y(i2));
+        statisticItem.param("obj_type", z(i2));
         TiebaStaticHelper.addYYParam(statisticItem);
         TiebaStatic.log(statisticItem);
     }
 
-    public void u(q qVar) {
+    public void v(s sVar) {
         if (this.u == null) {
             this.u = new ArrayList();
         }
-        this.u.add(qVar);
+        this.u.add(sVar);
     }
 
-    public void v() {
-        d.a.k0.b0.e eVar = this.t;
+    public void w() {
+        d.a.n0.d0.e eVar = this.t;
         if (eVar != null) {
             eVar.I();
         }
     }
 
-    public void w() {
-        if (this.o && E()) {
+    public void x() {
+        if (this.o && F()) {
             if (this.q == null) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
                 this.q = alphaAnimation;
                 alphaAnimation.setFillAfter(true);
                 this.q.setDuration(300L);
-                this.q.setAnimationListener(new f());
+                this.q.setAnimationListener(new g());
             }
             this.m.startAnimation(this.q);
         }
     }
 
-    public void x() {
-        this.r.i();
+    public void y() {
+        this.r.g();
     }
 
-    public final int y(int i2) {
+    public final int z(int i2) {
         if (i2 != 0) {
             if (i2 != 1) {
                 if (i2 != 2) {
@@ -1168,32 +1235,29 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         return 2;
     }
 
-    public int z(int i2) {
-        return this.r.n(i2);
-    }
-
     public void setCurrentTab(int i2) {
-        setCurrentTab(this.r.m(i2), false);
+        setCurrentTab(this.r.k(i2), false);
     }
 
     public void setCurrentTab(String str) {
-        setCurrentTab(this.r.p(str), false);
+        setCurrentTab(this.r.n(str), false);
     }
 
     public ScrollFragmentTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.w = false;
-        this.x = new i(2921400);
-        this.y = new j(2921415);
-        this.z = new k(2921501);
-        this.A = new l(2001371);
-        this.B = new m(2921502);
-        this.C = new n(2921509);
-        this.D = new CustomMessageTask(2921409, new o());
-        this.E = new CustomMessageTask(2921405, new p());
-        this.K = new d.a.k0.a1.c.f.b();
-        this.L = new g();
-        this.M = new h();
-        B();
+        this.y = new j(2921563);
+        this.z = new k(2921400);
+        this.A = new l(2921415);
+        this.B = new m(2921501);
+        this.C = new n(2001371);
+        this.D = new o(2921502);
+        this.E = new p(2921509);
+        this.F = new CustomMessageTask(2921409, new q());
+        this.G = new CustomMessageTask(2921405, new r());
+        this.M = new d.a.n0.b1.c.f.b();
+        this.N = new h();
+        this.O = new i();
+        C();
     }
 }

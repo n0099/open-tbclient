@@ -6,28 +6,28 @@ import com.baidu.webkit.sdk.Log;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f26801b = "b";
+    public static final String f26730b = "b";
 
     /* renamed from: a  reason: collision with root package name */
-    public BdNetTask f26802a;
+    public BdNetTask f26731a;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdNet f26803c;
+    public BdNet f26732c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdNetEngine f26804d;
+    public BdNetEngine f26733d;
 
     public b(BdNet bdNet) {
-        this.f26803c = bdNet;
+        this.f26732c = bdNet;
     }
 
     public final void a(BdNetEngine bdNetEngine) {
-        this.f26804d = bdNetEngine;
-        bdNetEngine.setEventListener(this.f26803c);
+        this.f26733d = bdNetEngine;
+        bdNetEngine.setEventListener(this.f26732c);
     }
 
     public final boolean a() {
-        return this.f26802a != null;
+        return this.f26731a != null;
     }
 
     public final boolean a(BdNetTask bdNetTask) {
@@ -39,32 +39,32 @@ public class b {
             return false;
         }
         try {
-            this.f26802a = bdNetTask;
-            bdNetTask.setNet(this.f26803c);
-            this.f26802a.setWorker(this);
-            if (a.a().f26800c == null) {
-                a.a().f26800c = this.f26803c.getContext();
+            this.f26731a = bdNetTask;
+            bdNetTask.setNet(this.f26732c);
+            this.f26731a.setWorker(this);
+            if (a.a().f26729c == null) {
+                a.a().f26729c = this.f26732c.getContext();
             }
             BdNetEngine e2 = a.a().e();
-            this.f26804d = e2;
+            this.f26733d = e2;
             if (e2 != null) {
-                e2.setEventListener(this.f26803c);
+                e2.setEventListener(this.f26732c);
                 a.a();
                 if (!a.b()) {
-                    bdNetEngine = this.f26804d;
-                    bdNetTask2 = this.f26802a;
-                } else if (!this.f26802a.isHigherPriority()) {
+                    bdNetEngine = this.f26733d;
+                    bdNetTask2 = this.f26731a;
+                } else if (!this.f26731a.isHigherPriority()) {
                     return true;
                 } else {
-                    bdNetEngine = this.f26804d;
-                    bdNetTask2 = this.f26802a;
+                    bdNetEngine = this.f26733d;
+                    bdNetTask2 = this.f26731a;
                 }
                 bdNetEngine.startDownload(bdNetTask2);
                 return true;
             }
             a.a();
-            if (!a.b() || this.f26802a.isHigherPriority()) {
-                BdNetTask bdNetTask3 = this.f26802a;
+            if (!a.b() || this.f26731a.isHigherPriority()) {
+                BdNetTask bdNetTask3 = this.f26731a;
                 if (bdNetTask3.getTaskPriority() == null) {
                     a2 = a.a();
                     ordinal = BdNetTask.b.PRIORITY_NORMAL.ordinal();
@@ -77,11 +77,11 @@ public class b {
             }
             return true;
         } catch (Exception unused) {
-            BdNetEngine bdNetEngine2 = this.f26804d;
+            BdNetEngine bdNetEngine2 = this.f26733d;
             if (bdNetEngine2 != null) {
                 bdNetEngine2.recycle();
             }
-            BdNet bdNet = this.f26803c;
+            BdNet bdNet = this.f26732c;
             if (bdNet != null) {
                 bdNet.startError(bdNetTask);
             }
@@ -91,13 +91,13 @@ public class b {
 
     public final void b() {
         try {
-            if (this.f26802a != null) {
-                this.f26802a.setWorker(null);
-                this.f26802a.stop();
-                this.f26802a = null;
+            if (this.f26731a != null) {
+                this.f26731a.setWorker(null);
+                this.f26731a.stop();
+                this.f26731a = null;
             }
         } catch (Exception e2) {
-            Log.d(f26801b, "stop Exception", e2);
+            Log.d(f26730b, "stop Exception", e2);
         }
     }
 }

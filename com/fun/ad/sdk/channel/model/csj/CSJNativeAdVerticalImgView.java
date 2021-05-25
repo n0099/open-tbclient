@@ -20,7 +20,7 @@ import java.util.List;
 public final class CSJNativeAdVerticalImgView extends b {
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f30712f;
+    public ImageView f30641f;
 
     /* loaded from: classes6.dex */
     public class a extends DrawableImageViewTarget {
@@ -78,12 +78,12 @@ public final class CSJNativeAdVerticalImgView extends b {
         if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
             return;
         }
-        Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f30712f));
+        Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f30641f));
     }
 
     @Override // a.a.a.a.t.b.a.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30712f = (ImageView) findViewById(R.id.ad_img);
+        this.f30641f = (ImageView) findViewById(R.id.ad_img);
     }
 }

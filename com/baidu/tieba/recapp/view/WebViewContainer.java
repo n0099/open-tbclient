@@ -12,19 +12,19 @@ import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 public class WebViewContainer extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public OverScroller f20373e;
+    public OverScroller f20295e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f20374f;
+    public float f20296f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f20375g;
+    public float f20297g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector f20376h;
+    public GestureDetector f20298h;
 
     /* renamed from: i  reason: collision with root package name */
-    public VelocityTracker f20377i;
+    public VelocityTracker f20299i;
     public OnScrollChangedCallback j;
     public int k;
     public int l;
@@ -39,26 +39,26 @@ public class WebViewContainer extends FrameLayout {
     public static class YScrollDetector extends GestureDetector.SimpleOnGestureListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final WebViewContainer f20378e;
+        public final WebViewContainer f20300e;
 
         public YScrollDetector(WebViewContainer webViewContainer) {
-            this.f20378e = webViewContainer;
+            this.f20300e = webViewContainer;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onDown(MotionEvent motionEvent) {
-            this.f20378e.f20375g = motionEvent.getRawY();
+            this.f20300e.f20297g = motionEvent.getRawY();
             return false;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             WebViewContainer webViewContainer;
-            if (Math.abs(f3) > Math.abs(f2) && (webViewContainer = this.f20378e) != null) {
+            if (Math.abs(f3) > Math.abs(f2) && (webViewContainer = this.f20300e) != null) {
                 if (f3 > 0.0f) {
                     return webViewContainer.k > 0;
-                } else if (webViewContainer.k < this.f20378e.l) {
-                    return this.f20378e.k > 0 || this.f20378e.m != 1;
+                } else if (webViewContainer.k < this.f20300e.l) {
+                    return this.f20300e.k > 0 || this.f20300e.m != 1;
                 }
             }
             return false;
@@ -75,10 +75,10 @@ public class WebViewContainer extends FrameLayout {
 
     @Override // android.view.View
     public void computeScroll() {
-        if (this.f20373e.computeScrollOffset()) {
-            int e2 = e(this.f20373e.getCurrY());
+        if (this.f20295e.computeScrollOffset()) {
+            int e2 = e(this.f20295e.getCurrY());
             scrollBy(0, e2);
-            this.f20375g -= e2;
+            this.f20297g -= e2;
             invalidate();
         }
     }
@@ -101,17 +101,17 @@ public class WebViewContainer extends FrameLayout {
     }
 
     public final void f(int i2) {
-        OverScroller overScroller = this.f20373e;
+        OverScroller overScroller = this.f20295e;
         if (overScroller == null) {
             return;
         }
-        overScroller.fling(0, (int) this.f20375g, 0, i2, 0, 0, AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL, 10000);
+        overScroller.fling(0, (int) this.f20297g, 0, i2, 0, 0, AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL, 10000);
         invalidate();
     }
 
     public final void g(Context context) {
-        this.f20373e = new OverScroller(context);
-        this.f20376h = new GestureDetector(context, new YScrollDetector(this));
+        this.f20295e = new OverScroller(context);
+        this.f20298h = new GestureDetector(context, new YScrollDetector(this));
     }
 
     @Override // android.view.ViewGroup
@@ -119,7 +119,7 @@ public class WebViewContainer extends FrameLayout {
         if (this.m == 2) {
             return false;
         }
-        if (this.k <= ((int) motionEvent.getY()) && this.f20376h.onTouchEvent(motionEvent)) {
+        if (this.k <= ((int) motionEvent.getY()) && this.f20298h.onTouchEvent(motionEvent)) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -146,29 +146,29 @@ public class WebViewContainer extends FrameLayout {
             return false;
         }
         super.onTouchEvent(motionEvent);
-        if (this.f20377i == null) {
-            this.f20377i = VelocityTracker.obtain();
+        if (this.f20299i == null) {
+            this.f20299i = VelocityTracker.obtain();
         }
-        this.f20377i.addMovement(motionEvent);
+        this.f20299i.addMovement(motionEvent);
         int action = motionEvent.getAction();
         if (action != 0) {
             if (action == 1) {
-                this.f20377i.computeCurrentVelocity(1000);
-                int yVelocity = (int) this.f20377i.getYVelocity();
+                this.f20299i.computeCurrentVelocity(1000);
+                int yVelocity = (int) this.f20299i.getYVelocity();
                 if (Math.abs(yVelocity) > 2000 && ((yVelocity > 0 && this.k < this.l) || (yVelocity < 0 && this.k > 0))) {
                     f(-yVelocity);
                 }
-                this.f20377i.recycle();
-                this.f20377i = null;
+                this.f20299i.recycle();
+                this.f20299i = null;
             } else if (action == 2) {
                 float rawY = motionEvent.getRawY();
-                this.f20374f = rawY;
-                int e2 = e((int) (this.f20375g - rawY));
+                this.f20296f = rawY;
+                int e2 = e((int) (this.f20297g - rawY));
                 scrollBy(0, e2);
-                this.f20375g -= e2;
+                this.f20297g -= e2;
             }
-        } else if (!this.f20373e.isFinished()) {
-            this.f20373e.abortAnimation();
+        } else if (!this.f20295e.isFinished()) {
+            this.f20295e.abortAnimation();
         }
         return true;
     }

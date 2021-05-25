@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -80,7 +81,7 @@ public class BonusMsg extends NormalMsg {
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
-        return "有一个优惠送给你！";
+        return IMConstants.BONUS_MSG_RECOMMEND_DESC;
     }
 
     public String getSkipAddr() {

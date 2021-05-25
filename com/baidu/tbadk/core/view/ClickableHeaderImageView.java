@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.a.c.e.m.b;
-import d.a.j0.m.d;
-import d.a.j0.r.q.a2;
+import d.a.m0.m.d;
+import d.a.m0.r.q.a2;
 /* loaded from: classes3.dex */
 public class ClickableHeaderImageView extends HeadImageView {
     public a2 W0;
@@ -30,15 +30,15 @@ public class ClickableHeaderImageView extends HeadImageView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d dVar = ClickableHeaderImageView.this.Z0;
-            if ((dVar == null || !dVar.b(view)) && ClickableHeaderImageView.this.W0 != null) {
-                MetaData t = ClickableHeaderImageView.this.X0 ? ClickableHeaderImageView.this.W0.A1().t() : ClickableHeaderImageView.this.W0.T();
+            if ((dVar == null || !dVar.a(view)) && ClickableHeaderImageView.this.W0 != null) {
+                MetaData t = ClickableHeaderImageView.this.X0 ? ClickableHeaderImageView.this.W0.B1().t() : ClickableHeaderImageView.this.W0.T();
                 if (t == null || StringUtils.isNull(t.getName_show()) || StringUtils.isNull(t.getUserId())) {
                     return;
                 }
                 long f2 = b.f(t.getUserId(), 0L);
                 PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(f2, f2 == b.f(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
-                createNormalConfig.setSourceTid(ClickableHeaderImageView.this.W0.x1());
-                createNormalConfig.setSourceNid(ClickableHeaderImageView.this.W0.L0());
+                createNormalConfig.setSourceTid(ClickableHeaderImageView.this.W0.y1());
+                createNormalConfig.setSourceNid(ClickableHeaderImageView.this.W0.M0());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
                 if (ClickableHeaderImageView.this.Y0 != null) {
                     ClickableHeaderImageView.this.Y0.onClick(view);
@@ -71,14 +71,14 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.W0 = a2Var;
         this.X0 = z2;
         if (z2) {
-            T = a2Var.A1().t();
+            T = a2Var.B1().t();
         } else {
             T = a2Var.T();
         }
         setContentDescription(T.getName_show() + getContext().getString(R.string.somebodys_portrait));
         setUserId(T.getUserId());
         setUserName(T.getUserName());
-        if (a2Var.q1() != null && (this.W0.t1() == 49 || this.W0.t1() == 69)) {
+        if (a2Var.r1() != null && (this.W0.u1() == 49 || this.W0.u1() == 69)) {
             setUrl(a2Var.T().getAvater());
             V(a2Var.T().getAvater(), 28, false);
         } else {
@@ -115,7 +115,7 @@ public class ClickableHeaderImageView extends HeadImageView {
             return;
         }
         a2 a2Var = new a2();
-        a2Var.s3(metaData);
+        a2Var.t3(metaData);
         setData(a2Var);
     }
 }

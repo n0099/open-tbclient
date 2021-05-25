@@ -11,47 +11,47 @@ import java.util.Arrays;
 public class b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f23183e = "RIFF";
+    public static final String f23112e = "RIFF";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f23184f = "WAVE";
+    public static final String f23113f = "WAVE";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f23185g = "fmt ";
+    public static final String f23114g = "fmt ";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f23186h = "data";
+    public static final String f23115h = "data";
 
     /* renamed from: a  reason: collision with root package name */
-    public short f23187a;
+    public short f23116a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23188b;
+    public int f23117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public short f23189c;
+    public short f23118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23190d;
+    public int f23119d;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ByteBuffer f23191i = ByteBuffer.allocate(44);
+    public final ByteBuffer f23120i = ByteBuffer.allocate(44);
     public int j;
     public int k;
 
     public static b a(InputStream inputStream) {
         b bVar = new b();
         try {
-            bVar.f23191i.order(ByteOrder.LITTLE_ENDIAN);
-            inputStream.read(bVar.f23191i.array());
-            bVar.j = bVar.f23191i.getInt(4);
-            bVar.f23187a = bVar.f23191i.getShort(22);
-            bVar.f23188b = bVar.f23191i.getInt(24);
-            bVar.f23189c = bVar.f23191i.getShort(34);
+            bVar.f23120i.order(ByteOrder.LITTLE_ENDIAN);
+            inputStream.read(bVar.f23120i.array());
+            bVar.j = bVar.f23120i.getInt(4);
+            bVar.f23116a = bVar.f23120i.getShort(22);
+            bVar.f23117b = bVar.f23120i.getInt(24);
+            bVar.f23118c = bVar.f23120i.getShort(34);
             int b2 = bVar.b(inputStream);
             bVar.k = b2;
             if (-1 != b2) {
-                bVar.f23190d = bVar.f23191i.getInt(40);
+                bVar.f23119d = bVar.f23120i.getInt(40);
                 return bVar;
             }
             return bVar;
@@ -67,9 +67,9 @@ public class b {
         do {
             int i3 = -1;
             try {
-                this.f23191i.position(36);
-                this.f23191i.get(bArr);
-                int i4 = this.f23191i.getInt(40);
+                this.f23120i.position(36);
+                this.f23120i.get(bArr);
+                int i4 = this.f23120i.getInt(40);
                 if (Arrays.equals("data".getBytes(), bArr)) {
                     i3 = i2 + 8;
                     return i3;
@@ -80,42 +80,42 @@ public class b {
                 e2.printStackTrace();
                 return i3;
             }
-        } while (8 == inputStream.read(this.f23191i.array(), 36, 8));
+        } while (8 == inputStream.read(this.f23120i.array(), 36, 8));
         return -1;
     }
 
     public static b a(int i2, int i3, int i4, int i5) {
         b bVar = new b();
-        bVar.f23191i.order(ByteOrder.LITTLE_ENDIAN);
-        bVar.f23191i.put(f23183e.getBytes());
+        bVar.f23120i.order(ByteOrder.LITTLE_ENDIAN);
+        bVar.f23120i.put(f23112e.getBytes());
         int i6 = (i5 + 44) - 8;
         bVar.j = i6;
-        bVar.f23191i.putInt(i6);
-        bVar.f23191i.put(f23184f.getBytes());
-        bVar.f23191i.put(f23185g.getBytes());
-        bVar.f23191i.putInt(16);
-        bVar.f23191i.putShort((short) 1);
+        bVar.f23120i.putInt(i6);
+        bVar.f23120i.put(f23113f.getBytes());
+        bVar.f23120i.put(f23114g.getBytes());
+        bVar.f23120i.putInt(16);
+        bVar.f23120i.putShort((short) 1);
         short s = (short) i2;
-        bVar.f23187a = s;
-        bVar.f23191i.putShort(s);
-        bVar.f23188b = i4;
-        bVar.f23191i.putInt(i4);
+        bVar.f23116a = s;
+        bVar.f23120i.putShort(s);
+        bVar.f23117b = i4;
+        bVar.f23120i.putInt(i4);
         short s2 = (short) ((i2 * i3) / 8);
-        bVar.f23191i.putInt(i4 * s2);
-        bVar.f23191i.putShort(s2);
+        bVar.f23120i.putInt(i4 * s2);
+        bVar.f23120i.putShort(s2);
         short s3 = (short) i3;
-        bVar.f23189c = s3;
-        bVar.f23191i.putShort(s3);
-        bVar.f23191i.put("data".getBytes());
+        bVar.f23118c = s3;
+        bVar.f23120i.putShort(s3);
+        bVar.f23120i.put("data".getBytes());
         bVar.k = 44;
-        bVar.f23190d = i5;
-        bVar.f23191i.putInt(i5);
+        bVar.f23119d = i5;
+        bVar.f23120i.putInt(i5);
         return bVar;
     }
 
     public void a(OutputStream outputStream) {
         try {
-            outputStream.write(this.f23191i.array());
+            outputStream.write(this.f23120i.array());
         } catch (IOException e2) {
             e2.printStackTrace();
         }
@@ -123,13 +123,13 @@ public class b {
 
     public void a(DataOutput dataOutput) {
         try {
-            dataOutput.write(this.f23191i.array());
+            dataOutput.write(this.f23120i.array());
         } catch (IOException e2) {
             e2.printStackTrace();
         }
     }
 
     public void a() {
-        System.out.println("--Wave Header--\nfile length:" + this.j + "\nchannels:" + ((int) this.f23187a) + "\nsample rate:" + this.f23188b + "\nbit depth:" + ((int) this.f23189c) + "\npcm length:" + this.f23190d + "\ndata offset:" + this.k + "\n");
+        System.out.println("--Wave Header--\nfile length:" + this.j + "\nchannels:" + ((int) this.f23116a) + "\nsample rate:" + this.f23117b + "\nbit depth:" + ((int) this.f23118c) + "\npcm length:" + this.f23119d + "\ndata offset:" + this.k + "\n");
     }
 }

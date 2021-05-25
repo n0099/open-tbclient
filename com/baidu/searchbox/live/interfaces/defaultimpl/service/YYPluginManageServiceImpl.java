@@ -18,7 +18,7 @@ import com.baidu.searchbox.live.interfaces.service.yy.YYPluginManageService;
 import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginBundleInfo;
 import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginDownloadCallback;
 import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginInstallCallback;
-import d.a.x.d.a.a;
+import d.a.z.d.a.a;
 import java.io.File;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -58,7 +58,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
     @Override // com.baidu.searchbox.live.interfaces.service.yy.YYPluginManageService
     public void downloadBundle(final String str, final YYPluginDownloadCallback yYPluginDownloadCallback) {
         NPSPackageManager.getInstance().downloadUpdatePackage(str, new a() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$1
-            @Override // d.a.x.d.a.a
+            @Override // d.a.z.d.a.a
             public void onProgress(long j, long j2) {
                 YYPluginDownloadCallback yYPluginDownloadCallback2 = YYPluginDownloadCallback.this;
                 if (yYPluginDownloadCallback2 != null) {
@@ -66,7 +66,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                 }
             }
 
-            @Override // d.a.x.d.a.a
+            @Override // d.a.z.d.a.a
             public void onResult(int i2, String str2) {
                 YYPluginDownloadCallback yYPluginDownloadCallback2 = YYPluginDownloadCallback.this;
                 if (yYPluginDownloadCallback2 != null) {

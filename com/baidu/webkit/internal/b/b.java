@@ -22,7 +22,7 @@ import java.net.URISyntaxException;
 public final class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f26628a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
+    public final String[] f26557a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
 
     private boolean a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -30,7 +30,7 @@ public final class b extends g {
         }
         int i2 = 0;
         while (true) {
-            String[] strArr = this.f26628a;
+            String[] strArr = this.f26557a;
             if (i2 >= strArr.length) {
                 return false;
             }

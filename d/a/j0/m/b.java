@@ -1,5 +1,9 @@
 package d.a.j0.m;
-/* loaded from: classes3.dex */
-public interface b<T> {
-    void a(T t);
+
+import android.content.Context;
+/* loaded from: classes2.dex */
+public interface b {
+    String a();
+
+    void a(Context context, c cVar);
 }

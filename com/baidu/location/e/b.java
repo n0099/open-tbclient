@@ -8,32 +8,32 @@ import com.tencent.connect.common.Constants;
 public class b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f6776e;
+    public static String f6676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f6777f;
+    public static String f6677f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f6778g;
+    public static String f6678g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f6779h;
+    public static String f6679h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f6780i;
+    public static int f6680i;
     public static b j;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6781a = null;
+    public String f6681a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6782b = null;
+    public String f6682b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6783c = null;
+    public String f6683c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6784d = null;
+    public String f6684d = null;
     public boolean k = false;
 
     public b() {
@@ -67,15 +67,15 @@ public class b {
         stringBuffer.append("&sdk=");
         stringBuffer.append(7.93f);
         if (z) {
-            if (k.f6825g.equals("all")) {
+            if (k.f6725g.equals("all")) {
                 stringBuffer.append("&addr=allj");
             }
-            if (k.f6827i) {
+            if (k.f6727i) {
                 stringBuffer.append("&adtp=n2");
             }
-            if (k.f6826h || k.k || k.l || k.j) {
+            if (k.f6726h || k.k || k.l || k.j) {
                 stringBuffer.append("&sema=");
-                if (k.f6826h) {
+                if (k.f6726h) {
                     stringBuffer.append("aptag|");
                 }
                 if (k.j) {
@@ -101,18 +101,18 @@ public class b {
                 stringBuffer.append(j2);
             }
         }
-        if (this.f6783c != null) {
+        if (this.f6683c != null) {
             stringBuffer.append("&cu=");
-            stringBuffer.append(this.f6783c);
-            String str3 = this.f6781a;
-            str2 = (str3 == null || str3.equals("NULL") || this.f6783c.contains(new StringBuffer(this.f6781a).reverse().toString())) ? "&Aim=" : "&Aim=";
-            if (this.f6782b != null) {
+            stringBuffer.append(this.f6683c);
+            String str3 = this.f6681a;
+            str2 = (str3 == null || str3.equals("NULL") || this.f6683c.contains(new StringBuffer(this.f6681a).reverse().toString())) ? "&Aim=" : "&Aim=";
+            if (this.f6682b != null) {
                 stringBuffer.append("&snd=");
-                stringBuffer.append(this.f6782b);
+                stringBuffer.append(this.f6682b);
             }
-            if (this.f6784d != null) {
+            if (this.f6684d != null) {
                 stringBuffer.append("&Aid=");
-                stringBuffer.append(this.f6784d);
+                stringBuffer.append(this.f6684d);
             }
             stringBuffer.append("&fw=");
             stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -140,10 +140,10 @@ public class b {
         }
         str2 = "&im=";
         stringBuffer.append(str2);
-        stringBuffer.append(this.f6781a);
-        if (this.f6782b != null) {
+        stringBuffer.append(this.f6681a);
+        if (this.f6682b != null) {
         }
-        if (this.f6784d != null) {
+        if (this.f6684d != null) {
         }
         stringBuffer.append("&fw=");
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -167,21 +167,21 @@ public class b {
             return;
         }
         try {
-            this.f6783c = CommonParam.getCUID(context);
+            this.f6683c = CommonParam.getCUID(context);
         } catch (Exception unused) {
-            this.f6783c = null;
+            this.f6683c = null;
         }
         try {
-            f6776e = context.getPackageName();
+            f6676e = context.getPackageName();
         } catch (Exception unused2) {
-            f6776e = null;
+            f6676e = null;
         }
-        k.o = "" + this.f6783c;
+        k.o = "" + this.f6683c;
         this.k = true;
     }
 
     public void a(String str, String str2) {
-        f6777f = str;
-        f6776e = str2;
+        f6677f = str;
+        f6676e = str2;
     }
 }

@@ -15,7 +15,7 @@ import java.security.MessageDigest;
 public class ay implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f37398a;
+    public static boolean f37327a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f137a;
@@ -39,19 +39,19 @@ public class ay implements ar {
         public String f141a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37400b;
+        public String f37329b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37401c;
+        public String f37330c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f37402d;
+        public String f37331d;
 
         public a() {
             this.f141a = null;
-            this.f37400b = null;
-            this.f37401c = null;
-            this.f37402d = null;
+            this.f37329b = null;
+            this.f37330c = null;
+            this.f37331d = null;
         }
     }
 
@@ -131,7 +131,7 @@ public class ay implements ar {
             if (packageInfo != null) {
                 long longVersionCode = Build.VERSION.SDK_INT >= 28 ? packageInfo.getLongVersionCode() : packageInfo.versionCode;
                 boolean z = (packageInfo.applicationInfo.flags & 1) != 0;
-                f37398a = longVersionCode >= 1;
+                f37327a = longVersionCode >= 1;
                 if (z) {
                     return true;
                 }
@@ -178,7 +178,7 @@ public class ay implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return f37398a;
+        return f37327a;
     }
 
     @Override // com.xiaomi.push.ar
@@ -188,7 +188,7 @@ public class ay implements ar {
         if (this.f139a == null) {
             return null;
         }
-        return this.f139a.f37400b;
+        return this.f139a.f37329b;
     }
 
     @Override // com.xiaomi.push.ar
@@ -197,7 +197,7 @@ public class ay implements ar {
         if (this.f139a == null) {
             return null;
         }
-        return this.f139a.f37401c;
+        return this.f139a.f37330c;
     }
 
     @Override // com.xiaomi.push.ar
@@ -206,6 +206,6 @@ public class ay implements ar {
         if (this.f139a == null) {
             return null;
         }
-        return this.f139a.f37402d;
+        return this.f139a.f37331d;
     }
 }

@@ -7,7 +7,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f67642a = new a(null);
+    public static final a f67685a = new a(null);
 
     /* loaded from: classes7.dex */
     public static final class a {

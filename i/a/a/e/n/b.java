@@ -10,36 +10,36 @@ import tv.athena.revenue.payui.webview.UrlPageParams;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static Gson f68893c = new Gson();
+    public static Gson f68936c = new Gson();
 
     /* renamed from: a  reason: collision with root package name */
-    public c f68894a;
+    public c f68937a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f68895b = new Handler(Looper.getMainLooper());
+    public Handler f68938b = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f68896e;
+        public final /* synthetic */ int f68939e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UrlPageParams f68897f;
+        public final /* synthetic */ UrlPageParams f68940f;
 
         public a(int i2, UrlPageParams urlPageParams) {
-            this.f68896e = i2;
-            this.f68897f = urlPageParams;
+            this.f68939e = i2;
+            this.f68940f = urlPageParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f68894a != null) {
-                if (this.f68896e == 1) {
-                    b.this.f68894a.b(this.f68897f);
+            if (b.this.f68937a != null) {
+                if (this.f68939e == 1) {
+                    b.this.f68937a.b(this.f68940f);
                 }
-                if (this.f68896e == 3) {
-                    b.this.f68894a.a(this.f68897f);
+                if (this.f68939e == 3) {
+                    b.this.f68937a.a(this.f68940f);
                 }
             }
         }
@@ -47,14 +47,14 @@ public class b {
 
     /* renamed from: i.a.a.e.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class RunnableC1943b implements Runnable {
-        public RunnableC1943b() {
+    public class RunnableC1947b implements Runnable {
+        public RunnableC1947b() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f68894a != null) {
-                b.this.f68894a.onNativeOperation(new i.a.a.e.j.a(2));
+            if (b.this.f68937a != null) {
+                b.this.f68937a.onNativeOperation(new i.a.a.e.j.a(2));
             }
         }
     }
@@ -71,14 +71,14 @@ public class b {
     }
 
     public b(c cVar) {
-        this.f68894a = cVar;
+        this.f68937a = cVar;
     }
 
     public final void b(Runnable runnable) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             runnable.run();
         } else {
-            this.f68895b.post(runnable);
+            this.f68938b.post(runnable);
         }
     }
 
@@ -92,8 +92,8 @@ public class b {
         UrlPageParams urlPageParams;
         if (i2 != 1) {
             if (i2 == 2) {
-                if (this.f68894a != null) {
-                    b(new RunnableC1943b());
+                if (this.f68937a != null) {
+                    b(new RunnableC1947b());
                     return;
                 }
                 return;
@@ -104,7 +104,7 @@ public class b {
         String str2 = i2 == 1 ? "CODE_OPEN_URL_PAGE" : "CODE_UPFATE_TOP_INFO";
         UrlPageParams urlPageParams2 = null;
         try {
-            urlPageParams = (UrlPageParams) f68893c.fromJson(str, (Class<Object>) UrlPageParams.class);
+            urlPageParams = (UrlPageParams) f68936c.fromJson(str, (Class<Object>) UrlPageParams.class);
             try {
                 d.g("YYPaySdkJsInterface", "%s params: %s", str2, urlPageParams);
             } catch (Throwable th) {
@@ -112,20 +112,20 @@ public class b {
                 urlPageParams2 = urlPageParams;
                 d.d("YYPaySdkJsInterface", str2 + " error,", th);
                 urlPageParams = urlPageParams2;
-                if (this.f68894a == null) {
+                if (this.f68937a == null) {
                 }
             }
         } catch (Throwable th2) {
             th = th2;
         }
-        if (this.f68894a == null) {
+        if (this.f68937a == null) {
             b(new a(i2, urlPageParams));
         }
     }
 
     @JavascriptInterface
     public String getToken() {
-        c cVar = this.f68894a;
+        c cVar = this.f68937a;
         if (cVar != null) {
             return cVar.getToken();
         }

@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.pb.main.PushThreadActivityConfig;
-import d.a.k0.d3.d0.a;
+import d.a.n0.e3.d0.a;
 /* loaded from: classes5.dex */
 public class PushThreadActivityStatic {
     static {

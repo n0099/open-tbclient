@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.a.j0.r.q.a2;
+import d.a.m0.r.q.a2;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,22 +15,22 @@ import org.json.JSONObject;
 public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f22044e;
+    public b f21972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<a2> f22045f;
+    public ArrayList<a2> f21973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22046g;
+    public int f21974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext f22047h;
+    public TbPageContext f21975h;
 
     /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<Object, FeedBackModel, FeedBackModel> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f22048a;
+        public NetWork f21976a;
 
         public b() {
         }
@@ -41,11 +41,11 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         public FeedBackModel doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/frs/toplist");
-            this.f22048a = netWork;
+            this.f21976a = netWork;
             netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, obj);
-            String postNetData = this.f22048a.postNetData();
-            if (this.f22048a.getNetContext().getResponse().isRequestSuccess()) {
-                FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.f22047h);
+            String postNetData = this.f21976a.postNetData();
+            if (this.f21976a.getNetContext().getResponse().isRequestSuccess()) {
+                FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.f21975h);
                 feedBackModel.parserJson(postNetData);
                 return feedBackModel;
             }
@@ -57,15 +57,15 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
             super.onPostExecute(feedBackModel);
-            FeedBackModel.this.f22044e = null;
+            FeedBackModel.this.f21972e = null;
             FeedBackModel.this.mLoadDataCallBack.c(feedBackModel);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            FeedBackModel.this.f22044e = null;
-            NetWork netWork = this.f22048a;
+            FeedBackModel.this.f21972e = null;
+            NetWork netWork = this.f21976a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -74,11 +74,11 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     public FeedBackModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f22044e = null;
-        this.f22045f = null;
-        this.f22046g = 0;
-        this.f22047h = tbPageContext;
-        this.f22045f = new ArrayList<>();
+        this.f21972e = null;
+        this.f21973f = null;
+        this.f21974g = 0;
+        this.f21975h = tbPageContext;
+        this.f21973f = new ArrayList<>();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -88,7 +88,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        b bVar = this.f22044e;
+        b bVar = this.f21972e;
         if (bVar != null) {
             bVar.cancel();
             return true;
@@ -105,20 +105,20 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
     }
 
     public void v(String str) {
-        if (this.f22044e == null) {
+        if (this.f21972e == null) {
             b bVar = new b();
-            this.f22044e = bVar;
+            this.f21972e = bVar;
             bVar.setPriority(3);
-            this.f22044e.execute(str);
+            this.f21972e.execute(str);
         }
     }
 
     public int w() {
-        return this.f22046g;
+        return this.f21974g;
     }
 
     public ArrayList<a2> x() {
-        return this.f22045f;
+        return this.f21973f;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -126,15 +126,15 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
             return;
         }
         try {
-            this.f22046g = jSONObject.optInt("error_code", 0);
+            this.f21974g = jSONObject.optInt("error_code", 0);
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     if (jSONObject2 != null) {
                         a2 a2Var = new a2();
-                        a2Var.S2(jSONObject2);
-                        this.f22045f.add(a2Var);
+                        a2Var.T2(jSONObject2);
+                        this.f21973f.add(a2Var);
                     }
                 }
             }

@@ -7,21 +7,21 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f33155a;
+    public AdTemplate f33084a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC0377a f33156b;
+    public InterfaceC0378a f33085b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public b f33157c;
+    public b f33086c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f33158d = false;
+    public boolean f33087d = false;
 
     /* renamed from: com.kwad.sdk.draw.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0377a {
+    public interface InterfaceC0378a {
         void a();
     }
 
@@ -31,31 +31,31 @@ public class a {
     }
 
     public a(AdTemplate adTemplate) {
-        this.f33155a = adTemplate;
+        this.f33084a = adTemplate;
     }
 
     public void a() {
-        InterfaceC0377a interfaceC0377a;
-        if (this.f33158d) {
+        InterfaceC0378a interfaceC0378a;
+        if (this.f33087d) {
             return;
         }
-        this.f33158d = true;
-        if (com.kwad.sdk.core.response.b.c.g(this.f33155a).status == 1 || com.kwad.sdk.core.response.b.c.g(this.f33155a).status == 2 || com.kwad.sdk.core.response.b.c.g(this.f33155a).status == 3) {
+        this.f33087d = true;
+        if (com.kwad.sdk.core.response.b.c.g(this.f33084a).status == 1 || com.kwad.sdk.core.response.b.c.g(this.f33084a).status == 2 || com.kwad.sdk.core.response.b.c.g(this.f33084a).status == 3) {
             return;
         }
-        b bVar = this.f33157c;
-        if ((bVar == null || !bVar.a()) && (interfaceC0377a = this.f33156b) != null) {
-            interfaceC0377a.a();
+        b bVar = this.f33086c;
+        if ((bVar == null || !bVar.a()) && (interfaceC0378a = this.f33085b) != null) {
+            interfaceC0378a.a();
         }
     }
 
     @MainThread
-    public void a(InterfaceC0377a interfaceC0377a) {
-        this.f33156b = interfaceC0377a;
+    public void a(InterfaceC0378a interfaceC0378a) {
+        this.f33085b = interfaceC0378a;
     }
 
     @MainThread
     public void a(b bVar) {
-        this.f33157c = bVar;
+        this.f33086c = bVar;
     }
 }

@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
-import d.a.i0.a.h;
+import d.a.l0.a.h;
 /* loaded from: classes3.dex */
 public class NetworkErrorView extends CommonEmptyView {
 
@@ -15,7 +15,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f11205a;
+        public Object f11106a;
 
         public a(int i2) {
         }
@@ -28,12 +28,12 @@ public class NetworkErrorView extends CommonEmptyView {
 
     public static void c(View view) {
         a aVar = new a(1);
-        aVar.f11205a = view;
+        aVar.f11106a = view;
         BdEventBus.Companion.getDefault().post(aVar);
     }
 
     public final void b() {
-        this.f11177i.setVisibility(0);
+        this.f11078i.setVisibility(0);
         setTitle(getContext().getString(h.swanapp_tip_net_unavailable));
     }
 
@@ -51,15 +51,15 @@ public class NetworkErrorView extends CommonEmptyView {
     }
 
     public void setEmptyButtonVisiblity(int i2) {
-        this.f11177i.setVisibility(i2);
+        this.f11078i.setVisibility(i2);
     }
 
     public void setEmptyViewVisiblity(int i2) {
-        this.f11173e.setVisibility(i2);
+        this.f11074e.setVisibility(i2);
     }
 
     public void setNetworkButtonShow(boolean z) {
-        TextView textView = this.f11176h;
+        TextView textView = this.f11077h;
         if (textView != null) {
             textView.setVisibility(z ? 0 : 4);
         }

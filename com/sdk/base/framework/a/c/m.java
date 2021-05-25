@@ -6,26 +6,26 @@ import java.util.NoSuchElementException;
 public final class m implements Iterator<E> {
 
     /* renamed from: a  reason: collision with root package name */
-    public a<E> f35664a;
+    public a<E> f35593a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a<E> f35665b;
+    public a<E> f35594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public E f35666c;
+    public E f35595c;
 
     /* renamed from: d  reason: collision with root package name */
-    public /* synthetic */ l f35667d;
+    public /* synthetic */ l f35596d;
 
     /* JADX WARN: Type inference failed for: r0v3, types: [E, java.lang.Object] */
     public m(l lVar) {
-        this.f35667d = lVar;
+        this.f35596d = lVar;
         lVar.a();
         try {
-            a aVar = lVar.f35656a.f35627a;
-            this.f35664a = aVar;
+            a aVar = lVar.f35585a.f35556a;
+            this.f35593a = aVar;
             if (aVar != null) {
-                this.f35666c = aVar.b();
+                this.f35595c = aVar.b();
             }
         } finally {
             lVar.b();
@@ -43,9 +43,9 @@ public final class m implements Iterator<E> {
         a aVar2;
         a aVar3;
         while (true) {
-            aVar3 = aVar2.f35627a;
+            aVar3 = aVar2.f35556a;
             if (aVar3 == aVar2) {
-                return this.f35667d.f35656a.f35627a;
+                return this.f35596d.f35585a.f35556a;
             }
             if (aVar3 == null || aVar3.b() != null) {
                 break;
@@ -57,7 +57,7 @@ public final class m implements Iterator<E> {
 
     @Override // java.util.Iterator
     public final boolean hasNext() {
-        return this.f35664a != null;
+        return this.f35593a != null;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: E */
@@ -66,41 +66,41 @@ public final class m implements Iterator<E> {
     /* JADX WARN: Multi-variable type inference failed */
     @Override // java.util.Iterator
     public final E next() {
-        this.f35667d.a();
+        this.f35596d.a();
         try {
-            if (this.f35664a != null) {
-                E e2 = this.f35666c;
-                this.f35665b = this.f35664a;
-                a<E> a2 = a(this.f35664a);
-                this.f35664a = a2;
-                this.f35666c = a2 == 0 ? 0 : a2.b();
+            if (this.f35593a != null) {
+                E e2 = this.f35595c;
+                this.f35594b = this.f35593a;
+                a<E> a2 = a(this.f35593a);
+                this.f35593a = a2;
+                this.f35595c = a2 == 0 ? 0 : a2.b();
                 return e2;
             }
             throw new NoSuchElementException();
         } finally {
-            this.f35667d.b();
+            this.f35596d.b();
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:9:0x001b, code lost:
-        r4.f35667d.a(r1, r2);
+        r4.f35596d.a(r1, r2);
      */
     @Override // java.util.Iterator
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void remove() {
-        if (this.f35665b == null) {
+        if (this.f35594b == null) {
             throw new IllegalStateException();
         }
-        this.f35667d.a();
+        this.f35596d.a();
         try {
-            a aVar = this.f35665b;
-            this.f35665b = null;
-            a aVar2 = this.f35667d.f35656a;
+            a aVar = this.f35594b;
+            this.f35594b = null;
+            a aVar2 = this.f35596d.f35585a;
             while (true) {
                 a aVar3 = aVar2;
-                aVar2 = aVar2.f35627a;
+                aVar2 = aVar2.f35556a;
                 if (aVar2 == null) {
                     break;
                 } else if (aVar2 == aVar) {
@@ -108,7 +108,7 @@ public final class m implements Iterator<E> {
                 }
             }
         } finally {
-            this.f35667d.b();
+            this.f35596d.b();
         }
     }
 }

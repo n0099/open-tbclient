@@ -11,8 +11,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import d.a.d0.a.c.a;
-import d.a.d0.a.h.a;
+import d.a.f0.a.c.a;
+import d.a.f0.a.h.a;
 import io.reactivex.annotations.SchedulerSupport;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -23,16 +23,16 @@ import java.io.InputStream;
 public class MaterialLoader {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile MaterialLoader f10022c = null;
+    public static volatile MaterialLoader f9922c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f10023d = "MaterialLoader";
+    public static final String f9923d = "MaterialLoader";
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10024a;
+    public Context f9924a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.d0.a.e.a f10025b = new a(this);
+    public d.a.f0.a.e.a f9925b = new a(this);
 
     /* loaded from: classes2.dex */
     public enum MaterialCacheType {
@@ -62,19 +62,19 @@ public class MaterialLoader {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements d.a.d0.a.e.a {
+    public class a implements d.a.f0.a.e.a {
         public a(MaterialLoader materialLoader) {
         }
 
-        @Override // d.a.d0.a.e.a
+        @Override // d.a.f0.a.e.a
         public void a(String str, View view, MaterialLoadErrorCode materialLoadErrorCode) {
         }
 
-        @Override // d.a.d0.a.e.a
+        @Override // d.a.f0.a.e.a
         public void onLoadingComplete(String str, View view, Bitmap bitmap) {
         }
 
-        @Override // d.a.d0.a.e.a
+        @Override // d.a.f0.a.e.a
         public void onLoadingStarted(String str, View view) {
         }
     }
@@ -83,21 +83,21 @@ public class MaterialLoader {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f10026e;
+        public final /* synthetic */ ImageView f9926e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f10027f;
+        public final /* synthetic */ Bitmap f9927f;
 
         public b(MaterialLoader materialLoader, ImageView imageView, Bitmap bitmap) {
-            this.f10026e = imageView;
-            this.f10027f = bitmap;
+            this.f9926e = imageView;
+            this.f9927f = bitmap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f10026e.setImageBitmap(this.f10027f);
-            this.f10026e.setBackgroundResource(17170445);
-            this.f10026e.setVisibility(0);
+            this.f9926e.setImageBitmap(this.f9927f);
+            this.f9926e.setBackgroundResource(17170445);
+            this.f9926e.setVisibility(0);
         }
     }
 
@@ -105,41 +105,41 @@ public class MaterialLoader {
     public class c implements a.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MaterialCacheType f10028a;
+        public final /* synthetic */ MaterialCacheType f9928a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10029b;
+        public final /* synthetic */ String f9929b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f10030c;
+        public final /* synthetic */ String f9930c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f10031d;
+        public final /* synthetic */ int f9931d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.d0.a.e.a f10032e;
+        public final /* synthetic */ d.a.f0.a.e.a f9932e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ImageView f10033f;
+        public final /* synthetic */ ImageView f9933f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f10034g;
+        public final /* synthetic */ boolean f9934g;
 
         /* loaded from: classes2.dex */
         public class a implements a.c {
             public a() {
             }
 
-            @Override // d.a.d0.a.c.a.c
+            @Override // d.a.f0.a.c.a.c
             public void onCacheComplete() {
                 c cVar = c.this;
-                cVar.f10032e.onLoadingComplete(cVar.f10029b, null, null);
+                cVar.f9932e.onLoadingComplete(cVar.f9929b, null, null);
             }
 
-            @Override // d.a.d0.a.c.a.c
+            @Override // d.a.f0.a.c.a.c
             public void onCacheFailed() {
                 c cVar = c.this;
-                cVar.f10032e.a(cVar.f10029b, null, MaterialLoadErrorCode.ERROR_CODE_CACHE_ERROR);
+                cVar.f9932e.a(cVar.f9929b, null, MaterialLoadErrorCode.ERROR_CODE_CACHE_ERROR);
             }
         }
 
@@ -148,83 +148,83 @@ public class MaterialLoader {
             public b() {
             }
 
-            @Override // d.a.d0.a.c.a.c
+            @Override // d.a.f0.a.c.a.c
             public void onCacheComplete() {
                 c cVar = c.this;
-                cVar.f10032e.onLoadingComplete(cVar.f10029b, null, null);
+                cVar.f9932e.onLoadingComplete(cVar.f9929b, null, null);
             }
 
-            @Override // d.a.d0.a.c.a.c
+            @Override // d.a.f0.a.c.a.c
             public void onCacheFailed() {
                 c cVar = c.this;
-                cVar.f10032e.a(cVar.f10029b, null, MaterialLoadErrorCode.ERROR_CODE_CACHE_ERROR);
+                cVar.f9932e.a(cVar.f9929b, null, MaterialLoadErrorCode.ERROR_CODE_CACHE_ERROR);
             }
         }
 
         /* renamed from: com.baidu.sdk.container.filedownloader.MaterialLoader$c$c  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0128c implements Runnable {
+        public class RunnableC0129c implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f10038e;
+            public final /* synthetic */ Bitmap f9938e;
 
-            public RunnableC0128c(Bitmap bitmap) {
-                this.f10038e = bitmap;
+            public RunnableC0129c(Bitmap bitmap) {
+                this.f9938e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                ImageView imageView = c.this.f10033f;
+                ImageView imageView = c.this.f9933f;
                 if (imageView != null) {
-                    imageView.setImageBitmap(this.f10038e);
-                    c.this.f10033f.setBackgroundResource(17170445);
-                    c.this.f10033f.setVisibility(0);
+                    imageView.setImageBitmap(this.f9938e);
+                    c.this.f9933f.setBackgroundResource(17170445);
+                    c.this.f9933f.setVisibility(0);
                 }
             }
         }
 
-        public c(MaterialCacheType materialCacheType, String str, String str2, int i2, d.a.d0.a.e.a aVar, ImageView imageView, boolean z) {
-            this.f10028a = materialCacheType;
-            this.f10029b = str;
-            this.f10030c = str2;
-            this.f10031d = i2;
-            this.f10032e = aVar;
-            this.f10033f = imageView;
-            this.f10034g = z;
+        public c(MaterialCacheType materialCacheType, String str, String str2, int i2, d.a.f0.a.e.a aVar, ImageView imageView, boolean z) {
+            this.f9928a = materialCacheType;
+            this.f9929b = str;
+            this.f9930c = str2;
+            this.f9931d = i2;
+            this.f9932e = aVar;
+            this.f9933f = imageView;
+            this.f9934g = z;
         }
 
-        @Override // d.a.d0.a.h.a.c
+        @Override // d.a.f0.a.h.a.c
         public void onFail(String str, int i2) {
-            String str2 = MaterialLoader.f10023d;
+            String str2 = MaterialLoader.f9923d;
             Log.e(str2, "素材请求失败，onFail: " + str);
-            this.f10032e.a(this.f10029b, this.f10033f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
+            this.f9932e.a(this.f9929b, this.f9933f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
         }
 
-        @Override // d.a.d0.a.h.a.c
+        @Override // d.a.f0.a.h.a.c
         public void onSuccess(InputStream inputStream, String str) {
             try {
                 if (inputStream != null) {
-                    if (this.f10028a != MaterialCacheType.VIDEO && !MaterialLoader.this.p(this.f10029b)) {
+                    if (this.f9928a != MaterialCacheType.VIDEO && !MaterialLoader.this.p(this.f9929b)) {
                         BitmapFactory.Options options = new BitmapFactory.Options();
                         options.inPurgeable = true;
                         options.inInputShareable = true;
                         Bitmap decodeStream = BitmapFactory.decodeStream(new d(inputStream), null, options);
                         if (decodeStream != null) {
-                            Bitmap r = !this.f10029b.substring(this.f10029b.lastIndexOf("/") + 1).toUpperCase().contains("PNG") ? MaterialLoader.r(MaterialLoader.s(decodeStream, 100 - (MaterialLoader.this.t(decodeStream) * 10)), MaterialLoader.v(options)) : decodeStream;
+                            Bitmap r = !this.f9929b.substring(this.f9929b.lastIndexOf("/") + 1).toUpperCase().contains("PNG") ? MaterialLoader.r(MaterialLoader.s(decodeStream, 100 - (MaterialLoader.this.t(decodeStream) * 10)), MaterialLoader.v(options)) : decodeStream;
                             if (r != null) {
                                 decodeStream = r;
                             }
                             if (Looper.myLooper() == Looper.getMainLooper()) {
-                                if (this.f10033f != null) {
-                                    this.f10033f.setImageBitmap(decodeStream);
-                                    this.f10033f.setBackgroundResource(17170445);
-                                    this.f10033f.setVisibility(0);
+                                if (this.f9933f != null) {
+                                    this.f9933f.setImageBitmap(decodeStream);
+                                    this.f9933f.setBackgroundResource(17170445);
+                                    this.f9933f.setVisibility(0);
                                 }
                             } else {
-                                new Handler(Looper.getMainLooper()).post(new RunnableC0128c(decodeStream));
+                                new Handler(Looper.getMainLooper()).post(new RunnableC0129c(decodeStream));
                             }
-                            MaterialLoader.this.y(decodeStream, this.f10029b, this.f10034g);
-                            this.f10032e.onLoadingComplete(this.f10029b, this.f10033f, decodeStream);
+                            MaterialLoader.this.y(decodeStream, this.f9929b, this.f9934g);
+                            this.f9932e.onLoadingComplete(this.f9929b, this.f9933f, decodeStream);
                             if (inputStream != null) {
                                 inputStream.close();
                                 return;
@@ -243,10 +243,10 @@ public class MaterialLoader {
                             }
                             byteArrayOutputStream.write(bArr, 0, read);
                         }
-                        if (TextUtils.isEmpty(this.f10030c) || this.f10031d <= 0) {
-                            MaterialLoader.this.w(byteArrayOutputStream.toByteArray(), this.f10029b, new b());
+                        if (TextUtils.isEmpty(this.f9930c) || this.f9931d <= 0) {
+                            MaterialLoader.this.w(byteArrayOutputStream.toByteArray(), this.f9929b, new b());
                         } else {
-                            MaterialLoader.this.x(byteArrayOutputStream.toByteArray(), this.f10029b, this.f10030c, this.f10031d, new a());
+                            MaterialLoader.this.x(byteArrayOutputStream.toByteArray(), this.f9929b, this.f9930c, this.f9931d, new a());
                         }
                         byteArrayOutputStream.flush();
                     } catch (FileNotFoundException e2) {
@@ -260,14 +260,14 @@ public class MaterialLoader {
                     byteArrayOutputStream.close();
                     return;
                 }
-                Log.e(MaterialLoader.f10023d, "素材请求失败，无数据流");
-                this.f10032e.a(this.f10029b, this.f10033f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
+                Log.e(MaterialLoader.f9923d, "素材请求失败，无数据流");
+                this.f9932e.a(this.f9929b, this.f9933f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
             } catch (OutOfMemoryError unused) {
-                Log.e(MaterialLoader.f10023d, "素材请求失败，OOM");
-                this.f10032e.a(this.f10029b, this.f10033f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
+                Log.e(MaterialLoader.f9923d, "素材请求失败，OOM");
+                this.f9932e.a(this.f9929b, this.f9933f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
             } catch (Throwable unused2) {
-                Log.e(MaterialLoader.f10023d, "素材请求失败，解析异常");
-                this.f10032e.a(this.f10029b, this.f10033f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
+                Log.e(MaterialLoader.f9923d, "素材请求失败，解析异常");
+                this.f9932e.a(this.f9929b, this.f9933f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
             }
         }
     }
@@ -296,7 +296,7 @@ public class MaterialLoader {
     }
 
     public MaterialLoader(Context context) {
-        this.f10024a = context.getApplicationContext();
+        this.f9924a = context.getApplicationContext();
     }
 
     public static int j(Bitmap bitmap) {
@@ -311,14 +311,14 @@ public class MaterialLoader {
     }
 
     public static MaterialLoader k(Context context) {
-        if (f10022c == null) {
+        if (f9922c == null) {
             synchronized (MaterialLoader.class) {
-                if (f10022c == null) {
-                    f10022c = new MaterialLoader(context);
+                if (f9922c == null) {
+                    f9922c = new MaterialLoader(context);
                 }
             }
         }
-        return f10022c;
+        return f9922c;
     }
 
     public static Bitmap r(Bitmap bitmap, int i2) {
@@ -376,9 +376,9 @@ public class MaterialLoader {
         return i2;
     }
 
-    public void e(String str, MaterialCacheType materialCacheType, d.a.d0.a.e.a aVar) {
+    public void e(String str, MaterialCacheType materialCacheType, d.a.f0.a.e.a aVar) {
         if (aVar == null) {
-            aVar = this.f10025b;
+            aVar = this.f9925b;
         }
         if (o(str, materialCacheType)) {
             aVar.onLoadingComplete(str, null, materialCacheType == MaterialCacheType.PICTURE ? u(str) : null);
@@ -387,7 +387,7 @@ public class MaterialLoader {
         }
     }
 
-    public void f(String str, d.a.d0.a.e.a aVar) {
+    public void f(String str, d.a.f0.a.e.a aVar) {
         if (p(str)) {
             e(str, MaterialCacheType.VIDEO, aVar);
         } else {
@@ -395,19 +395,19 @@ public class MaterialLoader {
         }
     }
 
-    public final void g(String str, ImageView imageView, MaterialCacheType materialCacheType, d.a.d0.a.e.a aVar) {
+    public final void g(String str, ImageView imageView, MaterialCacheType materialCacheType, d.a.f0.a.e.a aVar) {
         h(str, imageView, materialCacheType, false, null, 0, aVar);
     }
 
-    public final void h(String str, ImageView imageView, MaterialCacheType materialCacheType, boolean z, String str2, int i2, d.a.d0.a.e.a aVar) {
-        d.a.d0.a.h.a aVar2 = new d.a.d0.a.h.a(1, str);
+    public final void h(String str, ImageView imageView, MaterialCacheType materialCacheType, boolean z, String str2, int i2, d.a.f0.a.e.a aVar) {
+        d.a.f0.a.h.a aVar2 = new d.a.f0.a.h.a(1, str);
         aVar2.c(new c(materialCacheType, str, str2, i2, aVar, imageView, z));
         aVar2.d();
     }
 
-    public Bitmap i(String str, d.a.d0.a.e.a aVar) {
+    public Bitmap i(String str, d.a.f0.a.e.a aVar) {
         if (aVar == null) {
-            aVar = this.f10025b;
+            aVar = this.f9925b;
         }
         if (n(str)) {
             return u(str);
@@ -424,7 +424,7 @@ public class MaterialLoader {
     }
 
     public String m(String str, MaterialCacheType materialCacheType) {
-        return d.a.d0.a.c.a.e(this.f10024a).d(str, materialCacheType);
+        return d.a.f0.a.c.a.e(this.f9924a).d(str, materialCacheType);
     }
 
     public boolean n(String str) {
@@ -435,17 +435,17 @@ public class MaterialLoader {
     }
 
     public boolean o(String str, MaterialCacheType materialCacheType) {
-        return d.a.d0.a.c.a.e(this.f10024a).f(str, materialCacheType);
+        return d.a.f0.a.c.a.e(this.f9924a).f(str, materialCacheType);
     }
 
     public boolean p(String str) {
         return str.indexOf(".mp4") > 0 || str.indexOf(".gif") > 0;
     }
 
-    public void q(ImageView imageView, String str, d.a.d0.a.e.a aVar) {
+    public void q(ImageView imageView, String str, d.a.f0.a.e.a aVar) {
         if (aVar == null) {
             try {
-                aVar = this.f10025b;
+                aVar = this.f9925b;
             } catch (Throwable unused) {
                 aVar.a(str, imageView, MaterialLoadErrorCode.ERROR_CODE_PARSE_ERROR);
                 return;
@@ -486,18 +486,18 @@ public class MaterialLoader {
     }
 
     public final Bitmap u(String str) {
-        return d.a.d0.a.c.a.e(this.f10024a).j(str);
+        return d.a.f0.a.c.a.e(this.f9924a).j(str);
     }
 
     public final void w(byte[] bArr, String str, a.c cVar) {
-        d.a.d0.a.c.a.e(this.f10024a).n(str, bArr, MaterialCacheType.VIDEO, false, cVar);
+        d.a.f0.a.c.a.e(this.f9924a).n(str, bArr, MaterialCacheType.VIDEO, false, cVar);
     }
 
     public final void x(byte[] bArr, String str, String str2, int i2, a.c cVar) {
-        d.a.d0.a.c.a.e(this.f10024a).o(str, bArr, str2, i2, false, cVar);
+        d.a.f0.a.c.a.e(this.f9924a).o(str, bArr, str2, i2, false, cVar);
     }
 
     public final void y(Bitmap bitmap, String str, boolean z) {
-        d.a.d0.a.c.a.e(this.f10024a).l(str, bitmap, z);
+        d.a.f0.a.c.a.e(this.f9924a).l(str, bitmap, z);
     }
 }

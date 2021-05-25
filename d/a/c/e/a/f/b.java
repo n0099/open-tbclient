@@ -11,12 +11,12 @@ import java.io.ByteArrayInputStream;
 public class b extends c {
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f38772f;
+    public Rect f38436f;
 
     public b(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
-        this.f38772f = null;
-        this.f38772f = new Rect();
+        this.f38436f = null;
+        this.f38436f = new Rect();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:30:0x0077 A[RETURN] */
@@ -27,15 +27,15 @@ public class b extends c {
     */
     public boolean formatData(byte[] bArr) {
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.f38775c.b(bArr)) {
-            long j = this.f38775c.f38781b;
+        if (bArr != null && this.f38439c.b(bArr)) {
+            long j = this.f38439c.f38445b;
             if (j == 0 || j >= System.currentTimeMillis()) {
-                if (this.f38774b == null) {
+                if (this.f38438b == null) {
                     BitmapFactory.Options options = new BitmapFactory.Options();
-                    this.f38774b = options;
+                    this.f38438b = options;
                     options.inDither = false;
                     int i2 = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                    BitmapFactory.Options options2 = this.f38774b;
+                    BitmapFactory.Options options2 = this.f38438b;
                     options2.inScreenDensity = i2;
                     options2.inTargetDensity = i2;
                     options2.inDensity = i2;
@@ -52,14 +52,14 @@ public class b extends c {
                     e = e2;
                 }
                 try {
-                    this.f38773a = BitmapFactory.decodeStream(byteArrayInputStream, this.f38772f, this.f38774b);
+                    this.f38437a = BitmapFactory.decodeStream(byteArrayInputStream, this.f38436f, this.f38438b);
                     d.a.c.e.m.a.c(byteArrayInputStream);
                 } catch (Error e3) {
                     e = e3;
                     byteArrayInputStream2 = byteArrayInputStream;
                     BdLog.e(e.getMessage());
                     d.a.c.e.m.a.c(byteArrayInputStream2);
-                    if (this.f38773a == null) {
+                    if (this.f38437a == null) {
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -67,13 +67,13 @@ public class b extends c {
                     d.a.c.e.m.a.c(byteArrayInputStream2);
                     throw th;
                 }
-                return this.f38773a == null;
+                return this.f38437a == null;
             }
         }
         return false;
     }
 
     public Rect g() {
-        return this.f38772f;
+        return this.f38436f;
     }
 }

@@ -13,30 +13,30 @@ import com.baidu.afd.videopaster.view.VideoPasterOverlayView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.a.d.m.f.a;
-import d.a.k0.s2.y;
+import d.a.n0.t2.y;
 /* loaded from: classes.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f39736a;
+    public ViewGroup f39552a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPasterContentView f39737b;
+    public VideoPasterContentView f39553b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f39738c;
+    public View f39554c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.d.m.f.a f39739d;
+    public d.a.d.m.f.a f39555d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InterfaceC0517d f39740e;
+    public InterfaceC0517d f39556e;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.d.m.e.a f39742g;
+    public d.a.d.m.e.a f39558g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f39743h;
+    public Context f39559h;
     public String j;
     public int k;
     public int l;
@@ -44,12 +44,12 @@ public class d {
     public int n;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f39744i = false;
+    public boolean f39560i = false;
     public boolean o = false;
     public boolean p = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.d.m.g.b f39741f = new d.a.d.m.g.b();
+    public d.a.d.m.g.b f39557f = new d.a.d.m.g.b();
 
     /* loaded from: classes.dex */
     public class a implements a.b {
@@ -58,12 +58,12 @@ public class d {
 
         @Override // d.a.d.m.f.a.b
         public void a(int i2, String str) {
-            d.this.f39742g = null;
+            d.this.f39558g = null;
         }
 
         @Override // d.a.d.m.f.a.b
         public void b(d.a.d.m.e.a aVar) {
-            d.this.f39742g = aVar;
+            d.this.f39558g = aVar;
             d.this.z(aVar);
         }
     }
@@ -75,10 +75,10 @@ public class d {
 
         @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.b
         public void a() {
-            d.this.f39741f.j(d.this.q());
-            d.a.k0.j1.o.h.c.h(d.this.f39742g);
-            if (d.this.f39742g != null) {
-                int d2 = y.d(d.this.f39743h, d.this.f39742g.f39752i, d.this.f39742g.f39750g, d.this.f39742g.q);
+            d.this.f39557f.j(d.this.q());
+            d.a.n0.k1.o.h.c.h(d.this.f39558g);
+            if (d.this.f39558g != null) {
+                int d2 = y.d(d.this.f39559h, d.this.f39558g.f39568i, d.this.f39558g.f39566g, d.this.f39558g.q);
                 d dVar = d.this;
                 dVar.A(dVar.q(), d2);
             }
@@ -86,9 +86,9 @@ public class d {
 
         @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.b
         public void b() {
-            d.this.f39741f.k(d.this.q());
-            if (d.this.f39740e != null) {
-                d.this.f39740e.b();
+            d.this.f39557f.k(d.this.q());
+            if (d.this.f39556e != null) {
+                d.this.f39556e.b();
             }
         }
 
@@ -96,15 +96,15 @@ public class d {
         public void c() {
             d.this.o = true;
             d.this.u();
-            d.this.f39741f.g(d.this.q());
+            d.this.f39557f.g(d.this.q());
         }
 
         @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.b
         public void d() {
-            d.this.f39741f.e(d.this.q());
-            d.a.k0.j1.o.h.c.h(d.this.f39742g);
-            if (d.this.f39742g != null) {
-                int d2 = y.d(d.this.f39743h, d.this.f39742g.f39752i, d.this.f39742g.f39750g, d.this.f39742g.q);
+            d.this.f39557f.e(d.this.q());
+            d.a.n0.k1.o.h.c.h(d.this.f39558g);
+            if (d.this.f39558g != null) {
+                int d2 = y.d(d.this.f39559h, d.this.f39558g.f39568i, d.this.f39558g.f39566g, d.this.f39558g.q);
                 d dVar = d.this;
                 dVar.A(dVar.q(), d2);
             }
@@ -112,10 +112,10 @@ public class d {
 
         @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.b
         public void onClickAd() {
-            d.this.f39741f.b(d.this.q());
-            d.a.k0.j1.o.h.c.h(d.this.f39742g);
-            if (d.this.f39742g != null) {
-                int d2 = y.d(d.this.f39743h, d.this.f39742g.f39752i, d.this.f39742g.f39750g, d.this.f39742g.q);
+            d.this.f39557f.b(d.this.q());
+            d.a.n0.k1.o.h.c.h(d.this.f39558g);
+            if (d.this.f39558g != null) {
+                int d2 = y.d(d.this.f39559h, d.this.f39558g.f39568i, d.this.f39558g.f39566g, d.this.f39558g.q);
                 d dVar = d.this;
                 dVar.A(dVar.q(), d2);
             }
@@ -130,8 +130,8 @@ public class d {
         @Override // com.baidu.afd.videopaster.view.VideoPasterContentView.i
         public void a() {
             d.this.v();
-            if (d.this.f39740e != null) {
-                d.this.f39740e.a();
+            if (d.this.f39556e != null) {
+                d.this.f39556e.a();
             }
         }
 
@@ -139,7 +139,7 @@ public class d {
         public void onDetachedFromWindow() {
             int i2;
             boolean z = true;
-            if (d.this.f39737b.s()) {
+            if (d.this.f39553b.s()) {
                 i2 = 0;
             } else if (d.this.o) {
                 d.this.o = false;
@@ -147,13 +147,13 @@ public class d {
             } else {
                 i2 = 2;
             }
-            if (d.this.f39740e != null) {
+            if (d.this.f39556e != null) {
                 if (i2 == 0 || i2 == 1) {
                     d.this.M(i2);
                 } else {
                     z = false;
                 }
-                if (d.this.f39740e.d()) {
+                if (d.this.f39556e.d()) {
                     return;
                 }
                 if (d.this.p) {
@@ -179,52 +179,52 @@ public class d {
     }
 
     public d(Context context, ViewGroup viewGroup) {
-        this.f39743h = context;
-        this.f39736a = viewGroup;
+        this.f39559h = context;
+        this.f39552a = viewGroup;
         d.a.d.m.f.a aVar = new d.a.d.m.f.a();
-        this.f39739d = aVar;
+        this.f39555d = aVar;
         aVar.j(new a());
         VideoPasterContentView videoPasterContentView = new VideoPasterContentView(context);
-        this.f39737b = videoPasterContentView;
+        this.f39553b = videoPasterContentView;
         videoPasterContentView.setOverlayViewCallback(new b());
-        this.f39737b.setContentViewCallback(new c());
-        View view = new View(this.f39743h);
-        this.f39738c = view;
+        this.f39553b.setContentViewCallback(new c());
+        View view = new View(this.f39559h);
+        this.f39554c = view;
         view.setBackgroundResource(R.color.black_alpha100);
     }
 
     public final void A(d.a.d.m.g.a aVar, int i2) {
         if (y.p(i2)) {
-            this.f39741f.l(aVar, i2);
+            this.f39557f.l(aVar, i2);
         }
     }
 
     public void B() {
         C();
-        this.f39744i = false;
+        this.f39560i = false;
     }
 
     public final void C() {
-        this.f39739d.i();
-        this.f39737b.x();
-        this.f39736a.removeView(this.f39737b);
-        this.f39736a.removeView(this.f39738c);
+        this.f39555d.i();
+        this.f39553b.x();
+        this.f39552a.removeView(this.f39553b);
+        this.f39552a.removeView(this.f39554c);
     }
 
     public void D(int i2) {
-        VideoPasterContentView videoPasterContentView = this.f39737b;
+        VideoPasterContentView videoPasterContentView = this.f39553b;
         if (videoPasterContentView != null) {
             videoPasterContentView.z(i2);
         }
     }
 
     public void E() {
-        this.f39737b.A();
+        this.f39553b.A();
         if (s()) {
-            int curDuration = this.f39737b.getCurDuration();
+            int curDuration = this.f39553b.getCurDuration();
             this.k = curDuration;
             this.m = curDuration;
-            this.f39741f.h(q());
+            this.f39557f.h(q());
         }
     }
 
@@ -233,16 +233,16 @@ public class d {
     }
 
     public void G(InterfaceC0517d interfaceC0517d) {
-        this.f39740e = interfaceC0517d;
+        this.f39556e = interfaceC0517d;
     }
 
     public final boolean H() {
-        VideoPasterContentView videoPasterContentView = this.f39737b;
+        VideoPasterContentView videoPasterContentView = this.f39553b;
         if (videoPasterContentView != null) {
             int[] iArr = new int[2];
             videoPasterContentView.getLocationOnScreen(iArr);
             int i2 = iArr[1];
-            if (UtilHelper.getRealScreenOrientation(this.f39743h) == 1 && i2 == 0 && TextUtils.equals(this.j, "VIDEO_LIST")) {
+            if (UtilHelper.getRealScreenOrientation(this.f39559h) == 1 && i2 == 0 && TextUtils.equals(this.j, "VIDEO_LIST")) {
                 return true;
             }
         }
@@ -250,47 +250,47 @@ public class d {
     }
 
     public boolean I(boolean z, boolean z2, String str) {
-        if (this.f39739d.f()) {
+        if (this.f39555d.f()) {
             return false;
         }
-        this.f39744i = z2;
+        this.f39560i = z2;
         this.j = str;
-        VideoPasterResponseData e2 = this.f39739d.e();
+        VideoPasterResponseData e2 = this.f39555d.e();
         if (e2 == null) {
             return false;
         }
         d.a.d.m.e.a pasterData = e2.getPasterData();
         if (pasterData == null) {
-            this.f39739d.i();
+            this.f39555d.i();
             return false;
         } else if (pasterData.c()) {
-            this.f39741f.i(q());
-            this.f39739d.i();
+            this.f39557f.i(q());
+            this.f39555d.i();
             return false;
         } else if (!pasterData.d()) {
-            this.f39739d.i();
+            this.f39555d.i();
             return false;
         } else {
-            this.f39736a.removeView(this.f39738c);
-            this.f39736a.addView(this.f39738c);
-            this.f39736a.removeView(this.f39737b);
-            this.f39736a.addView(this.f39737b);
-            ViewGroup viewGroup = this.f39736a;
+            this.f39552a.removeView(this.f39554c);
+            this.f39552a.addView(this.f39554c);
+            this.f39552a.removeView(this.f39553b);
+            this.f39552a.addView(this.f39553b);
+            ViewGroup viewGroup = this.f39552a;
             if (viewGroup instanceof FrameLayout) {
-                this.f39737b.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
+                this.f39553b.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
             } else if (viewGroup instanceof RelativeLayout) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams.addRule(13);
-                this.f39737b.setLayoutParams(layoutParams);
+                this.f39553b.setLayoutParams(layoutParams);
             }
-            this.f39737b.setData(pasterData);
-            this.k = this.f39737b.getCurDuration();
+            this.f39553b.setData(pasterData);
+            this.k = this.f39553b.getCurDuration();
             if (!r()) {
-                this.f39741f.i(q());
-                d.a.k0.j1.o.h.c.g(this.f39742g);
+                this.f39557f.i(q());
+                d.a.n0.k1.o.h.c.g(this.f39558g);
             }
-            this.f39737b.E(z, z2, str);
-            InterfaceC0517d interfaceC0517d = this.f39740e;
+            this.f39553b.E(z, z2, str);
+            InterfaceC0517d interfaceC0517d = this.f39556e;
             if (interfaceC0517d != null) {
                 interfaceC0517d.c();
                 return true;
@@ -300,61 +300,61 @@ public class d {
     }
 
     public void J() {
-        VideoPasterContentView videoPasterContentView = this.f39737b;
+        VideoPasterContentView videoPasterContentView = this.f39553b;
         if (videoPasterContentView != null) {
             videoPasterContentView.B();
         }
     }
 
     public void K(d.a.d.m.a aVar) {
-        d.a.d.m.f.a aVar2 = this.f39739d;
-        if (aVar2 == null || aVar2.f() || this.f39739d.e() != null || aVar == null) {
+        d.a.d.m.f.a aVar2 = this.f39555d;
+        if (aVar2 == null || aVar2.f() || this.f39555d.e() != null || aVar == null) {
             return;
         }
         this.n = aVar.b() + 1;
-        this.f39739d.g(new VideoPasterRequestData(aVar));
+        this.f39555d.g(new VideoPasterRequestData(aVar));
     }
 
     public void L() {
-        this.l = this.f39737b.getCurDuration();
+        this.l = this.f39553b.getCurDuration();
         if (s() && !H()) {
-            this.f39741f.g(q());
+            this.f39557f.g(q());
         }
-        this.f39737b.D();
+        this.f39553b.D();
     }
 
     public final void M(int i2) {
-        this.f39741f.c(q(), i2);
+        this.f39557f.c(q(), i2);
         if (TextUtils.equals(this.j, "VIDEO_LIST") && i2 == 2) {
-            this.f39741f.g(q());
+            this.f39557f.g(q());
         }
     }
 
     public boolean a() {
-        return this.f39744i;
+        return this.f39560i;
     }
 
     public d.a.d.m.g.a q() {
         d.a.d.m.g.a aVar = new d.a.d.m.g.a();
-        aVar.f39769g = this.k;
-        aVar.f39767e = this.f39737b.getTotalDuration();
-        aVar.f39768f = this.f39737b.getCurDuration();
-        aVar.f39765c = this.n;
-        if (UtilHelper.getRealScreenOrientation(this.f39743h) == 1) {
-            aVar.f39770h = 0;
-        } else if (UtilHelper.getRealScreenOrientation(this.f39743h) == 2) {
-            aVar.f39770h = 1;
-        } else if (UtilHelper.getRealScreenOrientation(this.f39743h) == 0) {
-            aVar.f39770h = 2;
+        aVar.f39585g = this.k;
+        aVar.f39583e = this.f39553b.getTotalDuration();
+        aVar.f39584f = this.f39553b.getCurDuration();
+        aVar.f39581c = this.n;
+        if (UtilHelper.getRealScreenOrientation(this.f39559h) == 1) {
+            aVar.f39586h = 0;
+        } else if (UtilHelper.getRealScreenOrientation(this.f39559h) == 2) {
+            aVar.f39586h = 1;
+        } else if (UtilHelper.getRealScreenOrientation(this.f39559h) == 0) {
+            aVar.f39586h = 2;
         } else {
-            aVar.f39770h = -1;
+            aVar.f39586h = -1;
         }
-        d.a.d.m.e.a aVar2 = this.f39742g;
+        d.a.d.m.e.a aVar2 = this.f39558g;
         if (aVar2 != null) {
-            aVar.f39771i = aVar2.a();
-            d.a.d.m.e.a aVar3 = this.f39742g;
-            aVar.j = aVar3.f39749f;
-            aVar.f39766d = aVar3.q;
+            aVar.f39587i = aVar2.a();
+            d.a.d.m.e.a aVar3 = this.f39558g;
+            aVar.j = aVar3.f39565f;
+            aVar.f39582d = aVar3.q;
             aVar.k = aVar3.s;
             aVar.l = aVar3.t;
         }
@@ -362,44 +362,44 @@ public class d {
     }
 
     public boolean r() {
-        return this.f39737b.q();
+        return this.f39553b.q();
     }
 
     public boolean s() {
-        return this.f39737b.r();
+        return this.f39553b.r();
     }
 
     public boolean t() {
-        VideoPasterContentView videoPasterContentView = this.f39737b;
+        VideoPasterContentView videoPasterContentView = this.f39553b;
         return videoPasterContentView != null && videoPasterContentView.t();
     }
 
     public final void u() {
         C();
-        InterfaceC0517d interfaceC0517d = this.f39740e;
+        InterfaceC0517d interfaceC0517d = this.f39556e;
         if (interfaceC0517d != null) {
             interfaceC0517d.a();
         }
     }
 
     public final void v() {
-        this.f39741f.f(q());
+        this.f39557f.f(q());
         C();
     }
 
     public void w() {
-        this.f39739d.h();
+        this.f39555d.h();
     }
 
     public void x() {
-        VideoPasterContentView videoPasterContentView = this.f39737b;
+        VideoPasterContentView videoPasterContentView = this.f39553b;
         if (videoPasterContentView != null) {
             videoPasterContentView.v();
         }
     }
 
     public void y() {
-        VideoPasterContentView videoPasterContentView = this.f39737b;
+        VideoPasterContentView videoPasterContentView = this.f39553b;
         if (videoPasterContentView != null) {
             videoPasterContentView.w();
         }
@@ -409,6 +409,6 @@ public class d {
         if (aVar == null || !aVar.r) {
             return;
         }
-        this.f39741f.d(q());
+        this.f39557f.d(q());
     }
 }

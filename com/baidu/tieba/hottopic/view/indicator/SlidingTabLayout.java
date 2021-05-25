@@ -18,19 +18,19 @@ import java.util.List;
 public class SlidingTabLayout extends HorizontalScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17002e;
+    public int f16912e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewPager f17003f;
+    public ViewPager f16913f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewPager.OnPageChangeListener f17004g;
+    public ViewPager.OnPageChangeListener f16914g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17005h;
+    public int f16915h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final SlidingTabStrip f17006i;
+    public final SlidingTabStrip f16916i;
     public c j;
     public List<TabItemView> k;
 
@@ -38,42 +38,42 @@ public class SlidingTabLayout extends HorizontalScrollView {
     public class b implements ViewPager.OnPageChangeListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f17007e;
+        public int f16917e;
 
         public b() {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
-            this.f17007e = i2;
-            if (SlidingTabLayout.this.f17004g != null) {
-                SlidingTabLayout.this.f17004g.onPageScrollStateChanged(i2);
+            this.f16917e = i2;
+            if (SlidingTabLayout.this.f16914g != null) {
+                SlidingTabLayout.this.f16914g.onPageScrollStateChanged(i2);
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i2, float f2, int i3) {
             int childCount;
-            if (f2 >= 0.0f && (childCount = SlidingTabLayout.this.f17006i.getChildCount()) != 0 && i2 >= 0 && i2 < childCount) {
-                SlidingTabLayout.this.f17006i.b(i2, f2);
-                View childAt = SlidingTabLayout.this.f17006i.getChildAt(i2);
+            if (f2 >= 0.0f && (childCount = SlidingTabLayout.this.f16916i.getChildCount()) != 0 && i2 >= 0 && i2 < childCount) {
+                SlidingTabLayout.this.f16916i.b(i2, f2);
+                View childAt = SlidingTabLayout.this.f16916i.getChildAt(i2);
                 SlidingTabLayout.this.l(i2, childAt != null ? (int) (childAt.getWidth() * f2) : 0);
-                if (SlidingTabLayout.this.f17004g != null) {
-                    SlidingTabLayout.this.f17004g.onPageScrolled(i2, f2, i3);
+                if (SlidingTabLayout.this.f16914g != null) {
+                    SlidingTabLayout.this.f16914g.onPageScrolled(i2, f2, i3);
                 }
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
-            int i3 = SlidingTabLayout.this.f17005h;
-            SlidingTabLayout.this.f17006i.f(i2, SlidingTabLayout.this.f17005h);
-            SlidingTabLayout.this.f17005h = i2;
-            if (this.f17007e == 0) {
+            int i3 = SlidingTabLayout.this.f16915h;
+            SlidingTabLayout.this.f16916i.f(i2, SlidingTabLayout.this.f16915h);
+            SlidingTabLayout.this.f16915h = i2;
+            if (this.f16917e == 0) {
                 SlidingTabLayout.this.m(i3, i2);
             }
-            if (SlidingTabLayout.this.f17004g != null) {
-                SlidingTabLayout.this.f17004g.onPageSelected(i2);
+            if (SlidingTabLayout.this.f16914g != null) {
+                SlidingTabLayout.this.f16914g.onPageSelected(i2);
             }
         }
     }
@@ -82,35 +82,35 @@ public class SlidingTabLayout extends HorizontalScrollView {
     public class c extends Animation {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f17009e;
+        public int f16919e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f17010f;
+        public int f16920f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f17011g;
+        public int f16921g;
 
         public c() {
         }
 
         public void a(int i2, int i3) {
-            this.f17009e = i2;
-            this.f17010f = i3;
+            this.f16919e = i2;
+            this.f16920f = i3;
         }
 
         @Override // android.view.animation.Animation
         public void applyTransformation(float f2, Transformation transformation) {
             super.applyTransformation(f2, transformation);
-            int i2 = this.f17010f;
-            int i3 = this.f17009e;
+            int i2 = this.f16920f;
+            int i3 = this.f16919e;
             SlidingTabLayout.this.scrollTo((int) (i3 + ((i2 - i3) * f2)), 0);
-            if (SlidingTabLayout.this.f17006i != null) {
-                SlidingTabLayout.this.f17006i.e(this.f17011g, f2);
+            if (SlidingTabLayout.this.f16916i != null) {
+                SlidingTabLayout.this.f16916i.e(this.f16921g, f2);
             }
         }
 
         public void b(int i2) {
-            this.f17011g = i2;
+            this.f16921g = i2;
         }
     }
 
@@ -121,12 +121,12 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (SlidingTabLayout.this.f17006i == null) {
+            if (SlidingTabLayout.this.f16916i == null) {
                 return;
             }
-            for (int i2 = 0; i2 < SlidingTabLayout.this.f17006i.getChildCount(); i2++) {
-                if (view == SlidingTabLayout.this.f17006i.getChildAt(i2)) {
-                    SlidingTabLayout.this.f17003f.setCurrentItem(i2, false);
+            for (int i2 = 0; i2 < SlidingTabLayout.this.f16916i.getChildCount(); i2++) {
+                if (view == SlidingTabLayout.this.f16916i.getChildAt(i2)) {
+                    SlidingTabLayout.this.f16913f.setCurrentItem(i2, false);
                     return;
                 }
             }
@@ -154,23 +154,23 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
     public final int i(int i2, int i3) {
         View childAt;
-        int childCount = this.f17006i.getChildCount();
-        if (childCount == 0 || i2 < 0 || i2 >= childCount || (childAt = this.f17006i.getChildAt(i2)) == null) {
+        int childCount = this.f16916i.getChildCount();
+        if (childCount == 0 || i2 < 0 || i2 >= childCount || (childAt = this.f16916i.getChildAt(i2)) == null) {
             return 0;
         }
         int left = childAt.getLeft() + i3;
-        return (i2 > 0 || i3 > 0) ? left - this.f17002e : left;
+        return (i2 > 0 || i3 > 0) ? left - this.f16912e : left;
     }
 
     public void j(int i2) {
-        SlidingTabStrip slidingTabStrip = this.f17006i;
+        SlidingTabStrip slidingTabStrip = this.f16916i;
         if (slidingTabStrip != null) {
             slidingTabStrip.d(i2);
         }
     }
 
     public final void k() {
-        PagerAdapter adapter = this.f17003f.getAdapter();
+        PagerAdapter adapter = this.f16913f.getAdapter();
         d dVar = new d();
         this.k.clear();
         for (int i2 = 0; i2 < adapter.getCount(); i2++) {
@@ -179,7 +179,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
             TextView textView = h2.getTextView();
             textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(((Object) adapter.getPageTitle(i2)) + "", 8, null));
             h2.setOnClickListener(dVar);
-            this.f17006i.addView(h2);
+            this.f16916i.addView(h2);
         }
     }
 
@@ -206,26 +206,26 @@ public class SlidingTabLayout extends HorizontalScrollView {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        ViewPager viewPager = this.f17003f;
+        ViewPager viewPager = this.f16913f;
         if (viewPager != null) {
             l(viewPager.getCurrentItem(), 0);
         }
     }
 
     public void setDrawBottomLine(boolean z) {
-        SlidingTabStrip slidingTabStrip = this.f17006i;
+        SlidingTabStrip slidingTabStrip = this.f16916i;
         if (slidingTabStrip != null) {
             slidingTabStrip.setDrawBottomLine(z);
         }
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.f17004g = onPageChangeListener;
+        this.f16914g = onPageChangeListener;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.f17006i.removeAllViews();
-        this.f17003f = viewPager;
+        this.f16916i.removeAllViews();
+        this.f16913f = viewPager;
         if (viewPager != null) {
             viewPager.setOnPageChangeListener(new b());
             k();
@@ -238,13 +238,13 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
     public SlidingTabLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f17005h = 0;
+        this.f16915h = 0;
         this.k = new ArrayList();
         setHorizontalScrollBarEnabled(false);
         setFillViewport(true);
-        this.f17002e = (int) (getResources().getDisplayMetrics().density * 24.0f);
+        this.f16912e = (int) (getResources().getDisplayMetrics().density * 24.0f);
         SlidingTabStrip slidingTabStrip = new SlidingTabStrip(context);
-        this.f17006i = slidingTabStrip;
+        this.f16916i = slidingTabStrip;
         addView(slidingTabStrip, -1, -2);
     }
 }

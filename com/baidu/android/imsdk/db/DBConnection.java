@@ -57,6 +57,32 @@ public class DBConnection extends SQLiteOpenHelper {
         }
     }
 
+    /* loaded from: classes.dex */
+    public class Version49And50Handler implements DBVersionManager.VersionHandler {
+        public Version49And50Handler() {
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN group_notice TEXT");
+                sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN group_desc TEXT");
+                sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN local_members_version LONG DEFAULT '0'");
+                sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN groupinfo_version LONG DEFAULT '0'");
+                sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN local_groupinfo_version LONG DEFAULT '0'");
+                sQLiteDatabase.execSQL("ALTER TABLE groupmember ADD COLUMN avatar TEXT");
+            } catch (Exception e2) {
+                new IMTrack.CrashBuilder(DBConnection.this.mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:49->50", e2);
+            }
+            Log.d(LogUtils.TAG, "DBConnection onUpgrade:49->50");
+        }
+    }
+
     public DBConnection(Context context, String str, int i2) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
         this.mContext = context;
@@ -144,9 +170,13 @@ public class DBConnection extends SQLiteOpenHelper {
             new Version27And28Handler().onUpgrade(sQLiteDatabase, i2, i3);
             i2 = 28;
         }
-        if (i2 > 47 || i3 < 48) {
+        if (i2 <= 47 && i3 >= 48) {
+            new Version47And48Handler().onUpgrade(sQLiteDatabase, i2, i3);
+            i2 = 48;
+        }
+        if (i2 > 49 || i3 < 50) {
             return;
         }
-        new Version47And48Handler().onUpgrade(sQLiteDatabase, i2, i3);
+        new Version49And50Handler().onUpgrade(sQLiteDatabase, i2, i3);
     }
 }

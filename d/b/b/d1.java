@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import d.b.b.g1;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class d1 implements g1 {
     @Override // d.b.b.g1
     public boolean a(Context context) {
@@ -39,7 +39,7 @@ public final class d1 implements g1 {
             }
             if (call.getInt("code", -1) == 0) {
                 g1.a aVar = new g1.a();
-                aVar.f64980a = call.getString("id");
+                aVar.f65023a = call.getString("id");
                 return aVar;
             }
             String string = call.getString("message");

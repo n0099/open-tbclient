@@ -14,10 +14,10 @@ import java.util.List;
 public class StickerModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.k0.v3.u.l.a f22193e;
+    public d.a.n0.w3.u.l.a f22122e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f22194f;
+    public d.a.c.c.g.a f22123f;
 
     /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.a {
@@ -38,8 +38,8 @@ public class StickerModel extends BdBaseModel {
                 } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                     list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                 }
-                if (StickerModel.this.f22193e != null) {
-                    StickerModel.this.f22193e.e(list);
+                if (StickerModel.this.f22122e != null) {
+                    StickerModel.this.f22122e.e(list);
                 }
             }
         }
@@ -48,15 +48,15 @@ public class StickerModel extends BdBaseModel {
     public StickerModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         a aVar = new a(CmdConfigHttp.CMD_GET_STICKET_LIST, 309475);
-        this.f22194f = aVar;
+        this.f22123f = aVar;
         registerListener(aVar);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         if (j.A()) {
-            d.a.k0.d3.d0.a.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-            d.a.k0.d3.d0.a.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+            d.a.n0.e3.d0.a.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+            d.a.n0.e3.d0.a.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
             RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
             requestGetStickerMessage.setTag(this.unique_id);
             sendMessage(requestGetStickerMessage);
@@ -75,7 +75,7 @@ public class StickerModel extends BdBaseModel {
         cancelLoadData();
     }
 
-    public void t(d.a.k0.v3.u.l.a aVar) {
-        this.f22193e = aVar;
+    public void t(d.a.n0.w3.u.l.a aVar) {
+        this.f22122e = aVar;
     }
 }

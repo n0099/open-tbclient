@@ -5,23 +5,23 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, Class<?>> f34803a = new HashMap<>();
+    public static HashMap<String, Class<?>> f34732a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f34804b;
+    public Class<?> f34733b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34805c;
+    public String f34734c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f34806d;
+    public Object f34735d;
 
     public a(Object obj) {
-        this.f34806d = obj;
+        this.f34735d = obj;
     }
 
     public a(String str) {
-        this.f34805c = str;
+        this.f34734c = str;
     }
 
     public static a a(Object obj) {
@@ -41,18 +41,18 @@ public class a {
     }
 
     public Class<?> a() throws ClassNotFoundException {
-        Class<?> cls = this.f34804b;
+        Class<?> cls = this.f34733b;
         if (cls != null) {
             return cls;
         }
-        Object obj = this.f34806d;
+        Object obj = this.f34735d;
         if (obj != null) {
             return obj.getClass();
         }
-        Class<?> cls2 = f34803a.get(this.f34805c);
+        Class<?> cls2 = f34732a.get(this.f34734c);
         if (cls2 == null) {
-            Class<?> cls3 = Class.forName(this.f34805c);
-            f34803a.put(this.f34805c, cls3);
+            Class<?> cls3 = Class.forName(this.f34734c);
+            f34732a.put(this.f34734c, cls3);
             return cls3;
         }
         return cls2;

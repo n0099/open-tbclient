@@ -8,14 +8,14 @@ import com.baidu.tieba.R;
 public class GameRankListViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public GameRankHorizontalLayout f15551a;
+    public GameRankHorizontalLayout f15454a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15552b;
+    public TextView f15455b;
 
     public GameRankListViewHolder(View view) {
         super(view);
-        this.f15551a = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
-        this.f15552b = (TextView) view.findViewById(R.id.close_game_rank_btn);
+        this.f15454a = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
+        this.f15455b = (TextView) view.findViewById(R.id.close_game_rank_btn);
     }
 }

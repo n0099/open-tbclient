@@ -3,8 +3,8 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import d.a.k0.j1.o.j.c;
-import d.a.k0.j1.o.k.b;
+import d.a.n0.k1.o.j.c;
+import d.a.n0.k1.o.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -28,31 +28,31 @@ public class HorRankCard extends BaseCardInfo {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f17961a;
+        public int f17871a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17962b;
+        public String f17872b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f17963c;
+        public String f17873c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f17964d;
+        public String f17874d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f17965e;
+        public String f17875e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f17966f;
+        public String f17876f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f17967g;
+        public boolean f17877g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f17968h;
+        public String f17878h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f17969i;
+        public String f17879i;
         public String j;
         public int k;
         public int l;
@@ -82,15 +82,15 @@ public class HorRankCard extends BaseCardInfo {
         for (int i2 = 0; i2 < length; i2++) {
             a aVar = new a();
             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-            aVar.f17961a = optJSONObject.optInt("rank");
-            aVar.f17962b = optJSONObject.optString("picUrl");
-            aVar.f17963c = optJSONObject.optString("picIcon");
-            aVar.f17964d = optJSONObject.optString("title");
-            aVar.f17965e = optJSONObject.optString("subTitle");
-            aVar.f17966f = optJSONObject.optString("postUrl");
-            aVar.f17967g = optJSONObject.optInt("isDone") == 1;
-            aVar.f17968h = optJSONObject.optString("btnText");
-            aVar.f17969i = optJSONObject.optString("btnDone");
+            aVar.f17871a = optJSONObject.optInt("rank");
+            aVar.f17872b = optJSONObject.optString("picUrl");
+            aVar.f17873c = optJSONObject.optString("picIcon");
+            aVar.f17874d = optJSONObject.optString("title");
+            aVar.f17875e = optJSONObject.optString("subTitle");
+            aVar.f17876f = optJSONObject.optString("postUrl");
+            aVar.f17877g = optJSONObject.optInt("isDone") == 1;
+            aVar.f17878h = optJSONObject.optString("btnText");
+            aVar.f17879i = optJSONObject.optString("btnDone");
             aVar.j = optJSONObject.optString("picScheme");
             aVar.k = b.b(optJSONObject.optString("bgColor", ""));
             aVar.l = b.b(optJSONObject.optString("bgColorNight", ""));
@@ -154,8 +154,8 @@ public class HorRankCard extends BaseCardInfo {
     public boolean responseAttentionForum(String str, boolean z) {
         boolean z2 = false;
         for (a aVar : this.rankInfoList) {
-            if (!TextUtils.isEmpty(aVar.f17966f) && !TextUtils.isEmpty(aVar.f17968h) && !TextUtils.isEmpty(aVar.f17969i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f17966f))) {
-                aVar.f17967g = z;
+            if (!TextUtils.isEmpty(aVar.f17876f) && !TextUtils.isEmpty(aVar.f17878h) && !TextUtils.isEmpty(aVar.f17879i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f17876f))) {
+                aVar.f17877g = z;
                 z2 = true;
             }
         }
@@ -166,8 +166,8 @@ public class HorRankCard extends BaseCardInfo {
     public boolean responseAttentionUser(String str, boolean z) {
         boolean z2 = false;
         for (a aVar : this.rankInfoList) {
-            if (!TextUtils.isEmpty(aVar.f17966f) && !TextUtils.isEmpty(aVar.f17968h) && !TextUtils.isEmpty(aVar.f17969i) && TextUtils.equals(getTouidFromPostUrl(aVar.f17966f), str)) {
-                aVar.f17967g = z;
+            if (!TextUtils.isEmpty(aVar.f17876f) && !TextUtils.isEmpty(aVar.f17878h) && !TextUtils.isEmpty(aVar.f17879i) && TextUtils.equals(getTouidFromPostUrl(aVar.f17876f), str)) {
+                aVar.f17877g = z;
                 z2 = true;
             }
         }

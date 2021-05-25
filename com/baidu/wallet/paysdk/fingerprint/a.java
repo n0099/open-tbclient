@@ -26,24 +26,24 @@ import javax.crypto.spec.IvParameterSpec;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f25334b = "wallet_fp_ks_alias";
+    public static String f25263b = "wallet_fp_ks_alias";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f25335c = null;
+    public static a f25264c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f25336d = "a";
+    public static final String f25265d = "a";
 
     /* renamed from: a  reason: collision with root package name */
-    public KeyStore f25337a;
+    public KeyStore f25266a;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f25338e;
+    public Context f25267e;
 
     public a(Context context) throws KeyStoreException {
         try {
-            this.f25338e = context.getApplicationContext();
-            this.f25337a = KeyStore.getInstance("AndroidKeyStore");
+            this.f25267e = context.getApplicationContext();
+            this.f25266a = KeyStore.getInstance("AndroidKeyStore");
         } catch (KeyStoreException e2) {
             StatisticManager.onEvent(StatServiceEvent.EVENT_FP_KEYSTORE_FAILED);
             e2.printStackTrace();
@@ -52,14 +52,14 @@ public class a {
     }
 
     public static a a(Context context) throws KeyStoreException {
-        if (f25335c == null) {
+        if (f25264c == null) {
             synchronized (a.class) {
-                if (f25335c == null) {
-                    f25335c = new a(context);
+                if (f25264c == null) {
+                    f25264c = new a(context);
                 }
             }
         }
-        return f25335c;
+        return f25264c;
     }
 
     public boolean a() {
@@ -69,10 +69,10 @@ public class a {
     public void a(String str) {
         try {
             KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", "AndroidKeyStore");
-            this.f25337a.load(null);
+            this.f25266a.load(null);
             keyGenerator.init(new KeyGenParameterSpec.Builder(str, 3).setBlockModes("CBC").setUserAuthenticationRequired(true).setEncryptionPaddings("PKCS7Padding").setRandomizedEncryptionRequired(false).build());
             keyGenerator.generateKey();
-            LogUtil.d(f25336d, "GenerateKey Success");
+            LogUtil.d(f25265d, "GenerateKey Success");
         } catch (IOException | InvalidAlgorithmParameterException | NoSuchAlgorithmException | NoSuchProviderException | CertificateException e2) {
             throw new RuntimeException(e2);
         }
@@ -80,8 +80,8 @@ public class a {
 
     public FingerprintManager.CryptoObject a(int i2, byte[] bArr) throws InvalidKeyException {
         try {
-            this.f25337a.load(null);
-            SecretKey secretKey = (SecretKey) this.f25337a.getKey(WalletFingerprint.getKeyStoreNewAlise(this.f25338e), null);
+            this.f25266a.load(null);
+            SecretKey secretKey = (SecretKey) this.f25266a.getKey(WalletFingerprint.getKeyStoreNewAlise(this.f25267e), null);
             if (secretKey == null) {
                 return null;
             }

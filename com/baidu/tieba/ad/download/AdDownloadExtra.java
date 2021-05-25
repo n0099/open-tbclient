@@ -24,9 +24,7 @@ public class AdDownloadExtra implements Serializable {
     }
 
     public int getPercent() {
-        int i2 = this.mPercent;
-        int i3 = this.mDownloadFakePercent;
-        return i2 > i3 ? i2 : i3;
+        return this.mPercent;
     }
 
     public DownloadStatus getStatus() {

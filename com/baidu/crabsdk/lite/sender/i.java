@@ -45,7 +45,7 @@ public final class i {
         try {
             URL url = new URL(str2);
             if (com.baidu.crabsdk.lite.a.l != null) {
-                HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4716a.get(str);
+                HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4639a.get(str);
                 if (hashMap != null) {
                     Object obj = hashMap.get("domain_proxy");
                     openConnection = obj != null ? url.openConnection((Proxy) obj) : url.openConnection();

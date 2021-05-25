@@ -152,7 +152,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
     private boolean isShowNewStyle() {
         int d2 = com.kwad.sdk.core.response.b.a.d(this.mAdInfo);
         int e2 = com.kwad.sdk.core.response.b.a.e(this.mAdInfo);
-        if (this.mCallerContext.f33565e == 1) {
+        if (this.mCallerContext.f33494e == 1) {
             if (d2 > e2) {
                 return false;
             }
@@ -183,7 +183,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
         this.mPageDismissCalled = true;
         if (z) {
             adTemplate = this.mAdTemplate;
-            jSONObject = this.mCallerContext.f33564d;
+            jSONObject = this.mCallerContext.f33493d;
         } else {
             adTemplate = this.mAdTemplate;
             i2 = 6;
@@ -241,18 +241,18 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
     @Override // com.kwad.sdk.core.e.a
     public a onCreateCallerContext() {
         a aVar = new a();
-        aVar.f33567g = getActivity();
-        aVar.f33562b = this.mAdOpenInteractionListener;
-        aVar.f33565e = this.mScreenOrientation;
+        aVar.f33496g = getActivity();
+        aVar.f33491b = this.mAdOpenInteractionListener;
+        aVar.f33494e = this.mScreenOrientation;
         KsVideoPlayConfig ksVideoPlayConfig = this.mVideoPlayConfig;
-        aVar.f33563c = ksVideoPlayConfig;
-        aVar.f33564d = this.mReportExtData;
-        aVar.f33568h = this.mRootContainer;
+        aVar.f33492c = ksVideoPlayConfig;
+        aVar.f33493d = this.mReportExtData;
+        aVar.f33497h = this.mRootContainer;
         AdTemplate adTemplate = this.mAdTemplate;
-        aVar.f33566f = adTemplate;
+        aVar.f33495f = adTemplate;
         com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(adTemplate, this.mDetailVideoView, ksVideoPlayConfig);
-        aVar.f33569i = aVar2;
-        aVar.f33561a.add(aVar2);
+        aVar.f33498i = aVar2;
+        aVar.f33490a.add(aVar2);
         if (com.kwad.sdk.core.response.b.a.v(this.mAdInfo)) {
             aVar.j = new com.kwad.sdk.core.download.b.b(this.mAdTemplate, this.mReportExtData);
         }

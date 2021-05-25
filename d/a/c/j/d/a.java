@@ -18,133 +18,133 @@ public class a {
     public static final Object m = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39544a;
+    public String f39208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f39545b;
+    public Bitmap f39209b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f39546c;
+    public volatile boolean f39210c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f39547d;
+    public boolean f39211d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f39548e;
+    public byte[] f39212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f39549f;
+    public boolean f39213f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicBoolean f39550g;
+    public AtomicBoolean f39214g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.c.d.b f39551h;
+    public d.a.c.d.b f39215h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f39552i;
+    public boolean f39216i;
     public Rect j;
     public boolean k;
     public NinePatch l;
 
     /* renamed from: d.a.c.j.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0514a extends BitmapDrawable {
-        public C0514a(Bitmap bitmap) {
+    public class C0498a extends BitmapDrawable {
+        public C0498a(Bitmap bitmap) {
             super(bitmap);
         }
 
         @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
         public void draw(Canvas canvas) {
             Bitmap bitmap;
-            if (a.this.f39545b == null || (bitmap = getBitmap()) == null || bitmap.isRecycled()) {
+            if (a.this.f39209b == null || (bitmap = getBitmap()) == null || bitmap.isRecycled()) {
                 return;
             }
-            canvas.drawBitmap(a.this.f39545b, (Rect) null, getBounds(), getPaint());
+            canvas.drawBitmap(a.this.f39209b, (Rect) null, getBounds(), getPaint());
         }
     }
 
     public a(Bitmap bitmap) {
-        this.f39545b = null;
-        this.f39546c = false;
-        this.f39547d = true;
-        this.f39548e = null;
-        this.f39549f = true;
-        this.f39550g = new AtomicBoolean(false);
-        this.f39552i = false;
+        this.f39209b = null;
+        this.f39210c = false;
+        this.f39211d = true;
+        this.f39212e = null;
+        this.f39213f = true;
+        this.f39214g = new AtomicBoolean(false);
+        this.f39216i = false;
         this.k = false;
-        this.f39545b = bitmap;
+        this.f39209b = bitmap;
     }
 
     public void A(int i2) {
     }
 
     public int B() {
-        Bitmap bitmap = this.f39545b;
+        Bitmap bitmap = this.f39209b;
         if (bitmap == null) {
             return 0;
         }
-        return bitmap.getHeight() * this.f39545b.getRowBytes();
+        return bitmap.getHeight() * this.f39209b.getRowBytes();
     }
 
     public void b(boolean z) {
-        this.f39550g.set(z);
+        this.f39214g.set(z);
     }
 
     public final void c() {
         byte[] ninePatchChunk;
-        Bitmap bitmap = this.f39545b;
+        Bitmap bitmap = this.f39209b;
         if (bitmap == null || (ninePatchChunk = bitmap.getNinePatchChunk()) == null || ninePatchChunk.length <= 0 || !NinePatch.isNinePatchChunk(ninePatchChunk)) {
             return;
         }
         this.k = true;
-        this.l = new NinePatch(this.f39545b, ninePatchChunk, "image");
+        this.l = new NinePatch(this.f39209b, ninePatchChunk, "image");
     }
 
     public BitmapShader d() {
-        Bitmap bitmap = this.f39545b;
+        Bitmap bitmap = this.f39209b;
         if (bitmap == null || bitmap.isRecycled()) {
             return null;
         }
-        this.f39547d = false;
-        Bitmap bitmap2 = this.f39545b;
+        this.f39211d = false;
+        Bitmap bitmap2 = this.f39209b;
         Shader.TileMode tileMode = Shader.TileMode.CLAMP;
         return new BitmapShader(bitmap2, tileMode, tileMode);
     }
 
     public void e(Canvas canvas, float f2, float f3, Paint paint) {
-        if (this.f39545b == null) {
+        if (this.f39209b == null) {
             return;
         }
-        this.f39550g.set(true);
-        canvas.drawBitmap(this.f39545b, f2, f3, paint);
-        this.f39550g.set(false);
+        this.f39214g.set(true);
+        canvas.drawBitmap(this.f39209b, f2, f3, paint);
+        this.f39214g.set(false);
     }
 
     public void f(Canvas canvas, Matrix matrix, Paint paint) {
-        if (this.f39545b == null) {
+        if (this.f39209b == null) {
             return;
         }
-        this.f39550g.set(true);
-        canvas.drawBitmap(this.f39545b, matrix, paint);
-        this.f39550g.set(false);
+        this.f39214g.set(true);
+        canvas.drawBitmap(this.f39209b, matrix, paint);
+        this.f39214g.set(false);
     }
 
     public void g(Canvas canvas, Rect rect, RectF rectF, Paint paint) {
-        if (this.f39545b == null) {
+        if (this.f39209b == null) {
             return;
         }
-        this.f39550g.set(true);
-        canvas.drawBitmap(this.f39545b, rect, rectF, paint);
-        this.f39550g.set(false);
+        this.f39214g.set(true);
+        canvas.drawBitmap(this.f39209b, rect, rectF, paint);
+        this.f39214g.set(false);
     }
 
     public void h(ImageView imageView) {
         Bitmap bitmap;
-        if (imageView == null || (bitmap = this.f39545b) == null) {
+        if (imageView == null || (bitmap = this.f39209b) == null) {
             return;
         }
-        this.f39547d = false;
+        this.f39211d = false;
         imageView.setImageBitmap(bitmap);
     }
 
@@ -157,23 +157,23 @@ public class a {
     }
 
     public BitmapDrawable j() {
-        if (this.f39545b == null) {
+        if (this.f39209b == null) {
             return null;
         }
-        this.f39547d = false;
-        return new C0514a(this.f39545b);
+        this.f39211d = false;
+        return new C0498a(this.f39209b);
     }
 
     public byte[] k() {
-        return this.f39548e;
+        return this.f39212e;
     }
 
     public d.a.c.d.b l() {
-        return this.f39551h;
+        return this.f39215h;
     }
 
     public int m() {
-        Bitmap bitmap = this.f39545b;
+        Bitmap bitmap = this.f39209b;
         if (bitmap == null) {
             return 0;
         }
@@ -182,12 +182,12 @@ public class a {
 
     public byte[] n() {
         byte[] byteArray;
-        if (this.f39545b == null) {
+        if (this.f39209b == null) {
             return null;
         }
         synchronized (m) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            this.f39545b.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            this.f39209b.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
             byteArray = byteArrayOutputStream.toByteArray();
         }
         return byteArray;
@@ -198,16 +198,16 @@ public class a {
     }
 
     public Bitmap p() {
-        this.f39547d = false;
-        return this.f39545b;
+        this.f39211d = false;
+        return this.f39209b;
     }
 
     public String q() {
-        return this.f39544a;
+        return this.f39208a;
     }
 
     public int r() {
-        Bitmap bitmap = this.f39545b;
+        Bitmap bitmap = this.f39209b;
         if (bitmap == null) {
             return 0;
         }
@@ -215,15 +215,15 @@ public class a {
     }
 
     public boolean s() {
-        return this.f39552i;
+        return this.f39216i;
     }
 
     public boolean t() {
-        return this.f39546c;
+        return this.f39210c;
     }
 
     public boolean u() {
-        return this.f39549f;
+        return this.f39213f;
     }
 
     public boolean v() {
@@ -231,19 +231,19 @@ public class a {
     }
 
     public boolean w() {
-        return this.f39545b != null;
+        return this.f39209b != null;
     }
 
     public boolean x() {
-        if (this.f39547d && !this.f39550g.get()) {
-            Bitmap bitmap = this.f39545b;
+        if (this.f39211d && !this.f39214g.get()) {
+            Bitmap bitmap = this.f39209b;
             if (bitmap != null) {
-                this.f39545b = null;
+                this.f39209b = null;
                 bitmap.recycle();
             }
-            d.a.c.d.b bVar = this.f39551h;
+            d.a.c.d.b bVar = this.f39215h;
             if (bVar != null) {
-                this.f39551h = null;
+                this.f39215h = null;
                 bVar.close();
                 return true;
             }
@@ -253,97 +253,97 @@ public class a {
     }
 
     public void y(boolean z) {
-        this.f39549f = z;
+        this.f39213f = z;
     }
 
     public void z(int i2) {
     }
 
     public a(Bitmap bitmap, boolean z) {
-        this.f39545b = null;
-        this.f39546c = false;
-        this.f39547d = true;
-        this.f39548e = null;
-        this.f39549f = true;
-        this.f39550g = new AtomicBoolean(false);
-        this.f39552i = false;
+        this.f39209b = null;
+        this.f39210c = false;
+        this.f39211d = true;
+        this.f39212e = null;
+        this.f39213f = true;
+        this.f39214g = new AtomicBoolean(false);
+        this.f39216i = false;
         this.k = false;
-        this.f39545b = bitmap;
-        this.f39546c = z;
+        this.f39209b = bitmap;
+        this.f39210c = z;
         c();
     }
 
     public a(Bitmap bitmap, boolean z, String str) {
-        this.f39545b = null;
-        this.f39546c = false;
-        this.f39547d = true;
-        this.f39548e = null;
-        this.f39549f = true;
-        this.f39550g = new AtomicBoolean(false);
-        this.f39552i = false;
+        this.f39209b = null;
+        this.f39210c = false;
+        this.f39211d = true;
+        this.f39212e = null;
+        this.f39213f = true;
+        this.f39214g = new AtomicBoolean(false);
+        this.f39216i = false;
         this.k = false;
-        this.f39545b = bitmap;
-        this.f39546c = z;
-        this.f39544a = str;
+        this.f39209b = bitmap;
+        this.f39210c = z;
+        this.f39208a = str;
         c();
     }
 
     public a(Bitmap bitmap, boolean z, String str, Rect rect) {
-        this.f39545b = null;
-        this.f39546c = false;
-        this.f39547d = true;
-        this.f39548e = null;
-        this.f39549f = true;
-        this.f39550g = new AtomicBoolean(false);
-        this.f39552i = false;
+        this.f39209b = null;
+        this.f39210c = false;
+        this.f39211d = true;
+        this.f39212e = null;
+        this.f39213f = true;
+        this.f39214g = new AtomicBoolean(false);
+        this.f39216i = false;
         this.k = false;
-        this.f39545b = bitmap;
-        this.f39546c = z;
-        this.f39544a = str;
+        this.f39209b = bitmap;
+        this.f39210c = z;
+        this.f39208a = str;
         this.j = rect;
         c();
     }
 
     public a(Bitmap bitmap, boolean z, String str, byte[] bArr) {
-        this.f39545b = null;
-        this.f39546c = false;
-        this.f39547d = true;
-        this.f39548e = null;
-        this.f39549f = true;
-        this.f39550g = new AtomicBoolean(false);
-        this.f39552i = false;
+        this.f39209b = null;
+        this.f39210c = false;
+        this.f39211d = true;
+        this.f39212e = null;
+        this.f39213f = true;
+        this.f39214g = new AtomicBoolean(false);
+        this.f39216i = false;
         this.k = false;
-        this.f39545b = bitmap;
-        this.f39546c = z;
-        this.f39544a = str;
-        this.f39548e = bArr;
+        this.f39209b = bitmap;
+        this.f39210c = z;
+        this.f39208a = str;
+        this.f39212e = bArr;
         c();
     }
 
     public a(d.a.c.d.b bVar, Bitmap bitmap, boolean z) {
-        this.f39545b = null;
-        this.f39546c = false;
-        this.f39547d = true;
-        this.f39548e = null;
-        this.f39549f = true;
-        this.f39550g = new AtomicBoolean(false);
-        this.f39552i = false;
+        this.f39209b = null;
+        this.f39210c = false;
+        this.f39211d = true;
+        this.f39212e = null;
+        this.f39213f = true;
+        this.f39214g = new AtomicBoolean(false);
+        this.f39216i = false;
         this.k = false;
-        this.f39551h = bVar;
-        this.f39545b = bitmap;
-        this.f39546c = z;
+        this.f39215h = bVar;
+        this.f39209b = bitmap;
+        this.f39210c = z;
     }
 
     public a(d.a.c.d.b bVar) {
-        this.f39545b = null;
-        this.f39546c = false;
-        this.f39547d = true;
-        this.f39548e = null;
-        this.f39549f = true;
-        this.f39550g = new AtomicBoolean(false);
-        this.f39552i = false;
+        this.f39209b = null;
+        this.f39210c = false;
+        this.f39211d = true;
+        this.f39212e = null;
+        this.f39213f = true;
+        this.f39214g = new AtomicBoolean(false);
+        this.f39216i = false;
         this.k = false;
-        this.f39551h = bVar;
-        this.f39552i = true;
+        this.f39215h = bVar;
+        this.f39216i = true;
     }
 }

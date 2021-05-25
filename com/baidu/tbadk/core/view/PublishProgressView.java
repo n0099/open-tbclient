@@ -8,23 +8,23 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
-import d.a.j0.r.q.i1;
-import d.a.j0.r.u.c;
-import d.a.k0.d3.q0.d;
+import d.a.m0.r.q.i1;
+import d.a.m0.r.u.c;
+import d.a.n0.e3.q0.d;
 /* loaded from: classes3.dex */
 public class PublishProgressView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public PublishProgressBar f12408e;
+    public PublishProgressBar f12316e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12409f;
+    public TextView f12317f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12410g;
+    public TextView f12318g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i1 f12411h;
+    public i1 f12319h;
 
     public PublishProgressView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
@@ -32,49 +32,49 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     }
 
     private void setProgress(int i2) {
-        this.f12409f.setText(String.format(getResources().getString(R.string.publish_progress_prefix), Integer.valueOf(this.f12408e.c(i2))));
+        this.f12317f.setText(String.format(getResources().getString(R.string.publish_progress_prefix), Integer.valueOf(this.f12316e.c(i2))));
     }
 
     public final void a(Context context, AttributeSet attributeSet) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.publish_progress_view, this);
-        this.f12408e = (PublishProgressBar) inflate.findViewById(R.id.progress_bar);
-        this.f12409f = (TextView) inflate.findViewById(R.id.progress_text);
+        this.f12316e = (PublishProgressBar) inflate.findViewById(R.id.progress_bar);
+        this.f12317f = (TextView) inflate.findViewById(R.id.progress_text);
         TextView textView = (TextView) inflate.findViewById(R.id.progress_close_btn);
-        this.f12410g = textView;
+        this.f12318g = textView;
         textView.setOnClickListener(this);
-        this.f12408e.setOnClickListener(this);
+        this.f12316e.setOnClickListener(this);
         b();
     }
 
     public void b() {
-        this.f12408e.b();
-        c d2 = c.d(this.f12409f);
-        d2.q(R.color.CAM_X0101);
-        d2.u(R.dimen.T_X06);
-        d2.v(R.string.F_X01);
-        c d3 = c.d(this.f12410g);
-        d3.q(R.color.CAM_X0101);
-        d3.u(R.dimen.T_X09);
-        d3.v(R.string.F_X01);
+        this.f12316e.b();
+        c d2 = c.d(this.f12317f);
+        d2.s(R.color.CAM_X0101);
+        d2.w(R.dimen.T_X06);
+        d2.x(R.string.F_X01);
+        c d3 = c.d(this.f12318g);
+        d3.s(R.color.CAM_X0101);
+        d3.w(R.dimen.T_X09);
+        d3.x(R.string.F_X01);
     }
 
     public void c(@NonNull i1 i1Var) {
-        if (i1Var.equals(this.f12411h)) {
-            this.f12411h.f(i1Var);
+        if (i1Var.equals(this.f12319h)) {
+            this.f12319h.f(i1Var);
             d();
             return;
         }
-        this.f12411h = i1Var;
+        this.f12319h = i1Var;
         d();
     }
 
     public final void d() {
-        i1 i1Var = this.f12411h;
+        i1 i1Var = this.f12319h;
         if (i1Var == null) {
             return;
         }
         if (i1Var.d()) {
-            setProgress(this.f12411h.a());
+            setProgress(this.f12319h.a());
             setVisibility(0);
             return;
         }
@@ -85,7 +85,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.progress_close_btn) {
-            i1 i1Var = this.f12411h;
+            i1 i1Var = this.f12319h;
             if (i1Var != null) {
                 i1Var.b();
                 d();

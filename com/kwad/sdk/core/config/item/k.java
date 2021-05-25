@@ -16,55 +16,55 @@ import org.json.JSONObject;
 public class k extends com.kwad.sdk.core.config.item.a<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32107a;
+    public String f32036a;
 
     /* loaded from: classes6.dex */
     public static final class a implements com.kwad.sdk.core.b {
         @NonNull
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<Integer, String> f32108a = new HashMap();
+        public Map<Integer, String> f32037a = new HashMap();
         @NonNull
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f32109b = new ArrayList();
+        public List<String> f32038b = new ArrayList();
 
         /* renamed from: c  reason: collision with root package name */
-        public List<String> f32110c = new ArrayList();
+        public List<String> f32039c = new ArrayList();
 
         /* renamed from: d  reason: collision with root package name */
-        public JSONObject f32111d;
+        public JSONObject f32040d;
 
         public void a(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f32111d = jSONObject;
+            this.f32040d = jSONObject;
             JSONObject optJSONObject = jSONObject.optJSONObject("platformInfo");
             if (optJSONObject != null) {
                 Iterator<String> keys = optJSONObject.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    this.f32108a.put(Integer.valueOf(next), optJSONObject.optString(next));
+                    this.f32037a.put(Integer.valueOf(next), optJSONObject.optString(next));
                 }
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("keyStacks");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    this.f32109b.add(optJSONArray.optString(i2));
+                    this.f32038b.add(optJSONArray.optString(i2));
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("keyNames");
             if (optJSONArray2 != null) {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    this.f32110c.add(optJSONArray2.optString(i3));
+                    this.f32039c.add(optJSONArray2.optString(i3));
                 }
             }
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
-            return this.f32111d;
+            return this.f32040d;
         }
     }
 
@@ -74,18 +74,18 @@ public class k extends com.kwad.sdk.core.config.item.a<a> {
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(SharedPreferences.Editor editor) {
-        editor.putString("sdkPackInfo", this.f32107a);
+        editor.putString("sdkPackInfo", this.f32036a);
     }
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(SharedPreferences sharedPreferences) {
         String string = sharedPreferences.getString("sdkPackInfo", null);
-        this.f32107a = string;
+        this.f32036a = string;
         try {
             if (TextUtils.isEmpty(string)) {
                 return;
             }
-            JSONObject jSONObject = new JSONObject(this.f32107a);
+            JSONObject jSONObject = new JSONObject(this.f32036a);
             a aVar = new a();
             aVar.a(jSONObject);
             a((k) aVar);
@@ -100,7 +100,7 @@ public class k extends com.kwad.sdk.core.config.item.a<a> {
         if (optJSONObject == null) {
             return;
         }
-        this.f32107a = optJSONObject.toString();
+        this.f32036a = optJSONObject.toString();
         a aVar = new a();
         aVar.a(optJSONObject);
         a((k) aVar);

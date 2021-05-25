@@ -1,0 +1,126 @@
+package d.a.l0.a.u.e.j;
+
+import android.os.Build;
+import android.util.Log;
+import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.V8NetFunctionTable;
+import com.baidu.searchbox.v8engine.net.NetRequest;
+import com.baidu.searchbox.v8engine.net.NetRequestSettings;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import d.a.l0.a.a2.n.c;
+import d.a.l0.a.j2.c;
+import d.a.l0.a.k;
+import d.a.l0.a.v2.j;
+import d.a.l0.a.v2.q;
+/* loaded from: classes2.dex */
+public class d {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final boolean f45041a = k.f43199a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f45042b = -1;
+
+    /* loaded from: classes2.dex */
+    public static class a implements ValueCallback<Long> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ V8Engine f45043a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ NetRequest f45044b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ boolean f45045c;
+
+        public a(V8Engine v8Engine, NetRequest netRequest, boolean z) {
+            this.f45043a = v8Engine;
+            this.f45044b = netRequest;
+            this.f45045c = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(Long l) {
+            boolean netRequest = this.f45043a.setNetRequest(this.f45044b);
+            if (netRequest) {
+                int unused = d.f45042b = 1;
+            } else {
+                if (this.f45045c) {
+                    d.d();
+                    d.a.l0.a.e0.d.h("ChromeNetManager", "[ERROR] swan chromeNet config fail!!!");
+                }
+                int unused2 = d.f45042b = 0;
+            }
+            d.f(netRequest);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class b implements Runnable {
+        @Override // java.lang.Runnable
+        public void run() {
+            c.b bVar = new c.b(10016);
+            bVar.l(Build.MODEL);
+            bVar.h(Build.BRAND);
+            bVar.m();
+        }
+    }
+
+    public static boolean b() {
+        if (f45042b == -1) {
+            f45042b = j.a() ? 1 : 0;
+        }
+        return f45042b == 1;
+    }
+
+    public static void c(@NonNull V8Engine v8Engine) {
+        if (!b()) {
+            d.a.l0.a.e0.d.h("ChromeNetManager", "Not Used ChromeNet");
+            return;
+        }
+        NetRequest netRequest = new NetRequest();
+        NetRequestSettings netRequestSettings = new NetRequestSettings();
+        netRequestSettings.mTimeout = 60000;
+        netRequestSettings.mShouldNeverClearReferer = true;
+        netRequestSettings.mLoadDoNotSendCookies = true;
+        netRequest.setRequestInterceptor(new c());
+        netRequest.setRedirectInterceptor(new i());
+        netRequest.addObserver(new e());
+        netRequest.setNetRequestSettings(netRequestSettings);
+        boolean e2 = e();
+        f45042b = e2 ? 1 : 0;
+        V8NetFunctionTable.addOnCronetThreadInitializedListener(new a(v8Engine, netRequest, e2));
+    }
+
+    public static void d() {
+        q.e().execute(new b());
+    }
+
+    public static boolean e() {
+        return d.a.l0.a.k2.g.h.a().getBoolean("key_chrome_net_last_usage_enabled", false);
+    }
+
+    public static void f(boolean z) {
+        d.a.l0.a.k2.g.h.a().putBoolean("key_chrome_net_last_usage_enabled", z);
+    }
+
+    public static void g(@Nullable SwanAppConfigData swanAppConfigData) {
+        c.a aVar;
+        int i2;
+        d.a.l0.a.h0.l.a P;
+        NetRequest n0;
+        NetRequestSettings netRequestSettings;
+        if (!b() || swanAppConfigData == null || (aVar = swanAppConfigData.f11252h) == null || (i2 = aVar.f40786b) <= 0 || (P = d.a.l0.a.h0.u.g.N().P()) == null || !(P.g() instanceof d.a.l0.a.l0.a) || (n0 = ((d.a.l0.a.l0.a) P.g()).n0()) == null || (netRequestSettings = n0.getNetRequestSettings()) == null) {
+            return;
+        }
+        netRequestSettings.mTimeout = i2;
+        if (f45041a) {
+            Log.d("ChromeNetManager", "settings.mTimeout=" + i2);
+        }
+    }
+}

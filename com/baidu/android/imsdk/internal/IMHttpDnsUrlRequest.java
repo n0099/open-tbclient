@@ -1,12 +1,12 @@
 package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
-import android.util.ArrayMap;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.webkit.internal.daemon.HttpDnsCacheForHost;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -33,9 +33,9 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
-        ArrayMap arrayMap = new ArrayMap();
-        arrayMap.put("Host", HTTP_DNS_HOST);
-        return arrayMap;
+        HashMap hashMap = new HashMap();
+        hashMap.put("Host", HTTP_DNS_HOST);
+        return hashMap;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request

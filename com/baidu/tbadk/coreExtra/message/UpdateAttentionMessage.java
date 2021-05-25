@@ -13,34 +13,34 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f12666a;
+        public boolean f12574a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12667b;
+        public String f12575b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12668c;
+        public String f12576c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f12669d;
+        public boolean f12577d;
 
         /* renamed from: g  reason: collision with root package name */
-        public HttpResponse f12672g;
+        public HttpResponse f12580g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f12673h;
+        public JSONObject f12581h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f12674i;
+        public boolean f12582i;
         public boolean j;
         public String k;
         public BlockPopInfoData l;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f12670e = false;
+        public boolean f12578e = false;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f12671f = false;
+        public boolean f12579f = false;
         public int m = 0;
 
         public final void a(JSONObject jSONObject) {
@@ -68,7 +68,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f12673h = jSONObject;
+                this.f12581h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -92,20 +92,20 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().f12669d;
+        return getData().f12577d;
     }
 
     public boolean isGod() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().f12671f;
+        return getData().f12579f;
     }
 
     public boolean isSucc() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().f12666a;
+        return getData().f12574a;
     }
 }

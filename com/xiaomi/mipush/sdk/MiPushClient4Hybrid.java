@@ -91,7 +91,7 @@ public class MiPushClient4Hybrid {
             ArrayList arrayList = new ArrayList();
             b.a a2 = b.m98a(context).a(str);
             if (a2 != null) {
-                arrayList.add(a2.f37327c);
+                arrayList.add(a2.f37256c);
                 MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ev.COMMAND_REGISTER.f337a, arrayList, 0L, null, null);
                 MiPushCallback miPushCallback = sCallback;
                 if (miPushCallback != null) {
@@ -209,8 +209,8 @@ public class MiPushClient4Hybrid {
         ilVar.a(com.xiaomi.push.service.at.a());
         ilVar.d(str);
         ilVar.b(a2.f81a);
-        ilVar.c(a2.f37327c);
-        ilVar.e(a2.f37326b);
+        ilVar.c(a2.f37256c);
+        ilVar.e(a2.f37255b);
         ie ieVar = new ie();
         ieVar.c(hp.HybridUnregister.f506a);
         ieVar.b(b.m98a(context).m99a());

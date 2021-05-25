@@ -62,21 +62,21 @@ import java.util.Locale;
 public class ay {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ay f8741b = new ay();
+    public static final ay f8641b = new ay();
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f8742a = new HashMap<>();
+    public HashMap<String, String> f8642a = new HashMap<>();
 
     public ay() {
         b();
     }
 
     public static ay a() {
-        return f8741b;
+        return f8641b;
     }
 
     private void b() {
-        if (Build.VERSION.SDK_INT >= 14 && this.f8742a.size() == 0) {
+        if (Build.VERSION.SDK_INT >= 14 && this.f8642a.size() == 0) {
             try {
                 a(AutoCompleteTextView.class.getSimpleName(), "A0");
             } catch (Throwable th) {
@@ -362,13 +362,13 @@ public class ay {
     }
 
     private void a(String str, String str2) {
-        if (TextUtils.isEmpty(str) || this.f8742a.containsKey(str)) {
+        if (TextUtils.isEmpty(str) || this.f8642a.containsKey(str)) {
             return;
         }
-        this.f8742a.put(str, str2.toUpperCase(Locale.ENGLISH));
+        this.f8642a.put(str, str2.toUpperCase(Locale.ENGLISH));
     }
 
     public String a(String str) {
-        return this.f8742a.get(str);
+        return this.f8642a.get(str);
     }
 }

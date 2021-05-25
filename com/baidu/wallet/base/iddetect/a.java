@@ -3,37 +3,37 @@ package com.baidu.wallet.base.iddetect;
 public class a implements Comparable<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f23299a;
+    public int f23228a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23300b;
+    public int f23229b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f23301c;
+    public float f23230c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f23302d;
+    public float f23231d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23303e = false;
+    public boolean f23232e = false;
 
     public a(int i2, int i3) {
-        this.f23299a = i2;
-        this.f23300b = i3;
+        this.f23228a = i2;
+        this.f23229b = i3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(a aVar) {
-        if (this.f23303e) {
-            return this.f23302d < aVar.f23302d ? -1 : 1;
+        if (this.f23232e) {
+            return this.f23231d < aVar.f23231d ? -1 : 1;
         }
-        int i2 = this.f23300b;
-        int i3 = aVar.f23300b;
+        int i2 = this.f23229b;
+        int i3 = aVar.f23229b;
         if (i2 < i3) {
             return -1;
         }
-        return (i2 <= i3 && this.f23299a < aVar.f23299a) ? -1 : 1;
+        return (i2 <= i3 && this.f23228a < aVar.f23228a) ? -1 : 1;
     }
 }

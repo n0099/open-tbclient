@@ -12,31 +12,31 @@ import android.os.SystemClock;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f26877a = null;
+    public static Context f26806a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f26878b = false;
+    public static boolean f26807b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f26879c;
+    public static b f26808c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f26880d;
+    public static a f26809d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static c f26881e;
+    public static c f26810e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f26882f;
+    public static c f26811f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f26883g;
+    public static c f26812g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Object f26884h = new Object();
+    public static Object f26813h = new Object();
 
     /* renamed from: i  reason: collision with root package name */
-    public static HandlerThread f26885i;
+    public static HandlerThread f26814i;
     public static Handler j;
     public static String k;
     public static String l;
@@ -44,14 +44,14 @@ public class b {
     public static String n;
 
     public static b a(Context context) {
-        if (f26879c == null) {
-            f26879c = new b();
-            f26877a = context;
+        if (f26808c == null) {
+            f26808c = new b();
+            f26806a = context;
             f();
-            f26880d = new a(f26877a);
+            f26809d = new a(f26806a);
             c();
         }
-        return f26879c;
+        return f26808c;
     }
 
     public static String a(String str, String str2) {
@@ -73,22 +73,22 @@ public class b {
         Uri parse;
         c cVar;
         if (i2 == 0) {
-            f26881e = new c(f26879c, 0, null);
-            context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, f26881e);
+            f26810e = new c(f26808c, 0, null);
+            context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, f26810e);
             return;
         }
         if (i2 == 1) {
-            f26882f = new c(f26879c, 1, str);
+            f26811f = new c(f26808c, 1, str);
             contentResolver = context.getContentResolver();
             parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str);
-            cVar = f26882f;
+            cVar = f26811f;
         } else if (i2 != 2) {
             return;
         } else {
-            f26883g = new c(f26879c, 2, str);
+            f26812g = new c(f26808c, 2, str);
             contentResolver = context.getContentResolver();
             parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str);
-            cVar = f26883g;
+            cVar = f26812g;
         }
         contentResolver.registerContentObserver(parse, false, cVar);
     }
@@ -106,14 +106,14 @@ public class b {
     }
 
     public static void c() {
-        f26878b = "1".equals(a("persist.sys.identifierid.supported", "0"));
+        f26807b = "1".equals(a("persist.sys.identifierid.supported", "0"));
     }
 
     public static void f() {
         HandlerThread handlerThread = new HandlerThread("SqlWorkThread");
-        f26885i = handlerThread;
+        f26814i = handlerThread;
         handlerThread.start();
-        j = new Handler(f26885i.getLooper()) { // from class: com.bun.miitmdid.supplier.h.a.b.1
+        j = new Handler(f26814i.getLooper()) { // from class: com.bun.miitmdid.supplier.h.a.b.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what != 11) {
@@ -121,13 +121,13 @@ public class b {
                     return;
                 }
                 try {
-                    String unused = b.k = b.f26880d.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                    String unused = b.k = b.f26809d.a(message.getData().getInt("type"), message.getData().getString("appid"));
                 } catch (Exception e2) {
                     String unused2 = b.k = "";
                     com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e2);
                 }
-                synchronized (b.f26884h) {
-                    b.f26884h.notify();
+                synchronized (b.f26813h) {
+                    b.f26813h.notify();
                 }
             }
         };
@@ -140,8 +140,8 @@ public class b {
                 return str2;
             }
             a(1, str);
-            if (f26882f == null && m != null) {
-                a(f26877a, 1, str);
+            if (f26811f == null && m != null) {
+                a(f26806a, 1, str);
             }
             return m;
         }
@@ -151,11 +151,11 @@ public class b {
     public void a(int i2, String str) {
         String str2;
         String str3;
-        synchronized (f26884h) {
+        synchronized (f26813h) {
             b(i2, str);
             long uptimeMillis = SystemClock.uptimeMillis();
             try {
-                f26884h.wait(2000L);
+                f26813h.wait(2000L);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
@@ -187,7 +187,7 @@ public class b {
     }
 
     public boolean a() {
-        return f26878b;
+        return f26807b;
     }
 
     public String b() {
@@ -197,8 +197,8 @@ public class b {
                 return str;
             }
             a(0, (String) null);
-            if (f26881e == null) {
-                a(f26877a, 0, null);
+            if (f26810e == null) {
+                a(f26806a, 0, null);
             }
             return l;
         }
@@ -212,8 +212,8 @@ public class b {
                 return str2;
             }
             a(2, str);
-            if (f26883g == null && n != null) {
-                a(f26877a, 2, str);
+            if (f26812g == null && n != null) {
+                a(f26806a, 2, str);
             }
             return n;
         }

@@ -6,46 +6,46 @@ import java.util.concurrent.atomic.AtomicReference;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public final f f67459a;
+    public final f f67502a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f67460b;
+    public volatile boolean f67503b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicReference<com.ss.android.socialbase.downloader.network.l> f67461c;
+    public final AtomicReference<com.ss.android.socialbase.downloader.network.l> f67504c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicReference<com.ss.android.socialbase.downloader.network.l> f67462d;
+    public AtomicReference<com.ss.android.socialbase.downloader.network.l> f67505d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ArrayList<c> f67463e;
+    public final ArrayList<c> f67506e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67464f;
+    public int f67507f;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f67465a;
+        public static final /* synthetic */ int[] f67508a;
 
         static {
             int[] iArr = new int[com.ss.android.socialbase.downloader.network.l.values().length];
-            f67465a = iArr;
+            f67508a = iArr;
             try {
                 iArr[com.ss.android.socialbase.downloader.network.l.POOR.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f67465a[com.ss.android.socialbase.downloader.network.l.MODERATE.ordinal()] = 2;
+                f67508a[com.ss.android.socialbase.downloader.network.l.MODERATE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f67465a[com.ss.android.socialbase.downloader.network.l.GOOD.ordinal()] = 3;
+                f67508a[com.ss.android.socialbase.downloader.network.l.GOOD.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f67465a[com.ss.android.socialbase.downloader.network.l.EXCELLENT.ordinal()] = 4;
+                f67508a[com.ss.android.socialbase.downloader.network.l.EXCELLENT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -55,7 +55,7 @@ public class m {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final m f67466a = new m(null);
+        public static final m f67509a = new m(null);
     }
 
     /* loaded from: classes7.dex */
@@ -68,7 +68,7 @@ public class m {
     }
 
     public static m a() {
-        return b.f67466a;
+        return b.f67509a;
     }
 
     public final com.ss.android.socialbase.downloader.network.l b(double d2) {
@@ -94,43 +94,43 @@ public class m {
             return;
         }
         try {
-            this.f67459a.b(d3);
+            this.f67502a.b(d3);
             d2 = d();
         } catch (Throwable unused) {
         }
-        if (this.f67460b) {
-            this.f67464f++;
-            if (d2 != this.f67462d.get()) {
-                this.f67460b = false;
-                this.f67464f = 1;
+        if (this.f67503b) {
+            this.f67507f++;
+            if (d2 != this.f67505d.get()) {
+                this.f67503b = false;
+                this.f67507f = 1;
             }
-            if (this.f67464f >= 5.0d && e()) {
-                this.f67460b = false;
-                this.f67464f = 1;
-                this.f67461c.set(this.f67462d.get());
+            if (this.f67507f >= 5.0d && e()) {
+                this.f67503b = false;
+                this.f67507f = 1;
+                this.f67504c.set(this.f67505d.get());
                 f();
             }
             return;
         }
-        if (this.f67461c.get() != d2) {
-            this.f67460b = true;
-            this.f67462d = new AtomicReference<>(d2);
+        if (this.f67504c.get() != d2) {
+            this.f67503b = true;
+            this.f67505d = new AtomicReference<>(d2);
         }
     }
 
     public synchronized com.ss.android.socialbase.downloader.network.l d() {
-        if (this.f67459a == null) {
+        if (this.f67502a == null) {
             return com.ss.android.socialbase.downloader.network.l.UNKNOWN;
         }
-        return b(this.f67459a.a());
+        return b(this.f67502a.a());
     }
 
     public final boolean e() {
-        if (this.f67459a == null) {
+        if (this.f67502a == null) {
             return false;
         }
         try {
-            int i2 = a.f67465a[this.f67461c.get().ordinal()];
+            int i2 = a.f67508a[this.f67504c.get().ordinal()];
             double d2 = 2000.0d;
             double d3 = 550.0d;
             if (i2 == 1) {
@@ -146,7 +146,7 @@ public class m {
                 d2 = 3.4028234663852886E38d;
                 d3 = 2000.0d;
             }
-            double a2 = this.f67459a.a();
+            double a2 = this.f67502a.a();
             if (a2 > d2) {
                 if (a2 > d2 * 1.25d) {
                     return true;
@@ -162,9 +162,9 @@ public class m {
 
     public final void f() {
         try {
-            int size = this.f67463e.size();
+            int size = this.f67506e.size();
             for (int i2 = 0; i2 < size; i2++) {
-                this.f67463e.get(i2).a(this.f67461c.get());
+                this.f67506e.get(i2).a(this.f67504c.get());
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -172,9 +172,9 @@ public class m {
     }
 
     public m() {
-        this.f67459a = new f(0.05d);
-        this.f67460b = false;
-        this.f67461c = new AtomicReference<>(com.ss.android.socialbase.downloader.network.l.UNKNOWN);
-        this.f67463e = new ArrayList<>();
+        this.f67502a = new f(0.05d);
+        this.f67503b = false;
+        this.f67504c = new AtomicReference<>(com.ss.android.socialbase.downloader.network.l.UNKNOWN);
+        this.f67506e = new ArrayList<>();
     }
 }

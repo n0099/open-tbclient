@@ -109,16 +109,16 @@ public class ai {
         textView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.mobstat.ai.2
 
             /* renamed from: a  reason: collision with root package name */
-            public int f8583a = 0;
+            public int f8483a = 0;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f8584b = 0;
+            public int f8484b = 0;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f8585c = 0;
+            public int f8485c = 0;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f8586d = 0;
+            public int f8486d = 0;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
@@ -126,14 +126,14 @@ public class ai {
                 int rawY = (int) motionEvent.getRawY();
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f8583a = rawX;
-                    this.f8584b = rawY;
-                    this.f8585c = rawX - view2.getLeft();
-                    this.f8586d = rawY - view2.getTop();
+                    this.f8483a = rawX;
+                    this.f8484b = rawY;
+                    this.f8485c = rawX - view2.getLeft();
+                    this.f8486d = rawY - view2.getTop();
                 } else if (action != 1) {
                     if (action == 2) {
-                        int i2 = rawX - this.f8585c;
-                        int i3 = rawY - this.f8586d;
+                        int i2 = rawX - this.f8485c;
+                        int i3 = rawY - this.f8486d;
                         Rect rect = new Rect();
                         view.getLocalVisibleRect(rect);
                         if (rect.contains(new Rect(i2, i3, view2.getWidth() + i2, view2.getHeight() + i3))) {
@@ -143,7 +143,7 @@ public class ai {
                             view2.setLayoutParams(marginLayoutParams);
                         }
                     }
-                } else if (ai.b(this.f8583a, (int) motionEvent.getRawX(), this.f8584b, (int) motionEvent.getRawY())) {
+                } else if (ai.b(this.f8483a, (int) motionEvent.getRawX(), this.f8484b, (int) motionEvent.getRawY())) {
                     ai.b((Context) activity);
                 }
                 return true;

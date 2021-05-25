@@ -6,13 +6,13 @@ import androidx.annotation.VisibleForTesting;
 import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
 import java.util.Queue;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ModelCache<A, B> {
     public static final int DEFAULT_SIZE = 250;
     public final LruCache<ModelKey<A>, B> cache;
 
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class ModelKey<A> {
         public static final Queue<ModelKey<?>> KEY_QUEUE = Util.createQueue(0);
         public int height;

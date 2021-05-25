@@ -7,9 +7,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.k0.x.b;
+import d.a.n0.z.b;
 /* loaded from: classes4.dex */
-public class AlaFrsLiveListGatherRecommendTitleView extends b<d.a.k0.t.e.b.b> {
+public class AlaFrsLiveListGatherRecommendTitleView extends b<d.a.n0.v.e.b.b> {
     public View m;
     public TextView n;
     public View o;
@@ -33,12 +33,12 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<d.a.k0.t.e.b.b> {
         n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.k0.x.b
+    @Override // d.a.n0.z.b
     public int g() {
         return R.layout.ala_frs_game_live_recommend_title_view;
     }
 
-    @Override // d.a.k0.x.b
+    @Override // d.a.n0.z.b
     public void n(TbPageContext<?> tbPageContext, int i2) {
         if (this.q != i2) {
             SkinManager.setBackgroundResource(this.m, R.color.CAM_X0204);
@@ -53,9 +53,9 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<d.a.k0.t.e.b.b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.k0.x.b
+    @Override // d.a.n0.z.b
     /* renamed from: s */
-    public void m(d.a.k0.t.e.b.b bVar) {
+    public void m(d.a.n0.v.e.b.b bVar) {
         n(this.p, TbadkCoreApplication.getInst().getSkinType());
     }
 }

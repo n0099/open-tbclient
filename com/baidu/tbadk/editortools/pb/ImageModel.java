@@ -11,36 +11,36 @@ import com.baidu.tbadk.core.util.FileHelper;
 public class ImageModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f12879e;
+    public a f12787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12880f;
+    public String f12788f;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Object, Integer, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12881a;
+        public String f12789a;
 
         public a(String str) {
-            this.f12881a = null;
-            this.f12881a = str;
+            this.f12789a = null;
+            this.f12789a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Bitmap doInBackground(Object... objArr) {
-            String str = this.f12881a;
+            String str = this.f12789a;
             if (str != null && !str.equals(TbConfig.IMAGE_RESIZED_FILE)) {
-                FileHelper.CopyFile("photos/" + this.f12881a, TbConfig.IMAGE_RESIZED_FILE);
+                FileHelper.CopyFile("photos/" + this.f12789a, TbConfig.IMAGE_RESIZED_FILE);
             }
             return BitmapHelper.getRoundedCornerBitmap(BitmapHelper.getSquareBitmap(FileHelper.getImage(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            ImageModel.this.f12879e = null;
+            ImageModel.this.f12787e = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.c(null);
             }
@@ -56,7 +56,7 @@ public class ImageModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            ImageModel.this.f12879e = null;
+            ImageModel.this.f12787e = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.c(bitmap);
             }
@@ -65,25 +65,25 @@ public class ImageModel extends BdBaseModel {
 
     public ImageModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f12879e = null;
-        this.f12880f = null;
+        this.f12787e = null;
+        this.f12788f = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        a aVar = this.f12879e;
+        a aVar = this.f12787e;
         if (aVar != null) {
             aVar.cancel();
         }
-        a aVar2 = new a(this.f12880f);
-        this.f12879e = aVar2;
+        a aVar2 = new a(this.f12788f);
+        this.f12787e = aVar2;
         aVar2.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        a aVar = this.f12879e;
+        a aVar = this.f12787e;
         if (aVar != null) {
             aVar.cancel();
             return true;
@@ -92,7 +92,7 @@ public class ImageModel extends BdBaseModel {
     }
 
     public boolean x(String str) {
-        this.f12880f = str;
+        this.f12788f = str;
         return LoadData();
     }
 }

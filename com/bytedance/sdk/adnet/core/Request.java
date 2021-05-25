@@ -37,31 +37,31 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     @GuardedBy("mLock")
 
     /* renamed from: a  reason: collision with root package name */
-    public o.a<T> f26967a;
+    public o.a<T> f26896a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f26968b;
+    public Handler f26897b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final q.a f26969c;
+    public final q.a f26898c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f26970d;
+    public final int f26899d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26971e;
+    public String f26900e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26972f;
+    public String f26901f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f26973g;
+    public final int f26902g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Object f26974h;
+    public final Object f26903h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Integer f26975i;
+    public Integer f26904i;
     public n j;
     public boolean k;
     @GuardedBy("mLock")
@@ -84,20 +84,20 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f26976e;
+        public final /* synthetic */ String f26905e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f26977f;
+        public final /* synthetic */ long f26906f;
 
         public a(String str, long j) {
-            this.f26976e = str;
-            this.f26977f = j;
+            this.f26905e = str;
+            this.f26906f = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Request.this.f26969c.c(this.f26976e, this.f26977f);
-            Request.this.f26969c.b(Request.this.toString());
+            Request.this.f26898c.c(this.f26905e, this.f26906f);
+            Request.this.f26898c.b(Request.this.toString());
         }
     }
 
@@ -156,8 +156,8 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     public void addMarker(String str) {
-        if (q.a.f65776c) {
-            this.f26969c.c(str, Thread.currentThread().getId());
+        if (q.a.f65819c) {
+            this.f26898c.c(str, Thread.currentThread().getId());
         }
     }
 
@@ -173,9 +173,9 @@ public abstract class Request<T> implements Comparable<Request<T>> {
 
     @CallSuper
     public void cancel() {
-        synchronized (this.f26974h) {
+        synchronized (this.f26903h) {
             this.l = true;
-            this.f26967a = null;
+            this.f26896a = null;
         }
     }
 
@@ -190,8 +190,8 @@ public abstract class Request<T> implements Comparable<Request<T>> {
 
     public void deliverError(o<T> oVar) {
         o.a<T> aVar;
-        synchronized (this.f26974h) {
-            aVar = this.f26967a;
+        synchronized (this.f26903h) {
+            aVar = this.f26896a;
         }
         if (aVar != null) {
             aVar.b(oVar);
@@ -200,7 +200,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
 
     public void e() {
         c cVar;
-        synchronized (this.f26974h) {
+        synchronized (this.f26903h) {
             cVar = this.w;
         }
         if (cVar != null) {
@@ -211,8 +211,8 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     @Nullable
     public o.a getBaseListener() {
         o.a<T> aVar;
-        synchronized (this.f26974h) {
-            aVar = this.f26967a;
+        synchronized (this.f26903h) {
+            aVar = this.f26896a;
         }
         return aVar;
     }
@@ -255,7 +255,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     public int getMethod() {
-        return this.f26970d;
+        return this.f26899d;
     }
 
     public long getNetDuration() {
@@ -284,7 +284,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     public final int getSequence() {
-        Integer num = this.f26975i;
+        Integer num = this.f26904i;
         if (num != null) {
             return num.intValue();
         }
@@ -304,20 +304,20 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     public int getTrafficStatsTag() {
-        return this.f26973g;
+        return this.f26902g;
     }
 
     public String getUrl() {
-        return this.f26971e;
+        return this.f26900e;
     }
 
     public String getUserAgent() {
-        return this.f26972f;
+        return this.f26901f;
     }
 
     public boolean hasHadResponseDelivered() {
         boolean z;
-        synchronized (this.f26974h) {
+        synchronized (this.f26903h) {
             z = this.m;
         }
         return z;
@@ -325,7 +325,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
 
     public boolean isCanceled() {
         boolean z;
-        synchronized (this.f26974h) {
+        synchronized (this.f26903h) {
             z = this.l;
         }
         return z;
@@ -336,7 +336,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     public void markDelivered() {
-        synchronized (this.f26974h) {
+        synchronized (this.f26903h) {
             this.m = true;
         }
     }
@@ -380,7 +380,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
     /* JADX WARN: Multi-variable type inference failed */
     public final Request<?> setSequence(int i2) {
-        this.f26975i = Integer.valueOf(i2);
+        this.f26904i = Integer.valueOf(i2);
         return this;
     }
 
@@ -410,13 +410,13 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     public void setUrl(String str) {
-        this.f26971e = str;
+        this.f26900e = str;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
     /* JADX WARN: Multi-variable type inference failed */
     public Request<?> setUserAgent(String str) {
-        this.f26972f = str;
+        this.f26901f = str;
         return this;
     }
 
@@ -438,14 +438,14 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         sb.append(" ");
         sb.append(getPriority());
         sb.append(" ");
-        sb.append(this.f26975i);
+        sb.append(this.f26904i);
         return sb.toString();
     }
 
     public Request(int i2, String str, @Nullable o.a aVar) {
-        this.f26969c = q.a.f65776c ? new q.a() : null;
-        this.f26972f = "VADNetAgent/0";
-        this.f26974h = new Object();
+        this.f26898c = q.a.f65819c ? new q.a() : null;
+        this.f26901f = "VADNetAgent/0";
+        this.f26903h = new Object();
         this.k = true;
         this.l = false;
         this.m = false;
@@ -454,12 +454,12 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         this.r = 0L;
         this.s = 0L;
         this.t = true;
-        this.f26968b = new Handler(Looper.getMainLooper());
-        this.f26970d = i2;
-        this.f26971e = str;
-        this.f26967a = aVar;
+        this.f26897b = new Handler(Looper.getMainLooper());
+        this.f26899d = i2;
+        this.f26900e = str;
+        this.f26896a = aVar;
         setRetryPolicy(new g());
-        this.f26973g = b(str);
+        this.f26902g = b(str);
     }
 
     public void a(String str) {
@@ -467,21 +467,21 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         if (nVar != null) {
             nVar.g(this);
         }
-        if (q.a.f65776c) {
+        if (q.a.f65819c) {
             long id = Thread.currentThread().getId();
             if (Looper.myLooper() != Looper.getMainLooper()) {
-                this.f26968b.post(new a(str, id));
+                this.f26897b.post(new a(str, id));
                 return;
             }
-            this.f26969c.c(str, id);
-            this.f26969c.b(toString());
+            this.f26898c.c(str, id);
+            this.f26898c.b(toString());
         }
     }
 
     public int compareTo(Request<T> request) {
         b priority = getPriority();
         b priority2 = request.getPriority();
-        return priority == priority2 ? this.f26975i.intValue() - request.f26975i.intValue() : priority2.ordinal() - priority.ordinal();
+        return priority == priority2 ? this.f26904i.intValue() - request.f26904i.intValue() : priority2.ordinal() - priority.ordinal();
     }
 
     @Deprecated
@@ -491,7 +491,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
 
     public void b(o<?> oVar) {
         c cVar;
-        synchronized (this.f26974h) {
+        synchronized (this.f26903h) {
             cVar = this.w;
         }
         if (cVar != null) {
@@ -531,7 +531,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     public void a(c cVar) {
-        synchronized (this.f26974h) {
+        synchronized (this.f26903h) {
             this.w = cVar;
         }
     }

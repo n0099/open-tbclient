@@ -17,26 +17,26 @@ import java.util.HashSet;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5132a = "WalletDownloadManager";
+    public static final String f5032a = "WalletDownloadManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5133b = "content://downloads/my_downloads/";
+    public static final String f5033b = "content://downloads/my_downloads/";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f5134c;
+    public static a f5034c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final DownloadManager f5135d;
+    public final DownloadManager f5035d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HashMap<Long, b> f5136e = new HashMap<>();
+    public final HashMap<Long, b> f5036e = new HashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f5137f;
+    public Context f5037f;
 
     /* renamed from: com.baidu.fsg.base.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0076a {
+    public interface InterfaceC0077a {
         void a(c cVar);
     }
 
@@ -44,112 +44,112 @@ public final class a {
     public final class b extends ContentObserver {
 
         /* renamed from: b  reason: collision with root package name */
-        public final c f5139b;
+        public final c f5039b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final HashSet<InterfaceC0076a> f5140c;
+        public final HashSet<InterfaceC0077a> f5040c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f5141d;
+        public long f5041d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f5142e;
+        public long f5042e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f5143f;
+        public int f5043f;
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             super.onChange(z);
-            a.this.a(this.f5139b);
+            a.this.a(this.f5039b);
             long currentTimeMillis = System.currentTimeMillis();
-            if ((this.f5143f == this.f5139b.a() && this.f5141d == this.f5139b.b()) || this.f5142e == currentTimeMillis) {
+            if ((this.f5043f == this.f5039b.a() && this.f5041d == this.f5039b.b()) || this.f5042e == currentTimeMillis) {
                 return;
             }
-            if (2 == this.f5139b.a()) {
-                c cVar = this.f5139b;
-                cVar.c(((cVar.b() - this.f5141d) * 1000) / (currentTimeMillis - this.f5142e));
+            if (2 == this.f5039b.a()) {
+                c cVar = this.f5039b;
+                cVar.c(((cVar.b() - this.f5041d) * 1000) / (currentTimeMillis - this.f5042e));
             } else {
-                this.f5139b.c(0L);
+                this.f5039b.c(0L);
             }
-            this.f5141d = this.f5139b.b();
-            this.f5143f = this.f5139b.a();
-            this.f5142e = currentTimeMillis;
+            this.f5041d = this.f5039b.b();
+            this.f5043f = this.f5039b.a();
+            this.f5042e = currentTimeMillis;
             synchronized (this) {
-                int size = this.f5140c.size();
-                InterfaceC0076a[] interfaceC0076aArr = new InterfaceC0076a[size];
-                this.f5140c.toArray(interfaceC0076aArr);
+                int size = this.f5040c.size();
+                InterfaceC0077a[] interfaceC0077aArr = new InterfaceC0077a[size];
+                this.f5040c.toArray(interfaceC0077aArr);
                 for (int i2 = 0; i2 < size; i2++) {
-                    interfaceC0076aArr[i2].a(this.f5139b);
+                    interfaceC0077aArr[i2].a(this.f5039b);
                 }
             }
         }
 
         public b(Context context, long j) {
             super(context != null ? new Handler(context.getMainLooper()) : new Handler());
-            this.f5140c = new HashSet<>();
-            this.f5141d = 0L;
-            this.f5142e = 0L;
-            this.f5143f = 1;
-            this.f5139b = new c(j);
+            this.f5040c = new HashSet<>();
+            this.f5041d = 0L;
+            this.f5042e = 0L;
+            this.f5043f = 1;
+            this.f5039b = new c(j);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public synchronized boolean b(InterfaceC0076a interfaceC0076a) {
-            return this.f5140c.remove(interfaceC0076a);
+        public synchronized boolean b(InterfaceC0077a interfaceC0077a) {
+            return this.f5040c.remove(interfaceC0077a);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public synchronized boolean a(InterfaceC0076a interfaceC0076a) {
-            return this.f5140c.add(interfaceC0076a);
+        public synchronized boolean a(InterfaceC0077a interfaceC0077a) {
+            return this.f5040c.add(interfaceC0077a);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public synchronized void b() {
-            this.f5140c.clear();
+            this.f5040c.clear();
         }
 
         public boolean a() {
-            return this.f5140c.isEmpty();
+            return this.f5040c.isEmpty();
         }
     }
 
     public a(Context context) {
-        this.f5137f = null;
-        this.f5137f = context;
-        this.f5135d = (DownloadManager) context.getSystemService("download");
+        this.f5037f = null;
+        this.f5037f = context;
+        this.f5035d = (DownloadManager) context.getSystemService("download");
     }
 
     public static a a(Context context) {
-        if (f5134c == null) {
-            f5134c = new a(context);
+        if (f5034c == null) {
+            f5034c = new a(context);
         }
-        return f5134c;
+        return f5034c;
     }
 
-    public void b(Context context, long j, InterfaceC0076a interfaceC0076a) {
+    public void b(Context context, long j, InterfaceC0077a interfaceC0077a) {
         b bVar;
-        if (j == -1 || (bVar = this.f5136e.get(Long.valueOf(j))) == null) {
+        if (j == -1 || (bVar = this.f5036e.get(Long.valueOf(j))) == null) {
             return;
         }
-        bVar.b(interfaceC0076a);
+        bVar.b(interfaceC0077a);
         if (bVar.a()) {
             context.getContentResolver().unregisterContentObserver(bVar);
-            this.f5136e.remove(Uri.parse("content://downloads/my_downloads/" + j));
+            this.f5036e.remove(Uri.parse("content://downloads/my_downloads/" + j));
         }
     }
 
-    public void a(Context context, long j, InterfaceC0076a interfaceC0076a) {
-        if (interfaceC0076a == null || -1 == j) {
+    public void a(Context context, long j, InterfaceC0077a interfaceC0077a) {
+        if (interfaceC0077a == null || -1 == j) {
             return;
         }
-        b bVar = this.f5136e.get(Long.valueOf(j));
+        b bVar = this.f5036e.get(Long.valueOf(j));
         if (bVar == null) {
             bVar = new b(context, j);
-            this.f5136e.put(Long.valueOf(j), bVar);
+            this.f5036e.put(Long.valueOf(j), bVar);
             context.getContentResolver().registerContentObserver(Uri.parse("content://downloads/my_downloads/" + j), true, bVar);
         }
-        bVar.a(interfaceC0076a);
+        bVar.a(interfaceC0077a);
     }
 
     private DownloadManager.Request b(String str, String str2, String str3, boolean z, boolean z2, boolean z3, String str4) {
@@ -167,12 +167,12 @@ public final class a {
 
     public void a(Context context, long j) {
         b bVar;
-        if (j == -1 || (bVar = this.f5136e.get(Long.valueOf(j))) == null) {
+        if (j == -1 || (bVar = this.f5036e.get(Long.valueOf(j))) == null) {
             return;
         }
         bVar.b();
         context.getContentResolver().unregisterContentObserver(bVar);
-        this.f5136e.remove(Uri.parse("content://downloads/my_downloads/" + j));
+        this.f5036e.remove(Uri.parse("content://downloads/my_downloads/" + j));
     }
 
     public c b(long j) {
@@ -189,7 +189,7 @@ public final class a {
             return -1L;
         }
         if (str2.startsWith("http://") || str2.startsWith("https://")) {
-            return this.f5135d.enqueue(b(Environment.DIRECTORY_DOWNLOADS, str, str2, z, z2, z3, ".apk"));
+            return this.f5035d.enqueue(b(Environment.DIRECTORY_DOWNLOADS, str, str2, z, z2, z3, ".apk"));
         }
         return -1L;
     }
@@ -199,13 +199,13 @@ public final class a {
             return -1L;
         }
         if (str3.startsWith("http://") || str3.startsWith("https://")) {
-            return this.f5135d.enqueue(b(str, str2, str3, z, z2, z3, str4));
+            return this.f5035d.enqueue(b(str, str2, str3, z, z2, z3, str4));
         }
         return -1L;
     }
 
     public void a(long j) {
-        this.f5135d.remove(j);
+        this.f5035d.remove(j);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -213,7 +213,7 @@ public final class a {
         if (-1 == cVar.d()) {
             return;
         }
-        Cursor query = this.f5135d.query(new DownloadManager.Query().setFilterById(cVar.d()));
+        Cursor query = this.f5035d.query(new DownloadManager.Query().setFilterById(cVar.d()));
         if (query != null) {
             try {
                 if (query.getCount() != 0 && query.moveToFirst()) {

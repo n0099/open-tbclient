@@ -24,31 +24,31 @@ public class j {
     public long j;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetworkInfo f39203a = null;
+    public NetworkInfo f38867a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39204b = true;
+    public boolean f38868b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39205c = false;
+    public boolean f38869c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f39206d = true;
+    public boolean f38870d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39207e = 0;
+    public int f38871e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f39208f = 0;
+    public int f38872f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39209g = -1;
+    public int f38873g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f39210h = null;
+    public String f38874h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39211i = -1;
+    public int f38875i = -1;
     public boolean k = true;
     public Runnable l = new a(this);
 
@@ -235,7 +235,7 @@ public class j {
     }
 
     public static String m() {
-        return !z() ? "N" : H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : v() ? "4G" : u() ? com.baidu.apollon.statistics.g.f3963b : t() ? "2G" : "N";
+        return !z() ? "N" : H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : v() ? "4G" : u() ? com.baidu.apollon.statistics.g.f3966b : t() ? "2G" : "N";
     }
 
     public static int n(int i2) {
@@ -297,10 +297,10 @@ public class j {
     }
 
     public boolean G() {
-        if (this.f39203a == null) {
+        if (this.f38867a == null) {
             j();
         }
-        return this.f39204b;
+        return this.f38868b;
     }
 
     public final void N(long j) {
@@ -325,82 +325,82 @@ public class j {
     }
 
     public int i() {
-        if (this.f39203a == null) {
+        if (this.f38867a == null) {
             j();
         }
-        return this.f39208f;
+        return this.f38872f;
     }
 
     public final void j() {
         NetworkInfo h2 = h();
-        this.f39203a = h2;
+        this.f38867a = h2;
         if (h2 != null) {
             if (h2.getType() == 1) {
-                this.f39204b = true;
-                this.f39205c = false;
+                this.f38868b = true;
+                this.f38869c = false;
             } else if (h2.getType() == 0) {
-                this.f39204b = false;
-                this.f39205c = true;
+                this.f38868b = false;
+                this.f38869c = true;
             } else {
-                this.f39204b = false;
-                this.f39205c = false;
+                this.f38868b = false;
+                this.f38869c = false;
             }
-            this.f39206d = true;
+            this.f38870d = true;
             int subtype = h2.getSubtype();
-            this.f39207e = subtype;
-            if (this.f39205c) {
-                this.f39208f = n(subtype);
+            this.f38871e = subtype;
+            if (this.f38869c) {
+                this.f38872f = n(subtype);
             } else {
-                this.f39208f = 0;
+                this.f38872f = 0;
             }
         } else {
-            this.f39204b = false;
-            this.f39205c = false;
-            this.f39206d = false;
-            this.f39207e = 0;
-            this.f39207e = 0;
+            this.f38868b = false;
+            this.f38869c = false;
+            this.f38870d = false;
+            this.f38871e = 0;
+            this.f38871e = 0;
         }
-        this.f39209g = L();
-        this.f39210h = Proxy.getDefaultHost();
-        this.f39211i = Proxy.getDefaultPort();
+        this.f38873g = L();
+        this.f38874h = Proxy.getDefaultHost();
+        this.f38875i = Proxy.getDefaultPort();
     }
 
     public int o() {
-        if (this.f39209g == -1) {
+        if (this.f38873g == -1) {
             try {
-                this.f39209g = L();
+                this.f38873g = L();
             } catch (Exception unused) {
-                this.f39209g = 0;
+                this.f38873g = 0;
             }
         }
-        return this.f39209g;
+        return this.f38873g;
     }
 
     public String p() {
-        if (this.f39210h == null) {
-            this.f39210h = Proxy.getDefaultHost();
+        if (this.f38874h == null) {
+            this.f38874h = Proxy.getDefaultHost();
         }
-        return this.f39210h;
+        return this.f38874h;
     }
 
     public int q() {
-        if (-1 == this.f39211i) {
-            this.f39211i = Proxy.getDefaultPort();
+        if (-1 == this.f38875i) {
+            this.f38875i = Proxy.getDefaultPort();
         }
-        return this.f39211i;
+        return this.f38875i;
     }
 
     public boolean w() {
-        if (this.f39203a == null) {
+        if (this.f38867a == null) {
             j();
         }
-        return this.f39205c;
+        return this.f38869c;
     }
 
     public boolean y() {
-        if (this.f39203a == null) {
+        if (this.f38867a == null) {
             j();
         }
-        return this.f39206d;
+        return this.f38870d;
     }
 }

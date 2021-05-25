@@ -3,22 +3,22 @@ package com.baidu.mobads.cid.cesium.a;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f8139a = 5;
+    public static int f8039a = 5;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8140b = 40;
+    public static int f8040b = 40;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f8141c;
+    public b f8041c;
 
     public f() {
-        b bVar = new b(f8140b);
-        this.f8141c = bVar;
-        bVar.a(0, f8140b, true);
+        b bVar = new b(f8040b);
+        this.f8041c = bVar;
+        bVar.a(0, f8040b, true);
     }
 
     public void a(b bVar, int i2, int i3, int i4) {
-        b c2 = this.f8141c.c(i2, i2 + i3);
+        b c2 = this.f8041c.c(i2, i2 + i3);
         if (i4 != 0) {
             if (i4 != 1) {
                 if (i4 == 2) {
@@ -32,11 +32,11 @@ public class f {
             c2.a(bVar);
         }
         for (int i5 = 0; i5 < i3; i5++) {
-            this.f8141c.a(i2 + i5, c2.c(i5));
+            this.f8041c.a(i2 + i5, c2.c(i5));
         }
     }
 
     public byte[] a() {
-        return this.f8141c.a();
+        return this.f8041c.a();
     }
 }

@@ -10,14 +10,14 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class MLPSpecificBox extends AbstractBox {
     public static final String TYPE = "dmlp";
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_7 = null;
     public int format_info;
     public int peak_data_rate;
     public int reserved;

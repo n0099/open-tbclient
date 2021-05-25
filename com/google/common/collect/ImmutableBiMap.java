@@ -58,12 +58,12 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         @Override // com.google.common.collect.ImmutableMap.b
         /* renamed from: h */
         public ImmutableBiMap<K, V> a() {
-            if (this.f31096c == 0) {
+            if (this.f31025c == 0) {
                 return ImmutableBiMap.of();
             }
             g();
-            this.f31097d = true;
-            return new RegularImmutableBiMap(this.f31095b, this.f31096c);
+            this.f31026d = true;
+            return new RegularImmutableBiMap(this.f31024b, this.f31025c);
         }
 
         public a<K, V> i(K k, V v) {

@@ -5,7 +5,7 @@ import android.util.Log;
 public final class e extends i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f36441a = new e();
+    public static final e f36370a = new e();
 
     @Override // com.tencent.open.a.i
     public void a(int i2, Thread thread, long j, String str, String str2, Throwable th) {

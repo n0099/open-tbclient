@@ -11,28 +11,28 @@ import android.util.Log;
 public class d {
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile d f66351g = null;
+    public static volatile d f66394g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f66352h = false;
+    public static boolean f66395h = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public Boolean f66357e;
+    public Boolean f66400e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BroadcastReceiver f66358f;
+    public BroadcastReceiver f66401f;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f66353a = new a("udid");
+    public a f66396a = new a("udid");
 
     /* renamed from: b  reason: collision with root package name */
-    public a f66354b = new a("oaid");
+    public a f66397b = new a("oaid");
 
     /* renamed from: d  reason: collision with root package name */
-    public a f66356d = new a("vaid");
+    public a f66399d = new a("vaid");
 
     /* renamed from: c  reason: collision with root package name */
-    public a f66355c = new a("aaid");
+    public a f66398c = new a("aaid");
 
     public static c a(Cursor cursor) {
         String str;
@@ -43,19 +43,19 @@ public class d {
             cursor.moveToFirst();
             int columnIndex = cursor.getColumnIndex("value");
             if (columnIndex >= 0) {
-                cVar.f66348a = cursor.getString(columnIndex);
+                cVar.f66391a = cursor.getString(columnIndex);
             } else {
                 e("parseValue fail, index < 0.");
             }
             int columnIndex2 = cursor.getColumnIndex("code");
             if (columnIndex2 >= 0) {
-                cVar.f66349b = cursor.getInt(columnIndex2);
+                cVar.f66392b = cursor.getInt(columnIndex2);
             } else {
                 e("parseCode fail, index < 0.");
             }
             int columnIndex3 = cursor.getColumnIndex("expired");
             if (columnIndex3 >= 0) {
-                cVar.f66350c = cursor.getLong(columnIndex3);
+                cVar.f66393c = cursor.getLong(columnIndex3);
             } else {
                 e("parseExpired fail, index < 0.");
             }
@@ -68,16 +68,16 @@ public class d {
     }
 
     public static final d b() {
-        if (f66351g == null) {
+        if (f66394g == null) {
             synchronized (d.class) {
-                f66351g = new d();
+                f66394g = new d();
             }
         }
-        return f66351g;
+        return f66394g;
     }
 
     public static void e(String str) {
-        if (f66352h) {
+        if (f66395h) {
             Log.d("OpenIdManager", str);
         }
     }
@@ -107,12 +107,12 @@ public class d {
             return null;
         }
         if (aVar.d()) {
-            return aVar.f66345b;
+            return aVar.f66388b;
         }
-        e("queryId : " + aVar.f66346c);
+        e("queryId : " + aVar.f66389c);
         try {
             try {
-                cursor = context.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{aVar.f66346c}, null);
+                cursor = context.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{aVar.f66389c}, null);
             } catch (Throwable th) {
                 th = th;
             }
@@ -156,12 +156,12 @@ public class d {
             return str2;
         }
         c a2 = a(cursor);
-        str2 = a2.f66348a;
+        str2 = a2.f66391a;
         aVar.c(str2);
-        aVar.b(a2.f66350c);
-        aVar.a(a2.f66349b);
-        e(aVar.f66346c + " errorCode : " + aVar.f66347d);
-        if (a2.f66349b != 1000) {
+        aVar.b(a2.f66393c);
+        aVar.a(a2.f66392b);
+        e(aVar.f66389c + " errorCode : " + aVar.f66390d);
+        if (a2.f66392b != 1000) {
             d(context);
             if (!f(context, false)) {
                 f2 = f(context, true);
@@ -179,13 +179,13 @@ public class d {
     }
 
     public final synchronized void d(Context context) {
-        if (this.f66358f != null) {
+        if (this.f66401f != null) {
             return;
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.meizu.flyme.openid.ACTION_OPEN_ID_CHANGE");
         com.meizu.flyme.openidsdk.d dVar = new com.meizu.flyme.openidsdk.d();
-        this.f66358f = dVar;
+        this.f66401f = dVar;
         context.registerReceiver(dVar, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
     }
 
@@ -203,11 +203,11 @@ public class d {
         Throwable th;
         Cursor cursor;
         PackageManager packageManager;
-        Boolean bool = this.f66357e;
+        Boolean bool = this.f66400e;
         if (bool == null || z) {
             if (!((context == null || (packageManager = context.getPackageManager()) == null || packageManager.resolveContentProvider("com.meizu.flyme.openidsdk", 0) == null) ? false : true)) {
                 e("is not Supported, for isLegalProvider : false");
-                this.f66357e = Boolean.FALSE;
+                this.f66400e = Boolean.FALSE;
                 return false;
             }
             String str = null;
@@ -216,7 +216,7 @@ public class d {
                 if (cursor != null) {
                     try {
                         try {
-                            str = a(cursor).f66348a;
+                            str = a(cursor).f66391a;
                         } catch (Exception e2) {
                             e = e2;
                             e("querySupport, Exception : " + e.getMessage());
@@ -242,7 +242,7 @@ public class d {
             cursor.close();
             e("querySupport, result : " + str);
             Boolean valueOf = Boolean.valueOf("0".equals(str));
-            this.f66357e = valueOf;
+            this.f66400e = valueOf;
             return valueOf.booleanValue();
         }
         return bool.booleanValue();
@@ -250,16 +250,16 @@ public class d {
 
     public a g(String str) {
         if ("oaid".equals(str)) {
-            return this.f66354b;
+            return this.f66397b;
         }
         if ("vaid".equals(str)) {
-            return this.f66356d;
+            return this.f66399d;
         }
         if ("aaid".equals(str)) {
-            return this.f66355c;
+            return this.f66398c;
         }
         if ("udid".equals(str)) {
-            return this.f66353a;
+            return this.f66396a;
         }
         return null;
     }

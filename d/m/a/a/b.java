@@ -17,44 +17,44 @@ import javax.net.ssl.SSLContext;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f66426a;
+    public Context f66469a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66427b;
+    public String f66470b;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66429d;
+    public int f66472d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f66430e;
+    public int f66473e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f66431f;
+    public byte[] f66474f;
     public HandlerThread m;
     public Handler n;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66428c = "";
+    public String f66471c = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public int f66432g = -1;
+    public int f66475g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f66433h = null;
+    public byte[] f66476h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f66434i = 10000;
+    public int f66477i = 10000;
     public int j = 1;
     public int k = 0;
     public boolean l = false;
     public boolean o = false;
     public HttpURLConnection p = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Handler.Callback {
         public a() {
         }
@@ -67,7 +67,7 @@ public abstract class b {
                 b.this.m.quit();
                 return false;
             } else if (!b.this.e()) {
-                b.this.n.sendEmptyMessageDelayed(1, b.this.f66434i * 1);
+                b.this.n.sendEmptyMessageDelayed(1, b.this.f66477i * 1);
                 b.p(b.this);
                 return false;
             } else {
@@ -81,8 +81,8 @@ public abstract class b {
 
     public b(Context context, String str) {
         str = (str == null || str.length() <= 0) ? "" : "";
-        this.f66426a = context;
-        this.f66427b = str;
+        this.f66469a = context;
+        this.f66470b = str;
     }
 
     public static /* synthetic */ int p(b bVar) {
@@ -148,7 +148,7 @@ public abstract class b {
         if (r0 == false) goto L26;
      */
     /* JADX WARN: Code restructure failed: missing block: B:31:0x009c, code lost:
-        f(r4.f66432g, r4.f66433h);
+        f(r4.f66475g, r4.f66476h);
      */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00a3, code lost:
         return r0;
@@ -161,7 +161,7 @@ public abstract class b {
         InputStream inputStream;
         boolean z = true;
         try {
-            URL url = new URL(this.f66428c);
+            URL url = new URL(this.f66471c);
             if (this.o) {
                 HttpsURLConnection.setDefaultSSLSocketFactory(SSLContext.getInstance("TLS").getSocketFactory());
                 httpURLConnection = (HttpURLConnection) url.openConnection(Proxy.NO_PROXY);
@@ -169,23 +169,23 @@ public abstract class b {
                 httpURLConnection = (HttpURLConnection) url.openConnection();
             }
             this.p = httpURLConnection;
-            this.p.setConnectTimeout(this.f66434i);
-            this.p.setReadTimeout(this.f66434i);
-            c(this.f66429d);
-            j(this.f66430e);
-            if (this.f66431f != null && this.f66431f.length > 0) {
+            this.p.setConnectTimeout(this.f66477i);
+            this.p.setReadTimeout(this.f66477i);
+            c(this.f66472d);
+            j(this.f66473e);
+            if (this.f66474f != null && this.f66474f.length > 0) {
                 this.p.setDoOutput(true);
                 OutputStream outputStream = this.p.getOutputStream();
-                outputStream.write(this.f66431f);
+                outputStream.write(this.f66474f);
                 outputStream.flush();
                 outputStream.close();
             }
             this.p.connect();
             try {
-                this.f66432g = this.p.getResponseCode();
+                this.f66475g = this.p.getResponseCode();
                 inputStream = this.p.getInputStream();
                 try {
-                    this.f66433h = h(inputStream);
+                    this.f66476h = h(inputStream);
                 } catch (Throwable unused) {
                 }
             } catch (Throwable unused2) {
@@ -228,7 +228,7 @@ public abstract class b {
             this.p.addRequestProperty("Content-Type", str);
         }
         HttpURLConnection httpURLConnection2 = this.p;
-        httpURLConnection2.addRequestProperty("Cookie", "sessionid=" + this.f66427b);
+        httpURLConnection2.addRequestProperty("Cookie", "sessionid=" + this.f66470b);
         try {
             String language = Locale.getDefault().getLanguage();
             if (language.equalsIgnoreCase("zh")) {
@@ -252,8 +252,8 @@ public abstract class b {
     }
 
     public final void k(int i2, int i3, byte[] bArr) {
-        this.f66429d = i2;
-        this.f66430e = i3;
-        this.f66431f = bArr;
+        this.f66472d = i2;
+        this.f66473e = i3;
+        this.f66474f = bArr;
     }
 }

@@ -6,16 +6,16 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.appcompat.widget.AppCompatEditText;
-import d.a.i0.a.v2.n0;
-import d.a.i0.j.d;
+import d.a.l0.a.v2.n0;
+import d.a.l0.j.d;
 /* loaded from: classes3.dex */
 public class ClearableEditText extends AppCompatEditText {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f11883f = n0.g(10.0f);
+    public static final int f11784f = n0.g(10.0f);
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f11884e;
+    public Drawable f11785e;
 
     public ClearableEditText(Context context) {
         super(context);
@@ -23,11 +23,11 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void setClearIconVisible(boolean z) {
-        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.f11884e : null, getCompoundDrawables()[3]);
+        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.f11785e : null, getCompoundDrawables()[3]);
     }
 
     public final void a() {
-        this.f11884e = getResources().getDrawable(d.aiapps_location_search_del);
+        this.f11785e = getResources().getDrawable(d.aiapps_location_search_del);
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -45,7 +45,7 @@ public class ClearableEditText extends AppCompatEditText {
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         Drawable drawable;
-        if (motionEvent.getAction() == 1 && (drawable = getCompoundDrawables()[2]) != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + f11883f && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - f11883f) {
+        if (motionEvent.getAction() == 1 && (drawable = getCompoundDrawables()[2]) != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + f11784f && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - f11784f) {
             setText("");
         }
         return super.onTouchEvent(motionEvent);

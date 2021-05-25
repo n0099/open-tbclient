@@ -9,6 +9,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class MainTabActivityConfig extends IntentConfig {
     public static boolean ENTER_FORUM_DELEGATE_AVAILABLE = true;
     public static boolean ENTER_FORUM_TAB_AVAIBLE = true;
+    public static final String EXIT_APP = "exit_app";
     public static boolean IMMESSAGE_CENTER_DELEGATE_AVAIBLE = true;
     public static boolean IS_BACK_CLOSE_ALL_ACTIVITY = false;
     public static boolean IS_INDICATOR_BOTTOM = true;
@@ -25,6 +26,12 @@ public class MainTabActivityConfig extends IntentConfig {
 
     public MainTabActivityConfig(Context context) {
         super(context);
+    }
+
+    public static void toExitApp(Context context) {
+        MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(context);
+        mainTabActivityConfig.getIntent().putExtra(EXIT_APP, true);
+        mainTabActivityConfig.start();
     }
 
     public MainTabActivityConfig buildVideoThreadId(String str) {

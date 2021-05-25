@@ -5,7 +5,7 @@ import com.xiaomi.push.ix;
 public class iu {
 
     /* renamed from: a  reason: collision with root package name */
-    public final jb f38028a;
+    public final jb f37957a;
 
     /* renamed from: a  reason: collision with other field name */
     public final jk f797a;
@@ -17,15 +17,15 @@ public class iu {
     public iu(jd jdVar) {
         jk jkVar = new jk();
         this.f797a = jkVar;
-        this.f38028a = jdVar.a(jkVar);
+        this.f37957a = jdVar.a(jkVar);
     }
 
     public void a(iq iqVar, byte[] bArr) {
         try {
             this.f797a.a(bArr);
-            iqVar.a(this.f38028a);
+            iqVar.a(this.f37957a);
         } finally {
-            this.f38028a.k();
+            this.f37957a.k();
         }
     }
 }

@@ -16,19 +16,19 @@ import rx.subscriptions.RefCountSubscription;
 public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d<T1> f69028e;
+    public final d<T1> f69071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d<T2> f69029f;
+    public final d<T2> f69072f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final f<? super T1, ? extends d<D1>> f69030g;
+    public final f<? super T1, ? extends d<D1>> f69073g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final f<? super T2, ? extends d<D2>> f69031h;
+    public final f<? super T2, ? extends d<D2>> f69074h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final g<? super T1, ? super d<T2>, ? extends R> f69032i;
+    public final g<? super T1, ? super d<T2>, ? extends R> f69075i;
 
     /* loaded from: classes7.dex */
     public final class ResultManager extends HashMap<Integer, e<T2>> implements k {
@@ -46,22 +46,22 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
         public final class a extends j<D1> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final int f69033e;
+            public final int f69076e;
 
             /* renamed from: f  reason: collision with root package name */
-            public boolean f69034f = true;
+            public boolean f69077f = true;
 
             public a(int i2) {
-                this.f69033e = i2;
+                this.f69076e = i2;
             }
 
             @Override // h.e
             public void onCompleted() {
                 e<T2> remove;
-                if (this.f69034f) {
-                    this.f69034f = false;
+                if (this.f69077f) {
+                    this.f69077f = false;
                     synchronized (ResultManager.this) {
-                        remove = ResultManager.this.leftMap().remove(Integer.valueOf(this.f69033e));
+                        remove = ResultManager.this.leftMap().remove(Integer.valueOf(this.f69076e));
                     }
                     if (remove != null) {
                         remove.onCompleted();
@@ -123,8 +123,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                     h.d b2 = h.d.b(new a(K, ResultManager.this.cancel));
                     a aVar = new a(i2);
                     ResultManager.this.group.a(aVar);
-                    OnSubscribeGroupJoin.this.f69030g.call(t1).I(aVar);
-                    R a2 = OnSubscribeGroupJoin.this.f69032i.a(t1, b2);
+                    OnSubscribeGroupJoin.this.f69073g.call(t1).I(aVar);
+                    R a2 = OnSubscribeGroupJoin.this.f69075i.a(t1, b2);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.rightMap.values());
                     }
@@ -142,21 +142,21 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
         public final class c extends j<D2> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final int f69037e;
+            public final int f69080e;
 
             /* renamed from: f  reason: collision with root package name */
-            public boolean f69038f = true;
+            public boolean f69081f = true;
 
             public c(int i2) {
-                this.f69037e = i2;
+                this.f69080e = i2;
             }
 
             @Override // h.e
             public void onCompleted() {
-                if (this.f69038f) {
-                    this.f69038f = false;
+                if (this.f69081f) {
+                    this.f69081f = false;
                     synchronized (ResultManager.this) {
-                        ResultManager.this.rightMap.remove(Integer.valueOf(this.f69037e));
+                        ResultManager.this.rightMap.remove(Integer.valueOf(this.f69080e));
                     }
                     ResultManager.this.group.b(this);
                 }
@@ -212,7 +212,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                     }
                     c cVar = new c(i2);
                     ResultManager.this.group.a(cVar);
-                    OnSubscribeGroupJoin.this.f69031h.call(t2).I(cVar);
+                    OnSubscribeGroupJoin.this.f69074h.call(t2).I(cVar);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.leftMap().values());
                     }
@@ -267,8 +267,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             d dVar = new d();
             this.group.a(bVar);
             this.group.a(dVar);
-            OnSubscribeGroupJoin.this.f69028e.I(bVar);
-            OnSubscribeGroupJoin.this.f69029f.I(dVar);
+            OnSubscribeGroupJoin.this.f69071e.I(bVar);
+            OnSubscribeGroupJoin.this.f69072f.I(dVar);
         }
 
         @Override // h.k
@@ -290,58 +290,58 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
     public static final class a<T> implements d.a<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final RefCountSubscription f69041e;
+        public final RefCountSubscription f69084e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d<T> f69042f;
+        public final d<T> f69085f;
 
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public final class C1950a extends j<T> {
+        public final class C1954a extends j<T> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final j<? super T> f69043e;
+            public final j<? super T> f69086e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final k f69044f;
+            public final k f69087f;
 
-            public C1950a(a aVar, j<? super T> jVar, k kVar) {
+            public C1954a(a aVar, j<? super T> jVar, k kVar) {
                 super(jVar);
-                this.f69043e = jVar;
-                this.f69044f = kVar;
+                this.f69086e = jVar;
+                this.f69087f = kVar;
             }
 
             @Override // h.e
             public void onCompleted() {
-                this.f69043e.onCompleted();
-                this.f69044f.unsubscribe();
+                this.f69086e.onCompleted();
+                this.f69087f.unsubscribe();
             }
 
             @Override // h.e
             public void onError(Throwable th) {
-                this.f69043e.onError(th);
-                this.f69044f.unsubscribe();
+                this.f69086e.onError(th);
+                this.f69087f.unsubscribe();
             }
 
             @Override // h.e
             public void onNext(T t) {
-                this.f69043e.onNext(t);
+                this.f69086e.onNext(t);
             }
         }
 
         public a(d<T> dVar, RefCountSubscription refCountSubscription) {
-            this.f69041e = refCountSubscription;
-            this.f69042f = dVar;
+            this.f69084e = refCountSubscription;
+            this.f69085f = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(j<? super T> jVar) {
-            k a2 = this.f69041e.a();
-            C1950a c1950a = new C1950a(this, jVar, a2);
-            c1950a.add(a2);
-            this.f69042f.I(c1950a);
+            k a2 = this.f69084e.a();
+            C1954a c1954a = new C1954a(this, jVar, a2);
+            c1954a.add(a2);
+            this.f69085f.I(c1954a);
         }
     }
 }

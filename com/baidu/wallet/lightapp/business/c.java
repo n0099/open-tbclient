@@ -34,17 +34,17 @@ public final class c {
     public static class b extends FilterInputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        public final HttpURLConnection f24821a;
+        public final HttpURLConnection f24750a;
 
         public b(HttpURLConnection httpURLConnection) {
             super(c.b(httpURLConnection));
-            this.f24821a = httpURLConnection;
+            this.f24750a = httpURLConnection;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             super.close();
-            this.f24821a.disconnect();
+            this.f24750a.disconnect();
         }
     }
 
@@ -164,7 +164,7 @@ public final class c {
         }
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put("url", str2);
-        linkedHashMap.put(com.baidu.fsg.face.base.b.c.f5597g, str);
+        linkedHashMap.put(com.baidu.fsg.face.base.b.c.f5497g, str);
         Tracker.send(LightAppStatEvent.JS_FILE_VERIFY_FAILED, linkedHashMap, context);
     }
 

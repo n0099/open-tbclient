@@ -5,15 +5,15 @@ import com.win.opensdk.core.Info;
 public class y0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37254a;
+    public String f37183a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Info f37255b;
+    public Info f37184b;
 
     public y0(Info info) {
-        this.f37255b = info;
+        this.f37184b = info;
         if (info != null) {
-            this.f37254a = info.getPid();
+            this.f37183a = info.getPid();
         }
     }
 }

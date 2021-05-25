@@ -10,18 +10,18 @@ import com.baidu.swan.apps.so.SoUtils;
 public class dp extends dq {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37516a;
+    public String f37445a;
 
     public dp(Context context, int i2, String str) {
         super(context, i2);
-        this.f37516a = str;
+        this.f37445a = str;
     }
 
     private String[] a() {
-        if (TextUtils.isEmpty(this.f37516a)) {
+        if (TextUtils.isEmpty(this.f37445a)) {
             return null;
         }
-        String b2 = bj.b(this.f37516a);
+        String b2 = bj.b(this.f37445a);
         if (TextUtils.isEmpty(b2)) {
             return null;
         }

@@ -6,10 +6,10 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.TbPageContext;
-import d.a.k0.x1.d.a;
-import d.a.k0.x1.d.b;
+import d.a.n0.y1.d.a;
+import d.a.n0.y1.d.b;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
     public int A;
 

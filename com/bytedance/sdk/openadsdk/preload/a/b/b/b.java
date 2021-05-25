@@ -6,14 +6,14 @@ import java.lang.reflect.AccessibleObject;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f29846a;
+    public static final b f29775a;
 
     static {
-        f29846a = e.a() < 9 ? new a() : new c();
+        f29775a = e.a() < 9 ? new a() : new c();
     }
 
     public static b a() {
-        return f29846a;
+        return f29775a;
     }
 
     public abstract void a(AccessibleObject accessibleObject);

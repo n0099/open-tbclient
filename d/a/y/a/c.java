@@ -1,141 +1,308 @@
 package d.a.y.a;
+
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.util.io.PathUtils;
+import com.baidu.cyberplayer.sdk.CyberLog;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
+import com.baidu.cyberplayer.sdk.SDKVersion;
+import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import com.baidu.media.duplayer.LibsInfoDef;
+import com.baidu.media.duplayer.Utils;
+import com.baidu.media.duplayer.d;
+import com.baidu.media.duplayer.monitor.DuplayerQualityMonitorManager;
+import com.baidu.media.ext.CyberMediaExtLoader;
+import com.baidu.webkit.internal.GlobalConstants;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Map;
+import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes2.dex */
-public final class c {
-    public static final int abc_action_bar_content_inset_material = 2131165244;
-    public static final int abc_action_bar_content_inset_with_nav = 2131165245;
-    public static final int abc_action_bar_default_height_material = 2131165246;
-    public static final int abc_action_bar_default_padding_end_material = 2131165247;
-    public static final int abc_action_bar_default_padding_start_material = 2131165248;
-    public static final int abc_action_bar_elevation_material = 2131165249;
-    public static final int abc_action_bar_icon_vertical_padding_material = 2131165250;
-    public static final int abc_action_bar_overflow_padding_end_material = 2131165251;
-    public static final int abc_action_bar_overflow_padding_start_material = 2131165252;
-    public static final int abc_action_bar_stacked_max_height = 2131165253;
-    public static final int abc_action_bar_stacked_tab_max_width = 2131165254;
-    public static final int abc_action_bar_subtitle_bottom_margin_material = 2131165255;
-    public static final int abc_action_bar_subtitle_top_margin_material = 2131165256;
-    public static final int abc_action_button_min_height_material = 2131165257;
-    public static final int abc_action_button_min_width_material = 2131165258;
-    public static final int abc_action_button_min_width_overflow_material = 2131165259;
-    public static final int abc_alert_dialog_button_bar_height = 2131165260;
-    public static final int abc_alert_dialog_button_dimen = 2131165261;
-    public static final int abc_button_inset_horizontal_material = 2131165262;
-    public static final int abc_button_inset_vertical_material = 2131165263;
-    public static final int abc_button_padding_horizontal_material = 2131165264;
-    public static final int abc_button_padding_vertical_material = 2131165265;
-    public static final int abc_cascading_menus_min_smallest_width = 2131165266;
-    public static final int abc_config_prefDialogWidth = 2131165267;
-    public static final int abc_control_corner_material = 2131165268;
-    public static final int abc_control_inset_material = 2131165269;
-    public static final int abc_control_padding_material = 2131165270;
-    public static final int abc_dialog_corner_radius_material = 2131165271;
-    public static final int abc_dialog_fixed_height_major = 2131165272;
-    public static final int abc_dialog_fixed_height_minor = 2131165273;
-    public static final int abc_dialog_fixed_width_major = 2131165274;
-    public static final int abc_dialog_fixed_width_minor = 2131165275;
-    public static final int abc_dialog_list_padding_bottom_no_buttons = 2131165276;
-    public static final int abc_dialog_list_padding_top_no_title = 2131165277;
-    public static final int abc_dialog_min_width_major = 2131165278;
-    public static final int abc_dialog_min_width_minor = 2131165279;
-    public static final int abc_dialog_padding_material = 2131165280;
-    public static final int abc_dialog_padding_top_material = 2131165281;
-    public static final int abc_dialog_title_divider_material = 2131165282;
-    public static final int abc_disabled_alpha_material_dark = 2131165283;
-    public static final int abc_disabled_alpha_material_light = 2131165284;
-    public static final int abc_dropdownitem_icon_width = 2131165285;
-    public static final int abc_dropdownitem_text_padding_left = 2131165286;
-    public static final int abc_dropdownitem_text_padding_right = 2131165287;
-    public static final int abc_edit_text_inset_bottom_material = 2131165288;
-    public static final int abc_edit_text_inset_horizontal_material = 2131165289;
-    public static final int abc_edit_text_inset_top_material = 2131165290;
-    public static final int abc_floating_window_z = 2131165291;
-    public static final int abc_list_item_padding_horizontal_material = 2131165295;
-    public static final int abc_panel_menu_list_width = 2131165296;
-    public static final int abc_progress_bar_height_material = 2131165297;
-    public static final int abc_search_view_preferred_height = 2131165298;
-    public static final int abc_search_view_preferred_width = 2131165299;
-    public static final int abc_seekbar_track_background_height_material = 2131165300;
-    public static final int abc_seekbar_track_progress_height_material = 2131165301;
-    public static final int abc_select_dialog_padding_start_material = 2131165302;
-    public static final int abc_switch_padding = 2131165303;
-    public static final int abc_text_size_body_1_material = 2131165304;
-    public static final int abc_text_size_body_2_material = 2131165305;
-    public static final int abc_text_size_button_material = 2131165306;
-    public static final int abc_text_size_caption_material = 2131165307;
-    public static final int abc_text_size_display_1_material = 2131165308;
-    public static final int abc_text_size_display_2_material = 2131165309;
-    public static final int abc_text_size_display_3_material = 2131165310;
-    public static final int abc_text_size_display_4_material = 2131165311;
-    public static final int abc_text_size_headline_material = 2131165312;
-    public static final int abc_text_size_large_material = 2131165313;
-    public static final int abc_text_size_medium_material = 2131165314;
-    public static final int abc_text_size_menu_header_material = 2131165315;
-    public static final int abc_text_size_menu_material = 2131165316;
-    public static final int abc_text_size_small_material = 2131165317;
-    public static final int abc_text_size_subhead_material = 2131165318;
-    public static final int abc_text_size_subtitle_material_toolbar = 2131165319;
-    public static final int abc_text_size_title_material = 2131165320;
-    public static final int abc_text_size_title_material_toolbar = 2131165321;
-    public static final int compat_button_inset_horizontal_material = 2131165617;
-    public static final int compat_button_inset_vertical_material = 2131165618;
-    public static final int compat_button_padding_horizontal_material = 2131165619;
-    public static final int compat_button_padding_vertical_material = 2131165620;
-    public static final int compat_control_corner_material = 2131165621;
-    public static final int compat_notification_large_icon_max_height = 2131165622;
-    public static final int compat_notification_large_icon_max_width = 2131165623;
-    public static final int disabled_alpha_material_dark = 2131165696;
-    public static final int disabled_alpha_material_light = 2131165697;
-    public static final int highlight_alpha_material_colored = 2131166049;
-    public static final int highlight_alpha_material_dark = 2131166050;
-    public static final int highlight_alpha_material_light = 2131166051;
-    public static final int hint_alpha_material_dark = 2131166052;
-    public static final int hint_alpha_material_light = 2131166053;
-    public static final int hint_pressed_alpha_material_dark = 2131166054;
-    public static final int hint_pressed_alpha_material_light = 2131166055;
-    public static final int notification_action_icon_size = 2131166336;
-    public static final int notification_action_text_size = 2131166337;
-    public static final int notification_big_circle_margin = 2131166339;
-    public static final int notification_content_margin_start = 2131166340;
-    public static final int notification_large_icon_height = 2131166341;
-    public static final int notification_large_icon_width = 2131166342;
-    public static final int notification_main_column_padding_top = 2131166343;
-    public static final int notification_media_narrow_margin = 2131166344;
-    public static final int notification_right_icon_size = 2131166345;
-    public static final int notification_right_side_padding_top = 2131166346;
-    public static final int notification_small_icon_background_padding = 2131166347;
-    public static final int notification_small_icon_size_as_large = 2131166348;
-    public static final int notification_subtext_size = 2131166349;
-    public static final int notification_top_pad = 2131166350;
-    public static final int notification_top_pad_large_text = 2131166351;
-    public static final int pass_bio_standard_margin = 2131166353;
-    public static final int pass_bio_standard_padding = 2131166354;
-    public static final int pass_liveness_face_loading_progress_size = 2131166355;
-    public static final int pass_liveness_face_round_height = 2131166356;
-    public static final int pass_liveness_face_round_width = 2131166357;
-    public static final int sapi_sdk_activity_horizontal_margin = 2131166568;
-    public static final int sapi_sdk_activity_vertical_margin = 2131166569;
-    public static final int sapi_sdk_finger_print_btn_left_margin = 2131166585;
-    public static final int sapi_sdk_finger_print_btn_margin = 2131166586;
-    public static final int sapi_sdk_finger_print_btn_right_margin = 2131166587;
-    public static final int sapi_sdk_half_padding = 2131166588;
-    public static final int sapi_sdk_sms_check_code_height = 2131166589;
-    public static final int sapi_sdk_standard_margin = 2131166590;
-    public static final int sapi_sdk_standard_padding = 2131166591;
-    public static final int sapi_sdk_text_size = 2131166592;
-    public static final int sapi_sdk_title_bottom_back_height = 2131166593;
-    public static final int sapi_sdk_title_division_line_height = 2131166594;
-    public static final int sapi_sdk_title_left_btn_text_size = 2131166595;
-    public static final int sapi_sdk_title_padding_left = 2131166596;
-    public static final int sapi_sdk_title_padding_right = 2131166597;
-    public static final int sapi_sdk_title_right_btn_text_size = 2131166598;
-    public static final int sapi_sdk_title_text_size = 2131166599;
-    public static final int sapi_sdk_webview_radius = 2131166600;
-    public static final int tooltip_corner_radius = 2131167362;
-    public static final int tooltip_horizontal_padding = 2131167363;
-    public static final int tooltip_margin = 2131167364;
-    public static final int tooltip_precise_anchor_extra_offset = 2131167365;
-    public static final int tooltip_precise_anchor_threshold = 2131167366;
-    public static final int tooltip_vertical_padding = 2131167367;
-    public static final int tooltip_y_offset_non_touch = 2131167368;
-    public static final int tooltip_y_offset_touch = 2131167369;
+public class c {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static volatile int f64862a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f64863b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f64864c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static boolean f64865d;
+
+    /* loaded from: classes2.dex */
+    public static class a implements Runnable {
+        @Override // java.lang.Runnable
+        public void run() {
+            d.d();
+        }
+    }
+
+    public static void a(int i2, Map<String, String> map) {
+        int i3;
+        int h2 = e.b().h(i2);
+        if ((f64862a & h2) == h2) {
+            return;
+        }
+        do {
+            i3 = (f64862a ^ h2) & h2;
+            if (i3 <= 0) {
+                break;
+            }
+        } while (j(1 << Integer.numberOfTrailingZeros(i3), map));
+        e.b().o();
+    }
+
+    public static void b(Context context, String str) {
+        f64864c = str;
+        f64865d = Utils.p(context);
+        e.b().e(context, str);
+    }
+
+    public static void c(Context context, Map<String, String> map) {
+        String str;
+        String str2;
+        CyberLog.d("CyberLibsLoader", "initCyberPlayer");
+        IjkMediaPlayer.e();
+        IjkMediaPlayer.f();
+        String str3 = map != null ? map.get("cache-path") : null;
+        CyberTaskExcutor.getInstance().execute(new a());
+        if (str3 == null) {
+            str = Utils.b(context) + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + Utils.f7994c + File.separator + context.getPackageName() + File.separator;
+        } else {
+            str = str3 + File.separator + Utils.f7994c + File.separator;
+        }
+        if (f64865d) {
+            str = str + "remote" + File.separator;
+        }
+        Utils.e(str);
+        int i2 = 5;
+        if (map != null && (str2 = map.get(CyberPlayerManager.INSTALL_OPT_PIPELINE_NUM)) != null) {
+            try {
+                i2 = Integer.parseInt(str2);
+            } catch (Exception unused) {
+            }
+        }
+        Utils.c(i2);
+        Utils.o();
+        k();
+    }
+
+    public static boolean d(int i2) {
+        int h2 = e.b().h(i2);
+        return (f64862a & h2) == h2;
+    }
+
+    public static boolean e(int i2, String str) {
+        if (f64865d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_SR, true)) {
+            if (i2 != 512) {
+                System.load(str);
+            } else {
+                String str2 = f64864c + File.separator + "model_video-sr_1.2";
+                String str3 = str2 + File.separator + "params.mlm";
+                if (!new File(str2 + File.separator + "model.mlm").exists() || !new File(str3).exists()) {
+                    throw new FileNotFoundException("model_video-sr_1.2.zip");
+                }
+                CyberLog.d("CyberLibsLoader", "initVideoSR");
+                Utils.f(str, str2);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public static String[] f() {
+        return e.b().l();
+    }
+
+    public static String g() {
+        return f64863b;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0045  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean h(int i2, Map<String, String> map) {
+        String str;
+        int i3;
+        StringBuilder sb;
+        String error;
+        String str2;
+        if (CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_CRASHPAD, true)) {
+            String str3 = null;
+            String str4 = "-1";
+            if (map != null) {
+                String str5 = map.get(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE);
+                if (!TextUtils.isEmpty(str5)) {
+                    try {
+                        i3 = Integer.parseInt(str5);
+                    } catch (Exception unused) {
+                    }
+                    str = map.get("abtest_sid");
+                    str2 = map.get(CyberPlayerManager.INSTALL_OPT_PROCESS_TYPE);
+                    if (!TextUtils.isEmpty(str2)) {
+                        str4 = str2;
+                    }
+                }
+                i3 = 3;
+                str = map.get("abtest_sid");
+                str2 = map.get(CyberPlayerManager.INSTALL_OPT_PROCESS_TYPE);
+                if (!TextUtils.isEmpty(str2)) {
+                }
+            } else {
+                str = null;
+                i3 = 3;
+            }
+            if (f64865d) {
+                if ((i3 & 2) != 2) {
+                    return false;
+                }
+            } else if ((i3 & 1) != 1) {
+                return false;
+            }
+            if (b.e()) {
+                if (i2 == 1) {
+                    return true;
+                }
+                try {
+                    try {
+                        File file = new File(e.b().a(1).d());
+                        File file2 = new File(e.b().a(2).d());
+                        String parent = file.getParent();
+                        String parent2 = file2.getParent();
+                        try {
+                            str3 = CyberPlayerManager.getApplicationContext().getExternalFilesDir("").getAbsolutePath();
+                        } catch (Exception unused2) {
+                        }
+                        if (f64865d) {
+                            str4 = "4";
+                        }
+                        if (!file2.canExecute()) {
+                            file2.setExecutable(true);
+                            CyberLog.d("CyberLibsLoader", "set " + file2.getAbsolutePath() + " executable");
+                        }
+                        String[] strArr = {SDKVersion.VERSION, "neon", CyberPlayerManager.getClientID(), "unKnown", "0", "0", str4, "true", str3, GlobalConstants.DEFAULT_VERSION, parent, parent2, ""};
+                        b.d(true);
+                        b.a(CyberPlayerManager.getApplicationContext(), strArr);
+                        b.b("{searchbox_sid=" + str + "}");
+                        return true;
+                    } catch (Exception e2) {
+                        sb = new StringBuilder();
+                        sb.append("initCrashPad Exception:");
+                        error = e2.toString();
+                        sb.append(error);
+                        CyberLog.e("CyberLibsLoader", sb.toString());
+                        return false;
+                    }
+                } catch (Error e3) {
+                    sb = new StringBuilder();
+                    sb.append("initCrashPad Error:");
+                    error = e3.toString();
+                    sb.append(error);
+                    CyberLog.e("CyberLibsLoader", sb.toString());
+                    return false;
+                }
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public static String i() {
+        return f64864c;
+    }
+
+    public static boolean j(int i2, Map<String, String> map) {
+        boolean e2;
+        com.baidu.media.duplayer.d a2 = e.b().a(i2);
+        if (a2 == null) {
+            CyberLog.e("CyberLibsLoader", "Unable to find (" + i2 + ") LibInfo");
+            return false;
+        }
+        String a3 = a2.a();
+        String c2 = a2.c();
+        String d2 = a2.d();
+        File file = new File(d2);
+        if (a2.e() == d.a.LIB_TYPE_JAR) {
+            if (!"apk_internal_jar".equals(d2)) {
+                if (!file.exists()) {
+                    throw new FileNotFoundException(e.b().n(i2));
+                }
+                if (e.b().w(i2)) {
+                    e2 = CyberMediaExtLoader.init(CyberPlayerManager.getApplicationContext());
+                }
+            }
+            e2 = true;
+        } else {
+            if (a2.e() == d.a.LIB_TYPE_SO) {
+                if (!file.exists()) {
+                    if (i2 == 8) {
+                        i2 = 16;
+                    }
+                    throw new FileNotFoundException(e.b().n(i2));
+                } else if (e.b().p(i2)) {
+                    System.load(d2);
+                    if (i2 == 16) {
+                        c(CyberPlayerManager.getApplicationContext(), map);
+                    }
+                } else if (e.b().r(i2)) {
+                    IjkMediaPlayer.nativeSetEnableFFmpegExtend(d2);
+                } else if (e.b().t(i2)) {
+                    f64863b = d2;
+                } else if (e.b().x(i2)) {
+                    e2 = h(i2, map);
+                } else if (e.b().v(i2)) {
+                    e2 = e(i2, d2);
+                }
+            }
+            e2 = true;
+        }
+        f64862a = i2 | f64862a;
+        if (e2) {
+            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + f64865d + " abi:" + e.b().m() + " lib:" + a3 + " ver:" + c2 + " load success");
+        }
+        return true;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0073 A[Catch: Exception -> 0x007f, TRY_LEAVE, TryCatch #0 {Exception -> 0x007f, blocks: (B:5:0x000e, B:7:0x0057, B:9:0x005b, B:17:0x0073, B:11:0x0061, B:13:0x006c), top: B:20:0x000e }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void k() {
+        boolean z = true;
+        if (!CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_MONITOR, true)) {
+            return;
+        }
+        try {
+            String str = f64864c + File.separator + "config";
+            String str2 = str + File.separator + LibsInfoDef.CYBER_CODEC_MONITOR_NAME + "_" + LibsInfoDef.CYBER_CODEC_MONITOR_VERSION + ".json";
+            File file = new File(str);
+            if (file.exists()) {
+                if (!new File(str2).exists() && !f64865d) {
+                    z = false;
+                }
+                if (z) {
+                }
+            } else {
+                if (f64865d) {
+                    file.mkdirs();
+                    if (z) {
+                        Utils.g(str2, f64865d);
+                        DuplayerQualityMonitorManager.getInstance().init();
+                        return;
+                    }
+                    return;
+                }
+                z = false;
+                if (z) {
+                }
+            }
+        } catch (Exception unused) {
+        }
+    }
 }

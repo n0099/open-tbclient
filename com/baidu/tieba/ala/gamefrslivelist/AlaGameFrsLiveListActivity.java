@@ -29,8 +29,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.k0.e;
-import d.a.k0.q0.k0;
+import d.a.m0.k0.e;
+import d.a.n0.r0.k0;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
@@ -73,21 +73,21 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
     }
 
     /* loaded from: classes4.dex */
-    public class c extends d.a.j0.k0.b {
+    public class c extends d.a.m0.k0.b {
         public c() {
         }
 
-        @Override // d.a.j0.k0.b
-        public boolean canStat(d.a.j0.k0.d dVar) {
+        @Override // d.a.m0.k0.b
+        public boolean canStat(d.a.m0.k0.d dVar) {
             return false;
         }
 
-        @Override // d.a.j0.k0.b
+        @Override // d.a.m0.k0.b
         public int getMaxCost() {
             return e.b().c();
         }
 
-        @Override // d.a.j0.k0.b
+        @Override // d.a.m0.k0.b
         public boolean isCurrentPageCanBeAddToSourceTrace() {
             return true;
         }
@@ -108,9 +108,9 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             k0 k0Var = (k0) customResponsedMessage.getData();
             ArrayList arrayList = new ArrayList();
             if (k0Var.e() != null) {
-                for (d.a.j0.e0.b bVar : k0Var.e()) {
-                    if (bVar.getFragmentTabStructure().f49290a != null) {
-                        arrayList.add(bVar.getFragmentTabStructure().f49290a);
+                for (d.a.m0.e0.b bVar : k0Var.e()) {
+                    if (bVar.getFragmentTabStructure().f49334a != null) {
+                        arrayList.add(bVar.getFragmentTabStructure().f49334a);
                     }
                 }
             }
@@ -132,13 +132,13 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12243c = fragment;
-        bVar.f12241a = i2;
+        bVar.f12151c = fragment;
+        bVar.f12149a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.fragment_tab_host_indicator_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f12242b = fragmentTabIndicator;
+        bVar.f12150b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -174,7 +174,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.j0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.m0.k0.a
     public String getCurrentPageKey() {
         FragmentTabHost fragmentTabHost = this.mTabHost;
         if (fragmentTabHost == null) {
@@ -188,8 +188,8 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.j0.k0.a
-    public d.a.j0.k0.b getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.m0.k0.a
+    public d.a.m0.k0.b getPageStayFilter() {
         return new c();
     }
 

@@ -9,19 +9,19 @@ import java.util.List;
 public class g extends c<ReportAction, f> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f32656a = false;
+    public static volatile boolean f32585a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static g f32657b = new g();
+    public static g f32586b = new g();
 
     public static void a(@NonNull a aVar) {
         if (aVar == null) {
             return;
         }
-        if (com.kwad.sdk.b.f31890b.booleanValue()) {
-            Log.d("BatchReporter", "report actionType:" + aVar.f32611c);
+        if (com.kwad.sdk.b.f31819b.booleanValue()) {
+            Log.d("BatchReporter", "report actionType:" + aVar.f32540c);
         }
-        if (b(aVar.f32611c)) {
+        if (b(aVar.f32540c)) {
             b(aVar);
         } else {
             c(aVar);
@@ -32,7 +32,7 @@ public class g extends c<ReportAction, f> {
         if (aVar == null) {
             return;
         }
-        f32657b.b(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.2
+        f32586b.b(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -47,14 +47,14 @@ public class g extends c<ReportAction, f> {
     }
 
     public static g c() {
-        return f32657b;
+        return f32586b;
     }
 
     public static void c(final a aVar) {
         if (aVar == null) {
             return;
         }
-        f32657b.a(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.1
+        f32586b.a(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -66,7 +66,7 @@ public class g extends c<ReportAction, f> {
 
     @Override // com.kwad.sdk.core.report.c
     public void a(Context context) {
-        if (f32656a) {
+        if (f32585a) {
             return;
         }
         super.a(context);
@@ -77,7 +77,7 @@ public class g extends c<ReportAction, f> {
         if (a2 == 2) {
             a(l.a(context));
         }
-        f32656a = true;
+        f32585a = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

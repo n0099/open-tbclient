@@ -16,31 +16,31 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.poly.widget.PolyFrameLayout;
-import d.a.a0.k.j.a;
-import d.a.a0.p.a.a;
-import d.a.a0.p.c;
+import d.a.c0.k.j.a;
+import d.a.c0.p.a.a;
+import d.a.c0.p.c;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class l extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f9424e;
+    public View f9324e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ListView f9425f;
+    public ListView f9325f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PolyFrameLayout f9426g;
+    public PolyFrameLayout f9326g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f9427h;
+    public ViewGroup f9327h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f9428i;
+    public boolean f9328i;
     public h j;
-    public d.a.a0.p.a.b k;
-    public List<a.C0488a> l;
-    public a.C0488a m;
+    public d.a.c0.p.a.b k;
+    public List<a.C0514a> l;
+    public a.C0514a m;
     public com.baidu.poly.a.l.c n;
     public boolean o;
     public Runnable p;
@@ -55,7 +55,7 @@ public class l extends FrameLayout {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
             l lVar = l.this;
-            lVar.n = d.a.a0.k.k.a.a(lVar.f9426g, layoutParams, "加载中", -1L);
+            lVar.n = d.a.c0.k.k.a.a(lVar.f9326g, layoutParams, "加载中", -1L);
         }
     }
 
@@ -90,33 +90,33 @@ public class l extends FrameLayout {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            if (((a.C0488a) l.this.l.get(i2)).f38488g == 1) {
+            if (((a.C0514a) l.this.l.get(i2)).f39508g == 1) {
                 return;
             }
             l lVar = l.this;
-            lVar.e((a.C0488a) lVar.l.get(i2));
+            lVar.e((a.C0514a) lVar.l.get(i2));
         }
     }
 
     /* loaded from: classes2.dex */
-    public class e implements d.a.a0.k.j.a {
+    public class e implements d.a.c0.k.j.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.C0488a f9433a;
+        public final /* synthetic */ a.C0514a f9333a;
 
         /* loaded from: classes2.dex */
         public class a implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.a.a0.p.c f9435e;
+            public final /* synthetic */ d.a.c0.p.c f9335e;
 
-            public a(e eVar, d.a.a0.p.c cVar) {
-                this.f9435e = cVar;
+            public a(e eVar, d.a.c0.p.c cVar) {
+                this.f9335e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                this.f9435e.q();
+                this.f9335e.q();
             }
         }
 
@@ -125,47 +125,47 @@ public class l extends FrameLayout {
             public b() {
             }
 
-            @Override // d.a.a0.p.c.b
+            @Override // d.a.c0.p.c.b
             public void onDismiss() {
                 l.this.j.b();
             }
         }
 
-        public e(a.C0488a c0488a) {
-            this.f9433a = c0488a;
+        public e(a.C0514a c0514a) {
+            this.f9333a = c0514a;
         }
 
-        @Override // d.a.a0.k.j.a
-        public void a(a.C0485a c0485a) {
-            l.this.f9426g.a(false);
+        @Override // d.a.c0.k.j.a
+        public void a(a.C0511a c0511a) {
+            l.this.f9326g.a(false);
             l lVar = l.this;
             lVar.removeCallbacks(lVar.p);
-            d.a.a0.k.k.a.c(l.this.n);
+            d.a.c0.k.k.a.c(l.this.n);
             l.this.n = null;
-            if (c0485a == null) {
+            if (c0511a == null) {
                 return;
             }
-            int i2 = c0485a.f38462a;
+            int i2 = c0511a.f39482a;
             if (i2 == 0) {
-                for (a.C0488a c0488a : l.this.l) {
-                    if (c0488a == this.f9433a) {
-                        l.this.m = c0488a;
-                        c0488a.f38488g = 1;
+                for (a.C0514a c0514a : l.this.l) {
+                    if (c0514a == this.f9333a) {
+                        l.this.m = c0514a;
+                        c0514a.f39508g = 1;
                     } else {
-                        c0488a.f38488g = 0;
+                        c0514a.f39508g = 0;
                     }
                 }
                 l.this.k.notifyDataSetChanged();
                 l.this.j.d();
             } else if (i2 == 1) {
-                View inflate = View.inflate(l.this.getContext(), d.a.a0.g.default_pop_window, null);
-                d.a.a0.p.c cVar = new d.a.a0.p.c(inflate, -1, -1, true);
-                ((TextView) inflate.findViewById(d.a.a0.f.pop_tips)).setText(c0485a.f38463b);
-                ((TextView) inflate.findViewById(d.a.a0.f.pop_button)).setOnClickListener(new a(this, cVar));
+                View inflate = View.inflate(l.this.getContext(), d.a.c0.g.default_pop_window, null);
+                d.a.c0.p.c cVar = new d.a.c0.p.c(inflate, -1, -1, true);
+                ((TextView) inflate.findViewById(d.a.c0.f.pop_tips)).setText(c0511a.f39483b);
+                ((TextView) inflate.findViewById(d.a.c0.f.pop_button)).setOnClickListener(new a(this, cVar));
                 cVar.h(new b());
                 cVar.E(l.this, 0, 0, 0);
             } else {
-                Toast.makeText(l.this.getContext(), l.this.getResources().getString(d.a.a0.h.coupon_calculate_error), 0).show();
+                Toast.makeText(l.this.getContext(), l.this.getResources().getString(d.a.c0.h.coupon_calculate_error), 0).show();
             }
         }
     }
@@ -219,7 +219,7 @@ public class l extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface h {
-        void a(a.C0488a c0488a, d.a.a0.k.j.a aVar);
+        void a(a.C0514a c0514a, d.a.c0.k.j.a aVar);
 
         void b();
 
@@ -233,68 +233,68 @@ public class l extends FrameLayout {
     }
 
     public void c(int i2) {
-        this.f9426g.getLayoutParams().height = i2;
+        this.f9326g.getLayoutParams().height = i2;
         s();
     }
 
     public void d(View view) {
-        if (view == null || this.o || !this.f9428i) {
+        if (view == null || this.o || !this.f9328i) {
             return;
         }
         this.o = true;
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", 0.0f, view.getMeasuredWidth() * (-1));
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f9427h, "translationX", view.getMeasuredWidth(), 0.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f9327h, "translationX", view.getMeasuredWidth(), 0.0f);
         animatorSet.setDuration(160L);
         animatorSet.playTogether(ofFloat, ofFloat2);
         animatorSet.start();
         animatorSet.addListener(new f());
     }
 
-    public final void e(a.C0488a c0488a) {
+    public final void e(a.C0514a c0514a) {
         if (this.j == null) {
             return;
         }
-        this.f9426g.a(true);
+        this.f9326g.a(true);
         postDelayed(this.p, 500L);
-        this.j.a(c0488a, new e(c0488a));
+        this.j.a(c0514a, new e(c0514a));
     }
 
-    public void g(List<a.C0488a> list) {
+    public void g(List<a.C0514a> list) {
         this.l = list;
         if (this.k == null) {
-            this.k = new d.a.a0.p.a.b(getContext());
+            this.k = new d.a.c0.p.a.b(getContext());
         }
-        this.f9425f.setAdapter((ListAdapter) this.k);
+        this.f9325f.setAdapter((ListAdapter) this.k);
         this.k.a(this.l);
-        List<a.C0488a> list2 = this.l;
+        List<a.C0514a> list2 = this.l;
         if (list2 != null && list2.size() > 0) {
             int i2 = 0;
             while (true) {
                 if (i2 >= this.l.size()) {
                     break;
-                } else if (this.l.get(i2).f38488g == 1) {
+                } else if (this.l.get(i2).f39508g == 1) {
                     this.l.get(i2);
                     break;
                 } else {
                     i2++;
                 }
             }
-            this.f9425f.setOnItemClickListener(new d());
-        } else if (this.j == null || !this.f9428i) {
+            this.f9325f.setOnItemClickListener(new d());
+        } else if (this.j == null || !this.f9328i) {
         } else {
             postDelayed(new c(), 100L);
         }
     }
 
     public void k(View view) {
-        if (view == null || this.o || !this.f9428i) {
+        if (view == null || this.o || !this.f9328i) {
             return;
         }
         this.o = true;
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", view.getMeasuredWidth() * (-1), 0.0f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f9427h, "translationX", 0.0f, view.getMeasuredWidth());
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f9327h, "translationX", 0.0f, view.getMeasuredWidth());
         animatorSet.setDuration(160L);
         animatorSet.playTogether(ofFloat, ofFloat2);
         animatorSet.start();
@@ -302,19 +302,19 @@ public class l extends FrameLayout {
     }
 
     public final void m(Context context) {
-        LayoutInflater.from(context).inflate(d.a.a0.g.coupon_list, (ViewGroup) this, true);
-        this.f9426g = (PolyFrameLayout) findViewById(d.a.a0.f.root_layout);
-        this.f9427h = (ViewGroup) findViewById(d.a.a0.f.coupon_layout);
-        this.f9425f = (ListView) findViewById(d.a.a0.f.coupon_list_layout);
-        View findViewById = findViewById(d.a.a0.f.back);
-        this.f9424e = findViewById;
+        LayoutInflater.from(context).inflate(d.a.c0.g.coupon_list, (ViewGroup) this, true);
+        this.f9326g = (PolyFrameLayout) findViewById(d.a.c0.f.root_layout);
+        this.f9327h = (ViewGroup) findViewById(d.a.c0.f.coupon_layout);
+        this.f9325f = (ListView) findViewById(d.a.c0.f.coupon_list_layout);
+        View findViewById = findViewById(d.a.c0.f.back);
+        this.f9324e = findViewById;
         findViewById.setOnClickListener(new b());
         setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }
 
     public final void o() {
-        if (this.f9428i) {
-            this.f9428i = false;
+        if (this.f9328i) {
+            this.f9328i = false;
             if (getParent() instanceof ViewGroup) {
                 ((ViewGroup) getParent()).removeView(this);
             }
@@ -322,21 +322,21 @@ public class l extends FrameLayout {
             if (hVar != null) {
                 hVar.onDetach();
             }
-            d.a.a0.n.d.e("CouponListView->detach()");
+            d.a.c0.n.d.e("CouponListView->detach()");
         }
     }
 
     public final void s() {
-        if (this.f9428i) {
+        if (this.f9328i) {
             return;
         }
-        this.f9428i = true;
+        this.f9328i = true;
         if (getContext() instanceof Activity) {
             View decorView = ((Activity) getContext()).getWindow().getDecorView();
             if (decorView instanceof ViewGroup) {
                 ((ViewGroup) decorView).addView(this);
             }
-            d.a.a0.n.d.e("CouponListView->attach()");
+            d.a.c0.n.d.e("CouponListView->attach()");
             return;
         }
         throw new IllegalStateException("can not attach to context " + getContext());
@@ -348,7 +348,7 @@ public class l extends FrameLayout {
 
     public boolean t() {
         h hVar;
-        if (!this.o && this.f9428i && (hVar = this.j) != null) {
+        if (!this.o && this.f9328i && (hVar = this.j) != null) {
             hVar.d();
         }
         return true;
@@ -360,7 +360,7 @@ public class l extends FrameLayout {
 
     public l(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f9428i = false;
+        this.f9328i = false;
         this.o = false;
         this.p = new a();
         m(context);

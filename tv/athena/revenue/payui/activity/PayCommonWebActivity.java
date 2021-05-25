@@ -110,7 +110,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebC
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         public void onSuccess(Object obj, d.r.b.a.a.f.b bVar) {
             d.r.b.a.a.f.d.d.b(PayCommonWebActivity.this.TAG, "onSuccess");
-            if (!e.f68842a.a(PayCommonWebActivity.this)) {
+            if (!e.f68885a.a(PayCommonWebActivity.this)) {
                 d.r.b.a.a.f.d.d.f(PayCommonWebActivity.this.TAG, "onSuccess activity not valid");
             } else {
                 PayCommonWebActivity.this.runOnUiThread(new a());
@@ -229,7 +229,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebC
     @Override // tv.athena.revenue.payui.view.YYPayWebCommonView.a
     public void onNativeOperation(i.a.a.e.j.a aVar) {
         d.r.b.a.a.f.d.d.g(this.TAG, "onNativeOperation: %s", aVar);
-        if (aVar != null && aVar.f68829a == 2) {
+        if (aVar != null && aVar.f68872a == 2) {
             YYPayUIKit uIKit = YYPayUIKit.getUIKit(this.mAppId, this.mUserChannel);
             if (uIKit == null) {
                 d.r.b.a.a.f.d.d.e(this.TAG, "onNativeOperation null yyPayUIKit", new Object[0]);
@@ -245,28 +245,28 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebC
     public void onOpenNewUrl(f fVar, i.a.a.e.j.e eVar) {
         String str;
         d.r.b.a.a.f.d.d.g(this.TAG, "onOpenNewUrl: urlParams:%s, topUiParams:%s", fVar, eVar);
-        if (fVar == null || (str = fVar.f68840a) == null || str.isEmpty()) {
+        if (fVar == null || (str = fVar.f68883a) == null || str.isEmpty()) {
             return;
         }
         Intent intent = new Intent(this, PayCommonWebActivity.class);
-        String str2 = eVar.f68837a;
+        String str2 = eVar.f68880a;
         if (str2 != null && !str2.isEmpty()) {
-            intent.putExtra(EXTRA_TITLE, eVar.f68837a);
+            intent.putExtra(EXTRA_TITLE, eVar.f68880a);
         }
-        String str3 = eVar.f68838b;
+        String str3 = eVar.f68881b;
         if (str3 != null && !str3.isEmpty()) {
-            intent.putExtra(EXTRA_RIGHT, eVar.f68838b);
+            intent.putExtra(EXTRA_RIGHT, eVar.f68881b);
         }
-        intent.putExtra(EXTRA_URL, fVar.f68840a);
-        String str4 = eVar.f68839c;
+        intent.putExtra(EXTRA_URL, fVar.f68883a);
+        String str4 = eVar.f68882c;
         if (str4 != null && !str4.isEmpty()) {
-            intent.putExtra(EXTRA_RIGHT_URL, eVar.f68839c);
+            intent.putExtra(EXTRA_RIGHT_URL, eVar.f68882c);
         }
         intent.putExtra(EXTRA_APP_ID, this.mAppId);
         intent.putExtra(EXTRA_USER_CHANNEL, this.mUserChannel);
         i.a.a.e.k.a.b(this.mAppId, this.mUserChannel, "wallet_secondpage_title");
         d.r.b.a.a.f.d.d.h(this.TAG, "wallet_secondpage_title");
-        if (fVar.f68841b == UrlPageType.WALLET_DETAIL_PAGE.ordinal()) {
+        if (fVar.f68884b == UrlPageType.WALLET_DETAIL_PAGE.ordinal()) {
             i.a.a.e.k.a.b(this.mAppId, this.mUserChannel, "walletclickdetail");
             d.r.b.a.a.f.d.d.h(this.TAG, "walletclickClose");
         }
@@ -277,17 +277,17 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebC
     public void onUpdateTopUi(i.a.a.e.j.e eVar) {
         d.r.b.a.a.f.d.d.g(this.TAG, "onUpdateTopUi: %s", eVar);
         if (eVar != null) {
-            String str = eVar.f68838b;
+            String str = eVar.f68881b;
             if (str != null && !str.isEmpty()) {
-                this.mRightTitle = eVar.f68838b;
+                this.mRightTitle = eVar.f68881b;
             }
-            String str2 = eVar.f68839c;
+            String str2 = eVar.f68882c;
             if (str2 != null && !str2.isEmpty()) {
-                this.mRightUrl = eVar.f68839c;
+                this.mRightUrl = eVar.f68882c;
             }
-            String str3 = eVar.f68837a;
+            String str3 = eVar.f68880a;
             if (str3 != null && !str3.isEmpty()) {
-                this.mTitle = eVar.f68837a;
+                this.mTitle = eVar.f68880a;
             }
             setTitleAndRight(this.mTitle, this.mRightTitle);
         }

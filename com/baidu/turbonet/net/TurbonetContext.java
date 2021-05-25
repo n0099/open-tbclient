@@ -8,30 +8,30 @@ import org.json.JSONException;
 public final class TurbonetContext {
 
     /* renamed from: a  reason: collision with root package name */
-    public TurbonetEngine f22478a;
+    public TurbonetEngine f22407a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f22479b;
+    public Context f22408b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22480c;
+    public String f22409c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f22481d;
+    public String f22410d;
 
     public TurbonetContext(Context context, String str, String str2, TurbonetConfig turbonetConfig) {
-        this.f22479b = context;
-        this.f22480c = str;
-        this.f22481d = str2;
+        this.f22408b = context;
+        this.f22409c = str;
+        this.f22410d = str2;
         a(turbonetConfig);
     }
 
     public final void a(TurbonetConfig turbonetConfig) {
-        TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f22479b);
+        TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f22408b);
         if (turbonetConfig == null) {
-            builder.r(this.f22480c);
-            builder.q(this.f22481d);
-            this.f22478a = builder.b();
+            builder.r(this.f22409c);
+            builder.q(this.f22410d);
+            this.f22407a = builder.b();
         } else {
             if (turbonetConfig.h()) {
                 builder.u(turbonetConfig.l());
@@ -43,19 +43,19 @@ public final class TurbonetContext {
             } catch (JSONException e2) {
                 Log.e("cr_TurbonetContext", "JSON expcetion: " + e2);
             }
-            builder.r(this.f22480c);
-            builder.q(this.f22481d);
+            builder.r(this.f22409c);
+            builder.q(this.f22410d);
             builder.a(turbonetConfig.g().toString());
-            this.f22478a = builder.b();
+            this.f22407a = builder.b();
         }
         Log.v("cr_TurbonetContext", "Turbonet init context success.");
     }
 
     public TurbonetEngine b() {
-        return this.f22478a;
+        return this.f22407a;
     }
 
     public long c() {
-        return this.f22478a.d();
+        return this.f22407a.d();
     }
 }

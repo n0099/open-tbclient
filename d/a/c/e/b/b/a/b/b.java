@@ -3,30 +3,30 @@ package d.a.c.e.b.b.a.b;
 public class b implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f38787a;
+    public boolean f38451a;
 
     public b(boolean z) {
-        this.f38787a = z;
+        this.f38451a = z;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object a(d.a.c.e.b.b.a.e.c cVar) {
-        return Boolean.valueOf(this.f38787a);
+        return Boolean.valueOf(this.f38451a);
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object b(d.a.c.e.b.b.a.e.c cVar) {
-        return Boolean.valueOf(this.f38787a);
+        return Boolean.valueOf(this.f38451a);
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object c(d.a.c.e.b.b.a.e.c cVar) {
-        return Boolean.valueOf(this.f38787a);
+        return Boolean.valueOf(this.f38451a);
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object d(d.a.c.e.b.b.a.e.c cVar) {
-        return Boolean.valueOf(this.f38787a);
+        return Boolean.valueOf(this.f38451a);
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -36,6 +36,6 @@ public class b implements h {
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object f(d.a.c.e.b.b.a.e.c cVar) {
-        return Boolean.valueOf(this.f38787a);
+        return Boolean.valueOf(this.f38451a);
     }
 }

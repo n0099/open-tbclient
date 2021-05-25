@@ -6,10 +6,10 @@ import java.util.List;
 public class a extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Throwable> f29995a;
+    public List<Throwable> f29924a;
 
     public a(List<Throwable> list) {
-        this.f29995a = list;
+        this.f29924a = list;
         if (list == null || list.isEmpty()) {
             return;
         }

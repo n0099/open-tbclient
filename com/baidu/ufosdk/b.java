@@ -32,7 +32,7 @@ public final class b {
     public static float Z = 15.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f22542a = false;
+    public static boolean f22471a = false;
     public static int aa = 200;
     public static HashMap ab = null;
     public static ResumeCallBack ac = null;
@@ -44,28 +44,28 @@ public final class b {
     public static int ai = 600;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f22543b = "";
+    public static String f22472b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f22544c = "";
+    public static String f22473c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f22545d = "";
+    public static String f22474d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f22546e = 0;
+    public static int f22475e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f22547f = "";
+    public static String f22476f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static Bitmap f22548g = null;
+    public static Bitmap f22477g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f22549h = "";
+    public static String f22478h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f22550i = "";
+    public static String f22479i = "";
     public static int j = 0;
     public static int k = 0;
     public static String l = "";

@@ -27,13 +27,13 @@ public class fc {
     public ByteBuffer f364a = ByteBuffer.allocate(2048);
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer f37646b = ByteBuffer.allocate(4);
+    public ByteBuffer f37575b = ByteBuffer.allocate(4);
 
     /* renamed from: a  reason: collision with other field name */
     public Adler32 f365a = new Adler32();
 
     /* renamed from: a  reason: collision with root package name */
-    public ff f37645a = new ff();
+    public ff f37574a = new ff();
 
     public fc(InputStream inputStream, fh fhVar) {
         this.f363a = new BufferedInputStream(inputStream);
@@ -66,10 +66,10 @@ public class fc {
                 allocate.put(this.f364a.array(), 0, this.f364a.arrayOffset() + this.f364a.position());
             }
             a(this.f364a, i3);
-            this.f37646b.clear();
-            a(this.f37646b, 4);
-            this.f37646b.position(0);
-            i2 = this.f37646b.getInt();
+            this.f37575b.clear();
+            a(this.f37575b, 4);
+            this.f37575b.position(0);
+            i2 = this.f37575b.getInt();
             this.f365a.reset();
             this.f365a.update(this.f364a.array(), 0, this.f364a.position());
             if (i2 != ((int) this.f365a.getValue())) {
@@ -86,10 +86,10 @@ public class fc {
         allocate.put(this.f364a.array(), 0, this.f364a.arrayOffset() + this.f364a.position());
         this.f364a = allocate;
         a(this.f364a, i3);
-        this.f37646b.clear();
-        a(this.f37646b, 4);
-        this.f37646b.position(0);
-        i2 = this.f37646b.getInt();
+        this.f37575b.clear();
+        a(this.f37575b, 4);
+        this.f37575b.position(0);
+        i2 = this.f37575b.getInt();
         this.f365a.reset();
         this.f365a.update(this.f364a.array(), 0, this.f364a.position());
         if (i2 != ((int) this.f365a.getValue())) {
@@ -146,7 +146,7 @@ public class fc {
                         com.xiaomi.channel.commonutils.logger.b.m57a(str);
                     } else {
                         try {
-                            this.f362a.b(this.f37645a.a(m297a2.m293a(), this.f362a));
+                            this.f362a.b(this.f37574a.a(m297a2.m293a(), this.f362a));
                         } catch (Exception e2) {
                             e = e2;
                             sb = new StringBuilder();
@@ -162,7 +162,7 @@ public class fc {
                     }
                 } else if ("SECMSG".equals(m297a2.m289a()) && ((m297a2.a() == 2 || m297a2.a() == 3) && TextUtils.isEmpty(m297a2.m295b()))) {
                     try {
-                        this.f362a.b(this.f37645a.a(m297a2.m294a(com.xiaomi.push.service.av.a().a(Integer.valueOf(m297a2.a()).toString(), m297a2.g()).f38141h), this.f362a));
+                        this.f362a.b(this.f37574a.a(m297a2.m294a(com.xiaomi.push.service.av.a().a(Integer.valueOf(m297a2.a()).toString(), m297a2.g()).f38070h), this.f362a));
                     } catch (Exception e3) {
                         e = e3;
                         sb = new StringBuilder();

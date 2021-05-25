@@ -3,8 +3,8 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.model.NetModel;
-import d.a.k0.f1.b.b;
-import d.a.k0.f1.b.c;
+import d.a.n0.g1.b.b;
+import d.a.n0.g1.b.c;
 /* loaded from: classes4.dex */
 public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
     public AtMeNetModel(TbPageContext<AtMessageActivity> tbPageContext, b bVar) {

@@ -31,61 +31,61 @@ import org.json.JSONObject;
 public class a extends com.kwad.sdk.core.page.recycle.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f32496a;
+    public AdTemplate f32425a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f32497b;
+    public WebView f32426b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f32498c;
+    public k f32427c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f32499d;
+    public b f32428d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f32500e;
+    public LinearLayout f32429e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f32501f;
+    public TextView f32430f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f32502g;
+    public ImageView f32431g;
 
     /* renamed from: com.kwad.sdk.core.page.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0367a extends d {
+    public static class C0368a extends d {
 
         /* renamed from: a  reason: collision with root package name */
-        public AdTemplate f32507a;
+        public AdTemplate f32436a;
 
         /* renamed from: b  reason: collision with root package name */
-        public e f32508b;
+        public e f32437b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f32509c;
+        public Context f32438c;
 
-        public C0367a(AdTemplate adTemplate, Context context, e eVar) {
-            this.f32507a = adTemplate;
-            this.f32509c = context;
-            this.f32508b = eVar;
+        public C0368a(AdTemplate adTemplate, Context context, e eVar) {
+            this.f32436a = adTemplate;
+            this.f32438c = context;
+            this.f32437b = eVar;
         }
 
         @Override // com.kwad.sdk.core.page.recycle.d
         public c a(ViewGroup viewGroup, int i2) {
             if (i2 == 1) {
-                View inflate = LayoutInflater.from(this.f32509c).inflate(R.layout.ksad_datail_webview_container, viewGroup, false);
+                View inflate = LayoutInflater.from(this.f32438c).inflate(R.layout.ksad_datail_webview_container, viewGroup, false);
                 Presenter presenter = new Presenter();
                 presenter.a((Presenter) new com.kwad.sdk.core.page.a.b());
-                return new c(inflate, presenter, this.f32508b);
+                return new c(inflate, presenter, this.f32437b);
             } else if (i2 != 0) {
                 View view = new View(viewGroup.getContext());
                 view.setLayoutParams(new ViewGroup.LayoutParams(-1, an.a(viewGroup.getContext(), 64.0f)));
-                return new c(view, new Presenter(), this.f32508b);
+                return new c(view, new Presenter(), this.f32437b);
             } else {
                 k kVar = new k(viewGroup.getContext());
                 Presenter presenter2 = new Presenter();
                 presenter2.a((Presenter) new com.kwad.sdk.core.page.a.a());
-                return new c(kVar, presenter2, this.f32508b);
+                return new c(kVar, presenter2, this.f32437b);
             }
         }
 
@@ -98,7 +98,7 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            return com.kwad.sdk.core.response.b.a.v(com.kwad.sdk.core.response.b.c.g(this.f32507a)) ? 3 : 2;
+            return com.kwad.sdk.core.response.b.a.v(com.kwad.sdk.core.response.b.c.g(this.f32436a)) ? 3 : 2;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -118,44 +118,44 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view) {
-        this.f32500e = (LinearLayout) view.findViewById(R.id.ksad_web_tip_bar);
-        this.f32501f = (TextView) view.findViewById(R.id.ksad_web_tip_bar_textview);
+        this.f32429e = (LinearLayout) view.findViewById(R.id.ksad_web_tip_bar);
+        this.f32430f = (TextView) view.findViewById(R.id.ksad_web_tip_bar_textview);
         ImageView imageView = (ImageView) view.findViewById(R.id.ksad_web_tip_close_btn);
-        this.f32502g = imageView;
+        this.f32431g = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.f32500e.setVisibility(8);
+                a.this.f32429e.setVisibility(8);
             }
         });
-        AdInfo g2 = com.kwad.sdk.core.response.b.c.g(this.f32496a);
+        AdInfo g2 = com.kwad.sdk.core.response.b.c.g(this.f32425a);
         boolean T = com.kwad.sdk.core.response.b.a.T(g2);
         String R = com.kwad.sdk.core.response.b.a.R(g2);
         if (!T) {
-            this.f32500e.setVisibility(8);
+            this.f32429e.setVisibility(8);
             return;
         }
-        this.f32500e.setVisibility(0);
-        this.f32501f.setText(R);
-        this.f32501f.setSelected(true);
+        this.f32429e.setVisibility(0);
+        this.f32430f.setText(R);
+        this.f32430f.setSelected(true);
     }
 
     @Override // com.kwad.sdk.core.page.recycle.a
     public d a(RecyclerView recyclerView) {
-        return new C0367a(this.f32496a, recyclerView.getContext(), new e(this.f32496a, this.f32499d, recyclerView));
+        return new C0368a(this.f32425a, recyclerView.getContext(), new e(this.f32425a, this.f32428d, recyclerView));
     }
 
     public void a(b bVar) {
-        this.f32499d = bVar;
+        this.f32428d = bVar;
     }
 
     public boolean a() {
-        WebView webView = this.f32497b;
+        WebView webView = this.f32426b;
         if (webView != null && webView.canGoBack()) {
-            this.f32497b.goBack();
+            this.f32426b.goBack();
             return true;
         }
-        k kVar = this.f32498c;
+        k kVar = this.f32427c;
         if (kVar != null) {
             return kVar.e();
         }
@@ -179,7 +179,7 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
                 com.kwad.sdk.core.d.a.a(e2);
             }
         }
-        this.f32496a = adTemplate;
+        this.f32425a = adTemplate;
         adTemplate.mPvReported = getArguments().getBoolean("key_report", false);
     }
 
@@ -198,12 +198,12 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
                     detailWebRecycleView.setTopViewHeight(findViewHolderForAdapterPosition.itemView.getHeight());
                     View view2 = detailWebRecycleView.findViewHolderForAdapterPosition(0).itemView;
                     if (view2 instanceof k) {
-                        a.this.f32498c = (k) view2;
+                        a.this.f32427c = (k) view2;
                     }
                 }
                 if (detailWebRecycleView.getChildCount() > 1) {
                     View view3 = detailWebRecycleView.findViewHolderForAdapterPosition(1).itemView;
-                    a.this.f32497b = (WebView) view3.findViewById(R.id.ksad_video_webView);
+                    a.this.f32426b = (WebView) view3.findViewById(R.id.ksad_video_webView);
                     a.this.a(view3);
                 }
                 com.kwad.sdk.core.d.a.a("AdRecycleWebFragment", "onGlobalLayout");

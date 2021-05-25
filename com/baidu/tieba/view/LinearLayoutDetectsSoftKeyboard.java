@@ -12,10 +12,10 @@ import d.a.c.e.p.l;
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21723e;
+    public a f21651e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f21724f;
+    public Rect f21652f;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -24,26 +24,26 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
 
     public LinearLayoutDetectsSoftKeyboard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21724f = new Rect();
+        this.f21652f = new Rect();
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         int size = View.MeasureSpec.getSize(i3);
         Activity activity = (Activity) getContext();
-        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f21724f);
-        int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f21724f.top) - size;
-        if (this.f21723e != null) {
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f21652f);
+        int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f21652f.top) - size;
+        if (this.f21651e != null) {
             boolean z = true;
             if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= l.e(activity, 48.0f) + 128) {
                 z = false;
             }
-            this.f21723e.a(z);
+            this.f21651e.a(z);
         }
         super.onMeasure(i2, i3);
     }
 
     public void setOnSoftKeyBoardShownListener(a aVar) {
-        this.f21723e = aVar;
+        this.f21651e = aVar;
     }
 }

@@ -22,9 +22,11 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
     };
     public static final String TAG = "GetShieldAndTopResult";
     public int mChatType;
+    public int mCommodityStatus;
     public long mContacter;
     public int mDisturbStatus;
     public long mDisturbTime;
+    public int mGraphicStatus;
     public int mMarkTop;
     public long mMarkTopTime;
     public int mShield;
@@ -42,6 +44,10 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         return this.mChatType;
     }
 
+    public int getCommodityStatus() {
+        return this.mCommodityStatus;
+    }
+
     public long getContacter() {
         return this.mContacter;
     }
@@ -52,6 +58,10 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
 
     public long getDisturbTime() {
         return this.mDisturbTime;
+    }
+
+    public int getGraphicStatus() {
+        return this.mGraphicStatus;
     }
 
     public int getMarkTop() {
@@ -74,6 +84,10 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         this.mChatType = i2;
     }
 
+    public void setCommodityStatus(int i2) {
+        this.mCommodityStatus = i2;
+    }
+
     public void setContacter(long j) {
         this.mContacter = j;
     }
@@ -84,6 +98,10 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
 
     public void setDisturbTime(long j) {
         this.mDisturbTime = j;
+    }
+
+    public void setGraphicStatus(int i2) {
+        this.mGraphicStatus = i2;
     }
 
     public void setMarkTop(int i2) {
@@ -114,6 +132,8 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         parcel.writeInt(this.mChatType);
         parcel.writeInt(this.mDisturbStatus);
         parcel.writeLong(this.mDisturbTime);
+        parcel.writeInt(this.mGraphicStatus);
+        parcel.writeInt(this.mCommodityStatus);
     }
 
     public GetShieldAndTopResult(Parcel parcel) {
@@ -127,5 +147,7 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         this.mChatType = parcel.readInt();
         this.mDisturbStatus = parcel.readInt();
         this.mDisturbTime = parcel.readLong();
+        this.mGraphicStatus = parcel.readInt();
+        this.mCommodityStatus = parcel.readInt();
     }
 }

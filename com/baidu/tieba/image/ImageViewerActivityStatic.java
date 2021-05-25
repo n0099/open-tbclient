@@ -17,6 +17,7 @@ public class ImageViewerActivityStatic {
                 ImageViewerConfig data = customMessage.getData();
                 Intent intent = data.getIntent();
                 if (ImageViewerConfig.DATA_VALID.equals(intent.getStringExtra(ImageViewerConfig.IS_DATA_VALID))) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010000));
                     if (ImageViewerConfig.START_ACTIVITY_NORMAL.equals(intent.getStringExtra(ImageViewerConfig.START_ACTIVITY_TYPE))) {
                         data.startActivityForRemote(ImageViewerActivity.class);
                     } else {

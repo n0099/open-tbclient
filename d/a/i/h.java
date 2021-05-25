@@ -2,7 +2,7 @@ package d.a.i;
 
 import android.content.Context;
 /* loaded from: classes.dex */
-public abstract class h extends a<d.a.j0.r.q.a> {
+public abstract class h extends a<d.a.m0.r.q.a> {
     public int j;
     public int k;
 

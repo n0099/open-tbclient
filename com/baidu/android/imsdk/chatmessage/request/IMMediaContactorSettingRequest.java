@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.chatmessage.IMediaContactorSettingListener;
+import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -104,6 +105,14 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
             LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e2);
             i3 = 1010;
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+        }
+        if (i3 == 0 && this.mContactorType == 2) {
+            int i4 = this.mOperation;
+            if (i4 == 1) {
+                GroupInfoDAOImpl.updateGroupMarkTop(this.mContext, this.mContacter, 0, System.currentTimeMillis() / 1000);
+            } else if (i4 == 2) {
+                GroupInfoDAOImpl.updateGroupMarkTop(this.mContext, this.mContacter, 1, System.currentTimeMillis() / 1000);
+            }
         }
         IMediaContactorSettingListener iMediaContactorSettingListener = (IMediaContactorSettingListener) ListenerManager.getInstance().removeListener(this.mKey);
         if (iMediaContactorSettingListener != null) {

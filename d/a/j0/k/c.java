@@ -1,31 +1,32 @@
 package d.a.j0.k;
 
-import android.view.ViewGroup;
-/* loaded from: classes3.dex */
-public class c {
+import android.annotation.TargetApi;
+@TargetApi(9)
+/* loaded from: classes2.dex */
+public abstract class c implements a<c> {
 
-    /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f49389a;
+    /* renamed from: e  reason: collision with root package name */
+    public int f40456e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public a f49390b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public b f49391c;
-
-    public a a() {
-        return this.f49390b;
+    public c() {
+        this(5);
     }
 
-    public ViewGroup b() {
-        return this.f49389a;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(c cVar) {
+        return cVar.f40456e - this.f40456e;
     }
 
-    public void c(a aVar) {
-        this.f49390b = aVar;
+    public abstract void b();
+
+    @Override // java.lang.Runnable
+    public void run() {
+        b();
     }
 
-    public void d(ViewGroup viewGroup) {
-        this.f49389a = viewGroup;
+    public c(int i2) {
+        this.f40456e = i2;
     }
 }

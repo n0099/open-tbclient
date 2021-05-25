@@ -20,25 +20,25 @@ import com.bytedance.sdk.openadsdk.utils.x;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd, c.b, c.InterfaceC0297c, a.InterfaceC0313a {
+public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd, c.b, c.InterfaceC0298c, a.InterfaceC0314a {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.multipro.b.a f27462a;
+    public com.bytedance.sdk.openadsdk.multipro.b.a f27391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27463b;
+    public boolean f27392b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27464c;
+    public boolean f27393c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27465d;
+    public int f27394d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdSlot f27466e;
+    public AdSlot f27395e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27467f;
+    public int f27396f;
     public int[] n;
     public TTFeedAd.VideoAdListener o;
     public TTFeedAd.CustomizeVideo p;
@@ -47,14 +47,14 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     public c(@NonNull Context context, @NonNull l lVar, int i2, AdSlot adSlot) {
         super(context, lVar, i2, adSlot);
         this.n = null;
-        this.f27463b = false;
-        this.f27464c = true;
+        this.f27392b = false;
+        this.f27393c = true;
         this.q = false;
-        this.f27467f = i2;
-        this.f27466e = adSlot;
-        this.f27462a = new com.bytedance.sdk.openadsdk.multipro.b.a();
-        int d2 = ak.d(this.f28124h.ap());
-        this.f27465d = d2;
+        this.f27396f = i2;
+        this.f27395e = adSlot;
+        this.f27391a = new com.bytedance.sdk.openadsdk.multipro.b.a();
+        int d2 = ak.d(this.f28053h.ap());
+        this.f27394d = d2;
         a(d2);
     }
 
@@ -75,16 +75,16 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     @Override // com.bytedance.sdk.openadsdk.core.e.a, com.bytedance.sdk.openadsdk.TTNativeAd
     public View getAdView() {
         NativeVideoTsView nativeVideoTsView;
-        if (this.f28124h != null && this.f28125i != null) {
+        if (this.f28053h != null && this.f28054i != null) {
             if (h()) {
                 try {
-                    nativeVideoTsView = new NativeVideoTsView(this.f28125i, this.f28124h, false, false, ak.b(this.f27467f), false, false);
+                    nativeVideoTsView = new NativeVideoTsView(this.f28054i, this.f28053h, false, false, ak.b(this.f27396f), false, false);
                     if (i()) {
                         nativeVideoTsView.setVideoAdClickListener(new NativeVideoTsView.b() { // from class: com.bytedance.sdk.openadsdk.component.b.c.1
                             @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.b
                             public void a(View view, int i2) {
-                                if (c.this.f28123g != null) {
-                                    c.this.f28123g.a(view, i2);
+                                if (c.this.f28052g != null) {
+                                    c.this.f28052g.a(view, i2);
                                 }
                             }
                         });
@@ -92,22 +92,22 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
                     nativeVideoTsView.setControllerStatusCallBack(new NativeVideoTsView.a() { // from class: com.bytedance.sdk.openadsdk.component.b.c.2
                         @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.a
                         public void a(boolean z, long j, long j2, long j3, boolean z2) {
-                            com.bytedance.sdk.openadsdk.multipro.b.a aVar = c.this.f27462a;
-                            aVar.f29722a = z;
-                            aVar.f29726e = j;
-                            aVar.f29727f = j2;
-                            aVar.f29728g = j3;
-                            aVar.f29725d = z2;
+                            com.bytedance.sdk.openadsdk.multipro.b.a aVar = c.this.f27391a;
+                            aVar.f29651a = z;
+                            aVar.f29655e = j;
+                            aVar.f29656f = j2;
+                            aVar.f29657g = j3;
+                            aVar.f29654d = z2;
                         }
                     });
                     nativeVideoTsView.setVideoAdLoadListener(this);
                     nativeVideoTsView.setVideoAdInteractionListener(this);
-                    if (5 == this.f27467f) {
-                        nativeVideoTsView.setIsAutoPlay(this.f27463b ? this.f27466e.isAutoPlay() : this.f27464c);
+                    if (5 == this.f27396f) {
+                        nativeVideoTsView.setIsAutoPlay(this.f27392b ? this.f27395e.isAutoPlay() : this.f27393c);
                     } else {
-                        nativeVideoTsView.setIsAutoPlay(this.f27464c);
+                        nativeVideoTsView.setIsAutoPlay(this.f27393c);
                     }
-                    nativeVideoTsView.setIsQuiet(p.h().a(this.f27465d));
+                    nativeVideoTsView.setIsQuiet(p.h().a(this.f27394d));
                 } catch (Exception unused) {
                 }
                 if (!h() && nativeVideoTsView != null && nativeVideoTsView.a(0L, true, false)) {
@@ -124,7 +124,7 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     public int getAdViewHeight() {
         try {
             if (this.n == null) {
-                this.n = v.a(this.f28124h);
+                this.n = v.a(this.f28053h);
             }
             if (this.n != null && this.n.length >= 2) {
                 return this.n[1];
@@ -139,7 +139,7 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     public int getAdViewWidth() {
         try {
             if (this.n == null) {
-                this.n = v.a(this.f28124h);
+                this.n = v.a(this.f28053h);
             }
             if (this.n != null && this.n.length >= 2) {
                 return this.n[0];
@@ -152,78 +152,78 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     }
 
     public TTFeedAd.CustomizeVideo getCustomVideo() {
-        if (l.a(this.f28124h)) {
+        if (l.a(this.f28053h)) {
             if (this.p == null) {
                 this.p = new TTFeedAd.CustomizeVideo() { // from class: com.bytedance.sdk.openadsdk.component.b.c.3
                     @Override // com.bytedance.sdk.openadsdk.TTFeedAd.CustomizeVideo
                     public String getVideoUrl() {
-                        if (c.this.f28124h == null || c.this.f28124h.a() != 1 || c.this.f28124h.X() == null) {
+                        if (c.this.f28053h == null || c.this.f28053h.a() != 1 || c.this.f28053h.X() == null) {
                             return null;
                         }
                         if (!c.this.q) {
                             c.this.q = true;
                         }
-                        return c.this.f28124h.X().i();
+                        return c.this.f28053h.X().i();
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.TTFeedAd.CustomizeVideo
                     public void reportVideoAutoStart() {
-                        d.a(c.this.f28125i, c.this.f28124h, ak.a(c.this.f28124h), "feed_auto_play", 0L, 0, (Map<String, Object>) null);
+                        d.a(c.this.f28054i, c.this.f28053h, ak.a(c.this.f28053h), "feed_auto_play", 0L, 0, (Map<String, Object>) null);
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.TTFeedAd.CustomizeVideo
                     public void reportVideoBreak(long j) {
-                        d.a(c.this.f28125i, c.this.f28124h, ak.a(c.this.f28124h), "feed_break", j, com.bytedance.sdk.openadsdk.core.video.e.a.a(j, ((long) c.this.getVideoDuration()) * 1000), (Map<String, Object>) null);
+                        d.a(c.this.f28054i, c.this.f28053h, ak.a(c.this.f28053h), "feed_break", j, com.bytedance.sdk.openadsdk.core.video.e.a.a(j, ((long) c.this.getVideoDuration()) * 1000), (Map<String, Object>) null);
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.TTFeedAd.CustomizeVideo
                     public void reportVideoContinue(long j) {
-                        d.a(c.this.f28125i, c.this.f28124h, ak.a(c.this.f28124h), "feed_continue", j, com.bytedance.sdk.openadsdk.core.video.e.a.a(j, ((long) c.this.getVideoDuration()) * 1000), (Map<String, Object>) null);
+                        d.a(c.this.f28054i, c.this.f28053h, ak.a(c.this.f28053h), "feed_continue", j, com.bytedance.sdk.openadsdk.core.video.e.a.a(j, ((long) c.this.getVideoDuration()) * 1000), (Map<String, Object>) null);
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.TTFeedAd.CustomizeVideo
                     public void reportVideoError(long j, int i2, int i3) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("creative_id", c.this.f28124h.am());
+                        hashMap.put("creative_id", c.this.f28053h.am());
                         hashMap.put("error_code", Integer.valueOf(i2));
                         hashMap.put("extra_error_code", Integer.valueOf(i3));
-                        v X = c.this.f28124h.X();
+                        v X = c.this.f28053h.X();
                         if (X != null) {
                             hashMap.put("video_size", Long.valueOf(X.d()));
                             hashMap.put("video_resolution", X.f());
                         }
                         hashMap.put("duration", Long.valueOf(j));
                         hashMap.put(SapiOptions.KEY_CACHE_PERCENT, Integer.valueOf(com.bytedance.sdk.openadsdk.core.video.e.a.a(j, ((long) c.this.getVideoDuration()) * 1000)));
-                        d.d(c.this.f28125i, c.this.f28124h, ak.a(c.this.f28124h), "play_error", hashMap);
+                        d.d(c.this.f28054i, c.this.f28053h, ak.a(c.this.f28053h), "play_error", hashMap);
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.TTFeedAd.CustomizeVideo
                     public void reportVideoFinish() {
-                        d.a(c.this.f28125i, c.this.f28124h, ak.a(c.this.f28124h), "feed_over", ((long) c.this.getVideoDuration()) * 1000, 100, (Map<String, Object>) null);
+                        d.a(c.this.f28054i, c.this.f28053h, ak.a(c.this.f28053h), "feed_over", ((long) c.this.getVideoDuration()) * 1000, 100, (Map<String, Object>) null);
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.TTFeedAd.CustomizeVideo
                     public void reportVideoPause(long j) {
-                        d.a(c.this.f28125i, c.this.f28124h, ak.a(c.this.f28124h), "feed_pause", j, com.bytedance.sdk.openadsdk.core.video.e.a.a(j, ((long) c.this.getVideoDuration()) * 1000), (Map<String, Object>) null);
+                        d.a(c.this.f28054i, c.this.f28053h, ak.a(c.this.f28053h), "feed_pause", j, com.bytedance.sdk.openadsdk.core.video.e.a.a(j, ((long) c.this.getVideoDuration()) * 1000), (Map<String, Object>) null);
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.TTFeedAd.CustomizeVideo
                     public void reportVideoStart() {
-                        d.a(c.this.f28125i, c.this.f28124h, ak.a(c.this.f28124h), "feed_play", 0L, 0, (Map<String, Object>) null);
+                        d.a(c.this.f28054i, c.this.f28053h, ak.a(c.this.f28053h), "feed_play", 0L, 0, (Map<String, Object>) null);
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.TTFeedAd.CustomizeVideo
                     public void reportVideoStartError(int i2, int i3) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("creative_id", c.this.f28124h.am());
+                        hashMap.put("creative_id", c.this.f28053h.am());
                         hashMap.put("error_code", Integer.valueOf(i2));
                         hashMap.put("extra_error_code", Integer.valueOf(i3));
-                        v X = c.this.f28124h.X();
+                        v X = c.this.f28053h.X();
                         if (X != null) {
                             hashMap.put("video_size", Long.valueOf(X.d()));
                             hashMap.put("video_resolution", X.f());
                         }
-                        d.d(c.this.f28125i, c.this.f28124h, ak.a(c.this.f28124h), "play_start_error", hashMap);
+                        d.d(c.this.f28054i, c.this.f28053h, ak.a(c.this.f28053h), "play_start_error", hashMap);
                     }
                 };
             }
@@ -233,11 +233,11 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     }
 
     public double getVideoDuration() {
-        l lVar = this.f28124h;
+        l lVar = this.f28053h;
         if (lVar == null || lVar.X() == null) {
             return 0.0d;
         }
-        return this.f28124h.X().e();
+        return this.f28053h.X().e();
     }
 
     public void setVideoAdListener(TTFeedAd.VideoAdListener videoAdListener) {
@@ -245,8 +245,8 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     }
 
     private boolean i() {
-        l lVar = this.f28124h;
-        return lVar != null && lVar.S() == null && this.f28124h.k() == 1 && l.c(this.f28124h);
+        l lVar = this.f28053h;
+        return lVar != null && lVar.S() == null && this.f28053h.k() == 1 && l.c(this.f28053h);
     }
 
     public void c() {
@@ -264,7 +264,7 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     }
 
     public com.bytedance.sdk.openadsdk.multipro.b.a e() {
-        return this.f27462a;
+        return this.f27391a;
     }
 
     public void f() {
@@ -279,24 +279,24 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     }
 
     public boolean h() {
-        return l.c(this.f28124h);
+        return l.c(this.f28053h);
     }
 
     private void a(int i2) {
         int c2 = p.h().c(i2);
         if (3 == c2) {
-            this.f27463b = false;
-            this.f27464c = false;
-        } else if (1 == c2 && x.d(this.f28125i)) {
-            this.f27463b = false;
-            this.f27464c = true;
+            this.f27392b = false;
+            this.f27393c = false;
+        } else if (1 == c2 && x.d(this.f28054i)) {
+            this.f27392b = false;
+            this.f27393c = true;
         } else if (2 != c2) {
             if (4 == c2) {
-                this.f27463b = true;
+                this.f27392b = true;
             }
-        } else if (x.e(this.f28125i) || x.d(this.f28125i)) {
-            this.f27463b = false;
-            this.f27464c = true;
+        } else if (x.e(this.f28054i) || x.d(this.f28054i)) {
+            this.f27392b = false;
+            this.f27393c = true;
         }
     }
 

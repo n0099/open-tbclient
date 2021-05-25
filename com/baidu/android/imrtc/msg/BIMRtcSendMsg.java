@@ -73,7 +73,7 @@ public class BIMRtcSendMsg extends Message {
     public JSONObject generateBody() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("method", RtcConstants.METHOD_IM_RTC_MSG);
+            jSONObject.put("method", 230);
             jSONObject.put("appid", this.mRtcAppID);
             jSONObject.put("msg_key", "");
             jSONObject.put("app_version", RtcUtility.getAppVersionName(this.mContext));
@@ -169,7 +169,7 @@ public class BIMRtcSendMsg extends Message {
         initCommonParameter(context);
         this.mListenerKey = str3;
         setNeedReplay(true);
-        setType(RtcConstants.METHOD_IM_RTC_MSG);
+        setType(230);
         this.mRtcAppID = this.mAppid;
         this.mSdkVersion = IMConfigInternal.getInstance().getSDKVersionValue(this.mContext);
         this.mImUk = Utility.getUK(this.mContext);

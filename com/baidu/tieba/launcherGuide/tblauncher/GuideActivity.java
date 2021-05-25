@@ -161,7 +161,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                         return;
                     }
                     GuideActivity.this.isJumpToNewGuide = false;
-                    d.a.j0.r.d0.b.j().t("jump_to_new_user_guide", false);
+                    d.a.m0.r.d0.b.j().t("jump_to_new_user_guide", false);
                     return;
                 }
                 GuideActivity.this.isJumpToNewGuide = false;
@@ -420,7 +420,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         try {
             setContentView(R.layout.guide_activity);
             registerHttpTask();
-            boolean g2 = d.a.j0.r.d0.b.j().g("jump_to_new_user_guide", true);
+            boolean g2 = d.a.m0.r.d0.b.j().g("jump_to_new_user_guide", true);
             this.isJumpToNewGuide = g2;
             if (g2) {
                 getJumpInfoFromServer();

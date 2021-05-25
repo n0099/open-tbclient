@@ -10,7 +10,7 @@ import com.xiaomi.push.cg;
 public class bu {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile bu f37437a;
+    public static volatile bu f37366a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f157a;
@@ -22,10 +22,10 @@ public class bu {
     public ck f160a;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f37441e;
+    public String f37370e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37442f;
+    public String f37371f;
 
     /* renamed from: a  reason: collision with other field name */
     public final String f161a = "push_stat_sp";
@@ -37,30 +37,30 @@ public class bu {
     public final String f163c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f37440d = "check_time";
+    public final String f37369d = "check_time";
 
     /* renamed from: a  reason: collision with other field name */
     public ai.a f158a = new bv(this);
 
     /* renamed from: b  reason: collision with root package name */
-    public ai.a f37438b = new bw(this);
+    public ai.a f37367b = new bw(this);
 
     /* renamed from: c  reason: collision with root package name */
-    public ai.a f37439c = new bx(this);
+    public ai.a f37368c = new bx(this);
 
     public bu(Context context) {
         this.f157a = context;
     }
 
     public static bu a(Context context) {
-        if (f37437a == null) {
+        if (f37366a == null) {
             synchronized (bu.class) {
-                if (f37437a == null) {
-                    f37437a = new bu(context);
+                if (f37366a == null) {
+                    f37366a = new bu(context);
                 }
             }
         }
-        return f37437a;
+        return f37366a;
     }
 
     private boolean a() {
@@ -81,7 +81,7 @@ public class bu {
 
     /* renamed from: a  reason: collision with other method in class */
     public String m179a() {
-        return this.f37441e;
+        return this.f37370e;
     }
 
     public void a(cg.a aVar) {
@@ -111,6 +111,6 @@ public class bu {
     }
 
     public String b() {
-        return this.f37442f;
+        return this.f37371f;
     }
 }

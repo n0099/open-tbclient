@@ -37,13 +37,13 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public ExecutorService f66877a;
+    public ExecutorService f66920a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f66878b;
+    public ExecutorService f66921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ScheduledExecutorService f66879c;
+    public ScheduledExecutorService f66922c;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -82,7 +82,7 @@ public class i {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static i f66880a = new i(null);
+        public static i f66923a = new i(null);
     }
 
     /* loaded from: classes7.dex */
@@ -117,10 +117,10 @@ public class i {
     public class g implements d.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f66882a;
+        public Context f66925a;
 
         public g(Context context) {
-            this.f66882a = context.getApplicationContext();
+            this.f66925a = context.getApplicationContext();
         }
 
         @Override // d.o.a.e.a.d.f
@@ -131,7 +131,7 @@ public class i {
         @Override // d.o.a.e.a.d.f
         public void b(int i2, int i3, String str, int i4, long j) {
             DownloadInfo f2;
-            Context context = this.f66882a;
+            Context context = this.f66925a;
             if (context == null || (f2 = d.o.a.e.b.g.a.l(context).f(i2)) == null || f2.H0() == 0) {
                 return;
             }
@@ -181,12 +181,12 @@ public class i {
         @Override // d.o.a.e.a.d.f
         public void a(int i2, int i3, String str, String str2, String str3) {
             DownloadInfo f2;
-            Context context = this.f66882a;
+            Context context = this.f66925a;
             if (context == null || (f2 = d.o.a.e.b.g.a.l(context).f(i2)) == null || f2.H0() != -3) {
                 return;
             }
             f2.S2(str2);
-            d.o.a.d.f.c.a().b(this.f66882a, f2);
+            d.o.a.d.f.c.a().b(this.f66925a, f2);
         }
 
         @Override // d.o.a.e.a.d.f
@@ -199,104 +199,104 @@ public class i {
     public class h extends d.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f66883a = "i$h";
+        public static String f66926a = "i$h";
 
         /* loaded from: classes7.dex */
         public class a implements d.n {
 
             /* renamed from: a  reason: collision with root package name */
-            public c.b f66884a;
+            public c.b f66927a;
 
             /* renamed from: b  reason: collision with root package name */
-            public DialogInterface.OnClickListener f66885b;
+            public DialogInterface.OnClickListener f66928b;
 
             /* renamed from: c  reason: collision with root package name */
-            public DialogInterface.OnClickListener f66886c;
+            public DialogInterface.OnClickListener f66929c;
 
             /* renamed from: d  reason: collision with root package name */
-            public DialogInterface.OnCancelListener f66887d;
+            public DialogInterface.OnCancelListener f66930d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f66888e;
+            public final /* synthetic */ Context f66931e;
 
             /* renamed from: d.o.a.d.i$h$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C1871a implements c.InterfaceC1856c {
-                public C1871a() {
+            public class C1875a implements c.InterfaceC1860c {
+                public C1875a() {
                 }
 
-                @Override // d.o.a.a.a.d.c.InterfaceC1856c
+                @Override // d.o.a.a.a.d.c.InterfaceC1860c
                 public void a(DialogInterface dialogInterface) {
-                    if (a.this.f66885b != null) {
-                        a.this.f66885b.onClick(dialogInterface, -1);
+                    if (a.this.f66928b != null) {
+                        a.this.f66928b.onClick(dialogInterface, -1);
                     }
                 }
 
-                @Override // d.o.a.a.a.d.c.InterfaceC1856c
+                @Override // d.o.a.a.a.d.c.InterfaceC1860c
                 public void b(DialogInterface dialogInterface) {
-                    if (a.this.f66886c != null) {
-                        a.this.f66886c.onClick(dialogInterface, -2);
+                    if (a.this.f66929c != null) {
+                        a.this.f66929c.onClick(dialogInterface, -2);
                     }
                 }
 
-                @Override // d.o.a.a.a.d.c.InterfaceC1856c
+                @Override // d.o.a.a.a.d.c.InterfaceC1860c
                 public void c(DialogInterface dialogInterface) {
-                    if (a.this.f66887d == null || dialogInterface == null) {
+                    if (a.this.f66930d == null || dialogInterface == null) {
                         return;
                     }
-                    a.this.f66887d.onCancel(dialogInterface);
+                    a.this.f66930d.onCancel(dialogInterface);
                 }
             }
 
             public a(h hVar, Context context) {
-                this.f66888e = context;
-                this.f66884a = new c.b(this.f66888e);
+                this.f66931e = context;
+                this.f66927a = new c.b(this.f66931e);
             }
 
             @Override // d.o.a.e.a.d.n
             public d.n a(int i2) {
-                this.f66884a.e(this.f66888e.getResources().getString(i2));
+                this.f66927a.e(this.f66931e.getResources().getString(i2));
                 return this;
             }
 
             @Override // d.o.a.e.a.d.n
             public d.n b(int i2, DialogInterface.OnClickListener onClickListener) {
-                this.f66884a.j(this.f66888e.getResources().getString(i2));
-                this.f66885b = onClickListener;
+                this.f66927a.j(this.f66931e.getResources().getString(i2));
+                this.f66928b = onClickListener;
                 return this;
             }
 
             @Override // d.o.a.e.a.d.n
             public d.n c(DialogInterface.OnCancelListener onCancelListener) {
-                this.f66887d = onCancelListener;
+                this.f66930d = onCancelListener;
                 return this;
             }
 
             @Override // d.o.a.e.a.d.n
             public d.n a(String str) {
-                this.f66884a.h(str);
+                this.f66927a.h(str);
                 return this;
             }
 
             @Override // d.o.a.e.a.d.n
             public d.n a(int i2, DialogInterface.OnClickListener onClickListener) {
-                this.f66884a.l(this.f66888e.getResources().getString(i2));
-                this.f66886c = onClickListener;
+                this.f66927a.l(this.f66931e.getResources().getString(i2));
+                this.f66929c = onClickListener;
                 return this;
             }
 
             @Override // d.o.a.e.a.d.n
             public d.n a(boolean z) {
-                this.f66884a.f(z);
+                this.f66927a.f(z);
                 return this;
             }
 
             @Override // d.o.a.e.a.d.n
             public d.m a() {
-                this.f66884a.d(new C1871a());
-                d.o.a.d.n.j.a(h.f66883a, "getThemedAlertDlgBuilder", null);
-                this.f66884a.b(3);
-                return new b(n.n().b(this.f66884a.g()));
+                this.f66927a.d(new C1875a());
+                d.o.a.d.n.j.a(h.f66926a, "getThemedAlertDlgBuilder", null);
+                this.f66927a.b(3);
+                return new b(n.n().b(this.f66927a.g()));
             }
         }
 
@@ -304,18 +304,18 @@ public class i {
         public static class b implements d.m {
 
             /* renamed from: a  reason: collision with root package name */
-            public Dialog f66890a;
+            public Dialog f66933a;
 
             public b(Dialog dialog) {
                 if (dialog != null) {
-                    this.f66890a = dialog;
+                    this.f66933a = dialog;
                     a();
                 }
             }
 
             @Override // d.o.a.e.a.d.m
             public void a() {
-                Dialog dialog = this.f66890a;
+                Dialog dialog = this.f66933a;
                 if (dialog != null) {
                     dialog.show();
                 }
@@ -323,7 +323,7 @@ public class i {
 
             @Override // d.o.a.e.a.d.m
             public boolean b() {
-                Dialog dialog = this.f66890a;
+                Dialog dialog = this.f66933a;
                 if (dialog != null) {
                     return dialog.isShowing();
                 }
@@ -344,35 +344,35 @@ public class i {
 
     /* renamed from: d.o.a.d.i$i  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1872i {
+    public class C1876i {
 
         /* renamed from: d.o.a.d.i$i$a */
         /* loaded from: classes7.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f66891e;
+            public final /* synthetic */ int f66934e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.b.a.c.b f66892f;
+            public final /* synthetic */ d.o.a.b.a.c.b f66935f;
 
             public a(int i2, d.o.a.b.a.c.b bVar) {
-                this.f66891e = i2;
-                this.f66892f = bVar;
+                this.f66934e = i2;
+                this.f66935f = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(this.f66891e);
+                DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(this.f66934e);
                 JSONObject jSONObject = new JSONObject();
                 d.o.a.d.n.k.r(jSONObject, "ttdownloader_type", 1);
                 d.o.a.d.n.f.g(f2, jSONObject);
                 if (f2 != null && -2 == f2.z0() && !f2.L1()) {
-                    C1872i.this.c(this.f66891e, this.f66892f, jSONObject);
+                    C1876i.this.c(this.f66934e, this.f66935f, jSONObject);
                 } else {
                     d.o.a.d.n.k.r(jSONObject, "error_code", 1001);
                 }
-                j.c.a().t("download_notification_try_show", jSONObject, this.f66892f);
+                j.c.a().t("download_notification_try_show", jSONObject, this.f66935f);
             }
         }
 
@@ -381,28 +381,28 @@ public class i {
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f66894e;
+            public final /* synthetic */ int f66937e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.b.a.c.b f66895f;
+            public final /* synthetic */ d.o.a.b.a.c.b f66938f;
 
             public b(int i2, d.o.a.b.a.c.b bVar) {
-                this.f66894e = i2;
-                this.f66895f = bVar;
+                this.f66937e = i2;
+                this.f66938f = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(this.f66894e);
+                DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(this.f66937e);
                 JSONObject jSONObject = new JSONObject();
                 d.o.a.d.n.k.r(jSONObject, "ttdownloader_type", 2);
                 d.o.a.d.n.f.g(f2, jSONObject);
-                if (!d.o.a.d.n.k.D(this.f66895f)) {
-                    C1872i.this.c(this.f66894e, this.f66895f, jSONObject);
+                if (!d.o.a.d.n.k.D(this.f66938f)) {
+                    C1876i.this.c(this.f66937e, this.f66938f, jSONObject);
                 } else {
                     d.o.a.d.n.k.r(jSONObject, "error_code", 1002);
                 }
-                j.c.a().t("download_notification_try_show", jSONObject, this.f66895f);
+                j.c.a().t("download_notification_try_show", jSONObject, this.f66938f);
             }
         }
 
@@ -411,28 +411,28 @@ public class i {
         public class c implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f66897e;
+            public final /* synthetic */ int f66940e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.b.a.c.b f66898f;
+            public final /* synthetic */ d.o.a.b.a.c.b f66941f;
 
             public c(int i2, d.o.a.b.a.c.b bVar) {
-                this.f66897e = i2;
-                this.f66898f = bVar;
+                this.f66940e = i2;
+                this.f66941f = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(this.f66897e);
+                DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(this.f66940e);
                 JSONObject jSONObject = new JSONObject();
                 d.o.a.d.n.k.r(jSONObject, "ttdownloader_type", 3);
                 d.o.a.d.n.f.g(f2, jSONObject);
-                if (!d.o.a.d.n.k.H(this.f66898f.e())) {
-                    C1872i.this.c(this.f66897e, this.f66898f, jSONObject);
+                if (!d.o.a.d.n.k.H(this.f66941f.e())) {
+                    C1876i.this.c(this.f66940e, this.f66941f, jSONObject);
                 } else {
                     d.o.a.d.n.k.r(jSONObject, "error_code", 1003);
                 }
-                j.c.a().t("download_notification_try_show", jSONObject, this.f66898f);
+                j.c.a().t("download_notification_try_show", jSONObject, this.f66941f);
             }
         }
 
@@ -441,15 +441,15 @@ public class i {
         public static class d {
 
             /* renamed from: a  reason: collision with root package name */
-            public static C1872i f66900a = new C1872i(null);
+            public static C1876i f66943a = new C1876i(null);
         }
 
-        public /* synthetic */ C1872i(a aVar) {
+        public /* synthetic */ C1876i(a aVar) {
             this();
         }
 
-        public static C1872i a() {
-            return d.f66900a;
+        public static C1876i a() {
+            return d.f66943a;
         }
 
         public void b(int i2) {
@@ -536,7 +536,7 @@ public class i {
             e(bVar, d.o.a.e.b.j.a.d(bVar.s()).b("noti_open_delay_secs", 5));
         }
 
-        public C1872i() {
+        public C1876i() {
         }
     }
 
@@ -545,7 +545,7 @@ public class i {
     }
 
     public static i a() {
-        return b.f66880a;
+        return b.f66923a;
     }
 
     public void b(Runnable runnable) {
@@ -572,16 +572,16 @@ public class i {
     }
 
     public ExecutorService e() {
-        if (this.f66877a == null) {
+        if (this.f66920a == null) {
             synchronized (i.class) {
-                if (this.f66877a == null) {
+                if (this.f66920a == null) {
                     TimeUnit timeUnit = TimeUnit.SECONDS;
                     SynchronousQueue synchronousQueue = new SynchronousQueue();
-                    this.f66877a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new d.o.a.e.b.k.a(l.class.getName() + "-CPUThreadPool"));
+                    this.f66920a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new d.o.a.e.b.k.a(l.class.getName() + "-CPUThreadPool"));
                 }
             }
         }
-        return this.f66877a;
+        return this.f66920a;
     }
 
     public void f(Runnable runnable) {
@@ -600,27 +600,27 @@ public class i {
     }
 
     public ExecutorService h() {
-        if (this.f66878b == null) {
+        if (this.f66921b == null) {
             synchronized (i.class) {
-                if (this.f66878b == null) {
+                if (this.f66921b == null) {
                     TimeUnit timeUnit = TimeUnit.SECONDS;
                     SynchronousQueue synchronousQueue = new SynchronousQueue();
-                    this.f66878b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new d.o.a.e.b.k.a(l.class.getName() + "-IOThreadPool"));
+                    this.f66921b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new d.o.a.e.b.k.a(l.class.getName() + "-IOThreadPool"));
                 }
             }
         }
-        return this.f66878b;
+        return this.f66921b;
     }
 
     public ScheduledExecutorService i() {
-        if (this.f66879c == null) {
+        if (this.f66922c == null) {
             synchronized (i.class) {
-                if (this.f66879c == null) {
-                    this.f66879c = new ScheduledThreadPoolExecutor(0, new d.o.a.e.b.k.a(l.class.getName() + "-ScheduledThreadPool"));
+                if (this.f66922c == null) {
+                    this.f66922c = new ScheduledThreadPoolExecutor(0, new d.o.a.e.b.k.a(l.class.getName() + "-ScheduledThreadPool"));
                 }
             }
         }
-        return this.f66879c;
+        return this.f66922c;
     }
 
     public void j() {
@@ -634,17 +634,17 @@ public class i {
         public class a implements MediaScannerConnection.OnScanCompletedListener {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DownloadInfo f66881a;
+            public final /* synthetic */ DownloadInfo f66924a;
 
             public a(c cVar, DownloadInfo downloadInfo) {
-                this.f66881a = downloadInfo;
+                this.f66924a = downloadInfo;
             }
 
             @Override // android.media.MediaScannerConnection.OnScanCompletedListener
             public void onScanCompleted(String str, Uri uri) {
                 if (uri != null) {
-                    this.f66881a.c2("file_content_uri", uri.toString());
-                    d.o.a.e.b.g.d.I0().a(this.f66881a);
+                    this.f66924a.c2("file_content_uri", uri.toString());
+                    d.o.a.e.b.g.d.I0().a(this.f66924a);
                 }
             }
         }
@@ -760,17 +760,17 @@ public class i {
                             if (d.o.a.d.n.k.D(bVar) && !d.o.a.d.n.k.H(bVar.e())) {
                                 int G02 = f2.G0("restart_notify_open_app_count");
                                 if (G02 < d2.b("noti_open_restart_times", 3)) {
-                                    C1872i.a().l(bVar);
+                                    C1876i.a().l(bVar);
                                     f2.Z2("restart_notify_open_app_count", String.valueOf(G02 + 1));
                                 }
                             } else if (f2.z0() == -2) {
                                 int G03 = f2.G0("restart_notify_continue_count");
                                 if (G03 < d2.b("noti_continue_restart_times", 3)) {
-                                    C1872i.a().d(bVar);
+                                    C1876i.a().d(bVar);
                                     f2.Z2("restart_notify_continue_count", String.valueOf(G03 + 1));
                                 }
                             } else if (f2.z0() == -3 && d.o.a.e.b.l.e.r0(f2) && !d.o.a.d.n.k.D(bVar) && (G0 = f2.G0("restart_notify_install_count")) < d2.b("noti_install_restart_times", 3)) {
-                                C1872i.a().i(bVar);
+                                C1876i.a().i(bVar);
                                 f2.Z2("restart_notify_install_count", String.valueOf(G0 + 1));
                             }
                         }

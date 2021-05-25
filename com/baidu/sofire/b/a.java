@@ -6,28 +6,28 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10188a;
+    public String f10089a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10189b;
+    public String f10090b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10190c;
+    public String f10091c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10191d;
+    public String f10092d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10192e;
+    public String f10093e;
 
     public static String a(a aVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("0", aVar.f10188a);
-            jSONObject.put("1", aVar.f10190c);
-            jSONObject.put("2", aVar.f10191d);
-            jSONObject.put("3", aVar.f10192e);
-            jSONObject.put("4", aVar.f10189b);
+            jSONObject.put("0", aVar.f10089a);
+            jSONObject.put("1", aVar.f10091c);
+            jSONObject.put("2", aVar.f10092d);
+            jSONObject.put("3", aVar.f10093e);
+            jSONObject.put("4", aVar.f10090b);
         } catch (Throwable unused) {
             d.a();
         }
@@ -40,28 +40,28 @@ public final class a {
         }
         if (obj != null && a.class == obj.getClass()) {
             a aVar = (a) obj;
-            String str = this.f10191d;
+            String str = this.f10092d;
             if (str == null) {
-                if (aVar.f10191d != null) {
+                if (aVar.f10092d != null) {
                     return false;
                 }
-            } else if (!str.equals(aVar.f10191d)) {
+            } else if (!str.equals(aVar.f10092d)) {
                 return false;
             }
-            String str2 = this.f10192e;
+            String str2 = this.f10093e;
             if (str2 == null) {
-                if (aVar.f10192e != null) {
+                if (aVar.f10093e != null) {
                     return false;
                 }
-            } else if (!str2.equals(aVar.f10192e)) {
+            } else if (!str2.equals(aVar.f10093e)) {
                 return false;
             }
-            String str3 = this.f10189b;
+            String str3 = this.f10090b;
             if (str3 == null) {
-                if (aVar.f10189b != null) {
+                if (aVar.f10090b != null) {
                     return false;
                 }
-            } else if (!str3.equals(aVar.f10189b)) {
+            } else if (!str3.equals(aVar.f10090b)) {
                 return false;
             }
             return true;
@@ -70,11 +70,11 @@ public final class a {
     }
 
     public final int hashCode() {
-        String str = this.f10191d;
+        String str = this.f10092d;
         int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
-        String str2 = this.f10192e;
+        String str2 = this.f10093e;
         int hashCode2 = (hashCode + (str2 == null ? 0 : str2.hashCode())) * 31;
-        String str3 = this.f10189b;
+        String str3 = this.f10090b;
         return hashCode2 + (str3 != null ? str3.hashCode() : 0);
     }
 
@@ -82,11 +82,11 @@ public final class a {
         a aVar = new a();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            aVar.f10188a = jSONObject.optString("0");
-            aVar.f10190c = jSONObject.optString("1");
-            aVar.f10191d = jSONObject.optString("2");
-            aVar.f10192e = jSONObject.optString("3");
-            aVar.f10189b = jSONObject.optString("4");
+            aVar.f10089a = jSONObject.optString("0");
+            aVar.f10091c = jSONObject.optString("1");
+            aVar.f10092d = jSONObject.optString("2");
+            aVar.f10093e = jSONObject.optString("3");
+            aVar.f10090b = jSONObject.optString("4");
             return aVar;
         } catch (Exception unused) {
             d.a();

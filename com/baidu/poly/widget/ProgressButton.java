@@ -10,24 +10,24 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import d.a.a0.b;
-import d.a.a0.f;
-import d.a.a0.g;
-import d.a.a0.j;
+import d.a.c0.b;
+import d.a.c0.f;
+import d.a.c0.g;
+import d.a.c0.j;
 /* loaded from: classes2.dex */
 public class ProgressButton extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f9400e;
+    public TextView f9300e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f9401f;
+    public ImageView f9301f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f9402g;
+    public Animation f9302g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f9403h;
+    public boolean f9303h;
 
     public ProgressButton(Context context) {
         this(context, null);
@@ -35,29 +35,29 @@ public class ProgressButton extends FrameLayout {
 
     public final void a(Context context, AttributeSet attributeSet) {
         LayoutInflater.from(context).inflate(g.button_progress, (ViewGroup) this, true);
-        this.f9400e = (TextView) findViewById(f.text_view);
-        this.f9401f = (ImageView) findViewById(f.progress_bar);
-        this.f9402g = AnimationUtils.loadAnimation(context, b.loading_rotate);
+        this.f9300e = (TextView) findViewById(f.text_view);
+        this.f9301f = (ImageView) findViewById(f.progress_bar);
+        this.f9302g = AnimationUtils.loadAnimation(context, b.loading_rotate);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, j.ProgressButton);
-        this.f9400e.setTextColor(obtainStyledAttributes.getColor(j.ProgressButton_textColor, -1));
+        this.f9300e.setTextColor(obtainStyledAttributes.getColor(j.ProgressButton_textColor, -1));
         obtainStyledAttributes.recycle();
     }
 
     public void b() {
-        this.f9401f.setVisibility(0);
-        this.f9401f.startAnimation(this.f9402g);
-        this.f9400e.setVisibility(4);
+        this.f9301f.setVisibility(0);
+        this.f9301f.startAnimation(this.f9302g);
+        this.f9300e.setVisibility(4);
     }
 
     public void setEnable(boolean z) {
         super.setEnabled(z);
-        this.f9403h = z;
+        this.f9303h = z;
     }
 
     @Override // android.view.View
     public void setPressed(boolean z) {
         super.setPressed(z);
-        if (this.f9403h) {
+        if (this.f9303h) {
             setAlpha(z ? 0.2f : 1.0f);
         } else {
             setAlpha(0.2f);
@@ -65,9 +65,9 @@ public class ProgressButton extends FrameLayout {
     }
 
     public void setText(String str) {
-        this.f9400e.setText(str);
-        this.f9401f.setVisibility(4);
-        this.f9400e.setVisibility(0);
+        this.f9300e.setText(str);
+        this.f9301f.setVisibility(4);
+        this.f9300e.setVisibility(0);
     }
 
     public ProgressButton(Context context, AttributeSet attributeSet) {

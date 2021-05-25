@@ -5,10 +5,10 @@ import com.ss.android.socialbase.downloader.exception.BaseException;
 public class j extends BaseException {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f36074a;
+    public int f36003a;
 
     public j(int i2, String str) {
         super(1072, str);
-        this.f36074a = i2;
+        this.f36003a = i2;
     }
 }

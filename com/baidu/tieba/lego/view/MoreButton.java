@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import d.a.k0.d3.v;
-import d.a.k0.j1.o.j.c;
+import d.a.n0.e3.v;
+import d.a.n0.k1.o.j.c;
 /* loaded from: classes4.dex */
 public class MoreButton extends TextView {
 
@@ -15,19 +15,19 @@ public class MoreButton extends TextView {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f18119e;
+        public final /* synthetic */ TbPageContext f18029e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f18120f;
+        public final /* synthetic */ c f18030f;
 
         public a(TbPageContext tbPageContext, c cVar) {
-            this.f18119e = tbPageContext;
-            this.f18120f = cVar;
+            this.f18029e = tbPageContext;
+            this.f18030f = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            v.c(this.f18119e, this.f18120f.d());
+            v.c(this.f18029e, this.f18030f.d());
         }
     }
 

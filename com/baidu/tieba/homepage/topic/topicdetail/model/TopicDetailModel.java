@@ -20,13 +20,13 @@ import java.util.List;
 public class TopicDetailModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.k0.a1.j.a.a f16659e;
+    public d.a.n0.b1.j.a.a f16569e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.k0.a1.j.a.c.a f16660f;
+    public d.a.n0.b1.j.a.c.a f16570f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f16661g;
+    public d.a.c.c.g.a f16571g;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -56,10 +56,10 @@ public class TopicDetailModel extends BdBaseModel {
             if (j2 == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) {
                 j2 = ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue();
             }
-            if (j2 == 0 || TopicDetailModel.this.f16660f == null || TopicDetailModel.this.f16660f.f51768e == null || TopicDetailModel.this.f16660f.f51768e.f51777e == null || TopicDetailModel.this.f16660f.f51768e.f51777e.f51818b != j2) {
+            if (j2 == 0 || TopicDetailModel.this.f16570f == null || TopicDetailModel.this.f16570f.f51935e == null || TopicDetailModel.this.f16570f.f51935e.f51944e == null || TopicDetailModel.this.f16570f.f51935e.f51944e.f51985b != j2) {
                 return;
             }
-            TopicDetailModel.this.f16660f.f51768e.f51777e.f51819c = j;
+            TopicDetailModel.this.f16570f.f51935e.f51944e.f51986c = j;
         }
     }
 
@@ -71,16 +71,16 @@ public class TopicDetailModel extends BdBaseModel {
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || TopicDetailModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || TopicDetailModel.this.f16659e == null) {
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || TopicDetailModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || TopicDetailModel.this.f16569e == null) {
                 return;
             }
             if (responsedMessage instanceof ResponseHttpGetTopicDetailMessage) {
-                TopicDetailModel.this.f16660f = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                TopicDetailModel.this.f16570f = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
             }
             if (responsedMessage instanceof ResponseSocketGetTopicDetailMessage) {
-                TopicDetailModel.this.f16660f = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                TopicDetailModel.this.f16570f = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
             }
-            TopicDetailModel.this.f16659e.netCallback(responsedMessage.getError(), TopicDetailModel.this.f16660f);
+            TopicDetailModel.this.f16569e.netCallback(responsedMessage.getError(), TopicDetailModel.this.f16570f);
         }
     }
 
@@ -92,7 +92,7 @@ public class TopicDetailModel extends BdBaseModel {
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || TopicDetailModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || TopicDetailModel.this.f16659e == null) {
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || TopicDetailModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || TopicDetailModel.this.f16569e == null) {
                 return;
             }
             List<n> list = null;
@@ -109,16 +109,16 @@ public class TopicDetailModel extends BdBaseModel {
                 z = responseSocketGetTopicThreadMessage.getHasMore();
                 list = dataList2;
             }
-            TopicDetailModel.this.f16659e.netThreadCallback(responsedMessage.getError(), z, list);
+            TopicDetailModel.this.f16569e.netThreadCallback(responsedMessage.getError(), z, list);
         }
     }
 
     public TopicDetailModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.f16661g = new a(CmdConfigHttp.CMD_TOPIC_BLESS, 309085);
+        this.f16571g = new a(CmdConfigHttp.CMD_TOPIC_BLESS, 309085);
         registerListener(new b(CmdConfigHttp.CMD_TOPIC_DETAIL, 309629));
         registerListener(new c(CmdConfigHttp.CMD_TOPIC_THREAD, 309631));
-        registerListener(this.f16661g);
+        registerListener(this.f16571g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -134,7 +134,7 @@ public class TopicDetailModel extends BdBaseModel {
 
     public void x(long j) {
         if (!j.A()) {
-            d.a.k0.a1.j.a.a aVar = this.f16659e;
+            d.a.n0.b1.j.a.a aVar = this.f16569e;
             if (aVar != null) {
                 aVar.netCallback(-1, null);
                 return;
@@ -150,7 +150,7 @@ public class TopicDetailModel extends BdBaseModel {
 
     public void y(long j, long j2, long j3) {
         if (!j.A()) {
-            d.a.k0.a1.j.a.a aVar = this.f16659e;
+            d.a.n0.b1.j.a.a aVar = this.f16569e;
             if (aVar != null) {
                 aVar.netThreadCallback(-1, false, null);
                 return;
@@ -166,7 +166,7 @@ public class TopicDetailModel extends BdBaseModel {
         sendMessage(requestGetTopicThreadMessage);
     }
 
-    public void z(d.a.k0.a1.j.a.a aVar) {
-        this.f16659e = aVar;
+    public void z(d.a.n0.b1.j.a.a aVar) {
+        this.f16569e = aVar;
     }
 }

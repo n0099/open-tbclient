@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import d.a.a0.c;
-import d.a.a0.f;
-import d.a.a0.g;
-import d.a.a0.k.d.b;
-import d.a.a0.p.a.a;
+import d.a.c0.c;
+import d.a.c0.f;
+import d.a.c0.g;
+import d.a.c0.k.d.b;
+import d.a.c0.p.a.a;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
@@ -20,21 +20,21 @@ import java.util.List;
 public class CouponEntranceView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9419e;
+    public ImageView f9319e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9420f;
+    public TextView f9320f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f9421g;
+    public TextView f9321g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f9422h;
+    public TextView f9322h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f9423i;
+    public View f9323i;
     public a j;
-    public a.C0488a k;
+    public a.C0514a k;
 
     public CouponEntranceView(Context context) {
         this(context, null);
@@ -51,29 +51,29 @@ public class CouponEntranceView extends FrameLayout {
 
     public final void c(Context context) {
         LayoutInflater.from(context).inflate(g.coupon_entrance, (ViewGroup) this, true);
-        this.f9419e = (ImageView) findViewById(f.coupon_icon);
-        this.f9422h = (TextView) findViewById(f.coupon_text);
-        this.f9420f = (TextView) findViewById(f.coupon_title);
-        this.f9421g = (TextView) findViewById(f.coupon_subtitle);
-        this.f9423i = findViewById(f.icon_more);
+        this.f9319e = (ImageView) findViewById(f.coupon_icon);
+        this.f9322h = (TextView) findViewById(f.coupon_text);
+        this.f9320f = (TextView) findViewById(f.coupon_title);
+        this.f9321g = (TextView) findViewById(f.coupon_subtitle);
+        this.f9323i = findViewById(f.icon_more);
     }
 
     public void d() {
         String str;
-        List<a.C0488a> list;
+        List<a.C0514a> list;
         this.k = null;
         a aVar = this.j;
-        if (!((aVar == null || (list = aVar.f38481b) == null || list.size() <= 0) ? false : true)) {
+        if (!((aVar == null || (list = aVar.f39501b) == null || list.size() <= 0) ? false : true)) {
             setVisibility(8);
             return;
         }
-        Iterator<a.C0488a> it = this.j.f38481b.iterator();
+        Iterator<a.C0514a> it = this.j.f39501b.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            a.C0488a next = it.next();
-            if (next.f38488g == 1) {
+            a.C0514a next = it.next();
+            if (next.f39508g == 1) {
                 this.k = next;
                 break;
             }
@@ -83,30 +83,30 @@ public class CouponEntranceView extends FrameLayout {
             return;
         }
         setVisibility(0);
-        b.c().b(this.f9419e, this.k.f38486e);
-        this.f9420f.setText(this.k.f38483b);
-        a.C0488a c0488a = this.k;
-        if (c0488a.f38482a == -1) {
-            str = c0488a.f38484c;
-            this.f9421g.setVisibility(8);
+        b.c().b(this.f9319e, this.k.f39506e);
+        this.f9320f.setText(this.k.f39503b);
+        a.C0514a c0514a = this.k;
+        if (c0514a.f39502a == -1) {
+            str = c0514a.f39504c;
+            this.f9321g.setVisibility(8);
         } else {
-            str = "-" + a(this.k.f38487f.longValue()) + "元";
-            this.f9421g.setVisibility(0);
-            this.f9421g.setText(this.k.f38484c);
+            str = "-" + a(this.k.f39507f.longValue()) + "元";
+            this.f9321g.setVisibility(0);
+            this.f9321g.setText(this.k.f39504c);
         }
-        this.f9422h.setText(str);
-        if (this.j.f38480a) {
-            this.f9422h.setTextColor(getResources().getColor(c.coupon_description));
-            this.f9423i.setVisibility(0);
+        this.f9322h.setText(str);
+        if (this.j.f39500a) {
+            this.f9322h.setTextColor(getResources().getColor(c.coupon_description));
+            this.f9323i.setVisibility(0);
             setEnabled(true);
             return;
         }
-        this.f9422h.setTextColor(getResources().getColor(c.black));
-        this.f9423i.setVisibility(8);
+        this.f9322h.setTextColor(getResources().getColor(c.black));
+        this.f9323i.setVisibility(8);
         setEnabled(false);
     }
 
-    public a.C0488a getSelectedItem() {
+    public a.C0514a getSelectedItem() {
         return this.k;
     }
 

@@ -24,27 +24,27 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.video.CustomVideoView;
 import com.baidu.tieba.video.EditVideoData;
 import d.a.c.e.p.l;
-import d.a.j0.b0.g.d;
+import d.a.m0.b0.g.d;
 /* loaded from: classes5.dex */
 public class PreviewVideoView extends FrameLayout {
     public static int q;
     public static int r;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f22232e;
+    public TbImageView f22161e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomVideoView f22233f;
+    public CustomVideoView f22162f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f22234g;
+    public ImageView f22163g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f22235h;
+    public TBSpecificationBtn f22164h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f22236i;
-    public d.a.j0.b0.b j;
+    public float f22165i;
+    public d.a.m0.b0.b j;
     public Paint k;
     public Paint l;
     public int m;
@@ -59,7 +59,7 @@ public class PreviewVideoView extends FrameLayout {
 
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
-            PreviewVideoView.this.f22233f.start();
+            PreviewVideoView.this.f22162f.start();
         }
     }
 
@@ -72,22 +72,22 @@ public class PreviewVideoView extends FrameLayout {
         public void onPrepared(MediaPlayer mediaPlayer) {
             mediaPlayer.setVolume(0.0f, 0.0f);
             PreviewVideoView.this.c(mediaPlayer.getVideoWidth(), mediaPlayer.getVideoHeight());
-            PreviewVideoView.this.f22232e.setVisibility(8);
+            PreviewVideoView.this.f22161e.setVisibility(8);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements d.a.j0.a0.b {
+    public class c implements d.a.m0.a0.b {
         public c() {
         }
 
-        @Override // d.a.j0.a0.b
+        @Override // d.a.m0.a0.b
         public void a(d.a.c.j.d.a aVar, String str, boolean z) {
-            if (PreviewVideoView.this.f22232e == null || aVar == null) {
+            if (PreviewVideoView.this.f22161e == null || aVar == null) {
                 return;
             }
             PreviewVideoView.this.c(aVar.r(), aVar.m());
-            PreviewVideoView.this.f22232e.invalidate();
+            PreviewVideoView.this.f22161e.invalidate();
         }
     }
 
@@ -110,22 +110,22 @@ public class PreviewVideoView extends FrameLayout {
             i5 = l.g(getContext(), R.dimen.tbds322);
             i4 = q;
         }
-        if (this.f22233f.getWidth() == i5 && this.f22233f.getHeight() == i4) {
+        if (this.f22162f.getWidth() == i5 && this.f22162f.getHeight() == i4) {
             return;
         }
-        this.f22233f.setVideoHeight(i4);
-        this.f22233f.setVideoWidth(i5);
-        ViewGroup.LayoutParams layoutParams = this.f22232e.getLayoutParams();
+        this.f22162f.setVideoHeight(i4);
+        this.f22162f.setVideoWidth(i5);
+        ViewGroup.LayoutParams layoutParams = this.f22161e.getLayoutParams();
         layoutParams.width = i5;
         layoutParams.height = i4;
-        this.f22232e.setLayoutParams(layoutParams);
+        this.f22161e.setLayoutParams(layoutParams);
         getLayoutParams().height = i4;
         getLayoutParams().width = i5;
         invalidate();
     }
 
     public void d() {
-        this.f22234g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
+        this.f22163g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
         this.k.setColor(SkinManager.getColor(R.color.CAM_X0618));
         this.l.setColor(SkinManager.getColor(R.color.CAM_X0302));
     }
@@ -136,47 +136,47 @@ public class PreviewVideoView extends FrameLayout {
         canvas.clipPath(this.o);
         super.dispatchDraw(canvas);
         canvas.drawRect(0.0f, 0.0f, getWidth(), l.g(getContext(), R.dimen.tbds5), this.k);
-        canvas.drawRect(0.0f, 0.0f, getWidth() * this.f22236i, l.g(getContext(), R.dimen.tbds5), this.l);
+        canvas.drawRect(0.0f, 0.0f, getWidth() * this.f22165i, l.g(getContext(), R.dimen.tbds5), this.l);
         canvas.restore();
     }
 
     public void e() {
-        TbImageView tbImageView = this.f22232e;
+        TbImageView tbImageView = this.f22161e;
         if (tbImageView == null || tbImageView.getTag() == null) {
             return;
         }
-        d.a.j0.a0.c.k().h(this.f22232e.getTag().toString());
-        d.a.j0.a0.c.k().g(this.f22232e.getTag().toString());
+        d.a.m0.a0.c.k().h(this.f22161e.getTag().toString());
+        d.a.m0.a0.c.k().g(this.f22161e.getTag().toString());
     }
 
     public final void f(Context context) {
         q = l.g(getContext(), R.dimen.tbds429);
         r = l.g(getContext(), R.dimen.tbds572);
         g(context);
-        this.j = new d.a.j0.b0.b();
+        this.j = new d.a.m0.b0.b();
         TbImageView tbImageView = new TbImageView(context);
-        this.f22232e = tbImageView;
+        this.f22161e = tbImageView;
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        addView(this.f22232e, new FrameLayout.LayoutParams(-2, -2));
-        this.f22234g = new ImageView(context);
+        addView(this.f22161e, new FrameLayout.LayoutParams(-2, -2));
+        this.f22163g = new ImageView(context);
         int g2 = l.g(context, R.dimen.M_H_X001);
         int g3 = l.g(context, R.dimen.M_W_X003);
-        this.f22234g.setPadding(g3, g2, g3, g2);
+        this.f22163g.setPadding(g3, g2, g3, g2);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.g(context, R.dimen.tbds94), l.g(context, R.dimen.tbds94));
         layoutParams.gravity = 53;
-        addView(this.f22234g, layoutParams);
+        addView(this.f22163g, layoutParams);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.g(context, R.dimen.tbds96), l.g(context, R.dimen.tbds48));
         layoutParams2.gravity = 85;
         layoutParams2.bottomMargin = l.g(context, R.dimen.M_H_X002);
         layoutParams2.rightMargin = l.g(context, R.dimen.M_W_X003);
-        d.a.j0.r.f0.m.b bVar = new d.a.j0.r.f0.m.b();
+        d.a.m0.r.f0.m.b bVar = new d.a.m0.r.f0.m.b();
         bVar.p();
         TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-        this.f22235h = tBSpecificationBtn;
+        this.f22164h = tBSpecificationBtn;
         tBSpecificationBtn.setConfig(bVar);
-        this.f22235h.setText(context.getString(R.string.edit));
-        this.f22235h.setTextSize(R.dimen.T_X10);
-        addView(this.f22235h, layoutParams2);
+        this.f22164h.setText(context.getString(R.string.edit));
+        this.f22164h.setTextSize(R.dimen.T_X10);
+        addView(this.f22164h, layoutParams2);
         this.k = new Paint();
         this.l = new Paint();
         d();
@@ -184,10 +184,10 @@ public class PreviewVideoView extends FrameLayout {
 
     public final void g(Context context) {
         CustomVideoView customVideoView = new CustomVideoView(context);
-        this.f22233f = customVideoView;
+        this.f22162f = customVideoView;
         addView(customVideoView, new FrameLayout.LayoutParams(-2, -2));
-        this.f22233f.setOnCompletionListener(new a());
-        this.f22233f.setOnPreparedListener(new b());
+        this.f22162f.setOnCompletionListener(new a());
+        this.f22162f.setOnPreparedListener(new b());
     }
 
     public void h() {
@@ -196,11 +196,11 @@ public class PreviewVideoView extends FrameLayout {
         ImageOperation g2 = d.g(r, q);
         imageFileInfo.clearPageActions();
         imageFileInfo.addPageAction(g2);
-        this.f22232e.setTag(imageFileInfo.toCachedKey(false));
+        this.f22161e.setTag(imageFileInfo.toCachedKey(false));
         d.a.c.j.d.a c2 = this.j.c(imageFileInfo, false);
         if (c2 != null) {
             c(c2.r(), c2.m());
-            this.f22232e.invalidate();
+            this.f22161e.invalidate();
             return;
         }
         this.j.d(imageFileInfo, new c(), false);
@@ -208,7 +208,7 @@ public class PreviewVideoView extends FrameLayout {
 
     public void i() {
         this.m = 0;
-        this.f22236i = 0.0f;
+        this.f22165i = 0.0f;
         this.n = null;
         k();
     }
@@ -217,23 +217,23 @@ public class PreviewVideoView extends FrameLayout {
         if (StringUtils.isNull(str)) {
             return;
         }
-        this.f22233f.setVideoPath(str);
-        this.f22233f.start();
-        this.f22233f.seekTo(this.m);
+        this.f22162f.setVideoPath(str);
+        this.f22162f.start();
+        this.f22162f.seekTo(this.m);
     }
 
     public void k() {
-        this.m = this.f22233f.getCurrentPosition();
-        CustomVideoView customVideoView = this.f22233f;
+        this.m = this.f22162f.getCurrentPosition();
+        CustomVideoView customVideoView = this.f22162f;
         if (customVideoView != null) {
             customVideoView.stopPlayback();
-            this.f22233f.setVideoURI(null);
+            this.f22162f.setVideoURI(null);
         }
-        this.f22232e.setVisibility(0);
+        this.f22161e.setVisibility(0);
     }
 
     public void l(float f2) {
-        this.f22236i = f2;
+        this.f22165i = f2;
         invalidate();
     }
 
@@ -248,7 +248,7 @@ public class PreviewVideoView extends FrameLayout {
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
-        this.f22234g.setOnClickListener(onClickListener);
+        this.f22163g.setOnClickListener(onClickListener);
     }
 
     public void setVideoInfo(EditVideoData editVideoData) {

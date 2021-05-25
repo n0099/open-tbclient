@@ -12,31 +12,31 @@ import java.util.List;
 public final class Polyline extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7073a;
+    public int f6973a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<LatLng> f7074b;
+    public List<LatLng> f6974b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f7075c;
+    public int[] f6975c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f7076d;
+    public int[] f6976d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7077e = 5;
+    public int f6977e = 5;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f7078f = false;
+    public boolean f6978f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f7079g = false;
+    public boolean f6979g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f7080h = true;
+    public boolean f6980h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public BitmapDescriptor f7081i;
+    public BitmapDescriptor f6981i;
     public List<BitmapDescriptor> j;
 
     public Polyline() {
@@ -44,7 +44,7 @@ public final class Polyline extends Overlay {
     }
 
     private Bundle a(boolean z) {
-        return (z ? BitmapDescriptorFactory.fromAsset("lineDashTexture.png") : this.f7081i).b();
+        return (z ? BitmapDescriptorFactory.fromAsset("lineDashTexture.png") : this.f6981i).b();
     }
 
     public static void a(int[] iArr, Bundle bundle) {
@@ -84,27 +84,27 @@ public final class Polyline extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f7074b.get(0));
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f6974b.get(0));
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-        bundle.putInt("width", this.f7077e);
-        Overlay.a(this.f7074b, bundle);
-        Overlay.a(this.f7073a, bundle);
-        a(this.f7075c, bundle);
-        b(this.f7076d, bundle);
-        int[] iArr = this.f7075c;
+        bundle.putInt("width", this.f6977e);
+        Overlay.a(this.f6974b, bundle);
+        Overlay.a(this.f6973a, bundle);
+        a(this.f6975c, bundle);
+        b(this.f6976d, bundle);
+        int[] iArr = this.f6975c;
         int i2 = 1;
-        if (iArr != null && iArr.length > 0 && iArr.length > this.f7074b.size() - 1) {
+        if (iArr != null && iArr.length > 0 && iArr.length > this.f6974b.size() - 1) {
             Log.e("baidumapsdk", "the size of textureIndexs is larger than the size of points");
         }
-        bundle.putInt("dotline", this.f7078f ? 1 : 0);
-        bundle.putInt(AddFriendActivityConfig.TYPE_FOCUS, this.f7079g ? 1 : 0);
+        bundle.putInt("dotline", this.f6978f ? 1 : 0);
+        bundle.putInt(AddFriendActivityConfig.TYPE_FOCUS, this.f6979g ? 1 : 0);
         try {
-            if (this.f7081i != null) {
+            if (this.f6981i != null) {
                 bundle.putInt(SchedulerSupport.CUSTOM, 1);
                 bundle.putBundle("image_info", a(false));
             } else {
-                if (this.f7078f) {
+                if (this.f6978f) {
                     bundle.putBundle("image_info", a(true));
                 }
                 bundle.putInt(SchedulerSupport.CUSTOM, 0);
@@ -113,12 +113,12 @@ public final class Polyline extends Overlay {
                 bundle.putInt("customlist", 1);
                 bundle.putBundle("image_info_list", b(false));
             } else {
-                if (this.f7078f && ((this.f7075c != null && this.f7075c.length > 0) || (this.f7076d != null && this.f7076d.length > 0))) {
+                if (this.f6978f && ((this.f6975c != null && this.f6975c.length > 0) || (this.f6976d != null && this.f6976d.length > 0))) {
                     bundle.putBundle("image_info_list", b(true));
                 }
                 bundle.putInt("customlist", 0);
             }
-            if (!this.f7080h) {
+            if (!this.f6980h) {
                 i2 = 0;
             }
             bundle.putInt("keep", i2);
@@ -130,39 +130,39 @@ public final class Polyline extends Overlay {
     }
 
     public int getColor() {
-        return this.f7073a;
+        return this.f6973a;
     }
 
     public int[] getColorList() {
-        return this.f7076d;
+        return this.f6976d;
     }
 
     public List<LatLng> getPoints() {
-        return this.f7074b;
+        return this.f6974b;
     }
 
     public BitmapDescriptor getTexture() {
-        return this.f7081i;
+        return this.f6981i;
     }
 
     public int getWidth() {
-        return this.f7077e;
+        return this.f6977e;
     }
 
     public boolean isDottedLine() {
-        return this.f7078f;
+        return this.f6978f;
     }
 
     public boolean isFocus() {
-        return this.f7079g;
+        return this.f6979g;
     }
 
     public boolean isIsKeepScale() {
-        return this.f7080h;
+        return this.f6980h;
     }
 
     public void setColor(int i2) {
-        this.f7073a = i2;
+        this.f6973a = i2;
         this.listener.b(this);
     }
 
@@ -170,16 +170,16 @@ public final class Polyline extends Overlay {
         if (iArr == null || iArr.length == 0) {
             throw new IllegalArgumentException("BDMapSDKException: colorList can not empty");
         }
-        this.f7076d = iArr;
+        this.f6976d = iArr;
     }
 
     public void setDottedLine(boolean z) {
-        this.f7078f = z;
+        this.f6978f = z;
         this.listener.b(this);
     }
 
     public void setFocus(boolean z) {
-        this.f7079g = z;
+        this.f6979g = z;
         this.listener.b(this);
     }
 
@@ -187,11 +187,11 @@ public final class Polyline extends Overlay {
         if (iArr == null || iArr.length == 0) {
             throw new IllegalArgumentException("BDMapSDKException: indexList can not empty");
         }
-        this.f7075c = iArr;
+        this.f6975c = iArr;
     }
 
     public void setIsKeepScale(boolean z) {
-        this.f7080h = z;
+        this.f6980h = z;
     }
 
     public void setPoints(List<LatLng> list) {
@@ -204,12 +204,12 @@ public final class Polyline extends Overlay {
         if (list.contains(null)) {
             throw new IllegalArgumentException("BDMapSDKException: points list can not contains null");
         }
-        this.f7074b = list;
+        this.f6974b = list;
         this.listener.b(this);
     }
 
     public void setTexture(BitmapDescriptor bitmapDescriptor) {
-        this.f7081i = bitmapDescriptor;
+        this.f6981i = bitmapDescriptor;
         this.listener.b(this);
     }
 
@@ -222,7 +222,7 @@ public final class Polyline extends Overlay {
 
     public void setWidth(int i2) {
         if (i2 > 0) {
-            this.f7077e = i2;
+            this.f6977e = i2;
             this.listener.b(this);
         }
     }

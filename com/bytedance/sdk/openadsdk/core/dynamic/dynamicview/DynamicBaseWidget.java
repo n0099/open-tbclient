@@ -18,31 +18,31 @@ import java.util.List;
 public abstract class DynamicBaseWidget extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f28093a;
+    public float f28022a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f28094b;
+    public float f28023b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f28095c;
+    public float f28024c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f28096d;
+    public float f28025d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28097e;
+    public int f28026e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28098f;
+    public int f28027f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28099g;
+    public int f28028g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28100h;
+    public int f28029h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f28101i;
+    public Context f28030i;
     public e j;
     public f k;
     public List<DynamicBaseWidget> l;
@@ -54,17 +54,17 @@ public abstract class DynamicBaseWidget extends ViewGroup {
     public DynamicBaseWidget(Context context, @NonNull DynamicRootView dynamicRootView, @NonNull f fVar) {
         super(context);
         this.p = true;
-        this.f28101i = context;
+        this.f28030i = context;
         this.m = dynamicRootView;
         this.k = fVar;
-        this.f28093a = fVar.a();
-        this.f28094b = fVar.b();
-        this.f28095c = fVar.c();
-        this.f28096d = fVar.d();
-        this.f28099g = (int) al.a(this.f28101i, this.f28093a);
-        this.f28100h = (int) al.a(this.f28101i, this.f28094b);
-        this.f28097e = (int) al.a(this.f28101i, this.f28095c);
-        this.f28098f = (int) al.a(this.f28101i, this.f28096d);
+        this.f28022a = fVar.a();
+        this.f28023b = fVar.b();
+        this.f28024c = fVar.c();
+        this.f28025d = fVar.d();
+        this.f28028g = (int) al.a(this.f28030i, this.f28022a);
+        this.f28029h = (int) al.a(this.f28030i, this.f28023b);
+        this.f28026e = (int) al.a(this.f28030i, this.f28024c);
+        this.f28027f = (int) al.a(this.f28030i, this.f28025d);
         e eVar = new e(fVar.e());
         this.j = eVar;
         this.o = eVar.k() > 0;
@@ -90,11 +90,11 @@ public abstract class DynamicBaseWidget extends ViewGroup {
     public boolean d() {
         boolean b2 = b();
         try {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f28097e, this.f28098f);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f28026e, this.f28027f);
             u.f("DynamicBaseWidget", "widget mDynamicView:" + this.n);
-            u.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f28093a + "," + this.f28094b + "," + this.f28097e + "," + this.f28098f);
-            layoutParams.topMargin = this.f28100h;
-            layoutParams.leftMargin = this.f28099g;
+            u.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f28022a + "," + this.f28023b + "," + this.f28026e + "," + this.f28027f);
+            layoutParams.topMargin = this.f28029h;
+            layoutParams.leftMargin = this.f28028g;
             this.m.addView(this, layoutParams);
             return b2;
         } catch (Exception unused) {
@@ -110,9 +110,9 @@ public abstract class DynamicBaseWidget extends ViewGroup {
     public Drawable getBackgroundDrawable() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
-        gradientDrawable.setCornerRadius(al.a(this.f28101i, this.j.l()));
+        gradientDrawable.setCornerRadius(al.a(this.f28030i, this.j.l()));
         gradientDrawable.setColor(this.j.q());
-        gradientDrawable.setStroke((int) al.a(this.f28101i, this.j.n()), this.j.m());
+        gradientDrawable.setStroke((int) al.a(this.f28030i, this.j.n()), this.j.m());
         return gradientDrawable;
     }
 

@@ -11,25 +11,25 @@ public final class j {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f67084a;
+        public String f67127a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f67085b;
+        public String f67128b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Drawable f67086c;
+        public Drawable f67129c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f67087d;
+        public String f67130d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f67088e;
+        public String f67131e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f67089f;
+        public int f67132f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f67090g;
+        public boolean f67133g;
 
         public a(String str, String str2, Drawable drawable, String str3, String str4, int i2, boolean z) {
             f(str2);
@@ -42,59 +42,59 @@ public final class j {
         }
 
         public Drawable a() {
-            return this.f67086c;
+            return this.f67129c;
         }
 
         public void b(int i2) {
-            this.f67089f = i2;
+            this.f67132f = i2;
         }
 
         public void c(Drawable drawable) {
-            this.f67086c = drawable;
+            this.f67129c = drawable;
         }
 
         public void d(String str) {
-            this.f67084a = str;
+            this.f67127a = str;
         }
 
         public void e(boolean z) {
-            this.f67090g = z;
+            this.f67133g = z;
         }
 
         public void f(String str) {
-            this.f67085b = str;
+            this.f67128b = str;
         }
 
         public boolean g() {
-            return this.f67090g;
+            return this.f67133g;
         }
 
         public String h() {
-            return this.f67084a;
+            return this.f67127a;
         }
 
         public void i(String str) {
-            this.f67087d = str;
+            this.f67130d = str;
         }
 
         public String j() {
-            return this.f67085b;
+            return this.f67128b;
         }
 
         public void k(String str) {
-            this.f67088e = str;
+            this.f67131e = str;
         }
 
         public String l() {
-            return this.f67087d;
+            return this.f67130d;
         }
 
         public int m() {
-            return this.f67089f;
+            return this.f67132f;
         }
 
         public String n() {
-            return this.f67088e;
+            return this.f67131e;
         }
 
         public String toString() {

@@ -4,14 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.util.ListUtils;
-import d.a.j0.r.q.a2;
-import d.a.j0.r.q.v0;
+import d.a.m0.r.q.a2;
+import d.a.m0.r.q.v0;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
 /* loaded from: classes4.dex */
-public class SpecialColumnListData extends d.a.j0.r.q.a implements Parcelable {
+public class SpecialColumnListData extends d.a.m0.r.q.a implements Parcelable {
     public static final int MAX_SIZE = 3;
     public List<SpecialColumnItemData> mListData;
     public List<SpecialColumnItemData> mResultListData;
@@ -68,12 +68,12 @@ public class SpecialColumnListData extends d.a.j0.r.q.a implements Parcelable {
         return TYPE;
     }
 
-    @Override // d.a.j0.r.q.a
+    @Override // d.a.m0.r.q.a
     public v0 h() {
         return null;
     }
 
-    @Override // d.a.j0.r.q.a
+    @Override // d.a.m0.r.q.a
     public a2 m() {
         return null;
     }

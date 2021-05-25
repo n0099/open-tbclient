@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import d.a.k0.o.d.d;
+import d.a.n0.q.d.e;
 /* loaded from: classes4.dex */
 public class AppNotificationReceiver extends BroadcastReceiver {
     private String extractPackageName(Intent intent) {
@@ -25,11 +25,11 @@ public class AppNotificationReceiver extends BroadcastReceiver {
         if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
             String extractPackageName2 = extractPackageName(intent);
             if (extractPackageName2 != null) {
-                d.c().d(context, extractPackageName2);
+                e.c().d(context, extractPackageName2);
             }
         } else if (!PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction()) || (extractPackageName = extractPackageName(intent)) == null) {
         } else {
-            d.c().p(context, extractPackageName);
+            e.c().p(context, extractPackageName);
         }
     }
 }

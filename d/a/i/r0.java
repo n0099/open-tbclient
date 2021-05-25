@@ -7,21 +7,21 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.a.j0.r.q.a2;
+import d.a.m0.r.q.a2;
 /* loaded from: classes.dex */
 public class r0 extends c implements p<a2>, q {
     public static final int k = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
 
     /* renamed from: i  reason: collision with root package name */
-    public UnfollowedDecorView f40376i;
+    public UnfollowedDecorView f40068i;
     public Align j;
 
     public r0(TbPageContext tbPageContext, Align align) {
         h(-1);
         UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(tbPageContext.getPageActivity());
-        this.f40376i = unfollowedDecorView;
+        this.f40068i = unfollowedDecorView;
         unfollowedDecorView.setId(R.id.decor_item_right_id);
-        g(this.f40376i);
+        g(this.f40068i);
         k(align);
     }
 
@@ -38,9 +38,9 @@ public class r0 extends c implements p<a2>, q {
             layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams.topMargin = dimenPixelSize2;
             i(layoutParams);
-            this.f40376i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f40376i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f40376i.setLayoutParams(layoutParams);
+            this.f40068i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f40068i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f40068i.setLayoutParams(layoutParams);
         } else if (align == Align.ALIGN_RIGHT_CENTER) {
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
             layoutParams2.addRule(11);
@@ -48,9 +48,9 @@ public class r0 extends c implements p<a2>, q {
             layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams2.bottomMargin = 0;
             i(layoutParams2);
-            this.f40376i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f40376i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f40376i.setLayoutParams(layoutParams2);
+            this.f40068i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f40068i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f40068i.setLayoutParams(layoutParams2);
         } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
             int i2 = k;
             int g2 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
@@ -62,18 +62,18 @@ public class r0 extends c implements p<a2>, q {
             layoutParams3.rightMargin = g3;
             layoutParams3.bottomMargin = g4;
             i(layoutParams3);
-            this.f40376i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
-            this.f40376i.setPadding(g2, g2, g2, g2);
-            this.f40376i.setLayoutParams(layoutParams3);
+            this.f40068i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
+            this.f40068i.setPadding(g2, g2, g2, g2);
+            this.f40068i.setLayoutParams(layoutParams3);
         }
         this.j = align;
     }
 
-    public void l(d.a.j0.r.q.a aVar) {
+    public void l(d.a.m0.r.q.a aVar) {
         if (aVar.isSupportTop()) {
             k(Align.ALIGN_RIGHT_TOP);
         } else if (aVar.isSupportBottom()) {
-            l0 l0Var = this.f40326h;
+            l0 l0Var = this.f40018h;
             if (l0Var != null) {
                 l0Var.n(this);
             }
@@ -86,11 +86,11 @@ public class r0 extends c implements p<a2>, q {
     @Override // d.a.i.p
     /* renamed from: m */
     public void a(a2 a2Var) {
-        this.f40376i.a(a2Var);
+        this.f40068i.a(a2Var);
     }
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        this.f40376i.i();
+        this.f40068i.i();
     }
 }

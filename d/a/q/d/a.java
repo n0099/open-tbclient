@@ -9,29 +9,29 @@ import java.util.concurrent.ExecutorService;
 public abstract class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public C1773a f64167e;
+    public C1776a f64043e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f64168f;
+    public b f64044f;
 
     /* renamed from: d.a.q.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1773a {
+    public static class C1776a {
 
         /* renamed from: a  reason: collision with root package name */
-        public b.a f64169a;
+        public b.a f64045a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b.a f64170b;
+        public b.a f64046b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f64171c;
+        public Context f64047c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ExecutorService f64172d;
+        public ExecutorService f64048d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ExecutorService f64173e;
+        public ExecutorService f64049e;
     }
 
     /* loaded from: classes2.dex */
@@ -49,45 +49,45 @@ public abstract class a {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f64174a;
+        public String f64050a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f64175b;
+        public int f64051b;
 
         public d() {
         }
 
         public d(int i2, String str, Exception exc) {
-            this.f64175b = i2;
-            this.f64174a = str;
+            this.f64051b = i2;
+            this.f64050a = str;
         }
 
         public static d a(int i2, Exception exc) {
             d dVar = new d();
-            dVar.f64175b = i2;
+            dVar.f64051b = i2;
             return dVar;
         }
 
         public static d c(String str) {
             d dVar = new d();
-            dVar.f64175b = 0;
-            dVar.f64174a = str;
+            dVar.f64051b = 0;
+            dVar.f64050a = str;
             return dVar;
         }
 
         public boolean b() {
-            return this.f64175b == 0;
+            return this.f64051b == 0;
         }
     }
 
     public abstract void a(String str, Bundle bundle, c<String> cVar);
 
-    public void b(C1773a c1773a) {
-        this.f64167e = c1773a;
+    public void b(C1776a c1776a) {
+        this.f64043e = c1776a;
     }
 
     public void c(b bVar) {
-        this.f64168f = bVar;
+        this.f64044f = bVar;
         e(bVar);
     }
 

@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.upload.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -71,7 +72,7 @@ public class RequsetNetworkUtils {
                 case 14:
                 case 15:
                 case 17:
-                    str = g.f3963b;
+                    str = g.f3966b;
                     break;
                 case 13:
                 case 18:
@@ -133,11 +134,12 @@ public class RequsetNetworkUtils {
     }
 
     public static String getWifiIp(Context context) {
-        if (context.checkCallingOrSelfPermission("android.permission.ACCESS_WIFI_STATE") == 0) {
-            int ipAddress = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getIpAddress();
-            return String.format("%d.%d.%d.%d", Integer.valueOf(ipAddress & 255), Integer.valueOf((ipAddress >> 8) & 255), Integer.valueOf((ipAddress >> 16) & 255), Integer.valueOf((ipAddress >> 24) & 255));
+        WifiInfo connectionInfo;
+        if (context.checkCallingOrSelfPermission("android.permission.ACCESS_WIFI_STATE") != 0 || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            return "nonWifiIp";
         }
-        return "nonWifiIp";
+        int ipAddress = connectionInfo.getIpAddress();
+        return String.format("%d.%d.%d.%d", Integer.valueOf(ipAddress & 255), Integer.valueOf((ipAddress >> 8) & 255), Integer.valueOf((ipAddress >> 16) & 255), Integer.valueOf((ipAddress >> 24) & 255));
     }
 
     public static boolean isConnected(Context context) {

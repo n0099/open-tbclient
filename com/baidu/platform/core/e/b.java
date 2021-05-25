@@ -11,12 +11,12 @@ public class b extends com.baidu.platform.base.e {
     }
 
     private void a(LocationShareURLOption locationShareURLOption) {
-        this.f9352a.a("qt", "cs");
+        this.f9252a.a("qt", "cs");
         Point ll2point = CoordUtil.ll2point(locationShareURLOption.mLocation);
-        com.baidu.platform.util.a aVar = this.f9352a;
+        com.baidu.platform.util.a aVar = this.f9252a;
         aVar.a("geo", ll2point.x + FieldBuilder.SE + ll2point.y);
-        this.f9352a.a("t", locationShareURLOption.mName);
-        this.f9352a.a("cnt", locationShareURLOption.mSnippet);
+        this.f9252a.a("t", locationShareURLOption.mName);
+        this.f9252a.a("cnt", locationShareURLOption.mSnippet);
         b(false);
         a(false);
     }

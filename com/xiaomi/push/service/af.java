@@ -9,13 +9,13 @@ import java.util.Queue;
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f38114a = new Object();
+    public static Object f38043a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, Queue<String>> f881a = new HashMap();
 
     public static boolean a(XMPushService xMPushService, String str, String str2) {
-        synchronized (f38114a) {
+        synchronized (f38043a) {
             SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
             Queue<String> queue = f881a.get(str);
             if (queue == null) {

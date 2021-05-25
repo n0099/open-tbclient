@@ -3,39 +3,39 @@ package d.b.b;
 import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f2 extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f64977e;
+    public final Context f65020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i f64978f;
+    public final i f65021f;
 
     public f2(Context context, i iVar) {
         super(true, false);
-        this.f64977e = context;
-        this.f64978f = iVar;
+        this.f65020e = context;
+        this.f65021f = iVar;
     }
 
     @Override // d.b.b.h2
     public boolean b(JSONObject jSONObject) {
-        if (!TextUtils.isEmpty(this.f64978f.i())) {
-            jSONObject.put("ab_client", this.f64978f.i());
+        if (!TextUtils.isEmpty(this.f65021f.i())) {
+            jSONObject.put("ab_client", this.f65021f.i());
         }
-        if (!TextUtils.isEmpty(this.f64978f.P())) {
-            if (r0.f65049b) {
-                r0.a("init config has abversion:" + this.f64978f.P(), null);
+        if (!TextUtils.isEmpty(this.f65021f.P())) {
+            if (r0.f65092b) {
+                r0.a("init config has abversion:" + this.f65021f.P(), null);
             }
-            jSONObject.put("ab_version", this.f64978f.P());
+            jSONObject.put("ab_version", this.f65021f.P());
         }
-        if (!TextUtils.isEmpty(this.f64978f.j())) {
-            jSONObject.put("ab_group", this.f64978f.j());
+        if (!TextUtils.isEmpty(this.f65021f.j())) {
+            jSONObject.put("ab_group", this.f65021f.j());
         }
-        if (TextUtils.isEmpty(this.f64978f.k())) {
+        if (TextUtils.isEmpty(this.f65021f.k())) {
             return true;
         }
-        jSONObject.put("ab_feature", this.f64978f.k());
+        jSONObject.put("ab_feature", this.f65021f.k());
         return true;
     }
 }

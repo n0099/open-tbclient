@@ -21,25 +21,25 @@ public class Decoder implements INoProGuard {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f26661a;
+        public static final /* synthetic */ int[] f26590a;
 
         static {
             int[] iArr = new int[DecoderJNI.a.values().length];
-            f26661a = iArr;
+            f26590a = iArr;
             try {
                 iArr[DecoderJNI.a.DONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f26661a[DecoderJNI.a.OK.ordinal()] = 2;
+                f26590a[DecoderJNI.a.OK.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f26661a[DecoderJNI.a.NEEDS_MORE_INPUT.ordinal()] = 3;
+                f26590a[DecoderJNI.a.NEEDS_MORE_INPUT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f26661a[DecoderJNI.a.NEEDS_MORE_OUTPUT.ordinal()] = 4;
+                f26590a[DecoderJNI.a.NEEDS_MORE_OUTPUT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -64,7 +64,7 @@ public class Decoder implements INoProGuard {
             wrapper.push(bArr.length);
             int i2 = 0;
             while (wrapper.getStatus() != DecoderJNI.a.DONE) {
-                int i3 = AnonymousClass1.f26661a[wrapper.getStatus().ordinal()];
+                int i3 = AnonymousClass1.f26590a[wrapper.getStatus().ordinal()];
                 if (i3 == 2) {
                     wrapper.push(0);
                 } else if (i3 != 4) {
@@ -133,7 +133,7 @@ public class Decoder implements INoProGuard {
                 }
                 this.buffer = null;
             }
-            int i2 = AnonymousClass1.f26661a[this.decoder.getStatus().ordinal()];
+            int i2 = AnonymousClass1.f26590a[this.decoder.getStatus().ordinal()];
             if (i2 == 1) {
                 return -1;
             }

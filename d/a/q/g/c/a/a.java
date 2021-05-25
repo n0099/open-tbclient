@@ -3,17 +3,17 @@ package d.a.q.g.c.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f64360a = "0123456789ABCDEF".toCharArray();
+    public static final char[] f64236a = "0123456789ABCDEF".toCharArray();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f64361b = "0123456789abcdef".toCharArray();
+    public static final char[] f64237b = "0123456789abcdef".toCharArray();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f64362c = new byte[128];
+    public static final byte[] f64238c = new byte[128];
 
     static {
         for (int i2 = 0; i2 < 10; i2++) {
-            byte[] bArr = f64362c;
+            byte[] bArr = f64238c;
             bArr[i2 + 48] = (byte) i2;
             byte b2 = (byte) (i2 + 10);
             bArr[i2 + 65] = b2;
@@ -22,7 +22,7 @@ public class a {
     }
 
     public static char[] a(byte[] bArr, boolean z) {
-        char[] cArr = z ? f64360a : f64361b;
+        char[] cArr = z ? f64236a : f64237b;
         char[] cArr2 = new char[bArr.length * 2];
         int i2 = 0;
         for (byte b2 : bArr) {

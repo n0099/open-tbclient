@@ -10,11 +10,11 @@ import java.nio.FloatBuffer;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float[] f66081a;
+    public static final float[] f66124a;
 
     static {
         float[] fArr = new float[16];
-        f66081a = fArr;
+        f66124a = fArr;
         Matrix.setIdentityM(fArr, 0);
     }
 

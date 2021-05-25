@@ -15,19 +15,19 @@ import d.a.c.e.p.k;
 public final class Thread2GroupShareView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f21814e;
+    public LinearLayout f21742e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f21815f;
+    public EditText f21743f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f21816g;
+    public TbImageView f21744g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21817h;
+    public TextView f21745h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f21818i;
+    public TextView f21746i;
     public ShareFromPBMsgData j;
 
     public Thread2GroupShareView(Context context, AttributeSet attributeSet) {
@@ -36,46 +36,46 @@ public final class Thread2GroupShareView extends LinearLayout {
     }
 
     public void a() {
-        this.f21814e.setFocusable(true);
-        this.f21814e.setFocusableInTouchMode(true);
-        this.f21814e.requestFocus();
+        this.f21742e.setFocusable(true);
+        this.f21742e.setFocusableInTouchMode(true);
+        this.f21742e.requestFocus();
     }
 
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.thread_to_group_share_view, this);
         setOrientation(1);
-        this.f21814e = (LinearLayout) findViewById(R.id.share_content);
-        this.f21818i = (TextView) findViewById(R.id.share_title_view);
-        this.f21815f = (EditText) findViewById(R.id.chat_msg);
-        this.f21816g = (TbImageView) findViewById(R.id.chat_group_img);
-        this.f21817h = (TextView) findViewById(R.id.chat_group_desc);
-        SkinManager.setViewTextColor(this.f21818i, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.f21815f, R.color.CAM_X0105, 2);
-        SkinManager.setViewTextColor(this.f21817h, R.color.CAM_X0106, 1);
-        this.f21815f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        this.f21815f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        this.f21742e = (LinearLayout) findViewById(R.id.share_content);
+        this.f21746i = (TextView) findViewById(R.id.share_title_view);
+        this.f21743f = (EditText) findViewById(R.id.chat_msg);
+        this.f21744g = (TbImageView) findViewById(R.id.chat_group_img);
+        this.f21745h = (TextView) findViewById(R.id.chat_group_desc);
+        SkinManager.setViewTextColor(this.f21746i, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f21743f, R.color.CAM_X0105, 2);
+        SkinManager.setViewTextColor(this.f21745h, R.color.CAM_X0106, 1);
+        this.f21743f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        this.f21743f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
         a();
     }
 
     public void c(String str, boolean z) {
-        TbImageView tbImageView = this.f21816g;
+        TbImageView tbImageView = this.f21744g;
         if (tbImageView != null) {
             tbImageView.V(str, z ? 17 : 18, false);
         }
     }
 
     public final void d() {
-        this.f21818i.setText(this.j.getTitle());
-        this.f21816g.setTag(this.j.getImageUrl());
-        this.f21817h.setText(this.j.getContent());
+        this.f21746i.setText(this.j.getTitle());
+        this.f21744g.setTag(this.j.getImageUrl());
+        this.f21745h.setText(this.j.getContent());
     }
 
     public EditText getChatMsgView() {
-        return this.f21815f;
+        return this.f21743f;
     }
 
     public String getLeaveMsg() {
-        EditText editText = this.f21815f;
+        EditText editText = this.f21743f;
         if (editText != null) {
             return k.charSequence2String(editText.getText(), null);
         }

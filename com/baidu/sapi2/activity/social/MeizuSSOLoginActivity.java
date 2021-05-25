@@ -20,7 +20,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
 
         public void onError(OAuthError oAuthError) {
             MeizuSSOLoginActivity meizuSSOLoginActivity = MeizuSSOLoginActivity.this;
-            meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f9828g);
+            meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f9728g);
         }
 
         public void onGetToken(OAuthToken oAuthToken) {
@@ -31,7 +31,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
                 return;
             }
             MeizuSSOLoginActivity meizuSSOLoginActivity = MeizuSSOLoginActivity.this;
-            meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f9828g);
+            meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f9728g);
         }
     }
 
@@ -44,7 +44,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(d.a.y.a.j.a.sapi_sdk_title_login_mz);
+        setTitleText(d.a.a0.a.j.a.sapi_sdk_title_login_mz);
         RelativeLayout relativeLayout = this.rootView;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(4);

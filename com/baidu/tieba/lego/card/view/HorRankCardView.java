@@ -16,9 +16,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.HorRankCard;
 import com.baidu.tieba.lego.view.HorizontalScrollListView;
 import com.baidu.tieba.lego.view.MoreButton;
-import d.a.k0.d3.v;
-import d.a.k0.j1.i;
-import d.a.k0.j1.o.j.c;
+import d.a.n0.e3.v;
+import d.a.n0.k1.i;
+import d.a.n0.k1.o.j.c;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
@@ -36,19 +36,19 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HorRankCard f18010e;
+        public final /* synthetic */ HorRankCard f17920e;
 
         public a(HorRankCard horRankCard) {
-            this.f18010e = horRankCard;
+            this.f17920e = horRankCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f18010e.getScheme())) {
+            if (TextUtils.isEmpty(this.f17920e.getScheme())) {
                 return;
             }
-            i.e(this.f18010e).d(TiebaStatic.Params.OBJ_URL, this.f18010e.getScheme()).b("obj_locate", HorRankCardView.this.getStatPosition()).a(this.f18010e);
-            v.c(HorRankCardView.this.m, this.f18010e.getScheme());
+            i.e(this.f17920e).d(TiebaStatic.Params.OBJ_URL, this.f17920e.getScheme()).b("obj_locate", HorRankCardView.this.getStatPosition()).a(this.f17920e);
+            v.c(HorRankCardView.this.m, this.f17920e.getScheme());
         }
     }
 
@@ -68,7 +68,7 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: I */
     public void w(HorRankCard horRankCard, int i2) {
-        d.a.j0.s0.a.a(this.m, getRootView());
+        d.a.m0.s0.a.a(this.m, getRootView());
         SkinManager.setBackgroundColor(this.u, R.color.CAM_X0308);
         SkinManager.setBackgroundColor(this.y, R.color.CAM_X0201);
         SkinManager.setImageResource(this.y, R.color.CAM_X0204);

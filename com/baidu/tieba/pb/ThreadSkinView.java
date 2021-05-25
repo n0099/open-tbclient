@@ -14,7 +14,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.m.b;
 import d.a.c.e.p.l;
-import d.a.k0.d3.j0.a;
+import d.a.n0.e3.j0.a;
 import tbclient.SkinInfo;
 /* loaded from: classes4.dex */
 public class ThreadSkinView extends TbImageView {

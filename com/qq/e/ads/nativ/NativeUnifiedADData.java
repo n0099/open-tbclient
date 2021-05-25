@@ -10,7 +10,7 @@ import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
     public static final int AD_CLICKED = 2;
     public static final int AD_ERROR = 3;

@@ -20,7 +20,7 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.r.s.b;
+import d.a.m0.r.s.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
@@ -68,8 +68,8 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         public c() {
         }
 
-        @Override // d.a.j0.r.s.b.c
-        public void a(d.a.j0.r.s.b bVar, int i2, View view) {
+        @Override // d.a.m0.r.s.b.c
+        public void a(d.a.m0.r.s.b bVar, int i2, View view) {
             if (bVar == PersonImageActivity.this.getListMenu()) {
                 if (i2 == 0) {
                     try {
@@ -105,16 +105,16 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public class e extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f19879a;
+        public String f19801a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f19880b;
+        public byte[] f19802b;
 
         public e(String str, byte[] bArr) {
-            this.f19879a = null;
-            this.f19880b = null;
-            this.f19879a = str;
-            this.f19880b = bArr;
+            this.f19801a = null;
+            this.f19802b = null;
+            this.f19801a = str;
+            this.f19802b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -132,7 +132,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f19879a, this.f19880b, PersonImageActivity.this.getPageContext().getPageActivity());
+            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f19801a, this.f19802b, PersonImageActivity.this.getPageContext().getPageActivity());
             if (saveImageFileByUser != -2) {
                 if (saveImageFileByUser != 0) {
                     return PersonImageActivity.this.getPageContext().getString(R.string.save_fail);

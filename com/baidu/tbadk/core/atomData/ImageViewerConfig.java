@@ -12,7 +12,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import d.a.j0.r.q.a2;
+import d.a.m0.c1.b.e;
+import d.a.m0.r.q.a2;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
@@ -51,6 +52,7 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String IS_SHOW_BOTTOM_CONTAINER = "is_show_bottom_container";
     public static final String IS_SHOW_HOST = "is_show_host";
     public static final String IS_VIDEO_WORKS_INFO = "is_video_works_info";
+    public static final String IS_YOUNGSTER_MODE = "is_youngster_mode";
     public static final String LAST_ID = "last_id";
     public static final String NEED_BROADCAST = "need_broadcast";
     public static final String PARAM_IS_CDN = "isCdn";
@@ -69,22 +71,22 @@ public class ImageViewerConfig extends IntentConfig {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f12121a;
+        public ArrayList<String> f12022a;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12123c;
+        public String f12024c;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f12126f;
+        public boolean f12027f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f12127g;
+        public String f12028g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f12128h;
+        public boolean f12029h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ConcurrentHashMap<String, ImageUrlData> f12129i;
+        public ConcurrentHashMap<String, ImageUrlData> f12030i;
         public boolean j;
         public boolean k;
         public a2 m;
@@ -96,13 +98,13 @@ public class ImageViewerConfig extends IntentConfig {
         public boolean u;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12122b = 0;
+        public int f12023b = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12124d = "";
+        public String f12025d = "";
 
         /* renamed from: e  reason: collision with root package name */
-        public String f12125e = "";
+        public String f12026e = "";
         public boolean l = false;
         public boolean p = true;
         public boolean s = true;
@@ -113,12 +115,12 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b B(int i2) {
-            this.f12122b = i2;
+            this.f12023b = i2;
             return this;
         }
 
         public b C(boolean z) {
-            this.f12126f = z;
+            this.f12027f = z;
             return this;
         }
 
@@ -133,7 +135,7 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b F(boolean z) {
-            this.f12128h = z;
+            this.f12029h = z;
             return this;
         }
 
@@ -153,7 +155,7 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b J(String str) {
-            this.f12127g = str;
+            this.f12028g = str;
             return this;
         }
 
@@ -179,7 +181,7 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b O(String str) {
-            this.f12125e = str;
+            this.f12026e = str;
             return this;
         }
 
@@ -188,22 +190,22 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b w(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
-            this.f12129i = concurrentHashMap;
+            this.f12030i = concurrentHashMap;
             return this;
         }
 
         public b x(ArrayList<String> arrayList) {
-            this.f12121a = arrayList;
+            this.f12022a = arrayList;
             return this;
         }
 
         public b y(String str) {
-            this.f12124d = str;
+            this.f12025d = str;
             return this;
         }
 
         public b z(String str) {
-            this.f12123c = str;
+            this.f12024c = str;
             return this;
         }
     }
@@ -215,27 +217,27 @@ public class ImageViewerConfig extends IntentConfig {
             return;
         }
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
-        if (bVar.f12121a != null && bVar.f12121a.size() > 0) {
+        if (bVar.f12022a != null && bVar.f12022a.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra("url", bVar.f12121a);
-            intent.putExtra("index", bVar.f12122b);
+            intent.putStringArrayListExtra("url", bVar.f12022a);
+            intent.putExtra("index", bVar.f12023b);
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");
-            intent.putExtra(PARAM_IS_CDN, bVar.f12126f);
-            intent.putExtra("fname", bVar.f12123c);
-            intent.putExtra("fid", bVar.f12124d);
-            intent.putExtra("tid", bVar.f12125e);
-            intent.putExtra(LAST_ID, bVar.f12127g);
-            intent.putExtra(REVERSE_MODE, bVar.f12128h);
-            intent.putExtra(ASSIST_URLS, bVar.f12129i);
+            intent.putExtra(PARAM_IS_CDN, bVar.f12027f);
+            intent.putExtra("fname", bVar.f12024c);
+            intent.putExtra("fid", bVar.f12025d);
+            intent.putExtra("tid", bVar.f12026e);
+            intent.putExtra(LAST_ID, bVar.f12028g);
+            intent.putExtra(REVERSE_MODE, bVar.f12029h);
+            intent.putExtra(ASSIST_URLS, bVar.f12030i);
             intent.putExtra(IS_SHOW_AD, bVar.j);
             intent.putExtra(NEED_BROADCAST, bVar.k);
             intent.putExtra(SEE_HOST, bVar.l);
-            int size = bVar.f12121a.size();
+            int size = bVar.f12022a.size();
             for (int i2 = 0; i2 < size; i2++) {
-                String str = (String) bVar.f12121a.get(i2);
+                String str = (String) bVar.f12022a.get(i2);
                 if (!StringUtils.isNull(str)) {
-                    ImageUrlData imageUrlData = bVar.f12129i != null ? (ImageUrlData) bVar.f12129i.get(str) : null;
+                    ImageUrlData imageUrlData = bVar.f12030i != null ? (ImageUrlData) bVar.f12030i.get(str) : null;
                     if (imageUrlData == null) {
                         imageUrlData = new ImageUrlData();
                         imageUrlData.imageUrl = str;
@@ -256,17 +258,17 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
         }
         if (bVar.m != null) {
-            intent.putExtra(IS_BJH, bVar.m.A2());
-            if (bVar.m.A2()) {
+            intent.putExtra(IS_BJH, bVar.m.B2());
+            if (bVar.m.B2()) {
                 intent.putExtra(PARAM_IS_CDN, true);
             }
-            intent.putExtra("nid", bVar.m.L0());
-            intent.putExtra("card_type", bVar.m.U0());
-            intent.putExtra("recom_source", bVar.m.R0);
-            intent.putExtra("ab_tag", bVar.m.T0);
-            intent.putExtra("weight", bVar.m.S0);
-            intent.putExtra("extra", bVar.m.U0);
-            if (bVar.m.C2()) {
+            intent.putExtra("nid", bVar.m.M0());
+            intent.putExtra("card_type", bVar.m.V0());
+            intent.putExtra("recom_source", bVar.m.S0);
+            intent.putExtra("ab_tag", bVar.m.U0);
+            intent.putExtra("weight", bVar.m.T0);
+            intent.putExtra("extra", bVar.m.V0);
+            if (bVar.m.D2()) {
                 intent.putExtra(IS_VIDEO_WORKS_INFO, true);
             }
         }
@@ -298,5 +300,6 @@ public class ImageViewerConfig extends IntentConfig {
         intent.putExtra(IS_FROM_AI_APP, bVar.u);
         intent.putExtra("from_forum_id", bVar.n);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
+        intent.putExtra(IS_YOUNGSTER_MODE, e.d());
     }
 }

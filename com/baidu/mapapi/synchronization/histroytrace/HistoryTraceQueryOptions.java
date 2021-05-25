@@ -3,74 +3,74 @@ package com.baidu.mapapi.synchronization.histroytrace;
 public class HistoryTraceQueryOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7501a = null;
+    public String f7401a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7502b = 0;
+    public int f7402b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7503c = null;
+    public String f7403c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7504d = null;
+    public String f7404d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7505e = 4;
+    public int f7405e = 4;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7506f = 5;
+    public int f7406f = 5;
 
     public int getCurrentOrderState() {
-        return this.f7506f;
+        return this.f7406f;
     }
 
     public String getDriverId() {
-        return this.f7504d;
+        return this.f7404d;
     }
 
     public String getOrderId() {
-        return this.f7501a;
+        return this.f7401a;
     }
 
     public int getQueryOrderState() {
-        return this.f7505e;
+        return this.f7405e;
     }
 
     public int getRoleType() {
-        return this.f7502b;
+        return this.f7402b;
     }
 
     public String getUserId() {
-        return this.f7503c;
+        return this.f7403c;
     }
 
     public HistoryTraceQueryOptions setCurrentOrderState(int i2) {
-        this.f7506f = i2;
+        this.f7406f = i2;
         return this;
     }
 
     public HistoryTraceQueryOptions setDriverId(String str) {
-        this.f7504d = str;
+        this.f7404d = str;
         return this;
     }
 
     public HistoryTraceQueryOptions setOrderId(String str) {
-        this.f7501a = str;
+        this.f7401a = str;
         return this;
     }
 
     public HistoryTraceQueryOptions setQueryOrderState(int i2) {
-        this.f7505e = i2;
+        this.f7405e = i2;
         return this;
     }
 
     public HistoryTraceQueryOptions setRoleType(int i2) {
-        this.f7502b = i2;
+        this.f7402b = i2;
         return this;
     }
 
     public HistoryTraceQueryOptions setUserId(String str) {
-        this.f7503c = str;
+        this.f7403c = str;
         return this;
     }
 }

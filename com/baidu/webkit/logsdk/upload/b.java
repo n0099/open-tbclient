@@ -15,31 +15,31 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26774a;
+    public String f26703a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<Long, a> f26775b = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<Long, a> f26704b = new ConcurrentHashMap<>();
 
     public static JSONObject a(a aVar, long j) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("version", "1");
-            jSONObject.putOpt("log_type", aVar.f26769e.f26734a);
-            jSONObject.putOpt("file", Boolean.valueOf(aVar.f26767c));
+            jSONObject.putOpt("log_type", aVar.f26698e.f26663a);
+            jSONObject.putOpt("file", Boolean.valueOf(aVar.f26696c));
             jSONObject.putOpt("upload_time", Long.valueOf(j));
-            jSONObject.putOpt("retry_count", Integer.valueOf(aVar.f26766b));
-            jSONObject.putOpt("f2", aVar.f26770f);
+            jSONObject.putOpt("retry_count", Integer.valueOf(aVar.f26695b));
+            jSONObject.putOpt("f2", aVar.f26699f);
             com.baidu.webkit.logsdk.a.b.a().e();
             jSONObject.putOpt("f1", com.baidu.webkit.logsdk.b.b.e());
             jSONObject.putOpt("f3", com.baidu.webkit.logsdk.b.b.g());
-            jSONObject.putOpt("log_level", Integer.valueOf(aVar.f26769e.f26735b));
-            String str = aVar.f26773i;
-            String a2 = (TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equals(str)) ? "full".equals(aVar.f26769e.f26738e) ? com.baidu.webkit.logsdk.a.b.a().g().a(com.baidu.webkit.logsdk.a.b.d()) : com.baidu.webkit.logsdk.a.b.a().g().b(com.baidu.webkit.logsdk.a.b.d(), aVar.f26769e.f26738e) : aVar.f26773i;
+            jSONObject.putOpt("log_level", Integer.valueOf(aVar.f26698e.f26664b));
+            String str = aVar.f26702i;
+            String a2 = (TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equals(str)) ? "full".equals(aVar.f26698e.f26667e) ? com.baidu.webkit.logsdk.a.b.a().g().a(com.baidu.webkit.logsdk.a.b.d()) : com.baidu.webkit.logsdk.a.b.a().g().b(com.baidu.webkit.logsdk.a.b.d(), aVar.f26698e.f26667e) : aVar.f26702i;
             if (!TextUtils.isEmpty(a2)) {
-                jSONObject.putOpt("base_info", Integer.toString(aVar.f26766b));
-                aVar.f26773i = a2;
+                jSONObject.putOpt("base_info", Integer.toString(aVar.f26695b));
+                aVar.f26702i = a2;
             }
-            jSONObject.putOpt("content", aVar.f26765a);
+            jSONObject.putOpt("content", aVar.f26694a);
         } catch (Throwable th) {
             c.a(th);
         }
@@ -49,24 +49,24 @@ public final class b {
     public final String a(com.baidu.webkit.logsdk.b.a aVar) {
         String str;
         String str2;
-        if ("full".equals(aVar.f26738e)) {
+        if ("full".equals(aVar.f26667e)) {
             com.baidu.webkit.logsdk.a.b a2 = com.baidu.webkit.logsdk.a.b.a();
-            str = a2.g().a(a2.f26716c, this.f26774a);
-            str2 = aVar.f26734a;
+            str = a2.g().a(a2.f26645c, this.f26703a);
+            str2 = aVar.f26663a;
         } else {
             com.baidu.webkit.logsdk.a.b a3 = com.baidu.webkit.logsdk.a.b.a();
-            String str3 = this.f26774a;
-            String str4 = aVar.f26738e;
+            String str3 = this.f26703a;
+            String str4 = aVar.f26667e;
             if ("full".equals(str4)) {
-                str = a3.g().a(a3.f26716c, str3);
+                str = a3.g().a(a3.f26645c, str3);
             } else {
                 com.baidu.webkit.logsdk.a.a g2 = a3.g();
-                Context context = a3.f26716c;
+                Context context = a3.f26645c;
                 com.baidu.webkit.logsdk.b.c d2 = com.baidu.webkit.logsdk.a.b.a().e().d(str4);
-                if ("full".equals(d2.f26745a)) {
+                if ("full".equals(d2.f26674a)) {
                     str = g2.a(context, str3);
                 } else {
-                    HashSet<String> hashSet = d2.f26746b;
+                    HashSet<String> hashSet = d2.f26675b;
                     if (hashSet != null) {
                         StringBuilder sb = new StringBuilder(str3);
                         if (!hashSet.isEmpty() && str3.indexOf("?") < 0) {
@@ -130,7 +130,7 @@ public final class b {
                     }
                 }
             }
-            str2 = aVar.f26738e;
+            str2 = aVar.f26667e;
         }
         StringBuilder sb2 = new StringBuilder();
         if (!TextUtils.isEmpty(str)) {
@@ -159,13 +159,13 @@ public final class b {
     public final void a(long j) {
         if (j > 0) {
             c.e("BdLogSDK", "mNetTasks remove ".concat(String.valueOf(j)));
-            this.f26775b.remove(Long.valueOf(j));
+            this.f26704b.remove(Long.valueOf(j));
         }
     }
 
     public final void a(a aVar) {
         c.a("BdLogSDK", "onUploadFailed", null);
-        if (this.f26775b.containsValue(aVar)) {
+        if (this.f26704b.containsValue(aVar)) {
             com.baidu.webkit.logsdk.a.b.a().a(aVar, System.currentTimeMillis(), true);
         } else {
             c.e("BdLogSDK", "onUploadFailed aTask not exists");
@@ -173,10 +173,10 @@ public final class b {
     }
 
     public final boolean a() {
-        c.e("BdLogSDK", "isNetTaskAllComplete = " + this.f26775b.isEmpty());
+        c.e("BdLogSDK", "isNetTaskAllComplete = " + this.f26704b.isEmpty());
         try {
-            if (com.baidu.webkit.logsdk.a.f26702a && !this.f26775b.isEmpty()) {
-                Iterator<Map.Entry<Long, a>> it = this.f26775b.entrySet().iterator();
+            if (com.baidu.webkit.logsdk.a.f26631a && !this.f26704b.isEmpty()) {
+                Iterator<Map.Entry<Long, a>> it = this.f26704b.entrySet().iterator();
                 while (it.hasNext()) {
                     c.e("BdLogSDK", "inComplete NetTask = " + it.next());
                 }
@@ -184,6 +184,6 @@ public final class b {
         } catch (ConcurrentModificationException e2) {
             c.a(e2);
         }
-        return this.f26775b.isEmpty();
+        return this.f26704b.isEmpty();
     }
 }

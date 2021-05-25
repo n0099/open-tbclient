@@ -19,36 +19,36 @@ import java.util.List;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f28250a;
+    public static String f28179a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f28251b;
+    public static String f28180b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f28252c;
+    public static String f28181c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f28253d;
+    public static String f28182d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f28254e;
+    public static String f28183e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f28255f;
+    public static String f28184f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f28256g;
+    public static String f28185g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f28257h;
+    public static String f28186h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f28258i;
+    public static String f28187i;
     public static String j;
     public static boolean k;
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f28250a) && !k) {
+        if (TextUtils.isEmpty(f28179a) && !k) {
             synchronized (k.class) {
                 if (!k) {
                     l(context);
@@ -56,34 +56,34 @@ public class k {
             }
         }
         try {
-            if (TextUtils.isEmpty(f28250a) && com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                f28250a = d.a(k(context)).b("did", (String) null);
+            if (TextUtils.isEmpty(f28179a) && com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                f28179a = d.a(k(context)).b("did", (String) null);
             }
         } catch (Exception unused) {
         }
-        return f28250a;
+        return f28179a;
     }
 
     public static String b(Context context) {
-        if (f28257h == null && !k) {
+        if (f28186h == null && !k) {
             synchronized (k.class) {
                 if (!k) {
                     l(context);
                 }
             }
         }
-        return f28257h;
+        return f28186h;
     }
 
     public static String c(Context context) {
-        if (TextUtils.isEmpty(f28251b) && !k) {
+        if (TextUtils.isEmpty(f28180b) && !k) {
             synchronized (k.class) {
                 if (!k) {
                     l(context);
                 }
             }
         }
-        return f28251b;
+        return f28180b;
     }
 
     public static String d(Context context) {
@@ -91,38 +91,38 @@ public class k {
         if (e2 != null && !e2.isCanUsePhoneState()) {
             return e2.getDevImei();
         }
-        if (TextUtils.isEmpty(f28252c) && !k) {
+        if (TextUtils.isEmpty(f28181c) && !k) {
             synchronized (k.class) {
                 if (!k) {
                     l(context);
                 }
             }
         }
-        return f28252c;
+        return f28181c;
     }
 
     public static String e(Context context) {
-        if (TextUtils.isEmpty(f28258i) && !k) {
+        if (TextUtils.isEmpty(f28187i) && !k) {
             synchronized (k.class) {
                 if (!k) {
                     l(context);
                 }
             }
         }
-        return f28258i;
+        return f28187i;
     }
 
     public static String f(Context context) {
         TTCustomController e2 = i.d().e();
         if (e2 == null || e2.isCanUsePhoneState()) {
-            if (TextUtils.isEmpty(f28255f) && !k) {
+            if (TextUtils.isEmpty(f28184f) && !k) {
                 synchronized (k.class) {
                     if (!k) {
                         l(context);
                     }
                 }
             }
-            return f28255f;
+            return f28184f;
         }
         return null;
     }
@@ -130,14 +130,14 @@ public class k {
     public static String g(Context context) {
         TTCustomController e2 = i.d().e();
         if (e2 == null || e2.isCanUseWifiState()) {
-            if (TextUtils.isEmpty(f28253d) && !k) {
+            if (TextUtils.isEmpty(f28182d) && !k) {
                 synchronized (k.class) {
                     if (!k) {
                         l(context);
                     }
                 }
             }
-            return f28253d;
+            return f28182d;
         }
         return null;
     }
@@ -145,14 +145,14 @@ public class k {
     public static String h(Context context) {
         TTCustomController e2 = i.d().e();
         if (e2 == null || e2.isCanUseWifiState()) {
-            if (TextUtils.isEmpty(f28254e) && !k) {
+            if (TextUtils.isEmpty(f28183e) && !k) {
                 synchronized (k.class) {
                     if (!k) {
                         l(context);
                     }
                 }
             }
-            return f28254e;
+            return f28183e;
         }
         return null;
     }
@@ -174,7 +174,7 @@ public class k {
 
     public static void j(Context context) {
         Context k2;
-        if (TextUtils.isEmpty(f28252c) && (k2 = k(context)) != null) {
+        if (TextUtils.isEmpty(f28181c) && (k2 = k(context)) != null) {
             try {
                 m(k2);
             } catch (Exception unused) {
@@ -204,9 +204,9 @@ public class k {
                     WifiManager wifiManager = (WifiManager) k2.getSystemService("wifi");
                     WifiInfo connectionInfo = wifiManager != null ? wifiManager.getConnectionInfo() : null;
                     if (connectionInfo != null) {
-                        f28253d = connectionInfo.getSSID();
+                        f28182d = connectionInfo.getSSID();
                     }
-                    f28254e = a(wifiManager);
+                    f28183e = a(wifiManager);
                 } catch (Throwable unused2) {
                 }
             }
@@ -217,11 +217,11 @@ public class k {
             }
         } catch (Exception unused3) {
         }
-        f28251b = a(k2, true);
-        f28250a = d.a(k2).b("did", (String) null);
-        f28256g = a();
-        f28257h = String.valueOf(Build.TIME);
-        f28258i = d.a(k2).b("uuid", (String) null);
+        f28180b = a(k2, true);
+        f28179a = d.a(k2).b("did", (String) null);
+        f28185g = a();
+        f28186h = String.valueOf(Build.TIME);
+        f28187i = d.a(k2).b("uuid", (String) null);
         k = true;
     }
 
@@ -230,20 +230,20 @@ public class k {
         TelephonyManager telephonyManager;
         TTCustomController e2 = i.d().e();
         if ((e2 == null || e2.isCanUsePhoneState()) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
-            f28252c = telephonyManager.getDeviceId();
-            f28255f = telephonyManager.getSubscriberId();
+            f28181c = telephonyManager.getDeviceId();
+            f28184f = telephonyManager.getSubscriberId();
         }
     }
 
     public static void a(Context context, String str) {
-        if (!TextUtils.isEmpty(str) && !str.equals(f28250a)) {
+        if (!TextUtils.isEmpty(str) && !str.equals(f28179a)) {
             d.a(context).a("did", str);
-            f28250a = str;
+            f28179a = str;
         }
-        if (TextUtils.isEmpty(f28250a)) {
+        if (TextUtils.isEmpty(f28179a)) {
             return;
         }
-        s.a().a(f28250a);
+        s.a().a(f28179a);
     }
 
     public static String a(WifiManager wifiManager) {
@@ -294,7 +294,7 @@ public class k {
 
     public static String a() {
         String a2 = i.a("sdk_local_rom", 604800000L);
-        f28256g = a2;
+        f28185g = a2;
         if (TextUtils.isEmpty(a2)) {
             StringBuilder sb = new StringBuilder();
             try {
@@ -314,11 +314,11 @@ public class k {
                 }
                 sb.append(Build.VERSION.INCREMENTAL);
                 String sb2 = sb.toString();
-                f28256g = sb2;
+                f28185g = sb2;
                 i.a("sdk_local_rom", sb2);
             } catch (Exception unused) {
             }
         }
-        return f28256g;
+        return f28185g;
     }
 }

@@ -13,8 +13,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import d.a.c.e.m.e;
 import d.a.c.e.p.l;
-import d.a.j0.b1.m.f;
-import d.a.k0.d3.h0.m;
+import d.a.m0.b1.m.f;
+import d.a.n0.e3.h0.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -201,17 +201,18 @@ public class UrlManager {
 
     public int dealOneLinkWithOutJumpWebView(TbPageContext<?> tbPageContext, String[] strArr) {
         int deal;
-        if (strArr != null && strArr.length != 0) {
-            String str = strArr[0];
-            UrlSchemaHandler urlSchemaHandler = this.mHandlers.get(getSchemaKey(str));
-            if (urlSchemaHandler != null) {
-                urlSchemaHandler.deal(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str)));
-                return 0;
-            }
-            for (UrlDealListener urlDealListener : this.mListeners) {
-                if (urlDealListener != null && (deal = urlDealListener.deal(tbPageContext, strArr)) != 3) {
-                    return deal;
-                }
+        if (strArr == null || strArr.length == 0 || FullBrowseHelper.checkAndShowFullBrowseModeDialog(tbPageContext, null)) {
+            return 3;
+        }
+        String str = strArr[0];
+        UrlSchemaHandler urlSchemaHandler = this.mHandlers.get(getSchemaKey(str));
+        if (urlSchemaHandler != null) {
+            urlSchemaHandler.deal(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str)));
+            return 0;
+        }
+        for (UrlDealListener urlDealListener : this.mListeners) {
+            if (urlDealListener != null && (deal = urlDealListener.deal(tbPageContext, strArr)) != 3) {
+                return deal;
             }
         }
         return 3;
@@ -285,7 +286,7 @@ public class UrlManager {
 
     public boolean dealOneLinkWithDialog(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z, UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2) {
         boolean z3;
-        if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
+        if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0]) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(tbPageContext, null)) {
             return false;
         }
         String str2 = strArr[0];

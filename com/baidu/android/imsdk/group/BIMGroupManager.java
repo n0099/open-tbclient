@@ -2,14 +2,20 @@ package com.baidu.android.imsdk.group;
 
 import android.content.Context;
 import android.util.Log;
+import com.baidu.android.imsdk.account.AccountManager;
+import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.sync.DialogRecordDBManager;
 import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.group.db.GroupMessageDAOImpl;
+import com.baidu.android.imsdk.group.request.IMQueryFansGroupQrCodeRequest;
 import com.baidu.android.imsdk.internal.BaseManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class BIMGroupManager extends BaseManager {
     public static void addGroupMembers(Context context, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
@@ -43,6 +49,10 @@ public class BIMGroupManager extends BaseManager {
         GroupManagerImpl.getInstance(context).createGroup(i2, str, arrayList, bIMValueCallBack);
     }
 
+    public static void delFansGroupMember(Context context, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
+        GroupManagerImpl.getInstance(context).delFansGroupMember(str, arrayList, bIMValueCallBack);
+    }
+
     public static void delGroupMember(Context context, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
         if (BaseManager.isNullContext(context)) {
             return;
@@ -55,6 +65,42 @@ public class BIMGroupManager extends BaseManager {
             return;
         }
         GroupManagerImpl.getInstance(context).delStarMember(str, arrayList, bIMValueCallBack);
+    }
+
+    public static ArrayList<ChatMsg> getFansGroupAtUnread(Context context, String str, String str2) {
+        return GroupMessageDAOImpl.getFansGroupAtUnread(context, str, str2);
+    }
+
+    public static void getFansGroupInfo(Context context, ArrayList<String> arrayList, boolean z, BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack) {
+        GroupManagerImpl.getInstance(context).getFansGroupInfo(arrayList, z, bIMValueCallBack);
+    }
+
+    public static void getFansGroupInviteMembers(Context context, String str, BIMValueCallBack<GroupSortUserList> bIMValueCallBack) {
+        GroupManagerImpl.getInstance(context).getFansGroupInviteMembers(str, bIMValueCallBack);
+    }
+
+    public static void getFansGroupList(Context context, BIMValueCallBack<List<GroupInfo>> bIMValueCallBack) {
+        GroupManagerImpl.getInstance(context).getFansGroupList(false, bIMValueCallBack);
+    }
+
+    public static void getFansGroupMember(Context context, String str, ArrayList<String> arrayList, boolean z, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
+        GroupManagerImpl.getInstance(context).getFansGroupMember(str, arrayList, z, bIMValueCallBack);
+    }
+
+    public static void getFansGroupQrCode(Context context, String str, BIMValueCallBack<IMQueryFansGroupQrCodeRequest.QrCode> bIMValueCallBack) {
+        GroupManagerImpl.getInstance(context).getFansGroupQrCode(str, bIMValueCallBack);
+    }
+
+    public static void getFansGroupUnreadStatus(Context context, BIMValueCallBack<Integer> bIMValueCallBack) {
+        GroupManagerImpl.getInstance(context).getFansGroupUnreadStatus(bIMValueCallBack);
+    }
+
+    public static void getFansGroupUserInfo(Context context, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
+        GroupManagerImpl.getInstance(context).getFansGroupUserInfo(str, arrayList, bIMValueCallBack);
+    }
+
+    public static void getForwardUserList(Context context, BIMValueCallBack<GroupSortUserList> bIMValueCallBack) {
+        GroupManagerImpl.getInstance(context).getForwardUserList(bIMValueCallBack);
     }
 
     public static void getGlobalDisturbStatus(Context context, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
@@ -111,11 +157,24 @@ public class BIMGroupManager extends BaseManager {
         GroupManagerImpl.getInstance(context);
     }
 
+    public static void isInSpecificFansGroup(Context context, String str, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(AccountManager.getUid(context));
+        getFansGroupMember(context, str, arrayList, true, bIMValueCallBack);
+    }
+
+    public static void joinFansGroup(Context context, String str, String str2, int i2, BIMValueCallBack<String> bIMValueCallBack) {
+        if (BaseManager.isNullContext(context)) {
+            return;
+        }
+        GroupManagerImpl.getInstance(context).joinGroup(str, str2, i2, null, true, bIMValueCallBack);
+    }
+
     public static void joinGroup(Context context, String str, String str2, int i2, String str3, BIMValueCallBack<String> bIMValueCallBack) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        GroupManagerImpl.getInstance(context).joinGroup(str, str2, i2, str3, bIMValueCallBack);
+        GroupManagerImpl.getInstance(context).joinGroup(str, str2, i2, str3, false, bIMValueCallBack);
     }
 
     public static void joinStarGroup(Context context, String str, BIMValueCallBack<String> bIMValueCallBack) {
@@ -123,6 +182,10 @@ public class BIMGroupManager extends BaseManager {
             return;
         }
         GroupManagerImpl.getInstance(context).joinStarGroup(str, bIMValueCallBack);
+    }
+
+    public static void quitFansGroup(Context context, String str, BIMValueCallBack<String> bIMValueCallBack) {
+        GroupManagerImpl.getInstance(context).quitFansGroup(str, bIMValueCallBack);
     }
 
     public static void quitGroup(Context context, String str, BIMValueCallBack<String> bIMValueCallBack) {
@@ -139,11 +202,22 @@ public class BIMGroupManager extends BaseManager {
         GroupManagerImpl.getInstance(context).quitStarGroup(str, bIMValueCallBack);
     }
 
+    public static void sendFansGroupInviteMsg(Context context, String str, List<Long> list, ISendMessageListener iSendMessageListener) {
+        GroupManagerImpl.getInstance(context).sendFansGroupInviteMsg(str, list, iSendMessageListener);
+    }
+
+    public static void setFansNickName(Context context, String str, String str2, BIMValueCallBack<String> bIMValueCallBack) {
+        if (BaseManager.isNullContext(context)) {
+            return;
+        }
+        GroupManagerImpl.getInstance(context).setNickName(str, Utility.getLongByString(AccountManager.getUid(context), 0L), str2, true, bIMValueCallBack);
+    }
+
     public static void setNickName(Context context, String str, long j, String str2, BIMValueCallBack<String> bIMValueCallBack) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        GroupManagerImpl.getInstance(context).setNickName(str, j, str2, bIMValueCallBack);
+        GroupManagerImpl.getInstance(context).setNickName(str, j, str2, false, bIMValueCallBack);
     }
 
     public static void updateGroupName(Context context, String str, String str2, BIMValueCallBack<String> bIMValueCallBack) {

@@ -8,12 +8,15 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
@@ -24,7 +27,7 @@ import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.VideoPlayModel;
 import com.baidu.tieba.videoplay.VideoPlayView;
 import d.a.c.e.p.l;
-import d.a.k0.q3.g;
+import d.a.n0.r3.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
@@ -46,6 +49,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public VideoPlayView mVideoPlayView;
     public boolean mHasMore = true;
     public long mStartTime = 0;
+    public boolean mIsFromSchema = false;
     public CustomMessageListener syncVideoListListener = new a(2921320);
 
     /* loaded from: classes5.dex */
@@ -61,7 +65,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 return;
             }
             g gVar = (g) customResponsedMessage.getData();
-            List<VideoItemData> list = gVar.f59878a;
+            List<VideoItemData> list = gVar.f60019a;
             if (!ListUtils.isEmpty(list)) {
                 if (VideoPlayActivity.this.mVideoDataList == null) {
                     VideoPlayActivity.this.mVideoDataList = new ArrayList();
@@ -72,7 +76,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (VideoPlayActivity.this.mVideoPlayView != null) {
                 VideoPlayActivity.this.mVideoPlayView.x();
             }
-            VideoPlayActivity.this.mHasMore = gVar.f59879b;
+            VideoPlayActivity.this.mHasMore = gVar.f60020b;
         }
     }
 
@@ -204,6 +208,14 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
     }
 
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
+    public void finish() {
+        if (this.mIsFromSchema) {
+            sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
+        }
+        super.finish();
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public long getMissionTid() {
         VideoItemData videoItemData = (VideoItemData) ListUtils.getItem(this.mVideoDataList, this.mVideoIndex);
@@ -232,6 +244,12 @@ public class VideoPlayActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !d.a.c.a.b.f().h("MainTabActivity")) {
+            this.mIsFromSchema = true;
+        }
+        if (this.mIsFromSchema) {
+            setIsAddSwipeBackLayout(false);
+        }
         if (TbSingleton.getInstance().isNotchScreen(this) || TbSingleton.getInstance().isCutoutScreen(this)) {
             setUseStyleImmersiveSticky(false);
         }
@@ -284,9 +302,9 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             VideoPlayView videoPlayView = this.mVideoPlayView;
             if (videoPlayView == null || !videoPlayView.r()) {
                 VideoPlayView videoPlayView2 = this.mVideoPlayView;
-                int i3 = videoPlayView2.f21578i;
-                int i4 = videoPlayView2.f21577h;
-                if (i3 != i4 && i4 >= 0 && i4 < this.mVideoDataList.size() && (videoItemData = this.mVideoDataList.get(this.mVideoPlayView.f21577h)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
+                int i3 = videoPlayView2.f21506i;
+                int i4 = videoPlayView2.f21505h;
+                if (i3 != i4 && i4 >= 0 && i4 < this.mVideoDataList.size() && (videoItemData = this.mVideoDataList.get(this.mVideoPlayView.f21505h)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921321, videoItemData.thread_id));
                 }
                 finish();
@@ -313,12 +331,12 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         if (videoPlayView != null) {
             videoPlayView.A();
         }
-        d.a.j0.a.c.y().E();
+        d.a.m0.a.c.y().E();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.a.j0.a.c.y().P(d.a.j0.a.b.Z, getMissionTid());
+        d.a.m0.a.c.y().P(d.a.m0.a.b.Z, getMissionTid());
     }
 }

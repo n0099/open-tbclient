@@ -8,31 +8,31 @@ import java.util.Calendar;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f36420a = d.C0465d.a("yy.MM.dd.HH");
+    public static SimpleDateFormat f36349a = d.C0466d.a("yy.MM.dd.HH");
 
     /* renamed from: g  reason: collision with root package name */
-    public File f36426g;
+    public File f36355g;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36421b = "Tracer.File";
+    public String f36350b = "Tracer.File";
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36422c = Integer.MAX_VALUE;
+    public int f36351c = Integer.MAX_VALUE;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36423d = Integer.MAX_VALUE;
+    public int f36352d = Integer.MAX_VALUE;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36424e = 4096;
+    public int f36353e = 4096;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f36425f = 10000;
+    public long f36354f = 10000;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36427h = 10;
+    public int f36356h = 10;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f36428i = ".log";
+    public String f36357i = ".log";
     public long j = Long.MAX_VALUE;
 
     public b(File file, int i2, int i3, int i4, String str, long j, int i5, String str2, long j2) {
@@ -74,31 +74,31 @@ public class b {
     }
 
     public File e() {
-        return this.f36426g;
+        return this.f36355g;
     }
 
     public int f() {
-        return this.f36427h;
+        return this.f36356h;
     }
 
     public void a(String str) {
-        this.f36421b = str;
+        this.f36350b = str;
     }
 
     public void a(int i2) {
-        this.f36422c = i2;
+        this.f36351c = i2;
     }
 
     public void b(int i2) {
-        this.f36423d = i2;
+        this.f36352d = i2;
     }
 
     public void a(long j) {
-        this.f36425f = j;
+        this.f36354f = j;
     }
 
     public void b(String str) {
-        this.f36428i = str;
+        this.f36357i = str;
     }
 
     private String c(String str) {
@@ -106,7 +106,7 @@ public class b {
     }
 
     public void a(File file) {
-        this.f36426g = file;
+        this.f36355g = file;
     }
 
     public void b(long j) {
@@ -114,18 +114,18 @@ public class b {
     }
 
     public int d() {
-        return this.f36424e;
+        return this.f36353e;
     }
 
     public String c() {
-        return this.f36421b;
+        return this.f36350b;
     }
 
     public void d(int i2) {
-        this.f36427h = i2;
+        this.f36356h = i2;
     }
 
     public void c(int i2) {
-        this.f36424e = i2;
+        this.f36353e = i2;
     }
 }

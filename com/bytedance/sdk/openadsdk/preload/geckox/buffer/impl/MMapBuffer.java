@@ -8,19 +8,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f30086a;
+    public long f30015a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f30087b;
+    public long f30016b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f30088c;
+    public long f30017c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f30089d = new AtomicBoolean(false);
+    public AtomicBoolean f30018d = new AtomicBoolean(false);
 
     /* renamed from: e  reason: collision with root package name */
-    public File f30090e;
+    public File f30019e;
 
     static {
         g.a("buffer_pg");
@@ -28,7 +28,7 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
 
     public MMapBuffer(long j, File file) throws IOException {
         d(j);
-        this.f30090e = file;
+        this.f30019e = file;
         file.getParentFile().mkdirs();
         c(nCreate(file.getAbsolutePath(), j));
     }
@@ -45,8 +45,8 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public void a() throws IOException {
-        if (!this.f30089d.get()) {
-            nFlush(this.f30087b, this.f30086a);
+        if (!this.f30018d.get()) {
+            nFlush(this.f30016b, this.f30015a);
             return;
         }
         throw new IOException("released!");
@@ -54,29 +54,29 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public long b() {
-        return this.f30086a;
+        return this.f30015a;
     }
 
     public void c(long j) {
-        this.f30087b = j;
+        this.f30016b = j;
     }
 
     public void d(long j) {
-        this.f30086a = j;
+        this.f30015a = j;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public void e() {
-        if (this.f30089d.getAndSet(true)) {
+        if (this.f30018d.getAndSet(true)) {
             return;
         }
-        nRelease(this.f30087b, this.f30086a);
-        this.f30087b = 0L;
+        nRelease(this.f30016b, this.f30015a);
+        this.f30016b = 0L;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public File f() {
-        return this.f30090e;
+        return this.f30019e;
     }
 
     public void finalize() throws Throwable {
@@ -96,13 +96,13 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void b(long j) throws IOException {
-        if (!this.f30089d.get()) {
+        if (!this.f30018d.get()) {
             long j2 = 0;
             if (j >= 0) {
-                j2 = this.f30086a;
+                j2 = this.f30015a;
             }
             j = j2;
-            this.f30088c = j;
+            this.f30017c = j;
             return;
         }
         throw new IOException("released!");
@@ -110,8 +110,8 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public long c() throws IOException {
-        if (!this.f30089d.get()) {
-            return this.f30088c;
+        if (!this.f30018d.get()) {
+            return this.f30017c;
         }
         throw new IOException("released!");
     }
@@ -137,21 +137,21 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public synchronized long a(long j) throws IOException {
-        if (this.f30089d.get()) {
+        if (this.f30018d.get()) {
             throw new IOException("released!");
         }
         if (j <= 0) {
             return 0L;
         }
-        long j2 = this.f30088c;
-        long j3 = this.f30088c + j;
-        this.f30088c = j3;
+        long j2 = this.f30017c;
+        long j3 = this.f30017c + j;
+        this.f30017c = j3;
         if (j3 < 0) {
-            this.f30088c = 0L;
-        } else if (j3 > this.f30086a) {
-            this.f30088c = this.f30086a;
+            this.f30017c = 0L;
+        } else if (j3 > this.f30015a) {
+            this.f30017c = this.f30015a;
         }
-        return this.f30088c - j2;
+        return this.f30017c - j2;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
@@ -161,7 +161,7 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public int b(byte[] bArr, int i2, int i3) throws IOException {
-        if (!this.f30089d.get()) {
+        if (!this.f30018d.get()) {
             if (bArr == null || i3 < 1 || i2 < 0 || i2 >= bArr.length) {
                 return 0;
             }
@@ -169,14 +169,14 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
                 i3 = bArr.length - i2;
             }
             synchronized (this) {
-                if (this.f30088c == this.f30086a) {
+                if (this.f30017c == this.f30015a) {
                     return -1;
                 }
-                if (this.f30088c + i3 > this.f30086a) {
-                    i3 = (int) (this.f30086a - this.f30088c);
+                if (this.f30017c + i3 > this.f30015a) {
+                    i3 = (int) (this.f30015a - this.f30017c);
                 }
-                nRead(this.f30087b, this.f30088c, bArr, i2, i3);
-                this.f30088c += i3;
+                nRead(this.f30016b, this.f30017c, bArr, i2, i3);
+                this.f30017c += i3;
                 return i3;
             }
         }
@@ -185,7 +185,7 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public int a(byte[] bArr, int i2, int i3) throws IOException {
-        if (!this.f30089d.get()) {
+        if (!this.f30018d.get()) {
             if (bArr == null || bArr.length == 0 || i3 < 1 || i2 < 0 || i2 >= bArr.length) {
                 return 0;
             }
@@ -193,14 +193,14 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
                 i3 = bArr.length - i2;
             }
             synchronized (this) {
-                if (this.f30088c == this.f30086a) {
+                if (this.f30017c == this.f30015a) {
                     return 0;
                 }
-                if (this.f30088c + i3 > this.f30086a) {
-                    i3 = (int) (this.f30086a - this.f30088c);
+                if (this.f30017c + i3 > this.f30015a) {
+                    i3 = (int) (this.f30015a - this.f30017c);
                 }
-                nWrite(this.f30087b, this.f30088c, bArr, i2, i3);
-                this.f30088c += i3;
+                nWrite(this.f30016b, this.f30017c, bArr, i2, i3);
+                this.f30017c += i3;
                 return i3;
             }
         }

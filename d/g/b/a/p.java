@@ -8,14 +8,14 @@ import android.os.Bundle;
 public final class p extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ m f66173a;
+    public final /* synthetic */ m f66216a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f66174b;
+    public final /* synthetic */ l f66217b;
 
     public p(l lVar, m mVar) {
-        this.f66174b = lVar;
-        this.f66173a = mVar;
+        this.f66217b = lVar;
+        this.f66216a = mVar;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -23,15 +23,15 @@ public final class p extends BroadcastReceiver {
         String action = intent.getAction();
         Bundle extras = intent.getExtras();
         if ("com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) && extras != null && extras.containsKey("install.status")) {
-            this.f66174b.p();
+            this.f66217b.p();
             int i2 = extras.getInt("install.status");
             if (i2 == 1 || i2 == 2 || i2 == 3) {
-                this.f66173a.a(com.google.ar.core.p.ACCEPTED);
+                this.f66216a.a(com.google.ar.core.p.ACCEPTED);
             } else if (i2 == 4) {
-                this.f66173a.a(com.google.ar.core.p.COMPLETED);
+                this.f66216a.a(com.google.ar.core.p.COMPLETED);
             } else if (i2 != 6) {
             } else {
-                this.f66173a.a(com.google.ar.core.p.CANCELLED);
+                this.f66216a.a(com.google.ar.core.p.CANCELLED);
             }
         }
     }

@@ -6,20 +6,20 @@ import java.util.HashMap;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<e, a> f37343a = new HashMap<>();
+    public static HashMap<e, a> f37272a = new HashMap<>();
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f37344a;
+        public String f37273a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37345b;
+        public String f37274b;
 
         public a(String str, String str2) {
-            this.f37344a = str;
-            this.f37345b = str2;
+            this.f37273a = str;
+            this.f37274b = str2;
         }
     }
 
@@ -31,7 +31,7 @@ public class l {
     }
 
     public static at a(e eVar) {
-        int i2 = m.f37346a[eVar.ordinal()];
+        int i2 = m.f37275a[eVar.ordinal()];
         if (i2 != 1) {
             if (i2 != 2) {
                 if (i2 != 3) {
@@ -49,7 +49,7 @@ public class l {
 
     /* renamed from: a  reason: collision with other method in class */
     public static a m121a(e eVar) {
-        return f37343a.get(eVar);
+        return f37272a.get(eVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -59,7 +59,7 @@ public class l {
 
     public static void a(e eVar, a aVar) {
         if (aVar != null) {
-            f37343a.put(eVar, aVar);
+            f37272a.put(eVar, aVar);
         }
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import d.a.k0.s2.f0.b.c;
-import d.a.k0.s2.f0.c.a;
+import d.a.n0.t2.f0.b.c;
+import d.a.n0.t2.f0.c.a;
 /* loaded from: classes5.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
     public XfremodeRoundLayout i0;
@@ -34,8 +34,8 @@ public class AdCardSinglePicView extends AdCardBaseView {
             L0(tbImageView, b2, i3);
             return true;
         }
-        int i4 = cVar.f60967e;
-        int i5 = cVar.f60966d;
+        int i4 = cVar.f61069e;
+        int i5 = cVar.f61068d;
         if (i3 > 0 && i4 > 0 && i5 > 0) {
             int i6 = (i4 * i3) / i5;
             if (i6 > i3) {
@@ -67,8 +67,8 @@ public class AdCardSinglePicView extends AdCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public void e0(AdCard adCard) {
         c cVar = adCard.picInfo;
-        if (cVar != null && !d.a.k0.j1.o.k.a.e(cVar.f60965c)) {
-            String str = cVar.f60965c.get(0);
+        if (cVar != null && !d.a.n0.k1.o.k.a.e(cVar.f61067c)) {
+            String str = cVar.f61067c.get(0);
             boolean K0 = K0(this.j0, adCard, cVar);
             if (!TextUtils.isEmpty(str) && K0) {
                 this.t.setVisibility(0);

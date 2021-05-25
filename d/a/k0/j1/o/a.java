@@ -1,7 +1,0 @@
-package d.a.k0.j1.o;
-
-import java.util.HashMap;
-/* loaded from: classes4.dex */
-public interface a {
-    void a(int i2, HashMap<String, Object> hashMap);
-}

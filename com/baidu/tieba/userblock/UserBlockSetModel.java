@@ -17,13 +17,13 @@ import d.a.c.a.f;
 public class UserBlockSetModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public long f21242e;
+    public long f21170e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.j0.m.a f21243f;
+    public d.a.m0.m.a f21171f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f21244g;
+    public d.a.c.c.g.a f21172g;
 
     /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.a {
@@ -34,11 +34,11 @@ public class UserBlockSetModel extends BdBaseModel {
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             UserBlockSetRequestMessage userBlockSetRequestMessage;
-            if (UserBlockSetModel.this.f21243f == null || responsedMessage == null || (userBlockSetRequestMessage = (UserBlockSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockSetRequestMessage.getBlockUserId() != UserBlockSetModel.this.f21242e) {
+            if (UserBlockSetModel.this.f21171f == null || responsedMessage == null || (userBlockSetRequestMessage = (UserBlockSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockSetRequestMessage.getBlockUserId() != UserBlockSetModel.this.f21170e) {
                 return;
             }
             if (!(responsedMessage instanceof UserBlockSetSocketResponseMessage) && !(responsedMessage instanceof UserBlockSetHttpResponseMessage)) {
-                UserBlockSetModel.this.f21243f.onError(-1, UserBlockSetModel.this.w(R.string.block_user_fail));
+                UserBlockSetModel.this.f21171f.onError(-1, UserBlockSetModel.this.w(R.string.block_user_fail));
                 return;
             }
             int error = responsedMessage.getError();
@@ -47,20 +47,20 @@ public class UserBlockSetModel extends BdBaseModel {
                 if (StringUtils.isNull(errorString)) {
                     errorString = UserBlockSetModel.this.w(R.string.block_user_success);
                 }
-                UserBlockSetModel.this.f21243f.onSuccess(errorString);
+                UserBlockSetModel.this.f21171f.onSuccess(errorString);
             } else {
                 if (StringUtils.isNull(errorString)) {
                     errorString = UserBlockSetModel.this.w(R.string.block_user_fail);
                 }
-                UserBlockSetModel.this.f21243f.onError(error, errorString);
+                UserBlockSetModel.this.f21171f.onError(error, errorString);
             }
-            UserBlockSetModel.this.f21242e = -1L;
+            UserBlockSetModel.this.f21170e = -1L;
         }
     }
 
     public UserBlockSetModel(f fVar, BdUniqueId bdUniqueId) {
         super(fVar);
-        this.f21244g = new a(CmdConfigHttp.CMD_USER_BLOCK_SET, 309697);
+        this.f21172g = new a(CmdConfigHttp.CMD_USER_BLOCK_SET, 309697);
         setUniqueId(bdUniqueId);
         x();
     }
@@ -76,8 +76,8 @@ public class UserBlockSetModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        this.f21242e = -1L;
-        MessageManager.getInstance().unRegisterListener(this.f21244g);
+        this.f21170e = -1L;
+        MessageManager.getInstance().unRegisterListener(this.f21172g);
     }
 
     public final String w(int i2) {
@@ -85,24 +85,24 @@ public class UserBlockSetModel extends BdBaseModel {
     }
 
     public void x() {
-        d.a.k0.d3.d0.a.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
-        d.a.k0.d3.d0.a.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
-        this.f21244g.getHttpMessageListener().setSelfListener(true);
-        this.f21244g.getSocketMessageListener().setSelfListener(true);
-        registerListener(this.f21244g);
+        d.a.n0.e3.d0.a.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
+        d.a.n0.e3.d0.a.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
+        this.f21172g.getHttpMessageListener().setSelfListener(true);
+        this.f21172g.getSocketMessageListener().setSelfListener(true);
+        registerListener(this.f21172g);
     }
 
     public void y(long j, int i2, int i3, int i4) {
-        this.f21242e = j;
+        this.f21170e = j;
         UserBlockSetRequestMessage userBlockSetRequestMessage = new UserBlockSetRequestMessage();
         userBlockSetRequestMessage.setFollow(i2);
         userBlockSetRequestMessage.setInteract(i3);
         userBlockSetRequestMessage.setChat(i4);
-        userBlockSetRequestMessage.setBlockUserId(this.f21242e);
+        userBlockSetRequestMessage.setBlockUserId(this.f21170e);
         sendMessage(userBlockSetRequestMessage);
     }
 
-    public void z(d.a.j0.m.a aVar) {
-        this.f21243f = aVar;
+    public void z(d.a.m0.m.a aVar) {
+        this.f21171f = aVar;
     }
 }

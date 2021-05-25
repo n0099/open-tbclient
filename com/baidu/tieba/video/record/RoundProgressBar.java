@@ -12,19 +12,19 @@ import android.view.View;
 public class RoundProgressBar extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21429e;
+    public int f21357e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21430f;
+    public int f21358f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21431g;
+    public int f21359g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21432h;
+    public int f21360h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f21433i;
+    public float f21361i;
     public Paint j;
 
     public RoundProgressBar(Context context) {
@@ -32,12 +32,12 @@ public class RoundProgressBar extends View {
     }
 
     public void a() {
-        this.f21432h = 4;
-        this.f21429e = Color.rgb(255, 255, 255);
+        this.f21360h = 4;
+        this.f21357e = Color.rgb(255, 255, 255);
     }
 
     public void b(float f2) {
-        this.f21433i = f2;
+        this.f21361i = f2;
         invalidate();
     }
 
@@ -45,17 +45,17 @@ public class RoundProgressBar extends View {
     @SuppressLint({"DrawAllocation"})
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.f21430f = getWidth();
+        this.f21358f = getWidth();
         int height = getHeight();
-        this.f21431g = height;
-        if (this.f21430f > height) {
-            this.f21430f = height;
+        this.f21359g = height;
+        if (this.f21358f > height) {
+            this.f21358f = height;
         }
         this.j.setAntiAlias(true);
         this.j.setStyle(Paint.Style.STROKE);
-        this.j.setStrokeWidth(this.f21432h);
-        this.j.setColor(this.f21429e);
-        canvas.drawArc(new RectF(5.0f, 5.0f, this.f21430f - 5, this.f21431g - 5), 270.0f, (this.f21433i * 360.0f) / 100.0f, false, this.j);
+        this.j.setStrokeWidth(this.f21360h);
+        this.j.setColor(this.f21357e);
+        canvas.drawArc(new RectF(5.0f, 5.0f, this.f21358f - 5, this.f21359g - 5), 270.0f, (this.f21361i * 360.0f) / 100.0f, false, this.j);
     }
 
     public RoundProgressBar(Context context, AttributeSet attributeSet) {

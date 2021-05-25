@@ -12,29 +12,29 @@ import android.view.View;
 public class PointPageIndicator extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f11928e;
+    public Drawable f11829e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f11929f;
+    public Drawable f11830f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f11930g;
+    public Rect f11831g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Rect f11931h;
+    public Rect f11832h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11932i;
+    public int f11833i;
     public int j;
     public int k;
 
     public PointPageIndicator(Context context) {
         super(context);
-        this.f11928e = null;
-        this.f11929f = null;
-        this.f11930g = new Rect();
-        this.f11931h = new Rect();
-        this.f11932i = 0;
+        this.f11829e = null;
+        this.f11830f = null;
+        this.f11831g = new Rect();
+        this.f11832h = new Rect();
+        this.f11833i = 0;
         this.j = 0;
         this.k = 0;
         a(context);
@@ -58,13 +58,13 @@ public class PointPageIndicator extends View {
     }
 
     public PointPageIndicator d(Drawable drawable, Drawable drawable2) {
-        this.f11928e = drawable;
-        this.f11929f = drawable2;
+        this.f11829e = drawable;
+        this.f11830f = drawable2;
         if (drawable instanceof BitmapDrawable) {
-            this.f11930g.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.f11831g.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
         if (drawable2 instanceof BitmapDrawable) {
-            this.f11931h.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            this.f11832h.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         }
         return this;
     }
@@ -75,7 +75,7 @@ public class PointPageIndicator extends View {
     }
 
     public PointPageIndicator f(int i2) {
-        this.f11932i = i2;
+        this.f11833i = i2;
         return this;
     }
 
@@ -87,14 +87,14 @@ public class PointPageIndicator extends View {
         if (i2 <= 0) {
             return;
         }
-        int i3 = this.f11932i;
+        int i3 = this.f11833i;
         int height = getHeight();
         int width2 = getWidth();
         int i4 = this.j;
-        Rect rect = this.f11930g;
-        Rect rect2 = this.f11931h;
-        Drawable drawable = this.f11928e;
-        Drawable drawable2 = this.f11929f;
+        Rect rect = this.f11831g;
+        Rect rect2 = this.f11832h;
+        Drawable drawable = this.f11829e;
+        Drawable drawable2 = this.f11830f;
         int i5 = i2 - 1;
         int width3 = (width2 - (((i3 * i5) + (rect.width() * i5)) + rect2.width())) / 2;
         for (int i6 = 0; i6 < i2; i6++) {
@@ -119,11 +119,11 @@ public class PointPageIndicator extends View {
 
     public PointPageIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11928e = null;
-        this.f11929f = null;
-        this.f11930g = new Rect();
-        this.f11931h = new Rect();
-        this.f11932i = 0;
+        this.f11829e = null;
+        this.f11830f = null;
+        this.f11831g = new Rect();
+        this.f11832h = new Rect();
+        this.f11833i = 0;
         this.j = 0;
         this.k = 0;
         a(context);
@@ -131,11 +131,11 @@ public class PointPageIndicator extends View {
 
     public PointPageIndicator(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11928e = null;
-        this.f11929f = null;
-        this.f11930g = new Rect();
-        this.f11931h = new Rect();
-        this.f11932i = 0;
+        this.f11829e = null;
+        this.f11830f = null;
+        this.f11831g = new Rect();
+        this.f11832h = new Rect();
+        this.f11833i = 0;
         this.j = 0;
         this.k = 0;
         a(context);

@@ -12,7 +12,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
-import d.a.j0.r.q.d;
+import d.a.m0.r.q.d;
 import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
 public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
@@ -26,17 +26,17 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCard f20252e;
+        public final /* synthetic */ AdCard f20174e;
 
         public a(AdCard adCard) {
-            this.f20252e = adCard;
+            this.f20174e = adCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AdCardSmallPicVideoView adCardSmallPicVideoView = AdCardSmallPicVideoView.this;
             if (adCardSmallPicVideoView.C == null) {
-                adCardSmallPicVideoView.X(this.f20252e);
+                adCardSmallPicVideoView.X(this.f20174e);
             }
             DistributeVideoView distributeVideoView = AdCardSmallPicVideoView.this.C;
             int jump2DownloadDetailPage = distributeVideoView != null ? distributeVideoView.jump2DownloadDetailPage() : 0;
@@ -65,7 +65,7 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
                 this.A.V(str, 17, false);
             }
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            if (advertAppInfo != null && advertAppInfo.D4()) {
+            if (advertAppInfo != null && advertAppInfo.E4()) {
                 this.r.setOnClickListener(new a(adCard));
             }
             this.D.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
@@ -101,10 +101,10 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
         if (advertAppInfo != null) {
             int i2 = -1;
             String pageTypeByBusiness = getPageTypeByBusiness();
-            d dVar = advertAppInfo.O3;
+            d dVar = advertAppInfo.P3;
             if (dVar != null) {
-                i2 = dVar.f49936b;
-                pageTypeByBusiness = dVar.f49935a;
+                i2 = dVar.f49980b;
+                pageTypeByBusiness = dVar.f49979a;
             }
             this.C.setStatisticInfo(advertAppInfo, i2, pageTypeByBusiness);
         }

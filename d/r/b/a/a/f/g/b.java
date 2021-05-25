@@ -9,11 +9,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConcurrentHashMap<Integer, RouterInfo> f67721a = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<Integer, RouterInfo> f67764a = new ConcurrentHashMap<>();
 
     public static RouterInfo a(Context context, int i2) {
-        d.g("RouterInfoCenter", "getRouterInfo routerInfoMap:%s", Integer.valueOf(f67721a.size()));
-        RouterInfo routerInfo = f67721a.get(Integer.valueOf(i2));
+        d.g("RouterInfoCenter", "getRouterInfo routerInfoMap:%s", Integer.valueOf(f67764a.size()));
+        RouterInfo routerInfo = f67764a.get(Integer.valueOf(i2));
         if (routerInfo != null && !TextUtils.isEmpty(routerInfo.serviceName)) {
             d.g("RouterInfoCenter", "getRouterInfo----1 cmd:%s, serviceName:%s, functionName:%s", Long.valueOf(routerInfo.cmd), routerInfo.serviceName, routerInfo.functionName);
             return routerInfo;

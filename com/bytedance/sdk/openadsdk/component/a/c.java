@@ -10,43 +10,43 @@ import com.bytedance.sdk.openadsdk.core.d.l;
 public class c extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f27416a;
+    public ImageView f27345a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f27417b;
+    public final Context f27346b;
 
     /* renamed from: c  reason: collision with root package name */
-    public l f27418c;
+    public l f27347c;
 
     public c(@NonNull Context context) {
         super(context);
-        this.f27417b = context;
+        this.f27346b = context;
         c();
     }
 
     private void c() {
-        ImageView imageView = new ImageView(this.f27417b);
-        this.f27416a = imageView;
+        ImageView imageView = new ImageView(this.f27346b);
+        this.f27345a = imageView;
         imageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.f27416a.setScaleType(ImageView.ScaleType.FIT_XY);
-        addView(this.f27416a);
+        this.f27345a.setScaleType(ImageView.ScaleType.FIT_XY);
+        addView(this.f27345a);
     }
 
     public l a() {
-        return this.f27418c;
+        return this.f27347c;
     }
 
     public void b() {
-        this.f27416a.setImageBitmap(null);
+        this.f27345a.setImageBitmap(null);
         setOnClickListener(null);
-        this.f27418c = null;
+        this.f27347c = null;
     }
 
     public void a(l lVar) {
-        this.f27418c = lVar;
+        this.f27347c = lVar;
     }
 
     public void a(Bitmap bitmap) {
-        this.f27416a.setImageBitmap(bitmap);
+        this.f27345a.setImageBitmap(bitmap);
     }
 }

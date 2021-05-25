@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.util.IDataResponseMessage;
 import com.squareup.wire.Wire;
-import d.a.k0.r1.h.a.g;
+import d.a.n0.s1.h.a.g;
 import tbclient.Error;
 import tbclient.UpdateTail.UpdateTailResIdl;
 /* loaded from: classes3.dex */

@@ -19,7 +19,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class gk {
 
     /* renamed from: a  reason: collision with root package name */
-    public static XmlPullParser f37748a;
+    public static XmlPullParser f37677a;
 
     public static fz a(String str, String str2, XmlPullParser xmlPullParser) {
         Object m337a = gj.a().m337a("all", "xm:chat");
@@ -59,14 +59,14 @@ public class gk {
             }
         }
         if (gaVar == null) {
-            if (ga.a.f37694a == a2 || ga.a.f37695b == a2) {
+            if (ga.a.f37623a == a2 || ga.a.f37624b == a2) {
                 gl glVar = new gl();
                 glVar.k(attributeValue);
                 glVar.m(attributeValue3);
                 glVar.n(attributeValue2);
-                glVar.a(ga.a.f37697d);
+                glVar.a(ga.a.f37626d);
                 glVar.l(attributeValue4);
-                glVar.a(new gg(gg.a.f37741e));
+                glVar.a(new gg(gg.a.f37670e));
                 flVar.a(glVar);
                 com.xiaomi.channel.commonutils.logger.b.d("iq usage error. send packet in packet parser.");
                 return null;
@@ -122,9 +122,9 @@ public class gk {
                             gbVar.a(fzVar);
                             return gbVar;
                         }
-                        a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f38141h, attributeValue2), text));
-                        f37748a.next();
-                        gcVar = a(f37748a);
+                        a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f38070h, attributeValue2), text));
+                        f37677a.next();
+                        gcVar = a(f37677a);
                     } else if (next == 3 && xmlPullParser.getName().equals("message")) {
                         z = true;
                     }
@@ -352,16 +352,16 @@ public class gk {
     }
 
     public static void a(byte[] bArr) {
-        if (f37748a == null) {
+        if (f37677a == null) {
             try {
                 XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
-                f37748a = newPullParser;
+                f37677a = newPullParser;
                 newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
             } catch (XmlPullParserException e2) {
                 e2.printStackTrace();
             }
         }
-        f37748a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
+        f37677a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
     }
 
     public static String b(XmlPullParser xmlPullParser) {

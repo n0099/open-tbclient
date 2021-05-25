@@ -18,35 +18,35 @@ import com.baidu.tieba.R;
 public class MaskView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14259e;
+    public int f14162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14260f;
+    public int f14163f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f14261g;
+    public Paint f14164g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f14262h;
+    public Paint f14165h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Rect f14263i;
+    public Rect f14166i;
     public Drawable j;
     public Path k;
 
     public MaskView(Context context) {
         super(context);
-        this.f14259e = 1;
-        this.f14260f = Color.argb(100, 0, 0, 0);
-        this.f14261g = new Paint(1);
-        this.f14262h = new Paint(1);
-        this.f14263i = new Rect();
+        this.f14162e = 1;
+        this.f14163f = Color.argb(100, 0, 0, 0);
+        this.f14164g = new Paint(1);
+        this.f14165h = new Paint(1);
+        this.f14166i = new Rect();
         this.k = new Path();
         setLayerType(1, null);
-        this.f14262h.setColor(-1);
-        this.f14262h.setStyle(Paint.Style.STROKE);
-        this.f14262h.setStrokeWidth(6.0f);
-        this.f14261g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.f14165h.setColor(-1);
+        this.f14165h.setStyle(Paint.Style.STROKE);
+        this.f14165h.setStrokeWidth(6.0f);
+        this.f14164g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         b();
     }
 
@@ -96,15 +96,15 @@ public class MaskView extends View {
     }
 
     public Rect getFrameRect() {
-        if (this.f14259e == 0) {
+        if (this.f14162e == 0) {
             return new Rect(0, 0, getWidth(), getHeight());
         }
-        return new Rect(this.f14263i);
+        return new Rect(this.f14166i);
     }
 
     public Rect getFrameRectExtend() {
-        Rect rect = new Rect(this.f14263i);
-        Rect rect2 = this.f14263i;
+        Rect rect = new Rect(this.f14166i);
+        Rect rect2 = this.f14166i;
         int i2 = (int) ((rect2.right - rect2.left) * 0.02f);
         int i3 = (int) ((rect2.bottom - rect2.top) * 0.02f);
         rect.left -= i2;
@@ -115,27 +115,27 @@ public class MaskView extends View {
     }
 
     public int getMaskType() {
-        return this.f14259e;
+        return this.f14162e;
     }
 
     @Override // android.view.View
     @RequiresApi(api = 21)
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Rect rect = this.f14263i;
+        Rect rect = this.f14166i;
         int width = rect.width();
         int height = rect.height();
         int i2 = rect.left;
         int i3 = rect.top;
         int i4 = rect.right;
         int i5 = rect.bottom;
-        canvas.drawColor(this.f14260f);
+        canvas.drawColor(this.f14163f);
         float f2 = i2;
         float f3 = i3;
         a(f2, f3, i4, i5, 30.0f, 30.0f, false);
-        canvas.drawPath(this.k, this.f14262h);
-        canvas.drawPath(this.k, this.f14261g);
-        int i6 = this.f14259e;
+        canvas.drawPath(this.k, this.f14165h);
+        canvas.drawPath(this.k, this.f14164g);
+        int i6 = this.f14162e;
         if (i6 == 1) {
             float f4 = width;
             float f5 = height;
@@ -161,7 +161,7 @@ public class MaskView extends View {
         int i7 = (i6 * 400) / 620;
         int i8 = (i2 - i6) / 2;
         int i9 = (i3 - i7) / 2;
-        Rect rect = this.f14263i;
+        Rect rect = this.f14166i;
         rect.left = i8;
         rect.top = i9;
         rect.right = i6 + i8;
@@ -172,11 +172,11 @@ public class MaskView extends View {
     }
 
     public void setMaskColor(int i2) {
-        this.f14260f = i2;
+        this.f14163f = i2;
     }
 
     public void setMaskType(int i2) {
-        this.f14259e = i2;
+        this.f14162e = i2;
         if (i2 == 1) {
             this.j = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
         } else if (i2 == 2) {
@@ -190,33 +190,33 @@ public class MaskView extends View {
 
     public MaskView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14259e = 1;
-        this.f14260f = Color.argb(100, 0, 0, 0);
-        this.f14261g = new Paint(1);
-        this.f14262h = new Paint(1);
-        this.f14263i = new Rect();
+        this.f14162e = 1;
+        this.f14163f = Color.argb(100, 0, 0, 0);
+        this.f14164g = new Paint(1);
+        this.f14165h = new Paint(1);
+        this.f14166i = new Rect();
         this.k = new Path();
         setLayerType(1, null);
-        this.f14262h.setColor(-1);
-        this.f14262h.setStyle(Paint.Style.STROKE);
-        this.f14262h.setStrokeWidth(6.0f);
-        this.f14261g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.f14165h.setColor(-1);
+        this.f14165h.setStyle(Paint.Style.STROKE);
+        this.f14165h.setStrokeWidth(6.0f);
+        this.f14164g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         b();
     }
 
     public MaskView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f14259e = 1;
-        this.f14260f = Color.argb(100, 0, 0, 0);
-        this.f14261g = new Paint(1);
-        this.f14262h = new Paint(1);
-        this.f14263i = new Rect();
+        this.f14162e = 1;
+        this.f14163f = Color.argb(100, 0, 0, 0);
+        this.f14164g = new Paint(1);
+        this.f14165h = new Paint(1);
+        this.f14166i = new Rect();
         this.k = new Path();
         setLayerType(1, null);
-        this.f14262h.setColor(-1);
-        this.f14262h.setStyle(Paint.Style.STROKE);
-        this.f14262h.setStrokeWidth(6.0f);
-        this.f14261g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.f14165h.setColor(-1);
+        this.f14165h.setStyle(Paint.Style.STROKE);
+        this.f14165h.setStrokeWidth(6.0f);
+        this.f14164g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         b();
     }
 }

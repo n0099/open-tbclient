@@ -15,14 +15,14 @@ public class Marshallable extends f {
 
     public final int f() throws Exception {
         a(4);
-        return this.f67703a.getInt();
+        return this.f67746a.getInt();
     }
 
     public final String g() throws Exception {
-        int remaining = this.f67703a.remaining();
+        int remaining = this.f67746a.remaining();
         byte[] bArr = new byte[remaining];
         a(remaining);
-        this.f67703a.get(bArr);
+        this.f67746a.get(bArr);
         return new String(bArr, "UTF-8");
     }
 
@@ -31,12 +31,12 @@ public class Marshallable extends f {
         int f2 = f();
         a(f2);
         byte[] bArr = new byte[f2];
-        this.f67703a.get(bArr);
+        this.f67746a.get(bArr);
         return new String(bArr, "UTF-8");
     }
 
     public final void i(int i2) {
-        this.f67703a.putInt(i2);
+        this.f67746a.putInt(i2);
     }
 
     public final void j(String str) {
@@ -49,7 +49,7 @@ public class Marshallable extends f {
                 bArr = new byte[0];
             }
             i(bArr.length);
-            this.f67703a.put(bArr);
+            this.f67746a.put(bArr);
         }
     }
 }

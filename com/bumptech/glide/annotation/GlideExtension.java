@@ -6,6 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public @interface GlideExtension {
 }

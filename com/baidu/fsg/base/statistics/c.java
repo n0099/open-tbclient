@@ -3,20 +3,20 @@ package com.baidu.fsg.base.statistics;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5301a = "dim_excep_time";
+    public static final String f5201a = "dim_excep_time";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5302b = "dim_excep_cont";
+    public static final String f5202b = "dim_excep_cont";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5303c = "dim_excep_type";
+    public static final String f5203c = "dim_excep_type";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5304d = "dim_excep_line_way";
+    public static final String f5204d = "dim_excep_line_way";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5305e = "dim_excep_free_mem";
+    public static final String f5205e = "dim_excep_free_mem";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5306f = "dim_excep_total_mem";
+    public static final String f5206f = "dim_excep_total_mem";
 }

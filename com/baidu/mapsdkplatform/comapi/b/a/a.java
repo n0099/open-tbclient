@@ -11,29 +11,29 @@ import java.net.URLEncoder;
 public class a implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f7616b = false;
+    public static volatile boolean f7516b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7617a;
+    public String f7517a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f7618c;
+    public Thread.UncaughtExceptionHandler f7518c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0097a {
+    public static class C0098a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f7619a = new a();
+        public static final a f7519a = new a();
     }
 
     public a() {
-        this.f7617a = "";
-        this.f7618c = Thread.getDefaultUncaughtExceptionHandler();
+        this.f7517a = "";
+        this.f7518c = Thread.getDefaultUncaughtExceptionHandler();
     }
 
     public static a a() {
-        return C0097a.f7619a;
+        return C0098a.f7519a;
     }
 
     private void a(Throwable th) {
@@ -55,8 +55,8 @@ public class a implements Thread.UncaughtExceptionHandler {
                 }
                 printWriter.close();
                 String obj = stringWriter.toString();
-                if (!obj.isEmpty() && this.f7617a != null && !this.f7617a.isEmpty()) {
-                    File file = new File(URLEncoder.encode(this.f7617a + (System.currentTimeMillis() / 1000) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, "UTF-8"));
+                if (!obj.isEmpty() && this.f7517a != null && !this.f7517a.isEmpty()) {
+                    File file = new File(URLEncoder.encode(this.f7517a + (System.currentTimeMillis() / 1000) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, "UTF-8"));
                     if (file.exists() || file.createNewFile()) {
                         FileOutputStream fileOutputStream = new FileOutputStream(file);
                         fileOutputStream.write(obj.getBytes());
@@ -69,7 +69,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     }
 
     public void a(String str) {
-        this.f7617a = str;
+        this.f7517a = str;
         if (Thread.getDefaultUncaughtExceptionHandler() instanceof a) {
             return;
         }
@@ -78,12 +78,12 @@ public class a implements Thread.UncaughtExceptionHandler {
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
-        if (f7616b) {
+        if (f7516b) {
             return;
         }
-        f7616b = true;
+        f7516b = true;
         a(th);
-        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f7618c;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f7518c;
         if (uncaughtExceptionHandler != null) {
             uncaughtExceptionHandler.uncaughtException(thread, th);
         }

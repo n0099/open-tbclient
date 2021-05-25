@@ -12,28 +12,28 @@ import java.util.Properties;
 public final class u implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36801a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
+    public static final String f36730a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36802b = f36801a + File.separator + "config.txt";
+    public static final String f36731b = f36730a + File.separator + "config.txt";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36803c = "SdcardCache";
+    public static String f36732c = "SdcardCache";
 
     /* renamed from: d  reason: collision with root package name */
-    public File f36804d;
+    public File f36733d;
 
     @Override // com.vivo.push.util.c
     public final boolean a(Context context) {
         if ("mounted".equals(Environment.getExternalStorageState())) {
-            File file = new File(f36801a);
+            File file = new File(f36730a);
             boolean mkdirs = !file.exists() ? file.mkdirs() : true;
             if (mkdirs) {
-                File file2 = new File(f36802b);
-                this.f36804d = file2;
+                File file2 = new File(f36731b);
+                this.f36733d = file2;
                 if (!file2.exists()) {
                     try {
-                        this.f36804d.createNewFile();
+                        this.f36733d.createNewFile();
                         return true;
                     } catch (IOException e2) {
                         e2.printStackTrace();
@@ -50,7 +50,7 @@ public final class u implements c {
     public final void b(String str, String str2) {
         FileOutputStream fileOutputStream;
         Properties a2 = a();
-        String str3 = f36802b;
+        String str3 = f36731b;
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
@@ -110,7 +110,7 @@ public final class u implements c {
         Properties properties = new Properties();
         BufferedInputStream bufferedInputStream2 = null;
         try {
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(f36802b));
+            bufferedInputStream = new BufferedInputStream(new FileInputStream(f36731b));
             try {
                 try {
                     properties.load(bufferedInputStream);

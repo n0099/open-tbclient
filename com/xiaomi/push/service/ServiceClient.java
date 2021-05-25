@@ -40,10 +40,10 @@ public class ServiceClient {
     public Messenger f832b;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f38076b = gn.a(5) + "-";
+    public static String f38005b = gn.a(5) + "-";
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f38075a = 0;
+    public static long f38004a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     public Messenger f829a = null;
@@ -178,7 +178,7 @@ public class ServiceClient {
 
     /* renamed from: a  reason: collision with other method in class */
     private boolean m532a() {
-        if (com.xiaomi.push.ab.f37363e) {
+        if (com.xiaomi.push.ab.f37292e) {
             return false;
         }
         try {
@@ -229,7 +229,7 @@ public class ServiceClient {
                 bundleArr[i2] = gbVarArr[i2].a();
             }
             if (length > 0) {
-                a2.setAction(az.f38160g);
+                a2.setAction(az.f38089g);
                 a2.putExtra(az.D, f827a);
                 a2.putExtra("ext_packets", bundleArr);
                 a2.putExtra("ext_encrypt", z);
@@ -248,20 +248,20 @@ public class ServiceClient {
 
     public boolean closeChannel() {
         Intent a2 = a();
-        a2.setAction(az.f38162i);
+        a2.setAction(az.f38091i);
         return startServiceSafely(a2);
     }
 
     public boolean closeChannel(String str) {
         Intent a2 = a();
-        a2.setAction(az.f38162i);
+        a2.setAction(az.f38091i);
         a2.putExtra(az.s, str);
         return startServiceSafely(a2);
     }
 
     public boolean closeChannel(String str, String str2) {
         Intent a2 = a();
-        a2.setAction(az.f38162i);
+        a2.setAction(az.f38091i);
         a2.putExtra(az.s, str);
         a2.putExtra(az.p, str2);
         return startServiceSafely(a2);
@@ -285,7 +285,7 @@ public class ServiceClient {
 
     public int openChannel(String str, String str2, String str3, String str4, String str5, Map<String, String> map, Map<String, String> map2, boolean z) {
         Intent a2 = a();
-        a2.setAction(az.f38157d);
+        a2.setAction(az.f38086d);
         a(a2, str, str2, str3, str4, str5, z, map, map2);
         startServiceSafely(a2);
         return 0;
@@ -314,7 +314,7 @@ public class ServiceClient {
             Bundle a3 = gaVar.a();
             if (a3 != null) {
                 com.xiaomi.channel.commonutils.logger.b.c("SEND:" + gaVar.a());
-                a2.setAction(az.f38159f);
+                a2.setAction(az.f38088f);
                 a2.putExtra(az.D, f827a);
                 a2.putExtra("ext_packet", a3);
                 return startServiceSafely(a2);
@@ -338,7 +338,7 @@ public class ServiceClient {
             Bundle a4 = gbVar.a();
             if (a4 != null) {
                 com.xiaomi.channel.commonutils.logger.b.c("SEND:" + gbVar.a());
-                a2.setAction(az.f38158e);
+                a2.setAction(az.f38087e);
                 a2.putExtra(az.D, f827a);
                 a2.putExtra("ext_packet", a4);
                 a2.putExtra("ext_encrypt", z);
@@ -357,7 +357,7 @@ public class ServiceClient {
         }
         Intent a2 = a();
         if (bArr != null) {
-            a2.setAction(az.f38158e);
+            a2.setAction(az.f38087e);
             a2.putExtra(az.D, f827a);
             a2.putExtra("ext_raw_packet", bArr);
             int indexOf = str.indexOf("@");
@@ -374,9 +374,9 @@ public class ServiceClient {
             a2.putExtra(az.q, str4);
             a2.putExtra(az.r, str3);
             StringBuilder sb = new StringBuilder();
-            sb.append(f38076b);
-            long j = f38075a;
-            f38075a = 1 + j;
+            sb.append(f38005b);
+            long j = f38004a;
+            f38004a = 1 + j;
             sb.append(j);
             String sb2 = sb.toString();
             a2.putExtra("ext_pkt_id", sb2);
@@ -393,7 +393,7 @@ public class ServiceClient {
             Bundle a3 = geVar.a();
             if (a3 != null) {
                 com.xiaomi.channel.commonutils.logger.b.c("SEND:" + geVar.a());
-                a2.setAction(az.f38161h);
+                a2.setAction(az.f38090h);
                 a2.putExtra(az.D, f827a);
                 a2.putExtra("ext_packet", a3);
                 return startServiceSafely(a2);

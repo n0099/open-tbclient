@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.tencent.open.SocialConstants;
-import d.a.j0.r.q.o;
+import d.a.m0.r.q.o;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaBroadcastGiftToastData extends o implements Parcelable {
@@ -42,7 +42,7 @@ public class AlaBroadcastGiftToastData extends o implements Parcelable {
         return 0;
     }
 
-    @Override // d.a.j0.r.q.o
+    @Override // d.a.m0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;

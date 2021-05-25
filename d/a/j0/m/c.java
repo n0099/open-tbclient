@@ -1,7 +1,4 @@
 package d.a.j0.m;
-
-import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface c {
-    void a(View view, boolean z, Object obj);
 }

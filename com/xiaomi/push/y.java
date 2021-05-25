@@ -23,7 +23,7 @@ import java.util.zip.ZipOutputStream;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f38251a = {"jpg", "png", "bmp", "gif", "webp"};
+    public static final String[] f38180a = {"jpg", "png", "bmp", "gif", "webp"};
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0062: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:22:0x0062 */
     public static String a(File file) {

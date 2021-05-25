@@ -11,10 +11,10 @@ import java.util.List;
 public class ar implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ an f37315a;
+    public final /* synthetic */ an f37244a;
 
     public ar(an anVar) {
-        this.f37315a = anVar;
+        this.f37244a = anVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -22,26 +22,26 @@ public class ar implements ServiceConnection {
         List<Message> list;
         List list2;
         Messenger messenger;
-        synchronized (this.f37315a) {
-            this.f37315a.f67a = new Messenger(iBinder);
-            this.f37315a.f37310c = false;
-            list = this.f37315a.f70a;
+        synchronized (this.f37244a) {
+            this.f37244a.f67a = new Messenger(iBinder);
+            this.f37244a.f37239c = false;
+            list = this.f37244a.f70a;
             for (Message message : list) {
                 try {
-                    messenger = this.f37315a.f67a;
+                    messenger = this.f37244a.f67a;
                     messenger.send(message);
                 } catch (RemoteException e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
                 }
             }
-            list2 = this.f37315a.f70a;
+            list2 = this.f37244a.f70a;
             list2.clear();
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.f37315a.f67a = null;
-        this.f37315a.f37310c = false;
+        this.f37244a.f67a = null;
+        this.f37244a.f37239c = false;
     }
 }

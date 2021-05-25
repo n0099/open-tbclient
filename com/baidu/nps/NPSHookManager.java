@@ -2,7 +2,7 @@ package com.baidu.nps;
 
 import android.app.Application;
 import android.os.Build;
-import d.a.x.b.a.a;
+import d.a.z.b.a.a;
 /* loaded from: classes2.dex */
 public class NPSHookManager {
     public static void init(Application application) {

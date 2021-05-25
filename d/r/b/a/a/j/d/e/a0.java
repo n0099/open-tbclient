@@ -7,25 +7,25 @@ import org.json.JSONObject;
 public class a0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67909a = 2045;
+    public int f67952a = 2045;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67910b;
+    public String f67953b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67911c;
+    public int f67954c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67912d;
+    public String f67955d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f67913e;
+    public String f67956e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f67914f;
+    public String f67957f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f67915g;
+    public String f67958g;
 
     public a0(String str) {
         a(str);
@@ -36,17 +36,17 @@ public class a0 {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt("cmd");
-                if (this.f67909a == optInt) {
+                if (this.f67952a == optInt) {
                     jSONObject.optLong("uid");
-                    this.f67910b = jSONObject.optString(IAdRequestParam.SEQ);
-                    this.f67911c = jSONObject.optInt("result");
-                    this.f67912d = jSONObject.optString("message");
-                    this.f67913e = jSONObject.optString("purchaseData");
-                    this.f67914f = jSONObject.optString("purchaseSign");
-                    this.f67915g = jSONObject.optString("orderId");
+                    this.f67953b = jSONObject.optString(IAdRequestParam.SEQ);
+                    this.f67954c = jSONObject.optInt("result");
+                    this.f67955d = jSONObject.optString("message");
+                    this.f67956e = jSONObject.optString("purchaseData");
+                    this.f67957f = jSONObject.optString("purchaseSign");
+                    this.f67958g = jSONObject.optString("orderId");
                     return;
                 }
-                throw new Exception(this.f67909a + " != " + optInt);
+                throw new Exception(this.f67952a + " != " + optInt);
             } catch (JSONException e2) {
                 d.r.b.a.a.f.d.d.d("ReportPurchaseResponse", "parserResponse error.", e2);
                 return;

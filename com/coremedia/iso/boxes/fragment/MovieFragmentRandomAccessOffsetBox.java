@@ -10,8 +10,8 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class MovieFragmentRandomAccessOffsetBox extends AbstractFullBox {
     public static final String TYPE = "mfro";
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_1 = null;
     public long mfraSize;
 
     static {

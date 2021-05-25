@@ -1,7 +1,7 @@
 package com.bytedance.embedapplog.util;
 
 import d.b.b.r0;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TTEncryptUtils {
     static {
         try {

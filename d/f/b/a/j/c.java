@@ -8,21 +8,21 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f66136a;
+    public static volatile String f66179a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f66137b = new Object();
+    public static final Object f66180b = new Object();
 
     public static String a() {
-        if (f66136a != null) {
-            return f66136a;
+        if (f66179a != null) {
+            return f66179a;
         }
-        synchronized (f66137b) {
-            if (f66136a != null) {
-                return f66136a;
+        synchronized (f66180b) {
+            if (f66179a != null) {
+                return f66179a;
             }
-            f66136a = b(d.f.b.a.c.d().provideContext());
-            return f66136a;
+            f66179a = b(d.f.b.a.c.d().provideContext());
+            return f66179a;
         }
     }
 

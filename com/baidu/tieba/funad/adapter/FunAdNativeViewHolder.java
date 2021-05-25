@@ -11,86 +11,90 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.funAd.http.FunAdRecordHttpMessage;
 import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
 import com.baidu.tieba.funad.view.FunAbsAdView;
 import com.fun.ad.sdk.ChannelNativeAds_6;
 import com.fun.ad.sdk.FunNativeAd;
-import d.a.k0.d3.h0.n;
-import d.a.k0.r0.a;
-import d.a.k0.s0.b;
+import d.a.n0.e3.h0.n;
+import d.a.n0.s0.a;
+import d.a.n0.t0.b;
 /* loaded from: classes4.dex */
 public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public final BdUniqueId f16030a;
+    public final BdUniqueId f15933a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Activity f16031b;
+    public final Activity f15934b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final FunAbsAdView f16032c;
+    public final FunAbsAdView f15935c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f16033d;
+    public String f15936d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16034e;
+    public String f15937e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16035f;
+    public String f15938f;
 
     /* loaded from: classes4.dex */
     public class a implements a.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n f16036a;
+        public final /* synthetic */ n f15939a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Object f16037b;
+        public final /* synthetic */ Object f15940b;
 
         public a(n nVar, Object obj) {
-            this.f16036a = nVar;
-            this.f16037b = obj;
+            this.f15939a = nVar;
+            this.f15940b = obj;
         }
 
-        @Override // d.a.k0.r0.a.f
+        @Override // d.a.n0.s0.a.f
         public void onAdClicked(String str) {
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param("obj_type", FunAdNativeViewHolder.this.f()).param("obj_locate", 0);
-            b.a(param, this.f16036a);
+            b.a(param, this.f15939a);
+            b.s(0, FunAdRecordHttpMessage.CLICK_AD_RECORD, FunAdNativeViewHolder.this.f(), this.f15939a);
             TiebaStatic.log(param);
-            if (b.n((FunNativeAd) this.f16037b)) {
-                FunAdNativeViewHolder.this.f16032c.setDownloadDelayText(FunAdNativeViewHolder.this.f16031b.getString(R.string.fun_ad_downloading), 1000L);
+            if (b.n((FunNativeAd) this.f15940b)) {
+                FunAdNativeViewHolder.this.f15935c.setDownloadDelayText(FunAdNativeViewHolder.this.f15934b.getString(R.string.fun_ad_downloading), 1000L);
             }
         }
 
-        @Override // d.a.k0.r0.a.f
+        @Override // d.a.n0.s0.a.f
         public void onAdClose(String str) {
         }
 
-        @Override // d.a.k0.r0.a.f
+        @Override // d.a.n0.s0.a.f
         public void onAdError(String str) {
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param("obj_type", FunAdNativeViewHolder.this.f()).param("obj_locate", 1);
-            b.a(param, this.f16036a);
+            b.a(param, this.f15939a);
+            b.s(1, FunAdRecordHttpMessage.SHOW_AD_RECORD, FunAdNativeViewHolder.this.f(), this.f15939a);
             TiebaStatic.log(param);
         }
 
-        @Override // d.a.k0.r0.a.f
+        @Override // d.a.n0.s0.a.f
         public void onAdShow(String str) {
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param("obj_type", FunAdNativeViewHolder.this.f()).param("obj_locate", 0);
-            b.a(param, this.f16036a);
+            b.a(param, this.f15939a);
+            b.s(0, FunAdRecordHttpMessage.SHOW_AD_RECORD, FunAdNativeViewHolder.this.f(), this.f15939a);
             TiebaStatic.log(param);
         }
 
-        @Override // d.a.k0.r0.a.f
+        @Override // d.a.n0.s0.a.f
         public void onRewardedVideo(String str) {
         }
     }
 
     public FunAdNativeViewHolder(@NonNull FunAbsAdView funAbsAdView, @NonNull Activity activity, @NonNull BdUniqueId bdUniqueId) {
         super(funAbsAdView);
-        this.f16030a = bdUniqueId;
-        this.f16032c = funAbsAdView;
-        this.f16031b = activity;
+        this.f15933a = bdUniqueId;
+        this.f15935c = funAbsAdView;
+        this.f15934b = activity;
     }
 
     public final boolean d(FunNativeAd funNativeAd) {
@@ -102,38 +106,38 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public FunAbsAdView e() {
-        return this.f16032c;
+        return this.f15935c;
     }
 
     public String f() {
-        return "personalize".equals(this.f16035f) ? "a002" : this.f16030a == AdvertAppInfo.k4 ? "a006" : "a005";
+        return "personalize".equals(this.f15938f) ? "a002" : this.f15933a == AdvertAppInfo.l4 ? "a006" : "a005";
     }
 
     public void g(View.OnClickListener onClickListener) {
-        if (this.f16032c.getFeedBackView() != null) {
-            this.f16032c.getFeedBackView().setOnClickListener(onClickListener);
-            this.f16032c.setFeedBackListener(onClickListener);
+        if (this.f15935c.getFeedBackView() != null) {
+            this.f15935c.getFeedBackView().setOnClickListener(onClickListener);
+            this.f15935c.setFeedBackListener(onClickListener);
         }
     }
 
     public void h(String str) {
-        this.f16035f = str;
+        this.f15938f = str;
     }
 
     public void i(String str) {
-        this.f16034e = str;
+        this.f15937e = str;
     }
 
     public void j(String str) {
-        this.f16033d = str;
+        this.f15936d = str;
     }
 
     public void k(@NonNull n nVar) {
         Object d2 = nVar.d();
         if (d2 == null) {
-            d2 = d.a.k0.r0.a.h().i(this.f16031b, this.f16033d);
+            d2 = d.a.n0.s0.a.h().i(this.f15934b, this.f15936d);
             nVar.l(d2);
-            if (!TextUtils.isEmpty(this.f16034e) && d2 != null) {
+            if (!TextUtils.isEmpty(this.f15937e) && d2 != null) {
                 FunAdHistoryData funAdHistoryData = new FunAdHistoryData();
                 StringBuilder sb = new StringBuilder();
                 FunNativeAd funNativeAd = (FunNativeAd) d2;
@@ -144,21 +148,21 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
                 sb.append(funNativeAd.getDescription());
                 funAdHistoryData.setFunAdKey(sb.toString());
                 funAdHistoryData.setShowTime(System.currentTimeMillis() / 1000);
-                d.a.k0.r0.d.a.f().a(this.f16034e, funAdHistoryData);
+                d.a.n0.s0.d.a.f().a(this.f15937e, funAdHistoryData);
             }
         }
         Object obj = d2;
         if (obj == null) {
-            this.f16032c.d(8);
+            this.f15935c.d(8);
             return;
         }
-        this.f16032c.d(0);
-        this.f16032c.f(nVar, this.f16031b);
-        this.f16032c.e(this.f16030a);
-        FunAbsAdView funAbsAdView = this.f16032c;
+        this.f15935c.d(0);
+        this.f15935c.f(nVar, this.f15934b);
+        this.f15935c.e(this.f15933a);
+        FunAbsAdView funAbsAdView = this.f15935c;
         FunNativeAd funNativeAd2 = (FunNativeAd) obj;
         funAbsAdView.c(funNativeAd2);
-        d.a.k0.r0.a.h().o(this.f16031b, obj, new a(nVar, obj), funAbsAdView, this.f16032c.getClickViews(), this.f16032c.getCreativeViews(), this.f16032c.getLogItem());
+        d.a.n0.s0.a.h().o(this.f15934b, obj, new a(nVar, obj), funAbsAdView, this.f15935c.getClickViews(), this.f15935c.getCreativeViews(), this.f15935c.getLogItem());
         if (!d(funNativeAd2) || funAbsAdView == null || funAbsAdView.getChildCount() <= 1) {
             return;
         }

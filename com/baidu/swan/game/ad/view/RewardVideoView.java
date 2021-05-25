@@ -12,26 +12,26 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.event.VideoReceiver;
-import d.a.i0.f.i.j.b;
-import d.a.i0.f.i.m.b.c;
+import d.a.l0.f.i.j.b;
+import d.a.l0.f.i.m.b.c;
 import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
 public class RewardVideoView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f11656e;
+    public c f11557e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f11657f;
+    public Context f11558f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11658g;
+    public boolean f11559g;
 
     /* renamed from: h  reason: collision with root package name */
-    public VolumeBroadcastReceiver f11659h;
+    public VolumeBroadcastReceiver f11560h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f11660i;
+    public a f11561i;
 
     /* loaded from: classes3.dex */
     public class VolumeBroadcastReceiver extends BroadcastReceiver {
@@ -41,7 +41,7 @@ public class RewardVideoView extends RelativeLayout {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (VideoReceiver.ACTION_VOLUME_CHANGED.equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
-                RewardVideoView.this.f11660i.onVolumeChanged(((AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(3));
+                RewardVideoView.this.f11561i.onVolumeChanged(((AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(3));
             }
         }
     }
@@ -58,8 +58,8 @@ public class RewardVideoView extends RelativeLayout {
     @NonNull
     public final b b() {
         b bVar = new b();
-        bVar.f46526f = true;
-        bVar.f46522b = this.f11658g;
+        bVar.f46702f = true;
+        bVar.f46698b = this.f11559g;
         bVar.o = false;
         bVar.z = false;
         bVar.v = false;
@@ -67,27 +67,27 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public final void c() {
-        c c2 = d.a.i0.f.i.m.a.c();
+        c c2 = d.a.l0.f.i.m.a.c();
         c2.e(getContext(), b());
-        this.f11656e = c2;
-        AudioManager audioManager = (AudioManager) this.f11657f.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-        this.f11658g = audioManager.getStreamVolume(3) <= (Build.VERSION.SDK_INT >= 28 ? audioManager.getStreamMinVolume(3) : 0);
-        FrameLayout frameLayout = new FrameLayout(this.f11657f);
+        this.f11557e = c2;
+        AudioManager audioManager = (AudioManager) this.f11558f.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.f11559g = audioManager.getStreamVolume(3) <= (Build.VERSION.SDK_INT >= 28 ? audioManager.getStreamMinVolume(3) : 0);
+        FrameLayout frameLayout = new FrameLayout(this.f11558f);
         addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-        c cVar = this.f11656e;
+        c cVar = this.f11557e;
         if (cVar != null) {
             cVar.a(frameLayout);
         }
     }
 
     public boolean d() {
-        return this.f11658g;
+        return this.f11559g;
     }
 
     public void e(boolean z) {
-        c cVar = this.f11656e;
+        c cVar = this.f11557e;
         if (cVar != null) {
-            this.f11658g = z;
+            this.f11559g = z;
             cVar.mute(z);
         }
     }
@@ -95,20 +95,20 @@ public class RewardVideoView extends RelativeLayout {
     public void f(String str) {
         b b2 = b();
         b2.p = str;
-        this.f11656e.h(b2);
-        this.f11656e.d(false);
+        this.f11557e.h(b2);
+        this.f11557e.d(false);
     }
 
     public c getPlayer() {
-        return this.f11656e;
+        return this.f11557e;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Context context;
         super.onDetachedFromWindow();
-        VolumeBroadcastReceiver volumeBroadcastReceiver = this.f11659h;
-        if (volumeBroadcastReceiver == null || (context = this.f11657f) == null) {
+        VolumeBroadcastReceiver volumeBroadcastReceiver = this.f11560h;
+        if (volumeBroadcastReceiver == null || (context = this.f11558f) == null) {
             return;
         }
         context.unregisterReceiver(volumeBroadcastReceiver);
@@ -120,7 +120,7 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void setVolumeChangeListener(a aVar) {
-        this.f11660i = aVar;
+        this.f11561i = aVar;
     }
 
     public RewardVideoView(Context context, AttributeSet attributeSet) {
@@ -129,12 +129,12 @@ public class RewardVideoView extends RelativeLayout {
 
     public RewardVideoView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11657f = context;
+        this.f11558f = context;
         c();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(VideoReceiver.ACTION_VOLUME_CHANGED);
         VolumeBroadcastReceiver volumeBroadcastReceiver = new VolumeBroadcastReceiver();
-        this.f11659h = volumeBroadcastReceiver;
-        this.f11657f.registerReceiver(volumeBroadcastReceiver, intentFilter);
+        this.f11560h = volumeBroadcastReceiver;
+        this.f11558f.registerReceiver(volumeBroadcastReceiver, intentFilter);
     }
 }

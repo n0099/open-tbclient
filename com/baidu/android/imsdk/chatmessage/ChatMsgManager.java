@@ -11,12 +11,11 @@ import com.baidu.android.imsdk.account.IKickOutListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.sync.SyncAllMessage;
 import com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService;
-import com.baidu.android.imsdk.chatuser.ChatUser;
-import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
-import com.baidu.android.imsdk.chatuser.IGetUserIdentityListener;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.GroupInfo;
+import com.baidu.android.imsdk.group.GroupManagerImpl;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
+import com.baidu.android.imsdk.group.request.IMQueryMemberPauidRequest;
 import com.baidu.android.imsdk.internal.BaseManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener;
@@ -137,7 +136,7 @@ public class ChatMsgManager extends BaseManager {
 
     public static void forwardMessage(final Context context, String str, int i2, final ChatMsg chatMsg, final ISendMessageListener iSendMessageListener) {
         long j;
-        long j2;
+        GroupInfo groupInfo;
         if (context == null) {
             if (iSendMessageListener != null) {
                 iSendMessageListener.onSendMessageResult(1005, chatMsg);
@@ -146,7 +145,8 @@ public class ChatMsgManager extends BaseManager {
             try {
                 j = Long.parseLong(str);
             } catch (Exception e2) {
-                LogUtils.e(BaseManager.TAG, "uid parse error " + e2.getMessage());
+                String str2 = BaseManager.TAG;
+                LogUtils.e(str2, "uid parse error " + e2.getMessage());
                 new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
                 j = 0L;
             }
@@ -155,43 +155,51 @@ public class ChatMsgManager extends BaseManager {
                     iSendMessageListener.onSendMessageResult(1005, chatMsg);
                 }
             } else if (i2 == 0) {
-                chatMsg.setRowId(-1L);
-                chatMsg.setCategory(0);
-                chatMsg.setFromUser(AccountManager.getUK(context));
-                chatMsg.setStatus(1);
-                chatMsg.setSenderUid(AccountManager.getUid(context));
-                chatMsg.setContacterBduid(str);
-                chatMsg.setIsZhida(false);
-                chatMsg.setChatType(0);
-                chatMsg.parseForwardmessage(0);
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(Long.valueOf(j));
-                ChatUserManagerImpl.getInstance(context).updateUserIdentity(arrayList, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManager.1
-                    @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                    public void onGetUserIdentityResult(int i3, List<ChatUser> list) {
-                        if (i3 != 0 || list == null) {
+                GroupManagerImpl.getInstance(context).getPaidAndUkByBduid(arrayList, new BIMValueCallBack<List<IMQueryMemberPauidRequest.UserId>>() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManager.1
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+                    public void onResult(int i3, String str3, List<IMQueryMemberPauidRequest.UserId> list) {
+                        if (i3 != 0 || list == null || list.size() <= 0) {
                             return;
                         }
-                        ChatMsg.this.setContacter(list.get(0).getUk());
+                        ChatMsg.this.setRowId(-1L);
+                        ChatMsg.this.setCategory(0);
+                        ChatMsg.this.setFromUser(AccountManager.getUK(context));
+                        ChatMsg.this.setStatus(1);
+                        ChatMsg.this.setSenderUid(AccountManager.getUid(context));
+                        ChatMsg.this.setIsZhida(false);
+                        ChatMsg.this.parseForwardmessage(0);
+                        IMQueryMemberPauidRequest.UserId userId = list.get(0);
+                        ChatMsg.this.setContacterBduid(String.valueOf(userId.getBduid()));
+                        if (userId.getPauid() > 0) {
+                            ChatMsg.this.setContacter(userId.getPauid());
+                            ChatMsg.this.setChatType(7);
+                        } else {
+                            ChatMsg.this.setContacter(userId.getUk());
+                            ChatMsg.this.setChatType(0);
+                        }
                         ChatMsg.this.setMsgTime(System.currentTimeMillis());
                         ChatMsgManager.sendMessage(context, ChatMsg.this, iSendMessageListener);
                     }
                 });
             } else if (i2 == 1) {
-                try {
-                    j2 = Long.valueOf(str).longValue();
-                } catch (NumberFormatException e3) {
-                    LogUtils.e(BaseManager.TAG, "id is not long type!!");
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e3)).build();
-                    j2 = -1;
-                }
+                long longByString = Utility.getLongByString(str, -1L);
                 chatMsg.setRowId(-1L);
                 chatMsg.setCategory(i2);
-                chatMsg.setContacter(j2);
+                chatMsg.setContacter(longByString);
                 chatMsg.setFromUser(AccountManager.getUK(context));
                 chatMsg.setStatus(1);
                 chatMsg.setSenderUid(AccountManager.getUid(context));
-                chatMsg.setChatType(3);
+                ArrayList arrayList2 = new ArrayList();
+                arrayList2.add(str);
+                ArrayList<GroupInfo> groupInfo2 = GroupInfoDAOImpl.getGroupInfo(context, arrayList2);
+                int i3 = 3;
+                if (groupInfo2 != null && groupInfo2.size() > 0 && (groupInfo = groupInfo2.get(0)) != null && groupInfo.getType() == 3) {
+                    i3 = 57;
+                }
+                chatMsg.setChatType(i3);
                 chatMsg.setMsgTime(System.currentTimeMillis());
                 chatMsg.parseForwardmessage(i2);
                 sendMessage(context, chatMsg, iSendMessageListener);
@@ -351,11 +359,11 @@ public class ChatMsgManager extends BaseManager {
         ChatMsgManagerImpl.getInstance(context).mediaFetchChatMsgs(context, j, j2, j3, i2, iMediaFetchChatMsgsListener);
     }
 
-    public static void mediaGetChatSessions(Context context, long j, int i2, long j2, String str, long j3, int i3, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+    public static void mediaGetChatSessions(Context context, long j, int i2, long j2, String str, long j3, int i3, int i4, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        ChatSessionManagerImpl.getInstance(context).mediaGetChatSessions(j, i2, j2, str, j3, i3, iMediaGetChatSessionListener);
+        ChatSessionManagerImpl.getInstance(context).mediaGetChatSessions(j, i2, j2, str, j3, i3, i4, iMediaGetChatSessionListener);
     }
 
     public static void mediaGetContactorPauid(Context context, long j, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {

@@ -10,7 +10,7 @@ public final class UnmodifiableSortedMultiset<E> extends Multisets.UnmodifiableM
     public static final long serialVersionUID = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient UnmodifiableSortedMultiset<E> f31409e;
+    public transient UnmodifiableSortedMultiset<E> f31338e;
 
     public UnmodifiableSortedMultiset(v0<E> v0Var) {
         super(v0Var);
@@ -23,11 +23,11 @@ public final class UnmodifiableSortedMultiset<E> extends Multisets.UnmodifiableM
 
     @Override // d.g.c.c.v0
     public v0<E> descendingMultiset() {
-        UnmodifiableSortedMultiset<E> unmodifiableSortedMultiset = this.f31409e;
+        UnmodifiableSortedMultiset<E> unmodifiableSortedMultiset = this.f31338e;
         if (unmodifiableSortedMultiset == null) {
             UnmodifiableSortedMultiset<E> unmodifiableSortedMultiset2 = new UnmodifiableSortedMultiset<>(delegate().descendingMultiset());
-            unmodifiableSortedMultiset2.f31409e = this;
-            this.f31409e = unmodifiableSortedMultiset2;
+            unmodifiableSortedMultiset2.f31338e = this;
+            this.f31338e = unmodifiableSortedMultiset2;
             return unmodifiableSortedMultiset2;
         }
         return unmodifiableSortedMultiset;

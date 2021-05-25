@@ -18,25 +18,25 @@ public interface UrlRequest {
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public final TurbonetEngine f22491a;
+        public final TurbonetEngine f22420a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f22492b;
+        public final String f22421b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Callback f22493c;
+        public final Callback f22422c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Executor f22494d;
+        public final Executor f22423d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22495e;
+        public String f22424e;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f22497g;
+        public boolean f22426g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f22498h;
+        public boolean f22427h;
         public UploadDataProvider k;
         public Executor l;
         public boolean m;
@@ -51,10 +51,10 @@ public interface UrlRequest {
         public String v;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ArrayList<Pair<String, String>> f22496f = new ArrayList<>();
+        public final ArrayList<Pair<String, String>> f22425f = new ArrayList<>();
 
         /* renamed from: i  reason: collision with root package name */
-        public int f22499i = 3;
+        public int f22428i = 3;
         public Collection<Object> j = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
@@ -73,10 +73,10 @@ public interface UrlRequest {
                 throw new NullPointerException("Executor is required.");
             }
             if (turbonetEngine != null) {
-                this.f22492b = str;
-                this.f22493c = callback;
-                this.f22494d = executor;
-                this.f22491a = turbonetEngine;
+                this.f22421b = str;
+                this.f22422c = callback;
+                this.f22423d = executor;
+                this.f22420a = turbonetEngine;
                 this.m = false;
                 this.o = false;
                 this.p = 0;
@@ -98,7 +98,7 @@ public interface UrlRequest {
                         Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
                         return this;
                     }
-                    this.f22496f.add(Pair.create(str, str2));
+                    this.f22425f.add(Pair.create(str, str2));
                     return this;
                 }
                 throw new NullPointerException("Invalid header value.");
@@ -107,12 +107,12 @@ public interface UrlRequest {
         }
 
         public UrlRequest b() {
-            UrlRequest b2 = this.f22491a.b(this.f22492b, this.f22493c, this.f22494d, this.f22499i, this.j, this.f22497g, this.f22498h, this.n);
-            String str = this.f22495e;
+            UrlRequest b2 = this.f22420a.b(this.f22421b, this.f22422c, this.f22423d, this.f22428i, this.j, this.f22426g, this.f22427h, this.n);
+            String str = this.f22424e;
             if (str != null) {
                 b2.e(str);
             }
-            Iterator<Pair<String, String>> it = this.f22496f.iterator();
+            Iterator<Pair<String, String>> it = this.f22425f.iterator();
             while (it.hasNext()) {
                 Pair<String, String> next = it.next();
                 b2.addHeader((String) next.first, (String) next.second);
@@ -157,7 +157,7 @@ public interface UrlRequest {
         }
 
         public Builder c() {
-            this.f22497g = true;
+            this.f22426g = true;
             return this;
         }
 
@@ -173,7 +173,7 @@ public interface UrlRequest {
 
         public Builder f(String str) {
             if (str != null) {
-                this.f22495e = str;
+                this.f22424e = str;
                 return this;
             }
             throw new NullPointerException("Method is required.");
@@ -202,8 +202,8 @@ public interface UrlRequest {
         public Builder k(UploadDataProvider uploadDataProvider, Executor executor) {
             if (uploadDataProvider != null) {
                 if (executor != null) {
-                    if (this.f22495e == null) {
-                        this.f22495e = "POST";
+                    if (this.f22424e == null) {
+                        this.f22424e = "POST";
                     }
                     this.k = uploadDataProvider;
                     this.l = executor;

@@ -5,13 +5,13 @@ import android.content.Context;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64213a;
+    public Context f64089a;
 
     public d(Context context) {
-        this.f64213a = context;
+        this.f64089a = context;
     }
 
     public d.a.q.d.a a() {
-        return d.a.q.a.a(this.f64213a);
+        return d.a.q.a.a(this.f64089a);
     }
 }

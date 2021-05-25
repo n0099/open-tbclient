@@ -19,10 +19,10 @@ import org.json.JSONObject;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f67582a = "";
+    public static String f67625a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f67583b = "";
+    public static String f67626b = "";
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
         jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:20:0x003a
@@ -34,10 +34,10 @@ public final class d {
         /*
             java.lang.Class<d.q.a.a.c.a.d> r0 = d.q.a.a.c.a.d.class
             monitor-enter(r0)
-            java.lang.String r1 = d.q.a.a.c.a.d.f67582a     // Catch: java.lang.Throwable -> L36
+            java.lang.String r1 = d.q.a.a.c.a.d.f67625a     // Catch: java.lang.Throwable -> L36
             boolean r1 = android.text.TextUtils.isEmpty(r1)     // Catch: java.lang.Throwable -> L36
             if (r1 != 0) goto Lf
-            java.lang.String r1 = d.q.a.a.c.a.d.f67582a     // Catch: java.lang.Throwable -> L36
+            java.lang.String r1 = d.q.a.a.c.a.d.f67625a     // Catch: java.lang.Throwable -> L36
             monitor-exit(r0)
             return r1
         Lf:
@@ -51,7 +51,7 @@ public final class d {
             d.q.a.a.c.b.b.e(r2)     // Catch: java.lang.Throwable -> L36
             boolean r2 = android.text.TextUtils.isEmpty(r1)     // Catch: java.lang.Throwable -> L36
             if (r2 != 0) goto L32
-            d.q.a.a.c.a.d.f67582a = r1     // Catch: java.lang.Throwable -> L36
+            d.q.a.a.c.a.d.f67625a = r1     // Catch: java.lang.Throwable -> L36
             monitor-exit(r0)
             return r1
         L32:
@@ -85,7 +85,7 @@ public final class d {
                     }
                 } else {
                     try {
-                        str = f.d(context).f67593b.c();
+                        str = f.d(context).f67636b.c();
                     } catch (Throwable unused) {
                     }
                     if (TextUtils.isEmpty(str) || str.startsWith("KWE")) {
@@ -123,8 +123,8 @@ public final class d {
     public static synchronized String e() {
         synchronized (d.class) {
             try {
-                if (!TextUtils.isEmpty(f67583b)) {
-                    return f67583b;
+                if (!TextUtils.isEmpty(f67626b)) {
+                    return f67626b;
                 }
                 String f2 = Orange.a().f();
                 d.q.a.a.c.b.b.e("user dis :" + f2);
@@ -133,13 +133,13 @@ public final class d {
                     for (int i2 = 0; i2 < bytes.length; i2++) {
                         bytes[i2] = (byte) (bytes[i2] ^ 165);
                     }
-                    f67583b = "fuels:" + Base64.encodeToString(bytes, 0).replace("\n", "").replace("\r", "");
+                    f67626b = "fuels:" + Base64.encodeToString(bytes, 0).replace("\n", "").replace("\r", "");
                 }
-                if (TextUtils.isEmpty(f67583b)) {
-                    f67583b = "KWE_N";
+                if (TextUtils.isEmpty(f67626b)) {
+                    f67626b = "KWE_N";
                     return "KWE_N";
                 }
-                return f67583b;
+                return f67626b;
             }
         }
     }
@@ -152,7 +152,7 @@ public final class d {
                 return "";
             }
             try {
-                str = f.d(context).f67593b.a();
+                str = f.d(context).f67636b.a();
             } catch (Throwable unused) {
                 str = "";
             }
@@ -178,7 +178,7 @@ public final class d {
 
     public static String h(Context context) {
         try {
-            String c2 = d.q.a.a.b.b().c(context, b.f67577a.e(), false);
+            String c2 = d.q.a.a.b.b().c(context, b.f67620a.e(), false);
             return !TextUtils.isEmpty(c2) ? c2 : "KWE_N";
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);

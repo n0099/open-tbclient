@@ -18,7 +18,7 @@ public class s0 extends h {
     public int m;
     public int n;
     public Context o;
-    public d.a.j0.r.q.a p;
+    public d.a.m0.r.q.a p;
     public VideoImageNoPlayerLayout q;
     public int r;
     public String s;
@@ -33,9 +33,9 @@ public class s0 extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             s0 s0Var = s0.this;
-            a.InterfaceC0547a interfaceC0547a = s0Var.f40319i;
-            if (interfaceC0547a != null) {
-                interfaceC0547a.a(s0Var.p);
+            a.InterfaceC0542a interfaceC0542a = s0Var.f40011i;
+            if (interfaceC0542a != null) {
+                interfaceC0542a.a(s0Var.p);
             }
         }
     }
@@ -46,7 +46,7 @@ public class s0 extends h {
         }
 
         @Override // d.a.i.w0.a
-        public void a(d.a.j0.r.q.a aVar) {
+        public void a(d.a.m0.r.q.a aVar) {
             if (s0.this.u != null) {
                 s0.this.u.a(s0.this.p);
             }
@@ -72,7 +72,7 @@ public class s0 extends h {
     }
 
     @Override // d.a.i.a
-    public void l(d.a.k0.x.b0<d.a.j0.r.q.a> b0Var) {
+    public void l(d.a.n0.z.b0<d.a.m0.r.q.a> b0Var) {
         super.l(b0Var);
         this.q.setOnCardSubClickListener(b0Var);
     }
@@ -96,14 +96,14 @@ public class s0 extends h {
         r5 = r1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:42:0x00e5, code lost:
-        r1 = d.a.j0.b.g.b.l(r11, r0, r2, r3, r5);
+        r1 = d.a.m0.b.g.b.l(r11, r0, r2, r3, r5);
      */
     @Override // d.a.i.p
     /* renamed from: u */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(d.a.j0.r.q.a aVar) {
+    public void a(d.a.m0.r.q.a aVar) {
         int k = d.a.c.e.p.l.k(TbadkCoreApplication.getInst());
         if (k != this.r) {
             w = d.a.c.e.p.l.k(TbadkCoreApplication.getInst());
@@ -118,7 +118,7 @@ public class s0 extends h {
             this.r = k;
         }
         this.p = aVar;
-        if (aVar != null && aVar.m() != null && this.p.m().r1 != null && !this.p.m().r1.m) {
+        if (aVar != null && aVar.m() != null && this.p.m().s1 != null && !this.p.m().s1.m) {
             this.q.setVisibility(0);
             this.q.a(aVar);
             ViewGroup.LayoutParams layoutParams = this.q.getLayoutParams();
@@ -126,8 +126,8 @@ public class s0 extends h {
             int i3 = layoutParams.width;
             int i4 = layoutParams.height;
             boolean z = true;
-            if (this.p.m().r1.r.is_vertical.intValue() == 1) {
-                VideoInfo videoInfo = this.p.m().r1.r;
+            if (this.p.m().s1.r.is_vertical.intValue() == 1) {
+                VideoInfo videoInfo = this.p.m().s1.r;
                 if (videoInfo == null) {
                     return;
                 }
@@ -177,8 +177,8 @@ public class s0 extends h {
         this.s = str;
     }
 
-    public void w(a.InterfaceC0547a interfaceC0547a) {
-        this.f40319i = interfaceC0547a;
+    public void w(a.InterfaceC0542a interfaceC0542a) {
+        this.f40011i = interfaceC0542a;
     }
 
     public void x(d.a.i.w0.a aVar) {

@@ -15,22 +15,22 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f2536e = a(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
+    public static final String f2541e = a(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f2537f = a(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
+    public static final String f2542f = a(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2538a;
+    public String f2543a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2539b;
+    public String f2544b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2540c = 3;
+    public int f2545c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2541d;
+    public int f2546d;
 
     public static b a(Context context, String str) {
         return b(context, str);
@@ -89,7 +89,7 @@ public final class b {
 
     private String b() {
         try {
-            return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f2538a).put(i("ZmxhZw=="), this.f2539b == null ? "0" : this.f2539b).put(i("dmVy"), this.f2540c).put(i("c2Rr"), this.f2541d).toString();
+            return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f2543a).put(i("ZmxhZw=="), this.f2544b == null ? "0" : this.f2544b).put(i("dmVy"), this.f2545c).put(i("c2Rr"), this.f2546d).toString();
         } catch (JSONException e2) {
             d.a(e2);
             return null;
@@ -183,7 +183,7 @@ public final class b {
             return null;
         }
         try {
-            return com.baidu.android.bbalbs.common.a.b.a(com.baidu.android.bbalbs.common.a.a.a(f2536e, f2537f, str.getBytes()), "utf-8");
+            return com.baidu.android.bbalbs.common.a.b.a(com.baidu.android.bbalbs.common.a.a.a(f2541e, f2542f, str.getBytes()), "utf-8");
         } catch (UnsupportedEncodingException | Exception e2) {
             d.a(e2);
             return "";
@@ -195,7 +195,7 @@ public final class b {
             return null;
         }
         try {
-            return new String(com.baidu.android.bbalbs.common.a.a.b(f2536e, f2537f, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
+            return new String(com.baidu.android.bbalbs.common.a.a.b(f2541e, f2542f, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
         } catch (Exception e2) {
             d.a(e2);
             return "";
@@ -207,7 +207,7 @@ public final class b {
             return null;
         }
         try {
-            return com.baidu.android.bbalbs.common.a.b.a(com.baidu.android.bbalbs.common.a.a.a(f2537f, f2536e, str.getBytes()), "utf-8");
+            return com.baidu.android.bbalbs.common.a.b.a(com.baidu.android.bbalbs.common.a.a.a(f2542f, f2541e, str.getBytes()), "utf-8");
         } catch (UnsupportedEncodingException | Exception e2) {
             d.a(e2);
             return "";
@@ -219,7 +219,7 @@ public final class b {
             return null;
         }
         try {
-            return new String(com.baidu.android.bbalbs.common.a.a.b(f2537f, f2536e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
+            return new String(com.baidu.android.bbalbs.common.a.a.b(f2542f, f2541e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
         } catch (Exception e2) {
             d.a(e2);
             return "";
@@ -231,18 +231,18 @@ public final class b {
     }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f2539b)) {
-            this.f2539b = "0";
+        if (TextUtils.isEmpty(this.f2544b)) {
+            this.f2544b = "0";
         }
-        return this.f2538a + FieldBuilder.SE + this.f2539b;
+        return this.f2543a + FieldBuilder.SE + this.f2544b;
     }
 
     public void a(int i2) {
-        this.f2541d = i2;
+        this.f2546d = i2;
     }
 
     public void a(String str) {
-        this.f2538a = str;
+        this.f2543a = str;
     }
 
     public boolean a(Context context) {
@@ -250,6 +250,6 @@ public final class b {
     }
 
     public void b(String str) {
-        this.f2539b = str;
+        this.f2544b = str;
     }
 }

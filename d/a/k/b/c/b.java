@@ -5,102 +5,102 @@ import com.baidu.cloudbase.download.exception.DownloadException;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f51048a;
+    public boolean f40540a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f51049b;
+    public a f40541b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51050c;
+    public boolean f40542c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DownloadException f51051d;
+    public DownloadException f40543d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f51052e;
+    public long f40544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f51053f;
+    public long f40545f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51054g;
+    public int f40546g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f51055h;
+    public String f40547h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f51056i;
+    public int f40548i;
 
     public a a() {
-        return this.f51049b;
+        return this.f40541b;
     }
 
     public boolean b() {
-        return this.f51050c;
+        return this.f40542c;
     }
 
     public Exception c() {
-        return this.f51051d;
+        return this.f40543d;
     }
 
     public long d() {
-        return this.f51052e;
+        return this.f40544e;
     }
 
     public long e() {
-        return this.f51053f;
+        return this.f40545f;
     }
 
     public int f() {
-        return this.f51054g;
+        return this.f40546g;
     }
 
     public String g() {
-        return this.f51055h;
+        return this.f40547h;
     }
 
     public int h() {
-        return this.f51056i;
+        return this.f40548i;
     }
 
     public boolean i() {
-        return this.f51048a;
+        return this.f40540a;
     }
 
     public void j(boolean z) {
-        this.f51048a = z;
+        this.f40540a = z;
     }
 
     public void k(a aVar) {
-        this.f51049b = aVar;
+        this.f40541b = aVar;
     }
 
     public void l(boolean z) {
-        this.f51050c = z;
+        this.f40542c = z;
     }
 
     public void m(DownloadException downloadException) {
-        this.f51051d = downloadException;
+        this.f40543d = downloadException;
     }
 
     public void n(long j) {
-        this.f51052e = j;
+        this.f40544e = j;
     }
 
     public void o(long j) {
-        this.f51053f = j;
+        this.f40545f = j;
     }
 
     public void p(int i2) {
-        this.f51054g = i2;
+        this.f40546g = i2;
     }
 
     public void q(String str) {
-        this.f51055h = str;
+        this.f40547h = str;
     }
 
     public void r(int i2) {
-        this.f51056i = i2;
+        this.f40548i = i2;
     }
 
     public void s(long j) {

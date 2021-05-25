@@ -32,12 +32,21 @@ public class YoungsterPasswordActivity extends BaseActivity {
     }
 
     private void initByType(int i2) {
-        if (i2 == 1 || i2 == 2) {
-            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_settings_open_title));
-        } else if (i2 == 3) {
-            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_settings_close_title));
-        } else if (i2 == 4 || i2 == 5) {
-            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_setting));
+        switch (i2) {
+            case 1:
+            case 2:
+                this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_settings_open_title));
+                break;
+            case 3:
+                this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_settings_close_title));
+                break;
+            case 4:
+            case 5:
+                this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_setting));
+                break;
+            case 6:
+                this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_setting));
+                break;
         }
         this.mYoungsterPasswordView.i(i2);
     }

@@ -52,26 +52,26 @@ public abstract class ImmutableSortedMultiset<E> extends ImmutableSortedMultiset
     public static class a<E> extends ImmutableMultiset.b<E> {
 
         /* renamed from: d  reason: collision with root package name */
-        public final Comparator<? super E> f31138d;
+        public final Comparator<? super E> f31067d;
 
         /* renamed from: e  reason: collision with root package name */
-        public E[] f31139e;
+        public E[] f31068e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int[] f31140f;
+        public int[] f31069f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f31141g;
+        public int f31070g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f31142h;
+        public boolean f31071h;
 
         public a(Comparator<? super E> comparator) {
             super(true);
             n.p(comparator);
-            this.f31138d = comparator;
-            this.f31139e = (E[]) new Object[4];
-            this.f31140f = new int[4];
+            this.f31067d = comparator;
+            this.f31068e = (E[]) new Object[4];
+            this.f31069f = new int[4];
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -157,11 +157,11 @@ public abstract class ImmutableSortedMultiset<E> extends ImmutableSortedMultiset
                 return this;
             }
             u();
-            E[] eArr = this.f31139e;
-            int i3 = this.f31141g;
+            E[] eArr = this.f31068e;
+            int i3 = this.f31070g;
             eArr[i3] = e2;
-            this.f31140f[i3] = i2;
-            this.f31141g = i3 + 1;
+            this.f31069f[i3] = i2;
+            this.f31070g = i3 + 1;
             return this;
         }
 
@@ -170,57 +170,57 @@ public abstract class ImmutableSortedMultiset<E> extends ImmutableSortedMultiset
         /* renamed from: r */
         public ImmutableSortedMultiset<E> k() {
             t();
-            int i2 = this.f31141g;
+            int i2 = this.f31070g;
             if (i2 == 0) {
-                return ImmutableSortedMultiset.emptyMultiset(this.f31138d);
+                return ImmutableSortedMultiset.emptyMultiset(this.f31067d);
             }
-            RegularImmutableSortedSet regularImmutableSortedSet = (RegularImmutableSortedSet) ImmutableSortedSet.construct(this.f31138d, i2, this.f31139e);
-            long[] jArr = new long[this.f31141g + 1];
+            RegularImmutableSortedSet regularImmutableSortedSet = (RegularImmutableSortedSet) ImmutableSortedSet.construct(this.f31067d, i2, this.f31068e);
+            long[] jArr = new long[this.f31070g + 1];
             int i3 = 0;
-            while (i3 < this.f31141g) {
+            while (i3 < this.f31070g) {
                 int i4 = i3 + 1;
-                jArr[i4] = jArr[i3] + this.f31140f[i3];
+                jArr[i4] = jArr[i3] + this.f31069f[i3];
                 i3 = i4;
             }
-            this.f31142h = true;
-            return new RegularImmutableSortedMultiset(regularImmutableSortedSet, jArr, 0, this.f31141g);
+            this.f31071h = true;
+            return new RegularImmutableSortedMultiset(regularImmutableSortedSet, jArr, 0, this.f31070g);
         }
 
         public final void s(boolean z) {
-            int i2 = this.f31141g;
+            int i2 = this.f31070g;
             if (i2 == 0) {
                 return;
             }
-            E[] eArr = (E[]) Arrays.copyOf(this.f31139e, i2);
-            Arrays.sort(eArr, this.f31138d);
+            E[] eArr = (E[]) Arrays.copyOf(this.f31068e, i2);
+            Arrays.sort(eArr, this.f31067d);
             int i3 = 1;
             for (int i4 = 1; i4 < eArr.length; i4++) {
-                if (this.f31138d.compare((Object) eArr[i3 - 1], (Object) eArr[i4]) < 0) {
+                if (this.f31067d.compare((Object) eArr[i3 - 1], (Object) eArr[i4]) < 0) {
                     eArr[i3] = eArr[i4];
                     i3++;
                 }
             }
-            Arrays.fill(eArr, i3, this.f31141g, (Object) null);
+            Arrays.fill(eArr, i3, this.f31070g, (Object) null);
             if (z) {
                 int i5 = i3 * 4;
-                int i6 = this.f31141g;
+                int i6 = this.f31070g;
                 if (i5 > i6 * 3) {
                     eArr = (E[]) Arrays.copyOf(eArr, c.e(i6, (i6 / 2) + 1));
                 }
             }
             int[] iArr = new int[eArr.length];
-            for (int i7 = 0; i7 < this.f31141g; i7++) {
-                int binarySearch = Arrays.binarySearch(eArr, 0, i3, this.f31139e[i7], this.f31138d);
-                int[] iArr2 = this.f31140f;
+            for (int i7 = 0; i7 < this.f31070g; i7++) {
+                int binarySearch = Arrays.binarySearch(eArr, 0, i3, this.f31068e[i7], this.f31067d);
+                int[] iArr2 = this.f31069f;
                 if (iArr2[i7] >= 0) {
                     iArr[binarySearch] = iArr[binarySearch] + iArr2[i7];
                 } else {
                     iArr[binarySearch] = ~iArr2[i7];
                 }
             }
-            this.f31139e = eArr;
-            this.f31140f = iArr;
-            this.f31141g = i3;
+            this.f31068e = eArr;
+            this.f31069f = iArr;
+            this.f31070g = i3;
         }
 
         public final void t() {
@@ -228,34 +228,34 @@ public abstract class ImmutableSortedMultiset<E> extends ImmutableSortedMultiset
             int i2 = 0;
             int i3 = 0;
             while (true) {
-                int i4 = this.f31141g;
+                int i4 = this.f31070g;
                 if (i2 < i4) {
-                    int[] iArr = this.f31140f;
+                    int[] iArr = this.f31069f;
                     if (iArr[i2] > 0) {
-                        E[] eArr = this.f31139e;
+                        E[] eArr = this.f31068e;
                         eArr[i3] = eArr[i2];
                         iArr[i3] = iArr[i2];
                         i3++;
                     }
                     i2++;
                 } else {
-                    Arrays.fill(this.f31139e, i3, i4, (Object) null);
-                    Arrays.fill(this.f31140f, i3, this.f31141g, 0);
-                    this.f31141g = i3;
+                    Arrays.fill(this.f31068e, i3, i4, (Object) null);
+                    Arrays.fill(this.f31069f, i3, this.f31070g, 0);
+                    this.f31070g = i3;
                     return;
                 }
             }
         }
 
         public final void u() {
-            int i2 = this.f31141g;
-            E[] eArr = this.f31139e;
+            int i2 = this.f31070g;
+            E[] eArr = this.f31068e;
             if (i2 == eArr.length) {
                 s(true);
-            } else if (this.f31142h) {
-                this.f31139e = (E[]) Arrays.copyOf(eArr, eArr.length);
+            } else if (this.f31071h) {
+                this.f31068e = (E[]) Arrays.copyOf(eArr, eArr.length);
             }
-            this.f31142h = false;
+            this.f31071h = false;
         }
     }
 

@@ -14,7 +14,7 @@ public class TwitterSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(d.a.y.a.j.a.sapi_sdk_title_login_twitter);
+        setTitleText(d.a.a0.a.j.a.sapi_sdk_title_login_twitter);
         this.sapiWebView.loadUrl(ParamsUtil.getUrlTwitterLogin(SapiAccountManager.getInstance().getConfignation()));
     }
 }

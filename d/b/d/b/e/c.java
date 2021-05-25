@@ -5,38 +5,38 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f65848a;
+    public String f65891a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f65849b;
+    public JSONObject f65892b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f65850c;
+    public boolean f65893c;
 
     public String a() {
-        return this.f65848a;
+        return this.f65891a;
     }
 
     public void b(String str) {
-        this.f65848a = str;
+        this.f65891a = str;
     }
 
     public void c(JSONObject jSONObject) {
-        this.f65849b = jSONObject;
+        this.f65892b = jSONObject;
     }
 
     public void d(boolean z) {
-        this.f65850c = z;
+        this.f65893c = z;
     }
 
     public JSONObject e() {
-        return this.f65849b;
+        return this.f65892b;
     }
 
     public void f(String str) {
     }
 
     public boolean g() {
-        return this.f65850c;
+        return this.f65893c;
     }
 }

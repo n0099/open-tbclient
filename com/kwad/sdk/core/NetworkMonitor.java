@@ -17,16 +17,16 @@ import java.util.List;
 public class NetworkMonitor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f32049a = false;
+    public static volatile boolean f31978a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<WeakReference<a>> f32050b;
+    public List<WeakReference<a>> f31979b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f32051c;
+    public boolean f31980c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BroadcastReceiver f32052d;
+    public final BroadcastReceiver f31981d;
 
     /* loaded from: classes6.dex */
     public enum Holder {
@@ -55,9 +55,9 @@ public class NetworkMonitor {
     }
 
     public NetworkMonitor() {
-        this.f32050b = Collections.synchronizedList(new LinkedList());
-        this.f32051c = false;
-        this.f32052d = new BroadcastReceiver() { // from class: com.kwad.sdk.core.NetworkMonitor.1
+        this.f31979b = Collections.synchronizedList(new LinkedList());
+        this.f31980c = false;
+        this.f31981d = new BroadcastReceiver() { // from class: com.kwad.sdk.core.NetworkMonitor.1
             @Override // android.content.BroadcastReceiver
             public void onReceive(@NonNull Context context, Intent intent) {
                 ConnectivityManager connectivityManager;
@@ -91,7 +91,7 @@ public class NetworkMonitor {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(NetworkState networkState) {
         a aVar;
-        Iterator<WeakReference<a>> it = this.f32050b.iterator();
+        Iterator<WeakReference<a>> it = this.f31979b.iterator();
         while (it.hasNext()) {
             WeakReference<a> next = it.next();
             if (next == null || (aVar = next.get()) == null) {

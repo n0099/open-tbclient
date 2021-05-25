@@ -43,6 +43,8 @@ import com.baidu.android.imsdk.chatmessage.request.IMSendMsgRequest;
 import com.baidu.android.imsdk.chatmessage.request.IMSyncDialog;
 import com.baidu.android.imsdk.chatmessage.request.IMSyncPushMsg;
 import com.baidu.android.imsdk.chatmessage.request.IMUnBindPushMsg;
+import com.baidu.android.imsdk.chatmessage.sync.DialogRecord;
+import com.baidu.android.imsdk.chatmessage.sync.DialogRecordDBManager;
 import com.baidu.android.imsdk.chatmessage.sync.Generator;
 import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
@@ -76,7 +78,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import com.bumptech.glide.load.engine.GlideException;
-import d.a.r.a;
+import d.a.s.a;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -373,22 +375,22 @@ public class ChatMsgManagerImpl {
     }
 
     private void mediaGetChatSessions(int i2, int i3, final long j, final IGetNewMsgCountListener iGetNewMsgCountListener) {
-        ChatSessionManagerImpl.getInstance(mContext).mediaGetChatSessions(j, Utility.getBusinessType(i2, i3), j, PaManagerImpl.getInstance(mContext).getPaThirdId(j), 0L, 1, new IMediaGetChatSessionListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.20
+        ChatSessionManagerImpl.getInstance(mContext).mediaGetChatSessions(j, Utility.getBusinessType(i2, i3), j, PaManagerImpl.getInstance(mContext).getPaThirdId(j), 0L, 1, 0, new IMediaGetChatSessionListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.20
             @Override // com.baidu.android.imsdk.chatmessage.IMediaGetChatSessionListener
-            public void onMediaGetChatSessionResult(int i4, int i5, boolean z, List<ChatSession> list) {
-                int i6;
+            public void onMediaGetChatSessionResult(int i4, int i5, int i6, boolean z, List<ChatSession> list) {
+                int i7;
                 if (i4 == 0 && list != null && list.size() > 0) {
                     for (ChatSession chatSession : list) {
                         String str = ChatMsgManagerImpl.TAG;
                         LogUtils.d(str, "b getPaNewMsgCount session = " + chatSession.toString());
                         if (chatSession.getPaid() == j) {
-                            i6 = (int) chatSession.getNewMsgSum();
+                            i7 = (int) chatSession.getNewMsgSum();
                             break;
                         }
                     }
                 }
-                i6 = 0;
-                iGetNewMsgCountListener.onGetNewMsgCount(i6);
+                i7 = 0;
+                iGetNewMsgCountListener.onGetNewMsgCount(i7);
             }
         });
     }
@@ -603,7 +605,7 @@ public class ChatMsgManagerImpl {
         }
         String addListener = ListenerManager.getInstance().addListener(iSendMessageListener);
         if (AccountManager.isLogin(mContext)) {
-            if (a.f64518e && chatMsg.getCategory() == 4) {
+            if (a.f64463e && chatMsg.getCategory() == 4) {
                 creatMethodIntent = Utility.createMcastMethodIntent(mContext, 55);
             } else {
                 creatMethodIntent = Utility.creatMethodIntent(mContext, 55);
@@ -611,7 +613,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_SEND_MSG, chatMsg);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                a.e(mContext).d(mContext, creatMethodIntent);
+                a.g(mContext).f(mContext, creatMethodIntent);
                 return;
             } catch (Exception e2) {
                 onSendMessageResult(6, chatMsg, -1L, addListener);
@@ -660,6 +662,31 @@ public class ChatMsgManagerImpl {
         intent.setPackage(context.getApplicationContext().getPackageName());
         intent.putExtra(IMConstants.MESSAGE, chatMsg);
         context.sendBroadcast(intent);
+    }
+
+    private void setMaxNotifyMsgid(ChatMsg chatMsg) {
+        if (chatMsg == null || chatMsg.getStatus() != 0) {
+            return;
+        }
+        int category = chatMsg.getCategory();
+        long contacter = chatMsg.getContacter();
+        long msgId = chatMsg.getMsgId();
+        String str = TAG;
+        LogUtils.d(str, "setMaxNotifyMsgid msgid = " + msgId + " category = " + category + " contacter = " + contacter);
+        if (category == 1) {
+            DialogRecord dialogRecord = DialogRecordDBManager.getInstance(mContext).getDialogRecord(category, contacter);
+            if (dialogRecord == null || dialogRecord.getMaxMsgid() >= msgId) {
+                return;
+            }
+            dialogRecord.setMaxMsgid(msgId);
+            DialogRecordDBManager.getInstance(mContext).add(dialogRecord);
+            return;
+        }
+        Context context = mContext;
+        if (msgId > Utility.readLongData(context, IMConstants.FETCHED_MAX_NOTIFY_MSGID + AccountManager.getAppid(mContext) + AccountManager.getUid(mContext), -1L)) {
+            Context context2 = mContext;
+            Utility.writeLongData(context2, IMConstants.FETCHED_MAX_NOTIFY_MSGID + AccountManager.getAppid(mContext) + AccountManager.getUid(mContext), msgId);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -732,7 +759,7 @@ public class ChatMsgManagerImpl {
                             }
                             IMessageReceiveListener next = it.next();
                             if (next != null) {
-                                next.onReceiveMessage(0, 0, filtMsgs);
+                                next.onReceiveMessage(0, 0, new ArrayList<>(filtMsgs));
                             }
                         }
                         int size = filtMsgs.size();
@@ -792,6 +819,8 @@ public class ChatMsgManagerImpl {
     }
 
     public long deleteAllMsgs(int i2, long j, boolean z) {
+        ChatSession chatRecord;
+        int i3 = 0;
         LogUtils.d(TAG, String.format("delete all msg category=%d, contacter=%d", Integer.valueOf(i2), Long.valueOf(j)));
         if (i2 == 17 || i2 == 26) {
             return deleteAllSmartMsgs(i2);
@@ -803,7 +832,11 @@ public class ChatMsgManagerImpl {
             return -1017L;
         }
         if (AccountManager.isLogin(mContext)) {
-            long deleteAllMsg = ChatMessageDBManager.getInstance(mContext).deleteAllMsg(getChatObject(i2, j, getPaid()));
+            ChatObject chatObject = getChatObject(i2, j, getPaid());
+            if (i2 == 1 && (chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(chatObject)) != null) {
+                i3 = chatRecord.getChatType();
+            }
+            long deleteAllMsg = ChatMessageDBManager.getInstance(mContext).deleteAllMsg(chatObject);
             if (deleteAllMsg < 0) {
                 return -1009L;
             }
@@ -812,9 +845,12 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra("contacter", j);
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, deleteAllMsg);
             creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
+            if (i3 > 0) {
+                creatMethodIntent.putExtra("chat_type", i3);
+            }
             tryPutPaid(creatMethodIntent);
             try {
-                a.e(mContext).d(mContext, creatMethodIntent);
+                a.g(mContext).f(mContext, creatMethodIntent);
             } catch (Exception e2) {
                 LogUtils.e(TAG, "Exception ", e2);
             }
@@ -840,7 +876,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, deleteAllMsg);
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
                 try {
-                    a.e(mContext).d(mContext, creatMethodIntent);
+                    a.g(mContext).f(mContext, creatMethodIntent);
                 } catch (Exception e2) {
                     LogUtils.e(TAG, "Exception ", e2);
                 }
@@ -855,6 +891,7 @@ public class ChatMsgManagerImpl {
     }
 
     public int deleteMsgs(int i2, long j, long[] jArr, boolean z) {
+        ChatSession chatRecord;
         if (i2 < 0 || j < 0 || jArr == null || jArr.length <= 0) {
             return -1005;
         }
@@ -862,6 +899,11 @@ public class ChatMsgManagerImpl {
             return DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL;
         }
         if (AccountManager.isLogin(mContext)) {
+            ChatObject chatObject = getChatObject(i2, j, getPaid());
+            int i3 = 0;
+            if (i2 == 1 && (chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(chatObject)) != null) {
+                i3 = chatRecord.getChatType();
+            }
             int deleteMsgBatch = ChatMessageDBManager.getInstance(mContext).deleteMsgBatch(getChatObject(i2, j, getPaid()), jArr);
             if (deleteMsgBatch >= 0) {
                 Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 57);
@@ -869,9 +911,12 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra("contacter", j);
                 creatMethodIntent.putExtra(Constants.EXTRA_DEL_MSG_IDS, jArr);
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
+                if (i3 > 0) {
+                    creatMethodIntent.putExtra("chat_type", i3);
+                }
                 tryPutPaid(creatMethodIntent);
                 try {
-                    a.e(mContext).d(mContext, creatMethodIntent);
+                    a.g(mContext).f(mContext, creatMethodIntent);
                 } catch (Exception e2) {
                     LogUtils.e(TAG, "Exception ", e2);
                 }
@@ -966,7 +1011,7 @@ public class ChatMsgManagerImpl {
         creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_CURSOR, j);
         creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_LIMIT, j2);
         try {
-            a.e(mContext).d(mContext, creatMethodIntent);
+            a.g(mContext).f(mContext, creatMethodIntent);
         } catch (Exception e2) {
             LogUtils.e(TAG, "Exception ", e2);
         }
@@ -1018,7 +1063,7 @@ public class ChatMsgManagerImpl {
         LogUtils.i(str, " category: " + i2 + " contacter: " + j + " beginMsgid: " + j2 + " endMsgid: " + j3 + " count: " + i3 + " triggerReason: " + i4 + " jumpToRecentMsg: " + i5 + " key: " + addListener);
         if (j2 >= 0 && j3 >= 0) {
             if (AccountManager.isLogin(context)) {
-                if (a.f64518e && i2 == 4) {
+                if (a.f64463e && i2 == 4) {
                     creatMethodIntent = Utility.createMcastMethodIntent(context, 93);
                 } else {
                     creatMethodIntent = Utility.creatMethodIntent(context, 93);
@@ -1033,7 +1078,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_JUMP_MSG, i5);
                 creatMethodIntent.putExtra(Constants.EXTRA_RETRY_TIME, i6);
                 try {
-                    a.e(mContext).d(mContext, creatMethodIntent);
+                    a.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e2) {
                     onFetchMsgByIdResult(context, 6, "start service exception", i2, j, j2, j3, i3, -1, 0L, null, null, addListener);
@@ -1403,6 +1448,7 @@ public class ChatMsgManagerImpl {
                 }
                 DBManager.getInstance(mContext).deleteCmdMsg(getMsgUUid(chatMsg));
                 updateChatMsgStatus(chatMsg, i2);
+                setMaxNotifyMsgid(chatMsg);
                 IMListener removeListener2 = ListenerManager.getInstance().removeListener(str);
                 if (removeListener2 != null && (removeListener2 instanceof ISendMessageListener)) {
                     ((ISendMessageListener) removeListener2).onSendMessageResult(i2, chatMsg);
@@ -1575,7 +1621,11 @@ public class ChatMsgManagerImpl {
                 onSendMessageResult(1017, chatMsg, -1L, addListener);
             }
             if (3 == IMConfigInternal.getInstance().getProductLine(mContext) && chatMsg.getCategory() == 1) {
-                chatMsg.setMinSdkVersion(2300000L);
+                if (chatMsg.getChatType() == 57) {
+                    chatMsg.setMinSdkVersion(7300000L);
+                } else {
+                    chatMsg.setMinSdkVersion(2300000L);
+                }
             }
             if (AccountManager.isLogin(mContext)) {
                 if (saveMessage(chatMsg) == 1) {
@@ -1583,7 +1633,7 @@ public class ChatMsgManagerImpl {
                     creatMethodIntent.putExtra(Constants.EXTRA_SEND_MSG, chatMsg);
                     creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                     try {
-                        a.e(mContext).d(mContext, creatMethodIntent);
+                        a.g(mContext).f(mContext, creatMethodIntent);
                         return;
                     } catch (Exception e2) {
                         onSendMessageResult(6, chatMsg, -1L, addListener);
@@ -1674,7 +1724,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
                 tryPutPaid(creatMethodIntent);
                 try {
-                    a.e(mContext).d(mContext, creatMethodIntent);
+                    a.g(mContext).f(mContext, creatMethodIntent);
                 } catch (Exception e2) {
                     LogUtils.e(TAG, "Exception ", e2);
                 }
@@ -1722,7 +1772,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
             tryPutPaid(creatMethodIntent);
             try {
-                a.e(mContext).d(mContext, creatMethodIntent);
+                a.g(mContext).f(mContext, creatMethodIntent);
                 return true;
             } catch (Exception e2) {
                 LogUtils.e(TAG, "Exception ", e2);
@@ -1743,7 +1793,7 @@ public class ChatMsgManagerImpl {
             ArrayList arrayList2 = new ArrayList();
             for (Integer num : list) {
                 int intValue = num.intValue();
-                if (intValue != 3 && intValue != 4) {
+                if (intValue != 3 && intValue != 4 && intValue != 57) {
                     arrayList2.add(Integer.valueOf(intValue));
                 } else {
                     arrayList.add(Integer.valueOf(intValue));
@@ -1754,7 +1804,11 @@ public class ChatMsgManagerImpl {
                 Iterator<ChatSession> it = chatRecords.iterator();
                 while (it.hasNext()) {
                     ChatSession next = it.next();
-                    if (next.getNewMsgSum() > 0) {
+                    if (next.getNewMsgSum() <= 0) {
+                        if (next.getChatType() == 57) {
+                            next.setNewFansAtMsgSum(0);
+                        }
+                    } else {
                         setBeforeMsgRead(1, next.getContacter(), j <= 0 ? ChatMessageDBManager.getInstance(mContext).getMaxMsgid(getChatObject(1, next.getContacter(), getPaid())) : j, false);
                     }
                 }
@@ -1785,7 +1839,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
                 tryPutPaid(creatMethodIntent);
                 try {
-                    a.e(mContext).d(mContext, creatMethodIntent);
+                    a.g(mContext).f(mContext, creatMethodIntent);
                 } catch (Exception e2) {
                     LogUtils.e(TAG, "Exception ", e2);
                 }
@@ -1823,7 +1877,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
                 tryPutPaid(creatMethodIntent);
                 try {
-                    a.e(mContext).d(mContext, creatMethodIntent);
+                    a.g(mContext).f(mContext, creatMethodIntent);
                 } catch (Exception e2) {
                     LogUtils.e(TAG, "Exception ", e2);
                 }
@@ -1857,7 +1911,7 @@ public class ChatMsgManagerImpl {
                 BindStateManager.saveUnBindInfo(mContext, AccountManager.getToken(mContext), Utility.getIMDeviceId(mContext), Long.valueOf(AccountManager.getUK(mContext)));
                 Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 92);
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-                a.e(mContext).d(mContext, creatMethodIntent);
+                a.g(mContext).f(mContext, creatMethodIntent);
                 return;
             } catch (Exception e2) {
                 onUnRegisterNotifyResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR);

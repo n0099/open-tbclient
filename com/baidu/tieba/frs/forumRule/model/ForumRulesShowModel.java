@@ -18,8 +18,8 @@ import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
 import com.baidu.tieba.frs.forumRule.message.ForumRuleDetailHttpResMsg;
 import com.baidu.tieba.frs.forumRule.message.ForumRuleDetailReqMsg;
 import com.baidu.tieba.frs.forumRule.message.ForumRuleDetailScoketResMsg;
-import d.a.k0.q0.q1.c.b;
-import d.a.k0.q0.q1.c.c;
+import d.a.n0.r0.q1.c.b;
+import d.a.n0.r0.q1.c.c;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,23 +31,23 @@ import tbclient.PbContent;
 public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumRulesShowActivity f15472e;
+    public ForumRulesShowActivity f15375e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15473f;
+    public String f15376f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15474g;
+    public String f15377g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15475h;
+    public int f15378h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f15476i;
+    public String f15379i;
     public String j;
     public b k;
     public ForumRuleBaseData l;
-    public d.a.k0.q0.q1.b.a m;
+    public d.a.n0.r0.q1.b.a m;
     public d.a.c.c.g.a n;
 
     /* loaded from: classes4.dex */
@@ -94,7 +94,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
         this.k = null;
         this.l = null;
         this.n = new a(CmdConfigHttp.CMD_FORUM_RULES_SHOW, 309690);
-        this.f15472e = forumRulesShowActivity;
+        this.f15375e = forumRulesShowActivity;
         C();
         initListener();
     }
@@ -120,18 +120,18 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     }
 
     public final void C() {
-        d.a.k0.d3.d0.a.h(309690, ForumRuleDetailScoketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, d.a.k0.d3.d0.a.a(TbConfig.FORUM_RULES_SHOW, 309690));
+        d.a.n0.e3.d0.a.h(309690, ForumRuleDetailScoketResMsg.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, d.a.n0.e3.d0.a.a(TbConfig.FORUM_RULES_SHOW, 309690));
         tbHttpMessageTask.setResponsedClass(ForumRuleDetailHttpResMsg.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void D() {
-        super.sendMessage(w(this.f15473f));
+        super.sendMessage(w(this.f15376f));
     }
 
-    public void E(d.a.k0.q0.q1.b.a aVar) {
+    public void E(d.a.n0.r0.q1.b.a aVar) {
         this.m = aVar;
     }
 
@@ -169,7 +169,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     }
 
     public void destory() {
-        this.f15472e = null;
+        this.f15375e = null;
         MessageManager.getInstance().unRegisterListener(this.n);
     }
 
@@ -182,12 +182,12 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.f15473f = intent.getStringExtra("forum_id");
+            this.f15376f = intent.getStringExtra("forum_id");
             this.j = intent.getStringExtra("from");
-            this.f15474g = intent.getStringExtra("forum_name");
-            this.f15476i = intent.getStringExtra("url");
-            this.f15475h = intent.getIntExtra(IntentConfig.USER_LEVEL, 1);
-            this.f15472e.setFrom(this.j);
+            this.f15377g = intent.getStringExtra("forum_name");
+            this.f15379i = intent.getStringExtra("url");
+            this.f15378h = intent.getIntExtra(IntentConfig.USER_LEVEL, 1);
+            this.f15375e.setFrom(this.j);
             if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.j)) {
                 this.l = (ForumRuleBaseData) intent.getSerializableExtra(IntentConfig.DATAS);
                 x();
@@ -214,18 +214,18 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
             BawuRoleInfoPub.Builder builder = new BawuRoleInfoPub.Builder();
             builder.portrait = TbadkCoreApplication.getCurrentPortrait();
             builder.name_show = TbadkCoreApplication.getCurrentAccountNameShow();
-            builder.user_level = Integer.valueOf(this.f15475h);
+            builder.user_level = Integer.valueOf(this.f15378h);
             bVar.s(builder.build(true));
             ForumInfo.Builder builder2 = new ForumInfo.Builder();
-            builder2.forum_name = this.f15474g;
+            builder2.forum_name = this.f15377g;
             bVar.t(builder2.build(true));
             bVar.u(false);
             bVar.v(this.l.getPreface());
             this.m.f(bVar);
             F();
-            d.a.k0.q0.q1.c.a aVar = new d.a.k0.q0.q1.c.a();
-            aVar.m(this.f15474g);
-            aVar.l(this.f15476i);
+            d.a.n0.r0.q1.c.a aVar = new d.a.n0.r0.q1.c.a();
+            aVar.m(this.f15377g);
+            aVar.l(this.f15379i);
             aVar.o(TbadkCoreApplication.getCurrentAccountNameShow());
             aVar.p(TbadkCoreApplication.getCurrentPortrait());
             this.m.c(aVar);
@@ -236,7 +236,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     public void y(Bundle bundle) {
         ForumRulesShowActivity forumRulesShowActivity;
         setUniqueId(getUniqueId());
-        if (bundle == null && (forumRulesShowActivity = this.f15472e) != null) {
+        if (bundle == null && (forumRulesShowActivity = this.f15375e) != null) {
             initWithIntent(forumRulesShowActivity.getIntent());
         } else {
             initWithBundle(bundle);

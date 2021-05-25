@@ -18,31 +18,31 @@ import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.model.SwanAppBearInfo;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.facebook.drawee.view.SimpleDraweeView;
-import d.a.i0.a.e;
-import d.a.i0.a.f;
-import d.a.i0.a.g;
-import d.a.i0.a.h;
-import d.a.i0.a.k;
+import d.a.l0.a.e;
+import d.a.l0.a.f;
+import d.a.l0.a.g;
+import d.a.l0.a.h;
+import d.a.l0.a.k;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes3.dex */
 public class BearLayout extends LinearLayout {
-    public static final boolean n = k.f43025a;
+    public static final boolean n = k.f43199a;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f11412e;
+    public TextView f11313e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleDraweeView f11413f;
+    public SimpleDraweeView f11314f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdBaseImageView f11414g;
+    public BdBaseImageView f11315g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f11415h;
+    public FrameLayout f11316h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f11416i;
+    public TextView f11317i;
     public BdBaseImageView j;
     public boolean k;
     public d l;
@@ -52,15 +52,15 @@ public class BearLayout extends LinearLayout {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppBearInfo f11417e;
+        public final /* synthetic */ SwanAppBearInfo f11318e;
 
         public a(SwanAppBearInfo swanAppBearInfo) {
-            this.f11417e = swanAppBearInfo;
+            this.f11318e = swanAppBearInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            BearLayout.this.j(this.f11417e.bearHomeUrl);
+            BearLayout.this.j(this.f11318e.bearHomeUrl);
         }
     }
 
@@ -68,24 +68,24 @@ public class BearLayout extends LinearLayout {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.i0.a.w2.a f11419e;
+        public final /* synthetic */ d.a.l0.a.w2.a f11320e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppBearInfo f11420f;
+        public final /* synthetic */ SwanAppBearInfo f11321f;
 
-        public b(d.a.i0.a.w2.a aVar, SwanAppBearInfo swanAppBearInfo) {
-            this.f11419e = aVar;
-            this.f11420f = swanAppBearInfo;
+        public b(d.a.l0.a.w2.a aVar, SwanAppBearInfo swanAppBearInfo) {
+            this.f11320e = aVar;
+            this.f11321f = swanAppBearInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!BearLayout.this.k) {
                 BearLayout.this.l();
-                this.f11419e.b();
+                this.f11320e.b();
                 return;
             }
-            BearLayout.this.j(this.f11420f.bearHomeUrl);
+            BearLayout.this.j(this.f11321f.bearHomeUrl);
         }
     }
 
@@ -97,17 +97,17 @@ public class BearLayout extends LinearLayout {
         @Override // com.baidu.swan.apps.view.BearLayout.d
         public void a(boolean z) {
             BearLayout.this.k = z;
-            if (BearLayout.this.j == null || BearLayout.this.f11416i == null) {
+            if (BearLayout.this.j == null || BearLayout.this.f11317i == null) {
                 return;
             }
             BearLayout.this.j.clearAnimation();
             BearLayout.this.j.setVisibility(4);
-            BearLayout.this.f11416i.setVisibility(0);
-            TextView textView = BearLayout.this.f11416i;
+            BearLayout.this.f11317i.setVisibility(0);
+            TextView textView = BearLayout.this.f11317i;
             BearLayout bearLayout = BearLayout.this;
             textView.setText(z ? bearLayout.m.getText(h.aiapps_check_action_text) : bearLayout.m.getText(h.aiapps_follow_action_text));
-            BearLayout.this.f11416i.setTextColor(z ? -16777216 : -1);
-            BearLayout.this.f11415h.setBackgroundResource(z ? e.aiapps_bear_paw_enter_btn : e.aiapps_bear_paw_follow_btn);
+            BearLayout.this.f11317i.setTextColor(z ? -16777216 : -1);
+            BearLayout.this.f11316h.setBackgroundResource(z ? e.aiapps_bear_paw_enter_btn : e.aiapps_bear_paw_follow_btn);
         }
 
         @Override // com.baidu.swan.apps.view.BearLayout.d
@@ -115,12 +115,12 @@ public class BearLayout extends LinearLayout {
             if (BearLayout.n) {
                 Log.d("BearLayout", str);
             }
-            if (BearLayout.this.j == null || BearLayout.this.f11416i == null) {
+            if (BearLayout.this.j == null || BearLayout.this.f11317i == null) {
                 return;
             }
             BearLayout.this.j.clearAnimation();
             BearLayout.this.j.setVisibility(4);
-            BearLayout.this.f11416i.setVisibility(0);
+            BearLayout.this.f11317i.setVisibility(0);
         }
     }
 
@@ -137,11 +137,11 @@ public class BearLayout extends LinearLayout {
     }
 
     private void setVipLogo(String str) {
-        if (this.f11414g == null) {
+        if (this.f11315g == null) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            this.f11414g.setVisibility(8);
+            this.f11315g.setVisibility(8);
             return;
         }
         int i2 = e.aiapps_follow_vip_golden;
@@ -178,8 +178,8 @@ public class BearLayout extends LinearLayout {
         } else if (c2 == 3) {
             i2 = e.aiapps_follow_vip_authentication;
         }
-        this.f11414g.setVisibility(0);
-        this.f11414g.setImageDrawable(this.m.getResources().getDrawable(i2));
+        this.f11315g.setVisibility(0);
+        this.f11315g.setImageDrawable(this.m.getResources().getDrawable(i2));
     }
 
     public d getCallback() {
@@ -203,21 +203,21 @@ public class BearLayout extends LinearLayout {
         SchemeRouter.invoke(getContext(), "baiduboxapp://v1/easybrowse/open?url=" + str + "&newbrowser=1&forbidautorotate=1");
     }
 
-    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, d.a.i0.a.w2.a aVar) {
+    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, d.a.l0.a.w2.a aVar) {
         this.m = context;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(g.aiapps_bear_layout, this);
         linearLayout.setOnClickListener(new a(swanAppBearInfo));
         TextView textView = (TextView) linearLayout.findViewById(f.bear_account_name);
-        this.f11412e = textView;
+        this.f11313e = textView;
         textView.setText(swanAppBearInfo.bearName);
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(f.bear_account_logo);
-        this.f11413f = simpleDraweeView;
+        this.f11314f = simpleDraweeView;
         simpleDraweeView.setImageURI(swanAppBearInfo.bearLogo);
-        this.f11414g = (BdBaseImageView) linearLayout.findViewById(f.bear_account_vip_logo);
+        this.f11315g = (BdBaseImageView) linearLayout.findViewById(f.bear_account_vip_logo);
         setVipLogo(swanAppBearInfo.bearVipType);
-        this.f11415h = (FrameLayout) linearLayout.findViewById(f.bear_account_follow_background);
+        this.f11316h = (FrameLayout) linearLayout.findViewById(f.bear_account_follow_background);
         TextView textView2 = (TextView) linearLayout.findViewById(f.bear_account_follow_btn);
-        this.f11416i = textView2;
+        this.f11317i = textView2;
         textView2.setOnClickListener(new b(aVar, swanAppBearInfo));
         BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(f.bear_account_loading_progress);
         this.j = bdBaseImageView;
@@ -227,7 +227,7 @@ public class BearLayout extends LinearLayout {
 
     public final void l() {
         TextView textView;
-        if (this.j == null || (textView = this.f11416i) == null) {
+        if (this.j == null || (textView = this.f11317i) == null) {
             return;
         }
         textView.setVisibility(4);

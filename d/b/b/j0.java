@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.webkit.internal.ETAG;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j0 extends z {
     public long m;
     public long n;
@@ -42,14 +42,14 @@ public class j0 extends z {
     @Override // d.b.b.z
     public JSONObject i() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("local_time_ms", this.f65099e);
-        jSONObject.put("tea_event_index", this.f65100f);
-        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65101g);
+        jSONObject.put("local_time_ms", this.f65142e);
+        jSONObject.put("tea_event_index", this.f65143f);
+        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65144g);
         jSONObject.put("stop_timestamp", this.n);
         jSONObject.put("duration", this.m / 1000);
         jSONObject.put("datetime", this.k);
-        if (!TextUtils.isEmpty(this.f65103i)) {
-            jSONObject.put("ab_version", this.f65103i);
+        if (!TextUtils.isEmpty(this.f65146i)) {
+            jSONObject.put("ab_version", this.f65146i);
         }
         if (!TextUtils.isEmpty(this.j)) {
             jSONObject.put("ab_sdk_version", this.j);

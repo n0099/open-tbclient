@@ -11,31 +11,31 @@ import javax.net.ssl.SSLSocketFactory;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.a.b.s f65459a;
+    public final com.bytedance.sdk.a.b.s f65502a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final s f65460b;
+    public final s f65503b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final SocketFactory f65461c;
+    public final SocketFactory f65504c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final f f65462d;
+    public final f f65505d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<com.bytedance.sdk.a.b.w> f65463e;
+    public final List<com.bytedance.sdk.a.b.w> f65506e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<o> f65464f;
+    public final List<o> f65507f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ProxySelector f65465g;
+    public final ProxySelector f65508g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Proxy f65466h;
+    public final Proxy f65509h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final SSLSocketFactory f65467i;
+    public final SSLSocketFactory f65510i;
     public final HostnameVerifier j;
     public final k k;
 
@@ -44,21 +44,21 @@ public final class b {
         aVar.d(sSLSocketFactory != null ? "https" : "http");
         aVar.n(str);
         aVar.c(i2);
-        this.f65459a = aVar.l();
+        this.f65502a = aVar.l();
         if (sVar != null) {
-            this.f65460b = sVar;
+            this.f65503b = sVar;
             if (socketFactory != null) {
-                this.f65461c = socketFactory;
+                this.f65504c = socketFactory;
                 if (fVar != null) {
-                    this.f65462d = fVar;
+                    this.f65505d = fVar;
                     if (list != null) {
-                        this.f65463e = d.b.c.a.b.a.e.m(list);
+                        this.f65506e = d.b.c.a.b.a.e.m(list);
                         if (list2 != null) {
-                            this.f65464f = d.b.c.a.b.a.e.m(list2);
+                            this.f65507f = d.b.c.a.b.a.e.m(list2);
                             if (proxySelector != null) {
-                                this.f65465g = proxySelector;
-                                this.f65466h = proxy;
-                                this.f65467i = sSLSocketFactory;
+                                this.f65508g = proxySelector;
+                                this.f65509h = proxy;
+                                this.f65510i = sSLSocketFactory;
                                 this.j = hostnameVerifier;
                                 this.k = kVar;
                                 return;
@@ -77,29 +77,29 @@ public final class b {
     }
 
     public com.bytedance.sdk.a.b.s a() {
-        return this.f65459a;
+        return this.f65502a;
     }
 
     public boolean b(b bVar) {
-        return this.f65460b.equals(bVar.f65460b) && this.f65462d.equals(bVar.f65462d) && this.f65463e.equals(bVar.f65463e) && this.f65464f.equals(bVar.f65464f) && this.f65465g.equals(bVar.f65465g) && d.b.c.a.b.a.e.u(this.f65466h, bVar.f65466h) && d.b.c.a.b.a.e.u(this.f65467i, bVar.f65467i) && d.b.c.a.b.a.e.u(this.j, bVar.j) && d.b.c.a.b.a.e.u(this.k, bVar.k) && a().w() == bVar.a().w();
+        return this.f65503b.equals(bVar.f65503b) && this.f65505d.equals(bVar.f65505d) && this.f65506e.equals(bVar.f65506e) && this.f65507f.equals(bVar.f65507f) && this.f65508g.equals(bVar.f65508g) && d.b.c.a.b.a.e.u(this.f65509h, bVar.f65509h) && d.b.c.a.b.a.e.u(this.f65510i, bVar.f65510i) && d.b.c.a.b.a.e.u(this.j, bVar.j) && d.b.c.a.b.a.e.u(this.k, bVar.k) && a().w() == bVar.a().w();
     }
 
     public s c() {
-        return this.f65460b;
+        return this.f65503b;
     }
 
     public SocketFactory d() {
-        return this.f65461c;
+        return this.f65504c;
     }
 
     public f e() {
-        return this.f65462d;
+        return this.f65505d;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof b) {
             b bVar = (b) obj;
-            if (this.f65459a.equals(bVar.f65459a) && b(bVar)) {
+            if (this.f65502a.equals(bVar.f65502a) && b(bVar)) {
                 return true;
             }
         }
@@ -107,22 +107,22 @@ public final class b {
     }
 
     public List<com.bytedance.sdk.a.b.w> f() {
-        return this.f65463e;
+        return this.f65506e;
     }
 
     public List<o> g() {
-        return this.f65464f;
+        return this.f65507f;
     }
 
     public ProxySelector h() {
-        return this.f65465g;
+        return this.f65508g;
     }
 
     public int hashCode() {
-        int hashCode = (((((((((((527 + this.f65459a.hashCode()) * 31) + this.f65460b.hashCode()) * 31) + this.f65462d.hashCode()) * 31) + this.f65463e.hashCode()) * 31) + this.f65464f.hashCode()) * 31) + this.f65465g.hashCode()) * 31;
-        Proxy proxy = this.f65466h;
+        int hashCode = (((((((((((527 + this.f65502a.hashCode()) * 31) + this.f65503b.hashCode()) * 31) + this.f65505d.hashCode()) * 31) + this.f65506e.hashCode()) * 31) + this.f65507f.hashCode()) * 31) + this.f65508g.hashCode()) * 31;
+        Proxy proxy = this.f65509h;
         int hashCode2 = (hashCode + (proxy != null ? proxy.hashCode() : 0)) * 31;
-        SSLSocketFactory sSLSocketFactory = this.f65467i;
+        SSLSocketFactory sSLSocketFactory = this.f65510i;
         int hashCode3 = (hashCode2 + (sSLSocketFactory != null ? sSLSocketFactory.hashCode() : 0)) * 31;
         HostnameVerifier hostnameVerifier = this.j;
         int hashCode4 = (hashCode3 + (hostnameVerifier != null ? hostnameVerifier.hashCode() : 0)) * 31;
@@ -131,11 +131,11 @@ public final class b {
     }
 
     public Proxy i() {
-        return this.f65466h;
+        return this.f65509h;
     }
 
     public SSLSocketFactory j() {
-        return this.f65467i;
+        return this.f65510i;
     }
 
     public HostnameVerifier k() {
@@ -149,15 +149,15 @@ public final class b {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Address{");
-        sb.append(this.f65459a.v());
+        sb.append(this.f65502a.v());
         sb.append(":");
-        sb.append(this.f65459a.w());
-        if (this.f65466h != null) {
+        sb.append(this.f65502a.w());
+        if (this.f65509h != null) {
             sb.append(", proxy=");
-            sb.append(this.f65466h);
+            sb.append(this.f65509h);
         } else {
             sb.append(", proxySelector=");
-            sb.append(this.f65465g);
+            sb.append(this.f65508g);
         }
         sb.append("}");
         return sb.toString();

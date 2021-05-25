@@ -18,11 +18,11 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistModel;
 import d.a.c.j.e.n;
-import d.a.j0.r.q.a2;
-import d.a.k0.c1.c.j;
-import d.a.k0.c1.d.d;
-import d.a.k0.q0.q0;
-import d.a.k0.q0.s0;
+import d.a.m0.r.q.a2;
+import d.a.n0.d1.c.j;
+import d.a.n0.d1.d.d;
+import d.a.n0.r0.q0;
+import d.a.n0.r0.s0;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Media;
@@ -31,21 +31,21 @@ import tbclient.TopicList.TopicList;
 public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public HotRanklistModel f16855e;
+    public HotRanklistModel f16765e;
 
     /* renamed from: f  reason: collision with root package name */
-    public j f16856f;
+    public j f16766f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f16857g;
+    public d f16767g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f16858h;
+    public long f16768h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f16859i;
+    public String f16769i;
     public String j;
-    public d.a.j0.d0.c k;
+    public d.a.m0.d0.c k;
     public CustomMessageListener l = new a(2921397);
     public HotRanklistModel.b m = new b();
     public CustomMessageListener n = new c(2001624);
@@ -76,16 +76,16 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
         public void loadNetDataCallback(boolean z, j jVar, int i2, String str) {
             FrsHottopicFragment.this.n();
             FrsHottopicFragment.this.O0();
-            FrsHottopicFragment.this.f16857g.h(false);
+            FrsHottopicFragment.this.f16767g.h(false);
             if (z) {
-                FrsHottopicFragment.this.f16856f = jVar;
-                d dVar = FrsHottopicFragment.this.f16857g;
+                FrsHottopicFragment.this.f16766f = jVar;
+                d dVar = FrsHottopicFragment.this.f16767g;
                 FrsHottopicFragment frsHottopicFragment = FrsHottopicFragment.this;
-                dVar.e(frsHottopicFragment.M0(frsHottopicFragment.f16856f));
+                dVar.e(frsHottopicFragment.M0(frsHottopicFragment.f16766f));
                 if (FrsHottopicFragment.this.N0()) {
                     return;
                 }
-                FrsHottopicFragment.this.f16857g.i();
+                FrsHottopicFragment.this.f16767g.i();
             } else if (FrsHottopicFragment.this.N0()) {
             } else {
                 FrsHottopicFragment.this.R0();
@@ -113,9 +113,9 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
         }
     }
 
-    @Override // d.a.k0.q0.q0
+    @Override // d.a.n0.r0.q0
     public void B0() {
-        this.f16857g.d();
+        this.f16767g.d();
     }
 
     public final List<n> M0(j jVar) {
@@ -126,19 +126,19 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
         for (TopicList topicList : jVar.a()) {
             if (topicList != null) {
                 a2 a2Var = new a2();
-                a2Var.o4(topicList.topic_tid + "");
-                a2Var.F3(topicList.video_info);
-                a2Var.w3(this.f16858h);
-                a2Var.x3(this.f16859i);
-                a2Var.f4(this.j);
-                a2Var.q4(topicList.topic_h5_url);
+                a2Var.p4(topicList.topic_tid + "");
+                a2Var.G3(topicList.video_info);
+                a2Var.x3(this.f16768h);
+                a2Var.y3(this.f16769i);
+                a2Var.g4(this.j);
+                a2Var.r4(topicList.topic_h5_url);
                 MetaData metaData = new MetaData();
                 metaData.setUserName(topicList.topic_name);
-                a2Var.s3(metaData);
-                a2Var.S3(topicList.update_time.longValue());
-                a2Var.p4(topicList.topic_desc);
-                a2Var.r4(topicList.topic_user_name);
-                a2Var.M3();
+                a2Var.t3(metaData);
+                a2Var.T3(topicList.update_time.longValue());
+                a2Var.q4(topicList.topic_desc);
+                a2Var.s4(topicList.topic_user_name);
+                a2Var.N3();
                 ArrayList<MediaData> arrayList2 = new ArrayList<>();
                 List<Media> list = topicList.media;
                 if (list != null) {
@@ -148,7 +148,7 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
                         arrayList2.add(mediaData);
                     }
                 }
-                a2Var.X3(arrayList2);
+                a2Var.Y3(arrayList2);
                 arrayList.add(a2Var);
             }
         }
@@ -156,21 +156,21 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
     }
 
     public final boolean N0() {
-        return this.f16857g.b();
+        return this.f16767g.b();
     }
 
     public final void O0() {
-        this.f16857g.g(true);
-        d.a.j0.d0.c cVar = this.k;
+        this.f16767g.g(true);
+        d.a.m0.d0.c cVar = this.k;
         if (cVar != null && cVar.isViewAttached()) {
-            this.k.dettachView(this.f16857g.a());
+            this.k.dettachView(this.f16767g.a());
         }
         MessageManager.getInstance().unRegisterListener(this.l);
     }
 
     public final void P0() {
         if (isPrimary()) {
-            d.a.j0.d0.c cVar = this.k;
+            d.a.m0.d0.c cVar = this.k;
             if (cVar == null || !cVar.isViewAttached()) {
                 return;
             }
@@ -181,15 +181,15 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
     }
 
     public final void Q0() {
-        this.f16857g.g(false);
-        showLoadingView(this.f16857g.a(), true, getResources().getDimensionPixelSize(R.dimen.ds250));
+        this.f16767g.g(false);
+        showLoadingView(this.f16767g.a(), true, getResources().getDimensionPixelSize(R.dimen.ds250));
     }
 
     public final void R0() {
-        this.f16857g.g(false);
+        this.f16767g.g(false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
         if (this.k == null) {
-            d.a.j0.d0.c cVar = new d.a.j0.d0.c(getPageContext().getContext(), getNetRefreshListener());
+            d.a.m0.d0.c cVar = new d.a.m0.d0.c(getPageContext().getContext(), getNetRefreshListener());
             this.k = cVar;
             cVar.e(null);
             this.k.d(null);
@@ -198,7 +198,7 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
             this.k.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
         this.k.onChangeSkinType();
-        this.k.attachView(this.f16857g.a(), true);
+        this.k.attachView(this.f16767g.a(), true);
         MessageManager.getInstance().registerListener(this.l);
     }
 
@@ -210,28 +210,28 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
         return tbPageTag;
     }
 
-    @Override // d.a.k0.q0.s0
+    @Override // d.a.n0.r0.s0
     public void k() {
     }
 
-    @Override // d.a.k0.q0.s0
+    @Override // d.a.n0.r0.s0
     public void m() {
         refresh();
     }
 
     public final void n() {
-        this.f16857g.g(true);
-        hideLoadingView(this.f16857g.a());
+        this.f16767g.g(true);
+        hideLoadingView(this.f16767g.a());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        d dVar = this.f16857g;
+        d dVar = this.f16767g;
         if (dVar != null) {
             dVar.c();
         }
-        d.a.j0.d0.c cVar = this.k;
+        d.a.m0.d0.c cVar = this.k;
         if (cVar == null || !cVar.isViewAttached()) {
             return;
         }
@@ -242,14 +242,14 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         HotRanklistModel hotRanklistModel = new HotRanklistModel(getPageContext());
-        this.f16855e = hotRanklistModel;
+        this.f16765e = hotRanklistModel;
         hotRanklistModel.x(this.m);
         registerListener(this.n);
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.f16858h = d.a.c.e.m.b.f(arguments.getString("fid"), 0L);
+            this.f16768h = d.a.c.e.m.b.f(arguments.getString("fid"), 0L);
             arguments.getString("from");
-            this.f16859i = arguments.getString("first_class_name");
+            this.f16769i = arguments.getString("first_class_name");
             this.j = arguments.getString("second_class_name");
         }
     }
@@ -258,7 +258,7 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.frs_hottopic_fragment, (ViewGroup) null);
         d dVar = new d(this, inflate, getPageContext());
-        this.f16857g = dVar;
+        this.f16767g = dVar;
         dVar.f(getTbPageTag());
         return inflate;
     }
@@ -279,7 +279,7 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
-        TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f16858h).param("obj_type", 2).param("obj_locate", 2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f16768h).param("obj_type", 2).param("obj_locate", 2).param("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -301,17 +301,17 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
             return;
         }
         O0();
-        this.f16857g.d();
+        this.f16767g.d();
         if (!N0()) {
             Q0();
         } else {
-            this.f16857g.h(true);
+            this.f16767g.h(true);
         }
-        this.f16855e.cancelLoadData();
-        this.f16855e.u("frs", "frstab", "0", this.f16858h);
+        this.f16765e.cancelLoadData();
+        this.f16765e.u("frs", "frstab", "0", this.f16768h);
     }
 
-    @Override // d.a.k0.q0.q0
+    @Override // d.a.n0.r0.q0
     public void t() {
         refresh();
     }

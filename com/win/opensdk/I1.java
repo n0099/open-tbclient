@@ -8,60 +8,60 @@ import com.win.opensdk.core.Info;
 public class I1 implements e1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f36906a;
+    public String f36835a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f36907b;
+    public Context f36836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f36908c;
+    public boolean f36837c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36909d;
+    public boolean f36838d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f36910e;
+    public boolean f36839e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Info f36911f;
+    public Info f36840f;
 
     /* renamed from: g  reason: collision with root package name */
-    public K f36912g;
+    public K f36841g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PBVideoListener f36913h;
+    public PBVideoListener f36842h;
 
     /* renamed from: i  reason: collision with root package name */
-    public K0 f36914i;
+    public K0 f36843i;
     public long j;
     public Handler k = new F1(this);
 
     public I1(Context context, String str) {
-        this.f36907b = context;
-        this.f36906a = str;
+        this.f36836b = context;
+        this.f36835a = str;
     }
 
     public final void a(Info info) {
         boolean z = false;
-        this.f36910e = false;
-        this.f36911f = info;
+        this.f36839e = false;
+        this.f36840f = info;
         this.j = System.currentTimeMillis();
-        if (b() && this.f36911f.getType() == 41) {
+        if (b() && this.f36840f.getType() == 41) {
             z = true;
         }
         if (z) {
             if (a()) {
-                this.f36913h.onLoaded();
+                this.f36842h.onLoaded();
                 return;
             }
-            K k = new K(this.f36907b);
-            this.f36912g = k;
-            k.f36920a = new H1(this);
-            this.f36912g.a(this.f36911f.getLoad(), this.f36911f);
-            this.k.sendEmptyMessageDelayed(11, this.f36911f.getWt() * 1000);
+            K k = new K(this.f36836b);
+            this.f36841g = k;
+            k.f36849a = new H1(this);
+            this.f36841g.a(this.f36840f.getLoad(), this.f36840f);
+            this.k.sendEmptyMessageDelayed(11, this.f36840f.getWt() * 1000);
             return;
         }
-        this.f36913h.onFail(PBError.PID_TYPE_ERROR);
+        this.f36842h.onFail(PBError.PID_TYPE_ERROR);
     }
 
     @Override // com.win.opensdk.e1
@@ -69,7 +69,7 @@ public class I1 implements e1 {
         long j;
         PBVideoListener pBVideoListener;
         PBError pBError;
-        if (TextUtils.equals(str, this.f36911f.getId() + this.f36906a)) {
+        if (TextUtils.equals(str, this.f36840f.getId() + this.f36835a)) {
             char c2 = 65535;
             switch (str2.hashCode()) {
                 case -1398725913:
@@ -104,28 +104,28 @@ public class I1 implements e1 {
                     break;
             }
             if (c2 == 0) {
-                this.f36913h.onClicked();
+                this.f36842h.onClicked();
             } else if (c2 == 1) {
-                this.f36913h.onRewardedAdClosed();
+                this.f36842h.onRewardedAdClosed();
             } else if (c2 == 2) {
-                this.f36913h.onRewardedAdOpened();
+                this.f36842h.onRewardedAdOpened();
             } else if (c2 != 3) {
                 if (c2 != 4) {
                     return;
                 }
-                if (!z.d(this.f36907b)) {
-                    pBVideoListener = this.f36913h;
+                if (!z.d(this.f36836b)) {
+                    pBVideoListener = this.f36842h;
                     pBError = PBError.NO_NETWORK;
                 } else if (obj != null) {
-                    this.f36913h.onRewardedShowFail((String) obj);
+                    this.f36842h.onRewardedShowFail((String) obj);
                     return;
                 } else {
-                    pBVideoListener = this.f36913h;
+                    pBVideoListener = this.f36842h;
                     pBError = PBError.UNKNOWN;
                 }
                 pBVideoListener.onRewardedShowFail(pBError.getMsg());
-            } else if (!z.d(this.f36907b) || obj == null) {
-                this.f36913h.onUserEarnedReward(false, 0L);
+            } else if (!z.d(this.f36836b) || obj == null) {
+                this.f36842h.onUserEarnedReward(false, 0L);
             } else {
                 try {
                     j = ((Long) obj).longValue();
@@ -134,23 +134,23 @@ public class I1 implements e1 {
                     j = 0;
                 }
                 if (j <= 0) {
-                    this.f36913h.onUserEarnedReward(false, j);
+                    this.f36842h.onUserEarnedReward(false, j);
                 } else {
-                    this.f36913h.onUserEarnedReward(true, j);
+                    this.f36842h.onUserEarnedReward(true, j);
                 }
             }
         }
     }
 
     public final boolean a() {
-        return this.f36908c && !this.f36910e && b() && !this.f36911f.isShown() && this.f36911f.isEffective();
+        return this.f36837c && !this.f36839e && b() && !this.f36840f.isShown() && this.f36840f.isEffective();
     }
 
     public final boolean b() {
-        return this.f36911f != null;
+        return this.f36840f != null;
     }
 
     public final boolean c() {
-        return b() && this.f36911f.getType() == 41;
+        return b() && this.f36840f.getType() == 41;
     }
 }

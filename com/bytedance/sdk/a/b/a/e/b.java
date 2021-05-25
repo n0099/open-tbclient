@@ -10,16 +10,16 @@ public enum b {
     
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f26929g;
+    public final int f26858g;
 
     b(int i2) {
-        this.f26929g = i2;
+        this.f26858g = i2;
     }
 
     public static b a(int i2) {
         b[] values;
         for (b bVar : values()) {
-            if (bVar.f26929g == i2) {
+            if (bVar.f26858g == i2) {
                 return bVar;
             }
         }

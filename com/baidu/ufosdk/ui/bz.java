@@ -5,10 +5,10 @@ import android.view.View;
 public final class bz implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f22754a;
+    public final /* synthetic */ FeedbackInputActivity f22683a;
 
     public bz(FeedbackInputActivity feedbackInputActivity) {
-        this.f22754a = feedbackInputActivity;
+        this.f22683a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -16,6 +16,6 @@ public final class bz implements View.OnClickListener {
         if (com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        FeedbackInputActivity.a(this.f22754a);
+        FeedbackInputActivity.a(this.f22683a);
     }
 }

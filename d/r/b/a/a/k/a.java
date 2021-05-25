@@ -9,10 +9,10 @@ import d.r.b.a.a.m.c.a.c;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.r.b.a.a.m.b f68096a;
+    public d.r.b.a.a.m.b f68139a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.r.b.a.a.m.a f68097b;
+    public d.r.b.a.a.m.a f68140b;
 
     public a(d.r.b.a.a.b bVar) {
         e(bVar);
@@ -21,13 +21,13 @@ public class a implements b {
             d.e("SDKReporter", "new SDKReporter error baseHiidoContent null", new Object[0]);
             return;
         }
-        this.f68096a = new d.r.b.a.a.m.b(d2);
-        this.f68097b = new d.r.b.a.a.m.a(d2);
+        this.f68139a = new d.r.b.a.a.m.b(d2);
+        this.f68140b = new d.r.b.a.a.m.a(d2);
     }
 
     @Override // d.r.b.a.a.f.f.b
     public void a(String str, String str2) {
-        d.r.b.a.a.m.b bVar = this.f68096a;
+        d.r.b.a.a.m.b bVar = this.f68139a;
         if (bVar == null) {
             d.e("SDKReporter", "reportUiEvent mUiEventReporter null", new Object[0]);
         } else {
@@ -37,7 +37,7 @@ public class a implements b {
 
     @Override // d.r.b.a.a.f.f.b
     public void b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
-        d.r.b.a.a.m.a aVar = this.f68097b;
+        d.r.b.a.a.m.a aVar = this.f68140b;
         if (aVar == null) {
             d.e("SDKReporter", "reportPayFlow mPayEventReporter null", new Object[0]);
         } else {
@@ -47,7 +47,7 @@ public class a implements b {
 
     @Override // d.r.b.a.a.f.f.b
     public void c(String str) {
-        d.r.b.a.a.m.b bVar = this.f68096a;
+        d.r.b.a.a.m.b bVar = this.f68139a;
         if (bVar == null) {
             d.e("SDKReporter", "reportUiEvent mUiEventReporter null", new Object[0]);
         } else {
@@ -73,16 +73,16 @@ public class a implements b {
             d.e("SDKReporter", "initHiidoConstantContent config null", new Object[0]);
             return;
         }
-        c.f68106a = "";
-        c.f68109d = bVar.r();
-        c.f68111f = Build.MANUFACTURER + "_" + Build.MODEL;
+        c.f68149a = "";
+        c.f68152d = bVar.r();
+        c.f68154f = Build.MANUFACTURER + "_" + Build.MODEL;
         StringBuilder sb = new StringBuilder();
         sb.append("Android");
         sb.append(Build.VERSION.RELEASE);
-        c.f68112g = sb.toString();
+        c.f68155g = sb.toString();
         if (bVar.y() != null) {
-            c.f68108c = bVar.y().getAppName();
+            c.f68151c = bVar.y().getAppName();
         }
-        c.f68107b = "4.1.4-bdpay";
+        c.f68150b = "4.1.4-bdpay";
     }
 }

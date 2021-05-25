@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.utils;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMHttpDnsUrlRequest;
@@ -58,10 +59,12 @@ public class HttpExecutor {
     /* loaded from: classes.dex */
     public static class MyTrustManager implements X509TrustManager {
         @Override // javax.net.ssl.X509TrustManager
+        @SuppressLint({"TrustAllX509TrustManager"})
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
         }
 
         @Override // javax.net.ssl.X509TrustManager
+        @SuppressLint({"TrustAllX509TrustManager"})
         public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
         }
 

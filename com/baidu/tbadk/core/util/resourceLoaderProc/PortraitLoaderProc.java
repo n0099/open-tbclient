@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import d.a.c.e.l.b;
 import d.a.c.j.d.a;
-import d.a.j0.a0.c;
+import d.a.m0.a0.c;
 /* loaded from: classes3.dex */
 public class PortraitLoaderProc extends AbstractImageLoaderProc {
     public static BdAsyncTaskParallel mBdAsyncTaskTwo;

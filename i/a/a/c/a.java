@@ -21,32 +21,32 @@ import okhttp3.Response;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static OkHttpClient f68732b;
+    public static OkHttpClient f68775b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f68733c;
+    public static volatile a f68776c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f68734d;
+    public static String f68777d;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, List<Cookie>> f68735a = new HashMap<>();
+    public final HashMap<String, List<Cookie>> f68778a = new HashMap<>();
 
     /* renamed from: i.a.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1937a implements CookieJar {
-        public C1937a() {
+    public class C1941a implements CookieJar {
+        public C1941a() {
         }
 
         @Override // okhttp3.CookieJar
         public List<Cookie> loadForRequest(HttpUrl httpUrl) {
-            List<Cookie> list = (List) a.this.f68735a.get(httpUrl.host());
+            List<Cookie> list = (List) a.this.f68778a.get(httpUrl.host());
             return list != null ? list : new ArrayList();
         }
 
         @Override // okhttp3.CookieJar
         public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
-            a.this.f68735a.put(httpUrl.host(), list);
+            a.this.f68778a.put(httpUrl.host(), list);
         }
     }
 
@@ -54,28 +54,28 @@ public class a {
     public class b implements Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.c.b.a f68737a;
+        public final /* synthetic */ i.a.a.c.b.a f68780a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Request f68738b;
+        public final /* synthetic */ Request f68781b;
 
         public b(a aVar, i.a.a.c.b.a aVar2, Request request) {
-            this.f68737a = aVar2;
-            this.f68738b = request;
+            this.f68780a = aVar2;
+            this.f68781b = request;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
-            this.f68737a.a(this.f68738b, iOException);
+            this.f68780a.a(this.f68781b, iOException);
             d.e("HttpCore", "HttpCore -- enqueuePost--1-onFailure:" + iOException.getMessage(), new Object[0]);
         }
 
         @Override // okhttp3.Callback
         public void onResponse(Call call, Response response) throws IOException {
-            String unused = a.f68734d = response.body().string();
+            String unused = a.f68777d = response.body().string();
             try {
-                this.f68737a.b(a.f68734d);
-                d.f("HttpCore", "HttpCore -- enqueuePost-onResponse:" + a.f68734d);
+                this.f68780a.b(a.f68777d);
+                d.f("HttpCore", "HttpCore -- enqueuePost-onResponse:" + a.f68777d);
             } catch (Exception e2) {
                 d.e("HttpCore", "HttpCore -- enqueuePost--2-onFailure:" + e2.getMessage(), new Object[0]);
                 e2.printStackTrace();
@@ -91,20 +91,20 @@ public class a {
 
     public a() {
         OkHttpClient okHttpClient = new OkHttpClient();
-        f68732b = okHttpClient;
-        okHttpClient.newBuilder().addInterceptor(new i.a.a.c.c.a(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new C1937a());
+        f68775b = okHttpClient;
+        okHttpClient.newBuilder().addInterceptor(new i.a.a.c.c.a(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new C1941a());
         d.f("HttpCore", "HttpCore -- init");
     }
 
     public static a e() {
-        if (f68733c == null) {
+        if (f68776c == null) {
             synchronized (a.class) {
-                if (f68733c == null) {
-                    f68733c = new a();
+                if (f68776c == null) {
+                    f68776c = new a();
                 }
             }
         }
-        return f68733c;
+        return f68776c;
     }
 
     public static String g(String str, Map<String, String> map) {
@@ -145,12 +145,12 @@ public class a {
         Request.Builder url = new Request.Builder().url(g2);
         Request build2 = url.addHeader("X-AppId", i2 + "").addHeader("traceid", str2).addHeader("version", str3).addHeader("pakagename", str4).addHeader("X-HostId", str5).addHeader("X-AuthType", String.valueOf(i3)).post(build).build();
         try {
-            f68732b.newCall(build2).enqueue(new b(this, aVar, build2));
+            f68775b.newCall(build2).enqueue(new b(this, aVar, build2));
         } catch (Exception e2) {
             e2.printStackTrace();
             d.e("HttpCore", "HttpCore -- enqueuePost--3-onFailure:" + e2.getMessage(), new Object[0]);
         }
-        return f68734d;
+        return f68777d;
     }
 
     public final void f(Map<String, String> map, FormBody.Builder builder) {

@@ -1,15 +1,15 @@
 package com.baidu.tieba.ala.alasquare.live_tab.view;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import d.a.k0.t.d.c.h.b;
+import d.a.n0.v.d.c.h.b;
 /* loaded from: classes4.dex */
 public class OfficialRecommendLiveViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f13865a;
+    public b f13768a;
 
     public OfficialRecommendLiveViewHolder(b bVar) {
         super(bVar.l());
-        this.f13865a = bVar;
+        this.f13768a = bVar;
     }
 }

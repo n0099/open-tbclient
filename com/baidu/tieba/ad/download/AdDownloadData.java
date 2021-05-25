@@ -10,13 +10,12 @@ import java.util.Objects;
 public final class AdDownloadData implements Serializable, IDownloadModel {
     public final String mAdId;
     public String mAppJson;
+    public long mContentLength;
     public String mDeeplinkUrl;
     public String mDownloadKey;
     public String mDownloadUrl;
     public String mExtInfo;
     public final AdDownloadExtra mExtra;
-    public int mFakeDownloadPercent;
-    public int mFakeDownloadTime;
     public String mPackageName;
     public String mPage;
 
@@ -24,31 +23,25 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f13594a;
+        public final String f13499a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13595b;
+        public String f13500b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13596c;
+        public String f13501c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f13597d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f13598e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f13599f;
+        public String f13502d;
 
         public b(@NonNull DownloadCacheKey downloadCacheKey) {
-            this.f13594a = downloadCacheKey.mAdId;
-            this.f13595b = downloadCacheKey.mDownloadUrl;
-            this.f13596c = downloadCacheKey.mPackageName;
+            this.f13499a = downloadCacheKey.mAdId;
+            this.f13500b = downloadCacheKey.mDownloadUrl;
+            this.f13501c = downloadCacheKey.mPackageName;
         }
 
         @NonNull
-        public AdDownloadData g() {
+        public AdDownloadData e() {
             return new AdDownloadData(this);
         }
     }
@@ -77,6 +70,10 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
         return this.mAppJson;
     }
 
+    public long getContentLength() {
+        return this.mContentLength;
+    }
+
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
     @NonNull
     public DownloadStatus getCurrentState() {
@@ -101,13 +98,21 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
         return this.mExtInfo;
     }
 
+    public int getFakePercent() {
+        AdDownloadExtra adDownloadExtra = this.mExtra;
+        if (adDownloadExtra == null) {
+            return 0;
+        }
+        return adDownloadExtra.getDownloadFakePercent();
+    }
+
     public String getPage() {
         return this.mPage;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
     public int getPercent() {
-        return this.mExtra.getPercent();
+        return Math.max(this.mExtra.getPercent(), this.mExtra.getDownloadFakePercent());
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
@@ -131,6 +136,10 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
         this.mAppJson = str;
     }
 
+    public void setContentLength(long j) {
+        this.mContentLength = j;
+    }
+
     public void setDeeplinkUrl(String str) {
         this.mDeeplinkUrl = str;
     }
@@ -143,8 +152,19 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
         this.mExtInfo = str;
     }
 
+    public void setFakePercent(int i2) {
+        AdDownloadExtra adDownloadExtra = this.mExtra;
+        if (adDownloadExtra != null) {
+            adDownloadExtra.setDownloadFakePercent(i2);
+        }
+    }
+
     public void setPage(String str) {
         this.mPage = str;
+    }
+
+    public void setPercent(int i2) {
+        this.mExtra.setPercent(i2);
     }
 
     public void setupDownloadUrl(String str) {
@@ -156,12 +176,10 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
     }
 
     public AdDownloadData(b bVar) {
-        this.mAdId = bVar.f13594a;
-        this.mPackageName = bVar.f13596c;
-        this.mDownloadUrl = bVar.f13595b;
-        this.mFakeDownloadTime = bVar.f13597d;
-        this.mFakeDownloadPercent = bVar.f13598e;
-        this.mDeeplinkUrl = bVar.f13599f;
+        this.mAdId = bVar.f13499a;
+        this.mPackageName = bVar.f13501c;
+        this.mDownloadUrl = bVar.f13500b;
+        this.mDeeplinkUrl = bVar.f13502d;
         this.mExtra = new AdDownloadExtra(this);
     }
 }

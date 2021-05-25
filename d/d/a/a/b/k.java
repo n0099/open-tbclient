@@ -5,19 +5,19 @@ import java.util.concurrent.atomic.AtomicLong;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicLong f66029a = new AtomicLong(999);
+    public static AtomicLong f66072a = new AtomicLong(999);
 
     public static long a() {
-        if (0 == f66029a.incrementAndGet()) {
-            f66029a.set(999L);
+        if (0 == f66072a.incrementAndGet()) {
+            f66072a.set(999L);
         }
-        return f66029a.get();
+        return f66072a.get();
     }
 
     public static void b(long j) {
         if (0 == j) {
             j = 999;
         }
-        f66029a.set(j);
+        f66072a.set(j);
     }
 }

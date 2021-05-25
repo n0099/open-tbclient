@@ -82,7 +82,7 @@ public class ah {
     }
 
     public static iq a(hf hfVar, boolean z) {
-        switch (ai.f37304a[hfVar.ordinal()]) {
+        switch (ai.f37233a[hfVar.ordinal()]) {
             case 1:
                 return new ig();
             case 2:

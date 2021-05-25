@@ -7,13 +7,13 @@ import java.io.File;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f31833a;
+    public static File f31762a;
 
     public static File a(Context context) {
-        if (f31833a == null) {
-            f31833a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
+        if (f31762a == null) {
+            f31762a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
         }
-        return f31833a;
+        return f31762a;
     }
 
     public static File a(Context context, String str) {

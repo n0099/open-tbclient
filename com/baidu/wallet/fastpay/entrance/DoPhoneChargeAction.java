@@ -22,7 +22,7 @@ import java.util.HashMap;
 public class DoPhoneChargeAction implements RouterAction {
 
     /* renamed from: a  reason: collision with root package name */
-    public LoginBackListenerProxy f24052a;
+    public LoginBackListenerProxy f23981a;
 
     @Override // com.baidu.wallet.router.RouterAction
     public void invoke(Context context, HashMap hashMap, RouterCallback routerCallback) {
@@ -53,11 +53,11 @@ public class DoPhoneChargeAction implements RouterAction {
             } else {
                 intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
-            this.f24052a = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.fastpay.entrance.DoPhoneChargeAction.1
+            this.f23981a = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.fastpay.entrance.DoPhoneChargeAction.1
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i2, String str) {
                     if (i2 == 603) {
-                        WalletLoginHelper.getInstance().onlyLogin(DoPhoneChargeAction.this.f24052a);
+                        WalletLoginHelper.getInstance().onlyLogin(DoPhoneChargeAction.this.f23981a);
                         return;
                     }
                     context.startActivity(intent);
@@ -84,7 +84,7 @@ public class DoPhoneChargeAction implements RouterAction {
                     }
                 }
             });
-            WalletLoginHelper.getInstance().verifyPassLogin(true, this.f24052a);
+            WalletLoginHelper.getInstance().verifyPassLogin(true, this.f23981a);
         }
     }
 }

@@ -2,9 +2,9 @@ package com.baidu.tbadk.template.message;
 
 import android.util.Log;
 import com.baidu.adp.framework.message.NetMessage;
-import d.a.j0.x0.c.a;
-import d.a.j0.x0.c.b;
-import d.a.j0.x0.c.c;
+import d.a.m0.x0.c.a;
+import d.a.m0.x0.c.b;
+import d.a.m0.x0.c.c;
 /* loaded from: classes3.dex */
 public class TemplateNetMessage extends NetMessage {
     public boolean isNeedCache;

@@ -9,7 +9,7 @@ public abstract class k<E> extends m<E> {
     }
 
     public final boolean j(long j, long j2) {
-        return f0.f68672a.c(this, k, j, j2);
+        return f0.f68715a.c(this, k, j, j2);
     }
 
     public final long k() {

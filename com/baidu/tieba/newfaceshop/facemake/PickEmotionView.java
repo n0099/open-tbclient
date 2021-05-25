@@ -13,10 +13,10 @@ import d.a.c.e.p.l;
 public class PickEmotionView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public EmotionView f18675e;
+    public EmotionView f18589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f18676f;
+    public ImageView f18590f;
 
     public PickEmotionView(Context context) {
         super(context);
@@ -24,22 +24,22 @@ public class PickEmotionView extends FrameLayout {
     }
 
     public final void a() {
-        this.f18675e = new EmotionView(getContext());
-        addView(this.f18675e, new FrameLayout.LayoutParams(-1, -1));
-        this.f18676f = new ImageView(getContext());
+        this.f18589e = new EmotionView(getContext());
+        addView(this.f18589e, new FrameLayout.LayoutParams(-1, -1));
+        this.f18590f = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 53;
         layoutParams.topMargin = l.g(getContext(), R.dimen.ds8);
         layoutParams.rightMargin = l.g(getContext(), R.dimen.ds8);
-        addView(this.f18676f, layoutParams);
+        addView(this.f18590f, layoutParams);
     }
 
     public EmotionView getEmotionView() {
-        return this.f18675e;
+        return this.f18589e;
     }
 
     public int getLoadType() {
-        EmotionView emotionView = this.f18675e;
+        EmotionView emotionView = this.f18589e;
         if (emotionView != null) {
             return emotionView.getLoadProcType();
         }
@@ -48,16 +48,16 @@ public class PickEmotionView extends FrameLayout {
 
     public void setChoosed(boolean z) {
         if (z) {
-            SkinManager.setBackgroundResource(this.f18676f, R.drawable.ic_post_image_selected_s);
+            SkinManager.setBackgroundResource(this.f18590f, R.drawable.ic_post_image_selected_s);
         } else {
-            SkinManager.setBackgroundResource(this.f18676f, R.drawable.ic_post_image_selected_n);
+            SkinManager.setBackgroundResource(this.f18590f, R.drawable.ic_post_image_selected_n);
         }
     }
 
     public void setData(EmotionImageData emotionImageData, int i2) {
-        this.f18675e.setLoadProcType(i2);
-        this.f18675e.A0();
-        this.f18675e.C0(emotionImageData);
+        this.f18589e.setLoadProcType(i2);
+        this.f18589e.A0();
+        this.f18589e.C0(emotionImageData);
     }
 
     public PickEmotionView(Context context, AttributeSet attributeSet) {

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 import d.a.c.d.c;
 import d.a.c.e.p.j;
-import d.a.j0.r.k;
+import d.a.m0.r.k;
 /* loaded from: classes3.dex */
 public class TbImageHelper {
     public static TbImageHelper mInstance;

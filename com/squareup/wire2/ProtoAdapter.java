@@ -549,15 +549,15 @@ public abstract class ProtoAdapter<E> {
     public static final class p<K, V> extends ProtoAdapter<Map.Entry<K, V>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ProtoAdapter<K> f35825a;
+        public final ProtoAdapter<K> f35754a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final ProtoAdapter<V> f35826b;
+        public final ProtoAdapter<V> f35755b;
 
         public p(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.f35825a = protoAdapter;
-            this.f35826b = protoAdapter2;
+            this.f35754a = protoAdapter;
+            this.f35755b = protoAdapter2;
         }
 
         public Map.Entry<K, V> a(d.n.a.c cVar) {
@@ -568,15 +568,15 @@ public abstract class ProtoAdapter<E> {
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
         public void encode(d.n.a.d dVar, Map.Entry<K, V> entry) throws IOException {
-            this.f35825a.encodeWithTag(dVar, 1, entry.getKey());
-            this.f35826b.encodeWithTag(dVar, 2, entry.getValue());
+            this.f35754a.encodeWithTag(dVar, 1, entry.getKey());
+            this.f35755b.encodeWithTag(dVar, 2, entry.getValue());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: c */
         public int encodedSize(Map.Entry<K, V> entry) {
-            return this.f35825a.encodedSizeWithTag(1, entry.getKey()) + this.f35826b.encodedSizeWithTag(2, entry.getValue());
+            return this.f35754a.encodedSizeWithTag(1, entry.getKey()) + this.f35755b.encodedSizeWithTag(2, entry.getValue());
         }
 
         @Override // com.squareup.wire2.ProtoAdapter
@@ -590,11 +590,11 @@ public abstract class ProtoAdapter<E> {
     public static final class q<K, V> extends ProtoAdapter<Map<K, V>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final p<K, V> f35827a;
+        public final p<K, V> f35756a;
 
         public q(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.f35827a = new p<>(protoAdapter, protoAdapter2);
+            this.f35756a = new p<>(protoAdapter, protoAdapter2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -609,9 +609,9 @@ public abstract class ProtoAdapter<E> {
                 if (f2 == -1) {
                     break;
                 } else if (f2 == 1) {
-                    k = this.f35827a.f35825a.decode(cVar);
+                    k = this.f35756a.f35754a.decode(cVar);
                 } else if (f2 == 2) {
-                    v = this.f35827a.f35826b.decode(cVar);
+                    v = this.f35756a.f35755b.decode(cVar);
                 }
             }
             cVar.d(c2);
@@ -633,7 +633,7 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: c */
         public void encodeWithTag(d.n.a.d dVar, int i2, Map<K, V> map) throws IOException {
             for (Map.Entry<K, V> entry : map.entrySet()) {
-                this.f35827a.encodeWithTag(dVar, i2, entry);
+                this.f35756a.encodeWithTag(dVar, i2, entry);
             }
         }
 
@@ -647,7 +647,7 @@ public abstract class ProtoAdapter<E> {
         public int encodedSizeWithTag(int i2, Map<K, V> map) {
             int i3 = 0;
             for (Map.Entry<K, V> entry : map.entrySet()) {
-                i3 += this.f35827a.encodedSizeWithTag(i2, entry);
+                i3 += this.f35756a.encodedSizeWithTag(i2, entry);
             }
             return i3;
         }

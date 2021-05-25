@@ -1,0 +1,91 @@
+package d.a.l0.j.k.f;
+
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.RectF;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import d.a.l0.a.h1.c.h.d;
+import d.a.l0.a.v2.n0;
+/* loaded from: classes3.dex */
+public class a {
+
+    /* renamed from: d.a.l0.j.k.f.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public static class View$OnClickListenerC1066a implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.a.l0.j.n.c f47849e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ d.a.l0.a.h1.c.h.d f47850f;
+
+        public View$OnClickListenerC1066a(d.a.l0.j.n.c cVar, d.a.l0.a.h1.c.h.d dVar) {
+            this.f47849e = cVar;
+            this.f47850f = dVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            d.a.l0.j.l.a.a(this.f47849e, this.f47850f);
+        }
+    }
+
+    public static View a(d.a.l0.j.n.c cVar, d.a.l0.a.h1.c.h.d dVar) {
+        d.a.l0.a.e0.d.g("map", "creatCallout start");
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        paint.setColor(dVar.m.f42683f);
+        paint.setTextSize(dVar.m.f42684g);
+        d.b bVar = dVar.m;
+        float f2 = bVar.f42686i;
+        float f3 = bVar.j;
+        Paint paint2 = new Paint();
+        paint2.setAntiAlias(true);
+        paint2.setStyle(Paint.Style.FILL_AND_STROKE);
+        paint2.setColor(dVar.m.l);
+        String str = dVar.m.f42682e;
+        int g2 = n0.g(6.0f);
+        float f4 = f2 * 2.0f;
+        float measureText = paint.measureText(str) + f4;
+        float f5 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
+        float f6 = g2 + f5 + f4;
+        if (f6 > 0.0f && measureText > 0.0f) {
+            Bitmap createBitmap = Bitmap.createBitmap((int) measureText, (int) f6, Bitmap.Config.ARGB_8888);
+            createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
+            Canvas canvas = new Canvas(createBitmap);
+            canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+            RectF rectF = new RectF();
+            rectF.left = 0.0f;
+            rectF.top = 0.0f;
+            float f7 = f5 + f4;
+            rectF.bottom = f7;
+            rectF.right = measureText;
+            canvas.drawRoundRect(rectF, f3, f3, paint2);
+            Path path = new Path();
+            float f8 = measureText / 2.0f;
+            float f9 = g2 / 2;
+            path.moveTo(f8 - f9, f7);
+            path.lineTo(f8, f6);
+            path.lineTo(f8 + f9, f7);
+            path.close();
+            canvas.drawPath(path, paint2);
+            canvas.drawText(str, f2, (-paint.getFontMetrics().top) + f2, paint);
+            ImageView imageView = new ImageView(AppRuntime.getAppContext());
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
+            imageView.setImageBitmap(createBitmap);
+            imageView.setOnClickListener(new View$OnClickListenerC1066a(cVar, dVar));
+            d.a.l0.a.e0.d.g("map", "creatCallout end");
+            return imageView;
+        }
+        d.a.l0.a.e0.d.l("map", "callout height or wodth is 0");
+        return new ImageView(AppRuntime.getAppContext());
+    }
+}

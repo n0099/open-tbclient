@@ -7,15 +7,15 @@ import com.kwad.sdk.mvp.Presenter;
 public class c extends RecyclerView.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Presenter f32547a;
+    public final Presenter f32476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f32548b;
+    public final e f32477b;
 
     public c(View view, Presenter presenter, e eVar) {
         super(view);
-        this.f32548b = eVar;
-        this.f32547a = presenter;
+        this.f32477b = eVar;
+        this.f32476a = presenter;
         presenter.a(view);
     }
 }

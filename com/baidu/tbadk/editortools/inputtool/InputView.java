@@ -16,29 +16,29 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import d.a.j0.s.c.v;
-import d.a.j0.w.n;
-import d.a.k0.k0.b;
-import d.a.k0.v3.i;
+import d.a.m0.s.c.v;
+import d.a.m0.w.n;
+import d.a.n0.l0.b;
+import d.a.n0.w3.i;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 /* loaded from: classes3.dex */
 public class InputView extends EditText implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public EditorTools f12866e;
+    public EditorTools f12774e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12867f;
+    public int f12775f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12868g;
+    public boolean f12776g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12869h;
+    public boolean f12777h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12870i;
+    public boolean f12778i;
     public int j;
 
     /* loaded from: classes3.dex */
@@ -52,7 +52,7 @@ public class InputView extends EditText implements n {
                 return;
             }
             InputView inputView = InputView.this;
-            inputView.d(new d.a.j0.w.a(4, -1, inputView.getText().toString()));
+            inputView.d(new d.a.m0.w.a(4, -1, inputView.getText().toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -61,10 +61,10 @@ public class InputView extends EditText implements n {
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            if (InputView.this.f12870i) {
+            if (InputView.this.f12778i) {
                 return;
             }
-            InputView.this.f12870i = true;
+            InputView.this.f12778i = true;
             if (InputView.this.j != -1) {
                 InputView inputView = InputView.this;
                 inputView.setSelection(inputView.j);
@@ -81,7 +81,7 @@ public class InputView extends EditText implements n {
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 1) {
-                InputView.this.d(new d.a.j0.w.a(5, -1, null));
+                InputView.this.d(new d.a.m0.w.a(5, -1, null));
                 InputView.this.requestFocus();
             }
             return false;
@@ -93,22 +93,22 @@ public class InputView extends EditText implements n {
         public c() {
         }
 
-        @Override // d.a.k0.k0.b.f
+        @Override // d.a.n0.l0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
             InputView.this.setText(spannableStringBuilder);
             InputView inputView = InputView.this;
             inputView.setSelection(inputView.getText().length());
-            InputView.this.d(new d.a.j0.w.a(5, -1, null));
+            InputView.this.d(new d.a.m0.w.a(5, -1, null));
             InputView.this.requestFocus();
         }
     }
 
     public InputView(Context context, boolean z) {
         super(context);
-        this.f12867f = 0;
-        this.f12868g = false;
-        this.f12869h = true;
-        this.f12870i = true;
+        this.f12775f = 0;
+        this.f12776g = false;
+        this.f12777h = true;
+        this.f12778i = true;
         this.j = -1;
         setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.ds64));
         setMaxLines(4);
@@ -127,22 +127,22 @@ public class InputView extends EditText implements n {
         setOnTouchListener(new b());
     }
 
-    @Override // d.a.j0.w.n
+    @Override // d.a.m0.w.n
     public void b() {
         setVisibility(0);
     }
 
-    @Override // d.a.j0.w.n
-    public void d(d.a.j0.w.a aVar) {
-        EditorTools editorTools = this.f12866e;
+    @Override // d.a.m0.w.n
+    public void d(d.a.m0.w.a aVar) {
+        EditorTools editorTools = this.f12774e;
         if (editorTools != null) {
             editorTools.A(aVar);
         }
     }
 
-    @Override // d.a.j0.w.n
+    @Override // d.a.m0.w.n
     public int getToolId() {
-        return this.f12867f;
+        return this.f12775f;
     }
 
     public final void h(ArrayList<String> arrayList) {
@@ -159,7 +159,7 @@ public class InputView extends EditText implements n {
         getText().insert(getSelectionStart(), sb2);
     }
 
-    @Override // d.a.j0.w.n
+    @Override // d.a.m0.w.n
     public void hide() {
         setVisibility(8);
     }
@@ -171,17 +171,17 @@ public class InputView extends EditText implements n {
         getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
     }
 
-    @Override // d.a.j0.w.n
+    @Override // d.a.m0.w.n
     public void init() {
     }
 
-    public final void j(d.a.j0.w.a aVar) {
+    public final void j(d.a.m0.w.a aVar) {
         Object obj;
-        if (aVar == null || (obj = aVar.f50770c) == null || !(obj instanceof v)) {
+        if (aVar == null || (obj = aVar.f50843c) == null || !(obj instanceof v)) {
             return;
         }
         v vVar = (v) obj;
-        if (vVar.e() == EmotionGroupType.NET_SUG) {
+        if (vVar.f() == EmotionGroupType.NET_SUG) {
             l(vVar);
         } else {
             k(vVar);
@@ -189,39 +189,39 @@ public class InputView extends EditText implements n {
     }
 
     public final void k(v vVar) {
-        if (!this.f12868g || vVar.e() == EmotionGroupType.LOCAL) {
+        if (!this.f12776g || vVar.f() == EmotionGroupType.LOCAL) {
             String obj = getText().toString();
-            if (this.f12869h && d.a.k0.k0.a.a(obj) >= 10 && getContext() != null) {
+            if (this.f12777h && d.a.n0.l0.a.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                d.a.k0.k0.b.b(getContext(), vVar, this);
+                d.a.n0.l0.b.b(getContext(), vVar, this);
             }
         }
     }
 
     public final void l(v vVar) {
-        if (vVar == null || TextUtils.isEmpty(vVar.b()) || TextUtils.isEmpty(vVar.f())) {
+        if (vVar == null || TextUtils.isEmpty(vVar.c()) || TextUtils.isEmpty(vVar.g())) {
             return;
         }
         String obj = getText().toString();
-        if (this.f12869h && d.a.k0.k0.a.a(obj) >= 10 && getContext() != null) {
+        if (this.f12777h && d.a.n0.l0.a.a(obj) >= 10 && getContext() != null) {
             CustomToast.newInstance().showToast(R.string.too_many_face);
         } else {
-            d.a.k0.k0.b.c(getContext(), vVar, this);
+            d.a.n0.l0.b.c(getContext(), vVar, this);
         }
     }
 
-    @Override // d.a.j0.w.b
-    public void onAction(d.a.j0.w.a aVar) {
+    @Override // d.a.m0.w.b
+    public void onAction(d.a.m0.w.a aVar) {
         Object obj;
         if (aVar == null) {
             return;
         }
-        int i2 = aVar.f50768a;
+        int i2 = aVar.f50841a;
         if (i2 == 3) {
             if (getSelectionStart() > 0) {
                 String substring = getText().toString().substring(0, getSelectionStart());
-                Matcher matcher = d.a.k0.k0.a.f56964b.matcher(substring);
+                Matcher matcher = d.a.n0.l0.a.f57154b.matcher(substring);
                 if (matcher.find()) {
                     getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                 } else {
@@ -229,34 +229,34 @@ public class InputView extends EditText implements n {
                 }
             }
         } else if (i2 == 6) {
-            Object obj2 = aVar.f50770c;
+            Object obj2 = aVar.f50843c;
             if (obj2 == null) {
                 setText((CharSequence) null);
             } else if (obj2 instanceof String) {
                 if (TextUtils.isEmpty((String) obj2)) {
                     setText((CharSequence) null);
                 } else {
-                    d.a.k0.k0.b.d(getContext(), (String) aVar.f50770c, new c());
+                    d.a.n0.l0.b.d(getContext(), (String) aVar.f50843c, new c());
                 }
             }
         } else if (i2 == 9) {
-            if (((Boolean) aVar.f50770c).booleanValue()) {
+            if (((Boolean) aVar.f50843c).booleanValue()) {
                 setText((CharSequence) null);
             }
         } else if (i2 == 17) {
-            Object obj3 = aVar.f50770c;
+            Object obj3 = aVar.f50843c;
             if (obj3 == null || !(obj3 instanceof ArrayList)) {
                 return;
             }
             h((ArrayList) obj3);
         } else if (i2 == 24) {
             j(aVar);
-        } else if (i2 == 44 && (obj = aVar.f50770c) != null && (obj instanceof String)) {
+        } else if (i2 == 44 && (obj = aVar.f50843c) != null && (obj instanceof String)) {
             i((String) obj);
         }
     }
 
-    @Override // d.a.j0.w.n
+    @Override // d.a.m0.w.n
     public void onChangeSkinType(int i2) {
         SkinManager.setViewTextColor(this, R.color.CAM_X0105, 2, i2);
         if (i2 == 0) {
@@ -268,21 +268,21 @@ public class InputView extends EditText implements n {
         setHintTextColor(SkinManager.getColor(i2, R.color.CAM_X0110));
     }
 
-    @Override // d.a.j0.w.n
+    @Override // d.a.m0.w.n
     public void setEditorTools(EditorTools editorTools) {
-        this.f12866e = editorTools;
+        this.f12774e = editorTools;
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        this.f12868g = z;
+        this.f12776g = z;
     }
 
     public void setNeedFaceMaxCount(boolean z) {
-        this.f12869h = z;
+        this.f12777h = z;
     }
 
-    @Override // d.a.j0.w.n
+    @Override // d.a.m0.w.n
     public void setToolId(int i2) {
-        this.f12867f = i2;
+        this.f12775f = i2;
     }
 }

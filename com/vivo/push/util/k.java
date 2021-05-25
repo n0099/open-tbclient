@@ -10,31 +10,31 @@ import java.util.regex.Pattern;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f36781a = z.b("ro.vivo.product.overseas", "no").equals("yes");
+    public static final boolean f36710a = z.b("ro.vivo.product.overseas", "no").equals("yes");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36782b;
+    public static final String f36711b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f36783c;
+    public static final boolean f36712c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f36784d;
+    public static final boolean f36713d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f36785e;
+    public static final boolean f36714e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f36786f;
+    public static final boolean f36715f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f36787g;
+    public static final boolean f36716g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f36788h;
+    public static final boolean f36717h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Method f36789i;
+    public static Method f36718i;
     public static String j;
     public static String k;
     public static String l;
@@ -47,13 +47,13 @@ public final class k {
         } else {
             b2 = z.b("ro.product.customize.bbk", "N");
         }
-        f36782b = b2;
-        f36783c = "RU".equals(b2);
-        f36784d = "IN".equals(f36782b);
-        f36785e = b("rom_1.0");
-        f36786f = b("rom_2.0");
-        f36787g = b("rom_2.5");
-        f36788h = b("rom_3.0");
+        f36711b = b2;
+        f36712c = "RU".equals(b2);
+        f36713d = "IN".equals(f36711b);
+        f36714e = b("rom_1.0");
+        f36715f = b("rom_2.0");
+        f36716g = b("rom_2.5");
+        f36717h = b("rom_3.0");
         j = null;
         k = null;
         l = "";
@@ -65,10 +65,10 @@ public final class k {
             if (j == null && k == null) {
                 try {
                     Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
-                    f36789i = declaredMethod;
+                    f36718i = declaredMethod;
                     declaredMethod.setAccessible(true);
-                    j = (String) f36789i.invoke(null, "ro.vivo.rom", "@><@");
-                    k = (String) f36789i.invoke(null, "ro.vivo.rom.version", "@><@");
+                    j = (String) f36718i.invoke(null, "ro.vivo.rom", "@><@");
+                    k = (String) f36718i.invoke(null, "ro.vivo.rom.version", "@><@");
                 } catch (Exception unused) {
                     p.b("Device", "getRomCode error");
                 }

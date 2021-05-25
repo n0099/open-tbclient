@@ -4,13 +4,13 @@ import GetSugTopic.DataReq;
 import GetSugTopic.GetSugTopicReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.j0.z0.w;
+import d.a.m0.z0.w;
 import tbclient.CommonReq;
 /* loaded from: classes4.dex */
 public class HotTopicSelectNetMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f17036common;
+    public CommonReq f16946common;
     public long fid;
     public String firstDir;
     public String prefix;
@@ -49,7 +49,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f17036common;
+        return this.f16946common;
     }
 
     public long getFid() {
@@ -69,7 +69,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f17036common = commonReq;
+        this.f16946common = commonReq;
     }
 
     public void setFid(long j) {

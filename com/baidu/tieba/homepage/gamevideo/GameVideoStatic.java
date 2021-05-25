@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.homepage.gamevideo.message.GameVideoHttpResMessage;
 import com.baidu.tieba.homepage.gamevideo.message.GameVideoSocketResMessage;
-import d.a.j0.v0.b;
-import d.a.k0.d3.d0.a;
+import d.a.m0.v0.b;
+import d.a.n0.e3.d0.a;
 /* loaded from: classes4.dex */
 public class GameVideoStatic {
     static {

@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.ForumSearchActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
-import d.a.k0.d3.d0.a;
+import d.a.n0.e3.d0.a;
 /* loaded from: classes4.dex */
 public class ForumSearchStatic {
     static {

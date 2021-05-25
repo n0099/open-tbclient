@@ -8,40 +8,40 @@ public final class RegularImmutableBiMap<K, V> extends ImmutableBiMap<K, V> {
     public final transient Object[] alternatingKeysAndValues;
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient Object f31290e;
+    public final transient Object f31219e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final transient int f31291f;
+    public final transient int f31220f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final transient int f31292g;
+    public final transient int f31221g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final transient RegularImmutableBiMap<V, K> f31293h;
+    public final transient RegularImmutableBiMap<V, K> f31222h;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.google.common.collect.RegularImmutableBiMap<K, V> */
     /* JADX WARN: Multi-variable type inference failed */
     public RegularImmutableBiMap() {
-        this.f31290e = null;
+        this.f31219e = null;
         this.alternatingKeysAndValues = new Object[0];
-        this.f31291f = 0;
-        this.f31292g = 0;
-        this.f31293h = this;
+        this.f31220f = 0;
+        this.f31221g = 0;
+        this.f31222h = this;
     }
 
     @Override // com.google.common.collect.ImmutableMap
     public ImmutableSet<Map.Entry<K, V>> createEntrySet() {
-        return new RegularImmutableMap.EntrySet(this, this.alternatingKeysAndValues, this.f31291f, this.f31292g);
+        return new RegularImmutableMap.EntrySet(this, this.alternatingKeysAndValues, this.f31220f, this.f31221g);
     }
 
     @Override // com.google.common.collect.ImmutableMap
     public ImmutableSet<K> createKeySet() {
-        return new RegularImmutableMap.KeySet(this, new RegularImmutableMap.KeysOrValuesAsList(this.alternatingKeysAndValues, this.f31291f, this.f31292g));
+        return new RegularImmutableMap.KeySet(this, new RegularImmutableMap.KeysOrValuesAsList(this.alternatingKeysAndValues, this.f31220f, this.f31221g));
     }
 
     @Override // com.google.common.collect.ImmutableMap, java.util.Map
     public V get(Object obj) {
-        return (V) RegularImmutableMap.get(this.f31290e, this.alternatingKeysAndValues, this.f31292g, this.f31291f, obj);
+        return (V) RegularImmutableMap.get(this.f31219e, this.alternatingKeysAndValues, this.f31221g, this.f31220f, obj);
     }
 
     @Override // com.google.common.collect.ImmutableMap
@@ -51,29 +51,29 @@ public final class RegularImmutableBiMap<K, V> extends ImmutableBiMap<K, V> {
 
     @Override // java.util.Map
     public int size() {
-        return this.f31292g;
+        return this.f31221g;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.common.collect.ImmutableBiMap, d.g.c.c.k
     public ImmutableBiMap<V, K> inverse() {
-        return this.f31293h;
+        return this.f31222h;
     }
 
     public RegularImmutableBiMap(Object[] objArr, int i2) {
         this.alternatingKeysAndValues = objArr;
-        this.f31292g = i2;
-        this.f31291f = 0;
+        this.f31221g = i2;
+        this.f31220f = 0;
         int chooseTableSize = i2 >= 2 ? ImmutableSet.chooseTableSize(i2) : 0;
-        this.f31290e = RegularImmutableMap.createHashTable(objArr, i2, chooseTableSize, 0);
-        this.f31293h = new RegularImmutableBiMap<>(RegularImmutableMap.createHashTable(objArr, i2, chooseTableSize, 1), objArr, i2, this);
+        this.f31219e = RegularImmutableMap.createHashTable(objArr, i2, chooseTableSize, 0);
+        this.f31222h = new RegularImmutableBiMap<>(RegularImmutableMap.createHashTable(objArr, i2, chooseTableSize, 1), objArr, i2, this);
     }
 
     public RegularImmutableBiMap(Object obj, Object[] objArr, int i2, RegularImmutableBiMap<V, K> regularImmutableBiMap) {
-        this.f31290e = obj;
+        this.f31219e = obj;
         this.alternatingKeysAndValues = objArr;
-        this.f31291f = 1;
-        this.f31292g = i2;
-        this.f31293h = regularImmutableBiMap;
+        this.f31220f = 1;
+        this.f31221g = i2;
+        this.f31222h = regularImmutableBiMap;
     }
 }

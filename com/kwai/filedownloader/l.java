@@ -3,7 +3,7 @@ package com.kwai.filedownloader;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f34394a;
+    public static a f34323a;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -17,7 +17,7 @@ public class l {
     }
 
     public static a a() {
-        return f34394a;
+        return f34323a;
     }
 
     public static boolean b() {

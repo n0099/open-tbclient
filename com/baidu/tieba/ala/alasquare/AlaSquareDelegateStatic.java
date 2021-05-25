@@ -35,7 +35,7 @@ import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialConcernResp
 import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialRecommendResponse;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListActivity;
-import d.a.k0.q0.j0;
+import d.a.n0.r0.j0;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import tbclient.FrsTabInfo;
@@ -57,7 +57,7 @@ public class AlaSquareDelegateStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                j0Var.a(new d.a.k0.t.d.f.a(j0Var.d(), j0Var.e()));
+                j0Var.a(new d.a.n0.v.d.f.a(j0Var.d(), j0Var.e()));
             }
         }
     }
@@ -66,7 +66,7 @@ public class AlaSquareDelegateStatic {
     public static class b implements CustomMessageTask.CustomRunnable {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
-            return new CustomResponsedMessage<>(2911006, d.a.j0.r.d0.b.j().p("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播"));
+            return new CustomResponsedMessage<>(2911006, d.a.m0.r.d0.b.j().p("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播"));
         }
     }
 
@@ -74,7 +74,7 @@ public class AlaSquareDelegateStatic {
     public static class c implements CustomMessageTask.CustomRunnable {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
-            return new CustomResponsedMessage<>(2911008, d.a.j0.r.d0.b.j().p("show_live_forum_name", "百度直播"));
+            return new CustomResponsedMessage<>(2911008, d.a.m0.r.d0.b.j().p("show_live_forum_name", "百度直播"));
         }
     }
 
@@ -85,7 +85,7 @@ public class AlaSquareDelegateStatic {
             if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null) {
                 String lowerCase = strArr[0].toLowerCase();
                 if (lowerCase.contains(UrlSchemaHelper.JUMP_TO_VIDEO_SQUARE)) {
-                    d.a.j0.r.a0.b.f(tbPageContext.getPageActivity(), 15, true);
+                    d.a.m0.r.a0.b.f(tbPageContext.getPageActivity(), 15, true);
                     return 1;
                 }
                 Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/video/square\\?tid=(\\d+)").matcher(lowerCase);
@@ -122,8 +122,8 @@ public class AlaSquareDelegateStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.a.k0.q0.g gVar;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.k0.q0.g) || (gVar = (d.a.k0.q0.g) customResponsedMessage.getData()) == null || ListUtils.isEmpty(gVar.e())) {
+            d.a.n0.r0.g gVar;
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.n0.r0.g) || (gVar = (d.a.n0.r0.g) customResponsedMessage.getData()) == null || ListUtils.isEmpty(gVar.e())) {
                 return;
             }
             for (FrsTabInfo frsTabInfo : gVar.e()) {
@@ -135,32 +135,32 @@ public class AlaSquareDelegateStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class g extends d.a.j0.e0.b {
+    public static class g extends d.a.m0.e0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.k0.q0.g f13750a;
+        public final /* synthetic */ d.a.n0.r0.g f13653a;
 
-        public g(d.a.k0.q0.g gVar) {
-            this.f13750a = gVar;
+        public g(d.a.n0.r0.g gVar) {
+            this.f13653a = gVar;
         }
 
-        @Override // d.a.j0.e0.b
-        public d.a.j0.e0.c createFragmentTabStructure() {
+        @Override // d.a.m0.e0.b
+        public d.a.m0.e0.c createFragmentTabStructure() {
             LiveTabYYSubFragment W0 = LiveTabYYSubFragment.W0(true, 2);
-            W0.H0(this.f13750a.b(), this.f13750a.c());
-            d.a.j0.e0.c cVar = new d.a.j0.e0.c();
-            cVar.f49290a = W0;
-            cVar.f49294e = 1120;
-            cVar.f49298i = d.a.j0.e0.c.k;
+            W0.H0(this.f13653a.b(), this.f13653a.c());
+            d.a.m0.e0.c cVar = new d.a.m0.e0.c();
+            cVar.f49334a = W0;
+            cVar.f49338e = 1120;
+            cVar.f49342i = d.a.m0.e0.c.k;
             return cVar;
         }
 
-        @Override // d.a.j0.e0.b
+        @Override // d.a.m0.e0.b
         public TbFragmentTabIndicator getTabIndicator(Context context) {
             return null;
         }
 
-        @Override // d.a.j0.e0.b
+        @Override // d.a.m0.e0.b
         public boolean isAvailable() {
             return true;
         }
@@ -170,29 +170,29 @@ public class AlaSquareDelegateStatic {
     public static class h extends CustomMessageListener {
 
         /* loaded from: classes4.dex */
-        public class a extends d.a.j0.e0.b {
+        public class a extends d.a.m0.e0.b {
             public a(h hVar) {
             }
 
-            @Override // d.a.j0.e0.b
-            public d.a.j0.e0.c createFragmentTabStructure() {
-                d.a.j0.e0.c cVar = new d.a.j0.e0.c();
-                cVar.f49290a = new MainBottomLiveTabFragment();
-                cVar.f49294e = 20;
-                cVar.f49291b = R.string.ala_live;
-                cVar.f49295f = R.raw.lottie_tab_live;
-                cVar.f49298i = d.a.j0.e0.c.l;
+            @Override // d.a.m0.e0.b
+            public d.a.m0.e0.c createFragmentTabStructure() {
+                d.a.m0.e0.c cVar = new d.a.m0.e0.c();
+                cVar.f49334a = new MainBottomLiveTabFragment();
+                cVar.f49338e = 20;
+                cVar.f49335b = R.string.ala_live;
+                cVar.f49339f = R.raw.lottie_tab_live;
+                cVar.f49342i = d.a.m0.e0.c.l;
                 return cVar;
             }
 
-            @Override // d.a.j0.e0.b
+            @Override // d.a.m0.e0.b
             public TbFragmentTabIndicator getTabIndicator(Context context) {
                 MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
                 this.mIndicator = maintabBottomIndicator;
                 return maintabBottomIndicator;
             }
 
-            @Override // d.a.j0.e0.b
+            @Override // d.a.m0.e0.b
             public boolean isAvailable() {
                 return true;
             }
@@ -208,7 +208,7 @@ public class AlaSquareDelegateStatic {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ((d.a.j0.e0.d) customResponsedMessage.getData()).a(new a(this));
+            ((d.a.m0.e0.d) customResponsedMessage.getData()).a(new a(this));
         }
     }
 
@@ -243,7 +243,7 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerTask(customMessageTask2);
     }
 
-    public static void b(d.a.k0.q0.g gVar) {
+    public static void b(d.a.n0.r0.g gVar) {
         if (gVar != null) {
             gVar.a(new g(gVar));
         }

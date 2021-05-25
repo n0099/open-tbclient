@@ -11,7 +11,7 @@ import java.util.Locale;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f10128a = Charset.forName("UTF-8");
+    public static final Charset f10028a = Charset.forName("UTF-8");
 
     public static int a(char c2) {
         if (c2 < '0' || c2 > '9') {

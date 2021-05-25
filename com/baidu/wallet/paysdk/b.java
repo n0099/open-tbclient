@@ -22,51 +22,51 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25127a;
+    public String f25056a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25128b = b.class.getSimpleName();
+    public String f25057b = b.class.getSimpleName();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25129c = false;
+    public boolean f25058c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public Class<?> f25130d;
+    public Class<?> f25059d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f25131e;
+    public Method f25060e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Class<?> f25132f;
+    public Class<?> f25061f;
 
     /* loaded from: classes5.dex */
     public static class a implements InvocationHandler {
 
         /* renamed from: a  reason: collision with root package name */
-        public ILightappInvokerCallback f25138a;
+        public ILightappInvokerCallback f25067a;
 
         public a(ILightappInvokerCallback iLightappInvokerCallback) {
-            this.f25138a = iLightappInvokerCallback;
+            this.f25067a = iLightappInvokerCallback;
         }
 
         @Override // java.lang.reflect.InvocationHandler
         public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-            if (this.f25138a != null) {
+            if (this.f25067a != null) {
                 if ("onResult".equals(method.getName())) {
                     if (objArr != null && objArr.length >= 2) {
-                        this.f25138a.onResult(((Integer) objArr[0]).intValue(), (String) objArr[1]);
+                        this.f25067a.onResult(((Integer) objArr[0]).intValue(), (String) objArr[1]);
                     }
                     return null;
                 }
-                return method.invoke(this.f25138a, objArr);
+                return method.invoke(this.f25067a, objArr);
             }
             return null;
         }
     }
 
     public b(String str) {
-        this.f25127a = "";
-        this.f25127a = str;
+        this.f25056a = "";
+        this.f25056a = str;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IPUT, MOVE_EXCEPTION, IGET, CONST_STR, INVOKE, IPUT, MOVE_EXCEPTION] complete} */
@@ -86,29 +86,29 @@ public class b {
                 PayStatisticsUtil.onEvent("callNativeVoiceByHostApp");
             }
         });
-        if (!this.f25129c) {
+        if (!this.f25058c) {
             try {
-                this.f25130d = Class.forName("com.baidu.walletfacesdk.LightInvokerImpl");
+                this.f25059d = Class.forName("com.baidu.walletfacesdk.LightInvokerImpl");
                 Class<?> cls = Class.forName("com.baidu.walletfacesdk.LightInvokerCallback");
-                this.f25132f = cls;
-                this.f25131e = this.f25130d.getDeclaredMethod(LightappConstants.METHOD_INVOKE_BD_WALLET_NATIVE, Context.class, String.class, Boolean.TYPE, cls);
+                this.f25061f = cls;
+                this.f25060e = this.f25059d.getDeclaredMethod(LightappConstants.METHOD_INVOKE_BD_WALLET_NATIVE, Context.class, String.class, Boolean.TYPE, cls);
             } finally {
                 try {
                 } finally {
                 }
             }
         }
-        if (this.f25130d != null && this.f25132f != null && this.f25131e != null) {
+        if (this.f25059d != null && this.f25061f != null && this.f25060e != null) {
             try {
-                this.f25131e.invoke(null, context, str, Boolean.valueOf("ONLINE".equals(DebugConfig.getInstance().getEnvironment())), Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{this.f25132f}, new a(iLightappInvokerCallback)));
+                this.f25060e.invoke(null, context, str, Boolean.valueOf("ONLINE".equals(DebugConfig.getInstance().getEnvironment())), Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{this.f25061f}, new a(iLightappInvokerCallback)));
                 return;
             } catch (Throwable th) {
-                LogUtil.e(this.f25128b, "reflect callNativeVoice fail!", th);
+                LogUtil.e(this.f25057b, "reflect callNativeVoice fail!", th);
                 String a2 = a(iLightappInvokerCallback, "reflect callNativeVoice fail!");
                 iLightappInvokerCallback.onResult(1, a2);
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(a2);
-                PayStatisticsUtil.onEventWithValues(this.f25127a, arrayList);
+                PayStatisticsUtil.onEventWithValues(this.f25056a, arrayList);
                 return;
             }
         }
@@ -116,7 +116,7 @@ public class b {
         iLightappInvokerCallback.onResult(1, a3);
         ArrayList arrayList2 = new ArrayList();
         arrayList2.add(a3);
-        PayStatisticsUtil.onEventWithValues(this.f25127a, arrayList2);
+        PayStatisticsUtil.onEventWithValues(this.f25056a, arrayList2);
     }
 
     private String a(ILightappInvokerCallback iLightappInvokerCallback, String str) {

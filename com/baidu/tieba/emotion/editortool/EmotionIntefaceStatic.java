@@ -20,7 +20,7 @@ public class EmotionIntefaceStatic {
     public static class a extends BroadcastReceiver {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            d.a.k0.h0.b.e.i().q();
+            d.a.n0.i0.b.e.i().q();
         }
     }
 
@@ -40,9 +40,9 @@ public class EmotionIntefaceStatic {
             int indexOf = editorTools.getCollectTools().indexOf(5);
             if (indexOf != -1) {
                 if (editorTools.s()) {
-                    editorTools.d(new d.a.k0.h0.b.a(editorTools.getContext(), indexOf + 1, false));
+                    editorTools.d(new d.a.n0.i0.b.a(editorTools.getContext(), indexOf + 1, false));
                 } else {
-                    editorTools.d(new d.a.k0.h0.b.a(editorTools.getContext(), indexOf + 1));
+                    editorTools.d(new d.a.n0.i0.b.a(editorTools.getContext(), indexOf + 1));
                 }
             }
         }
@@ -61,10 +61,10 @@ public class EmotionIntefaceStatic {
             if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof List)) {
                 return;
             }
-            for (d.a.j0.w.p.a aVar : (List) customResponsedMessage.getData()) {
-                d.a.k0.h0.b.e.i().p(aVar);
+            for (d.a.m0.w.p.a aVar : (List) customResponsedMessage.getData()) {
+                d.a.n0.i0.b.e.i().p(aVar);
             }
-            d.a.k0.h0.b.e.i().q();
+            d.a.n0.i0.b.e.i().q();
             MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
         }
     }
@@ -73,7 +73,7 @@ public class EmotionIntefaceStatic {
     public static class d implements CustomMessageTask.CustomRunnable<Object> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-            d.a.k0.h0.b.e.i().q();
+            d.a.n0.i0.b.e.i().q();
             return null;
         }
     }
@@ -86,7 +86,7 @@ public class EmotionIntefaceStatic {
                 return null;
             }
             RequestStaticEmotionMessage requestStaticEmotionMessage = (RequestStaticEmotionMessage) customMessage;
-            return new CustomResponsedMessage<>(customMessage.getCmd(), d.a.k0.h0.b.e.i().n(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
+            return new CustomResponsedMessage<>(customMessage.getCmd(), d.a.n0.i0.b.e.i().n(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
         }
     }
 
@@ -97,7 +97,7 @@ public class EmotionIntefaceStatic {
             if (customMessage == null) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2004608, Boolean.valueOf(d.a.k0.h0.b.e.i().j(customMessage.getData())));
+            return new CustomResponsedMessage<>(2004608, Boolean.valueOf(d.a.n0.i0.b.e.i().j(customMessage.getData())));
         }
     }
 
@@ -108,7 +108,7 @@ public class EmotionIntefaceStatic {
             if (customMessage == null) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2004609, Boolean.valueOf(d.a.k0.h0.b.e.i().k(customMessage.getData())));
+            return new CustomResponsedMessage<>(2004609, Boolean.valueOf(d.a.n0.i0.b.e.i().k(customMessage.getData())));
         }
     }
 
@@ -124,12 +124,12 @@ public class EmotionIntefaceStatic {
             if (customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof List)) {
                 return;
             }
-            ((List) customResponsedMessage.getData()).add(d.a.k0.h0.b.d.f());
+            ((List) customResponsedMessage.getData()).add(d.a.n0.i0.b.d.f());
         }
     }
 
     static {
-        d.a.c.e.l.d.h().o(20, new d.a.k0.h0.a.a());
+        d.a.c.e.l.d.h().o(20, new d.a.n0.i0.a.a());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");

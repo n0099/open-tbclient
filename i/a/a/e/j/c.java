@@ -6,13 +6,13 @@ import tv.athena.revenue.payui.model.PayUIKitConfig;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static h f68831a = null;
+    public static h f68874a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f68832b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+    public static String f68875b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f68833c = "https://web.yy.com/yy_wallet/wallet.html?";
+    public static String f68876c = "https://web.yy.com/yy_wallet/wallet.html?";
 
     public static String a(String str, PayUIKitConfig payUIKitConfig) {
         if (payUIKitConfig == null || payUIKitConfig.revenueConfig == null) {
@@ -34,25 +34,25 @@ public class c {
 
     public static String b(PayUIKitConfig payUIKitConfig) {
         if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-            return a(f68833c, payUIKitConfig);
+            return a(f68876c, payUIKitConfig);
         }
-        return f68833c;
+        return f68876c;
     }
 
     public static String c(PayUIKitConfig payUIKitConfig) {
         if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
-            return f68832b;
+            return f68875b;
         }
-        return a(f68832b, payUIKitConfig);
+        return a(f68875b, payUIKitConfig);
     }
 
     public static void d(boolean z) {
         if (z) {
-            f68832b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
-            f68833c = "https://webtest.yy.com/yy_wallet/wallet.html?";
+            f68875b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
+            f68876c = "https://webtest.yy.com/yy_wallet/wallet.html?";
             return;
         }
-        f68832b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-        f68833c = "https://web.yy.com/yy_wallet/wallet.html?";
+        f68875b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+        f68876c = "https://web.yy.com/yy_wallet/wallet.html?";
     }
 }

@@ -54,26 +54,26 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
     public class b extends AbstractIterator<C> {
 
         /* renamed from: g  reason: collision with root package name */
-        public C f31360g;
+        public C f31289g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Iterator f31361h;
+        public final /* synthetic */ Iterator f31290h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Comparator f31362i;
+        public final /* synthetic */ Comparator f31291i;
 
         public b(TreeBasedTable treeBasedTable, Iterator it, Comparator comparator) {
-            this.f31361h = it;
-            this.f31362i = comparator;
+            this.f31290h = it;
+            this.f31291i = comparator;
         }
 
         @Override // com.google.common.collect.AbstractIterator
         public C a() {
             boolean z;
-            while (this.f31361h.hasNext()) {
-                C c2 = (C) this.f31361h.next();
-                C c3 = this.f31360g;
-                if (c3 == null || this.f31362i.compare(c2, c3) != 0) {
+            while (this.f31290h.hasNext()) {
+                C c2 = (C) this.f31290h.next();
+                C c3 = this.f31289g;
+                if (c3 == null || this.f31291i.compare(c2, c3) != 0) {
                     z = false;
                     continue;
                 } else {
@@ -81,11 +81,11 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                     continue;
                 }
                 if (!z) {
-                    this.f31360g = c2;
+                    this.f31289g = c2;
                     return c2;
                 }
             }
-            this.f31360g = null;
+            this.f31289g = null;
             return b();
         }
     }
@@ -94,10 +94,10 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
     public class c extends StandardTable<R, C, V>.g implements SortedMap<C, V> {
 
         /* renamed from: h  reason: collision with root package name */
-        public final C f31363h;
+        public final C f31292h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final C f31364i;
+        public final C f31293i;
         public transient SortedMap<C, V> j;
 
         public c(TreeBasedTable treeBasedTable, R r) {
@@ -119,9 +119,9 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             if (k() == null || !this.j.isEmpty()) {
                 return;
             }
-            TreeBasedTable.this.backingMap.remove(this.f31341e);
+            TreeBasedTable.this.backingMap.remove(this.f31270e);
             this.j = null;
-            this.f31342f = null;
+            this.f31271f = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -149,11 +149,11 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         public SortedMap<C, V> c() {
             SortedMap<C, V> k = k();
             if (k != null) {
-                C c2 = this.f31363h;
+                C c2 = this.f31292h;
                 if (c2 != null) {
                     k = k.tailMap(c2);
                 }
-                C c3 = this.f31364i;
+                C c3 = this.f31293i;
                 return c3 != null ? k.headMap(c3) : k;
             }
             return null;
@@ -163,7 +163,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         public SortedMap<C, V> headMap(C c2) {
             n.p(c2);
             n.d(j(c2));
-            return new c(this.f31341e, this.f31363h, c2);
+            return new c(this.f31270e, this.f31292h, c2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -176,13 +176,13 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         public boolean j(Object obj) {
             C c2;
             C c3;
-            return obj != null && ((c2 = this.f31363h) == null || g(c2, obj) <= 0) && ((c3 = this.f31364i) == null || g(c3, obj) > 0);
+            return obj != null && ((c2 = this.f31292h) == null || g(c2, obj) <= 0) && ((c3 = this.f31293i) == null || g(c3, obj) > 0);
         }
 
         public SortedMap<C, V> k() {
             SortedMap<C, V> sortedMap = this.j;
-            if (sortedMap == null || (sortedMap.isEmpty() && TreeBasedTable.this.backingMap.containsKey(this.f31341e))) {
-                this.j = (SortedMap) TreeBasedTable.this.backingMap.get(this.f31341e);
+            if (sortedMap == null || (sortedMap.isEmpty() && TreeBasedTable.this.backingMap.containsKey(this.f31270e))) {
+                this.j = (SortedMap) TreeBasedTable.this.backingMap.get(this.f31270e);
             }
             return this.j;
         }
@@ -211,25 +211,25 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                 if (j(c3)) {
                     z = true;
                     n.d(z);
-                    return new c(this.f31341e, c2, c3);
+                    return new c(this.f31270e, c2, c3);
                 }
             }
             z = false;
             n.d(z);
-            return new c(this.f31341e, c2, c3);
+            return new c(this.f31270e, c2, c3);
         }
 
         @Override // java.util.SortedMap
         public SortedMap<C, V> tailMap(C c2) {
             n.p(c2);
             n.d(j(c2));
-            return new c(this.f31341e, c2, this.f31364i);
+            return new c(this.f31270e, c2, this.f31293i);
         }
 
         public c(R r, C c2, C c3) {
             super(r);
-            this.f31363h = c2;
-            this.f31364i = c3;
+            this.f31292h = c2;
+            this.f31293i = c3;
             n.d(c2 == null || c3 == null || g(c2, c3) <= 0);
         }
     }

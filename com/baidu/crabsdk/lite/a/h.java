@@ -5,13 +5,13 @@ import java.util.Locale;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Locale f4734a;
+    public static Locale f4657a;
 
     public static void a() {
-        f4734a = Locale.getDefault();
+        f4657a = Locale.getDefault();
     }
 
     public static String b() {
-        return f4734a.getLanguage() + "-" + f4734a.getCountry();
+        return f4657a.getLanguage() + "-" + f4657a.getCountry();
     }
 }

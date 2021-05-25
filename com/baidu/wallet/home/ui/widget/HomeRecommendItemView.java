@@ -11,7 +11,7 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 public class HomeRecommendItemView extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24280a;
+    public NetImageView f24209a;
     public MaskTextView mDesc_1;
     public MaskTextView mDesc_2;
     public MaskTextView mRmdText;
@@ -28,7 +28,7 @@ public class HomeRecommendItemView extends BaseItemView {
         this.mTitle = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_rmd_title"));
         this.mDesc_1 = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_rmd_title_des_1"));
         this.mDesc_2 = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_rmd_title_des_2"));
-        this.f24280a = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
+        this.f24209a = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
@@ -79,10 +79,10 @@ public class HomeRecommendItemView extends BaseItemView {
         }
         if (!handlePoint() && hasCornor()) {
             setIconUrl(getData().corner_addr);
-            this.f24280a.setVisibility(0);
+            this.f24209a.setVisibility(0);
             return;
         }
-        this.f24280a.setVisibility(8);
+        this.f24209a.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
@@ -123,10 +123,10 @@ public class HomeRecommendItemView extends BaseItemView {
     }
 
     public void setIconUrl(String str) {
-        if (this.f24280a == null || TextUtils.isEmpty(str)) {
+        if (this.f24209a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        NetImageView netImageView = this.f24280a;
+        NetImageView netImageView = this.f24209a;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + str);
     }
 

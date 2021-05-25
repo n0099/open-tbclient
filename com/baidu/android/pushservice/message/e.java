@@ -3,61 +3,61 @@ package com.baidu.android.pushservice.message;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public short f3528a;
+    public short f3531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f3529b;
+    public byte[] f3532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f3530c;
+    public boolean f3533c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f3531d = false;
+    public boolean f3534d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f3532e;
+    public boolean f3535e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f3533f;
+    public k f3536f;
 
     public e(short s) {
-        this.f3528a = s;
+        this.f3531a = s;
     }
 
     public short a() {
-        return this.f3528a;
+        return this.f3531a;
     }
 
     public void a(k kVar) {
-        this.f3533f = kVar;
+        this.f3536f = kVar;
     }
 
     public void a(boolean z) {
-        this.f3532e = z;
+        this.f3535e = z;
     }
 
     public byte[] b() {
-        return this.f3529b;
+        return this.f3532b;
     }
 
     public boolean c() {
-        return this.f3530c;
+        return this.f3533c;
     }
 
     public boolean d() {
-        return this.f3532e;
+        return this.f3535e;
     }
 
     public k e() {
-        return this.f3533f;
+        return this.f3536f;
     }
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("type : ");
-        stringBuffer.append((int) this.f3528a);
+        stringBuffer.append((int) this.f3531a);
         stringBuffer.append(", needReply: ");
-        stringBuffer.append(this.f3530c);
+        stringBuffer.append(this.f3533c);
         return stringBuffer.toString();
     }
 }

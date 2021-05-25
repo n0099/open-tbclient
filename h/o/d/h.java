@@ -10,10 +10,10 @@ import java.util.List;
 public final class h implements k {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<k> f68641e;
+    public List<k> f68684e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f68642f;
+    public volatile boolean f68685f;
 
     public h() {
     }
@@ -40,13 +40,13 @@ public final class h implements k {
         if (kVar.isUnsubscribed()) {
             return;
         }
-        if (!this.f68642f) {
+        if (!this.f68685f) {
             synchronized (this) {
-                if (!this.f68642f) {
-                    List list = this.f68641e;
+                if (!this.f68685f) {
+                    List list = this.f68684e;
                     if (list == null) {
                         list = new LinkedList();
-                        this.f68641e = list;
+                        this.f68684e = list;
                     }
                     list.add(kVar);
                     return;
@@ -57,12 +57,12 @@ public final class h implements k {
     }
 
     public void b(k kVar) {
-        if (this.f68642f) {
+        if (this.f68685f) {
             return;
         }
         synchronized (this) {
-            List<k> list = this.f68641e;
-            if (!this.f68642f && list != null) {
+            List<k> list = this.f68684e;
+            if (!this.f68685f && list != null) {
                 boolean remove = list.remove(kVar);
                 if (remove) {
                     kVar.unsubscribe();
@@ -73,32 +73,32 @@ public final class h implements k {
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f68642f;
+        return this.f68685f;
     }
 
     @Override // h.k
     public void unsubscribe() {
-        if (this.f68642f) {
+        if (this.f68685f) {
             return;
         }
         synchronized (this) {
-            if (this.f68642f) {
+            if (this.f68685f) {
                 return;
             }
-            this.f68642f = true;
-            List<k> list = this.f68641e;
-            this.f68641e = null;
+            this.f68685f = true;
+            List<k> list = this.f68684e;
+            this.f68684e = null;
             c(list);
         }
     }
 
     public h(k... kVarArr) {
-        this.f68641e = new LinkedList(Arrays.asList(kVarArr));
+        this.f68684e = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public h(k kVar) {
         LinkedList linkedList = new LinkedList();
-        this.f68641e = linkedList;
+        this.f68684e = linkedList;
         linkedList.add(kVar);
     }
 }

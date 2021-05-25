@@ -64,7 +64,7 @@ import org.json.JSONObject;
 public class TTWebPageActivity extends Activity implements d {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f27264g = TTWebPageActivity.class.getSimpleName();
+    public static final String f27193g = TTWebPageActivity.class.getSimpleName();
     public x A;
     public int B;
     public String C;
@@ -75,22 +75,22 @@ public class TTWebPageActivity extends Activity implements d {
     public com.bytedance.sdk.openadsdk.downloadnew.core.a L;
 
     /* renamed from: a  reason: collision with root package name */
-    public LandingDislikeDialog f27265a;
+    public LandingDislikeDialog f27194a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LandingCommentDialog f27266b;
+    public LandingCommentDialog f27195b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LandingDislikeToast f27267c;
+    public LandingDislikeToast f27196c;
 
     /* renamed from: f  reason: collision with root package name */
-    public j f27270f;
+    public j f27199f;
 
     /* renamed from: h  reason: collision with root package name */
-    public SSWebView f27271h;
+    public SSWebView f27200h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f27272i;
+    public ImageView f27201i;
     public ImageView j;
     public TextView k;
     public TextView l;
@@ -110,10 +110,10 @@ public class TTWebPageActivity extends Activity implements d {
     public String z;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f27268d = new AtomicBoolean(false);
+    public final AtomicBoolean f27197d = new AtomicBoolean(false);
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicBoolean f27269e = new AtomicBoolean(false);
+    public final AtomicBoolean f27198e = new AtomicBoolean(false);
     public int H = 0;
     public int I = 0;
     public AtomicBoolean J = new AtomicBoolean(true);
@@ -168,7 +168,7 @@ public class TTWebPageActivity extends Activity implements d {
     @Override // android.app.Activity
     public void onBackPressed() {
         if (i()) {
-            if (al.a((WebView) this.f27271h)) {
+            if (al.a((WebView) this.f27200h)) {
                 return;
             }
             super.onBackPressed();
@@ -193,7 +193,7 @@ public class TTWebPageActivity extends Activity implements d {
         } catch (Throwable unused) {
         }
         g();
-        com.bytedance.sdk.openadsdk.core.widget.webview.a.a(this.r).a(false).b(false).a(this.f27271h);
+        com.bytedance.sdk.openadsdk.core.widget.webview.a.a(this.r).a(false).b(false).a(this.f27200h);
         Intent intent = getIntent();
         this.s = intent.getIntExtra(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 1);
         this.y = intent.getStringExtra(XAdRemoteAPKDownloadExtraInfo.ADID);
@@ -211,7 +211,7 @@ public class TTWebPageActivity extends Activity implements d {
                 try {
                     this.D = c.a(new JSONObject(stringExtra3));
                 } catch (Exception e2) {
-                    u.c(f27264g, "TTWebPageActivity - onCreate MultiGlobalInfo : ", e2);
+                    u.c(f27193g, "TTWebPageActivity - onCreate MultiGlobalInfo : ", e2);
                 }
             }
         } else {
@@ -223,7 +223,7 @@ public class TTWebPageActivity extends Activity implements d {
             lVar.c("landing_page");
         }
         c(this.D);
-        this.f27270f = new j(this, this.D, this.f27271h).a(true);
+        this.f27199f = new j(this, this.D, this.f27200h).a(true);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(XAdRemoteAPKDownloadExtraInfo.ADID, this.y);
@@ -233,9 +233,9 @@ public class TTWebPageActivity extends Activity implements d {
             jSONObject.put("event_tag", this.C);
         } catch (JSONException unused2) {
         }
-        this.f27270f.a(jSONObject);
+        this.f27199f.a(jSONObject);
         h();
-        this.f27271h.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this.r, this.A, this.y, this.f27270f) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.1
+        this.f27200h.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this.r, this.A, this.y, this.f27199f) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.1
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
@@ -258,23 +258,23 @@ public class TTWebPageActivity extends Activity implements d {
                     WebResourceResponse a2 = com.bytedance.sdk.openadsdk.d.a.a().a(TTWebPageActivity.this.G, TTWebPageActivity.this.F, str);
                     if (a2 != null) {
                         TTWebPageActivity.e(TTWebPageActivity.this);
-                        Log.d(TTWebPageActivity.f27264g, "GeckoLog: hit++");
+                        Log.d(TTWebPageActivity.f27193g, "GeckoLog: hit++");
                         return a2;
                     }
                     return super.shouldInterceptRequest(webView, str);
                 } catch (Throwable th) {
-                    Log.e(TTWebPageActivity.f27264g, "shouldInterceptRequest url error", th);
+                    Log.e(TTWebPageActivity.f27193g, "shouldInterceptRequest url error", th);
                     return super.shouldInterceptRequest(webView, str);
                 }
             }
         });
-        this.f27271h.getSettings().setUserAgentString(r.a(this.f27271h, this.s));
+        this.f27200h.getSettings().setUserAgentString(r.a(this.f27200h, this.s));
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f27271h.getSettings().setMixedContentMode(0);
+            this.f27200h.getSettings().setMixedContentMode(0);
         }
         com.bytedance.sdk.openadsdk.c.d.a(this.r, this.D);
-        this.f27271h.loadUrl(stringExtra);
-        this.f27271h.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.b(this.A, this.f27270f) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.7
+        this.f27200h.loadUrl(stringExtra);
+        this.f27200h.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.b(this.A, this.f27199f) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.7
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.b, android.webkit.WebChromeClient
             public void onProgressChanged(WebView webView, int i2) {
                 super.onProgressChanged(webView, i2);
@@ -288,7 +288,7 @@ public class TTWebPageActivity extends Activity implements d {
                 }
             }
         });
-        this.f27271h.setDownloadListener(new DownloadListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.8
+        this.f27200h.setDownloadListener(new DownloadListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.8
             @Override // android.webkit.DownloadListener
             public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
                 if (TTWebPageActivity.this.M.containsKey(str)) {
@@ -355,9 +355,9 @@ public class TTWebPageActivity extends Activity implements d {
             d.a.a(this.I, this.H, this.D);
         }
         com.bytedance.sdk.openadsdk.d.a.a().a(this.G);
-        aa.a(this.r, this.f27271h);
-        aa.a(this.f27271h);
-        this.f27271h = null;
+        aa.a(this.r, this.f27200h);
+        aa.a(this.f27200h);
+        this.f27200h = null;
         x xVar = this.A;
         if (xVar != null) {
             xVar.o();
@@ -375,7 +375,7 @@ public class TTWebPageActivity extends Activity implements d {
             }
             this.M.clear();
         }
-        j jVar = this.f27270f;
+        j jVar = this.f27199f;
         if (jVar != null) {
             jVar.d();
         }
@@ -422,7 +422,7 @@ public class TTWebPageActivity extends Activity implements d {
                 }
             }
         }
-        j jVar = this.f27270f;
+        j jVar = this.f27199f;
         if (jVar != null) {
             jVar.b();
         }
@@ -432,7 +432,7 @@ public class TTWebPageActivity extends Activity implements d {
     @Override // android.app.Activity
     public void onStop() {
         super.onStop();
-        j jVar = this.f27270f;
+        j jVar = this.f27199f;
         if (jVar != null) {
             jVar.c();
         }
@@ -502,7 +502,7 @@ public class TTWebPageActivity extends Activity implements d {
     }
 
     private void g() {
-        this.f27271h = (SSWebView) findViewById(ad.e(this, "tt_browser_webview"));
+        this.f27200h = (SSWebView) findViewById(ad.e(this, "tt_browser_webview"));
         this.v = (ViewStub) findViewById(ad.e(this, "tt_browser_download_btn_stub"));
         this.t = (ViewStub) findViewById(ad.e(this, "tt_browser_titlebar_view_stub"));
         this.u = (ViewStub) findViewById(ad.e(this, "tt_browser_titlebar_dark_view_stub"));
@@ -513,14 +513,14 @@ public class TTWebPageActivity extends Activity implements d {
             this.u.setVisibility(0);
         }
         ImageView imageView = (ImageView) findViewById(ad.e(this, "tt_titlebar_back"));
-        this.f27272i = imageView;
+        this.f27201i = imageView;
         if (imageView != null) {
             imageView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.14
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (TTWebPageActivity.this.f27271h != null) {
-                        if (TTWebPageActivity.this.f27271h.canGoBack()) {
-                            TTWebPageActivity.this.f27271h.goBack();
+                    if (TTWebPageActivity.this.f27200h != null) {
+                        if (TTWebPageActivity.this.f27200h.canGoBack()) {
+                            TTWebPageActivity.this.f27200h.goBack();
                         } else if (TTWebPageActivity.this.i()) {
                             TTWebPageActivity.this.onBackPressed();
                         } else {
@@ -564,7 +564,7 @@ public class TTWebPageActivity extends Activity implements d {
         arrayList.add(this.D);
         x xVar = new x(this);
         this.A = xVar;
-        xVar.b(this.f27271h).a(this.D).a(arrayList).b(this.y).c(this.z).a(this.B).d(ak.i(this.D)).a(this.f27271h).a(this);
+        xVar.b(this.f27200h).a(this.D).a(arrayList).b(this.y).c(this.z).a(this.B).d(ak.i(this.D)).a(this.f27200h).a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -584,7 +584,7 @@ public class TTWebPageActivity extends Activity implements d {
             return;
         }
         m mVar = new m();
-        mVar.f27983d = b2;
+        mVar.f27912d = b2;
         AdSlot p = this.D.p();
         if (p == null) {
             return;
@@ -611,7 +611,7 @@ public class TTWebPageActivity extends Activity implements d {
     }
 
     private void k() {
-        LandingDislikeToast landingDislikeToast = this.f27267c;
+        LandingDislikeToast landingDislikeToast = this.f27196c;
         if (landingDislikeToast == null) {
             return;
         }
@@ -620,7 +620,7 @@ public class TTWebPageActivity extends Activity implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l() {
-        LandingDislikeToast landingDislikeToast = this.f27267c;
+        LandingDislikeToast landingDislikeToast = this.f27196c;
         if (landingDislikeToast == null) {
             return;
         }
@@ -629,7 +629,7 @@ public class TTWebPageActivity extends Activity implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
-        LandingDislikeToast landingDislikeToast = this.f27267c;
+        LandingDislikeToast landingDislikeToast = this.f27196c;
         if (landingDislikeToast == null) {
             return;
         }
@@ -768,64 +768,64 @@ public class TTWebPageActivity extends Activity implements d {
     }
 
     public void b() {
-        if (this.f27266b == null) {
+        if (this.f27195b == null) {
             LandingCommentDialog landingCommentDialog = new LandingCommentDialog(this, this.D);
-            this.f27266b = landingCommentDialog;
+            this.f27195b = landingCommentDialog;
             landingCommentDialog.setCallback(new LandingCommentDialog.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.5
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.a
                 public void a(View view) {
-                    TTWebPageActivity.this.f27268d.set(true);
+                    TTWebPageActivity.this.f27197d.set(true);
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.a
                 public void b(View view) {
-                    TTWebPageActivity.this.f27268d.set(false);
-                    if (!TTWebPageActivity.this.f27269e.get()) {
-                        TTWebPageActivity.this.f27265a.a();
+                    TTWebPageActivity.this.f27197d.set(false);
+                    if (!TTWebPageActivity.this.f27198e.get()) {
+                        TTWebPageActivity.this.f27194a.a();
                     } else {
-                        TTWebPageActivity.this.f27265a.a(true);
+                        TTWebPageActivity.this.f27194a.a(true);
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.a
                 public void a(String str, boolean z) {
-                    if (!z || TTWebPageActivity.this.f27269e.get()) {
+                    if (!z || TTWebPageActivity.this.f27198e.get()) {
                         if (z) {
                             return;
                         }
                         TTWebPageActivity.this.m();
                         return;
                     }
-                    TTWebPageActivity.this.f27268d.set(true);
-                    TTWebPageActivity.this.f27269e.set(true);
+                    TTWebPageActivity.this.f27197d.set(true);
+                    TTWebPageActivity.this.f27198e.set(true);
                     TTWebPageActivity.this.l();
                 }
             });
-            ((FrameLayout) findViewById(16908290)).addView(this.f27266b);
-            this.f27266b.setVisibility(8);
+            ((FrameLayout) findViewById(16908290)).addView(this.f27195b);
+            this.f27195b.setVisibility(8);
         }
-        if (this.f27265a == null) {
+        if (this.f27194a == null) {
             LandingDislikeDialog landingDislikeDialog = new LandingDislikeDialog(this, this.D, this.C);
-            this.f27265a = landingDislikeDialog;
+            this.f27194a = landingDislikeDialog;
             landingDislikeDialog.setCallback(new LandingDislikeDialog.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.6
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.a
                 public void a(View view) {
-                    TTWebPageActivity.this.f27268d.set(true);
+                    TTWebPageActivity.this.f27197d.set(true);
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.a
                 public void b(View view) {
-                    TTWebPageActivity.this.f27268d.set(false);
+                    TTWebPageActivity.this.f27197d.set(false);
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.a
                 public void a(int i2, FilterWord filterWord) {
-                    if (TTWebPageActivity.this.f27269e.get() || filterWord == null || filterWord.hasSecondOptions()) {
+                    if (TTWebPageActivity.this.f27198e.get() || filterWord == null || filterWord.hasSecondOptions()) {
                         return;
                     }
-                    TTWebPageActivity.this.f27269e.set(true);
+                    TTWebPageActivity.this.f27198e.set(true);
                     TTWebPageActivity.this.l();
-                    LandingCommentDialog landingCommentDialog2 = TTWebPageActivity.this.f27266b;
+                    LandingCommentDialog landingCommentDialog2 = TTWebPageActivity.this.f27195b;
                     if (landingCommentDialog2 != null) {
                         landingCommentDialog2.a();
                     }
@@ -833,14 +833,14 @@ public class TTWebPageActivity extends Activity implements d {
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.a
                 public void a() {
-                    TTWebPageActivity.this.f27266b.b();
+                    TTWebPageActivity.this.f27195b.b();
                 }
             });
-            ((FrameLayout) findViewById(16908290)).addView(this.f27265a);
+            ((FrameLayout) findViewById(16908290)).addView(this.f27194a);
         }
-        if (this.f27267c == null) {
-            this.f27267c = new LandingDislikeToast(this);
-            ((FrameLayout) findViewById(16908290)).addView(this.f27267c);
+        if (this.f27196c == null) {
+            this.f27196c = new LandingDislikeToast(this);
+            ((FrameLayout) findViewById(16908290)).addView(this.f27196c);
         }
     }
 
@@ -857,13 +857,13 @@ public class TTWebPageActivity extends Activity implements d {
         if (this.D == null || isFinishing()) {
             return;
         }
-        if (this.f27269e.get()) {
+        if (this.f27198e.get()) {
             k();
             return;
         }
-        if (this.f27265a == null) {
+        if (this.f27194a == null) {
             b();
         }
-        this.f27265a.a();
+        this.f27194a.a();
     }
 }

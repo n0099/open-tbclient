@@ -6,12 +6,12 @@ import java.util.HashMap;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4748a = "CRABLITE";
+    public static String f4671a = "CRABLITE";
 
     public static boolean a(String str) {
         HashMap<String, Object> hashMap;
         Object obj;
-        if (str == null || (hashMap = com.baidu.crabsdk.lite.a.f4716a.get(str)) == null || (obj = hashMap.get("sdk_log")) == null) {
+        if (str == null || (hashMap = com.baidu.crabsdk.lite.a.f4639a.get(str)) == null || (obj = hashMap.get("sdk_log")) == null) {
             return true;
         }
         return ((Boolean) obj).booleanValue();
@@ -37,35 +37,35 @@ public final class a {
 
     public static int c(String str, String str2) {
         if (a(str)) {
-            return Log.d(f4748a, b(str2));
+            return Log.d(f4671a, b(str2));
         }
         return -1;
     }
 
     public static int d(String str, String str2) {
         if (a(str)) {
-            return Log.e(f4748a, b(str2));
+            return Log.e(f4671a, b(str2));
         }
         return -1;
     }
 
     public static int e(String str, String str2, Throwable th) {
         if (a(str)) {
-            return Log.e(f4748a, b(str2), th);
+            return Log.e(f4671a, b(str2), th);
         }
         return -1;
     }
 
     public static int f(String str, String str2) {
         if (a(str)) {
-            return Log.i(f4748a, b(str2));
+            return Log.i(f4671a, b(str2));
         }
         return -1;
     }
 
     public static int g(String str, String str2) {
         if (a(str)) {
-            return Log.w(f4748a, b(str2));
+            return Log.w(f4671a, b(str2));
         }
         return -1;
     }

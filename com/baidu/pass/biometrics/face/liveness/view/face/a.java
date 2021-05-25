@@ -14,22 +14,22 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f9254a = 480;
+    public static final int f9154a = 480;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f9255b = 640;
+    public static final int f9155b = 640;
 
     public static CameraPreview.a a(Activity activity, Camera.Parameters parameters) {
         List<CameraPreview.a> b2 = b(activity, parameters);
         CameraPreview.a aVar = new CameraPreview.a(640, 480);
         if (b2 != null && b2.size() != 0) {
             Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-            a.C0113a c0113a = new a.C0113a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
-            float f2 = c0113a.f9170b / c0113a.f9169a;
-            float f3 = aVar.f9232a / aVar.f9233b;
+            a.C0114a c0114a = new a.C0114a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
+            float f2 = c0114a.f9070b / c0114a.f9069a;
+            float f3 = aVar.f9132a / aVar.f9133b;
             for (int i2 = 0; i2 < b2.size(); i2++) {
                 CameraPreview.a aVar2 = b2.get(i2);
-                float abs = Math.abs((aVar2.f9232a / aVar2.f9233b) - f2);
+                float abs = Math.abs((aVar2.f9132a / aVar2.f9133b) - f2);
                 if (abs < f3) {
                     aVar = aVar2;
                     f3 = abs;
@@ -46,10 +46,10 @@ public class a {
             return null;
         }
         Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-        a.C0113a c0113a = new a.C0113a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
+        a.C0114a c0114a = new a.C0114a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
         int i2 = 153600;
         int i3 = 921600;
-        int i4 = c0113a.f9169a * c0113a.f9170b;
+        int i4 = c0114a.f9069a * c0114a.f9070b;
         if (i4 / 4 > 921600) {
             i3 = 2073600;
             i2 = i4 / 8;

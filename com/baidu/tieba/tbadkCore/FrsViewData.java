@@ -18,28 +18,28 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import d.a.c.j.e.n;
-import d.a.j0.g0.b.a;
-import d.a.j0.r.d0.b;
-import d.a.j0.r.q.a2;
-import d.a.j0.r.q.d2;
-import d.a.j0.r.q.m1;
-import d.a.j0.r.q.w0;
-import d.a.j0.r.q.z0;
-import d.a.j0.r.q.z1;
-import d.a.k0.d3.e0;
-import d.a.k0.d3.g;
-import d.a.k0.d3.h;
-import d.a.k0.d3.k;
-import d.a.k0.d3.l;
-import d.a.k0.d3.m;
-import d.a.k0.d3.o;
-import d.a.k0.d3.p;
-import d.a.k0.d3.q;
-import d.a.k0.d3.r;
-import d.a.k0.d3.w;
-import d.a.k0.d3.x;
-import d.a.k0.q0.c;
-import d.a.k0.q0.d;
+import d.a.m0.g0.b.a;
+import d.a.m0.r.d0.b;
+import d.a.m0.r.q.a2;
+import d.a.m0.r.q.d2;
+import d.a.m0.r.q.m1;
+import d.a.m0.r.q.w0;
+import d.a.m0.r.q.z0;
+import d.a.m0.r.q.z1;
+import d.a.n0.e3.e0;
+import d.a.n0.e3.g;
+import d.a.n0.e3.h;
+import d.a.n0.e3.k;
+import d.a.n0.e3.l;
+import d.a.n0.e3.m;
+import d.a.n0.e3.o;
+import d.a.n0.e3.p;
+import d.a.n0.e3.q;
+import d.a.n0.e3.r;
+import d.a.n0.e3.w;
+import d.a.n0.e3.x;
+import d.a.n0.r0.c;
+import d.a.n0.r0.d;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -56,7 +56,7 @@ import tbclient.User;
 public class FrsViewData extends m implements a, Serializable {
     public ForumActiveInfo forumActiveInfo;
     public int frsCurrentTabId;
-    public d.a.k0.s0.a funAdController;
+    public d.a.n0.t0.a funAdController;
     public boolean isBrandForum;
     public boolean isFrsVideoAutoPlay;
     public boolean isLoadMore;
@@ -83,10 +83,10 @@ public class FrsViewData extends m implements a, Serializable {
             for (int i2 = 0; i2 < size; i2++) {
                 n nVar = this.threadList.get(i2);
                 if (nVar instanceof z1) {
-                    if (((z1) nVar).w.P1) {
+                    if (((z1) nVar).w.Q1) {
                         arrayList2.add(nVar);
                     }
-                } else if ((nVar instanceof a2) && ((a2) nVar).P1) {
+                } else if ((nVar instanceof a2) && ((a2) nVar).Q1) {
                     arrayList2.add(nVar);
                 }
             }
@@ -101,7 +101,7 @@ public class FrsViewData extends m implements a, Serializable {
             if (next instanceof a2) {
                 a2 a2Var = (a2) next;
                 if (a2Var.s0() == 1) {
-                    return a2Var.M0();
+                    return a2Var.N0();
                 }
             }
         }
@@ -165,7 +165,7 @@ public class FrsViewData extends m implements a, Serializable {
         if (getForum() == null || (cardVideoInfo = getCardVideoInfo()) == null) {
             return;
         }
-        Log.e("FrsActivity", "addCardVideoInfoToThreadList cardVideoInfo:" + cardVideoInfo.x1());
+        Log.e("FrsActivity", "addCardVideoInfoToThreadList cardVideoInfo:" + cardVideoInfo.y1());
         ArrayList<n> threadList = getThreadList();
         if (threadList == null || threadList.size() <= 0) {
             return;
@@ -184,7 +184,7 @@ public class FrsViewData extends m implements a, Serializable {
             n nVar = this.threadList.get(i3);
             if (nVar instanceof z1) {
                 a2 a2Var = ((z1) nVar).w;
-                if (a2Var == null || (!a2Var.x2() && a2Var.s0() != 1)) {
+                if (a2Var == null || (!a2Var.y2() && a2Var.s0() != 1)) {
                     break;
                 }
                 i2++;
@@ -220,7 +220,7 @@ public class FrsViewData extends m implements a, Serializable {
             n nVar = this.threadList.get(i3);
             if (nVar instanceof z1) {
                 a2 a2Var = ((z1) nVar).w;
-                if (a2Var == null || (!a2Var.x2() && a2Var.s0() != 1)) {
+                if (a2Var == null || (!a2Var.y2() && a2Var.s0() != 1)) {
                     break;
                 }
                 i2++;
@@ -265,20 +265,20 @@ public class FrsViewData extends m implements a, Serializable {
 
     public boolean addHotTopicDataToThreadList() {
         ForumData forumData;
-        d.a.k0.x.e0.n recomTopicData;
+        d.a.n0.z.e0.n recomTopicData;
         if (this.threadList != null && (forumData = this.forum) != null && forumData.getBannerListData() != null) {
             int i2 = 0;
             for (int i3 = 0; i3 < this.threadList.size(); i3++) {
                 n nVar = this.threadList.get(i3);
                 if (nVar instanceof z1) {
                     a2 a2Var = ((z1) nVar).w;
-                    if (a2Var == null || (!a2Var.x2() && a2Var.s0() != 1)) {
+                    if (a2Var == null || (!a2Var.y2() && a2Var.s0() != 1)) {
                         break;
                     }
                     i2++;
                 }
             }
-            if (this.threadList.size() - i2 > 7 && (recomTopicData = this.forum.getBannerListData().getRecomTopicData()) != null && ListUtils.getCount(recomTopicData.f63208h) >= 4) {
+            if (this.threadList.size() - i2 > 7 && (recomTopicData = this.forum.getBannerListData().getRecomTopicData()) != null && ListUtils.getCount(recomTopicData.f63488h) >= 4) {
                 this.threadList.add(i2 + 6, recomTopicData);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()));
                 return true;
@@ -294,7 +294,7 @@ public class FrsViewData extends m implements a, Serializable {
         }
         ArrayList<n> threadList = getThreadList();
         removeTopSameClassDataFromList(g.class, threadList);
-        threadList.add(getAlaLiveThreadCardInsertPos(frsInsertLiveData.f53761f, threadList.size()), frsInsertLiveData);
+        threadList.add(getAlaLiveThreadCardInsertPos(frsInsertLiveData.f53974f, threadList.size()), frsInsertLiveData);
     }
 
     public void addMyNewThread(w0 w0Var) {
@@ -307,12 +307,12 @@ public class FrsViewData extends m implements a, Serializable {
             int size = threadList.size();
             for (int i2 = 0; i2 < size; i2++) {
                 n nVar = threadList.get(i2);
-                if ((nVar instanceof z1) && w0Var.o0().equals(((z1) nVar).w.o0()) && w0Var.getType() != a2.y3) {
+                if ((nVar instanceof z1) && w0Var.o0().equals(((z1) nVar).w.o0()) && w0Var.getType() != a2.z3) {
                     return;
                 }
             }
         }
-        w0Var.D1 = this.isBrandForum;
+        w0Var.E1 = this.isBrandForum;
         this.postThreadCount++;
         this.threadList.add(topThreadSize, w0Var);
     }
@@ -323,14 +323,14 @@ public class FrsViewData extends m implements a, Serializable {
         if (getForum() == null || this.threadList == null || (top_notice_data = getForum().getTop_notice_data()) == null || top_notice_data.a() == null) {
             return;
         }
-        while (!this.threadList.isEmpty() && (nVar = this.threadList.get(0)) != null && (nVar instanceof z1) && ((a2) nVar).x0() == 2) {
+        while (!this.threadList.isEmpty() && (nVar = this.threadList.get(0)) != null && (nVar instanceof z1) && ((a2) nVar).y0() == 2) {
             this.threadList.remove(0);
         }
         a2 a2Var = new a2();
-        a2Var.p4(top_notice_data.a());
-        a2Var.o4(top_notice_data.b());
-        a2Var.O3(2);
-        a2Var.X2();
+        a2Var.q4(top_notice_data.a());
+        a2Var.p4(top_notice_data.b());
+        a2Var.P3(2);
+        a2Var.Y2();
         z1 z1Var = new z1();
         z1Var.w = a2Var;
         this.threadList.add(0, z1Var);
@@ -338,7 +338,7 @@ public class FrsViewData extends m implements a, Serializable {
 
     public void addOfficialBarToThreadList() {
         z0 z0Var;
-        if (this.forum == null || this.threadList == null || !a2.u3.get() || (z0Var = this.page) == null) {
+        if (this.forum == null || this.threadList == null || !a2.v3.get() || (z0Var = this.page) == null) {
             return;
         }
         boolean z = true;
@@ -350,10 +350,10 @@ public class FrsViewData extends m implements a, Serializable {
                     this.threadList.remove(0);
                 }
                 x xVar = new x();
-                xVar.E4(this.fortuneBag);
-                xVar.F4(this.fortuneDesc);
-                xVar.G4(this.gconAccount);
-                xVar.O3(1003);
+                xVar.F4(this.fortuneBag);
+                xVar.G4(this.fortuneDesc);
+                xVar.H4(this.gconAccount);
+                xVar.P3(1003);
                 ArrayList<n> arrayList = this.threadList;
                 if (arrayList == null || arrayList.size() <= 0) {
                     return;
@@ -363,7 +363,7 @@ public class FrsViewData extends m implements a, Serializable {
         }
     }
 
-    public void addRecommendAppToThreadList(d.a.k0.e.e.b bVar) {
+    public void addRecommendAppToThreadList(d.a.n0.e.e.b bVar) {
         addRecommendAppToThreadList(bVar, false, this.threadList, null, false);
     }
 
@@ -385,14 +385,14 @@ public class FrsViewData extends m implements a, Serializable {
         ArrayList<RecommendForumData> recommendForumData = this.forum.getRecommendForumData();
         m1 m1Var = new m1();
         if (recommendForumData != null) {
-            m1Var.B4().addAll(recommendForumData);
+            m1Var.C4().addAll(recommendForumData);
         }
-        if (isShowRecommendBars(m1Var.B4())) {
+        if (isShowRecommendBars(m1Var.C4())) {
             int i2 = 0;
             Iterator<n> it2 = this.threadList.iterator();
             while (it2.hasNext()) {
                 n next = it2.next();
-                if ((next instanceof z1) && ((z1) next).w.x2()) {
+                if ((next instanceof z1) && ((z1) next).w.y2()) {
                     i2++;
                 }
             }
@@ -418,7 +418,7 @@ public class FrsViewData extends m implements a, Serializable {
         }
         ArrayList<n> threadList = getThreadList();
         removeTopSameClassDataFromList(h.class, threadList);
-        if (ListUtils.isEmpty(frsStageLiveData.f53772e)) {
+        if (ListUtils.isEmpty(frsStageLiveData.f53985e)) {
             return;
         }
         threadList.add(getAlaLiveThreadCardInsertPos(1, threadList.size()), frsStageLiveData);
@@ -434,10 +434,10 @@ public class FrsViewData extends m implements a, Serializable {
             return;
         }
         e0 e0Var = new e0();
-        e0Var.F4(this.forum.getTopCode());
-        e0Var.G4(this.forum.getNewsInfo());
-        e0Var.O3(3);
-        e0Var.E4(true);
+        e0Var.G4(this.forum.getTopCode());
+        e0Var.H4(this.forum.getNewsInfo());
+        e0Var.P3(3);
+        e0Var.F4(true);
         if (ListUtils.isEmpty(this.threadList)) {
             return;
         }
@@ -447,9 +447,9 @@ public class FrsViewData extends m implements a, Serializable {
             n next = it.next();
             if (next instanceof a2) {
                 a2 a2Var = (a2) next;
-                if (a2Var.x0() != 0) {
-                    if (a2Var.x0() == 1003) {
-                        e0Var.E4(false);
+                if (a2Var.y0() != 0) {
+                    if (a2Var.y0() == 1003) {
+                        e0Var.F4(false);
                     }
                     i2++;
                 }
@@ -461,7 +461,7 @@ public class FrsViewData extends m implements a, Serializable {
     public void addUserRecommendToThreadList() {
         int c2;
         if (getUserRecommend() != null) {
-            d.a.k0.q0.x userRecommend = getUserRecommend();
+            d.a.n0.r0.x userRecommend = getUserRecommend();
             if (ListUtils.getCount(userRecommend.f()) >= 3 && (c2 = userRecommend.c()) > 0) {
                 int topThreadSize = c2 + getTopThreadSize();
                 if (topThreadSize > this.threadList.size()) {
@@ -483,7 +483,7 @@ public class FrsViewData extends m implements a, Serializable {
                 break;
             }
             n next = it.next();
-            if (next != null && next.getType() == q.f53988g) {
+            if (next != null && next.getType() == q.f54201g) {
                 this.threadList.remove(next);
                 break;
             }
@@ -526,14 +526,14 @@ public class FrsViewData extends m implements a, Serializable {
             n nVar = this.threadList.get(i3);
             if (nVar instanceof z1) {
                 z1 z1Var = (z1) nVar;
-                if (z1Var.w.getType() == a2.g3 && z1Var.w.q1() != null && ((a2) nVar).q1().user_info != null && z1Var.w.q1().user_info.is_official == 2 && z1Var.w.q1().liveStageForceTop) {
+                if (z1Var.w.getType() == a2.h3 && z1Var.w.r1() != null && ((a2) nVar).r1().user_info != null && z1Var.w.r1().user_info.is_official == 2 && z1Var.w.r1().liveStageForceTop) {
                     i2 = i3;
                     break;
                 }
             } else {
                 if (nVar instanceof a2) {
                     a2 a2Var = (a2) nVar;
-                    if (a2Var.getType() == a2.g3 && a2Var.q1() != null && a2Var.q1().user_info != null && a2Var.q1().user_info.is_official == 2 && a2Var.q1().liveStageForceTop) {
+                    if (a2Var.getType() == a2.h3 && a2Var.r1() != null && a2Var.r1().user_info != null && a2Var.r1().user_info.is_official == 2 && a2Var.r1().liveStageForceTop) {
                         i2 = i3;
                         break;
                     }
@@ -546,12 +546,12 @@ public class FrsViewData extends m implements a, Serializable {
             for (int i4 = 0; i4 < size; i4++) {
                 n nVar2 = this.threadList.get(i4);
                 if (nVar2 instanceof z1) {
-                    if (((z1) nVar2).w.getType() == a2.B3) {
+                    if (((z1) nVar2).w.getType() == a2.C3) {
                         i2 = i4;
                         break;
                     }
                 } else {
-                    if ((nVar2 instanceof a2) && ((a2) nVar2).getType() == a2.B3) {
+                    if ((nVar2 instanceof a2) && ((a2) nVar2).getType() == a2.C3) {
                         i2 = i4;
                         break;
                     }
@@ -625,7 +625,7 @@ public class FrsViewData extends m implements a, Serializable {
         return this.postThreadCount;
     }
 
-    @Override // d.a.k0.d3.m
+    @Override // d.a.n0.e3.m
     public List<RecmForumInfo> getRecm_forum_list() {
         return this.recm_forum_list;
     }
@@ -741,7 +741,7 @@ public class FrsViewData extends m implements a, Serializable {
             while (it.hasNext()) {
                 n next = it.next();
                 if (next instanceof a2) {
-                    if (((a2) next).x0() == 0) {
+                    if (((a2) next).y0() == 0) {
                         break;
                     }
                     i2++;
@@ -842,11 +842,11 @@ public class FrsViewData extends m implements a, Serializable {
         this.brandAdData = mVar.brandAdData;
         this.oriForumInfoList = mVar.oriForumInfoList;
         this.bottomMenuList = mVar.bottomMenuList;
-        d.a.k0.q0.b.e().l(getAnti());
-        d.a.k0.q0.b.e().n(mVar.getForum().getId());
-        d.a.k0.q0.a.h().q(mVar.getForum().getId());
+        d.a.n0.r0.b.e().l(getAnti());
+        d.a.n0.r0.b.e().n(mVar.getForum().getId());
+        d.a.n0.r0.a.h().q(mVar.getForum().getId());
         if (mVar.getEntelechyTabInfo() != null) {
-            d.a.k0.q0.a.h().r(mVar.getEntelechyTabInfo().tab);
+            d.a.n0.r0.a.h().r(mVar.getEntelechyTabInfo().tab);
         }
         if (mVar.getUserData() != null) {
             c.c().e(mVar.getUserData().bawuThrones);
@@ -879,7 +879,7 @@ public class FrsViewData extends m implements a, Serializable {
             return;
         }
         for (int i2 = 0; i2 < this.threadList.size(); i2++) {
-            if (this.threadList.get(i2).getType() == a2.g3 || this.threadList.get(i2).getType() == a2.h3 || this.threadList.get(i2).getType() == a2.i3) {
+            if (this.threadList.get(i2).getType() == a2.h3 || this.threadList.get(i2).getType() == a2.i3 || this.threadList.get(i2).getType() == a2.j3) {
                 this.threadList.remove(i2);
             }
         }
@@ -896,7 +896,7 @@ public class FrsViewData extends m implements a, Serializable {
         Iterator<n> it = this.threadList.iterator();
         while (it.hasNext()) {
             n next = it.next();
-            if (next != null && next.getType() == d.a.k0.t0.b.f61903i) {
+            if (next != null && next.getType() == d.a.n0.u0.b.f61310i) {
                 it.remove();
             }
         }
@@ -909,7 +909,7 @@ public class FrsViewData extends m implements a, Serializable {
         boolean z = false;
         Iterator<n> it = this.threadList.iterator();
         while (it.hasNext()) {
-            if (it.next() instanceof d.a.k0.q0.x) {
+            if (it.next() instanceof d.a.n0.r0.x) {
                 if (z) {
                     it.remove();
                 } else {
@@ -937,7 +937,7 @@ public class FrsViewData extends m implements a, Serializable {
         this.threadList.remove(a2Var);
     }
 
-    public void setFunAdController(d.a.k0.s0.a aVar) {
+    public void setFunAdController(d.a.n0.t0.a aVar) {
         this.funAdController = aVar;
     }
 
@@ -949,7 +949,7 @@ public class FrsViewData extends m implements a, Serializable {
         this.forum.setAnchorPower(anchorPower);
     }
 
-    public void updateCurrentUserPendant(d.a.j0.t.n nVar) {
+    public void updateCurrentUserPendant(d.a.m0.t.n nVar) {
         if (this.threadList == null || nVar == null) {
             return;
         }
@@ -970,16 +970,16 @@ public class FrsViewData extends m implements a, Serializable {
         }
     }
 
-    public void updateLikeData(d.a.k0.d3.d dVar) {
+    public void updateLikeData(d.a.n0.e3.d dVar) {
         if (dVar == null) {
             return;
         }
         w wVar = new w();
         wVar.v(1);
-        wVar.w(dVar.f53736a);
-        wVar.t(dVar.f53737b);
-        wVar.r(dVar.f53738c);
-        wVar.u(dVar.f53739d);
+        wVar.w(dVar.f53949a);
+        wVar.t(dVar.f53950b);
+        wVar.r(dVar.f53951c);
+        wVar.u(dVar.f53952d);
         updateLikeData(wVar);
     }
 
@@ -995,11 +995,11 @@ public class FrsViewData extends m implements a, Serializable {
         this.forum.setSignData(signData);
     }
 
-    public void addRecommendAppToThreadList(d.a.k0.e.e.b bVar, ArrayList<n> arrayList) {
+    public void addRecommendAppToThreadList(d.a.n0.e.e.b bVar, ArrayList<n> arrayList) {
         addRecommendAppToThreadList(bVar, false, arrayList, null, false);
     }
 
-    public void addRecommendAppToThreadList(d.a.k0.e.e.b bVar, boolean z, ArrayList<n> arrayList, ArrayList<n> arrayList2, boolean z2) {
+    public void addRecommendAppToThreadList(d.a.n0.e.e.b bVar, boolean z, ArrayList<n> arrayList, ArrayList<n> arrayList2, boolean z2) {
         BannerListData bannerListData;
         if (!this.isLoadMore) {
             ForumData forumData = this.forum;
@@ -1014,18 +1014,18 @@ public class FrsViewData extends m implements a, Serializable {
         if (bannerListData == null || bannerListData.getAllAdvertList() == null || arrayList == null || arrayList.size() <= 0) {
             return;
         }
-        d.a.k0.e.f.b bVar2 = new d.a.k0.e.f.b(bVar, 2);
+        d.a.n0.e.f.b bVar2 = new d.a.n0.e.f.b(bVar, 2);
         ArrayList arrayList3 = new ArrayList();
         Iterator<AdvertAppInfo> it = bannerListData.getAllAdvertList().iterator();
         while (it.hasNext()) {
             AdvertAppInfo next = it.next();
-            next.C3(true);
-            next.j4(getSortType());
+            next.D3(true);
+            next.k4(getSortType());
             arrayList3.add(next);
         }
         bVar2.r(arrayList3);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar2));
-        d.a.k0.e.f.b bVar3 = new d.a.k0.e.f.b(bVar, 3);
+        d.a.n0.e.f.b bVar3 = new d.a.n0.e.f.b(bVar, 3);
         bVar3.x(z);
         bVar3.E(arrayList);
         bVar3.B(arrayList2);

@@ -3,28 +3,28 @@ package com.baidu.wallet.core.domain;
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23930a = "life_host";
+    public static final String f23859a = "life_host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23931b = "xinyongka_host";
+    public static final String f23860b = "xinyongka_host";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f23932c = "nfc_host";
+    public static final String f23861c = "nfc_host";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f23933d = "app_host";
+    public static final String f23862d = "app_host";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f23934e = "dxm_host";
+    public static final String f23863e = "dxm_host";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f23935f = "zhifu_host";
+    public static final String f23864f = "zhifu_host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f23936g = "comet_host";
+    public static final String f23865g = "comet_host";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f23937h = "my_host";
+    public static final String f23866h = "my_host";
 
     String getAppHost();
 

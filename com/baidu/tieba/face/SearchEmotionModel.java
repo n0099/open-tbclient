@@ -18,10 +18,10 @@ import d.a.c.e.p.l;
 public class SearchEmotionModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f14677e;
+    public b f14580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f14678f = new a(CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
+    public final HttpMessageListener f14581f = new a(CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -32,7 +32,7 @@ public class SearchEmotionModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003330 || !(httpResponsedMessage instanceof SearchEmotionResponseMessage) || SearchEmotionModel.this.f14677e == null) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003330 || !(httpResponsedMessage instanceof SearchEmotionResponseMessage) || SearchEmotionModel.this.f14580e == null) {
                 return;
             }
             SearchEmotionResponseMessage searchEmotionResponseMessage = (SearchEmotionResponseMessage) httpResponsedMessage;
@@ -40,19 +40,19 @@ public class SearchEmotionModel extends BdBaseModel {
                 if (httpResponsedMessage.getOrginalMessage() == null || !(httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                     return;
                 }
-                SearchEmotionModel.this.f14677e.a((String) httpResponsedMessage.getOrginalMessage().getExtra(), searchEmotionResponseMessage.getData());
+                SearchEmotionModel.this.f14580e.a((String) httpResponsedMessage.getOrginalMessage().getExtra(), searchEmotionResponseMessage.getData());
                 return;
             }
             if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
                 l.M(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
             }
-            SearchEmotionModel.this.f14677e.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
+            SearchEmotionModel.this.f14580e.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
         }
     }
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(String str, d.a.k0.k0.c.a aVar);
+        void a(String str, d.a.n0.l0.c.a aVar);
 
         void onFail(int i2, String str);
     }
@@ -60,9 +60,9 @@ public class SearchEmotionModel extends BdBaseModel {
     public SearchEmotionModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f14678f.setTag(getUniqueId());
-        this.f14678f.setSelfListener(true);
-        registerListener(this.f14678f);
+        this.f14581f.setTag(getUniqueId());
+        this.f14581f.setSelfListener(true);
+        registerListener(this.f14581f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -73,7 +73,7 @@ public class SearchEmotionModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterListener(getUniqueId());
-        this.f14677e = null;
+        this.f14580e = null;
         return true;
     }
 
@@ -87,7 +87,7 @@ public class SearchEmotionModel extends BdBaseModel {
         if (bVar == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f14677e = bVar;
+        this.f14580e = bVar;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
         httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, str);
         httpMessage.addParam(Config.PACKAGE_NAME, i2);

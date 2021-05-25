@@ -33,10 +33,10 @@ import org.json.JSONObject;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object[] f66963a = new Object[0];
+    public static Object[] f67006a = new Object[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object[] f66964b = new Object[73];
+    public static Object[] f67007b = new Object[73];
 
     public static String A(Throwable th) {
         if (th == null) {
@@ -378,10 +378,10 @@ public class k {
             PackageInfo packageInfo = n.a().getPackageManager().getPackageInfo(str, 0);
             if (packageInfo != null) {
                 dVar.d(packageInfo.versionCode);
-                dVar.a(c.d.f66702d);
+                dVar.a(c.d.f66745d);
                 o r = n.r();
                 if (r != null && r.a() && !t(packageInfo.versionCode, i2, packageInfo.versionName, str2)) {
-                    dVar.a(c.d.f66703e);
+                    dVar.a(c.d.f66746e);
                 }
             }
         } catch (Exception unused) {

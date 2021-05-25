@@ -13,41 +13,41 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f24808a;
+    public Context f24737a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f24809b;
+    public JSONObject f24738b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f24810c;
+    public final byte[] f24739c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f24811d;
+    public long f24740d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24812e;
+    public String f24741e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f24813f;
+    public String[] f24742f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String[] f24814g;
+    public String[] f24743g;
 
     /* renamed from: com.baidu.wallet.lightapp.business.b$1  reason: invalid class name */
     /* loaded from: classes5.dex */
     public class AnonymousClass1 implements IBeanResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.baidu.wallet.lightapp.business.a.a f24815a;
+        public final /* synthetic */ com.baidu.wallet.lightapp.business.a.a f24744a;
 
         @Override // com.baidu.apollon.beans.IBeanResponseCallback
         public void onBeanExecFailure(int i2, int i3, String str) {
-            this.f24815a.destroyBean();
+            this.f24744a.destroyBean();
         }
 
         @Override // com.baidu.apollon.beans.IBeanResponseCallback
         public void onBeanExecSuccess(int i2, Object obj, String str) {
-            this.f24815a.destroyBean();
+            this.f24744a.destroyBean();
         }
     }
 
@@ -55,7 +55,7 @@ public class b {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f24816a = new b(null);
+        public static final b f24745a = new b(null);
     }
 
     public /* synthetic */ b(AnonymousClass1 anonymousClass1) {
@@ -63,23 +63,23 @@ public class b {
     }
 
     public static b a() {
-        return a.f24816a;
+        return a.f24745a;
     }
 
     private void b() {
-        synchronized (this.f24810c) {
+        synchronized (this.f24739c) {
             String[] strArr = {Domains.BAIDU, Domains.BAIFUBAO, Domains.DU_XIAO_MAN, Domains.DU_XIAO_MAN_PAY, Domains.DU_XIAO_MAN_INT};
-            this.f24813f = strArr;
-            this.f24814g = new String[]{"com.android.fileexplorer", "com.android.browser", "com.android.chrome", "com.android.mms", "com.android.server.telecom", "com.android.camera", "com.miui.gallery", "com.android.fileexplorer", "com.android.contacts"};
-            this.f24811d = 1800000L;
-            this.f24812e = "";
+            this.f24742f = strArr;
+            this.f24743g = new String[]{"com.android.fileexplorer", "com.android.browser", "com.android.chrome", "com.android.mms", "com.android.server.telecom", "com.android.camera", "com.miui.gallery", "com.android.fileexplorer", "com.android.contacts"};
+            this.f24740d = 1800000L;
+            this.f24741e = "";
             Arrays.sort(strArr);
-            Arrays.sort(this.f24814g);
+            Arrays.sort(this.f24743g);
             JSONObject jSONObject = new JSONObject();
-            this.f24809b = jSONObject;
+            this.f24738b = jSONObject;
             try {
-                jSONObject.put("domains", this.f24813f);
-                this.f24809b.put("packages", this.f24814g);
+                jSONObject.put("domains", this.f24742f);
+                this.f24738b.put("packages", this.f24743g);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -93,12 +93,12 @@ public class b {
         sb.append("\"");
         sb.append("domains");
         sb.append("\":[");
-        for (String str : this.f24813f) {
+        for (String str : this.f24742f) {
             sb.append("\"");
             sb.append(str);
             sb.append("\",");
         }
-        if (this.f24813f.length > 0) {
+        if (this.f24742f.length > 0) {
             sb.replace(sb.length() - 1, sb.length(), "],");
         } else {
             sb.append("],");
@@ -106,12 +106,12 @@ public class b {
         sb.append("\"");
         sb.append("packages");
         sb.append("\":[");
-        for (String str2 : this.f24814g) {
+        for (String str2 : this.f24743g) {
             sb.append("\"");
             sb.append(str2);
             sb.append("\",");
         }
-        if (this.f24814g.length > 0) {
+        if (this.f24743g.length > 0) {
             sb.replace(sb.length() - 1, sb.length(), "],");
         } else {
             sb.append("],");
@@ -120,56 +120,56 @@ public class b {
         sb.append("fingerprint");
         sb.append("\":");
         sb.append("\"");
-        sb.append(this.f24812e);
+        sb.append(this.f24741e);
         sb.append("\",");
         sb.append("\"");
         sb.append("interval");
         sb.append("\":");
         sb.append("\"");
-        sb.append(this.f24811d);
+        sb.append(this.f24740d);
         sb.append("\"}");
         return sb.toString();
     }
 
     public b() {
-        this.f24810c = new byte[0];
+        this.f24739c = new byte[0];
         b();
     }
 
     private boolean a(Context context) {
-        if (this.f24808a == null && context != null) {
-            this.f24808a = context.getApplicationContext();
+        if (this.f24737a == null && context != null) {
+            this.f24737a = context.getApplicationContext();
         }
-        return this.f24808a != null;
+        return this.f24737a != null;
     }
 
     public void a(Context context, LangBridgeCfg langBridgeCfg) {
         if (a(context) && langBridgeCfg.checkResponseValidity()) {
-            synchronized (this.f24810c) {
+            synchronized (this.f24739c) {
                 LangBridgeCfg.LbConfig lbConfig = langBridgeCfg.lbconfig;
-                if (this.f24812e.equals(lbConfig.fingerprint)) {
+                if (this.f24741e.equals(lbConfig.fingerprint)) {
                     return;
                 }
                 if (lbConfig.domains != null) {
                     String[] strArr = (String[]) Arrays.copyOf(lbConfig.domains, lbConfig.domains.length);
-                    this.f24813f = strArr;
+                    this.f24742f = strArr;
                     Arrays.sort(strArr);
                 } else {
-                    this.f24813f = new String[0];
+                    this.f24742f = new String[0];
                 }
                 if (lbConfig.packages != null) {
                     String[] strArr2 = (String[]) Arrays.copyOf(lbConfig.packages, lbConfig.packages.length);
-                    this.f24814g = strArr2;
+                    this.f24743g = strArr2;
                     Arrays.sort(strArr2);
                 } else {
-                    this.f24814g = new String[0];
+                    this.f24743g = new String[0];
                 }
-                this.f24812e = lbConfig.fingerprint;
+                this.f24741e = lbConfig.fingerprint;
                 if (0 <= lbConfig.interval) {
-                    this.f24811d = lbConfig.interval * 60000;
+                    this.f24740d = lbConfig.interval * 60000;
                 }
-                SharedPreferencesUtils.setParam(this.f24808a, "langbridge", "config", c());
-                SharedPreferencesUtils.setParam(this.f24808a, "langbridge", "lbc_update_timestamp", Long.valueOf(System.currentTimeMillis()));
+                SharedPreferencesUtils.setParam(this.f24737a, "langbridge", "config", c());
+                SharedPreferencesUtils.setParam(this.f24737a, "langbridge", "lbc_update_timestamp", Long.valueOf(System.currentTimeMillis()));
             }
         }
     }

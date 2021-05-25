@@ -24,9 +24,11 @@ public class GroupMemberJoinMsg extends NotifyMsg implements Parcelable, NoProGu
         }
     };
     public int groupnum;
+    public long mMemberVersion;
     public String memberbuid;
 
     public GroupMemberJoinMsg() {
+        this.mMemberVersion = 0L;
         setMsgType(1002);
     }
 
@@ -36,6 +38,10 @@ public class GroupMemberJoinMsg extends NotifyMsg implements Parcelable, NoProGu
 
     public String getMemberBuid() {
         return this.memberbuid;
+    }
+
+    public long getMemberVersion() {
+        return this.mMemberVersion;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -49,6 +55,7 @@ public class GroupMemberJoinMsg extends NotifyMsg implements Parcelable, NoProGu
             JSONObject jSONObject = new JSONObject(getMsgContent());
             this.groupnum = jSONObject.optInt("group_num");
             this.memberbuid = String.valueOf(jSONObject.optLong("member"));
+            this.mMemberVersion = jSONObject.optLong("member_version");
             return true;
         } catch (JSONException e2) {
             LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
@@ -61,11 +68,14 @@ public class GroupMemberJoinMsg extends NotifyMsg implements Parcelable, NoProGu
         super.writeToParcel(parcel, i2);
         parcel.writeString(this.memberbuid);
         parcel.writeInt(this.groupnum);
+        parcel.writeLong(this.mMemberVersion);
     }
 
     public GroupMemberJoinMsg(Parcel parcel) {
         super(parcel);
+        this.mMemberVersion = 0L;
         this.memberbuid = parcel.readString();
         this.groupnum = parcel.readInt();
+        this.mMemberVersion = parcel.readLong();
     }
 }

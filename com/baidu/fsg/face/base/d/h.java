@@ -34,31 +34,31 @@ import org.apache.http.conn.util.InetAddressUtils;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5663a = "armeabi";
+    public static final String f5563a = "armeabi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5664b = "armeabi-v7a";
+    public static final String f5564b = "armeabi-v7a";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5665c = "x86";
+    public static final String f5565c = "x86";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5666d = "arm64-v8a";
+    public static final String f5566d = "arm64-v8a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5667e = 480;
+    public static final int f5567e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5668f = 480;
+    public static final int f5568f = 480;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5669g = 192;
+    public static final int f5569g = 192;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f5670h = 480;
+    public static final int f5570h = 480;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f5671i = 620;
+    public static final int f5571i = 620;
     public static final int j = 728;
     public static final int k = 750;
     public static final int l = 1335;
@@ -337,7 +337,7 @@ public class h {
     }
 
     public static String a(String str, Context context) {
-        return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f5634a;
+        return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f5534a;
     }
 
     public static int a(Context context, float f2) {

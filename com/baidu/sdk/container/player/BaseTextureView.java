@@ -6,31 +6,31 @@ import android.graphics.SurfaceTexture;
 import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView;
-import d.a.d0.a.i.c;
-import d.a.d0.a.i.d;
+import d.a.f0.a.i.c;
+import d.a.f0.a.i.d;
 @TargetApi(14)
 /* loaded from: classes2.dex */
 public class BaseTextureView extends TextureView implements TextureView.SurfaceTextureListener, c {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f10072e;
+    public int f9972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10073f;
+    public int f9973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f10074g;
+    public int f9974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f10075h;
+    public d f9975h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SurfaceTexture f10076i;
+    public SurfaceTexture f9976i;
 
     public BaseTextureView(Context context, d dVar) {
         super(context);
-        this.f10072e = 1;
-        this.f10075h = dVar;
+        this.f9972e = 1;
+        this.f9975h = dVar;
         setSurfaceTextureListener(this);
     }
 
@@ -40,17 +40,17 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
     }
 
     public int getDisplayMode() {
-        return this.f10072e;
+        return this.f9972e;
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
         int i4;
-        int defaultSize = TextureView.getDefaultSize(this.f10073f, i2);
-        int defaultSize2 = TextureView.getDefaultSize(this.f10074g, i3);
-        int i5 = this.f10073f;
-        if (i5 > 0 && (i4 = this.f10074g) > 0) {
-            int i6 = this.f10072e;
+        int defaultSize = TextureView.getDefaultSize(this.f9973f, i2);
+        int defaultSize2 = TextureView.getDefaultSize(this.f9974g, i3);
+        int i5 = this.f9973f;
+        if (i5 > 0 && (i4 = this.f9974g) > 0) {
+            int i6 = this.f9972e;
             if (i6 != 0) {
                 if (i6 != 1) {
                     if (i6 == 3) {
@@ -90,13 +90,13 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
                 defaultSize2 = (i4 * defaultSize) / i5;
             }
         }
-        Log.i("BaseTextureView", String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f10073f), Integer.valueOf(this.f10074g)));
+        Log.i("BaseTextureView", String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f9973f), Integer.valueOf(this.f9974g)));
         setMeasuredDimension(defaultSize, defaultSize2);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-        d dVar = this.f10075h;
+        d dVar = this.f9975h;
         if (dVar != null) {
             dVar.surfaceCreated(new Surface(surfaceTexture));
         }
@@ -104,11 +104,11 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        d dVar = this.f10075h;
+        d dVar = this.f9975h;
         if (dVar != null) {
             dVar.surfaceDestroy();
         }
-        this.f10076i = surfaceTexture;
+        this.f9976i = surfaceTexture;
         return false;
     }
 
@@ -120,24 +120,24 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
     }
 
-    @Override // d.a.d0.a.i.c
+    @Override // d.a.f0.a.i.c
     public void onVideoSizeChanged(int i2, int i3) {
-        this.f10073f = i2;
-        this.f10074g = i3;
+        this.f9973f = i2;
+        this.f9974g = i3;
         if (i2 == 0 || i3 == 0) {
             return;
         }
         a();
     }
 
-    @Override // d.a.d0.a.i.c
+    @Override // d.a.f0.a.i.c
     public void setDisplayMode(int i2) {
-        this.f10072e = i2;
+        this.f9972e = i2;
     }
 
     @TargetApi(16)
     public void setEndSurface() {
-        SurfaceTexture surfaceTexture = this.f10076i;
+        SurfaceTexture surfaceTexture = this.f9976i;
         if (surfaceTexture != null) {
             setSurfaceTexture(surfaceTexture);
         }

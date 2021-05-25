@@ -7,10 +7,10 @@ import android.content.SharedPreferences;
 public class b extends ContextWrapper {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f40254b;
+    public static b f39938b;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f40255a;
+    public h f39939a;
 
     public b() {
         super(null);
@@ -19,10 +19,10 @@ public class b extends ContextWrapper {
     public static synchronized b a() {
         b bVar;
         synchronized (b.class) {
-            if (f40254b == null) {
-                f40254b = new b();
+            if (f39938b == null) {
+                f39938b = new b();
             }
-            bVar = f40254b;
+            bVar = f39938b;
         }
         return bVar;
     }
@@ -36,10 +36,10 @@ public class b extends ContextWrapper {
     @Override // android.content.ContextWrapper, android.content.Context
     /* renamed from: b */
     public h getResources() {
-        if (this.f40255a == null) {
-            this.f40255a = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+        if (this.f39939a == null) {
+            this.f39939a = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
         }
-        return this.f40255a;
+        return this.f39939a;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context

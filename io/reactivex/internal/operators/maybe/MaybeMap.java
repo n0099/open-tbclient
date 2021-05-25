@@ -16,7 +16,7 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
         public final MaybeObserver<? super R> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68943d;
+        public Disposable f68986d;
         public final Function<? super T, ? extends R> mapper;
 
         public MapMaybeObserver(MaybeObserver<? super R> maybeObserver, Function<? super T, ? extends R> function) {
@@ -26,14 +26,14 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            Disposable disposable = this.f68943d;
-            this.f68943d = DisposableHelper.DISPOSED;
+            Disposable disposable = this.f68986d;
+            this.f68986d = DisposableHelper.DISPOSED;
             disposable.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68943d.isDisposed();
+            return this.f68986d.isDisposed();
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -48,8 +48,8 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68943d, disposable)) {
-                this.f68943d = disposable;
+            if (DisposableHelper.validate(this.f68986d, disposable)) {
+                this.f68986d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

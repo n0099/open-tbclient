@@ -87,27 +87,27 @@ public class TTVideoWebPageActivity extends Activity implements d {
     public j Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public LandingDislikeDialog f27238a;
+    public LandingDislikeDialog f27167a;
     public String ac;
     public com.bytedance.sdk.openadsdk.preload.falconx.a.a ad;
 
     /* renamed from: b  reason: collision with root package name */
-    public LandingCommentDialog f27239b;
+    public LandingCommentDialog f27168b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LandingDislikeToast f27240c;
+    public LandingDislikeToast f27169c;
 
     /* renamed from: f  reason: collision with root package name */
-    public NativeVideoTsView f27243f;
+    public NativeVideoTsView f27172f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f27244g;
+    public c f27173g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SSWebView f27245h;
+    public SSWebView f27174h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f27246i;
+    public ImageView f27175i;
     public ImageView j;
     public TextView k;
     public TextView l;
@@ -126,10 +126,10 @@ public class TTVideoWebPageActivity extends Activity implements d {
     public FrameLayout y;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f27241d = new AtomicBoolean(false);
+    public final AtomicBoolean f27170d = new AtomicBoolean(false);
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicBoolean f27242e = new AtomicBoolean(false);
+    public final AtomicBoolean f27171e = new AtomicBoolean(false);
     public int z = -1;
     public int C = 0;
     public int D = 0;
@@ -187,7 +187,7 @@ public class TTVideoWebPageActivity extends Activity implements d {
                 return;
             }
             if (z) {
-                al.a((View) TTVideoWebPageActivity.this.f27245h, 8);
+                al.a((View) TTVideoWebPageActivity.this.f27174h, 8);
                 al.a((View) TTVideoWebPageActivity.this.x, 8);
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) TTVideoWebPageActivity.this.y.getLayoutParams();
                 TTVideoWebPageActivity.this.D = marginLayoutParams.leftMargin;
@@ -201,7 +201,7 @@ public class TTVideoWebPageActivity extends Activity implements d {
                 TTVideoWebPageActivity.this.y.setLayoutParams(marginLayoutParams);
                 return;
             }
-            al.a((View) TTVideoWebPageActivity.this.f27245h, 0);
+            al.a((View) TTVideoWebPageActivity.this.f27174h, 0);
             al.a((View) TTVideoWebPageActivity.this.x, 0);
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) TTVideoWebPageActivity.this.y.getLayoutParams();
             marginLayoutParams2.width = TTVideoWebPageActivity.this.E;
@@ -217,12 +217,12 @@ public class TTVideoWebPageActivity extends Activity implements d {
         public void onReceive(Context context, Intent intent) {
             if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
                 int c2 = com.bytedance.sdk.openadsdk.utils.x.c(TTVideoWebPageActivity.this.getApplicationContext());
-                if (TTVideoWebPageActivity.this.X == 0 && c2 != 0 && TTVideoWebPageActivity.this.f27245h != null && TTVideoWebPageActivity.this.W != null) {
-                    TTVideoWebPageActivity.this.f27245h.loadUrl(TTVideoWebPageActivity.this.W);
+                if (TTVideoWebPageActivity.this.X == 0 && c2 != 0 && TTVideoWebPageActivity.this.f27174h != null && TTVideoWebPageActivity.this.W != null) {
+                    TTVideoWebPageActivity.this.f27174h.loadUrl(TTVideoWebPageActivity.this.W);
                 }
-                NativeVideoTsView nativeVideoTsView = TTVideoWebPageActivity.this.f27243f;
+                NativeVideoTsView nativeVideoTsView = TTVideoWebPageActivity.this.f27172f;
                 if (nativeVideoTsView != null && nativeVideoTsView.getNativeVideoController() != null && !TTVideoWebPageActivity.this.v() && TTVideoWebPageActivity.this.X != c2) {
-                    ((f) TTVideoWebPageActivity.this.f27243f.getNativeVideoController()).a(context);
+                    ((f) TTVideoWebPageActivity.this.f27172f.getNativeVideoController()).a(context);
                 }
                 TTVideoWebPageActivity.this.X = c2;
             }
@@ -244,11 +244,11 @@ public class TTVideoWebPageActivity extends Activity implements d {
     @Override // android.app.Activity
     public void onBackPressed() {
         NativeVideoTsView nativeVideoTsView;
-        if (this.Q && (nativeVideoTsView = this.f27243f) != null && nativeVideoTsView.getNativeVideoController() != null) {
-            ((com.bytedance.sdk.openadsdk.core.video.nativevideo.a) this.f27243f.getNativeVideoController()).e(null, null);
+        if (this.Q && (nativeVideoTsView = this.f27172f) != null && nativeVideoTsView.getNativeVideoController() != null) {
+            ((com.bytedance.sdk.openadsdk.core.video.nativevideo.a) this.f27172f.getNativeVideoController()).e(null, null);
             this.Q = false;
         } else if (q()) {
-            if (al.a((WebView) this.f27245h)) {
+            if (al.a((WebView) this.f27174h)) {
                 return;
             }
             super.onBackPressed();
@@ -318,7 +318,7 @@ public class TTVideoWebPageActivity extends Activity implements d {
             }
             com.bytedance.sdk.openadsdk.multipro.b.a aVar = this.Y;
             if (aVar != null) {
-                this.A = aVar.f29728g;
+                this.A = aVar.f29657g;
             }
         }
         if (bundle != null) {
@@ -340,8 +340,8 @@ public class TTVideoWebPageActivity extends Activity implements d {
         n();
         p();
         a(4);
-        com.bytedance.sdk.openadsdk.core.widget.webview.a.a(this.r).a(Build.VERSION.SDK_INT >= 16).b(false).a(this.f27245h);
-        this.Z = new j(this, this.B, this.f27245h).a(true);
+        com.bytedance.sdk.openadsdk.core.widget.webview.a.a(this.r).a(Build.VERSION.SDK_INT >= 16).b(false).a(this.f27174h);
+        this.Z = new j(this, this.B, this.f27174h).a(true);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(XAdRemoteAPKDownloadExtraInfo.ADID, this.t);
@@ -352,7 +352,7 @@ public class TTVideoWebPageActivity extends Activity implements d {
         } catch (JSONException unused6) {
         }
         this.Z.a(jSONObject);
-        this.f27245h.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this.r, this.v, this.t, this.Z) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.1
+        this.f27174h.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this.r, this.v, this.t, this.Z) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.1
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
@@ -385,13 +385,13 @@ public class TTVideoWebPageActivity extends Activity implements d {
                 }
             }
         });
-        this.f27245h.getSettings().setUserAgentString(r.a(this.f27245h, this.s));
+        this.f27174h.getSettings().setUserAgentString(r.a(this.f27174h, this.s));
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f27245h.getSettings().setMixedContentMode(0);
+            this.f27174h.getSettings().setMixedContentMode(0);
         }
         com.bytedance.sdk.openadsdk.c.d.a(this.r, this.B);
-        this.f27245h.loadUrl(this.W);
-        this.f27245h.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.b(this.v, this.Z) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.9
+        this.f27174h.loadUrl(this.W);
+        this.f27174h.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.b(this.v, this.Z) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.9
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.b, android.webkit.WebChromeClient
             public void onProgressChanged(WebView webView, int i2) {
                 super.onProgressChanged(webView, i2);
@@ -405,7 +405,7 @@ public class TTVideoWebPageActivity extends Activity implements d {
                 }
             }
         });
-        this.f27245h.setDownloadListener(new DownloadListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.10
+        this.f27174h.setDownloadListener(new DownloadListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.10
             @Override // android.webkit.DownloadListener
             public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
                 if (TTVideoWebPageActivity.this.P.containsKey(str)) {
@@ -474,9 +474,9 @@ public class TTVideoWebPageActivity extends Activity implements d {
             d.a.a(this.af, this.ae, this.B);
         }
         com.bytedance.sdk.openadsdk.d.a.a().a(this.ad);
-        aa.a(this.r, this.f27245h);
-        aa.a(this.f27245h);
-        this.f27245h = null;
+        aa.a(this.r, this.f27174h);
+        aa.a(this.f27174h);
+        this.f27174h = null;
         a aVar = this.O;
         if (aVar != null) {
             aVar.d();
@@ -494,11 +494,11 @@ public class TTVideoWebPageActivity extends Activity implements d {
         if (xVar != null) {
             xVar.o();
         }
-        NativeVideoTsView nativeVideoTsView = this.f27243f;
+        NativeVideoTsView nativeVideoTsView = this.f27172f;
         if (nativeVideoTsView != null && nativeVideoTsView.getNativeVideoController() != null) {
-            this.f27243f.getNativeVideoController().m();
+            this.f27172f.getNativeVideoController().m();
         }
-        this.f27243f = null;
+        this.f27172f = null;
         this.B = null;
         j jVar = this.Z;
         if (jVar != null) {
@@ -512,9 +512,9 @@ public class TTVideoWebPageActivity extends Activity implements d {
         NativeVideoTsView nativeVideoTsView2;
         super.onPause();
         try {
-            if (e() && !this.f27241d.get()) {
+            if (e() && !this.f27170d.get()) {
                 this.T = true;
-                this.f27244g.i();
+                this.f27173g.i();
             }
         } catch (Throwable th) {
             com.bytedance.sdk.openadsdk.utils.u.f("TTVideoWebPageActivity", "onPause throw Exception :" + th.getMessage());
@@ -535,24 +535,24 @@ public class TTVideoWebPageActivity extends Activity implements d {
                 }
             }
         }
-        if (v() || ((nativeVideoTsView2 = this.f27243f) != null && nativeVideoTsView2.getNativeVideoController() != null && this.f27243f.getNativeVideoController().w())) {
+        if (v() || ((nativeVideoTsView2 = this.f27172f) != null && nativeVideoTsView2.getNativeVideoController() != null && this.f27172f.getNativeVideoController().w())) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_is_update_flag", Boolean.TRUE);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_native_video_complete", Boolean.TRUE);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_isfromvideodetailpage", Boolean.TRUE);
         }
-        if (v() || (nativeVideoTsView = this.f27243f) == null || nativeVideoTsView.getNativeVideoController() == null) {
+        if (v() || (nativeVideoTsView = this.f27172f) == null || nativeVideoTsView.getNativeVideoController() == null) {
             return;
         }
-        a(this.f27243f.getNativeVideoController());
+        a(this.f27172f.getNativeVideoController());
     }
 
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
         this.U = false;
-        if (this.T && f() && !this.f27241d.get()) {
+        if (this.T && f() && !this.f27170d.get()) {
             this.T = false;
-            this.f27244g.k();
+            this.f27173g.k();
         }
         x xVar = this.v;
         if (xVar != null) {
@@ -587,9 +587,9 @@ public class TTVideoWebPageActivity extends Activity implements d {
         bundle.putLong("video_play_position", this.A);
         bundle.putBoolean("is_complete", v());
         long j = this.A;
-        NativeVideoTsView nativeVideoTsView = this.f27243f;
+        NativeVideoTsView nativeVideoTsView = this.f27172f;
         if (nativeVideoTsView != null && nativeVideoTsView.getNativeVideoController() != null) {
-            j = this.f27243f.getNativeVideoController().n();
+            j = this.f27172f.getNativeVideoController().n();
         }
         bundle.putLong("video_play_position", j);
         super.onSaveInstanceState(bundle);
@@ -637,27 +637,27 @@ public class TTVideoWebPageActivity extends Activity implements d {
     private void i() {
         this.N = (ProgressBar) findViewById(ad.e(this, "tt_browser_progress"));
         this.L = (ViewStub) findViewById(ad.e(this, "tt_browser_download_btn_stub"));
-        this.f27245h = (SSWebView) findViewById(ad.e(this, "tt_browser_webview"));
-        this.f27246i = (ImageView) findViewById(ad.e(this, "tt_titlebar_back"));
+        this.f27174h = (SSWebView) findViewById(ad.e(this, "tt_browser_webview"));
+        this.f27175i = (ImageView) findViewById(ad.e(this, "tt_titlebar_back"));
         l lVar = this.B;
         if (lVar != null) {
             lVar.c("landing_page");
         }
-        ImageView imageView = this.f27246i;
+        ImageView imageView = this.f27175i;
         if (imageView != null) {
             imageView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.16
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (TTVideoWebPageActivity.this.f27245h != null) {
-                        if (TTVideoWebPageActivity.this.f27245h.canGoBack()) {
-                            TTVideoWebPageActivity.this.f27245h.goBack();
+                    if (TTVideoWebPageActivity.this.f27174h != null) {
+                        if (TTVideoWebPageActivity.this.f27174h.canGoBack()) {
+                            TTVideoWebPageActivity.this.f27174h.goBack();
                         } else if (TTVideoWebPageActivity.this.q()) {
                             TTVideoWebPageActivity.this.onBackPressed();
                         } else {
                             Map<String, Object> map = null;
-                            NativeVideoTsView nativeVideoTsView = TTVideoWebPageActivity.this.f27243f;
+                            NativeVideoTsView nativeVideoTsView = TTVideoWebPageActivity.this.f27172f;
                             if (nativeVideoTsView != null && nativeVideoTsView.getNativeVideoController() != null) {
-                                map = ak.a(TTVideoWebPageActivity.this.B, TTVideoWebPageActivity.this.f27243f.getNativeVideoController().o(), TTVideoWebPageActivity.this.f27243f.getNativeVideoController().u());
+                                map = ak.a(TTVideoWebPageActivity.this.B, TTVideoWebPageActivity.this.f27172f.getNativeVideoController().o(), TTVideoWebPageActivity.this.f27172f.getNativeVideoController().u());
                             }
                             TTVideoWebPageActivity tTVideoWebPageActivity = TTVideoWebPageActivity.this;
                             com.bytedance.sdk.openadsdk.c.d.a(tTVideoWebPageActivity, tTVideoWebPageActivity.B, "embeded_ad", "detail_back", TTVideoWebPageActivity.this.k(), TTVideoWebPageActivity.this.l(), map);
@@ -673,9 +673,9 @@ public class TTVideoWebPageActivity extends Activity implements d {
             imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    NativeVideoTsView nativeVideoTsView = TTVideoWebPageActivity.this.f27243f;
+                    NativeVideoTsView nativeVideoTsView = TTVideoWebPageActivity.this.f27172f;
                     if (nativeVideoTsView != null) {
-                        Map<String, Object> a2 = nativeVideoTsView.getNativeVideoController() != null ? ak.a(TTVideoWebPageActivity.this.B, TTVideoWebPageActivity.this.f27243f.getNativeVideoController().o(), TTVideoWebPageActivity.this.f27243f.getNativeVideoController().u()) : null;
+                        Map<String, Object> a2 = nativeVideoTsView.getNativeVideoController() != null ? ak.a(TTVideoWebPageActivity.this.B, TTVideoWebPageActivity.this.f27172f.getNativeVideoController().o(), TTVideoWebPageActivity.this.f27172f.getNativeVideoController().u()) : null;
                         TTVideoWebPageActivity tTVideoWebPageActivity = TTVideoWebPageActivity.this;
                         com.bytedance.sdk.openadsdk.c.d.a(tTVideoWebPageActivity, tTVideoWebPageActivity.B, "embeded_ad", "detail_skip", TTVideoWebPageActivity.this.k(), TTVideoWebPageActivity.this.l(), a2);
                     }
@@ -713,34 +713,34 @@ public class TTVideoWebPageActivity extends Activity implements d {
         if (l.c(this.B)) {
             try {
                 if (this instanceof TTVideoScrollWebPageActivity) {
-                    this.f27243f = new NativeVideoTsView(this.r, this.B, true, true);
+                    this.f27172f = new NativeVideoTsView(this.r, this.B, true, true);
                 } else {
-                    this.f27243f = new NativeVideoTsView(this.r, this.B, true, false);
+                    this.f27172f = new NativeVideoTsView(this.r, this.B, true, false);
                 }
-                if (this.f27243f.getNativeVideoController() != null) {
-                    this.f27243f.getNativeVideoController().b(false);
+                if (this.f27172f.getNativeVideoController() != null) {
+                    this.f27172f.getNativeVideoController().b(false);
                 }
                 if (!this.V) {
                     this.A = 0L;
                 }
-                if (this.Y != null && this.f27243f.getNativeVideoController() != null) {
-                    this.f27243f.getNativeVideoController().b(this.Y.f29728g);
-                    this.f27243f.getNativeVideoController().c(this.Y.f29726e);
+                if (this.Y != null && this.f27172f.getNativeVideoController() != null) {
+                    this.f27172f.getNativeVideoController().b(this.Y.f29657g);
+                    this.f27172f.getNativeVideoController().c(this.Y.f29655e);
                 }
-                if (this.f27243f.a(this.A, this.U, v())) {
+                if (this.f27172f.a(this.A, this.U, v())) {
                     this.y.setVisibility(0);
                     this.y.removeAllViews();
-                    this.y.addView(this.f27243f);
+                    this.y.addView(this.f27172f);
                 }
-                if (this.f27243f.getNativeVideoController() != null) {
-                    this.f27243f.getNativeVideoController().b(false);
-                    this.f27243f.getNativeVideoController().a(this.aj);
-                    this.f27243f.setIsQuiet(p.h().a(ak.d(this.B.ap())));
+                if (this.f27172f.getNativeVideoController() != null) {
+                    this.f27172f.getNativeVideoController().b(false);
+                    this.f27172f.getNativeVideoController().a(this.aj);
+                    this.f27172f.setIsQuiet(p.h().a(ak.d(this.B.ap())));
                 }
                 if (v()) {
-                    this.f27243f.b(true);
+                    this.f27172f.b(true);
                 }
-                this.f27244g = this.f27243f.getNativeVideoController();
+                this.f27173g = this.f27172f.getNativeVideoController();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -755,20 +755,20 @@ public class TTVideoWebPageActivity extends Activity implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public long k() {
-        NativeVideoTsView nativeVideoTsView = this.f27243f;
+        NativeVideoTsView nativeVideoTsView = this.f27172f;
         if (nativeVideoTsView == null || nativeVideoTsView.getNativeVideoController() == null) {
             return 0L;
         }
-        return this.f27243f.getNativeVideoController().p();
+        return this.f27172f.getNativeVideoController().p();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int l() {
-        NativeVideoTsView nativeVideoTsView = this.f27243f;
+        NativeVideoTsView nativeVideoTsView = this.f27172f;
         if (nativeVideoTsView == null || nativeVideoTsView.getNativeVideoController() == null) {
             return 0;
         }
-        return this.f27243f.getNativeVideoController().r();
+        return this.f27172f.getNativeVideoController().r();
     }
 
     private void m() {
@@ -854,7 +854,7 @@ public class TTVideoWebPageActivity extends Activity implements d {
         arrayList.add(this.B);
         x xVar = new x(this);
         this.v = xVar;
-        xVar.b(this.f27245h).a(this.B).a(arrayList).b(this.t).c(this.u).a(this.w).a(this.f27245h).d(ak.i(this.B));
+        xVar.b(this.f27174h).a(this.B).a(arrayList).b(this.t).c(this.u).a(this.w).a(this.f27174h).d(ak.i(this.B));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -874,7 +874,7 @@ public class TTVideoWebPageActivity extends Activity implements d {
             return;
         }
         m mVar = new m();
-        mVar.f27983d = b2;
+        mVar.f27912d = b2;
         AdSlot p = this.B.p();
         if (p == null) {
             return;
@@ -901,7 +901,7 @@ public class TTVideoWebPageActivity extends Activity implements d {
     }
 
     private void s() {
-        LandingDislikeToast landingDislikeToast = this.f27240c;
+        LandingDislikeToast landingDislikeToast = this.f27169c;
         if (landingDislikeToast == null) {
             return;
         }
@@ -910,7 +910,7 @@ public class TTVideoWebPageActivity extends Activity implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void t() {
-        LandingDislikeToast landingDislikeToast = this.f27240c;
+        LandingDislikeToast landingDislikeToast = this.f27169c;
         if (landingDislikeToast == null) {
             return;
         }
@@ -919,7 +919,7 @@ public class TTVideoWebPageActivity extends Activity implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void u() {
-        LandingDislikeToast landingDislikeToast = this.f27240c;
+        LandingDislikeToast landingDislikeToast = this.f27169c;
         if (landingDislikeToast == null) {
             return;
         }
@@ -928,11 +928,11 @@ public class TTVideoWebPageActivity extends Activity implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean v() {
-        NativeVideoTsView nativeVideoTsView = this.f27243f;
+        NativeVideoTsView nativeVideoTsView = this.f27172f;
         if (nativeVideoTsView == null || nativeVideoTsView.getNativeVideoController() == null) {
             return true;
         }
-        return this.f27243f.getNativeVideoController().w();
+        return this.f27172f.getNativeVideoController().w();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -944,99 +944,99 @@ public class TTVideoWebPageActivity extends Activity implements d {
     }
 
     public void d() {
-        if (this.f27239b == null) {
+        if (this.f27168b == null) {
             LandingCommentDialog landingCommentDialog = new LandingCommentDialog(this, this.B);
-            this.f27239b = landingCommentDialog;
+            this.f27168b = landingCommentDialog;
             landingCommentDialog.setCallback(new LandingCommentDialog.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.7
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.a
                 public void a(View view) {
-                    TTVideoWebPageActivity.this.f27241d.set(true);
+                    TTVideoWebPageActivity.this.f27170d.set(true);
                     if (TTVideoWebPageActivity.this.e()) {
-                        TTVideoWebPageActivity.this.f27244g.h();
+                        TTVideoWebPageActivity.this.f27173g.h();
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.a
                 public void b(View view) {
-                    TTVideoWebPageActivity.this.f27241d.set(false);
-                    if (!TTVideoWebPageActivity.this.f27242e.get()) {
-                        TTVideoWebPageActivity.this.f27238a.a();
+                    TTVideoWebPageActivity.this.f27170d.set(false);
+                    if (!TTVideoWebPageActivity.this.f27171e.get()) {
+                        TTVideoWebPageActivity.this.f27167a.a();
                         return;
                     }
-                    TTVideoWebPageActivity.this.f27238a.a(true);
+                    TTVideoWebPageActivity.this.f27167a.a(true);
                     if (TTVideoWebPageActivity.this.f()) {
-                        TTVideoWebPageActivity.this.f27244g.k();
+                        TTVideoWebPageActivity.this.f27173g.k();
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.a
                 public void a(String str, boolean z) {
-                    if (z && !TTVideoWebPageActivity.this.f27242e.get()) {
-                        TTVideoWebPageActivity.this.f27242e.set(true);
+                    if (z && !TTVideoWebPageActivity.this.f27171e.get()) {
+                        TTVideoWebPageActivity.this.f27171e.set(true);
                         TTVideoWebPageActivity.this.t();
                     } else if (!z) {
                         TTVideoWebPageActivity.this.u();
                     }
                     if (TTVideoWebPageActivity.this.f()) {
-                        TTVideoWebPageActivity.this.f27244g.k();
+                        TTVideoWebPageActivity.this.f27173g.k();
                     }
                 }
             });
-            ((FrameLayout) findViewById(16908290)).addView(this.f27239b);
-            this.f27239b.setVisibility(8);
+            ((FrameLayout) findViewById(16908290)).addView(this.f27168b);
+            this.f27168b.setVisibility(8);
         }
-        if (this.f27238a == null) {
+        if (this.f27167a == null) {
             LandingDislikeDialog landingDislikeDialog = new LandingDislikeDialog(this, this.B, this.S);
-            this.f27238a = landingDislikeDialog;
+            this.f27167a = landingDislikeDialog;
             landingDislikeDialog.setCallback(new LandingDislikeDialog.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity.8
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.a
                 public void a(View view) {
-                    TTVideoWebPageActivity.this.f27241d.set(true);
+                    TTVideoWebPageActivity.this.f27170d.set(true);
                     if (TTVideoWebPageActivity.this.e()) {
-                        TTVideoWebPageActivity.this.f27244g.h();
+                        TTVideoWebPageActivity.this.f27173g.h();
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.a
                 public void b(View view) {
-                    TTVideoWebPageActivity.this.f27241d.set(false);
+                    TTVideoWebPageActivity.this.f27170d.set(false);
                     if (TTVideoWebPageActivity.this.f()) {
-                        TTVideoWebPageActivity.this.f27244g.k();
+                        TTVideoWebPageActivity.this.f27173g.k();
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.a
                 public void a(int i2, FilterWord filterWord) {
-                    if (TTVideoWebPageActivity.this.f27242e.get() || filterWord == null || filterWord.hasSecondOptions()) {
+                    if (TTVideoWebPageActivity.this.f27171e.get() || filterWord == null || filterWord.hasSecondOptions()) {
                         return;
                     }
-                    TTVideoWebPageActivity.this.f27242e.set(true);
+                    TTVideoWebPageActivity.this.f27171e.set(true);
                     TTVideoWebPageActivity.this.t();
-                    TTVideoWebPageActivity.this.f27239b.a();
+                    TTVideoWebPageActivity.this.f27168b.a();
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.a
                 public void a() {
-                    TTVideoWebPageActivity.this.f27239b.b();
-                    TTVideoWebPageActivity.this.f27241d.set(true);
+                    TTVideoWebPageActivity.this.f27168b.b();
+                    TTVideoWebPageActivity.this.f27170d.set(true);
                 }
             });
-            ((FrameLayout) findViewById(16908290)).addView(this.f27238a);
+            ((FrameLayout) findViewById(16908290)).addView(this.f27167a);
         }
-        if (this.f27240c == null) {
-            this.f27240c = new LandingDislikeToast(this);
-            ((FrameLayout) findViewById(16908290)).addView(this.f27240c);
+        if (this.f27169c == null) {
+            this.f27169c = new LandingDislikeToast(this);
+            ((FrameLayout) findViewById(16908290)).addView(this.f27169c);
         }
     }
 
     public boolean e() {
-        c cVar = this.f27244g;
-        return (cVar == null || cVar.u() == null || !this.f27244g.u().g()) ? false : true;
+        c cVar = this.f27173g;
+        return (cVar == null || cVar.u() == null || !this.f27173g.u().g()) ? false : true;
     }
 
     public boolean f() {
-        c cVar = this.f27244g;
-        return (cVar == null || cVar.u() == null || !this.f27244g.u().i()) ? false : true;
+        c cVar = this.f27173g;
+        return (cVar == null || cVar.u() == null || !this.f27173g.u().i()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1064,14 +1064,14 @@ public class TTVideoWebPageActivity extends Activity implements d {
         if (isFinishing()) {
             return;
         }
-        if (this.f27242e.get()) {
+        if (this.f27171e.get()) {
             s();
             return;
         }
-        if (this.f27238a == null) {
+        if (this.f27167a == null) {
             d();
         }
-        this.f27238a.a();
+        this.f27167a.a();
     }
 
     private void a(l lVar) {

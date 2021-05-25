@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import d.a.i.v0.a;
 /* loaded from: classes.dex */
-public class z extends d.a.i.a<d.a.j0.r.q.a> {
+public class z extends d.a.i.a<d.a.m0.r.q.a> {
     public MutiImgTextLayout j;
-    public d.a.j0.r.q.a k;
+    public d.a.m0.r.q.a k;
     public int l;
     public String m;
 
@@ -20,11 +20,11 @@ public class z extends d.a.i.a<d.a.j0.r.q.a> {
         }
 
         @Override // d.a.i.v0.a.b
-        public boolean a(a.C0549a c0549a) {
+        public boolean a(a.C0544a c0544a) {
             if (z.this.k != null && z.this.k.m() != null) {
-                d.a.k0.x.m.a(z.this.k.m().o0());
-                d.a.k0.x.m.l(z.this.j.f4470e, z.this.k.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.a.k0.x.m.l(z.this.j.f4471f, z.this.k.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.a.n0.z.m.a(z.this.k.m().o0());
+                d.a.n0.z.m.l(z.this.j.f4473e, z.this.k.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.a.n0.z.m.l(z.this.j.f4474f, z.this.k.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }
@@ -48,7 +48,7 @@ public class z extends d.a.i.a<d.a.j0.r.q.a> {
     }
 
     @Override // d.a.i.a
-    public void l(d.a.k0.x.b0<d.a.j0.r.q.a> b0Var) {
+    public void l(d.a.n0.z.b0<d.a.m0.r.q.a> b0Var) {
         this.j.setSubClickListener(b0Var);
     }
 
@@ -60,7 +60,7 @@ public class z extends d.a.i.a<d.a.j0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: q */
-    public void a(d.a.j0.r.q.a aVar) {
+    public void a(d.a.m0.r.q.a aVar) {
         this.k = aVar;
         this.j.setFrom(this.m);
         this.j.a(aVar);

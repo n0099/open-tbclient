@@ -50,7 +50,7 @@ public class SwanTaskDeadEvent implements Parcelable {
         }
         ArrayList arrayList = new ArrayList();
         if (strArr[2] != null) {
-            for (String str : strArr[2].split(String.valueOf((char) SEPARATOR))) {
+            for (String str : strArr[2].split(String.valueOf('#'))) {
                 if (str != null && TextUtils.isDigitsOnly(str)) {
                     arrayList.add(Integer.valueOf(Integer.parseInt(str)));
                 }
@@ -114,7 +114,7 @@ public class SwanTaskDeadEvent implements Parcelable {
             for (int i2 = 0; i2 < size; i2++) {
                 sb.append(this.stackList.get(i2));
                 if (i2 < size - 1) {
-                    sb.append(SEPARATOR);
+                    sb.append('#');
                 }
             }
         }

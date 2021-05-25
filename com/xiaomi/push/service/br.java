@@ -8,21 +8,21 @@ import com.xiaomi.push.service.XMPushService;
 public class br implements fq {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f38187a;
+    public final /* synthetic */ XMPushService f38116a;
 
     public br(XMPushService xMPushService) {
-        this.f38187a = xMPushService;
+        this.f38116a = xMPushService;
     }
 
     @Override // com.xiaomi.push.fq
     public void a(fa faVar) {
-        XMPushService xMPushService = this.f38187a;
+        XMPushService xMPushService = this.f38116a;
         xMPushService.a(new XMPushService.c(faVar));
     }
 
     @Override // com.xiaomi.push.fq, com.xiaomi.push.fy
     public void a(gc gcVar) {
-        XMPushService xMPushService = this.f38187a;
+        XMPushService xMPushService = this.f38116a;
         xMPushService.a(new XMPushService.k(gcVar));
     }
 }

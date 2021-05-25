@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import d.a.c.j.e.n;
-import d.a.j0.r.q.g2;
-import d.a.j0.t.o;
+import d.a.m0.r.q.g2;
+import d.a.m0.t.o;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -612,7 +612,7 @@ public class UserData extends MetaData {
         this.mLikeForum = list;
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, d.a.j0.r.f0.q.a
+    @Override // com.baidu.tbadk.data.MetaData, d.a.m0.r.f0.q.a
     public void setLikeStatus(int i2) {
         super.setLikeStatus(i2);
         this.have_attention = i2;

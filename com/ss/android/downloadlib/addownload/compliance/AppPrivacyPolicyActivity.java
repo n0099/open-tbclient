@@ -19,19 +19,19 @@ import d.o.a.d.f.n;
 public class AppPrivacyPolicyActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f35869a;
+    public ImageView f35798a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f35870b;
+    public WebView f35799b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f35871c;
+    public long f35800c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f35872d;
+    public long f35801d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35873e;
+    public String f35802e;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -40,7 +40,7 @@ public class AppPrivacyPolicyActivity extends Activity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.o.a.d.f.f.c.c("lp_app_privacy_click_close", AppPrivacyPolicyActivity.this.f35872d);
+            d.o.a.d.f.f.c.c("lp_app_privacy_click_close", AppPrivacyPolicyActivity.this.f35801d);
             AppPrivacyPolicyActivity.this.finish();
         }
     }
@@ -68,10 +68,10 @@ public class AppPrivacyPolicyActivity extends Activity {
     }
 
     private void b() {
-        this.f35869a = (ImageView) findViewById(d.o.a.d.b.iv_privacy_back);
-        this.f35870b = (WebView) findViewById(d.o.a.d.b.privacy_webview);
-        this.f35869a.setOnClickListener(new a());
-        WebSettings settings = this.f35870b.getSettings();
+        this.f35798a = (ImageView) findViewById(d.o.a.d.b.iv_privacy_back);
+        this.f35799b = (WebView) findViewById(d.o.a.d.b.privacy_webview);
+        this.f35798a.setOnClickListener(new a());
+        WebSettings settings = this.f35799b.getSettings();
         settings.setGeolocationEnabled(true);
         settings.setDefaultFontSize(16);
         settings.setCacheMode(-1);
@@ -85,14 +85,14 @@ public class AppPrivacyPolicyActivity extends Activity {
         settings.setSupportZoom(true);
         settings.setBuiltInZoomControls(true);
         settings.setDisplayZoomControls(false);
-        this.f35870b.setWebViewClient(new b());
-        this.f35870b.setScrollBarStyle(0);
-        this.f35870b.loadUrl(this.f35873e);
+        this.f35799b.setWebViewClient(new b());
+        this.f35799b.setScrollBarStyle(0);
+        this.f35799b.loadUrl(this.f35802e);
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        d.o.a.d.f.f.c.c("lp_app_privacy_click_close", this.f35872d);
+        d.o.a.d.f.f.c.c("lp_app_privacy_click_close", this.f35801d);
         super.onBackPressed();
     }
 
@@ -111,13 +111,13 @@ public class AppPrivacyPolicyActivity extends Activity {
     }
 
     private void a() {
-        this.f35871c = getIntent().getLongExtra("app_info_id", 0L);
-        c.C1862c a2 = c.a().a(this.f35871c);
-        this.f35872d = a2.f66694b;
-        String str = a2.f66700h;
-        this.f35873e = str;
+        this.f35800c = getIntent().getLongExtra("app_info_id", 0L);
+        c.C1866c a2 = c.a().a(this.f35800c);
+        this.f35801d = a2.f66737b;
+        String str = a2.f66743h;
+        this.f35802e = str;
         if (TextUtils.isEmpty(str)) {
-            this.f35873e = n.s().optString("ad_privacy_backup_url", "https://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html");
+            this.f35802e = n.s().optString("ad_privacy_backup_url", "https://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html");
         }
     }
 }

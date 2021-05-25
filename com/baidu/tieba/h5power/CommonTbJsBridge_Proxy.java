@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.vivo.push.PushClientConstants;
 import d.a.c.e.p.k;
-import d.a.k0.d3.l0.d.a;
-import d.a.k0.d3.l0.d.b;
-import d.a.k0.d3.l0.d.c;
-import d.a.k0.d3.l0.d.e;
+import d.a.n0.e3.l0.d.a;
+import d.a.n0.e3.l0.d.b;
+import d.a.n0.e3.l0.d.c;
+import d.a.n0.e3.l0.d.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -38,7 +38,7 @@ public class CommonTbJsBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.CLICK_GO_BACK_TO_H5);
     }
 
-    @Override // d.a.k0.d3.l0.d.a
+    @Override // d.a.n0.e3.l0.d.a
     public c dispatch(e eVar, c cVar) {
         c cVar2 = cVar == null ? new c() : cVar;
         String b2 = eVar.b();
@@ -396,7 +396,7 @@ public class CommonTbJsBridge_Proxy extends a {
         return cVar2;
     }
 
-    @Override // d.a.k0.d3.l0.d.a
+    @Override // d.a.n0.e3.l0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         c cVar = null;
         if (k.isEmpty(str) || !this.mNotificationNameList.contains(str)) {

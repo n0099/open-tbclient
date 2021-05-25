@@ -17,19 +17,19 @@ public class RoundRelativeLayout extends RelativeLayout {
     public static final int l = R.color.black_alpha4;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f21006e;
+    public float f20926e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Shape f21007f;
+    public Shape f20927f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f21008g;
+    public Paint f20928g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f21009h;
+    public Paint f20929h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RectF f21010i;
+    public RectF f20930i;
     public Paint j;
     public int k;
 
@@ -41,17 +41,17 @@ public class RoundRelativeLayout extends RelativeLayout {
     public void dispatchDraw(Canvas canvas) {
         int saveCount = canvas.getSaveCount();
         canvas.save();
-        RectF rectF = this.f21010i;
-        float f2 = this.f21006e;
+        RectF rectF = this.f20930i;
+        float f2 = this.f20926e;
         canvas.drawRoundRect(rectF, f2, f2, this.j);
         super.dispatchDraw(canvas);
-        Shape shape = this.f21007f;
+        Shape shape = this.f20927f;
         if (shape != null) {
-            shape.draw(canvas, this.f21008g);
+            shape.draw(canvas, this.f20928g);
         }
-        RectF rectF2 = this.f21010i;
-        float f3 = this.f21006e;
-        canvas.drawRoundRect(rectF2, f3, f3, this.f21009h);
+        RectF rectF2 = this.f20930i;
+        float f3 = this.f20926e;
+        canvas.drawRoundRect(rectF2, f3, f3, this.f20929h);
         if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
             return;
         }
@@ -62,7 +62,7 @@ public class RoundRelativeLayout extends RelativeLayout {
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         super.onLayout(z, i2, i3, i4, i5);
         if (z) {
-            if (this.f21007f == null) {
+            if (this.f20927f == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds8) ? getResources().getDimension(R.dimen.tbds8) : getPaddingLeft();
@@ -71,11 +71,11 @@ public class RoundRelativeLayout extends RelativeLayout {
                 float dimension3 = ((float) getPaddingBottom()) <= getResources().getDimension(R.dimen.tbds8) ? getResources().getDimension(R.dimen.tbds8) : getPaddingBottom();
                 RectF rectF = new RectF(dimension, paddingTop, dimension2, dimension3);
                 float[] fArr2 = new float[8];
-                Arrays.fill(fArr2, this.f21006e);
-                this.f21007f = new RoundRectShape(fArr, rectF, fArr2);
-                this.f21010i.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - dimension3);
+                Arrays.fill(fArr2, this.f20926e);
+                this.f20927f = new RoundRectShape(fArr, rectF, fArr2);
+                this.f20930i.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - dimension3);
             }
-            this.f21007f.resize(getWidth(), getHeight());
+            this.f20927f.resize(getWidth(), getHeight());
         }
     }
 
@@ -88,7 +88,7 @@ public class RoundRelativeLayout extends RelativeLayout {
     }
 
     public void setRadius(float f2) {
-        this.f21006e = f2;
+        this.f20926e = f2;
     }
 
     public RoundRelativeLayout(Context context, AttributeSet attributeSet) {
@@ -97,26 +97,26 @@ public class RoundRelativeLayout extends RelativeLayout {
 
     public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f21006e = 0.0f;
+        this.f20926e = 0.0f;
         setLayerType(1, null);
         Paint paint = new Paint();
-        this.f21008g = paint;
+        this.f20928g = paint;
         paint.setAntiAlias(true);
-        this.f21008g.setColor(-1);
-        this.f21008g.setStyle(Paint.Style.FILL);
-        this.f21008g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f20928g.setColor(-1);
+        this.f20928g.setStyle(Paint.Style.FILL);
+        this.f20928g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
-        this.f21009h = paint2;
+        this.f20929h = paint2;
         paint2.setAntiAlias(true);
-        this.f21009h.setColor(0);
-        this.f21009h.setStyle(Paint.Style.FILL);
-        this.f21009h.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds8), getResources().getColor(l));
-        this.f21009h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
-        this.f21010i = new RectF();
+        this.f20929h.setColor(0);
+        this.f20929h.setStyle(Paint.Style.FILL);
+        this.f20929h.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds8), getResources().getColor(l));
+        this.f20929h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
+        this.f20930i = new RectF();
         Paint paint3 = new Paint();
         this.j = paint3;
         paint3.setAntiAlias(true);
         this.j.setColor(-1);
-        this.f21008g.setStyle(Paint.Style.FILL);
+        this.f20928g.setStyle(Paint.Style.FILL);
     }
 }

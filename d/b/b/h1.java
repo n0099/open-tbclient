@@ -2,7 +2,7 @@ package d.b.b;
 
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class h1 {
     public static g1 a(Context context) {
         if (l.d()) {

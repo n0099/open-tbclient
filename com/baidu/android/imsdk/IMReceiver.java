@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.IMSettings;
 import com.baidu.android.imsdk.mcast.McastConfig;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import d.a.r.a;
+import d.a.s.a;
 /* loaded from: classes.dex */
 public class IMReceiver extends BroadcastReceiver {
     public static final String TAG = "IMReceiver";
@@ -19,7 +19,7 @@ public class IMReceiver extends BroadcastReceiver {
         Intent intent = new Intent(context, a.class);
         intent.setAction(Constants.ACTION_START);
         try {
-            a.e(context).d(context, intent);
+            a.g(context).f(context, intent);
         } catch (Exception e2) {
             LogUtils.e(TAG, "Exception ", e2);
         }
@@ -29,7 +29,7 @@ public class IMReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         IMSettings.setContext(context.getApplicationContext());
         String action = intent.getAction();
-        if (!"android.intent.action.BOOT_COMPLETED".equals(action) && !"android.net.conn.CONNECTIVITY_CHANGE".equals(action) && !"android.intent.action.USER_PRESENT".equals(action) && !"android.intent.action.MEDIA_CHECKING".equals(action) && !"android.intent.action.MEDIA_EJECT".equals(action) && !"android.intent.action.MEDIA_UNMOUNTED".equals(action) && !"android.intent.action.MEDIA_REMOVED".equals(action) && !"android.intent.action.ACTION_POWER_CONNECTED".equals(action) && !"android.intent.action.ACTION_POWER_DISCONNECTED".equals(action) && !"android.bluetooth.adapter.action.STATE_CHANGED".equals(action) && !McastConfig.ACTION_NETWORK_STATE_CHANGED.equals(action) && !McastConfig.ACTION_WIFI_STATE_CHANGED.equals(action)) {
+        if (!"android.net.conn.CONNECTIVITY_CHANGE".equals(action) && !"android.intent.action.USER_PRESENT".equals(action) && !"android.intent.action.MEDIA_CHECKING".equals(action) && !"android.intent.action.MEDIA_EJECT".equals(action) && !"android.intent.action.MEDIA_UNMOUNTED".equals(action) && !"android.intent.action.MEDIA_REMOVED".equals(action) && !"android.intent.action.ACTION_POWER_CONNECTED".equals(action) && !"android.intent.action.ACTION_POWER_DISCONNECTED".equals(action) && !"android.bluetooth.adapter.action.STATE_CHANGED".equals(action) && !McastConfig.ACTION_NETWORK_STATE_CHANGED.equals(action) && !McastConfig.ACTION_WIFI_STATE_CHANGED.equals(action)) {
             if (Constants.ACTION_METHOD.equals(intent.getAction())) {
                 startService(context, intent);
                 return;
@@ -60,7 +60,7 @@ public class IMReceiver extends BroadcastReceiver {
         }
         intent.setClass(context, a.class);
         try {
-            a.e(context).d(context, intent);
+            a.g(context).f(context, intent);
         } catch (Exception e2) {
             LogUtils.e(TAG, "Exception ", e2);
         }

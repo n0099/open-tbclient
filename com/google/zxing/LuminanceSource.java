@@ -1,7 +1,6 @@
 package com.google.zxing;
 
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.swan.apps.model.SwanTaskDeadEvent;
 /* loaded from: classes6.dex */
 public abstract class LuminanceSource {
     public final int height;
@@ -56,7 +55,7 @@ public abstract class LuminanceSource {
             bArr = getRow(i3, bArr);
             for (int i4 = 0; i4 < this.width; i4++) {
                 int i5 = bArr[i4] & 255;
-                sb.append(i5 < 64 ? SwanTaskDeadEvent.SEPARATOR : i5 < 128 ? '+' : i5 < 192 ? IStringUtil.EXTENSION_SEPARATOR : ' ');
+                sb.append(i5 < 64 ? '#' : i5 < 128 ? '+' : i5 < 192 ? IStringUtil.EXTENSION_SEPARATOR : ' ');
             }
             sb.append('\n');
         }

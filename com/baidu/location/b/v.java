@@ -6,47 +6,47 @@ import java.util.concurrent.Executors;
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    public ExecutorService f6674a;
+    public ExecutorService f6574a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f6675b;
+    public ExecutorService f6575b;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static v f6676a = new v();
+        public static v f6576a = new v();
     }
 
     public v() {
     }
 
     public static v a() {
-        return a.f6676a;
+        return a.f6576a;
     }
 
     public synchronized ExecutorService b() {
-        if (this.f6674a == null || this.f6674a.isShutdown()) {
-            this.f6674a = null;
-            this.f6674a = Executors.newSingleThreadExecutor();
+        if (this.f6574a == null || this.f6574a.isShutdown()) {
+            this.f6574a = null;
+            this.f6574a = Executors.newSingleThreadExecutor();
         }
-        return this.f6674a;
+        return this.f6574a;
     }
 
     public synchronized ExecutorService c() {
-        if (this.f6675b == null || this.f6675b.isShutdown()) {
-            this.f6675b = null;
-            this.f6675b = Executors.newFixedThreadPool(2);
+        if (this.f6575b == null || this.f6575b.isShutdown()) {
+            this.f6575b = null;
+            this.f6575b = Executors.newFixedThreadPool(2);
         }
-        return this.f6675b;
+        return this.f6575b;
     }
 
     public void d() {
-        ExecutorService executorService = this.f6674a;
+        ExecutorService executorService = this.f6574a;
         if (executorService != null) {
             executorService.shutdown();
         }
-        ExecutorService executorService2 = this.f6675b;
+        ExecutorService executorService2 = this.f6575b;
         if (executorService2 != null) {
             executorService2.shutdown();
         }

@@ -11,31 +11,31 @@ import com.baidu.tieba.R;
 public class TabItemView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f17019e;
+    public View f16929e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f17020f;
+    public TextView f16930f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17021g;
+    public TextView f16931g;
 
     public TabItemView(Context context) {
         super(context);
         View inflate = LayoutInflater.from(context).inflate(R.layout.topic_tab_item_view, this);
-        this.f17019e = inflate;
-        this.f17020f = (TextView) inflate.findViewById(R.id.topic_tab_item_textview);
-        this.f17021g = (TextView) this.f17019e.findViewById(R.id.topic_tab_item_red_tip);
+        this.f16929e = inflate;
+        this.f16930f = (TextView) inflate.findViewById(R.id.topic_tab_item_textview);
+        this.f16931g = (TextView) this.f16929e.findViewById(R.id.topic_tab_item_red_tip);
     }
 
     public void a() {
-        SkinManager.setBackgroundResource(this.f17021g, R.drawable.icon_news_down_bar_one);
+        SkinManager.setBackgroundResource(this.f16931g, R.drawable.icon_news_down_bar_one);
     }
 
     public TextView getRedTipView() {
-        return this.f17021g;
+        return this.f16931g;
     }
 
     public TextView getTextView() {
-        return this.f17020f;
+        return this.f16930f;
     }
 }

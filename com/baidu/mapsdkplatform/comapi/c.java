@@ -11,10 +11,10 @@ import java.io.IOException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7626a;
+    public static boolean f7526a;
 
     public static void a(Context context, boolean z, String str, String str2, String str3) {
-        if (f7626a) {
+        if (f7526a) {
             return;
         }
         if (context == null) {
@@ -34,7 +34,7 @@ public class c {
         }
         EnvironmentUtilities.initAppDirectory(context);
         com.baidu.mapsdkplatform.comapi.b.a.c.a().a(context);
-        f7626a = true;
+        f7526a = true;
     }
 
     public static boolean a(String str) {

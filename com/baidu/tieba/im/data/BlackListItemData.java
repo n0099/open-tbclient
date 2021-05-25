@@ -7,16 +7,16 @@ import java.util.ArrayList;
 public class BlackListItemData extends AbstractImageProvider {
 
     /* renamed from: e  reason: collision with root package name */
-    public long f17222e;
+    public long f17132e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f17223f;
+    public String f17133f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17224g;
+    public String f17134g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f17225h;
+    public String f17135h;
 
     @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getPhotoUrl() {
@@ -26,33 +26,33 @@ public class BlackListItemData extends AbstractImageProvider {
     }
 
     public long getUserId() {
-        return this.f17222e;
+        return this.f17132e;
     }
 
     public String s() {
-        return this.f17224g;
+        return this.f17134g;
     }
 
     public void setUserId(long j) {
-        this.f17222e = j;
+        this.f17132e = j;
     }
 
     public void setUserName(String str) {
-        this.f17223f = str;
+        this.f17133f = str;
     }
 
     public String t() {
-        if (StringUtils.isNull(this.f17225h)) {
-            return this.f17223f;
+        if (StringUtils.isNull(this.f17135h)) {
+            return this.f17133f;
         }
-        return this.f17225h;
+        return this.f17135h;
     }
 
     public void u(String str) {
-        this.f17224g = str;
+        this.f17134g = str;
     }
 
     public void v(String str) {
-        this.f17225h = str;
+        this.f17135h = str;
     }
 }

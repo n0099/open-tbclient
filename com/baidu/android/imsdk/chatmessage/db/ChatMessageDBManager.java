@@ -26,6 +26,8 @@ import com.baidu.android.imsdk.chatuser.db.IMUserManager;
 import com.baidu.android.imsdk.db.DBBase;
 import com.baidu.android.imsdk.db.DBResponseCode;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.group.GroupMember;
+import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.group.db.GroupMessageDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -39,6 +41,7 @@ import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -51,6 +54,7 @@ import org.json.JSONObject;
 public class ChatMessageDBManager extends DBBase {
     public static final long CAST_RELIABLE_MSG_EXPIRED_TIME = 172800;
     public static final String TAG = "ChatMessageDBManager";
+    public static final List<Integer> UNUPDATE_SESSION_MSG_TYPES = Arrays.asList(Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL), 2001, 36);
     public static ChatMessageDBManager mInstance;
     public List<ChatMessageDbOberser> mObservers = null;
 
@@ -324,104 +328,112 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     private ChatSession constructChatRecord(SQLiteDatabase sQLiteDatabase, Cursor cursor) {
+        String str;
         int i2;
         long j;
         long j2;
         int i3;
-        String str;
+        String str2;
         int i4;
         int i5;
         long j3;
         int i6;
         int i7;
-        String str2;
         String str3;
+        String str4;
         int i8;
         long j4;
-        String str4;
         String str5;
         String str6;
         String str7;
         String str8;
+        String str9;
         int i9;
         long j5;
         long j6;
+        long j7;
         String senderUid;
         int i10 = cursor.getInt(cursor.getColumnIndex("category"));
-        long j7 = cursor.getLong(cursor.getColumnIndex("contacter"));
+        long j8 = cursor.getLong(cursor.getColumnIndex("contacter"));
         String string = cursor.getString(cursor.getColumnIndex("name"));
         String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_MSG));
-        long j8 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_MSG_TIME));
-        long j9 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_OPEN_TIME));
-        long j10 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM));
+        long j9 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_MSG_TIME));
+        long j10 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_OPEN_TIME));
+        long j11 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM));
         int i11 = cursor.getInt(cursor.getColumnIndex("weight"));
         int i12 = cursor.getInt(cursor.getColumnIndex("show"));
         int i13 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_COLLECTION_TYPE));
-        int i14 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_CHAT_TYPE));
+        int i14 = cursor.getInt(cursor.getColumnIndex("chat_type"));
         String string3 = cursor.getString(cursor.getColumnIndex("icon_url"));
         int i15 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_STATE));
         int i16 = cursor.getInt(cursor.getColumnIndex("isclicked"));
-        long j11 = cursor.getLong(cursor.getColumnIndex("paid"));
+        long j12 = cursor.getLong(cursor.getColumnIndex("paid"));
         int i17 = cursor.getInt(cursor.getColumnIndex("classtype"));
         int i18 = cursor.getInt(cursor.getColumnIndex("classshow"));
         String string4 = cursor.getString(cursor.getColumnIndex("classtitle"));
         String string5 = cursor.getString(cursor.getColumnIndex("classavatar"));
         int i19 = cursor.getInt(cursor.getColumnIndex("marktop"));
-        long j12 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
+        long j13 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
         String string6 = cursor.getString(cursor.getColumnIndex("nickname"));
         String string7 = cursor.getString(cursor.getColumnIndex("extra"));
         String string8 = cursor.getString(cursor.getColumnIndex("v_portrait"));
         String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_CERTIFICATION));
         String string10 = cursor.getString(cursor.getColumnIndex("vip_id"));
         int i20 = cursor.getInt(cursor.getColumnIndex("shield"));
-        long j13 = cursor.getLong(cursor.getColumnIndex("shield_time"));
+        long j14 = cursor.getLong(cursor.getColumnIndex("shield_time"));
+        long j15 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_MSG_BDUID));
+        String string11 = cursor.getString(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_MSG_NICKNAME));
         if (i10 == 0 && i14 == 0) {
-            long buidByUK = IMUserManager.getInstance(this.mContext).getBuidByUK(j7);
+            long buidByUK = IMUserManager.getInstance(this.mContext).getBuidByUK(j8);
             if (buidByUK >= 0 || TextUtils.isEmpty(string2)) {
+                str = string11;
                 i2 = i12;
-                j = j10;
-                j2 = j13;
+                j = j11;
+                j2 = j15;
                 i3 = i13;
-                str = string3;
+                str2 = string3;
                 i4 = i15;
                 i5 = i16;
-                j3 = j9;
+                j3 = j10;
                 i6 = i17;
                 i7 = i18;
-                str2 = string4;
-                str3 = string5;
+                str3 = string4;
+                str4 = string5;
                 i8 = i19;
-                j4 = j11;
-                str4 = string6;
-                str5 = string7;
-                str6 = string8;
-                str7 = string9;
-                str8 = string10;
+                j4 = j12;
+                str5 = string6;
+                str6 = string7;
+                str7 = string8;
+                str8 = string9;
+                str9 = string10;
                 i9 = i20;
-                j5 = j12;
+                j5 = j13;
+                j6 = j14;
             } else {
+                str = string11;
                 i3 = i13;
-                str = string3;
+                str2 = string3;
                 i4 = i15;
                 i5 = i16;
                 i6 = i17;
                 i7 = i18;
-                str2 = string4;
-                str3 = string5;
+                str3 = string4;
+                str4 = string5;
                 i8 = i19;
-                str4 = string6;
-                str5 = string7;
-                str6 = string8;
-                str7 = string9;
-                str8 = string10;
+                str5 = string6;
+                str6 = string7;
+                str7 = string8;
+                str8 = string9;
+                str9 = string10;
                 i9 = i20;
                 i2 = i12;
-                j = j10;
-                j2 = j13;
-                j3 = j9;
-                j4 = j11;
-                j5 = j12;
-                ArrayList<ChatMsg> fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(0, j7, 1, (ChatMsg) null);
+                j = j11;
+                j2 = j15;
+                j3 = j10;
+                j4 = j12;
+                j5 = j13;
+                j6 = j14;
+                ArrayList<ChatMsg> fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(0, j8, 1, (ChatMsg) null);
                 if (fetchMessageSync != null && fetchMessageSync.size() > 0) {
                     Iterator<ChatMsg> it = fetchMessageSync.iterator();
                     while (it.hasNext()) {
@@ -433,7 +445,7 @@ public class ChatMessageDBManager extends DBBase {
                                 senderUid = next.getSenderUid();
                             }
                             try {
-                                j6 = Long.valueOf(senderUid).longValue();
+                                j7 = Long.valueOf(senderUid).longValue();
                                 break;
                             } catch (NumberFormatException e2) {
                                 LogUtils.e(TAG, "", e2);
@@ -442,64 +454,68 @@ public class ChatMessageDBManager extends DBBase {
                     }
                 }
             }
-            j6 = buidByUK;
+            j7 = buidByUK;
         } else {
+            str = string11;
             i2 = i12;
-            j = j10;
-            j2 = j13;
+            j = j11;
+            j2 = j15;
             i3 = i13;
-            str = string3;
+            str2 = string3;
             i4 = i15;
             i5 = i16;
-            j3 = j9;
+            j3 = j10;
             i6 = i17;
             i7 = i18;
-            str2 = string4;
-            str3 = string5;
+            str3 = string4;
+            str4 = string5;
             i8 = i19;
-            j4 = j11;
-            str4 = string6;
-            str5 = string7;
-            str6 = string8;
-            str7 = string9;
-            str8 = string10;
+            j4 = j12;
+            str5 = string6;
+            str6 = string7;
+            str7 = string8;
+            str8 = string9;
+            str9 = string10;
             i9 = i20;
-            j5 = j12;
-            j6 = j7;
+            j5 = j13;
+            j6 = j14;
+            j7 = j8;
         }
-        if (0 != j7) {
+        if (0 != j8) {
             if (!TextUtils.isEmpty(string2) || i14 == 27 || i14 == 17) {
-                ChatSession chatSession = new ChatSession(i10, j7, j6, string);
+                ChatSession chatSession = new ChatSession(i10, j8, j7, string);
                 chatSession.setLastMsg(string2);
-                chatSession.setLastMsgTime(j8);
+                chatSession.setLastMsgTime(j9);
                 chatSession.setLastOpenTime(j3);
                 chatSession.setNewMsgSum(j);
                 chatSession.setWeight(i11);
                 chatSession.setShow(i2);
                 chatSession.setCollectionType(i3);
                 chatSession.setChatType(i14);
-                chatSession.setIconUrl(str);
+                chatSession.setIconUrl(str2);
                 chatSession.setState(i4);
                 chatSession.setIsClicked(i5);
                 chatSession.setPaid(j4);
                 chatSession.setClassType(i6);
-                chatSession.setClassTitle(str2);
-                chatSession.setClassAvatar(str3);
+                chatSession.setClassTitle(str3);
+                chatSession.setClassAvatar(str4);
                 chatSession.setClassShow(i7);
                 chatSession.setMarkTop(i8);
                 chatSession.setMarkTopTime(j5);
-                chatSession.setNickName(str4);
-                chatSession.setExt(str5);
-                chatSession.setVPortrait(str6);
-                chatSession.setCertification(str7);
-                chatSession.setVipId(str8);
+                chatSession.setNickName(str5);
+                chatSession.setExt(str6);
+                chatSession.setVPortrait(str7);
+                chatSession.setCertification(str8);
+                chatSession.setVipId(str9);
                 chatSession.setShield(i9);
-                chatSession.setShieldTime(j2);
+                chatSession.setShieldTime(j6);
+                chatSession.setLastMsgUid(j2);
+                chatSession.setLastMsgName(str);
                 return chatSession;
             }
             return null;
         }
-        return new ChatSession(i10, j7, j6, string);
+        return new ChatSession(i10, j8, j7, string);
     }
 
     private void contructChatRecordValues(int i2, ChatSession chatSession, ContentValues contentValues) {
@@ -523,7 +539,7 @@ public class ChatMessageDBManager extends DBBase {
         if (i2 == 0) {
             contentValues.put("weight", Integer.valueOf(chatSession.getWeight()));
         }
-        contentValues.put(TableDefine.SessionColumns.COLUMN_CHAT_TYPE, Integer.valueOf(chatSession.getChatType()));
+        contentValues.put("chat_type", Integer.valueOf(chatSession.getChatType()));
         contentValues.put(TableDefine.SessionColumns.COLUMN_COLLECTION_TYPE, Integer.valueOf(chatSession.getCollectionType()));
         contentValues.put("icon_url", chatSession.getIconUrl());
         contentValues.put("isclicked", Integer.valueOf(chatSession.getIsClicked()));
@@ -550,6 +566,8 @@ public class ChatMessageDBManager extends DBBase {
         if (!TextUtils.isEmpty(chatSession.getVipId())) {
             contentValues.put("vip_id", chatSession.getVipId());
         }
+        contentValues.put(TableDefine.SessionColumns.COLUMN_LAST_MSG_BDUID, Long.valueOf(chatSession.getLastMsgUid()));
+        contentValues.put(TableDefine.SessionColumns.COLUMN_LAST_MSG_NICKNAME, chatSession.getLastMsgName());
         contentValues.put("shield", Integer.valueOf(chatSession.getShield()));
         contentValues.put("shield_time", Long.valueOf(chatSession.getShieldTime()));
     }
@@ -635,8 +653,11 @@ public class ChatMessageDBManager extends DBBase {
                     }
                 }
                 if (i3 < 0) {
-                    if (openDatabase != null) {
+                    try {
                         openDatabase.endTransaction();
+                    } catch (Exception e2) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                        LogUtils.e(TAG, "delMsgsOfCertainContacterForSingle finally:", e2);
                     }
                     return -1;
                 }
@@ -647,15 +668,21 @@ public class ChatMessageDBManager extends DBBase {
                     }
                     i2 = delete;
                 }
-                if (openDatabase != null) {
+                try {
                     openDatabase.endTransaction();
+                } catch (Exception e3) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                    LogUtils.e(TAG, "delMsgsOfCertainContacterForSingle finally:", e3);
                 }
                 return i2;
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "delMsg:", e2);
-                if (openDatabase != null) {
+            } catch (Exception e4) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
+                LogUtils.e(TAG, "delMsg:", e4);
+                try {
                     openDatabase.endTransaction();
+                } catch (Exception e5) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e5)).build();
+                    LogUtils.e(TAG, "delMsgsOfCertainContacterForSingle finally:", e5);
                 }
                 return -1;
             }
@@ -709,15 +736,21 @@ public class ChatMessageDBManager extends DBBase {
                     openDatabase.setTransactionSuccessful();
                     i6 = i2;
                 }
-                if (openDatabase != null) {
+                try {
                     openDatabase.endTransaction();
+                } catch (Exception e2) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                    LogUtils.e(TAG, "delMsgsOfPaByPaId finally:", e2);
                 }
                 return i6;
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "delMsgsOfPaByPaId:", e2);
-                if (openDatabase != null) {
+            } catch (Exception e3) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                LogUtils.e(TAG, "delMsgsOfPaByPaId:", e3);
+                try {
                     openDatabase.endTransaction();
+                } catch (Exception e4) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
+                    LogUtils.e(TAG, "delMsgsOfPaByPaId finally:", e4);
                 }
                 return -1;
             }
@@ -1248,6 +1281,27 @@ public class ChatMessageDBManager extends DBBase {
         return update;
     }
 
+    private void setChatSessionLastName(ChatSession chatSession, String str) {
+        long longByString = Utility.getLongByString(str, 0L);
+        if (chatSession.getChatType() != 57 || chatSession.getLastMsgUid() == longByString) {
+            return;
+        }
+        chatSession.setLastMsgUid(longByString);
+        if (longByString != 0) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(str);
+            ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(this.mContext, String.valueOf(chatSession.getContacter()), arrayList, 1);
+            if (groupMember != null && groupMember.size() > 0) {
+                chatSession.setLastMsgName(groupMember.get(0).getShowName());
+                return;
+            } else {
+                chatSession.setLastMsgName("");
+                return;
+            }
+        }
+        chatSession.setLastMsgName("");
+    }
+
     private int setMsgReadByContacterIds(SQLiteDatabase sQLiteDatabase, List<Long> list, long j) {
         if (list == null || list.size() <= 0) {
             return DBResponseCode.ERROR_PARAMETER;
@@ -1456,22 +1510,12 @@ public class ChatMessageDBManager extends DBBase {
         return null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0133 A[Catch: all -> 0x01d5, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008d, B:22:0x008f, B:24:0x0095, B:25:0x009c, B:27:0x009e, B:29:0x00aa, B:31:0x00b0, B:34:0x00ba, B:36:0x00c2, B:38:0x00d0, B:40:0x00d8, B:47:0x0124, B:49:0x012d, B:51:0x0133, B:53:0x0146, B:55:0x014b, B:56:0x014f, B:58:0x0159, B:59:0x015d, B:61:0x01c5, B:62:0x01c9, B:63:0x01d3, B:52:0x0142, B:41:0x00e2, B:43:0x0112, B:45:0x0118, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0142 A[Catch: all -> 0x01d5, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008d, B:22:0x008f, B:24:0x0095, B:25:0x009c, B:27:0x009e, B:29:0x00aa, B:31:0x00b0, B:34:0x00ba, B:36:0x00c2, B:38:0x00d0, B:40:0x00d8, B:47:0x0124, B:49:0x012d, B:51:0x0133, B:53:0x0146, B:55:0x014b, B:56:0x014f, B:58:0x0159, B:59:0x015d, B:61:0x01c5, B:62:0x01c9, B:63:0x01d3, B:52:0x0142, B:41:0x00e2, B:43:0x0112, B:45:0x0118, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x014b A[Catch: all -> 0x01d5, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008d, B:22:0x008f, B:24:0x0095, B:25:0x009c, B:27:0x009e, B:29:0x00aa, B:31:0x00b0, B:34:0x00ba, B:36:0x00c2, B:38:0x00d0, B:40:0x00d8, B:47:0x0124, B:49:0x012d, B:51:0x0133, B:53:0x0146, B:55:0x014b, B:56:0x014f, B:58:0x0159, B:59:0x015d, B:61:0x01c5, B:62:0x01c9, B:63:0x01d3, B:52:0x0142, B:41:0x00e2, B:43:0x0112, B:45:0x0118, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0159 A[Catch: all -> 0x01d5, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008d, B:22:0x008f, B:24:0x0095, B:25:0x009c, B:27:0x009e, B:29:0x00aa, B:31:0x00b0, B:34:0x00ba, B:36:0x00c2, B:38:0x00d0, B:40:0x00d8, B:47:0x0124, B:49:0x012d, B:51:0x0133, B:53:0x0146, B:55:0x014b, B:56:0x014f, B:58:0x0159, B:59:0x015d, B:61:0x01c5, B:62:0x01c9, B:63:0x01d3, B:52:0x0142, B:41:0x00e2, B:43:0x0112, B:45:0x0118, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x01c5 A[Catch: all -> 0x01d5, TryCatch #0 {, blocks: (B:9:0x001c, B:10:0x0026, B:12:0x0044, B:15:0x004c, B:19:0x0084, B:20:0x008d, B:22:0x008f, B:24:0x0095, B:25:0x009c, B:27:0x009e, B:29:0x00aa, B:31:0x00b0, B:34:0x00ba, B:36:0x00c2, B:38:0x00d0, B:40:0x00d8, B:47:0x0124, B:49:0x012d, B:51:0x0133, B:53:0x0146, B:55:0x014b, B:56:0x014f, B:58:0x0159, B:59:0x015d, B:61:0x01c5, B:62:0x01c9, B:63:0x01d3, B:52:0x0142, B:41:0x00e2, B:43:0x0112, B:45:0x0118, B:16:0x005f, B:17:0x0072), top: B:68:0x001c }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public long createChatSession(ChatObject chatObject, String str, int i2, String str2, int i3, String str3, String str4, int i4, int i5, long j, int i6, long j2, String str5, String str6, String str7) {
         ChatMsg chatMsg;
-        ChatMsg chatMsg2;
         int i7;
         int unReadMsgCount;
-        ChatMsg chatMsg3;
         String str8;
-        ArrayList<ChatMsg> fetchMsg;
+        ArrayList<ChatMsg> fetchMsgExcludeTypes;
         if (getChatSession(chatObject) != null) {
             return 0L;
         }
@@ -1485,101 +1529,60 @@ public class ChatMessageDBManager extends DBBase {
             ChatMsg draftMsg = getDraftMsg(chatObject.getCategory(), chatObject.getContacter());
             if (draftMsg == null) {
                 if (1 != chatObject.getCategory()) {
-                    fetchMsg = getInstance(this.mContext).fetchMsg(chatObject, 0L, 2L);
+                    fetchMsgExcludeTypes = getInstance(this.mContext).fetchMsgExcludeTypes(chatObject, 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
                 } else if (i2 == 4) {
-                    fetchMsg = GroupMessageDAOImpl.fetchLastChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
+                    fetchMsgExcludeTypes = GroupMessageDAOImpl.fetchLastChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
                 } else {
-                    fetchMsg = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
+                    fetchMsgExcludeTypes = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
                 }
-                if (fetchMsg == null) {
+                if (fetchMsgExcludeTypes == null) {
                     LogUtils.e(TAG, "updateChatRecordName fetchmsg error! ");
                     return -1L;
-                } else if (fetchMsg.size() == 0) {
+                } else if (fetchMsgExcludeTypes.size() == 0) {
                     LogUtils.e(TAG, "updateChatRecordName  msgs.size() = 0! ");
                     return 0L;
                 } else {
-                    ChatMsg chatMsg4 = fetchMsg.get(0);
-                    if (notSendButShowTipMsg(chatMsg4) && fetchMsg.size() > 1) {
-                        draftMsg = fetchMsg.get(1);
-                    } else {
-                        chatMsg = chatMsg4;
-                        String str9 = "";
-                        if (chatObject.getCategory() == 0 || (chatObject.getContacter() & Constants.PAFLAG) == 0) {
-                            chatMsg2 = chatMsg;
-                            i7 = 1;
-                        } else {
-                            if (!chatMsg.isSelf(this.mContext)) {
-                                chatMsg2 = chatMsg;
-                                str8 = chatMsg.getExtLog();
-                                i7 = 1;
-                            } else {
-                                chatMsg2 = chatMsg;
-                                i7 = 1;
-                                ArrayList<ChatMsg> fetchMsg2 = fetchMsg(chatObject, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
-                                if (fetchMsg2 != null && fetchMsg2.size() > 0) {
-                                    str9 = fetchMsg2.get(0).getExtLog();
-                                }
-                                str8 = str9;
-                            }
-                            chatSession.addExt("ext_log", str8);
-                        }
-                        if (i7 != chatObject.getCategory()) {
-                            unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
-                        } else {
-                            unReadMsgCount = getUnReadMsgCount(chatObject);
-                        }
-                        chatSession.setChatType(i2);
-                        if (unReadMsgCount >= 0) {
-                            chatSession.setNewMsgSum(unReadMsgCount);
-                        }
-                        String recommendDescription = chatMsg2.getRecommendDescription();
-                        chatMsg3 = chatMsg2;
-                        if (chatMsg3 instanceof HtmlMsg) {
-                            recommendDescription = chatMsg3.getLocalUrl();
-                        }
-                        chatSession.setLastOpenTime(chatMsg3.getMsgTime());
-                        chatSession.setLastMsgTime(chatMsg3.getMsgTime());
-                        chatSession.setLastMsg(recommendDescription);
-                        chatSession.setState(chatMsg3.getStatus());
-                        chatSession.setIconUrl(str2);
-                        chatSession.setIsClicked(Utility.getClickState(chatMsg3));
-                        chatSession.setPaid(chatObject.getPaid());
-                        chatSession.setClassType(i3);
-                        chatSession.setClassTitle(str3);
-                        chatSession.setClassAvatar(str4);
-                        chatSession.setClassShow(i4);
-                        chatSession.setMarkTop(i5);
-                        chatSession.setMarkTopTime(j);
-                        chatSession.setVipId(str5);
-                        chatSession.setVPortrait(str6);
-                        chatSession.setCertification(str7);
-                        chatSession.setShield(i6);
-                        chatSession.setShieldTime(j2);
-                        if (chatMsg3.isStarMessage()) {
-                            chatSession.setChatType(4);
-                        }
-                        return getInstance(this.mContext).updateChatSession(i7, chatSession);
-                    }
+                    draftMsg = fetchMsgExcludeTypes.get(0);
                 }
             }
-            chatMsg = draftMsg;
-            String str92 = "";
-            if (chatObject.getCategory() == 0) {
+            ChatMsg chatMsg2 = draftMsg;
+            String str9 = "";
+            if (chatObject.getCategory() != 0 || (chatObject.getContacter() & Constants.PAFLAG) == 0) {
+                chatMsg = chatMsg2;
+                i7 = 1;
+            } else {
+                if (!chatMsg2.isSelf(this.mContext)) {
+                    chatMsg = chatMsg2;
+                    str8 = chatMsg2.getExtLog();
+                    i7 = 1;
+                } else {
+                    chatMsg = chatMsg2;
+                    i7 = 1;
+                    ArrayList<ChatMsg> fetchMsg = fetchMsg(chatObject, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
+                    if (fetchMsg != null && fetchMsg.size() > 0) {
+                        str9 = fetchMsg.get(0).getExtLog();
+                    }
+                    str8 = str9;
+                }
+                chatSession.addExt("ext_log", str8);
             }
-            chatMsg2 = chatMsg;
-            i7 = 1;
-            if (i7 != chatObject.getCategory()) {
+            if (i7 == chatObject.getCategory()) {
+                unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
+            } else {
+                unReadMsgCount = getUnReadMsgCount(chatObject);
             }
             chatSession.setChatType(i2);
             if (unReadMsgCount >= 0) {
+                chatSession.setNewMsgSum(unReadMsgCount);
             }
-            String recommendDescription2 = chatMsg2.getRecommendDescription();
-            chatMsg3 = chatMsg2;
+            String recommendDescription = chatMsg.getRecommendDescription();
+            ChatMsg chatMsg3 = chatMsg;
             if (chatMsg3 instanceof HtmlMsg) {
+                recommendDescription = chatMsg3.getLocalUrl();
             }
             chatSession.setLastOpenTime(chatMsg3.getMsgTime());
             chatSession.setLastMsgTime(chatMsg3.getMsgTime());
-            chatSession.setLastMsg(recommendDescription2);
+            chatSession.setLastMsg(recommendDescription);
             chatSession.setState(chatMsg3.getStatus());
             chatSession.setIconUrl(str2);
             chatSession.setIsClicked(Utility.getClickState(chatMsg3));
@@ -1595,7 +1598,9 @@ public class ChatMessageDBManager extends DBBase {
             chatSession.setCertification(str7);
             chatSession.setShield(i6);
             chatSession.setShieldTime(j2);
+            setChatSessionLastName(chatSession, chatMsg3.getSenderUid());
             if (chatMsg3.isStarMessage()) {
+                chatSession.setChatType(4);
             }
             return getInstance(this.mContext).updateChatSession(i7, chatSession);
         }
@@ -2049,6 +2054,29 @@ public class ChatMessageDBManager extends DBBase {
                 LogUtils.e(TAG, "fetchPaMsgByChatType:", e2);
             }
         }
+    }
+
+    public ArrayList<ChatMsg> fetchMsgExcludeTypes(ChatObject chatObject, long j, long j2, List<Integer> list) {
+        ArrayList<ChatMsg> fetchMsg;
+        synchronized (DBBase.mSyncLock) {
+            String str = null;
+            if (list != null) {
+                try {
+                    if (list.size() > 0) {
+                        StringBuilder sb = new StringBuilder("type NOT IN (");
+                        for (Integer num : list) {
+                            sb.append(num.intValue());
+                            sb.append(",");
+                        }
+                        str = sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
+                    }
+                } catch (Throwable th) {
+                    throw th;
+                }
+            }
+            fetchMsg = fetchMsg(chatObject, j, j2, j == 0 ? -1L : Long.MAX_VALUE, false, str);
+        }
+        return fetchMsg;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0059  */
@@ -3069,34 +3097,30 @@ public class ChatMessageDBManager extends DBBase {
         for (Map.Entry<ChatObject, Integer> entry : hashMap.entrySet()) {
             ChatObject key = entry.getKey();
             int intValue = entry.getValue().intValue();
-            ArrayList<ChatMsg> fetchMsg = fetchMsg(entry.getKey(), 0L, 2L);
-            if (fetchMsg.size() > 0) {
-                ChatMsg chatMsg = fetchMsg.get(0);
-                if (notSendButShowTipMsg(chatMsg) && fetchMsg.size() > 1) {
-                    chatMsg = fetchMsg.get(1);
-                }
-                ChatMsg chatMsg2 = chatMsg;
-                String recommendDescription = chatMsg2.getRecommendDescription();
-                if (chatMsg2 instanceof HtmlMsg) {
-                    recommendDescription = chatMsg2.getLocalUrl();
+            ArrayList<ChatMsg> fetchMsgExcludeTypes = fetchMsgExcludeTypes(entry.getKey(), 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
+            if (fetchMsgExcludeTypes.size() > 0) {
+                ChatMsg chatMsg = fetchMsgExcludeTypes.get(0);
+                String recommendDescription = chatMsg.getRecommendDescription();
+                if (chatMsg instanceof HtmlMsg) {
+                    recommendDescription = chatMsg.getLocalUrl();
                 }
                 String str2 = recommendDescription;
                 long newMsgNum = getNewMsgNum(key);
                 int i2 = newMsgNum >= 0 ? (int) (intValue + newMsgNum) : intValue;
-                int clickState = Utility.getClickState(chatMsg2);
+                int clickState = Utility.getClickState(chatMsg);
                 if (key.getCategory() == 0 && (key.getContacter() & Constants.PAFLAG) != 0) {
-                    if (!chatMsg2.isSelf(this.mContext)) {
-                        str = chatMsg2.getExtLog();
+                    if (!chatMsg.isSelf(this.mContext)) {
+                        str = chatMsg.getExtLog();
                     } else {
-                        ArrayList<ChatMsg> fetchMsg2 = fetchMsg(key, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
-                        if (fetchMsg2 != null && fetchMsg2.size() > 0) {
-                            str = fetchMsg2.get(0).getExtLog();
+                        ArrayList<ChatMsg> fetchMsg = fetchMsg(key, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
+                        if (fetchMsg != null && fetchMsg.size() > 0) {
+                            str = fetchMsg.get(0).getExtLog();
                         }
                     }
-                    recordLastMsg(key, str2, chatMsg2.getMsgTime(), i2, 0, clickState, chatMsg2.isStarMessage(), str);
+                    recordLastMsg(key, str2, chatMsg.getMsgTime(), i2, chatMsg.getStatus(), clickState, chatMsg.isStarMessage(), str, chatMsg.getSenderUid());
                 }
                 str = "";
-                recordLastMsg(key, str2, chatMsg2.getMsgTime(), i2, 0, clickState, chatMsg2.isStarMessage(), str);
+                recordLastMsg(key, str2, chatMsg.getMsgTime(), i2, chatMsg.getStatus(), clickState, chatMsg.isStarMessage(), str, chatMsg.getSenderUid());
             }
         }
     }
@@ -3135,6 +3159,18 @@ public class ChatMessageDBManager extends DBBase {
             if (chatRecord != null) {
                 if (1 == chatObject.getCategory()) {
                     unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
+                    if (57 == chatRecord.getChatType()) {
+                        if (unReadMsgCount > 0) {
+                            ArrayList<ChatMsg> fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, Long.toString(chatRecord.getContacterId()), AccountManager.getUid(this.mContext));
+                            if (fansGroupAtUnread != null) {
+                                chatRecord.setNewFansAtMsgSum(fansGroupAtUnread.size());
+                            } else {
+                                chatRecord.setNewFansAtMsgSum(0);
+                            }
+                        } else {
+                            chatRecord.setNewFansAtMsgSum(0);
+                        }
+                    }
                 } else {
                     unReadMsgCount = getUnReadMsgCount(chatObject);
                 }
@@ -3168,6 +3204,18 @@ public class ChatMessageDBManager extends DBBase {
             if (msgRead != 0 && (chatSession = getChatSession(chatObject)) != null) {
                 if (1 == chatObject.getCategory()) {
                     unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
+                    if (57 == chatSession.getChatType()) {
+                        if (unReadMsgCount > 0) {
+                            ArrayList<ChatMsg> fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, String.valueOf(chatObject.getContacter()), AccountManager.getUid(this.mContext));
+                            if (fansGroupAtUnread != null) {
+                                chatSession.setNewFansAtMsgSum(fansGroupAtUnread.size());
+                            } else {
+                                chatSession.setNewFansAtMsgSum(0);
+                            }
+                        } else {
+                            chatSession.setNewFansAtMsgSum(0);
+                        }
+                    }
                 } else {
                     unReadMsgCount = getUnReadMsgCount(chatObject);
                 }
@@ -3207,15 +3255,30 @@ public class ChatMessageDBManager extends DBBase {
                         }
                     }
                     openDatabase.setTransactionSuccessful();
-                    openDatabase.endTransaction();
+                    try {
+                        openDatabase.endTransaction();
+                    } catch (Exception e2) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                        LogUtils.e(TAG, "setPaMsgReadByChatTypes finally:", e2);
+                    }
                     return unreadContacterByChatTypes;
                 }
-                openDatabase.endTransaction();
+                try {
+                    openDatabase.endTransaction();
+                } catch (Exception e3) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                    LogUtils.e(TAG, "setPaMsgReadByChatTypes finally:", e3);
+                }
                 return unreadContacterByChatTypes;
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "setPaMsgReadByChatTypes:", e2);
-                openDatabase.endTransaction();
+            } catch (Exception e4) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
+                LogUtils.e(TAG, "setPaMsgReadByChatTypes:", e4);
+                try {
+                    openDatabase.endTransaction();
+                } catch (Exception e5) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e5)).build();
+                    LogUtils.e(TAG, "setPaMsgReadByChatTypes finally:", e5);
+                }
                 return null;
             }
         }
@@ -3247,15 +3310,30 @@ public class ChatMessageDBManager extends DBBase {
                         }
                     }
                     openDatabase.setTransactionSuccessful();
-                    openDatabase.endTransaction();
+                    try {
+                        openDatabase.endTransaction();
+                    } catch (Exception e2) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                        LogUtils.e(TAG, "setPaMsgReadByChatTypeAndSubType finally:", e2);
+                    }
                     return paidListByPainfos;
                 }
-                openDatabase.endTransaction();
+                try {
+                    openDatabase.endTransaction();
+                } catch (Exception e3) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                    LogUtils.e(TAG, "setPaMsgReadByChatTypeAndSubType finally:", e3);
+                }
                 return null;
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "setPaMsgReadByChatTypes:", e2);
-                openDatabase.endTransaction();
+            } catch (Exception e4) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
+                LogUtils.e(TAG, "setPaMsgReadByChatTypeAndSubType:", e4);
+                try {
+                    openDatabase.endTransaction();
+                } catch (Exception e5) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e5)).build();
+                    LogUtils.e(TAG, "setPaMsgReadByChatTypeAndSubType finally:", e5);
+                }
                 return null;
             }
         }
@@ -3342,22 +3420,19 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     public int updateSession(int i2, ChatObject chatObject) {
-        ArrayList<ChatMsg> fetchMsg;
+        ArrayList<ChatMsg> fetchMsgExcludeTypes;
         synchronized (DBBase.mSyncLock) {
             ChatMsg chatMsg = null;
             ChatSession chatSession = getChatSession(chatObject);
             if (chatSession != null && chatSession.getState() != 3) {
                 if (i2 != 0) {
                     if (1 == chatObject.getCategory()) {
-                        fetchMsg = GroupMessageDAOImpl.fetchChatMsgExceptGroupSystem(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
+                        fetchMsgExcludeTypes = GroupMessageDAOImpl.fetchChatMsgExceptGroupSystem(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
                     } else {
-                        fetchMsg = fetchMsg(chatObject, 0L, 2L);
+                        fetchMsgExcludeTypes = fetchMsgExcludeTypes(chatObject, 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
                     }
-                    if (fetchMsg != null && fetchMsg.size() > 0) {
-                        chatMsg = fetchMsg.get(0);
-                        if (notSendButShowTipMsg(chatMsg) && fetchMsg.size() > 1) {
-                            chatMsg = fetchMsg.get(1);
-                        }
+                    if (fetchMsgExcludeTypes != null && fetchMsgExcludeTypes.size() > 0) {
+                        chatMsg = fetchMsgExcludeTypes.get(0);
                     }
                     updateSession(true, chatSession, chatMsg);
                 }
@@ -3386,6 +3461,7 @@ public class ChatMessageDBManager extends DBBase {
             chatRecord.setCertification(paInfo.getIdentity());
             chatRecord.setShield(paInfo.getShield());
             chatRecord.setShieldTime(paInfo.getShieldTime());
+            chatRecord.setChatType(paInfo.getSubtype());
             updateChatSession(1, chatRecord);
         }
     }
@@ -3428,7 +3504,6 @@ public class ChatMessageDBManager extends DBBase {
 
     public ArrayList<ChatSession> getChatRecords(long j, long j2, long j3, List<Integer> list) {
         String str;
-        Cursor query;
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             ArrayList<ChatSession> arrayList = new ArrayList<>();
@@ -3450,49 +3525,48 @@ public class ChatMessageDBManager extends DBBase {
                         }
                         str = addPaidCondition + " AND chat_type in (" + str2 + ") ";
                     }
-                    query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, str, new String[]{String.valueOf(1)}, null, null, "last_msg_time desc ", j4 > 0 ? String.valueOf(j4) : null);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-            }
-            try {
-                LogUtils.e(TAG, Constants.EXTRA_CONFIG_CURSOR + query);
-                if (query == null) {
-                    if (query != null) {
-                        query.close();
+                    Cursor query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, str, new String[]{String.valueOf(1)}, null, null, "last_msg_time desc ", j4 > 0 ? String.valueOf(j4) : null);
+                    if (query == null) {
+                        if (query != null) {
+                            query.close();
+                        }
+                        return null;
                     }
-                    return null;
-                }
-                LogUtils.e(TAG, "cursor count" + query.getCount());
-                query.moveToPosition(((int) j) - 1);
-                while (query.moveToNext()) {
-                    ChatSession constructChatRecord = constructChatRecord(openDatabase, query);
-                    LogUtils.e(TAG, "record : " + constructChatRecord);
-                    if (constructChatRecord != null) {
-                        arrayList.add(constructChatRecord);
+                    try {
+                        LogUtils.e(TAG, "cursor count" + query.getCount());
+                        query.moveToPosition(((int) j) - 1);
+                        while (query.moveToNext()) {
+                            ChatSession constructChatRecord = constructChatRecord(openDatabase, query);
+                            LogUtils.e(TAG, "record : " + constructChatRecord);
+                            if (constructChatRecord != null) {
+                                arrayList.add(constructChatRecord);
+                            }
+                        }
+                        if (query != null) {
+                            query.close();
+                        }
+                        return arrayList;
+                    } catch (Exception e2) {
+                        e = e2;
+                        cursor = query;
+                        LogUtils.e(TAG, "getChatRecords:", e);
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return arrayList;
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor = query;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        throw th;
                     }
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-                if (query != null) {
-                    query.close();
-                }
-                return arrayList;
             } catch (Exception e3) {
                 e = e3;
-                cursor = query;
-                LogUtils.e(TAG, "getChatRecords:", e);
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return arrayList;
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = query;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                throw th;
             }
         }
     }
@@ -3728,14 +3802,34 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    private int setMsgRead(long j) {
-        int update;
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("is_read", (Integer) 1);
-        synchronized (DBBase.mSyncLock) {
-            update = update("message", "msgid = ?", new String[]{String.valueOf(j)}, contentValues);
+    private void updateSession(boolean z, ChatSession chatSession, ChatMsg chatMsg) {
+        if (z) {
+            if (chatSession == null) {
+                long contacter = getContacter(chatMsg);
+                if (contacter != -1) {
+                    GetChatObjectInfoForRecordManager.getChatObjectForSession(this.mContext, new ChatObject(this.mContext, chatMsg.getCategory(), contacter, chatMsg.getPaid(), chatMsg.getChatType()));
+                }
+            } else if (chatMsg == null) {
+                if (getInstance(this.mContext).delChatRecord(new ChatObject(this.mContext, chatSession.getCategory(), chatSession.getContacter(), chatSession.getPaid(), -1)) >= 0) {
+                    chatSession.setNewMsgSum(0L);
+                    chatSession.setNewFansAtMsgSum(0);
+                }
+            } else {
+                String recommendDescription = chatMsg.getRecommendDescription();
+                if (chatMsg instanceof HtmlMsg) {
+                    recommendDescription = chatMsg.getLocalUrl();
+                }
+                chatSession.setState(chatMsg.getStatus());
+                chatSession.setLastMsg(recommendDescription);
+                chatSession.setLastMsgTime(chatMsg.getMsgTime());
+                chatSession.setIsClicked(Utility.getClickState(chatMsg));
+                if (chatMsg.isStarMessage()) {
+                    chatSession.setChatType(4);
+                }
+                setChatSessionLastName(chatSession, chatMsg.getSenderUid());
+                getInstance(this.mContext).updateChatSession(1, chatSession);
+            }
         }
-        return update;
     }
 
     /* JADX WARN: Not initialized variable reg: 3, insn: 0x0063: MOVE  (r12 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:33:0x0063 */
@@ -3803,34 +3897,6 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    private void updateSession(boolean z, ChatSession chatSession, ChatMsg chatMsg) {
-        if (z) {
-            if (chatSession == null) {
-                long contacter = getContacter(chatMsg);
-                if (contacter != -1) {
-                    GetChatObjectInfoForRecordManager.getChatObjectForSession(this.mContext, new ChatObject(this.mContext, chatMsg.getCategory(), contacter, chatMsg.getPaid(), -1));
-                }
-            } else if (chatMsg == null) {
-                if (getInstance(this.mContext).delChatRecord(new ChatObject(this.mContext, chatSession.getCategory(), chatSession.getContacter(), chatSession.getPaid(), -1)) >= 0) {
-                    chatSession.setNewMsgSum(0L);
-                }
-            } else {
-                String recommendDescription = chatMsg.getRecommendDescription();
-                if (chatMsg instanceof HtmlMsg) {
-                    recommendDescription = chatMsg.getLocalUrl();
-                }
-                chatSession.setState(chatMsg.getStatus());
-                chatSession.setLastMsg(recommendDescription);
-                chatSession.setLastMsgTime(chatMsg.getMsgTime());
-                chatSession.setIsClicked(Utility.getClickState(chatMsg));
-                if (chatMsg.isStarMessage()) {
-                    chatSession.setChatType(4);
-                }
-                getInstance(this.mContext).updateChatSession(1, chatSession);
-            }
-        }
-    }
-
     public void updateSessionClass(ChatUser chatUser) {
         ChatSession chatRecord = getChatRecord(new ChatObject(this.mContext, 0, chatUser.getUk(), -1L, -1));
         if (chatRecord != null) {
@@ -3893,9 +3959,19 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    public void recordLastMsg(ChatObject chatObject, String str, long j, int i2, int i3, int i4, boolean z, String str2) {
-        String str3 = TAG;
-        LogUtils.d(str3, "recordSendLastMsg " + chatObject.toString());
+    private int setMsgRead(long j) {
+        int update;
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("is_read", (Integer) 1);
+        synchronized (DBBase.mSyncLock) {
+            update = update("message", "msgid = ?", new String[]{String.valueOf(j)}, contentValues);
+        }
+        return update;
+    }
+
+    public void recordLastMsg(ChatObject chatObject, String str, long j, int i2, int i3, int i4, boolean z, String str2, String str3) {
+        String str4 = TAG;
+        LogUtils.d(str4, "recordSendLastMsg " + chatObject.toString());
         ChatSession chatRecord = getInstance(this.mContext).getChatRecord(chatObject);
         if (chatRecord == null) {
             if (chatObject.getCategory() == 0) {
@@ -3909,10 +3985,19 @@ public class ChatMessageDBManager extends DBBase {
             chatRecord.setLastMsg(str);
             chatRecord.setState(i3);
             chatRecord.setIsClicked(i4);
+            setChatSessionLastName(chatRecord, str3);
         }
         chatRecord.setLastMsgTime(j);
         if (i2 >= 0) {
             chatRecord.setNewMsgSum(i2);
+            if (chatRecord.getChatType() == 57) {
+                ArrayList<ChatMsg> fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, Long.toString(chatRecord.getContacterId()), AccountManager.getUid(this.mContext));
+                if (fansGroupAtUnread != null) {
+                    chatRecord.setNewFansAtMsgSum(fansGroupAtUnread.size());
+                } else {
+                    chatRecord.setNewFansAtMsgSum(0);
+                }
+            }
         }
         chatRecord.setLastMsgTime(j);
         chatRecord.setShow(1);
@@ -3926,32 +4011,28 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     public void updateChatSession(ChatMsg chatMsg) {
-        ArrayList<ChatMsg> fetchMsg;
-        ChatMsg chatMsg2;
+        ArrayList<ChatMsg> fetchMsgExcludeTypes;
         ChatObject chatObject = new ChatObject(this.mContext, chatMsg.getCategory(), chatMsg.getContacter(), chatMsg.getPaid(), chatMsg.getChatType());
         ChatSession chatSession = getChatSession(chatObject);
         boolean z = false;
         if (!isDraftMsg(chatMsg)) {
             if (chatSession == null || chatSession.getState() != 3) {
                 if (1 == chatMsg.getCategory()) {
-                    fetchMsg = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatMsg.getContacter()), null, 1L, true);
+                    fetchMsgExcludeTypes = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatMsg.getContacter()), null, 1L, true);
                 } else {
-                    fetchMsg = getInstance(this.mContext).fetchMsg(chatObject, 0L, 2L);
+                    fetchMsgExcludeTypes = getInstance(this.mContext).fetchMsgExcludeTypes(chatObject, 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
                 }
-                if (fetchMsg != null && fetchMsg.size() > 0) {
-                    ChatMsg chatMsg3 = fetchMsg.get(0);
-                    chatMsg2 = (!notSendButShowTipMsg(chatMsg3) || fetchMsg.size() <= 1) ? chatMsg3 : fetchMsg.get(1);
-                    z = true;
-                    updateSession(z, chatSession, chatMsg2);
+                if (fetchMsgExcludeTypes != null && fetchMsgExcludeTypes.size() > 0) {
+                    int chatType = chatMsg.getChatType();
+                    ChatMsg chatMsg2 = fetchMsgExcludeTypes.get(0);
+                    chatMsg2.setChatType(chatType);
+                    chatMsg = chatMsg2;
                 }
-            } else {
-                chatMsg2 = chatMsg;
-                updateSession(z, chatSession, chatMsg2);
             }
+            updateSession(z, chatSession, chatMsg);
         }
-        chatMsg2 = chatMsg;
         z = true;
-        updateSession(z, chatSession, chatMsg2);
+        updateSession(z, chatSession, chatMsg);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:112:0x024f  */

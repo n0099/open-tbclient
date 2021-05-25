@@ -8,12 +8,12 @@ import java.util.Hashtable;
 public class i extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f6408a;
+    public final /* synthetic */ LBSAuthManager f6308a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(LBSAuthManager lBSAuthManager, Looper looper) {
         super(looper);
-        this.f6408a = lBSAuthManager;
+        this.f6308a = lBSAuthManager;
     }
 
     @Override // android.os.Handler
@@ -21,7 +21,7 @@ public class i extends Handler {
         Hashtable hashtable;
         a.a("handleMessage !!");
         String string = message.getData().getString("listenerKey");
-        hashtable = LBSAuthManager.f6387f;
+        hashtable = LBSAuthManager.f6287f;
         LBSAuthManagerListener lBSAuthManagerListener = (LBSAuthManagerListener) hashtable.get(string);
         a.a("handleMessage listener = " + lBSAuthManagerListener);
         if (lBSAuthManagerListener != null) {

@@ -10,10 +10,10 @@ public class MsgAdapterScanMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbPageContext<MsglistActivity<?>> f17071a;
+        public TbPageContext<MsglistActivity<?>> f16981a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<MsgCommonItemAdapter> f17072b;
+        public List<MsgCommonItemAdapter> f16982b;
     }
 
     public MsgAdapterScanMessage(a aVar) {

@@ -1,357 +1,228 @@
 package d.a.j0.e;
 
-import android.content.ContentResolver;
-import android.content.ContentUris;
 import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.provider.MediaStore;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.img.ImageFileInfo;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class f {
+import cn.com.chinatelecom.gateway.lib.CtAuth;
+import cn.com.chinatelecom.gateway.lib.PreCodeListener;
+import com.baidu.android.imsdk.retrieve.RetrieveFileData;
+import com.baidu.mapapi.UIMsg;
+import com.baidu.sapi2.result.OneKeyLoginOptResult;
+import com.baidu.wallet.base.iddetect.IdCardActivity;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
+public class f extends j {
+    public boolean s;
 
-    /* renamed from: b  reason: collision with root package name */
-    public c f49277b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Context f49278c;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f49276a = TbConfig.getTempDirName();
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f49279d = 0;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String[] f49280e = {"_id", "bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
-
-    /* renamed from: f  reason: collision with root package name */
-    public String[] f49281f = {"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
-
-    /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, d.a.j0.e.a> f49282g = new HashMap<>();
-
-    /* loaded from: classes3.dex */
-    public class a implements Comparator<MediaFileInfo> {
-        public a(f fVar) {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(MediaFileInfo mediaFileInfo, MediaFileInfo mediaFileInfo2) {
-            int i2 = ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) > 0L ? 1 : ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) == 0L ? 0 : -1));
-            if (i2 == 0) {
-                return 0;
-            }
-            return i2 > 0 ? 1 : -1;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements Comparator<d.a.j0.e.a> {
-        public b() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(d.a.j0.e.a aVar, d.a.j0.e.a aVar2) {
-            if (f.this.f49276a.equals(aVar.g())) {
-                return -1;
-            }
-            if (f.this.f49276a.equals(aVar2.g())) {
-                return 1;
-            }
-            int i2 = ((aVar2.e().getSortTime() - aVar.e().getSortTime()) > 0L ? 1 : ((aVar2.e().getSortTime() - aVar.e().getSortTime()) == 0L ? 0 : -1));
-            if (i2 == 0) {
-                return 0;
-            }
-            return i2 > 0 ? 1 : -1;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c extends BdAsyncTask<Object, Integer, g> {
+    /* loaded from: classes2.dex */
+    public class a implements PreCodeListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final e f49284a;
+        public final /* synthetic */ int f40341a;
 
-        public c(e eVar) {
-            this.f49284a = eVar;
+        public a(int i2) {
+            this.f40341a = i2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public g doInBackground(Object... objArr) {
-            return f.this.d();
+        @Override // cn.com.chinatelecom.gateway.lib.PreCodeListener
+        public void onResult(String str) {
+            f.this.v(str, this.f40341a, 1);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements PreCodeListener {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ int f40343a;
+
+        public b(int i2) {
+            this.f40343a = i2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(g gVar) {
-            super.onPostExecute(gVar);
-            e eVar = this.f49284a;
-            if (eVar != null) {
-                eVar.a(gVar);
+        @Override // cn.com.chinatelecom.gateway.lib.PreCodeListener
+        public void onResult(String str) {
+            f.this.v(str, this.f40343a, 3);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class c extends d.a.j0.k.c {
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ String f40345f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ int f40346g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ int f40347h;
+
+        public c(String str, int i2, int i3) {
+            this.f40345f = str;
+            this.f40346g = i2;
+            this.f40347h = i3;
+        }
+
+        @Override // d.a.j0.k.c
+        public void b() {
+            try {
+                JSONObject jSONObject = new JSONObject(this.f40345f);
+                if (jSONObject.optInt("result", -1) == 0) {
+                    f.this.y(jSONObject, this.f40346g, this.f40347h);
+                } else {
+                    f.this.w(jSONObject, this.f40346g, this.f40347h);
+                }
+            } catch (Throwable th) {
+                d.a.j0.l.c.d(th);
             }
         }
+    }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            super.onPreExecute();
-            e eVar = this.f49284a;
-            if (eVar != null) {
-                eVar.onPreLoad();
+    /* loaded from: classes2.dex */
+    public class d extends d.a.j0.k.c {
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ int f40349f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ int f40350g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ JSONObject f40351h;
+
+        public d(int i2, int i3, JSONObject jSONObject) {
+            this.f40349f = i2;
+            this.f40350g = i3;
+            this.f40351h = jSONObject;
+        }
+
+        @Override // d.a.j0.k.c
+        public void b() {
+            String str;
+            try {
+                if (d.a.j0.b.c.f40269c) {
+                    f.this.d(this.f40349f, 1, 999, f.this.f40381c, "device has risk.", this.f40350g);
+                    return;
+                }
+                JSONObject optJSONObject = this.f40351h.optJSONObject("data");
+                if (this.f40350g == 1) {
+                    f.this.f40383e = optJSONObject.optString("accessCode", "");
+                    f.this.f40385g = optJSONObject.optString(IdCardActivity.KEY_NUMBER, "");
+                    f.this.f40384f = System.currentTimeMillis() + (optJSONObject.optInt(RetrieveFileData.EXPIRED, 0) * 1000);
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, f.this.f40385g);
+                    str = jSONObject.toString();
+                } else {
+                    f.this.f40386h = optJSONObject.optString("accessCode", "");
+                    f.this.f40387i = System.currentTimeMillis() + (optJSONObject.optInt(RetrieveFileData.EXPIRED, 0) * 1000);
+                    str = "preVerify success";
+                }
+                f.this.d(this.f40349f, 0, 0, f.this.f40381c, str, this.f40350g);
+            } catch (Throwable unused) {
+                f fVar = f.this;
+                fVar.d(this.f40349f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, fVar.f40381c, "ct on handle pre login or verify unknown error.", this.f40350g);
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class e extends d.a.j0.k.c {
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ JSONObject f40353f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ int f40354g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ int f40355h;
+
+        public e(JSONObject jSONObject, int i2, int i3) {
+            this.f40353f = jSONObject;
+            this.f40354g = i2;
+            this.f40355h = i3;
+        }
+
+        @Override // d.a.j0.k.c
+        public void b() {
+            try {
+                int optInt = this.f40353f.optInt("result", -1);
+                String optString = this.f40353f.optString("msg", "");
+                if (f.this.f40381c != f.this.f40382d && (optInt == -10009 || optInt == -10008)) {
+                    f.this.d(this.f40354g, 3, 2002, f.this.f40381c, "pre login error, wrong sim operator", this.f40355h);
+                } else {
+                    f fVar = f.this;
+                    int i2 = this.f40354g;
+                    int i3 = f.this.f40381c;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("ct pre login error.");
+                    sb.append(optString);
+                    sb.append(", status ");
+                    sb.append(optInt);
+                    fVar.d(i2, 2, optInt, i3, sb.toString(), this.f40355h);
+                }
+            } catch (Throwable unused) {
+                f fVar2 = f.this;
+                fVar2.d(this.f40354g, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, fVar2.f40381c, "ct on handle pre login or verify unknown error.", this.f40355h);
             }
         }
     }
 
     public f(Context context) {
-        this.f49278c = context;
+        super(context);
+        this.s = false;
+        this.f40381c = 3;
     }
 
-    public void c() {
-        c cVar = this.f49277b;
-        if (cVar != null) {
-            cVar.cancel();
-            this.f49277b = null;
-        }
-    }
-
-    public final g d() {
-        this.f49282g.clear();
-        g gVar = new g();
-        List<ImageFileInfo> e2 = e();
-        List<VideoFileInfo> g2 = this.f49279d != 2 ? g() : null;
-        ArrayList arrayList = new ArrayList();
-        if (!ListUtils.isEmpty(e2)) {
-            arrayList.addAll(e2);
-        }
-        if (!ListUtils.isEmpty(g2)) {
-            arrayList.addAll(g2);
-        }
-        if (!ListUtils.isEmpty(arrayList)) {
-            Collections.sort(arrayList, new a(this));
-        }
-        ArrayList arrayList2 = new ArrayList(this.f49282g.values());
-        if (!ListUtils.isEmpty(arrayList2)) {
-            Collections.sort(arrayList2, new b());
-        }
-        gVar.f49286a = arrayList2;
-        gVar.f49288c = g2;
-        gVar.f49287b = arrayList;
-        return gVar;
-    }
-
-    public List<ImageFileInfo> e() {
-        ArrayList arrayList = new ArrayList();
-        List<ImageFileInfo> f2 = f(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        if (f2 != null) {
-            arrayList.addAll(f2);
-        }
-        List<ImageFileInfo> f3 = f(MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        if (f3 != null) {
-            arrayList.addAll(f3);
-        }
-        return arrayList;
-    }
-
-    public final List<ImageFileInfo> f(Uri uri) {
-        Cursor cursor;
-        String str = null;
-        if (this.f49278c == null) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        try {
-            Cursor query = this.f49278c.getContentResolver().query(uri, this.f49280e, "mime_type like 'image/%'", null, "date_added DESC");
-            if (query != null) {
-                try {
-                    try {
-                        if (query.moveToFirst()) {
-                            while (true) {
-                                Uri withAppendedId = ContentUris.withAppendedId(uri, query.getLong(query.getColumnIndex("_id")));
-                                String uri2 = withAppendedId != null ? withAppendedId.toString() : str;
-                                String string = query.getString(query.getColumnIndex("bucket_id"));
-                                String string2 = query.getString(query.getColumnIndex("bucket_display_name"));
-                                String string3 = query.getString(query.getColumnIndex("_data"));
-                                String string4 = query.getString(query.getColumnIndex("mime_type"));
-                                long j = query.getLong(query.getColumnIndex("date_added"));
-                                int i2 = query.getInt(query.getColumnIndex("_size"));
-                                long j2 = query.getLong(query.getColumnIndex("date_modified"));
-                                boolean endsWith = string4.endsWith("gif");
-                                ArrayList arrayList2 = arrayList;
-                                if (!endsWith || i2 <= 3145728) {
-                                    try {
-                                        ImageFileInfo imageFileInfo = new ImageFileInfo();
-                                        imageFileInfo.setAlbumnId(string);
-                                        imageFileInfo.setContentUriStr(uri2);
-                                        imageFileInfo.setFilePath(string3);
-                                        imageFileInfo.setIsGif(endsWith);
-                                        imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(j2));
-                                        imageFileInfo.setSortTime(j);
-                                        arrayList = arrayList2;
-                                        arrayList.add(imageFileInfo);
-                                        d.a.j0.e.a aVar = this.f49282g.get(string);
-                                        if (aVar == null) {
-                                            aVar = new d.a.j0.e.a();
-                                            this.f49282g.put(string, aVar);
-                                        }
-                                        aVar.h(string);
-                                        aVar.l(string2);
-                                        aVar.a();
-                                        if (aVar.e() == null) {
-                                            aVar.k(imageFileInfo);
-                                        }
-                                        List<MediaFileInfo> d2 = aVar.d();
-                                        if (aVar.d() == null) {
-                                            d2 = new ArrayList<>();
-                                            aVar.j(d2);
-                                        }
-                                        d2.add(imageFileInfo);
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        arrayList = arrayList2;
-                                        cursor = query;
-                                        try {
-                                            BdLog.detailException(e);
-                                            d.a.c.e.m.a.a(cursor);
-                                            return arrayList;
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            d.a.c.e.m.a.a(cursor);
-                                            throw th;
-                                        }
-                                    }
-                                } else {
-                                    arrayList = arrayList2;
-                                }
-                                if (!query.moveToNext()) {
-                                    break;
-                                }
-                                str = null;
-                            }
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        cursor = query;
-                        d.a.c.e.m.a.a(cursor);
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                }
+    @Override // d.a.j0.e.i
+    public void g(Context context, int i2) {
+        super.g(context, i2);
+        if (!d.a.j0.b.a.g(this.f40379a).c()) {
+            d(i2, 3, 997, this.f40381c, "pre login error. sdk stop run.", 1);
+        } else if (!q()) {
+            d(i2, 3, 2006, this.f40381c, "pre login error. ct has not valid config.", 1);
+        } else if (d.a.j0.b.a.g(this.f40379a).n0()) {
+            if (!this.s) {
+                CtAuth.init(0, 0, 8000, null);
+                this.s = true;
             }
-            d.a.c.e.m.a.a(query);
-        } catch (Exception e4) {
-            e = e4;
-            cursor = null;
-        } catch (Throwable th3) {
-            th = th3;
-            cursor = null;
+            CtAuth.requestPreAuthCode(context, i.m, i.n, new a(i2));
+        } else {
+            d(i2, 3, 996, this.f40381c, "pre login error. ct sdk stop run.", 1);
         }
-        return arrayList;
     }
 
-    public final List<VideoFileInfo> g() {
-        Cursor cursor;
-        Cursor cursor2;
-        ArrayList arrayList = new ArrayList();
-        Context context = this.f49278c;
-        if (context == null) {
-            return arrayList;
-        }
-        ContentResolver contentResolver = context.getContentResolver();
-        HashSet hashSet = new HashSet();
-        try {
-            Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-            Cursor query = contentResolver.query(uri, this.f49281f, null, null, "date_added DESC");
-            if (query != null) {
-                try {
-                    if (query.moveToFirst()) {
-                        while (true) {
-                            int i2 = query.getInt(query.getColumnIndex("_id"));
-                            Uri withAppendedId = ContentUris.withAppendedId(uri, i2);
-                            String uri2 = withAppendedId != null ? withAppendedId.toString() : null;
-                            String string = query.getString(query.getColumnIndexOrThrow("_data"));
-                            String string2 = query.getString(query.getColumnIndexOrThrow("title"));
-                            String string3 = query.getString(query.getColumnIndexOrThrow("_display_name"));
-                            String string4 = query.getString(query.getColumnIndexOrThrow("mime_type"));
-                            int i3 = query.getInt(query.getColumnIndexOrThrow("duration"));
-                            long j = query.getLong(query.getColumnIndexOrThrow("date_modified"));
-                            Uri uri3 = uri;
-                            long j2 = query.getLong(query.getColumnIndexOrThrow("date_added"));
-                            if (!hashSet.contains(string)) {
-                                hashSet.add(string);
-                                File file = new File(string);
-                                if (file.exists() && file.isFile() && d.a.c.e.p.f.w(file) > 0) {
-                                    VideoFileInfo videoFileInfo = new VideoFileInfo();
-                                    videoFileInfo.videoId = i2;
-                                    videoFileInfo.contentUriStr = uri2;
-                                    videoFileInfo.videoPath = string;
-                                    videoFileInfo.displayName = string3;
-                                    videoFileInfo.title = string2;
-                                    videoFileInfo.mimeType = string4;
-                                    videoFileInfo.videoDuration = i3;
-                                    videoFileInfo.lastModified = j;
-                                    videoFileInfo.setSortTime(j2);
-                                    arrayList.add(videoFileInfo);
-                                }
-                            }
-                            if (!query.moveToNext()) {
-                                break;
-                            }
-                            uri = uri3;
-                        }
-                    }
-                } catch (Exception unused) {
-                    cursor2 = query;
-                    d.a.c.e.m.a.a(cursor2);
-                    return arrayList;
-                } catch (Throwable th) {
-                    th = th;
-                    cursor = query;
-                    d.a.c.e.m.a.a(cursor);
-                    throw th;
-                }
+    @Override // d.a.j0.e.i
+    public void n(Context context, int i2) {
+        super.n(context, i2);
+        if (!d.a.j0.b.a.g(this.f40379a).c()) {
+            d(i2, 3, 997, this.f40381c, "pre verify error. sdk stop run.", 3);
+        } else if (!q()) {
+            d(i2, 3, 2006, this.f40381c, "pre verify error. ct has not valid config.", 3);
+        } else if (d.a.j0.b.a.g(this.f40379a).n0()) {
+            if (!this.s) {
+                CtAuth.init(0, 0, 8000, null);
+                this.s = true;
             }
-            d.a.c.e.m.a.a(query);
-        } catch (Exception unused2) {
-            cursor2 = null;
-        } catch (Throwable th2) {
-            th = th2;
-            cursor = null;
+            CtAuth.requestPreAuthCode(context, i.m, i.n, new b(i2));
+        } else {
+            d(i2, 3, 996, this.f40381c, "pre verify error. ct sdk stop run.", 3);
         }
-        return arrayList;
     }
 
-    public boolean h(int i2, e eVar) {
-        if (eVar == null) {
-            return false;
-        }
-        c();
-        this.f49279d = i2;
-        c cVar = new c(eVar);
-        this.f49277b = cVar;
-        cVar.setPriority(3);
-        this.f49277b.execute(new Object[0]);
-        return true;
+    @Override // d.a.j0.e.j, d.a.j0.e.i
+    public void o(Context context, int i2, long j) {
+        super.o(context, i2, j);
+    }
+
+    public final void v(String str, int i2, int i3) {
+        d.a.j0.k.e.c().b(new c(str, i2, i3));
+    }
+
+    public final void w(JSONObject jSONObject, int i2, int i3) {
+        d.a.j0.k.e.c().b(new e(jSONObject, i2, i3));
+    }
+
+    public final void y(JSONObject jSONObject, int i2, int i3) {
+        d.a.j0.k.e.c().b(new d(i2, i3, jSONObject));
     }
 }

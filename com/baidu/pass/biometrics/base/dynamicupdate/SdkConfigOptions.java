@@ -14,12 +14,12 @@ public class SdkConfigOptions {
     public static final String TAG = "SdkConfigOptions";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9041a = "liveness_config_option";
+    public static final String f8941a = "liveness_config_option";
     public LivenessConfigOption livenessConfigOption = new LivenessConfigOption();
 
     public static SdkConfigOptions fromLocalJson(JSONObject jSONObject) {
         SdkConfigOptions sdkConfigOptions = new SdkConfigOptions();
-        sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject.optJSONObject(f9041a));
+        sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject.optJSONObject(f8941a));
         return sdkConfigOptions;
     }
 
@@ -32,7 +32,7 @@ public class SdkConfigOptions {
     public JSONObject toJSON() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(f9041a, this.livenessConfigOption == null ? "" : this.livenessConfigOption.toJSON());
+            jSONObject.put(f8941a, this.livenessConfigOption == null ? "" : this.livenessConfigOption.toJSON());
             return jSONObject;
         } catch (JSONException unused) {
             return null;
@@ -90,31 +90,31 @@ public class SdkConfigOptions {
         public String minFaceSize = String.valueOf(100);
 
         /* renamed from: a  reason: collision with root package name */
-        public String f9042a = String.valueOf(40);
+        public String f8942a = String.valueOf(40);
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9043b = String.valueOf(300);
+        public String f8943b = String.valueOf(300);
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9044c = String.valueOf(300);
+        public String f8944c = String.valueOf(300);
 
         /* renamed from: d  reason: collision with root package name */
-        public String f9045d = String.valueOf(15);
+        public String f8945d = String.valueOf(15);
 
         /* renamed from: e  reason: collision with root package name */
-        public String f9046e = String.valueOf(15);
+        public String f8946e = String.valueOf(15);
 
         /* renamed from: f  reason: collision with root package name */
-        public String f9047f = String.valueOf(15);
+        public String f8947f = String.valueOf(15);
 
         /* renamed from: g  reason: collision with root package name */
-        public String f9048g = String.valueOf(10000);
+        public String f8948g = String.valueOf(10000);
 
         /* renamed from: h  reason: collision with root package name */
-        public String f9049h = String.valueOf(3);
+        public String f8949h = String.valueOf(3);
 
         /* renamed from: i  reason: collision with root package name */
-        public String f9050i = String.valueOf(300);
+        public String f8950i = String.valueOf(300);
         public String j = String.valueOf(3);
         public String k = String.valueOf(256);
         public List<Integer> action = new ArrayList();
@@ -136,15 +136,15 @@ public class SdkConfigOptions {
                 return livenessConfigOption;
             }
             livenessConfigOption.minFaceSize = jSONObject.optString(l);
-            livenessConfigOption.f9042a = jSONObject.optString(m);
-            livenessConfigOption.f9043b = jSONObject.optString(n);
-            livenessConfigOption.f9044c = jSONObject.optString(o);
-            livenessConfigOption.f9045d = jSONObject.optString(p);
-            livenessConfigOption.f9046e = jSONObject.optString(q);
-            livenessConfigOption.f9047f = jSONObject.optString("roll");
-            livenessConfigOption.f9048g = jSONObject.optString(s);
-            livenessConfigOption.f9049h = jSONObject.optString(t);
-            livenessConfigOption.f9050i = jSONObject.optString(u);
+            livenessConfigOption.f8942a = jSONObject.optString(m);
+            livenessConfigOption.f8943b = jSONObject.optString(n);
+            livenessConfigOption.f8944c = jSONObject.optString(o);
+            livenessConfigOption.f8945d = jSONObject.optString(p);
+            livenessConfigOption.f8946e = jSONObject.optString(q);
+            livenessConfigOption.f8947f = jSONObject.optString("roll");
+            livenessConfigOption.f8948g = jSONObject.optString(s);
+            livenessConfigOption.f8949h = jSONObject.optString(t);
+            livenessConfigOption.f8950i = jSONObject.optString(u);
             livenessConfigOption.j = jSONObject.optString(v);
             livenessConfigOption.k = jSONObject.optString(w);
             livenessConfigOption.switchRecordVideo = jSONObject.optString(x);
@@ -194,9 +194,9 @@ public class SdkConfigOptions {
         }
 
         public int getDetectInterval() {
-            if (!TextUtils.isEmpty(this.f9044c)) {
+            if (!TextUtils.isEmpty(this.f8944c)) {
                 try {
-                    int parseInt = Integer.parseInt(this.f9044c);
+                    int parseInt = Integer.parseInt(this.f8944c);
                     if (parseInt < 100 || parseInt > 500) {
                         return 300;
                     }
@@ -209,9 +209,9 @@ public class SdkConfigOptions {
         }
 
         public int getIllumThr() {
-            if (!TextUtils.isEmpty(this.f9042a)) {
+            if (!TextUtils.isEmpty(this.f8942a)) {
                 try {
-                    int parseInt = Integer.parseInt(this.f9042a);
+                    int parseInt = Integer.parseInt(this.f8942a);
                     if (parseInt < 0 || parseInt > 255) {
                         return 40;
                     }
@@ -224,9 +224,9 @@ public class SdkConfigOptions {
         }
 
         public int getMaxRegImgNum() {
-            if (!TextUtils.isEmpty(this.f9049h)) {
+            if (!TextUtils.isEmpty(this.f8949h)) {
                 try {
-                    int parseInt = Integer.parseInt(this.f9049h);
+                    int parseInt = Integer.parseInt(this.f8949h);
                     if (parseInt < 1 || parseInt > 3) {
                         return 3;
                     }
@@ -254,7 +254,7 @@ public class SdkConfigOptions {
         }
 
         public String getOriginImg() {
-            return this.f9048g;
+            return this.f8948g;
         }
 
         public int getOriginImgRandomControl() {
@@ -262,9 +262,9 @@ public class SdkConfigOptions {
         }
 
         public int getPitch() {
-            if (!TextUtils.isEmpty(this.f9046e)) {
+            if (!TextUtils.isEmpty(this.f8946e)) {
                 try {
-                    int parseInt = Integer.parseInt(this.f9046e);
+                    int parseInt = Integer.parseInt(this.f8946e);
                     if (parseInt < 10 || parseInt > 15) {
                         return 15;
                     }
@@ -277,9 +277,9 @@ public class SdkConfigOptions {
         }
 
         public int getPrefetchRegImgInterval() {
-            if (!TextUtils.isEmpty(this.f9050i)) {
+            if (!TextUtils.isEmpty(this.f8950i)) {
                 try {
-                    int parseInt = Integer.parseInt(this.f9050i);
+                    int parseInt = Integer.parseInt(this.f8950i);
                     if (parseInt < 100 || parseInt > 300) {
                         return 300;
                     }
@@ -328,9 +328,9 @@ public class SdkConfigOptions {
         }
 
         public int getRoll() {
-            if (!TextUtils.isEmpty(this.f9047f)) {
+            if (!TextUtils.isEmpty(this.f8947f)) {
                 try {
-                    int parseInt = Integer.parseInt(this.f9047f);
+                    int parseInt = Integer.parseInt(this.f8947f);
                     if (parseInt < 10 || parseInt > 15) {
                         return 15;
                     }
@@ -343,9 +343,9 @@ public class SdkConfigOptions {
         }
 
         public int getTrackInterval() {
-            if (!TextUtils.isEmpty(this.f9043b)) {
+            if (!TextUtils.isEmpty(this.f8943b)) {
                 try {
-                    int parseInt = Integer.parseInt(this.f9043b);
+                    int parseInt = Integer.parseInt(this.f8943b);
                     if (parseInt < 100 || parseInt > 300) {
                         return 300;
                     }
@@ -358,9 +358,9 @@ public class SdkConfigOptions {
         }
 
         public int getYaw() {
-            if (!TextUtils.isEmpty(this.f9045d)) {
+            if (!TextUtils.isEmpty(this.f8945d)) {
                 try {
-                    int parseInt = Integer.parseInt(this.f9045d);
+                    int parseInt = Integer.parseInt(this.f8945d);
                     if (parseInt < 10 || parseInt > 15) {
                         return 15;
                     }
@@ -388,15 +388,15 @@ public class SdkConfigOptions {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(l, this.minFaceSize);
-                jSONObject.put(m, this.f9042a);
-                jSONObject.put(n, this.f9043b);
-                jSONObject.put(o, this.f9044c);
-                jSONObject.put(p, this.f9045d);
-                jSONObject.put(q, this.f9046e);
-                jSONObject.put("roll", this.f9047f);
-                jSONObject.put(s, this.f9048g);
-                jSONObject.put(t, this.f9049h);
-                jSONObject.put(u, this.f9050i);
+                jSONObject.put(m, this.f8942a);
+                jSONObject.put(n, this.f8943b);
+                jSONObject.put(o, this.f8944c);
+                jSONObject.put(p, this.f8945d);
+                jSONObject.put(q, this.f8946e);
+                jSONObject.put("roll", this.f8947f);
+                jSONObject.put(s, this.f8948g);
+                jSONObject.put(t, this.f8949h);
+                jSONObject.put(u, this.f8950i);
                 jSONObject.put(v, this.j);
                 jSONObject.put(w, this.k);
                 jSONObject.put(x, this.switchRecordVideo);
@@ -414,7 +414,7 @@ public class SdkConfigOptions {
         }
 
         public String toString() {
-            return "LivenessConfigOption{illumList=" + this.illumList + ", minFaceSize='" + this.minFaceSize + "', illumThr='" + this.f9042a + "', trackInterval='" + this.f9043b + "', detectInterval='" + this.f9044c + "', yaw='" + this.f9045d + "', pitch='" + this.f9046e + "', roll='" + this.f9047f + "', originImg='" + this.f9048g + "', maxRegImgNum='" + this.f9049h + "', prefetchRegImgInterval='" + this.f9050i + "', cropFaceSize='" + this.j + "', cropFaceRatio='" + this.k + "', switchRecordVideo='" + this.switchRecordVideo + "', recogActionType='" + this.recogActionType + "', recogTimeInterval='" + this.recogTimeInterval + "', recogUploadPortraitCount='" + this.recogUploadPortraitCount + "', whiteBgIllumThr=" + this.whiteBgIllumThr + ", action=" + this.action + '}';
+            return "LivenessConfigOption{illumList=" + this.illumList + ", minFaceSize='" + this.minFaceSize + "', illumThr='" + this.f8942a + "', trackInterval='" + this.f8943b + "', detectInterval='" + this.f8944c + "', yaw='" + this.f8945d + "', pitch='" + this.f8946e + "', roll='" + this.f8947f + "', originImg='" + this.f8948g + "', maxRegImgNum='" + this.f8949h + "', prefetchRegImgInterval='" + this.f8950i + "', cropFaceSize='" + this.j + "', cropFaceRatio='" + this.k + "', switchRecordVideo='" + this.switchRecordVideo + "', recogActionType='" + this.recogActionType + "', recogTimeInterval='" + this.recogTimeInterval + "', recogUploadPortraitCount='" + this.recogUploadPortraitCount + "', whiteBgIllumThr=" + this.whiteBgIllumThr + ", action=" + this.action + '}';
         }
 
         public static void a(JSONObject jSONObject, String str, List<Integer> list) throws JSONException {

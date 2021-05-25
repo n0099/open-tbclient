@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import d.a.c.j.e.n;
-import d.a.k0.q0.s1.a.c.a;
-import d.a.k0.q0.s1.a.d.e;
+import d.a.n0.r0.s1.a.c.a;
+import d.a.n0.r0.s1.a.d.e;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
@@ -54,8 +54,8 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
             setError(error.errorno.intValue());
             setErrorString(gameForumGuideTabResIdl.error.errmsg);
         }
-        this.mTabList = d.a.k0.q0.s1.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
-        this.mThreadList = d.a.k0.q0.s1.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
+        this.mTabList = d.a.n0.r0.s1.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
+        this.mThreadList = d.a.n0.r0.s1.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
         this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
     }
 }

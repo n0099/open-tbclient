@@ -14,17 +14,17 @@ import com.baidu.wallet.lightapp.business.LightappBrowserWebView;
 public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
 
     /* renamed from: a  reason: collision with root package name */
-    public LightappBrowserWebView f24981a;
+    public LightappBrowserWebView f24910a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f24982b;
+    public ViewGroup f24911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24983c;
+    public boolean f24912c;
 
     public LangbridgeSlideLayout(Context context) {
         super(context);
-        this.f24983c = true;
+        this.f24912c = true;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -51,8 +51,8 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public boolean isReadyForPullDown() {
-        LightappBrowserWebView lightappBrowserWebView = this.f24981a;
-        return lightappBrowserWebView != null && lightappBrowserWebView.isTop && this.f24983c;
+        LightappBrowserWebView lightappBrowserWebView = this.f24910a;
+        return lightappBrowserWebView != null && lightappBrowserWebView.isTop && this.f24912c;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -61,7 +61,7 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
     }
 
     public void setSupportPullDown(boolean z) {
-        this.f24983c = z;
+        this.f24912c = z;
         if (z) {
             return;
         }
@@ -69,8 +69,8 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
     }
 
     public void setTarget(LightappBrowserWebView lightappBrowserWebView) {
-        this.f24981a = lightappBrowserWebView;
-        ViewGroup viewGroup = this.f24982b;
+        this.f24910a = lightappBrowserWebView;
+        ViewGroup viewGroup = this.f24911b;
         if (viewGroup == null || lightappBrowserWebView == null) {
             return;
         }
@@ -85,12 +85,12 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public ViewGroup createRefreshableView(Context context, AttributeSet attributeSet) {
         FrameLayout frameLayout = new FrameLayout(context);
-        this.f24982b = frameLayout;
+        this.f24911b = frameLayout;
         return frameLayout;
     }
 
     public LangbridgeSlideLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24983c = true;
+        this.f24912c = true;
     }
 }

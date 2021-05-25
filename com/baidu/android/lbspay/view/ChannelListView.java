@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.lbspay.channelpay.ChannelPayUtil;
 import com.baidu.android.lbspay.network.NewCashierContent;
 import com.baidu.android.lbspay.statistics.LbsStatistics;
@@ -64,7 +65,7 @@ public class ChannelListView extends LinearLayout {
     private View getOtherGroupView(String str, boolean z) {
         View inflate = LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_juhe_channel_showall"), (ViewGroup) null);
         final ViewGroup viewGroup = (ViewGroup) inflate.findViewById(ResUtils.id(getContext(), "show_all"));
-        ((TextView) inflate.findViewById(ResUtils.id(getContext(), "group_desc"))).setText(str);
+        ((TextView) inflate.findViewById(ResUtils.id(getContext(), DBTableDefine.GroupInfoColumns.COLUMN_GROUP_DESC))).setText(str);
         if (z) {
             viewGroup.setVisibility(0);
         } else {

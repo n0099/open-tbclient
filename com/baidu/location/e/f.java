@@ -9,10 +9,10 @@ import java.net.URL;
 public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f6809a;
+    public final /* synthetic */ e f6709a;
 
     public f(e eVar) {
-        this.f6809a = eVar;
+        this.f6709a = eVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:109:0x0119 A[EDGE_INSN: B:109:0x0119->B:81:0x0119 ?: BREAK  , SYNTHETIC] */
@@ -29,22 +29,22 @@ public class f implements Runnable {
         InputStream inputStream;
         boolean z;
         InputStream inputStream2;
-        this.f6809a.f6807h = k.e();
-        this.f6809a.b();
-        this.f6809a.a();
-        int i2 = this.f6809a.f6808i;
+        this.f6709a.f6707h = k.e();
+        this.f6709a.b();
+        this.f6709a.a();
+        int i2 = this.f6709a.f6708i;
         InputStream inputStream3 = null;
         HttpURLConnection httpURLConnection = null;
         while (i2 > 0) {
             try {
-                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f6809a.f6807h).openConnection();
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f6709a.f6707h).openConnection();
                 try {
                     httpURLConnection2.setRequestMethod("GET");
                     httpURLConnection2.setDoInput(true);
                     httpURLConnection2.setDoOutput(true);
                     httpURLConnection2.setUseCaches(false);
-                    httpURLConnection2.setConnectTimeout(a.f6768b);
-                    httpURLConnection2.setReadTimeout(a.f6768b);
+                    httpURLConnection2.setConnectTimeout(a.f6668b);
+                    httpURLConnection2.setReadTimeout(a.f6668b);
                     httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                     httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                     if (k.ax != null) {
@@ -65,15 +65,15 @@ public class f implements Runnable {
                                 }
                                 inputStream2.close();
                                 byteArrayOutputStream.close();
-                                this.f6809a.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                this.f6809a.a(true);
+                                this.f6709a.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                this.f6709a.a(true);
                                 httpURLConnection2.disconnect();
                                 z = true;
                             } catch (Exception unused) {
                                 inputStream = inputStream2;
                                 httpURLConnection = httpURLConnection2;
                                 try {
-                                    Log.d(a.f6767a, "NetworkCommunicationException!");
+                                    Log.d(a.f6667a, "NetworkCommunicationException!");
                                     if (httpURLConnection != null) {
                                         httpURLConnection.disconnect();
                                     }
@@ -183,7 +183,7 @@ public class f implements Runnable {
             return;
         }
         e.p++;
-        e eVar = this.f6809a;
+        e eVar = this.f6709a;
         eVar.j = null;
         eVar.a(false);
     }

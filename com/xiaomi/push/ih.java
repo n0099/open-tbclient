@@ -36,25 +36,25 @@ public class ih implements iq<ih, Object>, Serializable, Cloneable {
     public static final jg f709a = new jg("XmPushActionSendFeedbackResult");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f37959a = new iy("", (byte) 11, 1);
+    public static final iy f37888a = new iy("", (byte) 11, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f37960b = new iy("", StandardMessageCodec.LIST, 2);
+    public static final iy f37889b = new iy("", StandardMessageCodec.LIST, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f37961c = new iy("", (byte) 11, 3);
+    public static final iy f37890c = new iy("", (byte) 11, 3);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f37962d = new iy("", (byte) 11, 4);
+    public static final iy f37891d = new iy("", (byte) 11, 4);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f37963e = new iy("", (byte) 10, 6);
+    public static final iy f37892e = new iy("", (byte) 10, 6);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f37964f = new iy("", (byte) 11, 7);
+    public static final iy f37893f = new iy("", (byte) 11, 7);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f37965g = new iy("", (byte) 11, 8);
+    public static final iy f37894g = new iy("", (byte) 11, 8);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -136,7 +136,7 @@ public class ih implements iq<ih, Object>, Serializable, Cloneable {
         jbVar.m511a();
         while (true) {
             iy m507a = jbVar.m507a();
-            byte b2 = m507a.f38040a;
+            byte b2 = m507a.f37969a;
             if (b2 == 0) {
                 jbVar.f();
                 if (e()) {
@@ -256,35 +256,35 @@ public class ih implements iq<ih, Object>, Serializable, Cloneable {
         a();
         jbVar.a(f709a);
         if (this.f712a != null && m471a()) {
-            jbVar.a(f37959a);
+            jbVar.a(f37888a);
             jbVar.a(this.f712a);
             jbVar.b();
         }
         if (this.f711a != null && b()) {
-            jbVar.a(f37960b);
+            jbVar.a(f37889b);
             this.f711a.b(jbVar);
             jbVar.b();
         }
         if (this.f714b != null) {
-            jbVar.a(f37961c);
+            jbVar.a(f37890c);
             jbVar.a(this.f714b);
             jbVar.b();
         }
         if (this.f715c != null) {
-            jbVar.a(f37962d);
+            jbVar.a(f37891d);
             jbVar.a(this.f715c);
             jbVar.b();
         }
-        jbVar.a(f37963e);
+        jbVar.a(f37892e);
         jbVar.a(this.f710a);
         jbVar.b();
         if (this.f716d != null && f()) {
-            jbVar.a(f37964f);
+            jbVar.a(f37893f);
             jbVar.a(this.f716d);
             jbVar.b();
         }
         if (this.f717e != null && g()) {
-            jbVar.a(f37965g);
+            jbVar.a(f37894g);
             jbVar.a(this.f717e);
             jbVar.b();
         }

@@ -7,24 +7,24 @@ import androidx.recyclerview.widget.RecyclerView;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final RecyclerView f32553a;
+    public final RecyclerView f32482a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final RecyclerView.LayoutManager f32554b;
+    public final RecyclerView.LayoutManager f32483b;
 
     public f(RecyclerView recyclerView) {
-        this.f32553a = recyclerView;
-        this.f32554b = recyclerView.getLayoutManager();
+        this.f32482a = recyclerView;
+        this.f32483b = recyclerView.getLayoutManager();
     }
 
     private View a(int i2, int i3, boolean z, boolean z2) {
-        OrientationHelper createVerticalHelper = this.f32554b.canScrollVertically() ? OrientationHelper.createVerticalHelper(this.f32554b) : OrientationHelper.createHorizontalHelper(this.f32554b);
+        OrientationHelper createVerticalHelper = this.f32483b.canScrollVertically() ? OrientationHelper.createVerticalHelper(this.f32483b) : OrientationHelper.createHorizontalHelper(this.f32483b);
         int startAfterPadding = createVerticalHelper.getStartAfterPadding();
         int endAfterPadding = createVerticalHelper.getEndAfterPadding();
         int i4 = i3 > i2 ? 1 : -1;
         View view = null;
         while (i2 != i3) {
-            View childAt = this.f32554b.getChildAt(i2);
+            View childAt = this.f32483b.getChildAt(i2);
             int decoratedStart = createVerticalHelper.getDecoratedStart(childAt);
             int decoratedEnd = createVerticalHelper.getDecoratedEnd(childAt);
             if (decoratedStart < endAfterPadding && decoratedEnd > startAfterPadding) {
@@ -51,18 +51,18 @@ public class f {
     }
 
     public int a() {
-        View a2 = a(0, this.f32554b.getChildCount(), false, true);
+        View a2 = a(0, this.f32483b.getChildCount(), false, true);
         if (a2 == null) {
             return -1;
         }
-        return this.f32553a.getChildAdapterPosition(a2);
+        return this.f32482a.getChildAdapterPosition(a2);
     }
 
     public int b() {
-        View a2 = a(this.f32554b.getChildCount() - 1, -1, false, true);
+        View a2 = a(this.f32483b.getChildCount() - 1, -1, false, true);
         if (a2 == null) {
             return -1;
         }
-        return this.f32553a.getChildAdapterPosition(a2);
+        return this.f32482a.getChildAdapterPosition(a2);
     }
 }

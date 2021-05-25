@@ -47,21 +47,21 @@ public final class Iterators {
     public static class a extends c1<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterator f31147e;
+        public final /* synthetic */ Iterator f31076e;
 
         public a(Iterator it) {
-            this.f31147e = it;
+            this.f31076e = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31147e.hasNext();
+            return this.f31076e.hasNext();
         }
 
         /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
         @Override // java.util.Iterator
         public T next() {
-            return this.f31147e.next();
+            return this.f31076e.next();
         }
     }
 
@@ -69,22 +69,22 @@ public final class Iterators {
     public static class b extends AbstractIterator<T> {
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Iterator f31148g;
+        public final /* synthetic */ Iterator f31077g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ o f31149h;
+        public final /* synthetic */ o f31078h;
 
         public b(Iterator it, o oVar) {
-            this.f31148g = it;
-            this.f31149h = oVar;
+            this.f31077g = it;
+            this.f31078h = oVar;
         }
 
         /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Object] */
         @Override // com.google.common.collect.AbstractIterator
         public T a() {
-            while (this.f31148g.hasNext()) {
-                ?? next = this.f31148g.next();
-                if (this.f31149h.apply(next)) {
+            while (this.f31077g.hasNext()) {
+                ?? next = this.f31077g.next();
+                if (this.f31078h.apply(next)) {
                     return next;
                 }
             }
@@ -96,18 +96,18 @@ public final class Iterators {
     public static class c extends a1<F, T> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.g.c.a.g f31150f;
+        public final /* synthetic */ d.g.c.a.g f31079f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(Iterator it, d.g.c.a.g gVar) {
             super(it);
-            this.f31150f = gVar;
+            this.f31079f = gVar;
         }
 
         /* JADX WARN: Type inference failed for: r2v1, types: [T, java.lang.Object] */
         @Override // d.g.c.c.a1
         public T a(F f2) {
-            return this.f31150f.apply(f2);
+            return this.f31079f.apply(f2);
         }
     }
 
@@ -115,26 +115,26 @@ public final class Iterators {
     public static class d extends c1<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f31151e;
+        public boolean f31080e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f31152f;
+        public final /* synthetic */ Object f31081f;
 
         public d(Object obj) {
-            this.f31152f = obj;
+            this.f31081f = obj;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return !this.f31151e;
+            return !this.f31080e;
         }
 
         /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
         @Override // java.util.Iterator
         public T next() {
-            if (!this.f31151e) {
-                this.f31151e = true;
-                return this.f31152f;
+            if (!this.f31080e) {
+                this.f31080e = true;
+                return this.f31081f;
             }
             throw new NoSuchElementException();
         }
@@ -144,23 +144,23 @@ public final class Iterators {
     public static final class e<T> extends d.g.c.c.a<T> {
 
         /* renamed from: i  reason: collision with root package name */
-        public static final d1<Object> f31153i = new e(new Object[0], 0, 0, 0);
+        public static final d1<Object> f31082i = new e(new Object[0], 0, 0, 0);
 
         /* renamed from: g  reason: collision with root package name */
-        public final T[] f31154g;
+        public final T[] f31083g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f31155h;
+        public final int f31084h;
 
         public e(T[] tArr, int i2, int i3, int i4) {
             super(i3, i4);
-            this.f31154g = tArr;
-            this.f31155h = i2;
+            this.f31083g = tArr;
+            this.f31084h = i2;
         }
 
         @Override // d.g.c.c.a
         public T a(int i2) {
-            return this.f31154g[this.f31155h + i2];
+            return this.f31083g[this.f31084h + i2];
         }
     }
 
@@ -168,64 +168,64 @@ public final class Iterators {
     public static class f<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public Iterator<? extends T> f31156e;
+        public Iterator<? extends T> f31085e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Iterator<? extends T> f31157f = Iterators.h();
+        public Iterator<? extends T> f31086f = Iterators.h();
 
         /* renamed from: g  reason: collision with root package name */
-        public Iterator<? extends Iterator<? extends T>> f31158g;
+        public Iterator<? extends Iterator<? extends T>> f31087g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Deque<Iterator<? extends Iterator<? extends T>>> f31159h;
+        public Deque<Iterator<? extends Iterator<? extends T>>> f31088h;
 
         public f(Iterator<? extends Iterator<? extends T>> it) {
             n.p(it);
-            this.f31158g = it;
+            this.f31087g = it;
         }
 
         public final Iterator<? extends Iterator<? extends T>> a() {
             while (true) {
-                Iterator<? extends Iterator<? extends T>> it = this.f31158g;
+                Iterator<? extends Iterator<? extends T>> it = this.f31087g;
                 if (it != null && it.hasNext()) {
-                    return this.f31158g;
+                    return this.f31087g;
                 }
-                Deque<Iterator<? extends Iterator<? extends T>>> deque = this.f31159h;
+                Deque<Iterator<? extends Iterator<? extends T>>> deque = this.f31088h;
                 if (deque == null || deque.isEmpty()) {
                     return null;
                 }
-                this.f31158g = this.f31159h.removeFirst();
+                this.f31087g = this.f31088h.removeFirst();
             }
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             while (true) {
-                Iterator<? extends T> it = this.f31157f;
+                Iterator<? extends T> it = this.f31086f;
                 n.p(it);
                 if (it.hasNext()) {
                     return true;
                 }
                 Iterator<? extends Iterator<? extends T>> a2 = a();
-                this.f31158g = a2;
+                this.f31087g = a2;
                 if (a2 == null) {
                     return false;
                 }
                 Iterator<? extends T> next = a2.next();
-                this.f31157f = next;
+                this.f31086f = next;
                 if (next instanceof f) {
                     f fVar = (f) next;
-                    this.f31157f = fVar.f31157f;
-                    if (this.f31159h == null) {
-                        this.f31159h = new ArrayDeque();
+                    this.f31086f = fVar.f31086f;
+                    if (this.f31088h == null) {
+                        this.f31088h = new ArrayDeque();
                     }
-                    this.f31159h.addFirst(this.f31158g);
-                    if (fVar.f31159h != null) {
-                        while (!fVar.f31159h.isEmpty()) {
-                            this.f31159h.addFirst(fVar.f31159h.removeLast());
+                    this.f31088h.addFirst(this.f31087g);
+                    if (fVar.f31088h != null) {
+                        while (!fVar.f31088h.isEmpty()) {
+                            this.f31088h.addFirst(fVar.f31088h.removeLast());
                         }
                     }
-                    this.f31158g = fVar.f31158g;
+                    this.f31087g = fVar.f31087g;
                 }
             }
         }
@@ -233,8 +233,8 @@ public final class Iterators {
         @Override // java.util.Iterator
         public T next() {
             if (hasNext()) {
-                Iterator<? extends T> it = this.f31157f;
-                this.f31156e = it;
+                Iterator<? extends T> it = this.f31086f;
+                this.f31085e = it;
                 return it.next();
             }
             throw new NoSuchElementException();
@@ -242,9 +242,9 @@ public final class Iterators {
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(this.f31156e != null);
-            this.f31156e.remove();
-            this.f31156e = null;
+            m.e(this.f31085e != null);
+            this.f31085e.remove();
+            this.f31085e = null;
         }
     }
 
@@ -252,46 +252,46 @@ public final class Iterators {
     public static class g<T> extends c1<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Queue<m0<T>> f31160e;
+        public final Queue<m0<T>> f31089e;
 
         /* loaded from: classes6.dex */
         public class a implements Comparator<m0<T>> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Comparator f31161e;
+            public final /* synthetic */ Comparator f31090e;
 
             public a(g gVar, Comparator comparator) {
-                this.f31161e = comparator;
+                this.f31090e = comparator;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(m0<T> m0Var, m0<T> m0Var2) {
-                return this.f31161e.compare(m0Var.peek(), m0Var2.peek());
+                return this.f31090e.compare(m0Var.peek(), m0Var2.peek());
             }
         }
 
         public g(Iterable<? extends Iterator<? extends T>> iterable, Comparator<? super T> comparator) {
-            this.f31160e = new PriorityQueue(2, new a(this, comparator));
+            this.f31089e = new PriorityQueue(2, new a(this, comparator));
             for (Iterator<? extends T> it : iterable) {
                 if (it.hasNext()) {
-                    this.f31160e.add(Iterators.p(it));
+                    this.f31089e.add(Iterators.p(it));
                 }
             }
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return !this.f31160e.isEmpty();
+            return !this.f31089e.isEmpty();
         }
 
         @Override // java.util.Iterator
         public T next() {
-            m0<T> remove = this.f31160e.remove();
+            m0<T> remove = this.f31089e.remove();
             T next = remove.next();
             if (remove.hasNext()) {
-                this.f31160e.add(remove);
+                this.f31089e.add(remove);
             }
             return next;
         }
@@ -301,48 +301,48 @@ public final class Iterators {
     public static class h<E> implements m0<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Iterator<? extends E> f31162e;
+        public final Iterator<? extends E> f31091e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f31163f;
+        public boolean f31092f;
 
         /* renamed from: g  reason: collision with root package name */
-        public E f31164g;
+        public E f31093g;
 
         public h(Iterator<? extends E> it) {
             n.p(it);
-            this.f31162e = it;
+            this.f31091e = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31163f || this.f31162e.hasNext();
+            return this.f31092f || this.f31091e.hasNext();
         }
 
         @Override // d.g.c.c.m0, java.util.Iterator
         public E next() {
-            if (!this.f31163f) {
-                return this.f31162e.next();
+            if (!this.f31092f) {
+                return this.f31091e.next();
             }
-            E e2 = this.f31164g;
-            this.f31163f = false;
-            this.f31164g = null;
+            E e2 = this.f31093g;
+            this.f31092f = false;
+            this.f31093g = null;
             return e2;
         }
 
         @Override // d.g.c.c.m0
         public E peek() {
-            if (!this.f31163f) {
-                this.f31164g = this.f31162e.next();
-                this.f31163f = true;
+            if (!this.f31092f) {
+                this.f31093g = this.f31091e.next();
+                this.f31092f = true;
             }
-            return this.f31164g;
+            return this.f31093g;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            n.x(!this.f31163f, "Can't remove after you've peeked at next");
-            this.f31162e.remove();
+            n.x(!this.f31092f, "Can't remove after you've peeked at next");
+            this.f31091e.remove();
         }
     }
 
@@ -420,7 +420,7 @@ public final class Iterators {
     }
 
     public static <T> d1<T> i() {
-        return (d1<T>) e.f31153i;
+        return (d1<T>) e.f31082i;
     }
 
     public static <T> Iterator<T> j() {

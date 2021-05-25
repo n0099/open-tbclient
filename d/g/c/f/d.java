@@ -9,22 +9,22 @@ public abstract class d {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final double f66275a;
+        public final double f66318a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final double f66276b;
+        public final double f66319b;
 
         public d a(double d2) {
             n.d(!Double.isNaN(d2));
             if (d.g.c.f.b.c(d2)) {
-                return new C1847d(d2, this.f66276b - (this.f66275a * d2));
+                return new C1851d(d2, this.f66319b - (this.f66318a * d2));
             }
-            return new e(this.f66275a);
+            return new e(this.f66318a);
         }
 
         public b(double d2, double d3) {
-            this.f66275a = d2;
-            this.f66276b = d3;
+            this.f66318a = d2;
+            this.f66319b = d3;
         }
     }
 
@@ -32,7 +32,7 @@ public abstract class d {
     public static final class c extends d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f66277a = new c();
+        public static final c f66320a = new c();
 
         public String toString() {
             return WalletPayViewController.DEF_CHANNEL_TITLE;
@@ -41,21 +41,21 @@ public abstract class d {
 
     /* renamed from: d.g.c.f.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C1847d extends d {
+    public static final class C1851d extends d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final double f66278a;
+        public final double f66321a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final double f66279b;
+        public final double f66322b;
 
-        public C1847d(double d2, double d3) {
-            this.f66278a = d2;
-            this.f66279b = d3;
+        public C1851d(double d2, double d3) {
+            this.f66321a = d2;
+            this.f66322b = d3;
         }
 
         public String toString() {
-            return String.format("y = %g * x + %g", Double.valueOf(this.f66278a), Double.valueOf(this.f66279b));
+            return String.format("y = %g * x + %g", Double.valueOf(this.f66321a), Double.valueOf(this.f66322b));
         }
     }
 
@@ -63,24 +63,24 @@ public abstract class d {
     public static final class e extends d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final double f66280a;
+        public final double f66323a;
 
         public e(double d2) {
-            this.f66280a = d2;
+            this.f66323a = d2;
         }
 
         public String toString() {
-            return String.format("x = %g", Double.valueOf(this.f66280a));
+            return String.format("x = %g", Double.valueOf(this.f66323a));
         }
     }
 
     public static d a() {
-        return c.f66277a;
+        return c.f66320a;
     }
 
     public static d b(double d2) {
         n.d(d.g.c.f.b.c(d2));
-        return new C1847d(0.0d, d2);
+        return new C1851d(0.0d, d2);
     }
 
     public static b c(double d2, double d3) {

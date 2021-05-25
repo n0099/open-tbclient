@@ -2,7 +2,6 @@ package com.baidu.searchbox.v8engine.net;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.swan.apps.model.SwanTaskDeadEvent;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes2.dex */
 public abstract class Uri implements Comparable<Uri> {
@@ -216,7 +215,7 @@ public abstract class Uri implements Comparable<Uri> {
             }
             appendSspTo(sb);
             if (!this.fragment.isEmpty()) {
-                sb.append(SwanTaskDeadEvent.SEPARATOR);
+                sb.append('#');
                 sb.append(this.fragment.getEncoded());
             }
             return sb.toString();
@@ -322,7 +321,7 @@ public abstract class Uri implements Comparable<Uri> {
             sb.append(':');
             sb.append(getEncodedSchemeSpecificPart());
             if (!this.fragment.isEmpty()) {
-                sb.append(SwanTaskDeadEvent.SEPARATOR);
+                sb.append('#');
                 sb.append(this.fragment.getEncoded());
             }
             String sb2 = sb.toString();

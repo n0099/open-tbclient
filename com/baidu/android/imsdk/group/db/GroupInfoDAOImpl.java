@@ -52,6 +52,13 @@ public class GroupInfoDAOImpl {
             String string3 = cursor.getString(cursor.getColumnIndex("description"));
             int i7 = cursor.getInt(cursor.getColumnIndex("marktop"));
             long j5 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
+            String string4 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE));
+            int i8 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SIZE));
+            int i9 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_VERIFY));
+            String string5 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_DESC));
+            long j6 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION));
+            long j7 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_VERSION));
+            long j8 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_LOCAL_VERSION));
             GroupInfo groupInfo = new GroupInfo(string);
             groupInfo.setGroupName(string2);
             groupInfo.setType(i2);
@@ -66,6 +73,13 @@ public class GroupInfoDAOImpl {
             groupInfo.setHeadUrl(string3);
             groupInfo.setMarkTopTime(j5);
             groupInfo.setMarkTop(i7);
+            groupInfo.setGroupNotice(string4);
+            groupInfo.setGroupCapacity(i8);
+            groupInfo.setGroupVerify(i9);
+            groupInfo.setDescription(string5);
+            groupInfo.setLocalMembersVersion(j6);
+            groupInfo.setLocalInfoVersion(j7);
+            groupInfo.setInfoVersion(j8);
             return groupInfo;
         }
     }
@@ -148,6 +162,14 @@ public class GroupInfoDAOImpl {
         return DBResponseCode.ERROR_DB_OPEN;
     }
 
+    public static int delAllGroupMember(Context context, String str) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return DBResponseCode.ERROR_PARAMETER;
+        }
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        return newDb != null ? newDb.delete("groupmember", "group_id = ?", new String[]{str}).intValue() : DBResponseCode.ERROR_DB_OPEN;
+    }
+
     public static int delGroupMember(Context context, String str, ArrayList<String> arrayList) {
         if (context == null || arrayList == null || arrayList.size() == 0) {
             return DBResponseCode.ERROR_PARAMETER;
@@ -174,6 +196,14 @@ public class GroupInfoDAOImpl {
         return DBResponseCode.ERROR_DB_OPEN;
     }
 
+    public static ArrayList<GroupInfo> getAllFansGroupList(Context context) {
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            return newDb.query(sGroupInfoParse, "groupinfo", null, "state = 0 AND group_type = 3", null, null, null, "create_time DESC", null);
+        }
+        return null;
+    }
+
     public static ArrayList<GroupInfo> getAllGroupInfo(Context context) {
         DBOperation newDb;
         if (context == null || (newDb = DBOperationFactory.getNewDb(context)) == null) {
@@ -192,6 +222,34 @@ public class GroupInfoDAOImpl {
                     return cursor.getString(cursor.getColumnIndex("group_id"));
                 }
             }, "groupinfo", new String[]{"group_id"}, "state = 0 AND group_type != 2 AND state != 1", null, null, null, "create_time DESC", null);
+        }
+        return null;
+    }
+
+    public static ArrayList<String> getExpiredFansGroupInfoList(Context context, long j) {
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.3
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.android.imsdk.db.IResultParse
+                public String onParse(Cursor cursor) {
+                    return cursor.getString(cursor.getColumnIndex("group_id"));
+                }
+            }, "groupinfo", new String[]{"group_id"}, "state = 0 AND group_type = 3 AND local_groupinfo_version < " + j, null, null, null, "create_time DESC", null);
+        }
+        return null;
+    }
+
+    public static ArrayList<String> getExpiredFansGroupMemberList(Context context, long j) {
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.4
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.android.imsdk.db.IResultParse
+                public String onParse(Cursor cursor) {
+                    return cursor.getString(cursor.getColumnIndex("group_id"));
+                }
+            }, "groupinfo", new String[]{"group_id"}, "state = 0 AND group_type = 3 AND local_members_version < " + j + " AND " + DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION + " > 0 ", null, null, null, "create_time DESC", null);
         }
         return null;
     }
@@ -221,10 +279,25 @@ public class GroupInfoDAOImpl {
         contentValues.put("create_time", Long.valueOf(groupInfo.getCreateTime()));
         contentValues.put("group_type", Integer.valueOf(groupInfo.getType()));
         contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_NUM, Integer.valueOf(groupInfo.getNum()));
-        contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_VERSION, Long.valueOf(groupInfo.getMembersVersion()));
         contentValues.put("state", Integer.valueOf(groupInfo.getState()));
         contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, Integer.valueOf(groupInfo.getBrief()));
         contentValues.put("description", groupInfo.getHeadUrl());
+        contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SIZE, Integer.valueOf(groupInfo.getGroupCapacity()));
+        contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_VERIFY, Integer.valueOf(groupInfo.getGroupVerify()));
+        contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE, groupInfo.getGroupNotice());
+        contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_DESC, groupInfo.getDescription());
+        if (groupInfo.getMembersVersion() > 0) {
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_VERSION, Long.valueOf(groupInfo.getMembersVersion()));
+        }
+        if (groupInfo.getLocalMembersVersion() > 0) {
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION, Long.valueOf(groupInfo.getLocalMembersVersion()));
+        }
+        if (groupInfo.getInfoVersion() > 0) {
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_VERSION, Long.valueOf(groupInfo.getInfoVersion()));
+        }
+        if (groupInfo.getLocalInfoVersion() > 0) {
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_LOCAL_VERSION, Long.valueOf(groupInfo.getLocalInfoVersion()));
+        }
         return contentValues;
     }
 
@@ -243,7 +316,7 @@ public class GroupInfoDAOImpl {
                     str = str + " offset " + i3;
                 }
             }
-            return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.4
+            return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.android.imsdk.db.IResultParse
                 public String onParse(Cursor cursor) {
@@ -291,7 +364,7 @@ public class GroupInfoDAOImpl {
                     str3 = null;
                 }
                 str4 = "join_time ASC  ";
-                arrayList2 = newDb.query(new IResultParse<GroupMember>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.5
+                arrayList2 = newDb.query(new IResultParse<GroupMember>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.7
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX WARN: Can't rename method to resolve collision */
                     @Override // com.baidu.android.imsdk.db.IResultParse
@@ -304,15 +377,17 @@ public class GroupInfoDAOImpl {
                         long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
                         long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
                         int i5 = cursor.getInt(cursor.getColumnIndex("status"));
+                        String string4 = cursor.getString(cursor.getColumnIndex("avatar"));
                         GroupMember groupMember2 = new GroupMember(string, j3, string2, j2, i4, j);
                         groupMember2.setValid(i5);
                         groupMember2.setNickName(string3);
+                        groupMember2.setPortrait(string4);
                         return groupMember2;
                     }
                 }, "groupmember", null, "group_id = ? " + str2, new String[]{str}, null, null, str4, str3);
             }
             str4 = str5;
-            arrayList2 = newDb.query(new IResultParse<GroupMember>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.5
+            arrayList2 = newDb.query(new IResultParse<GroupMember>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.7
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.android.imsdk.db.IResultParse
@@ -325,9 +400,11 @@ public class GroupInfoDAOImpl {
                     long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
                     long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
                     int i5 = cursor.getInt(cursor.getColumnIndex("status"));
+                    String string4 = cursor.getString(cursor.getColumnIndex("avatar"));
                     GroupMember groupMember2 = new GroupMember(string, j3, string2, j2, i4, j);
                     groupMember2.setValid(i5);
                     groupMember2.setNickName(string3);
+                    groupMember2.setPortrait(string4);
                     return groupMember2;
                 }
             }, "groupmember", null, "group_id = ? " + str2, new String[]{str}, null, null, str4, str3);
@@ -367,6 +444,8 @@ public class GroupInfoDAOImpl {
         contentValues.put("uk", Long.valueOf(groupMember.getUk()));
         contentValues.put("nickname", groupMember.getNickName());
         contentValues.put("status", Integer.valueOf(groupMember.getValid()));
+        contentValues.put("name", groupMember.getName());
+        contentValues.put("avatar", groupMember.getPortrait());
         return contentValues;
     }
 
@@ -377,7 +456,7 @@ public class GroupInfoDAOImpl {
         String str2 = (" AND ( role != 1") + " ) ";
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb != null) {
-            return newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.8
+            return newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.10
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.android.imsdk.db.IResultParse
@@ -394,7 +473,7 @@ public class GroupInfoDAOImpl {
         if (context == null || TextUtils.isEmpty(str) || (newDb = DBOperationFactory.getNewDb(context)) == null) {
             return null;
         }
-        return newDb.query(new IResultParse<GroupMember>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.6
+        return newDb.query(new IResultParse<GroupMember>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.8
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.android.imsdk.db.IResultParse
@@ -407,9 +486,11 @@ public class GroupInfoDAOImpl {
                 long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
                 long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
                 int i3 = cursor.getInt(cursor.getColumnIndex("status"));
+                String string4 = cursor.getString(cursor.getColumnIndex("avatar"));
                 GroupMember groupMember = new GroupMember(string, j3, string2, j2, i2, j);
                 groupMember.setValid(i3);
                 groupMember.setNickName(string3);
+                groupMember.setPortrait(string4);
                 return groupMember;
             }
         }, "groupmember", null, "group_id = ? ", new String[]{str}, null, null, null, null);
@@ -418,7 +499,7 @@ public class GroupInfoDAOImpl {
     public static String getNickName(Context context, String str, String str2) {
         if (context != null && !TextUtils.isEmpty(str)) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
-            ArrayList query = newDb != null ? newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.9
+            ArrayList query = newDb != null ? newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.11
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.android.imsdk.db.IResultParse
                 public String onParse(Cursor cursor) {
@@ -435,13 +516,13 @@ public class GroupInfoDAOImpl {
     public static ArrayList<String> getStarGroupList(Context context) {
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb != null) {
-            return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.3
+            return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.android.imsdk.db.IResultParse
                 public String onParse(Cursor cursor) {
                     return cursor.getString(cursor.getColumnIndex("group_id"));
                 }
-            }, "groupinfo", new String[]{"group_id"}, null, null, null, null, "create_time DESC", null);
+            }, "groupinfo", new String[]{"group_id"}, "group_type != 3", null, null, null, "create_time DESC", null);
         }
         return null;
     }
@@ -449,7 +530,7 @@ public class GroupInfoDAOImpl {
     public static int hasMemberInGroup(Context context, String str) {
         if (context != null && !TextUtils.isEmpty(str)) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
-            ArrayList query = newDb != null ? newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.7
+            ArrayList query = newDb != null ? newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.9
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.android.imsdk.db.IResultParse
@@ -478,6 +559,20 @@ public class GroupInfoDAOImpl {
         return false;
     }
 
+    public static int modifyGroupInfoVersion(Context context, String str, long j, long j2) {
+        if (context == null || TextUtils.isEmpty(str) || j < 0) {
+            return DBResponseCode.ERROR_PARAMETER;
+        }
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_VERSION, Long.valueOf(j));
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_LOCAL_VERSION, Long.valueOf(j2));
+            return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
+        }
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
     public static int modifyGroupMemberNumber(Context context, String str, int i2) {
         if (context == null || TextUtils.isEmpty(str) || i2 < 0) {
             return DBResponseCode.ERROR_PARAMETER;
@@ -491,7 +586,7 @@ public class GroupInfoDAOImpl {
         return DBResponseCode.ERROR_DB_OPEN;
     }
 
-    public static int modifyGroupMemberVersion(Context context, String str, long j) {
+    public static int modifyGroupMemberVersion(Context context, String str, long j, long j2) {
         if (context == null || TextUtils.isEmpty(str) || j < 0) {
             return DBResponseCode.ERROR_PARAMETER;
         }
@@ -499,6 +594,7 @@ public class GroupInfoDAOImpl {
         if (newDb != null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_VERSION, Long.valueOf(j));
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION, Long.valueOf(j2));
             return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
         }
         return DBResponseCode.ERROR_DB_OPEN;
@@ -525,7 +621,7 @@ public class GroupInfoDAOImpl {
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         int i2 = DBResponseCode.ERROR_DB_OPEN;
         if (newDb != null) {
-            i2 = newDb.execTransaction(new ITransaction() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.10
+            i2 = newDb.execTransaction(new ITransaction() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.12
                 @Override // com.baidu.android.imsdk.db.ITransaction
                 public void execTransaction(SQLiteDatabase sQLiteDatabase) {
                     sQLiteDatabase.delete("groupinfo", "group_id = ? ", new String[]{str});

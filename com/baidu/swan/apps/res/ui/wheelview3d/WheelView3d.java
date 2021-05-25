@@ -17,10 +17,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.tbadk.core.util.StringHelper;
-import d.a.i0.a.a2.e;
-import d.a.i0.a.j;
-import d.a.i0.a.z1.a.e.a.c;
-import d.a.i0.a.z1.a.e.c.b;
+import d.a.l0.a.a2.e;
+import d.a.l0.a.j;
+import d.a.l0.a.z1.a.e.a.c;
+import d.a.l0.a.z1.a.e.c.b;
 import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -58,19 +58,19 @@ public class WheelView3d extends View {
     public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public DividerType f11316e;
+    public DividerType f11217e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f11317f;
+    public Context f11218f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f11318g;
+    public Handler f11219g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector f11319h;
+    public GestureDetector f11220h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f11320i;
+    public b f11221i;
     public boolean j;
     public boolean k;
     public ScheduledExecutorService l;
@@ -109,7 +109,7 @@ public class WheelView3d extends View {
 
         @Override // java.lang.Runnable
         public void run() {
-            b bVar = WheelView3d.this.f11320i;
+            b bVar = WheelView3d.this.f11221i;
             WheelView3d wheelView3d = WheelView3d.this;
             bVar.a(wheelView3d, wheelView3d.getCurrentItem());
         }
@@ -137,8 +137,8 @@ public class WheelView3d extends View {
         if (obj == null) {
             return "";
         }
-        if (obj instanceof d.a.i0.a.z1.a.e.b.a) {
-            return ((d.a.i0.a.z1.a.e.b.a) obj).a();
+        if (obj instanceof d.a.l0.a.z1.a.e.b.a) {
+            return ((d.a.l0.a.z1.a.e.b.a) obj).a();
         }
         return obj instanceof Integer ? String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue())) : obj.toString();
     }
@@ -165,10 +165,10 @@ public class WheelView3d extends View {
     }
 
     public final void g(Context context) {
-        this.f11317f = context;
-        this.f11318g = new d.a.i0.a.z1.a.e.d.b(this);
-        GestureDetector gestureDetector = new GestureDetector(context, new d.a.i0.a.z1.a.e.c.a(this));
-        this.f11319h = gestureDetector;
+        this.f11218f = context;
+        this.f11219g = new d.a.l0.a.z1.a.e.d.b(this);
+        GestureDetector gestureDetector = new GestureDetector(context, new d.a.l0.a.z1.a.e.c.a(this));
+        this.f11220h = gestureDetector;
         gestureDetector.setIsLongpressEnabled(false);
         this.C = true;
         this.G = 0.0f;
@@ -200,7 +200,7 @@ public class WheelView3d extends View {
 
     @Override // android.view.View
     public Handler getHandler() {
-        return this.f11318g;
+        return this.f11219g;
     }
 
     public int getInitPosition() {
@@ -314,7 +314,7 @@ public class WheelView3d extends View {
     }
 
     public final void n() {
-        if (this.f11320i != null) {
+        if (this.f11221i != null) {
             postDelayed(new a(), 200L);
         }
     }
@@ -382,7 +382,7 @@ public class WheelView3d extends View {
             }
             i4++;
         }
-        if (this.f11316e == DividerType.WRAP) {
+        if (this.f11217e == DividerType.WRAP) {
             if (TextUtils.isEmpty(this.r)) {
                 i2 = (this.N - this.t) / 2;
             } else {
@@ -478,7 +478,7 @@ public class WheelView3d extends View {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean onTouchEvent = this.f11319h.onTouchEvent(motionEvent);
+        boolean onTouchEvent = this.f11220h.onTouchEvent(motionEvent);
         float f2 = (-this.H) * this.w;
         float a2 = ((this.q.a() - 1) - this.H) * this.w;
         int action = motionEvent.getAction();
@@ -540,7 +540,7 @@ public class WheelView3d extends View {
 
     public final void q(float f2) {
         b();
-        this.m = this.l.scheduleWithFixedDelay(new d.a.i0.a.z1.a.e.d.a(this, f2), 0L, 5L, TimeUnit.MILLISECONDS);
+        this.m = this.l.scheduleWithFixedDelay(new d.a.l0.a.z1.a.e.d.a(this, f2), 0L, 5L, TimeUnit.MILLISECONDS);
     }
 
     public void r(ACTION action) {
@@ -556,7 +556,7 @@ public class WheelView3d extends View {
                 this.P = -i2;
             }
         }
-        this.m = this.l.scheduleWithFixedDelay(new d.a.i0.a.z1.a.e.d.c(this, this.P), 0L, 10L, TimeUnit.MILLISECONDS);
+        this.m = this.l.scheduleWithFixedDelay(new d.a.l0.a.z1.a.e.d.c(this, this.P), 0L, 10L, TimeUnit.MILLISECONDS);
     }
 
     public final void setAdapter(c cVar) {
@@ -590,7 +590,7 @@ public class WheelView3d extends View {
     }
 
     public void setDividerType(DividerType dividerType) {
-        this.f11316e = dividerType;
+        this.f11217e = dividerType;
     }
 
     public void setGravity(int i2) {
@@ -617,7 +617,7 @@ public class WheelView3d extends View {
     }
 
     public final void setOnItemSelectedListener(b bVar) {
-        this.f11320i = bVar;
+        this.f11221i = bVar;
     }
 
     public final void setOuterTextSize(int i2) {

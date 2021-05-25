@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.ad.download.DownloadCacheKey;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
-import d.a.k0.a;
-import d.a.k0.o.d.d;
+import d.a.n0.a;
+import d.a.n0.q.d.e;
 /* loaded from: classes4.dex */
 public class TBAdWebView extends BaseAdWebView {
     public TBAdWebView(Context context) {
@@ -18,10 +18,14 @@ public class TBAdWebView extends BaseAdWebView {
 
     @Override // com.baidu.tieba.ad.webview.BaseAdWebView
     public void b(@NonNull DownloadCacheKey downloadCacheKey, boolean z) {
-        if (!a.e().o() && !PermissionUtil.checkWriteExternalStorage(getContext())) {
+        if (!a.h().r() && !PermissionUtil.checkWriteExternalStorage(getContext())) {
             PermissionUtil.requestWriteExternalStorage((Activity) getContext(), 0);
-        } else {
-            d.c().l(downloadCacheKey, null);
+            return;
+        }
+        e.c().l(downloadCacheKey, null);
+        BaseAdWebView.d dVar = this.j;
+        if (dVar != null) {
+            dVar.onDownloadStart();
         }
     }
 

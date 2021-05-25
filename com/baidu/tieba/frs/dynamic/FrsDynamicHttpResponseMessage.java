@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.dynamic;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import d.a.k0.q0.m1.a;
+import d.a.n0.r0.m1.a;
 import tbclient.Error;
 import tbclient.StarTrends.StarTrendsResIdl;
 /* loaded from: classes4.dex */
@@ -29,7 +29,7 @@ public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessa
             Integer num = error.errorno;
             if (num != null) {
                 setError(num.intValue());
-                this.responseData.f58756h = a2.error.errorno.intValue();
+                this.responseData.f58897h = a2.error.errorno.intValue();
             }
             setErrorString(a2.error.usermsg);
         }

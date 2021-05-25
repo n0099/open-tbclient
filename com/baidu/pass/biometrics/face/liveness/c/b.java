@@ -3,10 +3,10 @@ package com.baidu.pass.biometrics.face.liveness.c;
 public class b {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f9182h = 0;
+    public static final int f9082h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f9183i = 1;
+    public static final int f9083i = 1;
     public static final int j = 2;
     public static final int k = 17;
     public static final int l = 18;
@@ -19,23 +19,23 @@ public class b {
     public static final int s = 20000;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f9187d;
+    public long f9087d;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9184a = 0;
+    public int f9084a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9185b = false;
+    public boolean f9085b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9186c = false;
+    public boolean f9086c = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f9188e = 20000;
+    public long f9088e = 20000;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f9189f = false;
+    public boolean f9089f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f9190g = false;
+    public boolean f9090g = false;
 }

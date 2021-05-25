@@ -6,14 +6,14 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 public class AdapterViewHolder<T extends View> extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public T f2301a;
+    public T f2306a;
 
     public AdapterViewHolder(T t) {
         super(t);
-        this.f2301a = t;
+        this.f2306a = t;
     }
 
     public T b() {
-        return this.f2301a;
+        return this.f2306a;
     }
 }

@@ -21,7 +21,7 @@ public class GetChatObjectInfoForRecordManager {
     public static final int TYPE_IP = 10;
     public static final int TYPE_USER = 0;
     public static Map<Pair<Integer, Integer>, String> classFinder;
-    public static String[] classNameArray = {"com.baidu.android.imsdk.chatuser.GetUserInfoForRecordHandler", "com.baidu.android.imsdk.group.GetGroupfoForRecordHandler", "com.baidu.android.imsdk.pubaccount.GetPaInfoForSessionHandler"};
+    public static String[] classNameArray = {"com.baidu.android.imsdk.chatuser.GetUserInfoForRecordHandler", "com.baidu.android.imsdk.group.GetGroupfoForRecordHandler", "com.baidu.android.imsdk.pubaccount.GetPaInfoForSessionHandler", "com.baidu.android.imsdk.group.GetFansGroupInfoForRecordHandler"};
     public static String TAG = GetChatObjectInfoForRecordManager.class.getSimpleName();
 
     static {
@@ -30,10 +30,11 @@ public class GetChatObjectInfoForRecordManager {
         hashMap.put(new Pair(0, 0), classNameArray[0]);
         classFinder.put(new Pair<>(1, 0), classNameArray[1]);
         classFinder.put(new Pair<>(0, 1), classNameArray[2]);
+        classFinder.put(new Pair<>(1, 57), classNameArray[3]);
     }
 
     public static void getChatObjectForSession(final Context context, final ChatObject chatObject) {
-        final GetChatObjectInfoForRecordHandler getChatObjectInfoForRecordHandler = (GetChatObjectInfoForRecordHandler) newInstance(context, chatObject.getCategory(), chatObject.getContacter(), -1);
+        final GetChatObjectInfoForRecordHandler getChatObjectInfoForRecordHandler = (GetChatObjectInfoForRecordHandler) newInstance(context, chatObject.getCategory(), chatObject.getContacter(), chatObject.getType());
         if (getChatObjectInfoForRecordHandler == null) {
             return;
         }
@@ -77,15 +78,15 @@ public class GetChatObjectInfoForRecordManager {
 
     public static Object newInstance(Context context, int i2, long j, int i3) {
         if (i2 == 0) {
-            if (i3 != -1) {
-                return newInstance(context, i2, i3);
-            }
             if ((j & Constants.PAFLAG) == 0) {
                 return newInstance(context, i2, 0);
             }
             return newInstance(context, i2, 1);
+        } else if (i2 == 1 && i3 == 57) {
+            return newInstance(context, i2, i3);
+        } else {
+            return newInstance(context, i2, 0);
         }
-        return newInstance(context, i2, 0);
     }
 
     public static Object newInstance(Context context, int i2, int i3) {

@@ -78,11 +78,11 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         } else {
             this.x0 = new h();
         }
-        this.f2185h.n = true;
+        this.f2190h.n = true;
         this.x0.t(this);
         k kVar = this.x0;
-        this.f2186i = kVar;
-        kVar.p(this.f2185h);
+        this.f2191i = kVar;
+        kVar.p(this.f2190h);
     }
 
     public final Path d0(float f2, float f3, float f4) {

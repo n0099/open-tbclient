@@ -12,19 +12,19 @@ import java.util.Map;
 public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration, R> implements d.a<R> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d<TLeft> f69045e;
+    public final d<TLeft> f69088e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d<TRight> f69046f;
+    public final d<TRight> f69089f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final f<TLeft, d<TLeftDuration>> f69047g;
+    public final f<TLeft, d<TLeftDuration>> f69090g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final f<TRight, d<TRightDuration>> f69048h;
+    public final f<TRight, d<TRightDuration>> f69091h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final g<TLeft, TRight, R> f69049i;
+    public final g<TLeft, TRight, R> f69092i;
 
     /* loaded from: classes7.dex */
     public final class ResultSink extends HashMap<Integer, TLeft> {
@@ -42,23 +42,23 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
 
             /* renamed from: rx.internal.operators.OnSubscribeJoin$ResultSink$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public final class C1951a extends j<TLeftDuration> {
+            public final class C1955a extends j<TLeftDuration> {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final int f69051e;
+                public final int f69094e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public boolean f69052f = true;
+                public boolean f69095f = true;
 
-                public C1951a(int i2) {
-                    this.f69051e = i2;
+                public C1955a(int i2) {
+                    this.f69094e = i2;
                 }
 
                 @Override // h.e
                 public void onCompleted() {
-                    if (this.f69052f) {
-                        this.f69052f = false;
-                        a.this.b(this.f69051e, this);
+                    if (this.f69095f) {
+                        this.f69095f = false;
+                        a.this.b(this.f69094e, this);
                     }
                 }
 
@@ -127,9 +127,9 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     i3 = ResultSink.this.rightId;
                 }
                 try {
-                    C1951a c1951a = new C1951a(i2);
-                    ResultSink.this.group.a(c1951a);
-                    OnSubscribeJoin.this.f69047g.call(tleft).I(c1951a);
+                    C1955a c1955a = new C1955a(i2);
+                    ResultSink.this.group.a(c1955a);
+                    OnSubscribeJoin.this.f69090g.call(tleft).I(c1955a);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TRight> entry : ResultSink.this.rightMap.entrySet()) {
@@ -139,7 +139,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.f69049i.a(tleft, obj));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.f69092i.a(tleft, obj));
                     }
                 } catch (Throwable th) {
                     h.m.a.f(th, this);
@@ -154,20 +154,20 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             public final class a extends j<TRightDuration> {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final int f69055e;
+                public final int f69098e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public boolean f69056f = true;
+                public boolean f69099f = true;
 
                 public a(int i2) {
-                    this.f69055e = i2;
+                    this.f69098e = i2;
                 }
 
                 @Override // h.e
                 public void onCompleted() {
-                    if (this.f69056f) {
-                        this.f69056f = false;
-                        b.this.b(this.f69055e, this);
+                    if (this.f69099f) {
+                        this.f69099f = false;
+                        b.this.b(this.f69098e, this);
                     }
                 }
 
@@ -239,7 +239,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 try {
                     a aVar = new a(i2);
                     ResultSink.this.group.a(aVar);
-                    OnSubscribeJoin.this.f69048h.call(tright).I(aVar);
+                    OnSubscribeJoin.this.f69091h.call(tright).I(aVar);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TLeft> entry : ResultSink.this.leftMap().entrySet()) {
@@ -249,7 +249,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.f69049i.a(obj, tright));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.f69092i.a(obj, tright));
                     }
                 } catch (Throwable th) {
                     h.m.a.f(th, this);
@@ -271,8 +271,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             b bVar = new b();
             this.group.a(aVar);
             this.group.a(bVar);
-            OnSubscribeJoin.this.f69045e.I(aVar);
-            OnSubscribeJoin.this.f69046f.I(bVar);
+            OnSubscribeJoin.this.f69088e.I(aVar);
+            OnSubscribeJoin.this.f69089f.I(bVar);
         }
     }
 }

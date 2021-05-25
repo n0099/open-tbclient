@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public SettingTextSwitchView f17563e;
+    public SettingTextSwitchView f17473e;
 
     public PersonalTalkSettingViewSettingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -20,9 +20,9 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
 
     public void a(boolean z) {
         if (z) {
-            this.f17563e.f(false);
+            this.f17473e.f(false);
         } else {
-            this.f17563e.e(false);
+            this.f17473e.e(false);
         }
     }
 
@@ -30,12 +30,12 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         setOrientation(1);
         LinearLayout.inflate(getContext(), R.layout.p2ptalk_setting_detail_view, this);
         SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.sv_person_msg_notify);
-        this.f17563e = settingTextSwitchView;
+        this.f17473e = settingTextSwitchView;
         SkinManager.setBackgroundColor(settingTextSwitchView.getView(), R.color.common_color_10163);
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.b bVar) {
-        SettingTextSwitchView settingTextSwitchView = this.f17563e;
+        SettingTextSwitchView settingTextSwitchView = this.f17473e;
         if (settingTextSwitchView != null) {
             settingTextSwitchView.setSwitchStateChangeListener(bVar);
         }

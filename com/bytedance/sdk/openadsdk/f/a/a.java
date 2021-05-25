@@ -19,28 +19,28 @@ import org.json.JSONObject;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29112a;
+    public Context f29041a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m f29113b;
+    public m f29042b;
 
     /* renamed from: c  reason: collision with root package name */
-    public h f29114c;
+    public h f29043c;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29116e;
+    public String f29045e;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f29118g;
+    public g f29047g;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f29115d = new Handler(Looper.getMainLooper());
+    public Handler f29044d = new Handler(Looper.getMainLooper());
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f29117f = false;
+    public volatile boolean f29046f = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Map<String, g> f29119h = new HashMap();
+    public final Map<String, g> f29048h = new HashMap();
 
     @NonNull
     public abstract Context a(j jVar);
@@ -54,29 +54,29 @@ public abstract class a {
     public abstract void b(j jVar);
 
     public final void b(String str, p pVar) {
-        if (this.f29117f) {
+        if (this.f29046f) {
             return;
         }
-        if (TextUtils.isEmpty(pVar.f29163f)) {
+        if (TextUtils.isEmpty(pVar.f29092f)) {
             i.a("By passing js callback due to empty callback: " + str);
             return;
         }
         if (!str.startsWith(StringUtil.ARRAY_START) || !str.endsWith("}")) {
             i.a(new IllegalArgumentException("Illegal callback data: " + str));
         }
-        i.a("Invoking js callback: " + pVar.f29163f);
-        a("{\"__msg_type\":\"callback\",\"__callback_id\":\"" + pVar.f29163f + "\",\"__params\":" + str + "}", pVar);
+        i.a("Invoking js callback: " + pVar.f29092f);
+        a("{\"__msg_type\":\"callback\",\"__callback_id\":\"" + pVar.f29092f + "\",\"__params\":" + str + "}", pVar);
     }
 
     public void invokeMethod(final String str) {
-        if (this.f29117f) {
+        if (this.f29046f) {
             return;
         }
         i.a("Received call: " + str);
-        this.f29115d.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.f.a.a.1
+        this.f29044d.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.f.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f29117f) {
+                if (a.this.f29046f) {
                     return;
                 }
                 p pVar = null;
@@ -88,7 +88,7 @@ public abstract class a {
                 if (p.a(pVar)) {
                     i.a("By pass invalid call: " + pVar);
                     if (pVar != null) {
-                        a.this.b(x.a(new r(pVar.f29158a, "Failed to parse invocation.")), pVar);
+                        a.this.b(x.a(new r(pVar.f29087a, "Failed to parse invocation.")), pVar);
                         return;
                     }
                     return;
@@ -105,38 +105,38 @@ public abstract class a {
     @MainThread
     public final void a(p pVar) {
         String a2;
-        if (this.f29117f || (a2 = a()) == null) {
+        if (this.f29046f || (a2 = a()) == null) {
             return;
         }
-        g b2 = b(pVar.f29164g);
+        g b2 = b(pVar.f29093g);
         if (b2 == null) {
             i.b("Received call with unknown namespace, " + pVar);
-            m mVar = this.f29113b;
+            m mVar = this.f29042b;
             if (mVar != null) {
-                mVar.a(a(), pVar.f29161d, 2);
+                mVar.a(a(), pVar.f29090d, 2);
             }
-            b(x.a(new r(-4, "Namespace " + pVar.f29164g + " unknown.")), pVar);
+            b(x.a(new r(-4, "Namespace " + pVar.f29093g + " unknown.")), pVar);
             return;
         }
         f fVar = new f();
-        fVar.f29128b = a2;
-        fVar.f29127a = this.f29112a;
-        fVar.f29129c = b2;
+        fVar.f29057b = a2;
+        fVar.f29056a = this.f29041a;
+        fVar.f29058c = b2;
         try {
             g.a a3 = b2.a(pVar, fVar);
             if (a3 == null) {
                 i.b("Received call but not registered, " + pVar);
-                if (this.f29113b != null) {
-                    this.f29113b.a(a(), pVar.f29161d, 2);
+                if (this.f29042b != null) {
+                    this.f29042b.a(a(), pVar.f29090d, 2);
                 }
-                b(x.a(new r(-2, "Function " + pVar.f29161d + " is not registered.")), pVar);
+                b(x.a(new r(-2, "Function " + pVar.f29090d + " is not registered.")), pVar);
                 return;
             }
-            if (a3.f29145a) {
-                b(a3.f29146b, pVar);
+            if (a3.f29074a) {
+                b(a3.f29075b, pVar);
             }
-            if (this.f29113b != null) {
-                this.f29113b.a(a(), pVar.f29161d);
+            if (this.f29042b != null) {
+                this.f29042b.a(a(), pVar.f29090d);
             }
         } catch (Exception e2) {
             i.a("call finished with error, " + pVar, e2);
@@ -146,40 +146,40 @@ public abstract class a {
 
     @Nullable
     private g b(String str) {
-        if (!TextUtils.equals(str, this.f29116e) && !TextUtils.isEmpty(str)) {
-            return this.f29119h.get(str);
+        if (!TextUtils.equals(str, this.f29045e) && !TextUtils.isEmpty(str)) {
+            return this.f29048h.get(str);
         }
-        return this.f29118g;
+        return this.f29047g;
     }
 
     public final void a(j jVar, u uVar) {
-        this.f29112a = a(jVar);
-        this.f29114c = jVar.f29152d;
-        this.f29113b = jVar.f29157i;
-        this.f29118g = new g(jVar, this, uVar);
-        this.f29116e = jVar.k;
+        this.f29041a = a(jVar);
+        this.f29043c = jVar.f29081d;
+        this.f29042b = jVar.f29086i;
+        this.f29047g = new g(jVar, this, uVar);
+        this.f29045e = jVar.k;
         b(jVar);
     }
 
     public final <T> void a(String str, T t) {
-        if (this.f29117f) {
+        if (this.f29046f) {
             return;
         }
-        String a2 = this.f29114c.a((h) t);
+        String a2 = this.f29043c.a((h) t);
         i.a("Sending js event: " + str);
         a("{\"__msg_type\":\"event\",\"__event_id\":\"" + str + "\",\"__params\":" + a2 + "}");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public p a(JSONObject jSONObject) {
-        if (this.f29117f) {
+        if (this.f29046f) {
             return null;
         }
         String optString = jSONObject.optString("__callback_id");
         String optString2 = jSONObject.optString(WebChromeClient.KEY_FUNCTION_NAME);
         String a2 = a();
         if (a2 == null) {
-            m mVar = this.f29113b;
+            m mVar = this.f29042b;
             if (mVar != null) {
                 mVar.a(null, null, 3);
             }
@@ -193,7 +193,7 @@ public abstract class a {
             return p.a().a(string3).b(string).c(optString2).d(string2).e(optString).f(optString3).g(jSONObject.optString("__iframe_url")).a();
         } catch (JSONException e2) {
             i.b("Failed to create call.", e2);
-            m mVar2 = this.f29113b;
+            m mVar2 = this.f29042b;
             if (mVar2 != null) {
                 mVar2.a(a2, optString2, 1);
             }

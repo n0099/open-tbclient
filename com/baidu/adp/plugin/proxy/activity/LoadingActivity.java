@@ -25,17 +25,17 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
         public class C0021a implements c {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Plugin f2241a;
+            public final /* synthetic */ Plugin f2246a;
 
             public C0021a(Plugin plugin2) {
-                this.f2241a = plugin2;
+                this.f2246a = plugin2;
             }
 
             @Override // d.a.c.h.k.c
             public void a(Plugin.c cVar, String str) {
                 Intent intent = new Intent(LoadingActivity.this.getIntent());
                 intent.setComponent(new ComponentName(str, LoadingActivity.this.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
-                this.f2241a.launchIntent(LoadingActivity.this.getPageContext().getContext(), intent);
+                this.f2246a.launchIntent(LoadingActivity.this.getPageContext().getContext(), intent);
                 LoadingActivity.this.finish();
             }
         }

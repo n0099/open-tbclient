@@ -3,6 +3,9 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.LogUtils;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -23,10 +26,13 @@ public class GoodsMsg extends NormalMsg {
         }
     };
     public static final String TAG = "GoodsMsg";
+    public List<String> mAllImgs;
     public double mCoupon;
+    public String mEvent;
     public int mId;
     public String mImage;
     public String mJumpName;
+    public String mOriginPrice;
     public double mPrice;
     public int mSales;
     public String mSchema;
@@ -36,6 +42,7 @@ public class GoodsMsg extends NormalMsg {
     public GoodsMsg() {
         this.mSales = -1;
         this.mCoupon = -1.0d;
+        this.mAllImgs = new ArrayList();
         setMsgType(29);
     }
 
@@ -50,8 +57,16 @@ public class GoodsMsg extends NormalMsg {
         }
     }
 
+    public List<String> getAllImgs() {
+        return this.mAllImgs;
+    }
+
     public double getCoupon() {
         return this.mCoupon;
+    }
+
+    public String getEvent() {
+        return this.mEvent;
     }
 
     public int getId() {
@@ -66,13 +81,17 @@ public class GoodsMsg extends NormalMsg {
         return this.mJumpName;
     }
 
+    public String getOriginPrice() {
+        return this.mOriginPrice;
+    }
+
     public double getPrice() {
         return this.mPrice;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
-        return "好货来袭，快来看看吧！";
+        return "[好货来袭]" + this.mTitle;
     }
 
     public int getSales() {
@@ -98,6 +117,14 @@ public class GoodsMsg extends NormalMsg {
             LogUtils.d(TAG, "parse goods msg " + getJsonContent());
             this.mTitle = jSONObject.getString("title");
             this.mImage = jSONObject.getString("image");
+            this.mAllImgs.clear();
+            this.mAllImgs.add(this.mImage);
+            if (jSONObject.has("more_image")) {
+                JSONArray jSONArray = jSONObject.getJSONArray("more_image");
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    this.mAllImgs.add(jSONArray.getString(i2));
+                }
+            }
             this.mPrice = jSONObject.getDouble("price");
             this.mSales = jSONObject.optInt("sales", -1);
             this.mCoupon = getCouponFromJson(jSONObject);
@@ -105,6 +132,8 @@ public class GoodsMsg extends NormalMsg {
             this.mShopName = jSONObject.optString("tp_name", "");
             this.mId = jSONObject.optInt("num_id");
             this.mJumpName = jSONObject.optString("des_source");
+            this.mEvent = jSONObject.optString("event");
+            this.mOriginPrice = jSONObject.optString("origin_price");
             return true;
         } catch (JSONException e2) {
             LogUtils.e(TAG, "parseJsonString JSONException", e2);
@@ -124,12 +153,16 @@ public class GoodsMsg extends NormalMsg {
         parcel.writeString(this.mShopName);
         parcel.writeInt(this.mId);
         parcel.writeString(this.mJumpName);
+        parcel.writeString(this.mEvent);
+        parcel.writeString(this.mOriginPrice);
+        parcel.writeList(this.mAllImgs);
     }
 
     public GoodsMsg(Parcel parcel) {
         super(parcel);
         this.mSales = -1;
         this.mCoupon = -1.0d;
+        this.mAllImgs = new ArrayList();
         this.mTitle = parcel.readString();
         this.mImage = parcel.readString();
         this.mPrice = parcel.readDouble();
@@ -139,5 +172,8 @@ public class GoodsMsg extends NormalMsg {
         this.mShopName = parcel.readString();
         this.mId = parcel.readInt();
         this.mJumpName = parcel.readString();
+        this.mEvent = parcel.readString();
+        this.mOriginPrice = parcel.readString();
+        parcel.readList(this.mAllImgs, String.class.getClassLoader());
     }
 }

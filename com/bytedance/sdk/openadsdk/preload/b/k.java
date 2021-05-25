@@ -5,7 +5,7 @@ import com.bytedance.sdk.openadsdk.preload.b.i;
 public abstract class k<IN, OUT> extends d<IN, OUT> {
 
     /* renamed from: d  reason: collision with root package name */
-    public IN f30022d;
+    public IN f29951d;
 
     private Object a(b<OUT> bVar, IN in, Throwable th) throws Throwable {
         while (a(th)) {
@@ -24,7 +24,7 @@ public abstract class k<IN, OUT> extends d<IN, OUT> {
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public final Object a_(b<OUT> bVar, IN in) throws Throwable {
-        this.f30022d = in;
+        this.f29951d = in;
         try {
             return bVar.a((b<OUT>) b());
         } catch (i.a e2) {
@@ -36,10 +36,10 @@ public abstract class k<IN, OUT> extends d<IN, OUT> {
 
     /* JADX WARN: Type inference failed for: r0v0, types: [IN, OUT] */
     public OUT b() {
-        return this.f30022d;
+        return this.f29951d;
     }
 
     public final IN g() {
-        return this.f30022d;
+        return this.f29951d;
     }
 }

@@ -17,23 +17,23 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 import com.baidu.tieba.tblauncherInterestGuide.model.NewUserGuideModel;
-import d.a.k0.h3.f;
+import d.a.n0.i3.f;
 import java.util.ArrayList;
 import java.util.Hashtable;
 /* loaded from: classes5.dex */
 public class NewUserGuideMainFragment extends BaseFragment {
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f21085f;
+    public ViewGroup f21013f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f21086g;
+    public View f21014g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f21087h;
+    public TbImageView f21015h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f21088i;
+    public TbImageView f21016i;
     public TbImageView j;
     public TbImageView k;
     public TbImageView l;
@@ -47,7 +47,7 @@ public class NewUserGuideMainFragment extends BaseFragment {
     public Button t;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Hashtable<Integer, TbImageView> f21084e = new Hashtable<>();
+    public final Hashtable<Integer, TbImageView> f21012e = new Hashtable<>();
     public boolean u = false;
     public boolean v = false;
     public boolean w = true;
@@ -58,13 +58,13 @@ public class NewUserGuideMainFragment extends BaseFragment {
 
         /* renamed from: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0210a implements b {
-            public C0210a() {
+        public class C0211a implements b {
+            public C0211a() {
             }
 
             @Override // com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment.b
             public void a() {
-                NewUserGuideMainFragment.this.f21086g.setVisibility(8);
+                NewUserGuideMainFragment.this.f21014g.setVisibility(8);
             }
         }
 
@@ -84,8 +84,8 @@ public class NewUserGuideMainFragment extends BaseFragment {
             } else if (NewUserGuideMainFragment.this.w) {
                 NewUserGuideMainFragment.this.w = false;
                 TiebaStatic.log("newUserInterestSelect");
-                f fVar = new f(NewUserGuideMainFragment.this.r, (InterestFrsData.Tag) view.getTag(), new C0210a());
-                NewUserGuideMainFragment.this.f21086g.setVisibility(0);
+                f fVar = new f(NewUserGuideMainFragment.this.r, (InterestFrsData.Tag) view.getTag(), new C0211a());
+                NewUserGuideMainFragment.this.f21014g.setVisibility(0);
                 fVar.d();
                 NewUserGuideMainFragment.this.w = true;
             }
@@ -117,7 +117,7 @@ public class NewUserGuideMainFragment extends BaseFragment {
         }
         for (int i2 = 0; i2 < tag_list.size(); i2++) {
             InterestFrsData.Tag tag = tag_list.get(i2);
-            if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.f21084e.get(Integer.valueOf(tag.getBid()))) != null) {
+            if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.f21012e.get(Integer.valueOf(tag.getBid()))) != null) {
                 tbImageView.setTag(tag);
                 tbImageView.V(tag.getBicon(), 21, false);
             }
@@ -142,32 +142,32 @@ public class NewUserGuideMainFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         try {
             ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(layoutInflater.getContext()).inflate(R.layout.guide_main, (ViewGroup) null);
-            this.f21085f = viewGroup2;
-            this.f21086g = viewGroup2.findViewById(R.id.root_main_view_cover);
-            this.f21087h = (TbImageView) this.f21085f.findViewById(R.id.icon_1);
-            this.f21088i = (TbImageView) this.f21085f.findViewById(R.id.icon_2);
-            this.j = (TbImageView) this.f21085f.findViewById(R.id.icon_3);
-            this.k = (TbImageView) this.f21085f.findViewById(R.id.icon_4);
-            this.l = (TbImageView) this.f21085f.findViewById(R.id.icon_5);
-            this.m = (TbImageView) this.f21085f.findViewById(R.id.icon_6);
-            this.n = (TbImageView) this.f21085f.findViewById(R.id.icon_7);
-            this.o = (TbImageView) this.f21085f.findViewById(R.id.icon_8);
-            this.p = (TbImageView) this.f21085f.findViewById(R.id.icon_9);
-            this.q = (TbImageView) this.f21085f.findViewById(R.id.icon_10);
-            this.t = (Button) this.f21085f.findViewById(R.id.btn_next);
-            this.f21084e.put(1, this.f21087h);
-            this.f21084e.put(2, this.f21088i);
-            this.f21084e.put(3, this.j);
-            this.f21084e.put(4, this.k);
-            this.f21084e.put(5, this.l);
-            this.f21084e.put(6, this.m);
-            this.f21084e.put(7, this.n);
-            this.f21084e.put(8, this.o);
-            this.f21084e.put(9, this.p);
-            this.f21084e.put(10, this.q);
+            this.f21013f = viewGroup2;
+            this.f21014g = viewGroup2.findViewById(R.id.root_main_view_cover);
+            this.f21015h = (TbImageView) this.f21013f.findViewById(R.id.icon_1);
+            this.f21016i = (TbImageView) this.f21013f.findViewById(R.id.icon_2);
+            this.j = (TbImageView) this.f21013f.findViewById(R.id.icon_3);
+            this.k = (TbImageView) this.f21013f.findViewById(R.id.icon_4);
+            this.l = (TbImageView) this.f21013f.findViewById(R.id.icon_5);
+            this.m = (TbImageView) this.f21013f.findViewById(R.id.icon_6);
+            this.n = (TbImageView) this.f21013f.findViewById(R.id.icon_7);
+            this.o = (TbImageView) this.f21013f.findViewById(R.id.icon_8);
+            this.p = (TbImageView) this.f21013f.findViewById(R.id.icon_9);
+            this.q = (TbImageView) this.f21013f.findViewById(R.id.icon_10);
+            this.t = (Button) this.f21013f.findViewById(R.id.btn_next);
+            this.f21012e.put(1, this.f21015h);
+            this.f21012e.put(2, this.f21016i);
+            this.f21012e.put(3, this.j);
+            this.f21012e.put(4, this.k);
+            this.f21012e.put(5, this.l);
+            this.f21012e.put(6, this.m);
+            this.f21012e.put(7, this.n);
+            this.f21012e.put(8, this.o);
+            this.f21012e.put(9, this.p);
+            this.f21012e.put(10, this.q);
             this.t.setOnClickListener(this.x);
-            this.f21087h.setOnClickListener(this.x);
-            this.f21088i.setOnClickListener(this.x);
+            this.f21015h.setOnClickListener(this.x);
+            this.f21016i.setOnClickListener(this.x);
             this.j.setOnClickListener(this.x);
             this.k.setOnClickListener(this.x);
             this.l.setOnClickListener(this.x);
@@ -177,7 +177,7 @@ public class NewUserGuideMainFragment extends BaseFragment {
             this.p.setOnClickListener(this.x);
             this.p.setOnClickListener(this.x);
             this.q.setOnClickListener(this.x);
-            return this.f21085f;
+            return this.f21013f;
         } catch (InflateException e2) {
             if (!TbadkApplication.getInst().isDebugMode()) {
                 BdLog.e(e2);

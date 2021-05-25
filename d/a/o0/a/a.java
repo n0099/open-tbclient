@@ -1,50 +1,84 @@
 package d.a.o0.a;
 
-import com.baidu.ubs.analytics.SampleResult;
-import d.a.o0.a.c;
-import d.a.o0.a.e.e;
-import d.a.o0.a.e.g;
-import d.a.o0.a.e.j;
-import java.util.Map;
+import android.util.Log;
+import java.util.Locale;
 /* loaded from: classes5.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f64044a = false;
-
-    public static SampleResult a(String str) {
-        if (f64044a) {
-            return c.a.f64065a.f(str);
-        }
-        return SampleResult.OTHERE;
+    public static void a(String str, String str2) {
+        b(str, str2, new Object[0]);
     }
 
-    public static void b(b bVar) {
-        if (bVar == null) {
-            return;
-        }
-        g.b(bVar);
-    }
-
-    public static void c(String str, String str2, String str3, Map<String, String> map) {
-        if (f64044a && str != null) {
-            j.a(str, str2, str3, map);
+    public static void b(String str, String str2, Object... objArr) {
+        String e2 = e(str2, objArr);
+        Throwable g2 = g(objArr);
+        if (g2 != null) {
+            Log.d(i(str), e2, g2);
+        } else {
+            Log.d(i(str), e2);
         }
     }
 
-    public static void d(String str) {
-        if (f64044a) {
-            e.a().b(str);
+    public static void c(String str, String str2, Object... objArr) {
+        String d2 = d(str2, objArr);
+        Throwable g2 = g(objArr);
+        if (g2 != null) {
+            Log.e(i(str), d2, g2);
+        } else {
+            Log.e(i(str), d2);
         }
     }
 
-    public static void e(String str) {
-        if (f64044a) {
-            e.a().c(str);
+    public static String d(String str, Object... objArr) {
+        return (objArr == null || objArr.length == 0) ? str : String.format(Locale.US, str, objArr);
+    }
+
+    public static String e(String str, Object... objArr) {
+        return "[" + f() + "] " + d(str, objArr);
+    }
+
+    public static String f() {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        String name = a.class.getName();
+        int i2 = 0;
+        while (true) {
+            if (i2 >= stackTrace.length) {
+                break;
+            } else if (stackTrace[i2].getClassName().equals(name)) {
+                i2 += 4;
+                break;
+            } else {
+                i2++;
+            }
+        }
+        return stackTrace[i2].getFileName() + ":" + stackTrace[i2].getLineNumber();
+    }
+
+    public static Throwable g(Object[] objArr) {
+        if (objArr == null || objArr.length == 0) {
+            return null;
+        }
+        Object obj = objArr[objArr.length - 1];
+        if (obj instanceof Throwable) {
+            return (Throwable) obj;
+        }
+        return null;
+    }
+
+    public static void h(String str, String str2, Object... objArr) {
+        String d2 = d(str2, objArr);
+        Throwable g2 = g(objArr);
+        if (g2 != null) {
+            Log.i(i(str), d2, g2);
+        } else {
+            Log.i(i(str), d2);
         }
     }
 
-    public static void f(boolean z) {
-        f64044a = z;
+    public static String i(String str) {
+        if (str.startsWith("cr_")) {
+            return str;
+        }
+        int i2 = str.startsWith("cr.") ? 3 : 0;
+        return "cr_" + str.substring(i2, str.length());
     }
 }

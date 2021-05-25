@@ -13,23 +13,23 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f8032a = "a";
+    public static final String f7932a = "a";
 
     /* renamed from: d  reason: collision with root package name */
-    public static Set<Integer> f8033d = new HashSet();
+    public static Set<Integer> f7933d = new HashSet();
 
     /* renamed from: e  reason: collision with root package name */
-    public static List<JNIBaseMap> f8034e = new ArrayList();
+    public static List<JNIBaseMap> f7934e = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8035b = 0;
+    public long f7935b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public JNIBaseMap f8036c;
+    public JNIBaseMap f7936c;
 
     public a() {
-        this.f8036c = null;
-        this.f8036c = new JNIBaseMap();
+        this.f7936c = null;
+        this.f7936c = new JNIBaseMap();
     }
 
     public static int a(long j, int i2, int i3, int i4) {
@@ -37,7 +37,7 @@ public class a {
     }
 
     public static List<JNIBaseMap> b() {
-        return f8034e;
+        return f7934e;
     }
 
     public static void b(long j, boolean z) {
@@ -45,242 +45,242 @@ public class a {
     }
 
     public long a() {
-        return this.f8035b;
+        return this.f7935b;
     }
 
     public long a(int i2, int i3, String str) {
-        return this.f8036c.AddLayer(this.f8035b, i2, i3, str);
+        return this.f7936c.AddLayer(this.f7935b, i2, i3, str);
     }
 
     public String a(int i2, int i3) {
-        return this.f8036c.ScrPtToGeoPoint(this.f8035b, i2, i3);
+        return this.f7936c.ScrPtToGeoPoint(this.f7935b, i2, i3);
     }
 
     public String a(int i2, int i3, int i4, int i5) {
-        return this.f8036c.GetNearlyObjID(this.f8035b, i2, i3, i4, i5);
+        return this.f7936c.GetNearlyObjID(this.f7935b, i2, i3, i4, i5);
     }
 
     public String a(String str) {
-        return this.f8036c.OnSchcityGet(this.f8035b, str);
+        return this.f7936c.OnSchcityGet(this.f7935b, str);
     }
 
     public void a(long j, long j2, long j3, long j4, boolean z) {
-        this.f8036c.setCustomTrafficColor(this.f8035b, j, j2, j3, j4, z);
+        this.f7936c.setCustomTrafficColor(this.f7935b, j, j2, j3, j4, z);
     }
 
     public void a(long j, boolean z) {
-        this.f8036c.ShowLayers(this.f8035b, j, z);
+        this.f7936c.ShowLayers(this.f7935b, j, z);
     }
 
     public void a(Bundle bundle) {
-        this.f8036c.SetMapStatus(this.f8035b, bundle);
+        this.f7936c.SetMapStatus(this.f7935b, bundle);
     }
 
     public void a(String str, Bundle bundle) {
-        this.f8036c.SaveScreenToLocal(this.f8035b, str, bundle);
+        this.f7936c.SaveScreenToLocal(this.f7935b, str, bundle);
     }
 
     public void a(boolean z) {
-        this.f8036c.ShowSatelliteMap(this.f8035b, z);
+        this.f7936c.ShowSatelliteMap(this.f7935b, z);
     }
 
     public void a(Bundle[] bundleArr) {
-        this.f8036c.addOverlayItems(this.f8035b, bundleArr, bundleArr.length);
+        this.f7936c.addOverlayItems(this.f7935b, bundleArr, bundleArr.length);
     }
 
     public boolean a(int i2) {
-        this.f8035b = f8034e.size() == 0 ? this.f8036c.Create() : this.f8036c.CreateDuplicate(f8034e.get(0).f8031a);
-        JNIBaseMap jNIBaseMap = this.f8036c;
-        jNIBaseMap.f8031a = this.f8035b;
-        f8034e.add(jNIBaseMap);
-        f8033d.add(Integer.valueOf(i2));
-        this.f8036c.SetCallback(this.f8035b, null);
+        this.f7935b = f7934e.size() == 0 ? this.f7936c.Create() : this.f7936c.CreateDuplicate(f7934e.get(0).f7931a);
+        JNIBaseMap jNIBaseMap = this.f7936c;
+        jNIBaseMap.f7931a = this.f7935b;
+        f7934e.add(jNIBaseMap);
+        f7933d.add(Integer.valueOf(i2));
+        this.f7936c.SetCallback(this.f7935b, null);
         return true;
     }
 
     public boolean a(int i2, boolean z) {
-        return this.f8036c.OnRecordReload(this.f8035b, i2, z);
+        return this.f7936c.OnRecordReload(this.f7935b, i2, z);
     }
 
     public boolean a(int i2, boolean z, int i3) {
-        return this.f8036c.OnRecordStart(this.f8035b, i2, z, i3);
+        return this.f7936c.OnRecordStart(this.f7935b, i2, z, i3);
     }
 
     public boolean a(long j) {
-        return this.f8036c.LayersIsShow(this.f8035b, j);
+        return this.f7936c.LayersIsShow(this.f7935b, j);
     }
 
     public boolean a(long j, long j2) {
-        return this.f8036c.SwitchLayer(this.f8035b, j, j2);
+        return this.f7936c.SwitchLayer(this.f7935b, j, j2);
     }
 
     public boolean a(String str, String str2) {
-        return this.f8036c.SwitchBaseIndoorMapFloor(this.f8035b, str, str2);
+        return this.f7936c.SwitchBaseIndoorMapFloor(this.f7935b, str, str2);
     }
 
     public boolean a(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i2, String str8, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
-        return this.f8036c.Init(this.f8035b, str, str2, str3, str4, str5, str6, str7, i2, str8, i3, i4, i5, i6, i7, i8, i9);
+        return this.f7936c.Init(this.f7935b, str, str2, str3, str4, str5, str6, str7, i2, str8, i3, i4, i5, i6, i7, i8, i9);
     }
 
     public boolean a(boolean z, boolean z2) {
-        return this.f8036c.OnRecordImport(this.f8035b, z, z2);
+        return this.f7936c.OnRecordImport(this.f7935b, z, z2);
     }
 
     public int[] a(int[] iArr, int i2, int i3) {
-        return this.f8036c.GetScreenBuf(this.f8035b, iArr, i2, i3);
+        return this.f7936c.GetScreenBuf(this.f7935b, iArr, i2, i3);
     }
 
     public String b(int i2, int i3) {
-        return this.f8036c.GeoPtToScrPoint(this.f8035b, i2, i3);
+        return this.f7936c.GeoPtToScrPoint(this.f7935b, i2, i3);
     }
 
     public void b(long j) {
-        this.f8036c.UpdateLayers(this.f8035b, j);
+        this.f7936c.UpdateLayers(this.f7935b, j);
     }
 
     public void b(Bundle bundle) {
-        this.f8036c.setMapStatusLimits(this.f8035b, bundle);
+        this.f7936c.setMapStatusLimits(this.f7935b, bundle);
     }
 
     public void b(boolean z) {
-        this.f8036c.ShowHotMap(this.f8035b, z);
+        this.f7936c.ShowHotMap(this.f7935b, z);
     }
 
     public boolean b(int i2) {
-        this.f8036c.Release(this.f8035b);
-        f8034e.remove(this.f8036c);
-        f8033d.remove(Integer.valueOf(i2));
-        this.f8035b = 0L;
+        this.f7936c.Release(this.f7935b);
+        f7934e.remove(this.f7936c);
+        f7933d.remove(Integer.valueOf(i2));
+        this.f7935b = 0L;
         return true;
     }
 
     public boolean b(int i2, boolean z) {
-        return this.f8036c.OnRecordRemove(this.f8035b, i2, z);
+        return this.f7936c.OnRecordRemove(this.f7935b, i2, z);
     }
 
     public boolean b(int i2, boolean z, int i3) {
-        return this.f8036c.OnRecordSuspend(this.f8035b, i2, z, i3);
+        return this.f7936c.OnRecordSuspend(this.f7935b, i2, z, i3);
     }
 
     public float c(Bundle bundle) {
-        return this.f8036c.GetZoomToBound(this.f8035b, bundle);
+        return this.f7936c.GetZoomToBound(this.f7935b, bundle);
     }
 
     public int c(int i2) {
-        return this.f8036c.SetMapControlMode(this.f8035b, i2);
+        return this.f7936c.SetMapControlMode(this.f7935b, i2);
     }
 
     public void c() {
-        this.f8036c.OnPause(this.f8035b);
+        this.f7936c.OnPause(this.f7935b);
     }
 
     public void c(boolean z) {
-        this.f8036c.ShowTrafficMap(this.f8035b, z);
+        this.f7936c.ShowTrafficMap(this.f7935b, z);
     }
 
     public boolean c(long j) {
-        return this.f8036c.cleanSDKTileDataCache(this.f8035b, j);
+        return this.f7936c.cleanSDKTileDataCache(this.f7935b, j);
     }
 
     public void d() {
-        this.f8036c.OnResume(this.f8035b);
+        this.f7936c.OnResume(this.f7935b);
     }
 
     public void d(long j) {
-        this.f8036c.ClearLayer(this.f8035b, j);
+        this.f7936c.ClearLayer(this.f7935b, j);
     }
 
     public void d(boolean z) {
-        this.f8036c.enableDrawHouseHeight(this.f8035b, z);
+        this.f7936c.enableDrawHouseHeight(this.f7935b, z);
     }
 
     public boolean d(int i2) {
-        return this.f8036c.OnRecordAdd(this.f8035b, i2);
+        return this.f7936c.OnRecordAdd(this.f7935b, i2);
     }
 
     public boolean d(Bundle bundle) {
-        return this.f8036c.updateSDKTile(this.f8035b, bundle);
+        return this.f7936c.updateSDKTile(this.f7935b, bundle);
     }
 
     public String e(int i2) {
-        return this.f8036c.OnRecordGetAt(this.f8035b, i2);
+        return this.f7936c.OnRecordGetAt(this.f7935b, i2);
     }
 
     public String e(long j) {
-        return this.f8036c.getCompassPosition(this.f8035b, j);
+        return this.f7936c.getCompassPosition(this.f7935b, j);
     }
 
     public void e() {
-        this.f8036c.OnBackground(this.f8035b);
+        this.f7936c.OnBackground(this.f7935b);
     }
 
     public void e(boolean z) {
-        this.f8036c.ShowBaseIndoorMap(this.f8035b, z);
+        this.f7936c.ShowBaseIndoorMap(this.f7935b, z);
     }
 
     public boolean e(Bundle bundle) {
-        return this.f8036c.addtileOverlay(this.f8035b, bundle);
+        return this.f7936c.addtileOverlay(this.f7935b, bundle);
     }
 
     public void f() {
-        this.f8036c.OnForeground(this.f8035b);
+        this.f7936c.OnForeground(this.f7935b);
     }
 
     public void f(Bundle bundle) {
-        this.f8036c.addOneOverlayItem(this.f8035b, bundle);
+        this.f7936c.addOneOverlayItem(this.f7935b, bundle);
     }
 
     public void g() {
-        this.f8036c.ResetImageRes(this.f8035b);
+        this.f7936c.ResetImageRes(this.f7935b);
     }
 
     public void g(Bundle bundle) {
-        this.f8036c.updateOneOverlayItem(this.f8035b, bundle);
+        this.f7936c.updateOneOverlayItem(this.f7935b, bundle);
     }
 
     public Bundle h() {
-        return this.f8036c.GetMapStatus(this.f8035b);
+        return this.f7936c.GetMapStatus(this.f7935b);
     }
 
     public void h(Bundle bundle) {
-        this.f8036c.removeOneOverlayItem(this.f8035b, bundle);
+        this.f7936c.removeOneOverlayItem(this.f7935b, bundle);
     }
 
     public Bundle i() {
-        return this.f8036c.getMapStatusLimits(this.f8035b);
+        return this.f7936c.getMapStatusLimits(this.f7935b);
     }
 
     public Bundle j() {
-        return this.f8036c.getDrawingMapStatus(this.f8035b);
+        return this.f7936c.getDrawingMapStatus(this.f7935b);
     }
 
     public boolean k() {
-        return this.f8036c.GetBaiduHotMapCityInfo(this.f8035b);
+        return this.f7936c.GetBaiduHotMapCityInfo(this.f7935b);
     }
 
     public String l() {
-        return this.f8036c.OnRecordGetAll(this.f8035b);
+        return this.f7936c.OnRecordGetAll(this.f7935b);
     }
 
     public String m() {
-        return this.f8036c.OnHotcityGet(this.f8035b);
+        return this.f7936c.OnHotcityGet(this.f7935b);
     }
 
     public void n() {
-        this.f8036c.PostStatInfo(this.f8035b);
+        this.f7936c.PostStatInfo(this.f7935b);
     }
 
     public boolean o() {
-        return this.f8036c.isDrawHouseHeightEnable(this.f8035b);
+        return this.f7936c.isDrawHouseHeightEnable(this.f7935b);
     }
 
     public void p() {
-        this.f8036c.clearHeatMapLayerCache(this.f8035b);
+        this.f7936c.clearHeatMapLayerCache(this.f7935b);
     }
 
     public MapBaseIndoorMapInfo q() {
         JSONArray optJSONArray;
-        String str = this.f8036c.getfocusedBaseIndoorMapInfo(this.f8035b);
+        String str = this.f7936c.getfocusedBaseIndoorMapInfo(this.f7935b);
         if (str == null) {
             return null;
         }
@@ -305,34 +305,34 @@ public class a {
     }
 
     public boolean r() {
-        return this.f8036c.IsBaseIndoorMapMode(this.f8035b);
+        return this.f7936c.IsBaseIndoorMapMode(this.f7935b);
     }
 
     public void s() {
-        this.f8036c.setBackgroundTransparent(this.f8035b);
+        this.f7936c.setBackgroundTransparent(this.f7935b);
     }
 
     public void t() {
-        this.f8036c.resetBackgroundTransparent(this.f8035b);
+        this.f7936c.resetBackgroundTransparent(this.f7935b);
     }
 
     public float[] u() {
-        JNIBaseMap jNIBaseMap = this.f8036c;
+        JNIBaseMap jNIBaseMap = this.f7936c;
         if (jNIBaseMap == null) {
             return null;
         }
         float[] fArr = new float[16];
-        jNIBaseMap.getProjectionMatrix(this.f8035b, fArr, 16);
+        jNIBaseMap.getProjectionMatrix(this.f7935b, fArr, 16);
         return fArr;
     }
 
     public float[] v() {
-        JNIBaseMap jNIBaseMap = this.f8036c;
+        JNIBaseMap jNIBaseMap = this.f7936c;
         if (jNIBaseMap == null) {
             return null;
         }
         float[] fArr = new float[16];
-        jNIBaseMap.getViewMatrix(this.f8035b, fArr, 16);
+        jNIBaseMap.getViewMatrix(this.f7935b, fArr, 16);
         return fArr;
     }
 }

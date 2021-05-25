@@ -36,31 +36,31 @@ import org.json.JSONObject;
 public class HttpClientWrap {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f9051c = "encode";
+    public static final String f8951c = "encode";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f9052d = "ua";
+    public static final String f8952d = "ua";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f9053e = "cuid_2";
+    public static final String f8953e = "cuid_2";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f9054f = "reqid";
+    public static final String f8954f = "reqid";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f9055g = "sp_params";
+    public static final String f8955g = "sp_params";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f9056h = "s1";
+    public static final String f8956h = "s1";
 
     /* renamed from: a  reason: collision with root package name */
-    public PassHttpClient f9057a = PassHttpClient.getInstance();
+    public PassHttpClient f8957a = PassHttpClient.getInstance();
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f9058b;
+    public Context f8958b;
 
     public HttpClientWrap(Context context) {
-        this.f9058b = context;
+        this.f8958b = context;
     }
 
     private PassHttpParamDTO a(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, int i2) {
@@ -134,7 +134,7 @@ public class HttpClientWrap {
     }
 
     public void get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, int i2, final HttpHandlerWrap httpHandlerWrap) {
-        this.f9057a.get(this.f9058b, a(str, reqPriority, httpHashMap, list, i2), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
+        this.f8957a.get(this.f8958b, a(str, reqPriority, httpHashMap, list, i2), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
             @Override // com.baidu.pass.http.HttpResponseHandler
             public void onFailure(Throwable th, String str2) {
                 httpHandlerWrap.onFailure(th, -1, str2);
@@ -166,14 +166,14 @@ public class HttpClientWrap {
         passHttpParamDTO.url = str;
         passHttpParamDTO.paramsMap = httpHashMap;
         passHttpParamDTO.cookie = list;
-        passHttpParamDTO.userAgent = PassBiometricUtil.getUA(this.f9058b, BeanConstants.tpl);
+        passHttpParamDTO.userAgent = PassBiometricUtil.getUA(this.f8958b, BeanConstants.tpl);
         passHttpParamDTO.connectTimeout = i2;
         passHttpParamDTO.asyncCookie = true;
         return passHttpParamDTO;
     }
 
     public void post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, int i2, final HttpHandlerWrap httpHandlerWrap) {
-        this.f9057a.post(this.f9058b, a(str, reqPriority, httpHashMap, list, i2), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
+        this.f8957a.post(this.f8958b, a(str, reqPriority, httpHashMap, list, i2), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
             @Override // com.baidu.pass.http.HttpResponseHandler
             public void onFailure(Throwable th, String str2) {
                 httpHandlerWrap.onFailure(th, -1, str2);
@@ -201,7 +201,7 @@ public class HttpClientWrap {
     }
 
     public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i2, final BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
-        this.f9057a.get(this.f9058b, a(str, httpHashMap, list, i2), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
+        this.f8957a.get(this.f8958b, a(str, httpHashMap, list, i2), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
             @Override // com.baidu.pass.http.HttpResponseHandler
             public void onFailure(Throwable th, String str2) {
                 binaryHttpHandlerWrap.onFailure(th, -1, str2);

@@ -19,17 +19,17 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
     public static final int LOG_ID_FIELD_NUMBER = 3;
     public static final int METHOD_ID_FIELD_NUMBER = 2;
     public static final int NEED_COMMON_FIELD_NUMBER = 4;
-    public static final Parser<RpcMetaPb$RpcRequestMeta> PARSER = new a();
+    public static Parser<RpcMetaPb$RpcRequestMeta> PARSER = new a();
     public static final int SERVICE_ID_FIELD_NUMBER = 1;
     public static final RpcMetaPb$RpcRequestMeta defaultInstance;
     public static final long serialVersionUID = 0;
-    public int bitField0;
-    public long logId;
+    public int bitField0_;
+    public long logId_;
     public byte memoizedIsInitialized;
     public int memoizedSerializedSize;
-    public long methodId;
-    public int needCommon;
-    public long serviceId;
+    public long methodId_;
+    public int needCommon_;
+    public long serviceId_;
 
     /* loaded from: classes2.dex */
     public static class a extends AbstractParser<RpcMetaPb$RpcRequestMeta> {
@@ -45,19 +45,19 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcRequestMeta, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6461e;
+        public int f6361e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6462f;
+        public long f6362f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f6463g;
+        public long f6363g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f6464h;
+        public long f6364h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f6465i;
+        public int f6365i;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -103,38 +103,38 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
         /* renamed from: n */
         public RpcMetaPb$RpcRequestMeta buildPartial() {
             RpcMetaPb$RpcRequestMeta rpcMetaPb$RpcRequestMeta = new RpcMetaPb$RpcRequestMeta(this);
-            int i2 = this.f6461e;
+            int i2 = this.f6361e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            rpcMetaPb$RpcRequestMeta.serviceId = this.f6462f;
+            rpcMetaPb$RpcRequestMeta.serviceId_ = this.f6362f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            rpcMetaPb$RpcRequestMeta.methodId = this.f6463g;
+            rpcMetaPb$RpcRequestMeta.methodId_ = this.f6363g;
             if ((i2 & 4) == 4) {
                 i3 |= 4;
             }
-            rpcMetaPb$RpcRequestMeta.logId = this.f6464h;
+            rpcMetaPb$RpcRequestMeta.logId_ = this.f6364h;
             if ((i2 & 8) == 8) {
                 i3 |= 8;
             }
-            rpcMetaPb$RpcRequestMeta.needCommon = this.f6465i;
-            rpcMetaPb$RpcRequestMeta.bitField0 = i3;
+            rpcMetaPb$RpcRequestMeta.needCommon_ = this.f6365i;
+            rpcMetaPb$RpcRequestMeta.bitField0_ = i3;
             return rpcMetaPb$RpcRequestMeta;
         }
 
         public b o() {
             super.clear();
-            this.f6462f = 0L;
-            int i2 = this.f6461e & (-2);
-            this.f6461e = i2;
-            this.f6463g = 0L;
+            this.f6362f = 0L;
+            int i2 = this.f6361e & (-2);
+            this.f6361e = i2;
+            this.f6363g = 0L;
             int i3 = i2 & (-3);
-            this.f6461e = i3;
-            this.f6464h = 0L;
+            this.f6361e = i3;
+            this.f6364h = 0L;
             int i4 = i3 & (-5);
-            this.f6461e = i4;
-            this.f6465i = 0;
-            this.f6461e = i4 & (-9);
+            this.f6361e = i4;
+            this.f6365i = 0;
+            this.f6361e = i4 & (-9);
             return this;
         }
 
@@ -208,26 +208,26 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
         }
 
         public b u(long j) {
-            this.f6461e |= 4;
-            this.f6464h = j;
+            this.f6361e |= 4;
+            this.f6364h = j;
             return this;
         }
 
         public b v(long j) {
-            this.f6461e |= 2;
-            this.f6463g = j;
+            this.f6361e |= 2;
+            this.f6363g = j;
             return this;
         }
 
         public b w(int i2) {
-            this.f6461e |= 8;
-            this.f6465i = i2;
+            this.f6361e |= 8;
+            this.f6365i = i2;
             return this;
         }
 
         public b x(long j) {
-            this.f6461e |= 1;
-            this.f6462f = j;
+            this.f6361e |= 1;
+            this.f6362f = j;
             return this;
         }
 
@@ -263,10 +263,10 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
     }
 
     private void initFields() {
-        this.serviceId = 0L;
-        this.methodId = 0L;
-        this.logId = 0L;
-        this.needCommon = 0;
+        this.serviceId_ = 0L;
+        this.methodId_ = 0L;
+        this.logId_ = 0L;
+        this.needCommon_ = 0;
     }
 
     public static b newBuilder() {
@@ -282,15 +282,15 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
     }
 
     public long getLogId() {
-        return this.logId;
+        return this.logId_;
     }
 
     public long getMethodId() {
-        return this.methodId;
+        return this.methodId_;
     }
 
     public int getNeedCommon() {
-        return this.needCommon;
+        return this.needCommon_;
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
@@ -304,38 +304,38 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
         if (i2 != -1) {
             return i2;
         }
-        int computeInt64Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.serviceId) : 0;
-        if ((this.bitField0 & 2) == 2) {
-            computeInt64Size += CodedOutputStream.computeInt64Size(2, this.methodId);
+        int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.serviceId_) : 0;
+        if ((this.bitField0_ & 2) == 2) {
+            computeInt64Size += CodedOutputStream.computeInt64Size(2, this.methodId_);
         }
-        if ((this.bitField0 & 4) == 4) {
-            computeInt64Size += CodedOutputStream.computeInt64Size(3, this.logId);
+        if ((this.bitField0_ & 4) == 4) {
+            computeInt64Size += CodedOutputStream.computeInt64Size(3, this.logId_);
         }
-        if ((this.bitField0 & 8) == 8) {
-            computeInt64Size += CodedOutputStream.computeInt32Size(4, this.needCommon);
+        if ((this.bitField0_ & 8) == 8) {
+            computeInt64Size += CodedOutputStream.computeInt32Size(4, this.needCommon_);
         }
         this.memoizedSerializedSize = computeInt64Size;
         return computeInt64Size;
     }
 
     public long getServiceId() {
-        return this.serviceId;
+        return this.serviceId_;
     }
 
     public boolean hasLogId() {
-        return (this.bitField0 & 4) == 4;
+        return (this.bitField0_ & 4) == 4;
     }
 
     public boolean hasMethodId() {
-        return (this.bitField0 & 2) == 2;
+        return (this.bitField0_ & 2) == 2;
     }
 
     public boolean hasNeedCommon() {
-        return (this.bitField0 & 8) == 8;
+        return (this.bitField0_ & 8) == 8;
     }
 
     public boolean hasServiceId() {
-        return (this.bitField0 & 1) == 1;
+        return (this.bitField0_ & 1) == 1;
     }
 
     @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -356,17 +356,17 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
     @Override // com.google.protobuf.MessageLite
     public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
         getSerializedSize();
-        if ((this.bitField0 & 1) == 1) {
-            codedOutputStream.writeInt64(1, this.serviceId);
+        if ((this.bitField0_ & 1) == 1) {
+            codedOutputStream.writeInt64(1, this.serviceId_);
         }
-        if ((this.bitField0 & 2) == 2) {
-            codedOutputStream.writeInt64(2, this.methodId);
+        if ((this.bitField0_ & 2) == 2) {
+            codedOutputStream.writeInt64(2, this.methodId_);
         }
-        if ((this.bitField0 & 4) == 4) {
-            codedOutputStream.writeInt64(3, this.logId);
+        if ((this.bitField0_ & 4) == 4) {
+            codedOutputStream.writeInt64(3, this.logId_);
         }
-        if ((this.bitField0 & 8) == 8) {
-            codedOutputStream.writeInt32(4, this.needCommon);
+        if ((this.bitField0_ & 8) == 8) {
+            codedOutputStream.writeInt32(4, this.needCommon_);
         }
     }
 
@@ -449,20 +449,20 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
                         int readTag = codedInputStream.readTag();
                         if (readTag != 0) {
                             if (readTag == 8) {
-                                this.bitField0 |= 1;
-                                this.serviceId = codedInputStream.readInt64();
+                                this.bitField0_ |= 1;
+                                this.serviceId_ = codedInputStream.readInt64();
                             } else if (readTag == 16) {
-                                this.bitField0 |= 2;
-                                this.methodId = codedInputStream.readInt64();
+                                this.bitField0_ |= 2;
+                                this.methodId_ = codedInputStream.readInt64();
                             } else if (readTag == 24) {
-                                this.bitField0 |= 4;
-                                this.logId = codedInputStream.readInt64();
+                                this.bitField0_ |= 4;
+                                this.logId_ = codedInputStream.readInt64();
                             } else if (readTag != 32) {
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                 }
                             } else {
-                                this.bitField0 |= 8;
-                                this.needCommon = codedInputStream.readInt32();
+                                this.bitField0_ |= 8;
+                                this.needCommon_ = codedInputStream.readInt32();
                             }
                         }
                         z = true;

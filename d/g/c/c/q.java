@@ -8,23 +8,23 @@ import java.util.Iterator;
 public abstract class q<E> implements Iterable<E> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Optional<Iterable<E>> f66258e;
+    public final Optional<Iterable<E>> f66301e;
 
     /* loaded from: classes6.dex */
     public static class a extends q<E> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterable f66259f;
+        public final /* synthetic */ Iterable f66302f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Iterable iterable, Iterable iterable2) {
             super(iterable);
-            this.f66259f = iterable2;
+            this.f66302f = iterable2;
         }
 
         @Override // java.lang.Iterable
         public Iterator<E> iterator() {
-            return this.f66259f.iterator();
+            return this.f66302f.iterator();
         }
     }
 
@@ -32,7 +32,7 @@ public abstract class q<E> implements Iterable<E> {
     public static class b extends q<T> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterable[] f66260f;
+        public final /* synthetic */ Iterable[] f66303f;
 
         /* loaded from: classes6.dex */
         public class a extends d.g.c.c.a<Iterator<? extends T>> {
@@ -44,22 +44,22 @@ public abstract class q<E> implements Iterable<E> {
             @Override // d.g.c.c.a
             /* renamed from: b */
             public Iterator<? extends T> a(int i2) {
-                return b.this.f66260f[i2].iterator();
+                return b.this.f66303f[i2].iterator();
             }
         }
 
         public b(Iterable[] iterableArr) {
-            this.f66260f = iterableArr;
+            this.f66303f = iterableArr;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
-            return Iterators.e(new a(this.f66260f.length));
+            return Iterators.e(new a(this.f66303f.length));
         }
     }
 
     public q() {
-        this.f66258e = Optional.absent();
+        this.f66301e = Optional.absent();
     }
 
     public static <T> q<T> a(Iterable<? extends T> iterable, Iterable<? extends T> iterable2) {
@@ -82,7 +82,7 @@ public abstract class q<E> implements Iterable<E> {
     }
 
     public final Iterable<E> e() {
-        return this.f66258e.or((Optional<Iterable<E>>) this);
+        return this.f66301e.or((Optional<Iterable<E>>) this);
     }
 
     public final ImmutableSet<E> f() {
@@ -95,6 +95,6 @@ public abstract class q<E> implements Iterable<E> {
 
     public q(Iterable<E> iterable) {
         d.g.c.a.n.p(iterable);
-        this.f66258e = Optional.fromNullable(this == iterable ? null : iterable);
+        this.f66301e = Optional.fromNullable(this == iterable ? null : iterable);
     }
 }

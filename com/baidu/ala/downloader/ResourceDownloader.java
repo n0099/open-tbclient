@@ -9,8 +9,8 @@ import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.download.DownloadData;
 import d.a.c.e.p.j;
-import d.a.j0.v.c;
-import d.a.j0.v.d;
+import d.a.m0.v.c;
+import d.a.m0.v.d;
 import java.io.File;
 import java.util.Vector;
 /* loaded from: classes.dex */
@@ -80,14 +80,14 @@ public class ResourceDownloader {
             downloadData.setCheck(str6);
             downloadData.setType(19);
             downloadData.setCallback(new c() { // from class: com.baidu.ala.downloader.ResourceDownloader.2
-                @Override // d.a.j0.v.c
+                @Override // d.a.m0.v.c
                 public void onFileDownloadFailed(DownloadData downloadData2, int i2, String str9) {
                     ResourceDownloader.removeDownloadingResId(downloadData2.getId());
                     ResourceDownloader.sendDownloadStatusMessage(5, downloadData2);
                     BdLog.e("failed to donwload dynamic zip" + str9);
                 }
 
-                @Override // d.a.j0.v.c
+                @Override // d.a.m0.v.c
                 public void onFileDownloadSucceed(final DownloadData downloadData2) {
                     new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.ala.downloader.ResourceDownloader.2.1
                         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -130,18 +130,18 @@ public class ResourceDownloader {
                     }.execute(new Void[0]);
                 }
 
-                @Override // d.a.j0.v.c
+                @Override // d.a.m0.v.c
                 public boolean onFileDownloaded(DownloadData downloadData2) {
                     ResourceDownloader.sendDownloadStatusMessage(3, downloadData2);
                     return true;
                 }
 
-                @Override // d.a.j0.v.c
+                @Override // d.a.m0.v.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
                     ResourceDownloader.sendDownloadStatusMessage(2, downloadData2);
                 }
 
-                @Override // d.a.j0.v.c
+                @Override // d.a.m0.v.c
                 public boolean onPreDownload(DownloadData downloadData2) {
                     if (j.H() || z) {
                         ResourceDownloader.sendDownloadStatusMessage(1, downloadData2);

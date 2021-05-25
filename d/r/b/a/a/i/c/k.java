@@ -3,15 +3,15 @@ package d.r.b.a.a.i.c;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67798a;
+    public int f67841a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67799b;
+    public int f67842b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67800c;
+    public int f67843c;
 
     public String toString() {
-        return "PropsInfo{propid=" + this.f67798a + ", count=" + this.f67799b + ", type=" + this.f67800c + '}';
+        return "PropsInfo{propid=" + this.f67841a + ", count=" + this.f67842b + ", type=" + this.f67843c + '}';
     }
 }

@@ -16,19 +16,19 @@ import com.baidu.tieba.R;
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f18164e;
+    public RelativeLayout f18074e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f18165f;
+    public TextView f18075f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f18166g;
+    public TbPageContext<?> f18076g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f18167h;
+    public Context f18077h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18168i;
+    public TextView f18078i;
 
     public SearchPageFocusBar(Context context) {
         super(context);
@@ -36,17 +36,17 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     }
 
     public final void a(Context context, AttributeSet attributeSet) {
-        this.f18167h = context;
+        this.f18077h = context;
         LayoutInflater.from(context).inflate(R.layout.home_search_focusbar, this);
-        this.f18164e = (RelativeLayout) findViewById(R.id.focusbar_container);
+        this.f18074e = (RelativeLayout) findViewById(R.id.focusbar_container);
         TextView textView = (TextView) findViewById(R.id.focusbar_hint);
-        this.f18168i = textView;
+        this.f18078i = textView;
         SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
-        this.f18168i.setVisibility(8);
+        this.f18078i.setVisibility(8);
         TextView textView2 = (TextView) findViewById(R.id.focusbar_show);
-        this.f18165f = textView2;
+        this.f18075f = textView2;
         SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1);
-        this.f18165f.setVisibility(8);
+        this.f18075f.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
@@ -56,7 +56,7 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
             if (StringUtils.isNull(charSequence)) {
                 return;
             }
-            this.f18166g.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18166g.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
+            this.f18076g.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18076g.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
         }
     }
 

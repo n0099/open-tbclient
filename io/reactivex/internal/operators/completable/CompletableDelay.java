@@ -35,15 +35,15 @@ public final class CompletableDelay extends Completable {
         public final class OnError implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final Throwable f68915e;
+            public final Throwable f68958e;
 
             public OnError(Throwable th) {
-                this.f68915e = th;
+                this.f68958e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                Delay.this.s.onError(this.f68915e);
+                Delay.this.s.onError(this.f68958e);
             }
         }
 

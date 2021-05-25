@@ -17,36 +17,36 @@ import com.baidu.apollon.utils.ResUtils;
 public abstract class BaseDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f3587a;
+    public TextView f3590a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f3588b;
+    public LinearLayout f3591b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f3589c;
+    public Button f3592c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f3590d;
+    public Button f3593d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageButton f3591e;
+    public ImageButton f3594e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f3592f;
+    public View f3595f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout.LayoutParams f3593g;
+    public LinearLayout.LayoutParams f3596g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LayoutInflater f3594h;
+    public LayoutInflater f3597h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f3595i;
+    public View.OnClickListener f3598i;
     public Context mContext;
 
     public BaseDialog(Context context) {
         super(context, ResUtils.style(context, "ApollonPromptDialog"));
-        this.f3595i = new View.OnClickListener() { // from class: com.baidu.apollon.base.widget.BaseDialog.1
+        this.f3598i = new View.OnClickListener() { // from class: com.baidu.apollon.base.widget.BaseDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BaseDialog.this.dismiss();
@@ -56,8 +56,8 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void addContentView(View view) {
-        this.f3588b.removeAllViews();
-        this.f3588b.addView(view, this.f3593g);
+        this.f3591b.removeAllViews();
+        this.f3591b.addView(view, this.f3596g);
     }
 
     public void hideButtons() {
@@ -65,30 +65,30 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void hideNegativeButton() {
-        Button button = this.f3590d;
+        Button button = this.f3593d;
         if (button != null) {
             button.setVisibility(8);
         }
-        View view = this.f3592f;
+        View view = this.f3595f;
         if (view != null) {
             view.setVisibility(8);
         }
-        this.f3589c.setBackgroundResource(ResUtils.drawable(this.mContext, "wallet_base_dialog_btn_selector"));
+        this.f3592c.setBackgroundResource(ResUtils.drawable(this.mContext, "wallet_base_dialog_btn_selector"));
     }
 
     public void hidePositiveButton() {
-        Button button = this.f3589c;
+        Button button = this.f3592c;
         if (button != null) {
             button.setVisibility(8);
         }
-        View view = this.f3592f;
+        View view = this.f3595f;
         if (view != null) {
             view.setVisibility(8);
         }
     }
 
     public void hideTitle() {
-        this.f3587a.setVisibility(8);
+        this.f3590a.setVisibility(8);
     }
 
     public void hideTitleLine() {
@@ -100,45 +100,45 @@ public abstract class BaseDialog extends Dialog {
         super.onCreate(bundle);
         requestWindowFeature(1);
         setContentView(ResUtils.layout(this.mContext, "wallet_base_layout_dialog_base"));
-        this.f3587a = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_title"));
-        this.f3589c = (Button) findViewById(ResUtils.id(this.mContext, "positive_btn"));
-        this.f3590d = (Button) findViewById(ResUtils.id(this.mContext, "negative_btn"));
-        this.f3591e = (ImageButton) findViewById(ResUtils.id(this.mContext, "dialog_title_close"));
-        this.f3592f = findViewById(ResUtils.id(this.mContext, "btn_line"));
-        this.f3589c.setOnClickListener(this.f3595i);
-        this.f3590d.setOnClickListener(this.f3595i);
-        this.f3591e.setOnClickListener(this.f3595i);
-        this.f3588b = (LinearLayout) findViewById(ResUtils.id(this.mContext, "dialog_content_layout"));
+        this.f3590a = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_title"));
+        this.f3592c = (Button) findViewById(ResUtils.id(this.mContext, "positive_btn"));
+        this.f3593d = (Button) findViewById(ResUtils.id(this.mContext, "negative_btn"));
+        this.f3594e = (ImageButton) findViewById(ResUtils.id(this.mContext, "dialog_title_close"));
+        this.f3595f = findViewById(ResUtils.id(this.mContext, "btn_line"));
+        this.f3592c.setOnClickListener(this.f3598i);
+        this.f3593d.setOnClickListener(this.f3598i);
+        this.f3594e.setOnClickListener(this.f3598i);
+        this.f3591b = (LinearLayout) findViewById(ResUtils.id(this.mContext, "dialog_content_layout"));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        this.f3593g = layoutParams;
+        this.f3596g = layoutParams;
         layoutParams.gravity = 17;
-        this.f3594h = LayoutInflater.from(this.mContext);
+        this.f3597h = LayoutInflater.from(this.mContext);
         setCanceledOnTouchOutside(false);
         setCancelable(false);
     }
 
     public void setNegativeBtn(View.OnClickListener onClickListener) {
-        Button button = this.f3590d;
+        Button button = this.f3593d;
         if (button != null) {
             if (onClickListener == null) {
-                onClickListener = this.f3595i;
+                onClickListener = this.f3598i;
             }
             button.setOnClickListener(onClickListener);
         }
     }
 
     public void setPositiveBtn(View.OnClickListener onClickListener) {
-        Button button = this.f3589c;
+        Button button = this.f3592c;
         if (button != null) {
             if (onClickListener == null) {
-                onClickListener = this.f3595i;
+                onClickListener = this.f3598i;
             }
             button.setOnClickListener(onClickListener);
         }
     }
 
     public void setTitleText(int i2) {
-        TextView textView = this.f3587a;
+        TextView textView = this.f3590a;
         if (textView == null) {
             return;
         }
@@ -146,7 +146,7 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void setTitleTextBackgroud(int i2) {
-        TextView textView = this.f3587a;
+        TextView textView = this.f3590a;
         if (textView == null) {
             return;
         }
@@ -154,43 +154,43 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void showCloseBtn(boolean z) {
-        ImageButton imageButton = this.f3591e;
+        ImageButton imageButton = this.f3594e;
         if (imageButton != null) {
             imageButton.setVisibility(z ? 0 : 4);
         }
     }
 
     public void addContentView(View view, LinearLayout.LayoutParams layoutParams) {
-        this.f3588b.removeAllViews();
-        this.f3588b.addView(view, layoutParams);
+        this.f3591b.removeAllViews();
+        this.f3591b.addView(view, layoutParams);
     }
 
     public void setNegativeBtn(int i2, View.OnClickListener onClickListener) {
-        Button button = this.f3590d;
+        Button button = this.f3593d;
         if (button != null) {
             button.setText(i2);
-            Button button2 = this.f3590d;
+            Button button2 = this.f3593d;
             if (onClickListener == null) {
-                onClickListener = this.f3595i;
+                onClickListener = this.f3598i;
             }
             button2.setOnClickListener(onClickListener);
         }
     }
 
     public void setPositiveBtn(int i2, View.OnClickListener onClickListener) {
-        Button button = this.f3589c;
+        Button button = this.f3592c;
         if (button != null) {
             button.setText(i2);
-            Button button2 = this.f3589c;
+            Button button2 = this.f3592c;
             if (onClickListener == null) {
-                onClickListener = this.f3595i;
+                onClickListener = this.f3598i;
             }
             button2.setOnClickListener(onClickListener);
         }
     }
 
     public void setTitleText(String str) {
-        TextView textView = this.f3587a;
+        TextView textView = this.f3590a;
         if (textView == null) {
             return;
         }
@@ -199,7 +199,7 @@ public abstract class BaseDialog extends Dialog {
 
     public BaseDialog(Context context, int i2) {
         super(context, i2);
-        this.f3595i = new View.OnClickListener() { // from class: com.baidu.apollon.base.widget.BaseDialog.1
+        this.f3598i = new View.OnClickListener() { // from class: com.baidu.apollon.base.widget.BaseDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BaseDialog.this.dismiss();
@@ -209,48 +209,48 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void addContentView(int i2) {
-        this.f3588b.removeAllViews();
-        this.f3588b.addView(this.f3594h.inflate(i2, (ViewGroup) null), this.f3593g);
+        this.f3591b.removeAllViews();
+        this.f3591b.addView(this.f3597h.inflate(i2, (ViewGroup) null), this.f3596g);
     }
 
     public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
-        if (this.f3590d != null) {
+        if (this.f3593d != null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f3590d.setText(str);
+                this.f3593d.setText(str);
             }
-            Button button = this.f3590d;
+            Button button = this.f3593d;
             if (onClickListener == null) {
-                onClickListener = this.f3595i;
+                onClickListener = this.f3598i;
             }
             button.setOnClickListener(onClickListener);
         }
     }
 
     public void setPositiveBtn(SpannableString spannableString, View.OnClickListener onClickListener) {
-        Button button = this.f3589c;
+        Button button = this.f3592c;
         if (button != null) {
             button.setText(spannableString);
-            Button button2 = this.f3589c;
+            Button button2 = this.f3592c;
             if (onClickListener == null) {
-                onClickListener = this.f3595i;
+                onClickListener = this.f3598i;
             }
             button2.setOnClickListener(onClickListener);
         }
     }
 
     public void addContentView(int i2, LinearLayout.LayoutParams layoutParams) {
-        this.f3588b.removeAllViews();
-        this.f3588b.addView(this.f3594h.inflate(i2, (ViewGroup) null), layoutParams);
+        this.f3591b.removeAllViews();
+        this.f3591b.addView(this.f3597h.inflate(i2, (ViewGroup) null), layoutParams);
     }
 
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
-        if (this.f3589c != null) {
+        if (this.f3592c != null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f3589c.setText(str);
+                this.f3592c.setText(str);
             }
-            Button button = this.f3589c;
+            Button button = this.f3592c;
             if (onClickListener == null) {
-                onClickListener = this.f3595i;
+                onClickListener = this.f3598i;
             }
             button.setOnClickListener(onClickListener);
         }

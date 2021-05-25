@@ -10,8 +10,8 @@ import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.tieba.advert.sdk.data.AdType;
 import d.a.c.e.l.d;
 import d.a.c.e.p.k;
-import d.a.k0.r.a.f.c;
-import d.a.k0.r.a.i.b;
+import d.a.n0.t.a.f.c;
+import d.a.n0.t.a.i.b;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,19 +19,19 @@ import org.json.JSONObject;
 public class BCAdView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.k0.r.a.g.a f13719e;
+    public d.a.n0.t.a.g.a f13622e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BCAdView f13720f;
+    public BCAdView f13623f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f13721g;
+    public TbImageView f13624g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext<?> f13722h;
+    public TbPageContext<?> f13625h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f13723i;
+    public Context f13626i;
     public AdInfo j;
     public AdInfo k;
     public String l;
@@ -41,24 +41,24 @@ public class BCAdView extends RelativeLayout {
     public c p;
 
     /* loaded from: classes4.dex */
-    public static class a implements b.InterfaceC1575b {
+    public static class a implements b.InterfaceC1608b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<BCAdView> f13724a;
+        public final WeakReference<BCAdView> f13627a;
 
         /* renamed from: b  reason: collision with root package name */
-        public AdInfo f13725b;
+        public AdInfo f13628b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f13726c;
+        public c f13629c;
 
         /* renamed from: d  reason: collision with root package name */
-        public AdType f13727d;
+        public AdType f13630d;
 
         /* renamed from: com.baidu.tieba.advert.sdk.view.BCAdView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0167a extends d.a.c.e.l.c<d.a.c.j.d.a> {
-            public C0167a(a aVar) {
+        public class C0168a extends d.a.c.e.l.c<d.a.c.j.d.a> {
+            public C0168a(a aVar) {
             }
 
             @Override // d.a.c.e.l.c
@@ -74,28 +74,28 @@ public class BCAdView extends RelativeLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.c.e.l.c
             public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
-                super.onLoaded((C0167a) aVar, str, i2);
+                super.onLoaded((C0168a) aVar, str, i2);
             }
         }
 
         public a(BCAdView bCAdView) {
-            this.f13725b = bCAdView.k;
-            this.f13726c = bCAdView.p;
-            this.f13727d = bCAdView.o;
-            this.f13724a = new WeakReference<>(bCAdView);
+            this.f13628b = bCAdView.k;
+            this.f13629c = bCAdView.p;
+            this.f13630d = bCAdView.o;
+            this.f13627a = new WeakReference<>(bCAdView);
         }
 
-        @Override // d.a.k0.r.a.i.b.InterfaceC1575b
+        @Override // d.a.n0.t.a.i.b.InterfaceC1608b
         public void a(String str) {
-            BCAdView bCAdView = this.f13724a.get();
+            BCAdView bCAdView = this.f13627a.get();
             if (bCAdView == null) {
                 return;
             }
             try {
                 if (!TextUtils.isEmpty(str)) {
-                    d.a.k0.r.a.f.a aVar = new d.a.k0.r.a.f.a(new JSONObject(str));
-                    if (bCAdView.f13719e != null) {
-                        bCAdView.f13719e.b(aVar);
+                    d.a.n0.t.a.f.a aVar = new d.a.n0.t.a.f.a(new JSONObject(str));
+                    if (bCAdView.f13622e != null) {
+                        bCAdView.f13622e.b(aVar);
                     }
                 }
                 if (bCAdView.o == AdType.SPLASH) {
@@ -108,20 +108,20 @@ public class BCAdView extends RelativeLayout {
             }
         }
 
-        @Override // d.a.k0.r.a.i.b.InterfaceC1575b
+        @Override // d.a.n0.t.a.i.b.InterfaceC1608b
         public void b(String str) {
-            d.a.k0.r.a.g.a aVar;
+            d.a.n0.t.a.g.a aVar;
             if (k.isEmpty(str)) {
                 return;
             }
             AdInfo jsonToObject = AdInfo.jsonToObject(str);
-            this.f13725b = jsonToObject;
-            if (this.f13727d == AdType.SPLASH && !k.isEmpty(jsonToObject.adImgUrl)) {
-                d.h().k(this.f13725b.adImgUrl, 10, new C0167a(this), 0, 0, null, new Object[0]);
+            this.f13628b = jsonToObject;
+            if (this.f13630d == AdType.SPLASH && !k.isEmpty(jsonToObject.adImgUrl)) {
+                d.h().k(this.f13628b.adImgUrl, 10, new C0168a(this), 0, 0, null, new Object[0]);
             }
-            this.f13726c.b(str);
-            BCAdView bCAdView = this.f13724a.get();
-            if (bCAdView == null || (aVar = bCAdView.f13719e) == null) {
+            this.f13629c.b(str);
+            BCAdView bCAdView = this.f13627a.get();
+            if (bCAdView == null || (aVar = bCAdView.f13622e) == null) {
                 return;
             }
             aVar.d();
@@ -130,9 +130,9 @@ public class BCAdView extends RelativeLayout {
 
     public BCAdView(TbPageContext<?> tbPageContext, String str, AdType adType, int i2, int i3) {
         super(tbPageContext.getPageActivity());
-        this.f13722h = tbPageContext;
-        this.f13720f = this;
-        this.f13723i = tbPageContext.getPageActivity();
+        this.f13625h = tbPageContext;
+        this.f13623f = this;
+        this.f13626i = tbPageContext.getPageActivity();
         this.l = str;
         this.o = adType;
         this.m = i2;
@@ -140,7 +140,7 @@ public class BCAdView extends RelativeLayout {
     }
 
     public void a() {
-        d.a.k0.r.a.g.a aVar = this.f13719e;
+        d.a.n0.t.a.g.a aVar = this.f13622e;
         if (aVar != null) {
             aVar.c();
         }
@@ -154,12 +154,12 @@ public class BCAdView extends RelativeLayout {
         adInfo.adHeight = this.m;
         adInfo.adWidth = this.n;
         adInfo.typeId = this.o;
-        b.d().e(this.f13722h, new a(this), this.k);
+        b.d().e(this.f13625h, new a(this), this.k);
     }
 
     public final void c() {
         try {
-            this.f13721g = null;
+            this.f13624g = null;
             removeAllViews();
             this.j = null;
         } catch (Exception e2) {
@@ -168,7 +168,7 @@ public class BCAdView extends RelativeLayout {
     }
 
     public final void d() {
-        d.a.k0.r.a.g.a aVar = this.f13719e;
+        d.a.n0.t.a.g.a aVar = this.f13622e;
         if (aVar != null) {
             aVar.e();
         }
@@ -180,9 +180,9 @@ public class BCAdView extends RelativeLayout {
         d();
     }
 
-    public void setBCAdCallBack(d.a.k0.r.a.g.a aVar) {
+    public void setBCAdCallBack(d.a.n0.t.a.g.a aVar) {
         if (aVar != null) {
-            this.f13719e = aVar;
+            this.f13622e = aVar;
         }
     }
 }

@@ -3,10 +3,10 @@ package d.b.c.a.b.a;
 public abstract class d implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f65210e;
+    public final String f65253e;
 
     public d(String str, Object... objArr) {
-        this.f65210e = e.j(str, objArr);
+        this.f65253e = e.j(str, objArr);
     }
 
     public abstract void i();
@@ -15,7 +15,7 @@ public abstract class d implements Runnable {
     public final void run() {
         String name = Thread.currentThread().getName();
         Thread currentThread = Thread.currentThread();
-        currentThread.setName("tt_pangle_thread_" + this.f65210e);
+        currentThread.setName("tt_pangle_thread_" + this.f65253e);
         try {
             i();
         } finally {

@@ -16,7 +16,7 @@ public class BaseChromiumApplication extends Application {
     public static final String TOOLBAR_CALLBACK_INTERNAL_WRAPPER_CLASS = "androidx.appcompat.internal.app.ToolbarActionBar$ToolbarCallbackWrapper";
     public static final String TOOLBAR_CALLBACK_WRAPPER_CLASS = "androidx.appcompat.app.ToolbarActionBar$ToolbarCallbackWrapper";
     public final boolean mShouldInitializeApplicationStatusTracking;
-    public d.a.l0.a.b<c> mWindowFocusListeners;
+    public d.a.o0.a.b<c> mWindowFocusListeners;
 
     /* loaded from: classes5.dex */
     public class a implements Application.ActivityLifecycleCallbacks {
@@ -57,21 +57,21 @@ public class BaseChromiumApplication extends Application {
     public class b implements InvocationHandler {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Window.Callback f22269e;
+        public final Window.Callback f22198e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Activity f22270f;
+        public final Activity f22199f;
 
         public b(Activity activity, Window.Callback callback) {
-            this.f22269e = callback;
-            this.f22270f = activity;
+            this.f22198e = callback;
+            this.f22199f = activity;
         }
 
         public void a(boolean z) {
-            this.f22269e.onWindowFocusChanged(z);
+            this.f22198e.onWindowFocusChanged(z);
             Iterator it = BaseChromiumApplication.this.mWindowFocusListeners.iterator();
             while (it.hasNext()) {
-                ((c) it.next()).a(this.f22270f, z);
+                ((c) it.next()).a(this.f22199f, z);
             }
         }
 
@@ -82,7 +82,7 @@ public class BaseChromiumApplication extends Application {
                 return null;
             }
             try {
-                return method.invoke(this.f22269e, objArr);
+                return method.invoke(this.f22198e, objArr);
             } catch (InvocationTargetException e2) {
                 if (e2.getCause() instanceof AbstractMethodError) {
                     throw e2.getCause();
@@ -113,7 +113,7 @@ public class BaseChromiumApplication extends Application {
     @Override // android.content.ContextWrapper
     public void attachBaseContext(Context context) {
         super.attachBaseContext(context);
-        d.a.l0.a.c.a.b(this);
+        d.a.o0.a.c.a.b(this);
     }
 
     public void initCommandLine() {
@@ -136,7 +136,7 @@ public class BaseChromiumApplication extends Application {
     }
 
     public BaseChromiumApplication(boolean z) {
-        this.mWindowFocusListeners = new d.a.l0.a.b<>();
+        this.mWindowFocusListeners = new d.a.o0.a.b<>();
         this.mShouldInitializeApplicationStatusTracking = z;
     }
 }

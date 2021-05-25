@@ -20,35 +20,35 @@ public class f extends Drawable {
     @ColorInt
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28739a;
+    public int f28668a;
     @ColorInt
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28740b;
+    public int f28669b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f28741c;
+    public int[] f28670c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f28742d;
+    public float[] f28671d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearGradient f28743e;
+    public LinearGradient f28672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28744f;
+    public int f28673f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28745g;
+    public int f28674g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28746h;
+    public int f28675h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28747i;
+    public int f28676i;
     @Nullable
     public RectF j;
     @Nullable
@@ -58,87 +58,87 @@ public class f extends Drawable {
     public static class a {
 
         /* renamed from: c  reason: collision with root package name */
-        public int[] f28750c;
+        public int[] f28679c;
         @Nullable
 
         /* renamed from: d  reason: collision with root package name */
-        public float[] f28751d;
+        public float[] f28680d;
 
         /* renamed from: e  reason: collision with root package name */
-        public LinearGradient f28752e;
+        public LinearGradient f28681e;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f28755h;
+        public int f28684h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f28756i;
+        public int f28685i;
         @ColorInt
 
         /* renamed from: a  reason: collision with root package name */
-        public int f28748a = ad.j(p.a(), "tt_ssxinmian8");
+        public int f28677a = ad.j(p.a(), "tt_ssxinmian8");
         @ColorInt
 
         /* renamed from: b  reason: collision with root package name */
-        public int f28749b = ad.j(p.a(), "tt_ssxinxian3");
+        public int f28678b = ad.j(p.a(), "tt_ssxinxian3");
 
         /* renamed from: f  reason: collision with root package name */
-        public int f28753f = 10;
+        public int f28682f = 10;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f28754g = 16;
+        public int f28683g = 16;
 
         public a() {
-            this.f28755h = 0;
-            this.f28756i = 0;
-            this.f28755h = 0;
-            this.f28756i = 0;
+            this.f28684h = 0;
+            this.f28685i = 0;
+            this.f28684h = 0;
+            this.f28685i = 0;
         }
 
         public a a(@ColorInt int i2) {
-            this.f28748a = i2;
+            this.f28677a = i2;
             return this;
         }
 
         public a b(@ColorInt int i2) {
-            this.f28749b = i2;
+            this.f28678b = i2;
             return this;
         }
 
         public a c(int i2) {
-            this.f28753f = i2;
+            this.f28682f = i2;
             return this;
         }
 
         public a d(int i2) {
-            this.f28755h = i2;
+            this.f28684h = i2;
             return this;
         }
 
         public a e(int i2) {
-            this.f28756i = i2;
+            this.f28685i = i2;
             return this;
         }
 
         public a a(@Nullable int[] iArr) {
-            this.f28750c = iArr;
+            this.f28679c = iArr;
             return this;
         }
 
         public f a() {
-            return new f(this.f28748a, this.f28750c, this.f28751d, this.f28749b, this.f28752e, this.f28753f, this.f28754g, this.f28755h, this.f28756i);
+            return new f(this.f28677a, this.f28679c, this.f28680d, this.f28678b, this.f28681e, this.f28682f, this.f28683g, this.f28684h, this.f28685i);
         }
     }
 
     public f(@ColorInt int i2, @Nullable int[] iArr, @Nullable float[] fArr, @ColorInt int i3, @Nullable LinearGradient linearGradient, int i4, int i5, int i6, int i7) {
-        this.f28739a = i2;
-        this.f28741c = iArr;
-        this.f28742d = fArr;
-        this.f28740b = i3;
-        this.f28743e = linearGradient;
-        this.f28744f = i4;
-        this.f28745g = i5;
-        this.f28746h = i6;
-        this.f28747i = i7;
+        this.f28668a = i2;
+        this.f28670c = iArr;
+        this.f28671d = fArr;
+        this.f28669b = i3;
+        this.f28672e = linearGradient;
+        this.f28673f = i4;
+        this.f28674g = i5;
+        this.f28675h = i6;
+        this.f28676i = i7;
     }
 
     private void a() {
@@ -147,20 +147,20 @@ public class f extends Drawable {
         this.k = paint;
         boolean z = true;
         paint.setAntiAlias(true);
-        this.k.setShadowLayer(this.f28745g, this.f28746h, this.f28747i, this.f28740b);
-        if (this.j != null && (iArr = this.f28741c) != null && iArr.length > 1) {
-            float[] fArr = this.f28742d;
+        this.k.setShadowLayer(this.f28674g, this.f28675h, this.f28676i, this.f28669b);
+        if (this.j != null && (iArr = this.f28670c) != null && iArr.length > 1) {
+            float[] fArr = this.f28671d;
             z = (fArr == null || fArr.length <= 0 || fArr.length != iArr.length) ? false : false;
             Paint paint2 = this.k;
-            LinearGradient linearGradient = this.f28743e;
+            LinearGradient linearGradient = this.f28672e;
             if (linearGradient == null) {
                 RectF rectF = this.j;
-                linearGradient = new LinearGradient(rectF.left, 0.0f, rectF.right, 0.0f, this.f28741c, z ? this.f28742d : null, Shader.TileMode.CLAMP);
+                linearGradient = new LinearGradient(rectF.left, 0.0f, rectF.right, 0.0f, this.f28670c, z ? this.f28671d : null, Shader.TileMode.CLAMP);
             }
             paint2.setShader(linearGradient);
             return;
         }
-        this.k.setColor(this.f28739a);
+        this.k.setColor(this.f28668a);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -168,16 +168,16 @@ public class f extends Drawable {
         if (this.j == null) {
             Rect bounds = getBounds();
             int i2 = bounds.left;
-            int i3 = this.f28745g;
-            int i4 = this.f28746h;
-            int i5 = this.f28747i;
+            int i3 = this.f28674g;
+            int i4 = this.f28675h;
+            int i5 = this.f28676i;
             this.j = new RectF((i2 + i3) - i4, (bounds.top + i3) - i5, (bounds.right - i3) - i4, (bounds.bottom - i3) - i5);
         }
         if (this.k == null) {
             a();
         }
         RectF rectF = this.j;
-        int i6 = this.f28744f;
+        int i6 = this.f28673f;
         canvas.drawRoundRect(rectF, i6, i6, this.k);
     }
 

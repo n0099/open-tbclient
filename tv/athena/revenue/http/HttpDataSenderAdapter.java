@@ -30,37 +30,37 @@ public class HttpDataSenderAdapter implements b {
     public class a extends i.a.a.c.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f69551a;
+        public final /* synthetic */ int f69594a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f69552b;
+        public final /* synthetic */ String f69595b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ byte[] f69553c;
+        public final /* synthetic */ byte[] f69596c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c f69554d;
+        public final /* synthetic */ c f69597d;
 
         public a(int i2, String str, byte[] bArr, c cVar) {
-            this.f69551a = i2;
-            this.f69552b = str;
-            this.f69553c = bArr;
-            this.f69554d = cVar;
+            this.f69594a = i2;
+            this.f69595b = str;
+            this.f69596c = bArr;
+            this.f69597d = cVar;
         }
 
         @Override // i.a.a.c.b.a
         public void a(Request request, Exception exc) {
             RevenueDataParser revenueDataParser = RevenueDataParser.INSTANCE;
-            int i2 = this.f69551a;
-            String str = this.f69552b;
-            int n = this.f69554d.n();
+            int i2 = this.f69594a;
+            String str = this.f69595b;
+            int n = this.f69597d.n();
             revenueDataParser.onRequestError(i2, str, n, AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL, "onFailure = " + exc.getMessage());
             d.e("HttpDataSenderAdapter", "sendByHttpPost-----onFailure-----:" + exc.getMessage(), new Object[0]);
         }
 
         @Override // i.a.a.c.b.a
         public void b(Object obj) {
-            HttpDataSenderAdapter.this.onSuccess(this.f69551a, this.f69552b, this.f69553c, obj, this.f69554d);
+            HttpDataSenderAdapter.this.onSuccess(this.f69594a, this.f69595b, this.f69596c, obj, this.f69597d);
         }
     }
 
@@ -75,22 +75,22 @@ public class HttpDataSenderAdapter implements b {
             int i3 = jSONObject.getInt("code");
             d.b("HttpDataSenderAdapter", "sendByHttpPost----onSuccess-----:responeObject:" + jSONObject.toString());
             d.r.b.a.a.f.e.d dVar = new d.r.b.a.a.f.e.d(obj.toString().getBytes());
-            if (dVar.f67695f == 0) {
-                dVar.f67695f = i2;
+            if (dVar.f67738f == 0) {
+                dVar.f67738f = i2;
             }
-            if (dVar.f67694e == 0) {
-                dVar.f67694e = cVar.n();
-                d.e("HttpDataSenderAdapter", "response.cmd:" + dVar.f67694e, new Object[0]);
+            if (dVar.f67737e == 0) {
+                dVar.f67737e = cVar.n();
+                d.e("HttpDataSenderAdapter", "response.cmd:" + dVar.f67737e, new Object[0]);
             }
             if (i3 == 200) {
-                if (dVar.f67697h != null && !StringUtil.NULL_STRING.equals(dVar.f67697h)) {
+                if (dVar.f67740h != null && !StringUtil.NULL_STRING.equals(dVar.f67740h)) {
                     RevenueDataParser.INSTANCE.parserRevenueResponseData(i2, dVar.c());
                     return;
                 }
                 RevenueDataParser revenueDataParser = RevenueDataParser.INSTANCE;
                 int n = cVar.n();
-                int i4 = dVar.f67693d;
-                revenueDataParser.onRequestError(i2, str, n, i4, "result = " + dVar.f67693d);
+                int i4 = dVar.f67736d;
+                revenueDataParser.onRequestError(i2, str, n, i4, "result = " + dVar.f67736d);
                 return;
             }
             RevenueDataParser revenueDataParser2 = RevenueDataParser.INSTANCE;

@@ -10,8 +10,8 @@ public class o implements com.kwad.sdk.core.c<l.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f32970a = jSONObject.optDouble("progress");
-        aVar.f32971b = jSONObject.optInt("status");
+        aVar.f32899a = jSONObject.optDouble("progress");
+        aVar.f32900b = jSONObject.optInt("status");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,8 +20,8 @@ public class o implements com.kwad.sdk.core.c<l.a> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "progress", aVar.f32970a);
-        com.kwad.sdk.utils.o.a(jSONObject, "status", aVar.f32971b);
+        com.kwad.sdk.utils.o.a(jSONObject, "progress", aVar.f32899a);
+        com.kwad.sdk.utils.o.a(jSONObject, "status", aVar.f32900b);
         return jSONObject;
     }
 }

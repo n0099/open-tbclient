@@ -1,7 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
+import android.net.Uri;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.video.VideoItemData;
 import java.io.Serializable;
@@ -51,6 +53,13 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public void setParamIsVertail(boolean z) {
         if (getIntent() != null) {
             getIntent().putExtra(PARAM_IS_VERTAIL, z);
+        }
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
         }
     }
 

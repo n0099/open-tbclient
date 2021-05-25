@@ -3,11 +3,11 @@ package com.baidu.tieba.tbadkCore;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.util.AdExtParam;
-import d.a.j0.g0.b.d;
-import d.a.j0.g0.b.g;
-import d.a.j0.z0.w;
-import d.a.k0.s2.g0.a;
-import d.a.k0.s2.i0.b;
+import d.a.m0.g0.b.d;
+import d.a.m0.g0.b.g;
+import d.a.m0.z0.w;
+import d.a.n0.t2.g0.a;
+import d.a.n0.t2.i0.b;
 import java.util.HashMap;
 import tbclient.FrsPage.AdParam;
 import tbclient.FrsPage.DataReq;
@@ -33,16 +33,16 @@ public class FrsRequestData extends OrmObject implements g, d {
     public String F;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20834e;
+    public int f20754e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20835f;
+    public boolean f20755f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f20836g;
+    public String f20756g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20837h;
+    public int f20757h;
     public int k;
     public int l;
     public int m;
@@ -60,7 +60,7 @@ public class FrsRequestData extends OrmObject implements g, d {
     public long z;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20838i = 90;
+    public int f20758i = 90;
     public int j = 30;
     public String u = "";
     public int A = -1;
@@ -107,7 +107,7 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public void I(String str) {
-        this.f20836g = str;
+        this.f20756g = str;
     }
 
     public void J(long j) {
@@ -170,12 +170,12 @@ public class FrsRequestData extends OrmObject implements g, d {
         this.q = i2;
     }
 
-    @Override // d.a.j0.g0.b.i
+    @Override // d.a.m0.g0.b.i
     public Object c(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.kw = this.f20836g;
-        builder.pn = Integer.valueOf(this.f20837h);
-        builder.rn = Integer.valueOf(this.f20838i);
+        builder.kw = this.f20756g;
+        builder.pn = Integer.valueOf(this.f20757h);
+        builder.rn = Integer.valueOf(this.f20758i);
         builder.rn_need = Integer.valueOf(this.j);
         builder.with_group = Integer.valueOf(this.k);
         builder.is_good = Integer.valueOf(this.l);
@@ -219,7 +219,7 @@ public class FrsRequestData extends OrmObject implements g, d {
         return builder3.build(false);
     }
 
-    @Override // d.a.j0.g0.b.c
+    @Override // d.a.m0.g0.b.c
     public String getCacheKey() {
         return null;
     }
@@ -229,38 +229,38 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public int getPn() {
-        return this.f20837h;
+        return this.f20757h;
     }
 
     public int getUpdateType() {
-        return this.f20834e;
+        return this.f20754e;
     }
 
-    @Override // d.a.j0.g0.b.d
+    @Override // d.a.m0.g0.b.d
     public boolean i() {
         return false;
     }
 
     public boolean isNeedCache() {
-        return this.f20835f;
+        return this.f20755f;
     }
 
-    @Override // d.a.j0.g0.b.d
+    @Override // d.a.m0.g0.b.d
     public boolean isNeedUid() {
         return false;
     }
 
-    @Override // d.a.j0.g0.b.f
+    @Override // d.a.m0.g0.b.f
     public HashMap<String, Object> o() {
         return null;
     }
 
-    @Override // d.a.j0.g0.b.f
+    @Override // d.a.m0.g0.b.f
     public HashMap<String, String> q() {
         return this.I;
     }
 
-    @Override // d.a.j0.g0.b.d
+    @Override // d.a.m0.g0.b.d
     public String r() {
         return null;
     }
@@ -280,11 +280,11 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public void setNeedCache(boolean z) {
-        this.f20835f = z;
+        this.f20755f = z;
     }
 
     public void setPn(int i2) {
-        this.f20837h = i2;
+        this.f20757h = i2;
     }
 
     public void setSortType(int i2) {
@@ -296,7 +296,7 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public void setUpdateType(int i2) {
-        this.f20834e = i2;
+        this.f20754e = i2;
     }
 
     public int t() {
@@ -308,7 +308,7 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public String v() {
-        return this.f20836g;
+        return this.f20756g;
     }
 
     public int w() {

@@ -11,7 +11,7 @@ import i.a.a.e.l.b;
 public class NoScrollGridView extends GridView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f69594e;
+    public int f69637e;
 
     public NoScrollGridView(Context context) {
         this(context, null);
@@ -20,16 +20,16 @@ public class NoScrollGridView extends GridView {
     public final void a(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g.NoScrollGridView);
         int integer = obtainStyledAttributes.getInteger(g.NoScrollGridView_gv_max_height_dp, 536870911);
-        this.f69594e = integer;
+        this.f69637e = integer;
         if (integer != 536870911) {
-            this.f69594e = b.a(integer);
+            this.f69637e = b.a(integer);
         }
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
     public void onMeasure(int i2, int i3) {
-        super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(this.f69594e, Integer.MIN_VALUE));
+        super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(this.f69637e, Integer.MIN_VALUE));
     }
 
     public NoScrollGridView(Context context, AttributeSet attributeSet) {
@@ -38,7 +38,7 @@ public class NoScrollGridView extends GridView {
 
     public NoScrollGridView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f69594e = 536870911;
+        this.f69637e = 536870911;
         a(context, attributeSet);
     }
 }

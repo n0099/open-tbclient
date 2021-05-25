@@ -9,7 +9,7 @@ public class MsgUtility {
         if (2 == chatMsg.getCategory() || -1 == chatMsg.getMsgType()) {
             return true;
         }
-        return (chatMsg.getMsgType() > 1000 && chatMsg.getMsgType() < 1013) || chatMsg.getMsgType() == 2001 || chatMsg.getMsgType() == 2010 || chatMsg.getMsgType() == 22;
+        return (chatMsg.getMsgType() >= 1001 && chatMsg.getMsgType() <= 1014) || chatMsg.getMsgType() == 2001 || chatMsg.getMsgType() == 2010 || chatMsg.getMsgType() == 22 || chatMsg.getMsgType() == 36;
     }
 
     public static JSONArray listToJsonArray(List<Long> list) {

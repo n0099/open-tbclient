@@ -8,8 +8,8 @@ import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
 import com.baidu.ubc.UBCManager;
-import d.a.m0.t;
-import d.a.m0.x;
+import d.a.p0.t;
+import d.a.p0.x;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,7 +62,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
             if (xVar.h()) {
                 final String e2 = xVar.e();
                 ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(xVar, z, new t() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
-                    @Override // d.a.m0.t
+                    @Override // d.a.p0.t
                     public void setUBCConfigStatisticData(JSONObject jSONObject) {
                         ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                         if (jSONObject == null || (iCloudControlUBCCallBack2 = iCloudControlUBCCallBack) == null) {

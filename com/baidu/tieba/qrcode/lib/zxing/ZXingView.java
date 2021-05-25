@@ -9,7 +9,7 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
-import d.a.k0.p2.b.b.a;
+import d.a.n0.q2.b.b.a;
 /* loaded from: classes5.dex */
 public class ZXingView extends QRCodeView {
     public MultiFormatReader n;
@@ -18,13 +18,13 @@ public class ZXingView extends QRCodeView {
         this(context, attributeSet, 0);
     }
 
-    @Override // d.a.k0.p2.b.a.c.a
+    @Override // d.a.n0.q2.b.a.c.a
     public String a(byte[] bArr, int i2, int i3, boolean z) {
         Result result;
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect h2 = this.f20188g.h(i3);
+                Rect h2 = this.f20110g.h(i3);
                 if (h2 != null) {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i2, i3, h2.left, h2.top, h2.width(), h2.height(), false);
                 } else {
@@ -48,7 +48,7 @@ public class ZXingView extends QRCodeView {
     public final void o() {
         MultiFormatReader multiFormatReader = new MultiFormatReader();
         this.n = multiFormatReader;
-        multiFormatReader.setHints(a.f58148a);
+        multiFormatReader.setHints(a.f58344a);
     }
 
     public ZXingView(Context context, AttributeSet attributeSet, int i2) {

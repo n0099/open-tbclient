@@ -15,55 +15,55 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
 import d.a.c.a.j;
-import d.a.k0.t.d.f.c.c;
+import d.a.n0.v.d.f.c.c;
 /* loaded from: classes4.dex */
-public class RecommendActivityView extends d.a.k0.x.b<c> {
+public class RecommendActivityView extends d.a.n0.z.b<c> {
     public TbPageContext m;
-    public AlaBannerAutoScrollView<d.a.k0.t.d.f.c.b> n;
-    public d.a.k0.t.d.h.a.a o;
+    public AlaBannerAutoScrollView<d.a.n0.v.d.f.c.b> n;
+    public d.a.n0.v.d.h.a.a o;
 
     /* loaded from: classes4.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public RecommendActivityView f13986a;
+        public RecommendActivityView f13889a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f13987b;
+        public View f13890b;
 
         public ViewHolder(RecommendActivityView recommendActivityView) {
             super(recommendActivityView.l());
-            this.f13986a = recommendActivityView;
-            this.f13987b = recommendActivityView.l();
+            this.f13889a = recommendActivityView;
+            this.f13890b = recommendActivityView.l();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a implements d.a.k0.t.d.h.a.b {
+    public class a implements d.a.n0.v.d.h.a.b {
         public a() {
         }
 
-        @Override // d.a.k0.t.d.h.a.b
+        @Override // d.a.n0.v.d.h.a.b
         public void a(Object obj) {
-            if (obj == null || !(obj instanceof d.a.k0.t.d.f.c.b)) {
+            if (obj == null || !(obj instanceof d.a.n0.v.d.f.c.b)) {
                 return;
             }
-            d.a.k0.t.d.f.c.b bVar = (d.a.k0.t.d.f.c.b) obj;
-            if (!StringUtils.isNull(bVar.f61429e)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(RecommendActivityView.this.m.getPageActivity()), new String[]{bVar.f61429e}, true);
+            d.a.n0.v.d.f.c.b bVar = (d.a.n0.v.d.f.c.b) obj;
+            if (!StringUtils.isNull(bVar.f61717e)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(RecommendActivityView.this.m.getPageActivity()), new String[]{bVar.f61717e}, true);
             }
             TiebaStatic.log("c12902");
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements d.a.k0.t.d.h.a.a {
+    public class b implements d.a.n0.v.d.h.a.a {
 
         /* loaded from: classes4.dex */
-        public class a extends AlaBannerViewHolder<d.a.k0.t.d.f.c.b> {
+        public class a extends AlaBannerViewHolder<d.a.n0.v.d.f.c.b> {
 
             /* renamed from: a  reason: collision with root package name */
-            public TbImageView f13990a;
+            public TbImageView f13893a;
 
             public a(b bVar, View view) {
                 super(view);
@@ -72,7 +72,7 @@ public class RecommendActivityView extends d.a.k0.x.b<c> {
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             public void b(View view) {
                 TbImageView tbImageView = (TbImageView) view.findViewById(R.id.cover);
-                this.f13990a = tbImageView;
+                this.f13893a = tbImageView;
                 tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             }
 
@@ -83,18 +83,18 @@ public class RecommendActivityView extends d.a.k0.x.b<c> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             /* renamed from: d */
-            public void a(int i2, d.a.k0.t.d.f.c.b bVar) {
-                if (bVar == null || this.f13990a == null || StringUtils.isNull(bVar.f61430f)) {
+            public void a(int i2, d.a.n0.v.d.f.c.b bVar) {
+                if (bVar == null || this.f13893a == null || StringUtils.isNull(bVar.f61718f)) {
                     return;
                 }
-                this.f13990a.V(bVar.f61430f, 10, false);
+                this.f13893a.V(bVar.f61718f, 10, false);
             }
         }
 
         public b() {
         }
 
-        @Override // d.a.k0.t.d.h.a.a
+        @Override // d.a.n0.v.d.h.a.a
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i2) {
             return new a(this, LayoutInflater.from(RecommendActivityView.this.m.getPageActivity()).inflate(R.layout.special_bar_recommend_activity, viewGroup, false));
         }
@@ -104,24 +104,24 @@ public class RecommendActivityView extends d.a.k0.x.b<c> {
         super(tbPageContext, viewGroup);
         this.o = new b();
         this.m = tbPageContext;
-        AlaBannerAutoScrollView<d.a.k0.t.d.f.c.b> alaBannerAutoScrollView = (AlaBannerAutoScrollView) l().findViewById(R.id.banner_container);
+        AlaBannerAutoScrollView<d.a.n0.v.d.f.c.b> alaBannerAutoScrollView = (AlaBannerAutoScrollView) l().findViewById(R.id.banner_container);
         this.n = alaBannerAutoScrollView;
         alaBannerAutoScrollView.setViewHolderAdapter(this.o);
         this.n.setOnBannerClickListener(new a());
         n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.k0.x.b
+    @Override // d.a.n0.z.b
     public int g() {
         return R.layout.special_bar_recommend_banner;
     }
 
-    @Override // d.a.k0.x.b
+    @Override // d.a.n0.z.b
     public View l() {
         return super.l();
     }
 
-    @Override // d.a.k0.x.b
+    @Override // d.a.n0.z.b
     public void n(TbPageContext<?> tbPageContext, int i2) {
         this.n.q(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -131,13 +131,13 @@ public class RecommendActivityView extends d.a.k0.x.b<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.k0.x.b
+    @Override // d.a.n0.z.b
     /* renamed from: t */
     public void m(c cVar) {
-        if (cVar == null || ListUtils.isEmpty(cVar.f61432e)) {
+        if (cVar == null || ListUtils.isEmpty(cVar.f61720e)) {
             return;
         }
-        this.n.n(cVar.f61432e, this.o);
+        this.n.n(cVar.f61720e, this.o);
         TiebaStatic.log("c12901");
     }
 }

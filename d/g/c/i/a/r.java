@@ -9,60 +9,60 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f66323a = null;
+    public String f66366a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public Boolean f66324b = null;
+    public Boolean f66367b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public Integer f66325c = null;
+    public Integer f66368c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f66326d = null;
+    public Thread.UncaughtExceptionHandler f66369d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public ThreadFactory f66327e = null;
+    public ThreadFactory f66370e = null;
 
     /* loaded from: classes6.dex */
     public static class a implements ThreadFactory {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadFactory f66328e;
+        public final /* synthetic */ ThreadFactory f66371e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f66329f;
+        public final /* synthetic */ String f66372f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AtomicLong f66330g;
+        public final /* synthetic */ AtomicLong f66373g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Boolean f66331h;
+        public final /* synthetic */ Boolean f66374h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Integer f66332i;
+        public final /* synthetic */ Integer f66375i;
         public final /* synthetic */ Thread.UncaughtExceptionHandler j;
 
         public a(ThreadFactory threadFactory, String str, AtomicLong atomicLong, Boolean bool, Integer num, Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
-            this.f66328e = threadFactory;
-            this.f66329f = str;
-            this.f66330g = atomicLong;
-            this.f66331h = bool;
-            this.f66332i = num;
+            this.f66371e = threadFactory;
+            this.f66372f = str;
+            this.f66373g = atomicLong;
+            this.f66374h = bool;
+            this.f66375i = num;
             this.j = uncaughtExceptionHandler;
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread newThread = this.f66328e.newThread(runnable);
-            String str = this.f66329f;
+            Thread newThread = this.f66371e.newThread(runnable);
+            String str = this.f66372f;
             if (str != null) {
-                newThread.setName(r.d(str, Long.valueOf(this.f66330g.getAndIncrement())));
+                newThread.setName(r.d(str, Long.valueOf(this.f66373g.getAndIncrement())));
             }
-            Boolean bool = this.f66331h;
+            Boolean bool = this.f66374h;
             if (bool != null) {
                 newThread.setDaemon(bool.booleanValue());
             }
-            Integer num = this.f66332i;
+            Integer num = this.f66375i;
             if (num != null) {
                 newThread.setPriority(num.intValue());
             }
@@ -75,11 +75,11 @@ public final class r {
     }
 
     public static ThreadFactory c(r rVar) {
-        String str = rVar.f66323a;
-        Boolean bool = rVar.f66324b;
-        Integer num = rVar.f66325c;
-        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = rVar.f66326d;
-        ThreadFactory threadFactory = rVar.f66327e;
+        String str = rVar.f66366a;
+        Boolean bool = rVar.f66367b;
+        Integer num = rVar.f66368c;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = rVar.f66369d;
+        ThreadFactory threadFactory = rVar.f66370e;
         if (threadFactory == null) {
             threadFactory = Executors.defaultThreadFactory();
         }
@@ -96,14 +96,14 @@ public final class r {
 
     public r e(String str) {
         d(str, 0);
-        this.f66323a = str;
+        this.f66366a = str;
         return this;
     }
 
     public r f(int i2) {
         d.g.c.a.n.g(i2 >= 1, "Thread priority (%s) must be >= %s", i2, 1);
         d.g.c.a.n.g(i2 <= 10, "Thread priority (%s) must be <= %s", i2, 10);
-        this.f66325c = Integer.valueOf(i2);
+        this.f66368c = Integer.valueOf(i2);
         return this;
     }
 }

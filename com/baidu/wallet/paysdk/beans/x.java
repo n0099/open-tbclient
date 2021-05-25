@@ -21,25 +21,25 @@ import org.json.JSONObject;
 public class x extends PayBaseBean<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f25247a;
+    public PwdRequest f25176a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25248b;
+    public String f25177b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25249c;
+    public boolean f25178c;
 
     public <T> x(Context context) {
         super(context);
-        this.f25247a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f25176a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     private void a(List<RestNameValuePair> list) {
-        if (!this.f25249c || TextUtils.isEmpty(this.f25248b)) {
+        if (!this.f25178c || TextUtils.isEmpty(this.f25177b)) {
             return;
         }
         try {
-            JSONObject jSONObject = new JSONObject(this.f25248b);
+            JSONObject jSONObject = new JSONObject(this.f25177b);
             jSONObject.remove(Constants.HALF_SCREEN_PWD_VERIFY);
             Iterator<String> keys = jSONObject.keys();
             if (keys != null) {
@@ -64,19 +64,19 @@ public class x extends PayBaseBean<Object> {
         ArrayList arrayList = new ArrayList();
         String seed = PasswordController.getSeed();
         String encryptProxy = SafePay.getInstance().encryptProxy(seed);
-        int i2 = this.f25247a.mRequestType;
+        int i2 = this.f25176a.mRequestType;
         if (i2 != 2 && i2 != 1) {
-            String encryptProxy2 = SafePay.getInstance().encryptProxy(PasswordController.handlePwdSimple(this.f25247a.mConfirmPayPass));
-            String handlePwd = PasswordController.handlePwd(this.f25247a.mConfirmPayPass, seed);
+            String encryptProxy2 = SafePay.getInstance().encryptProxy(PasswordController.handlePwdSimple(this.f25176a.mConfirmPayPass));
+            String handlePwd = PasswordController.handlePwd(this.f25176a.mConfirmPayPass, seed);
             String str = SafePay.getInstance().getpwProxy();
             arrayList.add(new RestNameValuePair("new_mobile_pwd", encryptProxy2));
             arrayList.add(new RestNameValuePair("confirm_new_mobile_pwd", handlePwd));
-            arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f25247a.mConfirmPayPass)));
+            arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f25176a.mConfirmPayPass)));
             arrayList.add(new RestNameValuePair("key_no", str));
-            arrayList.add(new RestNameValuePair("sess_key", this.f25247a.mSessionKey));
+            arrayList.add(new RestNameValuePair("sess_key", this.f25176a.mSessionKey));
         } else {
-            if (!TextUtils.isEmpty(this.f25247a.mPayPass)) {
-                String handlePwd2 = PasswordController.handlePwd(this.f25247a.mPayPass, seed);
+            if (!TextUtils.isEmpty(this.f25176a.mPayPass)) {
+                String handlePwd2 = PasswordController.handlePwd(this.f25176a.mPayPass, seed);
                 String str2 = SafePay.getInstance().getpwProxy();
                 arrayList.add(new RestNameValuePair("mobile_pwd", handlePwd2));
                 arrayList.add(new RestNameValuePair("key", str2));
@@ -84,7 +84,7 @@ public class x extends PayBaseBean<Object> {
             a(arrayList);
         }
         arrayList.add(new RestNameValuePair("seed", encryptProxy));
-        PwdRequest pwdRequest = this.f25247a;
+        PwdRequest pwdRequest = this.f25176a;
         if (pwdRequest.mRequestType == 2 && TextUtils.equals(pwdRequest.fromType, BeanConstants.FROM_BIND)) {
             BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
             arrayList.add(new RestNameValuePair("scenario", "bindcard"));
@@ -94,14 +94,14 @@ public class x extends PayBaseBean<Object> {
             } else {
                 arrayList.add(new RestNameValuePair("request_type", BindFastRequest.getCardRequestType(1)));
             }
-            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f25247a.serviceType));
+            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f25176a.serviceType));
         }
         return arrayList;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getBeanId() {
-        int i2 = this.f25247a.mRequestType;
+        int i2 = this.f25176a.mRequestType;
         if (i2 == 2) {
             return 257;
         }
@@ -110,7 +110,7 @@ public class x extends PayBaseBean<Object> {
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public String getUrl() {
-        int i2 = this.f25247a.mRequestType;
+        int i2 = this.f25176a.mRequestType;
         if (i2 == 2) {
             String str = PayRequestCache.getInstance().isPaying() ? BeanConstants.API_VERIFY_PAY_PWD : BeanConstants.API_VERIFY_MOBILE_PWD_NEW;
             return DomainConfig.getInstance().getAppPayHost() + str;
@@ -124,10 +124,10 @@ public class x extends PayBaseBean<Object> {
     }
 
     public void a(String str) {
-        this.f25248b = str;
+        this.f25177b = str;
     }
 
     public void a(boolean z) {
-        this.f25249c = z;
+        this.f25178c = z;
     }
 }

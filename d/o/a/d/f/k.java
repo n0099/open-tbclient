@@ -28,37 +28,37 @@ import org.json.JSONObject;
 public class k implements l.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f66818a;
+    public long f66861a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.f f66819b;
+    public c.f f66862b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f66820c = false;
+    public boolean f66863c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f66821d;
+    public e f66864d;
 
     /* loaded from: classes7.dex */
     public class a implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ q f66822a;
+        public final /* synthetic */ q f66865a;
 
         public a(q qVar) {
-            this.f66822a = qVar;
+            this.f66865a = qVar;
         }
 
         @Override // d.o.a.a.a.a.q
         public void a() {
-            this.f66822a.a();
+            this.f66865a.a();
         }
 
         @Override // d.o.a.a.a.a.q
         public void a(String str) {
-            n.n().a(1, n.a(), k.this.f66819b.f66716b, "您已禁止使用存储权限，请授权后再下载", null, 1);
-            j.c.a().x(k.this.f66818a, 1);
-            this.f66822a.a(str);
+            n.n().a(1, n.a(), k.this.f66862b.f66759b, "您已禁止使用存储权限，请授权后再下载", null, 1);
+            j.c.a().x(k.this.f66861a, 1);
+            this.f66865a.a(str);
         }
     }
 
@@ -69,7 +69,7 @@ public class k implements l.a {
 
         @Override // d.o.a.d.f.k.e
         public void a(DownloadInfo downloadInfo) {
-            j.c.a().d(k.this.f66818a, 2, downloadInfo);
+            j.c.a().d(k.this.f66861a, 2, downloadInfo);
         }
     }
 
@@ -77,10 +77,10 @@ public class k implements l.a {
     public static class d extends d.o.a.e.b.f.c {
 
         /* renamed from: b  reason: collision with root package name */
-        public d.o.a.d.n.l f66826b;
+        public d.o.a.d.n.l f66869b;
 
         public d(d.o.a.d.n.l lVar) {
-            this.f66826b = lVar;
+            this.f66869b = lVar;
         }
 
         @Override // d.o.a.e.b.f.t
@@ -128,7 +128,7 @@ public class k implements l.a {
             obtain.what = 3;
             obtain.obj = downloadInfo;
             obtain.arg1 = i2;
-            this.f66826b.sendMessage(obtain);
+            this.f66869b.sendMessage(obtain);
         }
     }
 
@@ -181,7 +181,7 @@ public class k implements l.a {
         if (context == null) {
             return 0;
         }
-        Map<String, String> j = this.f66819b.f66716b.j();
+        Map<String, String> j = this.f66862b.f66759b.j();
         ArrayList arrayList = new ArrayList();
         if (j != null) {
             for (Map.Entry<String, String> entry : j.entrySet()) {
@@ -190,37 +190,37 @@ public class k implements l.a {
                 }
             }
         }
-        String a2 = d.o.a.d.n.d.a(String.valueOf(this.f66819b.f66716b.d()), this.f66819b.f66716b.c(), this.f66819b.f66716b.k(), String.valueOf(this.f66819b.f66716b.A()));
-        d.o.a.e.b.j.a g2 = d.o.a.d.n.e.g(this.f66819b.f66716b);
-        this.f66819b.f66716b.F();
-        int i2 = (this.f66819b.f66716b.t() || l.i(this.f66819b.f66716b)) ? 4 : 4;
+        String a2 = d.o.a.d.n.d.a(String.valueOf(this.f66862b.f66759b.d()), this.f66862b.f66759b.c(), this.f66862b.f66759b.k(), String.valueOf(this.f66862b.f66759b.A()));
+        d.o.a.e.b.j.a g2 = d.o.a.d.n.e.g(this.f66862b.f66759b);
+        this.f66862b.f66759b.F();
+        int i2 = (this.f66862b.f66759b.t() || l.i(this.f66862b.f66759b)) ? 4 : 4;
         String c2 = c(g2);
-        DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(d.o.a.e.b.g.d.s(this.f66819b.f66716b.a(), c2));
-        if (f2 != null && 3 == this.f66819b.f66716b.A()) {
+        DownloadInfo f2 = d.o.a.e.b.g.a.l(n.a()).f(d.o.a.e.b.g.d.s(this.f66862b.f66759b.a(), c2));
+        if (f2 != null && 3 == this.f66862b.f66759b.A()) {
             f2.t2(true);
             d.o.a.e.b.l.e.u(f2);
         }
-        d.o.a.e.a.i iVar = new d.o.a.e.a.i(context, this.f66819b.f66716b.a());
-        iVar.V(this.f66819b.f66716b.b());
-        iVar.J(this.f66819b.f66716b.h());
+        d.o.a.e.a.i iVar = new d.o.a.e.a.i(context, this.f66862b.f66759b.a());
+        iVar.V(this.f66862b.f66759b.b());
+        iVar.J(this.f66862b.f66759b.h());
         iVar.c0(a2);
         iVar.K(arrayList);
-        iVar.M(this.f66819b.f66716b.l());
-        iVar.Z(this.f66819b.f66716b.m());
-        iVar.U(this.f66819b.f66716b.o());
+        iVar.M(this.f66862b.f66759b.l());
+        iVar.Z(this.f66862b.f66759b.m());
+        iVar.U(this.f66862b.f66759b.o());
         iVar.Y(c2);
-        iVar.w0(this.f66819b.f66716b.w());
-        iVar.n0(this.f66819b.f66716b.e());
-        iVar.t0(this.f66819b.f66716b.I());
-        iVar.B(this.f66819b.f66716b.f());
+        iVar.w0(this.f66862b.f66759b.w());
+        iVar.n0(this.f66862b.f66759b.e());
+        iVar.t0(this.f66862b.f66759b.I());
+        iVar.B(this.f66862b.f66759b.f());
         iVar.D(bVar);
-        iVar.B0(this.f66819b.f66716b.q() || g2.b("need_independent_process", 0) == 1);
-        iVar.G(this.f66819b.f66716b.D());
-        iVar.W(this.f66819b.f66716b.C());
-        iVar.k0(this.f66819b.f66716b.v());
+        iVar.B0(this.f66862b.f66759b.q() || g2.b("need_independent_process", 0) == 1);
+        iVar.G(this.f66862b.f66759b.D());
+        iVar.W(this.f66862b.f66759b.C());
+        iVar.k0(this.f66862b.f66759b.v());
         iVar.b0(1000);
         iVar.f0(100);
-        iVar.L(d.o.a.d.n.e.e(this.f66819b.f66716b));
+        iVar.L(d.o.a.d.n.e.e(this.f66862b.f66759b));
         iVar.u0(true);
         iVar.x0(true);
         iVar.T(g2.b("retry_count", 5));
@@ -232,11 +232,11 @@ public class k implements l.a {
         iVar.o0(g2.b("need_retry_delay", 0) == 1);
         iVar.q0(g2.t("retry_delay_time_array"));
         iVar.z0(g2.b("need_reuse_runnable", 0) == 1);
-        iVar.I(g.d(this.f66819b.f66716b.a(), this.f66819b.f66716b.p()));
-        iVar.H(g.b(this.f66819b.f66716b.p()));
+        iVar.I(g.d(this.f66862b.f66759b.a(), this.f66862b.f66759b.p()));
+        iVar.H(g.b(this.f66862b.f66759b.p()));
         iVar.j0(i2);
-        if (!TextUtils.isEmpty(this.f66819b.f66716b.i())) {
-            iVar.g0(this.f66819b.f66716b.i());
+        if (!TextUtils.isEmpty(this.f66862b.f66759b.i())) {
+            iVar.g0(this.f66862b.f66759b.i());
         } else {
             iVar.g0("application/vnd.android.package-archive");
         }
@@ -249,7 +249,7 @@ public class k implements l.a {
             aVar = new d.o.a.d.f.d.a();
             iVar.F(aVar);
         }
-        int a3 = l.a(this.f66819b, t(), iVar);
+        int a3 = l.a(this.f66862b, t(), iVar);
         if (aVar != null) {
             aVar.c(a3);
         }
@@ -261,10 +261,10 @@ public class k implements l.a {
     }
 
     public final String c(d.o.a.e.b.j.a aVar) {
-        if (!TextUtils.isEmpty(this.f66819b.f66716b.n())) {
-            return this.f66819b.f66716b.n();
+        if (!TextUtils.isEmpty(this.f66862b.f66759b.n())) {
+            return this.f66862b.f66759b.n();
         }
-        DownloadInfo e2 = d.o.a.e.a.e.F().e(n.a(), this.f66819b.f66716b.a());
+        DownloadInfo e2 = d.o.a.e.a.e.F().e(n.a(), this.f66862b.f66759b.a());
         boolean e3 = d.o.a.d.n.i.e(StorageUtils.EXTERNAL_STORAGE_PERMISSION);
         String p = p();
         if (e2 != null && !TextUtils.isEmpty(e2.F0())) {
@@ -289,7 +289,7 @@ public class k implements l.a {
         } catch (JSONException e5) {
             e5.printStackTrace();
         }
-        j.c.a().v("label_external_permission", jSONObject, this.f66819b);
+        j.c.a().v("label_external_permission", jSONObject, this.f66862b);
         String str = null;
         try {
             str = d.o.a.e.a.d.F();
@@ -315,15 +315,15 @@ public class k implements l.a {
     }
 
     public void e() {
-        if (this.f66821d == null) {
-            this.f66821d = new c();
+        if (this.f66864d == null) {
+            this.f66864d = new c();
         }
     }
 
     public void f(long j) {
-        this.f66818a = j;
+        this.f66861a = j;
         c.f v = c.g.e().v(j);
-        this.f66819b = v;
+        this.f66862b = v;
         if (v.w()) {
             d.o.a.d.n.k.B();
         }
@@ -339,8 +339,8 @@ public class k implements l.a {
         if (i2 != 1 && i2 != 6 && i2 == 2) {
             if (downloadInfo.d0()) {
                 d.o.a.d.k b2 = d.o.a.d.k.b();
-                c.f fVar = this.f66819b;
-                b2.f(fVar.f66716b, fVar.f66718d, fVar.f66717c);
+                c.f fVar = this.f66862b;
+                b2.f(fVar.f66759b, fVar.f66761d, fVar.f66760c);
                 downloadInfo.t2(false);
             }
             j.c.a().i(downloadInfo);
@@ -351,10 +351,10 @@ public class k implements l.a {
         long Q0 = downloadInfo.Q0();
         if (Q0 > 0) {
             i3 = (int) ((downloadInfo.E() * 100) / Q0);
-            e eVar2 = this.f66821d;
+            e eVar2 = this.f66864d;
             if (eVar2 != null) {
                 eVar2.a(downloadInfo);
-                this.f66821d = null;
+                this.f66864d = null;
             }
         }
         for (d.o.a.a.a.c.e eVar3 : d(map)) {
@@ -367,7 +367,7 @@ public class k implements l.a {
                     } else if (downloadInfo.H0() == -1) {
                         eVar3.a(eVar);
                     } else if (downloadInfo.H0() == -3) {
-                        if (d.o.a.d.n.k.w(this.f66819b.f66716b)) {
+                        if (d.o.a.d.n.k.w(this.f66862b.f66759b)) {
                             eVar3.b(eVar);
                         } else {
                             eVar3.c(eVar);
@@ -385,8 +385,8 @@ public class k implements l.a {
     }
 
     public void h(@NonNull q qVar) {
-        if (!TextUtils.isEmpty(this.f66819b.f66716b.n())) {
-            String n = this.f66819b.f66716b.n();
+        if (!TextUtils.isEmpty(this.f66862b.f66759b.n())) {
+            String n = this.f66862b.f66759b.n();
             if (n.startsWith(Environment.getDataDirectory().getAbsolutePath())) {
                 qVar.a();
                 return;
@@ -403,11 +403,11 @@ public class k implements l.a {
     }
 
     public void i(DownloadInfo downloadInfo) {
-        this.f66820c = false;
-        e eVar = this.f66821d;
+        this.f66863c = false;
+        e eVar = this.f66864d;
         if (eVar != null) {
             eVar.a(downloadInfo);
-            this.f66821d = null;
+            this.f66864d = null;
         }
     }
 
@@ -435,8 +435,8 @@ public class k implements l.a {
                     switch (downloadInfo.H0()) {
                         case -4:
                         case 0:
-                            if (d.o.a.d.n.k.w(this.f66819b.f66716b)) {
-                                eVar.f66549b = -3;
+                            if (d.o.a.d.n.k.w(this.f66862b.f66759b)) {
+                                eVar.f66592b = -3;
                                 eVar2.b(eVar);
                                 break;
                             } else {
@@ -444,7 +444,7 @@ public class k implements l.a {
                                 break;
                             }
                         case -3:
-                            if (d.o.a.d.n.k.w(this.f66819b.f66716b)) {
+                            if (d.o.a.d.n.k.w(this.f66862b.f66759b)) {
                                 eVar2.b(eVar);
                                 break;
                             } else {
@@ -493,42 +493,42 @@ public class k implements l.a {
     }
 
     public void k(DownloadInfo downloadInfo, boolean z) {
-        if (this.f66819b.f66716b == null || downloadInfo == null || downloadInfo.c0() == 0) {
+        if (this.f66862b.f66759b == null || downloadInfo == null || downloadInfo.c0() == 0) {
             return;
         }
         int H0 = downloadInfo.H0();
         if (H0 != -1 && H0 != -4) {
-            if (l.f(this.f66819b.f66716b)) {
-                j.c.a().c(this.f66818a, 2);
+            if (l.f(this.f66862b.f66759b)) {
+                j.c.a().c(this.f66861a, 2);
             } else if (z && j.e.a().f() && (H0 == -2 || H0 == -3)) {
-                j.c.a().c(this.f66818a, 2);
+                j.c.a().c(this.f66861a, 2);
             }
         } else {
-            j.c.a().c(this.f66818a, 2);
+            j.c.a().c(this.f66861a, 2);
         }
         switch (H0) {
             case -4:
             case -1:
                 e();
                 c.g e2 = c.g.e();
-                c.f fVar = this.f66819b;
-                e2.j(new d.o.a.b.a.c.b(fVar.f66716b, fVar.f66717c, fVar.f66718d, downloadInfo.c0()));
+                c.f fVar = this.f66862b;
+                e2.j(new d.o.a.b.a.c.b(fVar.f66759b, fVar.f66760c, fVar.f66761d, downloadInfo.c0()));
                 return;
             case -3:
-                if (d.o.a.d.n.k.w(this.f66819b.f66716b)) {
+                if (d.o.a.d.n.k.w(this.f66862b.f66759b)) {
                     d.o.a.d.n.k.B();
                     return;
                 }
-                j.c.a().d(this.f66818a, 5, downloadInfo);
-                if (z && j.e.a().c() && !j.e.a().d(this.f66818a, this.f66819b.f66716b.u())) {
-                    j.c.a().c(this.f66818a, 2);
+                j.c.a().d(this.f66861a, 5, downloadInfo);
+                if (z && j.e.a().c() && !j.e.a().d(this.f66861a, this.f66862b.f66759b.u())) {
+                    j.c.a().c(this.f66861a, 2);
                     return;
                 }
                 return;
             case -2:
-                j.c.a().d(this.f66818a, 4, downloadInfo);
-                if (z && j.e.a().c() && !j.e.a().d(this.f66818a, this.f66819b.f66716b.u())) {
-                    j.c.a().c(this.f66818a, 2);
+                j.c.a().d(this.f66861a, 4, downloadInfo);
+                if (z && j.e.a().c() && !j.e.a().d(this.f66861a, this.f66862b.f66759b.u())) {
+                    j.c.a().c(this.f66861a, 2);
                     return;
                 }
                 return;
@@ -543,34 +543,34 @@ public class k implements l.a {
             case 5:
             case 7:
             case 8:
-                j.c.a().d(this.f66818a, 3, downloadInfo);
+                j.c.a().d(this.f66861a, 3, downloadInfo);
                 return;
         }
     }
 
     public final boolean l(int i2) {
-        if (this.f66819b.f66718d.b() == 2 && i2 == 2) {
+        if (this.f66862b.f66761d.b() == 2 && i2 == 2) {
             return true;
         }
-        return this.f66819b.f66718d.b() == 2 && i2 == 1 && n.s().optInt("disable_lp_if_market", 0) == 1;
+        return this.f66862b.f66761d.b() == 2 && i2 == 1 && n.s().optInt("disable_lp_if_market", 0) == 1;
     }
 
     public boolean m(Context context, int i2, boolean z) {
-        if (d.o.a.d.n.k.w(this.f66819b.f66716b)) {
-            d.o.a.b.a.c.b u = c.g.e().u(this.f66819b.f66715a);
+        if (d.o.a.d.n.k.w(this.f66862b.f66759b)) {
+            d.o.a.b.a.c.b u = c.g.e().u(this.f66862b.f66758a);
             if (u != null) {
                 d.o.a.e.b.p.b.a().m(u.s());
             }
-            return g.b.g(this.f66819b);
-        } else if (!l(i2) || TextUtils.isEmpty(this.f66819b.f66716b.v()) || n.s().optInt("disable_market") == 1) {
+            return g.b.g(this.f66862b);
+        } else if (!l(i2) || TextUtils.isEmpty(this.f66862b.f66759b.v()) || n.s().optInt("disable_market") == 1) {
             return false;
         } else {
-            return g.b.h(this.f66819b, i2);
+            return g.b.h(this.f66862b, i2);
         }
     }
 
     public boolean n(boolean z) {
-        return !z && this.f66819b.f66718d.b() == 1;
+        return !z && this.f66862b.f66761d.b() == 1;
     }
 
     @Nullable
@@ -597,11 +597,11 @@ public class k implements l.a {
     }
 
     public void s(DownloadInfo downloadInfo) {
-        if (!l.f(this.f66819b.f66716b) || this.f66820c) {
+        if (!l.f(this.f66862b.f66759b) || this.f66863c) {
             return;
         }
-        j.c.a().k("file_status", (downloadInfo == null || !d.o.a.d.n.k.E(downloadInfo.K0())) ? 2 : 1, this.f66819b);
-        this.f66820c = true;
+        j.c.a().k("file_status", (downloadInfo == null || !d.o.a.d.n.k.E(downloadInfo.K0())) ? 2 : 1, this.f66862b);
+        this.f66863c = true;
     }
 
     public final boolean t() {
@@ -613,16 +613,16 @@ public class k implements l.a {
     }
 
     public final boolean v() {
-        d.o.a.a.a.c.d dVar = this.f66819b.f66716b;
-        return (dVar == null || TextUtils.isEmpty(dVar.v()) || TextUtils.isEmpty(this.f66819b.f66716b.a())) ? false : true;
+        d.o.a.a.a.c.d dVar = this.f66862b.f66759b;
+        return (dVar == null || TextUtils.isEmpty(dVar.v()) || TextUtils.isEmpty(this.f66862b.f66759b.a())) ? false : true;
     }
 
     public final boolean w(DownloadInfo downloadInfo) {
-        return y(downloadInfo) && !d.o.a.d.n.k.w(this.f66819b.f66716b);
+        return y(downloadInfo) && !d.o.a.d.n.k.w(this.f66862b.f66759b);
     }
 
     public final boolean x() {
-        return this.f66819b.f66718d.d();
+        return this.f66862b.f66761d.d();
     }
 
     public final boolean y(DownloadInfo downloadInfo) {
@@ -630,22 +630,22 @@ public class k implements l.a {
     }
 
     public final boolean z() {
-        return d.o.a.d.n.k.w(this.f66819b.f66716b) && l.e(this.f66819b.f66718d.a());
+        return d.o.a.d.n.k.w(this.f66862b.f66759b) && l.e(this.f66862b.f66761d.a());
     }
 
     /* loaded from: classes7.dex */
     public class b implements i.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ q f66824a;
+        public final /* synthetic */ q f66867a;
 
         public b(k kVar, q qVar) {
-            this.f66824a = qVar;
+            this.f66867a = qVar;
         }
 
         @Override // d.o.a.d.n.i.a
         public void a() {
-            q qVar = this.f66824a;
+            q qVar = this.f66867a;
             if (qVar != null) {
                 qVar.a();
             }
@@ -653,7 +653,7 @@ public class k implements l.a {
 
         @Override // d.o.a.d.n.i.a
         public void a(String str) {
-            q qVar = this.f66824a;
+            q qVar = this.f66867a;
             if (qVar != null) {
                 qVar.a(str);
             }

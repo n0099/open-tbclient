@@ -15,25 +15,25 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import d.a.c.e.p.k;
 import d.a.i.p;
-import d.a.j0.r.q.a;
+import d.a.m0.r.q.a;
 import tbclient.SmartApp;
 /* loaded from: classes3.dex */
 public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, p<a> {
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f12487e;
+    public HeadImageView f12395e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12488f;
+    public TextView f12396f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12489g;
+    public TextView f12397g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SmartApp f12490h;
+    public SmartApp f12398h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f12491i;
+    public View.OnClickListener f12399i;
 
     public ThreadSmartAppLayout(Context context) {
         this(context, null);
@@ -53,21 +53,21 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     @Override // d.a.i.p
     /* renamed from: c */
     public void a(a aVar) {
-        if (aVar != null && aVar.m() != null && aVar.m().j1() != null) {
-            SmartApp j1 = aVar.m().j1();
-            this.f12490h = j1;
-            if (!k.isEmpty(j1.avatar)) {
-                this.f12487e.W(this.f12490h.avatar, 10, false, false);
+        if (aVar != null && aVar.m() != null && aVar.m().k1() != null) {
+            SmartApp k1 = aVar.m().k1();
+            this.f12398h = k1;
+            if (!k.isEmpty(k1.avatar)) {
+                this.f12395e.W(this.f12398h.avatar, 10, false, false);
             }
-            if (!k.isEmpty(this.f12490h.name)) {
-                this.f12488f.setText(this.f12490h.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
+            if (!k.isEmpty(this.f12398h.name)) {
+                this.f12396f.setText(this.f12398h.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
             } else {
-                this.f12488f.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
+                this.f12396f.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
             }
-            if (!k.isEmpty(this.f12490h._abstract)) {
-                this.f12489g.setText(this.f12490h._abstract);
+            if (!k.isEmpty(this.f12398h._abstract)) {
+                this.f12397g.setText(this.f12398h._abstract);
             } else {
-                this.f12489g.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
+                this.f12397g.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
             }
             setVisibility(0);
             return;
@@ -77,30 +77,30 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
 
     public void d() {
         SkinManager.setBackgroundResource(this, R.drawable.applets_cell_bg);
-        SkinManager.setViewTextColor(this.f12488f, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f12489g, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f12396f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f12397g, R.color.CAM_X0107);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        SmartApp smartApp = this.f12490h;
+        SmartApp smartApp = this.f12398h;
         if (smartApp == null) {
             return;
         }
-        if (!d.a.k0.s.a.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
-            if (k.isEmpty(this.f12490h.h5_url)) {
+        if (!d.a.n0.u.a.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+            if (k.isEmpty(this.f12398h.h5_url)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{this.f12490h.h5_url});
+            UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{this.f12398h.h5_url});
         }
-        View.OnClickListener onClickListener = this.f12491i;
+        View.OnClickListener onClickListener = this.f12399i;
         if (onClickListener != null) {
             onClickListener.onClick(view);
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.f12491i = onClickListener;
+        this.f12399i = onClickListener;
     }
 
     public ThreadSmartAppLayout(Context context, AttributeSet attributeSet) {
@@ -111,11 +111,11 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         super(context, attributeSet, i2);
         LayoutInflater.from(context).inflate(R.layout.thread_smart_app_layout, (ViewGroup) this, true);
         HeadImageView headImageView = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
-        this.f12487e = headImageView;
+        this.f12395e = headImageView;
         headImageView.setIsRound(true);
-        this.f12487e.setPlaceHolder(1);
-        this.f12488f = (TextView) findViewById(R.id.tv_thread_smart_app_title);
-        this.f12489g = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
+        this.f12395e.setPlaceHolder(1);
+        this.f12396f = (TextView) findViewById(R.id.tv_thread_smart_app_title);
+        this.f12397g = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
         setOnClickListener(this);
         d();
     }

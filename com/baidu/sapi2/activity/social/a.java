@@ -22,34 +22,34 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f9861a;
+    public static a f9761a;
 
     /* renamed from: com.baidu.sapi2.activity.social.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0123a extends HttpHandlerWrap {
+    public class C0124a extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThirdLoginCallback f9862a;
+        public final /* synthetic */ ThirdLoginCallback f9762a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0123a(Looper looper, ThirdLoginCallback thirdLoginCallback) {
+        public C0124a(Looper looper, ThirdLoginCallback thirdLoginCallback) {
             super(looper);
-            this.f9862a = thirdLoginCallback;
+            this.f9762a = thirdLoginCallback;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
-            if (this.f9862a != null) {
+            if (this.f9762a != null) {
                 WebAuthResult webAuthResult = new WebAuthResult();
                 webAuthResult.setResultCode(i2);
                 webAuthResult.setResultMsg(str);
-                this.f9862a.onFailure(webAuthResult);
+                this.f9762a.onFailure(webAuthResult);
             }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i2, String str, HashMap<String, String> hashMap) {
-            a.this.b(str, this.f9862a);
+            a.this.b(str, this.f9762a);
         }
     }
 
@@ -92,10 +92,10 @@ public class a {
     }
 
     public static a a() {
-        if (f9861a == null) {
-            f9861a = new a();
+        if (f9761a == null) {
+            f9761a = new a();
         }
-        return f9861a;
+        return f9761a;
     }
 
     public void a(String str, ThirdLoginCallback thirdLoginCallback) {
@@ -109,6 +109,6 @@ public class a {
         }
         hashMap.put("json", "1");
         String addExtras = ParamsUtil.addExtras(str, hashMap);
-        new HttpClientWrap().get(addExtras, ReqPriority.IMMEDIATE, ParamsUtil.buildNaCookie(addExtras, SapiAccountManager.getInstance().getConfignation()), new C0123a(Looper.getMainLooper(), thirdLoginCallback));
+        new HttpClientWrap().get(addExtras, ReqPriority.IMMEDIATE, ParamsUtil.buildNaCookie(addExtras, SapiAccountManager.getInstance().getConfignation()), new C0124a(Looper.getMainLooper(), thirdLoginCallback));
     }
 }

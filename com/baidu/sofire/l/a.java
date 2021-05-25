@@ -7,25 +7,25 @@ import java.lang.reflect.Method;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f10395a;
+    public Object f10296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f10396b;
+    public Class<?> f10297b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f10397c;
+    public Method f10298c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f10398d;
+    public Method f10299d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f10399e;
+    public Method f10300e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10400f;
+    public String f10301f;
 
     public final String a(Context context, Method method) {
-        Object obj = this.f10395a;
+        Object obj = this.f10296a;
         if (obj == null || method == null) {
             return null;
         }

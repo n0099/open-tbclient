@@ -6,17 +6,17 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f66450a;
+    public static int f66493a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f66451b;
+    public static int f66494b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f66452c;
+    public static int f66495c;
 
     public static String a(Context context) {
         try {
@@ -25,7 +25,7 @@ public class d {
             d(context);
         } catch (Throwable unused) {
         }
-        return "" + f66452c + "[<!>]" + f66450a + "*" + f66451b + "[<!>]";
+        return "" + f66495c + "[<!>]" + f66493a + "*" + f66494b + "[<!>]";
     }
 
     public static void b(Context context) {
@@ -35,17 +35,17 @@ public class d {
             Point point = new Point();
             if (Build.VERSION.SDK_INT >= 17) {
                 defaultDisplay.getRealSize(point);
-                f66450a = point.x;
+                f66493a = point.x;
             } else if (Build.VERSION.SDK_INT < 13) {
-                f66450a = defaultDisplay.getWidth();
+                f66493a = defaultDisplay.getWidth();
                 height = defaultDisplay.getHeight();
-                f66451b = height;
+                f66494b = height;
             } else {
                 defaultDisplay.getSize(point);
-                f66450a = point.x;
+                f66493a = point.x;
             }
             height = point.y;
-            f66451b = height;
+            f66494b = height;
         } catch (Throwable unused) {
         }
     }
@@ -58,7 +58,7 @@ public class d {
             new DisplayMetrics();
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
             float f2 = displayMetrics.density;
-            f66452c = displayMetrics.densityDpi;
+            f66495c = displayMetrics.densityDpi;
         } catch (Throwable unused) {
         }
     }

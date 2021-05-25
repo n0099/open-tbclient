@@ -9,25 +9,25 @@ import android.graphics.Shader;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import d.a.i0.f.j.e;
-import d.a.i0.f.j.f;
+import d.a.l0.f.j.e;
+import d.a.l0.f.j.f;
 /* loaded from: classes3.dex */
 public class GamenowDownloadButtomView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f11692e;
+    public Paint f11593e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11693f;
+    public int f11594f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11694g;
+    public int f11595g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11695h;
+    public boolean f11596h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11696i;
+    public int f11597i;
     public boolean j;
     public Paint k;
     public int l;
@@ -41,21 +41,21 @@ public class GamenowDownloadButtomView extends View {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f11697a;
+        public static final /* synthetic */ int[] f11598a;
 
         static {
             int[] iArr = new int[DownloadState.values().length];
-            f11697a = iArr;
+            f11598a = iArr;
             try {
                 iArr[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f11697a[DownloadState.DOWNLOADING.ordinal()] = 2;
+                f11598a[DownloadState.DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f11697a[DownloadState.DOWNLOADED.ordinal()] = 3;
+                f11598a[DownloadState.DOWNLOADED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -63,83 +63,83 @@ public class GamenowDownloadButtomView extends View {
 
     public GamenowDownloadButtomView(Context context) {
         super(context);
-        this.f11692e = new Paint();
+        this.f11593e = new Paint();
         this.k = new Paint();
         this.l = -1;
         this.o = 100;
         this.p = DownloadState.NOT_START;
         this.q = -1.0f;
-        this.f11692e.setAntiAlias(true);
+        this.f11593e.setAntiAlias(true);
         this.k.setAntiAlias(true);
         this.m = getResources().getDimensionPixelOffset(f.aiapps_game_dimens_14dp);
-        this.f11693f = context.getResources().getColor(e.aiapps_download_button_default_bg_color);
-        this.f11694g = context.getResources().getColor(e.aiapps_download_button_default_fg_color);
+        this.f11594f = context.getResources().getColor(e.aiapps_download_button_default_bg_color);
+        this.f11595g = context.getResources().getColor(e.aiapps_download_button_default_fg_color);
     }
 
     public final void a(Canvas canvas, RectF rectF) {
-        int i2 = a.f11697a[this.p.ordinal()];
+        int i2 = a.f11598a[this.p.ordinal()];
         float f2 = 0.0f;
         if (i2 != 1 && i2 != 2) {
-            this.f11692e.setColor(this.f11693f);
-            this.f11692e.setStyle(Paint.Style.FILL);
+            this.f11593e.setColor(this.f11594f);
+            this.f11593e.setStyle(Paint.Style.FILL);
             float f3 = this.q;
             if (f3 > 0.0f) {
                 f2 = f3;
-            } else if (this.f11695h) {
+            } else if (this.f11596h) {
                 f2 = rectF.height() / 2.0f;
             }
-            canvas.drawRoundRect(rectF, f2, f2, this.f11692e);
+            canvas.drawRoundRect(rectF, f2, f2, this.f11593e);
             return;
         }
-        this.f11692e.setColor(this.f11693f);
-        this.f11692e.setStyle(Paint.Style.STROKE);
-        this.f11692e.setStrokeWidth(1.0f);
+        this.f11593e.setColor(this.f11594f);
+        this.f11593e.setStyle(Paint.Style.STROKE);
+        this.f11593e.setStrokeWidth(1.0f);
         float f4 = this.q;
         if (f4 > 0.0f) {
             f2 = f4;
-        } else if (this.f11695h) {
+        } else if (this.f11596h) {
             f2 = rectF.height() / 2.0f;
         }
-        canvas.drawRoundRect(rectF, f2, f2, this.f11692e);
+        canvas.drawRoundRect(rectF, f2, f2, this.f11593e);
     }
 
     public final void b(Canvas canvas, RectF rectF) {
-        int i2 = a.f11697a[this.p.ordinal()];
+        int i2 = a.f11598a[this.p.ordinal()];
         float f2 = 0.0f;
         if (i2 == 1 || i2 == 2) {
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.FILL);
             float f3 = 1;
             RectF rectF2 = new RectF(f3, f3, getWidth() - 2, getHeight() - 2);
-            float f4 = this.f11696i / this.o;
-            paint.setShader(new LinearGradient(0.0f, 0.0f, rectF2.width(), 0.0f, new int[]{this.f11694g, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
+            float f4 = this.f11597i / this.o;
+            paint.setShader(new LinearGradient(0.0f, 0.0f, rectF2.width(), 0.0f, new int[]{this.f11595g, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
             float f5 = this.q;
             if (f5 > 0.0f) {
                 f2 = f5;
-            } else if (this.f11695h) {
+            } else if (this.f11596h) {
                 f2 = rectF2.height() / 2.0f;
             }
             canvas.drawRoundRect(rectF2, f2, f2, paint);
         } else if (i2 != 3) {
-            this.f11692e.setColor(this.f11693f);
-            this.f11692e.setStyle(Paint.Style.FILL);
+            this.f11593e.setColor(this.f11594f);
+            this.f11593e.setStyle(Paint.Style.FILL);
             float f6 = this.q;
             if (f6 > 0.0f) {
                 f2 = f6;
-            } else if (this.f11695h) {
+            } else if (this.f11596h) {
                 f2 = rectF.height() / 2.0f;
             }
-            canvas.drawRoundRect(rectF, f2, f2, this.f11692e);
+            canvas.drawRoundRect(rectF, f2, f2, this.f11593e);
         } else {
-            this.f11692e.setColor(this.f11694g);
-            this.f11692e.setStyle(Paint.Style.FILL);
+            this.f11593e.setColor(this.f11595g);
+            this.f11593e.setStyle(Paint.Style.FILL);
             float f7 = this.q;
             if (f7 > 0.0f) {
                 f2 = f7;
-            } else if (this.f11695h) {
+            } else if (this.f11596h) {
                 f2 = rectF.height() / 2.0f;
             }
-            canvas.drawRoundRect(rectF, f2, f2, this.f11692e);
+            canvas.drawRoundRect(rectF, f2, f2, this.f11593e);
         }
     }
 
@@ -175,13 +175,13 @@ public class GamenowDownloadButtomView extends View {
     public final void e(Canvas canvas) {
         float f2 = 0;
         RectF rectF = new RectF(f2, f2, getWidth() + 0, getHeight() + 0);
-        this.f11692e.setColor(this.f11693f);
-        this.f11692e.setStyle(Paint.Style.FILL);
+        this.f11593e.setColor(this.f11594f);
+        this.f11593e.setStyle(Paint.Style.FILL);
         float f3 = this.q;
         if (f3 <= 0.0f) {
-            f3 = this.f11695h ? rectF.height() / 2.0f : 0.0f;
+            f3 = this.f11596h ? rectF.height() / 2.0f : 0.0f;
         }
-        canvas.drawRoundRect(rectF, f3, f3, this.f11692e);
+        canvas.drawRoundRect(rectF, f3, f3, this.f11593e);
         this.k.setColor(this.l);
         this.k.setTextSize(this.m);
         Paint.FontMetrics fontMetrics = this.k.getFontMetrics();
@@ -190,7 +190,7 @@ public class GamenowDownloadButtomView extends View {
     }
 
     public GamenowDownloadButtomView f(boolean z) {
-        this.f11695h = z;
+        this.f11596h = z;
         return this;
     }
 
@@ -204,12 +204,12 @@ public class GamenowDownloadButtomView extends View {
     }
 
     public GamenowDownloadButtomView h(int i2) {
-        this.f11693f = i2;
+        this.f11594f = i2;
         return this;
     }
 
     public GamenowDownloadButtomView i(int i2) {
-        this.f11694g = i2;
+        this.f11595g = i2;
         return this;
     }
 
@@ -235,7 +235,7 @@ public class GamenowDownloadButtomView extends View {
         if (i2 > i3) {
             i2 = i3;
         }
-        this.f11696i = i2;
+        this.f11597i = i2;
     }
 
     public void setRadius(float f2) {

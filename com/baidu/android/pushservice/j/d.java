@@ -8,19 +8,19 @@ import java.io.InputStream;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f3459a = new byte[8];
+    public byte[] f3462a = new byte[8];
 
     /* renamed from: b  reason: collision with root package name */
-    public DataInputStream f3460b;
+    public DataInputStream f3463b;
 
     public d(InputStream inputStream) {
-        this.f3460b = new DataInputStream(inputStream);
+        this.f3463b = new DataInputStream(inputStream);
     }
 
     private int a(int i2) throws IOException {
         int i3 = 0;
         while (i3 < i2) {
-            int read = this.f3460b.read(this.f3459a, i3, i2 - i3);
+            int read = this.f3463b.read(this.f3462a, i3, i2 - i3);
             if (read == -1) {
                 return read;
             }
@@ -30,16 +30,16 @@ public class d {
     }
 
     public void a() throws IOException {
-        this.f3460b.close();
+        this.f3463b.close();
     }
 
     public final void a(byte[] bArr) throws IOException {
-        this.f3460b.readFully(bArr, 0, bArr.length);
+        this.f3463b.readFully(bArr, 0, bArr.length);
     }
 
     public final int b() throws IOException {
         if (a(4) >= 0) {
-            byte[] bArr = this.f3459a;
+            byte[] bArr = this.f3462a;
             return (bArr[0] & 255) | ((bArr[3] & 255) << 24) | ((bArr[2] & 255) << 16) | ((bArr[1] & 255) << 8);
         }
         throw new EOFException();
@@ -47,7 +47,7 @@ public class d {
 
     public final short c() throws IOException {
         if (a(2) >= 0) {
-            byte[] bArr = this.f3459a;
+            byte[] bArr = this.f3462a;
             return (short) ((bArr[0] & 255) | ((bArr[1] & 255) << 8));
         }
         throw new EOFException();
@@ -55,7 +55,7 @@ public class d {
 
     public final long d() throws IOException {
         if (a(8) >= 0) {
-            byte[] bArr = this.f3459a;
+            byte[] bArr = this.f3462a;
             return (((((((bArr[7] & 255) << 24) | ((bArr[6] & 255) << 16)) | ((bArr[5] & 255) << 8)) | (bArr[4] & 255)) & 4294967295L) << 32) | (4294967295L & (((bArr[1] & 255) << 8) | ((bArr[3] & 255) << 24) | ((bArr[2] & 255) << 16) | (bArr[0] & 255)));
         }
         throw new EOFException();

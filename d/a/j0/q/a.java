@@ -1,41 +1,37 @@
 package d.a.j0.q;
 
 import android.content.Context;
-import d.a.j0.e0.b;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes3.dex */
-public class a {
+import android.util.Log;
+import java.lang.reflect.Method;
+/* loaded from: classes2.dex */
+public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f49588a = new ArrayList<>();
+    public Object f40509a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f49589b;
+    public Class<?> f40510b;
 
-    public a(Context context) {
-        this.f49589b = context;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public Method f40511c;
 
-    public void a(b bVar) {
-        if (bVar == null || bVar.getFragmentTabStructure() == null) {
-            return;
+    /* renamed from: d  reason: collision with root package name */
+    public String f40512d;
+
+    public final String a(Context context, Method method) {
+        Object obj = this.f40509a;
+        if (obj == null || method == null) {
+            return null;
         }
-        Iterator<b> it = this.f49588a.iterator();
-        while (it.hasNext()) {
-            b next = it.next();
-            if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().f49294e == bVar.getFragmentTabStructure().f49294e) {
-                return;
+        try {
+            Object invoke = method.invoke(obj, context);
+            if (invoke != null) {
+                return (String) invoke;
             }
+            return null;
+        } catch (Exception e2) {
+            Log.d("IdentifierManager", "invoke exception!", e2);
+            return null;
         }
-        this.f49588a.add(bVar);
-    }
-
-    public Context b() {
-        return this.f49589b;
-    }
-
-    public ArrayList<b> c() {
-        return this.f49588a;
     }
 }

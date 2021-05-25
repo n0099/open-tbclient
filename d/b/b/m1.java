@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.os.IBinder;
 import com.bytedance.embedapplog.h;
 import d.b.b.n1;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class m1 extends u0<com.bytedance.embedapplog.h> {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements n1.b<com.bytedance.embedapplog.h, String> {
         public a(m1 m1Var) {
         }

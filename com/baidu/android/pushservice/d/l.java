@@ -16,15 +16,15 @@ public class l {
         
 
         /* renamed from: h  reason: collision with root package name */
-        public int f3030h;
+        public int f3033h;
 
         a(int i2) {
-            this.f3030h = i2;
+            this.f3033h = i2;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
-            return this.f3030h;
+            return this.f3033h;
         }
     }
 

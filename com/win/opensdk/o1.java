@@ -42,7 +42,7 @@ public class o1 {
         } else if (a(context, Uri.parse(str), info)) {
         } else {
             if (info.getOpent() == 1) {
-                if (A.f36847d.f36850c) {
+                if (A.f36776d.f36779c) {
                     Toast.makeText(context, context.getString(R.string.win_wdownload_loading), 1).show();
                     x0.a(context).b(new y0(info), 5).a();
                     return;
@@ -55,29 +55,29 @@ public class o1 {
                 y0 y0Var = new y0(info);
                 String open = info.getOpen();
                 try {
-                    a2.f37229b = x0.a("wdtr", y0Var);
+                    a2.f37158b = x0.a("wdtr", y0Var);
                     a2.a("msg", x0.a(open));
                 } catch (JSONException unused2) {
                 }
                 a2.a();
                 if (e1 != null) {
-                    e1.f36889c = info;
-                    WebView webView2 = e1.f36888b;
+                    e1.f36818c = info;
+                    WebView webView2 = e1.f36817b;
                     if (webView2 == null) {
                         return;
                     }
                     webView2.loadUrl(info.getOpen());
-                    webView = e1.f36888b;
+                    webView = e1.f36817b;
                     d1 = new D1(e1);
                 } else {
                     E1 e12 = new E1(context);
-                    e12.f36889c = info;
-                    WebView webView3 = e12.f36888b;
+                    e12.f36818c = info;
+                    WebView webView3 = e12.f36817b;
                     if (webView3 == null) {
                         return;
                     }
                     webView3.loadUrl(info.getOpen());
-                    webView = e12.f36888b;
+                    webView = e12.f36817b;
                     d1 = new D1(e12);
                 }
                 webView.setDownloadListener(d1);

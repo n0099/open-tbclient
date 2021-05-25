@@ -42,13 +42,16 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     public String getHost() {
         int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
         if (readIntData != 0) {
-            if (readIntData == 1 || readIntData == 2) {
-                return "https://rd-im-server.bcc-szth.baidu.com:8444/rest/2.0/im/zhidahao";
+            if (readIntData != 1) {
+                if (readIntData != 2) {
+                    if (readIntData != 3) {
+                        return null;
+                    }
+                    return "http://180.97.36.95:8080/rest/2.0/im/zhidahao";
+                }
+                return "http://sz-shaheenv-odprestapi-b.bcc-szwg.baidu.com:8080/rest/2.0/im/zhidahao";
             }
-            if (readIntData != 3) {
-                return null;
-            }
-            return "http://180.97.36.95:8080/rest/2.0/im/zhidahao";
+            return "https://rd-im-server.bcc-szth.baidu.com:8444/rest/2.0/im/zhidahao";
         }
         return "https://pim.baidu.com/rest/2.0/im/zhidahao";
     }

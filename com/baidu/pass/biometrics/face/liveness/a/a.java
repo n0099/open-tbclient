@@ -6,23 +6,23 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f9121b = null;
+    public static a f9021b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f9122c = "request_data";
+    public static final String f9022c = "request_data";
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, PassBiometricDto> f9123a = new HashMap<>();
+    public HashMap<String, PassBiometricDto> f9023a = new HashMap<>();
 
     public static a b() {
-        if (f9121b == null) {
-            f9121b = new a();
+        if (f9021b == null) {
+            f9021b = new a();
         }
-        return f9121b;
+        return f9021b;
     }
 
     public PassBiometricDto a(String str) {
-        HashMap<String, PassBiometricDto> hashMap = this.f9123a;
+        HashMap<String, PassBiometricDto> hashMap = this.f9023a;
         if (hashMap != null) {
             return hashMap.get(str);
         }
@@ -30,17 +30,17 @@ public class a {
     }
 
     public void a(String str, PassBiometricDto passBiometricDto) {
-        if (this.f9123a == null) {
-            this.f9123a = new HashMap<>();
+        if (this.f9023a == null) {
+            this.f9023a = new HashMap<>();
         }
-        this.f9123a.put(str, passBiometricDto);
+        this.f9023a.put(str, passBiometricDto);
     }
 
     public void a() {
-        HashMap<String, PassBiometricDto> hashMap = this.f9123a;
+        HashMap<String, PassBiometricDto> hashMap = this.f9023a;
         if (hashMap != null) {
             hashMap.clear();
-            this.f9123a = null;
+            this.f9023a = null;
         }
     }
 }

@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f35624a = Boolean.valueOf(f.f35733b);
+    public static final Boolean f35553a = Boolean.valueOf(f.f35662b);
 
     /* JADX WARN: Removed duplicated region for block: B:29:0x0067 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:30:0x0068  */
@@ -45,7 +45,7 @@ public final class d {
                     }
                 } catch (Exception e2) {
                     e = e2;
-                    com.sdk.base.framework.a.a.c.b("StringDownloadHandler", e.getMessage(), f35624a);
+                    com.sdk.base.framework.a.a.c.b("StringDownloadHandler", e.getMessage(), f35553a);
                     if (sb != null) {
                     }
                 }

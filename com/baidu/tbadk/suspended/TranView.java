@@ -10,10 +10,10 @@ import android.widget.Scroller;
 public class TranView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f13024e;
+    public Scroller f12932e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f13025f;
+    public a f12933f;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -27,12 +27,12 @@ public class TranView extends View {
     @Override // android.view.View
     public void computeScroll() {
         super.computeScroll();
-        Scroller scroller = this.f13024e;
+        Scroller scroller = this.f12932e;
         if (scroller == null) {
             return;
         }
         if (scroller.computeScrollOffset()) {
-            int currY = this.f13024e.getCurrY();
+            int currY = this.f12932e.getCurrY();
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = currY;
@@ -41,7 +41,7 @@ public class TranView extends View {
             }
             return;
         }
-        a aVar = this.f13025f;
+        a aVar = this.f12933f;
         if (aVar != null) {
             aVar.a();
         }
@@ -53,7 +53,7 @@ public class TranView extends View {
     }
 
     public void setScrollCallBack(a aVar) {
-        this.f13025f = aVar;
+        this.f12933f = aVar;
     }
 
     public TranView(Context context, AttributeSet attributeSet) {

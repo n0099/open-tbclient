@@ -26,9 +26,9 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.views.ViewUtility;
-import d.a.y.a.b;
-import d.a.y.a.f;
-import d.a.y.a.g;
+import d.a.a0.a.b;
+import d.a.a0.a.f;
+import d.a.a0.a.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */

@@ -11,13 +11,13 @@ import java.util.Random;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f48517b = n(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    public static final int[] f40181b = n(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f48518a;
+    public final int f40182a;
 
     public b(int i2) {
-        this.f48518a = i2;
+        this.f40182a = i2;
     }
 
     public static int b(int i2, int i3) {
@@ -49,9 +49,9 @@ public class b {
     }
 
     public static void h(int[] iArr, int[] iArr2) {
-        int[] iArr3 = f48517b;
+        int[] iArr3 = f40181b;
         System.arraycopy(iArr3, 0, iArr, 0, iArr3.length);
-        System.arraycopy(iArr2, 0, iArr, f48517b.length, 8);
+        System.arraycopy(iArr2, 0, iArr, f40181b.length, 8);
     }
 
     public static int[] n(byte[] bArr) {
@@ -93,7 +93,7 @@ public class b {
         int remaining = byteBuffer2.remaining();
         int i2 = (remaining / 64) + 1;
         for (int i3 = 0; i3 < i2; i3++) {
-            ByteBuffer c2 = c(bArr, bArr2, this.f48518a + i3);
+            ByteBuffer c2 = c(bArr, bArr2, this.f40182a + i3);
             if (i3 == i2 - 1) {
                 a.a(byteBuffer, byteBuffer2, c2, remaining % 64);
             } else {

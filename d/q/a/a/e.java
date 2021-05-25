@@ -6,10 +6,10 @@ import d.q.a.a.c.a.a;
 public final class e implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public /* synthetic */ b f67596e;
+    public /* synthetic */ b f67639e;
 
     public e(b bVar) {
-        this.f67596e = bVar;
+        this.f67639e = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -20,20 +20,20 @@ public final class e implements Runnable {
         d dVar;
         d dVar2;
         try {
-            context = this.f67596e.f67568a;
+            context = this.f67639e.f67611a;
             if (context == null) {
-                dVar2 = this.f67596e.f67573f;
+                dVar2 = this.f67639e.f67616f;
                 dVar2.a(-3, "parameter error");
                 return;
             }
-            b bVar = this.f67596e;
-            context2 = this.f67596e.f67568a;
-            bVar.f67569b = context2.getPackageName();
+            b bVar = this.f67639e;
+            context2 = this.f67639e.f67611a;
+            bVar.f67612b = context2.getPackageName();
             a a2 = a.a();
-            str = this.f67596e.f67569b;
+            str = this.f67639e.f67612b;
             a2.d(str);
-            b bVar2 = this.f67596e;
-            dVar = this.f67596e.f67573f;
+            b bVar2 = this.f67639e;
+            dVar = this.f67639e.f67616f;
             bVar2.h(dVar);
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);

@@ -3,42 +3,42 @@ package com.bytedance.sdk.openadsdk.core.nativeexpress;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28340a;
+    public int f28269a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28341b;
+    public int f28270b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f28342c;
+    public float f28271c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28343d;
+    public int f28272d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28344e;
+    public int f28273e;
 
     public i(int i2, float f2, int i3, int i4) {
-        this.f28340a = 1;
-        this.f28341b = -1;
-        this.f28342c = 1.0f;
-        this.f28343d = 600;
-        this.f28344e = 150;
-        this.f28340a = i2;
-        this.f28342c = f2;
-        this.f28343d = i3;
-        this.f28344e = i4;
+        this.f28269a = 1;
+        this.f28270b = -1;
+        this.f28271c = 1.0f;
+        this.f28272d = 600;
+        this.f28273e = 150;
+        this.f28269a = i2;
+        this.f28271c = f2;
+        this.f28272d = i3;
+        this.f28273e = i4;
     }
 
     public i(int i2, int i3, float f2, int i4, int i5) {
-        this.f28340a = 1;
-        this.f28341b = -1;
-        this.f28342c = 1.0f;
-        this.f28343d = 600;
-        this.f28344e = 150;
-        this.f28340a = i2;
-        this.f28341b = i3;
-        this.f28342c = f2;
-        this.f28343d = i4;
-        this.f28344e = i5;
+        this.f28269a = 1;
+        this.f28270b = -1;
+        this.f28271c = 1.0f;
+        this.f28272d = 600;
+        this.f28273e = 150;
+        this.f28269a = i2;
+        this.f28270b = i3;
+        this.f28271c = f2;
+        this.f28272d = i4;
+        this.f28273e = i5;
     }
 }

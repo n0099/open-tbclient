@@ -11,6 +11,8 @@ import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.Utility;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,7 +45,7 @@ public abstract class NotifyMessageHandler {
         ChatMsgManagerImpl.getInstance(context).deliverConfigMessage(arrayList);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0089  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0094  */
     /* JADX WARN: Removed duplicated region for block: B:30:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -76,6 +78,7 @@ public abstract class NotifyMessageHandler {
                 long j3 = jSONObject.getLong("msgid");
                 LogUtils.i(TAG, "msgid : " + j3);
                 SyncGroupMessageService.getInstance().execute(context, i2, j2, j3, 2);
+                Utility.transformGroupMediaNotify(context, i2, j2, 2, -1L);
                 return;
             } else {
                 LogUtils.e(TAG, "handleDeliverMessage category error!!");
@@ -110,6 +113,7 @@ public abstract class NotifyMessageHandler {
     }
 
     public static void handleRtcNotifyMessage(Context context, JSONObject jSONObject) {
+        handleRtcReport("notify", jSONObject == null ? "msgobj == null" : jSONObject.toString());
         if (context != null && jSONObject != null) {
             try {
                 LogUtils.i(TAG, "handleRtcNotifyMessage context ！= null && msgobj ！= null ");
@@ -118,9 +122,21 @@ public abstract class NotifyMessageHandler {
                 return;
             } catch (Throwable th) {
                 LogUtils.e(TAG, "handleRtcNotifyMessage ClassNotFoundException BIMRtcManager...", th);
+                handleRtcReport("notify", "exception :" + th.getMessage());
                 return;
             }
         }
         LogUtils.i(TAG, "handleRtcNotifyMessage context == null || msgobj == null ");
+    }
+
+    public static void handleRtcReport(String str, String str2) {
+        try {
+            LogUtils.i(TAG, "handleRtcReport " + str + ", ext :" + str2);
+            Class<?> cls = Class.forName("com.baidu.android.imrtc.BIMRtcManager");
+            Method method = cls.getMethod("imRtcReport", String.class, String.class);
+            method.invoke(cls, "im rtc_report " + str, str2);
+        } catch (Throwable th) {
+            LogUtils.e(TAG, "handleRtcReport ClassNotFoundException BIMRtcManager...", th);
+        }
     }
 }

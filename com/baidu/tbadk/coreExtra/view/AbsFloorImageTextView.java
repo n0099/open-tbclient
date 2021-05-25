@@ -13,47 +13,47 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.z0.i0;
-import d.a.k0.d2.i.c;
+import d.a.m0.z0.i0;
+import d.a.n0.e2.i.c;
 /* loaded from: classes3.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f12696h = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
+    public static final int f12604h = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f12697i = l.g(TbadkApplication.getInst(), R.dimen.tbds28);
+    public static final int f12605i = l.g(TbadkApplication.getInst(), R.dimen.tbds28);
     public static final int j = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
     public static final int k = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
     public static final int l = (l.k(TbadkApplication.getInst()) - j) - k;
     public static final int m = l.g(TbadkApplication.getInst(), R.dimen.tbds42);
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageUrlData f12698e;
+    public ImageUrlData f12606e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a f12699f;
+    public c.a f12607f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f12700g;
+    public c f12608g;
 
     /* loaded from: classes3.dex */
     public class a implements c.a {
         public a() {
         }
 
-        @Override // d.a.k0.d2.i.c.a
+        @Override // d.a.n0.e2.i.c.a
         public boolean a(View view, MotionEvent motionEvent) {
             return false;
         }
 
-        @Override // d.a.k0.d2.i.c.a
+        @Override // d.a.n0.e2.i.c.a
         public boolean b(View view, MotionEvent motionEvent) {
             AbsFloorImageTextView.this.c();
             return true;
         }
 
-        @Override // d.a.k0.d2.i.c.a
+        @Override // d.a.n0.e2.i.c.a
         public boolean c(View view, MotionEvent motionEvent) {
             return false;
         }
@@ -65,12 +65,12 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             super(aVar);
         }
 
-        @Override // d.a.k0.d2.i.c, android.view.GestureDetector.OnGestureListener
+        @Override // d.a.n0.e2.i.c, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             return false;
         }
 
-        @Override // d.a.k0.d2.i.c, android.view.GestureDetector.OnGestureListener
+        @Override // d.a.n0.e2.i.c, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             return false;
         }
@@ -79,8 +79,8 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public AbsFloorImageTextView(@NonNull Context context) {
         super(context);
         a aVar = new a();
-        this.f12699f = aVar;
-        this.f12700g = new b(aVar);
+        this.f12607f = aVar;
+        this.f12608g = new b(aVar);
     }
 
     public void a(int i2) {
@@ -101,16 +101,16 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     public void c() {
-        ImageUrlData imageUrlData = this.f12698e;
+        ImageUrlData imageUrlData = this.f12606e;
         if (imageUrlData == null) {
             return;
         }
         String valueOf = String.valueOf(imageUrlData.threadId);
-        String valueOf2 = String.valueOf(this.f12698e.postId);
+        String valueOf2 = String.valueOf(this.f12606e.postId);
         PbActivityConfig pbActivityConfig = new PbActivityConfig(getContext());
-        ImageUrlData imageUrlData2 = this.f12698e;
+        ImageUrlData imageUrlData2 = this.f12606e;
         PbActivityConfig createHistoryCfg = pbActivityConfig.createHistoryCfg(valueOf, valueOf2, imageUrlData2.mIsSeeHost, imageUrlData2.mIsReserver, null);
-        if (this.f12698e.isFirstPost) {
+        if (this.f12606e.isFirstPost) {
             createHistoryCfg.setJumpToTopArea(true);
         } else {
             createHistoryCfg.setJumpToCommentArea(true);

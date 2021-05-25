@@ -13,6 +13,13 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int ACCOUNT_OAUTH = 3;
     public static final int ACCOUNT_OTHER = 5;
     public static final int ACCOUNT_XDOMAIN = 4;
+    public static final int ACTION_TYPE_AT_GROUP_MEMBER = 9;
+    public static final int ADD_FANS_GROUP_WITHOUT_CHECK = 0;
+    public static final int ADD_FANS_GROUP_WITH_FOLLOW = 1;
+    public static final String AT_DATA_TYPE_GROUP_ALL = "group_all";
+    public static final String AT_DATA_TYPE_TEXT = "text";
+    public static final String AT_DATA_TYPE_USER = "users";
+    public static final String BONUS_MSG_RECOMMEND_DESC = "[优惠券]你的超值优惠派送中，速来领取 >>";
     public static final int BUSINESS_TYPE = 16;
     public static final int BUSINESS_TYPE_2C = 1;
     public static final int BUSINESS_TYPE_BJH = 3;
@@ -32,6 +39,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int CHAT_TYPE_COMMENT = 6;
     public static final int CHAT_TYPE_DUMI = 100;
     public static final int CHAT_TYPE_DUZHAN = 7;
+    public static final int CHAT_TYPE_FANS_GROUP = 57;
     public static final int CHAT_TYPE_GROUP_DISCUSS = 3;
     public static final int CHAT_TYPE_INTERACTIVE = 19;
     public static final int CHAT_TYPE_INTERACTIVE_COMMENT = 29;
@@ -73,6 +81,8 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int CHAT_TYPE_STUDIO = 20;
     public static final int CHAT_TYPE_STUDIO_DISCUSS = 60;
     public static final int CHAT_TYPE_USER = 0;
+    public static final int CHAT_USER_IN_GROUP = 0;
+    public static final int CHAT_USER_NOT_IN_GROUP = 1;
     public static final int CLASSTYPENODEFINE = 0;
     public static final String CONNECTION_BREAK_ACTION = "com.baidu.android.imsdk.connection.break";
     public static final String CONNECTION_CONNCT_ACTION = "com.baidu.android.imsdk.connection.connect";
@@ -95,11 +105,15 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int ERROR_DEL_MSG_FAIL = 1006;
     public static final int ERROR_FILE_NOT_FOUND = 1007;
     public static final int ERROR_FRIEND_GROUP_UPDATED = 610;
+    public static final int ERROR_GROUP_DISBAND = 30602;
     public static final int ERROR_GROUP_NAME_NOT_VALID = 60002;
     public static final int ERROR_HTTP_IOEXCEPTION_ERROR = 1012;
     public static final int ERROR_HTTP_RESPONS_ERROR = 1011;
     public static final int ERROR_ID_NOT_EXIST = 1013;
     public static final int ERROR_INTERNAL_ERROR = 1003;
+    public static final int ERROR_INVITER_NOT_IN_GROUP = 54009;
+    public static final int ERROR_JOIN_GROUP_MAX_TIMES = 54010;
+    public static final int ERROR_JOIN_GROUP_NUMBER_FULL = 60001;
     public static final int ERROR_JOIN_GROUP_OUT = 52007;
     public static final int ERROR_JSON_PARSE_EXCEPTION = 1010;
     public static final int ERROR_MSG_SHEILD_ME_TIPS = 616;
@@ -121,8 +135,12 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int ERROR_ZHIDA_IS_CREATING = 1019;
     public static final int ERROR_ZHIDA_IS_DELETED = 1014;
     public static final int ERROR_ZHIDA_IS_OFFLINE = 1016;
+    public static final long FANS_GROUP_INFO_EXPIRED_TIME = 604800;
+    public static final String FETCHED_MAX_NOTIFY_MSGID = "fetched_max_msgid";
     public static final int FETCH_CONFIG_MAX_COUNT = 20;
     public static final String GET_PARAMS_URL = "common_url";
+    public static final int GROUP_TYPE_FANS = 3;
+    public static final int GROUP_TYPE_NORMAL = 1;
     public static final int GROUP_TYPE_STAR = 2;
     public static final int IM_ALL_SUBSCRIBED_TYPE = 3;
     public static final int IM_BUSINESS_TYPE_INTERACTIVE = 10;
@@ -189,6 +207,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_MSG_TYPE_ALERT = 2001;
     public static final int IM_MSG_TYPE_AUDIO = 2;
     public static final int IM_MSG_TYPE_BONUS = 30;
+    public static final int IM_MSG_TYPE_BRAND = 38;
     public static final int IM_MSG_TYPE_CHANGE_GROUPINFO = 1005;
     public static final int IM_MSG_TYPE_CONFIG = 20;
     public static final int IM_MSG_TYPE_CONSULT_COUPON = 26;
@@ -200,11 +219,16 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_MSG_TYPE_DUPA_B_INFO = 31;
     public static final int IM_MSG_TYPE_DUPA_B_MANUAL = 32;
     public static final int IM_MSG_TYPE_DUPA_EVALUATION = 33;
+    public static final int IM_MSG_TYPE_FANS_GROUP_AT = 40;
+    public static final int IM_MSG_TYPE_FANS_GROUP_CARD = 41;
+    public static final int IM_MSG_TYPE_FANS_GROUP_INVITE = 39;
     public static final int IM_MSG_TYPE_FILE = 4;
     public static final int IM_MSG_TYPE_GOODS = 29;
     public static final int IM_MSG_TYPE_GROUP_ALLOW = 1011;
     public static final int IM_MSG_TYPE_GROUP_BRAODCAST = 1006;
     public static final int IM_MSG_TYPE_GROUP_DELETE = 1009;
+    public static final int IM_MSG_TYPE_GROUP_DISBAND = 1013;
+    public static final int IM_MSG_TYPE_GROUP_INFO_UPDATE = 1014;
     public static final int IM_MSG_TYPE_GROUP_MEMBERNAME = 1012;
     public static final int IM_MSG_TYPE_GROUP_PERMIT = 1010;
     public static final int IM_MSG_TYPE_GROUP_PUSHOUT = 1007;
@@ -216,6 +240,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_MSG_TYPE_LOCATION = 7;
     public static final int IM_MSG_TYPE_MULTIGRAPHICTEXT = 9;
     public static final int IM_MSG_TYPE_NONE = -1;
+    public static final int IM_MSG_TYPE_NO_IMG_BONUS = 35;
     public static final int IM_MSG_TYPE_PASS = 27;
     public static final int IM_MSG_TYPE_PASS_SAVE = 28;
     public static final int IM_MSG_TYPE_PRODUCT = 25;
@@ -225,6 +250,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_MSG_TYPE_REDPACK = 16;
     public static final int IM_MSG_TYPE_RED_NOTIFY = 2010;
     public static final int IM_MSG_TYPE_SCHEMA = 22;
+    public static final int IM_MSG_TYPE_SETTING_REMIND = 36;
     public static final int IM_MSG_TYPE_SHIELD = 2011;
     public static final int IM_MSG_TYPE_SHIELD_ME = 2012;
     public static final int IM_MSG_TYPE_SINGLEGRAPHICTEXT = 8;
@@ -260,7 +286,9 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_REOCRD_HIDE = 0;
     public static final int IM_SESSION_TYPE_IM = 0;
     public static final int IM_SESSION_TYPE_MEDIA = 1;
+    public static final int IM_SETTING_SUB_COMMODITY = 5;
     public static final int IM_SETTING_SUB_DISTURB = 3;
+    public static final int IM_SETTING_SUB_GRAPHIC = 4;
     public static final int IM_SETTING_SUB_MARK_TOP = 2;
     public static final int IM_SETTING_SUB_SHIELD = 1;
     public static final int IM_SETTING_TYPE_GROUP = 2;
@@ -268,6 +296,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_SETTING_TYPE_USER = 0;
     public static final int IM_SHIELD = 1;
     public static final int IM_STATE_ACTIVE = 1;
+    public static final int IM_STATE_BRIEF = 2;
     public static final int IM_STATE_NORMAL = 0;
     public static final int IM_STATE_NOT_ACTIVE = 0;
     public static final int IM_STATE_QUIT = 1;
@@ -286,6 +315,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int INTERACTIVE_STATUS_DEFAULT = 0;
     public static final int INTERACTIVE_STATUS_SUCCESS = 1;
     public static final int INTERACTIVE_ZAN = 1;
+    public static final String INTER_ACTIVE_MSG_RECOMMEND_DESC = "[收到新消息]";
     public static final String KEY_CONNECTION_STATE = "lcs";
     public static final String KEY_TRACK_DB_DEFAULT_SIZE = "empty_track_db_size";
     public static final int LOGIN_SYNC = 0;
@@ -294,6 +324,9 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int MAX_IMAGE_CACHE_DISC_SIZE = 31457280;
     public static final int MCAST_QUIZ_100_OPT = 100;
     public static final int MCAST_QUIZ_101_OPT = 101;
+    public static final int MEDIA_NOTIFY_TYPE_MSG_DEL = 3;
+    public static final int MEDIA_NOTIFY_TYPE_MSG_NEW = 2;
+    public static final int MEDIA_NOTIFY_TYPE_MSG_READ = 1;
     public static final String MESSAGE = "messagelist";
     public static final String MESSAGE_ACTION = "com.baidu.android.imsdk.message";
     public static final String MESSAGE_STATUS_CHANGE = "com.baidu.android.imsdk.message.status.change";

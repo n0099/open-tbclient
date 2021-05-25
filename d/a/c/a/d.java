@@ -13,11 +13,11 @@ public class d<T> {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public View f38637e;
+        public View f38301e;
 
         public a(View view) {
-            this.f38637e = null;
-            this.f38637e = view;
+            this.f38301e = null;
+            this.f38301e = view;
         }
 
         @Override // java.lang.Runnable
@@ -26,7 +26,7 @@ public class d<T> {
             if (fVar == null || fVar.getPageActivity() == null || d.this.mContext.getPageActivity().isFinishing()) {
                 return;
             }
-            d.this.ShowSoftKeyPad(this.f38637e);
+            d.this.ShowSoftKeyPad(this.f38301e);
         }
     }
 

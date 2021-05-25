@@ -10,7 +10,7 @@ public class bs implements com.kwad.sdk.core.c<o.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f32993a = jSONObject.optInt("status");
+        aVar.f32922a = jSONObject.optInt("status");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ public class bs implements com.kwad.sdk.core.c<o.a> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "status", aVar.f32993a);
+        com.kwad.sdk.utils.o.a(jSONObject, "status", aVar.f32922a);
         return jSONObject;
     }
 }

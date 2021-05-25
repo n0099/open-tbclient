@@ -20,16 +20,16 @@ import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 public class SystemHelpSettingModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f20488e;
+    public b f20408e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f20489f;
+    public c f20409f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f20490g;
+    public Context f20410g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BaseActivity.LoadDataCallBack f20491h;
+    public BaseActivity.LoadDataCallBack f20411h;
 
     /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
@@ -40,7 +40,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-            d.a.j0.r.g0.b.b.a();
+            d.a.m0.r.g0.b.b.a();
             try {
                 FileHelper.clearCacheDir("image");
                 FileHelper.clearCacheDir("images");
@@ -57,9 +57,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.f20488e = null;
-            if (SystemHelpSettingModel.this.f20491h != null) {
-                SystemHelpSettingModel.this.f20491h.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            SystemHelpSettingModel.this.f20408e = null;
+            if (SystemHelpSettingModel.this.f20411h != null) {
+                SystemHelpSettingModel.this.f20411h.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
     }
@@ -80,7 +80,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             long directorySize2 = directorySize + FileHelper.getDirectorySize(cacheDir + "voice", false) + FileHelper.getFileSize(cacheDir + TbConfig.TMP_DATABASE_NAME) + FileHelper.getDirectorySize(a3, false) + ((Long) MessageManager.getInstance().runTask(2921548, Long.class).getData()).longValue();
             float f2 = ((float) directorySize2) + 0.0f;
             if (directorySize2 >= 10485.76d) {
-                return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + SystemHelpSettingModel.this.f20490g.getString(R.string.mebibyte);
+                return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + SystemHelpSettingModel.this.f20410g.getString(R.string.mebibyte);
             }
             return "";
         }
@@ -89,24 +89,24 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((c) str);
-            SystemHelpSettingModel.this.f20489f = null;
-            if (SystemHelpSettingModel.this.f20491h != null) {
-                SystemHelpSettingModel.this.f20491h.callback(MoreModel.TaskType.GET_SIZE, str);
+            SystemHelpSettingModel.this.f20409f = null;
+            if (SystemHelpSettingModel.this.f20411h != null) {
+                SystemHelpSettingModel.this.f20411h.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
 
     public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.f20488e = null;
-        this.f20489f = null;
-        this.f20490g = null;
-        this.f20491h = null;
-        this.f20490g = systemHelpSettingActivity.getPageContext().getPageActivity();
+        this.f20408e = null;
+        this.f20409f = null;
+        this.f20410g = null;
+        this.f20411h = null;
+        this.f20410g = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
     public void A(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.f20491h = loadDataCallBack;
+        this.f20411h = loadDataCallBack;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -120,9 +120,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void w() {
-        if (this.f20488e == null) {
+        if (this.f20408e == null) {
             b bVar = new b();
-            this.f20488e = bVar;
+            this.f20408e = bVar;
             bVar.execute(new String[0]);
         }
     }
@@ -136,9 +136,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void y() {
-        if (this.f20489f == null) {
+        if (this.f20409f == null) {
             c cVar = new c();
-            this.f20489f = cVar;
+            this.f20409f = cVar;
             cVar.execute(new String[0]);
         }
     }

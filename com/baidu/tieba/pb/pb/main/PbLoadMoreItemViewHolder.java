@@ -16,22 +16,22 @@ import com.baidu.tieba.R;
 public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f19172a;
+    public View f19088a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f19173b;
+    public LinearLayout f19089b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f19174c;
+    public TextView f19090c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ProgressBar f19175d;
+    public ProgressBar f19091d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19176e;
+    public String f19092e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f19177f;
+    public CustomMessageListener f19093f;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -55,47 +55,47 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
 
     public PbLoadMoreItemViewHolder(View view, BdUniqueId bdUniqueId) {
         super(view);
-        this.f19177f = new a(2921471);
-        this.f19172a = view;
-        this.f19173b = (LinearLayout) view.findViewById(R.id.pb_more_view);
-        this.f19174c = (TextView) view.findViewById(R.id.pb_more_text);
-        this.f19175d = (ProgressBar) view.findViewById(R.id.progress);
-        this.f19173b.setVisibility(0);
-        this.f19177f.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f19177f);
+        this.f19093f = new a(2921471);
+        this.f19088a = view;
+        this.f19089b = (LinearLayout) view.findViewById(R.id.pb_more_view);
+        this.f19090c = (TextView) view.findViewById(R.id.pb_more_text);
+        this.f19091d = (ProgressBar) view.findViewById(R.id.progress);
+        this.f19089b.setVisibility(0);
+        this.f19093f.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f19093f);
         c();
     }
 
     public void b() {
-        this.f19175d.setVisibility(8);
-        String str = this.f19176e;
+        this.f19091d.setVisibility(8);
+        String str = this.f19092e;
         if (str != null) {
-            this.f19174c.setText(str);
+            this.f19090c.setText(str);
         } else {
-            this.f19174c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
+            this.f19090c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
         }
     }
 
     public void c() {
-        this.f19174c.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), R.color.CAM_X0109));
-        this.f19173b.setBackgroundResource(R.drawable.pb_foot_more_trans_selector);
+        this.f19090c.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), R.color.CAM_X0109));
+        this.f19089b.setBackgroundResource(R.drawable.pb_foot_more_trans_selector);
     }
 
     public void d(View.OnClickListener onClickListener) {
-        this.f19172a.setOnClickListener(onClickListener);
+        this.f19088a.setOnClickListener(onClickListener);
     }
 
     public void e(String str, int i2) {
-        this.f19176e = str;
-        this.f19174c.setText(str);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f19173b.getLayoutParams();
+        this.f19092e = str;
+        this.f19090c.setText(str);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f19089b.getLayoutParams();
         layoutParams.height = i2;
         layoutParams.bottomMargin = 0;
-        this.f19173b.setLayoutParams(layoutParams);
+        this.f19089b.setLayoutParams(layoutParams);
     }
 
     public void f() {
-        this.f19175d.setVisibility(0);
-        this.f19174c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.loading));
+        this.f19091d.setVisibility(0);
+        this.f19090c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.loading));
     }
 }

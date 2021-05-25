@@ -18,27 +18,27 @@ import com.win.opensdk.webviewbase.AdvancedWebView;
 public class R1 extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AdvancedWebView f37002a;
+    public final /* synthetic */ AdvancedWebView f36931a;
 
     public R1(AdvancedWebView advancedWebView) {
-        this.f37002a = advancedWebView;
+        this.f36931a = advancedWebView;
     }
 
     @Override // android.webkit.WebChromeClient
     public Bitmap getDefaultVideoPoster() {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         return webChromeClient != null ? webChromeClient.getDefaultVideoPoster() : super.getDefaultVideoPoster();
     }
 
     @Override // android.webkit.WebChromeClient
     public View getVideoLoadingProgressView() {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         return webChromeClient != null ? webChromeClient.getVideoLoadingProgressView() : super.getVideoLoadingProgressView();
     }
 
     @Override // android.webkit.WebChromeClient
     public void getVisitedHistory(ValueCallback valueCallback) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.getVisitedHistory(valueCallback);
         } else {
@@ -48,7 +48,7 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onCloseWindow(WebView webView) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.onCloseWindow(webView);
         } else {
@@ -58,7 +58,7 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onConsoleMessage(String str, int i2, String str2) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.onConsoleMessage(str, i2, str2);
         } else {
@@ -68,19 +68,19 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         return webChromeClient != null ? webChromeClient.onConsoleMessage(consoleMessage) : super.onConsoleMessage(consoleMessage);
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onCreateWindow(WebView webView, boolean z, boolean z2, Message message) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         return webChromeClient != null ? webChromeClient.onCreateWindow(webView, z, z2, message) : super.onCreateWindow(webView, z, z2, message);
     }
 
     @Override // android.webkit.WebChromeClient
     public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
         } else {
@@ -90,7 +90,7 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onGeolocationPermissionsHidePrompt() {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.onGeolocationPermissionsHidePrompt();
         } else {
@@ -100,7 +100,7 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onGeolocationPermissionsShowPrompt(String str, GeolocationPermissions.Callback callback) {
-        AdvancedWebView advancedWebView = this.f37002a;
+        AdvancedWebView advancedWebView = this.f36931a;
         if (advancedWebView.l) {
             callback.invoke(str, true, false);
             return;
@@ -115,7 +115,7 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onHideCustomView() {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.onHideCustomView();
         } else {
@@ -125,38 +125,38 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         return webChromeClient != null ? webChromeClient.onJsAlert(webView, str, str2, jsResult) : super.onJsAlert(webView, str, str2, jsResult);
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         return webChromeClient != null ? webChromeClient.onJsBeforeUnload(webView, str, str2, jsResult) : super.onJsBeforeUnload(webView, str, str2, jsResult);
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         return webChromeClient != null ? webChromeClient.onJsConfirm(webView, str, str2, jsResult) : super.onJsConfirm(webView, str, str2, jsResult);
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         return webChromeClient != null ? webChromeClient.onJsPrompt(webView, str, str2, str3, jsPromptResult) : super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsTimeout() {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         return webChromeClient != null ? webChromeClient.onJsTimeout() : super.onJsTimeout();
     }
 
     @Override // android.webkit.WebChromeClient
     public void onPermissionRequest(PermissionRequest permissionRequest) {
         if (Build.VERSION.SDK_INT >= 21) {
-            WebChromeClient webChromeClient = this.f37002a.k;
+            WebChromeClient webChromeClient = this.f36931a.k;
             if (webChromeClient != null) {
                 webChromeClient.onPermissionRequest(permissionRequest);
             } else {
@@ -168,7 +168,7 @@ public class R1 extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public void onPermissionRequestCanceled(PermissionRequest permissionRequest) {
         if (Build.VERSION.SDK_INT >= 21) {
-            WebChromeClient webChromeClient = this.f37002a.k;
+            WebChromeClient webChromeClient = this.f36931a.k;
             if (webChromeClient != null) {
                 webChromeClient.onPermissionRequestCanceled(permissionRequest);
             } else {
@@ -179,7 +179,7 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onProgressChanged(WebView webView, int i2) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.onProgressChanged(webView, i2);
         } else {
@@ -189,7 +189,7 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
         } else {
@@ -199,7 +199,7 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onReceivedIcon(WebView webView, Bitmap bitmap) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.onReceivedIcon(webView, bitmap);
         } else {
@@ -209,7 +209,7 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onReceivedTitle(WebView webView, String str) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.onReceivedTitle(webView, str);
         } else {
@@ -219,7 +219,7 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onReceivedTouchIconUrl(WebView webView, String str, boolean z) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.onReceivedTouchIconUrl(webView, str, z);
         } else {
@@ -229,7 +229,7 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onRequestFocus(WebView webView) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.onRequestFocus(webView);
         } else {
@@ -240,7 +240,7 @@ public class R1 extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public void onShowCustomView(View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
         if (Build.VERSION.SDK_INT >= 14) {
-            WebChromeClient webChromeClient = this.f37002a.k;
+            WebChromeClient webChromeClient = this.f36931a.k;
             if (webChromeClient != null) {
                 webChromeClient.onShowCustomView(view, i2, customViewCallback);
             } else {
@@ -251,7 +251,7 @@ public class R1 extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
-        WebChromeClient webChromeClient = this.f37002a.k;
+        WebChromeClient webChromeClient = this.f36931a.k;
         if (webChromeClient != null) {
             webChromeClient.onShowCustomView(view, customViewCallback);
         } else {
@@ -262,7 +262,7 @@ public class R1 extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onShowFileChooser(WebView webView, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f37002a.a((ValueCallback) null, valueCallback, fileChooserParams.getMode() == 1);
+            this.f36931a.a((ValueCallback) null, valueCallback, fileChooserParams.getMode() == 1);
             return true;
         }
         return false;

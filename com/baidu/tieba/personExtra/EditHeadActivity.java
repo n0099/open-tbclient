@@ -38,7 +38,7 @@ import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import d.a.j0.b0.a;
+import d.a.m0.b0.a;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
@@ -83,7 +83,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     public int mEditType = 0;
     public Button mHide = null;
     public Button mShow = null;
-    public d.a.j0.r.f0.a mProgress = null;
+    public d.a.m0.r.f0.a mProgress = null;
     public k mTask = null;
     public j mFilterTask = null;
     public LinearLayout mRotateView = null;
@@ -181,7 +181,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             public a() {
             }
 
-            @Override // d.a.j0.b0.a.d
+            @Override // d.a.m0.b0.a.d
             public void a(String str, ImageUploadResult imageUploadResult) {
                 EditHeadActivity.this.closeLoadingDialog();
                 Intent intent = EditHeadActivity.this.getIntent();
@@ -253,7 +253,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 EditHeadActivity.this.closeActivity();
                 return;
             }
-            d.a.j0.b0.a aVar = new d.a.j0.b0.a(FileHelper.getFileDireciory(str), "head");
+            d.a.m0.b0.a aVar = new d.a.m0.b0.a(FileHelper.getFileDireciory(str), "head");
             aVar.j();
             aVar.l(new a());
             aVar.n(EditHeadActivity.this.wasterMaskType);
@@ -301,66 +301,66 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     public class j extends BdAsyncTask<String, Void, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f19781a;
+        public String f19703a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Bitmap f19782b;
+        public Bitmap f19704b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Boolean f19783c;
+        public Boolean f19705c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Boolean f19784d;
+        public Boolean f19706d;
 
         public j() {
             Boolean bool = Boolean.FALSE;
-            this.f19783c = bool;
-            this.f19784d = bool;
+            this.f19705c = bool;
+            this.f19706d = bool;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Bitmap doInBackground(String... strArr) {
-            this.f19781a = strArr[0];
+            this.f19703a = strArr[0];
             if (EditHeadActivity.this.mBitmap == null && EditHeadActivity.this.mPreparedBitmap == null) {
                 return null;
             }
-            if (!this.f19781a.equals("0") && !this.f19781a.equals("1")) {
-                if (this.f19781a.equals("2") || this.f19781a.equals("3")) {
-                    this.f19784d = Boolean.TRUE;
+            if (!this.f19703a.equals("0") && !this.f19703a.equals("1")) {
+                if (this.f19703a.equals("2") || this.f19703a.equals("3")) {
+                    this.f19706d = Boolean.TRUE;
                 }
             } else {
-                this.f19783c = Boolean.TRUE;
+                this.f19705c = Boolean.TRUE;
             }
-            if (this.f19783c.booleanValue() || this.f19784d.booleanValue()) {
+            if (this.f19705c.booleanValue() || this.f19706d.booleanValue()) {
                 if (EditHeadActivity.this.mPreparedBitmap != null) {
-                    this.f19782b = EditHeadActivity.this.mPreparedBitmap.copy(EditHeadActivity.this.mPreparedBitmap.getConfig(), true);
+                    this.f19704b = EditHeadActivity.this.mPreparedBitmap.copy(EditHeadActivity.this.mPreparedBitmap.getConfig(), true);
                 } else {
-                    this.f19782b = EditHeadActivity.this.mBitmap.copy(EditHeadActivity.this.mBitmap.getConfig(), true);
+                    this.f19704b = EditHeadActivity.this.mBitmap.copy(EditHeadActivity.this.mBitmap.getConfig(), true);
                 }
             } else {
-                this.f19782b = EditHeadActivity.this.mBitmap.copy(EditHeadActivity.this.mBitmap.getConfig(), true);
+                this.f19704b = EditHeadActivity.this.mBitmap.copy(EditHeadActivity.this.mBitmap.getConfig(), true);
             }
-            if (this.f19783c.booleanValue()) {
-                this.f19782b = BitmapHelper.rotateBitmap(this.f19782b, Integer.parseInt(this.f19781a));
-            } else if (this.f19784d.booleanValue()) {
-                this.f19782b = BitmapHelper.reversalBitmap(this.f19782b, Integer.parseInt(this.f19781a));
+            if (this.f19705c.booleanValue()) {
+                this.f19704b = BitmapHelper.rotateBitmap(this.f19704b, Integer.parseInt(this.f19703a));
+            } else if (this.f19706d.booleanValue()) {
+                this.f19704b = BitmapHelper.reversalBitmap(this.f19704b, Integer.parseInt(this.f19703a));
             }
-            return this.f19782b;
+            return this.f19704b;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            Bitmap bitmap = this.f19782b;
+            Bitmap bitmap = this.f19704b;
             if (bitmap != null && !bitmap.isRecycled()) {
                 Bitmap bitmap2 = EditHeadActivity.this.mPreparedBitmap;
-                Bitmap bitmap3 = this.f19782b;
+                Bitmap bitmap3 = this.f19704b;
                 if (bitmap2 != bitmap3) {
                     bitmap3.recycle();
                 }
             }
-            this.f19782b = null;
+            this.f19704b = null;
             EditHeadActivity.this.mProgress.h(false);
             EditHeadActivity.this.mTitleRightButton.setClickable(true);
             super.cancel(true);
@@ -381,18 +381,18 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             if (bitmap == null || bitmap.isRecycled()) {
                 return;
             }
-            if (this.f19783c.booleanValue() || this.f19784d.booleanValue()) {
+            if (this.f19705c.booleanValue() || this.f19706d.booleanValue()) {
                 EditHeadActivity.this.mImage.setImageBitmap(bitmap);
                 if (EditHeadActivity.this.mBitmap.getWidth() > 1800 || EditHeadActivity.this.mBitmap.getHeight() > 1800) {
                     EditHeadActivity editHeadActivity = EditHeadActivity.this;
                     editHeadActivity.mBitmap = BitmapHelper.resizeBitmap(editHeadActivity.mBitmap, 1800);
                 }
-                if (this.f19783c.booleanValue()) {
+                if (this.f19705c.booleanValue()) {
                     EditHeadActivity editHeadActivity2 = EditHeadActivity.this;
-                    editHeadActivity2.mBitmap = BitmapHelper.rotateBitmap(editHeadActivity2.mBitmap, Integer.parseInt(this.f19781a));
-                } else if (this.f19784d.booleanValue()) {
+                    editHeadActivity2.mBitmap = BitmapHelper.rotateBitmap(editHeadActivity2.mBitmap, Integer.parseInt(this.f19703a));
+                } else if (this.f19706d.booleanValue()) {
                     EditHeadActivity editHeadActivity3 = EditHeadActivity.this;
-                    editHeadActivity3.mBitmap = BitmapHelper.reversalBitmap(editHeadActivity3.mBitmap, Integer.parseInt(this.f19781a));
+                    editHeadActivity3.mBitmap = BitmapHelper.reversalBitmap(editHeadActivity3.mBitmap, Integer.parseInt(this.f19703a));
                 }
             } else {
                 EditHeadActivity.this.mImage.m0(bitmap);
@@ -507,17 +507,17 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     public class m extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f19787a;
+        public NetWork f19709a;
 
         public m() {
-            this.f19787a = null;
+            this.f19709a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             EditHeadActivity.this.closeLoadingDialog();
             EditHeadActivity.this.mHeadModifyTask = null;
-            NetWork netWork = this.f19787a;
+            NetWork netWork = this.f19709a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -536,7 +536,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             Exception e2;
             String str;
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
-            this.f19787a = netWork;
+            this.f19709a = netWork;
             try {
                 str = netWork.uploadImage(TbConfig.PERSON_HEAD_FILE);
             } catch (Exception e3) {
@@ -549,7 +549,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 BdLog.e(e2.getMessage());
                 return str;
             }
-            if (this.f19787a.getNetContext().getResponse().isRequestSuccess()) {
+            if (this.f19709a.getNetContext().getResponse().isRequestSuccess()) {
                 return str;
             }
             return null;
@@ -559,7 +559,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             EditHeadActivity.this.closeLoadingDialog();
-            NetWork netWork = this.f19787a;
+            NetWork netWork = this.f19709a;
             if (netWork != null) {
                 if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                     Intent intent = new Intent();
@@ -576,7 +576,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     editHeadActivity.showToast(editHeadActivity.getPageContext().getString(R.string.upload_head_ok));
                     return;
                 }
-                EditHeadActivity.this.showToast(this.f19787a.getErrorString());
+                EditHeadActivity.this.showToast(this.f19709a.getErrorString());
             }
         }
 
@@ -613,7 +613,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
 
     private void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-        d.a.j0.r.f0.a aVar = new d.a.j0.r.f0.a(getPageContext());
+        d.a.m0.r.f0.a aVar = new d.a.m0.r.f0.a(getPageContext());
         this.mProgress = aVar;
         aVar.e(new a());
         this.mProgress.h(false);

@@ -29,17 +29,17 @@ import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
-import d.a.k0.v3.i;
+import d.a.n0.w3.i;
 import java.net.URLDecoder;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class MainTabActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f21072a = 0;
+    public static int f21000a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f21073b = false;
+    public static boolean f21001b = false;
 
     /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
@@ -52,7 +52,7 @@ public class MainTabActivityStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data = customResponsedMessage.getData();
             if (data instanceof Activity) {
-                d.a.j0.r.a0.b.d((Activity) data);
+                d.a.m0.r.a0.b.d((Activity) data);
             }
         }
     }
@@ -70,10 +70,10 @@ public class MainTabActivityStatic {
                 String str = strArr[0];
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                     if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                        d.a.j0.r.a0.b.f(tbPageContext.getPageActivity(), 1, true);
+                        d.a.m0.r.a0.b.f(tbPageContext.getPageActivity(), 1, true);
                         return 1;
                     } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                        d.a.j0.r.a0.b.f(tbPageContext.getPageActivity(), 2, true);
+                        d.a.m0.r.a0.b.f(tbPageContext.getPageActivity(), 2, true);
                         return 1;
                     }
                 }
@@ -100,7 +100,7 @@ public class MainTabActivityStatic {
                         i2 = -1;
                     }
                     if (i2 != -1) {
-                        d.a.j0.r.a0.b.f(tbPageContext.getPageActivity(), i2, true);
+                        d.a.m0.r.a0.b.f(tbPageContext.getPageActivity(), i2, true);
                         return 1;
                     }
                 }
@@ -221,6 +221,7 @@ public class MainTabActivityStatic {
     }
 
     static {
+        TbadkCoreApplication.getInst().RegisterIntent(MainTabActivityConfig.class, MainTabActivity.class);
         g();
         f();
         e();
@@ -254,11 +255,11 @@ public class MainTabActivityStatic {
         }
         int b2 = b(newsRemindMessage);
         boolean c2 = c(newsRemindMessage);
-        if (b2 == f21072a && c2 == f21073b) {
+        if (b2 == f21000a && c2 == f21001b) {
             return;
         }
-        f21072a = b2;
-        f21073b = c2;
+        f21000a = b2;
+        f21001b = c2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
     }
 

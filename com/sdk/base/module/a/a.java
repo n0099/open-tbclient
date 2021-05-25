@@ -9,32 +9,32 @@ import com.sdk.base.framework.c.f;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f35788a;
+    public static a f35717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f35789b;
+    public Context f35718b;
 
     static {
-        boolean z = f.f35733b;
+        boolean z = f.f35662b;
     }
 
     public a(Context context) {
-        this.f35789b = context;
+        this.f35718b = context;
     }
 
     public static a a(Context context) {
-        if (f35788a == null) {
+        if (f35717a == null) {
             synchronized (a.class) {
-                f35788a = new a(context);
+                f35717a = new a(context);
             }
         }
-        return f35788a;
+        return f35717a;
     }
 
     public final void a(String str, String str2) {
-        com.sdk.base.framework.f.b.a.a(this.f35789b, e.m, str2);
+        com.sdk.base.framework.f.b.a.a(this.f35718b, e.m, str2);
         if (c.b(str).booleanValue()) {
-            com.sdk.base.framework.f.b.a.a(this.f35789b, Constants.API_KEY, str);
+            com.sdk.base.framework.f.b.a.a(this.f35718b, Constants.API_KEY, str);
         }
     }
 }

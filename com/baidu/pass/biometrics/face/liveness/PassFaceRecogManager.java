@@ -32,19 +32,19 @@ import org.json.JSONObject;
 public class PassFaceRecogManager implements PassBiometric {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long f9115d = 300;
+    public static final long f9015d = 300;
 
     /* renamed from: e  reason: collision with root package name */
-    public static PassFaceRecogManager f9116e;
+    public static PassFaceRecogManager f9016e;
 
     /* renamed from: a  reason: collision with root package name */
-    public PassBiometricConfiguration f9117a;
+    public PassBiometricConfiguration f9017a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PassFaceRecogCallback f9118b;
+    public PassFaceRecogCallback f9018b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f9119c;
+    public long f9019c;
 
     /* loaded from: classes2.dex */
     public class a extends HttpHandlerWrap {
@@ -54,13 +54,13 @@ public class PassFaceRecogManager implements PassBiometric {
 
         @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
-            LocalConfigOptions.getInstance(PassFaceRecogManager.this.f9117a.getApplication()).setBioOptions(LocalConfigOptions.getInstance(PassFaceRecogManager.this.f9117a.getApplication()).getBioOptions());
+            LocalConfigOptions.getInstance(PassFaceRecogManager.this.f9017a.getApplication()).setBioOptions(LocalConfigOptions.getInstance(PassFaceRecogManager.this.f9017a.getApplication()).getBioOptions());
         }
 
         @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
         public void onSuccess(int i2, String str) {
             try {
-                LocalConfigOptions.getInstance(PassFaceRecogManager.this.f9117a.getApplication()).setBioOptions(SdkConfigOptions.fromOnLineJSON(new JSONObject(str)));
+                LocalConfigOptions.getInstance(PassFaceRecogManager.this.f9017a.getApplication()).setBioOptions(SdkConfigOptions.fromOnLineJSON(new JSONObject(str)));
             } catch (JSONException e2) {
                 onFailure(e2, e2.hashCode(), str);
             }
@@ -68,33 +68,33 @@ public class PassFaceRecogManager implements PassBiometric {
     }
 
     private void b() {
-        this.f9119c = System.currentTimeMillis();
+        this.f9019c = System.currentTimeMillis();
     }
 
     private boolean c() {
-        return System.currentTimeMillis() - this.f9119c < 300;
+        return System.currentTimeMillis() - this.f9019c < 300;
     }
 
     public static synchronized PassFaceRecogManager getInstance() {
         PassFaceRecogManager passFaceRecogManager;
         synchronized (PassFaceRecogManager.class) {
-            if (f9116e == null) {
-                f9116e = new PassFaceRecogManager();
+            if (f9016e == null) {
+                f9016e = new PassFaceRecogManager();
             }
-            passFaceRecogManager = f9116e;
+            passFaceRecogManager = f9016e;
         }
         return passFaceRecogManager;
     }
 
     public void cleanPassFaceRecogCallback() {
-        this.f9118b = null;
+        this.f9018b = null;
     }
 
     @Override // com.baidu.pass.biometrics.base.PassBiometric
     public void config(PassBiometricConfiguration passBiometricConfiguration) {
         if (passBiometricConfiguration != null) {
             if (!TextUtils.isEmpty(passBiometricConfiguration.tpl) && !TextUtils.isEmpty(passBiometricConfiguration.appId) && !TextUtils.isEmpty(passBiometricConfiguration.appSignKey)) {
-                this.f9117a = passBiometricConfiguration;
+                this.f9017a = passBiometricConfiguration;
                 ResUtils.setApplicationContext(passBiometricConfiguration.getApplication());
                 BeanConstants.tpl = passBiometricConfiguration.tpl;
                 BeanConstants.appid = passBiometricConfiguration.appId;
@@ -128,11 +128,11 @@ public class PassFaceRecogManager implements PassBiometric {
     }
 
     public PassBiometricConfiguration getConfiguration() {
-        return this.f9117a;
+        return this.f9017a;
     }
 
     public PassFaceRecogCallback getPassFaceRecogCallback() {
-        return this.f9118b;
+        return this.f9018b;
     }
 
     private void a(PassFaceRecogCallback passFaceRecogCallback, PassFaceRecogDTO passFaceRecogDTO, Context context) {
@@ -184,7 +184,7 @@ public class PassFaceRecogManager implements PassBiometric {
             }
             return;
         }
-        this.f9118b = passFaceRecogCallback;
+        this.f9018b = passFaceRecogCallback;
         Intent intent = new Intent(context, PassLivenessRecogActivity.class);
         if (!(context instanceof Activity)) {
             intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
@@ -208,8 +208,8 @@ public class PassFaceRecogManager implements PassBiometric {
 
     private void a() {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-        httpHashMapWrap.put("appid", this.f9117a.appId);
-        httpHashMapWrap.put("tpl", this.f9117a.tpl);
-        new HttpClientWrap(this.f9117a.getApplication()).get("https://wappass.bdimg.com/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new a(true));
+        httpHashMapWrap.put("appid", this.f9017a.appId);
+        httpHashMapWrap.put("tpl", this.f9017a.tpl);
+        new HttpClientWrap(this.f9017a.getApplication()).get("https://wappass.bdimg.com/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new a(true));
     }
 }

@@ -29,39 +29,39 @@ import org.json.JSONObject;
 public class an {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile String f8616c;
+    public static volatile String f8516c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile int f8617d;
+    public static volatile int f8517d;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f8619b = new Handler(Looper.getMainLooper());
+    public final Handler f8519b = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f8618a = new b();
+    public final b f8518a = new b();
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final Paint f8621b = new Paint(2);
+        public final Paint f8521b = new Paint(2);
 
         /* renamed from: a  reason: collision with root package name */
-        public Bitmap f8620a = null;
+        public Bitmap f8520a = null;
 
         public synchronized void a(int i2, int i3, int i4, Bitmap bitmap) {
-            if (this.f8620a == null || this.f8620a.getWidth() != i2 || this.f8620a.getHeight() != i3) {
+            if (this.f8520a == null || this.f8520a.getWidth() != i2 || this.f8520a.getHeight() != i3) {
                 try {
-                    this.f8620a = Bitmap.createBitmap(i2, i3, Bitmap.Config.RGB_565);
+                    this.f8520a = Bitmap.createBitmap(i2, i3, Bitmap.Config.RGB_565);
                 } catch (OutOfMemoryError unused) {
-                    this.f8620a = null;
+                    this.f8520a = null;
                 }
-                if (this.f8620a != null) {
-                    this.f8620a.setDensity(i4);
+                if (this.f8520a != null) {
+                    this.f8520a.setDensity(i4);
                 }
             }
-            if (this.f8620a != null) {
-                new Canvas(this.f8620a).drawBitmap(bitmap, 0.0f, 0.0f, this.f8621b);
+            if (this.f8520a != null) {
+                new Canvas(this.f8520a).drawBitmap(bitmap, 0.0f, 0.0f, this.f8521b);
             }
         }
     }
@@ -70,52 +70,52 @@ public class an {
     public static class b implements Callable<List<c>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Activity f8622a;
+        public Activity f8522a;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f8626e = 160;
+        public final int f8526e = 160;
 
         /* renamed from: c  reason: collision with root package name */
-        public final DisplayMetrics f8624c = new DisplayMetrics();
+        public final DisplayMetrics f8524c = new DisplayMetrics();
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<c> f8623b = new ArrayList();
+        public final List<c> f8523b = new ArrayList();
 
         /* renamed from: d  reason: collision with root package name */
-        public final a f8625d = new a();
+        public final a f8525d = new a();
 
         private void b() {
-            ai.a(this.f8622a, false);
+            ai.a(this.f8522a, false);
         }
 
         private void c() {
-            ai.a(this.f8622a, true);
+            ai.a(this.f8522a, true);
         }
 
         public void a(Activity activity) {
-            this.f8622a = activity;
+            this.f8522a = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public List<c> call() throws Exception {
-            this.f8623b.clear();
+            this.f8523b.clear();
             HashSet<Activity> hashSet = new HashSet(1);
-            hashSet.add(this.f8622a);
+            hashSet.add(this.f8522a);
             for (Activity activity : hashSet) {
                 String canonicalName = activity.getClass().getCanonicalName();
                 View b2 = bj.b(activity);
-                activity.getWindowManager().getDefaultDisplay().getMetrics(this.f8624c);
-                this.f8623b.add(new c(canonicalName, b2));
+                activity.getWindowManager().getDefaultDisplay().getMetrics(this.f8524c);
+                this.f8523b.add(new c(canonicalName, b2));
             }
-            int size = this.f8623b.size();
+            int size = this.f8523b.size();
             for (int i2 = 0; i2 < size; i2++) {
                 b();
-                a(this.f8623b.get(i2));
+                a(this.f8523b.get(i2));
                 c();
             }
-            return this.f8623b;
+            return this.f8523b;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:25:0x00b2  */
@@ -126,7 +126,7 @@ public class an {
         */
         private void a(c cVar) {
             Bitmap bitmap;
-            View view = cVar.f8628b;
+            View view = cVar.f8528b;
             Boolean bool = null;
             try {
                 Method declaredMethod = View.class.getDeclaredMethod("createSnapshot", Bitmap.Config.class, Integer.TYPE, Boolean.TYPE);
@@ -142,8 +142,8 @@ public class an {
                 if (bool != null) {
                     view.setDrawingCacheEnabled(false);
                 }
-                cVar.f8630d = r3;
-                cVar.f8629c = this.f8625d;
+                cVar.f8530d = r3;
+                cVar.f8529c = this.f8525d;
             } catch (IllegalAccessException e3) {
                 bc.c().d("autotrace: Can't access createSnapshot, using drawCache", e3);
                 bitmap = null;
@@ -153,8 +153,8 @@ public class an {
                 }
                 if (bool != null) {
                 }
-                cVar.f8630d = r3;
-                cVar.f8629c = this.f8625d;
+                cVar.f8530d = r3;
+                cVar.f8529c = this.f8525d;
             } catch (IllegalArgumentException e4) {
                 bc.c().b("autotrace: Can't call createSnapshot with arguments", e4);
                 bitmap = null;
@@ -164,8 +164,8 @@ public class an {
                 }
                 if (bool != null) {
                 }
-                cVar.f8630d = r3;
-                cVar.f8629c = this.f8625d;
+                cVar.f8530d = r3;
+                cVar.f8529c = this.f8525d;
             } catch (NoSuchMethodException e5) {
                 bc.c().a("autotrace: Can't call createSnapshot, will use drawCache", e5);
                 bitmap = null;
@@ -175,8 +175,8 @@ public class an {
                 }
                 if (bool != null) {
                 }
-                cVar.f8630d = r3;
-                cVar.f8629c = this.f8625d;
+                cVar.f8530d = r3;
+                cVar.f8529c = this.f8525d;
             } catch (InvocationTargetException e6) {
                 bc.c().d("autotrace: Exception when calling createSnapshot", e6);
                 bitmap = null;
@@ -186,8 +186,8 @@ public class an {
                 }
                 if (bool != null) {
                 }
-                cVar.f8630d = r3;
-                cVar.f8629c = this.f8625d;
+                cVar.f8530d = r3;
+                cVar.f8529c = this.f8525d;
             } catch (Exception e7) {
                 bc.c().d(" autotrace:createSnapshot encounter exception", e7);
                 bitmap = null;
@@ -197,8 +197,8 @@ public class an {
                 }
                 if (bool != null) {
                 }
-                cVar.f8630d = r3;
-                cVar.f8629c = this.f8625d;
+                cVar.f8530d = r3;
+                cVar.f8529c = this.f8525d;
             }
             if (bitmap == null) {
                 try {
@@ -218,14 +218,14 @@ public class an {
                 int width2 = (int) ((bitmap.getWidth() * r3) + 0.5d);
                 int height2 = (int) ((bitmap.getHeight() * r3) + 0.5d);
                 if (width > 0 && height > 0 && width2 > 0 && height2 > 0) {
-                    this.f8625d.a(width2, height2, 160, bitmap);
+                    this.f8525d.a(width2, height2, 160, bitmap);
                 }
             }
             if (bool != null && !bool.booleanValue()) {
                 view.setDrawingCacheEnabled(false);
             }
-            cVar.f8630d = r3;
-            cVar.f8629c = this.f8625d;
+            cVar.f8530d = r3;
+            cVar.f8529c = this.f8525d;
         }
     }
 
@@ -233,29 +233,29 @@ public class an {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f8627a;
+        public final String f8527a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final View f8628b;
+        public final View f8528b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f8629c = null;
+        public a f8529c = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f8630d = 1.0f;
+        public float f8530d = 1.0f;
 
         public c(String str, View view) {
-            this.f8627a = str;
-            this.f8628b = view;
+            this.f8527a = str;
+            this.f8528b = view;
         }
     }
 
     public static void a() {
-        f8617d = 0;
+        f8517d = 0;
     }
 
     public static void b() {
-        f8616c = "";
+        f8516c = "";
     }
 
     private JSONArray c(Activity activity) throws Exception {
@@ -272,8 +272,8 @@ public class an {
         }
         try {
             if (ak.a()) {
-                int i2 = f8617d + 1;
-                f8617d = i2;
+                int i2 = f8517d + 1;
+                f8517d = i2;
                 if (i2 >= 3) {
                     ak.a(false);
                 }
@@ -283,8 +283,8 @@ public class an {
                 }
                 JSONArray c2 = c(activity);
                 String a2 = bt.a.a(c2.toString().getBytes());
-                if (f8616c == null || !f8616c.equals(a2)) {
-                    f8616c = a2;
+                if (f8516c == null || !f8516c.equals(a2)) {
+                    f8516c = a2;
                     JSONObject jSONObject2 = new JSONObject();
                     try {
                         jSONObject2.put("screenshot", bj.a(b2));
@@ -309,9 +309,9 @@ public class an {
     }
 
     public Bitmap b(Activity activity) {
-        this.f8618a.a(activity);
-        FutureTask futureTask = new FutureTask(this.f8618a);
-        this.f8619b.post(futureTask);
+        this.f8518a.a(activity);
+        FutureTask futureTask = new FutureTask(this.f8518a);
+        this.f8519b.post(futureTask);
         List emptyList = Collections.emptyList();
         try {
             emptyList = (List) futureTask.get(2L, TimeUnit.SECONDS);
@@ -325,7 +325,7 @@ public class an {
         if (emptyList.size() == 0) {
             return null;
         }
-        return ((c) emptyList.get(0)).f8629c.f8620a;
+        return ((c) emptyList.get(0)).f8529c.f8520a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x004a A[RETURN] */

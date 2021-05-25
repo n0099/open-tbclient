@@ -9,9 +9,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.media.audio.service.BgMusicPlayState;
-import d.a.i0.a.k;
-import d.a.i0.a.p.d.s;
-import d.a.i0.a.v2.q0;
+import d.a.l0.a.k;
+import d.a.l0.a.p.d.s;
+import d.a.l0.a.v2.q0;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,31 +20,31 @@ import org.webrtc.MediaStreamTrack;
 public class DefaultSwanAppBgMusicPlayer implements s {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f10458h = k.f43025a;
+    public static final boolean f10359h = k.f43199a;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile DefaultSwanAppBgMusicPlayer f10459i;
+    public static volatile DefaultSwanAppBgMusicPlayer f10360i;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaPlayer f10460a;
+    public MediaPlayer f10361a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PlayerStatus f10461b = PlayerStatus.NONE;
+    public PlayerStatus f10362b = PlayerStatus.NONE;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.i0.a.i1.c.f.a f10462c;
+    public d.a.l0.a.i1.c.f.a f10363c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AudioManager f10463d;
+    public AudioManager f10364d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f10464e;
+    public boolean f10365e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f10465f;
+    public b f10366f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f10466g;
+    public d f10367g;
 
     /* loaded from: classes2.dex */
     public enum PlayerStatus {
@@ -61,17 +61,17 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f10468e;
+            public final /* synthetic */ int f10369e;
 
             public a(int i2) {
-                this.f10468e = i2;
+                this.f10369e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                int i2 = this.f10468e;
+                int i2 = this.f10369e;
                 if (i2 == -2 || i2 == -1) {
-                    if (DefaultSwanAppBgMusicPlayer.f10458h) {
+                    if (DefaultSwanAppBgMusicPlayer.f10359h) {
                         Log.d("AudioPlayerListener", "--focusChange AUDIOFOCUS_LOSS_TRANSIENT");
                     }
                     DefaultSwanAppBgMusicPlayer.this.b();
@@ -96,31 +96,31 @@ public class DefaultSwanAppBgMusicPlayer implements s {
 
         @Override // android.media.MediaPlayer.OnBufferingUpdateListener
         public void onBufferingUpdate(MediaPlayer mediaPlayer, int i2) {
-            if (DefaultSwanAppBgMusicPlayer.f10458h) {
+            if (DefaultSwanAppBgMusicPlayer.f10359h) {
                 Log.d("AudioPlayerListener", "--onBufferUpdate -> " + i2 + "%");
             }
-            DefaultSwanAppBgMusicPlayer.this.f10462c.onGetDownloadProgress(i2);
-            if (DefaultSwanAppBgMusicPlayer.this.f10461b != PlayerStatus.PREPARED || (i2 * DefaultSwanAppBgMusicPlayer.this.k().getDuration()) / 100 > DefaultSwanAppBgMusicPlayer.this.k().getCurrentPosition()) {
+            DefaultSwanAppBgMusicPlayer.this.f10363c.onGetDownloadProgress(i2);
+            if (DefaultSwanAppBgMusicPlayer.this.f10362b != PlayerStatus.PREPARED || (i2 * DefaultSwanAppBgMusicPlayer.this.k().getDuration()) / 100 > DefaultSwanAppBgMusicPlayer.this.k().getCurrentPosition()) {
                 return;
             }
-            DefaultSwanAppBgMusicPlayer.this.f10462c.onStateChanged(BgMusicPlayState.LOADING);
+            DefaultSwanAppBgMusicPlayer.this.f10363c.onStateChanged(BgMusicPlayState.LOADING);
         }
 
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
-            if (DefaultSwanAppBgMusicPlayer.f10458h) {
+            if (DefaultSwanAppBgMusicPlayer.f10359h) {
                 Log.d("AudioPlayerListener", "--onCompletion");
             }
-            DefaultSwanAppBgMusicPlayer.this.f10461b = PlayerStatus.PREPARED;
-            DefaultSwanAppBgMusicPlayer.this.f10462c.onStateChanged(BgMusicPlayState.END);
-            if (DefaultSwanAppBgMusicPlayer.this.f10466g != null) {
-                DefaultSwanAppBgMusicPlayer.this.f10466g.removeMessages(0);
+            DefaultSwanAppBgMusicPlayer.this.f10362b = PlayerStatus.PREPARED;
+            DefaultSwanAppBgMusicPlayer.this.f10363c.onStateChanged(BgMusicPlayState.END);
+            if (DefaultSwanAppBgMusicPlayer.this.f10367g != null) {
+                DefaultSwanAppBgMusicPlayer.this.f10367g.removeMessages(0);
             }
         }
 
         @Override // android.media.MediaPlayer.OnErrorListener
         public boolean onError(MediaPlayer mediaPlayer, int i2, int i3) {
-            if (DefaultSwanAppBgMusicPlayer.f10458h) {
+            if (DefaultSwanAppBgMusicPlayer.f10359h) {
                 Log.d("AudioPlayerListener", "--onError -> what: " + i2 + " extra: " + i3);
                 return true;
             }
@@ -129,11 +129,11 @@ public class DefaultSwanAppBgMusicPlayer implements s {
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
-            if (DefaultSwanAppBgMusicPlayer.f10458h) {
+            if (DefaultSwanAppBgMusicPlayer.f10359h) {
                 Log.d("AudioPlayerListener", "--onPrepared");
             }
-            DefaultSwanAppBgMusicPlayer.this.f10461b = PlayerStatus.PREPARED;
-            DefaultSwanAppBgMusicPlayer.this.f10462c.onStateChanged(BgMusicPlayState.READY);
+            DefaultSwanAppBgMusicPlayer.this.f10362b = PlayerStatus.PREPARED;
+            DefaultSwanAppBgMusicPlayer.this.f10363c.onStateChanged(BgMusicPlayState.READY);
             DefaultSwanAppBgMusicPlayer.this.play();
         }
     }
@@ -159,149 +159,149 @@ public class DefaultSwanAppBgMusicPlayer implements s {
             if (message.what == 0) {
                 int duration = DefaultSwanAppBgMusicPlayer.this.k().getDuration();
                 int currentPosition = DefaultSwanAppBgMusicPlayer.this.k().getCurrentPosition();
-                DefaultSwanAppBgMusicPlayer.this.f10462c.onGetDuration(duration);
-                DefaultSwanAppBgMusicPlayer.this.f10462c.onGetPosition(currentPosition, a(duration, currentPosition));
+                DefaultSwanAppBgMusicPlayer.this.f10363c.onGetDuration(duration);
+                DefaultSwanAppBgMusicPlayer.this.f10363c.onGetPosition(currentPosition, a(duration, currentPosition));
                 sendEmptyMessageDelayed(0, 200L);
             }
         }
     }
 
     public static DefaultSwanAppBgMusicPlayer j() {
-        if (f10459i == null) {
+        if (f10360i == null) {
             synchronized (DefaultSwanAppBgMusicPlayer.class) {
-                if (f10459i == null) {
-                    f10459i = new DefaultSwanAppBgMusicPlayer();
+                if (f10360i == null) {
+                    f10360i = new DefaultSwanAppBgMusicPlayer();
                 }
             }
         }
-        return f10459i;
+        return f10360i;
     }
 
-    @Override // d.a.i0.a.p.d.s
-    public void a(String str, d.a.i0.a.i1.c.f.a aVar) {
+    @Override // d.a.l0.a.p.d.s
+    public void a(String str, d.a.l0.a.i1.c.f.a aVar) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f10462c = aVar;
+        this.f10363c = aVar;
         try {
-            d.a.i0.a.i1.c.a b2 = d.a.i0.a.i1.c.a.b(new JSONObject(str), new d.a.i0.a.i1.c.a());
-            if (this.f10461b != PlayerStatus.NONE) {
+            d.a.l0.a.i1.c.a b2 = d.a.l0.a.i1.c.a.b(new JSONObject(str), new d.a.l0.a.i1.c.a());
+            if (this.f10362b != PlayerStatus.NONE) {
                 k().reset();
             }
-            k().setDataSource(b2.f42538c);
-            this.f10461b = PlayerStatus.IDLE;
-            this.f10462c.onGetCurrentSong(b2.f42538c);
+            k().setDataSource(b2.f42712c);
+            this.f10362b = PlayerStatus.IDLE;
+            this.f10363c.onGetCurrentSong(b2.f42712c);
             play();
         } catch (IOException | JSONException e2) {
             e2.printStackTrace();
-            this.f10462c.onInvokeFailed();
+            this.f10363c.onInvokeFailed();
         }
     }
 
     public final void b() {
         b bVar;
-        if (this.f10464e) {
-            AudioManager audioManager = this.f10463d;
-            if (audioManager != null && (bVar = this.f10465f) != null) {
+        if (this.f10365e) {
+            AudioManager audioManager = this.f10364d;
+            if (audioManager != null && (bVar = this.f10366f) != null) {
                 audioManager.abandonAudioFocus(bVar);
-                this.f10463d = null;
-                this.f10465f = null;
+                this.f10364d = null;
+                this.f10366f = null;
             }
-            this.f10464e = false;
-            if (f10458h) {
+            this.f10365e = false;
+            if (f10359h) {
                 Log.d("AudioPlayerListener", "   abandonAudioFocus");
             }
         }
     }
 
-    @Override // d.a.i0.a.p.d.s
+    @Override // d.a.l0.a.p.d.s
     public int getDuration() {
         return k().getDuration();
     }
 
-    @Override // d.a.i0.a.p.d.s
+    @Override // d.a.l0.a.p.d.s
     public boolean isPlaying() {
         return k().isPlaying();
     }
 
     public final MediaPlayer k() {
-        if (this.f10460a == null) {
-            this.f10460a = new MediaPlayer();
+        if (this.f10361a == null) {
+            this.f10361a = new MediaPlayer();
             c cVar = new c();
-            this.f10460a.setOnPreparedListener(cVar);
-            this.f10460a.setOnCompletionListener(cVar);
-            this.f10460a.setOnErrorListener(cVar);
-            this.f10460a.setOnBufferingUpdateListener(cVar);
-            this.f10460a.setAudioStreamType(3);
-            this.f10466g = new d();
+            this.f10361a.setOnPreparedListener(cVar);
+            this.f10361a.setOnCompletionListener(cVar);
+            this.f10361a.setOnErrorListener(cVar);
+            this.f10361a.setOnBufferingUpdateListener(cVar);
+            this.f10361a.setAudioStreamType(3);
+            this.f10367g = new d();
         }
-        return this.f10460a;
+        return this.f10361a;
     }
 
     public final void l() {
         try {
             k().prepareAsync();
-            this.f10461b = PlayerStatus.PREPARING;
+            this.f10362b = PlayerStatus.PREPARING;
         } catch (IllegalStateException e2) {
             e2.printStackTrace();
-            this.f10462c.onInvokeFailed();
+            this.f10363c.onInvokeFailed();
             onRelease();
         }
     }
 
     public final void m() {
-        if (this.f10464e) {
+        if (this.f10365e) {
             return;
         }
-        if (this.f10463d == null) {
+        if (this.f10364d == null) {
             AudioManager audioManager = (AudioManager) AppRuntime.getAppContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-            this.f10463d = audioManager;
+            this.f10364d = audioManager;
             if (audioManager == null) {
                 return;
             }
         }
-        if (this.f10465f == null) {
-            this.f10465f = new b();
+        if (this.f10366f == null) {
+            this.f10366f = new b();
         }
-        this.f10464e = this.f10463d.requestAudioFocus(this.f10465f, 3, 1) == 1;
-        if (f10458h) {
+        this.f10365e = this.f10364d.requestAudioFocus(this.f10366f, 3, 1) == 1;
+        if (f10359h) {
             Log.d("AudioPlayerListener", "   requestAudioFocus");
         }
     }
 
-    @Override // d.a.i0.a.p.d.s
+    @Override // d.a.l0.a.p.d.s
     public void onRelease() {
         b();
         k().release();
-        this.f10460a = null;
-        this.f10461b = PlayerStatus.NONE;
-        d dVar = this.f10466g;
+        this.f10361a = null;
+        this.f10362b = PlayerStatus.NONE;
+        d dVar = this.f10367g;
         if (dVar != null) {
             dVar.removeMessages(0);
-            this.f10466g = null;
+            this.f10367g = null;
         }
     }
 
-    @Override // d.a.i0.a.p.d.s
+    @Override // d.a.l0.a.p.d.s
     public void pause() {
         if (k().isPlaying()) {
             k().pause();
-            this.f10462c.onStateChanged(BgMusicPlayState.PAUSE);
-            d dVar = this.f10466g;
+            this.f10363c.onStateChanged(BgMusicPlayState.PAUSE);
+            d dVar = this.f10367g;
             if (dVar != null) {
                 dVar.removeMessages(0);
             }
         }
     }
 
-    @Override // d.a.i0.a.p.d.s
+    @Override // d.a.l0.a.p.d.s
     public void play() {
-        PlayerStatus playerStatus = this.f10461b;
+        PlayerStatus playerStatus = this.f10362b;
         if (playerStatus == PlayerStatus.PREPARED) {
             m();
             k().start();
-            this.f10462c.onStateChanged(BgMusicPlayState.PLAY);
-            d dVar = this.f10466g;
+            this.f10363c.onStateChanged(BgMusicPlayState.PLAY);
+            d dVar = this.f10367g;
             if (dVar != null) {
                 dVar.sendEmptyMessage(0);
             }
@@ -310,21 +310,21 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         }
     }
 
-    @Override // d.a.i0.a.p.d.s
+    @Override // d.a.l0.a.p.d.s
     public void seek(int i2) {
         k().seekTo(i2);
     }
 
-    @Override // d.a.i0.a.p.d.s
+    @Override // d.a.l0.a.p.d.s
     public void stop() {
-        if (this.f10461b == PlayerStatus.PREPARED) {
-            if (f10458h) {
+        if (this.f10362b == PlayerStatus.PREPARED) {
+            if (f10359h) {
                 Log.d("AudioPlayerListener", "===stop");
             }
             k().stop();
-            this.f10461b = PlayerStatus.IDLE;
-            this.f10462c.onStateChanged(BgMusicPlayState.STOP);
-            d dVar = this.f10466g;
+            this.f10362b = PlayerStatus.IDLE;
+            this.f10363c.onStateChanged(BgMusicPlayState.STOP);
+            d dVar = this.f10367g;
             if (dVar != null) {
                 dVar.removeMessages(0);
             }

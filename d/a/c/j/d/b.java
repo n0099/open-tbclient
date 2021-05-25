@@ -21,31 +21,31 @@ import android.widget.ImageView;
 public class b extends Drawable {
 
     /* renamed from: d  reason: collision with root package name */
-    public final BitmapShader f39557d;
+    public final BitmapShader f39221d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f39558e;
+    public final Paint f39222e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f39559f;
+    public final int f39223f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f39560g;
+    public final int f39224g;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Paint f39562i;
+    public final Paint f39226i;
 
     /* renamed from: a  reason: collision with root package name */
-    public final RectF f39554a = new RectF();
+    public final RectF f39218a = new RectF();
 
     /* renamed from: b  reason: collision with root package name */
-    public final RectF f39555b = new RectF();
+    public final RectF f39219b = new RectF();
 
     /* renamed from: c  reason: collision with root package name */
-    public final RectF f39556c = new RectF();
+    public final RectF f39220c = new RectF();
 
     /* renamed from: h  reason: collision with root package name */
-    public final RectF f39561h = new RectF();
+    public final RectF f39225h = new RectF();
     public final Matrix j = new Matrix();
     public float k = 0.0f;
     public boolean l = false;
@@ -57,62 +57,62 @@ public class b extends Drawable {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f39563a;
+        public static final /* synthetic */ int[] f39227a;
 
         static {
             int[] iArr = new int[ImageView.ScaleType.values().length];
-            f39563a = iArr;
+            f39227a = iArr;
             try {
                 iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f39563a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
+                f39227a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f39563a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
+                f39227a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f39563a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
+                f39227a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f39563a[ImageView.ScaleType.FIT_END.ordinal()] = 5;
+                f39227a[ImageView.ScaleType.FIT_END.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f39563a[ImageView.ScaleType.FIT_START.ordinal()] = 6;
+                f39227a[ImageView.ScaleType.FIT_START.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f39563a[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
+                f39227a[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
         }
     }
 
     public b(Bitmap bitmap) {
-        this.f39559f = bitmap.getWidth();
+        this.f39223f = bitmap.getWidth();
         int height = bitmap.getHeight();
-        this.f39560g = height;
-        this.f39556c.set(0.0f, 0.0f, this.f39559f, height);
+        this.f39224g = height;
+        this.f39220c.set(0.0f, 0.0f, this.f39223f, height);
         Shader.TileMode tileMode = Shader.TileMode.CLAMP;
         BitmapShader bitmapShader = new BitmapShader(bitmap, tileMode, tileMode);
-        this.f39557d = bitmapShader;
+        this.f39221d = bitmapShader;
         bitmapShader.setLocalMatrix(this.j);
         Paint paint = new Paint();
-        this.f39558e = paint;
+        this.f39222e = paint;
         paint.setStyle(Paint.Style.FILL);
-        this.f39558e.setAntiAlias(true);
-        this.f39558e.setShader(this.f39557d);
+        this.f39222e.setAntiAlias(true);
+        this.f39222e.setShader(this.f39221d);
         Paint paint2 = new Paint();
-        this.f39562i = paint2;
+        this.f39226i = paint2;
         paint2.setStyle(Paint.Style.STROKE);
-        this.f39562i.setAntiAlias(true);
-        this.f39562i.setColor(this.n.getColorForState(getState(), 0));
-        this.f39562i.setStrokeWidth(this.m);
+        this.f39226i.setAntiAlias(true);
+        this.f39226i.setColor(this.n.getColorForState(getState(), 0));
+        this.f39226i.setStrokeWidth(this.m);
     }
 
     public static Bitmap a(Drawable drawable) {
@@ -159,14 +159,14 @@ public class b extends Drawable {
             colorStateList = ColorStateList.valueOf(0);
         }
         this.n = colorStateList;
-        this.f39562i.setColor(colorStateList.getColorForState(getState(), 0));
+        this.f39226i.setColor(colorStateList.getColorForState(getState(), 0));
         return this;
     }
 
     public b d(int i2) {
         float f2 = i2;
         this.m = f2;
-        this.f39562i.setStrokeWidth(f2);
+        this.f39226i.setStrokeWidth(f2);
         return this;
     }
 
@@ -174,20 +174,20 @@ public class b extends Drawable {
     public void draw(Canvas canvas) {
         if (this.l) {
             if (this.m > 0.0f) {
-                canvas.drawOval(this.f39561h, this.f39562i);
-                canvas.drawOval(this.f39555b, this.f39558e);
+                canvas.drawOval(this.f39225h, this.f39226i);
+                canvas.drawOval(this.f39219b, this.f39222e);
                 return;
             }
-            canvas.drawOval(this.f39555b, this.f39558e);
+            canvas.drawOval(this.f39219b, this.f39222e);
         } else if (this.m > 0.0f) {
-            RectF rectF = this.f39561h;
+            RectF rectF = this.f39225h;
             float f2 = this.k;
-            canvas.drawRoundRect(rectF, f2, f2, this.f39562i);
-            canvas.drawRoundRect(this.f39555b, Math.max(this.k - this.m, 0.0f), Math.max(this.k - this.m, 0.0f), this.f39558e);
+            canvas.drawRoundRect(rectF, f2, f2, this.f39226i);
+            canvas.drawRoundRect(this.f39219b, Math.max(this.k - this.m, 0.0f), Math.max(this.k - this.m, 0.0f), this.f39222e);
         } else {
-            RectF rectF2 = this.f39555b;
+            RectF rectF2 = this.f39219b;
             float f3 = this.k;
-            canvas.drawRoundRect(rectF2, f3, f3, this.f39558e);
+            canvas.drawRoundRect(rectF2, f3, f3, this.f39222e);
         }
     }
 
@@ -214,12 +214,12 @@ public class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.f39560g;
+        return this.f39224g;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.f39559f;
+        return this.f39223f;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -230,33 +230,33 @@ public class b extends Drawable {
     public final void h() {
         float width;
         float height;
-        this.f39561h.set(this.f39554a);
-        RectF rectF = this.f39555b;
+        this.f39225h.set(this.f39218a);
+        RectF rectF = this.f39219b;
         float f2 = this.m;
-        rectF.set(f2, f2, this.f39561h.width() - this.m, this.f39561h.height() - this.m);
+        rectF.set(f2, f2, this.f39225h.width() - this.m, this.f39225h.height() - this.m);
         float f3 = 0.0f;
-        switch (a.f39563a[this.o.ordinal()]) {
+        switch (a.f39227a[this.o.ordinal()]) {
             case 1:
-                this.f39561h.set(this.f39554a);
-                RectF rectF2 = this.f39555b;
+                this.f39225h.set(this.f39218a);
+                RectF rectF2 = this.f39219b;
                 float f4 = this.m;
-                rectF2.set(f4, f4, this.f39561h.width() - this.m, this.f39561h.height() - this.m);
+                rectF2.set(f4, f4, this.f39225h.width() - this.m, this.f39225h.height() - this.m);
                 this.j.set(null);
-                this.j.setTranslate((int) (((this.f39555b.width() - this.f39559f) * 0.5f) + 0.5f), (int) (((this.f39555b.height() - this.f39560g) * 0.5f) + 0.5f));
+                this.j.setTranslate((int) (((this.f39219b.width() - this.f39223f) * 0.5f) + 0.5f), (int) (((this.f39219b.height() - this.f39224g) * 0.5f) + 0.5f));
                 break;
             case 2:
-                this.f39561h.set(this.f39554a);
-                RectF rectF3 = this.f39555b;
+                this.f39225h.set(this.f39218a);
+                RectF rectF3 = this.f39219b;
                 float f5 = this.m;
-                rectF3.set(f5, f5, this.f39561h.width() - this.m, this.f39561h.height() - this.m);
+                rectF3.set(f5, f5, this.f39225h.width() - this.m, this.f39225h.height() - this.m);
                 this.j.set(null);
-                if (this.f39559f * this.f39555b.height() > this.f39555b.width() * this.f39560g) {
-                    width = this.f39555b.height() / this.f39560g;
-                    f3 = (this.f39555b.width() - (this.f39559f * width)) * 0.5f;
+                if (this.f39223f * this.f39219b.height() > this.f39219b.width() * this.f39224g) {
+                    width = this.f39219b.height() / this.f39224g;
+                    f3 = (this.f39219b.width() - (this.f39223f * width)) * 0.5f;
                     height = 0.0f;
                 } else {
-                    width = this.f39555b.width() / this.f39559f;
-                    height = (this.f39555b.height() - (this.f39560g * width)) * 0.5f;
+                    width = this.f39219b.width() / this.f39223f;
+                    height = (this.f39219b.height() - (this.f39224g * width)) * 0.5f;
                 }
                 this.j.setScale(width, width);
                 Matrix matrix = this.j;
@@ -265,64 +265,64 @@ public class b extends Drawable {
                 break;
             case 3:
                 this.j.set(null);
-                float min = (((float) this.f39559f) > this.f39554a.width() || ((float) this.f39560g) > this.f39554a.height()) ? Math.min(this.f39554a.width() / this.f39559f, this.f39554a.height() / this.f39560g) : 1.0f;
+                float min = (((float) this.f39223f) > this.f39218a.width() || ((float) this.f39224g) > this.f39218a.height()) ? Math.min(this.f39218a.width() / this.f39223f, this.f39218a.height() / this.f39224g) : 1.0f;
                 this.j.setScale(min, min);
-                this.j.postTranslate((int) (((this.f39554a.width() - (this.f39559f * min)) * 0.5f) + 0.5f), (int) (((this.f39554a.height() - (this.f39560g * min)) * 0.5f) + 0.5f));
-                this.f39561h.set(this.f39556c);
-                this.j.mapRect(this.f39561h);
-                RectF rectF4 = this.f39555b;
-                RectF rectF5 = this.f39561h;
+                this.j.postTranslate((int) (((this.f39218a.width() - (this.f39223f * min)) * 0.5f) + 0.5f), (int) (((this.f39218a.height() - (this.f39224g * min)) * 0.5f) + 0.5f));
+                this.f39225h.set(this.f39220c);
+                this.j.mapRect(this.f39225h);
+                RectF rectF4 = this.f39219b;
+                RectF rectF5 = this.f39225h;
                 float f7 = rectF5.left;
                 float f8 = this.m;
                 rectF4.set(f7 + f8, rectF5.top + f8, rectF5.right - f8, rectF5.bottom - f8);
-                this.j.setRectToRect(this.f39556c, this.f39555b, Matrix.ScaleToFit.FILL);
+                this.j.setRectToRect(this.f39220c, this.f39219b, Matrix.ScaleToFit.FILL);
                 break;
             case 4:
-                this.f39561h.set(this.f39556c);
-                this.j.setRectToRect(this.f39556c, this.f39554a, Matrix.ScaleToFit.CENTER);
-                this.j.mapRect(this.f39561h);
-                RectF rectF6 = this.f39555b;
-                RectF rectF7 = this.f39561h;
+                this.f39225h.set(this.f39220c);
+                this.j.setRectToRect(this.f39220c, this.f39218a, Matrix.ScaleToFit.CENTER);
+                this.j.mapRect(this.f39225h);
+                RectF rectF6 = this.f39219b;
+                RectF rectF7 = this.f39225h;
                 float f9 = rectF7.left;
                 float f10 = this.m;
                 rectF6.set(f9 + f10, rectF7.top + f10, rectF7.right - f10, rectF7.bottom - f10);
-                this.j.setRectToRect(this.f39556c, this.f39555b, Matrix.ScaleToFit.FILL);
+                this.j.setRectToRect(this.f39220c, this.f39219b, Matrix.ScaleToFit.FILL);
                 break;
             case 5:
-                this.f39561h.set(this.f39556c);
-                this.j.setRectToRect(this.f39556c, this.f39554a, Matrix.ScaleToFit.END);
-                this.j.mapRect(this.f39561h);
-                RectF rectF8 = this.f39555b;
-                RectF rectF9 = this.f39561h;
+                this.f39225h.set(this.f39220c);
+                this.j.setRectToRect(this.f39220c, this.f39218a, Matrix.ScaleToFit.END);
+                this.j.mapRect(this.f39225h);
+                RectF rectF8 = this.f39219b;
+                RectF rectF9 = this.f39225h;
                 float f11 = rectF9.left;
                 float f12 = this.m;
                 rectF8.set(f11 + f12, rectF9.top + f12, rectF9.right - f12, rectF9.bottom - f12);
-                this.j.setRectToRect(this.f39556c, this.f39555b, Matrix.ScaleToFit.FILL);
+                this.j.setRectToRect(this.f39220c, this.f39219b, Matrix.ScaleToFit.FILL);
                 break;
             case 6:
-                this.f39561h.set(this.f39556c);
-                this.j.setRectToRect(this.f39556c, this.f39554a, Matrix.ScaleToFit.START);
-                this.j.mapRect(this.f39561h);
-                RectF rectF10 = this.f39555b;
-                RectF rectF11 = this.f39561h;
+                this.f39225h.set(this.f39220c);
+                this.j.setRectToRect(this.f39220c, this.f39218a, Matrix.ScaleToFit.START);
+                this.j.mapRect(this.f39225h);
+                RectF rectF10 = this.f39219b;
+                RectF rectF11 = this.f39225h;
                 float f13 = rectF11.left;
                 float f14 = this.m;
                 rectF10.set(f13 + f14, rectF11.top + f14, rectF11.right - f14, rectF11.bottom - f14);
-                this.j.setRectToRect(this.f39556c, this.f39555b, Matrix.ScaleToFit.FILL);
+                this.j.setRectToRect(this.f39220c, this.f39219b, Matrix.ScaleToFit.FILL);
                 break;
             default:
-                this.f39561h.set(this.f39554a);
-                RectF rectF12 = this.f39555b;
+                this.f39225h.set(this.f39218a);
+                RectF rectF12 = this.f39219b;
                 float f15 = this.m;
-                rectF12.set(f15 + 0.0f, f15 + 0.0f, this.f39561h.width() - this.m, this.f39561h.height() - this.m);
+                rectF12.set(f15 + 0.0f, f15 + 0.0f, this.f39225h.width() - this.m, this.f39225h.height() - this.m);
                 this.j.set(null);
-                this.j.setRectToRect(this.f39556c, this.f39555b, Matrix.ScaleToFit.FILL);
+                this.j.setRectToRect(this.f39220c, this.f39219b, Matrix.ScaleToFit.FILL);
                 break;
         }
-        RectF rectF13 = this.f39561h;
+        RectF rectF13 = this.f39225h;
         float f16 = this.m;
         rectF13.inset(f16 / 2.0f, f16 / 2.0f);
-        this.f39557d.setLocalMatrix(this.j);
+        this.f39221d.setLocalMatrix(this.j);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -333,15 +333,15 @@ public class b extends Drawable {
     @Override // android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        this.f39554a.set(rect);
+        this.f39218a.set(rect);
         h();
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean onStateChange(int[] iArr) {
         int colorForState = this.n.getColorForState(iArr, 0);
-        if (this.f39562i.getColor() != colorForState) {
-            this.f39562i.setColor(colorForState);
+        if (this.f39226i.getColor() != colorForState) {
+            this.f39226i.setColor(colorForState);
             return true;
         }
         return super.onStateChange(iArr);
@@ -349,13 +349,13 @@ public class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i2) {
-        this.f39558e.setAlpha(i2);
+        this.f39222e.setAlpha(i2);
         invalidateSelf();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.f39558e.setColorFilter(colorFilter);
+        this.f39222e.setColorFilter(colorFilter);
         invalidateSelf();
     }
 }

@@ -4,31 +4,31 @@ public class al {
     public static volatile al l;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f34106a = false;
+    public volatile boolean f34035a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f34107b = false;
+    public volatile boolean f34036b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f34108c = false;
+    public volatile boolean f34037c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f34109d = false;
+    public volatile boolean f34038d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f34110e = false;
+    public volatile boolean f34039e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f34111f = false;
+    public volatile boolean f34040f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f34112g = 0;
+    public volatile long f34041g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f34113h = 0;
+    public volatile long f34042h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile long f34114i = 0;
+    public volatile long f34043i = 0;
     public volatile long j = -1;
     public volatile boolean k = false;
 
@@ -48,6 +48,6 @@ public class al {
     }
 
     public boolean b() {
-        return this.f34111f;
+        return this.f34040f;
     }
 }

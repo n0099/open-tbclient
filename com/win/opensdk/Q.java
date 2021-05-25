@@ -6,12 +6,12 @@ import java.util.Set;
 public class Q {
 
     /* renamed from: a  reason: collision with root package name */
-    public P f36986a;
+    public P f36915a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set f36987b = new HashSet();
+    public Set f36916b = new HashSet();
 
     public Q(P p) {
-        this.f36986a = p;
+        this.f36915a = p;
     }
 }

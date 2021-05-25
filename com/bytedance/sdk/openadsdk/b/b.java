@@ -16,18 +16,18 @@ public abstract class b implements com.bytedance.sdk.openadsdk.b.a {
     public class a implements Callable<Void> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f27291b;
+        public final File f27220b;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() throws Exception {
-            b.this.b(this.f27291b);
+            b.this.b(this.f27220b);
             return null;
         }
 
         public a(File file) {
-            this.f27291b = file;
+            this.f27220b = file;
         }
     }
 

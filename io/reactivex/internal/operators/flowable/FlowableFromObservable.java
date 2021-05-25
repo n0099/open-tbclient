@@ -14,7 +14,7 @@ public final class FlowableFromObservable<T> extends Flowable<T> {
     public static class SubscriberObserver<T> implements Observer<T>, Subscription {
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68922d;
+        public Disposable f68965d;
         public final Subscriber<? super T> s;
 
         public SubscriberObserver(Subscriber<? super T> subscriber) {
@@ -23,7 +23,7 @@ public final class FlowableFromObservable<T> extends Flowable<T> {
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            this.f68922d.dispose();
+            this.f68965d.dispose();
         }
 
         @Override // io.reactivex.Observer
@@ -43,7 +43,7 @@ public final class FlowableFromObservable<T> extends Flowable<T> {
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            this.f68922d = disposable;
+            this.f68965d = disposable;
             this.s.onSubscribe(this);
         }
 

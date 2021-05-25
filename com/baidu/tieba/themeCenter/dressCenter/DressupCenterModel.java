@@ -6,26 +6,26 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.a.k0.j3.h.d;
-import d.a.k0.j3.h.e;
+import d.a.n0.k3.h.d;
+import d.a.n0.k3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d> f21223e;
+    public List<d> f21151e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f21224f;
+    public e f21152f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<d.a.k0.j3.h.a> f21225g;
+    public List<d.a.n0.k3.h.a> f21153g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21226h;
+    public b f21154h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f21227i;
+    public boolean f21155i;
     public d.a.c.c.g.a j = new a(CmdConfigHttp.CMD_DRESSUP_CENTER, 309001);
 
     /* loaded from: classes5.dex */
@@ -42,25 +42,25 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
             boolean z = responsedMessage instanceof DressupCenterHttpResponseMessage;
             if (z || (responsedMessage instanceof DressupCenterSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (DressupCenterModel.this.f21226h != null) {
-                        DressupCenterModel.this.f21226h.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.f21225g, DressupCenterModel.this.f21224f, DressupCenterModel.this.f21223e);
+                    if (DressupCenterModel.this.f21154h != null) {
+                        DressupCenterModel.this.f21154h.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.f21153g, DressupCenterModel.this.f21152f, DressupCenterModel.this.f21151e);
                         return;
                     }
                     return;
                 }
                 if (z) {
                     DressupCenterHttpResponseMessage dressupCenterHttpResponseMessage = (DressupCenterHttpResponseMessage) responsedMessage;
-                    DressupCenterModel.this.f21223e = dressupCenterHttpResponseMessage.getThemeList();
-                    DressupCenterModel.this.f21224f = dressupCenterHttpResponseMessage.getRecommand();
-                    DressupCenterModel.this.f21225g = dressupCenterHttpResponseMessage.getThemeCarouselList();
+                    DressupCenterModel.this.f21151e = dressupCenterHttpResponseMessage.getThemeList();
+                    DressupCenterModel.this.f21152f = dressupCenterHttpResponseMessage.getRecommand();
+                    DressupCenterModel.this.f21153g = dressupCenterHttpResponseMessage.getThemeCarouselList();
                 } else if (responsedMessage instanceof DressupCenterSocketResponseMessage) {
                     DressupCenterSocketResponseMessage dressupCenterSocketResponseMessage = (DressupCenterSocketResponseMessage) responsedMessage;
-                    DressupCenterModel.this.f21223e = dressupCenterSocketResponseMessage.getThemeList();
-                    DressupCenterModel.this.f21224f = dressupCenterSocketResponseMessage.getRecommand();
-                    DressupCenterModel.this.f21225g = dressupCenterSocketResponseMessage.getThemeCarouselList();
+                    DressupCenterModel.this.f21151e = dressupCenterSocketResponseMessage.getThemeList();
+                    DressupCenterModel.this.f21152f = dressupCenterSocketResponseMessage.getRecommand();
+                    DressupCenterModel.this.f21153g = dressupCenterSocketResponseMessage.getThemeCarouselList();
                 }
-                if (DressupCenterModel.this.f21226h != null) {
-                    DressupCenterModel.this.f21226h.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.f21225g, DressupCenterModel.this.f21224f, DressupCenterModel.this.f21223e);
+                if (DressupCenterModel.this.f21154h != null) {
+                    DressupCenterModel.this.f21154h.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.f21153g, DressupCenterModel.this.f21152f, DressupCenterModel.this.f21151e);
                 }
             }
         }
@@ -68,17 +68,17 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(int i2, String str, List<d.a.k0.j3.h.a> list, e eVar, List<d> list2);
+        void a(int i2, String str, List<d.a.n0.k3.h.a> list, e eVar, List<d> list2);
     }
 
     public DressupCenterModel(DressupCenterActivity dressupCenterActivity) {
-        this.f21227i = dressupCenterActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        this.f21155i = dressupCenterActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         registerTask();
         registerListener(this.j);
     }
 
     public void A(b bVar) {
-        this.f21226h = bVar;
+        this.f21154h = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -97,11 +97,11 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     }
 
     public final void registerTask() {
-        d.a.k0.d3.d0.a.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-        d.a.k0.d3.d0.a.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+        d.a.n0.e3.d0.a.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+        d.a.n0.e3.d0.a.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
     }
 
     public boolean z() {
-        return this.f21227i;
+        return this.f21155i;
     }
 }

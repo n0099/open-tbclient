@@ -10,23 +10,23 @@ import org.json.JSONObject;
 public class e extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f31945a;
+    public int f31874a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Float> f31946b = new ArrayList();
+    public List<Float> f31875b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public long f31947c;
+    public long f31876c;
 
     public static e a(SensorEvent sensorEvent) {
         if (sensorEvent == null) {
             return null;
         }
         e eVar = new e();
-        eVar.f31945a = sensorEvent.sensor.getType();
-        eVar.f31947c = sensorEvent.timestamp;
+        eVar.f31874a = sensorEvent.sensor.getType();
+        eVar.f31876c = sensorEvent.timestamp;
         for (float f2 : sensorEvent.values) {
-            eVar.f31946b.add(Float.valueOf(f2));
+            eVar.f31875b.add(Float.valueOf(f2));
         }
         return eVar;
     }
@@ -34,6 +34,6 @@ public class e extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
     @Override // com.kwad.sdk.core.response.a.a
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
-        o.a(jSONObject, SavedStateHandle.VALUES, this.f31946b);
+        o.a(jSONObject, SavedStateHandle.VALUES, this.f31875b);
     }
 }

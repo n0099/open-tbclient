@@ -3,14 +3,14 @@ package com.bytedance.sdk.openadsdk.core.video.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28454a;
+    public String f28383a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28455b;
+    public String f28384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28456c;
+    public int f28385c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28457d;
+    public String f28386d;
 }

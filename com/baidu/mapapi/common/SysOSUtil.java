@@ -4,7 +4,7 @@ import com.baidu.mapsdkplatform.comapi.util.i;
 /* loaded from: classes2.dex */
 public class SysOSUtil {
     public static float getDensity() {
-        return i.f8021c;
+        return i.f7921c;
     }
 
     public static int getDensityDpi() {

@@ -12,16 +12,16 @@ import com.bytedance.embedapplog.bo;
 import d.b.b.g1;
 import d.b.b.n1;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class l1 implements g1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final g1 f65018a;
+    public final g1 f65061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public t0<Boolean> f65019b;
+    public t0<Boolean> f65062b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends t0<Boolean> {
         public a(l1 l1Var) {
         }
@@ -49,14 +49,14 @@ public final class l1 implements g1 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements n1.b<bo, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f65020a;
+        public final /* synthetic */ Context f65063a;
 
         public b(Context context) {
-            this.f65020a = context;
+            this.f65063a = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,11 +73,11 @@ public final class l1 implements g1 {
             if (boVar == null) {
                 return null;
             }
-            String c2 = l1.this.c(this.f65020a);
+            String c2 = l1.this.c(this.f65063a);
             if (TextUtils.isEmpty(c2)) {
                 return null;
             }
-            return boVar.a(this.f65020a.getPackageName(), c2, "OUID");
+            return boVar.a(this.f65063a.getPackageName(), c2, "OUID");
         }
     }
 
@@ -87,14 +87,14 @@ public final class l1 implements g1 {
 
     @Override // d.b.b.g1
     public g1.a b(Context context) {
-        if (this.f65018a != null && !this.f65019b.b(new Object[0]).booleanValue()) {
-            return this.f65018a.b(context);
+        if (this.f65061a != null && !this.f65062b.b(new Object[0]).booleanValue()) {
+            return this.f65061a.b(context);
         }
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
         intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
         g1.a aVar = new g1.a();
-        aVar.f64980a = (String) new n1(context, intent, new b(context)).a();
+        aVar.f65023a = (String) new n1(context, intent, new b(context)).a();
         return aVar;
     }
 
@@ -142,8 +142,8 @@ public final class l1 implements g1 {
     }
 
     public l1(g1 g1Var) {
-        this.f65019b = new a(this);
-        this.f65018a = g1Var;
+        this.f65062b = new a(this);
+        this.f65061a = g1Var;
     }
 
     @Override // d.b.b.g1
@@ -151,9 +151,9 @@ public final class l1 implements g1 {
         if (context == null) {
             return false;
         }
-        Boolean b2 = this.f65019b.b(context);
-        if (this.f65018a != null && !b2.booleanValue()) {
-            return this.f65018a.a(context);
+        Boolean b2 = this.f65062b.b(context);
+        if (this.f65061a != null && !b2.booleanValue()) {
+            return this.f65061a.a(context);
         }
         return b2.booleanValue();
     }

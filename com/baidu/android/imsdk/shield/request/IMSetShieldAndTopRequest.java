@@ -143,10 +143,9 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 ShieldAndTopManager.getInstance(this.mContext).onPaShieldResult(i3, str, this.user, this.mKey);
             }
         } else if (i5 != 2) {
-            if (i5 != 3 || (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) == null) {
-                return;
+            if ((i5 == 3 || i5 == 4 || i5 == 5) && (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) != null) {
+                iStatusListener.onResult(i3, str, this.mState, this.mContacter);
             }
-            iStatusListener.onResult(i3, str, this.mState, this.mContacter);
         } else {
             int i6 = this.mContacterType;
             if (i6 == 0) {

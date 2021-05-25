@@ -14,16 +14,16 @@ import org.apache.http.message.BasicNameValuePair;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<BasicNameValuePair> f39067a;
+    public ArrayList<BasicNameValuePair> f38731a;
 
     /* renamed from: b  reason: collision with root package name */
-    public StringBuilder f39068b = new StringBuilder(100);
+    public StringBuilder f38732b = new StringBuilder(100);
 
     /* renamed from: c  reason: collision with root package name */
-    public long f39069c;
+    public long f38733c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f39070d;
+    public g f38734d;
 
     public a(String str) {
     }
@@ -36,10 +36,10 @@ public class a {
         if (obj == null || obj2 == null) {
             return;
         }
-        if (this.f39067a == null) {
-            this.f39067a = new ArrayList<>();
+        if (this.f38731a == null) {
+            this.f38731a = new ArrayList<>();
         }
-        this.f39067a.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+        this.f38731a.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
     }
 
     public void b(String str, String str2) {
@@ -49,16 +49,16 @@ public class a {
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
-        if (this.f39068b.length() > 0) {
-            this.f39068b.append(Typography.amp);
+        if (this.f38732b.length() > 0) {
+            this.f38732b.append(Typography.amp);
         }
-        this.f39068b.append(str);
-        this.f39068b.append("=");
+        this.f38732b.append(str);
+        this.f38732b.append("=");
         try {
-            this.f39068b.append(URLEncoder.encode(h(str2), "utf-8"));
+            this.f38732b.append(URLEncoder.encode(h(str2), "utf-8"));
         } catch (Throwable th) {
             BdLog.e(th);
-            this.f39068b.append(h(str2));
+            this.f38732b.append(h(str2));
         }
     }
 
@@ -76,52 +76,52 @@ public class a {
     }
 
     public void d(c cVar) {
-        if (this.f39070d == null) {
-            this.f39070d = new g();
+        if (this.f38734d == null) {
+            this.f38734d = new g();
         }
-        this.f39070d.f(cVar);
-        ArrayList<BasicNameValuePair> arrayList = this.f39067a;
+        this.f38734d.f(cVar);
+        ArrayList<BasicNameValuePair> arrayList = this.f38731a;
         if (arrayList != null && arrayList.size() > 0) {
-            Iterator<BasicNameValuePair> it = this.f39067a.iterator();
+            Iterator<BasicNameValuePair> it = this.f38731a.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if ("module".equals(next.getName())) {
-                    this.f39070d.i(next.getValue());
+                    this.f38734d.i(next.getValue());
                 } else if ("st".equals(next.getName())) {
-                    this.f39070d.e(next.getValue());
+                    this.f38734d.e(next.getValue());
                 } else if ("errNo".equals(next.getName())) {
-                    this.f39070d.g(next.getValue());
+                    this.f38734d.g(next.getValue());
                 } else if ("errMsg".equals(next.getName())) {
-                    this.f39070d.h(next.getValue());
+                    this.f38734d.h(next.getValue());
                 } else {
-                    this.f39070d.b(next.getName(), next.getValue());
+                    this.f38734d.b(next.getName(), next.getValue());
                 }
             }
         }
-        StringBuilder sb = this.f39068b;
+        StringBuilder sb = this.f38732b;
         if (sb != null) {
-            this.f39070d.a(sb.toString());
+            this.f38734d.a(sb.toString());
         }
     }
 
     public long e() {
-        return System.currentTimeMillis() - this.f39069c;
+        return System.currentTimeMillis() - this.f38733c;
     }
 
     public g f() {
-        return this.f39070d;
+        return this.f38734d;
     }
 
     public void g() {
-        this.f39069c = System.currentTimeMillis();
+        this.f38733c = System.currentTimeMillis();
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.f39068b.length() > 0) {
-            sb.append((CharSequence) this.f39068b);
+        if (this.f38732b.length() > 0) {
+            sb.append((CharSequence) this.f38732b);
         }
-        ArrayList<BasicNameValuePair> arrayList = this.f39067a;
+        ArrayList<BasicNameValuePair> arrayList = this.f38731a;
         if (arrayList != null) {
             Iterator<BasicNameValuePair> it = arrayList.iterator();
             while (it.hasNext()) {

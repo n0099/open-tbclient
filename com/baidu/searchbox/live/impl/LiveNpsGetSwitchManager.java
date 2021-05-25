@@ -6,8 +6,8 @@ import com.baidu.live.net.LiveNetwork;
 import com.baidu.searchbox.live.interfaces.net.LiveNetConstants;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
-import d.a.t.b.a;
-import d.a.t.e.c;
+import d.a.v.b.a;
+import d.a.v.e.c;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -130,7 +130,7 @@ public final class LiveNpsGetSwitchManager {
         liveNetwork.e(addLiveCommonToUrl);
         liveNetwork.b(transformMap(MapsKt__MapsKt.plus(new HashMap(addLiveCommonParameters), linkedHashMap)), new a<LiveMasterSwitchBean>() { // from class: com.baidu.searchbox.live.impl.LiveNpsGetSwitchManager$getMasterSwitch$1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.t.b.a
+            @Override // d.a.v.b.a
             public void onNetResponse(NetResponse netResponse, LiveMasterSwitchBean liveMasterSwitchBean) {
                 if (netResponse != null && !netResponse.isSuccessful()) {
                     IMasterSwitchCallback.this.switchCallback(liveMasterSwitchBean != null ? liveMasterSwitchBean.getErrmsg() : null);
@@ -143,7 +143,7 @@ public final class LiveNpsGetSwitchManager {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.t.b.a
+            @Override // d.a.v.b.a
             public LiveMasterSwitchBean onParseResponseInBackground(NetResponse netResponse) {
                 if (netResponse != null && netResponse.isSuccessful()) {
                     String str2 = netResponse.decodedResponseStr;

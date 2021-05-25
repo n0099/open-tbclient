@@ -6,24 +6,24 @@ import org.apache.http.message.BasicNameValuePair;
 public class l extends r {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39323a;
+    public String f38987a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39325c;
+    public String f38989c;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39324b = "/";
+    public String f38988b = "/";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39326d = null;
+    public String f38990d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f39327e = null;
+    public String[] f38991e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<BasicNameValuePair> f39328f = null;
+    public List<BasicNameValuePair> f38992f = null;
 
     public l(String str) {
-        this.f39323a = str;
+        this.f38987a = str;
     }
 }

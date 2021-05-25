@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35756a = "com.sdk.base.framework.f.c.a";
+    public static final String f35685a = "com.sdk.base.framework.f.c.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f35757b = f.f35733b;
+    public static final boolean f35686b = f.f35662b;
 
     public static String a(Object obj) {
         try {
@@ -52,7 +52,7 @@ public class a {
             }
             return jSONObject.toString();
         } catch (Exception e2) {
-            c.b(f35756a, e2.getMessage(), Boolean.valueOf(f35757b));
+            c.b(f35685a, e2.getMessage(), Boolean.valueOf(f35686b));
             return null;
         }
     }

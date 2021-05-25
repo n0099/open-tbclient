@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class RequestResult<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public Exception f35820e;
+    public Exception f35749e;
     public ArrayList<Object> interceptResult;
     public T response;
 
     public Exception getE() {
-        return this.f35820e;
+        return this.f35749e;
     }
 
     public ArrayList<Object> getInterceptResult() {
@@ -22,7 +22,7 @@ public class RequestResult<T> {
     }
 
     public void setE(Exception exc) {
-        this.f35820e = exc;
+        this.f35749e = exc;
     }
 
     public void setInterceptResult(ArrayList<Object> arrayList) {

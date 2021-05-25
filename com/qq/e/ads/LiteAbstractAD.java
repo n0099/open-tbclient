@@ -7,11 +7,11 @@ import com.qq.e.comm.a;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class LiteAbstractAD<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public T f35219a;
+    public T f35148a;
 
     public abstract T a(Context context, POFactory pOFactory, String str, String str2);
 
@@ -37,8 +37,8 @@ public abstract class LiteAbstractAD<T> {
                                             LiteAbstractAD.this.a(200102);
                                             return;
                                         }
-                                        LiteAbstractAD.this.f35219a = LiteAbstractAD.this.a(context, pOFactory, str, str2);
-                                        LiteAbstractAD.this.a((LiteAbstractAD) LiteAbstractAD.this.f35219a);
+                                        LiteAbstractAD.this.f35148a = LiteAbstractAD.this.a(context, pOFactory, str, str2);
+                                        LiteAbstractAD.this.a((LiteAbstractAD) LiteAbstractAD.this.f35148a);
                                     } catch (Throwable th) {
                                         GDTLogger.e("Exception while init Core", th);
                                         LiteAbstractAD.this.a(2001);

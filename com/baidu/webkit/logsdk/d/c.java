@@ -20,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f26764a;
+    public static String f26693a;
 
     public static int a(String str) {
         String[] split = str.split("_");
@@ -31,7 +31,7 @@ public final class c {
     }
 
     public static String a() {
-        if (TextUtils.isEmpty(f26764a)) {
+        if (TextUtils.isEmpty(f26693a)) {
             Context d2 = com.baidu.webkit.logsdk.a.b.d();
             if (d2 == null || d2.getFilesDir() == null) {
                 return "";
@@ -40,12 +40,12 @@ public final class c {
             if (str.endsWith(File.separator)) {
                 str = str.substring(0, str.length() - 1);
             }
-            f26764a = str;
-            new File(f26764a).mkdirs();
-            e("BdLogSDK", "Workspace = " + f26764a);
-            return f26764a;
+            f26693a = str;
+            new File(f26693a).mkdirs();
+            e("BdLogSDK", "Workspace = " + f26693a);
+            return f26693a;
         }
-        return f26764a;
+        return f26693a;
     }
 
     public static String a(com.baidu.webkit.logsdk.b.b bVar, String str) {
@@ -179,8 +179,8 @@ public final class c {
     }
 
     public static void a(String str, String str2, String str3) {
-        if (!com.baidu.webkit.logsdk.a.f26703b || TextUtils.isEmpty(str3)) {
-            if (com.baidu.webkit.logsdk.a.f26702a) {
+        if (!com.baidu.webkit.logsdk.a.f26632b || TextUtils.isEmpty(str3)) {
+            if (com.baidu.webkit.logsdk.a.f26631a) {
                 Log.i(str, str2);
                 return;
             }
@@ -191,7 +191,7 @@ public final class c {
 
     public static void a(Throwable th) {
         th.printStackTrace();
-        if (com.baidu.webkit.logsdk.a.f26703b) {
+        if (com.baidu.webkit.logsdk.a.f26632b) {
             System.exit(0);
         }
     }
@@ -362,7 +362,7 @@ public final class c {
     }
 
     public static void e(String str, String str2) {
-        if (com.baidu.webkit.logsdk.a.f26702a) {
+        if (com.baidu.webkit.logsdk.a.f26631a) {
             Log.w(str, str2);
         }
     }

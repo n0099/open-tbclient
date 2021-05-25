@@ -50,31 +50,31 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
     public static final jg f476a = new jg("ClientUploadDataItem");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f37803a = new iy("", (byte) 11, 1);
+    public static final iy f37732a = new iy("", (byte) 11, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f37804b = new iy("", (byte) 11, 2);
+    public static final iy f37733b = new iy("", (byte) 11, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f37805c = new iy("", (byte) 11, 3);
+    public static final iy f37734c = new iy("", (byte) 11, 3);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f37806d = new iy("", (byte) 10, 4);
+    public static final iy f37735d = new iy("", (byte) 10, 4);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f37807e = new iy("", (byte) 10, 5);
+    public static final iy f37736e = new iy("", (byte) 10, 5);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f37808f = new iy("", (byte) 2, 6);
+    public static final iy f37737f = new iy("", (byte) 2, 6);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f37809g = new iy("", (byte) 11, 7);
+    public static final iy f37738g = new iy("", (byte) 11, 7);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f37810h = new iy("", (byte) 11, 8);
+    public static final iy f37739h = new iy("", (byte) 11, 8);
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f37811i = new iy("", (byte) 11, 9);
+    public static final iy f37740i = new iy("", (byte) 11, 9);
     public static final iy j = new iy("", (byte) 13, 10);
     public static final iy k = new iy("", (byte) 11, 11);
 
@@ -221,7 +221,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
         jbVar.m511a();
         while (true) {
             iy m507a = jbVar.m507a();
-            byte b2 = m507a.f38040a;
+            byte b2 = m507a.f37969a;
             if (b2 == 0) {
                 jbVar.f();
                 m364a();
@@ -419,47 +419,47 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
         m364a();
         jbVar.a(f476a);
         if (this.f478a != null && m366a()) {
-            jbVar.a(f37803a);
+            jbVar.a(f37732a);
             jbVar.a(this.f478a);
             jbVar.b();
         }
         if (this.f483b != null && m368b()) {
-            jbVar.a(f37804b);
+            jbVar.a(f37733b);
             jbVar.a(this.f483b);
             jbVar.b();
         }
         if (this.f484c != null && m369c()) {
-            jbVar.a(f37805c);
+            jbVar.a(f37734c);
             jbVar.a(this.f484c);
             jbVar.b();
         }
         if (m370d()) {
-            jbVar.a(f37806d);
+            jbVar.a(f37735d);
             jbVar.a(this.f477a);
             jbVar.b();
         }
         if (m371e()) {
-            jbVar.a(f37807e);
+            jbVar.a(f37736e);
             jbVar.a(this.f482b);
             jbVar.b();
         }
         if (f()) {
-            jbVar.a(f37808f);
+            jbVar.a(f37737f);
             jbVar.a(this.f481a);
             jbVar.b();
         }
         if (this.f485d != null && g()) {
-            jbVar.a(f37809g);
+            jbVar.a(f37738g);
             jbVar.a(this.f485d);
             jbVar.b();
         }
         if (this.f486e != null && h()) {
-            jbVar.a(f37810h);
+            jbVar.a(f37739h);
             jbVar.a(this.f486e);
             jbVar.b();
         }
         if (this.f487f != null && i()) {
-            jbVar.a(f37811i);
+            jbVar.a(f37740i);
             jbVar.a(this.f487f);
             jbVar.b();
         }

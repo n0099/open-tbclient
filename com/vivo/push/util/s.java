@@ -25,7 +25,7 @@ import java.util.Set;
 public final class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f36799a;
+    public static Boolean f36728a;
 
     public static com.vivo.push.model.b a(Context context) {
         com.vivo.push.model.b e2;
@@ -105,7 +105,7 @@ public final class s {
         try {
             try {
                 try {
-                    query = context.getContentResolver().query(com.vivo.push.z.f36831a, null, null, null, null);
+                    query = context.getContentResolver().query(com.vivo.push.z.f36760a, null, null, null, null);
                     try {
                     } catch (Throwable th) {
                         th = th;
@@ -282,7 +282,7 @@ public final class s {
 
     public static boolean d(Context context) {
         ProviderInfo resolveContentProvider;
-        Boolean bool = f36799a;
+        Boolean bool = f36728a;
         if (bool != null) {
             return bool.booleanValue();
         }
@@ -291,7 +291,7 @@ public final class s {
             str = resolveContentProvider.packageName;
         }
         Boolean valueOf = Boolean.valueOf("BCC35D4D3606F154F0402AB7634E8490C0B244C2675C3C6238986987024F0C02".equals(f(context, str)));
-        f36799a = valueOf;
+        f36728a = valueOf;
         return valueOf.booleanValue();
     }
 

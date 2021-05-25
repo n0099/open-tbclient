@@ -6,18 +6,18 @@ import org.json.JSONObject;
 public class j implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public h f32335a;
+    public h f32264a;
 
     public static j a() {
         j jVar = new j();
-        jVar.f32335a = h.a();
+        jVar.f32264a = h.a();
         return jVar;
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "modeInfo", this.f32335a);
+        o.a(jSONObject, "modeInfo", this.f32264a);
         return jSONObject;
     }
 }

@@ -5,22 +5,22 @@ import android.view.Surface;
 public class e extends b {
 
     /* renamed from: c  reason: collision with root package name */
-    public Surface f66082c;
+    public Surface f66125c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f66083d;
+    public boolean f66126d;
 
     public e(a aVar, Surface surface, boolean z) {
         super(aVar);
         a(surface);
-        this.f66082c = surface;
-        this.f66083d = z;
+        this.f66125c = surface;
+        this.f66126d = z;
     }
 
     public void f(a aVar) {
-        Surface surface = this.f66082c;
+        Surface surface = this.f66125c;
         if (surface != null) {
-            this.f66077a = aVar;
+            this.f66120a = aVar;
             a(surface);
             return;
         }
@@ -29,12 +29,12 @@ public class e extends b {
 
     public void g() {
         c();
-        Surface surface = this.f66082c;
+        Surface surface = this.f66125c;
         if (surface != null) {
-            if (this.f66083d) {
+            if (this.f66126d) {
                 surface.release();
             }
-            this.f66082c = null;
+            this.f66125c = null;
         }
     }
 }

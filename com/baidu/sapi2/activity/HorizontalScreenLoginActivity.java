@@ -14,8 +14,8 @@ import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.views.RoundWebview;
 import com.baidu.sapi2.views.ViewUtility;
-import d.a.y.a.c;
-import d.a.y.a.f;
+import d.a.a0.a.c;
+import d.a.a0.a.f;
 /* loaded from: classes2.dex */
 public class HorizontalScreenLoginActivity extends LoginActivity {
     public static int H;
@@ -24,32 +24,32 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
     public static class AndroidBug5497Workaround {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f9702a;
+        public final int f9602a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f9703b;
+        public View f9603b;
 
         /* renamed from: c  reason: collision with root package name */
-        public WebView f9704c;
+        public WebView f9604c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f9705d;
+        public int f9605d;
 
         /* renamed from: e  reason: collision with root package name */
-        public FrameLayout.LayoutParams f9706e;
+        public FrameLayout.LayoutParams f9606e;
 
         public AndroidBug5497Workaround(Activity activity) {
             View childAt = ((FrameLayout) activity.findViewById(16908290)).getChildAt(0);
-            this.f9703b = childAt;
+            this.f9603b = childAt;
             childAt.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.sapi2.activity.HorizontalScreenLoginActivity.AndroidBug5497Workaround.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     AndroidBug5497Workaround.this.b();
                 }
             });
-            this.f9706e = (FrameLayout.LayoutParams) this.f9703b.getLayoutParams();
-            this.f9704c = a((ViewGroup) this.f9703b);
-            this.f9702a = activity.getWindowManager().getDefaultDisplay().getWidth();
+            this.f9606e = (FrameLayout.LayoutParams) this.f9603b.getLayoutParams();
+            this.f9604c = a((ViewGroup) this.f9603b);
+            this.f9602a = activity.getWindowManager().getDefaultDisplay().getWidth();
         }
 
         public static void assistActivity(Activity activity) {
@@ -76,23 +76,23 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
             int a2 = a();
-            if (a2 != this.f9705d) {
-                int i2 = this.f9702a;
+            if (a2 != this.f9605d) {
+                int i2 = this.f9602a;
                 int i3 = i2 - a2;
                 int i4 = i2 / 4;
                 if (i3 > i4) {
-                    this.f9706e.height = i2 - i3;
+                    this.f9606e.height = i2 - i3;
                 } else {
-                    this.f9706e.height = i2;
+                    this.f9606e.height = i2;
                 }
-                this.f9703b.requestLayout();
+                this.f9603b.requestLayout();
                 if (i3 > i4) {
-                    if (this.f9704c.getUrl() != null && (this.f9704c.getUrl().endsWith("/sms_login_new") || this.f9704c.getUrl().contains("sms_login") || this.f9704c.getUrl().contains("act=bind_mobile"))) {
+                    if (this.f9604c.getUrl() != null && (this.f9604c.getUrl().endsWith("/sms_login_new") || this.f9604c.getUrl().contains("sms_login") || this.f9604c.getUrl().contains("act=bind_mobile"))) {
                         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.baidu.sapi2.activity.HorizontalScreenLoginActivity.AndroidBug5497Workaround.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 try {
-                                    AndroidBug5497Workaround.this.f9704c.scrollTo(0, HorizontalScreenLoginActivity.H);
+                                    AndroidBug5497Workaround.this.f9604c.scrollTo(0, HorizontalScreenLoginActivity.H);
                                 } catch (Exception unused) {
                                 }
                             }
@@ -103,19 +103,19 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
                         @Override // java.lang.Runnable
                         public void run() {
                             try {
-                                AndroidBug5497Workaround.this.f9704c.scrollTo(0, 0);
+                                AndroidBug5497Workaround.this.f9604c.scrollTo(0, 0);
                             } catch (Exception unused) {
                             }
                         }
                     }, 200L);
                 }
-                this.f9705d = a2;
+                this.f9605d = a2;
             }
         }
 
         private int a() {
             Rect rect = new Rect();
-            this.f9703b.getWindowVisibleDisplayFrame(rect);
+            this.f9603b.getWindowVisibleDisplayFrame(rect);
             return rect.bottom - rect.top;
         }
     }

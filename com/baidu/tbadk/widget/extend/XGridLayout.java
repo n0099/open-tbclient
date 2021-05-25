@@ -5,16 +5,16 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.R$styleable;
-import d.a.j0.b1.f.a.b;
+import d.a.m0.b1.f.a.b;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class XGridLayout extends AdapterLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13161h;
+    public int f13069h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13162i;
+    public int f13070i;
     public int j;
     public int k;
 
@@ -24,18 +24,18 @@ public class XGridLayout extends AdapterLayout {
 
     @Override // com.baidu.tbadk.widget.extend.AdapterLayout
     public void b() {
-        if (this.f13155e == null) {
+        if (this.f13063e == null) {
             return;
         }
         removeAllViews();
-        int min = Math.min(this.f13155e.a(), this.k);
+        int min = Math.min(this.f13063e.a(), this.k);
         for (int i2 = 0; i2 < min; i2++) {
-            addView(this.f13155e.b(i2, this));
+            addView(this.f13063e.b(i2, this));
         }
     }
 
     public void d() {
-        b bVar = this.f13155e;
+        b bVar = this.f13063e;
         if (bVar != null) {
             bVar.c();
         }
@@ -55,8 +55,8 @@ public class XGridLayout extends AdapterLayout {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
                 childAt.layout(paddingLeft, paddingTop, paddingLeft + measuredWidth, paddingTop + measuredHeight);
-                paddingLeft += measuredWidth + this.f13162i;
-                if ((i6 + 1) % this.f13161h == 0) {
+                paddingLeft += measuredWidth + this.f13070i;
+                if ((i6 + 1) % this.f13069h == 0) {
                     paddingLeft = getPaddingLeft();
                     paddingTop += measuredHeight + this.j;
                 }
@@ -70,8 +70,8 @@ public class XGridLayout extends AdapterLayout {
         super.onMeasure(i2, i3);
         int size = View.MeasureSpec.getSize(i2);
         int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
-        int i4 = this.f13162i;
-        int i5 = this.f13161h;
+        int i4 = this.f13070i;
+        int i5 = this.f13069h;
         int i6 = (paddingLeft - (i4 * (i5 - 1))) / i5;
         int min = Math.min(getChildCount(), this.k);
         if (min <= 0) {
@@ -83,7 +83,7 @@ public class XGridLayout extends AdapterLayout {
             View childAt = getChildAt(i8);
             measureChild(childAt, View.MeasureSpec.makeMeasureSpec(i6, 1073741824), i3);
             if (i8 != 0) {
-                if (i8 % this.f13161h == 0) {
+                if (i8 % this.f13069h == 0) {
                     measuredHeight = childAt.getMeasuredHeight() + this.j;
                 }
             } else {
@@ -98,15 +98,15 @@ public class XGridLayout extends AdapterLayout {
         if (list.size() < i2) {
             i2 = list.size() % i2;
         }
-        this.f13161h = i2;
+        this.f13069h = i2;
     }
 
     public void setGridSpan(int i2) {
-        this.f13161h = i2;
+        this.f13069h = i2;
     }
 
     public void setHorizontalSpace(int i2) {
-        this.f13162i = i2;
+        this.f13070i = i2;
     }
 
     public void setMaxItem(int i2) {
@@ -123,13 +123,13 @@ public class XGridLayout extends AdapterLayout {
 
     public XGridLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13161h = 1;
-        this.f13162i = 0;
+        this.f13069h = 1;
+        this.f13070i = 0;
         this.j = 0;
         this.k = 9;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.XGridLayout);
-        this.f13161h = obtainStyledAttributes.getInteger(R$styleable.XGridLayout_gridSpan, this.f13161h);
-        this.f13162i = (int) obtainStyledAttributes.getDimension(R$styleable.XGridLayout_gridHorizontalSpace, this.f13162i);
+        this.f13069h = obtainStyledAttributes.getInteger(R$styleable.XGridLayout_gridSpan, this.f13069h);
+        this.f13070i = (int) obtainStyledAttributes.getDimension(R$styleable.XGridLayout_gridHorizontalSpace, this.f13070i);
         this.j = (int) obtainStyledAttributes.getDimension(R$styleable.XGridLayout_gridVerticalSpace, this.j);
         this.k = obtainStyledAttributes.getInteger(R$styleable.XGridLayout_gridMaxItem, this.k);
         obtainStyledAttributes.recycle();

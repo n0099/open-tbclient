@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.c.c;
@@ -26,7 +27,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f3086a;
+    public static volatile b f3089a;
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str) {
@@ -36,19 +37,19 @@ public class b {
         try {
             return new JSONObject(str).optInt("error_code");
         } catch (JSONException unused) {
-            return 30602;
+            return IMConstants.ERROR_GROUP_DISBAND;
         }
     }
 
     public static b a() {
-        if (f3086a == null) {
+        if (f3089a == null) {
             synchronized (b.class) {
-                if (f3086a == null) {
-                    f3086a = new b();
+                if (f3089a == null) {
+                    f3089a = new b();
                 }
             }
         }
-        return f3086a;
+        return f3089a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -227,7 +228,7 @@ public class b {
         if (b(context, str, aVar)) {
             return;
         }
-        final String str2 = h.f3121c + h.f3125g;
+        final String str2 = h.f3124c + h.f3128g;
         final HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
         d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.3
@@ -293,7 +294,7 @@ public class b {
     }
 
     public void a(final Context context, final HashMap<String, Object> hashMap, final UploadDataListener uploadDataListener) {
-        final String str = h.f3121c + h.f3123e;
+        final String str = h.f3124c + h.f3126e;
         final HashMap hashMap2 = new HashMap();
         hashMap2.put("Content-Type", "application/json");
         d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.1
@@ -343,7 +344,7 @@ public class b {
             return;
         }
         if (i.b(context, "click_data_size", -1) != -1 || z) {
-            final String str3 = h.f3127i + h.j;
+            final String str3 = h.f3130i + h.j;
             final HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/json");
             d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.2

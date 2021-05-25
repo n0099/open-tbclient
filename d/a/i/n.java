@@ -14,7 +14,7 @@ import d.a.i.v0.a;
 /* loaded from: classes.dex */
 public class n extends h {
     public ThreadGodReplyLayout l;
-    public d.a.j0.r.q.a m;
+    public d.a.m0.r.q.a m;
     public StatisticItem n;
 
     /* loaded from: classes.dex */
@@ -34,21 +34,21 @@ public class n extends h {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f40367e;
+        public final /* synthetic */ View.OnClickListener f40059e;
 
         public b(View.OnClickListener onClickListener) {
-            this.f40367e = onClickListener;
+            this.f40059e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(n.this.f40316f);
-            String x1 = n.this.m.m().x1();
-            PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(x1, n.this.m.m().A1().E() + "", 1, "other");
-            createNormalCfg.setStartFrom(n.this.f40315e.i());
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(n.this.f40008f);
+            String y1 = n.this.m.m().y1();
+            PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(y1, n.this.m.m().B1().E() + "", 1, "other");
+            createNormalCfg.setStartFrom(n.this.f40007e.i());
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-            n.this.f40315e.o(new a.C0549a(1));
-            this.f40367e.onClick(view);
+            n.this.f40007e.o(new a.C0544a(1));
+            this.f40059e.onClick(view);
         }
     }
 
@@ -58,8 +58,8 @@ public class n extends h {
         }
 
         @Override // d.a.i.v0.a.b
-        public boolean a(a.C0549a c0549a) {
-            d.a.k0.x.m.l(n.this.l.getGodReplyContent(), n.this.m.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        public boolean a(a.C0544a c0544a) {
+            d.a.n0.z.m.l(n.this.l.getGodReplyContent(), n.this.m.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             return false;
         }
     }
@@ -96,12 +96,12 @@ public class n extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: v */
-    public void a(d.a.j0.r.q.a aVar) {
+    public void a(d.a.m0.r.q.a aVar) {
         this.m = aVar;
-        PostData A1 = aVar.m().A1();
-        if (this.n != null && A1 != null && A1.t() != null && A1.t().getUserId() != null) {
-            this.n.param("tid", aVar.m().A).param("post_id", A1.E()).param("uid", A1.t().getUserId());
-            d.a.k0.x.t.b().a(this.n);
+        PostData B1 = aVar.m().B1();
+        if (this.n != null && B1 != null && B1.t() != null && B1.t().getUserId() != null) {
+            this.n.param("tid", aVar.m().A).param("post_id", B1.E()).param("uid", B1.t().getUserId());
+            d.a.n0.z.t.b().a(this.n);
         }
         this.l.setData(aVar.m());
     }

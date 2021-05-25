@@ -6,14 +6,14 @@ import com.win.opensdk.views.CloseParentView;
 public class M1 implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CloseParentView f36953a;
+    public final /* synthetic */ CloseParentView f36882a;
 
     public M1(CloseParentView closeParentView) {
-        this.f36953a = closeParentView;
+        this.f36882a = closeParentView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f36953a.a();
+        this.f36882a.a();
     }
 }

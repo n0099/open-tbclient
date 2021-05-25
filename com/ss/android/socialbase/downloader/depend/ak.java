@@ -14,16 +14,16 @@ public interface ak extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ak$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0434a implements ak {
+        public static class C0435a implements ak {
 
             /* renamed from: a  reason: collision with root package name */
-            public static ak f36032a;
+            public static ak f35961a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f36033b;
+            public IBinder f35962b;
 
-            public C0434a(IBinder iBinder) {
-                this.f36033b = iBinder;
+            public C0435a(IBinder iBinder) {
+                this.f35962b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ak
@@ -34,7 +34,7 @@ public interface ak extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.ProcessAidlCallback");
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
-                    if (!this.f36033b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f35962b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(i2, i3);
                     } else {
                         obtain2.readException();
@@ -47,7 +47,7 @@ public interface ak extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f36033b;
+                return this.f35962b;
             }
         }
 
@@ -63,7 +63,7 @@ public interface ak extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ak)) {
                 return (ak) queryLocalInterface;
             }
-            return new C0434a(iBinder);
+            return new C0435a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -87,7 +87,7 @@ public interface ak extends IInterface {
         }
 
         public static ak a() {
-            return C0434a.f36032a;
+            return C0435a.f35961a;
         }
     }
 }

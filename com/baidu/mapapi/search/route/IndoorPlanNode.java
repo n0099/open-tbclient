@@ -5,23 +5,23 @@ import com.baidu.mapapi.model.LatLng;
 public class IndoorPlanNode {
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f7377a;
+    public LatLng f7277a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7378b;
+    public String f7278b;
 
     public IndoorPlanNode(LatLng latLng, String str) {
-        this.f7377a = null;
-        this.f7378b = null;
-        this.f7377a = latLng;
-        this.f7378b = str;
+        this.f7277a = null;
+        this.f7278b = null;
+        this.f7277a = latLng;
+        this.f7278b = str;
     }
 
     public String getFloor() {
-        return this.f7378b;
+        return this.f7278b;
     }
 
     public LatLng getLocation() {
-        return this.f7377a;
+        return this.f7277a;
     }
 }

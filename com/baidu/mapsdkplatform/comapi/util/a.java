@@ -14,7 +14,7 @@ public class a {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0101a {
+    public static class C0102a {
         public static String a(byte[] bArr) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
             StringBuilder sb = new StringBuilder(bArr.length * 2);
@@ -67,7 +67,7 @@ public class a {
 
     public static String a(X509Certificate x509Certificate) {
         try {
-            return C0101a.a(a(x509Certificate.getEncoded()));
+            return C0102a.a(a(x509Certificate.getEncoded()));
         } catch (CertificateEncodingException unused) {
             return null;
         }

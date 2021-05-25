@@ -73,9 +73,9 @@ import com.baidu.tieba.service.AsInstallService;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.y.a.b;
-import d.a.y.a.e;
-import d.a.y.a.g;
+import d.a.a0.a.b;
+import d.a.a0.a.e;
+import d.a.a0.a.g;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -114,38 +114,38 @@ public class BaseActivity extends TitleActivity {
     public static final int s = 2001;
 
     /* renamed from: a  reason: collision with root package name */
-    public ValueCallback<Uri> f9635a;
+    public ValueCallback<Uri> f9535a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ValueCallback<Uri[]> f9636b;
+    public ValueCallback<Uri[]> f9536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SapiWebView.PickPhotoResult f9637c;
+    public SapiWebView.PickPhotoResult f9537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SapiWebView.BiometricsIdentifyResult f9638d;
+    public SapiWebView.BiometricsIdentifyResult f9538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SapiScheme f9639e;
+    public SapiScheme f9539e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9640f;
+    public int f9540f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f9641g;
+    public int f9541g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageCropCallback.ImageCropResult f9642h;
+    public ImageCropCallback.ImageCropResult f9542h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ScreenShotManager f9643i;
+    public ScreenShotManager f9543i;
     public IdcardOcrImageCallback j;
     public boolean loginStatusChange;
     public SapiWebView sapiWebView;
 
     public void initScreenShotManager() {
         ScreenShotManager screenShotManager = new ScreenShotManager();
-        this.f9643i = screenShotManager;
+        this.f9543i = screenShotManager;
         screenShotManager.init(getContentResolver(), new IScreenShotListener() { // from class: com.baidu.sapi2.activity.BaseActivity.22
             @Override // com.baidu.sapi2.shell.listener.IScreenShotListener
             public void onScreenShot() {
@@ -160,7 +160,7 @@ public class BaseActivity extends TitleActivity {
                 });
             }
         });
-        this.f9643i.register();
+        this.f9543i.register();
     }
 
     public void livenessRecognize(String str, SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
@@ -183,8 +183,8 @@ public class BaseActivity extends TitleActivity {
             @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
             public void onFailure(PassFaceRecogResult passFaceRecogResult) {
                 JSONObject a2 = BaseActivity.this.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
-                if (BaseActivity.this.f9638d != null) {
-                    BaseActivity.this.f9638d.setIdentifyToken(a2.toString());
+                if (BaseActivity.this.f9538d != null) {
+                    BaseActivity.this.f9538d.setIdentifyToken(a2.toString());
                 }
             }
 
@@ -192,8 +192,8 @@ public class BaseActivity extends TitleActivity {
             @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
             public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
                 JSONObject a2 = BaseActivity.this.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), passFaceRecogResult.callbackkey, passFaceRecogResult.authSid);
-                if (BaseActivity.this.f9638d != null) {
-                    BaseActivity.this.f9638d.setIdentifyToken(a2.toString());
+                if (BaseActivity.this.f9538d != null) {
+                    BaseActivity.this.f9538d.setIdentifyToken(a2.toString());
                 }
             }
         });
@@ -213,40 +213,40 @@ public class BaseActivity extends TitleActivity {
             activityResultCallback.onActivityResult(i2, i3, intent);
         }
         if (i2 == 1001) {
-            if (this.f9637c == null) {
+            if (this.f9537c == null) {
                 return;
             }
             if (i3 == -1 && imageCropCallback2 != null) {
-                imageCropCallback2.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg")), this.f9640f, this.f9641g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.18
+                imageCropCallback2.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg")), this.f9540f, this.f9541g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.18
                     @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                     public void onImageResult(String str) {
                         if (str != null) {
-                            BaseActivity.this.f9637c.setImageData(str);
+                            BaseActivity.this.f9537c.setImageData(str);
                         } else {
-                            BaseActivity.this.f9637c.setImageData("");
+                            BaseActivity.this.f9537c.setImageData("");
                         }
                     }
                 });
             } else {
-                this.f9637c.setImageData("");
+                this.f9537c.setImageData("");
             }
         } else if (i2 == 1002) {
-            if (this.f9637c == null) {
+            if (this.f9537c == null) {
                 return;
             }
             if (i3 == -1 && intent.getData() != null && imageCropCallback2 != null) {
-                imageCropCallback2.onImageCrop(this, intent.getData(), this.f9640f, this.f9641g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.19
+                imageCropCallback2.onImageCrop(this, intent.getData(), this.f9540f, this.f9541g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.19
                     @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                     public void onImageResult(String str) {
                         if (str != null) {
-                            BaseActivity.this.f9637c.setImageData(str);
+                            BaseActivity.this.f9537c.setImageData(str);
                         } else {
-                            BaseActivity.this.f9637c.setImageData("");
+                            BaseActivity.this.f9537c.setImageData("");
                         }
                     }
                 });
             } else {
-                this.f9637c.setImageData("");
+                this.f9537c.setImageData("");
             }
         } else if (i2 == 2001 && i3 == 3001) {
             a(intent);
@@ -370,8 +370,8 @@ public class BaseActivity extends TitleActivity {
             @Override // com.baidu.pass.permissions.PermissionsCallback
             public void onFailure(int i2) {
                 Toast.makeText(BaseActivity.this, BaseOptionActivity.NO_STORAGE_PERM_MSG, 1).show();
-                if (BaseActivity.this.f9637c != null) {
-                    BaseActivity.this.f9637c.setImageData("");
+                if (BaseActivity.this.f9537c != null) {
+                    BaseActivity.this.f9537c.setImageData("");
                 }
             }
 
@@ -396,7 +396,7 @@ public class BaseActivity extends TitleActivity {
     }
 
     public void releaseScreenShotManager() {
-        ScreenShotManager screenShotManager = this.f9643i;
+        ScreenShotManager screenShotManager = this.f9543i;
         if (screenShotManager != null) {
             screenShotManager.unRegister();
         }
@@ -499,9 +499,9 @@ public class BaseActivity extends TitleActivity {
         this.sapiWebView.setPickPhotoCallback(new SapiWebView.PickPhotoCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.3
             @Override // com.baidu.sapi2.SapiWebView.PickPhotoCallback
             public void onPickImage(int i2, int i3, int i4, SapiWebView.PickPhotoResult pickPhotoResult) {
-                BaseActivity.this.f9637c = pickPhotoResult;
-                BaseActivity.this.f9640f = i3;
-                BaseActivity.this.f9641g = i4;
+                BaseActivity.this.f9537c = pickPhotoResult;
+                BaseActivity.this.f9540f = i3;
+                BaseActivity.this.f9541g = i4;
                 if (1 == i2) {
                     BaseActivity.this.takePhoto();
                 } else {
@@ -512,7 +512,7 @@ public class BaseActivity extends TitleActivity {
         this.sapiWebView.setBiometricsIdentifyCallback(new SapiWebView.BiometricsIdentifyCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.4
             @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyCallback
             public void onBiometricsIdentify(SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
-                BaseActivity.this.f9638d = biometricsIdentifyResult;
+                BaseActivity.this.f9538d = biometricsIdentifyResult;
                 if ("bduss".equals(biometricsIdentifyResult.livenessRecogType)) {
                     BaseActivity.this.a(biometricsIdentifyResult);
                 } else if ("certinfo".equals(biometricsIdentifyResult.livenessRecogType) || "authtoken".equals(biometricsIdentifyResult.livenessRecogType)) {
@@ -536,8 +536,8 @@ public class BaseActivity extends TitleActivity {
         this.sapiWebView.setInvokeScAppCallback(new SapiWebView.InvokeScAppCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.7
             @Override // com.baidu.sapi2.SapiWebView.InvokeScAppCallback
             public void onInvokeScApp(String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
-                BaseActivity.this.f9639e = new SapiScheme();
-                BaseActivity.this.f9639e.invokeScApp(BaseActivity.this, str, str2, list, invokeScAppResult);
+                BaseActivity.this.f9539e = new SapiScheme();
+                BaseActivity.this.f9539e.invokeScApp(BaseActivity.this, str, str2, list, invokeScAppResult);
             }
         });
         this.sapiWebView.setLoginStatusChangeCallback(new SapiJsCallBacks.LoginStatusChangeCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.8
@@ -605,8 +605,8 @@ public class BaseActivity extends TitleActivity {
             @Override // com.baidu.pass.permissions.PermissionsCallback
             public void onFailure(int i2) {
                 Toast.makeText(BaseActivity.this, BaseOptionActivity.NO_CAMERA_PERM_MSG, 1).show();
-                if (BaseActivity.this.f9637c != null) {
-                    BaseActivity.this.f9637c.setImageData("");
+                if (BaseActivity.this.f9537c != null) {
+                    BaseActivity.this.f9537c.setImageData("");
                 }
             }
 
@@ -724,7 +724,7 @@ public class BaseActivity extends TitleActivity {
         return new ImageCropCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.20
             @Override // com.baidu.sapi2.callback.ImageCropCallback
             public void onImageCrop(Context context, Uri uri, int i2, int i3, ImageCropCallback.ImageCropResult imageCropResult) {
-                BaseActivity.this.f9642h = imageCropResult;
+                BaseActivity.this.f9542h = imageCropResult;
                 Intent intent = new Intent(context, ImageClipActivity.class);
                 if (i2 == ClipBoxView.H) {
                     intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 0);
@@ -766,8 +766,8 @@ public class BaseActivity extends TitleActivity {
                 } catch (JSONException e2) {
                     Log.e(e2);
                 }
-                if (BaseActivity.this.f9638d != null) {
-                    BaseActivity.this.f9638d.setIdentifyToken(jSONObject.toString());
+                if (BaseActivity.this.f9538d != null) {
+                    BaseActivity.this.f9538d.setIdentifyToken(jSONObject.toString());
                 }
             }
 
@@ -790,8 +790,8 @@ public class BaseActivity extends TitleActivity {
                 } catch (JSONException e2) {
                     Log.e(e2);
                 }
-                if (BaseActivity.this.f9638d != null) {
-                    BaseActivity.this.f9638d.setIdentifyToken(jSONObject.toString());
+                if (BaseActivity.this.f9538d != null) {
+                    BaseActivity.this.f9538d.setIdentifyToken(jSONObject.toString());
                 }
             }
         }, currentAccount.bduss, arrayList);
@@ -877,12 +877,12 @@ public class BaseActivity extends TitleActivity {
                 if (i2 == 1003) {
                     if (i3 == -1) {
                         byte[] byteArrayExtra = intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE);
-                        if (byteArrayExtra == null || BaseActivity.this.f9642h == null) {
+                        if (byteArrayExtra == null || BaseActivity.this.f9542h == null) {
                             return;
                         }
-                        BaseActivity.this.f9642h.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
-                    } else if (BaseActivity.this.f9642h != null) {
-                        BaseActivity.this.f9642h.onImageResult(null);
+                        BaseActivity.this.f9542h.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
+                    } else if (BaseActivity.this.f9542h != null) {
+                        BaseActivity.this.f9542h.onImageResult(null);
                     }
                 }
             }

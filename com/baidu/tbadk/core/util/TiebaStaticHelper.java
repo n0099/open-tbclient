@@ -15,7 +15,7 @@ public class TiebaStaticHelper {
 
     public static void addYYParam(StatisticItem statisticItem, YyExtData yyExtData) {
         if (yyExtData != null) {
-            statisticItem.param(TiebaStatic.YYParams.HDID, a.a(TbadkCoreApplication.getInst().getContext()));
+            statisticItem.param(TiebaStatic.YYParams.HDID, TbadkCoreApplication.getInst().getHdid());
             statisticItem.param(TiebaStatic.YYParams.YYSID, yyExtData.mSid);
             statisticItem.param(TiebaStatic.YYParams.YYSSID, yyExtData.mSsid);
             statisticItem.param(TiebaStatic.YYParams.YYUID, yyExtData.mYyUid);

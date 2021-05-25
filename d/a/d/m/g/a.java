@@ -3,31 +3,31 @@ package d.a.d.m.g;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39763a;
+    public int f39579a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39764b;
+    public String f39580b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39765c;
+    public int f39581c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39766d;
+    public String f39582d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39767e;
+    public int f39583e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f39768f;
+    public int f39584f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39769g;
+    public int f39585g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39770h;
+    public int f39586h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39771i = 3;
+    public int f39587i = 3;
     public String j;
     public int k;
     public int l;

@@ -6,8 +6,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import d.a.c.e.p.j;
-import d.a.k0.r.a.f.b;
-import d.a.k0.r.a.j.a;
+import d.a.n0.t.a.f.b;
+import d.a.n0.t.a.j.a;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SplashHttpResponse extends JsonHttpResponsedMessage {
@@ -25,30 +25,30 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
             b b2 = b.b(a.d());
             if (!this.adInfo.shouldDownloadVideo()) {
                 AdInfo adInfo = this.adInfo;
-                adInfo.videoLocalPath = b2.f60224d;
-                a.f(adInfo);
+                adInfo.videoLocalPath = b2.f60805d;
+                a.g(adInfo);
             } else if (j.z() && j.H()) {
-                d.a.k0.r.a.i.a searchTask = searchTask(this.adInfo.adVideoUrl);
+                d.a.n0.t.a.i.a searchTask = searchTask(this.adInfo.adVideoUrl);
                 if (searchTask == null || searchTask.getStatus() == BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-                    a.f(this.adInfo);
-                    d.a.k0.r.a.i.a aVar = new d.a.k0.r.a.i.a();
+                    a.g(this.adInfo);
+                    d.a.n0.t.a.i.a aVar = new d.a.n0.t.a.i.a();
                     aVar.c(this.adInfo);
                     aVar.setKey(this.adInfo.adVideoUrl);
                     aVar.execute(new Void[0]);
                 }
             } else {
-                a.f(this.adInfo);
+                a.g(this.adInfo);
             }
         }
     }
 
-    private d.a.k0.r.a.i.a searchTask(String str) {
+    private d.a.n0.t.a.i.a searchTask(String str) {
         BdAsyncTask<?, ?, ?> searchTask;
-        if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof d.a.k0.r.a.i.a)) {
+        if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof d.a.n0.t.a.i.a)) {
             return null;
         }
         try {
-            return (d.a.k0.r.a.i.a) searchTask;
+            return (d.a.n0.t.a.i.a) searchTask;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
             return null;
@@ -76,7 +76,7 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         }
         AdInfo adInfo2 = this.adInfo;
         adInfo2.videoLocalPath = "";
-        a.f(adInfo2);
+        a.g(adInfo2);
     }
 
     public int getErrno() {

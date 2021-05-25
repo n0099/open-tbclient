@@ -13,38 +13,38 @@ import android.widget.Scroller;
 public class DragContainer extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f20869e;
+    public Scroller f20789e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f20870f;
+    public Rect f20790f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f20871g;
+    public View f20791g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f20872h;
+    public Bitmap f20792h;
 
     public DragContainer(Context context) {
         super(context);
-        this.f20870f = new Rect();
+        this.f20790f = new Rect();
         f(context);
     }
 
     public void c(View view) {
-        this.f20871g = view;
+        this.f20791g = view;
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
         Bitmap drawingCache = view.getDrawingCache();
         if (drawingCache != null) {
-            this.f20872h = Bitmap.createBitmap(drawingCache);
+            this.f20792h = Bitmap.createBitmap(drawingCache);
         }
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
-        view.getDrawingRect(this.f20870f);
-        offsetDescendantRectToMyCoords(view, this.f20870f);
+        view.getDrawingRect(this.f20790f);
+        offsetDescendantRectToMyCoords(view, this.f20790f);
         int height = getHeight();
-        Scroller scroller = this.f20869e;
-        int i2 = this.f20870f.top;
+        Scroller scroller = this.f20789e;
+        int i2 = this.f20790f.top;
         scroller.startScroll(i2, 0, height - i2, 0, 800);
         invalidate();
     }
@@ -52,42 +52,42 @@ public class DragContainer extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.f20871g != null) {
-            if (this.f20869e.computeScrollOffset() && this.f20872h != null) {
+        if (this.f20791g != null) {
+            if (this.f20789e.computeScrollOffset() && this.f20792h != null) {
                 canvas.save();
-                canvas.drawBitmap(this.f20872h, this.f20870f.left, this.f20869e.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.f20792h, this.f20790f.left, this.f20789e.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            Bitmap bitmap = this.f20872h;
+            Bitmap bitmap = this.f20792h;
             if (bitmap != null) {
                 bitmap.recycle();
             }
-            this.f20872h = null;
-            this.f20871g = null;
+            this.f20792h = null;
+            this.f20791g = null;
         }
     }
 
     public final void f(Context context) {
-        this.f20869e = new Scroller(context);
+        this.f20789e = new Scroller(context);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.f20869e.forceFinished(true);
-        Bitmap bitmap = this.f20872h;
+        this.f20789e.forceFinished(true);
+        Bitmap bitmap = this.f20792h;
         if (bitmap != null) {
             bitmap.recycle();
         }
-        this.f20872h = null;
-        this.f20871g = null;
+        this.f20792h = null;
+        this.f20791g = null;
     }
 
     public DragContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20870f = new Rect();
+        this.f20790f = new Rect();
         f(context);
     }
 }

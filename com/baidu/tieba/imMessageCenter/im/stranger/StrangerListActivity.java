@@ -20,51 +20,51 @@ import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
 import com.baidu.tieba.im.message.RequestMemoryListMessage;
 import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
-import d.a.j0.r.s.a;
-import d.a.j0.r.s.j;
-import d.a.j0.r.s.l;
+import d.a.m0.r.s.a;
+import d.a.m0.r.s.j;
+import d.a.m0.r.s.l;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public StrangerListActivity mActivity;
-    public d.a.j0.r.s.a mDelAllDialog;
+    public d.a.m0.r.s.a mDelAllDialog;
     public StrangerListModel mModel;
-    public d.a.j0.r.s.c mProgressDialog;
-    public d.a.k0.f1.a.e.b mView;
+    public d.a.m0.r.s.c mProgressDialog;
+    public d.a.n0.g1.a.e.b mView;
     public a.e mDelAllClickListener = new b();
     public a.e mCancelClickListener = new c();
     public final CustomMessageListener mMemoryListener = new d(0);
-    public d.a.k0.e1.f.i.a mCompleteProcess = new e();
-    public final d.a.k0.e1.f.i.b IProcessImpl = new f();
+    public d.a.n0.f1.f.i.a mCompleteProcess = new e();
+    public final d.a.n0.f1.f.i.b IProcessImpl = new f();
 
     /* loaded from: classes4.dex */
     public class a implements l.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f17625e;
+        public final /* synthetic */ j f17535e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f17626f;
+        public final /* synthetic */ int f17536f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterShowItemData f17627g;
+        public final /* synthetic */ ImMessageCenterShowItemData f17537g;
 
         public a(j jVar, int i2, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-            this.f17625e = jVar;
-            this.f17626f = i2;
-            this.f17627g = imMessageCenterShowItemData;
+            this.f17535e = jVar;
+            this.f17536f = i2;
+            this.f17537g = imMessageCenterShowItemData;
         }
 
-        @Override // d.a.j0.r.s.l.e
+        @Override // d.a.m0.r.s.l.e
         public void onItemClick(l lVar, int i2, View view) {
-            j jVar = this.f17625e;
+            j jVar = this.f17535e;
             if (jVar != null && jVar.isShowing()) {
-                this.f17625e.dismiss();
+                this.f17535e.dismiss();
             }
-            if (this.f17626f == 1) {
+            if (this.f17536f == 1) {
                 StrangerListActivity.this.mModel.s(StrangerListActivity.this.IProcessImpl);
             } else {
-                StrangerListActivity.this.mModel.asyncDeleteItem(this.f17627g, StrangerListActivity.this.IProcessImpl);
+                StrangerListActivity.this.mModel.asyncDeleteItem(this.f17537g, StrangerListActivity.this.IProcessImpl);
             }
         }
     }
@@ -74,8 +74,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public b() {
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
             StrangerListActivity.this.mDelAllDialog.dismiss();
             StrangerListActivity.this.mModel.s(StrangerListActivity.this.IProcessImpl);
         }
@@ -86,8 +86,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public c() {
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
             StrangerListActivity.this.mDelAllDialog.dismiss();
         }
     }
@@ -120,40 +120,40 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class e implements d.a.k0.e1.f.i.a {
+    public class e implements d.a.n0.f1.f.i.a {
         public e() {
         }
 
-        @Override // d.a.k0.e1.f.i.a
+        @Override // d.a.n0.f1.f.i.a
         public void onComplete() {
             StrangerListActivity.this.onCompleteProcess();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class f implements d.a.k0.e1.f.i.b {
+    public class f implements d.a.n0.f1.f.i.b {
         public f() {
         }
 
-        @Override // d.a.k0.e1.f.i.b
+        @Override // d.a.n0.f1.f.i.b
         public void onCanceled() {
             StrangerListActivity.this.dismissDialog();
             StrangerListActivity.this.onCompleteProcess();
         }
 
-        @Override // d.a.k0.e1.f.i.b
+        @Override // d.a.n0.f1.f.i.b
         public void onPostExecute() {
             StrangerListActivity.this.dismissDialog();
             StrangerListActivity.this.showToast(R.string.delete_success, false);
             StrangerListActivity.this.onCompleteProcess();
         }
 
-        @Override // d.a.k0.e1.f.i.b
+        @Override // d.a.n0.f1.f.i.b
         public void onPreExecute() {
             StrangerListActivity.this.showProgressDialog();
         }
 
-        @Override // d.a.k0.e1.f.i.b
+        @Override // d.a.n0.f1.f.i.b
         public void onProgressUpdate(int i2, String str, int i3) {
             if (StrangerListActivity.this.mProgressDialog != null) {
                 StrangerListActivity.this.mProgressDialog.b(i2);
@@ -164,7 +164,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dismissDialog() {
-        d.a.j0.r.s.c cVar = this.mProgressDialog;
+        d.a.m0.r.s.c cVar = this.mProgressDialog;
         if (cVar != null && cVar.isShowing()) {
             this.mProgressDialog.dismiss();
             this.mProgressDialog = null;
@@ -178,8 +178,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     private void initUI(StrangerListActivity strangerListActivity) {
-        this.mView = new d.a.k0.f1.a.e.b(strangerListActivity);
-        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(strangerListActivity.getPageContext().getPageActivity());
+        this.mView = new d.a.n0.g1.a.e.b(strangerListActivity);
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(strangerListActivity.getPageContext().getPageActivity());
         this.mDelAllDialog = aVar;
         aVar.setMessageId(R.string.sure_to_delete_all_stranger_msg);
         this.mDelAllDialog.setPositiveButton(R.string.confirm, this.mDelAllClickListener);
@@ -189,7 +189,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        d.a.k0.f1.a.e.b bVar = this.mView;
+        d.a.n0.g1.a.e.b bVar = this.mView;
         if (bVar == null || bVar.d() == null) {
             return;
         }
@@ -199,7 +199,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void onCompleteProcess() {
         StrangerListModel strangerListModel;
-        d.a.k0.f1.a.e.b bVar = this.mView;
+        d.a.n0.g1.a.e.b bVar = this.mView;
         if (bVar == null || bVar.d() == null || (strangerListModel = this.mModel) == null) {
             return;
         }
@@ -259,7 +259,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public void showProgressDialog() {
         dismissDialog();
         if (this.mProgressDialog == null) {
-            this.mProgressDialog = d.a.k0.e1.h.e.m().p(getPageContext().getPageActivity());
+            this.mProgressDialog = d.a.n0.f1.h.e.m().p(getPageContext().getPageActivity());
         }
         this.mProgressDialog.show();
         this.mProgressDialog.b(0);
@@ -267,7 +267,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
-        d.a.k0.f1.a.e.b bVar = this.mView;
+        d.a.n0.g1.a.e.b bVar = this.mView;
         if (bVar != null) {
             bVar.onChangeSkinType(i2);
         }
@@ -275,7 +275,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        d.a.j0.r.s.a aVar;
+        d.a.m0.r.s.a aVar;
         super.onClick(view);
         if (view != this.mView.e() || (aVar = this.mDelAllDialog) == null) {
             return;
@@ -301,7 +301,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
         ImMessageCenterShowItemData item;
-        d.a.k0.f1.a.e.b bVar = this.mView;
+        d.a.n0.g1.a.e.b bVar = this.mView;
         if (bVar == null || bVar.d() == null || (item = this.mView.d().getItem(i2)) == null) {
             return;
         }
@@ -313,7 +313,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
         ImMessageCenterShowItemData item;
-        d.a.k0.f1.a.e.b bVar = this.mView;
+        d.a.n0.g1.a.e.b bVar = this.mView;
         if (bVar == null || bVar.d() == null || (item = this.mView.d().getItem(i2)) == null) {
             return false;
         }
@@ -333,7 +333,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.a.k0.f1.a.e.b bVar = this.mView;
+        d.a.n0.g1.a.e.b bVar = this.mView;
         if (bVar != null && bVar.d() != null) {
             this.mView.d().notifyDataSetChanged();
         }

@@ -3,14 +3,14 @@ package com.baidu.location.b;
 public class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ l f6650a;
+    public final /* synthetic */ l f6550a;
 
     public m(l lVar) {
-        this.f6650a = lVar;
+        this.f6550a = lVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f6650a.g(null);
+        this.f6550a.g(null);
     }
 }

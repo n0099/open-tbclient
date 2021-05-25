@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MultiModelLoaderFactory {
     public static final Factory DEFAULT_FACTORY = new Factory();
     public static final ModelLoader<Object, Object> EMPTY_MODEL_LOADER = new EmptyModelLoader();
@@ -22,7 +22,7 @@ public class MultiModelLoaderFactory {
     public final Factory factory;
     public final Pools.Pool<List<Throwable>> throwableListPool;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class EmptyModelLoader implements ModelLoader<Object, Object> {
         @Override // com.bumptech.glide.load.model.ModelLoader
         @Nullable
@@ -36,7 +36,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Entry<Model, Data> {
         public final Class<Data> dataClass;
         public final ModelLoaderFactory<? extends Model, ? extends Data> factory;
@@ -57,7 +57,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Factory {
         @NonNull
         public <Model, Data> MultiModelLoader<Model, Data> build(@NonNull List<ModelLoader<Model, Data>> list, @NonNull Pools.Pool<List<Throwable>> pool) {

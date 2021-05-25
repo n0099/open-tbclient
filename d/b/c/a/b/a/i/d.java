@@ -6,18 +6,18 @@ import java.lang.reflect.Method;
 public class d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<?> f65425a;
+    public final Class<?> f65468a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f65426b;
+    public final String f65469b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Class[] f65427c;
+    public final Class[] f65470c;
 
     public d(Class<?> cls, String str, Class... clsArr) {
-        this.f65425a = cls;
-        this.f65426b = str;
-        this.f65427c = clsArr;
+        this.f65468a = cls;
+        this.f65469b = str;
+        this.f65470c = clsArr;
     }
 
     public static Method c(Class<?> cls, String str, Class[] clsArr) {
@@ -49,10 +49,10 @@ public class d<T> {
 
     public final Method b(Class<?> cls) {
         Class<?> cls2;
-        String str = this.f65426b;
+        String str = this.f65469b;
         if (str != null) {
-            Method c2 = c(cls, str, this.f65427c);
-            if (c2 == null || (cls2 = this.f65425a) == null || cls2.isAssignableFrom(c2.getReturnType())) {
+            Method c2 = c(cls, str, this.f65470c);
+            if (c2 == null || (cls2 = this.f65468a) == null || cls2.isAssignableFrom(c2.getReturnType())) {
                 return c2;
             }
             return null;
@@ -89,7 +89,7 @@ public class d<T> {
                 throw assertionError;
             }
         }
-        throw new AssertionError("Method " + this.f65426b + " not supported for object " + t);
+        throw new AssertionError("Method " + this.f65469b + " not supported for object " + t);
     }
 
     public Object g(T t, Object... objArr) {

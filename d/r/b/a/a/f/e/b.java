@@ -5,20 +5,20 @@ import org.json.JSONObject;
 public class b extends h {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67681b;
+    public String f67724b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f67682c;
+    public long f67725c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f67683d;
+    public JSONObject f67726d;
 
     public b(String str) {
-        this.f67681b = str;
+        this.f67724b = str;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f67683d = jSONObject;
-            this.f67682c = jSONObject.optLong("uri", 0L);
+            this.f67726d = jSONObject;
+            this.f67725c = jSONObject.optLong("uri", 0L);
         } catch (Exception e2) {
             d.r.b.a.a.f.d.d.d("PSCIMessageBroadcast", "popPacketData error.", e2);
         }
@@ -27,28 +27,28 @@ public class b extends h {
     @Override // d.r.b.a.a.f.e.h
     public void k() {
         try {
-            this.f67681b = g();
-            JSONObject jSONObject = new JSONObject(this.f67681b);
-            this.f67683d = jSONObject;
-            this.f67682c = jSONObject.optLong("uri", 0L);
+            this.f67724b = g();
+            JSONObject jSONObject = new JSONObject(this.f67724b);
+            this.f67726d = jSONObject;
+            this.f67725c = jSONObject.optLong("uri", 0L);
         } catch (Exception e2) {
             d.r.b.a.a.f.d.d.d("PSCIMessageBroadcast", "popPacketData error.", e2);
         }
     }
 
     public JSONObject l() {
-        return this.f67683d;
+        return this.f67726d;
     }
 
     public String m() {
-        return this.f67681b;
+        return this.f67724b;
     }
 
     public void n(long j) {
-        this.f67682c = j;
+        this.f67725c = j;
     }
 
     public String toString() {
-        return "PSCIMessageBroadcast{uri=" + this.f67682c + '}';
+        return "PSCIMessageBroadcast{uri=" + this.f67725c + '}';
     }
 }

@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static s f28829a;
+    public static s f28758a;
 
     public static void a() {
         FileInputStream fileInputStream;
@@ -31,8 +31,8 @@ public class f {
                         fileInputStream.read(bArr);
                         s a2 = s.a(new JSONObject(new String(bArr, "utf-8")));
                         if (a2 != null) {
-                            f28829a = a2;
-                            u.b(com.alipay.sdk.packet.e.f1896e, "old version read success: " + f28829a.b());
+                            f28758a = a2;
+                            u.b(com.alipay.sdk.packet.e.f1896e, "old version read success: " + f28758a.b());
                         }
                         fileInputStream2 = fileInputStream;
                     } catch (Throwable th2) {
@@ -71,13 +71,13 @@ public class f {
     public static synchronized s b() {
         s sVar;
         synchronized (f.class) {
-            sVar = f28829a;
+            sVar = f28758a;
         }
         return sVar;
     }
 
     public static void c() {
-        s sVar = f28829a;
+        s sVar = f28758a;
         if (sVar == null) {
             u.b(com.alipay.sdk.packet.e.f1896e, "version save error1");
             return;
@@ -146,7 +146,7 @@ public class f {
                 }
             }
         }
-        f28829a = null;
+        f28758a = null;
     }
 
     public static boolean b(String str) {
@@ -183,7 +183,7 @@ public class f {
         synchronized (f.class) {
             if (sVar != null) {
                 if (sVar.f()) {
-                    f28829a = sVar;
+                    f28758a = sVar;
                 }
             }
         }

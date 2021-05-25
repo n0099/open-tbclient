@@ -32,7 +32,7 @@ public class i {
                         case 12:
                         case 14:
                         case 15:
-                            return com.baidu.apollon.statistics.g.f3963b;
+                            return com.baidu.apollon.statistics.g.f3966b;
                         case 13:
                             return "4G";
                     }

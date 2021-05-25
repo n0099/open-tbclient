@@ -33,11 +33,11 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
     public static class a extends Handler {
 
         /* renamed from: d  reason: collision with root package name */
-        public final WeakReference<Context> f2679d;
+        public final WeakReference<Context> f2682d;
 
         public a(Context context) {
             super(context.getMainLooper());
-            this.f2679d = new WeakReference<>(context);
+            this.f2682d = new WeakReference<>(context);
         }
     }
 
@@ -49,15 +49,15 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         
 
         /* renamed from: d  reason: collision with root package name */
-        public int f2684d;
+        public int f2687d;
 
         b(int i2) {
-            this.f2684d = i2;
+            this.f2687d = i2;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
-            return this.f2684d;
+            return this.f2687d;
         }
     }
 
@@ -635,8 +635,8 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     final a aVar = new a(context) { // from class: com.baidu.android.pushservice.PushMessageReceiver.1
                         @Override // android.os.Handler
                         public void handleMessage(Message message) {
-                            if (this.f2679d.get() != null) {
-                                PushMessageReceiver.this.onMessage(this.f2679d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
+                            if (this.f2682d.get() != null) {
+                                PushMessageReceiver.this.onMessage(this.f2682d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
                                 PushMessageReceiver.sendCallback(context, intent, 10, false);
                             }
                         }

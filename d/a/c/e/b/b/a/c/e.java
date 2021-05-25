@@ -10,15 +10,15 @@ import org.json.JSONObject;
 public class e implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f38808a;
+    public JSONObject f38472a;
 
     public e(JSONObject jSONObject) {
-        this.f38808a = jSONObject;
+        this.f38472a = jSONObject;
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public Set<String> a() {
-        Iterator<String> keys = this.f38808a.keys();
+        Iterator<String> keys = this.f38472a.keys();
         if (keys != null) {
             HashSet hashSet = new HashSet();
             while (keys.hasNext()) {
@@ -35,7 +35,7 @@ public class e implements c {
     @Override // d.a.c.e.b.b.a.c.c
     public void b(String str, Object obj) {
         try {
-            this.f38808a.putOpt(str, obj);
+            this.f38472a.putOpt(str, obj);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -53,6 +53,6 @@ public class e implements c {
     }
 
     public Object d(String str) {
-        return this.f38808a.opt(str);
+        return this.f38472a.opt(str);
     }
 }

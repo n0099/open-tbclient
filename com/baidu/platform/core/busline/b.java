@@ -9,13 +9,13 @@ public class b extends e {
     }
 
     private void a(BusLineSearchOption busLineSearchOption) {
-        this.f9352a.a("qt", "bsl");
-        this.f9352a.a("rt_info", "1");
-        this.f9352a.a("ie", "utf-8");
-        this.f9352a.a("oue", "0");
-        this.f9352a.a("c", busLineSearchOption.mCity);
-        this.f9352a.a("uid", busLineSearchOption.mUid);
-        com.baidu.platform.util.a aVar = this.f9352a;
+        this.f9252a.a("qt", "bsl");
+        this.f9252a.a("rt_info", "1");
+        this.f9252a.a("ie", "utf-8");
+        this.f9252a.a("oue", "0");
+        this.f9252a.a("c", busLineSearchOption.mCity);
+        this.f9252a.a("uid", busLineSearchOption.mUid);
+        com.baidu.platform.util.a aVar = this.f9252a;
         aVar.a("t", System.currentTimeMillis() + "");
     }
 

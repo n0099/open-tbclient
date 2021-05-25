@@ -5,45 +5,45 @@ import java.util.Arrays;
 public final class g extends d {
 
     /* renamed from: f  reason: collision with root package name */
-    public final transient byte[][] f10146f;
+    public final transient byte[][] f10046f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final transient int[] f10147g;
+    public final transient int[] f10047g;
 
     public g(a aVar, int i2) {
         super(null);
-        j.a(aVar.f10131b, 0L, i2);
-        e eVar = aVar.f10130a;
+        j.a(aVar.f10031b, 0L, i2);
+        e eVar = aVar.f10030a;
         int i3 = 0;
         int i4 = 0;
         int i5 = 0;
         while (i4 < i2) {
-            int i6 = eVar.f10139c;
-            int i7 = eVar.f10138b;
+            int i6 = eVar.f10039c;
+            int i7 = eVar.f10038b;
             if (i6 != i7) {
                 i4 += i6 - i7;
                 i5++;
-                eVar = eVar.f10142f;
+                eVar = eVar.f10042f;
             } else {
                 throw new AssertionError("s.limit == s.pos");
             }
         }
-        this.f10146f = new byte[i5];
-        this.f10147g = new int[i5 * 2];
-        e eVar2 = aVar.f10130a;
+        this.f10046f = new byte[i5];
+        this.f10047g = new int[i5 * 2];
+        e eVar2 = aVar.f10030a;
         int i8 = 0;
         while (i3 < i2) {
-            this.f10146f[i8] = eVar2.f10137a;
-            i3 += eVar2.f10139c - eVar2.f10138b;
+            this.f10046f[i8] = eVar2.f10037a;
+            i3 += eVar2.f10039c - eVar2.f10038b;
             if (i3 > i2) {
                 i3 = i2;
             }
-            int[] iArr = this.f10147g;
+            int[] iArr = this.f10047g;
             iArr[i8] = i3;
-            iArr[this.f10146f.length + i8] = eVar2.f10138b;
-            eVar2.f10140d = true;
+            iArr[this.f10046f.length + i8] = eVar2.f10038b;
+            eVar2.f10040d = true;
             i8++;
-            eVar2 = eVar2.f10142f;
+            eVar2 = eVar2.f10042f;
         }
     }
 
@@ -63,22 +63,22 @@ public final class g extends d {
 
     @Override // com.baidu.searchbox.v8engine.net.io.d
     public int c() {
-        return this.f10147g[this.f10146f.length - 1];
+        return this.f10047g[this.f10046f.length - 1];
     }
 
     @Override // com.baidu.searchbox.v8engine.net.io.d
     public byte[] d() {
-        int[] iArr = this.f10147g;
-        byte[][] bArr = this.f10146f;
+        int[] iArr = this.f10047g;
+        byte[][] bArr = this.f10046f;
         byte[] bArr2 = new byte[iArr[bArr.length - 1]];
         int length = bArr.length;
         int i2 = 0;
         int i3 = 0;
         while (i2 < length) {
-            int[] iArr2 = this.f10147g;
+            int[] iArr2 = this.f10047g;
             int i4 = iArr2[length + i2];
             int i5 = iArr2[i2];
-            System.arraycopy(this.f10146f[i2], i4, bArr2, i3, i5 - i3);
+            System.arraycopy(this.f10046f[i2], i4, bArr2, i3, i5 - i3);
             i2++;
             i3 = i5;
         }
@@ -101,17 +101,17 @@ public final class g extends d {
 
     @Override // com.baidu.searchbox.v8engine.net.io.d
     public int hashCode() {
-        int i2 = this.f10135d;
+        int i2 = this.f10035d;
         if (i2 != 0) {
             return i2;
         }
-        int length = this.f10146f.length;
+        int length = this.f10046f.length;
         int i3 = 0;
         int i4 = 0;
         int i5 = 1;
         while (i3 < length) {
-            byte[] bArr = this.f10146f[i3];
-            int[] iArr = this.f10147g;
+            byte[] bArr = this.f10046f[i3];
+            int[] iArr = this.f10047g;
             int i6 = iArr[length + i3];
             int i7 = iArr[i3];
             int i8 = (i7 - i4) + i6;
@@ -122,7 +122,7 @@ public final class g extends d {
             i3++;
             i4 = i7;
         }
-        this.f10135d = i5;
+        this.f10035d = i5;
         return i5;
     }
 
@@ -132,7 +132,7 @@ public final class g extends d {
     }
 
     private int b(int i2) {
-        int binarySearch = Arrays.binarySearch(this.f10147g, 0, this.f10146f.length, i2 + 1);
+        int binarySearch = Arrays.binarySearch(this.f10047g, 0, this.f10046f.length, i2 + 1);
         return binarySearch >= 0 ? binarySearch : ~binarySearch;
     }
 
@@ -143,11 +143,11 @@ public final class g extends d {
 
     @Override // com.baidu.searchbox.v8engine.net.io.d
     public byte a(int i2) {
-        j.a(this.f10147g[this.f10146f.length - 1], i2, 1L);
+        j.a(this.f10047g[this.f10046f.length - 1], i2, 1L);
         int b2 = b(i2);
-        int i3 = b2 == 0 ? 0 : this.f10147g[b2 - 1];
-        int[] iArr = this.f10147g;
-        byte[][] bArr = this.f10146f;
+        int i3 = b2 == 0 ? 0 : this.f10047g[b2 - 1];
+        int[] iArr = this.f10047g;
+        byte[][] bArr = this.f10046f;
         return bArr[b2][(i2 - i3) + iArr[bArr.length + b2]];
     }
 
@@ -158,10 +158,10 @@ public final class g extends d {
         }
         int b2 = b(i2);
         while (i4 > 0) {
-            int i5 = b2 == 0 ? 0 : this.f10147g[b2 - 1];
-            int min = Math.min(i4, ((this.f10147g[b2] - i5) + i5) - i2);
-            int[] iArr = this.f10147g;
-            byte[][] bArr = this.f10146f;
+            int i5 = b2 == 0 ? 0 : this.f10047g[b2 - 1];
+            int min = Math.min(i4, ((this.f10047g[b2] - i5) + i5) - i2);
+            int[] iArr = this.f10047g;
+            byte[][] bArr = this.f10046f;
             if (!dVar.a(i3, bArr[b2], (i2 - i5) + iArr[bArr.length + b2], min)) {
                 return false;
             }
@@ -180,10 +180,10 @@ public final class g extends d {
         }
         int b2 = b(i2);
         while (i4 > 0) {
-            int i5 = b2 == 0 ? 0 : this.f10147g[b2 - 1];
-            int min = Math.min(i4, ((this.f10147g[b2] - i5) + i5) - i2);
-            int[] iArr = this.f10147g;
-            byte[][] bArr2 = this.f10146f;
+            int i5 = b2 == 0 ? 0 : this.f10047g[b2 - 1];
+            int min = Math.min(i4, ((this.f10047g[b2] - i5) + i5) - i2);
+            int[] iArr = this.f10047g;
+            byte[][] bArr2 = this.f10046f;
             if (!j.a(bArr2[b2], (i2 - i5) + iArr[bArr2.length + b2], bArr, i3, min)) {
                 return false;
             }

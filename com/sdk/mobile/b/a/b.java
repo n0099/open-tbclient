@@ -8,19 +8,19 @@ import org.json.JSONObject;
 public final class b implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ int f35805a;
+    public /* synthetic */ int f35734a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f35806b;
+    public /* synthetic */ a f35735b;
 
     public b(a aVar, int i2) {
-        this.f35806b = aVar;
-        this.f35805a = i2;
+        this.f35735b = aVar;
+        this.f35734a = i2;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i2, int i3, String str) {
-        this.f35806b.a(i2, i3, str);
+        this.f35735b.a(i2, i3, str);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r13v0, resolved type: T */
@@ -32,33 +32,33 @@ public final class b implements com.sdk.base.framework.b.a<T> {
         Boolean bool;
         Context context2;
         Context context3;
-        context = this.f35806b.f35801d;
+        context = this.f35735b.f35730d;
         com.sdk.base.framework.f.i.b.b(context);
         String str4 = t;
         if (i2 == 0) {
             try {
-                context2 = this.f35806b.f35801d;
-                com.sdk.base.framework.a.a.a.a(context2, this.f35805a, com.sdk.base.framework.a.a.a.a(t, str2), g.f35769b.a());
-                context3 = this.f35806b.f35801d;
+                context2 = this.f35735b.f35730d;
+                com.sdk.base.framework.a.a.a.a(context2, this.f35734a, com.sdk.base.framework.a.a.a.a(t, str2), g.f35698b.a());
+                context3 = this.f35735b.f35730d;
                 String a2 = com.sdk.base.framework.f.k.a.a(context3, String.valueOf(t));
                 if (a2 == null) {
-                    this.f35806b.a(1, "SDK解密异常", 302001, a2, str2);
+                    this.f35735b.a(1, "SDK解密异常", 302001, a2, str2);
                     return;
                 }
                 JSONObject jSONObject = new JSONObject(String.valueOf(a2));
                 str4 = a2;
-                if (this.f35805a == 1) {
+                if (this.f35734a == 1) {
                     jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
                     str4 = jSONObject.toString();
                 }
             } catch (Exception e2) {
-                str3 = a.f35798a;
+                str3 = a.f35727a;
                 String exc = e2.toString();
-                bool = a.f35799b;
+                bool = a.f35728b;
                 com.sdk.base.framework.a.a.c.b(str3, exc, bool);
                 str4 = t;
             }
         }
-        this.f35806b.a(i2, str, i3, str4, str2);
+        this.f35735b.a(i2, str, i3, str4, str2);
     }
 }

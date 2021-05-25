@@ -38,31 +38,31 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
     public static final jg f601a = new jg("XmPushActionCommand");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f37897a = new iy("", StandardMessageCodec.LIST, 2);
+    public static final iy f37826a = new iy("", StandardMessageCodec.LIST, 2);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f37898b = new iy("", (byte) 11, 3);
+    public static final iy f37827b = new iy("", (byte) 11, 3);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f37899c = new iy("", (byte) 11, 4);
+    public static final iy f37828c = new iy("", (byte) 11, 4);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f37900d = new iy("", (byte) 11, 5);
+    public static final iy f37829d = new iy("", (byte) 11, 5);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f37901e = new iy("", (byte) 15, 6);
+    public static final iy f37830e = new iy("", (byte) 15, 6);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f37902f = new iy("", (byte) 11, 7);
+    public static final iy f37831f = new iy("", (byte) 11, 7);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f37903g = new iy("", (byte) 11, 9);
+    public static final iy f37832g = new iy("", (byte) 11, 9);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f37904h = new iy("", (byte) 2, 10);
+    public static final iy f37833h = new iy("", (byte) 2, 10);
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f37905i = new iy("", (byte) 2, 11);
+    public static final iy f37834i = new iy("", (byte) 2, 11);
     public static final iy j = new iy("", (byte) 10, 12);
 
     /* renamed from: a  reason: collision with other field name */
@@ -195,7 +195,7 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
         jbVar.m511a();
         while (true) {
             iy m507a = jbVar.m507a();
-            byte b2 = m507a.f38040a;
+            byte b2 = m507a.f37969a;
             if (b2 == 0) {
                 jbVar.f();
                 m418a();
@@ -373,27 +373,27 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
         m418a();
         jbVar.a(f601a);
         if (this.f603a != null && m420a()) {
-            jbVar.a(f37897a);
+            jbVar.a(f37826a);
             this.f603a.b(jbVar);
             jbVar.b();
         }
         if (this.f604a != null) {
-            jbVar.a(f37898b);
+            jbVar.a(f37827b);
             jbVar.a(this.f604a);
             jbVar.b();
         }
         if (this.f608b != null) {
-            jbVar.a(f37899c);
+            jbVar.a(f37828c);
             jbVar.a(this.f608b);
             jbVar.b();
         }
         if (this.f610c != null) {
-            jbVar.a(f37900d);
+            jbVar.a(f37829d);
             jbVar.a(this.f610c);
             jbVar.b();
         }
         if (this.f606a != null && e()) {
-            jbVar.a(f37901e);
+            jbVar.a(f37830e);
             jbVar.a(new iz((byte) 11, this.f606a.size()));
             for (String str : this.f606a) {
                 jbVar.a(str);
@@ -402,22 +402,22 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         if (this.f611d != null && f()) {
-            jbVar.a(f37902f);
+            jbVar.a(f37831f);
             jbVar.a(this.f611d);
             jbVar.b();
         }
         if (this.f612e != null && g()) {
-            jbVar.a(f37903g);
+            jbVar.a(f37832g);
             jbVar.a(this.f612e);
             jbVar.b();
         }
         if (h()) {
-            jbVar.a(f37904h);
+            jbVar.a(f37833h);
             jbVar.a(this.f607a);
             jbVar.b();
         }
         if (i()) {
-            jbVar.a(f37905i);
+            jbVar.a(f37834i);
             jbVar.a(this.f609b);
             jbVar.b();
         }

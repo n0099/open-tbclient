@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.squareup.wire.Wire;
-import d.a.j0.a.h;
+import d.a.m0.a.h;
 import tbclient.DecryptCode.DecryptCodeResIdl;
 /* loaded from: classes3.dex */
 public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {

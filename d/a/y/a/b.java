@@ -1,184 +1,86 @@
 package d.a.y.a;
+
+import android.content.Context;
+import d.a.y.a.a.a;
+import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
-public final class b {
-    public static final int abc_background_cache_hint_selector_material_dark = 2131100023;
-    public static final int abc_background_cache_hint_selector_material_light = 2131100024;
-    public static final int abc_btn_colored_borderless_text_material = 2131100025;
-    public static final int abc_btn_colored_text_material = 2131100026;
-    public static final int abc_color_highlight_material = 2131100027;
-    public static final int abc_hint_foreground_material_dark = 2131100030;
-    public static final int abc_hint_foreground_material_light = 2131100031;
-    public static final int abc_primary_text_disable_only_material_dark = 2131100032;
-    public static final int abc_primary_text_disable_only_material_light = 2131100033;
-    public static final int abc_primary_text_material_dark = 2131100034;
-    public static final int abc_primary_text_material_light = 2131100035;
-    public static final int abc_search_url_text = 2131100036;
-    public static final int abc_search_url_text_normal = 2131100037;
-    public static final int abc_search_url_text_pressed = 2131100038;
-    public static final int abc_search_url_text_selected = 2131100039;
-    public static final int abc_secondary_text_material_dark = 2131100040;
-    public static final int abc_secondary_text_material_light = 2131100041;
-    public static final int abc_tint_btn_checkable = 2131100042;
-    public static final int abc_tint_default = 2131100043;
-    public static final int abc_tint_edittext = 2131100044;
-    public static final int abc_tint_seek_thumb = 2131100045;
-    public static final int abc_tint_spinner = 2131100046;
-    public static final int abc_tint_switch_track = 2131100047;
-    public static final int accent_material_dark = 2131100048;
-    public static final int accent_material_light = 2131100049;
-    public static final int background_floating_material_dark = 2131100222;
-    public static final int background_floating_material_light = 2131100223;
-    public static final int background_material_dark = 2131100224;
-    public static final int background_material_light = 2131100225;
-    public static final int bright_foreground_disabled_material_dark = 2131100376;
-    public static final int bright_foreground_disabled_material_light = 2131100377;
-    public static final int bright_foreground_inverse_material_dark = 2131100378;
-    public static final int bright_foreground_inverse_material_light = 2131100379;
-    public static final int bright_foreground_material_dark = 2131100380;
-    public static final int bright_foreground_material_light = 2131100381;
-    public static final int button_material_dark = 2131100403;
-    public static final int button_material_light = 2131100404;
-    public static final int dim_foreground_disabled_material_dark = 2131101118;
-    public static final int dim_foreground_disabled_material_light = 2131101119;
-    public static final int dim_foreground_material_dark = 2131101120;
-    public static final int dim_foreground_material_light = 2131101121;
-    public static final int error_color_material_dark = 2131101218;
-    public static final int error_color_material_light = 2131101219;
-    public static final int foreground_material_dark = 2131101223;
-    public static final int foreground_material_light = 2131101224;
-    public static final int highlighted_text_material_dark = 2131101257;
-    public static final int highlighted_text_material_light = 2131101258;
-    public static final int material_blue_grey_800 = 2131101366;
-    public static final int material_blue_grey_900 = 2131101367;
-    public static final int material_blue_grey_950 = 2131101368;
-    public static final int material_deep_teal_200 = 2131101369;
-    public static final int material_deep_teal_500 = 2131101370;
-    public static final int material_grey_100 = 2131101371;
-    public static final int material_grey_300 = 2131101372;
-    public static final int material_grey_50 = 2131101373;
-    public static final int material_grey_600 = 2131101374;
-    public static final int material_grey_800 = 2131101375;
-    public static final int material_grey_850 = 2131101376;
-    public static final int material_grey_900 = 2131101377;
-    public static final int notification_action_color_filter = 2131101481;
-    public static final int notification_icon_bg_color = 2131101482;
-    public static final int pass_base_ui_dialog_bg_color = 2131101486;
-    public static final int pass_base_ui_dialog_bg_dark_color = 2131101487;
-    public static final int pass_base_ui_dialog_content_text_color = 2131101488;
-    public static final int pass_base_ui_dialog_content_text_dark_color = 2131101489;
-    public static final int pass_base_ui_dialog_negative_btn_text_color = 2131101490;
-    public static final int pass_base_ui_dialog_negative_btn_text_dark_color = 2131101491;
-    public static final int pass_base_ui_dialog_positive_btn_text_color = 2131101492;
-    public static final int pass_base_ui_dialog_positive_btn_text_dark_color = 2131101493;
-    public static final int pass_base_ui_dialog_split_line_color = 2131101494;
-    public static final int pass_base_ui_dialog_split_line_dark_color = 2131101495;
-    public static final int pass_base_ui_dialog_title_dark_text_color = 2131101496;
-    public static final int pass_base_ui_dialog_title_text_color = 2131101497;
-    public static final int pass_bio_dialog_content_text_color = 2131101498;
-    public static final int pass_bio_dialog_content_text_color_night = 2131101499;
-    public static final int pass_bio_dialog_negative_btn_bg_color = 2131101500;
-    public static final int pass_bio_dialog_negative_btn_bg_color_night = 2131101501;
-    public static final int pass_bio_dialog_negative_btn_text_color = 2131101502;
-    public static final int pass_bio_dialog_negative_btn_text_color_night = 2131101503;
-    public static final int pass_bio_dialog_positive_btn_bg_color = 2131101504;
-    public static final int pass_bio_dialog_positive_btn_bg_color_night = 2131101505;
-    public static final int pass_bio_dialog_positive_btn_text_color = 2131101506;
-    public static final int pass_bio_dialog_positive_btn_text_color_night = 2131101507;
-    public static final int pass_bio_dialog_time_out_msg_color = 2131101508;
-    public static final int pass_bio_dialog_time_out_msg_color_night = 2131101509;
-    public static final int pass_bio_dialog_title_text_color = 2131101510;
-    public static final int pass_bio_dialog_title_text_color_night = 2131101511;
-    public static final int pass_bio_liveness_dialog_bg_color = 2131101512;
-    public static final int pass_bio_liveness_dialog_bg_color_night = 2131101513;
-    public static final int pass_bio_liveness_face_loading_mask_layer = 2131101514;
-    public static final int pass_bio_liveness_recog_bg = 2131101515;
-    public static final int pass_bio_liveness_recog_circle_border = 2131101516;
-    public static final int pass_bio_liveness_recog_line = 2131101517;
-    public static final int pass_bio_liveness_recog_loading_color = 2131101518;
-    public static final int pass_bio_liveness_recog_tip_text = 2131101519;
-    public static final int primary_dark_material_dark = 2131101545;
-    public static final int primary_dark_material_light = 2131101546;
-    public static final int primary_material_dark = 2131101547;
-    public static final int primary_material_light = 2131101548;
-    public static final int primary_text_default_material_dark = 2131101549;
-    public static final int primary_text_default_material_light = 2131101550;
-    public static final int primary_text_disabled_material_dark = 2131101551;
-    public static final int primary_text_disabled_material_light = 2131101552;
-    public static final int ripple_material_dark = 2131101721;
-    public static final int ripple_material_light = 2131101722;
-    public static final int sapi_sdk_account_center_titlebar_bg = 2131101777;
-    public static final int sapi_sdk_account_center_titlebar_bg_darkmode = 2131101778;
-    public static final int sapi_sdk_account_center_titlebar_text = 2131101779;
-    public static final int sapi_sdk_account_center_titlebar_text_darkmode = 2131101780;
-    public static final int sapi_sdk_background_color = 2131101910;
-    public static final int sapi_sdk_background_neting_color = 2131101911;
-    public static final int sapi_sdk_btn_text_color = 2131101912;
-    public static final int sapi_sdk_color_black = 2131101915;
-    public static final int sapi_sdk_color_white = 2131101917;
-    public static final int sapi_sdk_dark_mode_btn_background_color = 2131101940;
-    public static final int sapi_sdk_dark_mode_btn_tv_color = 2131101941;
-    public static final int sapi_sdk_dark_mode_color = 2131101942;
-    public static final int sapi_sdk_dark_mode_edit_text_color = 2131101943;
-    public static final int sapi_sdk_dark_mode_na_activity_color = 2131101944;
-    public static final int sapi_sdk_dark_mode_no_network_tv_color = 2131101945;
-    public static final int sapi_sdk_dark_mode_title_color = 2131101946;
-    public static final int sapi_sdk_dialog_msg_text_color = 2131101978;
-    public static final int sapi_sdk_edit_hint_color = 2131101979;
-    public static final int sapi_sdk_edit_neting_color = 2131101980;
-    public static final int sapi_sdk_edit_text_color = 2131101981;
-    public static final int sapi_sdk_explain_camera_detail_color = 2131101982;
-    public static final int sapi_sdk_fingerprint_dialog_bg = 2131101983;
-    public static final int sapi_sdk_fingerprint_dialog_bg_color = 2131101984;
-    public static final int sapi_sdk_fingerprint_dialog_divider_line = 2131101985;
-    public static final int sapi_sdk_fingerprint_dialog_hint_color = 2131101986;
-    public static final int sapi_sdk_fingerprint_dialog_negative_btn_bg_color = 2131101987;
-    public static final int sapi_sdk_fingerprint_dialog_negative_btn_bg_color_daynight = 2131101988;
-    public static final int sapi_sdk_fingerprint_dialog_negative_btn_text_color = 2131101989;
-    public static final int sapi_sdk_fingerprint_dialog_positive_btn_bg_color = 2131101990;
-    public static final int sapi_sdk_fingerprint_dialog_positive_btn_bg_color_daynight = 2131101991;
-    public static final int sapi_sdk_fingerprint_dialog_positive_btn_text_color = 2131101992;
-    public static final int sapi_sdk_fingerprint_dialog_sub_tv_color = 2131101993;
-    public static final int sapi_sdk_fingerprint_dialog_title_text_color = 2131101994;
-    public static final int sapi_sdk_mms_voice_fill_bottom = 2131101995;
-    public static final int sapi_sdk_mms_voice_fill_top = 2131101996;
-    public static final int sapi_sdk_mms_voice_primary_end = 2131101997;
-    public static final int sapi_sdk_mms_voice_primary_start = 2131101998;
-    public static final int sapi_sdk_mms_voice_secondary_end = 2131101999;
-    public static final int sapi_sdk_mms_voice_secondary_start = 2131102000;
-    public static final int sapi_sdk_night_mode_color = 2131102001;
-    public static final int sapi_sdk_separate_line_color = 2131102002;
-    public static final int sapi_sdk_separate_line_color_night_mode = 2131102003;
-    public static final int sapi_sdk_sms_bg_light_mode = 2131102004;
-    public static final int sapi_sdk_sms_bg_night_mode = 2131102005;
-    public static final int sapi_sdk_sms_edit_check_code_hint_text_color = 2131102006;
-    public static final int sapi_sdk_sms_edit_check_code_hint_text_color_night_mode = 2131102007;
-    public static final int sapi_sdk_sms_edit_check_code_text_color = 2131102008;
-    public static final int sapi_sdk_sms_edit_check_code_text_color_night_mode = 2131102009;
-    public static final int sapi_sdk_sms_edit_hint_color = 2131102010;
-    public static final int sapi_sdk_sms_edit_hint_color_night_mode = 2131102011;
-    public static final int sapi_sdk_sms_edit_phone_text_color = 2131102012;
-    public static final int sapi_sdk_sms_edit_phone_text_color_night_mode = 2131102013;
-    public static final int sapi_sdk_sms_get_code_disable_color = 2131102014;
-    public static final int sapi_sdk_sms_get_code_disable_color_night_mode = 2131102015;
-    public static final int sapi_sdk_sms_get_code_text_color = 2131102016;
-    public static final int sapi_sdk_sms_get_code_text_color_night_mode = 2131102017;
-    public static final int sapi_sdk_sms_prompt_phone_number_error_color = 2131102018;
-    public static final int sapi_sdk_sms_prompt_phone_number_error_color_night_mode = 2131102019;
-    public static final int sapi_sdk_sweep_loading_bg = 2131102020;
-    public static final int sapi_sdk_sweep_loading_bg_dark = 2131102021;
-    public static final int sapi_sdk_text_white = 2131102022;
-    public static final int sapi_sdk_tip_text_color = 2131102023;
-    public static final int sapi_sdk_title_division_line_color = 2131102025;
-    public static final int secondary_text_default_material_dark = 2131102034;
-    public static final int secondary_text_default_material_light = 2131102035;
-    public static final int secondary_text_disabled_material_dark = 2131102036;
-    public static final int secondary_text_disabled_material_light = 2131102037;
-    public static final int switch_thumb_disabled_material_dark = 2131102204;
-    public static final int switch_thumb_disabled_material_light = 2131102205;
-    public static final int switch_thumb_material_dark = 2131102206;
-    public static final int switch_thumb_material_light = 2131102207;
-    public static final int switch_thumb_normal_material_dark = 2131102208;
-    public static final int switch_thumb_normal_material_light = 2131102209;
-    public static final int tooltip_background_dark = 2131102218;
-    public static final int tooltip_background_light = 2131102219;
+public class b {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static Object f64856a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Method f64857b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static Method f64858c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static Method f64859d = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static Method f64860e = null;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static boolean f64861f = false;
+
+    static {
+        try {
+            f64856a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
+            Class<?> cls = Class.forName("com.baidu.crashpad.ZwCrashpad");
+            f64857b = a.a(cls, "doInit", Context.class, String[].class);
+            f64859d = a.a(cls, "setStatisticParam", String.class);
+            f64858c = a.a(cls, "setEnabled", Boolean.TYPE);
+            f64860e = a.a(cls, "setCrashKeyValue", String.class, String.class);
+            f64861f = true;
+        } catch (Error e2) {
+            e2.printStackTrace();
+        } catch (Exception e3) {
+            e3.printStackTrace();
+        }
+    }
+
+    public static void a(Context context, String[] strArr) {
+        try {
+            if (f64861f) {
+                f64857b.invoke(f64856a, context, strArr);
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public static void b(String str) {
+        try {
+            if (f64861f) {
+                f64859d.invoke(f64856a, str);
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public static void c(String str, String str2) {
+        try {
+            if (f64861f) {
+                f64860e.invoke(f64856a, str, str2);
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public static void d(boolean z) {
+        try {
+            if (f64861f) {
+                f64858c.invoke(f64856a, Boolean.valueOf(z));
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public static boolean e() {
+        return f64861f;
+    }
 }

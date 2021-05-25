@@ -15,39 +15,39 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f33035a = UUID.randomUUID().toString();
+    public static final String f32964a = UUID.randomUUID().toString();
 
     /* renamed from: b  reason: collision with root package name */
-    public static File f33036b;
+    public static File f32965b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f33037c;
+    public e f32966c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicInteger f33038d = new AtomicInteger();
+    public AtomicInteger f32967d = new AtomicInteger();
 
     /* renamed from: e  reason: collision with root package name */
-    public File f33039e;
+    public File f32968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f33040f;
+    public File f32969f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f33041g;
+    public File f32970g;
 
     /* renamed from: h  reason: collision with root package name */
-    public File f33042h;
+    public File f32971h;
 
     /* renamed from: i  reason: collision with root package name */
-    public File f33043i;
+    public File f32972i;
     public com.kwad.sdk.crash.report.c j;
 
     public static void a(File file) {
-        f33036b = file;
+        f32965b = file;
         if (file.exists()) {
             return;
         }
-        f33036b.mkdirs();
+        f32965b.mkdirs();
     }
 
     public final com.kwad.sdk.crash.report.c a() {
@@ -55,24 +55,24 @@ public abstract class b {
     }
 
     public void a(File file, e eVar, com.kwad.sdk.crash.report.c cVar) {
-        this.f33039e = file;
+        this.f32968e = file;
         if (!file.exists()) {
-            this.f33039e.mkdirs();
+            this.f32968e.mkdirs();
         }
-        File file2 = this.f33039e;
-        this.f33040f = new File(file2, f33035a + "-" + this.f33038d + ".dump");
-        File file3 = this.f33039e;
-        this.f33041g = new File(file3, f33035a + "-" + this.f33038d + ".log");
-        File file4 = this.f33039e;
-        this.f33042h = new File(file4, f33035a + "-" + this.f33038d + ".jtrace");
-        this.f33037c = eVar;
+        File file2 = this.f32968e;
+        this.f32969f = new File(file2, f32964a + "-" + this.f32967d + ".dump");
+        File file3 = this.f32968e;
+        this.f32970g = new File(file3, f32964a + "-" + this.f32967d + ".log");
+        File file4 = this.f32968e;
+        this.f32971h = new File(file4, f32964a + "-" + this.f32967d + ".jtrace");
+        this.f32966c = eVar;
         this.j = cVar;
     }
 
     public abstract void a(@NonNull File[] fileArr, @Nullable CountDownLatch countDownLatch);
 
     public void b() {
-        File[] listFiles = this.f33039e.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.c.b.1
+        File[] listFiles = this.f32968e.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.c.b.1
             @Override // java.io.FileFilter
             public boolean accept(File file) {
                 return file.getName().endsWith(".dump");
@@ -91,15 +91,15 @@ public abstract class b {
     }
 
     public void b(File file) {
-        File file2 = f33036b;
+        File file2 = f32965b;
         if (file2 == null) {
             return;
         }
         if (!file2.exists()) {
-            f33036b.mkdirs();
+            f32965b.mkdirs();
         }
         try {
-            g.a(file.getParentFile().getParentFile(), f33036b);
+            g.a(file.getParentFile().getParentFile(), f32965b);
         } catch (IOException e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }

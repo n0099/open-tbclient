@@ -5,24 +5,24 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import d.a.i0.a.w1.i.c;
+import d.a.l0.a.w1.i.c;
 /* loaded from: classes3.dex */
 public class SPSwitchRootLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f11139e;
+    public c f11040e;
 
     public SPSwitchRootLinearLayout(Context context) {
         this(context, null);
     }
 
     public final void a() {
-        this.f11139e = new c(this);
+        this.f11040e = new c(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        this.f11139e.b(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
+        this.f11040e.b(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
         super.onMeasure(i2, i3);
     }
 

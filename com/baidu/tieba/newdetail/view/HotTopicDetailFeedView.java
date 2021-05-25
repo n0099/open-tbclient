@@ -17,28 +17,28 @@ import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import d.a.c.a.f;
 import d.a.c.e.p.j;
 import d.a.c.j.e.n;
-import d.a.j0.d0.g;
-import d.a.j0.d0.h;
-import d.a.k0.j2.i;
-import d.a.k0.x1.d.c.l;
+import d.a.m0.d0.g;
+import d.a.m0.d0.h;
+import d.a.n0.k2.i;
+import d.a.n0.y1.d.c.l;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotTopicDetailFeedView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<HotTopicDetailActivity> f18559e;
+    public TbPageContext<HotTopicDetailActivity> f18473e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeRecyclerView f18560f;
+    public BdTypeRecyclerView f18474f;
 
     /* renamed from: g  reason: collision with root package name */
-    public l f18561g;
+    public l f18475g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f18562h;
+    public g f18476h;
 
     /* renamed from: i  reason: collision with root package name */
-    public h f18563i;
+    public h f18477i;
     public PbListView j;
     public RecyclerView.OnScrollListener k;
     public i l;
@@ -46,11 +46,11 @@ public class HotTopicDetailFeedView extends FrameLayout {
     public RecyclerView.OnScrollListener n;
     public e o;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends RecyclerView.OnScrollListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f18564a;
+        public boolean f18478a;
 
         public a() {
         }
@@ -58,7 +58,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
             if (i2 == 0 && HotTopicDetailFeedView.this.l != null) {
-                HotTopicDetailFeedView.this.l.n(HotTopicDetailFeedView.this.f18560f.getFirstVisiblePosition(), HotTopicDetailFeedView.this.f18560f.getLastVisiblePosition(), this.f18564a, true);
+                HotTopicDetailFeedView.this.l.n(HotTopicDetailFeedView.this.f18474f.getFirstVisiblePosition(), HotTopicDetailFeedView.this.f18474f.getLastVisiblePosition(), this.f18478a, true);
             }
             if (HotTopicDetailFeedView.this.k != null) {
                 HotTopicDetailFeedView.this.k.onScrollStateChanged(recyclerView, i2);
@@ -68,28 +68,28 @@ public class HotTopicDetailFeedView extends FrameLayout {
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
             super.onScrolled(recyclerView, i2, i3);
-            this.f18564a = i3 <= 0;
+            this.f18478a = i3 <= 0;
             if (HotTopicDetailFeedView.this.k != null) {
                 HotTopicDetailFeedView.this.k.onScrolled(recyclerView, i2, i3);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements BdListView.p {
         public b() {
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            if (HotTopicDetailFeedView.this.f18560f != null) {
-                HotTopicDetailFeedView.this.f18560f.stopScroll();
+            if (HotTopicDetailFeedView.this.f18474f != null) {
+                HotTopicDetailFeedView.this.f18474f.stopScroll();
             }
-            ((HotTopicDetailActivity) HotTopicDetailFeedView.this.f18559e.getOrignalPage()).onScrollToBottom();
+            ((HotTopicDetailActivity) HotTopicDetailFeedView.this.f18473e.getOrignalPage()).onScrollToBottom();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements RecyclerView.RecyclerListener {
         public c() {
         }
@@ -104,7 +104,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnClickListener {
         public d() {
         }
@@ -112,12 +112,12 @@ public class HotTopicDetailFeedView extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (j.A()) {
-                ((HotTopicDetailActivity) HotTopicDetailFeedView.this.f18559e.getOrignalPage()).refreshFeedData(HotTopicDetailFeedView.this.m);
+                ((HotTopicDetailActivity) HotTopicDetailFeedView.this.f18473e.getOrignalPage()).refreshFeedData(HotTopicDetailFeedView.this.m);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements Runnable {
     }
 
@@ -137,7 +137,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
     }
 
     public void f() {
-        BdTypeRecyclerView bdTypeRecyclerView = this.f18560f;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f18474f;
         if (bdTypeRecyclerView == null || this.j == null) {
             return;
         }
@@ -146,48 +146,48 @@ public class HotTopicDetailFeedView extends FrameLayout {
     }
 
     public void g() {
-        g gVar = this.f18562h;
+        g gVar = this.f18476h;
         if (gVar != null) {
             gVar.dettachView(this);
-            this.f18562h = null;
+            this.f18476h = null;
         }
     }
 
     public void h() {
-        h hVar = this.f18563i;
+        h hVar = this.f18477i;
         if (hVar != null) {
             hVar.dettachView(this);
-            this.f18563i = null;
+            this.f18477i = null;
         }
     }
 
     public final void i(Context context) {
         f<?> a2 = d.a.c.a.j.a(context);
         if (a2 instanceof TbPageContext) {
-            this.f18559e = (TbPageContext) a2;
+            this.f18473e = (TbPageContext) a2;
         }
-        if (this.f18559e == null) {
+        if (this.f18473e == null) {
             return;
         }
         BdTypeRecyclerView bdTypeRecyclerView = new BdTypeRecyclerView(context);
-        this.f18560f = bdTypeRecyclerView;
+        this.f18474f = bdTypeRecyclerView;
         bdTypeRecyclerView.setFadingEdgeLength(0);
-        this.f18560f.setOverScrollMode(2);
-        this.f18560f.setVerticalScrollBarEnabled(false);
-        this.f18560f.setLayoutManager(new LinearLayoutManager(context));
-        this.f18560f.addOnScrollListener(this.n);
-        this.f18560f.setOnSrollToBottomListener(new b());
-        TbPageContext<HotTopicDetailActivity> tbPageContext = this.f18559e;
-        this.f18561g = new l(tbPageContext, tbPageContext.getUniqueId(), this.f18560f);
-        addView(this.f18560f);
-        ((FrameLayout.LayoutParams) this.f18560f.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.line_magin_bottom);
+        this.f18474f.setOverScrollMode(2);
+        this.f18474f.setVerticalScrollBarEnabled(false);
+        this.f18474f.setLayoutManager(new LinearLayoutManager(context));
+        this.f18474f.addOnScrollListener(this.n);
+        this.f18474f.setOnSrollToBottomListener(new b());
+        TbPageContext<HotTopicDetailActivity> tbPageContext = this.f18473e;
+        this.f18475g = new l(tbPageContext, tbPageContext.getUniqueId(), this.f18474f);
+        addView(this.f18474f);
+        ((FrameLayout.LayoutParams) this.f18474f.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.line_magin_bottom);
         if (this.l == null) {
-            i iVar = new i(this.f18559e, this.f18560f);
+            i iVar = new i(this.f18473e, this.f18474f);
             this.l = iVar;
             iVar.p(1);
-            this.l.t(this.f18559e.getUniqueId());
+            this.l.t(this.f18473e.getUniqueId());
         }
-        this.f18560f.setRecyclerListener(new c());
+        this.f18474f.setRecyclerListener(new c());
         PbListView pbListView = new PbListView(context);
         this.j = pbListView;
         pbListView.a();
@@ -195,16 +195,16 @@ public class HotTopicDetailFeedView extends FrameLayout {
         this.j.v();
         this.j.C(SkinManager.getColor(R.color.CAM_X0109));
         this.j.y(R.color.CAM_X0110);
-        this.f18560f.setVisibility(0);
+        this.f18474f.setVisibility(0);
         setFocusableInTouchMode(true);
     }
 
     public void j(int i2) {
-        g gVar = this.f18562h;
+        g gVar = this.f18476h;
         if (gVar != null) {
             gVar.onChangeSkinType();
         }
-        h hVar = this.f18563i;
+        h hVar = this.f18477i;
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
@@ -213,7 +213,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
             pbListView.C(SkinManager.getColor(R.color.CAM_X0109));
             this.j.d(i2);
         }
-        l lVar = this.f18561g;
+        l lVar = this.f18475g;
         if (lVar != null) {
             lVar.c();
         }
@@ -232,22 +232,22 @@ public class HotTopicDetailFeedView extends FrameLayout {
         i iVar = this.l;
         if (iVar != null) {
             iVar.q(true);
-            BdTypeRecyclerView bdTypeRecyclerView = this.f18560f;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f18474f;
             if (bdTypeRecyclerView != null) {
-                this.l.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.f18560f.getLastVisiblePosition(), false, true);
+                this.l.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.f18474f.getLastVisiblePosition(), false, true);
             }
         }
     }
 
     public HotTopicDetailFeedView m(int i2) {
         this.m = i2;
-        this.f18561g.b(i2 == 0);
+        this.f18475g.b(i2 == 0);
         return this;
     }
 
     public void n() {
         PbListView pbListView;
-        BdTypeRecyclerView bdTypeRecyclerView = this.f18560f;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f18474f;
         if (bdTypeRecyclerView == null || (pbListView = this.j) == null) {
             return;
         }
@@ -259,14 +259,14 @@ public class HotTopicDetailFeedView extends FrameLayout {
     }
 
     public void o(boolean z) {
-        if (this.f18562h == null) {
+        if (this.f18476h == null) {
             g gVar = new g(getContext());
-            this.f18562h = gVar;
+            this.f18476h = gVar;
             gVar.h();
-            this.f18562h.onChangeSkinType();
-            this.f18562h.setWrapStyle(true);
+            this.f18476h.onChangeSkinType();
+            this.f18476h.setWrapStyle(true);
         }
-        this.f18562h.attachView(this, z);
+        this.f18476h.attachView(this, z);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -276,24 +276,24 @@ public class HotTopicDetailFeedView extends FrameLayout {
     }
 
     public void p(boolean z) {
-        if (this.f18563i == null) {
+        if (this.f18477i == null) {
             h hVar = new h(getContext(), new d());
-            this.f18563i = hVar;
+            this.f18477i = hVar;
             hVar.setWrapStyle(false);
         }
-        this.f18563i.attachView(this, false);
-        this.f18563i.o();
+        this.f18477i.attachView(this, false);
+        this.f18477i.o();
         if (z) {
-            this.f18563i.m(getResources().getString(R.string.refresh_view_title_text));
+            this.f18477i.m(getResources().getString(R.string.refresh_view_title_text));
         } else {
-            this.f18563i.m(getResources().getString(R.string.hot_topic_no_data));
+            this.f18477i.m(getResources().getString(R.string.hot_topic_no_data));
         }
-        this.f18563i.b().setClickable(false);
+        this.f18477i.b().setClickable(false);
     }
 
     public void q() {
         PbListView pbListView;
-        BdTypeRecyclerView bdTypeRecyclerView = this.f18560f;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f18474f;
         if (bdTypeRecyclerView == null || (pbListView = this.j) == null) {
             return;
         }
@@ -304,10 +304,10 @@ public class HotTopicDetailFeedView extends FrameLayout {
     }
 
     public void setData(@NonNull List<n> list) {
-        this.f18561g.d(list);
+        this.f18475g.d(list);
         i iVar = this.l;
         if (iVar != null) {
-            iVar.n(this.f18560f.getFirstVisiblePosition(), this.f18560f.getLastVisiblePosition(), false, true);
+            iVar.n(this.f18474f.getFirstVisiblePosition(), this.f18474f.getLastVisiblePosition(), false, true);
         }
     }
 

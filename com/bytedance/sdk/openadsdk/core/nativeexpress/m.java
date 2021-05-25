@@ -10,15 +10,15 @@ public class m extends o {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.o, com.bytedance.sdk.openadsdk.core.nativeexpress.k
     public void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, AdSlot adSlot) {
-        this.f28348d = "draw_ad";
+        this.f28277d = "draw_ad";
         NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(context, lVar, adSlot, "draw_ad");
-        this.f28345a = nativeExpressVideoView;
-        a(nativeExpressVideoView, this.f28347c);
+        this.f28274a = nativeExpressVideoView;
+        a(nativeExpressVideoView, this.f28276c);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void setCanInterruptVideoPlay(boolean z) {
-        NativeExpressView nativeExpressView = this.f28345a;
+        NativeExpressView nativeExpressView = this.f28274a;
         if (nativeExpressView != null) {
             ((NativeExpressVideoView) nativeExpressView).setCanInterruptVideoPlay(z);
         }

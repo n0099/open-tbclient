@@ -18,25 +18,25 @@ import java.util.List;
 public final class l extends AsyncTask<String, Void, List<Bitmap>> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36790a;
+    public Context f36719a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InsideNotificationItem f36791b;
+    public InsideNotificationItem f36720b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f36792c;
+    public long f36721c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36793d;
+    public boolean f36722d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36794e = 0;
+    public int f36723e = 0;
 
     public l(Context context, InsideNotificationItem insideNotificationItem, long j, boolean z) {
-        this.f36790a = context;
-        this.f36791b = insideNotificationItem;
-        this.f36792c = j;
-        this.f36793d = z;
+        this.f36719a = context;
+        this.f36720b = insideNotificationItem;
+        this.f36721c = j;
+        this.f36722d = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,9 +61,9 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
     public List<Bitmap> doInBackground(String... strArr) {
         InputStream inputStream;
         Bitmap bitmap;
-        this.f36794e = ClientConfigManagerImpl.getInstance(this.f36790a).getNotifyStyle();
+        this.f36723e = ClientConfigManagerImpl.getInstance(this.f36719a).getNotifyStyle();
         InputStream inputStream2 = null;
-        if (!this.f36793d) {
+        if (!this.f36722d) {
             p.d("ImageDownTask", "bitmap is not display by forbid net");
             return null;
         }
@@ -132,9 +132,9 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
         List<Bitmap> list2 = list;
         super.onPostExecute(list2);
         p.c("ImageDownTask", "onPostExecute");
-        if (this.f36791b != null) {
-            w.b().a("com.vivo.push.notify_key", this.f36792c);
-            NotifyAdapterUtil.pushNotification(this.f36790a, list2, this.f36791b, this.f36792c, this.f36794e);
+        if (this.f36720b != null) {
+            w.b().a("com.vivo.push.notify_key", this.f36721c);
+            NotifyAdapterUtil.pushNotification(this.f36719a, list2, this.f36720b, this.f36721c, this.f36723e);
         }
     }
 }

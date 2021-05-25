@@ -8,18 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f16557a;
+    public int f16462a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f16558b;
+    public int f16463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f16559c;
+    public int f16464c;
 
     public CommonSpaceItemDecoration(int i2, int i3, int i4) {
-        this.f16557a = i2;
-        this.f16558b = i3;
-        this.f16559c = i4;
+        this.f16462a = i2;
+        this.f16463b = i3;
+        this.f16464c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -28,23 +28,23 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager.getOrientation() == 1) {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.f16557a;
+                rect.top = this.f16462a;
             } else {
-                rect.top = this.f16558b;
+                rect.top = this.f16463b;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.bottom = this.f16559c;
+                rect.bottom = this.f16464c;
                 return;
             }
             return;
         }
         if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.f16557a;
+            rect.left = this.f16462a;
         } else {
-            rect.left = this.f16558b;
+            rect.left = this.f16463b;
         }
         if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-            rect.right = this.f16559c;
+            rect.right = this.f16464c;
         }
     }
 }

@@ -33,20 +33,20 @@ import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.im.model.AddMsgRecordModel;
 import com.baidu.tieba.im.model.OfficialBarTipModel;
-import d.a.j0.r.s.a;
-import d.a.j0.r.s.j;
-import d.a.j0.r.s.l;
+import d.a.m0.r.s.a;
+import d.a.m0.r.s.j;
+import d.a.m0.r.s.l;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity> {
     public OfficialBarTipModel mModel;
-    public d.a.j0.r.s.c mProgressDialog;
+    public d.a.m0.r.s.c mProgressDialog;
     public ImMessageCenterShowItemData mUnsubscribeItem;
-    public d.a.k0.e1.f.j.e mView;
+    public d.a.n0.f1.f.j.e mView;
     public final CustomMessageListener mMemoryListener = new c(0);
     public final d.a.c.c.g.c mSubscribeListener = new d(104102);
-    public d.a.k0.e1.f.i.a mCompleteProcess = new e();
-    public final d.a.k0.e1.f.i.b IProcessImpl = new g();
+    public d.a.n0.f1.f.i.a mCompleteProcess = new e();
+    public final d.a.n0.f1.f.i.b IProcessImpl = new g();
 
     /* loaded from: classes4.dex */
     public class a implements AdapterView.OnItemClickListener {
@@ -95,54 +95,54 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         public class a implements l.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ j f17182e;
+            public final /* synthetic */ j f17092e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ ImMessageCenterShowItemData f17183f;
+            public final /* synthetic */ ImMessageCenterShowItemData f17093f;
 
             /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class C0182a implements a.e {
-                public C0182a() {
+            public class C0183a implements a.e {
+                public C0183a() {
                 }
 
-                @Override // d.a.j0.r.s.a.e
-                public void onClick(d.a.j0.r.s.a aVar) {
+                @Override // d.a.m0.r.s.a.e
+                public void onClick(d.a.m0.r.s.a aVar) {
                     aVar.dismiss();
-                    OfficialBarTipActivity.this.mModel.subscribeBar(false, a.this.f17183f.getFriendId());
+                    OfficialBarTipActivity.this.mModel.subscribeBar(false, a.this.f17093f.getFriendId());
                     a aVar2 = a.this;
-                    OfficialBarTipActivity.this.mUnsubscribeItem = aVar2.f17183f;
+                    OfficialBarTipActivity.this.mUnsubscribeItem = aVar2.f17093f;
                 }
             }
 
             /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity$b$a$b  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class C0183b implements a.e {
-                public C0183b(a aVar) {
+            public class C0184b implements a.e {
+                public C0184b(a aVar) {
                 }
 
-                @Override // d.a.j0.r.s.a.e
-                public void onClick(d.a.j0.r.s.a aVar) {
+                @Override // d.a.m0.r.s.a.e
+                public void onClick(d.a.m0.r.s.a aVar) {
                     aVar.dismiss();
                 }
             }
 
             public a(j jVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-                this.f17182e = jVar;
-                this.f17183f = imMessageCenterShowItemData;
+                this.f17092e = jVar;
+                this.f17093f = imMessageCenterShowItemData;
             }
 
-            @Override // d.a.j0.r.s.l.e
+            @Override // d.a.m0.r.s.l.e
             public void onItemClick(l lVar, int i2, View view) {
-                j jVar = this.f17182e;
+                j jVar = this.f17092e;
                 if (jVar != null && jVar.isShowing()) {
-                    this.f17182e.dismiss();
+                    this.f17092e.dismiss();
                 }
                 if (i2 == 0) {
-                    OfficialBarTipActivity.this.mModel.asyncDeleteItem(this.f17183f, OfficialBarTipActivity.this.IProcessImpl);
+                    OfficialBarTipActivity.this.mModel.asyncDeleteItem(this.f17093f, OfficialBarTipActivity.this.IProcessImpl);
                     return;
                 }
-                d.a.j0.r.s.a a2 = d.a.j0.s.h.a.a(OfficialBarTipActivity.this.getPageContext(), -1, R.string.make_sure_cancel_subscribe, R.string.confirm, R.string.cancel, new C0182a(), new C0183b(this));
+                d.a.m0.r.s.a a2 = d.a.m0.s.h.a.a(OfficialBarTipActivity.this.getPageContext(), -1, R.string.make_sure_cancel_subscribe, R.string.confirm, R.string.cancel, new C0183a(), new C0184b(this));
                 a2.setMessageShowCenter(true);
                 a2.show();
             }
@@ -235,11 +235,11 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     /* loaded from: classes4.dex */
-    public class e implements d.a.k0.e1.f.i.a {
+    public class e implements d.a.n0.f1.f.i.a {
         public e() {
         }
 
-        @Override // d.a.k0.e1.f.i.a
+        @Override // d.a.n0.f1.f.i.a
         public void onComplete() {
             OfficialBarTipActivity.this.onCompleteProcess();
         }
@@ -249,47 +249,47 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     public class f extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f17189a;
+        public final /* synthetic */ String f17099a;
 
         public f(String str) {
-            this.f17189a = str;
+            this.f17099a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.f17189a)) {
+            if (TextUtils.isEmpty(this.f17099a)) {
                 return null;
             }
-            d.a.k0.e1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17189a), false);
+            d.a.n0.f1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17099a), false);
             return null;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class g implements d.a.k0.e1.f.i.b {
+    public class g implements d.a.n0.f1.f.i.b {
         public g() {
         }
 
-        @Override // d.a.k0.e1.f.i.b
+        @Override // d.a.n0.f1.f.i.b
         public void onCanceled() {
             OfficialBarTipActivity.this.dismissDialog();
             OfficialBarTipActivity.this.onCompleteProcess();
         }
 
-        @Override // d.a.k0.e1.f.i.b
+        @Override // d.a.n0.f1.f.i.b
         public void onPostExecute() {
             OfficialBarTipActivity.this.dismissDialog();
             OfficialBarTipActivity.this.showToast(R.string.delete_success, false);
             OfficialBarTipActivity.this.onCompleteProcess();
         }
 
-        @Override // d.a.k0.e1.f.i.b
+        @Override // d.a.n0.f1.f.i.b
         public void onPreExecute() {
             OfficialBarTipActivity.this.showProgressDialog();
         }
 
-        @Override // d.a.k0.e1.f.i.b
+        @Override // d.a.n0.f1.f.i.b
         public void onProgressUpdate(int i2, String str, int i3) {
             if (OfficialBarTipActivity.this.mProgressDialog != null) {
                 OfficialBarTipActivity.this.mProgressDialog.b(i2);
@@ -300,7 +300,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dismissDialog() {
-        d.a.j0.r.s.c cVar = this.mProgressDialog;
+        d.a.m0.r.s.c cVar = this.mProgressDialog;
         if (cVar != null && cVar.isShowing()) {
             this.mProgressDialog.dismiss();
             this.mProgressDialog = null;
@@ -314,7 +314,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     private void initUI() {
-        d.a.k0.e1.f.j.e eVar = new d.a.k0.e1.f.j.e(this);
+        d.a.n0.f1.f.j.e eVar = new d.a.n0.f1.f.j.e(this);
         this.mView = eVar;
         eVar.k().setOnItemClickListener(new a());
         this.mView.k().setOnItemLongClickListener(new b());
@@ -322,7 +322,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        d.a.k0.e1.f.j.e eVar = this.mView;
+        d.a.n0.f1.f.j.e eVar = this.mView;
         if (eVar == null || eVar.j() == null) {
             return;
         }
@@ -332,7 +332,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     /* JADX INFO: Access modifiers changed from: private */
     public void onCompleteProcess() {
         OfficialBarTipModel officialBarTipModel;
-        d.a.k0.e1.f.j.e eVar = this.mView;
+        d.a.n0.f1.f.j.e eVar = this.mView;
         if (eVar == null || eVar.j() == null || (officialBarTipModel = this.mModel) == null) {
             return;
         }
@@ -401,7 +401,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     public void showProgressDialog() {
         dismissDialog();
         if (this.mProgressDialog == null) {
-            this.mProgressDialog = d.a.k0.e1.h.e.m().p(getPageContext().getPageActivity());
+            this.mProgressDialog = d.a.n0.f1.h.e.m().p(getPageContext().getPageActivity());
         }
         this.mProgressDialog.show();
         this.mProgressDialog.b(0);

@@ -8,31 +8,31 @@ import org.json.JSONObject;
 public class a extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30549a;
+    public String f30478a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30550b;
+    public String f30479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30551c;
+    public String f30480c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30552d;
+    public String f30481d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30553e;
+    public String f30482e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30554f;
+    public String f30483f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30555g;
+    public String f30484g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30556h;
+    public String f30485h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30557i;
+    public String f30486i;
     public String j;
     public String k;
     public long l;
@@ -41,71 +41,71 @@ public class a extends g {
 
     /* renamed from: com.cmic.sso.sdk.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0327a {
+    public static class C0328a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30558a;
+        public String f30487a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30559b;
+        public String f30488b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f30560c;
+        public String f30489c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f30561d;
+        public String f30490d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f30562e;
+        public String f30491e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f30563f;
+        public String f30492f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f30564g;
+        public String f30493g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f30565h;
+        public String f30494h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f30566i;
+        public String f30495i;
         public String j;
         public String k;
 
         public void a(String str) {
-            this.f30558a = str;
+            this.f30487a = str;
         }
 
         public void b(String str) {
-            this.f30559b = str;
+            this.f30488b = str;
         }
 
         public void c(String str) {
-            this.f30560c = str;
+            this.f30489c = str;
         }
 
         public void d(String str) {
-            this.f30561d = str;
+            this.f30490d = str;
         }
 
         public void e(String str) {
-            this.f30562e = str;
+            this.f30491e = str;
         }
 
         public void f(String str) {
-            this.f30563f = str;
+            this.f30492f = str;
         }
 
         public void g(String str) {
-            this.f30564g = str;
+            this.f30493g = str;
         }
 
         public void h(String str) {
-            this.f30565h = str;
+            this.f30494h = str;
         }
 
         public void i(String str) {
-            this.f30566i = str;
+            this.f30495i = str;
         }
 
         public void j(String str) {
@@ -119,15 +119,15 @@ public class a extends g {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("phone_id", this.f30558a);
-                jSONObject.put(IAdRequestParam.OS, this.f30559b);
-                jSONObject.put("dev_model", this.f30560c);
-                jSONObject.put("dev_brand", this.f30561d);
-                jSONObject.put("mnc", this.f30562e);
-                jSONObject.put("client_type", this.f30563f);
-                jSONObject.put(PmsConstant.Statistic.STATISTIC_NETWORK, this.f30564g);
-                jSONObject.put("ipv4_list", this.f30565h);
-                jSONObject.put("ipv6_list", this.f30566i);
+                jSONObject.put("phone_id", this.f30487a);
+                jSONObject.put(IAdRequestParam.OS, this.f30488b);
+                jSONObject.put("dev_model", this.f30489c);
+                jSONObject.put("dev_brand", this.f30490d);
+                jSONObject.put("mnc", this.f30491e);
+                jSONObject.put("client_type", this.f30492f);
+                jSONObject.put(PmsConstant.Statistic.STATISTIC_NETWORK, this.f30493g);
+                jSONObject.put("ipv4_list", this.f30494h);
+                jSONObject.put("ipv6_list", this.f30495i);
                 jSONObject.put("is_cert", this.j);
                 jSONObject.put("is_root", this.k);
             } catch (JSONException e2) {
@@ -142,7 +142,7 @@ public class a extends g {
     }
 
     public void b(String str) {
-        this.f30557i = str;
+        this.f30486i = str;
     }
 
     public void c(String str) {
@@ -150,31 +150,31 @@ public class a extends g {
     }
 
     public void d(String str) {
-        this.f30554f = str;
+        this.f30483f = str;
     }
 
     public void e(String str) {
-        this.f30555g = str;
+        this.f30484g = str;
     }
 
     public void f(String str) {
-        this.f30549a = str;
+        this.f30478a = str;
     }
 
     public void g(String str) {
-        this.f30550b = str;
+        this.f30479b = str;
     }
 
     public void h(String str) {
-        this.f30551c = str;
+        this.f30480c = str;
     }
 
     public void i(String str) {
-        this.f30552d = str;
+        this.f30481d = str;
     }
 
     public void j(String str) {
-        this.f30553e = str;
+        this.f30482e = str;
     }
 
     public void k(String str) {
@@ -186,7 +186,7 @@ public class a extends g {
     }
 
     public String m(String str) {
-        return n(this.f30549a + this.f30551c + str + this.f30552d);
+        return n(this.f30478a + this.f30480c + str + this.f30481d);
     }
 
     public String toString() {
@@ -201,15 +201,15 @@ public class a extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", this.f30549a);
-            jSONObject.put("msgid", this.f30550b);
-            jSONObject.put("appid", this.f30551c);
-            jSONObject.put("scrip", this.f30552d);
-            jSONObject.put("sign", this.f30553e);
-            jSONObject.put("interfacever", this.f30554f);
-            jSONObject.put("userCapaid", this.f30555g);
-            jSONObject.put("clienttype", this.f30556h);
-            jSONObject.put("sourceid", this.f30557i);
+            jSONObject.put("version", this.f30478a);
+            jSONObject.put("msgid", this.f30479b);
+            jSONObject.put("appid", this.f30480c);
+            jSONObject.put("scrip", this.f30481d);
+            jSONObject.put("sign", this.f30482e);
+            jSONObject.put("interfacever", this.f30483f);
+            jSONObject.put("userCapaid", this.f30484g);
+            jSONObject.put("clienttype", this.f30485h);
+            jSONObject.put("sourceid", this.f30486i);
             jSONObject.put("authenticated_appid", this.j);
             jSONObject.put("genTokenByAppid", this.k);
             jSONObject.put("rcData", this.n);
@@ -220,11 +220,11 @@ public class a extends g {
     }
 
     public void a(String str) {
-        this.f30556h = str;
+        this.f30485h = str;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
-        return this.f30551c;
+        return this.f30480c;
     }
 }

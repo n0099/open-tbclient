@@ -10,8 +10,8 @@ public class ae implements com.kwad.sdk.core.c<b.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f32626a = jSONObject.optInt("code");
-        aVar.f32627b = jSONObject.optString("msg");
+        aVar.f32555a = jSONObject.optInt("code");
+        aVar.f32556b = jSONObject.optString("msg");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,8 +20,8 @@ public class ae implements com.kwad.sdk.core.c<b.a> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "code", aVar.f32626a);
-        com.kwad.sdk.utils.o.a(jSONObject, "msg", aVar.f32627b);
+        com.kwad.sdk.utils.o.a(jSONObject, "code", aVar.f32555a);
+        com.kwad.sdk.utils.o.a(jSONObject, "msg", aVar.f32556b);
         return jSONObject;
     }
 }

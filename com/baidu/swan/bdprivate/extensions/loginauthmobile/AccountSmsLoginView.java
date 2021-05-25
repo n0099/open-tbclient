@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.sapi2.views.SmsLoginView;
-import d.a.i0.a.v2.x;
-import d.a.i0.b.e;
+import d.a.l0.a.v2.x;
+import d.a.l0.b.e;
 /* loaded from: classes3.dex */
 public class AccountSmsLoginView extends SmsLoginView {
     public Context s;

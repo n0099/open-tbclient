@@ -31,19 +31,19 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
         @Override // com.sina.weibo.sdk.auth.WbAuthListener
         public void cancel() {
             SinaSSOLoginActivity sinaSSOLoginActivity = SinaSSOLoginActivity.this;
-            if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f9827f) {
+            if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f9727f) {
                 sinaSSOLoginActivity.b(3001);
                 SinaSSOLoginActivity.this.finish();
                 return;
             }
-            sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).f9828g);
+            sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).f9728g);
         }
 
         @Override // com.sina.weibo.sdk.auth.WbAuthListener
         public void onFailure(WbConnectErrorMessage wbConnectErrorMessage) {
             Toast.makeText(SinaSSOLoginActivity.this, wbConnectErrorMessage.getErrorMessage(), 0).show();
             SinaSSOLoginActivity sinaSSOLoginActivity = SinaSSOLoginActivity.this;
-            if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f9827f) {
+            if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f9727f) {
                 sinaSSOLoginActivity.b(3001);
                 SinaSSOLoginActivity.this.finish();
             }
@@ -55,7 +55,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
             String uid = oauth2AccessToken.getUid();
             String urlBind = ParamsUtil.getUrlBind(SinaSSOLoginActivity.this.configuration, SocialType.SINA_WEIBO_SSO, token, uid, SinaSSOLoginActivity.this.configuration.sinaAppId);
             SinaSSOLoginActivity sinaSSOLoginActivity = SinaSSOLoginActivity.this;
-            if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f9827f) {
+            if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f9727f) {
                 Intent intent = new Intent();
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, token);
                 intent.putExtra("userId", uid);
@@ -93,7 +93,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(d.a.y.a.j.a.sapi_sdk_title_login_sina);
+        setTitleText(d.a.a0.a.j.a.sapi_sdk_title_login_sina);
         RelativeLayout relativeLayout = this.rootView;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(4);

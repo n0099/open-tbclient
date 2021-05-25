@@ -15,26 +15,26 @@ import org.json.JSONObject;
 public class c extends d.a.j.b.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public a.C1087a f48455f;
+    public a.C0548a f40119f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f48456g;
+    public b f40120g;
 
     /* loaded from: classes.dex */
     public static class a {
-        public static boolean a(a.C1087a c1087a, d.a.j.g.a aVar) {
+        public static boolean a(a.C0548a c0548a, d.a.j.g.a aVar) {
             if (Build.VERSION.SDK_INT < 23) {
-                while (c1087a != null && !c1087a.f().equals(aVar.a())) {
-                    c1087a.f().setExecutable(true, false);
-                    c1087a = c1087a.i();
+                while (c0548a != null && !c0548a.f().equals(aVar.a())) {
+                    c0548a.f().setExecutable(true, false);
+                    c0548a = c0548a.i();
                 }
                 return true;
             }
-            while (c1087a != null) {
-                if (!b(c1087a.f())) {
+            while (c0548a != null) {
+                if (!b(c0548a.f())) {
                     return false;
                 }
-                c1087a = c1087a.i();
+                c0548a = c0548a.i();
             }
             return b(aVar.a());
         }
@@ -58,51 +58,51 @@ public class c extends d.a.j.b.a {
     public class b {
 
         /* renamed from: b  reason: collision with root package name */
-        public long f48458b;
+        public long f40122b;
 
         /* renamed from: c  reason: collision with root package name */
-        public l.a f48459c;
+        public l.a f40123c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f48460d;
+        public boolean f40124d;
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.j.i.b f48457a = new d.a.j.i.b();
+        public d.a.j.i.b f40121a = new d.a.j.i.b();
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f48461e = true;
+        public boolean f40125e = true;
 
         public b() {
         }
 
         public long a() {
-            return this.f48458b;
+            return this.f40122b;
         }
 
         public void b(long j) {
-            if (this.f48458b != j) {
-                this.f48458b = j;
-                this.f48460d = true;
+            if (this.f40122b != j) {
+                this.f40122b = j;
+                this.f40124d = true;
             }
         }
 
         public void c(long j, long j2) {
-            if (this.f48457a.a(j, j2)) {
-                this.f48460d = true;
+            if (this.f40121a.a(j, j2)) {
+                this.f40124d = true;
             }
         }
 
         public void d(l.a aVar) {
-            if (aVar.equals(this.f48459c)) {
+            if (aVar.equals(this.f40123c)) {
                 return;
             }
-            this.f48459c = aVar;
-            this.f48460d = true;
+            this.f40123c = aVar;
+            this.f40124d = true;
         }
 
         public boolean e(PackageInfo packageInfo) {
-            String c2 = c.this.f48455f.a(new File(packageInfo.applicationInfo.dataDir)).c("pub.dat", true);
-            this.f48461e = false;
+            String c2 = c.this.f40119f.a(new File(packageInfo.applicationInfo.dataDir)).c("pub.dat", true);
+            this.f40125e = false;
             return f(c2);
         }
 
@@ -110,10 +110,10 @@ public class c extends d.a.j.b.a {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.f48458b = jSONObject.getLong("pub_lst_ts");
-                    this.f48459c = l.c(jSONObject.getString("pub_info"));
+                    this.f40122b = jSONObject.getLong("pub_lst_ts");
+                    this.f40123c = l.c(jSONObject.getString("pub_info"));
                     jSONObject.getInt("d_form_ver");
-                    this.f48460d = false;
+                    this.f40124d = false;
                     return true;
                 } catch (Exception unused) {
                 }
@@ -122,23 +122,23 @@ public class c extends d.a.j.b.a {
         }
 
         public l.a g() {
-            return this.f48459c;
+            return this.f40123c;
         }
 
         public boolean h() {
-            return f(c.this.f48455f.c("pub.dat", true));
+            return f(c.this.f40119f.c("pub.dat", true));
         }
 
         public boolean i() {
-            if (this.f48461e) {
-                if (this.f48460d) {
+            if (this.f40125e) {
+                if (this.f40124d) {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("pub_info", this.f48459c.m());
-                        jSONObject.put("pub_lst_ts", this.f48458b);
+                        jSONObject.put("pub_info", this.f40123c.m());
+                        jSONObject.put("pub_lst_ts", this.f40122b);
                         jSONObject.put("d_form_ver", 1);
-                        c.this.f48455f.e("pub.dat", jSONObject.toString(), true);
-                        this.f48460d = false;
+                        c.this.f40119f.e("pub.dat", jSONObject.toString(), true);
+                        this.f40124d = false;
                         return true;
                     } catch (Exception unused) {
                     }
@@ -149,50 +149,50 @@ public class c extends d.a.j.b.a {
         }
 
         public boolean j() {
-            return c.i(c.this.f48455f.g("pub.dat"), true);
+            return c.i(c.this.f40119f.g("pub.dat"), true);
         }
     }
 
     /* renamed from: d.a.j.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C1085c extends a.c {
+    public class C0546c extends a.c {
 
         /* renamed from: d  reason: collision with root package name */
-        public String f48463d;
+        public String f40127d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f48464e;
+        public long f40128e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f48465f;
+        public long f40129f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f48466g;
+        public long f40130g;
 
         /* renamed from: h  reason: collision with root package name */
-        public l.a f48467h;
+        public l.a f40131h;
 
-        public C1085c(c cVar, String str) {
-            super(cVar.f48455f, str);
+        public C0546c(c cVar, String str) {
+            super(cVar.f40119f, str);
         }
 
         @Override // d.a.j.b.a.c
         public void a(JSONObject jSONObject) {
-            this.f48463d = jSONObject.getString("pkg");
-            this.f48465f = jSONObject.getInt("tar_pkg_lst_pub_ts");
-            this.f48464e = jSONObject.getLong("last_fe_ts");
-            this.f48467h = l.c(jSONObject.getString("info"));
-            this.f48466g = jSONObject.getLong("tar_pkg_lst_up_ts");
+            this.f40127d = jSONObject.getString("pkg");
+            this.f40129f = jSONObject.getInt("tar_pkg_lst_pub_ts");
+            this.f40128e = jSONObject.getLong("last_fe_ts");
+            this.f40131h = l.c(jSONObject.getString("info"));
+            this.f40130g = jSONObject.getLong("tar_pkg_lst_up_ts");
             jSONObject.getInt("d_form_ver");
         }
 
         @Override // d.a.j.b.a.c
         public void d(JSONObject jSONObject) {
-            jSONObject.put("pkg", this.f48463d);
-            jSONObject.put("last_fe_ts", this.f48464e);
-            jSONObject.put("tar_pkg_lst_pub_ts", this.f48465f);
-            jSONObject.put("info", this.f48467h.m());
-            jSONObject.put("tar_pkg_lst_up_ts", this.f48466g);
+            jSONObject.put("pkg", this.f40127d);
+            jSONObject.put("last_fe_ts", this.f40128e);
+            jSONObject.put("tar_pkg_lst_pub_ts", this.f40129f);
+            jSONObject.put("info", this.f40131h.m());
+            jSONObject.put("tar_pkg_lst_up_ts", this.f40130g);
             jSONObject.put("d_form_ver", 1);
         }
 
@@ -202,8 +202,8 @@ public class c extends d.a.j.b.a {
         }
 
         public boolean g(long j) {
-            if (this.f48464e != j) {
-                this.f48464e = j;
+            if (this.f40128e != j) {
+                this.f40128e = j;
                 b(true);
                 return true;
             }
@@ -211,26 +211,26 @@ public class c extends d.a.j.b.a {
         }
 
         public boolean h(l.a aVar) {
-            if (aVar.equals(this.f48467h)) {
+            if (aVar.equals(this.f40131h)) {
                 return false;
             }
-            this.f48467h = aVar;
+            this.f40131h = aVar;
             b(true);
             return true;
         }
 
         public boolean i(String str) {
-            if (str.equals(this.f48463d)) {
+            if (str.equals(this.f40127d)) {
                 return false;
             }
-            this.f48463d = str;
+            this.f40127d = str;
             b(true);
             return true;
         }
 
         public boolean j(long j) {
-            if (this.f48465f != j) {
-                this.f48465f = j;
+            if (this.f40129f != j) {
+                this.f40129f = j;
                 b(true);
                 return true;
             }
@@ -238,12 +238,12 @@ public class c extends d.a.j.b.a {
         }
 
         public String k() {
-            return this.f48463d;
+            return this.f40127d;
         }
 
         public boolean l(long j) {
-            if (this.f48466g != j) {
-                this.f48466g = j;
+            if (this.f40130g != j) {
+                this.f40130g = j;
                 b(true);
                 return true;
             }
@@ -251,17 +251,17 @@ public class c extends d.a.j.b.a {
         }
 
         public l.a m() {
-            return this.f48467h;
+            return this.f40131h;
         }
 
         public long n() {
-            return this.f48466g;
+            return this.f40130g;
         }
     }
 
     public c() {
         super("isc", 8000000L);
-        this.f48456g = new b();
+        this.f40120g = new b();
     }
 
     public static boolean i(File file, boolean z) {
@@ -285,16 +285,16 @@ public class c extends d.a.j.b.a {
 
     @Override // d.a.j.b.a
     public a.f a(a.e eVar, l.a aVar) {
-        Context context = this.f48442a.f48446a;
+        Context context = this.f40106a.f40110a;
         if (Build.VERSION.SDK_INT < 28 || context.getApplicationInfo().targetSdkVersion < 28) {
-            this.f48456g.h();
+            this.f40120g.h();
             try {
                 return h(eVar, aVar);
             } finally {
-                this.f48456g.i();
+                this.f40120g.i();
                 j();
-                this.f48456g.i();
-                this.f48456g.j();
+                this.f40120g.i();
+                this.f40120g.j();
             }
         }
         return a.f.a(-100);
@@ -304,31 +304,31 @@ public class c extends d.a.j.b.a {
     public a.h b(String str, a.g gVar) {
         PackageInfo packageInfo;
         l.a g2;
-        C1085c c1085c = null;
+        C0546c c0546c = null;
         try {
-            packageInfo = this.f48442a.f48446a.getPackageManager().getPackageInfo(str, 0);
+            packageInfo = this.f40106a.f40110a.getPackageManager().getPackageInfo(str, 0);
         } catch (PackageManager.NameNotFoundException unused) {
             packageInfo = null;
         }
         if (packageInfo == null) {
             return a.h.a(-2);
         }
-        if (gVar.f48451a) {
-            c1085c = new C1085c(this, str);
-            c1085c.c();
-            if (str.equals(c1085c.k()) && packageInfo.lastUpdateTime == c1085c.n()) {
-                g2 = c1085c.m();
+        if (gVar.f40115a) {
+            c0546c = new C0546c(this, str);
+            c0546c.c();
+            if (str.equals(c0546c.k()) && packageInfo.lastUpdateTime == c0546c.n()) {
+                g2 = c0546c.m();
                 return a.h.b(g2);
             }
         }
         b bVar = new b();
         if (bVar.e(packageInfo)) {
-            if (gVar.f48451a && c1085c != null) {
-                c1085c.f(bVar);
-                c1085c.g(System.currentTimeMillis());
-                c1085c.l(packageInfo.lastUpdateTime);
-                c1085c.i(str);
-                c1085c.e();
+            if (gVar.f40115a && c0546c != null) {
+                c0546c.f(bVar);
+                c0546c.g(System.currentTimeMillis());
+                c0546c.l(packageInfo.lastUpdateTime);
+                c0546c.i(str);
+                c0546c.e();
             }
             g2 = bVar.g();
             return a.h.b(g2);
@@ -338,21 +338,21 @@ public class c extends d.a.j.b.a {
 
     @Override // d.a.j.b.a
     public void e(a.d dVar) {
-        this.f48455f = this.f48443b.b("isc");
+        this.f40119f = this.f40107b.b("isc");
     }
 
     public final a.f h(a.e eVar, l.a aVar) {
-        this.f48456g.h();
-        this.f48455f.d();
-        if (aVar.equals(this.f48456g.g())) {
+        this.f40120g.h();
+        this.f40119f.d();
+        if (aVar.equals(this.f40120g.g())) {
             return a.f.b();
         }
-        this.f48456g.d(aVar);
-        this.f48456g.b(System.currentTimeMillis());
+        this.f40120g.d(aVar);
+        this.f40120g.b(System.currentTimeMillis());
         return a.f.b();
     }
 
     public final void j() {
-        this.f48456g.c(a.a(this.f48455f, this.f48442a.f48447b) ? 1 : 2, 3L);
+        this.f40120g.c(a.a(this.f40119f, this.f40106a.f40111b) ? 1 : 2, 3L);
     }
 }

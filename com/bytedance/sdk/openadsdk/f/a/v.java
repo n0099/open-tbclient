@@ -11,37 +11,37 @@ import org.json.JSONObject;
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Collection<String> f29204a;
+    public final Collection<String> f29133a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, u> f29205b;
+    public final Map<String, u> f29134b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k f29206c;
+    public final k f29135c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Set<a> f29207d;
+    public final Set<a> f29136d;
 
     /* loaded from: classes6.dex */
     public interface a {
     }
 
     public u a(@NonNull String str) {
-        if (!this.f29204a.contains(str) && !TextUtils.equals(str, "host")) {
+        if (!this.f29133a.contains(str) && !TextUtils.equals(str, "host")) {
             throw new IllegalArgumentException("Namespace: " + str + " not registered.");
         }
         return a(str, null);
     }
 
     public void a(a aVar) {
-        this.f29207d.add(aVar);
+        this.f29136d.add(aVar);
     }
 
     private u a(String str, @Nullable JSONObject jSONObject) {
-        u uVar = this.f29205b.get(str);
+        u uVar = this.f29134b.get(str);
         if (uVar == null) {
-            u uVar2 = new u(str, this.f29206c.c(), this.f29206c.a(), this.f29206c.b(), jSONObject);
-            this.f29205b.put(str, uVar2);
+            u uVar2 = new u(str, this.f29135c.c(), this.f29135c.a(), this.f29135c.b(), jSONObject);
+            this.f29134b.put(str, uVar2);
             return uVar2;
         } else if (jSONObject != null) {
             uVar.a(jSONObject);

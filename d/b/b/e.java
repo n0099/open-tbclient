@@ -5,7 +5,7 @@ import android.os.Build;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e extends h2 {
     public e() {
         super(true, false);

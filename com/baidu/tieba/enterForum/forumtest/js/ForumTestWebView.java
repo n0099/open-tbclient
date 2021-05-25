@@ -25,32 +25,32 @@ import com.baidubce.auth.NTLMEngineImpl;
 public class ForumTestWebView extends WebView {
 
     /* renamed from: e  reason: collision with root package name */
-    public WebViewClient f14491e;
+    public WebViewClient f14394e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f14492f;
+    public h f14395f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f14493g;
+    public c f14396g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f14494h;
+    public e f14397h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f14495i;
+    public d f14398i;
     public f j;
     public g k;
-    public d.a.k0.i0.e.a.a l;
-    public d.a.k0.i0.e.a.c m;
+    public d.a.n0.j0.e.a.a l;
+    public d.a.n0.j0.e.a.c m;
 
     /* loaded from: classes4.dex */
-    public class a implements d.a.k0.i0.e.a.c {
+    public class a implements d.a.n0.j0.e.a.c {
         public a() {
         }
 
-        @Override // d.a.k0.i0.e.a.c
+        @Override // d.a.n0.j0.e.a.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-            d.a.k0.i0.e.a.a aVar = ForumTestWebView.this.l;
+            d.a.n0.j0.e.a.a aVar = ForumTestWebView.this.l;
             if (aVar != null) {
                 return aVar.b(str, jsPromptResult);
             }
@@ -71,16 +71,16 @@ public class ForumTestWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
-            if (ForumTestWebView.this.f14495i != null) {
-                ForumTestWebView.this.f14495i.onPageFinished(webView, str);
+            if (ForumTestWebView.this.f14398i != null) {
+                ForumTestWebView.this.f14398i.onPageFinished(webView, str);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            if (ForumTestWebView.this.f14494h != null) {
-                ForumTestWebView.this.f14494h.a(webView, str);
+            if (ForumTestWebView.this.f14397h != null) {
+                ForumTestWebView.this.f14397h.a(webView, str);
             }
         }
 
@@ -91,8 +91,8 @@ public class ForumTestWebView extends WebView {
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (ForumTestWebView.this.f14493g != null) {
-                return ForumTestWebView.this.f14493g.shouldOverrideUrlLoading(webView, str);
+            if (ForumTestWebView.this.f14396g != null) {
+                return ForumTestWebView.this.f14396g.shouldOverrideUrlLoading(webView, str);
             }
             return super.shouldOverrideUrlLoading(webView, str);
         }
@@ -203,18 +203,18 @@ public class ForumTestWebView extends WebView {
     @Override // android.webkit.WebView
     public void destroy() {
         super.destroy();
-        this.f14491e = null;
-        this.f14492f = null;
-        this.f14493g = null;
-        this.f14494h = null;
-        this.f14495i = null;
+        this.f14394e = null;
+        this.f14395f = null;
+        this.f14396g = null;
+        this.f14397h = null;
+        this.f14398i = null;
         this.j = null;
         this.k = null;
         this.m = null;
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
-    public void g(d.a.k0.i0.e.a.b bVar) {
+    public void g(d.a.n0.j0.e.a.b bVar) {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         getSettings().setAllowFileAccess(true);
@@ -231,15 +231,15 @@ public class ForumTestWebView extends WebView {
         setScrollBarStyle(NTLMEngineImpl.FLAG_REQUEST_VERSION);
         getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion());
         WebViewClient bVar2 = new b();
-        this.f14491e = bVar2;
+        this.f14394e = bVar2;
         setWebViewClient(bVar2);
         h hVar = new h(this, null);
-        this.f14492f = hVar;
+        this.f14395f = hVar;
         setWebChromeClient(hVar);
-        d.a.k0.i0.e.a.a aVar = new d.a.k0.i0.e.a.a();
+        d.a.n0.j0.e.a.a aVar = new d.a.n0.j0.e.a.a();
         this.l = aVar;
         aVar.a(bVar);
-        d.a.j0.l.a.f(getContext());
+        d.a.m0.l.a.f(getContext());
         removeJavascriptInterface("searchBoxJavaBridge_");
         removeJavascriptInterface("accessibility");
         removeJavascriptInterface("accessibilityTraversal");

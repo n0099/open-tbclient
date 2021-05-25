@@ -6,18 +6,18 @@ public final class f {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f10144a;
+    public static e f10044a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f10145b;
+    public static long f10045b;
 
     public static e a() {
         synchronized (f.class) {
-            if (f10144a != null) {
-                e eVar = f10144a;
-                f10144a = eVar.f10142f;
-                eVar.f10142f = null;
-                f10145b -= 8192;
+            if (f10044a != null) {
+                e eVar = f10044a;
+                f10044a = eVar.f10042f;
+                eVar.f10042f = null;
+                f10045b -= 8192;
                 return eVar;
             }
             return new e();
@@ -25,19 +25,19 @@ public final class f {
     }
 
     public static void a(e eVar) {
-        if (eVar.f10142f == null && eVar.f10143g == null) {
-            if (eVar.f10140d) {
+        if (eVar.f10042f == null && eVar.f10043g == null) {
+            if (eVar.f10040d) {
                 return;
             }
             synchronized (f.class) {
-                if (f10145b + 8192 > 65536) {
+                if (f10045b + 8192 > 65536) {
                     return;
                 }
-                f10145b += 8192;
-                eVar.f10142f = f10144a;
-                eVar.f10139c = 0;
-                eVar.f10138b = 0;
-                f10144a = eVar;
+                f10045b += 8192;
+                eVar.f10042f = f10044a;
+                eVar.f10039c = 0;
+                eVar.f10038b = 0;
+                f10044a = eVar;
                 return;
             }
         }

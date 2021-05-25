@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import d.b.b.r0;
 import d.b.b.x1;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Collector extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {

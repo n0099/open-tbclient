@@ -29,37 +29,37 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import d.a.c.e.p.l;
 import d.a.i.p;
-import d.a.j0.r.k;
-import d.a.j0.r.q.a2;
-import d.a.k0.x.b0;
+import d.a.m0.r.k;
+import d.a.m0.r.q.a2;
+import d.a.n0.z.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>, View.OnClickListener {
+public class NewGridImageLayout extends LinearLayout implements p<d.a.m0.r.q.a>, View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f4476e;
+    public final int f4479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f4477f;
+    public TextView f4480f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f4478g;
+    public TextView f4481g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PlayVoiceBntNew f4479h;
+    public PlayVoiceBntNew f4482h;
 
     /* renamed from: i  reason: collision with root package name */
-    public VoteView f4480i;
+    public VoteView f4483i;
     public GridImageLayout j;
     public Context k;
-    public d.a.j0.r.q.a l;
+    public d.a.m0.r.q.a l;
     public String m;
-    public b0<d.a.j0.r.q.a> n;
+    public b0<d.a.m0.r.q.a> n;
     public boolean o;
     public boolean p;
     public LinkedList<MediaData> q;
-    public d.a.j0.b1.m.a r;
+    public d.a.m0.b1.m.a r;
     public View.OnClickListener s;
     public boolean t;
     public int u;
@@ -71,7 +71,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.a.j0.r.q.a> subClickListener = NewGridImageLayout.this.getSubClickListener();
+            b0<d.a.m0.r.q.a> subClickListener = NewGridImageLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("2");
                 subClickListener.a(view, NewGridImageLayout.this.l);
@@ -86,7 +86,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.a.j0.r.q.a> subClickListener = NewGridImageLayout.this.getSubClickListener();
+            b0<d.a.m0.r.q.a> subClickListener = NewGridImageLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("1");
                 subClickListener.a(view, NewGridImageLayout.this.l);
@@ -109,15 +109,15 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.j0.r.q.a f4484e;
+        public final /* synthetic */ d.a.m0.r.q.a f4487e;
 
-        public d(d.a.j0.r.q.a aVar) {
-            this.f4484e = aVar;
+        public d(d.a.m0.r.q.a aVar) {
+            this.f4487e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ThreadCardUtils.jumpToPB(this.f4484e.m().r1, NewGridImageLayout.this.k, NewGridImageLayout.this.u);
+            ThreadCardUtils.jumpToPB(this.f4487e.m().s1, NewGridImageLayout.this.k, NewGridImageLayout.this.u);
         }
     }
 
@@ -128,7 +128,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.x
         public void a(View view, String str, int i2, boolean z, boolean z2) {
-            ThreadCardUtils.jumpToPB(NewGridImageLayout.this.l.m().r1, NewGridImageLayout.this.k, 2);
+            ThreadCardUtils.jumpToPB(NewGridImageLayout.this.l.m().s1, NewGridImageLayout.this.k, 2);
         }
     }
 
@@ -139,7 +139,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.x
         public void a(View view, String str, int i2, boolean z, boolean z2) {
-            ThreadCardUtils.startImageViewer(view, true, NewGridImageLayout.this.q, i2, NewGridImageLayout.this.l.m().r1.a(), NewGridImageLayout.this.m, NewGridImageLayout.this.l.m().r1.o);
+            ThreadCardUtils.startImageViewer(view, true, NewGridImageLayout.this.q, i2, NewGridImageLayout.this.l.m().s1.a(), NewGridImageLayout.this.m, NewGridImageLayout.this.l.m().s1.o);
         }
     }
 
@@ -175,25 +175,25 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
             return;
         }
         if (this.o) {
-            this.f4479h.h(new g());
+            this.f4482h.h(new g());
         }
-        ArrayList<VoiceData$VoiceModel> I1 = (!a2Var.s1 || (originalThreadInfo = a2Var.r1) == null) ? a2Var.I1() : originalThreadInfo.q;
-        if (ListUtils.isEmpty(I1)) {
-            this.f4479h.setVisibility(8);
+        ArrayList<VoiceData$VoiceModel> J1 = (!a2Var.t1 || (originalThreadInfo = a2Var.s1) == null) ? a2Var.J1() : originalThreadInfo.q;
+        if (ListUtils.isEmpty(J1)) {
+            this.f4482h.setVisibility(8);
             return;
         }
-        this.f4479h.setVisibility(0);
-        VoiceData$VoiceModel voiceData$VoiceModel = I1.get(0);
-        this.f4479h.setVoiceModel(voiceData$VoiceModel);
-        this.f4479h.setTag(voiceData$VoiceModel);
-        this.f4479h.b();
+        this.f4482h.setVisibility(0);
+        VoiceData$VoiceModel voiceData$VoiceModel = J1.get(0);
+        this.f4482h.setVoiceModel(voiceData$VoiceModel);
+        this.f4482h.setTag(voiceData$VoiceModel);
+        this.f4482h.b();
         if (voiceData$VoiceModel != null) {
-            this.f4479h.j(voiceData$VoiceModel.voice_status.intValue());
+            this.f4482h.j(voiceData$VoiceModel.voice_status.intValue());
         }
-        this.f4479h.l();
+        this.f4482h.l();
     }
 
-    public b0<d.a.j0.r.q.a> getSubClickListener() {
+    public b0<d.a.m0.r.q.a> getSubClickListener() {
         return this.n;
     }
 
@@ -201,21 +201,21 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
         boolean z;
         String j;
         OriginalThreadInfo originalThreadInfo;
-        ArrayList<MediaData> K0 = a2Var.K0();
+        ArrayList<MediaData> L0 = a2Var.L0();
         String g0 = a2Var.g0();
-        if (!a2Var.s1 || (originalThreadInfo = a2Var.r1) == null) {
+        if (!a2Var.t1 || (originalThreadInfo = a2Var.s1) == null) {
             z = false;
         } else if (originalThreadInfo.m) {
             this.j.setVisibility(8);
             return;
         } else {
-            K0 = originalThreadInfo.f12139h;
+            L0 = originalThreadInfo.f12040h;
             z = true;
         }
-        if (k.c().g() && ListUtils.getCount(K0) != 0) {
+        if (k.c().g() && ListUtils.getCount(L0) != 0) {
             this.q.clear();
-            for (int i2 = 0; i2 < K0.size(); i2++) {
-                MediaData mediaData = (MediaData) ListUtils.getItem(K0, i2);
+            for (int i2 = 0; i2 < L0.size(); i2++) {
+                MediaData mediaData = (MediaData) ListUtils.getItem(L0, i2);
                 if (mediaData != null && mediaData.getType() == 3) {
                     if (!z) {
                         if (g0 != null) {
@@ -291,17 +291,17 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
         setClipToPadding(false);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4478g = (TextView) findViewById(R.id.thread_card_abstract);
-        this.f4477f = (TextView) findViewById(R.id.thread_card_title);
+        this.f4481g = (TextView) findViewById(R.id.thread_card_abstract);
+        this.f4480f = (TextView) findViewById(R.id.thread_card_title);
         PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
-        this.f4479h = playVoiceBntNew;
+        this.f4482h = playVoiceBntNew;
         playVoiceBntNew.setAfterClickListener(new a());
         GridImageLayout gridImageLayout = (GridImageLayout) findViewById(R.id.thread_card_img_more_container);
         this.j = gridImageLayout;
         gridImageLayout.setSupportGifPlay(false);
         this.j.setCornerStyle(1);
         this.j.setAfterClickListener(new b());
-        this.r = new d.a.j0.b1.m.a();
+        this.r = new d.a.m0.b1.m.a();
         int i2 = l.p(this.k)[0];
         this.r.D = i2 - (l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004) * 2);
         this.r.E = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
@@ -309,7 +309,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
         this.q = new LinkedList<>();
         this.j.setOnImageClickListener(new c());
         VoteView voteView = (VoteView) findViewById(R.id.thread_card_vote);
-        this.f4480i = voteView;
+        this.f4483i = voteView;
         voteView.setBgColor(R.color.CAM_X0207);
     }
 
@@ -347,65 +347,65 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: o */
-    public void a(d.a.j0.r.q.a aVar) {
+    public void a(d.a.m0.r.q.a aVar) {
         if (aVar == null || aVar.m() == null) {
             return;
         }
         a2 m = aVar.m();
-        OriginalThreadInfo originalThreadInfo = m.r1;
+        OriginalThreadInfo originalThreadInfo = m.s1;
         if (originalThreadInfo != null && this.o) {
             q(this.j, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-            d.a.j0.r.u.c d2 = d.a.j0.r.u.c.d(this.f4478g);
-            d2.v(R.string.F_X01);
-            d2.u(R.dimen.T_X07);
-            d.a.j0.r.u.c.d(this.f4477f).u(R.dimen.T_X07);
-            this.f4477f.setVisibility(8);
+            d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f4481g);
+            d2.x(R.string.F_X01);
+            d2.w(R.dimen.T_X07);
+            d.a.m0.r.u.c.d(this.f4480f).w(R.dimen.T_X07);
+            this.f4480f.setVisibility(8);
             if (originalThreadInfo.m) {
-                ThreadCardUtils.setAbstract(this.f4478g, this.f4477f, new SpannableString(originalThreadInfo.f12138g), m, this.f4476e, this.o, this.t);
-                SkinManager.setViewTextColor(this.f4478g, R.color.CAM_X0108);
+                ThreadCardUtils.setAbstract(this.f4481g, this.f4480f, new SpannableString(originalThreadInfo.f12039g), m, this.f4479e, this.o, this.t);
+                SkinManager.setViewTextColor(this.f4481g, R.color.CAM_X0108);
             } else {
-                ThreadCardUtils.setAbstract(this.f4478g, this.f4477f, originalThreadInfo.t, m, this.f4476e, this.o, this.t);
+                ThreadCardUtils.setAbstract(this.f4481g, this.f4480f, originalThreadInfo.t, m, this.f4479e, this.o, this.t);
             }
             if (n(originalThreadInfo.D)) {
                 d dVar = new d(aVar);
-                this.f4480i.setOnClickListener(dVar);
-                this.f4480i.setOnItemClickListener(dVar);
-                this.f4480i.setIsTransmit(true);
-                this.f4480i.setData(originalThreadInfo.D, originalThreadInfo.f12137f, originalThreadInfo.f12136e);
-                this.f4480i.setVisibility(0);
+                this.f4483i.setOnClickListener(dVar);
+                this.f4483i.setOnItemClickListener(dVar);
+                this.f4483i.setIsTransmit(true);
+                this.f4483i.setData(originalThreadInfo.D, originalThreadInfo.f12038f, originalThreadInfo.f12037e);
+                this.f4483i.setVisibility(0);
             } else {
-                this.f4480i.setVisibility(8);
+                this.f4483i.setVisibility(8);
             }
         } else {
             q(this.j, UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
-            this.f4480i.setVisibility(8);
-            this.f4478g.setTextSize(0, l.g(this.k, R.dimen.T_X06));
-            this.f4478g.setLineSpacing(l.g(this.k, R.dimen.M_T_X002), 1.0f);
-            this.f4477f.setTextSize(0, l.g(this.k, R.dimen.T_X06));
-            ThreadCardUtils.setTitle(this.f4477f, m, this.t);
-            ThreadCardUtils.setAbstract(this.f4478g, this.f4477f, m.D(), m, this.f4476e, this.o, this.t);
+            this.f4483i.setVisibility(8);
+            this.f4481g.setTextSize(0, l.g(this.k, R.dimen.T_X06));
+            this.f4481g.setLineSpacing(l.g(this.k, R.dimen.M_T_X002), 1.0f);
+            this.f4480f.setTextSize(0, l.g(this.k, R.dimen.T_X06));
+            ThreadCardUtils.setTitle(this.f4480f, m, this.t);
+            ThreadCardUtils.setAbstract(this.f4481g, this.f4480f, m.D(), m, this.f4479e, this.o, this.t);
         }
         if (r(m)) {
             i(m);
         }
         setVoiceData(m);
         this.l = aVar;
-        if (aVar.m().r1 == null) {
+        if (aVar.m().s1 == null) {
             return;
         }
-        if (m.s1) {
-            if (this.l.m().r1 == null) {
+        if (m.t1) {
+            if (this.l.m().s1 == null) {
                 return;
             }
-            if (!this.l.m().r1.m) {
+            if (!this.l.m().s1.m) {
                 this.j.setOnImageClickListener(new e());
             }
         }
-        if (!this.l.m().r1.m) {
+        if (!this.l.m().s1.m) {
             this.j.setOnImageClickListener(new f());
         }
         if (this.o) {
-            if (this.l.m().r1 != null && !this.l.m().r1.m) {
+            if (this.l.m().s1 != null && !this.l.m().s1.m) {
                 setOnClickListener(this);
             } else {
                 setOnClickListener(null);
@@ -430,7 +430,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
         if (gridImageLayout != null) {
             gridImageLayout.p();
         }
-        VoteView voteView = this.f4480i;
+        VoteView voteView = this.f4483i;
         if (voteView != null) {
             voteView.C(i2);
         }
@@ -447,18 +447,18 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
     }
 
     public final boolean r(a2 a2Var) {
-        d.a.j0.r.q.a aVar = this.l;
+        d.a.m0.r.q.a aVar = this.l;
         if (aVar == null || aVar.m() == null) {
             return true;
         }
-        if (this.l.m().x1() == null || this.l.m().x1().equals(a2Var.x1())) {
-            if (a2Var.s1 && a2Var.r1 != null) {
-                if (this.l.m().r1 == null) {
+        if (this.l.m().y1() == null || this.l.m().y1().equals(a2Var.y1())) {
+            if (a2Var.t1 && a2Var.s1 != null) {
+                if (this.l.m().s1 == null) {
                     return true;
                 }
-                return !m(a2Var.r1.f12139h, this.l.m().r1.f12139h);
+                return !m(a2Var.s1.f12040h, this.l.m().s1.f12040h);
             }
-            return !m(a2Var.K0(), this.l.m().K0());
+            return !m(a2Var.L0(), this.l.m().L0());
         }
         return true;
     }
@@ -496,7 +496,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
     public void setPreloadSizeReadyCallback(d.a.c.j.c.b bVar) {
     }
 
-    public void setSubClickListener(b0<d.a.j0.r.q.a> b0Var) {
+    public void setSubClickListener(b0<d.a.m0.r.q.a> b0Var) {
         this.n = b0Var;
     }
 
@@ -506,7 +506,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.a.j0.r.q.a>,
 
     public NewGridImageLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4476e = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.f4479e = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
         this.o = false;
         this.t = false;
         this.k = context;

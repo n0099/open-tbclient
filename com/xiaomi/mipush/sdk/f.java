@@ -8,7 +8,7 @@ import java.util.Map;
 public class f implements AbstractPushManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f37337a;
+    public static volatile f f37266a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f86a;
@@ -27,14 +27,14 @@ public class f implements AbstractPushManager {
     }
 
     public static f a(Context context) {
-        if (f37337a == null) {
+        if (f37266a == null) {
             synchronized (f.class) {
-                if (f37337a == null) {
-                    f37337a = new f(context);
+                if (f37266a == null) {
+                    f37266a = new f(context);
                 }
             }
         }
-        return f37337a;
+        return f37266a;
     }
 
     private void a() {
@@ -132,7 +132,7 @@ public class f implements AbstractPushManager {
     }
 
     public boolean b(e eVar) {
-        int i2 = h.f37339a[eVar.ordinal()];
+        int i2 = h.f37268a[eVar.ordinal()];
         boolean z = false;
         if (i2 == 1) {
             PushConfiguration pushConfiguration = this.f87a;

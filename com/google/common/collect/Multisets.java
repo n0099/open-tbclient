@@ -257,44 +257,44 @@ public final class Multisets {
     public static final class e<E> implements Iterator<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final i0<E> f31271e;
+        public final i0<E> f31200e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Iterator<i0.a<E>> f31272f;
+        public final Iterator<i0.a<E>> f31201f;
 
         /* renamed from: g  reason: collision with root package name */
-        public i0.a<E> f31273g;
+        public i0.a<E> f31202g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f31274h;
+        public int f31203h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f31275i;
+        public int f31204i;
         public boolean j;
 
         public e(i0<E> i0Var, Iterator<i0.a<E>> it) {
-            this.f31271e = i0Var;
-            this.f31272f = it;
+            this.f31200e = i0Var;
+            this.f31201f = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f31274h > 0 || this.f31272f.hasNext();
+            return this.f31203h > 0 || this.f31201f.hasNext();
         }
 
         @Override // java.util.Iterator
         public E next() {
             if (hasNext()) {
-                if (this.f31274h == 0) {
-                    i0.a<E> next = this.f31272f.next();
-                    this.f31273g = next;
+                if (this.f31203h == 0) {
+                    i0.a<E> next = this.f31201f.next();
+                    this.f31202g = next;
                     int count = next.getCount();
-                    this.f31274h = count;
-                    this.f31275i = count;
+                    this.f31203h = count;
+                    this.f31204i = count;
                 }
-                this.f31274h--;
+                this.f31203h--;
                 this.j = true;
-                return this.f31273g.getElement();
+                return this.f31202g.getElement();
             }
             throw new NoSuchElementException();
         }
@@ -302,12 +302,12 @@ public final class Multisets {
         @Override // java.util.Iterator
         public void remove() {
             m.e(this.j);
-            if (this.f31275i == 1) {
-                this.f31272f.remove();
+            if (this.f31204i == 1) {
+                this.f31201f.remove();
             } else {
-                this.f31271e.remove(this.f31273g.getElement());
+                this.f31200e.remove(this.f31202g.getElement());
             }
-            this.f31275i--;
+            this.f31204i--;
             this.j = false;
         }
     }

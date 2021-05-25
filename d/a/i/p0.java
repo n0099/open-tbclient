@@ -22,22 +22,22 @@ public class p0 extends h {
     @Override // d.a.i.a
     public View g() {
         if (this.l == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f40316f);
+            FrameLayout frameLayout = new FrameLayout(this.f40008f);
             this.l = frameLayout;
             SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0206);
             this.l.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.l.removeAllViews();
         if (this.m == null) {
-            ItemCardView itemCardView = new ItemCardView(this.f40316f);
+            ItemCardView itemCardView = new ItemCardView(this.f40008f);
             this.m = itemCardView;
             itemCardView.setBackGroundColor(R.color.CAM_X0205);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) - UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
-        layoutParams.leftMargin = this.f40316f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-        layoutParams.rightMargin = this.f40316f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-        layoutParams.bottomMargin = this.f40316f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+        layoutParams.leftMargin = this.f40008f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+        layoutParams.rightMargin = this.f40008f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+        layoutParams.bottomMargin = this.f40008f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
         this.l.addView(this.m, layoutParams);
         return this.l;
     }
@@ -54,14 +54,14 @@ public class p0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: s */
-    public void a(d.a.j0.r.q.a aVar) {
-        if (aVar != null && aVar.m() != null && aVar.m().r1 != null && aVar.m().r1.z != null) {
-            if (aVar.m().r1.m) {
+    public void a(d.a.m0.r.q.a aVar) {
+        if (aVar != null && aVar.m() != null && aVar.m().s1 != null && aVar.m().s1.z != null) {
+            if (aVar.m().s1.m) {
                 this.l.setVisibility(8);
                 return;
             }
             this.l.setVisibility(0);
-            this.m.setData(aVar.m().r1.z, 13);
+            this.m.setData(aVar.m().s1.z, 13);
             return;
         }
         this.l.setVisibility(8);

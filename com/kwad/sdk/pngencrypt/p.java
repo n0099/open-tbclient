@@ -3,31 +3,31 @@ package com.kwad.sdk.pngencrypt;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f33550a;
+    public final k f33479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f33551b;
+    public final e f33480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f33552c;
+    public final boolean f33481c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f33553d;
+    public int f33482d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f33554e;
+    public int f33483e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f33555f;
+    public int f33484f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f33556g;
+    public int f33485g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f33557h;
+    public int f33486h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f33558i;
+    public int f33487i;
     public int j;
     public int k;
     public int l;
@@ -37,39 +37,39 @@ public class p {
     public int p;
 
     public p(k kVar, e eVar) {
-        this.f33550a = kVar;
-        this.f33551b = eVar;
-        this.f33552c = eVar != null;
+        this.f33479a = kVar;
+        this.f33480b = eVar;
+        this.f33481c = eVar != null;
     }
 
     public void a(int i2) {
-        this.f33557h = i2;
-        if (!this.f33552c) {
+        this.f33486h = i2;
+        if (!this.f33481c) {
             this.n = 1;
-            this.f33553d = 1;
-            this.f33554e = 1;
-            this.f33555f = 0;
-            this.f33556g = 0;
+            this.f33482d = 1;
+            this.f33483e = 1;
+            this.f33484f = 0;
+            this.f33485g = 0;
             this.j = i2;
-            this.f33558i = i2;
-            k kVar = this.f33550a;
-            this.k = kVar.f33528b;
-            this.l = kVar.f33527a;
+            this.f33487i = i2;
+            k kVar = this.f33479a;
+            this.k = kVar.f33457b;
+            this.l = kVar.f33456a;
             this.m = kVar.k;
             return;
         }
-        this.n = this.f33551b.d();
-        e eVar = this.f33551b;
-        this.f33554e = eVar.f33516c;
-        this.f33553d = eVar.f33515b;
-        this.f33556g = eVar.f33518e;
-        this.f33555f = eVar.f33517d;
-        this.f33558i = eVar.c();
-        this.j = this.f33551b.b();
-        this.k = this.f33551b.e();
-        int f2 = this.f33551b.f();
+        this.n = this.f33480b.d();
+        e eVar = this.f33480b;
+        this.f33483e = eVar.f33445c;
+        this.f33482d = eVar.f33444b;
+        this.f33485g = eVar.f33447e;
+        this.f33484f = eVar.f33446d;
+        this.f33487i = eVar.c();
+        this.j = this.f33480b.b();
+        this.k = this.f33480b.e();
+        int f2 = this.f33480b.f();
         this.l = f2;
-        this.m = ((this.f33550a.f33535i * f2) + 7) / 8;
+        this.m = ((this.f33479a.f33464i * f2) + 7) / 8;
     }
 
     public void a(byte[] bArr, int i2) {

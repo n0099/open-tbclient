@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SearchFriendActivityConfig;
-import d.a.k0.q.e.b.b.a;
+import d.a.n0.s.e.b.b.a;
 /* loaded from: classes4.dex */
 public class SearchFriendActivityStatic {
     static {

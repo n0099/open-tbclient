@@ -8,59 +8,59 @@ import java.util.List;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Camera f23221a;
+    public volatile Camera f23150a;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f23222a = new b();
+        public static final b f23151a = new b();
     }
 
     public static final b a() {
-        return a.f23222a;
+        return a.f23151a;
     }
 
     public Camera b() {
-        if (this.f23221a == null) {
+        if (this.f23150a == null) {
             synchronized (b.class) {
-                if (this.f23221a == null) {
-                    this.f23221a = Camera.open();
+                if (this.f23150a == null) {
+                    this.f23150a = Camera.open();
                 }
             }
         }
-        return this.f23221a;
+        return this.f23150a;
     }
 
     public void c() {
-        if (this.f23221a != null) {
-            this.f23221a.stopPreview();
+        if (this.f23150a != null) {
+            this.f23150a.stopPreview();
         }
     }
 
     public Camera.Parameters d() {
-        if (this.f23221a != null) {
-            return this.f23221a.getParameters();
+        if (this.f23150a != null) {
+            return this.f23150a.getParameters();
         }
         return null;
     }
 
     public void e() {
-        if (this.f23221a != null) {
-            this.f23221a.startPreview();
+        if (this.f23150a != null) {
+            this.f23150a.startPreview();
         }
     }
 
     public void f() {
-        if (this.f23221a != null) {
-            this.f23221a.release();
-            this.f23221a = null;
+        if (this.f23150a != null) {
+            this.f23150a.release();
+            this.f23150a = null;
         }
     }
 
     public void g() {
-        if (this.f23221a != null) {
-            this.f23221a.cancelAutoFocus();
+        if (this.f23150a != null) {
+            this.f23150a.cancelAutoFocus();
         }
     }
 
@@ -71,38 +71,38 @@ public final class b {
         if (parameters != null) {
             parameters.setRotation(0);
         }
-        if (this.f23221a != null) {
-            this.f23221a.setParameters(parameters);
+        if (this.f23150a != null) {
+            this.f23150a.setParameters(parameters);
         }
     }
 
     public void a(SurfaceHolder surfaceHolder) throws IOException {
-        if (this.f23221a != null) {
-            this.f23221a.setPreviewDisplay(surfaceHolder);
+        if (this.f23150a != null) {
+            this.f23150a.setPreviewDisplay(surfaceHolder);
         }
     }
 
     public void a(byte[] bArr) {
-        if (this.f23221a != null) {
-            this.f23221a.addCallbackBuffer(bArr);
+        if (this.f23150a != null) {
+            this.f23150a.addCallbackBuffer(bArr);
         }
     }
 
     public void a(Camera.PreviewCallback previewCallback) {
-        if (this.f23221a != null) {
-            this.f23221a.setPreviewCallbackWithBuffer(previewCallback);
+        if (this.f23150a != null) {
+            this.f23150a.setPreviewCallbackWithBuffer(previewCallback);
         }
     }
 
     public void a(Camera.AutoFocusCallback autoFocusCallback) {
-        if (this.f23221a != null) {
-            this.f23221a.autoFocus(autoFocusCallback);
+        if (this.f23150a != null) {
+            this.f23150a.autoFocus(autoFocusCallback);
         }
     }
 
     public void a(Camera.ShutterCallback shutterCallback, Camera.PictureCallback pictureCallback, Camera.PictureCallback pictureCallback2, Camera.PictureCallback pictureCallback3) {
-        if (this.f23221a != null) {
-            this.f23221a.takePicture(shutterCallback, pictureCallback, pictureCallback2, pictureCallback3);
+        if (this.f23150a != null) {
+            this.f23150a.takePicture(shutterCallback, pictureCallback, pictureCallback2, pictureCallback3);
         }
     }
 

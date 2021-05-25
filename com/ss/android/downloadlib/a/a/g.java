@@ -9,13 +9,13 @@ public class g<R extends a> extends a {
     @c(b = 1)
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35837a;
+    public String f35766a;
     @c(b = 2)
 
     /* renamed from: b  reason: collision with root package name */
-    public e f35838b;
+    public e f35767b;
     @c(b = 3)
 
     /* renamed from: c  reason: collision with root package name */
-    public R f35839c;
+    public R f35768c;
 }

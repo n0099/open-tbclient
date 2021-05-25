@@ -26,7 +26,7 @@ import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements d.a.k0.y1.h.c.a<Boolean> {
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements d.a.n0.z1.h.c.a<Boolean> {
     public BaseFragment createEmotionFragment;
     public int isModerator;
     public FragmentPagerAdapter mAdapter;
@@ -165,8 +165,8 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.mManager) {
-            boolean z = !d.a.k0.y1.h.a.b().a();
-            d.a.k0.y1.h.a.b().d(z);
+            boolean z = !d.a.n0.z1.h.a.b().a();
+            d.a.n0.z1.h.a.b().d(z);
             if (z) {
                 this.mManager.setText(R.string.emotion_manage_finish);
             } else {
@@ -185,7 +185,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.k0.y1.h.c.a
+    @Override // d.a.n0.z1.h.c.a
     public void onUpdate(Boolean bool) {
         if (bool == null) {
             return;

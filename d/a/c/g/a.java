@@ -10,45 +10,45 @@ import org.json.JSONObject;
 public class a implements IBundleInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    public PackageInfo f39367a;
+    public PackageInfo f39031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39368b;
+    public String f39032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39369c;
+    public String f39033c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39370d;
+    public String f39034d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39371e = true;
+    public boolean f39035e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f39372f = false;
+    public boolean f39036f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39373g;
+    public int f39037g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39374h;
+    public int f39038h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39375i;
+    public int f39039i;
     public int j;
     public int k;
     public int l;
 
     public a(PackageInfo packageInfo) {
-        this.f39367a = packageInfo;
+        this.f39031a = packageInfo;
         String str = packageInfo.extraServer;
         if (packageInfo.isAllowSilence()) {
             this.j = 1;
         }
-        if (this.f39367a.isOnlyWifi()) {
+        if (this.f39031a.isOnlyWifi()) {
             this.l = 1;
         }
-        if (this.f39367a.isAllowSilenceUpdate()) {
+        if (this.f39031a.isAllowSilenceUpdate()) {
             this.k = 1;
         }
         if (TextUtils.isEmpty(str)) {
@@ -57,73 +57,73 @@ public class a implements IBundleInfo {
         try {
             BdLog.e("LiveNPSPluginManager=" + str);
             JSONObject jSONObject = new JSONObject(str);
-            this.f39368b = jSONObject.optString("description");
-            this.f39369c = jSONObject.optString("icon_url");
-            this.f39373g = jSONObject.optInt("force_update");
-            this.f39374h = jSONObject.optInt("min_version");
-            this.f39375i = jSONObject.optInt("abi");
+            this.f39032b = jSONObject.optString("description");
+            this.f39033c = jSONObject.optString("icon_url");
+            this.f39037g = jSONObject.optInt("force_update");
+            this.f39038h = jSONObject.optInt("min_version");
+            this.f39039i = jSONObject.optInt("abi");
         } catch (JSONException unused) {
         }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getAbi() {
-        return this.f39375i;
+        return this.f39039i;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getApkPath() {
-        return this.f39367a.filePath;
+        return this.f39031a.filePath;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getDependence() {
-        return this.f39370d;
+        return this.f39034d;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getDescription() {
-        return this.f39368b;
+        return this.f39032b;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getDownloadUrl() {
-        return this.f39367a.downloadUrl;
+        return this.f39031a.downloadUrl;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getExt() {
-        return this.f39367a.extraServer;
+        return this.f39031a.extraServer;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getIconUrl() {
-        return this.f39369c;
+        return this.f39033c;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getMd5() {
-        return this.f39367a.md5;
+        return this.f39031a.md5;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getMinVersion() {
-        return this.f39374h;
+        return this.f39038h;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getName() {
-        return this.f39367a.name;
+        return this.f39031a.name;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getPackageName() {
-        return this.f39367a.packageName;
+        return this.f39031a.packageName;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getSignature() {
-        return this.f39367a.sign;
+        return this.f39031a.sign;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -140,7 +140,7 @@ public class a implements IBundleInfo {
     public long getSize() {
         int i2;
         try {
-            i2 = Integer.parseInt(this.f39367a.size);
+            i2 = Integer.parseInt(this.f39031a.size);
         } catch (Exception e2) {
             e2.printStackTrace();
             i2 = 0;
@@ -155,12 +155,12 @@ public class a implements IBundleInfo {
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public long getUpdateV() {
-        return this.f39367a.updateVersion;
+        return this.f39031a.updateVersion;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getVersionCode() {
-        return (int) this.f39367a.version;
+        return (int) this.f39031a.version;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -175,7 +175,7 @@ public class a implements IBundleInfo {
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isForbidden() {
-        return this.f39367a.disable == 1;
+        return this.f39031a.disable == 1;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -185,17 +185,17 @@ public class a implements IBundleInfo {
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isRemovable() {
-        return this.f39372f;
+        return this.f39036f;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isVisible() {
-        return this.f39371e;
+        return this.f39035e;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean needForceUpdate() {
-        return this.f39373g == 1;
+        return this.f39037g == 1;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -204,7 +204,7 @@ public class a implements IBundleInfo {
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setApkPath(String str) {
-        this.f39367a.filePath = str;
+        this.f39031a.filePath = str;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -213,22 +213,22 @@ public class a implements IBundleInfo {
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setDependence(String str) {
-        this.f39368b = str;
+        this.f39032b = str;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setDescription(String str) {
-        this.f39368b = str;
+        this.f39032b = str;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setDownloadUrl(String str) {
-        this.f39367a.downloadUrl = str;
+        this.f39031a.downloadUrl = str;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setExt(String str) {
-        this.f39367a.extraServer = str;
+        this.f39031a.extraServer = str;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -241,12 +241,12 @@ public class a implements IBundleInfo {
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setIconUrl(String str) {
-        this.f39369c = str;
+        this.f39033c = str;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setMd5(String str) {
-        this.f39367a.md5 = str;
+        this.f39031a.md5 = str;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -255,7 +255,7 @@ public class a implements IBundleInfo {
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setName(String str) {
-        this.f39367a.name = str;
+        this.f39031a.name = str;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -264,17 +264,17 @@ public class a implements IBundleInfo {
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setPackageName(String str) {
-        this.f39367a.packageName = str;
+        this.f39031a.packageName = str;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setRemovable(boolean z) {
-        this.f39372f = z;
+        this.f39036f = z;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setSignature(String str) {
-        this.f39367a.sign = str;
+        this.f39031a.sign = str;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -289,7 +289,7 @@ public class a implements IBundleInfo {
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setSize(long j) {
-        PackageInfo packageInfo = this.f39367a;
+        PackageInfo packageInfo = this.f39031a;
         packageInfo.size = j + "";
     }
 
@@ -299,17 +299,17 @@ public class a implements IBundleInfo {
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setUpdateV(long j) {
-        this.f39367a.updateVersion = j;
+        this.f39031a.updateVersion = j;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setVersionCode(int i2) {
-        this.f39367a.version = i2;
+        this.f39031a.version = i2;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setVisible(boolean z) {
-        this.f39371e = z;
+        this.f39035e = z;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo

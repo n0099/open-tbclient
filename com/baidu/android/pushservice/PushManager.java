@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.pushservice.frequency.GetFrequencyListener;
 import com.baidu.android.pushservice.frequency.GetNoDisturbListener;
 import com.baidu.android.pushservice.frequency.UploadDataListener;
@@ -79,7 +80,7 @@ public class PushManager {
     }
 
     public static void enableHuaweiProxy(Context context, boolean z) {
-        PushSettings.f2709c = z ? 1 : 0;
+        PushSettings.f2712c = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", z ? 1 : 0);
     }
 
@@ -87,11 +88,11 @@ public class PushManager {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f.f3065e = str;
+        f.f3068e = str;
         com.baidu.android.pushservice.j.i.a(context, "BD_MEIZU_PROXY_APPID_KEY", str);
-        f.f3066f = str2;
+        f.f3069f = str2;
         com.baidu.android.pushservice.j.i.a(context, "BD_MEIZU_PROXY_APPKEY_KEY", str2);
-        PushSettings.f2710d = z ? 1 : 0;
+        PushSettings.f2713d = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", z ? 1 : 0);
     }
 
@@ -99,29 +100,29 @@ public class PushManager {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f.f3067g = str;
+        f.f3070g = str;
         com.baidu.android.pushservice.j.i.a(context, "BD_OPPO_PROXY_APPKEY_KEY", str);
-        f.f3068h = str2;
+        f.f3071h = str2;
         com.baidu.android.pushservice.j.i.a(context, "BD_OPPO_PROXY_APPSECRET_KEY", str2);
-        PushSettings.f2711e = z ? 1 : 0;
+        PushSettings.f2714e = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableVivoProxy(Context context, boolean z) {
-        PushSettings.f2712f = z ? 1 : 0;
+        PushSettings.f2715f = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableXiaomiProxy(Context context, boolean z, String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
-            f.f3063c = str;
+            f.f3066c = str;
             com.baidu.android.pushservice.j.i.a(context, "BD_PROXY_APPID_KEY", str);
         }
         if (!TextUtils.isEmpty(str2)) {
-            f.f3064d = str2;
+            f.f3067d = str2;
             com.baidu.android.pushservice.j.i.a(context, "BD_PROXY_APPKEY_KEY", str2);
         }
-        PushSettings.f2708b = z ? 1 : 0;
+        PushSettings.f2711b = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", z ? 1 : 0);
     }
 
@@ -149,7 +150,7 @@ public class PushManager {
             return;
         }
         if (context == null) {
-            getNoDisturbListener.onResult(30602, 0, 0);
+            getNoDisturbListener.onResult(IMConstants.ERROR_GROUP_DISBAND, 0, 0);
         } else {
             com.baidu.android.pushservice.frequency.b.a().a(context, "do_not_disturb", getNoDisturbListener);
         }
@@ -253,7 +254,7 @@ public class PushManager {
     public static void setNoDisturbOnline(Context context, int i2, int i3, UploadDataListener uploadDataListener) {
         if (f.a(context, uploadDataListener)) {
             if (i2 > 86400 || i3 > 86400 || i2 < 0 || i3 < 0) {
-                uploadDataListener.onResult(30602);
+                uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
             HashMap<String, Object> hashMap = new HashMap<>();
@@ -293,7 +294,7 @@ public class PushManager {
     public static void setPushFrequency(Context context, int i2, UploadDataListener uploadDataListener) {
         if (f.a(context, uploadDataListener)) {
             if (i2 < 1 || i2 > 3) {
-                uploadDataListener.onResult(30602);
+                uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
             HashMap<String, Object> hashMap = new HashMap<>();
@@ -325,8 +326,8 @@ public class PushManager {
         if (f.m(context)) {
             return;
         }
-        f.f3061a = i2;
-        f.f3062b = str;
+        f.f3064a = i2;
+        f.f3065b = str;
         h.b(context);
         String f2 = m.f(context, str);
         if (TextUtils.isEmpty(f2)) {
@@ -336,7 +337,7 @@ public class PushManager {
         com.baidu.android.pushservice.g.a.a("PushManager", "startWork from " + context.getPackageName() + " checkResult: " + f2, context.getApplicationContext());
         m.a("startWork from " + context.getPackageName() + " checkResult: " + f2, context);
         if ((TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f2) || !PushSettings.e(context)) && i2 == 0) {
-            f.a(context, i2, f.f3062b);
+            f.a(context, i2, f.f3065b);
         } else {
             if (i2 != 0) {
                 Log.e("BDPushSDK-PushManager", "Wrong LOGIN TYPE, Please use LOGIN_TYPE_API_KEY !");
@@ -370,7 +371,7 @@ public class PushManager {
     public static void uploadBduss(Context context, int i2, String str, UploadDataListener uploadDataListener) {
         if (f.a(context, uploadDataListener)) {
             if (i2 < 0 || i2 > 2 || TextUtils.isEmpty(str)) {
-                uploadDataListener.onResult(30602);
+                uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
             HashMap<String, Object> hashMap = new HashMap<>();
@@ -390,7 +391,7 @@ public class PushManager {
     public static void uploadData(Context context, HashMap<String, Object> hashMap, UploadDataListener uploadDataListener) {
         if (f.a(context, uploadDataListener)) {
             if (hashMap == null || hashMap.size() == 0) {
-                uploadDataListener.onResult(30602);
+                uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
             } else {
                 com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
             }
@@ -400,7 +401,7 @@ public class PushManager {
     public static void uploadLocation(Context context, String str, UploadDataListener uploadDataListener) {
         if (f.a(context, uploadDataListener)) {
             if (TextUtils.isEmpty(str)) {
-                uploadDataListener.onResult(30602);
+                uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
             HashMap<String, Object> hashMap = new HashMap<>();
@@ -412,7 +413,7 @@ public class PushManager {
     public static void uploadNotifyStatus(Context context, int i2, UploadDataListener uploadDataListener) {
         if (f.a(context, uploadDataListener)) {
             if (i2 < 0 || i2 > 2) {
-                uploadDataListener.onResult(30602);
+                uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
             HashMap<String, Object> hashMap = new HashMap<>();

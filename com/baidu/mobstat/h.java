@@ -17,7 +17,7 @@ public class h {
             jSONObject.put(Config.CUID_SEC, bw.a(2, context));
             jSONObject.put("w", bw.c(context));
             jSONObject.put("h", bw.d(context));
-            jSONObject.put("ly", ab.f8565c);
+            jSONObject.put("ly", ab.f8465c);
             jSONObject.put("pv", SoUtils.SO_EVENT_ID_DEFAULT);
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);

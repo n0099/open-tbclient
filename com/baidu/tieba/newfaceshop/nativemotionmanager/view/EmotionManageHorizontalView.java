@@ -30,26 +30,26 @@ import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.a.c.e.p.l;
 import d.a.c.e.q.h;
-import d.a.j0.r.s.a;
+import d.a.m0.r.s.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class EmotionManageHorizontalView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public HListView f18736e;
+    public HListView f18650e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f18737f;
+    public TextView f18651f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f18738g;
+    public View f18652g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18739h;
+    public TextView f18653h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f18740i;
+    public View f18654i;
     public ViewGroup j;
     public TextView k;
     public ImageView l;
@@ -79,16 +79,16 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f18742e;
+        public final /* synthetic */ int f18656e;
 
         public b(int i2) {
-            this.f18742e = i2;
+            this.f18656e = i2;
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921311, Integer.valueOf(this.f18742e)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921311, Integer.valueOf(this.f18656e)));
         }
     }
 
@@ -97,8 +97,8 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
         public c() {
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -114,17 +114,17 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
     }
 
     /* loaded from: classes4.dex */
-    public class e implements d.a.k0.y1.e.b {
+    public class e implements d.a.n0.z1.e.b {
         public e() {
         }
 
-        @Override // d.a.k0.y1.e.b
+        @Override // d.a.n0.z1.e.b
         public void a(String str) {
             l.L(EmotionManageHorizontalView.this.q.getPageActivity(), R.string.download_error);
             EmotionManageHorizontalView.this.l();
         }
 
-        @Override // d.a.k0.y1.e.b
+        @Override // d.a.n0.z1.e.b
         public void onProgress(int i2) {
             if (i2 > 0 && i2 < 100) {
                 l.J(EmotionManageHorizontalView.this.q.getPageActivity(), h.a(R.string.package_downloading_progress));
@@ -133,7 +133,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
             }
         }
 
-        @Override // d.a.k0.y1.e.b
+        @Override // d.a.n0.z1.e.b
         public void onSuccess(String str) {
             l.L(EmotionManageHorizontalView.this.q.getPageActivity(), R.string.down_state_success);
             EmotionManageHorizontalView.this.k();
@@ -146,39 +146,39 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
     public static class f extends BaseAdapter {
 
         /* renamed from: f  reason: collision with root package name */
-        public TbPageContext f18748f;
+        public TbPageContext f18662f;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<EmotionPackageData.SingleEmotionData> f18747e = new ArrayList();
+        public List<EmotionPackageData.SingleEmotionData> f18661e = new ArrayList();
 
         /* renamed from: g  reason: collision with root package name */
-        public int f18749g = 0;
+        public int f18663g = 0;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f18750h = false;
+        public boolean f18664h = false;
 
         /* loaded from: classes4.dex */
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public View f18751a;
+            public View f18665a;
 
             /* renamed from: b  reason: collision with root package name */
-            public TbImageView f18752b;
+            public TbImageView f18666b;
 
             /* renamed from: c  reason: collision with root package name */
-            public TextView f18753c;
+            public TextView f18667c;
 
             /* renamed from: d  reason: collision with root package name */
-            public View f18754d;
+            public View f18668d;
 
             public a(View view) {
-                this.f18751a = view;
+                this.f18665a = view;
                 view.setEnabled(false);
-                this.f18752b = (TbImageView) this.f18751a.findViewById(R.id.emotion_img);
-                this.f18753c = (TextView) this.f18751a.findViewById(R.id.emotion_single_bar_icon);
-                View findViewById = this.f18751a.findViewById(R.id.emotion_cover_view);
-                this.f18754d = findViewById;
+                this.f18666b = (TbImageView) this.f18665a.findViewById(R.id.emotion_img);
+                this.f18667c = (TextView) this.f18665a.findViewById(R.id.emotion_single_bar_icon);
+                View findViewById = this.f18665a.findViewById(R.id.emotion_cover_view);
+                this.f18668d = findViewById;
                 findViewById.setVisibility(8);
             }
 
@@ -187,55 +187,55 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
                     return;
                 }
                 if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                    this.f18752b.setDefaultResource(R.drawable.img_default_100);
-                    this.f18752b.V(singleEmotionData.thumbnail, 10, false);
+                    this.f18666b.setDefaultResource(R.drawable.img_default_100);
+                    this.f18666b.V(singleEmotionData.thumbnail, 10, false);
                 }
                 if (i3 == 0) {
                     if (i2 == 0) {
-                        this.f18753c.setVisibility(8);
+                        this.f18667c.setVisibility(8);
                     }
                     if (i2 == 1) {
-                        this.f18753c.setVisibility(0);
-                        SkinManager.setBackgroundResource(this.f18753c, R.drawable.emotion_pic_mine);
+                        this.f18667c.setVisibility(0);
+                        SkinManager.setBackgroundResource(this.f18667c, R.drawable.emotion_pic_mine);
                     }
                     if (i2 == 2) {
-                        this.f18753c.setVisibility(0);
-                        SkinManager.setBackgroundResource(this.f18753c, R.drawable.emotion_pic_single_bar);
+                        this.f18667c.setVisibility(0);
+                        SkinManager.setBackgroundResource(this.f18667c, R.drawable.emotion_pic_single_bar);
                     }
                 } else {
-                    this.f18753c.setVisibility(8);
+                    this.f18667c.setVisibility(8);
                 }
                 if (i3 == 7 && z) {
-                    this.f18754d.setVisibility(0);
+                    this.f18668d.setVisibility(0);
                 } else {
-                    this.f18754d.setVisibility(8);
+                    this.f18668d.setVisibility(8);
                 }
             }
         }
 
         public f(TbPageContext tbPageContext) {
-            this.f18748f = tbPageContext;
+            this.f18662f = tbPageContext;
         }
 
         public void a(List<EmotionPackageData.SingleEmotionData> list, int i2) {
             if (ListUtils.isEmpty(list)) {
                 return;
             }
-            this.f18749g = i2;
-            this.f18747e.clear();
+            this.f18663g = i2;
+            this.f18661e.clear();
             if (list.size() > 8) {
-                this.f18747e.addAll(list.subList(0, 8));
-                this.f18750h = true;
+                this.f18661e.addAll(list.subList(0, 8));
+                this.f18664h = true;
             } else {
-                this.f18747e.addAll(list);
-                this.f18750h = false;
+                this.f18661e.addAll(list);
+                this.f18664h = false;
             }
             notifyDataSetChanged();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            List<EmotionPackageData.SingleEmotionData> list = this.f18747e;
+            List<EmotionPackageData.SingleEmotionData> list = this.f18661e;
             if (list == null) {
                 return 0;
             }
@@ -244,7 +244,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
 
         @Override // android.widget.Adapter
         public Object getItem(int i2) {
-            List<EmotionPackageData.SingleEmotionData> list = this.f18747e;
+            List<EmotionPackageData.SingleEmotionData> list = this.f18661e;
             if (list == null) {
                 return null;
             }
@@ -260,13 +260,13 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
         public View getView(int i2, View view, ViewGroup viewGroup) {
             a aVar;
             if (view == null) {
-                view = LayoutInflater.from(this.f18748f.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
+                view = LayoutInflater.from(this.f18662f.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
                 aVar = new a(view);
                 view.setTag(aVar);
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.a(this.f18747e.get(i2), this.f18749g, this.f18750h, i2);
+            aVar.a(this.f18661e.get(i2), this.f18663g, this.f18664h, i2);
             return view;
         }
     }
@@ -282,10 +282,10 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
             return;
         }
         if (emotionPackageData.isUndownloadheader) {
-            this.f18738g.setVisibility(0);
-            this.f18739h.setText(String.format(h.a(R.string.emotion_manage_net_number), Integer.valueOf(i2)));
+            this.f18652g.setVisibility(0);
+            this.f18653h.setText(String.format(h.a(R.string.emotion_manage_net_number), Integer.valueOf(i2)));
         } else {
-            this.f18738g.setVisibility(8);
+            this.f18652g.setVisibility(8);
         }
         l();
     }
@@ -297,7 +297,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
     public final void g() {
         EmotionPackageData emotionPackageData;
         if (ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
-            if (d.a.k0.y1.d.m().o()) {
+            if (d.a.n0.z1.d.m().o()) {
                 l.L(this.q.getPageActivity(), R.string.face_group_is_syncing);
                 return;
             }
@@ -319,21 +319,21 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
     }
 
     public HListView getListView() {
-        return this.f18736e;
+        return this.f18650e;
     }
 
     public final void h() {
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.emotion_manage_grid_item_layout, this);
         this.j = viewGroup;
-        this.f18736e = (HListView) viewGroup.findViewById(R.id.emotion_manage_item_grid);
+        this.f18650e = (HListView) viewGroup.findViewById(R.id.emotion_manage_item_grid);
         this.m = this.j.findViewById(R.id.emotion_manage_item_line);
-        this.f18737f = (TextView) this.j.findViewById(R.id.emotion_manage_title);
+        this.f18651f = (TextView) this.j.findViewById(R.id.emotion_manage_title);
         View findViewById = this.j.findViewById(R.id.emotion_manage_item_undownload_header);
-        this.f18738g = findViewById;
+        this.f18652g = findViewById;
         findViewById.setVisibility(8);
-        this.f18739h = (TextView) this.j.findViewById(R.id.emotion_manage_undownload_total_title);
+        this.f18653h = (TextView) this.j.findViewById(R.id.emotion_manage_undownload_total_title);
         View findViewById2 = this.j.findViewById(R.id.emotion_manage_item_grid_cover);
-        this.f18740i = findViewById2;
+        this.f18654i = findViewById2;
         findViewById2.setVisibility(8);
         TextView textView = (TextView) this.j.findViewById(R.id.emotion_manage_download);
         this.k = textView;
@@ -347,12 +347,12 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
         this.n = findViewById3;
         findViewById3.setOnClickListener(this);
         setOnClickListener(this);
-        this.f18736e.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
-        this.f18736e.setOnItemClickListener(new a());
-        this.f18736e.setSelector(this.q.getResources().getDrawable(R.drawable.transparent_bg));
+        this.f18650e.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
+        this.f18650e.setOnItemClickListener(new a());
+        this.f18650e.setSelector(this.q.getResources().getDrawable(R.drawable.transparent_bg));
         f fVar = new f(this.q);
         this.o = fVar;
-        this.f18736e.setAdapter((ListAdapter) fVar);
+        this.f18650e.setAdapter((ListAdapter) fVar);
         i(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -365,15 +365,15 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
         if (view != null) {
             SkinManager.setBackgroundColor(view, R.color.CAM_X0204, i2);
         }
-        View view2 = this.f18738g;
+        View view2 = this.f18652g;
         if (view2 != null) {
             SkinManager.setBackgroundColor(view2, R.color.CAM_X0204, i2);
         }
-        TextView textView = this.f18737f;
+        TextView textView = this.f18651f;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105, i2);
         }
-        TextView textView2 = this.f18739h;
+        TextView textView2 = this.f18653h;
         if (textView2 != null) {
             SkinManager.setViewTextColor(textView2, R.color.CAM_X0107, i2);
         }
@@ -386,7 +386,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
         if (imageView != null) {
             SkinManager.setImageResource(imageView, R.drawable.emotion_manage_del_selector, i2);
         }
-        View view3 = this.f18740i;
+        View view3 = this.f18654i;
         if (view3 != null) {
             SkinManager.setViewTextColor(view3, R.color.white_alpha70, i2);
         }
@@ -399,7 +399,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
         String a2 = h.a(R.string.emotion_manage_dialog_title);
         String a3 = h.a(R.string.emotion_manage_dialog_ok);
         String a4 = h.a(R.string.emotion_manage_dialog_cancel);
-        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(this.q.getPageActivity());
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.q.getPageActivity());
         aVar.setMessage(a2);
         aVar.setPositiveButton(a3, new b(i2));
         aVar.setNegativeButton(a4, new c());
@@ -452,11 +452,11 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
             return;
         }
         this.o.a(emotionPackageData.pics, emotionPackageData.typeofemotion);
-        this.f18737f.setText(this.p.name);
+        this.f18651f.setText(this.p.name);
         if (emotionPackageData.ishasdownload) {
-            this.f18740i.setVisibility(8);
+            this.f18654i.setVisibility(8);
             this.k.setVisibility(8);
-            if (d.a.k0.y1.h.a.b().a()) {
+            if (d.a.n0.z1.h.a.b().a()) {
                 this.l.setVisibility(0);
             } else {
                 this.l.setVisibility(8);
@@ -464,7 +464,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
         } else {
             this.l.setVisibility(8);
             this.k.setVisibility(0);
-            this.f18740i.setVisibility(0);
+            this.f18654i.setVisibility(0);
         }
         e(emotionPackageData, i2);
     }

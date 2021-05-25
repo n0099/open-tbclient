@@ -39,22 +39,22 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f36075a = new Handler(Looper.getMainLooper());
+    public static Handler f36004a = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes7.dex */
     public static class a implements d.o.a.e.b.f.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ag f36120a;
+        public final /* synthetic */ ag f36049a;
 
         public a(ag agVar) {
-            this.f36120a = agVar;
+            this.f36049a = agVar;
         }
 
         @Override // d.o.a.e.b.f.i
         public boolean a(DownloadInfo downloadInfo) {
             try {
-                return this.f36120a.a(downloadInfo);
+                return this.f36049a.a(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -64,7 +64,7 @@ public class f {
         @Override // d.o.a.e.b.f.i
         public boolean b(DownloadInfo downloadInfo) {
             try {
-                return this.f36120a.b(downloadInfo);
+                return this.f36049a.b(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -74,7 +74,7 @@ public class f {
         @Override // d.o.a.e.b.f.i
         public boolean c(DownloadInfo downloadInfo) {
             try {
-                return this.f36120a.c(downloadInfo);
+                return this.f36049a.c(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -86,16 +86,16 @@ public class f {
     public static class b implements d.o.a.e.b.g.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.e f36121a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.e f36050a;
 
         public b(com.ss.android.socialbase.downloader.depend.e eVar) {
-            this.f36121a = eVar;
+            this.f36050a = eVar;
         }
 
         @Override // d.o.a.e.b.g.i
         public int a(long j) {
             try {
-                return this.f36121a.a(j);
+                return this.f36050a.a(j);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return 0;
@@ -107,10 +107,10 @@ public class f {
     public static class c implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.f f36122a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.f f36051a;
 
         public c(com.ss.android.socialbase.downloader.depend.f fVar) {
-            this.f36122a = fVar;
+            this.f36051a = fVar;
         }
 
         @Override // d.o.a.e.b.f.q
@@ -119,7 +119,7 @@ public class f {
                 return;
             }
             try {
-                this.f36122a.a(downloadInfo, baseException, i2);
+                this.f36051a.a(downloadInfo, baseException, i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -130,16 +130,16 @@ public class f {
     public static class e implements w {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ v f36124a;
+        public final /* synthetic */ v f36053a;
 
         public e(v vVar) {
-            this.f36124a = vVar;
+            this.f36053a = vVar;
         }
 
         @Override // d.o.a.e.b.f.w
         public boolean a(d.o.a.e.b.f.v vVar) {
             try {
-                return this.f36124a.a(f.x(vVar));
+                return this.f36053a.a(f.x(vVar));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -149,19 +149,19 @@ public class f {
 
     /* renamed from: com.ss.android.socialbase.downloader.i.f$f  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0448f implements d.o.a.e.b.f.k {
+    public static class C0449f implements d.o.a.e.b.f.k {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ak f36125a;
+        public final /* synthetic */ ak f36054a;
 
-        public C0448f(ak akVar) {
-            this.f36125a = akVar;
+        public C0449f(ak akVar) {
+            this.f36054a = akVar;
         }
 
         @Override // d.o.a.e.b.f.k
         public void a(int i2, int i3) {
             try {
-                this.f36125a.a(i2, i3);
+                this.f36054a.a(i2, i3);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -172,16 +172,16 @@ public class f {
     public static class g implements s {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ p f36126a;
+        public final /* synthetic */ p f36055a;
 
         public g(p pVar) {
-            this.f36126a = pVar;
+            this.f36055a = pVar;
         }
 
         @Override // d.o.a.e.b.f.s
         public boolean a(long j, long j2, r rVar) {
             try {
-                return this.f36126a.a(j, j2, f.s(rVar));
+                return this.f36055a.a(j, j2, f.s(rVar));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -193,16 +193,16 @@ public class f {
     public static class h implements d.o.a.e.b.g.r {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ai f36127a;
+        public final /* synthetic */ ai f36056a;
 
         public h(ai aiVar) {
-            this.f36127a = aiVar;
+            this.f36056a = aiVar;
         }
 
         @Override // d.o.a.e.b.g.r
         public long a(int i2, int i3) {
             try {
-                return this.f36127a.a(i2, i3);
+                return this.f36056a.a(i2, i3);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return 0L;
@@ -214,16 +214,16 @@ public class f {
     public static class i implements x {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.h f36128a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.h f36057a;
 
         public i(com.ss.android.socialbase.downloader.depend.h hVar) {
-            this.f36128a = hVar;
+            this.f36057a = hVar;
         }
 
         @Override // d.o.a.e.b.f.x
         public boolean a() {
             try {
-                return this.f36128a.a();
+                return this.f36057a.a();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -235,16 +235,16 @@ public class f {
     public static class j implements u {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.g f36129a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.g f36058a;
 
         public j(com.ss.android.socialbase.downloader.depend.g gVar) {
-            this.f36129a = gVar;
+            this.f36058a = gVar;
         }
 
         @Override // d.o.a.e.b.f.u
         public Uri a(String str, String str2) {
             try {
-                return this.f36129a.a(str, str2);
+                return this.f36058a.a(str, str2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -256,16 +256,16 @@ public class f {
     public static class k implements t {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.i f36130a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.i f36059a;
 
         public k(com.ss.android.socialbase.downloader.depend.i iVar) {
-            this.f36130a = iVar;
+            this.f36059a = iVar;
         }
 
         @Override // d.o.a.e.b.f.t
         public void a(DownloadInfo downloadInfo) {
             try {
-                this.f36130a.i(downloadInfo);
+                this.f36059a.i(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -274,7 +274,7 @@ public class f {
         @Override // d.o.a.e.b.f.b
         public void b(DownloadInfo downloadInfo) {
             try {
-                this.f36130a.d(downloadInfo);
+                this.f36059a.d(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -283,7 +283,7 @@ public class f {
         @Override // d.o.a.e.b.f.b
         public void c(DownloadInfo downloadInfo) {
             try {
-                this.f36130a.b(downloadInfo);
+                this.f36059a.b(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -292,7 +292,7 @@ public class f {
         @Override // d.o.a.e.b.f.b
         public void d(DownloadInfo downloadInfo) {
             try {
-                this.f36130a.g(downloadInfo);
+                this.f36059a.g(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -301,7 +301,7 @@ public class f {
         @Override // d.o.a.e.b.f.b
         public void e(DownloadInfo downloadInfo) {
             try {
-                this.f36130a.f(downloadInfo);
+                this.f36059a.f(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -310,7 +310,7 @@ public class f {
         @Override // d.o.a.e.b.f.b
         public void f(DownloadInfo downloadInfo) {
             try {
-                this.f36130a.e(downloadInfo);
+                this.f36059a.e(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -319,7 +319,7 @@ public class f {
         @Override // d.o.a.e.b.f.b
         public void g(DownloadInfo downloadInfo) {
             try {
-                this.f36130a.c(downloadInfo);
+                this.f36059a.c(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -328,7 +328,7 @@ public class f {
         @Override // d.o.a.e.b.f.b
         public void h(DownloadInfo downloadInfo, BaseException baseException) {
             try {
-                this.f36130a.a(downloadInfo, baseException);
+                this.f36059a.a(downloadInfo, baseException);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -337,7 +337,7 @@ public class f {
         @Override // d.o.a.e.b.f.b
         public void i(DownloadInfo downloadInfo, BaseException baseException) {
             try {
-                this.f36130a.b(downloadInfo, baseException);
+                this.f36059a.b(downloadInfo, baseException);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -346,7 +346,7 @@ public class f {
         @Override // d.o.a.e.b.f.b
         public void j(DownloadInfo downloadInfo, BaseException baseException) {
             try {
-                this.f36130a.c(downloadInfo, baseException);
+                this.f36059a.c(downloadInfo, baseException);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -355,7 +355,7 @@ public class f {
         @Override // d.o.a.e.b.f.b
         public void k(DownloadInfo downloadInfo) {
             try {
-                this.f36130a.h(downloadInfo);
+                this.f36059a.h(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -364,7 +364,7 @@ public class f {
         @Override // d.o.a.e.b.f.b
         public void l(DownloadInfo downloadInfo) {
             try {
-                this.f36130a.a(downloadInfo);
+                this.f36059a.a(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -375,16 +375,16 @@ public class f {
     public static class l implements r {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.o f36131a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.o f36060a;
 
         public l(com.ss.android.socialbase.downloader.depend.o oVar) {
-            this.f36131a = oVar;
+            this.f36060a = oVar;
         }
 
         @Override // d.o.a.e.b.f.r
         public void a() {
             try {
-                this.f36131a.a();
+                this.f36060a.a();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -395,16 +395,16 @@ public class f {
     public static class o implements d.o.a.e.b.f.p {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.l f36134a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.l f36063a;
 
         public o(com.ss.android.socialbase.downloader.depend.l lVar) {
-            this.f36134a = lVar;
+            this.f36063a = lVar;
         }
 
         @Override // d.o.a.e.b.f.p
         public void a(DownloadInfo downloadInfo) throws BaseException {
             try {
-                this.f36134a.a(downloadInfo);
+                this.f36063a.a(downloadInfo);
             } catch (RemoteException e2) {
                 throw new BaseException(1008, e2);
             }
@@ -413,7 +413,7 @@ public class f {
         @Override // d.o.a.e.b.f.p
         public boolean b(DownloadInfo downloadInfo) {
             try {
-                return this.f36134a.b(downloadInfo);
+                return this.f36063a.b(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -499,7 +499,7 @@ public class f {
         if (aVar == null) {
             return null;
         }
-        return new a.AbstractBinderC0449a() { // from class: com.ss.android.socialbase.downloader.i.f.1
+        return new a.AbstractBinderC0450a() { // from class: com.ss.android.socialbase.downloader.i.f.1
             @Override // com.ss.android.socialbase.downloader.model.a
             public DownloadInfo a() throws RemoteException {
                 return d.o.a.e.b.n.a.this.H();
@@ -695,7 +695,7 @@ public class f {
         if (akVar == null) {
             return null;
         }
-        return new C0448f(akVar);
+        return new C0449f(akVar);
     }
 
     public static com.ss.android.socialbase.downloader.depend.e j(final d.o.a.e.b.g.i iVar) {
@@ -757,15 +757,15 @@ public class f {
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f36079e;
+                public final /* synthetic */ DownloadInfo f36008e;
 
                 public a(DownloadInfo downloadInfo) {
-                    this.f36079e = downloadInfo;
+                    this.f36008e = downloadInfo;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.o.a.e.b.f.b.this.e(this.f36079e);
+                    d.o.a.e.b.f.b.this.e(this.f36008e);
                 }
             }
 
@@ -774,15 +774,15 @@ public class f {
             public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f36081e;
+                public final /* synthetic */ DownloadInfo f36010e;
 
                 public b(DownloadInfo downloadInfo) {
-                    this.f36081e = downloadInfo;
+                    this.f36010e = downloadInfo;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.o.a.e.b.f.b.this.d(this.f36081e);
+                    d.o.a.e.b.f.b.this.d(this.f36010e);
                 }
             }
 
@@ -791,15 +791,15 @@ public class f {
             public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f36083e;
+                public final /* synthetic */ DownloadInfo f36012e;
 
                 public c(DownloadInfo downloadInfo) {
-                    this.f36083e = downloadInfo;
+                    this.f36012e = downloadInfo;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.o.a.e.b.f.b.this.k(this.f36083e);
+                    d.o.a.e.b.f.b.this.k(this.f36012e);
                 }
             }
 
@@ -808,15 +808,15 @@ public class f {
             public class d implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f36085e;
+                public final /* synthetic */ DownloadInfo f36014e;
 
                 public d(DownloadInfo downloadInfo) {
-                    this.f36085e = downloadInfo;
+                    this.f36014e = downloadInfo;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.o.a.e.b.f.b.this.l(this.f36085e);
+                    d.o.a.e.b.f.b.this.l(this.f36014e);
                 }
             }
 
@@ -825,40 +825,40 @@ public class f {
             public class e implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f36087e;
+                public final /* synthetic */ DownloadInfo f36016e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ BaseException f36088f;
+                public final /* synthetic */ BaseException f36017f;
 
                 public e(DownloadInfo downloadInfo, BaseException baseException) {
-                    this.f36087e = downloadInfo;
-                    this.f36088f = baseException;
+                    this.f36016e = downloadInfo;
+                    this.f36017f = baseException;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.o.a.e.b.f.b.this.i(this.f36087e, this.f36088f);
+                    d.o.a.e.b.f.b.this.i(this.f36016e, this.f36017f);
                 }
             }
 
             /* renamed from: com.ss.android.socialbase.downloader.i.f$12$f  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0447f implements Runnable {
+            public class RunnableC0448f implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f36090e;
+                public final /* synthetic */ DownloadInfo f36019e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ BaseException f36091f;
+                public final /* synthetic */ BaseException f36020f;
 
-                public RunnableC0447f(DownloadInfo downloadInfo, BaseException baseException) {
-                    this.f36090e = downloadInfo;
-                    this.f36091f = baseException;
+                public RunnableC0448f(DownloadInfo downloadInfo, BaseException baseException) {
+                    this.f36019e = downloadInfo;
+                    this.f36020f = baseException;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.o.a.e.b.f.b.this.j(this.f36090e, this.f36091f);
+                    d.o.a.e.b.f.b.this.j(this.f36019e, this.f36020f);
                 }
             }
 
@@ -867,15 +867,15 @@ public class f {
             public class g implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f36093e;
+                public final /* synthetic */ DownloadInfo f36022e;
 
                 public g(DownloadInfo downloadInfo) {
-                    this.f36093e = downloadInfo;
+                    this.f36022e = downloadInfo;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    ((t) d.o.a.e.b.f.b.this).a(this.f36093e);
+                    ((t) d.o.a.e.b.f.b.this).a(this.f36022e);
                 }
             }
 
@@ -884,15 +884,15 @@ public class f {
             public class h implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f36095e;
+                public final /* synthetic */ DownloadInfo f36024e;
 
                 public h(DownloadInfo downloadInfo) {
-                    this.f36095e = downloadInfo;
+                    this.f36024e = downloadInfo;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.o.a.e.b.f.b.this.c(this.f36095e);
+                    d.o.a.e.b.f.b.this.c(this.f36024e);
                 }
             }
 
@@ -901,15 +901,15 @@ public class f {
             public class i implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f36097e;
+                public final /* synthetic */ DownloadInfo f36026e;
 
                 public i(DownloadInfo downloadInfo) {
-                    this.f36097e = downloadInfo;
+                    this.f36026e = downloadInfo;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.o.a.e.b.f.b.this.g(this.f36097e);
+                    d.o.a.e.b.f.b.this.g(this.f36026e);
                 }
             }
 
@@ -918,15 +918,15 @@ public class f {
             public class j implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f36099e;
+                public final /* synthetic */ DownloadInfo f36028e;
 
                 public j(DownloadInfo downloadInfo) {
-                    this.f36099e = downloadInfo;
+                    this.f36028e = downloadInfo;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.o.a.e.b.f.b.this.b(this.f36099e);
+                    d.o.a.e.b.f.b.this.b(this.f36028e);
                 }
             }
 
@@ -935,15 +935,15 @@ public class f {
             public class k implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f36101e;
+                public final /* synthetic */ DownloadInfo f36030e;
 
                 public k(DownloadInfo downloadInfo) {
-                    this.f36101e = downloadInfo;
+                    this.f36030e = downloadInfo;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.o.a.e.b.f.b.this.f(this.f36101e);
+                    d.o.a.e.b.f.b.this.f(this.f36030e);
                 }
             }
 
@@ -952,19 +952,19 @@ public class f {
             public class l implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f36103e;
+                public final /* synthetic */ DownloadInfo f36032e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ BaseException f36104f;
+                public final /* synthetic */ BaseException f36033f;
 
                 public l(DownloadInfo downloadInfo, BaseException baseException) {
-                    this.f36103e = downloadInfo;
-                    this.f36104f = baseException;
+                    this.f36032e = downloadInfo;
+                    this.f36033f = baseException;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.o.a.e.b.f.b.this.h(this.f36103e, this.f36104f);
+                    d.o.a.e.b.f.b.this.h(this.f36032e, this.f36033f);
                 }
             }
 
@@ -976,7 +976,7 @@ public class f {
             @Override // com.ss.android.socialbase.downloader.depend.i
             public void b(DownloadInfo downloadInfo) throws RemoteException {
                 if (z) {
-                    f.f36075a.post(new h(downloadInfo));
+                    f.f36004a.post(new h(downloadInfo));
                 } else {
                     d.o.a.e.b.f.b.this.c(downloadInfo);
                 }
@@ -985,7 +985,7 @@ public class f {
             @Override // com.ss.android.socialbase.downloader.depend.i
             public void c(DownloadInfo downloadInfo) throws RemoteException {
                 if (z) {
-                    f.f36075a.post(new i(downloadInfo));
+                    f.f36004a.post(new i(downloadInfo));
                 } else {
                     d.o.a.e.b.f.b.this.g(downloadInfo);
                 }
@@ -994,7 +994,7 @@ public class f {
             @Override // com.ss.android.socialbase.downloader.depend.i
             public void d(DownloadInfo downloadInfo) throws RemoteException {
                 if (z) {
-                    f.f36075a.post(new j(downloadInfo));
+                    f.f36004a.post(new j(downloadInfo));
                 } else {
                     d.o.a.e.b.f.b.this.b(downloadInfo);
                 }
@@ -1003,7 +1003,7 @@ public class f {
             @Override // com.ss.android.socialbase.downloader.depend.i
             public void e(DownloadInfo downloadInfo) throws RemoteException {
                 if (z) {
-                    f.f36075a.post(new k(downloadInfo));
+                    f.f36004a.post(new k(downloadInfo));
                 } else {
                     d.o.a.e.b.f.b.this.f(downloadInfo);
                 }
@@ -1012,7 +1012,7 @@ public class f {
             @Override // com.ss.android.socialbase.downloader.depend.i
             public void f(DownloadInfo downloadInfo) throws RemoteException {
                 if (z) {
-                    f.f36075a.post(new a(downloadInfo));
+                    f.f36004a.post(new a(downloadInfo));
                 } else {
                     d.o.a.e.b.f.b.this.e(downloadInfo);
                 }
@@ -1021,7 +1021,7 @@ public class f {
             @Override // com.ss.android.socialbase.downloader.depend.i
             public void g(DownloadInfo downloadInfo) throws RemoteException {
                 if (z) {
-                    f.f36075a.post(new b(downloadInfo));
+                    f.f36004a.post(new b(downloadInfo));
                 } else {
                     d.o.a.e.b.f.b.this.d(downloadInfo);
                 }
@@ -1030,7 +1030,7 @@ public class f {
             @Override // com.ss.android.socialbase.downloader.depend.i
             public void h(DownloadInfo downloadInfo) throws RemoteException {
                 if (z) {
-                    f.f36075a.post(new c(downloadInfo));
+                    f.f36004a.post(new c(downloadInfo));
                 } else {
                     d.o.a.e.b.f.b.this.k(downloadInfo);
                 }
@@ -1041,7 +1041,7 @@ public class f {
                 d.o.a.e.b.f.b bVar2 = d.o.a.e.b.f.b.this;
                 if (bVar2 instanceof t) {
                     if (z) {
-                        f.f36075a.post(new g(downloadInfo));
+                        f.f36004a.post(new g(downloadInfo));
                     } else {
                         ((t) bVar2).a(downloadInfo);
                     }
@@ -1051,7 +1051,7 @@ public class f {
             @Override // com.ss.android.socialbase.downloader.depend.i
             public void a(DownloadInfo downloadInfo) throws RemoteException {
                 if (z) {
-                    f.f36075a.post(new d(downloadInfo));
+                    f.f36004a.post(new d(downloadInfo));
                 } else {
                     d.o.a.e.b.f.b.this.l(downloadInfo);
                 }
@@ -1060,7 +1060,7 @@ public class f {
             @Override // com.ss.android.socialbase.downloader.depend.i
             public void b(DownloadInfo downloadInfo, BaseException baseException) throws RemoteException {
                 if (z) {
-                    f.f36075a.post(new e(downloadInfo, baseException));
+                    f.f36004a.post(new e(downloadInfo, baseException));
                 } else {
                     d.o.a.e.b.f.b.this.i(downloadInfo, baseException);
                 }
@@ -1069,7 +1069,7 @@ public class f {
             @Override // com.ss.android.socialbase.downloader.depend.i
             public void c(DownloadInfo downloadInfo, BaseException baseException) throws RemoteException {
                 if (z) {
-                    f.f36075a.post(new RunnableC0447f(downloadInfo, baseException));
+                    f.f36004a.post(new RunnableC0448f(downloadInfo, baseException));
                 } else {
                     d.o.a.e.b.f.b.this.j(downloadInfo, baseException);
                 }
@@ -1078,7 +1078,7 @@ public class f {
             @Override // com.ss.android.socialbase.downloader.depend.i
             public void a(DownloadInfo downloadInfo, BaseException baseException) throws RemoteException {
                 if (z) {
-                    f.f36075a.post(new l(downloadInfo, baseException));
+                    f.f36004a.post(new l(downloadInfo, baseException));
                 } else {
                     d.o.a.e.b.f.b.this.h(downloadInfo, baseException);
                 }
@@ -1239,10 +1239,10 @@ public class f {
     public static class d extends d.o.a.e.b.f.m {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.j f36123a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.j f36052a;
 
         public d(com.ss.android.socialbase.downloader.depend.j jVar) {
-            this.f36123a = jVar;
+            this.f36052a = jVar;
         }
 
         @Override // d.o.a.e.b.f.y
@@ -1251,7 +1251,7 @@ public class f {
                 return;
             }
             try {
-                this.f36123a.a(jSONObject.toString());
+                this.f36052a.a(jSONObject.toString());
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -1260,7 +1260,7 @@ public class f {
         @Override // d.o.a.e.b.f.y
         public String b() {
             try {
-                return this.f36123a.a();
+                return this.f36052a.a();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return "";
@@ -1270,7 +1270,7 @@ public class f {
         @Override // d.o.a.e.b.f.m
         public int[] a() {
             try {
-                return this.f36123a.b();
+                return this.f36052a.b();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -1282,16 +1282,16 @@ public class f {
     public static class m implements d.o.a.e.b.f.v {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.u f36132a;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.depend.u f36061a;
 
         public m(com.ss.android.socialbase.downloader.depend.u uVar) {
-            this.f36132a = uVar;
+            this.f36061a = uVar;
         }
 
         @Override // d.o.a.e.b.f.v
         public void a(List<String> list) {
             try {
-                this.f36132a.a(list);
+                this.f36061a.a(list);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -1300,7 +1300,7 @@ public class f {
         @Override // d.o.a.e.b.f.v
         public boolean a() {
             try {
-                return this.f36132a.a();
+                return this.f36061a.a();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -1312,16 +1312,16 @@ public class f {
     public static class n implements d.o.a.e.b.f.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ aa f36133a;
+        public final /* synthetic */ aa f36062a;
 
         public n(aa aaVar) {
-            this.f36133a = aaVar;
+            this.f36062a = aaVar;
         }
 
         @Override // d.o.a.e.b.f.d
         public void a(int i2, DownloadInfo downloadInfo, String str, String str2) {
             try {
-                this.f36133a.a(i2, downloadInfo, str, str2);
+                this.f36062a.a(i2, downloadInfo, str, str2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -1330,7 +1330,7 @@ public class f {
         @Override // d.o.a.e.b.f.d
         public boolean a(boolean z) {
             try {
-                return this.f36133a.a(z);
+                return this.f36062a.a(z);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -1340,7 +1340,7 @@ public class f {
         @Override // d.o.a.e.b.f.d
         public String a() {
             try {
-                return this.f36133a.a();
+                return this.f36062a.a();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;

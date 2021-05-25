@@ -9,25 +9,25 @@ import d.b.b.c;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f30309a = "";
+    public static volatile String f30238a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f30310b = false;
+    public static volatile boolean f30239b = false;
 
     static {
         try {
-            if (TextUtils.isEmpty(f30309a)) {
-                f30309a = com.bytedance.sdk.openadsdk.core.d.a(com.bytedance.sdk.openadsdk.core.p.a()).b("oaid", "");
+            if (TextUtils.isEmpty(f30238a)) {
+                f30238a = com.bytedance.sdk.openadsdk.core.d.a(com.bytedance.sdk.openadsdk.core.p.a()).b("oaid", "");
             }
         } catch (Throwable unused) {
         }
     }
 
     public static void c() {
-        if (TextUtils.isEmpty(f30309a)) {
+        if (TextUtils.isEmpty(f30238a)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.core.i.a("sdk_app_log_oaid", f30309a);
+        com.bytedance.sdk.openadsdk.core.i.a("sdk_app_log_oaid", f30238a);
     }
 
     public static void a(Context context) {
@@ -36,11 +36,11 @@ public class y {
                 @Override // d.b.b.c
                 public void onOaidLoaded(@NonNull c.a aVar) {
                     try {
-                        if (TextUtils.isEmpty(aVar.f64941a)) {
+                        if (TextUtils.isEmpty(aVar.f64984a)) {
                             return;
                         }
-                        boolean unused = y.f30310b = true;
-                        String unused2 = y.f30309a = aVar.f64941a;
+                        boolean unused = y.f30239b = true;
+                        String unused2 = y.f30238a = aVar.f64984a;
                         y.c();
                     } catch (Throwable unused3) {
                     }
@@ -52,13 +52,13 @@ public class y {
 
     public static String a() {
         TTCustomController e2;
-        if (TextUtils.isEmpty(f30309a)) {
-            f30309a = com.bytedance.sdk.openadsdk.core.i.a("sdk_app_log_oaid", 86400000L);
+        if (TextUtils.isEmpty(f30238a)) {
+            f30238a = com.bytedance.sdk.openadsdk.core.i.a("sdk_app_log_oaid", 86400000L);
         }
-        if (TextUtils.isEmpty(f30309a) && !f30310b && (e2 = com.bytedance.sdk.openadsdk.core.i.d().e()) != null && !TextUtils.isEmpty(e2.getDevOaid())) {
-            f30309a = e2.getDevOaid();
+        if (TextUtils.isEmpty(f30238a) && !f30239b && (e2 = com.bytedance.sdk.openadsdk.core.i.d().e()) != null && !TextUtils.isEmpty(e2.getDevOaid())) {
+            f30238a = e2.getDevOaid();
             c();
         }
-        return f30309a == null ? "" : f30309a;
+        return f30238a == null ? "" : f30238a;
     }
 }

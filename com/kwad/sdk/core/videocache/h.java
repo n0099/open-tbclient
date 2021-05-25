@@ -12,31 +12,31 @@ import java.util.Map;
 public class h implements m {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.d.b f32821a;
+    public final com.kwad.sdk.core.videocache.d.b f32750a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.b.b f32822b;
+    public final com.kwad.sdk.core.videocache.b.b f32751b;
 
     /* renamed from: c  reason: collision with root package name */
-    public n f32823c;
+    public n f32752c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpURLConnection f32824d;
+    public HttpURLConnection f32753d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InputStream f32825e;
+    public InputStream f32754e;
 
     public h(h hVar) {
-        this.f32823c = hVar.f32823c;
-        this.f32821a = hVar.f32821a;
-        this.f32822b = hVar.f32822b;
+        this.f32752c = hVar.f32752c;
+        this.f32750a = hVar.f32750a;
+        this.f32751b = hVar.f32751b;
     }
 
     public h(String str, com.kwad.sdk.core.videocache.d.b bVar, com.kwad.sdk.core.videocache.b.b bVar2) {
-        this.f32821a = (com.kwad.sdk.core.videocache.d.b) j.a(bVar);
-        this.f32822b = (com.kwad.sdk.core.videocache.b.b) j.a(bVar2);
+        this.f32750a = (com.kwad.sdk.core.videocache.d.b) j.a(bVar);
+        this.f32751b = (com.kwad.sdk.core.videocache.b.b) j.a(bVar2);
         n a2 = bVar.a(str);
-        this.f32823c = a2 == null ? new n(str, -2147483648L, l.a(str)) : a2;
+        this.f32752c = a2 == null ? new n(str, -2147483648L, l.a(str)) : a2;
     }
 
     private long a(HttpURLConnection httpURLConnection) {
@@ -49,14 +49,14 @@ public class h implements m {
 
     private long a(HttpURLConnection httpURLConnection, long j, int i2) {
         long a2 = a(httpURLConnection);
-        return i2 == 200 ? a2 : i2 == 206 ? a2 + j : this.f32823c.f32840b;
+        return i2 == 200 ? a2 : i2 == 206 ? a2 + j : this.f32752c.f32769b;
     }
 
     private HttpURLConnection a(long j, int i2) {
         String str;
         HttpURLConnection httpURLConnection;
         boolean z;
-        String str2 = this.f32823c.f32839a;
+        String str2 = this.f32752c.f32768a;
         int i3 = 0;
         do {
             StringBuilder sb = new StringBuilder();
@@ -97,7 +97,7 @@ public class h implements m {
     }
 
     private void a(HttpURLConnection httpURLConnection, String str) {
-        for (Map.Entry<String, String> entry : this.f32822b.a(str).entrySet()) {
+        for (Map.Entry<String, String> entry : this.f32751b.a(str).entrySet()) {
             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
         }
     }
@@ -108,7 +108,7 @@ public class h implements m {
     */
     private void e() {
         HttpURLConnection httpURLConnection;
-        com.kwad.sdk.core.d.a.a("HttpUrlSource", "Read content info from " + this.f32823c.f32839a);
+        com.kwad.sdk.core.d.a.a("HttpUrlSource", "Read content info from " + this.f32752c.f32768a);
         InputStream inputStream = null;
         try {
             httpURLConnection = a(0L, 10000);
@@ -117,16 +117,16 @@ public class h implements m {
                     long a2 = a(httpURLConnection);
                     String contentType = httpURLConnection.getContentType();
                     inputStream = httpURLConnection.getInputStream();
-                    n nVar = new n(this.f32823c.f32839a, a2, contentType);
-                    this.f32823c = nVar;
-                    this.f32821a.a(nVar.f32839a, nVar);
-                    com.kwad.sdk.core.d.a.a("HttpUrlSource", "Source info fetched: " + this.f32823c);
+                    n nVar = new n(this.f32752c.f32768a, a2, contentType);
+                    this.f32752c = nVar;
+                    this.f32750a.a(nVar.f32768a, nVar);
+                    com.kwad.sdk.core.d.a.a("HttpUrlSource", "Source info fetched: " + this.f32752c);
                     l.a(inputStream);
                     if (httpURLConnection == null) {
                         return;
                     }
                 } catch (IOException unused) {
-                    com.kwad.sdk.core.d.a.e("HttpUrlSource", "Error fetching info from " + this.f32823c.f32839a);
+                    com.kwad.sdk.core.d.a.e("HttpUrlSource", "Error fetching info from " + this.f32752c.f32768a);
                     l.a(inputStream);
                     if (httpURLConnection == null) {
                         return;
@@ -156,45 +156,45 @@ public class h implements m {
 
     @Override // com.kwad.sdk.core.videocache.m
     public int a(byte[] bArr) {
-        InputStream inputStream = this.f32825e;
+        InputStream inputStream = this.f32754e;
         if (inputStream == null) {
-            throw new ProxyCacheException("Error reading data from " + this.f32823c.f32839a + ": connection is absent!");
+            throw new ProxyCacheException("Error reading data from " + this.f32752c.f32768a + ": connection is absent!");
         }
         try {
             return inputStream.read(bArr, 0, bArr.length);
         } catch (InterruptedIOException e2) {
-            throw new InterruptedProxyCacheException("Reading source " + this.f32823c.f32839a + " is interrupted", e2);
+            throw new InterruptedProxyCacheException("Reading source " + this.f32752c.f32768a + " is interrupted", e2);
         } catch (IOException e3) {
-            throw new ProxyCacheException("Error reading data from " + this.f32823c.f32839a, e3);
+            throw new ProxyCacheException("Error reading data from " + this.f32752c.f32768a, e3);
         }
     }
 
     @Override // com.kwad.sdk.core.videocache.m
     public synchronized long a() {
-        if (this.f32823c.f32840b == -2147483648L) {
+        if (this.f32752c.f32769b == -2147483648L) {
             e();
         }
-        return this.f32823c.f32840b;
+        return this.f32752c.f32769b;
     }
 
     @Override // com.kwad.sdk.core.videocache.m
     public void a(long j) {
         try {
             HttpURLConnection a2 = a(j, -1);
-            this.f32824d = a2;
+            this.f32753d = a2;
             String contentType = a2.getContentType();
-            this.f32825e = new BufferedInputStream(this.f32824d.getInputStream(), 8192);
-            n nVar = new n(this.f32823c.f32839a, a(this.f32824d, j, this.f32824d.getResponseCode()), contentType);
-            this.f32823c = nVar;
-            this.f32821a.a(nVar.f32839a, nVar);
+            this.f32754e = new BufferedInputStream(this.f32753d.getInputStream(), 8192);
+            n nVar = new n(this.f32752c.f32768a, a(this.f32753d, j, this.f32753d.getResponseCode()), contentType);
+            this.f32752c = nVar;
+            this.f32750a.a(nVar.f32768a, nVar);
         } catch (IOException e2) {
-            throw new ProxyCacheException("Error opening connection for " + this.f32823c.f32839a + " with offset " + j, e2);
+            throw new ProxyCacheException("Error opening connection for " + this.f32752c.f32768a + " with offset " + j, e2);
         }
     }
 
     @Override // com.kwad.sdk.core.videocache.m
     public void b() {
-        HttpURLConnection httpURLConnection = this.f32824d;
+        HttpURLConnection httpURLConnection = this.f32753d;
         if (httpURLConnection != null) {
             try {
                 httpURLConnection.disconnect();
@@ -211,17 +211,17 @@ public class h implements m {
     }
 
     public synchronized String c() {
-        if (TextUtils.isEmpty(this.f32823c.f32841c)) {
+        if (TextUtils.isEmpty(this.f32752c.f32770c)) {
             e();
         }
-        return this.f32823c.f32841c;
+        return this.f32752c.f32770c;
     }
 
     public String d() {
-        return this.f32823c.f32839a;
+        return this.f32752c.f32768a;
     }
 
     public String toString() {
-        return "HttpUrlSource{sourceInfo='" + this.f32823c + "}";
+        return "HttpUrlSource{sourceInfo='" + this.f32752c + "}";
     }
 }

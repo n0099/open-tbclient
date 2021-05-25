@@ -56,11 +56,11 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
                             if (Thread.interrupted()) {
                                 break;
                             }
-                            ByteBuffer take = a.this.engine.f68321e.take();
+                            ByteBuffer take = a.this.engine.f68364e.take();
                             a.this.ostream.write(take.array(), 0, take.limit());
                             a.this.ostream.flush();
                         } catch (InterruptedException unused) {
-                            for (ByteBuffer byteBuffer : a.this.engine.f68321e) {
+                            for (ByteBuffer byteBuffer : a.this.engine.f68364e) {
                                 a.this.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
                                 a.this.ostream.flush();
                             }

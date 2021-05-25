@@ -24,8 +24,8 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import d.a.c.e.p.k;
-import d.a.k0.r1.g.a;
-import d.a.k0.r1.g.d;
+import d.a.n0.s1.g.a;
+import d.a.n0.s1.g.d;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivity> {
@@ -53,7 +53,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
                     MemberPrivilegeActivity.this.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? MemberPrivilegeActivity.this.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
                     return;
                 }
-                d.a.k0.r1.g.a aVar = responseMemberPrivilegeMessage.mData;
+                d.a.n0.s1.g.a aVar = responseMemberPrivilegeMessage.mData;
                 if (aVar != null) {
                     MemberPrivilegeActivity.this.mMemberPrivilegeView.e().h(aVar);
                 } else {
@@ -143,15 +143,15 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         if (i2 == 0 || 1 == this.mMemberPrivilegeView.e().getItemViewType(i2)) {
             return;
         }
-        String str = ((a.C1584a) this.mMemberPrivilegeView.e().getItem(i2)).f60457d;
-        String str2 = ((a.C1584a) this.mMemberPrivilegeView.e().getItem(i2)).f60455b;
+        String str = ((a.C1596a) this.mMemberPrivilegeView.e().getItem(i2)).f60580d;
+        String str2 = ((a.C1596a) this.mMemberPrivilegeView.e().getItem(i2)).f60578b;
         if (k.isEmpty(str)) {
             return;
         }
         if (isBubbleLink(str)) {
             sendMessage(new CustomMessage(2002001, new BubbleChooseActivityConfig(getPageContext().getPageActivity())));
         } else {
-            d.a.j0.l.a.o(getPageContext().getPageActivity(), str2, str, true, true, true);
+            d.a.m0.l.a.o(getPageContext().getPageActivity(), str2, str, true, true, true);
         }
     }
 

@@ -11,8 +11,8 @@ public abstract class a<I, O, F, T> extends e.a<O> implements Runnable {
 
     /* renamed from: d.g.c.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C1849a<I, O> extends a<I, O, d.g.c.a.g<? super I, ? extends O>, O> {
-        public C1849a(l<? extends I> lVar, d.g.c.a.g<? super I, ? extends O> gVar) {
+    public static final class C1853a<I, O> extends a<I, O, d.g.c.a.g<? super I, ? extends O>, O> {
+        public C1853a(l<? extends I> lVar, d.g.c.a.g<? super I, ? extends O> gVar) {
             super(lVar, gVar);
         }
 
@@ -40,9 +40,9 @@ public abstract class a<I, O, F, T> extends e.a<O> implements Runnable {
 
     public static <I, O> l<O> F(l<I> lVar, d.g.c.a.g<? super I, ? extends O> gVar, Executor executor) {
         d.g.c.a.n.p(gVar);
-        C1849a c1849a = new C1849a(lVar, gVar);
-        lVar.a(c1849a, n.b(executor, c1849a));
-        return c1849a;
+        C1853a c1853a = new C1853a(lVar, gVar);
+        lVar.a(c1853a, n.b(executor, c1853a));
+        return c1853a;
     }
 
     public abstract T G(F f2, I i2) throws Exception;

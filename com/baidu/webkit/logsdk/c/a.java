@@ -7,23 +7,23 @@ import org.json.JSONArray;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26748a;
+    public String f26677a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Vector<String> f26749b = new Vector<>();
+    public Vector<String> f26678b = new Vector<>();
 
     public a(String str) {
-        this.f26748a = str;
+        this.f26677a = str;
     }
 
     public final int a(String str) {
         if (str != null) {
-            this.f26749b.add(str);
+            this.f26678b.add(str);
         }
-        return this.f26749b.size();
+        return this.f26678b.size();
     }
 
     public final String a() {
-        return new JSONArray((Collection) this.f26749b).toString();
+        return new JSONArray((Collection) this.f26678b).toString();
     }
 }

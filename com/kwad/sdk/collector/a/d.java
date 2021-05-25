@@ -6,25 +6,25 @@ import android.provider.Settings;
 public class d extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f31938a = 0;
+    public int f31867a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f31939b = 0;
+    public int f31868b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31940c = 0;
+    public int f31869c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f31941d = 0;
+    public int f31870d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f31942e = 0;
+    public int f31871e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f31943f = 0;
+    public int f31872f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f31944g = 0;
+    public int f31873g = 0;
 
     public d(Context context) {
         if (context != null) {
@@ -37,26 +37,26 @@ public class d extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
     }
 
     public void a(boolean z) {
-        this.f31938a = g(z);
+        this.f31867a = g(z);
     }
 
     public void b(boolean z) {
-        this.f31939b = g(z);
+        this.f31868b = g(z);
     }
 
     public void c(boolean z) {
-        this.f31940c = g(z);
+        this.f31869c = g(z);
     }
 
     public void d(boolean z) {
-        this.f31942e = g(z);
+        this.f31871e = g(z);
     }
 
     public void e(boolean z) {
-        this.f31943f = g(z);
+        this.f31872f = g(z);
     }
 
     public void f(boolean z) {
-        this.f31944g = g(z);
+        this.f31873g = g(z);
     }
 }

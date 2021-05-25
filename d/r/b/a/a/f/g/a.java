@@ -11,13 +11,13 @@ import java.util.Properties;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f67720a;
+    public static a f67763a;
 
     public static a a() {
-        if (f67720a == null) {
-            f67720a = new a();
+        if (f67763a == null) {
+            f67763a = new a();
         }
-        return f67720a;
+        return f67763a;
     }
 
     /* JADX WARN: Not initialized variable reg: 6, insn: 0x00b7: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r6 I:??[OBJECT, ARRAY]), block:B:28:0x00b7 */

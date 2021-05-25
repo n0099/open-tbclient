@@ -55,30 +55,30 @@ public class CommitView extends FormItemBaseView {
     public boolean g(FormCard.b bVar) {
         if (super.g(bVar)) {
             FormCard.c cVar = (FormCard.c) bVar;
-            if (TextUtils.isEmpty(cVar.f20228d)) {
+            if (TextUtils.isEmpty(cVar.f20150d)) {
                 this.x.setVisibility(8);
             } else {
                 this.x.setVisibility(0);
                 this.x.setTextSize(0, this.o);
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.x.getLayoutParams();
-                marginLayoutParams.bottomMargin = this.f20308i;
-                marginLayoutParams.height = i(this.x.getPaint(), cVar.f20228d);
-                Drawable drawable = this.f20305f.getDrawable(R.drawable.form_checkbox_selector);
-                int i2 = this.f20306g;
+                marginLayoutParams.bottomMargin = this.f20230i;
+                marginLayoutParams.height = i(this.x.getPaint(), cVar.f20150d);
+                Drawable drawable = this.f20227f.getDrawable(R.drawable.form_checkbox_selector);
+                int i2 = this.f20228g;
                 drawable.setBounds(0, 0, i2, i2);
                 this.x.setCompoundDrawables(drawable, null, null, null);
-                this.x.setCompoundDrawablePadding(this.f20306g);
-                this.x.setText(cVar.f20228d);
+                this.x.setCompoundDrawablePadding(this.f20228g);
+                this.x.setText(cVar.f20150d);
             }
-            String str = cVar.f20226b;
+            String str = cVar.f20148b;
             if (TextUtils.isEmpty(str)) {
-                str = this.f20305f.getString(R.string.push_commit);
+                str = this.f20227f.getString(R.string.push_commit);
             }
             this.y.getLayoutParams().height = this.j;
             this.y.setPadding(0, 0, 0, 0);
             this.y.setTextSize(0, this.n);
             this.y.setText(str);
-            this.A = cVar.f20229e;
+            this.A = cVar.f20151e;
             return true;
         }
         return false;
@@ -110,29 +110,29 @@ public class CommitView extends FormItemBaseView {
     }
 
     public final void k() {
-        CheckBox checkBox = new CheckBox(this.f20304e, null, R.style.form_check_box_style);
+        CheckBox checkBox = new CheckBox(this.f20226e, null, R.style.form_check_box_style);
         this.x = checkBox;
         checkBox.setId(this.z);
-        this.x.setTextSize(0, (int) this.f20305f.getDimension(R.dimen.fontsize20));
+        this.x.setTextSize(0, (int) this.f20227f.getDimension(R.dimen.fontsize20));
         this.x.setTextColor(this.m);
         this.x.setGravity(19);
         this.x.setChecked(true);
         this.x.setButtonDrawable((Drawable) null);
         this.x.setOnCheckedChangeListener(new a());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.bottomMargin = this.f20308i;
+        layoutParams.bottomMargin = this.f20230i;
         addView(this.x, layoutParams);
     }
 
     public final void l() {
-        Button button = new Button(this.f20304e);
+        Button button = new Button(this.f20226e);
         this.y = button;
         button.setGravity(17);
         this.y.setTextColor(this.q);
         this.y.setTextSize(0, this.n);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.j);
         layoutParams.addRule(3, this.x.getId());
-        this.y.setBackgroundDrawable(this.f20305f.getDrawable(R.drawable.form_commit_button_selector));
+        this.y.setBackgroundDrawable(this.f20227f.getDrawable(R.drawable.form_commit_button_selector));
         addView(this.y, layoutParams);
     }
 

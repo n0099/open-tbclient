@@ -10,14 +10,14 @@ import com.kwad.sdk.reward.d;
 public class a extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    public AdInfo f33750b;
+    public AdInfo f33679b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f33751c;
+    public AdTemplate f33680c;
 
     public a(Context context, AdTemplate adTemplate, boolean z) {
-        this.f33751c = adTemplate;
-        this.f33750b = c.g(adTemplate);
+        this.f33680c = adTemplate;
+        this.f33679b = c.g(adTemplate);
         if (z) {
             a(context);
         } else {
@@ -26,28 +26,28 @@ public class a extends d {
     }
 
     private void a(Context context) {
-        boolean a2 = com.kwad.sdk.core.response.b.a.a(this.f33750b, context);
-        if (com.kwad.sdk.core.config.c.a(this.f33750b, context)) {
+        boolean a2 = com.kwad.sdk.core.response.b.a.a(this.f33679b, context);
+        if (com.kwad.sdk.core.config.c.a(this.f33679b, context)) {
             a((Presenter) new com.kwad.sdk.reward.b.b());
         }
         if (a2) {
             return;
         }
         a((Presenter) new com.kwad.sdk.reward.b.c.a.b());
-        if (c.a(this.f33751c, context)) {
+        if (c.a(this.f33680c, context)) {
             a((Presenter) new com.kwad.sdk.reward.b.c.a.c());
         }
-        if (c.k(this.f33751c)) {
+        if (c.k(this.f33680c)) {
             a((Presenter) new com.kwad.sdk.reward.b.c.a.a());
         }
     }
 
     private void e() {
         a((Presenter) new com.kwad.sdk.reward.b.c.a.b());
-        if (com.kwad.sdk.core.response.b.b.j(this.f33751c)) {
+        if (com.kwad.sdk.core.response.b.b.j(this.f33680c)) {
             a((Presenter) new com.kwad.sdk.reward.b.c.a.c());
         }
-        if (c.k(this.f33751c)) {
+        if (c.k(this.f33680c)) {
             a((Presenter) new com.kwad.sdk.reward.b.c.a.a());
         }
     }

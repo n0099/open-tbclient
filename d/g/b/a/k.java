@@ -7,14 +7,14 @@ import com.google.ar.core.InstallActivity;
 public final class k extends AnimatorListenerAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f66158e;
+    public final /* synthetic */ InstallActivity f66201e;
 
     public k(InstallActivity installActivity) {
-        this.f66158e = installActivity;
+        this.f66201e = installActivity;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public final void onAnimationEnd(Animator animator) {
-        this.f66158e.showSpinner();
+        this.f66201e.showSpinner();
     }
 }

@@ -14,16 +14,16 @@ import com.baidu.mobads.container.util.CommonUtils;
 public class BDSplashActionView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f10082e;
+    public final Context f9982e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f10083f;
+    public View f9983f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10084g;
+    public boolean f9984g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f10085h;
+    public int f9985h;
 
     /* loaded from: classes2.dex */
     public static class BaseActionLayout extends RelativeLayout {
@@ -41,31 +41,31 @@ public class BDSplashActionView extends RelativeLayout {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f10086a = null;
+        public String f9986a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public View.OnClickListener f10087b = null;
+        public View.OnClickListener f9987b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f10088c = -16777216;
+        public int f9988c = -16777216;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f10089d = 102;
+        public int f9989d = 102;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f10090e = 1000;
+        public int f9990e = 1000;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f10091f = 18;
+        public int f9991f = 18;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f10092g = -1;
+        public int f9992g = -1;
 
         /* renamed from: h  reason: collision with root package name */
-        public Typeface f10093h = Typeface.DEFAULT;
+        public Typeface f9993h = Typeface.DEFAULT;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f10094i = true;
+        public boolean f9994i = true;
         public int j = 39;
 
         public BDSplashActionView k(Context context) {
@@ -73,7 +73,7 @@ public class BDSplashActionView extends RelativeLayout {
         }
 
         public a l(String str) {
-            this.f10086a = str;
+            this.f9986a = str;
             return this;
         }
 
@@ -83,33 +83,33 @@ public class BDSplashActionView extends RelativeLayout {
         }
 
         public a n(View.OnClickListener onClickListener) {
-            this.f10087b = onClickListener;
+            this.f9987b = onClickListener;
             return this;
         }
 
         public a o(boolean z) {
-            this.f10094i = z;
+            this.f9994i = z;
             return this;
         }
     }
 
     public BDSplashActionView(Context context, a aVar) {
         super(context);
-        this.f10082e = context;
-        this.f10084g = aVar.f10094i;
-        this.f10085h = aVar.j;
-        setBackgroundDrawable(b(aVar.f10088c, aVar.f10089d, aVar.f10090e));
-        this.f10083f = d(this.f10082e, aVar);
+        this.f9982e = context;
+        this.f9984g = aVar.f9994i;
+        this.f9985h = aVar.j;
+        setBackgroundDrawable(b(aVar.f9988c, aVar.f9989d, aVar.f9990e));
+        this.f9983f = d(this.f9982e, aVar);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        addView(this.f10083f, layoutParams);
-        setOnClickListener(aVar.f10087b);
+        addView(this.f9983f, layoutParams);
+        setOnClickListener(aVar.f9987b);
     }
 
     public void a(ViewGroup viewGroup) {
-        BaseActionLayout baseActionLayout = new BaseActionLayout(this.f10082e);
+        BaseActionLayout baseActionLayout = new BaseActionLayout(this.f9982e);
         viewGroup.addView(baseActionLayout, new ViewGroup.LayoutParams(-1, -1));
-        int i2 = this.f10082e.getResources().getDisplayMetrics().widthPixels;
+        int i2 = this.f9982e.getResources().getDisplayMetrics().widthPixels;
         if (viewGroup.getMeasuredWidth() != 0) {
             i2 = viewGroup.getMeasuredWidth();
         }
@@ -125,10 +125,10 @@ public class BDSplashActionView extends RelativeLayout {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i4);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
-        if (this.f10084g) {
-            layoutParams.bottomMargin = CommonUtils.dip2px(this.f10082e, this.f10085h);
+        if (this.f9984g) {
+            layoutParams.bottomMargin = CommonUtils.dip2px(this.f9982e, this.f9985h);
         } else {
-            layoutParams.bottomMargin = CommonUtils.dip2px(this.f10082e, this.f10085h);
+            layoutParams.bottomMargin = CommonUtils.dip2px(this.f9982e, this.f9985h);
         }
         baseActionLayout.addView(this, layoutParams);
     }
@@ -155,21 +155,21 @@ public class BDSplashActionView extends RelativeLayout {
     public final LinearLayout d(Context context, a aVar) {
         LinearLayout linearLayout = new LinearLayout(context);
         TextView textView = new TextView(context);
-        textView.setText(aVar.f10086a);
-        textView.setTextSize(aVar.f10091f);
-        textView.setTextColor(aVar.f10092g);
-        textView.setTypeface(aVar.f10093h);
+        textView.setText(aVar.f9986a);
+        textView.setTextSize(aVar.f9991f);
+        textView.setTextColor(aVar.f9992g);
+        textView.setTypeface(aVar.f9993h);
         textView.setIncludeFontPadding(false);
         TextView textView2 = new TextView(context);
         textView2.setText(">>");
-        textView2.setTextColor(aVar.f10092g);
-        textView2.setTextSize((int) (aVar.f10091f * 1.2d));
+        textView2.setTextColor(aVar.f9992g);
+        textView2.setTextSize((int) (aVar.f9991f * 1.2d));
         textView2.setIncludeFontPadding(false);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 16;
         linearLayout.addView(textView, layoutParams);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams2.leftMargin = CommonUtils.dip2px(this.f10082e, 10.0f);
+        layoutParams2.leftMargin = CommonUtils.dip2px(this.f9982e, 10.0f);
         layoutParams2.gravity = 16;
         linearLayout.addView(textView2, layoutParams2);
         return linearLayout;

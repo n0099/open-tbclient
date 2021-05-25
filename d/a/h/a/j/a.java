@@ -7,39 +7,39 @@ import java.util.Map;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f40277b = new a();
+    public static a f39961b = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> f40278a = new HashMap();
+    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> f39962a = new HashMap();
 
     public static a b() {
-        return f40277b;
+        return f39961b;
     }
 
     public void a(int i2, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
-        if (this.f40278a == null) {
+        if (this.f39962a == null) {
             return;
         }
         synchronized (a.class) {
-            if (this.f40278a.containsKey(Integer.valueOf(i2))) {
-                this.f40278a.remove(Integer.valueOf(i2));
+            if (this.f39962a.containsKey(Integer.valueOf(i2))) {
+                this.f39962a.remove(Integer.valueOf(i2));
             }
-            this.f40278a.put(Integer.valueOf(i2), onRequestPermissionsResultCallback);
+            this.f39962a.put(Integer.valueOf(i2), onRequestPermissionsResultCallback);
         }
     }
 
     public ActivityCompat.OnRequestPermissionsResultCallback c(int i2) {
-        Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.f40278a;
+        Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.f39962a;
         if (map == null || !map.containsKey(Integer.valueOf(i2))) {
             return null;
         }
-        return this.f40278a.get(Integer.valueOf(i2));
+        return this.f39962a.get(Integer.valueOf(i2));
     }
 
     public void d(int i2) {
         synchronized (a.class) {
-            if (this.f40278a != null && this.f40278a.containsKey(Integer.valueOf(i2))) {
-                this.f40278a.remove(Integer.valueOf(i2));
+            if (this.f39962a != null && this.f39962a.containsKey(Integer.valueOf(i2))) {
+                this.f39962a.remove(Integer.valueOf(i2));
             }
         }
     }

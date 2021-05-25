@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7865a = "c";
+    public static final String f7765a = "c";
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -18,7 +18,7 @@ public final class c {
             messageDigest.update(str.getBytes());
             return a(messageDigest.digest());
         } catch (NoSuchAlgorithmException e2) {
-            a.a(f7865a, "NoSuchAlgorithmException happened when get MD5 string", e2);
+            a.a(f7765a, "NoSuchAlgorithmException happened when get MD5 string", e2);
             return null;
         }
     }

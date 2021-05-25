@@ -2,7 +2,7 @@ package com.baidu.tieba.square.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.k0.a3.f.d;
+import d.a.n0.b3.f.d;
 import tbclient.Error;
 import tbclient.GetForumSquare.GetForumSquareResIdl;
 /* loaded from: classes5.dex */

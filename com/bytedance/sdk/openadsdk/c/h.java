@@ -3,21 +3,21 @@ package com.bytedance.sdk.openadsdk.c;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f27322a;
+    public final boolean f27251a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f27323b;
+    public final int f27252b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f27324c;
+    public final String f27253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f27325d;
+    public final boolean f27254d;
 
     public h(boolean z, int i2, String str, boolean z2) {
-        this.f27322a = z;
-        this.f27323b = i2;
-        this.f27324c = str;
-        this.f27325d = z2;
+        this.f27251a = z;
+        this.f27252b = i2;
+        this.f27253c = str;
+        this.f27254d = z2;
     }
 }

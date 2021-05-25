@@ -1,13 +1,12 @@
 package d.a.w.a.a;
 
-import java.lang.reflect.Method;
+import com.baidu.mario.audio.AudioParams;
+import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
-public class a {
-    public static Method a(Class cls, String str, Class... clsArr) {
-        Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-        boolean isAccessible = declaredMethod.isAccessible();
-        declaredMethod.setAccessible(true);
-        declaredMethod.setAccessible(isAccessible);
-        return declaredMethod;
-    }
+public interface a {
+    void a(ByteBuffer byteBuffer, int i2, long j);
+
+    void b(boolean z, AudioParams audioParams);
+
+    void c(boolean z);
 }

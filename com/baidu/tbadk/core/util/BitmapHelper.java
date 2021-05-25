@@ -1100,7 +1100,7 @@ public class BitmapHelper {
         ParcelFileDescriptor parcelFileDescriptor;
         Bitmap decodeFileDescriptor;
         try {
-            parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7772a);
+            parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7672a);
         } catch (Throwable unused) {
             parcelFileDescriptor = null;
         }

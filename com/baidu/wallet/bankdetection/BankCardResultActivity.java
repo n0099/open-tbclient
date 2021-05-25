@@ -28,31 +28,31 @@ import java.util.regex.Pattern;
 public class BankCardResultActivity extends DxmPayBaseActivity implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23149a = BankCardResultActivity.class.getSimpleName();
+    public static final String f23078a = BankCardResultActivity.class.getSimpleName();
 
     /* renamed from: i  reason: collision with root package name */
-    public static Pattern f23150i = Pattern.compile("\\d{1,20}");
+    public static Pattern f23079i = Pattern.compile("\\d{1,20}");
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f23151b;
+    public TextView f23080b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f23152c;
+    public View f23081c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f23153d;
+    public View f23082d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SafeScrollView f23154e;
+    public SafeScrollView f23083e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SafeKeyBoardEditText[] f23155f;
+    public SafeKeyBoardEditText[] f23084f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String[] f23156g;
+    public String[] f23085g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BCResult f23157h;
+    public BCResult f23086h;
 
     /* loaded from: classes5.dex */
     public class a implements InputFilter {
@@ -60,13 +60,13 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
         }
 
         private int a() {
-            if (BankCardResultActivity.this.f23155f == null) {
+            if (BankCardResultActivity.this.f23084f == null) {
                 return 0;
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < BankCardResultActivity.this.f23155f.length; i2++) {
-                if (BankCardResultActivity.this.f23155f[i2] != null) {
-                    sb.append(BankCardResultActivity.this.f23155f[i2].getText().toString());
+            for (int i2 = 0; i2 < BankCardResultActivity.this.f23084f.length; i2++) {
+                if (BankCardResultActivity.this.f23084f[i2] != null) {
+                    sb.append(BankCardResultActivity.this.f23084f[i2].getText().toString());
                 }
             }
             return sb.length();
@@ -74,7 +74,7 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
 
         @Override // android.text.InputFilter
         public CharSequence filter(CharSequence charSequence, int i2, int i3, Spanned spanned, int i4, int i5) {
-            if (TextUtils.isEmpty(charSequence) || BankCardResultActivity.f23150i.matcher(charSequence).matches()) {
+            if (TextUtils.isEmpty(charSequence) || BankCardResultActivity.f23079i.matcher(charSequence).matches()) {
                 if (i3 - i2 > 20) {
                     i3 = i2 + 20;
                 }
@@ -86,11 +86,11 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
                     return "";
                 }
                 if (a2 > 10) {
-                    BankCardResultActivity.this.f23151b.setEnabled(true);
-                    BankCardResultActivity.this.f23151b.setTextColor(-1);
+                    BankCardResultActivity.this.f23080b.setEnabled(true);
+                    BankCardResultActivity.this.f23080b.setTextColor(-1);
                 } else {
-                    BankCardResultActivity.this.f23151b.setEnabled(false);
-                    BankCardResultActivity.this.f23151b.setTextColor(ResUtils.getColor(BankCardResultActivity.this.getActivity(), "bcd_disable_text"));
+                    BankCardResultActivity.this.f23080b.setEnabled(false);
+                    BankCardResultActivity.this.f23080b.setTextColor(ResUtils.getColor(BankCardResultActivity.this.getActivity(), "bcd_disable_text"));
                 }
                 return charSequence.subSequence(i2, i3);
             }
@@ -114,15 +114,15 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (this.f23151b == view || ResUtils.id(getActivity(), "dialog_title_close") == id) {
+        if (this.f23080b == view || ResUtils.id(getActivity(), "dialog_title_close") == id) {
             String charSequence = b().toString();
-            if (this.f23151b == view) {
+            if (this.f23080b == view) {
                 PayStatisticsUtil.onEvent(StatServiceEvent.STAT_CLICKNEXT);
                 BankcardDetectionController.getInstance().update(null, charSequence);
                 setResult(CameraBaseActivity.ResultCodeExit, null);
                 finish();
                 overridePendingTransition(0, 0);
-            } else if (this.f23152c == view) {
+            } else if (this.f23081c == view) {
                 PayStatisticsUtil.onEvent(StatServiceEvent.STAT_DISAGREE);
                 setResult(CameraBaseActivity.ResultCodeStay, null);
                 finish();
@@ -146,30 +146,30 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
 
     public void onModuleEvent(EventBus.Event event) {
         if (!"BankCardResult".equals(event.mEventKey)) {
-            LogUtil.e(f23149a, "invalid bankcad result key", null);
+            LogUtil.e(f23078a, "invalid bankcad result key", null);
             finish();
             overridePendingTransition(0, 0);
         }
-        this.f23157h = (BCResult) event.mEventObj;
+        this.f23086h = (BCResult) event.mEventObj;
         getWindow().setSoftInputMode(2);
         Activity activity = getActivity();
         SafeScrollView safeScrollView = (SafeScrollView) LayoutInflater.from(activity).inflate(ResUtils.layout(activity, "wallet_bankcard_detection_result"), (ViewGroup) null);
-        this.f23154e = safeScrollView;
+        this.f23083e = safeScrollView;
         setContentView(safeScrollView);
-        setSafeScrollView(this.f23154e);
-        this.f23154e.post(new Runnable() { // from class: com.baidu.wallet.bankdetection.BankCardResultActivity.1
+        setSafeScrollView(this.f23083e);
+        this.f23083e.post(new Runnable() { // from class: com.baidu.wallet.bankdetection.BankCardResultActivity.1
             @Override // java.lang.Runnable
             public void run() {
                 BankCardResultActivity.this.c();
             }
         });
-        this.f23151b = (TextView) findViewById(ResUtils.id(activity, "button_ok"));
-        ((ImageView) this.f23154e.findViewById(ResUtils.id(activity, "card_num_img"))).setImageBitmap(this.f23157h.getDstRGBImage(false));
-        this.f23156g = this.f23157h.cardNumberToString().split(" ");
-        View findViewById = this.f23154e.findViewById(ResUtils.id(activity, "dialog_title_close"));
-        this.f23152c = findViewById;
+        this.f23080b = (TextView) findViewById(ResUtils.id(activity, "button_ok"));
+        ((ImageView) this.f23083e.findViewById(ResUtils.id(activity, "card_num_img"))).setImageBitmap(this.f23086h.getDstRGBImage(false));
+        this.f23085g = this.f23086h.cardNumberToString().split(" ");
+        View findViewById = this.f23083e.findViewById(ResUtils.id(activity, "dialog_title_close"));
+        this.f23081c = findViewById;
         findViewById.setOnClickListener(this);
-        View findViewById2 = this.f23154e.findViewById(ResUtils.id(activity, "button_ok"));
+        View findViewById2 = this.f23083e.findViewById(ResUtils.id(activity, "button_ok"));
         findViewById2.setOnClickListener(this);
         findViewById2.requestFocus();
     }
@@ -177,14 +177,14 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
     @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        SafeKeyBoardEditText[] safeKeyBoardEditTextArr = this.f23155f;
-        if (safeKeyBoardEditTextArr == null || this.f23154e == null) {
+        SafeKeyBoardEditText[] safeKeyBoardEditTextArr = this.f23084f;
+        if (safeKeyBoardEditTextArr == null || this.f23083e == null) {
             return;
         }
         for (SafeKeyBoardEditText safeKeyBoardEditText : safeKeyBoardEditTextArr) {
             if (safeKeyBoardEditText.isFocused()) {
-                SafeScrollView safeScrollView = this.f23154e;
-                safeScrollView.showKeyBoard(safeScrollView, safeKeyBoardEditText, this.f23153d);
+                SafeScrollView safeScrollView = this.f23083e;
+                safeScrollView.showKeyBoard(safeScrollView, safeKeyBoardEditText, this.f23082d);
                 return;
             }
         }
@@ -193,19 +193,19 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
     private CharSequence b() {
         String[] strArr;
         StringBuilder sb = new StringBuilder();
-        SafeKeyBoardEditText[] safeKeyBoardEditTextArr = this.f23155f;
-        if (safeKeyBoardEditTextArr != null && safeKeyBoardEditTextArr.length != 0 && (strArr = this.f23156g) != null && strArr.length != 0) {
+        SafeKeyBoardEditText[] safeKeyBoardEditTextArr = this.f23084f;
+        if (safeKeyBoardEditTextArr != null && safeKeyBoardEditTextArr.length != 0 && (strArr = this.f23085g) != null && strArr.length != 0) {
             int i2 = 0;
             boolean z = false;
             while (true) {
-                SafeKeyBoardEditText[] safeKeyBoardEditTextArr2 = this.f23155f;
+                SafeKeyBoardEditText[] safeKeyBoardEditTextArr2 = this.f23084f;
                 if (i2 >= safeKeyBoardEditTextArr2.length) {
                     break;
                 }
                 String obj = safeKeyBoardEditTextArr2[i2].getText().toString();
                 sb.append(obj);
                 if (!z) {
-                    z = !obj.equals(this.f23156g[i2]);
+                    z = !obj.equals(this.f23085g[i2]);
                 }
                 i2++;
             }
@@ -228,11 +228,11 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
     public void c() {
         int i2 = getWindowManager().getDefaultDisplay().getWidth() > 480 ? 16 : 13;
         Activity activity = getActivity();
-        LinearLayout linearLayout = (LinearLayout) this.f23154e.findViewById(ResUtils.id(activity, "card_num_sections"));
-        this.f23153d = this.f23154e.findViewById(ResUtils.id(activity, "bcd_result_dlg"));
+        LinearLayout linearLayout = (LinearLayout) this.f23083e.findViewById(ResUtils.id(activity, "card_num_sections"));
+        this.f23082d = this.f23083e.findViewById(ResUtils.id(activity, "bcd_result_dlg"));
         ?? r12 = 0;
         InputFilter[] inputFilterArr = {new a()};
-        int width = linearLayout.getWidth() / this.f23156g.length;
+        int width = linearLayout.getWidth() / this.f23085g.length;
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, linearLayout.getHeight());
         layoutParams.gravity = 17;
         layoutParams.weight = 1.0f;
@@ -241,36 +241,36 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
         int i3 = 3;
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams((width * 3) / 4, 2);
         layoutParams3.gravity = 1;
-        this.f23155f = new SafeKeyBoardEditText[this.f23156g.length];
+        this.f23084f = new SafeKeyBoardEditText[this.f23085g.length];
         int color = ResUtils.color(activity, "bcd_gray3");
         int color2 = ResUtils.getColor(activity, "bcd_color_n_underline");
         final int color3 = ResUtils.getColor(activity, "bcd_color_f_underline");
         int i4 = 0;
-        while (i4 < this.f23156g.length) {
-            this.f23155f[i4] = new SafeKeyBoardEditText(activity);
-            DivisionEditText divisionEditText = this.f23155f[i4];
-            SafeScrollView safeScrollView = this.f23154e;
-            divisionEditText.initSafeKeyBoardParams(safeScrollView, safeScrollView, this.f23153d, r12);
-            this.f23155f[i4].setFilters(inputFilterArr);
-            this.f23155f[i4].setText(this.f23156g[i4]);
-            this.f23155f[i4].setTextColor(color);
-            this.f23155f[i4].setInputType(i3);
-            this.f23155f[i4].setSingleLine();
-            this.f23155f[i4].setBackgroundColor(r12);
-            this.f23155f[i4].setTextSize(1, i2);
-            this.f23155f[i4].setLayoutParams(layoutParams2);
+        while (i4 < this.f23085g.length) {
+            this.f23084f[i4] = new SafeKeyBoardEditText(activity);
+            DivisionEditText divisionEditText = this.f23084f[i4];
+            SafeScrollView safeScrollView = this.f23083e;
+            divisionEditText.initSafeKeyBoardParams(safeScrollView, safeScrollView, this.f23082d, r12);
+            this.f23084f[i4].setFilters(inputFilterArr);
+            this.f23084f[i4].setText(this.f23085g[i4]);
+            this.f23084f[i4].setTextColor(color);
+            this.f23084f[i4].setInputType(i3);
+            this.f23084f[i4].setSingleLine();
+            this.f23084f[i4].setBackgroundColor(r12);
+            this.f23084f[i4].setTextSize(1, i2);
+            this.f23084f[i4].setLayoutParams(layoutParams2);
             LinearLayout linearLayout2 = new LinearLayout(activity);
             linearLayout2.setOrientation(1);
             linearLayout2.setLayoutParams(layoutParams);
-            linearLayout2.addView(this.f23155f[i4]);
+            linearLayout2.addView(this.f23084f[i4]);
             final View view = new View(activity);
             view.setBackgroundColor(color2);
             view.setLayoutParams(layoutParams3);
             linearLayout2.addView(view);
-            final View.OnFocusChangeListener onFocusChangeListener = this.f23155f[i4].getOnFocusChangeListener();
+            final View.OnFocusChangeListener onFocusChangeListener = this.f23084f[i4].getOnFocusChangeListener();
             int i5 = i4;
             final int i6 = color2;
-            this.f23155f[i5].setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.wallet.bankdetection.BankCardResultActivity.2
+            this.f23084f[i5].setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.wallet.bankdetection.BankCardResultActivity.2
                 @Override // android.view.View.OnFocusChangeListener
                 public void onFocusChange(View view2, boolean z) {
                     View.OnFocusChangeListener onFocusChangeListener2 = onFocusChangeListener;

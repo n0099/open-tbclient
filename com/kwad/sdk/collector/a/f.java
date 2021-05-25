@@ -3,8 +3,8 @@ package com.kwad.sdk.collector.a;
 public class f extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f31948a;
+    public int f31877a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f31949b;
+    public int f31878b;
 }

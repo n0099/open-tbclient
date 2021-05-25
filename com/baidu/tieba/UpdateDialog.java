@@ -27,8 +27,8 @@ import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.service.TiebaUpdateService;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.a.c.e.m.g;
-import d.a.k0.j;
-import d.a.k0.l;
+import d.a.n0.l;
+import d.a.n0.n;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class UpdateDialog extends BaseActivity<UpdateDialog> {
@@ -42,7 +42,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     public boolean mIsDownloading;
     public boolean mIsForceUpdate;
     public PermissionJudgePolicy mPermissionJudgement;
-    public j mSupportDialog;
+    public l mSupportDialog;
     public f mUpadateBroadcast;
 
     /* loaded from: classes4.dex */
@@ -68,7 +68,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             @Override // java.lang.Runnable
             public void run() {
                 if (UpdateDialog.this.mData.forceUpdate()) {
-                    d.a.j0.r.a0.b.e(UpdateDialog.this.getPageContext().getPageActivity(), 200);
+                    d.a.m0.r.a0.b.e(UpdateDialog.this.getPageContext().getPageActivity(), 200);
                 }
             }
         }
@@ -112,15 +112,15 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     }
 
     /* loaded from: classes4.dex */
-    public class e implements j.f {
+    public class e implements l.f {
         public e() {
         }
 
-        @Override // d.a.k0.j.f
+        @Override // d.a.n0.l.f
         public void a(boolean z) {
             UpdateDialog.this.mIsDownloading = true;
             UpdateDialog updateDialog = UpdateDialog.this;
-            if (updateDialog.startUpdate(true, false, z && l.d(updateDialog.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload))) {
+            if (updateDialog.startUpdate(true, false, z && n.d(updateDialog.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload))) {
                 UpdateDialog.this.mSupportDialog.t(false);
                 UpdateDialog.this.showToast(R.string.download_begin_tip);
                 if (UpdateDialog.this.mIsForceUpdate) {
@@ -131,7 +131,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // d.a.k0.j.f
+        @Override // d.a.n0.l.f
         public void b(boolean z) {
             if (UpdateDialog.this.checkMainApkExist()) {
                 UpdateDialog.this.mSupportDialog.dismiss();
@@ -139,13 +139,13 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 return;
             }
             boolean z2 = true;
-            if (l.c(UpdateDialog.this.getPageContext().getPageActivity().getPackageManager())) {
-                l.b(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mData);
+            if (n.c(UpdateDialog.this.getPageContext().getPageActivity().getPackageManager())) {
+                n.b(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mData);
                 UpdateDialog updateDialog = UpdateDialog.this;
-                updateDialog.startUpdate(false, false, (z && l.d(updateDialog.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload)) ? false : false);
+                updateDialog.startUpdate(false, false, (z && n.d(updateDialog.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload)) ? false : false);
             } else {
                 UpdateDialog updateDialog2 = UpdateDialog.this;
-                updateDialog2.startUpdate(false, true, z && l.d(updateDialog2.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload));
+                updateDialog2.startUpdate(false, true, z && n.d(updateDialog2.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload));
             }
             if (UpdateDialog.this.mIsForceUpdate) {
                 return;
@@ -154,17 +154,17 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             UpdateDialog.this.finish();
         }
 
-        @Override // d.a.k0.j.f
+        @Override // d.a.n0.l.f
         public void c() {
             UpdateDialog.this.stopUpdataService();
         }
 
-        @Override // d.a.k0.j.f
+        @Override // d.a.n0.l.f
         public void d() {
             UpdateDialog.this.finish();
         }
 
-        @Override // d.a.k0.j.f
+        @Override // d.a.n0.l.f
         public void e() {
             UpdateDialog.this.mSupportDialog.dismiss();
             UpdateDialog.this.finish();
@@ -286,9 +286,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         if (versionData3 != null) {
             this.mIsForceUpdate = versionData3.forceUpdate();
         }
-        j jVar = new j(getPageContext().getPageActivity(), R.style.common_alert_dialog);
-        this.mSupportDialog = jVar;
-        jVar.setCancelable(false);
+        l lVar = new l(getPageContext().getPageActivity(), R.style.common_alert_dialog);
+        this.mSupportDialog = lVar;
+        lVar.setCancelable(false);
         this.mSupportDialog.q(this.mData, this.mCombineDownload, new e(this, null));
         this.mSupportDialog.setOnCancelListener(new a());
         this.mSupportDialog.setOnDismissListener(new b());
@@ -367,9 +367,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        j jVar = this.mSupportDialog;
-        if (jVar != null) {
-            jVar.m(getPageContext(), i2);
+        l lVar = this.mSupportDialog;
+        if (lVar != null) {
+            lVar.m(getPageContext(), i2);
         }
     }
 
@@ -387,9 +387,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        j jVar = this.mSupportDialog;
-        if (jVar != null) {
-            jVar.dismiss();
+        l lVar = this.mSupportDialog;
+        if (lVar != null) {
+            lVar.dismiss();
         }
         f fVar = this.mUpadateBroadcast;
         if (fVar != null) {

@@ -15,65 +15,65 @@ import java.util.List;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Activity f4725a;
+    public static Activity f4648a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f4728d;
+    public static long f4651d;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b<List> f4726b = new b<>(com.baidu.crabsdk.lite.a.f4718c);
+    public static b<List> f4649b = new b<>(com.baidu.crabsdk.lite.a.f4641c);
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f4727c = true;
+    public static boolean f4650c = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f4729e = 0;
+    public static int f4652e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f4730f = 0;
+    public static int f4653f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f4731g = 0;
+    public static int f4654g = 0;
 
     public static long a() {
-        return f4728d;
+        return f4651d;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x005c, code lost:
-        if ((((java.util.Date) com.baidu.crabsdk.lite.a.a.f4726b.get(r5 - 1).get(1)).getTime() - ((java.util.Date) r3.get(2)).getTime()) > com.baidu.crabsdk.lite.a.f4721f) goto L10;
+        if ((((java.util.Date) com.baidu.crabsdk.lite.a.a.f4649b.get(r5 - 1).get(1)).getTime() - ((java.util.Date) r3.get(2)).getTime()) > com.baidu.crabsdk.lite.a.f4644f) goto L10;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void b(Activity activity) {
-        f4725a = activity;
+        f4648a = activity;
         ArrayList arrayList = new ArrayList(3);
         arrayList.add(activity.getClass().getName());
         arrayList.add(new Date());
-        f4726b.add(arrayList);
-        int size = f4726b.size();
+        f4649b.add(arrayList);
+        int size = f4649b.size();
         if (size >= 2) {
-            List list = f4726b.get(size - 2);
+            List list = f4649b.get(size - 2);
             if (list.size() == 3) {
             }
-            f4730f = (f4730f + 1) % 100;
+            f4653f = (f4653f + 1) % 100;
         }
-        f4729e++;
-        f4730f = (f4730f + 1) % 100;
+        f4652e++;
+        f4653f = (f4653f + 1) % 100;
     }
 
     @SuppressLint({"NewApi"})
     public static void c(String str, Context context) {
-        if (f4727c) {
-            f4727c = false;
-            f4728d = System.currentTimeMillis();
+        if (f4650c) {
+            f4650c = false;
+            f4651d = System.currentTimeMillis();
             if (com.baidu.crabsdk.lite.b.c.g() >= 14) {
                 if (!(context instanceof Application)) {
                     com.baidu.crabsdk.lite.b.a.g(str, "传入的不是一个Application对象!");
                     return;
                 }
                 com.baidu.crabsdk.lite.b.a.c(str, "传入的是一个Application对象");
-                ((Application) context).registerActivityLifecycleCallbacks(new d.a.m.c.a.a());
+                ((Application) context).registerActivityLifecycleCallbacks(new d.a.m.a.a.a());
             }
         }
     }
@@ -81,9 +81,9 @@ public final class a {
     public static String d() {
         String str;
         StringBuilder sb = new StringBuilder();
-        int size = f4726b.size();
+        int size = f4649b.size();
         for (int i2 = 0; i2 < size; i2++) {
-            List list = f4726b.get((size - i2) - 1);
+            List list = f4649b.get((size - i2) - 1);
             if (list.size() == 3) {
                 sb.append((String) list.get(0));
                 sb.append(" from ");
@@ -103,46 +103,46 @@ public final class a {
     }
 
     public static /* synthetic */ void e(Activity activity) {
-        Activity activity2 = f4725a;
+        Activity activity2 = f4648a;
         if (activity2 != null && activity != null && activity2.hashCode() == activity.hashCode()) {
-            f4725a = null;
+            f4648a = null;
         }
-        int i2 = f4730f - f4731g;
-        int size = f4726b.size();
+        int i2 = f4653f - f4654g;
+        int size = f4649b.size();
         if (i2 < 0) {
             i2 += 100;
         }
         if (i2 > 0 && size >= i2) {
-            List list = f4726b.get(size - i2);
+            List list = f4649b.get(size - i2);
             if (list.size() == 2) {
                 list.add(new Date());
             }
         }
-        f4731g = (f4731g + 1) % 100;
+        f4654g = (f4654g + 1) % 100;
     }
 
     public static String f() {
-        Activity activity = f4725a;
+        Activity activity = f4648a;
         return activity == null ? "N/A" : activity.getClass().getName();
     }
 
     public static byte[] g(String str) {
-        if (f4725a == null) {
+        if (f4648a == null) {
             return new byte[0];
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            View decorView = f4725a.getWindow().getDecorView();
+            View decorView = f4648a.getWindow().getDecorView();
             decorView.setDrawingCacheEnabled(true);
             Bitmap drawingCache = decorView.getDrawingCache();
             if (drawingCache != null) {
                 drawingCache.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
             } else {
-                com.baidu.crabsdk.lite.b.a.f(str, "getScreenshot failed, curActivity " + f4725a.getClass().getName());
+                com.baidu.crabsdk.lite.b.a.f(str, "getScreenshot failed, curActivity " + f4648a.getClass().getName());
             }
             decorView.setDrawingCacheEnabled(false);
         } catch (RuntimeException e2) {
-            com.baidu.crabsdk.lite.b.a.e(str, "getScreenshot failed, curActivity " + f4725a.getClass().getName(), e2);
+            com.baidu.crabsdk.lite.b.a.e(str, "getScreenshot failed, curActivity " + f4648a.getClass().getName(), e2);
         }
         return byteArrayOutputStream.toByteArray();
     }

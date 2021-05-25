@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import d.a.j0.f0.i;
-import d.a.k0.e1.f.j.g;
+import d.a.m0.f0.i;
+import d.a.n0.f1.f.j.g;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
@@ -28,7 +28,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.j0.f0.b
+        @Override // d.a.m0.f0.b
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             if (SingleForumBroadcastFeedActivity.this.feedView != null) {
@@ -44,13 +44,13 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         public b() {
         }
 
-        @Override // d.a.k0.e1.f.j.g.d
-        public void a(List<d.a.k0.e1.l.c.b> list) {
+        @Override // d.a.n0.f1.f.j.g.d
+        public void a(List<d.a.n0.f1.l.c.b> list) {
             SingleForumBroadcastFeedActivity.this.feedView.l(list, null);
         }
 
-        @Override // d.a.k0.e1.f.j.g.d
-        public void onReadCountLoad(LongSparseArray<d.a.k0.e1.i.a.b.b> longSparseArray) {
+        @Override // d.a.n0.f1.f.j.g.d
+        public void onReadCountLoad(LongSparseArray<d.a.n0.f1.i.a.b.b> longSparseArray) {
             SingleForumBroadcastFeedActivity.this.feedView.m(longSparseArray);
         }
     }

@@ -12,13 +12,13 @@ import com.baidu.apollon.utils.ResUtils;
 public class BaseTipDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f23384a;
+    public LinearLayout f23313a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f23385b;
+    public TextView f23314b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout.LayoutParams f23386c;
+    public LinearLayout.LayoutParams f23315c;
     public Context mContext;
     public LayoutInflater mInflater;
 
@@ -28,8 +28,8 @@ public class BaseTipDialog extends Dialog {
     }
 
     public void addContentView(View view) {
-        this.f23384a.removeAllViews();
-        this.f23384a.addView(view, this.f23386c);
+        this.f23313a.removeAllViews();
+        this.f23313a.addView(view, this.f23315c);
     }
 
     @Override // android.app.Dialog
@@ -41,10 +41,10 @@ public class BaseTipDialog extends Dialog {
             this.mInflater = LayoutInflater.from(this.mContext);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.f23386c = layoutParams;
+        this.f23315c = layoutParams;
         layoutParams.gravity = 17;
-        this.f23384a = (LinearLayout) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_content_layout"));
-        this.f23385b = (TextView) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_title"));
+        this.f23313a = (LinearLayout) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_content_layout"));
+        this.f23314b = (TextView) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_title"));
         findViewById(ResUtils.id(this.mContext, "ebpay_dialog_title_close")).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.BaseTipDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -62,7 +62,7 @@ public class BaseTipDialog extends Dialog {
     }
 
     public void setTitleMessage(int i2) {
-        TextView textView = this.f23385b;
+        TextView textView = this.f23314b;
         if (textView == null) {
             return;
         }
@@ -82,7 +82,7 @@ public class BaseTipDialog extends Dialog {
     }
 
     public void setTitleMessage(String str) {
-        TextView textView = this.f23385b;
+        TextView textView = this.f23314b;
         if (textView == null) {
             return;
         }

@@ -3,22 +3,22 @@ package d.a.c.c.j;
 public class c extends d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f38746c;
+    public static c f38410c;
 
     public c() {
-        this.f38747a = new e(20000, 10000, 5000);
-        this.f38748b = 3;
+        this.f38411a = new e(20000, 10000, 5000);
+        this.f38412b = 3;
     }
 
     public static c c() {
-        if (f38746c == null) {
+        if (f38410c == null) {
             synchronized (c.class) {
-                if (f38746c == null) {
-                    f38746c = new c();
+                if (f38410c == null) {
+                    f38410c = new c();
                 }
             }
         }
-        return f38746c;
+        return f38410c;
     }
 
     public void d(int i2, int i3, int i4) {
@@ -31,6 +31,6 @@ public class c extends d {
         if (i4 < 3000) {
             i4 = 3000;
         }
-        this.f38747a = new e(i2, i3, i4);
+        this.f38411a = new e(i2, i3, i4);
     }
 }

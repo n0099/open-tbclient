@@ -13,7 +13,7 @@ public class u extends a<v, NoDataItemViewHolder> {
     public int m;
 
     public u(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), v.f39660g);
+        super(tbPageContext.getPageActivity(), v.f39324g);
         this.m = 3;
     }
 
@@ -28,14 +28,14 @@ public class u extends a<v, NoDataItemViewHolder> {
     @Override // d.a.c.j.e.a
     /* renamed from: e0 */
     public NoDataItemViewHolder P(ViewGroup viewGroup) {
-        return new NoDataItemViewHolder(LayoutInflater.from(this.f39564e).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false));
+        return new NoDataItemViewHolder(LayoutInflater.from(this.f39228e).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false));
     }
 
     public View f0(int i2, View view, ViewGroup viewGroup, v vVar, NoDataItemViewHolder noDataItemViewHolder) {
-        noDataItemViewHolder.f2371a.setText(vVar.f39661e);
+        noDataItemViewHolder.f2376a.setText(vVar.f39325e);
         if (this.m != TbadkCoreApplication.getInst().getSkinType()) {
-            SkinManager.setImageResource(noDataItemViewHolder.f2372b, vVar.f39662f);
-            SkinManager.setViewTextColor(noDataItemViewHolder.f2371a, R.color.CAM_X0109);
+            SkinManager.setImageResource(noDataItemViewHolder.f2377b, vVar.f39326f);
+            SkinManager.setViewTextColor(noDataItemViewHolder.f2376a, R.color.CAM_X0109);
             this.m = TbadkCoreApplication.getInst().getSkinType();
         }
         return view;

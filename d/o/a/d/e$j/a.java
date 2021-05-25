@@ -25,45 +25,45 @@ public class a {
     public static volatile a m;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f66633c;
+    public Context f66676c;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f66635e;
+    public c f66678e;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f66631a = false;
+    public boolean f66674a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f66632b = false;
+    public volatile boolean f66675b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Pair<com.ss.android.downloadlib.a.c.b, d>> f66634d = new ArrayList();
+    public final List<Pair<com.ss.android.downloadlib.a.c.b, d>> f66677d = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<b> f66636f = new ArrayList();
+    public final List<b> f66679f = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public final ServiceConnection f66637g = new ServiceConnectionC1859a();
+    public final ServiceConnection f66680g = new ServiceConnectionC1863a();
 
     /* renamed from: h  reason: collision with root package name */
-    public String f66638h = "";
+    public String f66681h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public final Object f66639i = new Object();
+    public final Object f66682i = new Object();
 
     /* renamed from: d.o.a.d.e$j.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class ServiceConnectionC1859a implements ServiceConnection {
-        public ServiceConnectionC1859a() {
+    public class ServiceConnectionC1863a implements ServiceConnection {
+        public ServiceConnectionC1863a() {
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            synchronized (a.this.f66639i) {
+            synchronized (a.this.f66682i) {
                 a.this.d(false);
-                a.this.f66635e = c.a.a(iBinder);
+                a.this.f66678e = c.a.a(iBinder);
                 a.this.g();
-                for (b bVar : a.this.f66636f) {
+                for (b bVar : a.this.f66679f) {
                     bVar.a();
                 }
             }
@@ -71,10 +71,10 @@ public class a {
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            synchronized (a.this.f66639i) {
+            synchronized (a.this.f66682i) {
                 a.this.d(false);
-                a.this.f66635e = null;
-                for (b bVar : a.this.f66636f) {
+                a.this.f66678e = null;
+                for (b bVar : a.this.f66679f) {
                     bVar.b();
                 }
             }
@@ -121,25 +121,25 @@ public class a {
     }
 
     public void c(com.ss.android.downloadlib.a.c.b bVar, d dVar) {
-        synchronized (this.f66639i) {
-            bVar.f35844e = l;
-            if (TextUtils.isEmpty(bVar.f35845f)) {
-                bVar.f35845f = this.f66638h;
+        synchronized (this.f66682i) {
+            bVar.f35773e = l;
+            if (TextUtils.isEmpty(bVar.f35774f)) {
+                bVar.f35774f = this.f66681h;
             }
-            if (this.f66635e != null) {
+            if (this.f66678e != null) {
                 try {
-                    this.f66635e.a(bVar, dVar);
+                    this.f66678e.a(bVar, dVar);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
-            } else if (h() || e(this.f66633c, this.f66631a)) {
-                this.f66634d.add(Pair.create(bVar, dVar));
+            } else if (h() || e(this.f66676c, this.f66674a)) {
+                this.f66677d.add(Pair.create(bVar, dVar));
             }
         }
     }
 
     public void d(boolean z) {
-        this.f66632b = z;
+        this.f66675b = z;
     }
 
     public boolean e(Context context, boolean z) {
@@ -150,41 +150,41 @@ public class a {
             k = d.o.a.e.a.h.b.b(s.optString("u"), optString);
             l = d.o.a.e.a.h.b.b(s.optString("w"), optString);
         }
-        this.f66631a = z;
+        this.f66674a = z;
         if (context != null) {
-            this.f66633c = context.getApplicationContext();
+            this.f66676c = context.getApplicationContext();
             if (TextUtils.isEmpty(l)) {
-                l = this.f66633c.getPackageName();
+                l = this.f66676c.getPackageName();
             }
-            if (this.f66635e != null || h()) {
+            if (this.f66678e != null || h()) {
                 return true;
             }
-            return this.f66633c.bindService(a(context), this.f66637g, 33);
+            return this.f66676c.bindService(a(context), this.f66680g, 33);
         }
         return true;
     }
 
     public void f() {
-        if (this.f66635e != null) {
-            this.f66633c.unbindService(this.f66637g);
-            this.f66635e = null;
+        if (this.f66678e != null) {
+            this.f66676c.unbindService(this.f66680g);
+            this.f66678e = null;
         }
-        this.f66636f.clear();
-        this.f66634d.clear();
+        this.f66679f.clear();
+        this.f66677d.clear();
     }
 
     public void g() {
-        for (Pair<com.ss.android.downloadlib.a.c.b, d> pair : this.f66634d) {
+        for (Pair<com.ss.android.downloadlib.a.c.b, d> pair : this.f66677d) {
             try {
-                this.f66635e.a((com.ss.android.downloadlib.a.c.b) pair.first, (d) pair.second);
+                this.f66678e.a((com.ss.android.downloadlib.a.c.b) pair.first, (d) pair.second);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
         }
-        this.f66634d.clear();
+        this.f66677d.clear();
     }
 
     public boolean h() {
-        return this.f66632b;
+        return this.f66675b;
     }
 }

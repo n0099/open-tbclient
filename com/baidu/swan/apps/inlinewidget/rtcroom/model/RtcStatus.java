@@ -3,7 +3,7 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.model;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.sapi2.share.ShareCallPacking;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public enum RtcStatus {
     UNKNOWN(-1, RomUtils.UNKNOWN),
     LOCAL_JOIN(1001, "LOCAL_JOIN"),

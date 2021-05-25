@@ -4,10 +4,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import d.a.k0.r0.a;
-import d.a.k0.r0.b;
-import d.a.k0.s0.c;
-import d.a.k0.s0.d;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import d.a.n0.s0.a;
+import d.a.n0.s0.b;
+import d.a.n0.t0.c;
+import d.a.n0.t0.d;
 /* loaded from: classes4.dex */
 public class FunAdStatic {
 
@@ -20,7 +25,7 @@ public class FunAdStatic {
     }
 
     static {
-        b.f60259a.set(new d());
+        b.f60382a.set(new d());
         a();
     }
 
@@ -28,5 +33,13 @@ public class FunAdStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FUN_AD_RECORD, TbConfig.SERVER_ADDRESS + TbConfig.URL_FUN_AD_RECORD);
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        tbHttpMessageTask.setIsNeedLogin(false);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsNeedAddCommenParam(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 }

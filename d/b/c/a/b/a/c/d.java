@@ -6,17 +6,17 @@ import java.util.Set;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<d.b.c.a.b.e> f65189a = new LinkedHashSet();
+    public final Set<d.b.c.a.b.e> f65232a = new LinkedHashSet();
 
     public synchronized void a(d.b.c.a.b.e eVar) {
-        this.f65189a.add(eVar);
+        this.f65232a.add(eVar);
     }
 
     public synchronized void b(d.b.c.a.b.e eVar) {
-        this.f65189a.remove(eVar);
+        this.f65232a.remove(eVar);
     }
 
     public synchronized boolean c(d.b.c.a.b.e eVar) {
-        return this.f65189a.contains(eVar);
+        return this.f65232a.contains(eVar);
     }
 }

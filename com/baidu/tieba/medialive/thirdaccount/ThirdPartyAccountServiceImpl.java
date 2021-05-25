@@ -10,28 +10,28 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.ala.ILoginListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.DialogLoginHelper;
-import d.a.j0.r.q.r0;
+import d.a.m0.r.q.r0;
 /* loaded from: classes3.dex */
 public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ThirdPartAccountService.LoginResultCallback f18264a;
+    public static ThirdPartAccountService.LoginResultCallback f18174a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ILoginListener f18265b = new ILoginListener() { // from class: com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl.1
+    public static final ILoginListener f18175b = new ILoginListener() { // from class: com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl.1
         @Override // com.baidu.tbadk.ala.ILoginListener
         public void onCancel() {
-            ThirdPartyAccountServiceImpl.f18264a.onResult(-2);
+            ThirdPartyAccountServiceImpl.f18174a.onResult(-2);
         }
 
         @Override // com.baidu.tbadk.ala.ILoginListener
         public void onFail() {
-            ThirdPartyAccountServiceImpl.f18264a.onResult(-1);
+            ThirdPartyAccountServiceImpl.f18174a.onResult(-1);
         }
 
         @Override // com.baidu.tbadk.ala.ILoginListener
         public void onSuccess() {
-            ThirdPartyAccountServiceImpl.f18264a.onResult(0);
+            ThirdPartyAccountServiceImpl.f18174a.onResult(0);
         }
     };
 
@@ -39,17 +39,17 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
     public class a implements SapiCallback<OAuthResult> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThirdPartAccountService.OpenAccessTokenCallback f18266e;
+        public final /* synthetic */ ThirdPartAccountService.OpenAccessTokenCallback f18176e;
 
         public a(ThirdPartyAccountServiceImpl thirdPartyAccountServiceImpl, ThirdPartAccountService.OpenAccessTokenCallback openAccessTokenCallback) {
-            this.f18266e = openAccessTokenCallback;
+            this.f18176e = openAccessTokenCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         /* renamed from: a */
         public void onFailure(OAuthResult oAuthResult) {
-            this.f18266e.onFailed("accessToken is null");
+            this.f18176e.onFailed("accessToken is null");
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
         public void onSuccess(OAuthResult oAuthResult) {
             if (oAuthResult != null) {
                 try {
-                    this.f18266e.onResult(oAuthResult.accessToken);
+                    this.f18176e.onResult(oAuthResult.accessToken);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -91,8 +91,8 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
     @Override // com.baidu.searchbox.live.interfaces.service.ThirdPartAccountService
     public void showLoginDialog(Context context, ThirdPartAccountService.LoginResultCallback loginResultCallback) {
         r0 r0Var = new r0(context, "");
-        r0Var.e(f18265b);
+        r0Var.e(f18175b);
         DialogLoginHelper.checkUpIsLogin(r0Var);
-        f18264a = loginResultCallback;
+        f18174a = loginResultCallback;
     }
 }

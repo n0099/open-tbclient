@@ -197,7 +197,7 @@ public class d {
     /* JADX WARN: Type inference failed for: r0v42 */
     /* JADX WARN: Type inference failed for: r0v49 */
     /* JADX WARN: Type inference failed for: r23v0, types: [android.net.Network, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r9v0, types: [int, java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r9v0, types: [java.io.BufferedReader, int] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

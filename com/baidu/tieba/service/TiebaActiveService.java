@@ -40,16 +40,16 @@ public class TiebaActiveService extends BdBaseService {
     public class b extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20423a;
+        public NetWork f20343a;
 
         public b() {
-            this.f20423a = null;
+            this.f20343a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            NetWork netWork = this.f20423a;
+            NetWork netWork = this.f20343a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -61,20 +61,20 @@ public class TiebaActiveService extends BdBaseService {
         public String doInBackground(String... strArr) {
             try {
                 NetWork netWork = new NetWork("http://114.113.149.3:8086/partnersService");
-                this.f20423a = netWork;
+                this.f20343a = netWork;
                 netWork.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.f20423a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                this.f20423a.addPostData("model", Build.MODEL);
-                this.f20423a.addPostData("edition", TbConfig.getVersion());
-                this.f20423a.addPostData("system", Build.VERSION.SDK);
-                this.f20423a.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
-                String postNetData = this.f20423a.postNetData();
-                if (this.f20423a.isNetSuccess()) {
+                this.f20343a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
+                this.f20343a.addPostData("model", Build.MODEL);
+                this.f20343a.addPostData("edition", TbConfig.getVersion());
+                this.f20343a.addPostData("system", Build.VERSION.SDK);
+                this.f20343a.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
+                String postNetData = this.f20343a.postNetData();
+                if (this.f20343a.isNetSuccess()) {
                     return postNetData;
                 }
                 return null;
             } catch (Exception e2) {
-                d.a.j0.r.d0.b.j().v("active", 1);
+                d.a.m0.r.d0.b.j().v("active", 1);
                 BdLog.e(e2.getMessage());
                 return null;
             }
@@ -91,11 +91,11 @@ public class TiebaActiveService extends BdBaseService {
                     TiebaActiveService.this.mHandler.removeCallbacks(TiebaActiveService.this.mRunnable);
                     TiebaActiveService.this.mHandler.postDelayed(TiebaActiveService.this.mRunnable, 60000L);
                 } else {
-                    d.a.j0.r.d0.b.j().v("active", 1);
+                    d.a.m0.r.d0.b.j().v("active", 1);
                     TiebaActiveService.this.stopSelf();
                 }
             }
-            d.a.j0.r.d0.b.j().v("active", 2);
+            d.a.m0.r.d0.b.j().v("active", 2);
             TiebaActiveService.this.stopSelf();
         }
 
@@ -111,7 +111,7 @@ public class TiebaActiveService extends BdBaseService {
     }
 
     private String getChannelByShare() {
-        return d.a.j0.r.d0.b.j().p("channel_id", null);
+        return d.a.m0.r.d0.b.j().p("channel_id", null);
     }
 
     private String getChannelyFile() {
@@ -175,7 +175,7 @@ public class TiebaActiveService extends BdBaseService {
         if (str == null || str.length() <= 0) {
             return;
         }
-        d.a.j0.r.d0.b.j().x("channel_id", str);
+        d.a.m0.r.d0.b.j().x("channel_id", str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -208,7 +208,7 @@ public class TiebaActiveService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i2) {
         super.onStart(intent, i2);
-        if (isActived() && d.a.j0.r.d0.b.j().k("active", 2) != 1) {
+        if (isActived() && d.a.m0.r.d0.b.j().k("active", 2) != 1) {
             stopSelf();
         } else {
             sendActive();

@@ -10,10 +10,10 @@ public class OfficialFeedHeadResponsedMessage extends CustomResponsedMessage<a> 
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<d.a.k0.e1.h.o.a> f17387a;
+        public List<d.a.n0.f1.h.o.a> f17297a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<ChatMessage> f17388b;
+        public List<ChatMessage> f17298b;
     }
 
     public OfficialFeedHeadResponsedMessage(int i2) {

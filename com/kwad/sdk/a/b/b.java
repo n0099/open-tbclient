@@ -9,55 +9,55 @@ import com.kwad.sdk.utils.an;
 public class b extends com.kwad.sdk.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f31722b;
+    public ImageView f31651b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.response.model.c f31723c;
+    public com.kwad.sdk.core.response.model.c f31652c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f31724d = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.a.b.b.1
+    public com.kwad.sdk.contentalliance.detail.video.d f31653d = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.a.b.b.1
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void d() {
             super.d();
-            if (b.this.f31722b.getVisibility() == 0) {
-                b.this.f31722b.setVisibility(8);
+            if (b.this.f31651b.getVisibility() == 0) {
+                b.this.f31651b.setVisibility(8);
             }
         }
     };
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f31725e = new Runnable() { // from class: com.kwad.sdk.a.b.b.2
+    public Runnable f31654e = new Runnable() { // from class: com.kwad.sdk.a.b.b.2
         @Override // java.lang.Runnable
         public void run() {
-            an.a(b.this.f31722b, b.this.f31723c.c(), b.this.f31723c.b());
-            b.this.f31722b.setImageDrawable(null);
-            KSImageLoader.loadImage(b.this.f31722b, b.this.f31723c.a(), ((com.kwad.sdk.a.a.a) b.this).f31701a.f31705d);
+            an.a(b.this.f31651b, b.this.f31652c.c(), b.this.f31652c.b());
+            b.this.f31651b.setImageDrawable(null);
+            KSImageLoader.loadImage(b.this.f31651b, b.this.f31652c.a(), ((com.kwad.sdk.a.a.a) b.this).f31630a.f31634d);
         }
     };
 
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.core.response.model.c Q = com.kwad.sdk.core.response.b.a.Q(com.kwad.sdk.core.response.b.c.g(((com.kwad.sdk.a.a.a) this).f31701a.f31705d));
-        this.f31723c = Q;
+        com.kwad.sdk.core.response.model.c Q = com.kwad.sdk.core.response.b.a.Q(com.kwad.sdk.core.response.b.c.g(((com.kwad.sdk.a.a.a) this).f31630a.f31634d));
+        this.f31652c = Q;
         if (TextUtils.isEmpty(Q.a())) {
             return;
         }
-        i().post(this.f31725e);
-        this.f31722b.setVisibility(0);
-        ((com.kwad.sdk.a.a.a) this).f31701a.f31707f.a(this.f31724d);
+        i().post(this.f31654e);
+        this.f31651b.setVisibility(0);
+        ((com.kwad.sdk.a.a.a) this).f31630a.f31636f.a(this.f31653d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b() {
         super.b();
-        this.f31722b = (ImageView) a(R.id.ksad_video_first_frame);
+        this.f31651b = (ImageView) a(R.id.ksad_video_first_frame);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        i().removeCallbacks(this.f31725e);
-        ((com.kwad.sdk.a.a.a) this).f31701a.f31707f.b(this.f31724d);
+        i().removeCallbacks(this.f31654e);
+        ((com.kwad.sdk.a.a.a) this).f31630a.f31636f.b(this.f31653d);
     }
 }

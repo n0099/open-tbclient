@@ -9,24 +9,24 @@ import java.util.Map;
 public class c<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<K, V> f35618a;
+    public final LinkedHashMap<K, V> f35547a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35619b;
+    public int f35548b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35620c;
+    public int f35549c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b<K, Long> f35621d;
+    public b<K, Long> f35550d;
 
     public c(int i2) {
         if (i2 <= 0) {
             throw new IllegalArgumentException("maxSize <= 0");
         }
-        this.f35620c = i2;
-        this.f35618a = new LinkedHashMap<>(0, 0.75f, true);
-        this.f35621d = new b<>(0, 0.75f);
+        this.f35549c = i2;
+        this.f35547a = new LinkedHashMap<>(0, 0.75f, true);
+        this.f35550d = new b<>(0, 0.75f);
     }
 
     public static int a(String str, String str2, Boolean bool) {
@@ -64,15 +64,15 @@ public class c<K, V> {
     private void a(int i2) {
         while (true) {
             synchronized (this) {
-                if (this.f35619b <= i2 || this.f35618a.isEmpty()) {
+                if (this.f35548b <= i2 || this.f35547a.isEmpty()) {
                     break;
                 }
-                Map.Entry<K, V> next = this.f35618a.entrySet().iterator().next();
+                Map.Entry<K, V> next = this.f35547a.entrySet().iterator().next();
                 K key = next.getKey();
                 V value = next.getValue();
-                this.f35618a.remove(key);
-                this.f35621d.remove(key);
-                this.f35619b -= b(key, value);
+                this.f35547a.remove(key);
+                this.f35550d.remove(key);
+                this.f35548b -= b(key, value);
             }
         }
     }
@@ -90,9 +90,9 @@ public class c<K, V> {
     private int b(K k, V v) {
         int a2 = a((c<K, V>) k, (K) v);
         if (a2 <= 0) {
-            this.f35619b = 0;
-            for (Map.Entry<K, V> entry : this.f35618a.entrySet()) {
-                this.f35619b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
+            this.f35548b = 0;
+            for (Map.Entry<K, V> entry : this.f35547a.entrySet()) {
+                this.f35548b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
             }
         }
         return a2;
@@ -116,10 +116,10 @@ public class c<K, V> {
         V remove;
         if (k != null) {
             synchronized (this) {
-                remove = this.f35618a.remove(k);
-                this.f35621d.remove(k);
+                remove = this.f35547a.remove(k);
+                this.f35550d.remove(k);
                 if (remove != null) {
-                    this.f35619b -= b(k, remove);
+                    this.f35548b -= b(k, remove);
                 }
             }
             return remove;
@@ -144,11 +144,11 @@ public class c<K, V> {
     public final V a(K k) {
         if (k != null) {
             synchronized (this) {
-                if (!this.f35621d.containsKey(k)) {
+                if (!this.f35550d.containsKey(k)) {
                     b((c<K, V>) k);
                     return null;
                 }
-                V v = this.f35618a.get(k);
+                V v = this.f35547a.get(k);
                 if (v != null) {
                     return v;
                 }
@@ -164,14 +164,14 @@ public class c<K, V> {
             throw new NullPointerException("key == null || value == null");
         }
         synchronized (this) {
-            this.f35619b += b(k, v);
-            put = this.f35618a.put(k, v);
-            this.f35621d.put(k, Long.valueOf(j));
+            this.f35548b += b(k, v);
+            put = this.f35547a.put(k, v);
+            this.f35550d.put(k, Long.valueOf(j));
             if (put != null) {
-                this.f35619b -= b(k, put);
+                this.f35548b -= b(k, put);
             }
         }
-        a(this.f35620c);
+        a(this.f35549c);
         return put;
     }
 }

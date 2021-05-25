@@ -19,10 +19,10 @@ import d.o.a.e.a.l;
 public class DownloadTaskDeleteActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.m f35912a;
+    public d.m f35841a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f35913b;
+    public Intent f35842b;
 
     /* loaded from: classes7.dex */
     public class a implements DialogInterface.OnCancelListener {
@@ -39,24 +39,24 @@ public class DownloadTaskDeleteActivity extends Activity {
     public class b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f35915e;
+        public final /* synthetic */ boolean f35844e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f35916f;
+        public final /* synthetic */ DownloadInfo f35845f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f35917g;
+        public final /* synthetic */ int f35846g;
 
         public b(boolean z, DownloadInfo downloadInfo, int i2) {
-            this.f35915e = z;
-            this.f35916f = downloadInfo;
-            this.f35917g = i2;
+            this.f35844e = z;
+            this.f35845f = downloadInfo;
+            this.f35846g = i2;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            if (this.f35915e) {
-                DownloadTaskDeleteActivity.this.a(this.f35916f, this.f35917g);
+            if (this.f35844e) {
+                DownloadTaskDeleteActivity.this.a(this.f35845f, this.f35846g);
             }
             DownloadTaskDeleteActivity.this.finish();
         }
@@ -66,13 +66,13 @@ public class DownloadTaskDeleteActivity extends Activity {
     public class c implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f35919e;
+        public final /* synthetic */ boolean f35848e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f35920f;
+        public final /* synthetic */ DownloadInfo f35849f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f35921g;
+        public final /* synthetic */ int f35850g;
 
         /* loaded from: classes7.dex */
         public class a implements Runnable {
@@ -81,23 +81,23 @@ public class DownloadTaskDeleteActivity extends Activity {
 
             @Override // java.lang.Runnable
             public void run() {
-                d.o.a.e.b.g.a.l(DownloadTaskDeleteActivity.this).C(c.this.f35920f.c0());
+                d.o.a.e.b.g.a.l(DownloadTaskDeleteActivity.this).C(c.this.f35849f.c0());
             }
         }
 
         public c(boolean z, DownloadInfo downloadInfo, int i2) {
-            this.f35919e = z;
-            this.f35920f = downloadInfo;
-            this.f35921g = i2;
+            this.f35848e = z;
+            this.f35849f = downloadInfo;
+            this.f35850g = i2;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            if (!this.f35919e) {
-                DownloadTaskDeleteActivity.this.a(this.f35920f, this.f35921g);
+            if (!this.f35848e) {
+                DownloadTaskDeleteActivity.this.a(this.f35849f, this.f35850g);
             } else {
-                this.f35920f.Q2(true);
-                d.o.a.e.b.g.a.l(DownloadTaskDeleteActivity.this).v(this.f35920f.c0());
+                this.f35849f.Q2(true);
+                d.o.a.e.b.g.a.l(DownloadTaskDeleteActivity.this).v(this.f35849f.c0());
                 new Handler(Looper.getMainLooper()).postDelayed(new a(), 100L);
             }
             DownloadTaskDeleteActivity.this.finish();
@@ -106,7 +106,7 @@ public class DownloadTaskDeleteActivity extends Activity {
 
     private void b() {
         Intent intent;
-        if (this.f35912a != null || (intent = this.f35913b) == null) {
+        if (this.f35841a != null || (intent = this.f35842b) == null) {
             return;
         }
         try {
@@ -125,7 +125,7 @@ public class DownloadTaskDeleteActivity extends Activity {
             d.e b2 = e.F().b();
             d.n a2 = b2 != null ? b2.a(this) : null;
             if (a2 == null) {
-                a2 = new e.C1879e(this);
+                a2 = new e.C1883e(this);
             }
             if (a2 != null) {
                 int a3 = l.a(this, "tt_appdownloader_tip");
@@ -140,7 +140,7 @@ public class DownloadTaskDeleteActivity extends Activity {
                     format = getResources().getString(l.a(this, "tt_appdownloader_resume_in_wifi"));
                 }
                 a2.a(a3).a(format).b(a4, new c(z, f2, intExtra)).a(a5, new b(z, f2, intExtra)).c(new a());
-                this.f35912a = a2.a();
+                this.f35841a = a2.a();
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -162,12 +162,12 @@ public class DownloadTaskDeleteActivity extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f35913b = getIntent();
+        this.f35842b = getIntent();
         b();
-        d.m mVar = this.f35912a;
+        d.m mVar = this.f35841a;
         if (mVar != null && !mVar.b()) {
-            this.f35912a.a();
-        } else if (this.f35912a == null) {
+            this.f35841a.a();
+        } else if (this.f35841a == null) {
             finish();
         }
     }

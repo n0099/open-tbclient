@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 public class PhotoLiveLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21993e;
+    public a f21921e;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -16,7 +16,7 @@ public class PhotoLiveLinearLayout extends LinearLayout {
 
     public PhotoLiveLinearLayout(Context context) {
         super(context);
-        this.f21993e = null;
+        this.f21921e = null;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
@@ -27,18 +27,18 @@ public class PhotoLiveLinearLayout extends LinearLayout {
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        a aVar = this.f21993e;
+        a aVar = this.f21921e;
         if (aVar != null) {
             aVar.a();
         }
     }
 
     public void setOnChangeLayoutListener(a aVar) {
-        this.f21993e = aVar;
+        this.f21921e = aVar;
     }
 
     public PhotoLiveLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21993e = null;
+        this.f21921e = null;
     }
 }

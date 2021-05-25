@@ -32,7 +32,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         SIZE { // from class: com.google.common.collect.TreeMultiset.Aggregate.1
             @Override // com.google.common.collect.TreeMultiset.Aggregate
             public int nodeAggregate(e<?> eVar) {
-                return eVar.f31375b;
+                return eVar.f31304b;
             }
 
             @Override // com.google.common.collect.TreeMultiset.Aggregate
@@ -40,7 +40,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                 if (eVar == null) {
                     return 0L;
                 }
-                return eVar.f31377d;
+                return eVar.f31306d;
             }
         },
         DISTINCT { // from class: com.google.common.collect.TreeMultiset.Aggregate.2
@@ -54,7 +54,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                 if (eVar == null) {
                     return 0L;
                 }
-                return eVar.f31376c;
+                return eVar.f31305c;
             }
         };
 
@@ -71,21 +71,21 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
     public class a extends Multisets.b<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f31365e;
+        public final /* synthetic */ e f31294e;
 
         public a(e eVar) {
-            this.f31365e = eVar;
+            this.f31294e = eVar;
         }
 
         @Override // d.g.c.c.i0.a
         public int getCount() {
-            int x = this.f31365e.x();
+            int x = this.f31294e.x();
             return x == 0 ? TreeMultiset.this.count(getElement()) : x;
         }
 
         @Override // d.g.c.c.i0.a
         public E getElement() {
-            return (E) this.f31365e.y();
+            return (E) this.f31294e.y();
         }
     }
 
@@ -93,13 +93,13 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
     public class b implements Iterator<i0.a<E>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public e<E> f31367e;
+        public e<E> f31296e;
 
         /* renamed from: f  reason: collision with root package name */
-        public i0.a<E> f31368f;
+        public i0.a<E> f31297f;
 
         public b() {
-            this.f31367e = TreeMultiset.this.firstNode();
+            this.f31296e = TreeMultiset.this.firstNode();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -107,12 +107,12 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         /* renamed from: a */
         public i0.a<E> next() {
             if (hasNext()) {
-                i0.a<E> wrapEntry = TreeMultiset.this.wrapEntry(this.f31367e);
-                this.f31368f = wrapEntry;
-                if (this.f31367e.f31382i != TreeMultiset.this.header) {
-                    this.f31367e = this.f31367e.f31382i;
+                i0.a<E> wrapEntry = TreeMultiset.this.wrapEntry(this.f31296e);
+                this.f31297f = wrapEntry;
+                if (this.f31296e.f31311i != TreeMultiset.this.header) {
+                    this.f31296e = this.f31296e.f31311i;
                 } else {
-                    this.f31367e = null;
+                    this.f31296e = null;
                 }
                 return wrapEntry;
             }
@@ -121,11 +121,11 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.f31367e == null) {
+            if (this.f31296e == null) {
                 return false;
             }
-            if (TreeMultiset.this.range.tooHigh(this.f31367e.y())) {
-                this.f31367e = null;
+            if (TreeMultiset.this.range.tooHigh(this.f31296e.y())) {
+                this.f31296e = null;
                 return false;
             }
             return true;
@@ -133,9 +133,9 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(this.f31368f != null);
-            TreeMultiset.this.setCount(this.f31368f.getElement(), 0);
-            this.f31368f = null;
+            m.e(this.f31297f != null);
+            TreeMultiset.this.setCount(this.f31297f.getElement(), 0);
+            this.f31297f = null;
         }
     }
 
@@ -143,13 +143,13 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
     public class c implements Iterator<i0.a<E>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public e<E> f31370e;
+        public e<E> f31299e;
 
         /* renamed from: f  reason: collision with root package name */
-        public i0.a<E> f31371f = null;
+        public i0.a<E> f31300f = null;
 
         public c() {
-            this.f31370e = TreeMultiset.this.lastNode();
+            this.f31299e = TreeMultiset.this.lastNode();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -157,12 +157,12 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         /* renamed from: a */
         public i0.a<E> next() {
             if (hasNext()) {
-                i0.a<E> wrapEntry = TreeMultiset.this.wrapEntry(this.f31370e);
-                this.f31371f = wrapEntry;
-                if (this.f31370e.f31381h != TreeMultiset.this.header) {
-                    this.f31370e = this.f31370e.f31381h;
+                i0.a<E> wrapEntry = TreeMultiset.this.wrapEntry(this.f31299e);
+                this.f31300f = wrapEntry;
+                if (this.f31299e.f31310h != TreeMultiset.this.header) {
+                    this.f31299e = this.f31299e.f31310h;
                 } else {
-                    this.f31370e = null;
+                    this.f31299e = null;
                 }
                 return wrapEntry;
             }
@@ -171,11 +171,11 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.f31370e == null) {
+            if (this.f31299e == null) {
                 return false;
             }
-            if (TreeMultiset.this.range.tooLow(this.f31370e.y())) {
-                this.f31370e = null;
+            if (TreeMultiset.this.range.tooLow(this.f31299e.y())) {
+                this.f31299e = null;
                 return false;
             }
             return true;
@@ -183,9 +183,9 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(this.f31371f != null);
-            TreeMultiset.this.setCount(this.f31371f.getElement(), 0);
-            this.f31371f = null;
+            m.e(this.f31300f != null);
+            TreeMultiset.this.setCount(this.f31300f.getElement(), 0);
+            this.f31300f = null;
         }
     }
 
@@ -193,17 +193,17 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
     public static /* synthetic */ class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31373a;
+        public static final /* synthetic */ int[] f31302a;
 
         static {
             int[] iArr = new int[BoundType.values().length];
-            f31373a = iArr;
+            f31302a = iArr;
             try {
                 iArr[BoundType.OPEN.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31373a[BoundType.CLOSED.ordinal()] = 2;
+                f31302a[BoundType.CLOSED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -213,70 +213,70 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
     public static final class e<E> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final E f31374a;
+        public final E f31303a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31375b;
+        public int f31304b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31376c;
+        public int f31305c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f31377d;
+        public long f31306d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31378e;
+        public int f31307e;
 
         /* renamed from: f  reason: collision with root package name */
-        public e<E> f31379f;
+        public e<E> f31308f;
 
         /* renamed from: g  reason: collision with root package name */
-        public e<E> f31380g;
+        public e<E> f31309g;
 
         /* renamed from: h  reason: collision with root package name */
-        public e<E> f31381h;
+        public e<E> f31310h;
 
         /* renamed from: i  reason: collision with root package name */
-        public e<E> f31382i;
+        public e<E> f31311i;
 
         public e(E e2, int i2) {
             n.d(i2 > 0);
-            this.f31374a = e2;
-            this.f31375b = i2;
-            this.f31377d = i2;
-            this.f31376c = 1;
-            this.f31378e = 1;
-            this.f31379f = null;
-            this.f31380g = null;
+            this.f31303a = e2;
+            this.f31304b = i2;
+            this.f31306d = i2;
+            this.f31305c = 1;
+            this.f31307e = 1;
+            this.f31308f = null;
+            this.f31309g = null;
         }
 
         public static long L(e<?> eVar) {
             if (eVar == null) {
                 return 0L;
             }
-            return eVar.f31377d;
+            return eVar.f31306d;
         }
 
         public static int z(e<?> eVar) {
             if (eVar == null) {
                 return 0;
             }
-            return eVar.f31378e;
+            return eVar.f31307e;
         }
 
         public final e<E> A() {
             int s = s();
             if (s == -2) {
-                if (this.f31380g.s() > 0) {
-                    this.f31380g = this.f31380g.I();
+                if (this.f31309g.s() > 0) {
+                    this.f31309g = this.f31309g.I();
                 }
                 return H();
             } else if (s != 2) {
                 C();
                 return this;
             } else {
-                if (this.f31379f.s() < 0) {
-                    this.f31379f = this.f31379f.H();
+                if (this.f31308f.s() < 0) {
+                    this.f31308f = this.f31308f.H();
                 }
                 return I();
             }
@@ -288,104 +288,104 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         }
 
         public final void C() {
-            this.f31378e = Math.max(z(this.f31379f), z(this.f31380g)) + 1;
+            this.f31307e = Math.max(z(this.f31308f), z(this.f31309g)) + 1;
         }
 
         public final void D() {
-            this.f31376c = TreeMultiset.distinctElements(this.f31379f) + 1 + TreeMultiset.distinctElements(this.f31380g);
-            this.f31377d = this.f31375b + L(this.f31379f) + L(this.f31380g);
+            this.f31305c = TreeMultiset.distinctElements(this.f31308f) + 1 + TreeMultiset.distinctElements(this.f31309g);
+            this.f31306d = this.f31304b + L(this.f31308f) + L(this.f31309g);
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: E */
         /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: E, ? super E */
         /* JADX WARN: Multi-variable type inference failed */
         public e<E> E(Comparator<? super E> comparator, E e2, int i2, int[] iArr) {
-            int compare = comparator.compare(e2, (E) this.f31374a);
+            int compare = comparator.compare(e2, (E) this.f31303a);
             if (compare < 0) {
-                e<E> eVar = this.f31379f;
+                e<E> eVar = this.f31308f;
                 if (eVar == null) {
                     iArr[0] = 0;
                     return this;
                 }
-                this.f31379f = eVar.E(comparator, e2, i2, iArr);
+                this.f31308f = eVar.E(comparator, e2, i2, iArr);
                 if (iArr[0] > 0) {
                     if (i2 >= iArr[0]) {
-                        this.f31376c--;
-                        this.f31377d -= iArr[0];
+                        this.f31305c--;
+                        this.f31306d -= iArr[0];
                     } else {
-                        this.f31377d -= i2;
+                        this.f31306d -= i2;
                     }
                 }
                 return iArr[0] == 0 ? this : A();
             } else if (compare > 0) {
-                e<E> eVar2 = this.f31380g;
+                e<E> eVar2 = this.f31309g;
                 if (eVar2 == null) {
                     iArr[0] = 0;
                     return this;
                 }
-                this.f31380g = eVar2.E(comparator, e2, i2, iArr);
+                this.f31309g = eVar2.E(comparator, e2, i2, iArr);
                 if (iArr[0] > 0) {
                     if (i2 >= iArr[0]) {
-                        this.f31376c--;
-                        this.f31377d -= iArr[0];
+                        this.f31305c--;
+                        this.f31306d -= iArr[0];
                     } else {
-                        this.f31377d -= i2;
+                        this.f31306d -= i2;
                     }
                 }
                 return A();
             } else {
-                int i3 = this.f31375b;
+                int i3 = this.f31304b;
                 iArr[0] = i3;
                 if (i2 >= i3) {
                     return v();
                 }
-                this.f31375b = i3 - i2;
-                this.f31377d -= i2;
+                this.f31304b = i3 - i2;
+                this.f31306d -= i2;
                 return this;
             }
         }
 
         public final e<E> F(e<E> eVar) {
-            e<E> eVar2 = this.f31380g;
+            e<E> eVar2 = this.f31309g;
             if (eVar2 == null) {
-                return this.f31379f;
+                return this.f31308f;
             }
-            this.f31380g = eVar2.F(eVar);
-            this.f31376c--;
-            this.f31377d -= eVar.f31375b;
+            this.f31309g = eVar2.F(eVar);
+            this.f31305c--;
+            this.f31306d -= eVar.f31304b;
             return A();
         }
 
         public final e<E> G(e<E> eVar) {
-            e<E> eVar2 = this.f31379f;
+            e<E> eVar2 = this.f31308f;
             if (eVar2 == null) {
-                return this.f31380g;
+                return this.f31309g;
             }
-            this.f31379f = eVar2.G(eVar);
-            this.f31376c--;
-            this.f31377d -= eVar.f31375b;
+            this.f31308f = eVar2.G(eVar);
+            this.f31305c--;
+            this.f31306d -= eVar.f31304b;
             return A();
         }
 
         public final e<E> H() {
-            n.w(this.f31380g != null);
-            e<E> eVar = this.f31380g;
-            this.f31380g = eVar.f31379f;
-            eVar.f31379f = this;
-            eVar.f31377d = this.f31377d;
-            eVar.f31376c = this.f31376c;
+            n.w(this.f31309g != null);
+            e<E> eVar = this.f31309g;
+            this.f31309g = eVar.f31308f;
+            eVar.f31308f = this;
+            eVar.f31306d = this.f31306d;
+            eVar.f31305c = this.f31305c;
             B();
             eVar.C();
             return eVar;
         }
 
         public final e<E> I() {
-            n.w(this.f31379f != null);
-            e<E> eVar = this.f31379f;
-            this.f31379f = eVar.f31380g;
-            eVar.f31380g = this;
-            eVar.f31377d = this.f31377d;
-            eVar.f31376c = this.f31376c;
+            n.w(this.f31308f != null);
+            e<E> eVar = this.f31308f;
+            this.f31308f = eVar.f31309g;
+            eVar.f31309g = this;
+            eVar.f31306d = this.f31306d;
+            eVar.f31305c = this.f31305c;
             B();
             eVar.C();
             return eVar;
@@ -395,9 +395,9 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: E, ? super E */
         /* JADX WARN: Multi-variable type inference failed */
         public e<E> J(Comparator<? super E> comparator, E e2, int i2, int i3, int[] iArr) {
-            int compare = comparator.compare(e2, (E) this.f31374a);
+            int compare = comparator.compare(e2, (E) this.f31303a);
             if (compare < 0) {
-                e<E> eVar = this.f31379f;
+                e<E> eVar = this.f31308f;
                 if (eVar == null) {
                     iArr[0] = 0;
                     if (i2 == 0 && i3 > 0) {
@@ -405,18 +405,18 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                     }
                     return this;
                 }
-                this.f31379f = eVar.J(comparator, e2, i2, i3, iArr);
+                this.f31308f = eVar.J(comparator, e2, i2, i3, iArr);
                 if (iArr[0] == i2) {
                     if (i3 == 0 && iArr[0] != 0) {
-                        this.f31376c--;
+                        this.f31305c--;
                     } else if (i3 > 0 && iArr[0] == 0) {
-                        this.f31376c++;
+                        this.f31305c++;
                     }
-                    this.f31377d += i3 - iArr[0];
+                    this.f31306d += i3 - iArr[0];
                 }
                 return A();
             } else if (compare > 0) {
-                e<E> eVar2 = this.f31380g;
+                e<E> eVar2 = this.f31309g;
                 if (eVar2 == null) {
                     iArr[0] = 0;
                     if (i2 == 0 && i3 > 0) {
@@ -424,25 +424,25 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                     }
                     return this;
                 }
-                this.f31380g = eVar2.J(comparator, e2, i2, i3, iArr);
+                this.f31309g = eVar2.J(comparator, e2, i2, i3, iArr);
                 if (iArr[0] == i2) {
                     if (i3 == 0 && iArr[0] != 0) {
-                        this.f31376c--;
+                        this.f31305c--;
                     } else if (i3 > 0 && iArr[0] == 0) {
-                        this.f31376c++;
+                        this.f31305c++;
                     }
-                    this.f31377d += i3 - iArr[0];
+                    this.f31306d += i3 - iArr[0];
                 }
                 return A();
             } else {
-                int i4 = this.f31375b;
+                int i4 = this.f31304b;
                 iArr[0] = i4;
                 if (i2 == i4) {
                     if (i3 == 0) {
                         return v();
                     }
-                    this.f31377d += i3 - i4;
-                    this.f31375b = i3;
+                    this.f31306d += i3 - i4;
+                    this.f31304b = i3;
                 }
                 return this;
             }
@@ -453,9 +453,9 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         /* JADX WARN: Multi-variable type inference failed */
         public e<E> K(Comparator<? super E> comparator, E e2, int i2, int[] iArr) {
             int i3;
-            int compare = comparator.compare(e2, (E) this.f31374a);
+            int compare = comparator.compare(e2, (E) this.f31303a);
             if (compare < 0) {
-                e<E> eVar = this.f31379f;
+                e<E> eVar = this.f31308f;
                 if (eVar == null) {
                     iArr[0] = 0;
                     if (i2 > 0) {
@@ -463,16 +463,16 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                     }
                     return this;
                 }
-                this.f31379f = eVar.K(comparator, e2, i2, iArr);
+                this.f31308f = eVar.K(comparator, e2, i2, iArr);
                 if (i2 == 0 && iArr[0] != 0) {
-                    this.f31376c--;
+                    this.f31305c--;
                 } else if (i2 > 0 && iArr[0] == 0) {
-                    this.f31376c++;
+                    this.f31305c++;
                 }
-                this.f31377d += i2 - iArr[0];
+                this.f31306d += i2 - iArr[0];
                 return A();
             } else if (compare > 0) {
-                e<E> eVar2 = this.f31380g;
+                e<E> eVar2 = this.f31309g;
                 if (eVar2 == null) {
                     iArr[0] = 0;
                     if (i2 > 0) {
@@ -480,21 +480,21 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                     }
                     return this;
                 }
-                this.f31380g = eVar2.K(comparator, e2, i2, iArr);
+                this.f31309g = eVar2.K(comparator, e2, i2, iArr);
                 if (i2 == 0 && iArr[0] != 0) {
-                    this.f31376c--;
+                    this.f31305c--;
                 } else if (i2 > 0 && iArr[0] == 0) {
-                    this.f31376c++;
+                    this.f31305c++;
                 }
-                this.f31377d += i2 - iArr[0];
+                this.f31306d += i2 - iArr[0];
                 return A();
             } else {
-                iArr[0] = this.f31375b;
+                iArr[0] = this.f31304b;
                 if (i2 == 0) {
                     return v();
                 }
-                this.f31377d += i2 - i3;
-                this.f31375b = i2;
+                this.f31306d += i2 - i3;
+                this.f31304b = i2;
                 return this;
             }
         }
@@ -503,82 +503,82 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: E, ? super E */
         /* JADX WARN: Multi-variable type inference failed */
         public e<E> p(Comparator<? super E> comparator, E e2, int i2, int[] iArr) {
-            int compare = comparator.compare(e2, (E) this.f31374a);
+            int compare = comparator.compare(e2, (E) this.f31303a);
             if (compare < 0) {
-                e<E> eVar = this.f31379f;
+                e<E> eVar = this.f31308f;
                 if (eVar == null) {
                     iArr[0] = 0;
                     q(e2, i2);
                     return this;
                 }
-                int i3 = eVar.f31378e;
-                this.f31379f = eVar.p(comparator, e2, i2, iArr);
+                int i3 = eVar.f31307e;
+                this.f31308f = eVar.p(comparator, e2, i2, iArr);
                 if (iArr[0] == 0) {
-                    this.f31376c++;
+                    this.f31305c++;
                 }
-                this.f31377d += i2;
-                return this.f31379f.f31378e == i3 ? this : A();
+                this.f31306d += i2;
+                return this.f31308f.f31307e == i3 ? this : A();
             } else if (compare > 0) {
-                e<E> eVar2 = this.f31380g;
+                e<E> eVar2 = this.f31309g;
                 if (eVar2 == null) {
                     iArr[0] = 0;
                     r(e2, i2);
                     return this;
                 }
-                int i4 = eVar2.f31378e;
-                this.f31380g = eVar2.p(comparator, e2, i2, iArr);
+                int i4 = eVar2.f31307e;
+                this.f31309g = eVar2.p(comparator, e2, i2, iArr);
                 if (iArr[0] == 0) {
-                    this.f31376c++;
+                    this.f31305c++;
                 }
-                this.f31377d += i2;
-                return this.f31380g.f31378e == i4 ? this : A();
+                this.f31306d += i2;
+                return this.f31309g.f31307e == i4 ? this : A();
             } else {
-                int i5 = this.f31375b;
+                int i5 = this.f31304b;
                 iArr[0] = i5;
                 long j = i2;
                 n.d(((long) i5) + j <= 2147483647L);
-                this.f31375b += i2;
-                this.f31377d += j;
+                this.f31304b += i2;
+                this.f31306d += j;
                 return this;
             }
         }
 
         public final e<E> q(E e2, int i2) {
             e<E> eVar = new e<>(e2, i2);
-            this.f31379f = eVar;
-            TreeMultiset.successor(this.f31381h, eVar, this);
-            this.f31378e = Math.max(2, this.f31378e);
-            this.f31376c++;
-            this.f31377d += i2;
+            this.f31308f = eVar;
+            TreeMultiset.successor(this.f31310h, eVar, this);
+            this.f31307e = Math.max(2, this.f31307e);
+            this.f31305c++;
+            this.f31306d += i2;
             return this;
         }
 
         public final e<E> r(E e2, int i2) {
             e<E> eVar = new e<>(e2, i2);
-            this.f31380g = eVar;
-            TreeMultiset.successor(this, eVar, this.f31382i);
-            this.f31378e = Math.max(2, this.f31378e);
-            this.f31376c++;
-            this.f31377d += i2;
+            this.f31309g = eVar;
+            TreeMultiset.successor(this, eVar, this.f31311i);
+            this.f31307e = Math.max(2, this.f31307e);
+            this.f31305c++;
+            this.f31306d += i2;
             return this;
         }
 
         public final int s() {
-            return z(this.f31379f) - z(this.f31380g);
+            return z(this.f31308f) - z(this.f31309g);
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: E */
         /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: E, ? super E */
         /* JADX WARN: Multi-variable type inference failed */
         public final e<E> t(Comparator<? super E> comparator, E e2) {
-            int compare = comparator.compare(e2, (E) this.f31374a);
+            int compare = comparator.compare(e2, (E) this.f31303a);
             if (compare < 0) {
-                e<E> eVar = this.f31379f;
+                e<E> eVar = this.f31308f;
                 return eVar == null ? this : (e) j.a(eVar.t(comparator, e2), this);
             } else if (compare == 0) {
                 return this;
             } else {
-                e<E> eVar2 = this.f31380g;
+                e<E> eVar2 = this.f31309g;
                 if (eVar2 == null) {
                     return null;
                 }
@@ -594,49 +594,49 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: E, ? super E */
         /* JADX WARN: Multi-variable type inference failed */
         public int u(Comparator<? super E> comparator, E e2) {
-            int compare = comparator.compare(e2, (E) this.f31374a);
+            int compare = comparator.compare(e2, (E) this.f31303a);
             if (compare < 0) {
-                e<E> eVar = this.f31379f;
+                e<E> eVar = this.f31308f;
                 if (eVar == null) {
                     return 0;
                 }
                 return eVar.u(comparator, e2);
             } else if (compare > 0) {
-                e<E> eVar2 = this.f31380g;
+                e<E> eVar2 = this.f31309g;
                 if (eVar2 == null) {
                     return 0;
                 }
                 return eVar2.u(comparator, e2);
             } else {
-                return this.f31375b;
+                return this.f31304b;
             }
         }
 
         public final e<E> v() {
-            int i2 = this.f31375b;
-            this.f31375b = 0;
-            TreeMultiset.successor(this.f31381h, this.f31382i);
-            e<E> eVar = this.f31379f;
+            int i2 = this.f31304b;
+            this.f31304b = 0;
+            TreeMultiset.successor(this.f31310h, this.f31311i);
+            e<E> eVar = this.f31308f;
             if (eVar == null) {
-                return this.f31380g;
+                return this.f31309g;
             }
-            e<E> eVar2 = this.f31380g;
+            e<E> eVar2 = this.f31309g;
             if (eVar2 == null) {
                 return eVar;
             }
-            if (eVar.f31378e >= eVar2.f31378e) {
-                e<E> eVar3 = this.f31381h;
-                eVar3.f31379f = eVar.F(eVar3);
-                eVar3.f31380g = this.f31380g;
-                eVar3.f31376c = this.f31376c - 1;
-                eVar3.f31377d = this.f31377d - i2;
+            if (eVar.f31307e >= eVar2.f31307e) {
+                e<E> eVar3 = this.f31310h;
+                eVar3.f31308f = eVar.F(eVar3);
+                eVar3.f31309g = this.f31309g;
+                eVar3.f31305c = this.f31305c - 1;
+                eVar3.f31306d = this.f31306d - i2;
                 return eVar3.A();
             }
-            e<E> eVar4 = this.f31382i;
-            eVar4.f31380g = eVar2.G(eVar4);
-            eVar4.f31379f = this.f31379f;
-            eVar4.f31376c = this.f31376c - 1;
-            eVar4.f31377d = this.f31377d - i2;
+            e<E> eVar4 = this.f31311i;
+            eVar4.f31309g = eVar2.G(eVar4);
+            eVar4.f31308f = this.f31308f;
+            eVar4.f31305c = this.f31305c - 1;
+            eVar4.f31306d = this.f31306d - i2;
             return eVar4.A();
         }
 
@@ -644,14 +644,14 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: E, ? super E */
         /* JADX WARN: Multi-variable type inference failed */
         public final e<E> w(Comparator<? super E> comparator, E e2) {
-            int compare = comparator.compare(e2, (E) this.f31374a);
+            int compare = comparator.compare(e2, (E) this.f31303a);
             if (compare > 0) {
-                e<E> eVar = this.f31380g;
+                e<E> eVar = this.f31309g;
                 return eVar == null ? this : (e) j.a(eVar.w(comparator, e2), this);
             } else if (compare == 0) {
                 return this;
             } else {
-                e<E> eVar2 = this.f31379f;
+                e<E> eVar2 = this.f31308f;
                 if (eVar2 == null) {
                     return null;
                 }
@@ -660,11 +660,11 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         }
 
         public int x() {
-            return this.f31375b;
+            return this.f31304b;
         }
 
         public E y() {
-            return this.f31374a;
+            return this.f31303a;
         }
     }
 
@@ -672,25 +672,25 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
     public static final class f<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public T f31383a;
+        public T f31312a;
 
         public f() {
         }
 
         public void a(T t, T t2) {
-            if (this.f31383a == t) {
-                this.f31383a = t2;
+            if (this.f31312a == t) {
+                this.f31312a = t2;
                 return;
             }
             throw new ConcurrentModificationException();
         }
 
         public void b() {
-            this.f31383a = null;
+            this.f31312a = null;
         }
 
         public T c() {
-            return this.f31383a;
+            return this.f31312a;
         }
 
         public /* synthetic */ f(a aVar) {
@@ -711,23 +711,23 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         if (eVar == null) {
             return 0L;
         }
-        int compare = comparator().compare(this.range.getUpperEndpoint(), eVar.f31374a);
+        int compare = comparator().compare(this.range.getUpperEndpoint(), eVar.f31303a);
         if (compare > 0) {
-            return aggregateAboveRange(aggregate, eVar.f31380g);
+            return aggregateAboveRange(aggregate, eVar.f31309g);
         }
         if (compare == 0) {
-            int i2 = d.f31373a[this.range.getUpperBoundType().ordinal()];
+            int i2 = d.f31302a[this.range.getUpperBoundType().ordinal()];
             if (i2 != 1) {
                 if (i2 == 2) {
-                    return aggregate.treeAggregate(eVar.f31380g);
+                    return aggregate.treeAggregate(eVar.f31309g);
                 }
                 throw new AssertionError();
             }
             treeAggregate = aggregate.nodeAggregate(eVar);
-            aggregateAboveRange = aggregate.treeAggregate(eVar.f31380g);
+            aggregateAboveRange = aggregate.treeAggregate(eVar.f31309g);
         } else {
-            treeAggregate = aggregate.treeAggregate(eVar.f31380g) + aggregate.nodeAggregate(eVar);
-            aggregateAboveRange = aggregateAboveRange(aggregate, eVar.f31379f);
+            treeAggregate = aggregate.treeAggregate(eVar.f31309g) + aggregate.nodeAggregate(eVar);
+            aggregateAboveRange = aggregateAboveRange(aggregate, eVar.f31308f);
         }
         return treeAggregate + aggregateAboveRange;
     }
@@ -738,23 +738,23 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         if (eVar == null) {
             return 0L;
         }
-        int compare = comparator().compare(this.range.getLowerEndpoint(), eVar.f31374a);
+        int compare = comparator().compare(this.range.getLowerEndpoint(), eVar.f31303a);
         if (compare < 0) {
-            return aggregateBelowRange(aggregate, eVar.f31379f);
+            return aggregateBelowRange(aggregate, eVar.f31308f);
         }
         if (compare == 0) {
-            int i2 = d.f31373a[this.range.getLowerBoundType().ordinal()];
+            int i2 = d.f31302a[this.range.getLowerBoundType().ordinal()];
             if (i2 != 1) {
                 if (i2 == 2) {
-                    return aggregate.treeAggregate(eVar.f31379f);
+                    return aggregate.treeAggregate(eVar.f31308f);
                 }
                 throw new AssertionError();
             }
             treeAggregate = aggregate.nodeAggregate(eVar);
-            aggregateBelowRange = aggregate.treeAggregate(eVar.f31379f);
+            aggregateBelowRange = aggregate.treeAggregate(eVar.f31308f);
         } else {
-            treeAggregate = aggregate.treeAggregate(eVar.f31379f) + aggregate.nodeAggregate(eVar);
-            aggregateBelowRange = aggregateBelowRange(aggregate, eVar.f31380g);
+            treeAggregate = aggregate.treeAggregate(eVar.f31308f) + aggregate.nodeAggregate(eVar);
+            aggregateBelowRange = aggregateBelowRange(aggregate, eVar.f31309g);
         }
         return treeAggregate + aggregateBelowRange;
     }
@@ -779,7 +779,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             return null;
         }
         if (!this.range.hasLowerBound()) {
-            eVar = this.header.f31382i;
+            eVar = this.header.f31311i;
         } else {
             E lowerEndpoint = this.range.getLowerEndpoint();
             eVar = this.rootReference.c().t(comparator(), lowerEndpoint);
@@ -787,7 +787,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                 return null;
             }
             if (this.range.getLowerBoundType() == BoundType.OPEN && comparator().compare(lowerEndpoint, eVar.y()) == 0) {
-                eVar = eVar.f31382i;
+                eVar = eVar.f31311i;
             }
         }
         if (eVar == this.header || !this.range.contains(eVar.y())) {
@@ -803,7 +803,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             return null;
         }
         if (!this.range.hasUpperBound()) {
-            eVar = this.header.f31381h;
+            eVar = this.header.f31310h;
         } else {
             E upperEndpoint = this.range.getUpperEndpoint();
             eVar = this.rootReference.c().w(comparator(), upperEndpoint);
@@ -811,7 +811,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                 return null;
             }
             if (this.range.getUpperBoundType() == BoundType.OPEN && comparator().compare(upperEndpoint, eVar.y()) == 0) {
-                eVar = eVar.f31381h;
+                eVar = eVar.f31310h;
             }
         }
         if (eVar == this.header || !this.range.contains(eVar.y())) {
@@ -833,8 +833,8 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
     }
 
     public static <T> void successor(e<T> eVar, e<T> eVar2) {
-        eVar.f31382i = eVar2;
-        eVar2.f31381h = eVar;
+        eVar.f31311i = eVar2;
+        eVar2.f31310h = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -872,16 +872,16 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
     @Override // d.g.c.c.d, java.util.AbstractCollection, java.util.Collection
     public void clear() {
         if (!this.range.hasLowerBound() && !this.range.hasUpperBound()) {
-            e<E> eVar = this.header.f31382i;
+            e<E> eVar = this.header.f31311i;
             while (true) {
                 e<E> eVar2 = this.header;
                 if (eVar != eVar2) {
-                    e<E> eVar3 = eVar.f31382i;
-                    eVar.f31375b = 0;
-                    eVar.f31379f = null;
-                    eVar.f31380g = null;
-                    eVar.f31381h = null;
-                    eVar.f31382i = null;
+                    e<E> eVar3 = eVar.f31311i;
+                    eVar.f31304b = 0;
+                    eVar.f31308f = null;
+                    eVar.f31309g = null;
+                    eVar.f31310h = null;
+                    eVar.f31311i = null;
                     eVar = eVar3;
                 } else {
                     successor(eVar2, eVar2);
@@ -1049,7 +1049,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         if (eVar == null) {
             return 0;
         }
-        return eVar.f31376c;
+        return eVar.f31305c;
     }
 
     public static <T> void successor(e<T> eVar, e<T> eVar2, e<T> eVar3) {

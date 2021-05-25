@@ -1,7 +1,7 @@
 package com.baidu.tbadk.ala;
 
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import d.a.j0.r.q.o;
+import d.a.m0.r.q.o;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaUserInfo;
@@ -57,7 +57,7 @@ public class AlaLiveUserInfoData extends o implements Serializable {
         this.greatAnchorDescRole = alaUserInfoData.great_anchor_desc_role;
     }
 
-    @Override // d.a.j0.r.q.o
+    @Override // d.a.m0.r.q.o
     public void parserJson(JSONObject jSONObject) {
     }
 

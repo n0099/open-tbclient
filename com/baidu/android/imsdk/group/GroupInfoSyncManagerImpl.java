@@ -1,9 +1,11 @@
 package com.baidu.android.imsdk.group;
 
 import android.content.Context;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
+import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
@@ -15,6 +17,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 /* loaded from: classes.dex */
 public class GroupInfoSyncManagerImpl {
+    public static final String TAG_FANSGROUPLIST_STATE = "get_all_fansgrouplist_state";
     public static final String TAG_GROUPLIST_STATE = "get_all_grouplist_state";
     public static HashMap<String, ArrayList<String>> sUpdateGroupMembers = new HashMap<>();
     public static ArrayList<String> sUpdateGroupInfo = new ArrayList<>();
@@ -32,23 +35,19 @@ public class GroupInfoSyncManagerImpl {
                 arrayList = new ArrayList(sUpdateGroupInfo);
                 sUpdateGroupInfo.clear();
             }
-            if (arrayList.size() > 0) {
-                int size = arrayList.size() / 20;
-                for (int i2 = 0; i2 < size; i2++) {
-                    int i3 = i2 * 20;
-                    handleGetGroupinfos(context, new ArrayList(arrayList.subList(i3, i3 + 20)));
-                }
-                if (arrayList.size() % 20 != 0) {
-                    handleGetGroupinfos(context, new ArrayList(arrayList.subList(size * 20, arrayList.size())));
-                }
-            }
+            handleGetGroupinfos(context, arrayList);
         }
     }
 
-    public static void activeSyncAllMembers(Context context, String str) {
-        handleGetGroupMember(context, str, null);
-        ArrayList arrayList = new ArrayList();
+    public static void activeSyncAllMembers(Context context, String str, int i2) {
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(str);
+        if (i2 == 3) {
+            GroupManagerImpl.getInstance(context).getFansGroupMember(str, null, true, null);
+            GroupManagerImpl.getInstance(context).getFansGroupInfo(arrayList, true, null);
+            return;
+        }
+        handleGetGroupMember(context, str, null);
         handleGetGroupinfos(context, arrayList);
     }
 
@@ -135,7 +134,7 @@ public class GroupInfoSyncManagerImpl {
         if ((arrayList == null || arrayList.size() <= 0) && arrayList != null) {
             return;
         }
-        GroupManagerImpl.getInstance(context).getGroupMember(1, str, arrayList, new BIMValueCallBack<ArrayList<GroupMember>>() { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.3
+        GroupManagerImpl.getInstance(context).getGroupMember(1, str, arrayList, new BIMValueCallBack<ArrayList<GroupMember>>() { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.android.imsdk.group.BIMValueCallBack
             public void onResult(int i2, String str2, ArrayList<GroupMember> arrayList2) {
@@ -147,18 +146,41 @@ public class GroupInfoSyncManagerImpl {
     }
 
     public static void handleGetGroupinfos(Context context, final ArrayList<String> arrayList) {
-        GroupManagerImpl.getInstance(context).getGroupsInfo(1, arrayList, new BIMValueCallBack<ArrayList<GroupInfo>>() { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-            public void onResult(int i2, String str, ArrayList<GroupInfo> arrayList2) {
-                if (i2 != 0) {
-                    Iterator it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        GroupInfoSyncManagerImpl.addSyncGroupInfo((String) it.next());
+        if (arrayList == null || arrayList.size() <= 0) {
+            return;
+        }
+        int size = arrayList.size() / 20;
+        for (int i2 = 0; i2 < size; i2++) {
+            LogUtils.d("GroupInfoSyncManagerImpl", "handleGetGroupinfos times = " + i2);
+            int i3 = i2 * 20;
+            GroupManagerImpl.getInstance(context).getGroupsInfo(1, new ArrayList<>(arrayList.subList(i3, i3 + 20)), new BIMValueCallBack<ArrayList<GroupInfo>>() { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.2
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+                public void onResult(int i4, String str, ArrayList<GroupInfo> arrayList2) {
+                    if (i4 != 0) {
+                        Iterator it = arrayList.iterator();
+                        while (it.hasNext()) {
+                            GroupInfoSyncManagerImpl.addSyncGroupInfo((String) it.next());
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
+        if (arrayList.size() % 20 != 0) {
+            LogUtils.d("GroupInfoSyncManagerImpl", "handleGetGroupinfos rest");
+            GroupManagerImpl.getInstance(context).getGroupsInfo(1, new ArrayList<>(arrayList.subList(size * 20, arrayList.size())), new BIMValueCallBack<ArrayList<GroupInfo>>() { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.3
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+                public void onResult(int i4, String str, ArrayList<GroupInfo> arrayList2) {
+                    if (i4 != 0) {
+                        Iterator it = arrayList.iterator();
+                        while (it.hasNext()) {
+                            GroupInfoSyncManagerImpl.addSyncGroupInfo((String) it.next());
+                        }
+                    }
+                }
+            });
+        }
     }
 
     public static void syncAllGroupList(final Context context) {
@@ -167,6 +189,11 @@ public class GroupInfoSyncManagerImpl {
         }
         if (Utility.readIntData(context, TAG_GROUPLIST_STATE + AccountManager.getAppid(context) + AccountManager.getUid(context), -1) < 0) {
             GroupManagerImpl.getInstance(context).getGroupList(null);
+        }
+        if (Utility.readIntData(context, TAG_FANSGROUPLIST_STATE + AccountManager.getAppid(context) + AccountManager.getUid(context), -1) < 0) {
+            GroupManagerImpl.getInstance(context).getFansGroupList(true, null);
+        } else {
+            updateExpiredFansGroups(context);
         }
         final ArrayList<String> starGroupList = GroupInfoDAOImpl.getStarGroupList(context);
         if (starGroupList == null || starGroupList.size() <= 0) {
@@ -193,5 +220,30 @@ public class GroupInfoSyncManagerImpl {
                 sUpdateAllMember.add(str);
             }
         }
+    }
+
+    public static void syncFansGroupListDone(Context context) {
+        Utility.writeIntData(context, TAG_FANSGROUPLIST_STATE + AccountManager.getAppid(context) + AccountManager.getUid(context), 1);
+    }
+
+    public static void updateExpiredFansGroups(final Context context) {
+        TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.5
+            @Override // java.lang.Runnable
+            public void run() {
+                long currentTimeMillis = System.currentTimeMillis() - IMConstants.FANS_GROUP_INFO_EXPIRED_TIME;
+                ArrayList<String> expiredFansGroupInfoList = GroupInfoDAOImpl.getExpiredFansGroupInfoList(context, currentTimeMillis);
+                if (expiredFansGroupInfoList != null && expiredFansGroupInfoList.size() > 0) {
+                    GroupManagerImpl.getInstance(context).getFansGroupInfo(expiredFansGroupInfoList, true, null);
+                }
+                ArrayList<String> expiredFansGroupMemberList = GroupInfoDAOImpl.getExpiredFansGroupMemberList(context, currentTimeMillis);
+                if (expiredFansGroupMemberList == null || expiredFansGroupMemberList.size() <= 0) {
+                    return;
+                }
+                Iterator<String> it = expiredFansGroupMemberList.iterator();
+                while (it.hasNext()) {
+                    GroupManagerImpl.getInstance(context).getFansGroupMember(it.next(), null, true, null);
+                }
+            }
+        });
     }
 }

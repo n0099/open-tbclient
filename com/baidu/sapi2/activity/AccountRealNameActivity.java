@@ -12,8 +12,8 @@ import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
-import d.a.y.a.f;
-import d.a.y.a.g;
+import d.a.a0.a.f;
+import d.a.a0.a.g;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class AccountRealNameActivity extends BaseActivity {

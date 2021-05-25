@@ -8,16 +8,16 @@ import com.baidu.tieba.service.AsInstallService;
 public class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PermissionsHelperActivity f9314a;
+    public final /* synthetic */ PermissionsHelperActivity f9214a;
 
     public d(PermissionsHelperActivity permissionsHelperActivity) {
-        this.f9314a = permissionsHelperActivity;
+        this.f9214a = permissionsHelperActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-        intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, this.f9314a.getPackageName(), null));
-        this.f9314a.startActivityForResult(intent, 8000);
+        intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, this.f9214a.getPackageName(), null));
+        this.f9214a.startActivityForResult(intent, 8000);
     }
 }

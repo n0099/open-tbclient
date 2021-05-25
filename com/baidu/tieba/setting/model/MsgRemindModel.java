@@ -39,19 +39,19 @@ public class MsgRemindModel extends BdBaseModel {
     public static final int SWITCH_ZAN = 20;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity f20479e;
+    public BaseActivity f20399e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f20480f;
+    public e f20400f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f20481g;
+    public HttpMessageListener f20401g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.c.c.g.c f20482h;
+    public d.a.c.c.g.c f20402h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.c.c.g.c f20483i;
+    public d.a.c.c.g.c f20403i;
     public d.a.c.c.g.c j;
 
     /* loaded from: classes5.dex */
@@ -63,7 +63,7 @@ public class MsgRemindModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            MsgRemindModel.this.f20479e.hideProgressBar();
+            MsgRemindModel.this.f20399e.hideProgressBar();
             if ((httpResponsedMessage instanceof FriendAndStrangerSwitchResMsg) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
                 FriendAndStrangerReqMsg friendAndStrangerReqMsg = (FriendAndStrangerReqMsg) httpResponsedMessage.getOrginalMessage();
                 FriendAndStrangerSwitchResMsg friendAndStrangerSwitchResMsg = (FriendAndStrangerSwitchResMsg) httpResponsedMessage;
@@ -96,7 +96,7 @@ public class MsgRemindModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            MsgRemindModel.this.f20479e.hideProgressBar();
+            MsgRemindModel.this.f20399e.hideProgressBar();
             if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage)) {
                 ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
                 RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) socketResponsedMessage.getOrginalMessage();
@@ -114,7 +114,7 @@ public class MsgRemindModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            MsgRemindModel.this.f20479e.hideProgressBar();
+            MsgRemindModel.this.f20399e.hideProgressBar();
             if ((socketResponsedMessage instanceof ResponseUpdateMaskMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskMessage)) {
                 ResponseUpdateMaskMessage responseUpdateMaskMessage = (ResponseUpdateMaskMessage) socketResponsedMessage;
                 MsgRemindModel.this.u(4, responseUpdateMaskMessage.getError() == 0, ((RequestUpdateMaskMessage) socketResponsedMessage.getOrginalMessage()).isSettingMask(), responseUpdateMaskMessage.getErrorString());
@@ -131,7 +131,7 @@ public class MsgRemindModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            MsgRemindModel.this.f20479e.hideProgressBar();
+            MsgRemindModel.this.f20399e.hideProgressBar();
             if (socketResponsedMessage instanceof ResponseUpdateForumMask) {
                 ResponseUpdateForumMask responseUpdateForumMask = (ResponseUpdateForumMask) socketResponsedMessage;
                 MsgRemindModel.this.u(7, responseUpdateForumMask.getError() == 0, !((RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage()).getFlag(), responseUpdateForumMask.getErrorString());
@@ -146,15 +146,15 @@ public class MsgRemindModel extends BdBaseModel {
 
     public MsgRemindModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.f20481g = new a(CmdConfigHttp.CMD_FRIEND_AND_STRANGER_MSG_SWITCH);
-        this.f20482h = new b(104102);
-        this.f20483i = new c(104101);
+        this.f20401g = new a(CmdConfigHttp.CMD_FRIEND_AND_STRANGER_MSG_SWITCH);
+        this.f20402h = new b(104102);
+        this.f20403i = new c(104101);
         this.j = new d(104106);
-        this.f20479e = baseActivity;
-        registerListener(this.f20483i);
-        registerListener(this.f20482h);
+        this.f20399e = baseActivity;
+        registerListener(this.f20403i);
+        registerListener(this.f20402h);
         registerListener(this.j);
-        registerListener(this.f20481g);
+        registerListener(this.f20401g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -169,34 +169,34 @@ public class MsgRemindModel extends BdBaseModel {
 
     public final void u(int i2, boolean z, boolean z2, String str) {
         if (z) {
-            BaseActivity baseActivity = this.f20479e;
+            BaseActivity baseActivity = this.f20399e;
             baseActivity.showToast(baseActivity.getResources().getString(R.string.success));
-            e eVar = this.f20480f;
+            e eVar = this.f20400f;
             if (eVar != null) {
                 eVar.a(i2, true, z2);
                 if (i2 != 14) {
-                    if (d.a.j0.s.d.d.d().o() || d.a.j0.s.d.d.d().p() || d.a.j0.s.d.d.d().r() || d.a.j0.s.d.d.d().t() || d.a.j0.s.d.d.d().w() || d.a.j0.s.d.d.d().n() || d.a.j0.s.d.d.d().z()) {
+                    if (d.a.m0.s.d.d.d().o() || d.a.m0.s.d.d.d().p() || d.a.m0.s.d.d.d().r() || d.a.m0.s.d.d.d().t() || d.a.m0.s.d.d.d().w() || d.a.m0.s.d.d.d().n() || d.a.m0.s.d.d.d().z()) {
                         return;
                     }
-                    this.f20480f.a(14, true, false);
+                    this.f20400f.a(14, true, false);
                     return;
                 }
-                this.f20480f.a(2, true, z2);
-                this.f20480f.a(3, true, z2);
-                this.f20480f.a(4, true, z2);
-                this.f20480f.a(5, true, z2);
-                this.f20480f.a(1, true, z2);
-                this.f20480f.a(20, true, z2);
+                this.f20400f.a(2, true, z2);
+                this.f20400f.a(3, true, z2);
+                this.f20400f.a(4, true, z2);
+                this.f20400f.a(5, true, z2);
+                this.f20400f.a(1, true, z2);
+                this.f20400f.a(20, true, z2);
                 return;
             }
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f20479e.showToast(str);
+            this.f20399e.showToast(str);
         } else {
-            this.f20479e.showToast(R.string.setdefualt_error);
+            this.f20399e.showToast(R.string.setdefualt_error);
         }
-        e eVar2 = this.f20480f;
+        e eVar2 = this.f20400f;
         if (eVar2 != null) {
             eVar2.a(i2, false, z2);
         }
@@ -206,7 +206,7 @@ public class MsgRemindModel extends BdBaseModel {
         Message<?> friendAndStrangerReqMsg;
         Message<?> friendAndStrangerReqMsg2;
         if (i2 == 14 || i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5 || i2 == 1 || i2 == 7 || i2 == 8 || i2 == 9 || i2 == 20 || i2 == 6) {
-            this.f20480f = eVar;
+            this.f20400f = eVar;
             if (i2 == 4) {
                 RequestUpdateMaskMessage requestUpdateMaskMessage = new RequestUpdateMaskMessage();
                 requestUpdateMaskMessage.setSettingMask(z);
@@ -247,7 +247,7 @@ public class MsgRemindModel extends BdBaseModel {
                 requestUpdateMaskInfoMessage2.setSettingMask(z);
                 sendMessage(requestUpdateMaskInfoMessage2);
             }
-            this.f20479e.showProgressBar();
+            this.f20399e.showProgressBar();
         }
     }
 }

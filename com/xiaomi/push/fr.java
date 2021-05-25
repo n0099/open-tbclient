@@ -13,19 +13,19 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public final class fr {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f37671a = 5000;
+    public static int f37600a = 5000;
 
     /* renamed from: a  reason: collision with other field name */
     public static Vector<String> f407a = new Vector<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f37672b = 330000;
+    public static int f37601b = 330000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f37673c = 600000;
+    public static int f37602c = 600000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f37674d = 330000;
+    public static int f37603d = 330000;
 
     static {
         try {
@@ -44,9 +44,9 @@ public final class fr {
                                 if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    f37671a = a(newPullParser, f37671a);
+                                    f37600a = a(newPullParser, f37600a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
-                                    f37672b = a(newPullParser, f37672b);
+                                    f37601b = a(newPullParser, f37601b);
                                 } else if (newPullParser.getName().equals("mechName")) {
                                     f407a.add(newPullParser.nextText());
                                 }
@@ -68,7 +68,7 @@ public final class fr {
     }
 
     public static int a() {
-        return f37672b;
+        return f37601b;
     }
 
     public static int a(XmlPullParser xmlPullParser, int i2) {
@@ -109,6 +109,6 @@ public final class fr {
     }
 
     public static int b() {
-        return f37673c;
+        return f37602c;
     }
 }

@@ -59,7 +59,7 @@ public class BigdayImageLoaderProc implements e<a> {
         }
         a aVar = (a) obj;
         if (aVar.u()) {
-            d.a.j0.a0.c.k().d(str, aVar);
+            d.a.m0.a0.c.k().d(str, aVar);
         }
     }
 
@@ -77,7 +77,7 @@ public class BigdayImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f39031a = diskCancelWorker;
+            bVar.f38695a = diskCancelWorker;
         }
         boolean H = j.H();
         if (d.a.c.e.a.d.g().a(cVar)) {
@@ -105,7 +105,7 @@ public class BigdayImageLoaderProc implements e<a> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // d.a.c.e.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
-        return d.a.j0.a0.c.k().m(str);
+        return d.a.m0.a0.c.k().m(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -117,11 +117,11 @@ public class BigdayImageLoaderProc implements e<a> {
         }
         WebClient webClient = new WebClient();
         if (bVar != null) {
-            bVar.f39031a = webClient;
+            bVar.f38695a = webClient;
         }
         byte[] downloadImageBytes = webClient.downloadImageBytes(str, false);
         boolean needCache = webClient.needCache();
-        if ((downloadImageBytes != null || webClient.getResponse().f38977a) && needCache && !webClient.isCrackPic) {
+        if ((downloadImageBytes != null || webClient.getResponse().f38641a) && needCache && !webClient.isCrackPic) {
             c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
             cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.setData(downloadImageBytes);
@@ -132,7 +132,7 @@ public class BigdayImageLoaderProc implements e<a> {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(cVar);
-                bVar.f39031a = diskCancelWorker;
+                bVar.f38695a = diskCancelWorker;
             }
         }
         return null;

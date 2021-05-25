@@ -26,6 +26,7 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
         }
     };
     public int groupnum;
+    public long mMemberVersion;
     public ArrayList<String> members;
     public String operator;
 
@@ -40,6 +41,10 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
 
     public ArrayList<String> getMemberBuids() {
         return this.members;
+    }
+
+    public long getMemberVersion() {
+        return this.mMemberVersion;
     }
 
     public String getOperator() {
@@ -61,6 +66,7 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 this.members.add(String.valueOf(jSONArray.optLong(i2)));
             }
+            this.mMemberVersion = jSONObject.optLong("member_version");
             return true;
         } catch (JSONException e2) {
             LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
@@ -78,6 +84,7 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
         parcel.writeString(this.operator);
         parcel.writeInt(this.groupnum);
         parcel.writeList(this.members);
+        parcel.writeLong(this.mMemberVersion);
     }
 
     public GroupMemberDelMsg(Parcel parcel) {
@@ -86,5 +93,6 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
         this.operator = parcel.readString();
         this.groupnum = parcel.readInt();
         parcel.readList(this.members, String.class.getClassLoader());
+        this.mMemberVersion = parcel.readLong();
     }
 }
